@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381053"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Supporto di lingue e aree per il servizio di riconoscimento vocale
 
@@ -26,47 +26,47 @@ Il supporto della lingua varia in base alla funzionalità del servizio vocale. N
 
 Sia Microsoft Speech SDK che l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: frasi.  La personalizzazione della pronuncia è attualmente disponibile solo per `en-US` e `de-DE`. Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
 
- Impostazioni locali | Linguaggio | Supportato | Personalizzabile
+ Impostazioni locali | Lingua | Supportato | Personalizzabile
 ------|------------|-----------|-------------
-`ar-EG` | Arabo (Egitto), standard moderno | SÌ | SÌ
-`ar-SA` | Arabo (Arabia Saudita) | SÌ | SÌ
-`ar-AE` | Arabo (UAE) | SÌ | SÌ
-`ar-KW` | Arabo (Kuwait) | SÌ | SÌ
-`ar-QA` | Arabo (Qatar) | SÌ | SÌ
-`ca-ES` | Catalano | SÌ | No
-`da-DK` | Danese (Danimarca) | SÌ | No
-`de-DE` | Tedesco (Germania) | SÌ | SÌ
-`en-AU` | Inglese (Australia) | SÌ | SÌ
-`en-CA` | Inglese (Canada) | SÌ | SÌ
-`en-GB` | Inglese (Regno Unito) | SÌ | SÌ
-`en-IN` | English (India) | SÌ | SÌ
-`en-NZ` | Inglese (Nuova Zelanda) | SÌ | SÌ
-`en-US` | Inglese (Stati Uniti) | SÌ | SÌ
-`es-ES` | Spagnolo (Spagna) | SÌ | SÌ
-`es-MX` | Spagnolo (Messico) | SÌ | SÌ
-`fi-FI` | Finlandese (Finlandia) | SÌ | No
-`fr-CA` | Francese (Canada) | SÌ | SÌ
-`fr-FR` | Francese (Francia) | SÌ | SÌ
-`gu-IN` | Gujarati (indiano) | SÌ | SÌ
-`hi-IN` | Hindi (India) | SÌ | SÌ
-`it-IT` | Italiano (Italia) | SÌ | SÌ
-`ja-JP` | Giapponese (Giappone) | SÌ | SÌ
-`ko-KR` | Coreano (Corea) | SÌ | SÌ
-`mr-IN` | Marathi (India) | SÌ | SÌ
-`nb-NO` | Norvegese (Bokmål) (Norvegia) | SÌ | No
-`nl-NL` | Olandese (Paesi Bassi) | SÌ | SÌ
-`pl-PL` | Polacco (Polonia) | SÌ | No
-`pt-BR` | Portoghese (Brasile) | SÌ | SÌ
-`pt-PT` | Portoghese (Portogallo) | SÌ | SÌ
-`ru-RU` | Russo (Russia) | SÌ | SÌ
-`sv-SE` | Svedese (Svezia) | SÌ | No
-`ta-IN` | Tamil (India) | SÌ | SÌ
-`te-IN` | Telugu (India) | SÌ | SÌ
-`zh-CN` | Cinese (mandarino, semplificato) | SÌ | SÌ
-`zh-HK` | Cinese (cantonese, tradizionale) | SÌ | SÌ
-`zh-TW` | Cinese (mandarino taiwanese) | SÌ | SÌ
-`th-TH` | Thailandese (Thailandia) | SÌ | No
-`tr-TR` | Turchia | SÌ | SÌ
+`ar-EG` | Arabo (Egitto), standard moderno | Sì | Sì
+`ar-SA` | Arabo (Arabia Saudita) | Sì | Sì
+`ar-AE` | Arabo (UAE) | Sì | Sì
+`ar-KW` | Arabo (Kuwait) | Sì | Sì
+`ar-QA` | Arabo (Qatar) | Sì | Sì
+`ca-ES` | Catalano | Sì | No
+`da-DK` | Danese (Danimarca) | Sì | No
+`de-DE` | Tedesco (Germania) | Sì | Sì
+`en-AU` | Inglese (Australia) | Sì | Sì
+`en-CA` | Inglese (Canada) | Sì | Sì
+`en-GB` | Inglese (Regno Unito) | Sì | Sì
+`en-IN` | English (India) | Sì | Sì
+`en-NZ` | Inglese (Nuova Zelanda) | Sì | Sì
+`en-US` | Inglese (Stati Uniti) | Sì | Sì
+`es-ES` | Spagnolo (Spagna) | Sì | Sì
+`es-MX` | Spagnolo (Messico) | Sì | Sì
+`fi-FI` | Finlandese (Finlandia) | Sì | No
+`fr-CA` | Francese (Canada) | Sì | Sì
+`fr-FR` | Francese (Francia) | Sì | Sì
+`gu-IN` | Gujarati (indiano) | Sì | Sì
+`hi-IN` | Hindi (India) | Sì | Sì
+`it-IT` | Italiano (Italia) | Sì | Sì
+`ja-JP` | Giapponese (Giappone) | Sì | Sì
+`ko-KR` | Coreano (Corea) | Sì | Sì
+`mr-IN` | Marathi (India) | Sì | Sì
+`nb-NO` | Norvegese (Bokmål) (Norvegia) | Sì | No
+`nl-NL` | Olandese (Paesi Bassi) | Sì | Sì
+`pl-PL` | Polacco (Polonia) | Sì | No
+`pt-BR` | Portoghese (Brasile) | Sì | Sì
+`pt-PT` | Portoghese (Portogallo) | Sì | Sì
+`ru-RU` | Russo (Russia) | Sì | Sì
+`sv-SE` | Svedese (Svezia) | Sì | No
+`ta-IN` | Tamil (India) | Sì | Sì
+`te-IN` | Telugu (India) | Sì | Sì
+`zh-CN` | Cinese (mandarino, semplificato) | Sì | Sì
+`zh-HK` | Cinese (cantonese, tradizionale) | Sì | Sì
+`zh-TW` | Cinese (mandarino taiwanese) | Sì | Sì
+`th-TH` | Thai (Thailandia) | Sì | No
+`tr-TR` | Turchia | Sì | Sì
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
@@ -81,15 +81,17 @@ La sintesi vocale neurale è un nuovo tipo di sintesi vocale basata su reti neur
 
 Le voci neurali possono essere usate per rendere più naturali e accattivanti le interazioni con chatbot e gli assistenti vocali, convertire i testi digitali, ad esempio gli e-book in Audiolibri e migliorare i sistemi di navigazione in auto. Con la prosodia naturale simile al linguaggio umano e l'articolazione chiara delle parole, le voci neurali riducono in modo significativo le difficoltà di ascolto durante l'interazione degli utenti con i sistemi di intelligenza artificiale.
 
-Per un elenco completo delle voci neurali con informazioni sulla disponibilità a livello di area, vedere [aree](regions.md#standard-and-neural-voices).
+Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-Impostazioni locali | Linguaggio | Genere | Mapping completo del nome del servizio | Nome breve vocale
+Impostazioni locali | Lingua | Genere | Mapping completo del nome del servizio | Nome breve vocale
 --------|----------|--------|---------|------------
 `de-DE` | Tedesco (Germania) | Femminile | "Voce Sintesi vocale vocale di Microsoft Server (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 `en-US` | English (US) | Maschile | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `en-US` | English (US) | Femminile | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
 `it-IT` | Italiano (Italia) | Femminile |"Voce Sintesi vocale vocale di Microsoft Server (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
 `zh-CN` | Cinese (Terraferma) | Femminile | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+Per informazioni su come configurare e modificare le voci neurali, vedere [linguaggio di markup sintesi vocale](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!NOTE]
 > È possibile usare il mapping del nome completo del servizio o il nome della voce breve nelle richieste di sintesi vocale.
@@ -98,7 +100,7 @@ Impostazioni locali | Linguaggio | Genere | Mapping completo del nome del serviz
 
 Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni locali, che consentono di convertire il testo in contenuto vocale sintetizzato. Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-Impostazioni locali | Linguaggio | Genere | Mapping completo del nome del servizio | Nome breve
+Impostazioni locali | Lingua | Genere | Mapping completo del nome del servizio | Nome breve
 -------|----------|---------|----------|----------
 <sup>&dagger;</sup>`ar-EG` | Arabo (Egitto) | Femminile | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un".
 `ar-SA` | Arabo (Arabia Saudita) | Maschile | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
@@ -182,7 +184,7 @@ Impostazioni locali | Linguaggio | Genere | Mapping completo del nome del serviz
 | | | Femminile | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
 | | | Maschile | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-EG supporta lo standard moderno della lingua araba.*
+&dagger; *ar-EG supporta l'arabo standard moderno (MSA).*
 
 > [!NOTE]
 > È possibile usare il mapping del nome completo del servizio o il nome della voce breve nelle richieste di sintesi vocale.

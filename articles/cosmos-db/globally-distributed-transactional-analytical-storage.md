@@ -1,5 +1,5 @@
 ---
-title: Archiviazione transazionale e analitica distribuita a livello globale per i contenitori di Azure Cosmos
+title: Archiviazione transazionale e analitica distribuita a livello globale (in anteprima privata) per i contenitori di Azure Cosmos
 description: Informazioni sull'archiviazione transazionale e analitica e le relative opzioni di configurazione per i contenitori di Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445395"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Archiviazione transazionale e analitica distribuita a livello globale per i contenitori di Azure Cosmos
 
-Azure Cosmos container è supportato internamente da due motori di archiviazione: il motore di archiviazione transazionale e un motore di archiviazione analitico aggiornabile. Entrambi i motori di archiviazione sono strutturati con log e ottimizzati per la scrittura per aggiornamenti più veloci. Ognuno di essi viene tuttavia codificato in modo diverso:
+Azure Cosmos container è supportato internamente da due motori di archiviazione: il motore di archiviazione transazionale e un motore di archiviazione analitico aggiornabile (in anteprima privata). Entrambi i motori di archiviazione sono strutturati con log e ottimizzati per la scrittura per aggiornamenti più veloci. Ognuno di essi viene tuttavia codificato in modo diverso:
 
 * **Motore di archiviazione transazionale** : è codificato in formato orientato alle righe per le letture e le query transazionali veloci.
 
@@ -29,11 +29,11 @@ Il motore di archiviazione transazionale è supportato da unità SSD locali, men
 
 |Funzionalità  |Archiviazione transazionale  |Archiviazione analitica |
 |---------|---------|---------|
-|Archiviazione massima per ogni contenitore di Azure Cosmos |   Illimitato      |    Illimitato     |
-|Spazio di archiviazione massimo per chiave di partizione logica   |   10 GB      |   Illimitato      |
+|Archiviazione massima per ogni contenitore di Azure Cosmos |   Senza limiti      |    Senza limiti     |
+|Spazio di archiviazione massimo per chiave di partizione logica   |   10 GB      |   Senza limiti      |
 |Codifica archiviazione  |   Orientato alla riga, con un formato interno.   |   Orientato alle colonne, usando il formato parquet Apache. |
 |Località di archiviazione |   Archiviazione replicata supportata da unità SSD locali/intra-cluster. |  Archiviazione replicata supportata da SSD economici remote/off-cluster.       |
-|Durabilità  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
+|Durata  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
 |API che accedono ai dati  |   SQL, MongoDB, Cassandra, Gremlin, tabelle e ETCD.       | Apache Spark         |
 |Conservazione (TTL (time-to-Live)   |  Basato sui criteri, configurato nel contenitore Azure Cosmos usando la proprietà `DefaultTimeToLive`.       |   Basato sui criteri, configurato nel contenitore Azure Cosmos usando la proprietà `ColumnStoreTimeToLive`.      |
 |Prezzo per GB    |   Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)        |

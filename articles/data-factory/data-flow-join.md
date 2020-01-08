@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/17/2019
-ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930333"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644758"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Trasformazione join nel flusso di dati di mapping
 
@@ -25,11 +25,14 @@ I flussi di dati di mapping attualmente supportano cinque tipi di join diversi.
 
 ### <a name="inner-join"></a>Inner join
 
-Inner join restituisce solo le righe con valori corrispondenti per entrambe le tabelle.
+Inner join restituisce solo le righe con valori corrispondenti in entrambe le tabelle.
 
 ### <a name="left-outer"></a>Left outer join
 
 Left outer join restituisce tutte le righe dal flusso di sinistra e i record corrispondenti dal flusso destro. Se una riga del flusso di sinistra non corrisponde, le colonne di output del flusso di destra vengono impostate su NULL. L'output sarà costituito dalle righe restituite da un inner join più le righe senza corrispondenza del flusso di sinistra.
+
+> [!NOTE]
+> Il motore Spark usato dai flussi di dati può occasionalmente produrre i prodotti cartesiani nelle condizioni di join. In tal caso, è possibile passare a un cross join personalizzato e immettere manualmente la condizione di join. Questo può comportare prestazioni più lente nei flussi di dati perché il motore di esecuzione potrebbe dover calcolare tutte le righe di entrambi i lati della relazione, quindi filtrare le righe.
 
 ### <a name="right-outer"></a>Right outer join
 
@@ -39,9 +42,16 @@ Right outer join restituisce tutte le righe dal flusso destro e i record corrisp
 
 Il outer join completo restituisce tutte le colonne e le righe di entrambi i lati con valori NULL per le colonne non corrispondenti.
 
-### <a name="cross-join"></a>Cross join
+### <a name="custom-cross-join"></a>Cross join personalizzato
 
-Cross join restituisce il prodotto incrociato dei due flussi in base a una condizione. Se si usa una condizione che non è uguaglianza, specificare un'espressione personalizzata come condizione cross join. Il flusso di output sarà costituito da tutte le righe che soddisfano la condizione di join. Per creare un prodotto cartesiano che restituisce ogni combinazione di righe, specificare `true()` come condizione di join.
+Cross join restituisce il prodotto incrociato dei due flussi in base a una condizione. Se si usa una condizione che non è uguaglianza, specificare un'espressione personalizzata come condizione cross join. Il flusso di output sarà costituito da tutte le righe che soddisfano la condizione di join.
+
+È possibile usare questo tipo di join per i join non equi e le condizioni ```OR```.
+
+Se si desidera produrre in modo esplicito un prodotto cartesiano completo, utilizzare la trasformazione colonna derivata in ognuno dei due flussi indipendenti prima del join per creare una chiave sintetica per la corrispondenza. Ad esempio, creare una nuova colonna nella colonna derivata in ogni flusso denominato ```SyntheticKey``` e impostarla su ```1```. Usare quindi ```a.SyntheticKey == b.SyntheticKey``` come espressione di join personalizzata.
+
+> [!NOTE]
+> Assicurarsi di includere almeno una colonna da ogni lato della relazione sinistra e destra in un cross join personalizzato. L'esecuzione di cross join con valori statici anziché colonne di ogni lato produce analisi complete dell'intero set di dati, causando una scarsa esecuzione del flusso di dati.
 
 ## <a name="configuration"></a>Configurazione
 
@@ -84,7 +94,7 @@ Quando si verificano le trasformazioni join con Anteprima dati in modalità di d
 
 ### <a name="inner-join-example"></a>Esempio di Inner join
 
-Nell'esempio seguente viene illustrata una trasformazione join denominata `JoinMatchedData` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`.  La condizione di join è l'espressione `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` che restituisce true se le colonne `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` in ogni flusso corrispondono. `joinType` è di tipo `'inner'`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
+Nell'esempio seguente viene illustrata una trasformazione join denominata `JoinMatchedData` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`.  La condizione di join è l'espressione `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` che restituisce true se le colonne `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` in ogni flusso corrispondono. Il valore del parametro `joinType` è `'inner'`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
@@ -104,9 +114,9 @@ TripData, TripFare
     )~> JoinMatchedData
 ```
 
-### <a name="cross-join-example"></a>Esempio di cross join
+### <a name="custom-cross-join-example"></a>Esempio di cross join personalizzato
 
-Nell'esempio seguente viene illustrata una trasformazione join denominata `CartesianProduct` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`. Questa trasformazione accetta due flussi e restituisce un prodotto cartesiano delle relative righe. La condizione di join è `true()` perché restituisce un prodotto cartesiano completo. `joinType` è di tipo `cross`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
+Nell'esempio seguente viene illustrata una trasformazione join denominata `JoiningColumns` che accetta il flusso sinistro `LeftStream` e il flusso destro `RightStream`. Questa trasformazione accetta due flussi e unisce tutte le righe in cui la colonna `leftstreamcolumn` è maggiore della colonna `rightstreamcolumn`. Il valore del parametro `joinType` è `cross`. La trasmissione non è abilitata `broadcast` ha un valore `'none'`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
@@ -115,12 +125,12 @@ In Data Factory UX questa trasformazione è simile all'immagine seguente:
 Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
+        leftstreamcolumn > rightstreamcolumn,
         joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

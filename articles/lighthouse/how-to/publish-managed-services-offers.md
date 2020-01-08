@@ -1,25 +1,25 @@
 ---
 title: Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che esegue l'onboarding dei clienti nella gestione risorse delegate di Azure.
-ms.date: 11/15/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: be9d93c2b71bb3db7df86ddd44e0171bec522294
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d1eb06794551be498e05e2b9c3b893013b718ce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453525"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 
 Questo articolo illustra come pubblicare un'offerta di servizi gestiti pubblici o privati in [Azure Marketplace](https://azuremarketplace.microsoft.com) tramite il [portale Cloud Partner](https://cloudpartner.azure.com/), consentendo ai clienti che la acquistano di eseguire l'onboarding delle risorse per la gestione di risorse delegate di Azure.
 
 > [!NOTE]
-> È necessario avere un [account valido nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per creare e pubblicare queste offerte. Se non si ha già un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) avvierà la procedura per creare un account nel Centro per i partner ed eseguire la registrazione nel programma Commercial Marketplace. L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) alle offerte pubblicate per tenere traccia dell'impatto sugli engagement dei clienti.
+> È necessario avere un [account valido nel Centro per i partner](../../marketplace/partner-center-portal/create-account.md) per creare e pubblicare queste offerte. Se non si ha già un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) avvierà la procedura per creare un account nel Centro per i partner ed eseguire la registrazione nel programma Commercial Marketplace. L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](../../billing/billing-partner-admin-link-started.md) alle offerte pubblicate per tenere traccia dell'impatto sugli engagement dei clienti.
 >
 > Se non si vuole pubblicare un'offerta in Azure Marketplace, è possibile eseguire l'onboarding dei clienti manualmente usando i modelli di Azure Resource Manager. Per altre informazioni, vedere [Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure](onboard-customer.md).
 
-La pubblicazione di un'offerta di servizi gestiti è simile alla pubblicazione di qualsiasi altro tipo di offerta in Azure Marketplace. Per informazioni su tale processo, vedere [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e [Gestire le offerte di Azure Marketplace e del marketplace di AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers). È anche necessario esaminare i [criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), in particolare la sezione [Servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
+La pubblicazione di un'offerta di servizi gestiti è simile alla pubblicazione di qualsiasi altro tipo di offerta in Azure Marketplace. Per informazioni su tale processo, vedere [Guida alla pubblicazione per Azure Marketplace e AppSource](../../marketplace/marketplace-publishers-guide.md) e [Gestire le offerte di Azure Marketplace e del marketplace di AppSource](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md). È anche necessario esaminare i [criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), in particolare la sezione [Servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
 
 Dopo aver aggiunto l'offerta, un cliente potrà delegare una o più sottoscrizioni o gruppi di risorse specifici, di cui verrà quindi eseguito l'[onboarding per la gestione risorse delegate di Azure](#the-customer-onboarding-process). Si noti che per poter eseguire l'onboarding di una sottoscrizione (o dei gruppi di risorse in essa contenuti), è prima di tutto necessario autorizzare la sottoscrizione per l'onboarding registrando manualmente il provider di risorse **Microsoft.ManagedServices**.
 
@@ -36,7 +36,7 @@ Dopo aver aggiunto l'offerta, un cliente potrà delegare una o più sottoscrizio
 
 Nella sezione **Impostazioni dell'offerta** immettere le informazioni seguenti:
 
-|Campo  |DESCRIZIONE  |
+|Campo  |Description  |
 |---------|---------|
 |**ID offerta**     | Un identificatore univoco dell'offerta (nel profilo di pubblicazione). Questo ID può contenere solo caratteri alfanumerici minuscoli, trattini e caratteri di sottolineatura, fino a un massimo di 50 caratteri. Tenere presente che l'ID dell'offerta può essere visibile ai clienti ad esempio negli URL dei prodotti e nei report di fatturazione. Dopo aver pubblicato l'offerta, non è possibile modificare questo valore.        |
 |**ID editore**     | ID dell'editore che verrà associato all'offerta. Se sono presenti più ID editore, è possibile selezionare quello che si vuole usare per questa offerta.       |
@@ -54,13 +54,16 @@ Nella sezione Piani selezionare **Nuovo piano**. Immettere quindi un **ID piano*
 
 Completare le sezioni seguenti nella sezione **Dettagli piano**:
 
-|Campo  |DESCRIZIONE  |
+|Campo  |Description  |
 |---------|---------|
 |**Titolo**     | Nome descrittivo del piano da visualizzare. La lunghezza massima consentita è di 50 caratteri.        |
-|**Riepilogo**     | Breve descrizione del piano da visualizzare sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
+|**Summary**     | Breve descrizione del piano da visualizzare sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
 |**Descrizione**     | Testo della descrizione con una spiegazione più dettagliata del piano.         |
 |**Modello di fatturazione**     | Sono visualizzati 2 modelli di fatturazione, ma è necessario scegliere **Bring Your Own License** per le offerte di servizi gestiti. Ciò significa che i costi relativi a questa offerta verranno fatturati direttamente ai clienti e non si riceverà alcun addebito da parte di Microsoft.   |
-|**Is this a private plan?** (Piano privato?)     | Indica se lo SKU è pubblico o privato. Il valore predefinito è **No** (pubblico). Se si lascia questa selezione, il piano non sarà limitato a clienti specifici (o a un certo numero di clienti). Dopo aver pubblicato un piano pubblico, non sarà possibile impostarlo in un secondo momento come privato. Per rendere questo piano disponibile solo a clienti specifici, selezionare **Sì**. Quando si esegue questa operazione, è necessario identificare i clienti fornendo gli ID sottoscrizione. Questi possono essere immessi uno alla volta (per un massimo di 10 sottoscrizioni) o caricando un file CSV (per un massimo di 20.000 sottoscrizioni). Assicurarsi di includere qui le sottoscrizioni per poter testare e convalidare l'offerta. Per altre informazioni, vedere [SKU e piani privati](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
+|**Is this a private plan?** (Piano privato?)     | Indica se lo SKU è pubblico o privato. Il valore predefinito è **No** (pubblico). Se si lascia questa selezione, il piano non sarà limitato a clienti specifici (o a un certo numero di clienti). Dopo aver pubblicato un piano pubblico, non sarà possibile impostarlo in un secondo momento come privato. Per rendere questo piano disponibile solo a clienti specifici, selezionare **Sì**. Quando si esegue questa operazione, è necessario identificare i clienti fornendo gli ID sottoscrizione. Questi possono essere immessi uno alla volta (per un massimo di 10 sottoscrizioni) o caricando un file CSV (per un massimo di 20.000 sottoscrizioni). Assicurarsi di includere qui le sottoscrizioni per poter testare e convalidare l'offerta. Per altre informazioni, vedere [SKU e piani privati](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
+
+> [!IMPORTANT]
+> Quando un piano è stato pubblicato come pubblico, non è possibile modificarlo in privato. Per controllare quali clienti possono accettare l'offerta e delegare le risorse, usare un piano privato. Con un piano pubblico, non è possibile limitare la disponibilità a determinati clienti o anche a un certo numero di clienti (sebbene sia possibile smettere completamente di vendere il piano se si sceglie di farlo). Attualmente non è disponibile alcun meccanismo per rifiutare o rimuovere le deleghe quando un cliente accetta un'offerta, anche se è sempre possibile rivolgersi a un cliente e chiedere di [rimuovere l'accesso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ### <a name="manifest-details"></a>Dettagli del manifesto
 
@@ -79,8 +82,8 @@ Per ogni valore di **Autorizzazione**, è necessario specificare gli elementi se
 
 - **ID oggetto Azure ad**: identificatore Azure ad di un utente, un gruppo di utenti o un'applicazione a cui verranno concesse determinate autorizzazioni (come descritto nella definizione del ruolo) per le risorse dei clienti.
 - **Azure ad nome visualizzato dell'oggetto**: un nome descrittivo per aiutare il cliente a comprendere lo scopo di questa autorizzazione. Questo nome verrà visualizzato dal cliente durante la delega delle risorse.
-- **Definizione del ruolo**: selezionare uno dei ruoli predefiniti Azure ad disponibili nell'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per le descrizioni di questi ruoli, vedere [Ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) e [Supporto dei ruoli per la gestione delle risorse delegate di Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-- **Ruoli assegnabili**: questa operazione è necessaria solo se è stato selezionato amministratore accesso utenti nella **definizione del ruolo** per l'autorizzazione. In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente nel campo **ID oggetto Azure AD** sarà in grado di assegnare i **ruoli assegnabili** a [entità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Questa operazione è necessaria per [distribuire criteri che possono essere corretti](deploy-policy-remediation.md). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente. Se non si selezionano uno o più ruoli, l'invio non supererà la certificazione. Se non è stato selezionato Amministratore Accesso utenti per la definizione del ruolo di questo utente, questo campo non ha alcun effetto.
+- **Definizione del ruolo**: selezionare uno dei ruoli predefiniti Azure ad disponibili nell'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per le descrizioni di questi ruoli, vedere [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) e supporto dei ruoli [per la gestione delle risorse delegate di Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **Ruoli assegnabili**: questa operazione è necessaria solo se è stato selezionato amministratore accesso utenti nella **definizione del ruolo** per l'autorizzazione. In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente nel campo **ID oggetto Azure AD** sarà in grado di assegnare i **ruoli assegnabili** a [entità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Questa operazione è necessaria per [distribuire criteri che possono essere corretti](deploy-policy-remediation.md). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente. Se non si selezionano uno o più ruoli, l'invio non supererà la certificazione. Se non è stato selezionato Amministratore Accesso utenti per la definizione del ruolo di questo utente, questo campo non ha alcun effetto.
 
 > [!TIP]
 > Nella maggior parte dei casi, è consigliabile assegnare le autorizzazioni a un gruppo di utenti o a un'entità servizio di Azure AD, invece che a una serie di singoli account utente. In questo modo è possibile aggiungere o rimuovere l'accesso per i singoli utenti senza dover aggiornare e ripubblicare il piano quando cambiano i requisiti di accesso. Per altri consigli, vedere [Tenant, ruoli e utenti negli scenari di Azure Lighthouse](../concepts/tenants-users-roles.md).
@@ -93,10 +96,10 @@ Nella sezione **Marketplace** si forniscono il testo e le immagini che i clienti
 
 Completare i campi seguenti nella sezione **Panoramica**:
 
-|Campo  |DESCRIZIONE  |
+|Campo  |Description  |
 |---------|---------|
 |**Titolo**     |  Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace. La lunghezza massima consentita è di 50 caratteri. Nella maggior parte dei casi, corrisponderà al **nome** immesso nella sezione **Impostazioni dell'offerta**.       |
-|**Riepilogo**     | Descrizione breve dello scopo o della funzione dell'offerta. Viene in genere visualizzata sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
+|**Summary**     | Descrizione breve dello scopo o della funzione dell'offerta. Viene in genere visualizzata sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
 |**Long Summary** (Riepilogo lungo)     | Riepilogo più lungo dello scopo o della funzione dell'offerta. La lunghezza massima consentita è di 256 caratteri.        |
 |**Descrizione**     | Altre informazioni sull'offerta. Questo campo ha una lunghezza massima consentita di 3000 caratteri e supporta la formattazione HTML semplice. È necessario includere le parole "servizio gestito" o "servizi gestiti" in un punto qualsiasi della descrizione.       |
 |**Marketing Identifier** (Identificatore di marketing)     | Identificatore univoco descrittivo per gli URL. Questo identificatore può contenere solo caratteri alfanumerici minuscoli e trattini. Verrà usato negli URL del Marketplace per questa offerta. Se ad esempio l'ID editore è *contoso* e l'identificatore di marketing è *sampleApp*, l'URL per l'offerta in Azure Marketplace sarà *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp* .        |
@@ -123,7 +126,7 @@ Il logo **Banner (815x290)** è facoltativo, ma consigliato. Se si include un lo
 
 Nella sezione **Gestione dei lead** è possibile selezionare il sistema CRM in cui verranno archiviati i lead. Si noti che in base ai [criteri di certificazione dei servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), è necessaria una **destinazione del lead**.
 
-Specificare infine l'**URL dell'Informativa sulla privacy** e le **Condizioni per l'utilizzo** nella sezione **Note legali**. È anche possibile specificare qui se usare o meno il [contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract) per questa offerta.
+Specificare infine l'**URL dell'Informativa sulla privacy** e le **Condizioni per l'utilizzo** nella sezione **Note legali**. È anche possibile specificare qui se usare o meno il [contratto standard](../../marketplace/standard-contract.md) per questa offerta.
 
 Assicurarsi di salvare le modifiche prima di passare alla sezione **Supporto**.
 
@@ -133,18 +136,18 @@ Nella sezione **Supporto** specificare il nome, l'indirizzo di posta elettronica
 
 Dopo aver aggiunto queste informazioni, selezionare **Salva**.
 
-## <a name="publish-your-offer"></a>Pubblicare l'offerta
+## <a name="publish-your-offer"></a>Pubblica la tua offerta
 
-Dopo aver completato tutte le sezioni, il passaggio successivo consiste nel pubblicare l'offerta in Azure Marketplace. Selezionare il pulsante **Pubblica** per attivare l'offerta. Per altre informazioni su questo processo, vedere [Pubblicare offerte di Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+Dopo aver completato tutte le sezioni, il passaggio successivo consiste nel pubblicare l'offerta in Azure Marketplace. Selezionare il pulsante **Pubblica** per attivare l'offerta. Per altre informazioni su questo processo, vedere [Pubblicare offerte di Azure Marketplace e AppSource](../../marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer.md).
 
-È possibile [pubblicare una versione aggiornata dell'offerta](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer) in qualsiasi momento. Ad esempio, potrebbe essere necessario aggiungere una nuova definizione di ruolo a un'offerta pubblicata in precedenza. Quando si esegue questa operazione, i clienti che hanno già aggiunto l'offerta vedranno un'icona nella pagina [**Provider di servizi**](view-manage-service-providers.md) del portale di Azure che consente di sapere che è disponibile un aggiornamento. Ogni cliente sarà in grado di [rivedere le modifiche](view-manage-service-providers.md#update-service-provider-offers) e decidere se eseguire l'aggiornamento alla nuova versione. 
+È possibile [pubblicare una versione aggiornata dell'offerta](../../marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md) in qualsiasi momento. Ad esempio, potrebbe essere necessario aggiungere una nuova definizione di ruolo a un'offerta pubblicata in precedenza. Quando si esegue questa operazione, i clienti che hanno già aggiunto l'offerta vedranno un'icona nella pagina [**Provider di servizi**](view-manage-service-providers.md) del portale di Azure che consente di sapere che è disponibile un aggiornamento. Ogni cliente sarà in grado di [rivedere le modifiche](view-manage-service-providers.md#update-service-provider-offers) e decidere se eseguire l'aggiornamento alla nuova versione. 
 
 ## <a name="the-customer-onboarding-process"></a>Il processo di onboarding del cliente
 
 Dopo aver aggiunto l'offerta, un cliente potrà [delegare una o più sottoscrizioni o gruppi di risorse specifici](view-manage-service-providers.md#delegate-resources), di cui verrà quindi eseguito l'onboarding per la gestione risorse delegate di Azure. Se un cliente ha accettato un'offerta, ma non ha ancora delegato alcuna risorsa, vedrà una nota nella parte superiore della sezione **Provider offers** (Offerte di provider) della pagina [**Provider di servizi**](view-manage-service-providers.md) del portale di Azure.
 
 > [!IMPORTANT]
-> La delega deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+> La delega deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nella portale di Azure, aprire **controllo di accesso (IAM)** , [elencare tutti i ruoli](../../role-based-access-control/role-definitions-list.md#list-all-roles), quindi selezionare **proprietario** per visualizzare tutti gli utenti con tale ruolo.
 
 Quando il cliente delega una sottoscrizione (o uno o più gruppi di risorse all'interno di una sottoscrizione), il provider di risorse **Microsoft.ManagedServices** verrà registrato per tale sottoscrizione e gli utenti nel tenant potranno accedere alle risorse delegate in base alle autorizzazioni dell'offerta.
 

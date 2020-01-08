@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 12/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4effd14029eaaee1e1c22cdb814096820e19e089
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ddf2cb5730f123038c5dbde7ab07b4022f021ced
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381121"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -26,13 +26,23 @@ QnA Maker limiti indicati di seguito sono una combinazione dei limiti del piano 
 
 Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
-|**Livello ricerca cognitiva di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di knowledge base pubblicate consentite|2|14|49|199|199|2999|
 
- Ad esempio, se il livello include 15 indici consentiti, è possibile pubblicare 14 articoli della knowledge base (1 indice per ogni articolo della knowledge base pubblicato). Il quindicesimo indice, `testkb`, viene usato per tutti gli articoli della knowledge base per la creazione e il testing. 
+ Ad esempio, se il livello include 15 indici consentiti, è possibile pubblicare 14 articoli della knowledge base (1 indice per ogni articolo della knowledge base pubblicato). Il quindicesimo indice, `testkb`, viene usato per tutti gli articoli della knowledge base per la creazione e il testing.
 
 ## <a name="extraction-limits"></a>Limiti di estrazione
+
+### <a name="maximum-file-size"></a>Dimensione massima dei file
+
+|Format|Dimensioni massime file (MB)|
+|--|--|
+|`.docx`|10|
+|`.pdf`|25|
+|`.tsv`|10|
+|`.txt`|10|
+|`.xlsx`|3|
 
 ### <a name="maximum-number-of-files"></a>Numero massimo di file
 
@@ -48,7 +58,7 @@ Il numero massimo di collegamenti profondi che possono essere sottoposti a ricer
 
 Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
-|**Livello ricerca cognitiva di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
@@ -58,7 +68,7 @@ Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per 
 
 |Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
-|Name|Consente<br>alfanumerico (lettere e cifre)<br>`_` (carattere di sottolineatura)|`^[a-zA-Z0-9_]+$`|100|
+|Nome|Consente<br>alfanumerico (lettere e cifre)<br>`_` (carattere di sottolineatura)|`^[a-zA-Z0-9_]+$`|100|
 |Valore|Consente tutti gli elementi eccetto<br>`:` (due punti)<br>`|` (barra verticale)|`^[^:|]+$`|500|
 |||||
 
@@ -67,12 +77,12 @@ Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del testo della risposta: 25.000
 * Lunghezza del testo della domanda: 1000
 * Lunghezza del testo di chiave/valore: 100
-* Caratteri supportati per il nome dei metadati: alfabeti, cifre e `_`  
-* Caratteri supportati per il valore dei metadati: tutti tranne `:` e `|` 
+* Caratteri supportati per il nome dei metadati: alfabeti, cifre e `_`
+* Caratteri supportati per il valore dei metadati: tutti tranne `:` e `|`
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 300
-* Numero massimo di coppie domanda-risposta: dipende dal livello di **[ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** scelto. Una coppia di domande e risposte viene mappata a un documento in Azure ricerca cognitiva index. 
+* Numero massimo di coppie domanda-risposta: dipende dal livello di **[ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** scelto. Una coppia di domande e risposte viene mappata a un documento in Azure ricerca cognitiva index.
 * Pagina URL/HTML: 1 milione caratteri
 
 ## <a name="create-knowledge-base-call-limits"></a>Creare i limiti di chiamata per la Knowledge base:

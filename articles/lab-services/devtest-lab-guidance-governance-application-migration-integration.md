@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560641"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644887"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governance dell'infrastruttura di Azure DevTest Labs - Migrazione e integrazione delle applicazioni
 Una volta definito l'ambiente lab di sviluppo/test, è opportuno porsi le domande seguenti:
@@ -93,7 +93,7 @@ Quando è consigliabile creare una nuova rete virtuale per l'ambiente DevTest La
 ### <a name="answer"></a>Risposta
 Se le macchine virtuali devono interagire con l'infrastruttura esistente, è consigliabile usare una rete virtuale esistente all'interno dell'ambiente DevTest Labs. In caso di utilizzo di ExpressRoute, è possibile ridurre al minimo la quantità di reti virtuali/subnet in modo da non frammentare lo spazio degli indirizzi IP assegnato per l'uso nelle sottoscrizioni. È anche consigliabile usare il criterio di peering di rete virtuale qui (modello Hub-Spoke). Questo approccio consente la comunicazione delle reti virtuali/subnet tra le sottoscrizioni all'interno di una determinata area, sebbene il peering tra aree sia una funzionalità non ancora introdotta nelle reti di Azure.
 
-In caso contrario, ogni ambiente di DevTest Labs potrebbe avere una specifica rete virtuale. Tenere tuttavia presente che esistono [limiti](../azure-subscription-service-limits.md) al numero di reti virtuali per sottoscrizione. La quantità predefinita è 50, sebbene questo limite possa essere incrementato a 100.
+In caso contrario, ogni ambiente di DevTest Labs potrebbe avere una specifica rete virtuale. Tenere tuttavia presente che esistono [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md) al numero di reti virtuali per sottoscrizione. La quantità predefinita è 50, sebbene questo limite possa essere incrementato a 100.
 
 ## <a name="shared-public-or-private-ip"></a>IP condiviso, pubblico o privato
 
@@ -117,7 +117,7 @@ Esiste una regola in termini di numero di macchine virtuali da impostare per ute
 Quando si considera il numero di macchine virtuali per utente o lab, sono tre i dubbi principali:
 
 - Il **costo complessivo** che il team può impiegare per le risorse nel lab. È facile creare rapidamente numerosi computer. Per controllare i costi, un meccanismo consiste nel limitare il numero di VM per utente e/o lab
-- Il numero totale di macchine virtuali in un lab è interessato dalle [quote a livello di sottoscrizione](../azure-subscription-service-limits.md) disponibili. Uno dei limiti superiori è 800 gruppi di risorse per sottoscrizione. DevTest Labs crea attualmente un nuovo gruppo di risorse per ogni VM (a meno che non vengano usati IP pubblici condivisi). Se sono presenti 10 laboratori in una sottoscrizione, i Lab possono contenere approssimativamente 79 macchine virtuali in ogni Lab (800 limite superiore – 10 gruppi di risorse per i 10 laboratori) = 79 macchine virtuali per Lab.
+- Il numero totale di macchine virtuali in un lab è interessato dalle [quote a livello di sottoscrizione](../azure-resource-manager/management/azure-subscription-service-limits.md) disponibili. Uno dei limiti superiori è 800 gruppi di risorse per sottoscrizione. DevTest Labs crea attualmente un nuovo gruppo di risorse per ogni VM (a meno che non vengano usati IP pubblici condivisi). Se sono presenti 10 laboratori in una sottoscrizione, i Lab possono contenere approssimativamente 79 macchine virtuali in ogni Lab (800 limite superiore – 10 gruppi di risorse per i 10 laboratori) = 79 macchine virtuali per Lab.
 - Se ad esempio il lab è connesso in locale a ExpressRoute, sono **disponibili spazi di indirizzi IP definiti** per la rete virtuale/subnet. Per garantire la creazione di VM nel lab senza errori (errore: impossibile ottenere l'indirizzo IP), i proprietari dei lab possono specificare il numero massimo di macchine virtuali per lab allineato allo spazio di indirizzi IP disponibile.
 
 ## <a name="use-resource-manager-templates"></a>Usare i modelli di Resource Manager

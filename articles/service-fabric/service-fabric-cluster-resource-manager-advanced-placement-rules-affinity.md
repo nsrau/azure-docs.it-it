@@ -1,25 +1,18 @@
 ---
-title: Cluster Resource Manager di Service Fabric - Affinità | Documentazione Microsoft
-description: Informazioni generali sulla configurazione dell'affinità per i servizi di Service Fabric
+title: Gestione risorse di Service Fabric del cluster-affinità
+description: Panoramica dell'affinità del servizio per i servizi Service Fabric di Azure e indicazioni sulla configurazione dell'affinità dei servizi.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118416"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551744"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurazione e utilizzo dell'affinità del servizio in Service Fabric
 Il controllo di affinità è disponibile principalmente per facilitare la transizione di grandi applicazioni monolitiche verso ambienti cloud e di microservizi. Viene anche usato come ottimizzazione per migliorare le prestazioni dei servizi, sebbene questa operazione possa avere effetti collaterali.
@@ -34,7 +27,7 @@ Infine è possibile che nell'applicazione si siano verificati alcuni problemi. I
 
 In questi casi non si vuole perdere il lavoro di refactoring e non si vuole tornare all'app monolitica. L'ultima condizione può anche essere utile come una normale ottimizzazione. Tuttavia fino a quando non sarà possibile riprogettare i componenti perché funzionino in modo naturale come servizi (o fino a quando non si sarà in grado di risolvere le aspettative delle prestazioni in un altro modo), è necessario un senso di località.
 
-Cosa fare? Si può provare ad attivare il servizio di affinità.
+Come fare? Si può provare ad attivare il servizio di affinità.
 
 ## <a name="how-to-configure-affinity"></a>Come configurare l'affinità
 Per impostare l'affinità, è necessario definire una relazione di affinità tra due servizi. Si tratta di fare in modo che un servizio "punti" a un altro servizio affinché il primo possa essere eseguito solo se anche il secondo è in esecuzione. A volte, si fa riferimento all'affinità come a una relazioni padre-figlio, in cui l'elemento figlio punta all'elemento padre. L'affinità garantisce che le repliche o le istanze di un servizio vengano inserite negli stessi nodi in cui risiedono quelle di un altro servizio.
@@ -60,7 +53,7 @@ L'affinità è rappresentata tramite vari possibili schemi di correlazione e ha 
 
 <center>
 
-![Modalità di affinità e loro effetti][Image1]
+![le modalità di affinità e i relativi effetti][Image1]
 </center>
 
 ### <a name="best-effort-desired-state"></a>Stato desiderato del massimo sforzo
@@ -71,7 +64,7 @@ Oggi Cluster Resource Manager non è in grado modellare le catene di relazioni d
 
 <center>
 
-![Modelli a catena o a stella nel contesto delle relazioni di affinità][Image2]
+le catene di ![e le stelle nel contesto delle relazioni di affinità][Image2]
 </center>
 
 Un altro aspetto da notare circa le relazioni di affinità attuali è che sono direzionali per impostazione predefinita. Ciò significa che la regola di affinità impone solo che l'elemento figlio sia collocato nella stessa posizione dell'elemento padre. Non garantisce che l'elemento padre sia posizionato con l'elemento figlio. Pertanto, se esiste una violazione di affinità e per correggere la violazione per qualche motivo non è possibile spostare l'elemento figlio nel nodo dell'elemento padre, l'elemento padre non verrà spostato nel nodo del figlio, anche se questa operazione correggerebbe la violazione. L'impostazione della configurazione [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) su true annullerebbe la direzionalità. È anche importante notare che la relazione di affinità non può essere perfetta o immediatamente imposta poiché diversi servizi dispongono di diversi cicli di vita e possono avere esito negativo e spostarsi in modo indipendente. Supponiamo, ad esempio, che per l'elemento padre improvvisamente si verifichi un errore su un altro nodo perché si è arrestato in modo anomalo. Cluster Resource Manager e Gestione failover gestiscono prima di tutto il failover, poiché mantenere i servizi attivi, coerenti e disponibili è la priorità. Una volta completato il failover, la relazione di affinità è interrotta, ma per Cluster Resource Manager l'operazione si svolge in modo corretto fino a quando non rileva che l'elemento figlio non si trova con l'elemento padre. Questi tipi di controlli vengono eseguiti periodicamente. Altre informazioni sulla modalità in cui Cluster Resource Manager valuta i vincoli sono disponibili in [questo articolo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), mentre [questo](service-fabric-cluster-resource-manager-balancing.md) fornisce altre indicazioni su come configurare la frequenza con cui questi vincoli vengono valutati.   

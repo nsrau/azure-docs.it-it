@@ -1,26 +1,17 @@
 ---
-title: Introduzione al modello di risorsa di Azure Service Fabric | Microsoft Docs
+title: Introduzione al modello di risorse di Azure Service Fabric
 description: Informazioni sul modello di risorsa di Service Fabric, un approccio semplificato per definire le applicazioni mesh Service Fabric.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352450"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introduzione al modello di risorsa di Service Fabric
 
@@ -84,7 +75,7 @@ Il codice dell'applicazione rimane portabile anche all'esterno di mesh Service F
 
 ## <a name="packaging-and-deployment"></a>Creazione di pacchetti e distribuzione
 
-Con le applicazioni mesh Service Fabric basate sul modello di risorsa vengono creati pacchetti come contenitori Docker.  Mesh Service Fabric è un ambiente condiviso multi-tenant e i contenitori offrono un elevato livello di isolamento.  Queste applicazioni vengono descritte usando un formato JSON o un formato YAML (che viene quindi convertito in JSON). Quando si distribuisce un'applicazione Mesh in Azure Service Fabric Mesh, il codice JSON usato per descrivere l'applicazione è un modello Azure Resource Manager. Viene eseguito il mapping delle risorse sulle risorse di Azure.  Quando si distribuisce un'applicazione Mesh in un cluster di Service Fabric (autonomo o ospitate in Azure), il codice JSON usato per descrivere l'applicazione è un formato simile a un modello Azure Resource Manager.  Una volta distribuite, le applicazioni mesh possono essere gestite tramite le interfacce HTTP o l'interfaccia della riga di comando di Azure. 
+Con le applicazioni mesh Service Fabric basate sul modello di risorsa vengono creati pacchetti come contenitori Docker.  Mesh Service Fabric è un ambiente condiviso multi-tenant e i contenitori offrono un elevato livello di isolamento.  Queste applicazioni vengono descritte usando un formato JSON o un formato YAML (che viene quindi convertito in JSON). Quando si distribuisce un'applicazione mesh in Azure Service Fabric mesh, il JSON usato per descrivere l'applicazione è un modello di Azure Resource Manager. Viene eseguito il mapping delle risorse sulle risorse di Azure.  Quando si distribuisce un'applicazione mesh in un cluster Service Fabric (autonomo o ospitato da Azure), il formato JSON usato per descrivere l'applicazione è simile a quello di un modello di Azure Resource Manager.  Una volta distribuite, le applicazioni mesh possono essere gestite tramite le interfacce HTTP o l'interfaccia della riga di comando di Azure. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi 

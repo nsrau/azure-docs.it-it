@@ -1,5 +1,5 @@
 ---
-title: Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza in Azure Cosmos DB
+title: Azure Cosmos DB coerenza, disponibilità e compromessi delle prestazioni
 description: Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza in Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445559"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
 
@@ -54,10 +54,10 @@ La tabella seguente definisce la relazione tra il modello di coerenza e la durab
 |---------|---------|---------|---------|---------|
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
-|>1|Master singolo|Obsolescenza associata|*K* & *t*|< 15 minuti|
-|>1|Master singolo|Assoluta|0|< 15 minuti|
+|>1|Master singolo|Decadimento ristretto|*K* & *T*|< 15 minuti|
+|>1|Master singolo|Strong|0|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
-|>1|Multimaster|Obsolescenza associata|*K* & *t*|0|
+|>1|Multimaster|Decadimento ristretto|*K* & *T*|0|
 
 *K* = numero di versioni *"k"* , ovvero aggiornamenti, di un elemento.
 

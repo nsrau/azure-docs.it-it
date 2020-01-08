@@ -1,17 +1,17 @@
 ---
-title: Configurare l'accesso basato su rete virtuale e subnet per l'account Azure Cosmos DB
+title: Configurare l'accesso in base alla rete virtuale per un account Azure Cosmos
 description: Questo documento descrive i passaggi necessari per configurare un endpoint servizio di rete virtuale per Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: c399bed803145659bae1863e9e0b919f33254627
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 80e77e2caacfed7d662fdfa04aa9524bd7c2083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445424"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurare l'accesso da reti virtuali
 

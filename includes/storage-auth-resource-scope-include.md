@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/28/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 518c57bc3327511b70deef143826f2a1b9df8639
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 74ef8270b5efcd3b7cdf756c103dcc2e1c935508
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460513"
 ---
-Prima di assegnare un ruolo RBAC a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate indicano che è sempre consigliabile concedere solo l'ambito più ristretto possibile.
+Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.
 
-Nell'elenco seguente vengono descritti i livelli in corrispondenza del quale è possibile definire l'ambito di accesso alle risorse blob e di Accodamento di Azure, inizia con l'ambito più ristretto:
+L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di accesso alle risorse di Accodamento e BLOB di Azure, a partire dall'ambito più restrittivo:
 
-- **Un singolo contenitore.** In questo ambito, un'assegnazione di ruolo si applica a tutti i BLOB nel contenitore, nonché le proprietà del contenitore e i metadati.
-- **Una singola coda.** In questo ambito, un'assegnazione di ruolo si applica ai messaggi nella coda, nonché le proprietà della coda e i metadati.
-- **L'account di archiviazione.** In questo ambito, un'assegnazione di ruolo si applica a tutti i contenitori e i BLOB o per tutte le code e i relativi messaggi.
-- **Il gruppo di risorse.** In questo ambito, un'assegnazione di ruolo si applica a tutti i contenitori o le code in tutti gli account di archiviazione nel gruppo di risorse.
-- **La sottoscrizione.** In questo ambito, un'assegnazione di ruolo si applica a tutti i contenitori o le code in tutti gli account di archiviazione in tutti i gruppi di risorse nella sottoscrizione.
+- **Un singolo contenitore.** In questo ambito, un'assegnazione di ruolo si applica a tutti i BLOB nel contenitore, nonché alle proprietà e ai metadati del contenitore.
+- **Una singola coda.** In questo ambito, un'assegnazione di ruolo si applica ai messaggi nella coda, nonché alle proprietà e ai metadati della coda.
+- **L'account di archiviazione.** A questo ambito, un'assegnazione di ruolo si applica a tutti i contenitori e ai relativi BLOB o a tutte le code e ai relativi messaggi.
+- **Gruppo di risorse.** In questo ambito, un'assegnazione di ruolo si applica a tutti i contenitori o le code in tutti gli account di archiviazione nel gruppo di risorse.
+- **Sottoscrizione.** In questo ambito, un'assegnazione di ruolo si applica a tutti i contenitori o le code in tutti gli account di archiviazione in tutti i gruppi di risorse nella sottoscrizione.
 
 > [!IMPORTANT]
-> Se l'abbonamento include uno spazio dei nomi di Azure DataBricks, i ruoli assegnati nell'ambito della sottoscrizione non potranno concedere l'accesso a dati blob e coda.
+> Se la sottoscrizione include uno spazio dei nomi di Azure databricks, i ruoli che hanno come ambito la sottoscrizione non concedono l'accesso ai dati BLOB e di Accodamento. Definire l'ambito dei ruoli per il gruppo di risorse, l'account di archiviazione o il contenitore o la coda.     

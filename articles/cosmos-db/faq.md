@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su diverse API in Azure Cosmos DB
+title: Domande frequenti su API diverse in Azure Cosmos DB
 description: Risposte alle domande frequenti su Azure Cosmos DB, un servizio di database multimodello distribuito a livello globale. Informazioni su capacità, livelli di prestazioni e scalabilità.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8c8d33a2cd9a25942e1df7eacc7a676debf29ec1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: dc627fc4bb7be449547a07cc34eb2cb3694964e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445429"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti su diverse API in Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Ogni API opera in modo indipendente, ad eccezione di Gremlin e API SQL, che sono
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>Azure Cosmos DB è conforme alla normativa HIPAA?
 
-Sì, Azure Cosmos DB è conforme alla normativa HIPAA. La normativa HIPAA stabilisce i requisiti per l'uso, la divulgazione e la protezione delle informazioni sanitarie personali sensibili. Per altre informazioni, visitare il sito [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Sì, Azure Cosmos DB è conforme alla normativa HIPAA. La normativa HIPAA stabilisce i requisiti per l'uso, la divulgazione e la protezione delle informazioni sanitarie personali sensibili. Per altre informazioni, visitare il [Centro protezione Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
 ### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Quali sono i limiti di archiviazione di Azure Cosmos DB?
 
@@ -228,7 +228,7 @@ Per altre informazioni, vedere [Connettersi al database Cosmos con l'API di Azur
 
 Oltre ai codici di errore comuni di MongoDB, l'API di Azure Cosmos DB per MongoDB può restituire codici di errore specifici:
 
-| Tipi di errore               | Codice  | DESCRIZIONE  | Soluzione  |
+| Errore               | Codice  | Description  | Soluzione  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate è superiore al tasso di unità richiesta di cui è stato effettuato il provisioning per il contenitore ed è stato limitato. | Valutare la possibilità di ridimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. |
 | ExceededMemoryLimit | 16501 | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi oppure contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Esempio: <em>&nbsp;&nbsp;&nbsp;&nbsp;DB. GetCollection (' Users '). Aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {Name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {Age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -357,7 +357,7 @@ Azure Cosmos DB è progettato per offrire spazio di archiviazione illimitato tra
 
 ### <a name="can-i-use-the-table-api-sdk-locally-with-the-emulator"></a>È possibile usare l'SDK dell'API Tabelle in locale con l'emulatore?
 
-Attualmente non è possibile.
+Non attualmente.
 
 ### <a name="can-my-existing-application-work-with-the-table-api"></a>È possibile usare un'applicazione esistente con l'API Tabelle?
 

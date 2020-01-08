@@ -1,23 +1,23 @@
 ---
-title: Soluzioni integrate | Azure
+title: Soluzioni integrate-Azure Marketplace
 description: Soluzioni integrate in Azure Marketplace e Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 12/16/2019
 ms.author: v-qiwe
-ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b00cc2917ac15797ed98af9793533d9bc12eeaaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427196"
 ---
 # <a name="publish-an-integrated-solution"></a>Pubblicare una soluzione integrata
 
-In una singola offerta in bundle, una soluzione integrata combina le tecnologie di soluzione punto dai fornitori di software con la distribuzione e il supporto di un partner di servizi. Il partner servizi elenca l'offerta in Azure Marketplace o Microsoft AppSource come [servizio di consulenza](https://docs.microsoft.com/azure/marketplace/consulting-services).
+In una singola offerta in bundle, una soluzione integrata combina le tecnologie di soluzione punto dai fornitori di software con la distribuzione e il supporto di un partner di servizi. Il partner servizi elenca l'offerta in Microsoft AppSource o Azure Marketplace come [servizio di consulenza](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
 Le soluzioni integrate mirano a soddisfare una necessità o uno scenario specifico del cliente. I provider iniziano a comprendere i punti problematici o problemi del settore. Integrano quindi due o più tecnologie di migliore generazione per creare un'esperienza di distribuzione unificata e ripetibile per i clienti. I provider ottengono i clienti operativi rapidamente. Offrono un unico punto di contatto al cliente, fornendo il supporto per la personalizzazione, la consulenza e la soluzione pertinenti. Il risultato è una soluzione integrata, tra cui tecnologia e servizi.
 
@@ -37,19 +37,19 @@ Per una panoramica del programma soluzioni integrate, Guarda [questo video](http
 * I fornitori di software partecipanti devono essere pronti per il co-selling IP. 
 * Almeno un partner partecipante deve avere una competenza Gold in una delle aree seguenti:
 
-    * Sviluppo di applicazioni
-    * Integrazione delle applicazioni
+    * Sviluppo applicazioni
+    * Integrazione di applicazioni
     * Application Lifecycle Management
     * Piattaforma cloud
     * Analisi dei dati
-    * Data center
-    * Piattaforma dati
+    * Datacenter
+    * Data Platform
     * DevOps
 
 * La soluzione deve includere almeno due organizzazioni partner, riunendo IP e servizi per una soluzione completa per i clienti ed esperienza.
 * L'IP del partner deve essere compilato in Azure, Dynamics 365 o Power Platform.
 * L'IP della soluzione integrata deve essere differenziato dalla semplice IP del fornitore del software e dalle offerte di provider di servizi di base.
-* Tutti i partner condividono l'obiettivo di creare un'offerta ripetibile che può essere elencata e infine sottoposta a transazione tramite Azure Marketplace, Microsoft AppSource o entrambi.
+* Tutti i partner condividono l'obiettivo di creare un'offerta ripetibile che può essere elencata e infine sottoposta a transazione tramite Microsoft AppSource, Azure Marketplace o entrambi.
 
 ## <a name="submit-a-nomination"></a>Invia una candidatura
 
@@ -62,7 +62,7 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
 1. Completa le discussioni tecniche e aziendali in un formato di workshop per definire la soluzione e l'approccio di integrazione. 
 
     La discussione sulla soluzione deve includere i punti seguenti:
-    * Scope
+    * Ambito
     * Clienti di destinazione
     * Proposta di valore
     * Prezzi
@@ -71,14 +71,14 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
     * Approccio di supporto
     * Attività di marketing
     * Processo di vendita
-    * attività
+    * Attività
 
     La discussione sull'approccio di integrazione dovrebbe prevedere i punti seguenti: 
     * Punti di integrazione
     * Architettura della soluzione
     * Autenticazione
     * Interfaccia utente
-    * Monitoraggio
+    * Monitorare
     * Meccanismo di distribuzione
     * API
     * Archivio dati unificato
@@ -93,9 +93,9 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
 
 1. Sviluppare l'integrazione tecnica completa della soluzione.
 
-1. Decidere i prezzi della soluzione e un singolo punto di prezzo per la superficie in Azure Marketplace o Microsoft AppSource.
+1. Decidere i prezzi della soluzione e un singolo punto di prezzo per la superficie in Microsoft AppSource o Azure Marketplace.
 
-1. Completa le garanzie di marketing per Azure Marketplace o l'elenco di Microsoft AppSource, tra cui:
+1. Completa i materiali di marketing per l'inserzione Microsoft AppSource o Azure Marketplace, tra cui:
 
     * Nome combinato della soluzione.
     * Descrizione della soluzione integrata. Seguire le procedure consigliate per l' [elenco delle offerte](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
@@ -105,13 +105,13 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
 
 ## <a name="publish-your-integrated-solution"></a>Pubblicare la soluzione integrata 
 
-Al termine dell'integrazione tecnica e del materiale di marketing, fare riferimento alla guida dell'editore per i [servizi di consulenza per Azure Marketplace e Microsoft AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). Usare questa risorsa per determinare se la soluzione verrà pubblicata in Azure Marketplace o in Microsoft AppSource. Usare anche la guida per preparare gli elementi di pubblicazione e completare il processo di pubblicazione.
+Al termine dell'integrazione tecnica e del materiale di marketing, fare riferimento alla guida dell'editore per i [servizi di consulenza per Microsoft AppSource e Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Usare questa risorsa per determinare se la soluzione verrà pubblicata in Microsoft AppSource o in Azure Marketplace. Usare anche la guida per preparare gli elementi di pubblicazione e completare il processo di pubblicazione.
 
 Sebbene cinque tipi di servizio siano disponibili per le offerte di consulenza, una soluzione integrata deve essere un modello di prova o un'implementazione completa.
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>Vai al mercato con la tua soluzione integrata 
 
-Quando la soluzione è attiva in Azure Marketplace o in AppSource, è necessario favorire la sensibilizzazione e la richiesta tramite attività di marketing. Esaminare le attività elencate nel [piano del progetto e nella sequenza temporale](https://aka.ms/AA5qiuc). Questa risorsa include le attività che i partner possono guidare all'interno dei propri team e l'una con l'altra. È quindi possibile accedere ai [vantaggi offerti dal mercato](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) per i partner che pubblicano nel Marketplace. Tutte le offerte di soluzioni integrate sono idonee per i vantaggi a livello di versione di valutazione.
+Quando la soluzione è disponibile in Microsoft AppSource o in Azure Marketplace, è opportuno promuovere la sensibilizzazione e la richiesta tramite attività di marketing. Esaminare le attività elencate nel [piano del progetto e nella sequenza temporale](https://aka.ms/AA5qiuc). Questa risorsa include le attività che i partner possono guidare all'interno dei propri team e l'una con l'altra. È quindi possibile accedere ai [vantaggi offerti dal mercato](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) per i partner che pubblicano nel Marketplace. Tutte le offerte di soluzioni integrate sono idonee per i vantaggi a livello di versione di valutazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

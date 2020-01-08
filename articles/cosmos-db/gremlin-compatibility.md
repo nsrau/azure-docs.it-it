@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 0ed5824859b8463919a809861993f9f98a4f9251
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 581bc813ca27067b1f27ab9866a45df3084dbbcc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327022"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644733"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilità di Azure Cosmos DB Gremlin
 Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedura di attraversamento di [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , ma esistono differenze.
@@ -23,19 +23,21 @@ Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedu
 
 ## <a name="unsupported-features"></a>Funzionalità non supportate
 
-* ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non lo supporta ancora. Usare ```GremlinClient.SubmitAsync()``` e passare l'attraversamento come stringa di testo.
+* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non lo supporta ancora. Usare `GremlinClient.SubmitAsync()` e passare l'attraversamento come stringa di testo.
 
-* la cardinalità del set di ***```property(set, 'xyz', 1)```*** non è attualmente supportata. Usare invece ```property(list, 'xyz', 1)```.
+* la cardinalità del set di ***`property(set, 'xyz', 1)`*** non è attualmente supportata. Usare invece `property(list, 'xyz', 1)`. Per altre informazioni, vedere [Proprietà Vertex con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-* ***```match()```*** consente l'esecuzione di query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
+* ***`atch()`*** consente l'esecuzione di query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
 
 * ***Gli oggetti come proprietà*** su vertici o bordi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
 
-* L' ***ordinamento in base alle proprietà della matrice*** ```.order().by(<array property>)``` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
+* L' ***ordinamento in base alle proprietà della matrice*** `order().by(<array property>)` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-* I ***tipi JSON non primitivi*** non sono supportati. Utilizzare ```string```, ```number```o ```true```i tipi di ```false``` /. i valori ```null``` non sono supportati. 
+* I ***tipi JSON non primitivi*** non sono supportati. Utilizzare `string`, `number`o `true`i tipi di `false` /. i valori `null` non sono supportati. 
 
-* Il serializzatore ***GraphSONv3*** non è attualmente disponibile.
+* Il serializzatore ***GraphSONv3*** non è attualmente supportato. Utilizzare `GraphSONv2` classi serializer, Reader e writer nella configurazione della connessione.
+
+* **Le funzioni e le espressioni lambda** non sono attualmente supportate. Sono incluse le funzioni di `.map{<expression>}`, `.by{<expression>}`e `.filter{<expression>}`. Per altre informazioni e per informazioni su come riscriverle usando i passaggi Gremlin, vedere [una nota sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
 * ***Le transazioni*** non sono supportate a causa della natura distribuita del sistema.  Configurare il modello di coerenza appropriato nell'account Gremlin per "leggere le proprie scritture" e usare la concorrenza ottimistica per risolvere le Scritture in conflitto.
 

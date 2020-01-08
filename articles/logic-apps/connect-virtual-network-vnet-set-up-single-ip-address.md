@@ -1,21 +1,23 @@
 ---
-title: Configurare l'accesso per più ISEs
-description: Per più ambienti del servizio di integrazione (ISEs) è possibile configurare un singolo indirizzo IP in uscita pubblico per accedere a sistemi esterni da app per la logica di Azure
+title: Configurare un indirizzo IP in uscita pubblico per ISEs
+description: Informazioni su come configurare un singolo indirizzo IP in uscita pubblico per gli ambienti di Integration Services (ISEs) in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453489"
 ---
-# <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Configurare l'accesso per più ambienti del servizio di integrazione in app per la logica di Azure
+# <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurare un singolo indirizzo IP per uno o più ambienti del servizio di integrazione in app per la logica di Azure
 
-Quando si lavora con app per la logica di Azure, è possibile configurare un [ *ambiente di Integration Services* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per l'hosting di app per la logica che richiedono l'accesso alle risorse in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Se sono presenti più istanze di ISE che richiedono l'accesso ad altri endpoint con restrizioni IP, distribuire un [firewall di Azure](../firewall/overview.md) o un' [appliance di rete virtuale](../virtual-network/virtual-networks-overview.md#filter-network-traffic) nella rete virtuale e indirizzare il traffico in uscita attraverso il firewall o l'appliance virtuale di rete. È quindi possibile fare in modo che tutte le istanze di ISE nella rete virtuale usino un singolo indirizzo IP prevedibile e pubblico per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall nei sistemi di destinazione per ogni ISE. Questo argomento illustra come instradare il traffico in uscita attraverso un firewall di Azure, ma è possibile applicare concetti simili a un'appliance virtuale di rete virtuale, ad esempio un firewall di terze parti da Azure Marketplace.
+Quando si lavora con app per la logica di Azure, è possibile configurare un [ *ambiente di Integration Services* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per l'hosting di app per la logica che richiedono l'accesso alle risorse in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Quando si hanno più istanze di ISE che devono accedere ad altri endpoint con restrizioni IP, distribuire un [firewall di Azure](../firewall/overview.md) o un' [appliance di rete virtuale](../virtual-network/virtual-networks-overview.md#filter-network-traffic) nella rete virtuale e indirizzare il traffico in uscita attraverso il firewall o l'appliance virtuale di rete. È quindi possibile fare in modo che tutte le istanze di ISE nella rete virtuale usino un solo indirizzo IP pubblico, statico e prevedibile per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall in questi sistemi di destinazione per ogni ISE.
+
+Questo argomento illustra come instradare il traffico in uscita attraverso un firewall di Azure, ma è possibile applicare concetti simili a un'appliance virtuale di rete, ad esempio un firewall di terze parti da Azure Marketplace. Sebbene questo argomento sia incentrato sul programma di installazione di più istanze di ISE, è possibile usare questo approccio anche per un singolo ISE quando lo scenario richiede la limitazione del numero di indirizzi IP a cui è necessario accedere. Valutare se i costi aggiuntivi per il firewall o l'appliance di rete virtuale hanno senso per lo scenario. Scopri di più sui [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +49,7 @@ Quando si lavora con app per la logica di Azure, è possibile configurare un [ *
 
    ![Configurare la regola per indirizzare il traffico in uscita](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Proprietà | Value | Description |
+   | Proprietà | Valore | Description |
    |----------|-------|-------------|
    | **Nome route** | <*Unique-route-name*> | Nome univoco per la route nella tabella di route |
    | **Prefisso indirizzo** | <*indirizzo di destinazione*> | Indirizzo del sistema di destinazione in cui si desidera che il traffico passi. Assicurarsi di usare la [notazione CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) per questo indirizzo. |
@@ -69,7 +71,7 @@ Quando si lavora con app per la logica di Azure, è possibile configurare un [ *
 
    **Proprietà della raccolta regole di rete**
 
-   | Proprietà | Value | Description |
+   | Proprietà | Valore | Description |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Collection-name*> | Nome della raccolta di regole di rete |
    | **Priorità** | <> *a livello di priorità* | Ordine di priorità da utilizzare per l'esecuzione della raccolta regole. Per altre informazioni, vedere [quali sono alcuni concetti di Azure firewall](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
@@ -78,7 +80,7 @@ Quando si lavora con app per la logica di Azure, è possibile configurare un [ *
 
    **Proprietà della regola di rete**
 
-   | Proprietà | Value | Description |
+   | Proprietà | Valore | Description |
    |----------|-------|-------------|
    | **Nome** | <*Network-rule-name*> | Nome della regola di rete |
    | **Protocollo** | *protocolli di connessione* <> | Protocolli di connessione da utilizzare. Ad esempio, se si usano le regole di NSG, selezionare sia **TCP** che **UDP**, non solo **TCP**. |

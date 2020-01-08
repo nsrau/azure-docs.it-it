@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008458"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564697"
 ---
 È importante comprendere dove e come funzionano le macchine virtuali (VM) in Azure, così come le possibilità di ottimizzare le prestazioni, la disponibilità e la ridondanza. Questo articolo offre una panoramica delle funzionalità di disponibilità e ridondanza di Azure.
 
@@ -29,7 +29,7 @@ Azure ha alcune aree speciali che è possibile usare durante la compilazione di 
 * **US Gov Virginia** e **US Gov Iowa**
   * Un'istanza logica e fisica di Azure isolata dalla rete per i partner e gli enti pubblici statunitensi, gestita da persone selezionate negli Stati Uniti. Include certificazioni di conformità aggiuntive, come [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) e [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Ulteriori informazioni su [Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
 * **Cina orientale** e **Cina settentrionale**
-  * Queste aree sono disponibili nel contesto di una partnership esclusiva tra Microsoft e 21Vianet, in virtù della quale i datacenter non sono gestiti direttamente da Microsoft. Scopri di più su [Azure Cina 21ViaNet](http://www.windowsazure.cn/).
+  * Queste aree sono disponibili nel contesto di una partnership esclusiva tra Microsoft e 21Vianet, in virtù della quale i datacenter non sono gestiti direttamente da Microsoft. Scopri di più su [Azure Cina 21ViaNet](https://www.windowsazure.cn/).
 * **Germania centrale** e **Germania nord-orientale**
   * Queste aree sono disponibili tramite un modello di trustee dei dati. In base a tale modello i dati dei clienti rimangono in Germania sotto il controllo di T-Systems, una società Deutsche Telekom che funge da trustee dei dati tedesco.
 
@@ -42,15 +42,15 @@ Ogni area di Azure è associata a un'altra area con la stessa collocazione geogr
 
 Esempi di coppie di aree includono:
 
-| Primaria | Secondaria |
+| Primaria | Secondari |
 |:--- |:--- |
-| Stati Uniti occidentali |Stati Uniti Orientali |
+| Stati Uniti occidentali |Stati Uniti orientali |
 | Europa settentrionale |Europa occidentale |
-| Asia sudorientale |Asia orientale |
+| Asia sud-orientale |Asia orientale |
 
 Consultare [qui l'elenco completo delle coppie di aree](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## <a name="feature-availability"></a>Disponibilità delle funzionalità
+## <a name="feature-availability"></a>Funzionalità disponibili
 Alcuni servizi o funzionalità delle VM sono disponibili solo in determinate aree geografiche, ad esempio alcuni tipi di archiviazione o dimensioni delle VM. Per alcuni servizi globali di Azure non è necessario selezionare un'area geografica specifica, come nel caso di [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Gestione traffico](../articles/traffic-manager/traffic-manager-overview.md) o [DNS Azure](../articles/dns/dns-overview.md). Per facilitare la progettazione dell'ambiente applicativo, è possibile controllare la [disponibilità dei servizi di Azure in ogni area geografica](https://azure.microsoft.com/regions/#services). È anche possibile [eseguire una query a livello di codice su restrizioni e dimensioni di VM in ogni area](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
 
 ## <a name="storage-availability"></a>Disponibilità dell'archiviazione
@@ -65,14 +65,14 @@ Conoscere le aree geografiche di Azure diventa importante quando si considerano 
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 * Archiviazione con ridondanza della zona (ZRS)
   * I dati vengono replicati tre volte in due o tre strutture distribuite in un'area sola o in due aree.
-* Archiviazione con ridondanza geografica (GRS)
+* Archiviazione con ridondanza geografica
   * I dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria.
 * Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
   * I dati vengono replicati in un'area secondaria, come con la ridondanza geografica, ma risultano anche accessibili in sola lettura nell'area secondaria.
 
 La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi di replica di archiviazione:
 
-| Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
+| Strategia di replica | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | I dati vengono replicati in più strutture |No |Sì |Sì |Sì |
 | I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
@@ -80,7 +80,7 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 
 Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
-### <a name="storage-costs"></a>Costi di archiviazione
+### <a name="storage-costs"></a>Costi delle risorse di archiviazione
 I prezzi variano a seconda del tipo di archiviazione e della disponibilità selezionata.
 
 **Azure Managed Disks**

@@ -10,17 +10,17 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4fa5657a7ee2043e09c80593651d88a527770d7a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8fe95a471df6ea86aad90f387088824c3c92bd3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460437"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 La [libreria client di archiviazione di Azure per Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché la decrittografia dei dati durante il download al client. La libreria inoltre supporta l'integrazione con l' [insieme di credenziali chiave](https://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Crittografia e decrittografia tramite la tecnica basata su envelope
@@ -56,7 +56,7 @@ Durante la crittografia, la libreria client genererà un vettore di inizializzaz
 > 
 > 
 
-Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero blob usando i metodi pratici per il **download**/di**openInputStream** . La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
+Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero blob usando i metodi pratici di **download**/**openInputStream** . La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
 
 Il download di un intervallo arbitrario (metodi**Metodi downloadrange** ) nel BLOB crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere usati per decrittografare correttamente l'intervallo richiesto.  
 
@@ -90,7 +90,7 @@ La crittografia dei dati della tabella funziona nel modo seguente:
    
    Si noti che solo le proprietà di stringa possono essere crittografate. Se devono essere crittografati altri tipi di proprietà, essi devono essere convertiti in stringhe. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe dopo la decrittografia.
    
-   Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [Encrypt] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o la query su entità.
+   Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [Encrypt] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografare la proprietà A; in caso contrario, crittografare le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
 
 ### <a name="batch-operations"></a>Operazioni batch
 Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell’operazione batch, perché la libreria client consente un solo oggetto options (e pertanto un criterio/KEK) per ogni operazione batch. Tuttavia, la libreria client genera internamente un nuovo vettore di inizializzazione casuale e una CEK casuale per ogni riga nel batch. Gli utenti possono scegliere anche di crittografare proprietà diverse per ogni operazione nel batch mediante la definizione di questo comportamento nel resolver di crittografia.
@@ -246,11 +246,13 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ```
 
 ## <a name="encryption-and-performance"></a>Crittografia e prestazioni
+
 Si noti che la crittografia dei dati di archiviazione restituisce un overhead delle prestazioni aggiuntivo. La chiave simmetrica e il vettore devono essere generati, il contenuto stesso deve essere crittografato e metadati aggiuntivi devono essere formattati e caricati. Questo overhead varia a seconda della quantità di dati da crittografare. È consigliabile che i clienti testano sempre le proprie applicazioni per le prestazioni durante lo sviluppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Scaricare la [libreria client di archiviazione di Azure per il pacchetto Java Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
-* Scaricare la [libreria client di Archiviazione di Azure per il codice Java Source da GitHub](https://github.com/Azure/azure-storage-java)   
+* Scaricare la [libreria client di Archiviazione di Azure per il codice Java Source da GitHub](https://github.com/Azure/azure-storage-java)
 * Scaricare la libreria Maven dell'insieme di credenziali delle chiavi di Azure per i pacchetti Java Maven seguenti:
   * [core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
   * [client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)

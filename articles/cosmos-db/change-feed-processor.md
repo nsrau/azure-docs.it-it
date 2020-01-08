@@ -1,6 +1,6 @@
 ---
-title: Uso della libreria del processore dei feed di modifiche in Azure Cosmos DB
-description: Informazioni su come usare la libreria del processore dei feed delle modifiche Azure Cosmos DB per leggere il feed delle modifiche, i componenti del processore del feed delle modifiche e il ciclo di vita dell'implementazione
+title: Libreria del processore del feed delle modifiche in Azure Cosmos DB
+description: Informazioni su come usare la libreria del processore dei feed delle modifiche Azure Cosmos DB per leggere il feed delle modifiche, i componenti del processore del feed delle modifiche
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ea2b72e926923357e9ee7dac87720292fbbf9696
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7f5e46068844da538864fdfaa03ca7023e4372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445569"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445260"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Eseguire la migrazione di contenitori non partizionati a contenitori partizionati
 
@@ -117,6 +117,14 @@ Per l'esempio completo su come ripartizionare i documenti, vedere il repository 
 La versione precedente di Azure Cosmos DB SDK, ad esempio V2. x. x e V1. x. x, non supportano la proprietà della chiave di partizione definita dal sistema. Quindi, quando si legge la definizione del contenitore da un SDK precedente, non contiene alcuna definizione della chiave di partizione e questi contenitori si comportano esattamente come prima. Le applicazioni compilate con la versione precedente degli SDK continuano a funzionare con non partizionate così come sono senza alcuna modifica. 
 
 Se un contenitore migrato viene usato dalla versione più recente/V3 dell'SDK e si inizia a popolare la chiave di partizione definita dal sistema all'interno dei nuovi documenti, non è più possibile accedere (leggere, aggiornare, eliminare, eseguire query) tali documenti dagli SDK precedenti.
+
+## <a name="known-issues"></a>Problemi noti
+
+**L'esecuzione di query per il numero di elementi inseriti senza una chiave di partizione con V3 SDK può comportare un consumo di velocità effettiva superiore**
+
+Se si esegue una query da V3 SDK per gli elementi inseriti usando V2 SDK o gli elementi inseriti con l'SDK V3 con `PartitionKey.None` parametro, la query count potrebbe usare più ur/s se il parametro `PartitionKey.None` viene fornito in FeedOptions. Si consiglia di non specificare il parametro `PartitionKey.None` se nessun altro elemento viene inserito con una chiave di partizione.
+
+Se vengono inseriti nuovi elementi con valori diversi per la chiave di partizione, l'esecuzione di query per tali conteggi di elementi passando la chiave appropriata in `FeedOptions` non avrà alcun problema. Dopo aver inserito i nuovi documenti con la chiave di partizione, se è necessario eseguire una query solo sul numero di documenti senza il valore della chiave di partizione, è possibile che la query comporti un numero maggiore di ur/sec simile alle raccolte partizionate regolari.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

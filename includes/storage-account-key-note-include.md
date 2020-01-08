@@ -5,17 +5,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/20/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 53ccd439429dc7df311e086d79f7234e26fd8b0e
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 95639caddfa627290f4e7153d50f9f7799a1f320
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460568"
 ---
-> [!IMPORTANT]
-> La chiave dell’account di archiviazione è simile alla password radice per l'account di archiviazione. Proteggere sempre con cura la chiave dell'account. Evitare di distribuirla ad altri utenti, impostarla come hardcoded o salvarla in un file di testo normale accessibile ad altri. Rigenerare la chiave dell'account tramite il portale di Azure se si ritiene che possa essere stata compromessa.
->
-> È fondamentale proteggere i token di firma di accesso condiviso, proprio come le chiavi di accesso degli account. Oltre a offrire granularità, la firma di accesso condiviso concede ai client l'accesso alle risorse nel proprio account di archiviazione e non deve essere condivisa pubblicamente. Quando la condivisione è necessaria per risolvere eventuali problemi, è consigliabile usare una versione dei file di log con alcune modifiche o eliminare i token di firma di accesso condiviso (se presenti) dai file di log e assicurarsi che nemmeno gli screenshot contengano informazioni relative alla firma di accesso condiviso.
+## <a name="protect-your-access-keys"></a>Proteggere le chiavi di accesso
+
+La chiave di accesso dell'account di archiviazione è simile a una password radice per l'account di archiviazione. Prestare sempre attenzione a proteggere le chiavi di accesso. Usare Azure Key Vault per gestire e ruotare le chiavi in modo sicuro. Evitare di distribuire chiavi di accesso ad altri utenti, codificarle a livello di codice o salvarle ovunque in testo normale accessibile ad altri utenti. Ruotare le chiavi se si ritiene che potrebbero essere state compromesse.
+
+Se possibile, usare Azure Active Directory (Azure AD) per autorizzare le richieste all'archiviazione BLOB e di Accodamento invece che alla chiave condivisa. Azure AD offre sicurezza e facilità d'uso superiori rispetto alla chiave condivisa. Per altre informazioni su come autorizzare l'accesso ai dati con Azure AD, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](../articles/storage/common/storage-auth-aad.md).

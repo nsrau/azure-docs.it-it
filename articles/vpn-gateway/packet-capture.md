@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353510"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurare le acquisizioni di pacchetti per i gateway VPN
 
@@ -24,11 +24,13 @@ Sono disponibili alcuni strumenti comuni per l'acquisizione di pacchetti. Tuttav
 
 Le acquisizioni di pacchetti del gateway VPN possono essere eseguite nel gateway o in una connessione specifica a seconda delle esigenze del cliente. È anche possibile eseguire acquisizioni di pacchetti su più tunnel contemporaneamente. È possibile acquisire il traffico singolo o bidirezionale, il traffico IKE e ESP e i pacchetti interni insieme al filtro in un gateway VPN.
 
-L'uso di 5 filtri di Tuple (subnet di origine, subnet di destinazione, porta di origine, porta di destinazione, protocollo) e flag TCP (SYN, ACK, pinna, URG, PSH, RST) è utile quando si isolano i problemi in un traffico di volume elevato.
+L'uso del filtro di 5 Tuple (subnet di origine, subnet di destinazione, porta di origine, porta di destinazione, protocollo) e flag TCP (SYN, ACK, pinna, URG, PSH, RST) è utile quando si isolano i problemi in un traffico con volumi elevati.
+
+È possibile usare una sola opzione per proprietà durante l'esecuzione dell'acquisizione di pacchetti.
 
 ## <a name="setup-packet-capture-using-powershell"></a>Configurare l'acquisizione di pacchetti con PowerShell
 
-Vedere gli esempi seguenti per i comandi di PowerShell per avviare e arrestare le acquisizioni di pacchetti. Per ulteriori informazioni sulle opzioni dei parametri, ad esempio su come creare filtri, vedere questo [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)di PowerShell.
+Vedere gli esempi seguenti per i comandi di PowerShell per avviare e arrestare le acquisizioni di pacchetti. Per ulteriori informazioni sulle opzioni dei parametri, ad esempio su come creare un filtro, vedere questo [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)di PowerShell.
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Avviare l'acquisizione pacchetti per un gateway VPN
 
@@ -36,7 +38,7 @@ Vedere gli esempi seguenti per i comandi di PowerShell per avviare e arrestare l
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Parametro facoltativo **:** è possibile utilizzare FilterData per applicare filtri.
+Parametro facoltativo **-FilterData** può essere usato per applicare il filtro.
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Arrestare l'acquisizione di pacchetti per un gateway VPN
 
@@ -50,7 +52,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Parametro facoltativo **:** è possibile utilizzare FilterData per applicare filtri.
+Parametro facoltativo **-FilterData** può essere usato per applicare il filtro.
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Arrestare l'acquisizione di pacchetti in una connessione gateway VPN
 
@@ -62,7 +64,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - L'esecuzione di acquisizioni di pacchetti può influire sulle prestazioni. Ricordarsi di arrestare l'acquisizione di pacchetti quando non è necessaria.
 - La durata di acquisizione pacchetti minima suggerita è di 600 secondi. La durata dell'acquisizione di pacchetti più breve potrebbe non fornire dati completi a causa della sincronizzazione di problemi tra più componenti del percorso.
-- I file di dati di acquisizione di pacchetti vengono generati in formati PCAP o ETL. Per comprendere i dati, potrebbe essere necessario un parser Netmon.
+- I file di dati di acquisizione di pacchetti vengono generati nel formato PCAP. Usare Wireshark o altre applicazioni comunemente disponibili per aprire i file PCAP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

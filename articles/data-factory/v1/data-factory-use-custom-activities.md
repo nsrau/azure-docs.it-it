@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 32ab81d618cb0a6ee40814b644ad934008ee7719
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438818"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -103,7 +103,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
      <li>Fare clic su <b>File</b>, scegliere <b>Nuovo</b> e quindi fare clic su <b>Progetto</b>.</li>
      <li>Espandere <b>Modelli</b> e quindi selezionare <b>Visual C#</b>. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.</li>
      <li>Selezionare la <b>libreria di classi</b> dall'elenco relativo ai tipi di progetto visualizzato a destra. In Visual Studio scegliere <b>libreria di classi (.NET Framework)</b> </li>
-     <li>Immettere <b>MyDotNetActivity</b> per <b>Nome</b>.</li>
+     <li>Immettere <b>MyDotNetActivity</b> for the <b>Nome</b>.</li>
      <li>Selezionare <b>C:\ADFGetStarted</b> per <b>Percorso</b>.</li>
      <li>Fare clic su <b>OK</b> per creare il progetto.</li>
    </ol>
@@ -375,7 +375,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
 12. Creare un file ZIP **MyDotNetActivity.zip** che contiene tutti i file binari disponibili nella cartella \<cartella di progetto\>\bin\Debug. Includere il file **MyDotNetActivity.pdb** per ottenere altri dettagli, ad esempio il numero della riga nel codice sorgente che ha causato il problema in caso di errore.
 
     > [!IMPORTANT]
-    > Tutti i file nel file ZIP per l'attività personalizzata devono trovarsi al **livello principale** senza sottocartelle.
+    > Tutti i file contenuti nel file con estensione zip dell'attività personalizzata devono trovarsi nel **livello principale** senza sottocartelle.
 
     ![File di output binari](./media/data-factory-use-custom-activities/Binaries.png)
 14. Se non è già presente, creare un contenitore BLOB denominato **customactivitycontainer**.
@@ -440,7 +440,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 2. Fare clic su **Nuovo archivio dati** sulla barra dei comandi e scegliere **Archiviazione di Azure**. Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Archiviazione di Azure.
 
     ![Nuovo archivio dati - Archiviazione di Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Sostituire `<accountname>` con il nome dell'account di archiviazione di Azure e `<accountkey>` con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+3. Sostituire `<accountname>` con il nome dell'account di archiviazione di Azure e `<accountkey>` con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle archiviazione, vedere [gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 
     ![Servizio collegato Archiviazione di Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
@@ -697,7 +697,7 @@ La risoluzione dei problemi implica alcune tecniche di base:
 
    Cercare anche eventuali messaggi di errore di sistema ed eccezioni nel file **system-0.log**.
 4. Includere il file **PDB** nel file ZIP in modo che i dettagli dell'errore contengano informazioni come lo **stack di chiamate** quando si verifica un errore.
-5. Tutti i file nel file ZIP per l'attività personalizzata devono trovarsi al **livello principale** senza sottocartelle.
+5. Tutti i file contenuti nel file con estensione zip dell'attività personalizzata devono trovarsi nel **livello principale** senza sottocartelle.
 6. Assicurarsi che **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) e **packageLinkedService** (deve fare riferimento all'Archiviazione BLOB di Azure **di uso generico** che contiene il file ZIP) siano impostati su valori corretti.
 7. Se è stato risolto un errore e si vuole rielaborare la sezione, fare clic con il pulsante destro del mouse sulla sezione nel pannello **OutputDataset**, quindi scegliere **Esegui**.
 8. Se viene visualizzato l'errore seguente, si usa il pacchetto di Archiviazione di Azure con una versione > 4.3.0. L'utilità di avvio del servizio Data Factory richiede la versione 4.3 di WindowsAzure.Storage. Per informazioni su una soluzione alternativa nel caso in cui sia necessario usare una versione più recente dell'assembly di Archiviazione di Azure, vedere la sezione [Isolamento di AppDomain](#appdomain-isolation).
@@ -760,7 +760,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ## <a name="auto-scaling-of-azure-batch"></a>Scalabilità automatica di Azure Batch
 È anche possibile creare un pool di Azure Batch con la funzionalità **Scalabilità automatica** . Ad esempio, è possibile creare un pool di Azure Batch con 0 VM dedicate e una formula di scalabilità basata sul numero di attività in sospeso.
 
-Di seguito la formula di esempio consente di ottenere il comportamento seguente: quando il pool viene creato inizialmente, inizia con 1 macchina virtuale. La metrica $PendingTasks definisce il numero di attività in esecuzione e quelle in coda.  La formula trova il numero medio di attività in sospeso negli ultimi 180 secondi e imposta TargetDedicated di conseguenza. Assicura che TargetDedicated non vada mai oltre 25 macchine virtuali. Pertanto, quando vengono inviate nuove attività, il pool si espande automaticamente e al completamento delle attività le macchine virtuali diventano disponibili una alla volta e la scalabilità automatica le riduce. È possibile regolare startingNumberOfVMs e maxNumberofVMs in base alle esigenze.
+La formula di esempio seguente consente di ottenere il comportamento seguente: quando il pool viene creato inizialmente, inizia con 1 macchina virtuale. La metrica $PendingTasks definisce il numero di attività in esecuzione e quelle in coda.  La formula trova il numero medio di attività in sospeso negli ultimi 180 secondi e imposta TargetDedicated di conseguenza. Assicura che TargetDedicated non vada mai oltre 25 macchine virtuali. Pertanto, quando vengono inviate nuove attività, il pool si espande automaticamente e al completamento delle attività le macchine virtuali diventano disponibili una alla volta e la scalabilità automatica le riduce. È possibile regolare startingNumberOfVMs e maxNumberofVMs in base alle esigenze.
 
 Formula di scalabilità automatica:
 

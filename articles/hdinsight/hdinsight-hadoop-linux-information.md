@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150046"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644954"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
 I cluster Azure HDInsight mettono a disposizione Apache Hadoop in un ambiente Linux familiare, in esecuzione nel cloud di Azure. Per la maggior parte delle operazioni, dovrebbe funzionare esattamente come qualsiasi altra installazione di Hadoop in Linux. Questo documento indica le differenze specifiche che è opportuno conoscere.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In molti passaggi di questo documento vengono usate le utilità seguenti che devono essere installate nel sistema.
 
@@ -28,7 +28,7 @@ In molti passaggi di questo documento vengono usate le utilità seguenti che dev
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli): consente di gestire in remoto i servizi di Azure.
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="users"></a>Users
+## <a name="users"></a>Utenti
 
 A meno che non sia [aggiunto al dominio](./domain-joined/hdinsight-security-overview.md), HDInsight deve essere considerato un sistema a **utente singolo**. Con il cluster viene creato un singolo account utente SSH, con autorizzazioni a livello di amministratore. Possono essere creati altri account SSH, che avranno sempre l'accesso di amministratore al cluster.
 
@@ -52,7 +52,7 @@ Questo comando restituisce un documento JSON che descrive il servizio e quindi [
 
 ## <a name="remote-access-to-services"></a>Accesso remoto ai servizi
 
-* **Ambari (Web)**  - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (Web)**  - `https://CLUSTERNAME.azurehdinsight.net`
 
     Eseguire l'autenticazione usando l'utente e la password dell'amministratore del cluster e quindi accedere a Ambari.
 
@@ -63,14 +63,14 @@ Questo comando restituisce un documento JSON che descrive il servizio e quindi [
     >
     > Per usare le funzionalità complete dell'interfaccia utente Web di Ambari, usare un tunnel SSH per inoltrare il traffico Web al nodo head del cluster. Vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Apache Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - `https://CLUSTERNAME.azurehdinsight.net/ambari`
 
     > [!NOTE]  
     > Eseguire l'autenticazione usando il nome utente e la password di amministratore cluster.
     >
     > L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
-* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - `https://CLUSTERNAME.azurehdinsight.net/templeton`
 
     > [!NOTE]  
     > Eseguire l'autenticazione usando il nome utente e la password di amministratore cluster.
@@ -190,7 +190,7 @@ Se si usa __Archiviazione di Azure__, vedere i collegamenti seguenti per informa
 * Vari SDK:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
-    * [Node.JS](https://github.com/Azure/azure-sdk-for-node)
+    * [Node.js](https://github.com/Azure/azure-sdk-for-node)
     * [PHP](https://github.com/Azure/azure-sdk-for-php)
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
@@ -235,7 +235,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
         È anche possibile specificare parametri per eseguire l'override degli hint di parallelismo forniti in origine dalla topologia. Ad esempio, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` riconfigura la topologia con 5 processi di lavoro, 3 esecutori per il componente blue-spout e 10 esecutori per il componente yellow-bolt.
 
-    * **Interfaccia utente Storm**: usare la procedura seguente per ribilanciare una topologia tramite l'interfaccia utente Storm.
+    * **Interfaccia utente Storm**: usare la procedura seguente per ribilanciare una topologia usando l'interfaccia utente Storm.
 
         1. Aprire `https://CLUSTERNAME.azurehdinsight.net/stormui` nel Web browser, dove `CLUSTERNAME` è il nome del cluster Storm. Se richiesto, immettere il nome amministratore (admin) del cluster HDInsight e la password specificata durante la creazione del cluster.
         2. Selezionare la topologia da ribilanciare e quindi fare clic sul pulsante **Rebalance** (Ribilancia). Specificare il ritardo prima dell'esecuzione dell'operazione di ribilanciamento.

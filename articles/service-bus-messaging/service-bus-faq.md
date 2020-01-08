@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352881"
 ---
 # <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
 
@@ -113,7 +113,7 @@ Qualsiasi trasferimento di dati nell'ambito di una specifica area di Azure non �
 No, per il bus di servizio non viene addebitato lo spazio di archiviazione. È tuttavia prevista una quota che limita la quantità massima di dati che è possibile salvare in modo permanente per ogni coda e argomento. Vedere la risposta alla domanda successiva.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Ho uno spazio dei nomi standard del bus di servizio. Perché vengono visualizzati gli addebiti nel gruppo di risorse ' $system '?
-Il bus di servizio di Azure ha aggiornato di recente i componenti di fatturazione. A causa di questo, se si dispone di uno spazio dei nomi standard del bus di servizio, è possibile che vengano visualizzate voci per la risorsa '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' nel gruppo di risorse ' $ System '.
+Il bus di servizio di Azure ha aggiornato di recente i componenti di fatturazione. A causa di questo, se si dispone di uno spazio dei nomi standard del bus di servizio, è possibile che vengano visualizzate voci per la risorsa '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' nel gruppo di risorse ' $system '.
 
 Questi costi rappresentano il costo di base per ogni sottoscrizione di Azure per cui è stato effettuato il provisioning di uno spazio dei nomi standard del bus 
 
@@ -148,9 +148,9 @@ Le firme di accesso condiviso sono un meccanismo di autenticazione basato su has
 
 È possibile spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra usando il [portale di Azure](https://portal.azure.com) o i comandi di PowerShell. Per eseguire l'operazione, lo spazio dei nomi deve essere già attivo. L'utente che esegue i comandi deve essere un amministratore delle sottoscrizioni di origine e di destinazione.
 
-#### <a name="portal"></a>di Microsoft Azure
+#### <a name="portal"></a>Portale
 
-Per usare il portale di Azure per eseguire la migrazione degli spazi dei nomi del bus di servizio a un'altra sottoscrizione, seguire le istruzioni riportate [qui](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Per usare il portale di Azure per eseguire la migrazione degli spazi dei nomi del bus di servizio a un'altra sottoscrizione, seguire le istruzioni riportate [qui](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

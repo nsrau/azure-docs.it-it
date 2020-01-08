@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 02/14/2019
-ms.openlocfilehash: cdc534325fd693dd34f2dc25c9953cd40ca96163
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 28eb7e490890b46a4025a6cf62e13b364bd7b6dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432352"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Risorse, ruoli e controllo di accesso in Application Insights
 
 È possibile controllare chi ha accesso in lettura e aggiornamento ai dati in Azure [Application Insights][start], usando il [controllo degli accessi in base al ruolo in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
-> Assegnare l'accesso agli utenti nella **sottoscrizione o nel gruppo di risorse** a cui la risorsa dell'applicazione appartiene, non nella risorsa stessa. Assegnare il ruolo **collaboratore componente di Application Insights** . In tal modo si garantisce un controllo di accesso uniforme ai test Web e agli avvisi nonché alla risorsa dell'applicazione. [Altre informazioni](#access).
+> Assegnare l'accesso agli utenti nella **sottoscrizione o nel gruppo di risorse** a cui la risorsa dell'applicazione appartiene, non nella risorsa stessa. Assegnare il ruolo **collaboratore componente di Application Insights** . In tal modo si garantisce un controllo di accesso uniforme ai test Web e agli avvisi nonché alla risorsa dell'applicazione. [Altre informazioni](#access)
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -98,7 +98,7 @@ Dove applicabile sarà presente un collegamento alla documentazione di riferimen
 
 'Modifica' include la creazione, l'eliminazione e l'aggiornamento:
 
-* resources
+* Risorse
 * Test Web
 * Avvisi
 * Esportazione continua
@@ -141,6 +141,6 @@ $resourceGroup = "RGNAME"
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../../azure-resource-manager/resource-group-overview.md
+[group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md

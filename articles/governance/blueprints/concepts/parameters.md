@@ -3,12 +3,12 @@ title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come usarli per creare progetti dinamici e protetti.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128927"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644971"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -40,7 +40,7 @@ Se l'assegnazione del progetto usa un' **identità gestita assegnata dal sistema
 Se l'assegnazione del progetto usa un' **identità gestita assegnata dall'utente**, è possibile che la Key Vault a cui si fa riferimento _sia_ presente in una sottoscrizione centralizzata. È necessario concedere all'identità gestita i diritti appropriati per la Key Vault prima dell'assegnazione del progetto.
 
 > [!IMPORTANT]
-> In entrambi i casi, il Key Vault deve disporre dell' **Abilitazione dell'accesso a Azure Resource Manager per la distribuzione dei modelli** configurata nella pagina **criteri di accesso** . Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> In entrambi i casi, il Key Vault deve disporre dell' **Abilitazione dell'accesso a Azure Resource Manager per la distribuzione dei modelli** configurata nella pagina **criteri di accesso** . Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 Per altre informazioni sull'insieme di credenziali di Azure, vedere [Panoramica di Key Vault](../../../key-vault/key-vault-overview.md).
 
@@ -72,7 +72,7 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourMG}` - Sostituire con il nome del gruppo di gestione
+- `{YourMG}`: sostituire con il nome del gruppo di gestione
 - `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
 ##### <a name="blueprint-level-parameter"></a>Parametro a livello di progetto
@@ -85,7 +85,7 @@ Quando si crea un progetto tramite l'API REST, è possibile creare [parametri de
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Corpo della richiesta
+- Request Body
 
   ```json
   {
@@ -118,7 +118,7 @@ L'esempio di API REST seguente crea un artefatto assegnazione di ruolo nel proge
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
   ```
 
-- Corpo della richiesta
+- Request Body
 
   ```json
   {
@@ -143,7 +143,7 @@ La creazione di **parametri statici** su un artefatto è simile, ma accetta un v
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
   ```
 
-- Corpo della richiesta
+- Request Body
 
   ```json
   {
@@ -189,7 +189,7 @@ L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inser
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Corpo della richiesta
+- Request Body
 
   ```json
   {

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353312"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -41,7 +41,7 @@ Le sezioni seguenti elencano i sistemi operativi server supportati in cui è pos
 
 ### Sistemi operativi Windows Server<a name="os-windows"></a>
 
-|SO|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
+|Sistema operativo|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -56,7 +56,7 @@ Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativ
 
 * CentOS 6 e 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 e 7
+* Oracle Linux 6 e Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 e 7
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
@@ -101,16 +101,16 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * Account Batch
 * Account di Service Fabric
 * Account di Automazione
-* Servizio di bilanciamento del carico
+* Load Balancer
 * Cerca
 * Spazio dei nomi del bus di servizio
 * Analisi dei flussi
 * Spazio dei nomi dell'hub eventi
 * App per la logica
 * Redis
-* Analisi Data Lake
+* Data Lake Analytics
 * Data Lake Store
-* Insieme di credenziali delle chiavi
+* Key Vault
 
 Per altre informazioni sulle funzionalità supportate per l'elenco precedente di risorse PaaS, vedere [funzionalità supportate di PaaS Services](security-center-services.md#paas-services).
 

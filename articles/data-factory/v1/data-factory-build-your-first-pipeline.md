@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 90084864f9a93117a0f94dc1d36e6119e88ee335
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bb77182489e08795e5eb482740eed6c67d2f1627
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438940"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "73682938"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -80,7 +80,7 @@ Delle righe di esempio riportate sopra, la prima (con 2016-01-01) viene scritta 
 Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 1. **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
-2. **Archiviazione di Azure** : in questa esercitazione si usa un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) . Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+2. **Archiviazione di Azure** : in questa esercitazione si usa un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) . Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Per informazioni su come recuperare le chiavi di accesso all'account di archiviazione, vedere [gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 3. Scaricare ed esaminare il file di query Hive (**HQL**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output. 
 4. Scaricare ed esaminare il file di input di esempio (**input.log**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure. 
@@ -92,7 +92,7 @@ Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Visual Studio offre un'interfaccia utente grafica per la creazione di data factory. Le opzioni PowerShell, il modello di Resource Manager e l'API REST forniscono una modalità di programmazione/script per la creazione di data factory.
 

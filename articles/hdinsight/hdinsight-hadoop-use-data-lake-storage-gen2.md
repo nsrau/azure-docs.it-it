@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 89b86124d6da0d0d659ed0673585eadbf1008aa3
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: b45b27fd2e3dc6cf92d83934d571df25c2ce204f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847303"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644988"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -39,9 +39,9 @@ Creare un'identità gestita assegnata dall'utente, se non è già disponibile.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. In alto a sinistra fare clic su **Crea una risorsa**.
 1. Nella casella di ricerca digitare **User assegnata** e fare clic su **identità gestita assegnata dall'utente**.
-1. Fai clic su **Crea**.
+1. Fare clic su **Crea**.
 1. Immettere un nome per l'identità gestita, selezionare la sottoscrizione, il gruppo di risorse e la località corretti.
-1. Fai clic su **Crea**.
+1. Fare clic su **Crea**.
 
 Per altre informazioni sul funzionamento delle identità gestite in Azure HDInsight, vedere [identità gestite in Azure HDInsight](hdinsight-managed-identities.md).
 
@@ -54,7 +54,7 @@ Creare un account di archiviazione di Azure Data Lake Storage Gen2.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. In alto a sinistra fare clic su **Crea una risorsa**.
 1. Nella casella di ricerca digitare **storage** e fare clic su **account di archiviazione**.
-1. Fai clic su **Crea**.
+1. Fare clic su **Crea**.
 1. Nella schermata **Crea account di archiviazione** :
     1. Selezionare la sottoscrizione e il gruppo di risorse corretti.
     1. Immettere un nome per l'account Data Lake Storage Gen2. Per altre informazioni sulle convenzioni di denominazione degli account di archiviazione vedere [convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/resource-naming#storage).
@@ -100,7 +100,7 @@ Assegnare l'identità gestita al ruolo di **proprietario dei dati del BLOB di ar
 
 È possibile [scaricare un file modello di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e [scaricare un file di parametri di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Prima di usare il modello e il frammento di codice dell'interfaccia della riga di comando di Azure, sostituire i segnaposto seguenti con i valori corretti:
 
-| Placeholder | Descrizione |
+| Segnaposto | Description |
 |---|---|
 | `<SUBSCRIPTION_ID>` | ID della sottoscrizione di Azure |
 | `<RESOURCEGROUPNAME>` | Il gruppo di risorse in cui si vuole creare il nuovo cluster e l'account di archiviazione. |
@@ -146,6 +146,10 @@ az group deployment create --name HDInsightADLSGen2Deployment \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```
+
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-azure-powershell"></a>Creare un cluster con Data Lake Storage Gen2 tramite Azure PowerShell
+
+L'uso di PowerShell per creare un cluster HDInsight con Azure Data Lake Storage Gen2 attualmente non è supportato.
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Controllo di accesso per Data Lake Storage Gen2 in HDInsight
 

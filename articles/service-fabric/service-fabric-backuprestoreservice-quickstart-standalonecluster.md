@@ -1,27 +1,18 @@
 ---
 title: Backup/ripristino periodici in Azure autonomo Service Fabric
 description: Usare la funzionalità di backup e ripristino periodici di Service Fabric per abilitare il backup periodico dei dati delle applicazioni.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: feec830a81b9afe572e05bb6be21ad39edd7af04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232475"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526244"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e ripristino periodici in Azure Service Fabric
+# <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup e ripristino periodici in un Service Fabric autonomo
 > [!div class="op_single_selector"]
 > * [Cluster in Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Cluster autonomi](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -53,11 +44,11 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 - Sospensione temporanea dei backup
 - Gestione della memorizzazione dei backup (a breve)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Service Fabric cluster con infrastruttura versione 6,4 o successiva. Fare riferimento all'[articolo](service-fabric-cluster-creation-for-windows-server.md) per i passaggi per scaricare il pacchetto richiesto.
-* Certificato X.509 per la crittografia dei segreti necessari per connettersi allo storage per archiviare i backup. Fare riferimento all’[articolo](service-fabric-windows-cluster-x509-security.md) per sapere come acquisire o come creare un certificato X.509 autofirmato.
+* Certificato X.509 per la crittografia dei dati, necessario per connettersi alla risorsa di archiviazione e archiviare i backup. Fare riferimento all’[articolo](service-fabric-windows-cluster-x509-security.md) per sapere come acquisire o come creare un certificato X.509 autofirmato.
 
-* L’applicazione Reliable con stato di Service Fabric generata utilizzando Service Fabric SDK versione 3.0 o successiva. Per applicazioni destinate a .net Core 2.0, l'applicazione deve essere generata utilizzando Service Fabric SDK versione 3.1 o successiva.
+* Applicazione Reliable di Service Fabric con informazioni sullo stato, creata utilizzando Service Fabric SDK versione 3.0 o versione successiva. Per applicazioni destinate a .net Core 2.0, l'applicazione deve essere generata utilizzando Service Fabric SDK versione 3.1 o successiva.
 * Installare il modulo Microsoft. ServiceFabric. PowerShell. http [in anteprima] per eseguire chiamate di configurazione.
 
 ```powershell
@@ -98,7 +89,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 
     ```
 
-3. Configurare il certificato X.509 per la crittografia delle credenziali. Ciò è importante per assicurarsi che le eventuali credenziali fornite per connettersi alla risorsa di archiviazione siano crittografate prima di continuare. Configurare il certificato di crittografia aggiungendo la sezione `BackupRestoreService` seguente sotto la sezione `fabricSettings`, come illustrato nel frammento seguente: 
+3. Configurare il certificato X.509 per la crittografia delle credenziali. Ciò è importante per assicurarsi che le eventuali credenziali fornite per connettersi alla risorsa di archiviazione siano crittografate prima di continuare. Configurare il certificato di crittografia aggiungendo la sezione `BackupRestoreService` sotto la sezione `fabricSettings` come illustrato nel frammento seguente: 
 
     ```json
     "properties": {
@@ -124,7 +115,7 @@ Seguire il procedimento per abilitare i backup periodici per servizio Reliable c
 - Che il cluster sia configurato con il _servizio di backup e ripristino_.
 - Un servizio Reliable con stato venga distribuito nel cluster. Ai fini della presente Guida rapida, l'applicazione Uri è `fabric:/SampleApp` e il servizio Uri per il servizio Reliable con stato appartenente a questa applicazione è `fabric:/SampleApp/MyStatefulService`. Questo servizio viene distribuito con singola partizione e l'ID di partizione è `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`.  
 
-### <a name="create-backup-policy"></a>Crea criterio di backup
+### <a name="create-backup-policy"></a>Creare criteri di backup
 
 Il primo passo consiste nel creare criteri di backup che descrivano la pianificazione del backup, la risorsa di archiviazione di destinazione per i dati di backup, il nome dei criteri e i backup incrementali massimi consentiti prima dell'avvio del backup completo e i criteri di conservazione per l'archivio di backup. 
 

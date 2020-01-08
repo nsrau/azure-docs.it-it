@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a1fb3b1260beb6bd85363f4611dae23cd3d321f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427358"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
@@ -26,10 +26,10 @@ Per un argomento che descrive le opzioni per lo spostamento dei dati a un databa
 
 Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati in SQL Server in una macchina virtuale Azure.
 
-| <b>SOURCE</b> | <b>DESTINAZIONE: SQL Server in macchina virtuale di Azure</b> |
+| <b>SOURCE</b> | <b>DESTINAZIONE: SQL Server in VM di Azure</b> |
 | --- | --- |
-| <b>File Flat</b> |1. <a href="#insert-tables-bcp">Utilità copia di massa della riga di comando (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL </a><br> 3. <a href="#sql-builtin-utilities">Utilità grafiche integrate in SQL Server</a> |
-| <b>Server SQL locale</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure</a><br> 2. <a href="#export-flat-file">Esportazione in un file flat </a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br> |
+| <b>File Flat</b> |1. <a href="#insert-tables-bcp">utilità per la copia bulk da riga di comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL </a><br> 3. <a href="#sql-builtin-utilities">utilità predefinite grafiche in SQL Server</a> |
+| <b>Server SQL locale</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuzione di un database di SQL Server in una procedura guidata Microsoft Azure macchina virtuale</a><br> 2. <a href="#export-flat-file">esportare in un file flat</a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br> |
 
 Tenere presente che il presente documento presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Visual Studio Database Explorer.
 
@@ -41,8 +41,8 @@ Tenere presente che il presente documento presuppone che i comandi SQL vengano e
 ## <a name="prereqs"></a>Prerequisiti
 Il tutorial presuppone:
 
-* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) . Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere la sezione [Gestire le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) . Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 * Provisioning di **SQL Server in una VM di Azure**. Per le istruzioni, vedere [Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 

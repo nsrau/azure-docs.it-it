@@ -1,5 +1,5 @@
 ---
-title: Creare una regola di autorizzazione del bus di servizio tramite un modello di Azure Resource Manager | Microsoft Docs
+title: Creare una regola di autorizzazione del bus di servizio usando un modello di Azure
 description: Creare una regola di autorizzazione del bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 8769979fe3e5107e4ca788f65ff1e721b266776b
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013069"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426904"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creare una regola di autorizzazione del bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager.
 
@@ -37,7 +37,7 @@ Per il modello completo, vedere il [modello di regola di autorizzazione del bus 
 > * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Per verificare la presenza dei modelli più recenti, visitare la raccolta [modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare il **bus di servizio**.
+> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare **service bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,7 +49,7 @@ Questo modello usa la [firma di accesso condiviso (SAS, Shared Access Signature)
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuire in Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
 
@@ -173,7 +173,7 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
 * [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4d3c74db9a0c4e13ee7c17eb78552d8c11cd7afb
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5669b606d7dc06483641c2bdd6ef27c82e75bf4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422515"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431868"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
 
@@ -54,7 +54,7 @@ Ogni regola di rete virtuale si applica all'intero server di database SQL di Azu
 I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio di rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
 - **Amministratore di rete:** &nbsp; attivare l'endpoint.
-- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di database SQL.
+- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server del database SQL.
 
 *Alternativa del controllo degli accessi in base al ruolo:*
 
@@ -110,7 +110,7 @@ Archiviazione di Azure ha implementato la stessa funzionalità che consente di l
 
 PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse dagli account di archiviazione di Azure. Se l'account di archiviazione di Azure da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. Per poter usare scenari sia di importazione che di esportazione di PolyBase con Azure SQL Data Warehouse che si connette ad Archiviazione di Azure protetta con la rete virtuale, seguire la procedura descritta di seguito.
 
-#### <a name="prerequisites"></a>prerequisiti
+#### <a name="prerequisites"></a>Prerequisiti
 
 - Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
@@ -119,7 +119,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
 
-#### <a name="steps"></a>Passi
+#### <a name="steps"></a>Procedure
 
 1. In PowerShell **registrare il SQL Server di Azure** che ospita l'istanza di Azure SQL Data Warehouse con Azure Active Directory (AAD):
 
@@ -158,15 +158,15 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
        > - Non è necessario specificare SECRET con la chiave di accesso ad Archiviazione di Azure perché questo meccanismo in pratica usa l'[identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
        > - Il nome IDENTITY deve essere **'Managed Service Identity'** affinché la connettività di PolyBase funzioni con l'account di archiviazione di Azure protetto con la rete virtuale.
 
-   1. Creare un'origine dati esterna con lo schema abfss:// per la connessione all'account di archiviazione per utilizzo generico v2 con PolyBase:
+   1. Creare un'origine dati esterna con `abfss://` schema per la connessione all'account di archiviazione per utilizzo generico v2 tramite la funzione polibase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - Se sono già presenti tabelle esterne associate all'account di archiviazione BLOB o per utilizzo generico v1, è necessario prima rimuovere queste tabelle esterne e quindi rimuovere l'origine dati esterna corrispondente. A questo punto, creare l'origine dati esterna con lo schema abfss:// per la connessione all'account di archiviazione per utilizzo generico v2 come specificato sopra e creare di nuovo tutte le tabelle esterne usando questa nuova origine dati esterna. Per comodità, è possibile usare la procedura guidata [Genera e pubblica script](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) per generare gli script di creazione per tutte le tabelle esterne.
-       > - Per altre informazioni sullo schema abfss://, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Se sono già presenti tabelle esterne associate all'account di archiviazione BLOB o per utilizzo generico v1, è necessario prima rimuovere queste tabelle esterne e quindi rimuovere l'origine dati esterna corrispondente. Quindi creare un'origine dati esterna con `abfss://` schema di connessione all'account di archiviazione per utilizzo generico v2 come descritto in precedenza e ricreare tutte le tabelle esterne usando questa nuova origine dati esterna. Per comodità, è possibile usare la procedura guidata [Genera e pubblica script](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) per generare gli script di creazione per tutte le tabelle esterne.
+       > - Per ulteriori informazioni sullo schema `abfss://`, fare riferimento a questa [Guida](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
        > - Per altre informazioni su CREATE EXTERNAL DATA SOURCE, fare riferimento a questa [guida](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Eseguire le query come di consueto usando le [tabelle esterne](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
@@ -224,7 +224,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 - [Regole della rete virtuale: operazioni][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario avere già una subnet contrassegnata con lo specifico *nome del tipo* di endpoint servizio di rete virtuale pertinente per il database SQL di Azure.
 
@@ -237,7 +237,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
 
-2. Nel portale passare a **SQL Server** &gt; **Firewall/Reti virtuali (anteprima)** .
+2. Cercare e selezionare **SQL Server**, quindi selezionare il server. In **sicurezza**selezionare **firewall e reti virtuali**.
 
 3. Impostare il controllo **Consenti l'accesso a Servizi di Azure** su OFF.
 
@@ -252,7 +252,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
     > [!TIP]
     > È necessario includere il **prefisso dell'indirizzo** corretto per la subnet. Il valore è disponibile nel portale.
-    > Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
+    > Esplorare **tutte le risorse** &gt; **tutti i tipi** &gt; **reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
 
     ![Compilare i campi per la nuova regola.][image-portal-firewall-create-update-vnet-rule-20-png]
 

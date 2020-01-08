@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 77fc5a53c8bdc389c24cd1e6406415eefc3f167b
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415065"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autorizzare i non proprietari a distribuire Avere vFXT
 
@@ -19,11 +19,11 @@ Queste istruzioni forniscono una soluzione alternativa per consentire a un utent
 
 (Il metodo consigliato per distribuire il sistema Avere vFXT consiste nell'avere un utente con privilegi di proprietario che esegue la procedura di creazione, come spiegato in [Preparare la creazione di Avere vFXT](avere-vfxt-prereqs.md).)  
 
-La soluzione alternativa prevede la creazione di un ruolo di accesso aggiuntivo che offre agli utenti autorizzazioni sufficienti per installare il cluster. Il ruolo deve essere creato dal proprietario di una sottoscrizione e il proprietario deve assegnarlo agli utenti appropriati. 
+La soluzione alternativa prevede la creazione di un ruolo di accesso aggiuntivo che offre agli utenti autorizzazioni sufficienti per installare il cluster. Il ruolo deve essere creato dal proprietario di una sottoscrizione e il proprietario deve assegnarlo agli utenti appropriati.
 
-Il proprietario di una sottoscrizione deve inoltre [accettare le condizioni d'uso](avere-vfxt-prereqs.md) per l'immagine del marketplace di Avere vFXT. 
+Il proprietario di una sottoscrizione deve inoltre [accettare le condizioni d'uso](avere-vfxt-prereqs.md) per l'immagine del marketplace di Avere vFXT.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Tutti questi passaggi devono essere eseguiti da un utente con privilegi di proprietario della sottoscrizione che verrà usata per il cluster.
 
 1. Copiare le righe seguenti e salvarle in un file (ad esempio, `averecreatecluster.json`). Usare il proprio ID sottoscrizione nell'istruzione `AssignableScopes`.
@@ -49,7 +49,7 @@ Il proprietario di una sottoscrizione deve inoltre [accettare le condizioni d'us
            "Microsoft.Network/routeTables/routes/delete",
            "Microsoft.Network/virtualNetworks/subnets/join/action",
            "Microsoft.Network/virtualNetworks/subnets/read",
-   
+
            "Microsoft.Resources/subscriptions/resourceGroups/read",
            "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
            "Microsoft.Storage/*/read",
@@ -63,6 +63,7 @@ Il proprietario di una sottoscrizione deve inoltre [accettare le condizioni d'us
    `az role definition create --role-definition <PATH_TO_FILE>`
 
     Esempio:
+
     ```azurecli
     az role definition create --role-definition ./averecreatecluster.json
     ```
@@ -71,7 +72,7 @@ Il proprietario di una sottoscrizione deve inoltre [accettare le condizioni d'us
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Al termine di questa procedura, tutti gli utenti a cui è stato assegnato questo ruolo hanno le autorizzazioni seguenti per la sottoscrizione: 
+Al termine di questa procedura, tutti gli utenti a cui è stato assegnato questo ruolo hanno le autorizzazioni seguenti per la sottoscrizione:
 
 * Creare e configurare l'infrastruttura di rete
 * Creare il controller del cluster

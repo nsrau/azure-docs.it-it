@@ -1,5 +1,5 @@
 ---
-title: Creare una sottoscrizione di argomento e una regola del bus di servizio di Azure tramite un modello di Azure Resource Manager | Documentazione Microsoft
+title: Creare una sottoscrizione e una regola di argomento del bus di servizio usando il modello di Azure
 description: Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: dc61fb8e066c6189b5607a6e1cd479cb812466f7
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d4c4f055114ccd0be4bbc588b7785eb0fb2f48c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426885"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager
 
@@ -55,9 +55,9 @@ In molti scenari, i messaggi con caratteristiche specifiche devono essere elabor
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuisci in Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. Definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
@@ -182,10 +182,10 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Per informazioni su come gestire queste risorse, vedere gli articoli seguenti:
 
 * [Gestire i bus di servizio di Azure](service-bus-management-libraries.md)
-* [Gestire il bus di servizio con PowerShell](service-bus-manage-with-ps.md)
+* [Gestire Bus di servizio con PowerShell](service-bus-manage-with-ps.md)
 * [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md

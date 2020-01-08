@@ -1,20 +1,16 @@
 ---
-title: Terminologia di Azure Service Fabric Mesh | Microsoft Docs
+title: Terminologia per Azure Service Fabric mesh
 description: Questo articolo illustra in dettaglio la terminologia usata da Azure Service Fabric mesh per comprendere meglio i termini usati nella documentazione.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351983"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia di Service Fabric Mesh
 
@@ -72,14 +68,14 @@ I diversi ambienti offrono vari livello di supporto per framework e modelli di d
 
 | Tipo di applicazione | Descritto da | Azure Service Fabric Mesh | Cluster di Azure Service Fabric (qualsiasi sistema operativo)| Cluster locale | Cluster autonomo |
 |---|---|---|---|---|---|
-| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportate | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Supporto non disponibile | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
 |Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | Non supportato| Supportato|Supportato|Windows: supportato|
 
 La tabella seguente descrive i diversi modelli applicativi e gli strumenti disponibili per tali modelli rispetto a Service Fabric.
 
 | Tipo di applicazione | Descritto da | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
-| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | VS 2017 |Non supportate |Non supportate | Supportato, solo ambiente Mesh | Non supportato|
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | VS 2017 |Supporto non disponibile |Supporto non disponibile | Supportato, solo ambiente Mesh | Non supportato|
 |Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | VS 2017 e VS 2015| Supportato|Supportato|Supportato|Supportato|
 
 ## <a name="next-steps"></a>Passaggi successivi

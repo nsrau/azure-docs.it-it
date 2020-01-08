@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 178fa7d5f129a12736ec068fca605ba24cd37839
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0c04e7812d023cd394b54cf03bcca11a5589b18a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955867"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564665"
 ---
 Gli errori generati in funzioni di Azure possono provenire da una qualsiasi delle origini seguenti:
 
@@ -37,6 +37,6 @@ I trigger seguenti hanno il supporto di ripetizione dei tentativi incorporato:
 * [Archiviazione code di Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Bus di servizio Azure (coda/argomento)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Per impostazione predefinita, questi trigger ritentano le richieste fino a cinque volte. Dopo il quinto tentativo, entrambi i trigger scrivono un messaggio in una [coda non elaborabile](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
+Per impostazione predefinita, questi trigger ritentano le richieste fino a cinque volte. Dopo il quinto tentativo, i trigger di archiviazione code di Azure e del bus di servizio di Azure scrivono un messaggio in una [coda non elaborabile](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
 
 È necessario implementare manualmente i criteri di ripetizione dei tentativi per tutti gli altri tipi di trigger o associazioni. Le implementazioni manuali possono includere la scrittura di informazioni sugli errori in una [coda di messaggi non elaborabili](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). Scrivendo in una coda non elaborabile, si ha la possibilità di ritentare le operazioni in un secondo momento. Questo approccio è identico a quello usato dal trigger di archiviazione BLOB.

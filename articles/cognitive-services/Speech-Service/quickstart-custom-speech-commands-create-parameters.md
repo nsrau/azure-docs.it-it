@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 50132593ce3301094ea39546f5661df06a716503
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fc859625be0706dd130cf7714d0fabf196740e91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381002"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Guida introduttiva: creare un comando personalizzato con parametri (anteprima)
 
@@ -34,32 +34,32 @@ In questo articolo si estenderà l'applicazione con i parametri in modo che sia 
    > [!div class="mx-imgBorder"]
    > ![Crea parametro](media/custom-speech-commands/create-on-off-parameter.png)
 
-   | Impostazione            | Valore consigliato | Description                                                                                               |
-   | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | name               | OnOff           | Nome descrittivo per il parametro                                                                     |
-   | È globale          | deselezionata       | Casella di controllo che indica se un valore per questo parametro è applicato globalmente a tutti i comandi nel progetto |
-   | Obbligatoria           | checked         | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
-   | Modello di risposta  | Attivare o disattivare?      | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                                       |
-   | Type               | Stringa          | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
-   | Configurazione      | Elenco stringhe     | Per le stringhe, un elenco di stringhe limita gli input a un set di valori possibili.                                      |
-   | Valori elenco stringhe | on, off         | Per un parametro elenco stringhe, il set di valori possibili e i relativi sinonimi                                |
+   | Impostazione            | Valore consigliato     | Description                                                                                               |
+   | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Nome               | OnOff               | Nome descrittivo per il parametro                                                                     |
+   | È globale          | non selezionata           | Casella di controllo che indica se un valore per questo parametro è applicato globalmente a tutti i comandi nel progetto |
+   | Obbligatorio           | selezionata             | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
+   | Modello di risposta  | "-On o off?"      | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                                       |
+   | Tipo               | string              | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
+   | Configurazione      | Elenco stringhe         | Per le stringhe, un elenco di stringhe limita gli input a un set di valori possibili.                                      |
+   | Valori elenco stringhe | on, off             | Per un parametro elenco stringhe, il set di valori possibili e i relativi sinonimi                                |
 
    - Quindi, selezionare di nuovo l'icona `+` per aggiungere un secondo parametro per rappresentare il nome dei dispositivi. Per questo esempio, TV e ventola
 
-   | Impostazione            | Valore consigliato   | Description                                                                                               |
-   | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | name               | SubjectDevice     | Nome descrittivo per il parametro                                                                     |
-   | È globale          | deselezionata         | Casella di controllo che indica se un valore per questo parametro è applicato globalmente a tutti i comandi nel progetto |
-   | Obbligatoria           | checked           | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
-   | Modello di risposta  | Quale dispositivo?     | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                                       |
-   | Type               | Stringa            | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
-   | Configurazione      | Elenco stringhe       | Per le stringhe, un elenco di stringhe limita gli input a un set di valori possibili.                                      |
-   | Valori elenco stringhe | TV, ventola           | Per un parametro elenco stringhe, il set di valori possibili e i relativi sinonimi                                |
-   | Sinonimi (TV)      | televisione, Telly | Sinonimi facoltativi per ogni possibile valore di un parametro di elenco di stringhe                                      |
+   | Impostazione            | Valore consigliato       | Description                                                                                               |
+   | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Nome               | SubjectDevice         | Nome descrittivo per il parametro                                                                     |
+   | È globale          | non selezionata             | Casella di controllo che indica se un valore per questo parametro è applicato globalmente a tutti i comandi nel progetto |
+   | Obbligatorio           | selezionata               | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
+   | Modello di risposta  | "-Quale dispositivo?"     | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                                       |
+   | Tipo               | string                | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
+   | Configurazione      | Elenco stringhe           | Per le stringhe, un elenco di stringhe limita gli input a un set di valori possibili.                                      |
+   | Valori elenco stringhe | TV, ventola               | Per un parametro elenco stringhe, il set di valori possibili e i relativi sinonimi                                |
+   | Sinonimi (TV)      | televisione, Telly     | Sinonimi facoltativi per ogni possibile valore di un parametro di elenco di stringhe                                      |
 
 ## <a name="add-sample-sentences"></a>Aggiungi frasi di esempio
 
-Con i parametri è utile aggiungere frasi di esempio che coprono tutte le possibili combinazioni. ad esempio:
+Con i parametri è utile aggiungere frasi di esempio che coprono tutte le possibili combinazioni. Ad esempio:
 
 1. Informazioni complete sui parametri-`"turn {OnOff} the {SubjectDevice}"`
 1. Informazioni sui parametri parziali-`"turn it {OnOff}"`
@@ -94,7 +94,7 @@ Modificare la regola di completamento creata nella [Guida introduttiva precedent
    Ok, turning {OnOff} the {SubjectDevice}
    ```
 
-## <a name="try-it-out"></a>Provare il servizio
+## <a name="try-it-out"></a>Prova
 
 Aprire il pannello test chat e provare alcune interazioni.
 
@@ -112,4 +112,3 @@ Aprire il pannello test chat e provare alcune interazioni.
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Guida introduttiva: connettersi a un'applicazione di comando personalizzata con Speech SDK (anteprima)](./quickstart-custom-speech-commands-speech-sdk.md)
-

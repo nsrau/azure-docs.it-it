@@ -1,21 +1,22 @@
 ---
-title: Panoramica dell'account di archiviazione di Azure | Microsoft Docs
+title: Panoramica dell'account di archiviazione
+titleSuffix: Azure Storage
 description: Informazioni sulle opzioni per la creazione e l'uso di un account di archiviazione di Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460623"
 ---
-# <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
+# <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
 Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
 
@@ -55,11 +56,11 @@ Gli account di archiviazione per utilizzo generico V1 forniscono l'accesso a tut
 
 Nella maggior parte dei casi è consigliabile usare account di utilizzo generico V2. Per questi scenari, è possibile usare account generali V1:
 
-* Le applicazioni richiedono il modello di distribuzione classica di Azure. Gli account per utilizzo generico v2 e gli account di archiviazione BLOB supportano solo il modello di distribuzione Azure Resource Manager.
+- Le applicazioni richiedono il modello di distribuzione classica di Azure. Gli account per utilizzo generico v2 e gli account di archiviazione BLOB supportano solo il modello di distribuzione Azure Resource Manager.
 
-* Le applicazioni sono a elevato utilizzo di transazioni o usano una larghezza di banda di replica geografica significativa, ma non richiedono una capacità elevata. In questo caso, un account per utilizzo generico v1 può essere la scelta più economica.
+- Le applicazioni sono a elevato utilizzo di transazioni o usano una larghezza di banda di replica geografica significativa, ma non richiedono una capacità elevata. In questo caso, un account per utilizzo generico v1 può essere la scelta più economica.
 
-* Si usa una versione dell' [API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4. x. Non è possibile aggiornare l'applicazione.
+- Si usa una versione dell' [API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4. x. Non è possibile aggiornare l'applicazione.
 
 ### <a name="blockblobstorage-accounts"></a>Account BlockBlobStorage
 
@@ -86,12 +87,12 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 
 Gli account di archiviazione per utilizzo generico possono essere configurati per uno dei livelli di prestazioni seguenti:
 
-* Un livello di prestazioni standard per l'archiviazione di BLOB, file, tabelle, code e dischi delle macchine virtuali di Azure.
-* Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali non gestiti.
+- Un livello di prestazioni standard per l'archiviazione di BLOB, file, tabelle, code e dischi delle macchine virtuali di Azure. Per altre informazioni sugli obiettivi di scalabilità per gli account di archiviazione standard, vedere [obiettivi di scalabilità per gli account di archiviazione standard](scalability-targets-standard-account.md).
+- Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali non gestiti. Microsoft consiglia di usare Managed disks con macchine virtuali di Azure anziché con dischi non gestiti. Per altre informazioni sugli obiettivi di scalabilità per il livello di prestazioni Premium, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../blobs/scalability-targets-premium-page-blobs.md).
 
-Gli account di archiviazione BlockBlobStorage forniscono un livello di prestazioni Premium per l'archiviazione di BLOB in blocchi e BLOB di Accodamento.
+Gli account di archiviazione BlockBlobStorage forniscono un livello di prestazioni Premium per l'archiviazione di BLOB in blocchi e BLOB di Accodamento. Per ulteriori informazioni, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB in blocchi Premium](../blobs/scalability-targets-premium-block-blobs.md).
 
-Gli account di archiviazione filestorage forniscono un livello di prestazioni Premium per le condivisioni file di Azure.
+Gli account di archiviazione filestorage forniscono un livello di prestazioni Premium per le condivisioni file di Azure. Per ulteriori informazioni, vedere [obiettivi di scalabilità e prestazioni file di Azure](../files/storage-files-scale-targets.md).
 
 ## <a name="access-tiers-for-block-blob-data"></a>Livelli di accesso per i dati BLOB in blocchi
 
@@ -99,9 +100,9 @@ Archiviazione di Azure offre diverse opzioni per l'accesso ai dati BLOB in blocc
 
 I livelli di accesso disponibili sono i seguenti:
 
-* Livello **di accesso** frequente. Questo livello è ottimizzato per l'accesso frequente agli oggetti nell'account di archiviazione. L'accesso ai dati nel livello critico è più conveniente, mentre i costi di archiviazione sono maggiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
-* Livello **di accesso** sporadico. Questo livello è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede raramente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso a tali dati può risultare più costoso rispetto all'accesso ai dati nel livello critico.
-* Livello **Archivio** . Questo livello è disponibile solo per i singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
+- Livello **di accesso** frequente. Questo livello è ottimizzato per l'accesso frequente agli oggetti nell'account di archiviazione. L'accesso ai dati nel livello critico è più conveniente, mentre i costi di archiviazione sono maggiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
+- Livello **di accesso** sporadico. Questo livello è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede raramente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso a tali dati può risultare più costoso rispetto all'accesso ai dati nel livello critico.
+- Livello **Archivio** . Questo livello è disponibile solo per i singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
 
 Se viene apportata una modifica al modello di utilizzo dei dati, è possibile passare da un livello di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -124,10 +125,10 @@ Un account di archiviazione offre uno spazio dei nomi univoco in Azure per i dat
 
 Ad esempio, se l'account di archiviazione per utilizzo generico si chiama *mystorageaccount*, gli endpoint predefiniti per tale account sono:
 
-* Archiviazione BLOB: http://*mystorageaccount*.blob.core.windows.net
-* Archiviazione tabelle: http://*mystorageaccount*.table.core.windows.net
-* Archiviazione code: http://*mystorageaccount*.queue.core.windows.net
-* File di Azure: http://*mystorageaccount*.file.core.windows.net
+- Archiviazione BLOB: `https://*mystorageaccount*.blob.core.windows.net`
+- Archiviazione tabelle: `https://*mystorageaccount*.table.core.windows.net`
+- Archiviazione code: `https://*mystorageaccount*.queue.core.windows.net`
+- File di Azure: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > Gli account di archiviazione BLOB e BLOB in blocchi espongono solo l'endpoint del servizio BLOB.
@@ -149,7 +150,7 @@ Ogni richiesta effettuata all'account di archiviazione deve essere autorizzata. 
 - **Firma di accesso condiviso:** Usare una firma di accesso condiviso per delegare l'accesso alle risorse nell'account di archiviazione, se non si usa Azure AD autorizzazione. Una firma di accesso condiviso è un token che incapsula nell'URL tutte le informazioni necessarie per autorizzare una richiesta ad Archiviazione di Azure. È possibile specificare la risorsa di archiviazione, le autorizzazioni concesse e l'intervallo per cui sono valide le autorizzazioni come parte della firma di accesso condiviso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
 > [!NOTE]
-> L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso (SAS) per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token SAS o di occuparsi della revoca di una SAS compromessa. 
+> L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. 
 >
 > Microsoft consiglia di usare Azure AD autorizzazione per le applicazioni di Accodamento e BLOB di archiviazione di Azure, quando possibile.
 
@@ -171,7 +172,7 @@ La libreria di spostamento dei dati di Archiviazione di Azure per .NET si basa s
 
 È possibile creare un'applicazione personalizzata per eseguire la migrazione dei dati da un account di archiviazione per utilizzo generico V1 a un account di archiviazione BLOB. Usare una delle librerie client di Azure o l'API REST dei servizi di archiviazione di Azure. Archiviazione di Azure fornisce librerie client avanzate per più linguaggi e piattaforme, ad esempio .NET, Java, C++, Node.js, PHP, Ruby e Python. Le librerie client offrono funzionalità avanzate, ad esempio la logica di ripetizione dei tentativi, la registrazione e i caricamenti paralleli. È possibile sviluppare usando direttamente l'API REST, che può essere chiamata da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS.
 
-Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informazioni di riferimento sulle API REST dei servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/). 
+Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informazioni di riferimento sulle API REST dei servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > I BLOB crittografati con la crittografia lato client archiviano i metadati correlati alla crittografia con il BLOB. Se si copia un BLOB crittografato con la crittografia lato client, verificare che l'operazione di copia mantenga i metadati del BLOB e soprattutto quelli correlati alla crittografia. Se si copia un BLOB senza i metadati di crittografia, il contenuto del BLOB non sarà più recuperabile. Per altre informazioni sui metadati correlati alla crittografia, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -182,6 +183,5 @@ Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un account di archiviazione](storage-quickstart-create-account.md)
-* [Creare un account di archiviazione BLOB in blocchi](../blobs/storage-blob-create-account-block-blob.md)
-* [Gestire gli account di archiviazione di Azure](storage-account-manage.md)
+- [Creare un account di archiviazione](storage-quickstart-create-account.md)
+- [Creare un account di archiviazione BLOB in blocchi](../blobs/storage-blob-create-account-block-blob.md)

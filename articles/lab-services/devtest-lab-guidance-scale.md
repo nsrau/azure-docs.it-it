@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561490"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644835"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Aumentare l'infrastruttura di Azure DevTestLabs
 Prima di implementare DevTest Labs su scala aziendale, esistono diversi punti fondamentali da decidere. La comprensione di questi punti a livello generale aiuta un'organizzazione a progettare le decisioni per il futuro. Questi punti non devono tuttavia trattenere un'organizzazione dall'avviare un modello di verifica. Di seguito sono elencate le tre aree principali che interessano la pianificazione iniziale della scalabilità verticale:
@@ -46,14 +46,14 @@ Di seguito vengono esposti i vantaggi di ogni approccio.
 L'approccio con un'unica sottoscrizione spesso non è gestibile in un'azienda di grandi dimensioni. La scelta di limitare il numero di sottoscrizioni offre tuttavia i benefici seguenti:
 
 - **Previsione** dei costi per l'azienda.  La determinazione del budget diventa molto più semplice con una singola sottoscrizione perché tutte le risorse sono riunite in un unico pool. Questo approccio consente di prendere le decisioni con più facilità in merito a quando esercitare misure di controllo dei costi in una fase specifica del ciclo di fatturazione.
-- **Gestibilità** di macchine virtuali, gli elementi, le formule, configurazione di rete, autorizzazioni, i criteri, e così via è più semplice poiché tutti gli aggiornamenti sono necessari solo in una sottoscrizione invece di effettuare gli aggiornamenti tra più sottoscrizioni.
+- La **gestibilità** di macchine virtuali, artefatti, formule, configurazione di rete, autorizzazioni, criteri e così via è più semplice, poiché tutti gli aggiornamenti sono necessari solo in una sottoscrizione, anziché eseguire aggiornamenti in molte sottoscrizioni.
 - Il lavoro richiesto per le **reti** risulta enormemente semplificato in una singola sottoscrizione per le aziende per cui la connettività locale è un requisito. La connessione di reti virtuali tra le sottoscrizioni (modello hub-spoke) è necessaria con sottoscrizioni aggiuntive e richiede configurazione, gestione, spazi di indirizzi IP aggiuntivi e altro ancora.
 - La **collaborazione nei team** è più facile se tutti lavorano nella stessa sottoscrizione. È ad esempio più facile riassegnare una VM a un collega, condividere le risorse con il team e così via.
 
 ### <a name="subscription-per-user"></a>Una sottoscrizione per utente
 Una sottoscrizione distinta per ogni utente offre pari opportunità nello spettro delle alternative. I vantaggi di disporre di molte sottoscrizioni includono:
 
-- Le **quote di ridimensionamento di Azure** non ostacolano l'adozione. Al momento della stesura di questo articolo, ad esempio, Azure consente 200 account di archiviazione per ogni sottoscrizione. Sono previste quote operative per la maggior parte dei servizi in Azure (molti possono essere personalizzati, altri no). In questo modello di sottoscrizione per utente è molto improbabile che venga raggiunta la maggior parte delle quote. Per altre informazioni sulle attuali quote di ridimensionamento di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+- Le **quote di ridimensionamento di Azure** non ostacolano l'adozione. Al momento della stesura di questo articolo, ad esempio, Azure consente 200 account di archiviazione per ogni sottoscrizione. Sono previste quote operative per la maggior parte dei servizi in Azure (molti possono essere personalizzati, altri no). In questo modello di sottoscrizione per utente è molto improbabile che venga raggiunta la maggior parte delle quote. Per altre informazioni sulle attuali quote di ridimensionamento di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - I **chargeback** a gruppi o singoli sviluppatori diventano molto più semplici e consentono alle organizzazioni di tenere conto dei costi tramite il modello corrente.
 - La **proprietà e le autorizzazioni** degli ambienti DevTest Labs sono semplici. Si offre agli sviluppatori l'accesso a livello di sottoscrizione e questi diventano responsabili al 100% di tutti gli aspetti, inclusi la configurazione di rete, i criteri del lab e la gestione delle macchine virtuali.
 
@@ -62,7 +62,7 @@ Nell'azienda possono essere presenti alcuni limiti agli estremi dello spettro. P
 ## <a name="roles-and-responsibilities"></a>Ruoli e responsabilità
 Un modello di verifica di DevTest Labs prevede tre ruoli primari con responsabilità definite: proprietario della sottoscrizione, proprietario di DevTest Labs, utente di DevTest Labs e, facoltativamente, un collaboratore.
 
-- **Proprietario della sottoscrizione**: il proprietario della sottoscrizione dispone dei diritti per amministrare una sottoscrizione di Azure, tra cui l'assegnazione di utenti, la gestione dei criteri, la creazione e la gestione della topologia di rete, la richiesta di aumenti di quota e così via. Per altre informazioni, vedere [questo articolo](../role-based-access-control/rbac-and-directory-admin-roles.md).
+- **Proprietario** della sottoscrizione: il proprietario della sottoscrizione dispone dei diritti per amministrare una sottoscrizione di Azure, tra cui l'assegnazione di utenti, la gestione dei criteri, la creazione di & la gestione della topologia di rete, la richiesta di aumenti Per altre informazioni, vedere [questo articolo](../role-based-access-control/rbac-and-directory-admin-roles.md).
 - **Proprietario di DevTest Labs**: il proprietario di DevTest Labs dispone dell'accesso amministrativo completo al lab. Questo ruolo è responsabile dell'aggiunta/rimozione di utenti, delle impostazioni dei costi di gestione, delle impostazioni di lab generali e di altre attività basate su macchine virtuali/artefatti. Un proprietario del lab dispone anche di tutti i diritti di un utente di DevTest Labs.
 - **Utente di DevTest Labs**: l'utente di DevTest Labs può creare e usare le macchine virtuali nel lab. Dispone di alcune capacità amministrative minime sulle macchine virtuali che crea (avvio/arresto/eliminazione/configurazione delle proprie macchine virtuali). Non può gestire le macchine virtuali di altri utenti.
 

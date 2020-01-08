@@ -7,15 +7,15 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 90aec113661405f9a68d70a43d90523c1fb2376b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ad4babc68f39851beeb3a5c46d295a3342c63026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795614"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453200"
 ---
-# <a name="azure-cognitive-services-to-solve-business-problems-using-artificial-intelligence"></a>Servizi cognitivi di Azure per risolvere i problemi aziendali con l'intelligenza artificiale
-[Servizi cognitivi di Azure](https://azure.microsoft.com/services/cognitive-services/) offre potenti servizi per infondere le app con algoritmi intelligenti per vedere, ascoltare, parlare, comprendere e interpretare le esigenze degli utenti per trasformare l'azienda con l'intelligenza artificiale. È possibile rendere le applicazioni per dispositivi mobili intelligenti, accattivanti e contestuali per gli utenti. Le API, gli SDK e i servizi consentono agli sviluppatori di aggiungere intelligenza artificiale alla propria offerta e di creare applicazioni intelligenti senza avere competenze dirette di intelligenza artificiale o data science.
+# <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Servizi cognitivi consente di risolvere i problemi aziendali tramite intelligenza artificiale
+[Servizi cognitivi di Azure](https://azure.microsoft.com/services/cognitive-services/) offre potenti servizi per infondere le app con algoritmi intelligenti per vedere, ascoltare, parlare, comprendere e interpretare le esigenze degli utenti per trasformare l'azienda con intelligenza artificiale. È possibile rendere le applicazioni per dispositivi mobili intelligenti, accattivanti e contestuali per gli utenti. Gli sviluppatori possono usare le API, gli SDK e i servizi per aggiungere intelligenza artificiale alle loro offerte e contribuire a creare applicazioni intelligenti senza avere competenze dirette di intelligenza artificiale o data science.
 
 ## <a name="cognitive-services-capabilities"></a>Funzionalità di servizi cognitivi
 - **Visione artificiale**
@@ -35,7 +35,7 @@ ms.locfileid: "72795614"
     - Traduzione vocale in tempo reale
 
 - **Lingua**
-    - Comprensione del linguaggio contestuale-analisi finalità personalizzata
+    - Comprensione del linguaggio contestuale, analisi delle finalità personalizzate
     - Analisi dei sentimenti, rilevamento di frasi chiave
     - Traduzione testuale fino a 60 lingue
     - Moderazione testo
@@ -46,17 +46,17 @@ ms.locfileid: "72795614"
     - Distribuzione di contenuti personalizzata
     - Rilevamento anomalie
 
-- **Search**
+- **Ricerca**
     - Suggerimenti per la ricerca automatica 
     - Incremento Informazioni entità
     - Ricerca completa di notizie, immagini, video, Web e ricerca di entità di business locali
     - Esperienze di ricerca personalizzate e personalizzate
 
-- Supporto per i **contenitori** per servizi cognitivi
+- Supporto per i contenitori per servizi cognitivi
 
  ## <a name="references"></a>Riferimenti
    - [Azure portal](https://portal.azure.com) 
-   - [Documentazione](/azure/cognitive-services/welcome)
+   - [Documentazione dei servizi cognitivi](/azure/cognitive-services/welcome)
    - [Guide introduttive](/azure/cognitive-services/cognitive-services-apis-create-account)
    - [Supporto del contenitore](/azure/cognitive-services/cognitive-services-container-support)
    - [Guide introduttive](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)

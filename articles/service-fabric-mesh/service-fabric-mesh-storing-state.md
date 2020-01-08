@@ -1,20 +1,16 @@
 ---
-title: Opzioni di archiviazione dello stato su Azure Service Fabric Mesh | Microsoft Docs
+title: Opzioni di archiviazione dello stato in Azure Service Fabric mesh
 description: Informazioni sull'archiviazione affidabile dello stato nelle applicazioni mesh Service Fabric eseguite su Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: ef51040d1bad74ee74d5901d1f5acbe875c02a07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352338"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestione dello stato con Service Fabric
 
@@ -24,7 +20,7 @@ Con mesh Service Fabric puoi distribuire facilmente una nuova applicazione e con
 
 ## <a name="volumes"></a>Volumi
 
-I contenitori spesso usano dischi temporanei. Si tratta di supporti temporanei, quindi si riceve un nuovo disco temporaneo e si perdono i dati in caso di arresto anomalo di un contenitore. È anche difficile condividere le informazioni sui dischi temporanei con altri contenitori. I volumi sono le directory che vengono montate all'interno di istanze del contenitore che è possibile usare per mantenere la persistenza dello stato. I volumi offrono una risorsa di archiviazione file per utilizzo generico e consentono di leggere e scrivere i file usando le API di file di I/O del disco. La risorsa Volume spiega come montare una directory e quale risorsa di archiviazione di backup usare. È possibile scegliere Archiviazione file di Azure o un disco volume di Service Fabric per archiviare i dati.
+I contenitori spesso usano dischi temporanei. I dischi sono temporanei, quindi si riceve un nuovo disco temporaneo e si perdono le informazioni in caso di arresto anomalo di un contenitore. È anche difficile condividere le informazioni sui dischi temporanei con altri contenitori. I volumi sono le directory che vengono montate all'interno di istanze del contenitore che è possibile usare per mantenere la persistenza dello stato. I volumi offrono una risorsa di archiviazione file per utilizzo generico e consentono di leggere/scrivere i file usando le normali API di file I/O del disco. La risorsa Volume spiega come montare una directory e quale risorsa di archiviazione di backup usare. È possibile scegliere Archiviazione file di Azure o un disco volume di Service Fabric per archiviare i dati.
 
 ![Volumi][image3]
 

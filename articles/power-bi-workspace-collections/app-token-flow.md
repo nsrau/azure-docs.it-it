@@ -1,5 +1,5 @@
 ---
-title: Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI| Microsoft Docs
+title: Autenticare e autorizzare le raccolte di aree di lavoro Power BI
 description: Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI.
 services: power-bi-workspace-collections
 author: rkarlin
@@ -8,12 +8,12 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 713c56904769c133272db4fb65f8b596ab66804b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 8fcd7caffb041c57090d7256361421cb49a9a5fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427118"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI
 
@@ -36,7 +36,7 @@ I token dell'app sono token JSON Web (JWT, JSON Web Token) firmati da una delle 
 
 Il token dell'app può contenere le attestazioni seguenti:
 
-| Attestazione | Descrizione |    
+| Attestazione | Description |    
 | --- | --- |
 | **ver** |Versione del token dell'app. La versione corrente è 0.2.0. |
 | **aud** |Destinatario previsto per il token. Per le raccolte di aree di lavoro di Power BI usare: *https:\//analysis.windows.net/powerbi/api*. |
@@ -92,7 +92,7 @@ Quando si usano token di incorporamento, può essere opportuno limitare l'uso de
 
 Di seguito sono riportati gli ambiti disponibili per le raccolte di aree di lavoro di Power BI.
 
-|Ambito|Descrizione|
+|Ambito|Description|
 |---|---|
 |Dataset.Read|Concede l'autorizzazione per leggere il set di dati specificato.|
 |Dataset.Write|Concede l'autorizzazione per scrivere il set di dati specificato.|
@@ -144,9 +144,9 @@ Body
 |---|---|---|
 |Creare (in memoria) un nuovo report basato su un set di dati.|Set di dati|Dataset.Read|
 |Creare (in memoria) un nuovo report basato su un set di dati e salvarlo.|Set di dati|* Dataset.Read<br>* Workspace.Report.Create|
-|Visualizzare ed esplorare/modificare (in memoria) un report esistente. Report.Read implica Dataset.Read. Report.Read non consente il salvataggio delle modifiche.|Report|Report.Read|
-|Modificare e salvare un report esistente.|Report|Report.ReadWrite|
-|Salvare una copia di un report (Salva con nome).|Report|* Report.Read<br>* Workspace.Report.Copy|
+|Visualizzare ed esplorare/modificare (in memoria) un report esistente. Report.Read implica Dataset.Read. Report.Read non consente il salvataggio delle modifiche.|Documentazione|Report.Read|
+|Modificare e salvare un report esistente.|Documentazione|Report.ReadWrite|
+|Salvare una copia di un report (Salva con nome).|Documentazione|* Report.Read<br>* Workspace.Report.Copy|
 
 ## <a name="heres-how-the-flow-works"></a>Funzionamento del flusso
 1. È necessario copiare le chiavi API nell'applicazione. È possibile ottenere le chiavi nel **portale di Azure**.

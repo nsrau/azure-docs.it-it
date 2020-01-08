@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 4a8dbe9d1c66955e585f7b2cbf842193c965252e
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998771"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414229"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Linee guida per il ripristino di emergenza per vFXT per Azure
 
@@ -104,7 +104,7 @@ Per accedere al contenitore di backup da un cluster vFXT per Azure, seguire ques
 1. Se necessario, creare una nuova vFXT per il cluster di Azure in un'area non interessata.
 
    > [!TIP]
-   > Quando si crea un cluster vFXT per Azure, è possibile salvare una copia del modello e dei parametri di creazione. Se si salvano queste informazioni durante la creazione del cluster primario, è possibile usarle per creare un cluster sostitutivo con le stesse proprietà. Nella pagina [convalida e riepilogo](avere-vfxt-deploy.md#validation-and-purchase) fare clic sul collegamento **Scarica modello e parametri** . Salvare le informazioni in un file prima di fare clic sul pulsante **OK** per creare il cluster.
+   > Quando si crea un cluster vFXT per Azure, è possibile salvare una copia del modello e dei parametri di creazione. Se si salvano queste informazioni durante la creazione del cluster primario, è possibile usarle per creare un cluster sostitutivo con le stesse proprietà. Nella pagina [Riepilogo](avere-vfxt-deploy.md#validation-and-purchase) fare clic sul collegamento **Scarica modello e parametri** . Salvare le informazioni in un file prima di creare il cluster.
 
 1. Aggiungere un nuovo filer di cloud core che punti al contenitore BLOB duplicato.
 

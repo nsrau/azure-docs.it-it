@@ -6,24 +6,30 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0678d437a5c24b8193e7440a62445fb30ec97759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460520"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code usando Azure Active Directory
 
-Archiviazione di Azure supporta l'uso di Azure Active Directory (AD) per autorizzare le richieste all'archiviazione BLOB e di Accodamento. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa nell'archivio BLOB o di Accodamento.
+Archiviazione di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste all'archiviazione BLOB e di Accodamento. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può quindi essere usato per autorizzare una richiesta per l'archiviazione di BLOB o code.
 
-L'autorizzazione di utenti o applicazioni tramite un token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare la chiave di accesso dell'account con il codice e rischiare potenziali vulnerabilità della sicurezza. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso (SAS) per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token SAS o di occuparsi della revoca di una SAS compromessa. Microsoft consiglia di usare Azure AD autorizzazione con le applicazioni di archiviazione di Azure, quando possibile.
+L'autorizzazione delle richieste per l'archiviazione di Azure con Azure AD offre sicurezza e facilità d'uso superiori rispetto all'autorizzazione della chiave condivisa. Microsoft consiglia di usare Azure AD autorizzazione con le applicazioni BLOB e di Accodamento quando possibile per ridurre al minimo le potenziali vulnerabilità di sicurezza inerenti alla chiave condivisa.
 
-L'autorizzazione con Azure AD è disponibile per tutti gli account di archiviazione BLOB e per utilizzo generico in tutte le aree pubbliche e nei cloud nazionali. Solo gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager supportano Azure AD autorizzazione. L'autorizzazione con Azure AD non è supportata per l'archiviazione tabelle di Azure.
+L'autorizzazione con Azure AD è disponibile per tutti gli account di archiviazione BLOB e per utilizzo generico in tutte le aree pubbliche e nei cloud nazionali. Solo gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager supportano Azure AD autorizzazione.
+
+L'archiviazione BLOB supporta inoltre la creazione di firme di accesso condiviso (SAS) firmate con Azure AD credenziali. Per altre informazioni, vedere [concedere l'accesso limitato ai dati con firme di accesso condiviso](storage-sas-overview.md).
+
+File di Azure supporta l'autorizzazione con Azure AD su SMB solo per le macchine virtuali appartenenti a un dominio. Per informazioni sull'uso di Azure AD su SMB per File di Azure, vedere [Panoramica dell'autorizzazione di Azure Active Directory su SMB per file di Azure](../files/storage-files-active-directory-overview.md).
+
+L'autorizzazione con Azure AD non è supportata per l'archiviazione tabelle di Azure. Usare la chiave condivisa per autorizzare le richieste all'archiviazione tabelle.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Panoramica di Azure AD per BLOB e code
 
@@ -78,10 +84,6 @@ Il portale di Azure indica quale schema di autorizzazione è in uso quando si pa
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Accesso ai dati da PowerShell o dall'interfaccia della riga di comando
 
 L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con le credenziali Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o della coda](storage-auth-aad-script.md).
-
-## <a name="azure-ad-authorization-over-smb-for-azure-files"></a>Azure AD autorizzazione su SMB per File di Azure
-
-File di Azure supporta l'autorizzazione con Azure AD su SMB solo per le macchine virtuali appartenenti a un dominio (anteprima). Per informazioni sull'uso di Azure AD su SMB per File di Azure, vedere [Panoramica dell'autorizzazione di Azure Active Directory su SMB per file di Azure (anteprima)](../files/storage-files-active-directory-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

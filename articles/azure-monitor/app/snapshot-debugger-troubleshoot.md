@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932097"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432335"
 ---
 # <a id="troubleshooting"></a>Risolvere i problemi abilitando Application Insights Snapshot Debugger o visualizzando gli snapshot
 Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile utilizzare queste istruzioni per la risoluzione dei problemi. Possono esserci diversi motivi per cui non vengono generati snapshot. È possibile eseguire il controllo integrità snapshot per identificare alcune delle possibili cause comuni.
@@ -87,7 +87,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 Nell'esempio precedente la chiave di strumentazione è `c12a605e73c44346a984e00000000000`. Questo valore deve corrispondere alla chiave di strumentazione dell'applicazione.
 Il minidump è associato a uno snapshot con l'ID `139e411a23934dc0b9ea08a626db16c5`. Sarà possibile usare questo ID in seguito per individuare i dati di telemetria delle eccezioni associati in Application Insights Analytics.
 
-L'utilità di caricamento cerca i nuovi file PDB ogni 15 minuti circa. Ecco un esempio:
+L'utilità di caricamento cerca i nuovi file PDB ogni 15 minuti circa. Ad esempio:
 
 ```
 SnapshotUploader.exe Information: 0 : PDB rescan requested.
@@ -202,7 +202,7 @@ In alternativa, se si usa appsettings.json con un'applicazione .NET Core:
 Quando viene creato uno snapshot, l'eccezione generata viene contrassegnata con un ID snapshot. Tale ID snapshot viene incluso come proprietà personalizzata, quando i dati di telemetria dell'eccezione vengono segnalati ad Application Insights. Usando **Cerca** in Application Insights, è possibile trovare tutti i dati di telemetria con la proprietà personalizzata `ai.snapshot.id`.
 
 1. Passare alla risorsa di Application Insights nel portale di Azure.
-2. Fare clic su **Search**(Cerca).
+2. Fare clic su **Cerca**.
 3. Digitare `ai.snapshot.id` nella casella di testo di ricerca e premere INVIO.
 
 ![Cercare i dati di telemetria con i ID snapshot nel portale](./media/snapshot-debugger/search-snapshot-portal.png)
@@ -219,4 +219,4 @@ Se ancora non vengono visualizzate eccezioni con tale ID snapshot, significa che
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Modificare le regole proxy o firewall di rete
 
-Se l'applicazione si connette a Internet tramite un proxy o un firewall, può essere necessario modificare le regole per consentire all'applicazione di comunicare con il servizio Snapshot Debugger. Ecco un [elenco di porte e indirizzi IP usati da Snapshot Debugger](../../azure-monitor/app/ip-addresses.md#snapshot-debugger).
+Se l'applicazione si connette a Internet tramite un proxy o un firewall, può essere necessario modificare le regole per consentire all'applicazione di comunicare con il servizio Snapshot Debugger. Gli IP usati da Snapshot Debugger sono inclusi nel tag del servizio di monitoraggio di Azure.

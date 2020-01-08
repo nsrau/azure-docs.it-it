@@ -1,5 +1,5 @@
 ---
-title: Inviare ID contesto utente per abilitare le esperienze di utilizzo in Azure Application Insights | Microsoft Docs
+title: ID del contesto utente per tenere traccia dell'attività applicazione Azure informazioni dettagliate
 description: Tenere traccia delle azioni degli utenti nel servizio assegnando a ognuno una stringa ID univoca persistente in Application Insights.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: b105e8ba79e99be02420ca1821f6a080b0862d6f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ee26aeff87f56ec09bced6029154c5152f26750d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432293"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
 
@@ -32,7 +32,7 @@ Per tenere traccia delle operazioni eseguite da un utente nel corso del tempo, A
 - Sessioni: includere l'ID di sessione.
 
 > [!NOTE]
-> Questo articolo illustra in modo approfondito la procedura manuale per tenere traccia delle attività degli utenti con Application Insights. Con molte applicazioni Web **questa procedura potrebbe non essere necessaria** poiché gli SDK lato server predefiniti in combinazione con l'[SDK JavaScript lato client/browser](../../azure-monitor/app/website-monitoring.md ) sono spesso sufficienti per tenere traccia automaticamente delle attività degli utenti. Se non è stato configurato il [monitoraggio lato client](../../azure-monitor/app/website-monitoring.md ) in aggiunta all'SDK lato server, è necessario eseguire prima questa operazione e successivamente il test per verificare se gli strumenti di analisi del comportamento degli utenti funzionano come previsto.
+> Questo articolo illustra in modo approfondito la procedura manuale per tenere traccia delle attività degli utenti con Application Insights. Con molte applicazioni Web **questa procedura potrebbe non essere necessaria** poiché gli SDK lato server predefiniti in combinazione con [JavaScript SDK lato client/browser](../../azure-monitor/app/website-monitoring.md ) sono spesso sufficienti per tenere traccia automaticamente delle attività degli utenti. Se non è stato configurato il [monitoraggio lato client](../../azure-monitor/app/website-monitoring.md ) in aggiunta all'SDK lato server, è necessario eseguire prima questa operazione e successivamente il test per verificare se gli strumenti di analisi del comportamento degli utenti funzionano come previsto.
 
 ## <a name="choosing-user-ids"></a>Scelta degli ID utente
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un nuovo report da un set di dati nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
+title: Creare un report da un set di dati-Power BI raccolte di aree di lavoro
 description: È ora possibile creare report di raccolta di aree di lavoro di Power BI da un set di dati nell'applicazione.
 services: power-bi-workspace-collections
 ms.service: power-bi-embedded
@@ -8,12 +8,12 @@ ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 2034c62a17b71b92b43a7afd794c2c172288d58c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: bcc6044d0f0f5270f81a619e4d1ad71ea35cc170
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427064"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creare un nuovo report da un set di dati nelle raccolte di aree di lavoro di Power BI
 
@@ -196,7 +196,7 @@ var embedCreateConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Esempio introduttivo](get-started-sample.md)  
 [Salvare i report](save-reports.md)  

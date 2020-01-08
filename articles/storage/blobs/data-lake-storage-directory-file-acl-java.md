@@ -1,5 +1,5 @@
 ---
-title: USA Java per file & ACL in Azure Data Lake Storage Gen2 (anteprima)
+title: Azure Data Lake Storage Gen2 Java SDK per file & ACL (anteprima)
 description: Usare le librerie di archiviazione di Azure per Java per gestire directory e elenchi di controllo di accesso (ACL) di file e directory negli account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico (HNS).
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5a08a1f104e1820755f231ae6d1248ccc21ce330
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930775"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431846"
 ---
-# <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>USA Java per file & ACL in Azure Data Lake Storage Gen2 (anteprima)
+# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)
 
 Questo articolo illustra come usare Java per creare e gestire directory, file e autorizzazioni negli account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico (HNS). 
 

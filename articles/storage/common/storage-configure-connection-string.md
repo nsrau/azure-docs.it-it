@@ -1,20 +1,21 @@
 ---
-title: Configurare una stringa di connessione per archiviazione di Azure
+title: Configurare una stringa di connessione
+titleSuffix: Azure Storage
 description: Configurare una stringa di connessione per un account di archiviazione di Azure. Una stringa di connessione contiene le informazioni necessarie per autorizzare l'accesso a un account di archiviazione dall'applicazione in fase di esecuzione tramite l'autorizzazione della chiave condivisa.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460572"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
@@ -23,8 +24,6 @@ Una stringa di connessione include le informazioni di autorizzazione necessarie 
 * Connettersi all'emulatore di archiviazione di Azure.
 * Accedere a un account di archiviazione in Azure.
 * Accedere alle risorse specificate in Azure tramite una firma di accesso condiviso (SAS).
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 

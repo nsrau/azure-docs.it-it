@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075956"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644937"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
@@ -69,7 +69,7 @@ Si definiscono due regole:
 
 Il mapping completo in Azure Load Balancer sarà ora il seguente:
 
-| Regola | Indirizzo IP front-end | protocol | port | Destination | port |
+| Regola | Indirizzo IP front-end | protocol | port | Destinazione | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regola verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Indirizzo IP DIP |80 |
 | ![regola viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Indirizzo IP DIP |81 |
@@ -112,12 +112,12 @@ Si definiscono due regole:
 
 | Regola | Front-end | Mapping al pool back-end |
 | --- | --- | --- |
-| 1 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
-| 2 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
+| 1 |![regola](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
+| 2 |![regola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
 
 La tabella seguente illustra il mapping completo nel servizio di bilanciamento del carico:
 
-| Regola | Indirizzo IP front-end | protocol | port | Destination | port |
+| Regola | Indirizzo IP front-end | protocol | port | Destinazione | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regola verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |uguale a front-end (65.52.0.1) |uguale a front-end (80) |
 | ![regola viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |uguale a front-end (65.52.0.2) |uguale a front-end (80) |
@@ -133,7 +133,7 @@ Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di con
 * Le configurazioni di più front-end sono supportate solo con le macchine virtuali IaaS.
 * Con la regola dell'indirizzo IP mobile, l'applicazione deve usare la configurazione IP primaria per i flussi SNAT in uscita. Se l'applicazione si associa all'indirizzo IP front-end configurato nell'interfaccia di loopback del sistema operativo guest, il SNAT in uscita di Azure non è disponibile per riscrivere il flusso in uscita e il flusso ha esito negativo.  Esaminare gli [scenari in uscita](load-balancer-outbound-connections.md).
 * Gli indirizzi IP pubblici hanno un effetto sulla fatturazione. Per altre informazioni, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-subscription-service-limits.md#networking-limits) .
+* Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

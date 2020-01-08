@@ -1,5 +1,5 @@
 ---
-title: Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure | Microsoft Docs
+title: Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure (Azure CLI) con l'archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460466"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
@@ -33,7 +33,7 @@ Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. e possa soddisfare i requisiti di creazione dell'account specificati di seguito per Azure e per il servizio Archiviazione.
 
 ### <a name="accounts"></a>Account
-* **Account Azure**: se non si ha già una sottoscrizione di Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* **Account Azure**: se non si ha già una sottoscrizione di Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/).
 * **Account di archiviazione**: vedere [Creare un account di archiviazione](storage-quickstart-create-account.md) in [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
@@ -175,7 +175,7 @@ Done
 
 ## <a name="manage-storage-accounts"></a>Gestire gli account di archiviazione
 
-### <a name="create-a-new-storage-account"></a>Crea un nuovo account di archiviazione
+### <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
 Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer affinché si connetta alla sottoscrizione, è possibile creare un nuovo account di Archiviazione di Azure.
 
 ```azurecli
@@ -186,17 +186,17 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Obbligatorio]: Posizione. Ad esempio "Stati Uniti occidentali".
-* `--name` [Obbligatorio]: nome dell'account di archiviazione. Il nome può contenere da 3 a 24 caratteri e usare solo numeri e lettere minuscole.
-* `--resource-group` [Obbligatorio]: Nome del gruppo di risorse.
-* `--sku` [Obbligatorio]: codice di riferimento del prodotto dell'account di archiviazione. Valori consentiti:
+* `--location` [Richiesto]: posizione. Ad esempio "Stati Uniti occidentali".
+* `--name` [Richiesto]: il nome dell'account di archiviazione. Il nome può contenere da 3 a 24 caratteri e usare solo numeri e lettere minuscole.
+* `--resource-group`[Richiesto]: il nome del gruppo di risorse.
+* `--sku` [Richiesto]: lo SKU dell'account di archiviazione. Valori consentiti:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
-  * `Standard_GZRS`anteprima
-  * `Standard_RAGZRS`anteprima
+  * `Standard_GZRS` (anteprima)
+  * `Standard_RAGZRS` (anteprima)
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Impostare le variabili di ambiente predefinite dell'account di archiviazione di Azure
 
@@ -247,9 +247,9 @@ az storage container create --name <container_name>
 
 È possibile impostare uno fra tre livelli di accesso in lettura per un nuovo contenitore specificando l'argomento opzionale `--public-access`:
 
-* `off` (impostazione predefinita): i dati del contenitore sono privati per il proprietario dell'account.
-* `blob`: accesso in lettura pubblico per i BLOB.
-* `container`: accesso in lettura e per elenchi pubblico all'intero contenitore.
+* `off`(impostazione predefinita): i dati del contenitore sono privati per il proprietario dell'account.
+* `blob`: Accesso in lettura pubblico per i BLOB.
+* `container`: Accesso in lettura e per elenchi pubblico all'intero contenitore.
 
 Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
 
@@ -331,7 +331,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 
 ### <a name="set-the-content-type"></a>Impostare il tipo di contenuto
 
-Il tipo di contenuto, chiamato anche tipo MIME, identifica il formato dei dati nel BLOB. I browser e altri software usano il tipo di contenuto per determinare come devono essere elaborati i dati. Ad esempio, il tipo di contenuto per le immagini `image/png`png è. Per impostare il tipo di contenuto, usare `blob update` il comando:
+Il tipo di contenuto, chiamato anche tipo MIME, identifica il formato dei dati nel BLOB. I browser e altri software usano il tipo di contenuto per determinare come devono essere elaborati i dati. Ad esempio, il tipo di contenuto per le immagini PNG è `image/png`. Per impostare il tipo di contenuto, usare il comando `blob update`:
 
 ```azurecli
 az storage blob update
@@ -404,7 +404,7 @@ az storage file copy start \
 az storage share snapshot -n <share name>
 ```
 
-Esempio di output
+Output di esempio
 ```json
 {
   "metadata": {},
@@ -527,7 +527,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
 ```
 
-Esempio di output
+Output di esempio
 ```json
 {
   "deleted": true

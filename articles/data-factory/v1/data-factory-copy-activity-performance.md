@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88094e7ade688505bb971dd85505ddfacb1d8859
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926792"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438931"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -205,7 +205,7 @@ Attualmente non è possibile copiare dati tra due archivi dati locali usando un 
 ### <a name="configuration"></a>Configurazione
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se i dati devono essere inseriti in un archivio BLOB di Azure di staging prima del caricamento in un archivio dati di destinazione. Se si imposta **enableStaging** su TRUE, specificare le proprietà aggiuntive elencate nella tabella seguente. Se non è già disponibile, è necessario creare un servizio collegato alla firma di accesso condiviso di archiviazione o di Archiviazione di Azure per lo staging.
 
-| Proprietà | Description | Valore predefinito | Obbligatoria |
+| Proprietà | Description | Valore predefinito | Obbligatorio |
 | --- | --- | --- | --- |
 | **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |Falso |No |
 | **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
@@ -413,10 +413,11 @@ In tal caso, la compressione dati bzip2 potrebbe rallentare l'intera pipeline. I
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimenti
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:
 
-* Archiviazione di Azure, inclusi archivi BLOB e archivi tabelle: [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../storage/common/storage-scalability-targets.md) ed [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../../storage/common/storage-performance-checklist.md)
+* Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../../storage/blobs/storage-performance-checklist.md).
+* Archiviazione tabelle di Azure: [obiettivi di scalabilità e prestazioni per](../../storage/tables/scalability-targets.md) l'archiviazione tabelle e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione tabelle](../../storage/tables/storage-performance-checklist.md).
 * Database SQL di Azure: è possibile [monitorare le prestazioni](../../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di DTU (Database Transaction Unit).
 * Azure SQL Data Warehouse: la funzionalità viene misurata in unità data warehouse (DWU). Vedere in proposito [Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../../cosmos-db/performance-levels.md)

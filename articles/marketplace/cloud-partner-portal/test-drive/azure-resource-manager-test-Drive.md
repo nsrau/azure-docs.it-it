@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838073"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644903"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test drive di Azure Resource Manager
 
@@ -83,14 +83,14 @@ Tuttavia, il test drive funziona in modalità interamente automatica, senza inte
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipi di metadati di parametro accettati
 
-| Tipo di metadati   | Tipo di parametro  | Descrizione     | Valore di esempio    |
+| Tipo di metadati   | Tipo di parametro  | Description     | Valore di esempio    |
 |---|---|---|---|
-| **baseuri**     | stringa          | URI di base del pacchetto di distribuzione| https:\//\<\.. \.\<\>. blob.core.windows.net/.\> |
-| **username**    | stringa          | Nuovo nome utente casuale.| admin68876      |
+| **baseuri**     | string          | URI di base del pacchetto di distribuzione| https:\//\<\.. \.\<\>. blob.core.windows.net/.\> |
+| **username**    | string          | Nuovo nome utente casuale.| admin68876      |
 | **password**    | stringa sicura    | Nuova password casuale | Lp!ACS\^2kh     |
-| **id sessione**   | stringa          | ID univoco della sessione di test drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **id sessione**   | string          | ID univoco della sessione di test drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>Nome utente
+#### <a name="username"></a>username
 
 Test drive inizializza questo parametro con un **Uri di Base** del pacchetto di distribuzione, in modo che sia possibile usare il parametro per costruire l'Uri di un file incluso nel pacchetto.
 
@@ -117,7 +117,7 @@ All'interno del modello, è possibile usare questo parametro per costruire l'Uri
 }
 ```
 
-#### <a name="username"></a>Nome utente
+#### <a name="username"></a>username
 
 Test drive inizializza questo parametro con un nuovo nome utente casuale:
 
@@ -258,7 +258,7 @@ Usare quindi questo percorso per tutte le risorse per un'istanza del lab specifi
 
 È necessario assicurarsi che la sottoscrizione abbia il permesso di distribuire tutte le risorse che si desiderano in ognuna delle aree selezionate. È necessario inoltre assicurarsi che le immagini di macchina virtuale siano disponibili in tutte le aree che si desidera abilitare, in caso contrario il modello di distribuzione non funzionerà per alcune aree.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Output
 
 In genere con i modelli di Resource Manager è possibile distribuire senza produrre un output. Infatti, si conoscono tutti i valori usati per popolare i parametri del modello ed è sempre possibile esaminare manualmente le proprietà di una risorsa.
 
@@ -289,7 +289,7 @@ Esempio:
 
 Un ulteriore aspetto da tenere in considerazione sono la sottoscrizione e i limiti del servizio. Ad esempio, se si desidera distribuire fino a dieci macchine virtuali a 4 core, è necessario assicurarsi che la sottoscrizione usata per il lab consenta di utilizzare 40 core.
 
-È possibile trovare altre informazioni sulla sottoscrizione di Azure e sui limiti dei servizio in [questo articolo](https://docs.microsoft.com/azure/azure-subscription-service-limits). Poiché è possibile eseguire più test drive allo stesso tempo, verificare che la sottoscrizione possa gestire il numero di core moltiplicati per il numero totale di test drive simultanei che possono essere eseguiti.
+È possibile trovare altre informazioni sulla sottoscrizione di Azure e sui limiti dei servizio in [questo articolo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Poiché è possibile eseguire più test drive allo stesso tempo, verificare che la sottoscrizione possa gestire il numero di core moltiplicati per il numero totale di test drive simultanei che possono essere eseguiti.
 
 ### <a name="what-to-upload"></a>Elementi da caricare
 
@@ -310,11 +310,11 @@ Si definisce Uri di base un Uri del contenitore BLOB. Ogni revisione del lab ha 
 
 ## <a name="transforming-template-examples-for-test-drive"></a>Esempi di modelli di trasformazione per test drive
 
-Il processo di trasformazione di un'architettura di risorse in un modello di Resource Manager del test drive può risultare scoraggiante. Per semplificare questo processo, si riportano esempi su come \'trasformare al meglio le architetture più recenti qui[.
+Il processo di trasformazione di un'architettura di risorse in un modello di Resource Manager del test drive può risultare scoraggiante. Per semplificare questo processo, si riportano esempi su come [trasformare al meglio le architetture più recenti qui](./transforming-examples-for-test-drive.md).
 
 ## <a name="how-to-publish-a-test-drive"></a>Come pubblicare un test drive
 
-Dopo aver compilato il test drive, questa sezione descrive i campi necessari per pubblicare correttamente il test drive.
+Dopo aver compilato il test drive, la sezione conterrà i campi da compilare per pubblicare correttamente il test drive.
 
 ![Abilitazione del test drive nell'interfaccia utente](./media/azure-resource-manager-test-drive/howtopub1.png)
 
@@ -328,17 +328,17 @@ La sezione successiva da compilare contiene i dettagli relativi all'offerta del 
 
 ![Informazioni dettagliate sul test drive](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrizione -** *Campo obbligatorio* Il campo in cui scrivere la descrizione principale di ciò che è presente nel test drive. Il cliente potrà scoprire gli scenari relativi al prodotto ricoperti dal test drive. 
+**Description (descrizione):** è *necessario* scrivere la descrizione principale del test drive. Il cliente potrà scoprire gli scenari relativi al prodotto descritti dal test drive. 
 
-**Manuale dell'utente -** *Campo obbligatorio* Tratta approfonditamente la procedura guidata dell'esperienza di test drive. Una volta aperto, il cliente verrà guidato a compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire. (Deve essere un file con estensione PDF)
+**Manuale dell'utente:** *Questa è* la procedura dettagliata approfondita dell'esperienza test drive. Una volta aperto, il cliente verrà guidato a compiere i passaggi richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire. (Deve essere un file con estensione PDF)
 
-**Video demo del test drive** *Consigliato* Come per il Manuale per l'utente, la cosa migliore è inserire un tutorial video dell'esperienza di test drive. Il cliente lo vedrà prima o durante il test drive e potrà compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire.
+**Video dimostrativo di test drive:** *consigliato* in modo analogo al manuale dell'utente. è preferibile includere un'esercitazione video sull'esperienza test drive. Il cliente lo vedrà prima o durante il test drive e potrà compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire.
 
-- **Nome** -Titolo del video
+- **Nome** Titolo del video.
 - **Collegamento** - Deve essere un URL incorporato di YouTube o Vimeo. Di seguito, un esempio di come recuperare l'URL incorporato:
 - **Anteprima** Deve essere un'immagine di alta qualità (533x324 pixel). È consigliabile acquisire una schermata di alcune parti dell'esperienza di test drive.
 
-Di seguito è riportato come questi campi vengono visualizzati dai clienti durante l'esperienza di test drive.
+In basso, viene illustrato come il cliente visualizza i campi durante l'esperienza di test drive.
 
 ![Posizione dei campi del test drive nell'offerta di Marketplace](./media/azure-resource-manager-test-drive/howtopub4.png)
 
@@ -348,7 +348,7 @@ Nella successiva sezione da compilare, si carica il modello di Resource Manager 
 
 ![](./media/azure-resource-manager-test-drive/howtopub5.png)
 
-**Istanze -** *Campo obbligatorio* Qui è possibile configurare il numero di istanze desiderate, in quali aree e la velocità con cui i clienti possono ottenere il test drive.
+**Istanze:** è *necessario* specificare il numero di istanze desiderate, le aree e la velocità con cui i clienti possono ottenere la test drive.
 
 - **Istanze** - Le aree selezionate indicano dove si sceglie la posizione in cui il modello di Resource Manager del test drive viene distribuito. È consigliabile selezionare una sola area in cui si prevede che clienti siano posizionati.
 - **Accesso frequente** - Il numero di istanze di test drive che sono già distribuite e in attesa dell'accesso per ogni area selezionata. I clienti possono accedere immediatamente a questo test drive, anziché dover attendere la distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. È consigliabile avere **almeno un'istanza ad accesso frequente**, in quanto la maggior parte dei clienti non desidera attendere il termine delle distribuzioni complete e pertanto si verifica un calo dell'utilizzo dei clienti.
@@ -359,11 +359,11 @@ A questo punto si calcola il numero totale di potenziali test drive simultanei c
 
 **(Numero di aree selezionate x Istanze ad accesso frequente) + (Numero di aree selezionate x Istanze ad accesso medio) + (Numero di aree selezionate x Istanze ad accesso sporadico)**
 
-**Durata del test drive (ore)** *Campo obbligatorio* Durata del tempo in cui il test drive rimane attivo, in numero di ore. Il test drive termina automaticamente alla fine di questo periodo di tempo.
+**Durata test drive (ore):** durata *obbligatoria* per il periodo di tempo in cui il test drive resterà attivo, in \# ore. Il test drive termina automaticamente alla fine di questo periodo di tempo.
 
-**Modello di Resource Manager del test drive -** *Campo obbligatorio* Caricare il modello di Resource Manager di seguito. Si tratta del file creato nella sezione precedente. Assegnare un nome al file del modello principale: "main-template. JSON" e assicurarsi che il modello di Resource Manager contenga i parametri di output per le variabili di chiave necessarie. (Deve essere un file con estensione zip)
+**Test Drive Gestione risorse Template:** è *necessario* caricare il modello di gestione risorse qui. Si tratta del file creato nella sezione precedente. Assegnare un nome al file del modello principale: "main-template. JSON" e assicurarsi che il modello di Resource Manager contenga i parametri di output per le variabili di chiave necessarie. (Deve essere un file con estensione zip)
 
-**Accedere alle informazioni -** *Campo obbligatorio* Dopo che un cliente ha ottenuto il test drive, vengono visualizzate le informazioni di accesso. Queste istruzioni sono pensate per condividere i parametri di output utili dal modello di Resource Manager del test drive. Per includere i parametri di output, usare le parentesi graffe doppie (ad esempio, **{{nomeoutput}}** ) e questi verranno inseriti correttamente nella posizione. (La formattazione delle stringhe HTML è consigliata qui per eseguire il rendering nel front-end).
+**Informazioni di accesso:** *richieste* dopo che un cliente ha ottenuto il test drive, le informazioni di accesso vengono presentate. Queste istruzioni sono pensate per condividere i parametri di output utili dal modello di Resource Manager del test drive. Per includere i parametri di output, usare le parentesi graffe doppie (ad esempio, **{{nomeoutput}}** ) e questi verranno inseriti correttamente nella posizione. (La formattazione delle stringhe HTML è consigliata qui per eseguire il rendering nel front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Dettagli di sottoscrizione della distribuzione del test drive
 
@@ -371,11 +371,11 @@ L'ultima sezione da compilare consente di distribuire automaticamente i test dri
 
 ![Dettagli di sottoscrizione della distribuzione del test drive](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**ID di sottoscrizione di Azure -** *Campo obbligatorio* Si concede l'accesso ai servizi di Azure e al portale di Azure. Nella sottoscrizione viene tenuto traccia dell'uso delle risorse e i servizi vengono fatturati. Se non si dispone ancora di una sottoscrizione **separata** di Azure solo per test drive, proseguire e crearne una. Per trovare gli ID di sottoscrizione di Azure, registrarsi sul portale di Azure e andare nella sezione delle sottoscrizioni nella parte in basso a sinistra del menu. (Esempio: "a83645ac-1234-5ab6-6789-1h234g764ghty")
+**ID sottoscrizione di Azure:** è *necessario* concedere l'accesso ai servizi di Azure e ai portale di Azure. Nella sottoscrizione viene tenuto traccia dell'uso delle risorse e i servizi vengono fatturati. Se non si dispone ancora di una sottoscrizione **separata** di Azure solo per test drive, proseguire e crearne una. Per trovare gli ID di sottoscrizione di Azure, registrarsi sul portale di Azure e andare nella sezione delle sottoscrizioni nella parte in basso a sinistra del menu. (Esempio: "a83645ac-1234-5ab6-6789-1h234g764ghty")
 
 ![Sottoscrizioni di Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**ID del tenant di Azure AD -** *Campo obbligatorio* È possibile trovare l'ID del tenant già disponibile di seguito in Proprietà -\> ID directory.
+**Azure ad ID tenant:** *obbligatorio* se si dispone di un ID tenant già disponibile, è possibile trovarlo sotto nell'id directory Properties-\>.
 
 ![Proprietà di Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails3.png)
 
@@ -387,7 +387,7 @@ In caso contrario, creare un nuovo tenant in Azure Active Directory.
 
 ![Confermare la selezione](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**ID dell'app Azure AD -** *Campo obbligatorio* Il passaggio successivo consente di creare e registrare una nuova applicazione. Si userà questa applicazione per eseguire operazioni nell'istanza di test drive.
+**ID app Azure ad:** il passaggio successivo *necessario* consiste nel creare e registrare una nuova applicazione. Si userà questa applicazione per eseguire operazioni nell'istanza di test drive.
 
 1. Nella directory appena creata o in quelle già esistenti, selezionare la directory Azure Active nel filtro.
 2. Cercare "Registrazioni app" e fare clic su "Aggiungi"
@@ -397,7 +397,7 @@ In caso contrario, creare un nuovo tenant in Azure Active Directory.
 6. Fare clic su Crea.
 7. Dopo aver creato l'applicazione, andare su Proprietà \> Impostare l'applicazione come multi tenant e fare clic su Salva.
 
-Fare clic su Salva. L'ultimo passaggio consiste nell'individuare l'ID applicazione per l'app registrata e nell'incollarlo nel campo del test drive qui di seguito.
+Fai clic su Salva. L'ultimo passaggio consiste nell'individuare l'ID applicazione per l'app registrata e nell'incollarlo nel campo del test drive qui di seguito.
 
 ![Dettaglio di ID applicazione AD Azure](./media/azure-resource-manager-test-drive/subdetails7.png)
 
@@ -410,9 +410,9 @@ Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessa
 1. Impostare il ruolo di **collaboratore**.
 1. Digitare il nome dell'applicazione Azure AD e selezionare l'applicazione per assegnare il ruolo.
     ![Aggiungere le autorizzazioni](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
-**Chiave dell'app Azure AD -** *Campo obbligatorio* L'ultimo campo genera una chiave di autenticazione. In Chiavi, aggiungere una descrizione di chiave, impostare la scadenza come Non scade, quindi selezionare Salva. È **importante** evitare di avere una chiave scaduta, che interrompe il test drive in corso. Copiare questo valore e incollarlo nel campo corrispondente del test drive.
+**Chiave di app Azure ad-** *obbligatorio* il campo finale consiste nel generare una chiave di autenticazione. In Chiavi, aggiungere una descrizione di chiave, impostare la scadenza come Non scade, quindi selezionare Salva. È **importante** evitare di avere una chiave scaduta, che interrompe il test drive in corso. Copiare questo valore e incollarlo nel campo corrispondente del test drive.
 
 ![Mostra le chiavi per l'applicazione Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
 
@@ -424,6 +424,6 @@ Dopo aver compilato tutti i campi del test drive, proseguire e **Ripubblicare** 
 
 È importante notare che non è possibile eliminare istanze di test drive poiché ne viene effettuato il provisioning per i clienti, quindi il servizio di test drive pulirà automaticamente i gruppi di risorse dopo che il cliente avrà terminato l'operazione.
 
-Una volta acquisita familiarità con l'offerta di anteprima, è il momento di **passare alla fase operativa**! Una volta che l'offerta è stata pubblicata, Microsoft provvederà a una revisione finale per controllare l'intera esperienza end-to-end. Se per qualche motivo l'offerta viene rifiutata, verrà inviata una notifica al contatto tecnico relativa all'offerta che spiegherà le problematiche da risolvere.
+Una volta acquisita familiarità con l'offerta di anteprima, è il momento di **passare alla fase operativa**. Una volta che l'offerta è stata pubblicata, Microsoft provvederà a una revisione finale per controllare l'intera esperienza end-to-end. Se per qualche motivo l'offerta viene rifiutata, verrà inviata una notifica al contatto tecnico relativa all'offerta che spiegherà le problematiche da risolvere.
 
 In caso di domande, richieste di suggerimenti per la risoluzione dei problemi o per rendere più efficiente il test drive, visitare [Domande frequenti, risoluzione dei problemi e procedure consigliate](./marketing-and-best-practices.md).

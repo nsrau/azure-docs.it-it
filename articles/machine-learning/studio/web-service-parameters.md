@@ -12,12 +12,12 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 62c6488cfcb30c969c388343c766c482cff7e03b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 984d2e02ff75df459275fd10e313a4950c8d79c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432185"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usare i parametri del servizio Web Azure Machine Learning Studio (classico)
 Un servizio Web di Azure Machine Learning viene creato mediante la pubblicazione di un esperimento contenente moduli con parametri configurabili. In alcuni casi può essere utile modificare il comportamento del modulo mentre è in esecuzione il servizio Web. I *parametri del servizio Web* consentono di eseguire questa operazione. 
@@ -45,7 +45,7 @@ La documentazione dell'API per il servizio Web include informazioni per l'utente
 ## <a name="example"></a>Esempio
 Si supponga, ad esempio, di avere un esperimento con un modulo [Export Data][writer] che invia informazioni all'archiviazione BLOB di Azure. Verrà definito un parametro del servizio Web denominato "percorso BLOB" che consente all'utente del servizio Web di modificare il percorso dell'archiviazione BLOB quando si accede al servizio.
 
-1. Nella versione classica di Machine Learning Studio fare clic sul modulo [Export Data (Esporta dati][writer] ) per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
+1. In Machine Learning Studio (versione classica) fare clic sul modulo [Export Data (Esporta dati][writer] ) per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
 2. Specificare il tipo di archiviazione:
    
    * In **Please specify data destination**(Specificare la destinazione dei dati) selezionare "Azure Blob Storage" (Archivio BLOB di Azure).
@@ -63,7 +63,7 @@ Si supponga, ad esempio, di avere un esperimento con un modulo [Export Data][wri
 5. Per specificare un valore predefinito per il parametro del servizio Web, fare clic sull'icona a destra del nome, selezionare "Provide default value", immettere un valore (ad esempio, "container1/output1.csv") e quindi premere **INVIO** .
    
    ![Parametro del servizio Web](./media/web-service-parameters/parameter.png)
-6. Fare clic su **Run**. 
+6. Fare clic su **Esegui**. 
 7. Fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) per distribuire il servizio Web.
 
 > [!NOTE] 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595695"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644716"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Modificare le quote e i limiti in Azure Data Lake Analytics
 
@@ -34,7 +34,7 @@ Per superare questo limite, è possibile provare queste opzioni:
 
 **Numero massimo di unità di analisi (AUS) per account:** 250, valore predefinito 32
 
-Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. ad esempio:
+Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. Ad esempio:
 
 * Se si ha un solo processo in esecuzione con 32 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
 * Se si dispone di quattro processi in esecuzione e ognuno usa 8 unità di analisi, quando si invia un quinto processo che richiede 8 unità di analisi questo attende nella coda dei processi fino a quando non sono presenti 8 unità di analisi disponibili.
@@ -53,12 +53,12 @@ Questo è il numero massimo di processi che si possono eseguire contemporaneamen
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere un account ADLA esistente.
-3. Fare clic su **Proprietà**.
+3. Scegliere **Proprietà**.
 4. Modificare i valori per **Numero massimo di AU**, **Maximum number of running jobs** (Numero massimo di processi in esecuzione) e **Limiti di invio del processo** in base alle esigenze.
 
 ## <a name="increase-maximum-quota-limits"></a>Aumentare i limiti massimi di quota
 
-È possibile trovare altre informazioni sui limiti di Azure nella [documentazione sui limiti specifici del servizio di Azure](../azure-subscription-service-limits.md#data-lake-analytics-limits).
+È possibile trovare altre informazioni sui limiti di Azure nella [documentazione sui limiti specifici del servizio di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Aprire una richiesta di supporto nel portale di Azure.
 

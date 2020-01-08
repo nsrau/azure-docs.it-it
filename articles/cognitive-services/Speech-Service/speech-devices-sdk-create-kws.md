@@ -1,48 +1,27 @@
 ---
-title: Creare una parola chiave personalizzata-servizio riconoscimento vocale
+title: Creazione di parole chiave personalizzate-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Il dispositivo è sempre in ascolto di una parola chiave (o frase). Quando l'utente dice la parola chiave, il dispositivo invia tutti i file audio successivi al cloud, fino a quando l'utente non smette di parlare. Personalizzare la parola chiave è un modo efficace per distinguere il dispositivo e rafforzare la personalizzazione.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.author: erhopf
-ms.openlocfilehash: 42bcc336bfeb325a08c3d65438d66690c0b35100
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/11/2019
+ms.author: dapine
+ms.openlocfilehash: 5bd7352230d4d9daaed219f654be51dc528bea8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380185"
 ---
-# <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Creare una parola chiave personalizzata usando il servizio di riconoscimento vocale
+# <a name="create-a-custom-keyword-using-speech-studio"></a>Creare una parola chiave personalizzata usando speech studio
 
 Il dispositivo è sempre in ascolto di una parola chiave (o frase). Ad esempio, "Hey Cortana" è una parola chiave per Cortana Assistant. Quando l'utente dice la parola chiave, il dispositivo invia tutti i file audio successivi al cloud, fino a quando l'utente non smette di parlare. Personalizzare la parola chiave è un modo efficace per distinguere il dispositivo e rafforzare la personalizzazione.
 
 Questo articolo illustra come creare una parola chiave personalizzata per il dispositivo.
-
-## <a name="choose-an-effective-keyword"></a>Scegliere una parola chiave valida
-
-Quando si sceglie una parola chiave, tenere presenti le linee guida seguenti:
-
-* La parola chiave deve essere una parola inglese o una frase. Per pronunciarla, non devono servire più di due secondi.
-
-* Le parole composte da 4-7 sillabe sono ottimali. Ad esempio, "Hey, computer" è una parola chiave corretta. "Ehi" è una parola inappropriata.
-
-* Le parole chiave devono seguire le regole comuni di pronuncia della lingua inglese.
-
-* Una parola particolare o addirittura inventata che segue le normali regole di pronuncia italiana potrebbe ridurre i falsi positivi. Ad esempio, "computerama" potrebbe essere una parola chiave corretta.
-
-* Non scegliere una parola comune. Ad esempio, "mangiare" e "andare" sono parole che le persone ripetono spesso parlando normalmente e potrebbero essere falsi trigger per il dispositivo.
-
-* Evitare di usare una parola chiave che potrebbe avere pronunce alternative. Gli utenti dovranno conoscere la pronuncia "corretta" per fare in modo che il dispositivo risponda. Ad esempio, "509" può essere pronunciato "cinquecentonove", "cinque zero nove" o "cinquecento nove". "U.F.O." può essere pronunciato "U-F-O" oppure "ufo". "Ancora" può essere pronunciata "àncora" o "ancóra".
-
-* Non usare caratteri speciali, simboli o cifre. Ad esempio, "go #" e "20 + Cats" non sono parole chiave valide. mentre "vai euro" o "venti più gatti" possono andare bene. È comunque possibile usare i simboli nella personalizzazione e usare il marketing e la documentazione per ribadire la pronuncia corretta.
-
-> [!NOTE]
-> Se si sceglie una parola con marchio come parola chiave, assicurarsi di essere proprietari del marchio o di avere l'autorizzazione del proprietario del marchio a usare la parola. Microsoft non è responsabile di eventuali problemi legali che potrebbero derivare dalla scelta della parola chiave.
 
 ## <a name="create-your-keyword"></a>Crea la parola chiave
 
@@ -62,17 +41,17 @@ Prima di poter usare una parola chiave personalizzata, è necessario creare una 
 
 1. Per avviare un nuovo modello di parola chiave, fare clic su **Train Model**.
 
-1. Immettere un **nome** per il modello di parola chiave e una **Descrizione** facoltativa e digitare la **parola chiave** desiderata, quindi fare clic su **Avanti**. Sono disponibili alcune [linee guida](#choose-an-effective-keyword) che consentono di scegliere una parola chiave efficace.
+1. Immettere un **nome** per il modello di parola chiave e una **Descrizione** facoltativa e digitare la **parola chiave** desiderata, quindi fare clic su **Avanti**. Sono disponibili alcune [linee guida](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) che consentono di scegliere una parola chiave efficace.
 
-    ![Immettere la parola chiave](media/custom-keyword/custom-kws-portal-new-model.png) 
+    ![Immettere la parola chiave](media/custom-keyword/custom-kws-portal-new-model.png)
 
 1. Il portale creerà ora le pronunce candidate per la parola chiave. Ascoltare ogni candidato facendo clic sui pulsanti di riproduzione e rimuovere i controlli accanto a tutte le pronunce non corrette. Una volta selezionate solo le pronunce valide, fare clic su **Train** per iniziare a generare la parola chiave. 
 
-    ![Esaminare la parola chiave](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+    ![Esaminare la parola chiave](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. Potrebbero essere necessari fino a dieci minuti per la generazione del modello. L'elenco delle parole chiave verrà modificato da **elaborazione** **a completata** quando il modello è completo. È quindi possibile scaricare il file.
 
-    ![Esaminare la parola chiave](media/custom-keyword/custom-kws-portal-download-model.png) 
+    ![Esaminare la parola chiave](media/custom-keyword/custom-kws-portal-download-model.png)
 
 1. Salvare il file ZIP nel computer. Questo file sarà necessario per distribuire la parola chiave personalizzata nel dispositivo.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438898"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -43,8 +43,8 @@ Il servizio Batch consente di definire le risorse di calcolo di Azure per esegui
 
 Facoltativamente, per altre informazioni su batch, vedere [la documentazione di batch](https://docs.microsoft.com/azure/batch/).
 
-## <a name="why-azure-data-factory"></a>Perché Azure Data Factory?
-Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. È possibile usare Data Factory per creare pipeline di dati gestiti che spostino i dati da archivi locali e su cloud a un archivio dati centralizzato. Un esempio è l'archivio BLOB di Azure. È possibile usare Data Factory per elaborare o trasformare dati tramite servizi come Azure HDInsight e Azure Machine Learning. È anche possibile pianificare le pipeline di dati per eseguire operazioni in modo pianificato (ad esempio con intervalli orari, giornalieri e settimanali). È possibile monitorare e gestire le pipeline in modo immediato per identificare i problemi e definire gli interventi necessari.
+## <a name="why-azure-data-factory"></a>Perché scegliere Azure Data Factory?
+Data factory è un servizio di integrazione dei dati basato sul cloud che orchestra e automatizza lo spostamento e la trasformazione dei dati. È possibile usare Data Factory per creare pipeline di dati gestiti che spostino i dati da archivi locali e su cloud a un archivio dati centralizzato. Un esempio è l'archivio BLOB di Azure. È possibile usare Data Factory per elaborare o trasformare dati tramite servizi come Azure HDInsight e Azure Machine Learning. È anche possibile pianificare le pipeline di dati per eseguire operazioni in modo pianificato (ad esempio con intervalli orari, giornalieri e settimanali). È possibile monitorare e gestire le pipeline in modo immediato per identificare i problemi e definire gli interventi necessari.
 
   Se non si ha familiarità con Data Factory, vedere gli articoli seguenti che aiutano a comprendere l'architettura e l'implementazione della soluzione descritta in questo articolo:  
 
@@ -180,13 +180,13 @@ public IDictionary<string, string> Execute(
 
    a. Avviare Visual Studio versione 2012, 2013 o 2015.
 
-   b. Selezionare **File** > **Nuovo** > **Progetto**.
+   b. Selezionare **File** > **New** (Nuovo)  > **Project** (Progetto).
 
    c. Espandere **Modelli** e quindi selezionare **Visual C\#** . In questa procedura dettagliata viene usato C\#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.
 
    d. Selezionare la **libreria di classi** dall'elenco relativo ai tipi di progetto visualizzato a destra.
 
-   e. Immettere **MyDotNetActivity** per **Nome**.
+   e. Immettere **MyDotNetActivity** for the **Nome**.
 
    f. Selezionare **C:\\ADF** per **Percorso**. Creare la cartella **ADF** se non esiste già.
 
@@ -556,11 +556,11 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
    ![Nuovo archivio dati](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Sostituire **nome account** con il nome del proprio account di archiviazione. Sostituire **chiave account** con la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso nelle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+1. Sostituire **nome account** con il nome del proprio account di archiviazione. Sostituire **chiave account** con la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle archiviazione, vedere [gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 
 1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
-   ![Distribuisci](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Distribuzione](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Creare un servizio collegato Azure Batch
 In questo passaggio si crea un servizio collegato per l'account di Batch, che verrà usato per eseguire l'attività personalizzata di data factory.
@@ -578,7 +578,7 @@ In questo passaggio si crea un servizio collegato per l'account di Batch, che ve
    d. Immettere l'URI del batch per la proprietà JSON **batchUri** .
 
       > [!IMPORTANT]
-      > L'URL del pannello **Account di Batch** è nel formato seguente: \<nomeaccount\>.\<area\>.batch.azure.com. Per la proprietà **batchUri** nello script JSON è necessario rimuovere a88"accountname."** dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
+      > L'URL del pannello **Account di Batch** è nel formato seguente: \<nomeaccount\>.\<area\>.batch.azure.com. Per la proprietà **batchUri** nello script JSON, è necessario rimuovere A88 "AccountName". * * dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -659,7 +659,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
     }
     ```
 
-    Più avanti in questa procedura dettagliata viene creata una pipeline con ora di inizio: 2015-11-16T00:00:00Z e ora di fine: 2015-11-16T05:00:00Z. Viene pianificata per produrre dati ogni ora, in modo da ottenere cinque sezioni di input/output tra **00**:00:00 e \> **05**:00:00.
+    Più avanti in questa procedura dettagliata viene creata una pipeline con ora di inizio: 2015-11-16T00:00:00Z e ora di fine: 2015-11-16T05:00:00Z. È pianificato per produrre dati ogni ora, quindi sono disponibili cinque sezioni di input/output (tra **00**: 00:00-\> **05**: 00:00).
 
     La **frequenza** e l'**intervallo** per il set di dati di input sono impostati su **Ora** e **1**. Ciò significa che la sezione di input è disponibile ogni ora.
 
@@ -847,7 +847,7 @@ In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di
 
 1. Nel pannello **OutputDataset** fare clic con il pulsante destro del mouse sulla sezione con **ORA DI INIZIO SEZIONE** impostata su **11/16/2015 01:00:00 AM**. Scegliere quindi **Esegui** per rieseguire/rielaborare la sezione. A questo punto, la sezione ha cinque file anziché un file.
 
-    ![Esegui](./media/data-factory-data-processing-using-batch/image17.png)
+    ![Esecuzione](./media/data-factory-data-processing-using-batch/image17.png)
 
 1. Dopo che la sezione è stata eseguita e lo stato è diventato **Pronto**, verificare il contenuto nel file di output per questa sezione (**2015-11-16-01.txt**). Il file di output viene visualizzato in `mycontainer` in `outputfolder` nell'archivio BLOB. Deve essere presente una riga per ogni file della sezione.
 
@@ -965,7 +965,7 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come Powe
 * [Azure e Power BI - Panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Riferimenti
-* [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Introduzione al servizio Data Factory](data-factory-introduction.md)
   * [Introduzione a Data Factory](data-factory-build-your-first-pipeline.md)

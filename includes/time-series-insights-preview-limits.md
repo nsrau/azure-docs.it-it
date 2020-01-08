@@ -1,26 +1,26 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 12/31/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 90e6e5c8d6d4f10e2d63f80b9c0840854424f5a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980666"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75616205"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Confronto tra disponibilità generale e anteprima
 
 Nella tabella seguente sono riepilogate alcune differenze principali tra Azure Time Series Insights disponibilità generale (GA) e le istanze di anteprima.
 
-| | Disponibilità a livello generale | Preview |
+| | Disponibilità a livello generale | Anteprima |
 | --- | --- | ---|
 | Cittadino di prima classe | Incentrato sugli eventi | Incentrato sulle serie temporali |
 | Ragionamento semantico | Di basso livello (dati di riferimento) | Alto livello (modelli) |
@@ -49,6 +49,8 @@ Time Series Insights limiti delle proprietà sono aumentati fino a 1.000 da un l
 
 * Informazioni su come [aggiungere un'origine di hub eventi](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configurare [un'origine Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)Internet delle cose.
+
+Per impostazione predefinita, gli [ambienti di anteprima supportano velocità in ingresso](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress) fino a **1 MB al secondo (MB/s) per ambiente**. Se necessario, i clienti possono ridimensionare gli ambienti di anteprima fino a **16 MB/s** di velocità effettiva. Esiste anche un limite per partizione di **0,5 MB/s**. 
 
 ### <a name="api-limits"></a>Limiti API
 

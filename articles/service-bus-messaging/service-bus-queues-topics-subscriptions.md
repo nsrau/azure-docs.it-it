@@ -1,5 +1,5 @@
 ---
-title: Panoramica delle code di messaggi, argomenti e sottoscrizioni del bus di servizio di Azure | Documentazione Microsoft
+title: 'Messaggistica del bus di servizio di Azure: code, argomenti e sottoscrizioni'
 description: Panoramica delle entità di messaggistica del bus di servizio.
 services: service-bus-messaging
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
-ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc549f9bfbb48da9263493c21ec38735b3cc0c24
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426917"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 
@@ -23,7 +23,7 @@ Il bus di servizio di Microsoft Azure supporta un set di tecnologie middleware o
 
 Le entità di messaggistica che costituiscono le funzionalità di messaggistica di base nel bus di servizio sono code, argomenti e sottoscrizioni e regole/azioni.
 
-## <a name="queues"></a>Queues
+## <a name="queues"></a>Code
 
 Le code consentono un recapito dei messaggi di tipo *FIFO (First In, First Out)* a uno o più consumer concorrenti. In base a questo metodo, in genere i messaggi vengono ricevuti ed elaborati nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer. Il vantaggio principale derivante dall'uso delle code è quello di ottenere un "disaccoppiamento temporale" dei componenti applicativi, ovvero non è necessario che i producer e i consumer inviino e ricevano i messaggi contemporaneamente perché i messaggi restano archiviati nella coda. Il producer inoltre non deve attendere la risposta del consumer per continuare a elaborare e inviare messaggi.
 
@@ -41,7 +41,7 @@ Per un esempio funzionante, vedere [BasicSendReceiveUsingQueueClient](https://gi
 
 ### <a name="receive-modes"></a>Modalità di ricezione
 
-È possibile specificare due diverse modalità con cui il bus di servizio riceve i messaggi: *ReceiveAndDelete* o *PeekLock*. Quando si usa la modalità [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), la ricezione è un'operazione a un'unica fase. Quando il bus di servizio riceve la richiesta, contrassegna il messaggio come usato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** rappresenta il modello più semplice ed è adatta per scenari in cui l'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo scenario, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come consumato, quando l'applicazione viene riavviata e inizia a consumare nuovamente i messaggi, il messaggio consumato prima dell'arresto anomalo risulterà perso.
+È possibile specificare due diverse modalità con cui ricevere i messaggi del bus di servizio: *ReceiveAndDelete* o *PeekLock*. Quando si usa la modalità [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), la ricezione è un'operazione a un'unica fase. Quando il bus di servizio riceve la richiesta, contrassegna il messaggio come usato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** rappresenta il modello più semplice ed è adatta per scenari in cui l'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo scenario, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come consumato, quando l'applicazione viene riavviata e inizia a consumare nuovamente i messaggi, il messaggio consumato prima dell'arresto anomalo risulterà perso.
 
 Con la modalità [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) il processo di ricezione diventa un'operazione in due fasi, che rende possibile il supporto di applicazioni che non riescono a tollerare messaggi mancanti. Quando il bus di servizio riceve la richiesta, individua il messaggio successivo da consumare, lo blocca per impedirne la ricezione da parte di altri consumer e lo restituisce quindi all'applicazione. Dopo avere elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sul messaggio ricevuto. Quando il bus di servizio rileva la chiamata **CompleteAsync**, contrassegna il messaggio come usato.
 
@@ -63,7 +63,7 @@ Per un esempio funzionante completo, vedere [BasicSendReceiveUsingTopicSubscript
 
 ### <a name="rules-and-actions"></a>Regole e azioni
 
-In molti scenari, i messaggi con caratteristiche specifiche devono essere elaborati in modi specifici. Per abilitare questa elaborazione, è possibile configurare le sottoscrizioni in modo che trovino i messaggi che presentano le proprietà desiderate e apportare quindi alcune modifiche a tali proprietà. Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questo filtraggio viene eseguito usando i filtri della sottoscrizione. Queste modifiche sono chiamate *azioni di filtro*. Quando viene creata una sottoscrizione, è possibile specificare un'espressione di filtro che agisce sulle proprietà del messaggio, sulle proprietà del sistema, ad esempio **Label**, e sulle proprietà dell'applicazione personalizzata, ad esempio **StoreName**. In questo caso l'espressione di filtro SQL è facoltativa. Senza un'espressione di filtro SQL, qualsiasi azione di filtro definita in una sottoscrizione verrà eseguita in tutti i messaggi di tale sottoscrizione.
+In molti scenari, i messaggi con caratteristiche specifiche devono essere elaborati in modi specifici. Per abilitare questa elaborazione, è possibile configurare le sottoscrizioni in modo che trovino i messaggi che presentano le proprietà desiderate e apportare quindi alcune modifiche a tali proprietà. Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questo filtraggio viene eseguito usando i filtri della sottoscrizione. Queste modifiche sono chiamate *azioni di filtro*. Quando viene creata una sottoscrizione, è possibile fornire un'espressione di filtro che funzioni sulle proprietà del messaggio, sia le proprietà di sistema (ad esempio, **Label**) che le proprietà personalizzate dell'applicazione, ad esempio **StoreName**. In questo caso l'espressione di filtro SQL è facoltativa. senza un'espressione di filtro SQL, qualsiasi azione di filtro definita in una sottoscrizione verrà eseguita su tutti i messaggi per tale sottoscrizione.
 
 Per un esempio funzionante completo, vedere [TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) su GitHub.
 

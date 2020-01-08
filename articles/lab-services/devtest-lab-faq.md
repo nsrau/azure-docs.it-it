@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565328"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644920"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
 
-## <a name="blog-post"></a>Post di blog
+## <a name="blog-post"></a>Post di Blog
 Il Blog del team di DevTest Labs è stato ritirato a partire dal 20 marzo 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Dove è possibile tenere traccia degli aggiornamenti delle funzionalità da questo momento in poi?
@@ -40,9 +40,9 @@ Stiamo attualmente lavorando alla migrazione dei post di Blog esistenti, esclusi
 Invieremo gli aggiornamenti delle interruzioni usando l'handle di Twitter da ora in poi. Seguici su Twitter per ottenere gli aggiornamenti più recenti in caso di interruzioni e bug noti.
 
 ### <a name="twitter"></a>Twitter
-Il nostro handle Twitter:[@azlabservices](https://twitter.com/azlabservices)
+Il nostro handle Twitter: [@azlabservices](https://twitter.com/azlabservices)
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 ### <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 Se la domanda non è elencata, è possibile inviarla a Microsoft, per consentire di trovare una risposta.
 
@@ -76,18 +76,18 @@ Ecco alcuni scenari per cui i clienti usano DevTest Labs:
 ### <a name="how-am-i-billed-for-devtest-labs"></a>Come avviene la fatturazione di DevTest Labs?
 DevTest Labs è un servizio gratuito. La creazione di lab e la configurazione di criteri, modelli ed elementi in DevTest Labs sono gratuite. Si pagano solo le risorse di Azure usate nei lab, ad esempio macchine virtuali, account di archiviazione e reti virtuali. Per altre informazioni sui costi delle risorse dei lab, vedere [Prezzi di Azure DevTest Labs](https://azure.microsoft.com/pricing/details/devtest-lab/).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quali sono i diversi livelli di sicurezza in DevTest Labs?
 L'accesso di sicurezza è determinato dal controllo degli accessi in base al ruolo (RBAC). Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito, come definiti dal controllo degli accessi in base al ruolo.
 
-- **Autorizzazione**: un'autorizzazione è un accesso definito a un'azione specifica. Un'autorizzazione può ad esempio essere l'accesso in lettura a tutte le macchine virtuali.
+- **Autorizzazione**: un'autorizzazione è un accesso definito per un'azione specifica. Un'autorizzazione può ad esempio essere l'accesso in lettura a tutte le macchine virtuali.
 - **Ruolo**: un ruolo è un set di autorizzazioni che possono essere raggruppate e assegnate a un utente. Un utente con il ruolo di proprietario della sottoscrizione ha ad esempio accesso a tutte le risorse all'interno di una sottoscrizione.
 - **Ambito**: un ambito è un livello nella gerarchia di una risorsa di Azure. Un ambito può ad esempio essere un gruppo di risorse, un singolo lab oppure l'intera sottoscrizione.
 
 Nell'ambito di DevTest Labs, ci sono due tipi di ruoli che definiscono le autorizzazioni utente:
 
-- **Proprietario del lab**: un proprietario del lab ha accesso a tutte le risorse all'interno dello stesso. Un proprietario del lab può modificare i criteri, leggere e scrivere in qualsiasi macchina virtuale, modificare la rete virtuale e così via.
+- **Proprietario del lab**: un proprietario del lab ha accesso a tutte le risorse all'interno del lab. Un proprietario del lab può modificare i criteri, leggere e scrivere in qualsiasi macchina virtuale, modificare la rete virtuale e così via.
 - **Utente del lab**: un utente del lab può visualizzare tutte le risorse del lab, ad esempio macchine virtuali, criteri e reti virtuali. Tuttavia, un utente del Lab non può modificare i criteri o le VM create da altri utenti.
 
 È anche possibile creare ruoli personalizzati in DevTest Labs. Per informazioni su come creare ruoli personalizzati in DevTest Labs, vedere [Concedere le autorizzazioni utente per specifici criteri di lab](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
@@ -105,7 +105,7 @@ La risorsa di DevTest Labs deve appartenere a proprietari vicini al team di prog
 
 I membri del team di progetto/applicazione devono essere aggiunti al ruolo **utenti di DevTest Labs** . Questi utenti possono creare macchine virtuali (in linea con i criteri a livello di sottoscrizione e lab). Possono anche gestire le proprie macchine virtuali. Non possono gestire le macchine virtuali che appartengono ad altri utenti.
 
-Per altre informazioni, vedere la documentazione sulla governance delle sottoscrizioni di [Azure Enterprise](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
+Per altre informazioni, vedere la [documentazione sulla governance delle sottoscrizioni di Azure Enterprise](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 
 ### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>Ricerca per categorie creare un ruolo per consentire agli utenti di eseguire un'attività specifica?
@@ -162,11 +162,11 @@ Scenario di gruppi di risorse comuni:
 È possibile estendere le convenzioni di denominazione correnti dell'organizzazione alle operazioni di Azure e renderle coerenti in tutto l'ambiente DevTest Labs. In fase di distribuzione di DevTest Labs è consigliabile avere criteri iniziali specifici. Questi criteri vengono distribuiti in base a uno script centrale e a modelli JSON per garantire la coerenza. I criteri di denominazione possono essere implementati tramite i criteri di Azure applicati a livello di sottoscrizione. Per esempi JSON per Criteri di Azure, vedere [Esempi di Criteri di Azure](../governance/policy/samples/index.md).
 
 ### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Quanti lab è possibile creare nella stessa sottoscrizione?
-Non c'è un limite specifico al numero di lab che è possibile creare per ogni sottoscrizione. È tuttavia previsto un limite per la quantità di risorse usate per ogni sottoscrizione. Sono disponibili informazioni su [limiti e quote per le sottoscrizioni di Azure](../azure-subscription-service-limits.md) e su [come aumentare questi limiti](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Non c'è un limite specifico al numero di lab che è possibile creare per ogni sottoscrizione. È tuttavia previsto un limite per la quantità di risorse usate per ogni sottoscrizione. Sono disponibili informazioni su [limiti e quote per le sottoscrizioni di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e su [come aumentare questi limiti](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>Quante VM è possibile creare per ogni lab?
-Non esiste un limite specifico al numero di VM che possono essere create per ogni lab. È tuttavia previsto un limite per le risorse (core delle macchine virtuali, indirizzi IP pubblici e così via) usate per ogni sottoscrizione. Sono disponibili informazioni su [limiti e quote per le sottoscrizioni di Azure](../azure-subscription-service-limits.md) e su [come aumentare questi limiti](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Non esiste un limite specifico al numero di VM che possono essere create per ogni lab. È tuttavia previsto un limite per le risorse (core delle macchine virtuali, indirizzi IP pubblici e così via) usate per ogni sottoscrizione. Sono disponibili informazioni su [limiti e quote per le sottoscrizioni di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e su [come aumentare questi limiti](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>Ricerca per categorie determinare il rapporto tra utenti e Lab e il numero complessivo di Lab necessari in un'organizzazione.
 È consigliabile che le business unit e i gruppi di sviluppo dello stesso progetto di sviluppo siano associati allo stesso lab. In questo modo è possibile applicare a entrambi i gruppi gli stessi tipi di criteri, immagini e criteri di arresto.
@@ -304,7 +304,7 @@ Azure Marketplace deve essere usato per impostazione predefinita, se non in caso
 - Condizioni normative o di conformità, ad esempio criteri di sicurezza, che devono essere definite per tutti i computer.
 - L'uso di immagini personalizzate non dovrebbe essere considerato leggero. Presentano una complessità aggiuntiva, perché ora è necessario gestire i file VHD per le immagini di base sottostanti. È anche necessario applicare periodicamente patch alle immagini di base con aggiornamenti software. Tra questi rientrano i nuovi aggiornamenti del sistema operativo e tutti gli aggiornamenti o le modifiche di configurazione necessarie per il pacchetto software stesso.
 
-## <a name="artifacts"></a>Elementi
+## <a name="artifacts"></a>Artefatti
 
 ### <a name="what-are-artifacts"></a>Cosa sono gli elementi?
 Gli elementi sono componenti personalizzabili che è possibile usare per distribuire i bit più recenti o gli strumenti di sviluppo in una macchina virtuale. Collegare gli elementi alla macchina virtuale quando si crea la macchina virtuale. Dopo il provisioning della macchina virtuale, gli elementi vengono usati per distribuire e configurare la macchina virtuale. Nel [repository GitHub pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)sono disponibili vari artefatti preesistenti. È anche possibile [creare elementi personalizzati](devtest-lab-artifact-author.md).
@@ -313,7 +313,7 @@ Gli elementi sono componenti personalizzabili che è possibile usare per distrib
 Per informazioni su come ottenere i log relativi all'elemento che presenta l'errore, vedere [Diagnosticare errori di elementi in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
 
 ### <a name="when-should-an-organization-use-a-public-artifact-repository-vs-private-artifact-repository-in-devtest-labs"></a>Quando è consigliabile che un'organizzazione usi un repository di artefatti pubblico invece di uno privato in DevTest Labs?
-Il [repository di artefatti pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) offre un set iniziale di pacchetti software di uso più frequente. È utile nella distribuzione rapida perché non richiede che si dedichi tempo a riprodurre gli strumenti di sviluppo e i componenti aggiuntivi di uso comune. È possibile scegliere di distribuire il proprio repository privato. È possibile usare parallelamente un repository pubblico e uno privato. È anche possibile scegliere di disabilitare il repository pubblico. I criteri per distribuire un repository privato dovrebbero basarsi sulle domande e le considerazioni seguenti:
+Il [repository di artefatti pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) offre un set iniziale di pacchetti software di uso più frequente. Consente una distribuzione rapida senza dover investire tempo per riprodurre gli strumenti e i componenti aggiuntivi comuni per gli sviluppatori. È possibile scegliere di distribuire il proprio repository privato. È possibile usare parallelamente un repository pubblico e uno privato. È anche possibile scegliere di disabilitare il repository pubblico. I criteri per distribuire un repository privato dovrebbero basarsi sulle domande e le considerazioni seguenti:
 
 - Un requisito dell'organizzazione è la necessità di avere software con licenza aziendale come parte dell'offerta di DevTest Labs? Se la risposta è affermativa, è consigliabile creare un repository privato.
 - L'organizzazione sviluppa software personalizzato che prevede un'operazione specifica, che è essenziale nell'ambito dell'intero processo di provisioning? Se la risposta è affermativa, è consigliabile distribuire un repository privato.
@@ -352,7 +352,7 @@ Se le macchine virtuali devono interagire con l'infrastruttura esistente, provar
 
 Prendere in considerazione l'uso del modello di peering VNet qui ([modello hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Questo approccio consente la comunicazione VNET/subnet tra le sottoscrizioni. In caso contrario, ogni ambiente di DevTest Labs potrebbe avere una specifica rete virtuale. 
 
-Sono [previsti limiti](../azure-subscription-service-limits.md) per il numero di reti virtuali per sottoscrizione. La quantità predefinita è 50, sebbene questo limite possa essere incrementato a 100.
+Sono [previsti limiti](../azure-resource-manager/management/azure-subscription-service-limits.md) per il numero di reti virtuali per sottoscrizione. La quantità predefinita è 50, sebbene questo limite possa essere incrementato a 100.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>Quando è opportuno usare un indirizzo IP condiviso, pubblico o privato?
  
@@ -375,7 +375,7 @@ Sì. Due sono gli aspetti da considerare: il traffico in ingresso e in uscita.
 
 È anche possibile usare gruppi di sicurezza di rete per macchine virtuali o subnet. Questo passaggio aggiunge un livello di protezione per consentire o bloccare il traffico.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Perché la rete virtuale esistente non viene salvata correttamente?
 È possibile che il nome della rete virtuale contenga dei punti. In tal caso, provare a rimuovere i punti o a sostituirli con trattini. Provare quindi a salvare di nuovo la rete virtuale.

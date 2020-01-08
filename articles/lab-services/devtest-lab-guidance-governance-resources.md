@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561639"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644869"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governance dell'infrastruttura di Azure DevTest Labs - Risorse
 Questo articolo descrive l'allineamento e la gestione delle risorse di DevTest Labs all'interno dell'organizzazione. 
@@ -44,7 +44,7 @@ La **seconda procedura consigliata** consiste nell'abilitare la sottoscrizione d
 
 Questo modello conferisce a un'organizzazione la flessibilità per distribuire Azure DevTest Labs su larga scala. Un'organizzazione può supportare centinaia di lab per varie business unit con 100-1000 macchine virtuali in esecuzione in parallelo. Eleva la nozione di una soluzione lab aziendale centralizzata in grado di condividere gli stessi principi di gestione della configurazione e i controlli di sicurezza.
 
-Questo modello garantisce anche che l'organizzazione non raggiunga i limiti definiti per le risorse associate alla propria sottoscrizione di Azure. Per informazioni dettagliate sui limiti della sottoscrizione e dei servizi, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md). Il processo di provisioning di DevTest Labs può usare un numero elevato di gruppi di risorse. È possibile richiedere l'aumento dei limiti tramite una richiesta di supporto nella sottoscrizione di Azure DevTest. Le risorse all'interno della sottoscrizione di produzione non sono influenzate dall'aumento nell'uso della sottoscrizione di sviluppo. Per altre informazioni sul ridimensionamento di DevTest Labs, vedere [Ridimensionare i limiti e le quote in DevTest Labs](devtest-lab-scale-lab.md).
+Questo modello garantisce anche che l'organizzazione non raggiunga i limiti definiti per le risorse associate alla propria sottoscrizione di Azure. Per informazioni dettagliate sui limiti della sottoscrizione e dei servizi, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md). Il processo di provisioning di DevTest Labs può usare un numero elevato di gruppi di risorse. È possibile richiedere l'aumento dei limiti tramite una richiesta di supporto nella sottoscrizione di Azure DevTest. Le risorse all'interno della sottoscrizione di produzione non sono influenzate dall'aumento nell'uso della sottoscrizione di sviluppo. Per altre informazioni sul ridimensionamento di DevTest Labs, vedere [Ridimensionare i limiti e le quote in DevTest Labs](devtest-lab-scale-lab.md).
 
 Un limite comune a livello di sottoscrizione che deve essere considerato è la modalità di allocazione dell'assegnazione di intervalli IP di rete per supportare le sottoscrizioni di sviluppo e produzione. Queste assegnazioni devono tenere conto della crescita nel tempo (presupponendo la connettività locale o un'altra topologia di rete che richiede all'azienda di gestire i relativi stack di rete anziché impiegare per impostazione predefinita l'implementazione di Azure). La procedura consigliata è quella di avere poche reti virtuali con un prefisso elevato di indirizzi IP assegnato e diviso tra molte subnet di grandi dimensioni anziché avere più reti virtuali con subnet ridotte. Con 10 sottoscrizioni è ad esempio possibile definire 10 reti virtuali (una per ogni sottoscrizione). Tutti i lab che non richiedono l'isolamento possono condividere la stessa subnet nella rete virtuale della sottoscrizione.
 

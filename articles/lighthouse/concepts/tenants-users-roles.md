@@ -3,12 +3,12 @@ title: Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 description: Informazioni sui concetti di tenant, utenti e ruoli di Azure Active Directory, nonché su come possono essere usati negli scenari di Azure Lighthouse.
 ms.date: 11/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1ad004c79f90f4642640405da9e8876b9202e98
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453563"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 
@@ -22,13 +22,13 @@ Indipendentemente dal metodo di onboarding scelto, sarà necessario definire le 
 
 ## <a name="role-support-for-azure-delegated-resource-management"></a>Supporto dei ruoli per la gestione delle risorse delegate di Azure
 
-Quando si definisce un'autorizzazione, a ogni account utente deve essere assegnato uno dei [ruoli Controllo degli accessi in base al ruolo predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) non sono supportati.
+Quando si definisce un'autorizzazione, a ogni account utente deve essere assegnato uno dei [ruoli Controllo degli accessi in base al ruolo predefiniti](../../role-based-access-control/built-in-roles.md). I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](../../role-based-access-control/classic-administrators.md) non sono supportati.
 
-Tutti i [ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) sono attualmente supportati dalla gestione delle risorse delegate di Azure, con le eccezioni seguenti:
+Tutti i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) sono attualmente supportati dalla gestione delle risorse delegate di Azure, con le eccezioni seguenti:
 
-- Il ruolo [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) non è supportato.
-- I ruoli predefiniti con autorizzazione [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) non sono supportati.
-- Il ruolo predefinito [Amministratore accessi utente](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) è supportato, ma solo per lo scopo limitato di [assegnazione di ruoli a un'identità gestita nel tenant del cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Non verranno applicate altre autorizzazioni generalmente concesse da questo ruolo. Se si definisce un utente con questo ruolo, è necessario specificare anche uno o più ruoli predefiniti che possono essere assegnati da questo utente alle identità gestite.
+- Il ruolo [Proprietario](../../role-based-access-control/built-in-roles.md#owner) non è supportato.
+- I ruoli predefiniti con autorizzazione [DataActions](../../role-based-access-control/role-definitions.md#dataactions) non sono supportati.
+- Il ruolo predefinito [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator) è supportato, ma solo per lo scopo limitato di [assegnazione di ruoli a un'identità gestita nel tenant del cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Non verranno applicate altre autorizzazioni generalmente concesse da questo ruolo. Se si definisce un utente con questo ruolo, è necessario specificare anche uno o più ruoli predefiniti che possono essere assegnati da questo utente alle identità gestite.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Procedure consigliate per la definizione di utenti e ruoli
 
@@ -36,8 +36,8 @@ Quando si creano le autorizzazioni, è consigliabile attenersi alle procedure co
 
 - Nella maggior parte dei casi, è consigliabile assegnare le autorizzazioni a un gruppo di utenti o a un'entità servizio di Azure AD, invece che a una serie di singoli account utente. In questo modo è possibile aggiungere o rimuovere l'accesso per i singoli utenti senza dover aggiornare e ripubblicare il piano quando cambiano i requisiti di accesso.
 - Assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il proprio lavoro, riducendo la possibilità di errori accidentali. Per altre informazioni, vedere [Procedure di sicurezza consigliate](../concepts/recommended-security-practices.md).
-- Includere un utente con il [ruolo di eliminazione di assegnazione di registrazione dei servizi gestiti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) in modo che sia possibile [rimuovere l'accesso alla delega](../how-to/onboard-customer.md#remove-access-to-a-delegation) in un secondo momento, se necessario. Se questo ruolo non è assegnato, le risorse delegate possono essere rimosse solo da un utente nel tenant del cliente.
-- Assicurarsi che tutti gli utenti che devono [visualizzare la pagina Clienti personali nel portale di Azure](../how-to/view-manage-customers.md) dispongano del ruolo [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) o di un altro ruolo predefinito che include l'accesso in lettura.
+- Includere un utente con il [ruolo di eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) in modo che sia possibile [rimuovere l'accesso alla delega](../how-to/onboard-customer.md#remove-access-to-a-delegation) in un secondo momento, se necessario. Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
+- Assicurarsi che tutti gli utenti che devono [visualizzare la pagina Clienti personali nel portale di Azure](../how-to/view-manage-customers.md) dispongano del ruolo [Lettore](../../role-based-access-control/built-in-roles.md#reader) o di un altro ruolo predefinito che include l'accesso in lettura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

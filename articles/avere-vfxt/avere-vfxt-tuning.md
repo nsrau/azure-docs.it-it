@@ -6,17 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 274a20f84b978b38a284d1feb315d6621b7d3ccd
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414324"
 ---
 # <a name="cluster-tuning"></a>Ottimizzazione del cluster
 
-
-La maggior parte dei cluster vFXT può trarre vantaggio dalle impostazioni delle prestazioni personalizzate. Queste impostazioni consentono al cluster di ottenere la massima efficienza con il flusso di lavoro, il set di dati e gli strumenti specifici. 
+La maggior parte dei cluster vFXT può trarre vantaggio dalle impostazioni delle prestazioni personalizzate. Queste impostazioni consentono al cluster di ottenere la massima efficienza con il flusso di lavoro, il set di dati e gli strumenti specifici.
 
 Questa personalizzazione dovrebbe essere eseguita con un rappresentante del supporto tecnico, perché in genere è necessario configurare funzionalità non disponibili nel pannello di controllo di Avere.
 
@@ -34,9 +33,9 @@ Questa sezione illustra alcune delle ottimizzazioni personalizzate che è possib
 
 Queste modifiche possono essere consigliabili a seconda della qualità del set di dati o del tipo di flusso di lavoro.
 
-* Se il carico di lavoro prevede un'intensa attività di scrittura, aumentare le dimensioni della cache di scrittura predefinite del 20%. 
-* Se il set di dati contiene molti file di piccole dimensioni, aumentare il limite del numero di file della cache del cluster. 
-* Se è necessario copiare o spostare dati tra due repository, modificare il numero di thread usati per spostare i dati: 
+* Se il carico di lavoro prevede un'intensa attività di scrittura, aumentare le dimensioni della cache di scrittura predefinite del 20%.
+* Se il set di dati contiene molti file di piccole dimensioni, aumentare il limite del numero di file della cache del cluster.
+* Se è necessario copiare o spostare dati tra due repository, modificare il numero di thread usati per spostare i dati:
   * Per aumentare la velocità, è possibile aumentare il numero di thread paralleli usati.
   * Se il volume di archiviazione back-end è in sovraccarico, potrebbe essere necessario ridurre il numero di thread paralleli usati.
 * Se il cluster memorizza nella cache i dati per un core filer che usa elenchi di controllo di accesso NFSv4, abilitare la memorizzazione nella cache in modalità accesso per semplificare l'autorizzazione dei file per determinati client.
@@ -58,4 +57,4 @@ In uno scenario di burst nel cloud o di ottimizzazione della rete WAN ibrida (do
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ottimizzazione di Avere vFXT per Azure
 
-Usare la procedura descritta in [Ottenere assistenza per il sistema](avere-vfxt-open-ticket.md) per contattare personale di supporto per informazioni su queste ottimizzazioni. 
+Usare la procedura descritta in [Ottenere assistenza per il sistema](avere-vfxt-open-ticket.md) per contattare personale di supporto per informazioni su queste ottimizzazioni.

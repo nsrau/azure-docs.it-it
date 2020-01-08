@@ -1,17 +1,17 @@
 ---
-title: Panoramica dell'autenticazione di Azure Active Directory su SMB per File di Azure-archiviazione di Azure
+title: Panoramica-autorizzazione Azure AD Domain Services-File di Azure
 description: File di Azure supporta l'autenticazione basata su identità su SMB (Server Message Block) tramite i servizi del dominio Azure Active Directory (Azure AD). Le macchine virtuali di Windows aggiunte a dominio possono così accedere a condivisioni file di Azure tramite credenziali di Azure AD.
 author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 93db726a2cac14109e542972ce851943b290962f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460295"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Panoramica del supporto per l'autenticazione File di Azure Azure Active Directory Domain Service (Azure AD DS) per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -49,7 +49,7 @@ Azure AD autenticazione del servizio del dominio per File di Azure offre diversi
 -   **Eseguire il backup degli elenchi di controllo di accesso (ACL) insieme ai dati**  
     È possibile usare File di Azure per eseguire il backup delle condivisioni di file locali esistenti. File di Azure conserva gli ACL insieme ai dati quando si esegue il backup di un file di condivisione in File di Azure tramite SMB.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 File di Azure Usa Azure AD Domain Services per supportare l'autenticazione Kerberos con le credenziali di Azure AD da macchine virtuali aggiunte a un dominio. Prima di poter usare Azure AD con File di Azure, è necessario attivare Azure AD Domain Services e aggiungere il dominio dalle macchine virtuali da cui si è programmato di accedere ai dati del file. La VM aggiunta a un dominio deve risiedere nella stessa rete virtuale (VNET) come Azure AD Domain Services. 
 
 Quando un'identità associata a un'applicazione in esecuzione in una macchina virtuale tenta di accedere ai dati di File di Azure, la richiesta viene inviata ad Azure AD Domain Services per l'autenticazione dell'identità. Se l'autenticazione ha esito positivo, Azure AD Domain Services restituisce un token Kerberos. L'applicazione invia una richiesta che include il token Kerberos e File di Azure usa quel token per autorizzare la richiesta. File di Azure riceve solo il token e non rende permanenti le credenziali di Azure AD.

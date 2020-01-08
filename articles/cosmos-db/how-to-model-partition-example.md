@@ -1,17 +1,17 @@
 ---
-title: Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
+title: Modellare e partizionare i dati in Azure Cosmos DB con un esempio reale
 description: Informazioni su come modellare e partizionare un esempio reale usando l'API Core di Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445385"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 
@@ -53,7 +53,7 @@ Ecco l'elenco di richieste che la piattaforma dovrà esporre:
 - **[Q5]**  Elencare i Mi piace ricevuti da un post
 - **[Q6]** Elencare i *x* post più recenti in forma breve (feed)
 
-In questa fase, non sono ancora stati considerati i dettagli sul contenuto di ciascuna entità (utente, post, ecc.). In genere si affronta per primo questo passaggio durante la progettazione basata su un archivio relazionale, perché occorre comprendere in che modo tali entità si tradurranno in termini di tabelle, colonne, chiavi di riferimento, ecc. Un database di documenti pone decisamente meno problemi perché non applica nessuno schema alla scrittura.
+In questa fase, non sono ancora stati considerati i dettagli sul contenuto di ciascuna entità (utente, post, ecc.). Questo passaggio è in genere tra le prime da affrontare quando si progetta in un archivio relazionale, perché è necessario determinare il modo in cui tali entità verranno convertite in termini di tabelle, colonne, chiavi esterne e così via. È molto meno problematico per un database di documenti che non impone alcuno schema in fase di scrittura.
 
 Il motivo principale per cui è importante identificare i modelli di accesso sin dall'inizio è che questo elenco di richieste diventerà il gruppo di test. Ogni volta che si esegue l'iterazione del modello di dati, si verificheranno le prestazioni e la scalabilità di ciascuna richiesta.
 
@@ -223,7 +223,7 @@ Si recuperano i post più recenti eseguendo la query del contenitore `posts` per
 
 ![Recupero dei post più recenti e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q6.png)
 
-Anche in questo caso, la query iniziale non filtra la chiave di partizione del contenitore `posts`, che attiva un fan-out dispendioso. Questa situazione è persino peggiore, perché l'obiettivo è un set di risultati molto più grande e i risultati vengono ordinati con una clausola `ORDER BY`, che lo rende più dispendioso in termini di unità richiesta.
+Ancora una volta, la query iniziale non filtra la chiave di partizione del contenitore `posts`, che attiva un fan-out costoso. Questo è ancora peggio quando si fa riferimento a un set di risultati molto più ampio e si ordinano i risultati con una clausola `ORDER BY`, che lo rende più costosa in termini di unità richiesta.
 
 | **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ Esaminando i problemi di prestazioni affrontati nella sezione precedente, è pos
 
 È possibile risolvere ognuno di questi problemi, a partire dal primo.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introduzione della denormalizzazione per ottimizzare le query di lettura
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introduzione alla denormalizzazione per ottimizzare le query di lettura
 
 Il motivo per cui in alcuni casi è necessario eseguire richieste aggiuntive è che i risultati della richiesta iniziale non contengono tutti i dati che devono essere restituiti. Quando si usa un archivio dati non relazionali come Azure Cosmos DB, questo tipo di problema è comunemente risolvibile denormalizzando i dati nel set di dati.
 
@@ -437,7 +437,7 @@ Il contenitore `users` ora contiene due tipi di elementi:
       "creationDate": "<post-creation-date>"
     }
 
-Si noti che:
+Tenere presente quanto segue:
 
 - è stato introdotto un campo `type` nell'elemento utente per distinguere gli utenti dai post
 - è stato anche aggiunto un campo `userId` all'elemento utente, che è ridondante con il campo `id`, ma è richiesto in quanto il contenitore `users` è ora partizionato in base all'`userId` (e non all'`id`, come in precedenza)
@@ -538,11 +538,11 @@ Il passaggio finale consiste nel reindirizzare la query al nuovo contenitore `fe
 | --- | --- | --- |
 | 9 ms | 16,97 UR | ✅ |
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Verranno ora esaminati i miglioramenti complessivi delle prestazioni e della scalabilità introdotti nelle diverse versioni progettate.
 
-| | V1 | Versione 2 | V3 |
+| | V1 | V2 | V3 |
 | --- | --- | --- | --- |
 | **[C1]** | 7 ms/5,71 UR | 7 ms/5,71 UR | 7 ms/5,71 UR |
 | **[Q1]** | 2 ms/1 UR | 2 ms/1 UR | 2 ms/1 UR |

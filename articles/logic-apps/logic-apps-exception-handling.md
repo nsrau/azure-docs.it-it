@@ -1,6 +1,6 @@
 ---
-title: Gestione degli errori e delle eccezioni
-description: Informazioni sui modelli per la gestione degli errori e delle eccezioni in App per la logica di Azure
+title: Gestione di errori ed eccezioni
+description: Informazioni su come gestire gli errori e le eccezioni che si verificano nelle attività e nei flussi di lavoro automatizzati creati usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 author: dereklee
@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa197a04b91f398bda2e402b18a638b9bf0ab9a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453400"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -27,7 +27,7 @@ Il metodo di base per gestire eccezioni ed errori consiste nell'usare *criteri d
 
 Ecco i tipi di criteri di ripetizione: 
 
-| Type | Description | 
+| Tipo | Description | 
 |------|-------------| 
 | **Default** | Questi criteri inviano fino a quattro richieste di ripetizione a intervalli con *crescita esponenziale* di 7,5 secondi ma con un limite massimo compreso tra 5 e 45 secondi. | 
 | **Intervallo esponenziale**  | Questi criteri attendono un intervallo casuale selezionato da un intervallo con crescita esponenziale prima di inviare la richiesta successiva. | 
@@ -69,19 +69,19 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Obbligatorio*
 
-| Value | Type | Description |
+| Valore | Tipo | Description |
 |-------|------|-------------|
-| <*retry-policy-type*> | Stringa | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` | 
-| <*retry-interval*> | Stringa | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. | 
+| <*retry-policy-type*> | string | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` | 
+| <*retry-interval*> | string | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. | 
 | <*retry-attempts*> | Integer | Numero di tentativi di ripetizione, che deve essere compresi tra 1 e 90 | 
 ||||
 
 *Facoltativo*
 
-| Value | Type | Description |
+| Valore | Tipo | Description |
 |-------|------|-------------|
-| <*minimum-interval*> | Stringa | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*maximum-interval*> | Stringa | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Di seguito sono riportate altre informazioni sui diversi tipi di criteri.

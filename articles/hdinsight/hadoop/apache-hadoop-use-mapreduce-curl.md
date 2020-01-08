@@ -2,22 +2,22 @@
 title: Usare MapReduce e Curl con Apache Hadoop in HDInsight - Azure
 description: Informazioni su come eseguire in modalità remota processi MapReduce con Apache Hadoop in HDInsight mediante Curl.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 274d8dc80d9318aa3ddf4a904a5b623319ea01f4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716132"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645005"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
-Informazioni su come usare l'API di REST WebHCat Apache Hive per eseguire processi MapReduce in un Apache Hadoop nel cluster HDInsight. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
+Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire processi MapReduce in un cluster HDInsight in un Apache Hadoop. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
 
 > [!NOTE]  
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere il documento [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md).
@@ -74,10 +74,10 @@ Informazioni su come usare l'API di REST WebHCat Apache Hive per eseguire proces
 
     I parametri usati in questo comando sono i seguenti:
 
-   * **-u**: indica il nome utente e la password usati per autenticare la richiesta
+   * **-u**: il nome utente e la password usati per autenticare la richiesta.
    * **-G**: indica che questa operazione è una richiesta GET
 
-   La parte iniziale dell'URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** , è uguale per tutte le richieste.
+   L'inizio dell'URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, è lo stesso per tutte le richieste.
 
 4. Per inviare un processo MapReduce, usare il seguente comando:
 
@@ -106,10 +106,10 @@ Informazioni su come usare l'API di REST WebHCat Apache Hive per eseguire proces
     La fine dell'URI (/mapreduce/jar) indica a WebHCat che la richiesta avvia un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
 
    * **-d**: `-G` non viene usato, quindi la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
-     * **user.name**: l'utente che esegue il comando
-     * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire
-     * **class**: la classe che contiene la logica MapReduce
-     * **arg**: gli argomenti da passare al processo MapReduce In questo caso, il file di testo di input e la directory usata per l'output
+     * **user.name**: l'utente che esegue il comando.
+     * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire.
+     * **class**: la classe che contiene la logica MapReduce.
+     * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output
 
    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo:
 

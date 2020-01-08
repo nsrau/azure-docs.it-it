@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4a5d61d9434a73556d81010da7c7b3e96139a9e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 831da237c06657981e402fc1f8fd09ccd67f85fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427222"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guida alla pubblicazione di Office 365, Dynamics 365, Power Apps e Power BI
 
 La vetrina di AppSource include offerte che si basano oppure estendono Dynamics 365, Office 365, Power BI e Power Apps. Ognuno di questi prodotti dispone di una documentazione specifica per ottenere istruzioni utili nel processo di pubblicazione. Vedere di seguito per i collegamenti a informazioni più dettagliate per ogni tipo di offerta. 
 
-AppSource include offerte di elenchi e versioni di prova, con l'invito all'azione "Contattami" o "Prova". Non è attualmente disponibile alcuna funzionalità per le transazioni in AppSource.
+AppSource ha effettuato pagamenti, elenchi e offerte di valutazione, con la chiamata all'azione "Get it Now", "Contact me" e "try it Now". 
 
 ## <a name="product-specific-guides"></a>Guide specifiche del prodotto
 
@@ -27,7 +27,7 @@ AppSource include offerte di elenchi e versioni di prova, con l'invito all'azion
 
 Esaminare il [processo e le linee guida di pubblicazione](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)
 
-### <a name="power-apps"></a>Power Apps
+### <a name="power-apps"></a>PowerApps
 
 Informazioni su come i clienti possono eseguire il [test drive dell'app in AppSource.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
 

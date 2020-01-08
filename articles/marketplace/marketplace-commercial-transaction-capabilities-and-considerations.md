@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427165"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni del Marketplace commerciale
 
@@ -92,7 +92,7 @@ Oltre a usare i tipi di offerta e i modelli di fatturazione per monetizzare un'o
 Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pubblicamente disponibile. Le offerte private possono essere usate per applicare uno sconto o un supplemento a un'offerta. Le offerte private possono essere rese disponibili per uno o più clienti aggiungendo all'elenco elementi consentiti la sottoscrizione di Azure a livello di offerta.
 
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 **Pagamento in base al consumo** 
 
@@ -223,7 +223,7 @@ In questa sezione vengono analizzati i requisiti delle transazioni per i diversi
 - Per l'opzione di pubblicazione transazioni sono necessari un account Microsoft e informazioni finanziarie, indipendentemente dal modello di determinazione prezzi dell'offerta.
 - Le informazioni finanziarie obbligatorie includono account di pagamento e profilo fiscale.
 
-Per ulteriori informazioni sulla configurazione di questi account, vedere [gestire l'account del centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Per ulteriori informazioni sulla configurazione di questi account, vedere [gestire l'account del centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
 
 
 ### <a name="requirements-for-specific-offer-types"></a>Requisiti per tipi di offerte specifici

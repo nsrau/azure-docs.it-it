@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: b9b0ba85aed4d63fe6bb939c9ed3b99d3e789397
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/11/2019
+ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426999"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implementare analisi del traffico di ricerca in Azure ricerca cognitiva
 
@@ -167,9 +167,7 @@ Ogni clic di un utente su un documento è un segnale che deve essere registrato 
 
 ## <a name="3---analyze-in-power-bi"></a>3 - Eseguire l'analisi in Power BI
 
-Dopo aver instrumentato l'app e aver verificato che l'applicazione sia connessa correttamente alla Application Insights, è possibile usare un modello predefinito creato da Azure ricerca cognitiva per Power BI desktop. 
-
-Ricerca cognitiva di Azure fornisce un [pacchetto di contenuto Power bi](https://app.powerbi.com/getdata/services/azure-search) di monitoraggio per poter analizzare i dati di log. Il pacchetto di contenuti aggiunge tabelle e grafici predefiniti utili per analizzare i dati aggiuntivi acquisiti per Analisi del traffico di ricerca. Per altre informazioni, vedere la [pagina della Guida del pacchetto di contenuti](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+Dopo aver instrumentato l'app e aver verificato che l'applicazione sia connessa correttamente alla Application Insights, è possibile scaricare un modello di report predefinito per analizzare i dati in Power BI desktop. Il report contiene grafici e tabelle predefiniti utili per analizzare i dati aggiuntivi acquisiti per analisi del traffico di ricerca. 
 
 1. Nel riquadro di spostamento a sinistra del dashboard di Azure ricerca cognitiva, in **Impostazioni**, fare clic su **analisi del traffico di ricerca**.
 
@@ -179,7 +177,7 @@ Ricerca cognitiva di Azure fornisce un [pacchetto di contenuto Power bi](https:/
 
 2. Nella stessa pagina fare clic su **scarica Power bi report**.
 
-3. Il report viene aperto in Power BI Desktop e viene richiesto di connettersi ad Application Insights. Queste informazioni sono reperibili nelle pagine portale di Azure per la risorsa Application Insights.
+3. Il report verrà aperto in Power BI Desktop e verrà richiesto di connettersi Application Insights e fornire le credenziali. È possibile trovare le informazioni di connessione nelle pagine portale di Azure per la risorsa Application Insights. Per le credenziali, fornire lo stesso nome utente e la stessa password usati per l'accesso al portale.
 
    ![Connetti a Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Connetti a Application Insights")
 
@@ -189,11 +187,8 @@ Il report contiene grafici e tabelle che consentono di prendere decisioni più i
 
 Sono incluse le metriche seguenti:
 
-* Tasso di clic (CTR): rapporto tra utenti che fanno clic su un documento specifico e numero di ricerche totali.
+* Volume di ricerca e coppie di documenti di termine più diffuse: termini che comportano lo stesso documento selezionato, ordinato per clic.
 * Ricerche senza clic: termini delle query principali per i quali non sono registrati clic.
-* Documenti con più clic: documenti con più clic suddivisi per ID nelle ultime 24 ore e negli ultimi 7 e 30 giorni.
-* Coppie termine-documento più comuni: termini che producono lo stesso documento selezionato, ordinati per clic.
-* Tempo dei clic: clic con bucket definiti in base al tempo dopo la query di ricerca.
 
 Lo screenshot seguente mostra i report predefiniti e i grafici per l'analisi di Analisi del traffico di ricerca.
 

@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427071"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
+
+>Consente di ricevere notifiche su quando rivisitare la pagina per gli aggiornamenti copiando e incollando questo URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` nel lettore di feed RSS.
 
 Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
@@ -33,6 +35,40 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-sdk), l'interfaccia della riga di comando o uno degli SDK supportati.
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="november-2019"></a>Novembre 2019
+
+### <a name="live-transcription-preview"></a>Anteprima della trascrizione in tempo reale
+
+La trascrizione in tempo reale è ora disponibile in anteprima pubblica e disponibile per l'uso nell'area Stati Uniti occidentali 2.
+
+La trascrizione in tempo reale è progettata per funzionare insieme agli eventi Live come funzionalità di componente aggiuntivo.  È supportato sia per gli eventi live di codifica pass-through sia per quelli standard o Premium.  Quando questa funzionalità è abilitata, il servizio usa la funzionalità di [riconoscimento vocale](../../cognitive-services/speech-service/speech-to-text.md) dei servizi cognitivi per trascrivere le parole pronunciate nell'audio in ingresso nel testo. Questo testo viene quindi reso disponibile per il recapito insieme a video e audio nei protocolli MPEG-DASH e HLS. La fatturazione è basata su un nuovo contatore aggiuntivo che rappresenta un costo aggiuntivo per l'evento Live quando si trova nello stato "in esecuzione".  Per informazioni dettagliate sulla trascrizione in tempo reale e sulla fatturazione, vedere [Traduzione in tempo reale](live-transcription.md)
+
+> [!NOTE]
+> Attualmente, la trascrizione in tempo reale è disponibile solo come funzionalità di anteprima nell'area Stati Uniti occidentali 2. Supporta la trascrizione di parole pronunciate in inglese (en-US) solo in questo momento.
+
+### <a name="content-protection"></a>Protezione del contenuto
+
+La funzionalità di *prevenzione della riproduzione dei token* rilasciata in aree limitate a settembre è ora disponibile in tutte le aree geografiche.
+I clienti di servizi multimediali possono ora impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Per ulteriori informazioni, vedere [prevenzione della riproduzione dei token](content-protection-overview.md#token-replay-prevention).
+
+### <a name="new-recommended-live-encoder-partners"></a>Nuovi partner del codificatore Live consigliati
+
+Aggiunta del supporto per i nuovi codificatori partner consigliati seguenti per lo streaming live RTMP:
+
+- [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
+- [Videocamere GoPro Hero7/8 e Max Action](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Restream.io](https://restream.io/)
+
+### <a name="file-encoding-enhancements"></a>Miglioramenti della codifica file
+
+- Miglioramento delle prestazioni e del multithreading per il ridimensionamento in Media Encoder Standard. In condizioni specifiche, il cliente dovrebbe vedere un miglioramento delle prestazioni compreso tra il 5-40% di codifica VOD. Il contenuto con complessità bassa codificato in più velocità in bit vedrà un aumento delle prestazioni più elevato. 
+- La codifica standard ora mantiene una cadenza del GOP normale per il contenuto della frequenza dei fotogrammi variabile (VFR) durante la codifica VOD quando si usa l'impostazione GOP basata sul tempo.  Questo significa che il cliente che invia un contenuto misto di frequenza dei fotogrammi che varia da 15-30 fps ad esempio dovrebbe ora visualizzare le distanze GOP regolari calcolate nell'output per i file MP4 in streaming a bitrate adattivo. Ciò consente di migliorare la capacità di passare da una traccia all'altra durante la distribuzione tramite HLS o DASH. 
+-  Miglioramento della sincronizzazione AV per il contenuto di origine con frequenza dei fotogrammi variabile (VFR)
+
+### <a name="video-indexer-video-analytics"></a>Video Indexer, analisi video
+
+- I fotogrammi chiave estratti utilizzando il set di impostazioni VideoAnalyzer sono ora nella risoluzione originale del video anziché essere ridimensionati. L'estrazione di fotogrammi chiave a risoluzione elevata offre immagini di qualità originali e consente di usare i modelli di intelligenza artificiale basati su immagini forniti da Microsoft Visione artificiale e Visione personalizzata Services per ottenere informazioni ancora più approfondite dal video.
 
 ## <a name="september-2019"></a>Settembre 2019
 
@@ -74,7 +110,7 @@ Per informazioni dettagliate, vedere [eseguire la migrazione di biaigi a Media E
 
 Quando si esegue il flusso di contenuti protetti con la restrizione dei token, gli utenti finali devono ottenere un token inviato come parte della richiesta di recapito della chiave. La funzionalità di *prevenzione della riproduzione dei token* consente ai clienti di servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Per ulteriori informazioni, vedere [prevenzione della riproduzione dei token](content-protection-overview.md#token-replay-prevention).
 
-Questa funzionalità è attualmente disponibile negli Stati Uniti centro-occidentali e negli Stati Uniti centro-occidentali.
+A partire da luglio la funzionalità di anteprima era disponibile solo negli Stati Uniti centrali e negli Stati Uniti centro-occidentali.
 
 ## <a name="june-2019"></a>Giugno 2019
 
@@ -110,7 +146,7 @@ Servizi multimediali è ora disponibile nelle aree Corea centrale e Corea meridi
 
 Per altre informazioni, vedere [cloud e aree in cui è disponibile Media Services V3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Miglioramenti delle prestazioni
+### <a name="performance-improvements"></a>Miglioramenti delle prestazioni.
 
 Sono stati aggiunti aggiornamenti che includono miglioramenti delle prestazioni di servizi multimediali.
 
@@ -136,7 +172,7 @@ Media Services V3 è ora supportato nei cloud nazionali di Azure. Non tutte le f
 
 L'evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) è stato aggiunto agli schemi di Griglia di eventi di Azure per Servizi multimediali.
 
-## <a name="january-2019"></a>Gennaio 2019
+## <a name="january-2019"></a>gennaio 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard e file MPI 
 
@@ -297,5 +333,5 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica](media-services-overview.md)
+- [Overview](media-services-overview.md)
 - [Note sulla versione di servizi multimediali V2](../previous/media-services-release-notes.md)

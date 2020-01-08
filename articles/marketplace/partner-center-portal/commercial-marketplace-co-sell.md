@@ -1,50 +1,69 @@
 ---
 title: Opzione di co-selling nel centro per i partner | Azure Marketplace
 description: Le informazioni fornite nella scheda co-selling dell'offerta verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione delle esigenze dei clienti.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/06/2019
+ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431963"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel centro per i partner
 
 Fornire informazioni sulla scheda co-Sell è interamente facoltativo. È necessario per ottenere lo stato pronto per la co-selling e per il co-selling IP. Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione dell'idoneità alle esigenze dei clienti. Non è disponibile direttamente per i clienti. Per ulteriori informazioni, vedere la pagina relativa alla [vendita tramite Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
 
-## <a name="applicable-products"></a>Prodotti applicabili
+L'opzione di co-selling nel centro per i partner è attualmente disponibile per alcuni tipi di offerte. Il supporto per i tipi di offerta aggiuntivi sarà reso disponibile nel corso del tempo.
 
-È possibile scegliere uno qualsiasi dei prodotti Microsoft su cui si basa l'offerta o progettata per l'utilizzo.
+| **Tipo di offerta** | **Pagina di co-selling disponibile nel centro per i partner** |
+|    -----------------------    |    -----------------------------  |
+| SaaS (software as a Service) |     Disponibilità generale circa feb. 2020      |
+| Dynamics 365 per Customer Engagement & PowerApps      |     Ora disponibile      |
+| Dynamics 365 for Operations     |     Ora disponibile       |
+| Dynamics 365 Business Central      |  Disponibilità generale circa feb. 2020     |
+| Applicazione di Azure     |     Disponibilità generale circa feb. 2020     |
+| Valutazione di conformità delle      |     Da annunciare       |
+| Contenitore di Azure     |     Da annunciare       |
+| Servizio di consulenza      |     Da annunciare       |
+| Modulo IoT Edge      |     Da annunciare       |
+| App del servizio Power BI     |     Da annunciare       |
+|  |
 
-## <a name="customer-segments"></a>Segmenti dei clienti
+## <a name="listing"></a>Elenco
 
-Selezionare le dimensioni aziendali di destinazione dell'offerta.
+Gli elenchi di co-selling aiuteranno i team di vendita Microsoft a commercializzare la tua soluzione a un pubblico più ampio.
 
-## <a name="offer-type"></a>Tipo di offerta
+- Scegliere le piattaforme Microsoft con cui l'offerta viene compilata, si estende o si integra con.
+- Selezionare i segmenti di mercato a cui è destinata l'offerta.
+- Selezionare un [tipo di soluzione](#solution-type) per l'offerta.
+- Scegliere fino a tre [aree](#solution-areas) e sottoaree della soluzione.
 
-Selezionare il tipo di offerta:
+### <a name="solution-type"></a>Tipo di soluzione
 
-| **Tipo di offerta**    | **Descrizione**  |
+I tipi di soluzioni consentono di definire gli scenari in cui l'offerta è progettata per l'indirizzo.
+
+| **Tipo di soluzione**    | **Descrizione**  |
 | :------------------- | :-------------------|
-| Dispositivo | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
-| IP | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
-| Service | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
+| Dispositivo (hardware) | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
+| IP (applicazione) | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
+| Servizio | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
 | Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
 
-## <a name="solution-areas"></a>Aree della soluzione
+### <a name="solution-areas"></a>Aree della soluzione
 
-È possibile aggiungere fino a tre aree della soluzione per l'offerta.  Per ogni area della soluzione è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, usare la chiave di `Ctrl` (in Windows) o il tasto di comando (Mac OS).
+Le aree della soluzione consentono di definire ulteriormente la soluzione.
 
-Le aree della soluzione consentono di definire gli scenari in cui l'offerta è progettata per l'indirizzo.
+È possibile aggiungere fino a tre aree della soluzione per l'offerta. Per ogni area della soluzione è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, usare la chiave di `Ctrl` (in Windows) o il tasto di comando (Mac OS).
 
 ## <a name="documents"></a>Documenti
+
+È possibile fornire garanzie per Microsoft da usare per valutare le esigenze dei clienti.
 
 | **Documents** (Documenti)    | **Descrizione**  |
 | :------------------- | :-------------------|
@@ -60,7 +79,7 @@ Le aree della soluzione consentono di definire gli scenari in cui l'offerta è p
 
 ## <a name="contacts"></a>Contatti
 
-Le informazioni di contatto consentono ai team di vendita Microsoft e ai rivenditori di canale di richiedere informazioni aggiuntive dalla risorsa appropriata nell'organizzazione. Le informazioni di contatto sono disponibili per tutti i team di vendita Microsoft. Se si sceglie di rendere disponibile l'offerta nel programma CSP, le informazioni di contatto sono disponibili anche per i rivenditori di canali. 
+Le informazioni di contatto consentono ai team di vendita Microsoft e ai rivenditori di canale di richiedere informazioni aggiuntive dalla risorsa appropriata nell'organizzazione. Le informazioni di contatto sono disponibili per tutti i team di vendita Microsoft. Se si sceglie di rendere disponibile l'offerta nel programma CSP, le informazioni di contatto sono disponibili anche per i rivenditori di canali.
 
 In questo documento vengono fornite indicazioni sui diversi ruoli per i partner e su come scegliere tra di essi. È possibile fornire i contatti scaricando il modello CSV dal centro per i partner, inserendo ogni riga con le informazioni sul contatto e importando il file CSV. Se si importa un file CSV, i contatti esistenti vengono sovrascritti.
 

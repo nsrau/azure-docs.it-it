@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b6826fa53e9810bdd30af4faf9fbf6bc3c3492e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928043"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439240"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Consente di copiare in modo incrementale i nuovi file in base al nome del file partizionato ora utilizzando lo strumento Copia dati
 
@@ -72,7 +72,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
          
-    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
+    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md).
 
 5. In **Versione** selezionare la versione **V2**.
 6. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre località e aree.
@@ -154,7 +154,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     
     ![Scegliere il file o la cartella di output](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    c. Fare clic su **Next** (Avanti).
+    c. Fare clic su **Avanti**.
     
     ![Scegliere il file o la cartella di output](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. Nella pagina **Impostazioni** selezionare **Avanti**. 

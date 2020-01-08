@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79ef5a6e4af3e0becc5dbeed9ea377e8ef0eb3d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432167"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Spostamento dei dati in un database SQL di Azure per Azure Machine Learning
 
@@ -26,20 +26,20 @@ Per un argomento che descrive le opzioni per lo spostamento dei dati a SQL Serve
 
 Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati a un database SQL di Azure.
 
-| <b>SOURCE</b> | <b>DESTINAZIONE: Database SQL di Azure</b> |
+| <b>SOURCE</b> | <b>DESTINATION: database SQL di Azure</b> |
 | --- | --- |
 | <b>File flat (con formato CSV o TSV)</b> |[Inserimento di massa query SQL](#bulk-insert-sql-query) |
-| <b>SQL Server locale</b> |1. [Esportazione in un file flat](#export-flat-file)<br> 2. [Migrazione guidata database SQL](#insert-tables-bcp)<br> 3. [Backup e ripristino database](#db-migration)<br> 4. [Data factory di Azure](#adf) |
+| <b>SQL Server locale</b> |1. [Esportazione in un file flat](#export-flat-file)<br> 2. [migrazione guidata database SQL](#insert-tables-bcp)<br> 3. [backup e ripristino del database](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Prerequisiti
 Questa procedura descritta di seguito richiede di disporre di:
 
-* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere la sezione [Gestire le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 * Accesso a un **database SQL di Azure**. Se è necessario impostare un database SQL di Azure, la [Guida introduttiva al database SQL di Microsoft Azure](../../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database SQL di Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-**Dati**: i processi di migrazione vengono illustrati usando il [set di dati NYC Taxi](https://chriswhong.com/open-data/foil_nyc_taxi/). Il set di dati NYC Taxi contiene informazioni sulle tariffe e sui dati delle tratte ed è disponibile nell'archivio BLOB di Azure: [dati di NYC Taxi](https://www.andresmh.com/nyctaxitrips/). Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di NYC](sql-walkthrough.md#dataset).
+**Dati**: i processi di migrazione vengono illustrati usando il [set di dati NYC Taxi](https://chriswhong.com/open-data/foil_nyc_taxi/). Il set di dati NYC Taxi contiene informazioni sulle tariffe e sui dati delle tratte ed è disponibile nell'archivio BLOB di Azure ([dati NYC Taxi](https://www.andresmh.com/nyctaxitrips/)). Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di NYC](sql-walkthrough.md#dataset).
 
 È possibile adattare le procedure descritte di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server locale, seguire la procedura descritta in [Importazione in blocco dei dati nel database SQL Server](sql-walkthrough.md#dbload). Queste istruzioni sono per SQL Server in una macchina virtuale di Azure, ma la procedura per il caricamento in SQL Server locale è la stessa.
 
@@ -55,7 +55,7 @@ Se i dati di origine vengono archiviati in SQL Server locale, esistono varie pos
 1. [Esportazione in un file flat](#export-flat-file)
 2. [Migrazione guidata database SQL](#insert-tables-bcp)
 3. [Backup e ripristino database](#db-migration)
-4. [Data Factory di Azure](#adf)
+4. [Azure Data Factory](#adf)
 
 I passaggi per i primi tre sono molto simili a tali sezioni in [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](move-sql-server-virtual-machine.md) che coprono la medesima procedura. Le istruzioni seguenti forniscono i collegamenti alle sezioni appropriate al riguardo.
 

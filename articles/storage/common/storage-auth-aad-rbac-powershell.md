@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 57d30803f20d17ee31c3d42d9a26e04c1b0832b6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892018"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460576"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usare PowerShell per assegnare un ruolo RBAC per l'accesso ai dati BLOB e di Accodamento
 
@@ -57,7 +57,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-rbac-role-to-a-security-principal"></a>Assegnare un ruolo RBAC a un'entità di sicurezza
 
-Per assegnare un ruolo RBAC a un'entità di sicurezza, usare il comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Il formato del comando può variare in base all'ambito dell'assegnazione. Gli esempi seguenti illustrano come assegnare un ruolo a un utente in vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a un'entità di sicurezza.
+Per assegnare un ruolo RBAC a un'entità di sicurezza, usare il comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Il formato del comando può variare in base all'ambito dell'assegnazione. Per eseguire il comando, è necessario assegnare un ruolo proprietario o collaboratore all'ambito corrispondente. Gli esempi seguenti illustrano come assegnare un ruolo a un utente in vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a un'entità di sicurezza.
 
 ### <a name="container-scope"></a>Ambito del contenitore
 

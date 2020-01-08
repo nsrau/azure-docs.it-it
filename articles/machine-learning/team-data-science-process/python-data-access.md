@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427378"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -96,7 +96,7 @@ I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** 
     ![Incollare il codice nel blocco appunti][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Accedere a set di dati intermedi da esperimenti di Machine Learning
-Dopo l'esecuzione di un esperimento nella versione classica di Machine Learning Studio, è possibile accedere ai set di impostazioni intermedi dai nodi di output dei moduli. I set di dati intermedi sono costituiti da dati creati e usati per i passaggi intermedi quando è in esecuzione uno strumento di modello.
+Dopo l'esecuzione di un esperimento in Machine Learning Studio (versione classica), è possibile accedere ai set di impostazioni intermedi dai nodi di output dei moduli. I set di dati intermedi sono costituiti da dati creati e usati per i passaggi intermedi quando è in esecuzione uno strumento di modello.
 
 È possibile accedere ai set di dati intermedi sono se si trovano in un formato compatibile con la libreria client Python.
 
@@ -172,7 +172,7 @@ In alternativa, è possibile accedere tramite indice:
     ds = ws.datasets[0]
 
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>Metadati
 I set di dati sono composti non solo dal contenuto ma anche da metadati (i set di dati intermedi rappresentano un'eccezione a questa regola poiché non contengono metadati).
 
 Alcuni valori di metadati vengono assegnati dall'utente in fase di creazione:

@@ -1,17 +1,17 @@
 ---
 title: Provider di cache di output ASP.NET per la Cache Redis di Azure
-description: Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure
+description: Informazioni su come memorizzare nella cache l'output della pagina ASP.NET usando cache di Azure per Redis. Il provider di cache Redis di output è un meccanismo di memorizzazione out-of-process per i dati della cache di output.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.author: yegu
-ms.openlocfilehash: 5d7099779f330bc0a92f0c8f305ac534ab385119
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1a375f063d398c19ed86a0a401e2a41c696ef4e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412982"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure
 
@@ -23,7 +23,7 @@ Per usare il provider di cache Redis di output, configurare prima di tutto la ca
 
 Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet Azure Cache for Redis Session State, fare clic su **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti** dal menu **Strumenti**.
 
-Eseguire questo comando seguente dalla finestra `Package Manager Console`.
+Eseguire questo comando nella finestra `Package Manager Console`.
 
 ```
 Install-Package Microsoft.Web.RedisOutputCacheProvider
@@ -51,22 +51,22 @@ Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly richiesto e agg
 
 Configurare gli attributi con i valori del pannello Cache nel portale di Microsoft Azure e configurare gli altri valori come desiderato. Per istruzioni sull'accesso alle proprietà della cache, vedere [Configurare le impostazioni di Cache Redis di Azure](cache-configure.md#configure-azure-cache-for-redis-settings).
 
-| Attribute | digitare | Default | DESCRIZIONE |
+| Attributo | Tipo | Predefinito | Description |
 | --------- | ---- | ------- | ----------- |
-| *host* | stringa | localhost | Indirizzo IP o nome host del server Redis |
-| *port* | intero positivo | 6379 (non SSL)<br/>6380 (SSL) | Porta server Redis |
-| *accessKey* | stringa | "" | Password del server Redis quando è abilitata l'autorizzazione Redis. Per impostazione predefinita, il valore è una stringa vuota, il che significa che il provider di stato della sessione non utilizzerà alcuna password durante la connessione al server Redis. **Se il server Redis si trova in una rete accessibile pubblicamente come cache Redis di Azure, assicurarsi di abilitare l'autorizzazione Redis per migliorare la sicurezza e fornire una password sicura.** |
+| *host* | string | localhost | Indirizzo IP o nome host del server Redis |
+| *port* | numero intero positivo | 6379 (non SSL)<br/>6380 (SSL) | Porta server Redis |
+| *accessKey* | string | "" | Password del server Redis quando è abilitata l'autorizzazione Redis. Per impostazione predefinita, il valore è una stringa vuota, il che significa che il provider di stato della sessione non utilizzerà alcuna password durante la connessione al server Redis. **Se il server Redis si trova in una rete accessibile pubblicamente come cache Redis di Azure, assicurarsi di abilitare l'autorizzazione Redis per migliorare la sicurezza e fornire una password sicura.** |
 | *ssl* | boolean | **false** | Indica se connettersi al server Redis tramite SSL. Per impostazione predefinita, questo valore è **false** perché Redis non supporta SSL. **Se si usa cache Redis di Azure, che supporta la crittografia SSL predefinita, assicurarsi di impostare questa impostazione su true per migliorare la sicurezza.**<br/><br/>Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Specificare **true** per questa impostazione per utilizzare la porta SSL. Per altre informazioni sull'abilitazione della porta senza SSL, vedere la sezione [Porte di accesso](cache-configure.md#access-ports) nell'argomento [Configurare una cache](cache-configure.md). |
-| *databaseIdNumber* | intero positivo | 0 | *Questo attributo può essere specificato solo tramite Web. config o AppSettings.*<br/><br/>Specificare il database Redis da usare. |
-| *connectionTimeoutInMilliseconds* | intero positivo | Fornito da StackExchange. Redis | Utilizzato per impostare *ConnectTimeout* durante la creazione di stackexchange. Redis. ConnectionMultiplexer. |
-| *operationTimeoutInMilliseconds* | intero positivo | Fornito da StackExchange. Redis | Utilizzato per impostare *SyncTimeout* durante la creazione di stackexchange. Redis. ConnectionMultiplexer. |
-| *ConnectionString* (stringa di connessione stackexchange. Redis valida) | stringa | *n/a* | Un riferimento a un parametro a AppSettings o Web. config, altrimenti una stringa di connessione StackExchange. Redis valida. Questo attributo può fornire valori per *host*, *Port*, *AccessKey*, *SSL*e altri attributi stackexchange. Redis. Per un esame più approfondito di *ConnectionString*, vedere [impostazione di ConnectionString](#setting-connectionstring) nella sezione [Note sugli attributi](#attribute-notes) . |
-| *settingsClassName*<br/>*settingsMethodName* | stringa<br/>stringa | *n/a* | *Questi attributi possono essere specificati solo tramite Web. config o AppSettings.*<br/><br/>Usare questi attributi per fornire una stringa di connessione. *settingsClassName* deve essere un nome di classe qualificato dall'assembly che contiene il metodo specificato da *settingsMethodName*.<br/><br/>Il metodo specificato da *settingsMethodName* deve essere public, static e void (non accetta parametri), con un tipo restituito **String**. Questo metodo restituisce la stringa di connessione effettiva. |
-| *loggingClassName*<br/>*loggingMethodName* | stringa<br/>stringa | *n/a* | *Questi attributi possono essere specificati solo tramite Web. config o AppSettings.*<br/><br/>Usare questi attributi per eseguire il debug dell'applicazione fornendo log dalla cache dello stato della sessione/output insieme ai log di StackExchange. Redis. *loggingClassName* deve essere un nome di classe qualificato dall'assembly che contiene il metodo specificato da *loggingMethodName*.<br/><br/>Il metodo specificato da *loggingMethodName* deve essere public, static e void (non accetta parametri), con un tipo restituito **System. io. TextWriter**. |
-| *applicationName* | stringa | Nome del modulo del processo corrente o "/" | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite Web. config o AppSettings.*<br/><br/>Prefisso del nome dell'app da usare nella cache Redis. Il cliente può usare la stessa cache Redis per scopi diversi. Per assicurarsi che le chiavi della sessione non entrino in conflitto, è possibile che il nome dell'applicazione sia preceduto dal prefisso. |
+| *databaseIdNumber* | numero intero positivo | 0 | *Questo attributo può essere specificato solo tramite Web. config o AppSettings.*<br/><br/>Specificare il database Redis da usare. |
+| *connectionTimeoutInMilliseconds* | numero intero positivo | Fornito da StackExchange. Redis | Utilizzato per impostare *ConnectTimeout* durante la creazione di stackexchange. Redis. ConnectionMultiplexer. |
+| *operationTimeoutInMilliseconds* | numero intero positivo | Fornito da StackExchange. Redis | Utilizzato per impostare *SyncTimeout* durante la creazione di stackexchange. Redis. ConnectionMultiplexer. |
+| *ConnectionString* (stringa di connessione stackexchange. Redis valida) | string | *n/a* | Un riferimento a un parametro a AppSettings o Web. config, altrimenti una stringa di connessione StackExchange. Redis valida. Questo attributo può fornire valori per *host*, *Port*, *AccessKey*, *SSL*e altri attributi stackexchange. Redis. Per un esame più approfondito di *ConnectionString*, vedere [impostazione di ConnectionString](#setting-connectionstring) nella sezione [Note sugli attributi](#attribute-notes) . |
+| *settingsClassName*<br/>*settingsMethodName* | string<br/>string | *n/a* | *Questi attributi possono essere specificati solo tramite Web. config o AppSettings.*<br/><br/>Usare questi attributi per fornire una stringa di connessione. *settingsClassName* deve essere un nome di classe qualificato dall'assembly che contiene il metodo specificato da *settingsMethodName*.<br/><br/>Il metodo specificato da *settingsMethodName* deve essere public, static e void (non accetta parametri), con un tipo restituito **String**. Questo metodo restituisce la stringa di connessione effettiva. |
+| *loggingClassName*<br/>*loggingMethodName* | string<br/>string | *n/a* | *Questi attributi possono essere specificati solo tramite Web. config o AppSettings.*<br/><br/>Usare questi attributi per eseguire il debug dell'applicazione fornendo log dalla cache dello stato della sessione/output insieme ai log di StackExchange. Redis. *loggingClassName* deve essere un nome di classe qualificato dall'assembly che contiene il metodo specificato da *loggingMethodName*.<br/><br/>Il metodo specificato da *loggingMethodName* deve essere public, static e void (non accetta parametri), con un tipo restituito **System. io. TextWriter**. |
+| *applicationName* | string | Nome del modulo del processo corrente o "/" | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite Web. config o AppSettings.*<br/><br/>Prefisso del nome dell'app da usare nella cache Redis. Il cliente può usare la stessa cache Redis per scopi diversi. Per assicurarsi che le chiavi della sessione non entrino in conflitto, è possibile che il nome dell'applicazione sia preceduto dal prefisso. |
 | *throwOnError* | boolean | true | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite Web. config o AppSettings.*<br/><br/>Indica se generare un'eccezione quando si verifica un errore.<br/><br/>Per altre informazioni su *throwOnError*, vedere [Note su *throwOnError* ](#notes-on-throwonerror) nella sezione [Note sugli attributi](#attribute-notes) . |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
-| *retryTimeoutInMilliseconds* | intero positivo | 5000 | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite Web. config o AppSettings.*<br/><br/>Durata del tentativo quando un'operazione ha esito negativo. Se questo valore è minore di *operationTimeoutInMilliseconds*, il provider non tenterà di riprovare.<br/><br/>Per altre informazioni su *retryTimeoutInMilliseconds*, vedere [Note su *retryTimeoutInMilliseconds* ](#notes-on-retrytimeoutinmilliseconds) nella sezione [Note sugli attributi](#attribute-notes) . |
-| *redisSerializerType* | stringa | *n/a* | Specifica il nome del tipo completo di assembly di una classe che implementa Microsoft. Web. Redis. ISerializer e che contiene la logica personalizzata per serializzare e deserializzare i valori. Per ulteriori informazioni, vedere [informazioni su *redisSerializerType* ](#about-redisserializertype) nella sezione [Note sugli attributi](#attribute-notes) . |
+| *retryTimeoutInMilliseconds* | numero intero positivo | 5000 | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite Web. config o AppSettings.*<br/><br/>Durata del tentativo quando un'operazione ha esito negativo. Se questo valore è minore di *operationTimeoutInMilliseconds*, il provider non tenterà di riprovare.<br/><br/>Per altre informazioni su *retryTimeoutInMilliseconds*, vedere [Note su *retryTimeoutInMilliseconds* ](#notes-on-retrytimeoutinmilliseconds) nella sezione [Note sugli attributi](#attribute-notes) . |
+| *redisSerializerType* | string | *n/a* | Specifica il nome del tipo completo di assembly di una classe che implementa Microsoft. Web. Redis. ISerializer e che contiene la logica personalizzata per serializzare e deserializzare i valori. Per ulteriori informazioni, vedere [informazioni su *redisSerializerType* ](#about-redisserializertype) nella sezione [Note sugli attributi](#attribute-notes) . |
 |
 
 ## <a name="attribute-notes"></a>Note sugli attributi

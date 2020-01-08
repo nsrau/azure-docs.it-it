@@ -1,19 +1,21 @@
 ---
-title: Abilitare l'autenticazione Azure Active Directory su SMB per File di Azure-archiviazione di Azure
+title: Usare Azure AD Domain Services per autorizzare l'accesso ai dati dei file tramite SMB
 description: Informazioni su come abilitare l'autenticazione basata su identità su Server Message Block (SMB) per File di Azure tramite Azure Active Directory Domain Services. Le macchine virtuali Windows (VM) appartenenti a un dominio possono quindi accedere alle condivisioni file di Azure usando le credenziali Azure AD.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 886cacc5e90136380a183f6b9ddd1123d726dcf3
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.subservice: files
+ms.openlocfilehash: fd42a6ffa6ea46d49df673cde617c70ce7425d91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460385"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services su SMB per File di Azure
+
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Per una panoramica dell'autenticazione Azure AD su SMB per File di Azure, vedere [Panoramica dell'autenticazione di Azure Active Directory su SMB per file di Azure](storage-files-active-directory-overview.md).
@@ -21,6 +23,7 @@ Per una panoramica dell'autenticazione Azure AD su SMB per File di Azure, vedere
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Panoramica del flusso di lavoro
+
 Prima di abilitare l'autenticazione di Azure AD DS su SMB per File di Azure, verificare che il Azure AD e gli ambienti di archiviazione di Azure siano configurati correttamente. Si consiglia di esaminare i [prerequisiti](#prerequisites) per assicurarsi di aver completato tutti i passaggi necessari.
 
 Successivamente, è possibile concedere l'accesso alle risorse di File di Azure con credenziali di Azure AD seguendo questa procedura: 
@@ -30,7 +33,7 @@ Successivamente, è possibile concedere l'accesso alle risorse di File di Azure 
 3. Configurare le autorizzazioni NTFS su SMB per file e directory.
 4. Montare una condivisione file di Azure da una macchina virtuale aggiunta a dominio.
 
-Il diagramma seguente illustra il flusso di lavoro end-to-end per l'abilitazione dell'autenticazione di Azure AD DS su SMB per File di Azure. 
+Il diagramma seguente illustra il flusso di lavoro end-to-end per l'abilitazione dell'autenticazione di Azure AD DS su SMB per File di Azure.
 
 ![Diagramma che mostra il flusso di lavoro per l'autenticazione di Azure AD tramite SMB per File di Azure](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
@@ -70,7 +73,7 @@ Prima di abilitare Azure AD tramite SMB per File di Azure, verificare che siano 
 
 Per abilitare l'autenticazione Azure AD DS su SMB per File di Azure, è possibile impostare una proprietà per gli account di archiviazione creati dopo il 24 settembre 2018 usando l'interfaccia della riga di comando portale di Azure, Azure PowerShell o Azure. L'impostazione di questa proprietà registra l'account di archiviazione con la distribuzione di Azure AD DS associata. Azure AD autenticazione DS su SMB viene quindi abilitata per tutte le condivisioni file nuove ed esistenti nell'account di archiviazione.
 
-Tenere presente che è possibile abilitare l'autenticazione di Azure AD DS su SMB solo dopo aver distribuito correttamente Azure AD DS nel tenant di Azure AD. Per ulteriori informazioni, vedere i [prerequisiti](#prerequisites).
+Tenere presente che è possibile abilitare l'autenticazione di Azure AD DS su SMB solo dopo aver distribuito correttamente Azure AD DS nel tenant di Azure AD. Per altre informazioni, vedi i [prerequisiti](#prerequisites).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -114,7 +117,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Per abilitare l'autenticazione Azure AD su SMB con l'interfaccia della riga di comando di Azure, installare la versione più recente dell'interfaccia della riga di comando (versione 2.0.70 o Per altre informazioni sull'installazione dell'interfaccia della riga di comando di Azure, vedere [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Per creare un nuovo account di archiviazione, chiamare[AZ storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e impostare la `--enable-files-aadds` proprietà su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. (Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione della funzionalità è **file-AAD**).
+Per creare un nuovo account di archiviazione, chiamare[AZ storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e impostare la proprietà `--enable-files-aadds` su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. (Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione della funzionalità è **file-AAD**).
 
 ```azurecli-interactive
 # Create a new storage account
@@ -150,7 +153,7 @@ Per assegnare un ruolo controllo degli accessi in base al ruolo a un'identità A
 1. Nella portale di Azure passare alla condivisione file o [creare una condivisione file in file di Azure](storage-how-to-create-file-share.md).
 2. Selezionare **Controllo di accesso (IAM)** .
 3. Selezionare **Aggiungi un'assegnazione di ruolo**
-4. Nel pannello **Aggiungi assegnazione ruolo** selezionare il ruolo predefinito appropriato (Storage file data SMB Share Reader, storage file data SMB condivisione Contributor) dall'elenco dei **ruoli** . Lasciare l'opzione **assegna accesso a** con l'impostazione predefinita: **Azure ad utente, gruppo o entità servizio**. Selezionare la destinazione Azure AD identità in base al nome o all'indirizzo di posta elettronica.
+4. Nel pannello **Aggiungi assegnazione ruolo** selezionare il ruolo predefinito appropriato (Storage file data SMB Share Reader, storage file data SMB condivisione Contributor) dall'elenco dei **ruoli** . Per l'impostazione predefinita, lasciare l'opzione **assegna accesso a** : **Azure ad utente, gruppo o entità servizio**. Selezionare la destinazione Azure AD identità in base al nome o all'indirizzo di posta elettronica.
 5. Selezionare **Salva** per completare l'operazione di assegnazione di ruolo.
 
 #### <a name="powershell"></a>PowerShell
@@ -245,5 +248,5 @@ A questo punto è stata abilitata l'autenticazione Azure AD su SMB e è stato as
 Per ulteriori informazioni su File di Azure e su come utilizzare Azure AD su SMB, vedere le risorse seguenti:
 
 - [Introduzione a File di Azure](storage-files-introduction.md)
-- [Panoramica dell'autenticazione Azure Active Directory su SMB per File di Azure](storage-files-active-directory-overview.md)
+- [Panoramica dell'autenticazione di Azure Active Directory tramite SMB per File di Azure](storage-files-active-directory-overview.md)
 - [Domande frequenti](storage-files-faq.md)

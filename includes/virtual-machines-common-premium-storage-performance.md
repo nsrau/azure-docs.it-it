@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182237"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564719"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -39,7 +39,7 @@ Come illustrato dalla formula seguente, esiste una relazione tra la velocità ef
 
 È quindi importante determinare i valori ottimali per IOPS e velocità effettiva richiesti dall'applicazione. I tentativi di ottimizzazione di uno dei valori influiscono anche sull'altro. In una sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verrà illustrata in modo dettagliato l'ottimizzazione di IOPS e velocità effettiva.
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latenza
 
 La latenza è il tempo necessario perché un'applicazione riceva una singola richiesta, la invii ai dischi di archiviazione e restituisca la risposta al client. Si tratta di una misura essenziale delle prestazioni di un'applicazione, oltre a IOPS e velocità effettiva. La latenza di un disco di Archiviazione Premium è il tempo necessario per recuperare le informazioni per una richiesta e restituirle all'applicazione. L'Archiviazione Premium offre latenze uniformemente basse. I dischi Premium sono progettati per offrire latenze di pochi millisecondi a cifra singola per la maggior parte delle operazioni di I/O. Se si abilita la memorizzazione nella cache host ReadOnly nei dischi di Archiviazione Premium, sarà possibile ottenere una latenza di lettura molto più bassa. La memorizzazione nella cache dei dischi sarà illustrata in modo più dettagliato nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*.
 
@@ -53,7 +53,7 @@ Le operazioni del piano di controllo seguenti su Managed Disks possono comportar
 - Creare un disco gestito da uno snapshot.
 - Convertire i dischi non gestiti in Managed Disks.
 
-# <a name="performance-application-checklist-for-disks"></a>Elenco di controllo per le prestazioni dell'applicazione per i dischi
+## <a name="performance-application-checklist-for-disks"></a>Elenco di controllo per le prestazioni dell'applicazione per i dischi
 
 Il primo passaggio nella progettazione di applicazioni a prestazioni elevate in esecuzione nell'Archiviazione Premium di Azure consiste nel comprendere i requisiti relativi alle prestazioni dell'applicazione. Dopo aver raccolto i requisiti relativi alle prestazioni, sarà possibile ottimizzare l'applicazione per ottenere le prestazioni più elevate possibili.
 
@@ -73,7 +73,7 @@ Nella sezione precedente sono stati illustrati gli indicatori di prestazioni com
 | Dimensioni delle richieste I/O | | | |
 | Velocità effettiva media | | | |
 | Max. Velocità effettiva | | | |
-| Min Latency | | | |
+| Min Latenza | | | |
 | Latenza media | | | |
 | Max. CPU | | | |
 | Utilizzo medio CPU | | | |
@@ -99,7 +99,7 @@ Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco
 | **Velocità effettiva** |Quantità di dati letti da o scritti nel disco al secondo. |Byte letti da disco/sec <br> Byte scritti su disco/sec |kB_read/s <br> kB_wrtn/s |
 | **Latency** |Tempo totale necessario per completare una richiesta I/O per il disco. |Media letture disco/sec <br> Media scritture disco/sec |await <br> svctm |
 | **Dimensioni I/O** |Dimensioni delle richieste I/O rilasciate ai dischi di archiviazione. |Media byte letti da disco <br> Media byte scritti su disco |avgrq-sz |
-| **Profondità coda** |Numero di richieste I/O in attesa che devono essere lette da o scritte nel disco di archiviazione. |Lunghezza corrente coda su disco |avgqu-sz |
+| **Profondità coda** |Numero di richieste I/O in attesa che devono essere lette da o scritte nel disco di archiviazione. |Lunghezza corrente coda del disco |avgqu-sz |
 | **Max. memoria** |Quantità di memoria necessaria per eseguire correttamente un'applicazione. |% byte vincolati in uso |Use vmstat |
 | **Max. CPU** |Quantità di CPU necessaria per eseguire correttamente un'applicazione. |% tempo processore |%util |
 
@@ -170,9 +170,9 @@ Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applic
 
 ## <a name="high-scale-vm-sizes"></a>Dimensioni delle macchine virtuali a scalabilità elevata
 
-Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguire consiste nel scegliere una VM in cui ospitare l'applicazione. L'Archiviazione Premium include dimensioni di VM a scalabilità elevata in grado di eseguire applicazioni che richiedono capacità di calcolo elevate e prestazioni di I/O elevate per il disco locale. Queste VM forniscono processori più veloci, un rapporto più elevato tra memoria e core e un'unità SSD (Solid-State Drive) per il disco locale. Esempi di macchine virtuali a scalabilità elevata che supportano archiviazione Premium sono le VM serie DS, DSv2 e GS.
+Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguire consiste nel scegliere una VM in cui ospitare l'applicazione. L'Archiviazione Premium include dimensioni di VM a scalabilità elevata in grado di eseguire applicazioni che richiedono capacità di calcolo elevate e prestazioni di I/O elevate per il disco locale. Queste VM forniscono processori più veloci, un rapporto più elevato tra memoria e core e un'unità SSD (Solid-State Drive) per il disco locale. Esempi di macchine virtuali a scalabilità elevata che supportano archiviazione Premium sono le VM serie DS e GS.
 
-Le macchine virtuali a scalabilità elevata sono disponibili in dimensioni diverse con un numero diverso di core CPU, memoria, sistema operativo e dimensioni del disco temporaneo. Ogni dimensione di VM prevede anche un numero massimo di dischi dati che possono essere collegati alla VM. La dimensione di VM scelta influirà quindi sulla quantità di elaborazione, memoria e capacità di archiviazione disponibile per l'applicazione. Influisce anche sui costi di calcolo e archiviazione. Ad esempio, sono riportate di seguito le specifiche per la VM di dimensione massima per le serie DS, DSv2 e GS:
+Le macchine virtuali a scalabilità elevata sono disponibili in dimensioni diverse con un numero diverso di core CPU, memoria, sistema operativo e dimensioni del disco temporaneo. Ogni dimensione di VM prevede anche un numero massimo di dischi dati che possono essere collegati alla VM. La dimensione di VM scelta influirà quindi sulla quantità di elaborazione, memoria e capacità di archiviazione disponibile per l'applicazione. Influisce anche sui costi di calcolo e archiviazione. Ad esempio, di seguito sono riportate le specifiche delle dimensioni massime della macchina virtuale in una serie DS e una serie GS:
 
 | Dimensioni VM | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | Operazioni di I/O al secondo | Limiti di I/O della cache della larghezza di banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -292,29 +292,31 @@ Alcune versioni richiedono la versione più recente di Linux Integration Service
 
 | Distribuzione | Versione | Kernel supportato | Dettagli |
 | --- | --- | --- | --- |
-| Ubuntu | 12,04 o versione successiva| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14,04 o versione successiva| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Ubuntu | 12,04 o versione successiva| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14,04 o versione successiva| 3.13.0-44.73+  | &nbsp; |
 | Debian | 7. x, 8. x o versione successiva| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 o versione successiva| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12 o versione successiva| 3.12.36-38.1+ | &nbsp; |
 | SUSE | SLES 11 SP4 o versione successiva| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0 + o versione successiva| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6,5, 6,6, 6,7, 7,0 o versione successiva| &nbsp; | [LIS4 richiesto](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Vedere la nota nella sezione successiva* |
-| CentOS | 7.1 + o versione successiva| 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Vedere la nota nella sezione successiva* |
+| CoreOS | 584.0.0 + o versione successiva| 3.18.4+ | &nbsp; |
+| CentOS | 6,5, 6,6, 6,7, 7,0 o versione successiva| &nbsp; | [LIS4 richiesto](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vedere la nota nella sezione successiva* |
+| CentOS | 7.1 + o versione successiva| 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vedere la nota nella sezione successiva* |
 | Red Hat Enterprise Linux (RHEL) | 6.8 +, 7,2 + o versione successiva | &nbsp; | &nbsp; |
 | Oracle | 6.0 +, 7,2 + o versione successiva | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 o versione successiva | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 o versione successiva | &nbsp; | UEK4 o RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 o versione successiva | &nbsp; | UEK4 o RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Driver LIS per Openlogic CentOS
 
 Se si eseguono macchine virtuali OpenLogic CentOS, eseguire il comando seguente per installare i driver più recenti:
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-Per attivare i nuovi driver, riavviare la macchina virtuale.
+In alcuni casi il comando precedente aggiornerà anche il kernel. Se è necessario un aggiornamento del kernel, potrebbe essere necessario eseguire di nuovo i comandi precedenti dopo il riavvio per installare completamente il pacchetto Microsoft-Hyper-v.
+
 
 ## <a name="disk-striping"></a>Striping del disco
 
@@ -382,4 +384,3 @@ Per un volume con striping è consigliabile mantenere una profondità della coda
 L'Archiviazione Premium di Azure effettua il provisioning di un numero specificato di IOPS e di velocità effettiva in base alle dimensioni delle VM e alle dimensioni dei dischi scelte. Ogni volta che l'applicazione prova a superare i limiti di IOPS o velocità effettiva che possono essere gestiti dalla VM o dal disco, l'Archiviazione Premium limiterà l'applicazione. Questo problema si manifesta sotto forma di una riduzione delle prestazioni dell'applicazione. Ciò può comportare latenza più elevata, velocità effettiva inferiore o IOPS inferiori. Se l'Archiviazione Premium non applica la limitazione, è possibile che si verifichi un errore irreversibile dell'applicazione a causa del superamento dei limiti delle risorse. Per evitare problemi di prestazioni dovuti alla limitazione, è necessario effettuare sempre il provisioning di un numero di risorse sufficiente per l'applicazione. Prendere in considerazione i concetti illustrati nelle sezioni precedenti relative alle dimensioni delle VM e dei dischi. Il benchmarking è il modo migliore per determinare le risorse necessarie per l'hosting dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-

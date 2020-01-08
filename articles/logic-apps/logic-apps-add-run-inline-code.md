@@ -1,17 +1,17 @@
 ---
-title: Aggiungere ed eseguire frammenti di codice
-description: Aggiungere ed eseguire frammenti di codice con codice inline in app per la logica di Azure
+title: Aggiungere ed eseguire frammenti di codice usando il codice inline
+description: Informazioni su come creare ed eseguire frammenti di codice usando azioni di codice inline per attività e flussi di lavoro automatizzati creati con app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453504"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Aggiungere ed eseguire frammenti di codice usando il codice inline in app per la logica di Azure
 
@@ -128,7 +128,7 @@ L'oggetto `workflowContext` dispone di questa struttura, che include le sottopro
 
 Questa tabella contiene ulteriori informazioni su queste sottoproprietà:
 
-| Proprietà | Type | Description |
+| Proprietà | Tipo | Description |
 |----------|------|-------|
 | `actions` | Raccolta di oggetti | Oggetti risultato da azioni eseguite prima dell'esecuzione del frammento di codice. Ogni oggetto ha una coppia *chiave-valore* in cui la chiave è il nome di un'azione e il valore equivale a chiamare la [funzione Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) con `@actions('<action-name>')`. Il nome dell'azione usa lo stesso nome di azione usato nella definizione del flusso di lavoro sottostante, che sostituisce gli spazi ("") nel nome dell'azione con caratteri di sottolineatura (_). Questo oggetto fornisce l'accesso ai valori delle proprietà dell'azione dall'esecuzione dell'istanza del flusso di lavoro corrente. |
 | `trigger` | Oggetto | Oggetto risultato dal trigger e equivalente alla chiamata della [funzione trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Questo oggetto fornisce l'accesso ai valori delle proprietà trigger dall'esecuzione dell'istanza del flusso di lavoro corrente. |
@@ -260,7 +260,7 @@ Se si seleziona **azioni**, vengono richieste le azioni che si desidera aggiunge
 
 1. Per aggiungere un'altra azione, scegliere **Aggiungi nuovo elemento**.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimenti
 
 Per altre informazioni sulla struttura e la sintassi dell'azione **Esegui codice JavaScript** nella definizione del flusso di lavoro sottostante dell'app per la logica usando il linguaggio di definizione del flusso di lavoro, vedere la [sezione di riferimento](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)di questa azione.
 

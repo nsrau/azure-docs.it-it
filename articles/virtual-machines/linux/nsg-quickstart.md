@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 424dfc1dac21f227869f23e7401a083b06cef1d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035559"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354040"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una VM Linux con l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tra
 
 Per creare un gruppo di sicurezza di rete e le regole è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure usando [az login](/cli/azure/reference-index).
 
-L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>Aprire rapidamente una porta per una macchina virtuale
@@ -92,5 +92,5 @@ Per le applicazioni Web a disponibilità elevata, è consigliabile inserire le m
 ## <a name="next-steps"></a>Passaggi successivi
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
 
-* [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+* [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/security-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Azure Application Insights
+title: Risolvere i problemi degli strumenti di analisi utente-applicazione Azure Insights
 description: Guida alla risoluzione dei problemi relativi all'analisi dell'utilizzo di siti e app con Application Insights.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9222f4611f87869c1bacf3084035c0ab9322fa40
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: aa540cdaef1af3016d87ab93768ceb30802cef0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432289"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Application Insights
 Questo articolo prende in esame le domande degli utenti sugli [strumenti di analisi del comportamento degli utenti in Application Insights](usage-overview.md), ad esempio [Utenti, Sessioni, Eventi](usage-segmentation.md), [Imbuti](usage-funnels.md), [Flussi utente](usage-flows.md), [Conservazione](usage-retention.md) e Coorti, offrendo alcune utili risposte.
@@ -40,7 +40,7 @@ Per apportare modifiche ai nomi di visualizzazione pagina e a quelli di evento p
 
 Se l'app invia troppi nomi di visualizzazione pagina, verificare se questi nomi vengono specificati manualmente nel codice o se vengono inviati automaticamente da Application Insights JavaScript SDK:
 
-* Se i nomi di visualizzazione pagina vengono specificati manualmente nel codice tramite l'[API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md) `trackPageView`, modificare il nome in modo da renderlo meno specifico. Evitare gli errori più comuni come quello di inserire l'URL nel nome della visualizzazione pagina. Al contrario, usare il parametro URL dell'API `trackPageView`. Spostare altri dettagli dal nome di visualizzazione pagina nelle proprietà personalizzate.
+* Se i nomi di visualizzazione pagina vengono specificati manualmente nel codice tramite l'[API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)`trackPageView`, modificare il nome in modo da renderlo meno specifico. Evitare gli errori più comuni come quello di inserire l'URL nel nome della visualizzazione pagina. Al contrario, usare il parametro URL dell'API `trackPageView`. Spostare altri dettagli dal nome di visualizzazione pagina nelle proprietà personalizzate.
 
 * Se Application Insights JavaScript SDK invia i nomi di visualizzazione pagina in modo automatico, è possibile modificare i titoli delle pagine oppure passare all'invio manuale di questi nomi. Per impostazione predefinita, l'SDK invia il [titolo](https://developer.mozilla.org/docs/Web/HTML/Element/title) di ogni pagina come nome di visualizzazione pagina. È possibile modificare i titoli in modo da renderli più generici, ma è necessario tenere presente gli effetti che questa modifica può avere sull'ottimizzazione SEO e su altri aspetti. I nomi di visualizzazione pagina specificati manualmente con l'API `trackPageView` sostituiscono i nomi raccolti automaticamente, pertanto è possibile inviare nomi più generici nei dati di telemetria senza modificare i titoli di pagina.   
 

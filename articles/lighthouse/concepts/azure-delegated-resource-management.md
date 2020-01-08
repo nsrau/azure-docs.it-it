@@ -3,12 +3,12 @@ title: Gestione risorse delegate di Azure
 description: Le offerte di servizi gestiti consentono ai provider di servizi di vendere offerte di gestione delle risorse ai clienti in Azure Marketplace.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453635"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
 
@@ -33,7 +33,7 @@ Quando si esegue l'onboarding di un cliente nella gestione risorse delegate di A
 
 Di seguito viene illustrato il funzionamento generale della gestione risorse delegate di Azure:
 
-1. Il provider di servizi identifica l'accesso (ruoli) di cui avranno bisogno i gruppi, le entità servizio o gli utenti per gestire le risorse di Azure del cliente. La definizione dell'accesso contiene l'ID tenant del provider di servizi con l'accesso necessario per l'offerta, definito usando le identità **principalId** del tenant associato ai [valori **roleDefinition** predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (Collaboratore, Collaboratore macchina virtuale, Lettore e così via).
+1. Il provider di servizi identifica l'accesso (ruoli) di cui avranno bisogno i gruppi, le entità servizio o gli utenti per gestire le risorse di Azure del cliente. La definizione dell'accesso contiene l'ID tenant del provider di servizi con l'accesso necessario per l'offerta, definito usando le identità **principalId** del tenant associato ai [valori **roleDefinition** predefiniti](../../role-based-access-control/built-in-roles.md) (Collaboratore, Collaboratore macchina virtuale, Lettore e così via).
 2. È possibile specificare questo accesso ed eseguire l'onboarding del cliente nella gestione risorse delegate di Azure in uno dei due modi seguenti:
    - [Pubblicare in Azure Marketplace un'offerta di servizi gestiti](../how-to/publish-managed-services-offers.md) (privata o pubblica) che verrà accettata dal cliente
    - [Distribuire un modello di Azure Resource Manager nel tenant del cliente](../how-to/onboard-customer.md) per una o più sottoscrizioni o gruppi di risorse specifici

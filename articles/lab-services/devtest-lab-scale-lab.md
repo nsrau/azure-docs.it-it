@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 231a227cbccaa4cbf74f3b13839c0ba42895cf24
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623508"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644852"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Ridimensionare i limiti e le quote in DevTest Labs
 Quando si lavora in DevTest Labs, è possibile notare che esistono limiti predefiniti per determinate le risorse di Azure, che possono influenzare il servizio DevTest Labs. Questi limiti sono definiti **quote**.
@@ -30,7 +30,7 @@ Quando si lavora in DevTest Labs, è possibile notare che esistono limiti predef
 
 Ad esempio, ogni sottoscrizione ha una quota predefinita di 20 core. Pertanto, se si siano creano macchine virtuali nel lab con quattro core, è possibile creare solo cinque macchine virtuali.
 
-[Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits) elenca alcune delle quote più comuni per le risorse di Azure. Le risorse più comunemente usate in un lab e per cui è possibile che ci siano quote, includono i core di una macchina virtuale, gli indirizzi IP pubblici, l'interfaccia di rete, i dischi gestiti, l'assegnazione di ruoli controllo degli accessi in base al ruolo e i circuiti ExpressRoute.
+[Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) elenca alcune delle quote più comuni per le risorse di Azure. Le risorse più comunemente usate in un lab e per cui è possibile che ci siano quote, includono i core di una macchina virtuale, gli indirizzi IP pubblici, l'interfaccia di rete, i dischi gestiti, l'assegnazione di ruoli controllo degli accessi in base al ruolo e i circuiti ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Visualizzare le quote e l'uso
 Questa procedura illustra come visualizzare le quote correnti nella sottoscrizione per risorse specifiche di Azure e per visualizzare la percentuale di ogni quota usata.
@@ -47,7 +47,7 @@ Questa procedura illustra come visualizzare le quote correnti nella sottoscrizio
    ![Utilizzo e quote](./media/devtest-lab-scale-lab/devtestlab-view-quotas.png)
 
 ## <a name="requesting-more-resources-in-your-subscription"></a>Richiesta di altre risorse nella sottoscrizione
-Se si raggiunge un limite di quota, il limite predefinito di una risorsa in una sottoscrizione può essere aumentato fino a un limite massimo, come descritto in [Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Se si raggiunge un limite di quota, il limite predefinito di una risorsa in una sottoscrizione può essere aumentato fino a un limite massimo, come descritto in [Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 Questa procedura mostra come richiedere un aumento di quota usando il [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 

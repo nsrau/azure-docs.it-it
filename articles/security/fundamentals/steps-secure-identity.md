@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101413"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353242"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -112,9 +112,14 @@ Le app che usano propri metodi legacy per l'autenticazione con Azure AD e l'acce
 
 Con un approccio di presunzione di violazione è consigliabile ridurre l'impatto di credenziali utente compromesse quando si verifica questa condizione. Per ogni app nell'ambiente considerare i casi d'uso validi: quali gruppi, quali reti, quali dispositivi e altri elementi sono autorizzati, quindi bloccare il resto. Con [l'accesso condizionale Azure ad](../../active-directory/conditional-access/overview.md), è possibile controllare il modo in cui gli utenti autorizzati accedono alle app e alle risorse in base a condizioni specifiche definite dall'utente.
 
-### <a name="block-end-user-consent"></a>Bloccare il consenso dell'utente finale
+### <a name="restrict-user-consent-operations"></a>Limitare le operazioni di consenso dell'utente
 
-Per impostazione predefinita, tutti gli utenti di Azure AD possono concedere alle applicazioni che usano OAuth 2.0 e il [framework di consenso](../../active-directory/develop/consent-framework.md) dell'identità Microsoft autorizzazioni per accedere ai dati aziendali. Anche se il consenso permette agli utenti di acquisire facilmente applicazioni utili che si integrano con Microsoft 365 e Azure, può rappresentare un rischio se non viene usato e monitorato attentamente. La [disabilitazione di tutte le operazioni di consenso future per l'utente](../../active-directory/manage-apps/methods-for-removing-user-access.md) consente di ridurre la superficie di attacco e il rischio. Se il consenso dell'utente finale è disabilitato, il consenso precedete verrà comunque eseguito, ma tutte le operazioni future di consenso devono essere eseguite da un amministratore. Prima di disabilitare questa funzionalità, è consigliabile assicurarsi che gli utenti apprendano come richiedere l'approvazione dell'amministratore per le nuove applicazioni. Questa operazione dovrebbe contribuire a ridurre l'attrito degli utenti, ridurre al minimo il volume di supporto e verificare che gli utenti non si iscrivono per le applicazioni che usano credenziali non Azure AD.
+È importante comprendere le diverse esperienze di [consenso dell'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), i [tipi di autorizzazioni e il consenso](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)e le loro implicazioni sul comportamento di sicurezza dell'organizzazione. Per impostazione predefinita, tutti gli utenti in Azure AD possono concedere alle applicazioni che sfruttano la piattaforma di identità Microsoft di accedere ai dati dell'organizzazione. Sebbene gli utenti possano acconsentire autonomamente, consentono agli utenti di acquisire facilmente applicazioni utili che si integrano con Microsoft 365, Azure e altri servizi, ma possono rappresentare un rischio se non vengono usate e monitorate con attenzione.
+
+Microsoft consiglia di [disabilitare le future operazioni di consenso utente](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) per ridurre la superficie di attacco e mitigare questo rischio. Se il consenso dell'utente finale è disabilitato, le concessioni di consenso precedenti verranno comunque rispettate, ma tutte le future operazioni di consenso dovranno essere eseguite da un amministratore. Il consenso dell'amministratore può essere richiesto dagli utenti tramite un [flusso di lavoro di richiesta di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrato o tramite processi di supporto personalizzati. Prima di disabilitare questa funzionalità, è consigliabile esaminare il registro di controllo per individuare le applicazioni a cui gli utenti sono consentiti e pianificare la modifica di conseguenza. Per le applicazioni a cui si vuole consentire l'accesso a tutti gli utenti, è consigliabile [concedere il consenso per conto di tutti gli utenti](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), assicurandosi che gli utenti che non hanno ancora acconsentito singolarmente possano accedere all'app. Se non si vuole che queste applicazioni siano disponibili per tutti gli utenti in tutti gli scenari, usare l' [assegnazione dell'applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) e [l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) per limitare l'accesso degli utenti alle app.
+
+Assicurarsi che gli utenti possano richiedere l'approvazione dell'amministratore per le nuove applicazioni per ridurre l'attrito degli utenti, ridurre al minimo il volume di supporto e impedire agli utenti di iscriversi alle applicazioni con credenziali non Azure AD. Una volta regolate le operazioni di consenso, gli amministratori devono controllare regolarmente l'app e le autorizzazioni concesse.
+
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementare Azure AD Privileged Identity Management
 
@@ -173,7 +178,9 @@ Azure AD Identity Protection offre due importanti report da monitorare quotidian
 
 ### <a name="audit-apps-and-consented-permissions"></a>App di controllo e autorizzazioni per il consenso
 
-È possibile indurre gli utenti a passare a un sito Web compromesso o a app che otterranno l'accesso alle informazioni sul profilo e ai dati utente, ad esempio la posta elettronica. Un attore malintenzionato può usare le autorizzazioni per il consenso ricevute per crittografare il contenuto della cassetta postale e richiedere un riscatto per riottenere i dati della cassetta postale. Gli [amministratori dovrebbero analizzare e controllare](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) le autorizzazioni concesse dagli utenti.
+È possibile indurre gli utenti a passare a un sito Web compromesso o a app che otterranno l'accesso alle informazioni sul profilo e ai dati utente, ad esempio la posta elettronica. Un attore malintenzionato può usare le autorizzazioni per il consenso ricevute per crittografare il contenuto della cassetta postale e richiedere un riscatto per riottenere i dati della cassetta postale. Gli [amministratori devono esaminare e controllare](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) le autorizzazioni fornite dagli utenti o disabilitare la possibilità per gli utenti di fornire il consenso per impostazione predefinita. 
+
+Oltre a controllare le autorizzazioni fornite dagli utenti, può essere utile provare a individuare in modo specifico le [applicazioni OAuth rischiose o indesiderate](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), ovvero una funzionalità disponibile per gli ambienti Premium.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Passaggio 5: abilitare la self-service dell'utente finale
 
@@ -191,7 +198,7 @@ Azure AD offre agli amministratori non amministratori la possibilità di gestire
 
 Con le verifiche di [accesso di Azure ad](../../active-directory/governance/access-reviews-overview.md), è possibile gestire l'accesso ai pacchetti e alle appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo con privilegi per garantire la manutenzione di uno standard di sicurezza.  Una supervisione normale da parte degli utenti, i proprietari delle risorse e altri revisori assicurano che gli utenti non mantengano l'accesso per periodi di tempo prolungati quando non sono più necessari.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Sono molti gli aspetti che ruotano attorno a un'infrastruttura di identità sicura, ma questo elenco di controllo di cinque passaggi consente di crearne una più sicura e protetta:
 
