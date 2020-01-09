@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push a specifiche app Android con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a specifiche app Android con Hub di notifica di Azure
 description: Informazioni su come eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure.
 documentationcenter: android
 services: notification-hubs
@@ -17,18 +17,18 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387414"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531123"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push a specifiche app Android con Hub di notifica di Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'articolo [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registrazione dal back-end dell'app). Questa esercitazione si basa sull'hub notifica creato nell'[Esercitazione: Inviare notifiche push a dispositivi Android tramite Hub di notifica di Azure e Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'articolo [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registrazione dal back-end dell'app). Questa esercitazione si basa sull'hub notifica creato nell'[Esercitazione: Inviare notifiche push a dispositivi Android usando gli Hub di notifica di Azure e Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -37,7 +37,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Aggiornare un'applicazione Android.
 > * Testare l'app
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare l'[Esercitazione: Inviare notifiche push a dispositivi Android con Hub di notifica di Azure e Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) prima di iniziare questa esercitazione.
 
@@ -45,7 +45,7 @@ Completare l'[Esercitazione: Inviare notifiche push a dispositivi Android con Hu
 
 ## <a name="create-the-android-project"></a>Creare il progetto Android
 
-Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata nell'[Esercitazione: Inviare notifiche push a dispositivi Android tramite Hub di notifica di Azure e Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata nell'[Esercitazione: Inviare notifiche push a dispositivi Android usando gli Hub di notifica di Azure e Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 1. Aprire il file `res/layout/activity_main.xml` e sostituire le definizioni di contenuto seguenti:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Configurazione della piattaforma per Java (Windows, Linux, macOS) con Speech SDK - Servizio Voce'
+title: 'Avvio rapido: Configurazione della piattaforma per Java (Windows, Linux, macOS) con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per configurare la piattaforma per Java (Windows, Linux, macOS) con il servizio Speech SDK.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 195d43739ff27a493b2f2923eac43df03313963b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5f6b994bce1d38872cffb1e6e389136742be6d48
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468416"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Java 8 JRE a 64 bit.
 
@@ -31,7 +31,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
   - Mac: macOS X versione 10.13 o successiva.
   - Linux: solo 64 bit su Ubuntu 16.04, Ubuntu 18.04 o Debian 9
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

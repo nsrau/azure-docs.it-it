@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Configurazione della piattaforma per Python con Speech SDK - Servizio Voce'
+title: 'Avvio rapido: Configurazione della piattaforma per Python con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per configurare la piattaforma per l'uso di Python con il servizio Speech SDK.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 095c591f63cb228b48681ffc67499820631bbaf5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 37b0deba6531c8e714b8786f8c815cf323c310ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468365"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Python.
 
@@ -28,7 +28,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
   - Mac: macOS X versione 10.12 o successiva
   - Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 su architetture x64
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Le piattaforme Linux supportate richiedono l'installazione di alcune librerie (`libssl` per il supporto di Secure Sockets Layer e `libasound2` per il supporto audio). Per i comandi necessari per installare le versioni corrette di queste librerie, identificare la propria distribuzione di seguito.
 

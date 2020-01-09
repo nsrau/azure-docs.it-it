@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 8ab4cb6b06f0f023a8f6368dac633a97afe29fd4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390014"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614965"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Elenco di controllo di prestazioni e scalabilità di archiviazione code
 
@@ -25,7 +25,7 @@ Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la f
 
 Questo articolo organizza procedure consolidate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo dell'applicazione di archiviazione code.
 
-| Operazione completata | Categoria | Considerazioni sulla progettazione |
+| Operazione completata | Category | Considerazioni sulla progettazione |
 | --- | --- | --- |
 | &nbsp; |Obiettivi di scalabilità |[È possibile progettare l'applicazione in modo da non eccedere il numero massimo di account di archiviazione?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Obiettivi di scalabilità |[Si sta evitando il raggiungimento dei limiti di capacità e transazioni?](#capacity-and-transaction-targets) |
@@ -45,13 +45,13 @@ Questo articolo organizza procedure consolidate per le prestazioni in un elenco 
 | &nbsp; |Recupero bulk |[Si stanno recuperando più messaggi con un'unica operazione GET?](#batch-retrieval) |
 | &nbsp; |Frequenza di polling |[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#queue-polling-interval) |
 | &nbsp; |Aggiornamento del messaggio |[Si sta usando l'operazione Aggiornamento del messaggio per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#use-update-message) |
-| &nbsp; |Architettura |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#application-architecture) |
+| &nbsp; |Architecture |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#application-architecture) |
 
 ## <a name="scalability-targets"></a>Obiettivi di scalabilità
 
 Se l'applicazione raggiunge o supera uno o più obiettivi di scalabilità, può verificarsi un aumento delle latenze o delle limitazioni della transazione. Quando Archiviazione di Azure limita l'applicazione, il servizio inizia a restituire i codici di errore "503 Server occupato" o "500 Timeout operazione". Evitare questi errori rispettando i limiti degli obiettivi di scalabilità è una parte importante del miglioramento delle prestazioni dell'applicazione.
 
-Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accodamento, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#azure-queue-storage-scale-targets).
+Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accodamento, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Numero massimo di account di archiviazione
 

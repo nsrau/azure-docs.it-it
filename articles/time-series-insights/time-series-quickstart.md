@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Strumento di esplorazione di Azure Time Series Insights - Azure Time Series Insights | Microsoft Docs'
+title: 'Avvio rapido: Strumento di esplorazione di Azure Time Series Insights - Azure Time Series Insights | Microsoft Docs'
 description: Informazioni su come iniziare a usare lo strumento di esplorazione di Azure Time Series Insights. È possibile visualizzare grandi quantità di dati ed esplorare le funzionalità più importanti dell'ambiente.
 ms.service: time-series-insights
 services: time-series-insights
@@ -9,15 +9,15 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 11/15/2019
-ms.openlocfilehash: 7bccc75b4a70e98f069d1ffb86909368105b9a32
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.date: 01/06/2020
+ms.openlocfilehash: 21e9884ab4559b510b13691ac5cafccb753622d6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167713"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690797"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Guida introduttiva: Esplorare Azure Time Series Insights
+# <a name="quickstart-explore-azure-time-series-insights"></a>Avvio rapido: Esplorare Azure Time Series Insights
 
 In questo argomento di avvio rapido sullo strumento di esplorazione di Azure Time Series Insights viene illustrato come iniziare a usare Time Series Insights in un ambiente demo gratuito. Verrà descritto come usare il Web browser per visualizzare grandi volumi di dati IoT e verranno presentate le principali funzionalità attualmente disponibili a livello generale.
 

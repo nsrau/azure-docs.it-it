@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: Riconoscere la voce, le finalità e le entità, Python - Servizio Voce'
+title: 'Avvio rapido: Riconoscere la voce, le finalità e le entità, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 817e796519653d1145f74407c5c99dbe16e78a51
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e522d3303a1383aa66d54d7176ed4ce4921c10c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468940"
 ---
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Python su GitHub](https://aka.ms/speech/github-python)

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996579"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658271"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -139,11 +139,11 @@ Gli SKU Standard_v2 e WAF_v2 del gateway applicazione possono essere configurati
 
 Lo SKU Standard e WAF del gateway applicazione è attualmente offerto in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
-Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione v1 con offload SSL abilitato:
 
-| Dimensioni medie risposta della pagina di back-end | Piccolo | Media | Grande |
+| Dimensioni medie risposta della pagina di back-end | Piccolo | Media | large |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 kB |35 Mbps |100 Mbps |200 Mbps |
@@ -155,6 +155,6 @@ La tabella seguente illustra una velocità effettiva media delle prestazioni per
 
 A seconda dei requisiti e dell'ambiente, è possibile creare un'applicazione gateway di test usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure:
 
-- [Guida introduttiva: Indirizzare il traffico Web con il gateway applicazione di Azure - Portale di Azure](quick-create-portal.md)
-- [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell](quick-create-powershell.md)
-- [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure](quick-create-cli.md)
+- [Avvio rapido: Indirizzare il traffico Web con il gateway applicazione di Azure - Portale di Azure](quick-create-portal.md)
+- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell](quick-create-powershell.md)
+- [Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure](quick-create-cli.md)

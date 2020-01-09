@@ -4,16 +4,16 @@ description: Questo articolo illustra l'impatto dei contratti Azure EA e delle r
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 78fda5785d85b728c897bf758bc2a3cdee768d02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1f421abf1c9cff545c77a9fcbbb4acfd76d1e1d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849905"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644410"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -211,7 +211,7 @@ Gli amministratori dell'organizzazione possono aggiungere nuovi proprietari di a
 1. Specificare un nome descrittivo da usare per identificare l'account nei report.
 1. Immettere l'indirizzo di posta elettronica del proprietario da associare al nuovo account.
 1. Confermare l'indirizzo di posta elettronica che si vuole associare al nuovo account.
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. È possibile aggiungere un altro account facendo clic su **Aggiungi un altro account** o sul pulsante **Aggiungi** nell'angolo in basso a destra della barra degli strumenti a sinistra.
 1. A questo punto il proprietario dell'account può eseguire l'accesso per aggiungere le sottoscrizioni pertinenti per il provisioning degli SKU di piano
 
@@ -222,7 +222,7 @@ Gli amministratori dell'organizzazione possono aggiungere nuovi proprietari di a
 1. Fare clic su **+Aggiungi account**. Immettere l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
 1. Confermare l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
 1. Specificare un nome da usare per identificare l'account nei report.
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. È possibile aggiungere un altro account selezionando di nuovo l'opzione **+Aggiungi account** oppure tornare alla home page selezionando il pulsante **Amministrazione**.  
 1. Se si fa clic per visualizzare la scheda Account, l'account appena aggiunto verrà visualizzato con stato "In sospeso". Lo stato diventerà "Attivo" dopo che il proprietario dell'account avrà eseguito l'accesso a EA Portal per la prima volta.
 

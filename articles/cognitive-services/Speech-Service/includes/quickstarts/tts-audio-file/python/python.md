@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale in un file audio, Python - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale in un file audio, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d82b2904f16cc9816a22caadba598a7a44bfa007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467059"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 o versione successiva](https://www.python.org/downloads/).

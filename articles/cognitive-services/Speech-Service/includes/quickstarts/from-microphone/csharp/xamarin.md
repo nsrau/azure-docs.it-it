@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, C# (Xamarin) - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, C# (Xamarin) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione C# Xamarin multipiattaforma per la piattaforma UWP (Universal Windows Platform) Windows, Android e iOS usando Speech SDK di Servizi cognitivi. Trascrizione riconoscimento vocale in tempo reale dal microfono del simulatore o del dispositivo. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 66391f7b9282781902723b0153a5797a5f7ae82b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468146"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
@@ -120,7 +120,7 @@ Aggiungere ora il codice C# che definisce la parte specifica di UWP dell'applica
 1. Fare quindi doppio clic sul file `Package.appxmanifest` nel progetto helloworld.UWP all'interno di Visual Studio. In **Funzionalità** verificare che sia selezionata l'opzione **Microfono**, quindi salvare il file.
 
 1. Fare doppio clic sul file `Package.appxmanifest` nel progetto `helloworld.UWP` all'interno di Visual Studio e controllare che sia selezionato **Funzionalità** > **Microfono** e salvare il file.
-   > Note: se viene visualizzato l'avviso: Il file del certificato non esiste: helloworld.UWP_TemporaryKey.pfx, vedere l'esempio del [riconoscimento vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp) per altre informazioni.
+   > Nota: se viene visualizzato l'avviso: Il file del certificato non esiste: helloworld.UWP_TemporaryKey.pfx, vedere l'esempio del [riconoscimento vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp) per altre informazioni.
 
 1. Sulla barra dei menu selezionare **File** > **Salva tutto** per salvare le modifiche.
 

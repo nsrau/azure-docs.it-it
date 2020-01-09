@@ -4,16 +4,16 @@ description: Questo articolo descrive le API REST da usare con la registrazione 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841422"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644529"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Azure Enterprise
 
@@ -68,20 +68,20 @@ Se si vuole assegnare le chiavi di accesso API a utenti che non sono amministrat
 
 Passare la chiave API per ogni chiamata per l'autenticazione e l'autorizzazione. Passare la proprietà seguente alle intestazioni HTTP:
 
-| Chiave di intestazione della richiesta | Valore |
+| Chiave di intestazione della richiesta | valore |
 | --- | --- |
-| Authorization | Specificare il valore nel formato: **bearer {API\_KEY}**
+| Autorizzazione | Specificare il valore nel formato: **bearer {API\_KEY}**
 Esempio: bearer \&lt;APIKey\&gt; |
 
 ### <a name="swagger"></a>Swagger
 
-Un endpoint Swagger è disponibile alla pagina [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index) (API di creazione di report per clienti Enterprise v3) per le API seguenti. Swagger consente di esaminare l'API più facilmente. Usare Swagger per generare SDK client usando [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). I dati disponibili dopo il 1° maggio 2014 sono disponibili tramite l'API.
+Un endpoint Swagger è disponibile alla pagina [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index) (API di creazione di report per clienti Enterprise v3) per le API seguenti. Swagger consente di esaminare l'API più facilmente. Usare Swagger per generare SDK client usando [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](https://swagger.io/swagger-codegen/). I dati disponibili dopo il 1° maggio 2014 sono disponibili tramite l'API.
 
 ### <a name="api-response-codes"></a>Codici di risposta API
 
 Quando si usa un'API, vengono visualizzati i codici di stato della risposta. La tabella seguente descrive questi codici.
 
-| Codice di stato della risposta | Message | DESCRIZIONE |
+| Codice di stato della risposta | Message | Descrizione |
 | --- | --- | --- |
 | 200 | OK | Nessun errore |
 | 401 | Non autorizzata | Chiave API non trovata, non valida, scaduta e così via |
@@ -122,7 +122,7 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Nome sottoscrizione | SubscriptionName | SubscriptionName |   |
 | Data | Data | Data | Indica la data di esecuzione del report del catalogo di servizi. Il formato è una stringa di data senza timestamp. |
-| Mese | Mese | Mese |   |
+| Month | Month | Month |   |
 | Giorno | Giorno | Giorno |   |
 | Year | Year | Year |   |
 | Prodotto | BillableItemName | Prodotto |   |
@@ -157,7 +157,7 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Nome sottoscrizione | SubscriptionName |  SubscriptionName |
 | Data | BillingCycle |  Date (solo stringa di data, senza timestamp)
-| Mese | Mese |  Mese |
+| Month | Month |  Month |
 | Giorno | Giorno |  Giorno |
 | Year | Year |  Year |
 | ID misuratore | MeterResourceId |  ID contatore |

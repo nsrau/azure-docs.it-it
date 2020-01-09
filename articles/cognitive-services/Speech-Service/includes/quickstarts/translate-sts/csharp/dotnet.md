@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in voce, C# (.NET Framework Windows) - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in voce, C# (.NET Framework Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 15de38ff29ab5047dd8389515a7c9d60d12a3810
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 62dd619a2b4b15d3a346a4acffda0b0f5625273e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469327"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 
@@ -30,7 +30,7 @@ Prima di iniziare, assicurarsi di:
 
 1. Aprire **Program.cs** e sostituire tutto il codice con il codice seguente.
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using Microsoft.CognitiveServices.Speech;

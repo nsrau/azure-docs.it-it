@@ -8,12 +8,12 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
-ms.openlocfilehash: 96ede63b097999247675364217cf458a268e54d9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929641"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659874"
 ---
 >[!IMPORTANT]
 >È possibile usare le risorse create come prerequisiti per altre esercitazioni e procedure dettagliate relative ad Azure Machine Learning.
@@ -42,7 +42,7 @@ La destinazione di calcolo creata qui *viene ridimensionata automaticamente* a z
 
 La registrazione dei set di dati nell'area di lavoro può essere annullata selezionando ogni set di dati e quindi **Annulla registrazione**.
 
-![Annulla registrazione del set di dati](./media/aml-ui-cleanup/unregister-dataset.png)
+![Annulla registrazione del set di dati](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
 Per eliminare un set di dati, passare all'account di archiviazione tramite il portale di Azure o Azure Storage Explorer ed eliminare manualmente tali asset.
 

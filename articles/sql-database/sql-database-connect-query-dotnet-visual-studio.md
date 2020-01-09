@@ -10,19 +10,19 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: b9bc7d077acd3e6e3716cf0a012205e6de54a4b7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/31/2019
+ms.openlocfilehash: b37430ed7f23088c9bcacd555d68e484310de700
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827064"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562154"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET (C#) e C# in Visual Studio per connettersi a un database SQL di Azure ed eseguire query
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Avvio rapido: Usare .NET (C#) e C# in Visual Studio per connettersi a un database SQL di Azure ed eseguire query
 
 Questa guida introduttiva illustra come usare il [framework .NET](https://www.microsoft.com/net/) e il codice C# in Visual Studio per eseguire query nel database SQL di Azure usando istruzioni Transact-SQL.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
@@ -35,7 +35,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
-  |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |Caricare dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -101,7 +101,6 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
                        Console.WriteLine("\nQuery data example:");
                        Console.WriteLine("=========================================\n");
                        
-                       connection.Open();       
                        StringBuilder sb = new StringBuilder();
                        sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
                        sb.Append("FROM [SalesLT].[ProductCategory] pc ");
@@ -111,6 +110,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
    
                        using (SqlCommand command = new SqlCommand(sql, connection))
                        {
+                           connection.Open();
                            using (SqlDataReader reader = command.ExecuteReader())
                            {
                                while (reader.Read())

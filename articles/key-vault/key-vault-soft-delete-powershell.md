@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985763"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562137"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
 
@@ -22,7 +22,7 @@ La funzionalità di eliminazione temporanea di Azure Key Vault consente il recup
 - Supporto per l'eliminazione reversibile di un insieme di credenziali delle chiavi
 - Supporto per l'eliminazione reversibile di oggetti di insiemi di credenziali delle chiavi: chiavi, segreti e certificati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,7 +39,7 @@ Per informazioni di riferimento specifiche di Key Vault per PowerShell, consulta
 
 Le operazioni di Key Vault vengono gestite separatamente tramite autorizzazioni del controllo degli accessi in base al ruolo, come indicato di seguito:
 
-| Operazione | DESCRIZIONE | Autorizzazione utente |
+| Operazione | Descrizione | Autorizzazione utente |
 |:--|:--|:--|
 |Elenco|Elenca gli insiemi di credenziali delle chiavi eliminati.|Microsoft.KeyVault/deletedVaults/read|
 |Recupera|Recupera un insieme di credenziali delle chiavi eliminato.|Microsoft.KeyVault/vaults/write|
@@ -160,7 +160,7 @@ Per eliminare definitivamente (ripulire) una chiave eliminata temporaneamente:
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
-Alle azioni di **recupero** ed **eliminazione definitiva** sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. Per poter eseguire un'azione **recover** o **purge**, quindi, un utente o un'entità servizio deve avere la relativa autorizzazione per la chiave o il segreto. Per impostazione predefinita, **purge** non viene aggiunta ai criteri di accesso dell'insieme di credenziali delle chiavi se viene usato il collegamento "all" per concedere tutte le autorizzazioni. L'autorizzazione **purge** deve essere concessa esplicitamente. 
+Alle azioni di **recupero** e **pulizia** sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. Per poter eseguire un'azione **recover** o **purge**, quindi, un utente o un'entità servizio deve avere la relativa autorizzazione per la chiave o il segreto. Per impostazione predefinita, **purge** non viene aggiunta ai criteri di accesso dell'insieme di credenziali delle chiavi se viene usato il collegamento "all" per concedere tutte le autorizzazioni. L'autorizzazione **purge** deve essere concessa esplicitamente. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi
 
@@ -254,7 +254,7 @@ Per aggiungere la protezione dall'eliminazione a un insieme di credenziali esist
 Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
-## <a name="other-resources"></a>Altre risorse:
+## <a name="other-resources"></a>Altre risorse
 
 - Per una panoramica della funzionalità di eliminazione temporanea di Key Vault, vedere [Panoramica della funzionalità di eliminazione temporanea di Azure Key Vault](key-vault-ovw-soft-delete.md).
 - Per una panoramica generale dell'uso di Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-overview.md)

@@ -3,12 +3,12 @@ title: Informazioni su Azure Lighthouse
 description: Azure Lighthouse consente ai provider di servizi di offrire servizi gestiti ai clienti con maggiore automazione ed efficienza su larga scala.
 ms.date: 11/11/2019
 ms.topic: overview
-ms.openlocfilehash: 0551bbcbc9609809b0b28eb56a0a3b848debcaae
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132186"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646195"
 ---
 # <a name="what-is-azure-lighthouse"></a>Informazioni su Azure Lighthouse
 
@@ -22,7 +22,7 @@ Azure Lighthouse consente di creare e distribuire in modo efficiente e proficuo 
 
 - **Gestione su larga scala**: l'engagement dei clienti e le operazioni del ciclo di vita per gestire le risorse dei clienti sono più semplici e più scalabili.
 - **Maggiore visibilità e precisione per i clienti**: i clienti con risorse gestite avranno una maggiore visibilità sulle azioni e un controllo preciso sull'ambito delegato per la gestione, mentre l'IP viene mantenuto.
-- **Strumenti di piattaforma completi e unificati**: l'esperienza con gli strumenti si applica ai principali scenari dei provider di servizi, inclusi più modelli di licenza, ad esempio EA, CSP e con pagamento in base al consumo. Le nuove funzionalità usano gli strumenti e le API esistenti, i modelli di licenza e i programmi per i partner, ad esempio il [programma Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/csp-overview). Le opzioni di Azure Lighthouse scelte possono essere integrate nei flussi di lavoro e nelle applicazioni esistenti ed è possibile tenere traccia dell'impatto sugli engagement dei clienti [collegando l'ID partner](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+- **Strumenti di piattaforma completi e unificati**: l'esperienza con gli strumenti si applica ai principali scenari dei provider di servizi, inclusi più modelli di licenza, ad esempio EA, CSP e con pagamento in base al consumo. Le nuove funzionalità usano gli strumenti e le API esistenti, i modelli di licenza e i programmi per i partner, ad esempio il [programma Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/csp-overview). Le opzioni di Azure Lighthouse scelte possono essere integrate nei flussi di lavoro e nelle applicazioni esistenti ed è possibile tenere traccia dell'impatto sugli engagement dei clienti [collegando l'ID partner](../billing/billing-partner-admin-link-started.md).
 
 Non sono previsti costi aggiuntivi associati all'uso di Azure Lighthouse per gestire le risorse di Azure dei clienti.
 
@@ -30,11 +30,11 @@ Non sono previsti costi aggiuntivi associati all'uso di Azure Lighthouse per ges
 
 Azure Lighthouse include più modi per semplificare l'engagement e la gestione dei clienti:
 
-- **Gestione risorse delegate di Azure**: gestire in modo sicuro le risorse di Azure dei clienti dal tenant, senza dover cambiare il contesto e i piani di controllo. Per altre informazioni, vedere [Gestione risorse delegate di Azure](./concepts/azure-delegated-resource-management.md).
-- **Nuove esperienze con il portale di Azure**: visualizzare le informazioni tra tenant nella nuova pagina **Clienti personali** nel [portale di Azure](https://portal.azure.com). Un pannello **Provider di servizi** corrispondente consente ai clienti di visualizzare e gestire l'accesso per i provider di servizi. Per altre informazioni, vedere [Visualizzare e gestire i clienti](./how-to/view-manage-customers.md) e [Visualizzare e gestire i provider di servizi](./how-to/view-manage-service-providers.md).
+- **Gestione risorse delegate di Azure**: gestire in modo sicuro le risorse di Azure dei clienti dal tenant, senza dover cambiare il contesto e i piani di controllo. Per altre informazioni, vedere [Gestione risorse delegate di Azure](concepts/azure-delegated-resource-management.md).
+- **Nuove esperienze con il portale di Azure**: visualizzare le informazioni tra tenant nella nuova pagina **Clienti personali** nel [portale di Azure](https://portal.azure.com). Un pannello **Provider di servizi** corrispondente consente ai clienti di visualizzare e gestire l'accesso per i provider di servizi. Per altre informazioni, vedere [Visualizzare e gestire i clienti](./how-to/view-manage-customers.md) e [Visualizzare e gestire i provider di servizi](how-to/view-manage-service-providers.md).
 - **Modelli di Azure Resource Manager**: Eseguire più facilmente le attività di gestione, incluso l'onboarding dei clienti per la gestione delle risorse delegate di Azure. Per altre informazioni, vedere il [repository di esempi](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) ed [Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure](how-to/onboard-customer.md).
-- **Offerte di servizi gestiti in Azure Marketplace**: offrire i servizi ai clienti tramite offerte private o pubbliche ed eseguirne automaticamente l'onboarding nella gestione risorse delegate di Azure, in alternativa all'onboarding con i modelli di Azure Resource Manager. Per altre informazioni, vedere [Offerte di servizi gestiti in Azure Marketplace](./concepts/managed-services-offers.md).
-- **Applicazioni gestite di Azure**: creare pacchetti e distribuire applicazioni che i clienti possano distribuire e usare facilmente nelle proprie sottoscrizioni. L'applicazione viene distribuita in un gruppo di risorse a cui si accede dal tenant, consentendo di gestire il servizio come parte dell'esperienza complessiva di Azure Lighthouse. Per altre informazioni, vedere [Panoramica delle applicazioni gestite di Azure](https://docs.microsoft.com/azure/managed-applications/overview).
+- **Offerte di servizi gestiti in Azure Marketplace**: offrire i servizi ai clienti tramite offerte private o pubbliche ed eseguirne automaticamente l'onboarding nella gestione risorse delegate di Azure, in alternativa all'onboarding con i modelli di Azure Resource Manager. Per altre informazioni, vedere [Offerte di servizi gestiti in Azure Marketplace](concepts/managed-services-offers.md).
+- **Applicazioni gestite di Azure**: creare pacchetti e distribuire applicazioni che i clienti possano distribuire e usare facilmente nelle proprie sottoscrizioni. L'applicazione viene distribuita in un gruppo di risorse a cui si accede dal tenant, consentendo di gestire il servizio come parte dell'esperienza complessiva di Azure Lighthouse. Per altre informazioni, vedere [Panoramica delle applicazioni gestite di Azure](../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

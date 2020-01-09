@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale in un file audio - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale in un file audio - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 7d9a03f5a57473ce651560b261a4cf84b4ca4824
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9b13d8fc3b77426a59dea5399223b79c4bb4b1a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467282"
 ---
 In questo argomento di avvio rapido si userà [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per convertire il testo in sintesi vocale in un file audio. Dopo aver soddisfatto alcuni prerequisiti, la sintesi vocale richiede solo cinque passaggi:
 > [!div class="checklist"]

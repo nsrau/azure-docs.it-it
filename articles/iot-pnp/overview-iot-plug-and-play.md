@@ -3,18 +3,18 @@ title: Introduzione a Plug and Play IoT (anteprima) | Microsoft Docs
 description: Informazioni su Plug and Play IoT (anteprima). Plug and Play IoT si basa su un linguaggio di modellazione aperto che consente ai dispositivi IoT di dichiarare le proprie funzionalità. I dispositivi IoT presentano tale dichiarazione, nota come modello di funzionalità di dispositivo, quando si connettono a soluzioni cloud come Azure IoT Central o ad applicazioni dei partner. La soluzione cloud può quindi riconoscere automaticamente il dispositivo e iniziare a interagire con esso, tutto senza scrivere codice.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935404"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531163"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Informazioni su Plug and Play IoT (anteprima)
 
@@ -86,6 +86,6 @@ Nella fase di anteprima pubblica i dispositivi Plug and Play IoT inviano messagg
 
 A questo punto, dopo aver letto la panoramica di Plug and Play IoT, come passaggio successivo consigliato è possibile provare alcune delle guide di avvio rapido:
 
-- [Usare un modello di funzionalità di dispositivo per creare un dispositivo Plug and Play IoT](./quickstart-create-pnp-device.md)
-- [Connettere un dispositivo all'hub IoT](./quickstart-connect-pnp-device.md)
-- [Connettersi a un dispositivo nella soluzione](./quickstart-connect-pnp-device-solution.md)
+- [Usare un modello di funzionalità di dispositivo per creare un dispositivo Plug and Play IoT](./quickstart-create-pnp-device-windows.md)
+- [Connettere un dispositivo all'hub IoT](./quickstart-connect-pnp-device-c-windows.md)
+- [Connettersi a un dispositivo nella soluzione](./quickstart-connect-pnp-device-solution-node.md)

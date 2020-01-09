@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Configurazione della piattaforma UWP (Universal Windows Platform) per C# con Speech SDK - Servizio Voce'
+title: 'Avvio rapido: Configurazione della piattaforma UWP (Universal Windows Platform) per C# con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per configurare la piattaforma UWP (Universal Windows Platform) per C# con il servizio Speech SDK.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ea6218066ce381bbfa7ae8c6a02991b351163084
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 83ae1c83e536e1fdf87fe17c9254e5bef0fdc120
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468398"
 ---
 Questa guida illustra come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per C# UWP (Universal Windows Platform).
 
@@ -24,7 +24,7 @@ Questa guida illustra come installare [Speech SDK](~/articles/cognitive-services
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa guida introduttiva richiede:
 
