@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Istanza gestita di SQL
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: 'Documentazione dell''istanza gestita - Esercitazioni, informazioni di riferimento per l''API'
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
@@ -154,7 +153,7 @@ sections:
           - html: 'Per altre informazioni sul livello di archiviazione consultare <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">General Purpose tier</a> (Livello Utilizzo generico) e applicare quanto illustrato nell''articolo <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">Storage performance best practices and considerations for General Purpose service tier</a> (Procedure consigliate e considerazioni sulle prestazioni di archiviazione per il livello di servizio Utilizzo generico).'
           - html: 'Scoprire procedure consigliate e consigli per <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteggere l''istanza</a>.'
           - html: Scoprire altre <a href="sql-database-howto-managed-instance.md">guide pratiche</a> che consentono di configurare l'istanza gestita.
-  - title: riferimento
+  - title: Riferimento
     items:
       - type: list
         style: cards

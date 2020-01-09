@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Servizio Azure Kubernetes
 metadata:
-  document_id: null
   title: 'Documentazione del servizio Azure Kubernetes: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
   meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
   services: container-service
@@ -89,7 +88,7 @@ sections:
               href: /learn/modules/build-and-store-container-images/
       - type: paragraph
         text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Altre risorse di apprendimento interattivo</a>
-  - title: riferimento
+  - title: Riferimento
     items:
       - type: list
         style: cards
@@ -100,4 +99,4 @@ sections:
           - title: Languages
             html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
           - title: REST
-            html: <p><a href="/rest/api/aks">API REST</a></p>
+            html: <p><a href="/rest/api/aks">REST API</a></p>

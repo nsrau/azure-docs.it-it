@@ -1,5 +1,5 @@
 ---
-title: Funzionalità e comandi di Apache Cassandra supportati dall'API Cassandra di Azure Cosmos DB
+title: Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB
 description: Informazioni sul supporto delle funzionalità di Apache Cassandra nell'API Cassandra di Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445632"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -43,24 +43,24 @@ API Cassandra di Azure Cosmos DB supporta i tipi di dati CQL seguenti:
 
 * ascii  
 * bigint  
-* BLOB  
+* blob  
 * boolean  
 * counter  
-* date  
+* Data  
 * decimal  
-* Double  
+* double  
 * float  
 * bloccato  
 * inet  
-* int  
+* INT  
 * list  
 * set  
-* smallint  
+* SMALLINT  
 * text  
 * time  
 * timestamp  
 * timeuuid  
-* tinyint  
+* TINYINT  
 * tupla  
 * uuid  
 * varchar  
@@ -149,9 +149,9 @@ Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account AP
 * USA 
 * INSERT 
 * SELECT 
-* AGGIORNAMENTO 
+* UPDATE 
 * BATCH - sono supportati solo i comandi registrati 
-* DELETE
+* Elimina
 
 Se eseguite tramite un SDK compatibile con CQL v4, tutte le operazioni CRUD restituiranno informazioni aggiuntive sull'errore e sulle unità richiesta consumate. Per garantire un uso estremamente efficiente delle unità elaborate di cui è stato effettuato il provisioning, i comandi DELETE e UPDATE devono essere gestiti tenendo in considerazione la governance delle risorse.
 

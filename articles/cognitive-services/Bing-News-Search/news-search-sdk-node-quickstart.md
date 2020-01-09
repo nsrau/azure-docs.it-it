@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire una ricerca di notizie con l'SDK per Node.js - Ricerca notizie Bing"
+title: "Avvio rapido: Eseguire una ricerca di notizie con l'SDK per Node.js - Ricerca notizie Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questo avvio rapido per cercare notizie con l'SDK di Ricerca notizie Bing per Node.js ed elaborare la risposta.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9bbad7685cf7d562189871bb5fa4a56d69287db4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 832ce90db1d4eac0ef8db87c10a5bc2a1658216d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383193"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per Node.js
 
 Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca notizie Bing per Node.js. Mentre Ricerca notizie Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Node.js](https://nodejs.org/en/)
 

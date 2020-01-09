@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentazione su Servizi multimediali di Azure
 metadata:
-  document_id: null
   title: Documentazione su Servizi multimediali di Azure | Microsoft Docs
   description: 'Servizi multimediali di Azure è una piattaforma basata su cloud che consente di creare soluzioni che offrono streaming video di alta qualità, migliorano accessibilità e distribuzione, analizzano il contenuto e molto altro ancora.'
   services: media-services

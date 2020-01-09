@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: Creare un progetto nel portale'
+title: 'Avvio rapido: Creare un progetto nel portale'
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321932"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436609"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Guida introduttiva: Definire e assegnare un progetto nel portale
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Avvio rapido: Definire e assegnare un progetto nel portale
 
 Quando si impara a creare e assegnare progetti è possibile definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprints per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione. Queste attività includono:
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
@@ -268,7 +268,9 @@ Ora che il progetto è stato assegnato a una sottoscrizione, verificare lo stato
 
 1. Nella pagina **Assegnazione progetto** verificare che tutti gli artefatti siano stati distribuiti correttamente e che non si siano verificati errori durante la distribuzione. In caso di errori, vedere [Troubleshooting blueprints](./troubleshoot/general.md) (Risoluzione dei problemi dei progetti) per istruzioni su come determinare gli eventuali problemi.
 
-## <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+### <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
 
 Rimuovere un'assegnazione di progetto da una sottoscrizione se non è più necessaria. Il progetto potrebbe essere stato sostituito da un progetto più recente con modelli, progettazioni e criteri aggiornati. Quando un progetto viene rimosso, gli elementi assegnati nell'ambito del progetto vengono mantenuti. Per rimuovere l'assegnazione di un progetto, completare questi passaggi:
 
@@ -278,7 +280,7 @@ Rimuovere un'assegnazione di progetto da una sottoscrizione se non è più neces
 
 1. Leggere il messaggio di conferma e quindi selezionare **OK**.
 
-## <a name="delete-a-blueprint"></a>Eliminare un progetto
+### <a name="delete-a-blueprint"></a>Eliminare un progetto
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 

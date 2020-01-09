@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: cosmos-db
-author: rimman
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 12/26/2018
-ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 33f08f22c3f09539dbe44098e3747f0ed7a8fe8c
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0acc989f558c5de4e8f52ba2c77f2842f8d5d70c
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541493"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752279"
 ---
 1. In una nuova finestra accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Crea una risorsa**, **Database** e infine in **Azure Cosmos DB** selezionare **Crea**.
@@ -22,7 +22,7 @@ ms.locfileid: "69541493"
 
 3. Nella pagina **Crea account Cosmos DB** immettere le impostazioni per il nuovo account Azure Cosmos DB. 
  
-    Impostazione|Valore|DESCRIZIONE
+    Impostazione|valore|Descrizione
     ---|---|---
     Subscription|Sottoscrizione in uso|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos DB. 
     Gruppo di risorse|Creare un nuovo gruppo di risorse<br><br>Immettere quindi lo stesso nome univoco specificato in ID|Selezionare **Crea nuovo**. Immettere quindi il nome di un nuovo gruppo di risorse per l'account. Per semplicità, usare lo stesso nome usato come ID. 

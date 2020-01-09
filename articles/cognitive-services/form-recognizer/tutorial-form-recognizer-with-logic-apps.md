@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446468"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Esercitazione: Usare Riconoscimento modulo con App per la logica di Azure per analizzare le fatture
 
@@ -31,7 +31,7 @@ Contenuto dell'esercitazione:
 > * Configurare l'app per la logica per l'uso di una risorsa di Riconoscimento modulo
 > * Testare il flusso di lavoro eseguendo l'app per la logica
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 
@@ -81,13 +81,13 @@ Iniziamo! Attenersi alla seguente procedura per configurare il flusso di lavoro.
 
 1. In **Crea app per la logica** specificare i dettagli sull'app per la logica come mostrato di seguito. Al termine, selezionare **Crea**.
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | Il nome dell'app per la logica, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). Questo esempio usa "My-First-Logic-app". |
    | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Il nome della sottoscrizione di Azure |
-   | **Gruppo di risorse** | <*Azure-resource-group-name*> | Nome del [gruppo di risorse di Azure](./../../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate. Questo esempio usa "My-First-LA-RG". |
+   | **Gruppo di risorse** | <*Azure-resource-group-name*> | Nome del [gruppo di risorse di Azure](./../../azure-resource-manager/management/overview.md) usato per organizzare le risorse correlate. Questo esempio usa "My-First-LA-RG". |
    | **Posizione** | <*Area di Azure*> | L'area in cui archiviare le informazioni sull'app per la logica. Questo esempio usa "Stati Uniti occidentali". |
-   | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. |
+   | **Log Analytics** | Disattivato | Lasciare l'impostazione **No** per la registrazione diagnostica. |
    ||||
 
 1. Dopo che Azure ha distribuito l'app, sulla barra degli strumenti di Azure selezionare **Notifiche** > **Vai alla risorsa** per l'app per la logica distribuita. In alternativa, è possibile trovare e selezionare l'app per la logica digitando il nome nella casella di ricerca.
@@ -131,7 +131,7 @@ Prima di poter usare il servizio Riconoscimento modulo per analizzare le fatture
     > [!div class="mx-imgBorder"]
     > ![Nome della connessione per Riconoscimento modulo](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-create-connection.png)
 
-    Fare clic su **Create**(Crea).
+    Fare clic su **Crea**.
 
 1. Nella finestra di dialogo **Train Model** (Training del modello) in **Origine** immettere l'URL del contenitore in cui sono stati caricati i dati di esempio.
 
@@ -175,7 +175,7 @@ In questa sezione viene configurata l'app per la logica per estrarre le informaz
     > [!div class="mx-imgBorder"]
     > ![Estrarre le informazioni della tabella dalla fattura](media/tutorial-form-recognizer-with-logic-apps/select-tables.png)
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ## <a name="test-your-logic-app"></a>Testare l'app per la logica
 

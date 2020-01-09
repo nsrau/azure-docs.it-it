@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un server - Portale di Azure - Database di Azure per MariaDB'
+title: 'Avvio rapido: Creare un server - Portale di Azure - Database di Azure per MariaDB'
 description: Questo articolo illustra come usare il portale di Azure per creare rapidamente un server di Database di Azure per MariaDB in circa cinque minuti.
 author: ajlam
 ms.author: andrela
@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 240329ba3dc50cef249716f951595fea0cdc67eb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769983"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432039"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Creare un database di Azure per il server MariaDB con il portale di Azure
 
@@ -26,7 +26,7 @@ Nel Web browser passare al [portale di Azure](https://portal.azure.com/). Immett
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Creare un database di Azure per un server MariaDB
 
-Si crea un server di Database di Azure per MariaDB con un set definito di [risorse di calcolo e di archiviazione](concepts-pricing-tiers.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md).
+Si crea un server di Database di Azure per MariaDB con un set definito di [risorse di calcolo e di archiviazione](concepts-pricing-tiers.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md).
 
 Per creare un server di Database di Azure per MariaDB:
 
@@ -40,7 +40,7 @@ Per creare un server di Database di Azure per MariaDB:
    
    ![Creare il modulo del server](./media/quickstart-create-mariadb-server-database-using-azure-portal/4-create-form.png)
 
-    Impostazione | Valore consigliato | DESCRIZIONE
+    Impostazione | Valore consigliato | Descrizione
     ---|---|---
     Nome server | *Nome server univoco* | Scegliere un nome univoco per identificare il database di Azure per il server MariaDB. Ad esempio, **mydemoserver**. Al nome del server specificato viene aggiunto il nome di dominio *.mariadb.database.azure.com*. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) Deve contenere tra 3 e 63 caratteri.
     Subscription | *sottoscrizione in uso* | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
@@ -123,7 +123,7 @@ Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.
     mysql --host mydemoserver.mariadb.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    Parametro di mysql |Valore consigliato|DESCRIZIONE
+    Parametro di mysql |Valore consigliato|Descrizione
     ---|---|---
     --host | *nome del server* | Valore del nome del server usato per creare il server di Database di Azure per MariaDB. Il server dell'esempio è **mydemoserver.mariadb.database.azure.com**. Usare il nome di dominio completo ( **\*.mariadb.database.azure.com**) come illustrato nell'esempio. Se non si ricorda il nome del server, completare la procedura descritta nella sezione precedente per ottenere le informazioni di connessione.
     --user | *nome di accesso amministratore server* |Valore del nome di accesso dell'amministratore server usato per creare il server di Database di Azure per MariaDB. Se non si ricorda il nome utente, completare la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. Il formato è *nome utente\@nome server*.
@@ -199,8 +199,8 @@ Per connettersi al server usando MySQL Workbench:
     |Impostazione |Valore consigliato|Descrizione campo|
     |---|---|---|
      Nome connessione | **Demo Connection** | Etichetta per la connessione. |
-    Connection Method (Metodo di connessione) | **Standard (TCP/IP)** | Standard (TCP/IP) è sufficiente. |
-    Nome host | *nome del server* | Valore del nome del server usato per creare il server di Database di Azure per MariaDB. Il server dell'esempio è **mydemoserver.mariadb.database.azure.com**. Usare il nome di dominio completo ( **\*.mariadb.database.azure.com**) come illustrato nell'esempio. Se non si ricorda il nome del server, completare i passaggi descritti in precedenza in questo articolo per ottenere le informazioni di connessione.|
+    Metodo di connessione | **Standard (TCP/IP)** | Standard (TCP/IP) è sufficiente. |
+    nomehost | *nome del server* | Valore del nome del server usato per creare il server di Database di Azure per MariaDB. Il server dell'esempio è **mydemoserver.mariadb.database.azure.com**. Usare il nome di dominio completo ( **\*.mariadb.database.azure.com**) come illustrato nell'esempio. Se non si ricorda il nome del server, completare i passaggi descritti in precedenza in questo articolo per ottenere le informazioni di connessione.|
      Porta | 3306 | Porta da usare per la connessione al server di Database di Azure per MariaDB. |
     Username |  *nome di accesso amministratore server* | Informazioni di accesso dell'amministratore server usate per creare il server di Database di Azure per MariaDB. Il nome utente di esempio è **myadmin\@mydemoserver**. Se non si ricorda il nome utente, completare i passaggi descritti in precedenza in questo articolo per ottenere le informazioni di connessione. Il formato è *nome utente\@nome server*.
     Password | *password* | Per salvare la password, selezionare **Store in Vault** (Archivia nell'insieme di credenziali). |
@@ -213,7 +213,7 @@ Per connettersi al server usando MySQL Workbench:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-È possibile eseguire la pulizia delle risorse create nel corso della guida introduttiva in due modi. Si può eliminare il [gruppo di risorse Azure](../azure-resource-manager/resource-group-overview.md). In questo modo vengono eliminate tutte le risorse nel gruppo di risorse. Se invece si vogliono mantenere intatte le altre risorse, eliminare solo la risorsa server.
+È possibile eseguire la pulizia delle risorse create nel corso della guida introduttiva in due modi. Si può eliminare il [gruppo di risorse Azure](../azure-resource-manager/management/overview.md). In questo modo vengono eliminate tutte le risorse nel gruppo di risorse. Se invece si vogliono mantenere intatte le altre risorse, eliminare solo la risorsa server.
 
 > [!TIP]
 > Altre guide introduttive della raccolta si basano su questa. Se si intende continuare a usare le guide introduttive di Database di Azure per MariaDB, non eseguire la pulizia delle risorse create in questa. Se non si intende continuare, usare la procedura seguente per eliminare tutte le risorse create in questa guida introduttiva.

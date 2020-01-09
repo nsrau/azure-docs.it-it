@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentazione del servizio app
 metadata:
-  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Documentazione del servizio app
   meta.description: 'Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.'
   ms.topic: landing-page
@@ -141,7 +140,7 @@ sections:
         items:
           - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
           - html: <a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure</a>
-  - title: riferimento
+  - title: Riferimento
     items:
       - type: list
         style: cards

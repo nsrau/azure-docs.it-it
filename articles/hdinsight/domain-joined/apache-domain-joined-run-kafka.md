@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435848"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
 Informazioni su come configurare i criteri di Apache Ranger per i cluster Apache Kafka Enterprise Security Package (ESP). Gli ESP cluster sono connessi a un dominio che consente agli utenti di eseguire l'autenticazione con le credenziali di dominio. In questa esercitazione vengono creati due criteri di Ranger per limitare l'accesso a `sales` e `marketingspend`.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare utenti del dominio
@@ -48,7 +48,7 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
 
 1. Aprire l’**interfaccia utente di amministrazione di Ranger**.
 
-2. Selezionare  **\<NomeCluster>_kafka** nella sezione **Kafka**. Potrebbe essere presente un criterio preconfigurato.
+2. Selezionare **\<NomeCluster>_kafka** nella sezione **Kafka**. Potrebbe essere presente un criterio preconfigurato.
 
 3. Selezionare **Aggiungi nuovo criterio** e immettere i valori seguenti:
 
@@ -93,7 +93,7 @@ Per creare due argomenti `salesevents` e `marketingspend`:
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Sostituire `DOMAINADMIN` con l'utente amministratore per il cluster configurato durante la [creazione del cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp) e sostituire `CLUSTERNAME` con il nome del cluster. Quando richiesto, immettere la password per l'account utente amministratore. Per altre informazioni sull'uso di `SSH` con HDInsight, vedere [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) (Uso di SSH con HDInsight).
+   Sostituire `DOMAINADMIN` con l'utente amministratore per il cluster configurato durante la [creazione del cluster](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp) e sostituire `CLUSTERNAME` con il nome del cluster. Quando richiesto, immettere la password per l'account utente amministratore. Per altre informazioni sull'uso di `SSH` con HDInsight, vedere [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) (Uso di SSH con HDInsight).
 
 2. Per salvare il nome del cluster in una variabile e installare un'utilità di analisi JSON `jq`, usare i comandi seguenti. Quando richiesto, immettere il nome del cluster Kafka.
 

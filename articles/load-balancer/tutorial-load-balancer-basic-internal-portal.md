@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453512"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -42,7 +42,7 @@ Prima di tutto, creare una rete virtuale. Nella rete virtuale creare due macchin
    
 1. Nel riquadro **Crea rete virtuale** digitare o selezionare questi valori:
    
-   - **Nome**: Digitare *MyVNet*.
+   - **Name**: Digitare *MyVNet*.
    - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere *MyResourceGroupLB*, quindi selezionare **OK**. 
    - **Subnet** > **Nome**: Digitare *MyBackendSubnet*.
    
@@ -55,7 +55,7 @@ Prima di tutto, creare una rete virtuale. Nella rete virtuale creare due macchin
 1. In altro a sinistra nel portale selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**. 
    
 1. In **Crea macchina virtuale** digitare o selezionare i valori seguenti nella scheda **Nozioni di base**:
-   - **Sottoscrizione** > **Gruppo di risorse**: Nell'elenco a discesa selezionare **MyResourceGroupLB**.
+   - **Sottoscrizione** > **Gruppo di risorse**: Nell'elenco a discesa, selezionare **MyResourceGroupLB**.
    - **Dettagli istanza** > **Nome macchina virtuale**: Digitare *MyVM1*.
    - **Dettagli dell'istanza** > **Opzioni di disponibilità**: 
      1. Selezionare **Set di disponibilità** dall'elenco a discesa. 
@@ -68,7 +68,7 @@ Prima di tutto, creare una rete virtuale. Nella rete virtuale creare due macchin
    - **Subnet**: **MyBackendSubnet**
    
    In **Gruppo di sicurezza di rete**:
-   1. Selezionare **Advanced** (Avanzate). 
+   1. Fare clic su **Avanzate**. 
    1. Selezionare l'elenco a discesa **Configura gruppo di sicurezza di rete** e quindi **Nessuno**. 
    
 1. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**. In **Monitoraggio** impostare **Diagnostica di avvio** su **Off**.
@@ -89,12 +89,12 @@ Creare un servizio di bilanciamento del carico interno Basic usando il portale. 
    
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
-    | NOME                   | *myLoadBalancer*                                   |
-    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Nome                   | *myLoadBalancer*                                   |
+    | Region         | Selezionare **Stati Uniti orientali 2**.                                        |
     | Type          | Selezionare **Interno**.                                        |
     | SKU           | Selezionare **Basic**.                          |
     | Rete virtuale           | Selezionare *MyVNet*.                          |    
@@ -120,7 +120,7 @@ Per distribuire il traffico alle macchine virtuali, il servizio di bilanciamento
    
 1. Nella pagina **Aggiungi un pool back-end** digitare o selezionare i valori seguenti:
    
-   - **Nome**: Digitare *MyBackEndPool*.
+   - **Name**: Digitare *MyBackEndPool*.
    - **Associato a**: Selezionare **Set di disponibilità** dall'elenco a discesa.
    - **Set di disponibilità**: Selezionare **MyAvailabilitySet**.
    
@@ -149,9 +149,9 @@ Per consentire al servizio di bilanciamento del carico di monitorare lo stato de
    
 1. Nella pagina **Aggiungi probe integrità** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyHealthProbe*.
+   - **Name**: digitare *MyHealthProbe*.
    - **Protocollo**: Nell'elenco a discesa selezionare **HTTP**. 
-   - **Porta**: digitare *80*. 
+   - **Porta**: Digitare *80*. 
    - **Percorso**: Accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
    - **Intervallo**: Digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
    - **Soglia non integra**: Digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
@@ -174,7 +174,7 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
 1. Nella pagina **Aggiungi regola di bilanciamento del carico** digitare o selezionare i valori seguenti, se non sono già presenti:
    
-   - **Nome**: Digitare *MyLoadBalancerRule*.
+   - **Name**: Digitare *MyLoadBalancerRule*.
    - **Indirizzo IP front-end:** Digitare *LoadBalancerFrontEnd* se non presente.
    - **Protocollo**: selezionare **TCP**.
    - **Porta**: Digitare *80*.

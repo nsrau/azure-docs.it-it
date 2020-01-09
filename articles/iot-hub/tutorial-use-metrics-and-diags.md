@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429097"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare le metriche e i log di diagnostica con un hub IoT
 
@@ -34,7 +34,7 @@ In questa esercitazione si eseguono le seguenti attività:
 > * Eseguire l'app finché non vengono generati gli avvisi. 
 > * Visualizzare i risultati di metriche e controllare i log di diagnostica. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -50,7 +50,7 @@ Per questa esercitazione, è necessario un hub IoT, un account di archiviazione 
 
 Questi sono i passaggi necessari.
 
-1. Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md). 
+1. Creare un [gruppo di risorse](../azure-resource-manager/management/overview.md). 
 
 2. Creare un hub IoT.
 
@@ -209,7 +209,7 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
     Compilare i campi:
 
-    **Nome**: specificare un nome per la regola di avviso, ad esempio *telemetry-messages*.
+    **Name**: specificare un nome per la regola di avviso, ad esempio *telemetry-messages*.
 
     **Descrizione**: fornire una descrizione dell'avviso, ad esempio *alert when there are 1000 telemetry messages sent*. 
 
@@ -239,7 +239,7 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
    Nella schermata **Visualizza avvisi classici** fare clic su **Aggiungi avviso per la metrica (versione classica)** , quindi compilare questi campi nel riquadro **Aggiungi regola**.
 
-   **Nome**: specificare un nome per la regola di avviso, ad esempio *number-of-messages-used*.
+   **Name**: specificare un nome per la regola di avviso, ad esempio *number-of-messages-used*.
 
    **Descrizione**: fornire una descrizione dell'avviso, ad esempio *alert when getting close to quota*.
 

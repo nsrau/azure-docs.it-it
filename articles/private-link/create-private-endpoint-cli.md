@@ -2,19 +2,19 @@
 title: Avvio rapido - Creare un endpoint privato di Azure con l'interfaccia della riga di comando di Azure
 description: Informazioni sull'endpoint privato di Azure - Avvio rapido
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459965"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Guida introduttiva: Creare un endpoint privato con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Avvio rapido: Creare un endpoint privato con l'interfaccia della riga di comando di Azure
 Un endpoint privato è il blocco predefinito fondamentale per il servizio Collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una macchina virtuale in una rete virtuale e un server di database SQL con un endpoint privato tramite l'interfaccia della riga di comando di Azure. Sarà quindi possibile accedere alla macchina virtuale e accedere in modo sicuro alla risorsa Collegamento privato (in questo esempio, un server di database SQL di Azure privato). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -165,7 +165,7 @@ In questa sezione si stabilirà la connessione al server di database SQL dalla m
  Password: immettere la password specificata durante la creazione.
  Memorizza password: selezionare Sì.
  
- 5. Selezionare **Connessione**.
+ 5. Selezionare **Connetti**.
  6. Esplorare i **database** dal menu a sinistra.
  7. Creare o eseguire query sulle informazioni di *mydatabase* (passaggio facoltativo)
  8. Chiudere la connessione Desktop remoto a *myVm*.

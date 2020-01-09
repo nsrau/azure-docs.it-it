@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 12/13/2019
 ms.author: diberry
-ms.openlocfilehash: 0e105d70ff7f590a84e0a82c15bcdd83052b63a8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7683a73fd1f403847089dc722e5f6382acd948cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74808004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447702"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Esercitazione:  Aggiungere l'analisi del sentiment come impostazione di pubblicazione
 
@@ -35,7 +35,7 @@ In questa esercitazione vengono modificate le impostazioni di pubblicazione per 
 
 Le espressioni seguenti mostrano alcuni esempi di valutazione:
 
-|Valutazione|Score|Espressione|
+|Valutazione|Punteggio|Espressione|
 |:--|:--|:--|
 |negativo|0.01 |La pizza era orribile.|
 |positivo|0,97 |La pizza al formaggio era meravigliosa.|
@@ -46,7 +46,7 @@ Poiché si tratta di un'impostazione di pubblicazione, non è etichettata nelle 
 
 ## <a name="import-example-json-to-begin-app"></a>Importare il file con estensione json per iniziare l'app
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

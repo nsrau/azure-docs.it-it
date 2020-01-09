@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure per contenitori
 metadata:
-  document_id: null
   title: 'Azure per contenitori - Guide introduttive, esercitazioni, informazioni di riferimento sulle API'
   description: 'Iniziare a gestire e distribuire app per contenitori con Azure usando guide introduttive, esercitazioni e strumenti per contenitori.'
   keywords: 'Azure, Contenitori, Docker, API, Kubernetes'

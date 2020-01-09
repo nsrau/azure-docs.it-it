@@ -1,19 +1,18 @@
 ---
 title: 'Esercitazione: Deserializzatori .NET personalizzati per i processi cloud di Analisi di flusso di Azure'
 description: Questa esercitazione illustra come creare un deserializzatore .NET personalizzato per un processo cloud di Analisi di flusso di Azure con Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443685"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Esercitazione: Deserializzatori .NET personalizzati per Analisi di flusso di Azure
 
@@ -21,7 +20,7 @@ Analisi di flusso di Azure offre [supporto incorporato per tre formati di dati](
 
 Questa esercitazione illustra come creare un deserializzatore .NET personalizzato per un processo cloud di Analisi di flusso di Azure con Visual Studio. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un deserializzatore personalizzato per il buffer di protocollo.
@@ -29,7 +28,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare un processo di analisi di flusso per l'uso del deserializzatore personalizzato.
 > * Eseguire un processo di analisi di flusso per testare il deserializzatore personalizzato.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -88,7 +87,7 @@ Il contenitore creato verrà usato per archiviare gli asset correlati al process
    |Risorsa|Caricare dal riferimento al progetto ASA o CodeBehind|
    |Nome dell'assembly CSharp|ProtobufDeserializer.dll|
    |Nome della classe|MessageBodyProto.MessageBodyDeserializer|
-   |Tipo di compressione eventi|Nessuna|
+   |Tipo di compressione eventi|nessuno|
 
 3. Aggiungere la query seguente al file **Script.asaql**.
 
@@ -125,7 +124,7 @@ Il deserializzatore personalizzato per il processo di analisi di flusso è stato
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming utilizzate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa esercitazione seguendo questa procedura:
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa esercitazione seguendo questa procedura:
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi selezionare il nome della risorsa creata.  
 

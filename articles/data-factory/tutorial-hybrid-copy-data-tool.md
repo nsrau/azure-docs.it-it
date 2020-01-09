@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: e248c7f37c062fc69e5e42ae7d33e275c4b0aa19
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: db069571258bce8b79d223ce3115737061685b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439362"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -35,7 +35,7 @@ In questa esercitazione si segue questa procedura:
 > * Usare lo strumento Copia dati per creare una pipeline.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Sottoscrizione di Azure
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -123,7 +123,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
         
-     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
+     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md).
 1. In **Versione** selezionare **V2**.
 1. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati da Data Factory possono trovarsi in altre località/aree.
 1. Selezionare **Create** (Crea).
@@ -139,7 +139,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
    ![Pagina delle attività iniziali](./media/doc-common-process/get-started-page.png)
 
-1. Nella pagina **Proprietà** dello strumento Copia dati immettere **CopyFromOnPremSqlToAzureBlobPipeline** in **Nome attività**. Quindi selezionare **Avanti**. Lo strumento Copia dati crea una pipeline con il nome specificato per questo campo. 
+1. Nella pagina **Proprietà** dello strumento Copia dati immettere **CopyFromOnPremSqlToAzureBlobPipeline** in **Nome attività**. Fare quindi clic su **Avanti**. Lo strumento Copia dati crea una pipeline con il nome specificato per questo campo. 
   ![Nome attività](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
 1. Nella pagina **Archivio dati di origine** fare clic su **Crea nuova connessione**. 
@@ -150,11 +150,11 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 1. In **Nome** per il **nuovo servizio collegato (SQL Server)** immettere **SqlServerLinkedService**. Selezionare **+Nuovo** in **Connect via integration runtime** (Connetti tramite runtime di integrazione). È necessario creare un runtime di integrazione self-hosted, scaricarlo nel computer e registrarlo in Data Factory. Il runtime di integrazione self-hosted copia i dati tra l'ambiente locale e il cloud.
 
 
-1. Nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione) selezionare **Self-Hosted**. Quindi selezionare **Avanti**. 
+1. Nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione) selezionare **Self-Hosted**. Fare quindi clic su **Avanti**. 
 
    ![Creare il runtime di integrazione](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
 
-1. Nella finestra di dialogo **Integration Runtime Setup** immettere **TutorialIntegrationRuntime** in **Nome**. Quindi selezionare **Avanti**. 
+1. Nella finestra di dialogo **Integration Runtime Setup** immettere **TutorialIntegrationRuntime** in **Nome**. Fare quindi clic su **Avanti**. 
 
 
 1. Nella finestra di dialogo **Integration Runtime Setup** selezionare **Click here to launch the express setup for this computer** (Fare clic qui per avviare l'installazione rapida per il computer). Questa azione installa il runtime di integrazione nel computer e lo registra in Data Factory. In alternativa è possibile usare l'opzione di installazione manuale per scaricare il file di installazione, eseguirlo e usare la chiave per registrare il runtime di integrazione. 
@@ -202,7 +202,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
    d. Selezionare **Fine**.
 
-1. Nella finestra di dialogo **Archivio dati di destinazione** assicurarsi che sia selezionata l'opzione **Archiviazione BLOB di Azure**. Quindi selezionare **Avanti**. 
+1. Nella finestra di dialogo **Archivio dati di destinazione** assicurarsi che sia selezionata l'opzione **Archiviazione BLOB di Azure**. Fare quindi clic su **Avanti**. 
 
 1. Nella finestra di dialogo **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **adftutorial/fromonprem** in **Percorso cartella**. Come parte dei prerequisiti è stato creato il contenitore **adftutorial**. Se la cartella di output (in questo caso **fromonprem**) non esiste, Data Factory la crea automaticamente. È anche possibile usare il pulsante **Sfoglia** per passare all'archivio BLOB e ai relativi contenitori/cartelle. Se non si specifica alcun valore in **Nome file**, per impostazione predefinita viene usato il nome dell'origine (in questo caso **dbo.emp**).
            

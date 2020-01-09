@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Tradurre la voce in voce, C++ (Windows) - Servizio Voce'
+title: 'Avvio rapido: Tradurre la voce in voce, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: da4c1396d1ddfab7e94c05e29badffb5987c0aff
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1048391da1fa4bb5c13537ec7b3b38561c3ad20d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466920"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 

@@ -2,27 +2,24 @@
 title: Avvio rapido - Gestire endpoint privati in Azure
 description: Questa guida di avvio rapido illustra come creare un endpoint privato con il portale di Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459928"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Guida introduttiva: Creare un endpoint privato con il portale di Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Avvio rapido: Creare un endpoint privato con il portale di Azure
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server di database SQL con un endpoint privato di Azure usando il portale di Azure. Si potrà quindi accedere in modo sicuro al server di database SQL dalla VM.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-
-> [!NOTE]
-> Gli endpoint privati non sono consentiti in combinazione con gli endpoint di servizio nella stessa subnet.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -39,9 +36,9 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *MyVirtualNetwork*. |
+    | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
@@ -58,7 +55,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -85,7 +82,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
@@ -107,7 +104,7 @@ In questa sezione si creerà un server di database SQL in Azure.
 
 1. In **Crea database SQL - Informazioni di base** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **Dettagli database** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -118,7 +115,7 @@ In questa sezione si creerà un server di database SQL in Azure.
 5. In **Server** selezionare **Crea nuovo**. 
 6. In **Nuovo server** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     |Nome server  | Immettere *myserver*. Se il nome è già usato, creare un nome univoco.|
     | Accesso amministratore server| Immettere un nome amministratore a scelta. |
@@ -138,21 +135,21 @@ In questa sezione si creerà un server SQL e vi si aggiungerà un endpoint priva
 2. In **Centro collegamento privato - Informazioni generali** selezionare **Avvia** per l'opzione **Crea una connessione privata a un servizio**.
 1. In **Crea un endpoint privato (anteprima) - Informazioni di base** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **DETTAGLI DELL'ISTANZA** |  |
-    | NOME | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
+    | Nome | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
     |Region|Selezionare **Stati Uniti centro-occidentali**.|
     |||
 5. Selezionare **Avanti: Risorsa**.
 6. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    |Connection Method (Metodo di connessione)  | Selezionare Connettersi a una risorsa di Azure nella directory.|
+    |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
     | Tipo di risorsa | Selezionare **Microsoft.Sql/servers**. |
     | Risorsa |Selezionare *myServer*.|
@@ -161,7 +158,7 @@ In questa sezione si creerà un server SQL e vi si aggiungerà un endpoint priva
 7. Selezionare **Avanti: Configurazione**.
 8. In **Crea un endpoint privato (anteprima) - Configurazione** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     |**RETE**| |
     | Rete virtuale| Selezionare *MyVirtualNetwork*. |
@@ -219,7 +216,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 4. In **Connetti a server** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Tipo di server| Selezionare **Motore di database**.|
     | Nome server| Selezionare *myserver.database.windows.net* |
@@ -227,7 +224,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
     |Password |Immettere una password specificata durante la creazione di SQL Server. |
     |Memorizza password|Selezionare **Sì**.|
     |||
-1. Selezionare **Connessione**.
+1. Selezionare **Connetti**.
 2. Esplorare i database dal menu a sinistra.
 3. (Facoltativamente) Creare o eseguire query sulle informazioni di mydatabase.
 4. Chiudere la connessione Desktop remoto a  *myVm*. 

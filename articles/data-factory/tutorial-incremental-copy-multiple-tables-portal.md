@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: e3ccc5a48251af181983624f0c8d0eed68c241da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439302"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 
@@ -65,7 +65,7 @@ Di seguito sono descritti i passaggi fondamentali per la creazione di questa sol
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * **SQL Server**. Usare un database di SQL Server locale come archivio dati di origine in questa esercitazione. 
 * **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno. 
 
@@ -231,7 +231,7 @@ END
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analytics** > **Data Factory**: 
+2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**: 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -246,10 +246,10 @@ END
      
     - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
     - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
-    Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+    Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 6. Selezionare **V2** per **version**.
 7. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
-8. Fare clic su **Create**(Crea).      
+8. Fare clic su **Crea**.      
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
    ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
@@ -446,7 +446,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
         ![Attività di copia: impostazioni origine](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Passare alla scheda **Sink** e selezionare **SinkDataset** in **Sink Dataset** (Set di dati sink). 
         
-1. Seguire anche questa procedura:
+1. Eseguire i passaggi seguenti:
 
     1. In **Proprietà set di dati** immettere `@{item().TABLE_NAME}` per il parametro **SinkTableName**.
     1. Per la proprietà **Stored Procedure Name** (Nome stored procedure) immettere `@{item().StoredProcedureNameForMergeOperation}`.
@@ -467,7 +467,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
     1. Selezionare **Import parameter** (Importa parametro). 
     1. Specificare i valori seguenti per i parametri: 
 
-        | NOME | Type | Valore | 
+        | Nome | Type | valore | 
         | ---- | ---- | ----- |
         | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | string | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |

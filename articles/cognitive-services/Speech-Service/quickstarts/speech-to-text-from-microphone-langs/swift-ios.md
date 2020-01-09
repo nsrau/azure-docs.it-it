@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, Swift - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, Swift - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Swift in iOS con Speech SDK
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/23/2019
 ms.author: chlandsi
-ms.openlocfilehash: 53ddf18c0ea102968db03bc4435b7615e724892a
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 31f5339c70d52019400ca5f1fe873de4790a3bd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818512"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380525"
 ---
-# <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Swift in iOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Swift in iOS con Speech SDK
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-ios.md).
 
 Questo articolo illustra come creare un'applicazione iOS in Swift con Speech SDK di Servizi cognitivi di Azure per trascrivere in testo la voce registrata da un microfono.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, è necessario soddisfare questi requisiti:
 

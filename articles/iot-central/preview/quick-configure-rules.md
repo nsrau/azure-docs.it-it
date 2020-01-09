@@ -3,20 +3,20 @@ title: 'Avvio rapido: Configurare regole e azioni in Azure IoT Central'
 description: Questo avvio rapido illustra come i creatori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 489a512ea5658aaeaccdba4b91eae7def14a589c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434809"
 ---
-# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>Guida introduttiva: Configurare regole e azioni per il dispositivo in Azure IoT Central (funzionalità di anteprima)
+# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>Avvio rapido: Configurare regole e azioni per il dispositivo in Azure IoT Central (funzionalità di anteprima)
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706730"
 
 In questo avvio rapido si crea una regola che invia un messaggio di posta elettronica quando la temperatura di un dispositivo di tipo sensore ambientale supera 90&deg;F (circa 32 °C).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, è necessario completare i due avvii rapidi [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo **Sensore ambientale** da usare.
 
@@ -40,11 +40,11 @@ Prima di iniziare, è necessario completare i due avvii rapidi [Creare un'applic
 
 1. Nella sezione **Condizioni** definire ciò che attiva la regola. Usare le informazioni seguenti per definire una condizione basata su dati di telemetria relativi alla temperatura:
 
-    | Campo                                        | Valore                             |
+    | Campo                                        | valore                             |
     | -------------------------------------------- | ------------------------------    |
     | Misura                                  | Temperatura                       |
     | Operatore                                     | è maggiore di                   |
-    | Valore                                        | 90                                |
+    | valore                                        | 90                                |
 
     Per aggiungere altre condizioni, selezionare **+ Condizione**.
 
@@ -54,7 +54,7 @@ Prima di iniziare, è necessario completare i due avvii rapidi [Creare un'applic
 
 1. Usare le informazioni nella tabella seguente per definire l'azione:
 
-    | Impostazione   | Valore                                             |
+    | Impostazione   | valore                                             |
     | --------- | ------------------------------------------------- |
     | Nome visualizzato | Azione di posta elettronica dell'operatore                          |
     | A        | Indirizzo di posta elettronica                                |

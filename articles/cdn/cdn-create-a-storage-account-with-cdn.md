@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386987"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Avvio rapido: Integrare un account di archiviazione di Azure con la rete CDN di Azure
 In questa guida introduttiva, la [rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md) viene abilitata per memorizzare nella cache i contenuti dall'archiviazione di Azure. La rete CDN di Azure offre agli sviluppatori una soluzione globale per distribuire contenuti con esigenze di larghezza di banda elevata. Consente di memorizzare nella cache oggetti BLOB e contenuti statici di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e Sud America.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -66,7 +66,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
     
 4. Per il resto delle impostazioni, usare i valori specificati nella tabella seguente:
 
-    | Impostazione  | Valore |
+    | Impostazione  | valore |
     | -------- | ----- |
     | **Modello di distribuzione** | Usare il valore predefinito. |
     | **Tipo di account** | Usare il valore predefinito. |
@@ -75,7 +75,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
     | **Prestazioni** | Usare il valore predefinito. |
     | **Trasferimento sicuro necessario** | Usare il valore predefinito. |
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa. |
-    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *my-resource-group-123* per il nome del gruppo di risorse. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso o è possibile selezionare **Usa esistente** e selezionare **my-resource-group-123** nell'elenco a discesa. <br />Per informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
+    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *my-resource-group-123* per il nome del gruppo di risorse. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso o è possibile selezionare **Usa esistente** e selezionare **my-resource-group-123** nell'elenco a discesa. <br />Per informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Configurare reti virtuali** | Usare il valore predefinito. |  
     
 5. Selezionare **Aggiungi al dashboard** per salvare l'account di archiviazione nel dashboard dopo la creazione.
@@ -94,7 +94,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
     
 2. Creare un nuovo endpoint immettendo le informazioni necessarie specificate nella tabella seguente:
 
-    | Impostazione  | Valore |
+    | Impostazione  | valore |
     | -------- | ----- |
     | **Profilo CDN** | Selezionare **Crea nuovo** e immettere il nome del profilo, ad esempio *my-cdn-profile-123*. Il nome deve essere univoco a livello globale.  |
     | **Piano tariffario** | Selezionare **Verizon standard** dall'elenco a discesa. |

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Usare Azure PowerShell per creare una coda del bus di servizio | Microsoft Docs
+title: Usare Azure PowerShell per creare una coda del bus di servizio
 description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una coda del bus di servizio. Quindi si userà un'applicazione di esempio per inviare e ricevere messaggi dalla coda.
 services: service-bus-messaging
 author: spelluru
@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 80cef3efd65a3f68dba1856a892a9a120f7d95cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426947"
 ---
-# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare Azure PowerShell per creare una coda del bus di servizio
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Avvio rapido: Usare Azure PowerShell per creare una coda del bus di servizio
 Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando PowerShell per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e come ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -25,7 +25,7 @@ Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da u
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, accertarsi di avere installato:
 

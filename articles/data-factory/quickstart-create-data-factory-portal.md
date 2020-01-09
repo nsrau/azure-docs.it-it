@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea218da5316e921c44b7e80fa5f072417d98ca05
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c6a7755b692ec796707e4a22ed7e15ae2b60dfe7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440113"
 ---
-# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Guida introduttiva: Creare una data factory usando l'interfaccia utente di Azure Data Factory
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Avvio rapido: Creare una data factory usando l'interfaccia utente di Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -39,7 +39,7 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-1. Scegliere **Crea una risorsa** dal menu del portale di Azure.
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
    
    ![Scegliere Crea una risorsa dal menu del portale di Azure](./media/doc-common-process/create-a-resource.png)
 1. Selezionare **Analisi** e quindi **Data factory**. 
@@ -56,7 +56,7 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco. 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-   Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+   Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 1. Per **Versione** selezionare **V2**.
 1. Per **Località** selezionare la località per la data factory.
 

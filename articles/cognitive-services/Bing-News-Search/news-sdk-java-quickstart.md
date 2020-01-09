@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire una ricerca di notizie con l'SDK per Java - Ricerca notizie Bing"
+title: "Avvio rapido: Eseguire una ricerca di notizie con l'SDK per Java - Ricerca notizie Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per cercare notizie con l'SDK di Ricerca notizie Bing per Java ed elaborare la risposta.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b8c2ca3bf919d70123b7b5b6d13c0301e0c1fd13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383579"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Avvio rapido: Cercare le notizie con l'SDK Ricerca notizie Bing per Java
 
 Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca notizie Bing per Java. Mentre Ricerca notizie Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Installare le dipendenze dell'SDK di Ricerca notizie Bing usando Maven, Gradle o un altro sistema di gestione delle dipendenze. Il file POM di Maven richiede la dichiarazione seguente:
 
@@ -57,7 +57,7 @@ import java.io.IOException;
 
 ## <a name="create-a-search-client-and-store-credentials"></a>Creare un client di ricerca e archiviare le credenziali
 
-1. Creare un metodo denominato `getClient()` che restituisce un nuovo client di ricerca `NewsSearchAPIImpl`. Aggiungere l'endpoint come primo parametro per il nuovo oggetto `NewsSearchAPIImpl` e un nuovo oggetto `ServiceClientCredentials` usato per archiviare le credenziali.
+1. Creare un metodo denominato `getClient()` che restituisce un nuovo client di ricerca `NewsSearchAPIImpl`. Aggiungere l'endpoint come primo parametro per il nuovo oggetto `NewsSearchAPIImpl` e un nuovo oggetto `ServiceClientCredentials` usato per archiviare le credenziali. 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {

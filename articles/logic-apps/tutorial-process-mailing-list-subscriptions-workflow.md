@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784664"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456603"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro automatizzati basati su approvazione tramite App per la logica di Azure
 
 Questa esercitazione illustra come creare un'[app per la logica](../logic-apps/logic-apps-overview.md) che automatizza un flusso di lavoro basato su approvazione. In particolare, questa app per la logica elabora le richieste di sottoscrizione di una lista di distribuzione gestita dal servizio [MailChimp](https://mailchimp.com/). Questa app per la logica monitora un account di posta elettronica per individuare queste richieste, invia le richieste per l'approvazione e aggiunge i membri approvati alla lista di distribuzione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'app per la logica vuota.
@@ -33,7 +33,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 ![Panoramica generale dell'app per la logica completata](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, [iscriversi per creare un account di Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -55,13 +55,13 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
    ![Specificare le informazioni sull'app per la logica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | LA-MailingList | Il nome dell'app per la logica, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). Questo esempio usa "LA-MailingList". |
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Il nome della sottoscrizione di Azure |
-   | **Gruppo di risorse** | LA-MailingList-RG | Il nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate. Questo esempio usa "LA-MailingList-RG". |
+   | **Gruppo di risorse** | LA-MailingList-RG | Il nome del [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) usato per organizzare le risorse correlate. Questo esempio usa "LA-MailingList-RG". |
    | **Posizione** | Stati Uniti occidentali | L'area in cui archiviare le informazioni sull'app per la logica. Questo esempio usa "Stati Uniti occidentali". |
-   | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. |
+   | **Log Analytics** | Disattivato | Lasciare l'impostazione **No** per la registrazione diagnostica. |
    ||||
 
 1. Dopo che Azure ha distribuito l'app, sulla barra degli strumenti di Azure selezionare **Notifiche** > **Vai alla risorsa** per l'app per la logica distribuita.
@@ -95,7 +95,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
       ![Specificare cartella, intervallo e frequenza per la verifica dei messaggi di posta elettronica](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | Proprietà | Valore | DESCRIZIONE |
+      | Proprietà | valore | Descrizione |
       |----------|-------|-------------|
       | **Cartella** | `Inbox` | Cartella di posta elettronica da monitorare |
       | **Interval** | `1` | Numero di intervalli di attesa tra i controlli |
@@ -136,7 +136,7 @@ Ora che è stato creato il trigger, aggiungere un'[azione](../logic-apps/logic-a
 
    ![Proprietà di dell'invio di posta elettronica di approvazione](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **To** | <*indirizzo-posta-elettronica*> | Indirizzo di posta elettronica del responsabile approvazione. Per scopi di test, è possibile usare il proprio indirizzo. Questo esempio usa l'indirizzo di posta elettronica fittizio "sophia.owen@fabrikam.com". |
    | **Oggetto** | `Approve member request for test-members-ML` | Oggetto descrittivo per il messaggio di posta elettronica |
@@ -203,7 +203,7 @@ Impostare ora un'azione per aggiungere il membro approvato alla lista di distrib
 
    ![Specificare le informazioni per "Aggiungi membro all'elenco"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Proprietà | Obbligatoria | Value | DESCRIZIONE |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **ID elenco** | Sì | `test-members-ML` | Il nome della lista di distribuzione MailChimp. Questo esempio usa "test-members-ML". |
    | **Status** | Sì | `subscribed` | Selezionare lo stato della sottoscrizione per il nuovo membro. Questo esempio usa "subscribed". <p>Per altre informazioni, vedere [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Gestire le sottoscrizioni con l'API MailChimp). |
@@ -258,7 +258,7 @@ Configurare quindi i messaggi di posta elettronica da inviare quando un membro a
 
    ![Specificare le informazioni per il messaggio di posta elettronica di conferma](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Proprietà | Obbligatoria | Value | DESCRIZIONE |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **To** | Sì | <*indirizzo-posta-elettronica*> | Indirizzo di posta elettronica a cui inviare il messaggio di posta elettronica di conferma. AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. |
    | **Oggetto** | Sì | <*oggetto-messaggio-conferma*> | Oggetto per il messaggio di posta elettronica di conferma. Per questa esercitazione, immettere questo testo: <p>`Success! Member added to "test-members-ML": ` <p>Nell'elenco di contenuto dinamico selezionare la proprietà **Indirizzo di posta elettronica** in **Aggiungi membro all'elenco**. |
@@ -283,7 +283,7 @@ Configurare quindi i messaggi di posta elettronica da inviare quando un membro a
 
    ![Specificare le informazioni per il messaggio di posta elettronica di mancata conferma](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Proprietà | Obbligatoria | Value | DESCRIZIONE |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **To** | Sì | <*indirizzo-posta-elettronica*> | Indirizzo di posta elettronica a cui inviare il messaggio di posta elettronica di mancata conferma. AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. |
    | **Oggetto** | Sì | <*oggetto-messaggio-mancata-conferma*> | Oggetto per il messaggio di posta elettronica di mancata conferma. Per questa esercitazione, immettere questo testo: <p>`Failed, member not added to "test-members-ML": ` <p>Nell'elenco di contenuto dinamico selezionare la proprietà **Indirizzo di posta elettronica** in **Aggiungi membro all'elenco**. |

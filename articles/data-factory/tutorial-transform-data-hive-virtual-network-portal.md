@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: d52aed98549478898cb3bd263d52eeae2a69ccfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd0de5415dc001f107221add7ea223450290b3f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439272"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory
 
@@ -32,7 +32,7 @@ In questa esercitazione si usa il portale di Azure per creare una pipeline di Da
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,11 +88,11 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-     Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+     Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 4. Selezionare **V2** per **version**.
 5. Selezionare la **località** per la data factory. Nell'elenco vengono mostrate solo le località supportate per la creazione di data factory.
 6. Selezionare **Aggiungi al dashboard**.     
-7. Fare clic su **Create**(Crea).
+7. Fare clic su **Crea**.
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
      ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
@@ -166,7 +166,7 @@ In questa sezione vengono creati e distribuiti due servizi collegati:
     2. Selezionare **MySelfHostedIR** per **Connect via integration runtime** (Connetti tramite runtime di integrazione).
     3. Selezionare il proprio account di archiviazione di Azure per **Nome account di archiviazione**. 
     4. Per testare la connessione all'account di archiviazione, fare clic su **Test connessione**.
-    5. Fare clic su **Save**.
+    5. Fare clic su **Salva**.
    
         ![Specificare un account di archiviazione BLOB di Azure](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png)
 
@@ -200,8 +200,8 @@ In questo passaggio si crea una nuova pipeline con un'attività Hive. L'attivit�
 
 Tenere presente quanto segue:
 
-- **scriptPath** punta al percorso dello script Hive nell'account di archiviazione di Azure usato per MyStorageLinkedService. Il percorso fa distinzione tra maiuscole e minuscole.
-- **Output** è un argomento usato nello script Hive. Usare il formato `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` in modo che l'output punti a una cartella esistente nell'archivio di Azure. Il percorso fa distinzione tra maiuscole e minuscole. 
+- **scriptPath** punta al percorso dello script Hive nell'account di archiviazione di Azure usato per MyStorageLinkedService. Per il percorso viene applicata la distinzione tra maiuscole e minuscole.
+- **Output** è un argomento usato nello script Hive. Usare il formato `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` in modo che l'output punti a una cartella esistente nell'archivio di Azure. Per il percorso viene applicata la distinzione tra maiuscole e minuscole. 
 
 1. Nell'interfaccia utente di Data Factory fare clic su **+ (segno più)** nel riquadro a sinistra e quindi su **Pipeline**. 
 

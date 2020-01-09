@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462095"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Esercitazione: Rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure
 Questa esercitazione descrive come rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure. Verranno eseguiti i passaggi seguenti:
@@ -35,7 +35,7 @@ Dopo aver creato gli artefatti del bus di servizio, di Griglia di eventi, di Fun
 3. Verificare che la funzione o l'app che ha sottoscritto l'evento abbia ricevuto l'evento. 
 
 ## <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
-Seguire le istruzioni disponibili nell'esercitazione [Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
+Seguire le istruzioni disponibili nell'esercitazione [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
 
 - Creare uno spazio dei nomi del bus di servizio **Premium**. 
 - Ottenere la stringa di connessione. 
@@ -50,7 +50,7 @@ Seguire le istruzioni disponibili nell'esercitazione [Guida introduttiva: Usare 
 3. Andare al progetto **MessageSender** e quindi selezionare **Program.cs**.
 4. Immettere il nome dell'argomento del bus di servizio e la stringa di connessione ottenuta nel passaggio precedente:
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -69,7 +69,7 @@ Eseguire la procedura seguente:
 
 1. Espandere **Funzioni** nella visualizzazione struttura ad albero e selezionare la funzione. Sostituire il codice della funzione con il codice seguente: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -131,7 +131,7 @@ Eseguire la procedura seguente:
     2. Selezionare **~1** per **Versione runtime**. 
 2. Espandere **Funzioni** nella visualizzazione struttura ad albero e selezionare la funzione. Sostituire il codice della funzione con il codice seguente: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;
@@ -288,7 +288,7 @@ Connettere un'app per la logica al bus di servizio di Azure e a Griglia di event
     4. Selezionare **Recupera i messaggi dalla sottoscrizione dell'argomento (blocco visualizzazione)** . 
 
         ![Progettazione app per la logica - recupero dell'azione per i messaggi](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. Immettere un **nome per la connessione**. Ad esempio:  **Recuperare i messaggi della sottoscrizione dell'argomento** e selezionare lo spazio dei nomi del bus di servizio. 
+    5. Immettere un **nome per la connessione**. Ad esempio: **Recuperare i messaggi della sottoscrizione dell'argomento** e selezionare lo spazio dei nomi del bus di servizio. 
 
         ![Progettazione app per la logica - selezione dello spazio dei nomi del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. Selezionare **RootManageSharedAccessKey**.

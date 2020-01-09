@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.openlocfilehash: 4ead3472e1706742781cb64a12103f3dec1fd27a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: edf03b663383f10168ee5b78a3ad5f1a9fdac288
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922467"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440136"
 ---
-# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Guida introduttiva: Usare lo strumento Copia dati per copiare i dati
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Avvio rapido: Usare lo strumento Copia dati per copiare i dati
 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -54,7 +54,7 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco. 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-   Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+   Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 1. Per **Versione** selezionare **V2**.
 1. Per **Località** selezionare la località per la data factory.
 

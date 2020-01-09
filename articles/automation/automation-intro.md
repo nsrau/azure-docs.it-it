@@ -2,20 +2,17 @@
 title: Panoramica di Automazione di Azure
 description: Informazioni su come usare Automazione di Azure per automatizzare il ciclo di vita dell'infrastruttura e delle applicazioni.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434054"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421937"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -44,14 +41,14 @@ Aggiornare i sistemi Windows e Linux in ambienti ibridi con Automazione di Azure
 
 Automazione di Azure è costituito da un set di risorse condivise che semplificano l'automazione e la configurazione degli ambienti su larga scala.
 
-* **[Pianificazioni](automation-schedules.md)**: usate nel servizio per attivare l'automazione in momenti prestabiliti.
-* **[Moduli](automation-integration-modules.md)**: i moduli vengono usati per gestire Azure e altri sistemi. Importare i moduli nell'account di Automazione per cmdlet e risorse DSC Microsoft, di terze parti, della community o personalizzati.
-* **[Raccolta di moduli](automation-runbook-gallery.md)**: integrazione nativa con PowerShell Gallery per visualizzare i runbook e importarli nell'account di Automazione.
-* **[Pacchetti Python 2](python-packages.md)**: consente di aggiungere pacchetti Python 2 all'account di Automazione per usarli nei runbook Python.
-* **[Credenziali](automation-credentials.md)**: consentono di proteggere le informazioni riservate che possono essere usate da runbook e configurazioni in fase di esecuzione.
-* **[Connessioni](automation-connections.md)**: archiviare coppie di nomi/valori contenenti informazioni comuni per la connessione ai sistemi nelle risorse di connessione. Le connessioni vengono definite dall'autore del modulo per essere usate in fase di esecuzione nei runbook e nelle configurazioni.
-* **[Certificati](automation-certificates.md)**: archiviare e rendere disponibili i certificati in fase di esecuzione perché possano essere usati per l'autenticazione e la protezione delle risorse distribuite.
-* **[Variabili](automation-variables.md)**: consentono di inserire contenuti che possono essere usati nei runbook e nelle configurazioni. È possibile modificare i valori senza dover modificare i runbook e le configurazioni che vi fanno riferimento.
+* **[Pianificazioni](automation-schedules.md)** : usate nel servizio per attivare l'automazione in momenti prestabiliti.
+* **[Moduli](automation-integration-modules.md)** : i moduli vengono usati per gestire Azure e altri sistemi. Importare i moduli nell'account di Automazione per cmdlet e risorse DSC Microsoft, di terze parti, della community o personalizzati.
+* **[Raccolta di moduli](automation-runbook-gallery.md)** : integrazione nativa con PowerShell Gallery per visualizzare i runbook e importarli nell'account di Automazione.
+* **[Pacchetti Python 2](python-packages.md)** : consente di aggiungere pacchetti Python 2 all'account di Automazione per usarli nei runbook Python.
+* **[Credenziali](automation-credentials.md)** : consentono di proteggere le informazioni riservate che possono essere usate da runbook e configurazioni in fase di esecuzione.
+* **[Connessioni](automation-connections.md)** : archiviare coppie di nomi/valori contenenti informazioni comuni per la connessione ai sistemi nelle risorse di connessione. Le connessioni vengono definite dall'autore del modulo per essere usate in fase di esecuzione nei runbook e nelle configurazioni.
+* **[Certificati](automation-certificates.md)** : archiviare e rendere disponibili i certificati in fase di esecuzione perché possano essere usati per l'autenticazione e la protezione delle risorse distribuite.
+* **[Variabili](automation-variables.md)** : consentono di inserire contenuti che possono essere usati nei runbook e nelle configurazioni. È possibile modificare i valori senza dover modificare i runbook e le configurazioni che vi fanno riferimento.
 
 ### <a name="source-control-integration"></a>Integrazione del controllo del codice sorgente
 
