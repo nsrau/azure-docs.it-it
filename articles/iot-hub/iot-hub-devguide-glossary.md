@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d73dcb89739395e4dd52b1ef4d39c41ad6125666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457150"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
@@ -43,16 +43,16 @@ Sono disponibili _SDK per servizi_ per più linguaggi che consentono di creare [
 ## <a name="azure-iot-tools"></a>Azure IoT Tools
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) è un'utile estensione open source multipiattaforma di Visual Studio Code che consente di gestire i dispositivi e l'hub IoT di Azure in Visual Studio Code. Con Azure IoT Tools, gli sviluppatori IoT possono sviluppare con facilità un progetto IoT in Visual Studio Code.
 
-## <a name="azure-portal"></a>portale di Azure
+## <a name="azure-portal"></a>Portale di Azure
 Il [portale di Microsoft Azure](https://portal.azure.com) è una posizione centrale in cui è possibile effettuare il provisioning e gestire le risorse di Azure. Organizza il contenuto usando i _pannelli_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.
 
-## <a name="azure-resource-manager"></a>Gestione risorse di Azure
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare le risorse della soluzione con un'unica operazione coordinata.
+## <a name="azure-resource-manager"></a>Azure Resource Manager
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare le risorse della soluzione con un'unica operazione coordinata.
 
-## <a name="azure-service-bus"></a>Bus di servizio di Azure
+## <a name="azure-service-bus"></a>Service Bus di Azure
 Il [bus di servizio](../service-bus/index.md) offre comunicazione abilitata per il cloud con messaggistica aziendale, nonché comunicazione inoltrata per la connessione delle soluzioni locali con il cloud. Alcune esercitazioni sull'hub IoT usano le [code](../service-bus-messaging/service-bus-messaging-overview.md) del bus di servizio.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
@@ -176,7 +176,7 @@ Gli acceleratori di soluzioni Azure IoT raggruppano più servizi di Azure in sol
 ## <a name="the-iot-extension-for-azure-cli"></a>L'estensione IoT per l'interfaccia della riga di comando di Azure 
 [L'estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension) è uno strumento multipiattaforma da riga di comando. Lo strumento consente di gestire i dispositivi nel [registro delle identità](#identity-registry), inviare e ricevere messaggi e file dai dispositivi e monitorare le operazioni dell'hub IoT.
 
-## <a name="job"></a>processo
+## <a name="job"></a>Processo
 Il back-end della soluzione può usare i [processi](iot-hub-devguide-jobs.md) per pianificare e tenere traccia delle attività in un set di dispositivi registrati con l'hub IoT. Le attività includono l'aggiornamento delle [proprietà desiderate](#desired-properties) di un dispositivo gemello, l'aggiornamento dei [tag](#tags) di un dispositivo gemello e la chiamata di [metodi diretti](#direct-method). [Hub IoT](#iot-hub) usa anche per eseguire [importazioni ed esportazioni](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) nel [registro delle identità](#identity-registry).
 
 ## <a name="modules"></a>Moduli
@@ -205,7 +205,7 @@ Quando ci si connette a un endpoint per il dispositivo o per il servizio in un h
 ## <a name="protocol-gateway"></a>Gateway di protocollo
 Un gateway di protocollo viene in genere distribuito nel cloud e fornisce servizi di traduzione dei protocolli per i dispositivi che si connettono all'[hub IoT](#iot-hub). Per altre informazioni, vedere [Che cos'è l'hub IoT di Azure?](about-iot-hub.md)
 
-## <a name="quotas-and-throttling"></a>Quote e limitazione
+## <a name="quotas-and-throttling"></a>Quote e limitazioni
 Esistono diverse [quote](iot-hub-devguide-quotas-throttling.md) che si applicano all'uso di [Hub IoT](#iot-hub). Molte quote sono diverse a seconda del livello dell'hub IoT. [Hub IoT](#iot-hub) applica anche [limitazioni](iot-hub-devguide-quotas-throttling.md) all'uso del servizio in fase di esecuzione.
 
 ## <a name="reported-configuration"></a>Configurazione segnalata
@@ -214,7 +214,7 @@ Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), il te
 ## <a name="reported-properties"></a>Proprietà segnalate
 Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le proprietà segnalate sono un sottoparagrafo del dispositivo gemello usato con le [proprietà desiderate](#desired-properties) per sincronizzare la condizione o la configurazione del dispositivo. Le proprietà segnalate possono essere impostate solo dall'[app per dispositivo](#device-app) e possono essere lette e sottoposte a query da un'[app back-end](#back-end-app).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Gruppo di risorse
 [Azure Resource Manager](#azure-resource-manager) usa i gruppi di risorse per raggruppare le risorse correlate. È possibile usare un gruppo di risorse per eseguire operazioni su tutte le risorse del gruppo contemporaneamente.
 
 ## <a name="retry-policy"></a>Criteri di ripetizione
