@@ -4,14 +4,14 @@
   items:
     - name: Informazioni su Jenkins in Azure
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un server Jenkins
       href: install-jenkins-solution-template.md
 - name: Esercitazioni
   items:
-    - name: 1. Installa
+    - name: 1. Installazione
       items:
         - name: Creare un server Jenkins
           href: install-jenkins-solution-template.md
@@ -24,7 +24,11 @@
           href: jenkins-azure-vm-agents.md
     - name: 3. Implementare il processo CI/CD
       items:
-        - name: servizio Azure Container
+        - name: Azure Spring Cloud
+          items:
+            - name: Distribuire in Azure Spring Cloud con l'interfaccia della riga di comando di Azure
+              href: tutorial-jenkins-deploy-cli-spring-cloud-service.md
+        - name: Servizio Azure Kubernetes
           items:
             - name: Integrazione continua e distribuzione continua per Kubernetes
               href: /azure/aks/jenkins-continuous-deployment
@@ -53,7 +57,7 @@
         - name: CI/CD per Service Fabric
           href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
           maintainContext: true
-- name: Procedura
+- name: Procedure
   items:
     - name: Usare il plug-in del servizio app
       href: deploy-jenkins-app-service-plugin.md

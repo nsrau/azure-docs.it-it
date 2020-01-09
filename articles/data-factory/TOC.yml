@@ -84,6 +84,8 @@
       items:
         - name: Trasformare i dati con un flusso di dati di mapping
           href: tutorial-data-flow.md
+        - name: Esercitazioni video sul flusso di dati di mapping
+          href: data-flow-tutorials.md
         - name: Preparare i dati con un flusso di dati di wrangling
           href: wrangling-data-flow-tutorial.md
     - name: Trasformazioni esterne

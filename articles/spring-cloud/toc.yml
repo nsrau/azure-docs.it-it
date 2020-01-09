@@ -5,7 +5,7 @@
   items:
     - name: Cos'è Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Avviare l'app Spring Cloud tramite il portale
@@ -34,6 +34,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Eseguire il binding dell'applicazione con Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Distribuire app in Azure Spring Cloud con Jenkins e l'interfaccia della riga di comando di Azure
+      href: /jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Concetti
   items:
     - name: Informazioni su quote e limiti di Azure Spring Cloud
@@ -42,7 +44,7 @@
       href: spring-cloud-concept-metrics.md
     - name: Pianificare il ripristino di emergenza
       href: disaster-recovery.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: 'Come avviare, arrestare ed eliminare un''applicazione Azure Spring Cloud'
       href: spring-cloud-howto-start-stop-delete.md
@@ -56,7 +58,7 @@
       href: spring-cloud-howto-cicd.md
     - name: Usare l'archiviazione persistente in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure
       href: spring-cloud-cli-reference.md

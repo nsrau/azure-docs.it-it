@@ -44,7 +44,7 @@
           href: devtest-lab-training-lab.md
         - name: Scenari per l'uso di macchine virtuali richiedibili
           href: devtest-lab-use-claim-capabilities.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Configurare un lab
       items:
@@ -72,6 +72,8 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Ridimensionare il lab
           href: devtest-lab-scale-lab.md
+        - name: Abilitare le identità gestite per le macchine virtuali del lab
+          href: enable-managed-identities-lab-vms.md
         - name: Gestire basi di macchie virtuali
           items:
             - name: Configurare le immagini di Azure Marketplace
@@ -241,7 +243,7 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: Risolvere gli errori relativi agli artefatti
           href: devtest-lab-troubleshoot-artifact-failure.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: CLI
       href: /cli/azure/lab
@@ -259,7 +261,7 @@
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
-    - name: Forum di MSDN
+    - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-devtest-labs'

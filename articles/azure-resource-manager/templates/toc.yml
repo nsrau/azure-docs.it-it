@@ -10,10 +10,6 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Creare modelli - Visual Studio Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Creare modelli - Visual Studio
-      href: create-visual-studio-deployment-project.md
-    - name: Creare modelli - IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: Esercitazioni
   items:
     - name: Principiante
@@ -101,8 +97,9 @@
   items:
     - name: Creare modelli
       items:
-        - name: Usare VS Code
-          href: use-vs-code-to-create-template.md
+        - name: Struttura del file modello
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: template-syntax.md
         - name: Scrivere espressioni di modello
           href: template-expressions.md
         - name: Parametri
@@ -134,6 +131,14 @@
           href: deploy-to-subscription.md
         - name: Risorse a livello di gruppo di gestione
           href: deploy-to-management-group.md
+    - name: Usare gli strumenti di creazione
+      items:
+        - name: Visual Studio Code
+          href: use-vs-code-to-create-template.md
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Distribuire modelli
       items:
         - name: Distribuire - portale
@@ -206,9 +211,6 @@
           href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
 - name: Riferimento
   items:
-    - name: Struttura del file modello
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: template-syntax.md
     - name: Informazioni di riferimento sul modello
       href: /azure/templates/
     - name: Funzioni di modello

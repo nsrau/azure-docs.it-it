@@ -56,6 +56,8 @@
           href: how-to-attach-detach-shared-image-gallery.md
         - name: Aggiungere un utente come proprietario a un lab per la classe
           href: how-to-add-user-lab-owner.md
+        - name: Impostazioni del firewall per Azure Lab Services
+          href: how-to-configure-firewall-settings.md
     - name: Creare e configurare lab per le classi (istruttore)
       items:
         - name: Creare e gestire i lab per le classi

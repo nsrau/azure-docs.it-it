@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Key Vault
       href: key-vault-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: CLI
@@ -66,7 +66,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
 - name: Concetti
   items:
-    - name: Concetti di base
+    - name: Concetti fondamentali
       href: basic-concepts.md
     - name: Security
       items:
@@ -100,13 +100,13 @@
           href: create-certificate.md
         - name: Monitorare e gestire la creazione di certificati
           href: create-certificate-scenarios.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Security
       items:
         - name: Consigli
           href: security-recommendations.md
-    - name: Authentication
+    - name: Authenticate
       items:
         - name: Usare un'identità gestita nel servizio app
           href: managed-identity.md
@@ -138,8 +138,10 @@
       items:
         - name: Usare Spring Boot Starter
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
-- name: riferimento
+- name: Riferimento
   items:
+    - name: Codici di errore REST di Key Vault
+      href: rest-error-codes.md
     - name: Azure PowerShell
       href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
     - name: Interfaccia della riga di comando di Azure

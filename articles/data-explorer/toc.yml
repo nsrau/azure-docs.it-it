@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Esplora dati di Azure
       href: data-explorer-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un cluster e un database - Portale di Azure
@@ -32,7 +32,9 @@
       href: ingest-data-overview.md
     - name: Panoramica della visualizzazione dei dati
       href: viz-overview.md
-- name: Guide alle procedure
+    - name: Panoramica della sicurezza
+      href: security.md
+- name: Guide pratiche
   items:
     - name: Creare un cluster e un database
       items:
@@ -110,7 +112,7 @@
               href: python-query-data.md
         - name: Analisi delle serie temporali e Machine Learning
           items:
-            - name: Analisi di serie temporali
+            - name: Analisi delle serie temporali
               href: time-series-analysis.md
             - name: Rilevamento anomalie e previsioni
               href: anomaly-detection.md
@@ -126,7 +128,7 @@
               href: power-bi-connector.md
             - name: query importata
               href: power-bi-imported-query.md
-            - name: Query SQL
+            - name: query SQL
               href: power-bi-sql-query.md
         - name: Excel
           items:
@@ -144,9 +146,21 @@
           href: sisense.md
         - name: Redash
           href: redash.md
-    - name: Gestisci
+    - name: Sicurezza
       items:
-        - name: HDInsight
+        - name: Gestire la sicurezza del cluster
+          href: manage-cluster-security.md
+        - name: Configurare le identità gestite
+          href: managed-identities.md
+        - name: Configurare le chiavi gestite dal cliente
+          items:
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Modello di Azure Resource Manager
+              href: customer-managed-keys-resource-manager.md
+    - name: Gestione
+      items:
+        - name: Cluster
           items:
             - name: Selezionare lo SKY delle VM del cluster
               href: manage-cluster-choose-sku.md
@@ -154,8 +168,6 @@
               href: manage-cluster-horizontal-scaling.md
             - name: Gestire il ridimensionamento verticale dei cluster
               href: manage-cluster-vertical-scaling.md
-            - name: Gestire la sicurezza del cluster
-              href: manage-cluster-security.md
             - name: Controllare l'integrità del cluster
               href: check-cluster-health.md
         - name: Database
@@ -170,7 +182,7 @@
                   href: database-table-policies-csharp.md
                 - name: Python
                   href: database-table-policies-python.md
-        - name: Dati
+        - name: data
           items:
             - name: Eliminare i dati
               href: delete-data.md
@@ -212,7 +224,7 @@
           href: troubleshoot-connect-cluster.md
         - name: Uso di database e tabelle
           href: troubleshoot-database-table.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Linguaggio di query
       href: /azure/kusto/query/

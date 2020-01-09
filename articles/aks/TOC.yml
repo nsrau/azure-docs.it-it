@@ -21,18 +21,27 @@
       items:
         - name: Usare Draft
           href: kubernetes-draft.md
-        - name: Usare Visual Studio Code e Azure Dev Spaces
-          href: ../dev-spaces/quickstart-netcore.md
-          maintainContext: true
-        - name: Usare Visual Studio e Azure Dev Spaces
-          href: ../dev-spaces/quickstart-netcore-visualstudio.md
-          maintainContext: true
-        - name: Usare l'interfaccia della riga di comando e Azure Dev Spaces
-          href: ../dev-spaces/quickstart-cli.md
-          maintainContext: true
-        - name: Usare Azure Dev Spaces per lo sviluppo in team
-          href: ../dev-spaces/quickstart-team-development.md
-          maintainContext: true
+        - name: Azure Dev Spaces
+          expanded: true
+          items:
+            - name: Usare Azure Dev Spaces per lo sviluppo in team
+              href: ../dev-spaces/quickstart-team-development.md
+              maintainContext: true
+            - name: Usare Visual Studio Code
+              href: ../dev-spaces/quickstart-netcore.md
+              maintainContext: true
+            - name: Usare Visual Studio
+              href: ../dev-spaces/quickstart-netcore-visualstudio.md
+              maintainContext: true
+            - name: Usare l'interfaccia della riga di comando
+              href: ../dev-spaces/quickstart-cli.md
+              maintainContext: true
+            - name: Usare Azure Dev Spaces con Java
+              href: ../dev-spaces/quickstart-java.md
+              maintainContext: true
+            - name: Usare Azure Dev Spaces con Node.js
+              href: ../dev-spaces/quickstart-nodejs.md
+              maintainContext: true
 - name: Esercitazioni
   items:
     - name: '1: Preparare l''applicazione per il servizio Azure Container'
