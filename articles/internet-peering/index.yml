@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Documentazione sul peering Internet
+summary: Informazioni sul peering Internet con Microsoft.
+metadata:
+  title: Documentazione sul peering Internet
+  titleSuffix: Azure
+  description: Informazioni sul peering con Microsoft.
+  services: internet-peering
+  ms.service: internet-peering
+  ms.topic: landing-page
+  author: prmitiki
+  ms.author: prmitiki
+  ms.date: 11/27/2019
+  ms.openlocfilehash: 83549a56b3fb81c66827d1e9f87718467fb1098a
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75773520"
+landingContent:
+- title: Informazioni sul peering Internet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sul peering Internet
+      url: overview.md
+    - text: Confronto tra peering Internet e Servizio di peering
+      url: overview-peering-service.md
+  - linkListType: concept
+    links:
+    - text: Criteri di peering
+      url: policy.md
+    - text: Prerequisiti per la configurazione del peering con Microsoft
+      url: prerequisites.md
+    - text: Domande frequenti sul peering Internet
+      url: faqs.md
+- title: Introduzione
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Associare l'ASN peer alla sottoscrizione di Azure con il portale
+      url: howto-subscription-association-portal.md
+- title: Peering di Exchange
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Procedura dettagliata per il peering di Exchange
+      url: walkthrough-exchange-all.md
+    - text: Creare o modificare un peering di Exchange con il portale
+      url: howto-exchange-portal.md
+    - text: Convertire un peering di Exchange legacy in una risorsa di Azure con il portale
+      url: howto-legacy-exchange-portal.md
+- title: Peering diretto
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Procedura dettagliata per il peering diretto
+      url: walkthrough-direct-all.md
+    - text: Creare o modificare un peering diretto con il portale
+      url: howto-direct-portal.md
+    - text: Convertire un peering diretto legacy in una risorsa di Azure con il portale
+      url: howto-legacy-direct-portal.md
+- title: Servizio di peering
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Domande frequenti sul servizio di peering
+      url: service-faqs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Procedura dettagliata per il partner del servizio di peering
+      url: walkthrough-peering-service-all.md
+    - text: Abilitare il servizio di peering in un peering diretto con il portale
+      url: howto-peering-service-portal.md

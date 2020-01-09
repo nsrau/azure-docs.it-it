@@ -1,0 +1,86 @@
+- name: Documentazione sul peering Internet
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sul peering Internet
+      href: overview.md
+    - name: Confronto tra peering Internet e Servizio di peering
+      href: overview-peering-service.md
+- name: Concetti
+  items:
+    - name: Criteri di peering
+      href: policy.md
+- name: Guide pratiche
+  items:
+    - name: Prerequisiti per la configurazione del peering con Microsoft
+      href: prerequisites.md
+    - name: Procedura dettagliata per il peering diretto
+      href: walkthrough-direct-all.md
+    - name: Procedura dettagliata per il peering di Exchange
+      href: walkthrough-exchange-all.md
+    - name: Procedura dettagliata per il partner del servizio di peering
+      href: walkthrough-peering-service-all.md
+    - name: Associare l'ASN peer alla sottoscrizione di Azure
+      items:
+        - name: Portale
+          href: howto-subscription-association-portal.md
+        - name: Azure PowerShell
+          href: howto-subscription-association-powershell.md
+    - name: Abilitare il servizio di peering in un peering diretto
+      items:
+        - name: Portale
+          href: howto-peering-service-portal.md
+        - name: Azure PowerShell
+          href: howto-peering-service-powershell.md
+    - name: Creare o modificare un peering diretto
+      items:
+        - name: Portale
+          href: howto-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-direct-powershell.md
+    - name: Convertire un peering diretto legacy in una risorsa di Azure
+      items:
+        - name: Portale
+          href: howto-legacy-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-direct-powershell.md
+    - name: Creare o modificare un peering di Exchange
+      items:
+        - name: Portale
+          href: howto-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-exchange-powershell.md
+    - name: Convertire un peering di Exchange legacy in una risorsa di Azure
+      items:
+        - name: Portale
+          href: howto-legacy-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-exchange-powershell.md
+- name: Riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: 'https://docs.microsoft.com/cli/azure/network'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.network'
+    - name: Java
+      href: 'https://docs.microsoft.com/java/api/'
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: Modello di Resource Manager
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
+- name: Risorse
+  items:
+    - name: Sviluppare le proprie competenze con Microsoft Learn
+      href: 'https://docs.microsoft.com/learn/browse/'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog sulle reti
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Feedback sulle reti
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Domande frequenti sul peering Internet
+      href: faqs.md
+    - name: Domande frequenti sul servizio di peering
+      href: service-faqs.md

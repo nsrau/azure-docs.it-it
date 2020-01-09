@@ -7,7 +7,7 @@
       href: scenarios-and-availability.md
     - name: Concetti
       href: media-services-concepts.md
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Creare e gestire gli account
       href: media-services-portal-create-account.md
@@ -50,6 +50,7 @@
 - name: Procedure
   items:
     - name: Componenti legacy
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
       items:
         - name: Eseguire la migrazione da Azure Media Encoder
@@ -60,7 +61,7 @@
           displayName: WAME
         - name: Eseguire la migrazione da Indexer v1 e v2
           href: migrate-indexer-v1-v2.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Account
           displayName: subscription
@@ -228,7 +229,7 @@
               href: media-services-rest-get-media-processor.md
         - name: Codici di errore
           href: media-services-encoding-error-codes.md
-        - name: Funzionalità deprecate
+        - name: Deprecato
           items:
             - name: Creazione statica dei pacchetti e crittografia
               href: media-services-static-packaging.md
@@ -321,7 +322,7 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Progettazione con DRM multiplo di riferimento
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analizzare
+    - name: Analisi
       href: media-services-analytics-overview.md
       items:
         - name: Analizzare i file multimediali usando il portale di Azure
@@ -442,7 +443,7 @@
           href: media-services-error-codes.md
         - name: Logica di retry
           href: media-services-retry-logic-in-dotnet-sdk.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
@@ -462,6 +463,9 @@
           href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
           href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: Componenti legacy
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: Risorse
   items:
     - name: Community di Servizi multimediali di Azure

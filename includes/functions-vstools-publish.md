@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70197148"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769702"
 ---
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
@@ -21,7 +21,7 @@ ms.locfileid: "70197148"
 
     ![Selezionare una destinazione di pubblicazione](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    | Opzione      | DESCRIZIONE                                |
+    | Opzione      | Descrizione                                |
     | ------------ |  -------------------------------------------------- |
     | **Piano di consumo di Funzioni di Azure** |   Quando si pubblica il progetto in un'app per le funzioni eseguita in un [piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan), vengono addebitati solo i costi relativi alle esecuzioni dell'app per le funzioni. Altri piani di hosting comportano costi più elevati. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](../articles/azure-functions/functions-scale.md). | 
     | **Crea nuovo** | Viene creata in Azure una nuova app per le funzioni, con le risorse correlate. Se si sceglie **Seleziona esistente**, tutti i file nell'app per le funzioni esistente in Azure vengono sovrascritti da file del progetto locale. Usare questa opzione solo quando si ripubblicano gli aggiornamenti a un'app per le funzioni esistente. |
@@ -30,7 +30,7 @@ ms.locfileid: "70197148"
 
 3. Selezionare **Pubblica**. Se non è già stato effettuato l'accesso all'account Azure da Visual Studio, selezionare **Accedi**. È anche possibile creare un account Azure gratuito.
 
-4. Nella finestra di dialogo **Servizio app - Crea nuovo** usare le impostazioni per l'**hosting** specificate nella tabella sotto l'immagine:
+4. Nella finestra di dialogo **Servizio app di Azure: Crea nuovo** usare le impostazioni per l'**hosting** specificate nella tabella sotto l'immagine:
 
     ![Finestra di dialogo Crea servizio app](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 

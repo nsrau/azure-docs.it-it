@@ -93,7 +93,7 @@
       href: knowledge-store-concept-intro.md
     - name: Proiezioni
       href: knowledge-store-projection-overview.md
-    - name: Indicizzazione incrementale
+    - name: Arricchimento incrementale
       href: cognitive-search-incremental-indexing-conceptual.md
 - name: Guide pratiche
   items:
@@ -237,9 +237,9 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: Eseguire il mapping ai campi dell'indice
               href: cognitive-search-output-field-mapping.md
-            - name: Elaborare ed estrarre informazioni dalle immagini
+            - name: Estrarre informazioni dalle immagini
               href: cognitive-search-concept-image-scenarios.md
-            - name: Configurare l'indicizzazione incrementale
+            - name: Arricchimento della cache (incrementale)
               href: search-howto-incremental-index.md
         - name: Competenze personalizzate
           items:
@@ -330,7 +330,11 @@
     - name: REST (gestione)
       href: /rest/api/searchmanagement
     - name: REST (anteprima)
-      href: search-api-preview.md
+      items:
+        - name: Versione API 2019-05-06-Preview
+          href: search-api-preview.md
+        - name: API ResetSkills
+          href: preview-api-resetskills.md
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.search/searchservices
     - name: Informazioni di riferimento sul linguaggio OData

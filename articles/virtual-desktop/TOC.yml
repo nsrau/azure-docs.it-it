@@ -130,6 +130,10 @@
       href: /rest/api/virtual-desktop/
     - name: Impostazioni supportate del file RDP
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
+    - name: Linee guida per la rete
+      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context'
+    - name: Linee guida per il ridimensionamento delle macchine virtuali
+      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context'
 - name: Risorse
   items:
     - name: Strumento di valutazione dell'esperienza

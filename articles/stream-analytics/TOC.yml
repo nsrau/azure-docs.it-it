@@ -61,6 +61,16 @@
           href: stream-analytics-sql-output-perf.md
         - name: Modelli di percorso personalizzati per i BLOB
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Ottimizzare il processo di Analisi di flusso
+      items:
+        - name: Informazioni sulle unità di flusso e su come modificarle
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Ottimizzare le prestazioni di query
+          href: stream-analytics-parallelization.md
+        - name: Ripartizionare l'input
+          href: repartition.md
+        - name: Aumentare la velocità effettiva del processo
+          href: stream-analytics-scale-jobs.md
     - name: Stati di un processo
       href: job-states.md
     - name: Funzioni finestra
@@ -148,20 +158,6 @@
           href: stream-analytics-monitor-jobs.md
         - name: Monitorare i processi - Visual Studio
           href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Scalabilità
-      items:
-        - name: Ridimensionare con le unità di streaming
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Ridimensionare con la parallelizzazione
-          items:
-            - name: Parallelizzazione delle query
-              href: stream-analytics-parallelization.md
-            - name: Aumentare la velocità effettiva
-              href: stream-analytics-scale-jobs.md
-        - name: Ridimensionare con le funzioni di Machine Learning
-          href: stream-analytics-scale-with-machine-learning-functions.md
-        - name: Ridimensionare con il ripartizionamento
-          href: repartition.md
     - name: Automatizzare
       items:
         - name: Uso di .NET SDK
@@ -218,6 +214,8 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Eseguire il debug con il diagramma del processo
       href: stream-analytics-job-diagram-with-metrics.md
+    - name: Ridimensionare con le funzioni di Machine Learning
+      href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Linguaggio di query di Analisi di flusso
   items:
     - name: Funzioni predefinite

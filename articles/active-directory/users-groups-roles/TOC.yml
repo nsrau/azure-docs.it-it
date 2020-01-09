@@ -4,7 +4,7 @@
   items:
     - name: 'Utenti, gruppi, licenze e ruoli di Azure AD'
       href: directory-overview-user-model.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Aggiungere utenti ad Azure AD
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -31,7 +31,9 @@
       href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Nozioni di base sulle licenze basate su gruppo
       href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-- name: Guide alle procedure
+    - name: Gestire l'accesso con i gruppi
+      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+- name: Guide pratiche
   expanded: true
   items:
     - name: Gestire gli utenti
@@ -80,8 +82,6 @@
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Gestire i gruppi
       items:
-        - name: Gestire l'accesso con i gruppi
-          href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Eseguire ricerche in elenchi di gruppi e membri (anteprima)
           href: groups-members-owners-search.md
         - name: Creare un gruppo (portale di Azure)
@@ -122,9 +122,7 @@
           items:
             - name: Creare un gruppo dinamico
               href: groups-create-rule.md
-            - name: Aggiornare una regola di appartenenza
-              href: groups-update-rule.md
-            - name: Regole e sintassi dei gruppi dinamici
+            - name: Sintassi delle regole dei gruppi dinamici
               href: groups-dynamic-membership.md
             - name: Modificare il tipo di appartenenza ai gruppi
               href: groups-change-type.md
@@ -200,7 +198,7 @@
           href: groups-troubleshooting.md
         - name: Risolvere i problemi relativi alle licenze di gruppo
           href: licensing-groups-resolve-problems.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API Graph
       href: 'https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview'

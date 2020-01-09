@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829024"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75773006"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual è la differenza tra un gateway di rete virtuale di Azure (gateway VPN) e un gateway VPN di rete WAN virtuale di Azure?
 
@@ -22,6 +22,9 @@ La rete WAN virtuale offre connettività da sito a sito su larga scala ed è ide
 ### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>In che modo la rete WAN virtuale è diversa dal gateway di rete virtuale di Azure?
 
 Una VPN di gateway di rete virtuale è limitata a 30 tunnel. Per le connessioni, è consigliabile usare la rete WAN virtuale per VPN su larga scala. È possibile eseguire fino a 1.000 connessioni di ramo per regione (hub virtuale) con un aggregato di 20 Gbps per hub. Una connessione è un tunnel attivo-attivo dal dispositivo VPN locale all'hub virtuale. È possibile avere un unico hub per area, ovvero è possibile connettere più di 1.000 rami tra gli hub.
+
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>Informazioni sull'unità di scala del gateway della rete WAN virtuale
+Un'unità di scala è un'unità definita per selezionare una velocità effettiva aggregata di un gateway nell'hub virtuale. 1 unità di scala della rete VPN = 500 Mbps. 1 unità di scala di ExpressRoute = 2 Gbps. Esempio: 10 unità di scala della rete VPN corrispondono a 500 Mbps * 10 = 5 Gbps
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>Quali provider di dispositivo (partner di WAN virtuale) sono supportati?
 
@@ -111,9 +114,11 @@ Una semplice configurazione di una rete WAN virtuale con un hub e un sito VPN pu
 
 È possibile connettere una rete virtuale in un'area diversa rispetto alla rete WAN virtuale.
 
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Le reti virtuali spoke connesse a un hub virtuale possono comunicare tra loro?
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>Le reti virtuali spoke connesse a un hub virtuale possono comunicare tra loro (transito V2V)?
 
-Sì. La rete WAN virtuale standard supporta la connettività transitiva da rete virtuale a rete virtuale tramite l'hub rete WAN virtuale a cui sono connesse le reti virtuali. Nella terminologia della rete WAN virtuale, si fa riferimento a questi percorsi come "transito locale di rete virtuale in rete WAN virtuale" per le reti virtuali connesse a un hub rete WAN virtuale e "transito globale di rete virtuale in rete WAN virtuale" per le reti virtuali connesse tramite più hub rete WAN virtuale in due o più aree. Il transito di rete virtuale supporta fino a 3 Gbps di velocità effettiva durante l'anteprima pubblica. La velocità effettiva verrà aumentata quando il transito globale sarà disponibile a livello generale.   
+Sì. La rete WAN virtuale standard supporta la connettività transitiva da rete virtuale a rete virtuale tramite l'hub rete WAN virtuale a cui sono connesse le reti virtuali. Nella terminologia della rete WAN virtuale, si fa riferimento a questi percorsi come "transito locale di rete virtuale in rete WAN virtuale" per le reti virtuali connesse a un hub rete WAN virtuale e "transito globale di rete virtuale in rete WAN virtuale" per le reti virtuali connesse tramite più hub rete WAN virtuale in due o più aree. Il transito di rete virtuale supporta fino a 3 Gbps di velocità effettiva durante l'anteprima pubblica. La velocità effettiva verrà aumentata quando il transito globale sarà disponibile a livello generale.
+
+NOTA:  Attualmente l'anteprima del transito V2V richiede la distribuzione di un gateway VPN in un hub virtuale per attivare gli elementi di routing da avviare. Questo gateway VPN non viene usato per il percorso del transito V2V. Si tratta di una limitazione nota che verrà rimossa al momento quando la funzionalità V2V sarà disponibile a livello generale. È possibile eliminare il gateway VPN negli hub dopo che è stato avviato completamente, dal momento che non è necessario per la funzionalità di transito V2V. 
 
 Per alcuni scenari, le reti virtuali spoke possono anche essere collegate direttamente in peering tra loro usando il [peering di reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md) oltre al transito locale o globale di rete virtuale in rete WAN virtuale. In questo caso, il peering di reti virtuali ha la precedenza sulla connessione transitiva tramite l'hub rete WAN virtuale. 
 
