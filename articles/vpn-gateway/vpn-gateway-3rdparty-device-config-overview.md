@@ -1,26 +1,18 @@
 ---
-title: Configurazioni di dispositivi VPN di partner per la connessione ai gateway VPN di Azure | Microsoft Docs
+title: Configurazioni del dispositivo VPN del partner per la connessione ai gateway VPN di Azure
 description: Questo articolo offre una panoramica delle configurazioni di dispositivi VPN di partner per la connessione ai gateway VPN di Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 7d3a32b5f2b2742a36716bac9747f20c47c98858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778023"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Panoramica delle configurazioni di dispositivi VPN di partner
 L'articolo offre una panoramica della configurazione di dispositivi VPN locali per la connessione ai gateway VPN di Azure. Viene usata una configurazione di rete virtuale e di gateway VPN di Azure di esempio per mostrare come connettersi a diverse configurazioni di dispositivi VPN locali usando gli stessi parametri.
@@ -128,7 +120,7 @@ Se i dispositivi VPN non supportano selettori di traffico "any-to-any", ad esemp
 
 Lo script di esempio crea criteri IPsec/IKE con gli algoritmi e i parametri seguenti:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, durata dell'associazione di sicurezza 7.200 secondi e 20.480.000 kB (20 GB)
+* IPsec: AES256, SHA1, PFS24, durata dell'associazione di sicurezza 7.200 secondi e 20.480.000 KB (20 GB)
 
 Lo script applica i criteri IPsec/IKE e abilita l'opzione **UsePolicyBasedTrafficSelectors** nella connessione.
 

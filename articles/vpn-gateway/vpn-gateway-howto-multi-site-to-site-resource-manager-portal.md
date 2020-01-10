@@ -1,24 +1,25 @@
 ---
-title: 'Aggiungere più connessioni da sito a sito gateway VPN a una rete virtuale: Portale di Azure: Resource Manager | Microsoft Docs'
+title: 'Aggiungere più connessioni da sito a sito del gateway VPN a una VNet: portale di Azure'
 description: Come aggiungere più connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244611"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779689"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classic)](vpn-gateway-multi-site.md) (PowerShell (classico))
 >
 > 
@@ -49,27 +50,27 @@ Verificare quanto segue:
 2. Fare clic su **All resources** (Tutte le risorse), individuare il **gateway di rete virtuale** nell'elenco di risorse e selezionarlo.
 3. Nella pagina **Gateway di rete virtuale**, fare clic su **Connessioni**.
    
-    ![Pagina Connessioni](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Pagina Connessioni")<br>
+    ![Pagina connessioni](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Pagina connessioni")<br>
 4. Nella pagina **Connessioni** fare clic su **+Aggiungi**.
    
     ![Pulsante Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Pulsante Aggiungi connessione")<br>
 5. Nella pagina **Aggiungi connessione** compilare i campi seguenti:
    
-   * **Nome:** nome del sito a cui si sta creando la connessione.
-   * **Tipo di connessione**: selezionare **Da sito a sito (IPsec)** .
+   * **Nome**: nome del sito a cui si sta creando la connessione.
+   * **Tipo di connessione**: selezionare **Da sito a sito (IPSec)** .
      
      ![Pagina Aggiungi connessione](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Pagina Aggiungi connessione")<br>
 
 ## <a name="part2"></a>Parte 2: Aggiungere un gateway di rete locale
-1. Fare clic su **Gateway di rete locale** ***Scegli un gateway di rete locale***. Viene aperta la pagina **Scegli gateway di rete locale**.
+1. Fare clic su **gateway di rete locale** ***scegliere un gateway di rete locale***. Viene aperta la pagina **Scegli gateway di rete locale**.
    
     ![Scegli gateway di rete virtuale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Scegli gateway di rete virtuale")<br>
 2. Fare clic su **Crea nuovo** per aprire la pagina **Crea un gateway di rete locale**.
    
-    ![Pagina Crea un gateway di rete locale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Crea un gateway di rete locale")<br>
+    ![Pagina Crea gateway di rete locale](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Creare un gateway di rete locale")<br>
 3. Nella pagina **Crea un gateway di rete locale** compilare i campi seguenti:
    
-   * **Nome:** nome da assegnare alla risorsa gateway di rete locale.
+   * **Nome**: nome da assegnare alla risorsa gateway di rete locale.
    * **Indirizzo IP**: indirizzo IP pubblico del dispositivo VPN nel sito a cui si vuole connettersi.
    * **Spazio indirizzi**: spazio indirizzi che si vuole venga indirizzato al nuovo sito di rete locale.
 4. Fare clic su **OK** nella pagina **Crea un gateway di rete locale** per salvare le modifiche.

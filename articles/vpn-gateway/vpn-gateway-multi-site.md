@@ -1,33 +1,26 @@
 ---
-title: 'Connettere una rete virtuale a più siti con Gateway VPN e PowerShell: Classico | Microsoft Docs'
+title: 'Connettere una VNet a più siti usando il gateway VPN: versione classica'
 description: Connettere più siti locali a una rete virtuale classica con un gateway VPN.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-service-management
-ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ca87a597f37c301ac3777decfe7949c06cc5b2
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836086"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779655"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente (modello classico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classic)](vpn-gateway-multi-site.md) (PowerShell (classico))
 >
 >
@@ -67,7 +60,7 @@ Prima di iniziare la configurazione, verificare ci siano le condizioni seguenti:
 * Gli intervalli di indirizzi IP da usare per la propria rete virtuale (se non ne hai già creata una).
 * Gli intervalli di indirizzi IP per ogni sito della rete locale a cui si effettuerà la connessione. È necessario verificare che gli intervalli di indirizzi IP per ogni sito della rete locale a cui ci si vuole connettere non si sovrappongano. In caso contrario, il portale o l'API REST rifiuteranno il caricamento della configurazione.<br>Se, ad esempio, ci sono due siti della rete locale che entrambi contengono l'intervallo di indirizzo IP 10.2.3.0/24 e si ha a disposizione un pacchetto con un indirizzo di destinazione 10.2.3.3, Azure non saprà a quale sito si vuole inviare il pacchetto perché gli intervalli degli indirizzi si sovrappongono. Per evitare problemi di routing, Azure non consente di caricare un file di configurazione con intervalli che si sovrappongono.
 
-## <a name="1-create-a-site-to-site-vpn"></a>1. Creare una VPN da sito a sito
+## <a name="1-create-a-site-to-site-vpn"></a>1. creare una VPN da sito a sito
 Se già si dispone di una VPN da sito a sito con un gateway di routing dinamico, eseguire l'operazione seguente. È possibile procedere e iniziare a [Esportare le impostazioni di configurazione della rete virtuale](#export). Se non ne avete una, eseguire le operazioni seguenti:
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Se già si ha a disposizione una rete virtuale da sito a sito, ma con un gateway di routing statico basato su criteri:
@@ -75,10 +68,10 @@ Se già si dispone di una VPN da sito a sito con un gateway di routing dinamico,
 2. Configurare il nuovo gateway e creare il proprio tunnel VPN. Per istruzioni vedere [Specificare il tipo di SKU e VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Assicurarsi di specificare il tipo di routing come "dinamico".
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se non si ha a disposizione una rete virtuale da sito a sito:
-1. Creare la rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN Site-to-Site](vpn-gateway-site-to-site-create.md).  
-2. Configurare un gateway con routing dinamico seguendo queste istruzioni: [Configurare un Gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
+1. Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito](vpn-gateway-site-to-site-create.md).  
+2. Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
 
-## <a name="export"></a>2. Esportare il file di configurazione di rete
+## <a name="export"></a>2. esportare il file di configurazione di rete
 Esportare il file di configurazione di rete di Azure eseguendo il comando seguente. Se necessario è possibile modificare il percorso del file da esportare.
 
 ```powershell
@@ -135,7 +128,7 @@ Aprire il file di configurazione di rete scaricato nell'ultimo passaggio. Usare 
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-## <a name="4-add-multiple-site-references"></a>4. Aggiungere riferimenti a più siti
+## <a name="4-add-multiple-site-references"></a>4. aggiungere più riferimenti al sito
 Quando si aggiungono o rimuovono le informazioni di riferimento ai siti, si apporteranno modifiche alla configurazione in ConnectionsToLocalNetwork/LocalNetworkSiteRef. L'aggiunta di un nuovo riferimento a siti locali induce Azure a creare un nuovo tunnel. Nell'esempio seguente, la configurazione di rete è per una connessione a un singolo sito. Dopo aver apportato le modifiche, salvare il file.
 
 ```xml
@@ -157,10 +150,10 @@ Per aggiungere riferimenti ad altri siti (creare una configurazione multisito), 
   </Gateway>
 ```
 
-## <a name="5-import-the-network-configuration-file"></a>5. Importare il file di configurazione di rete
+## <a name="5-import-the-network-configuration-file"></a>5. importare il file di configurazione di rete
 Importare il file di configurazione di rete. Quando si importa questo file con le modifiche, verranno aggiunti i nuovi tunnel. I tunnel useranno il gateway dinamico creato in precedenza. È possibile usare PowerShell per importare il file.
 
-## <a name="6-download-keys"></a>6. Chiavi di download
+## <a name="6-download-keys"></a>6. scaricare le chiavi
 Una volta che sono stati aggiunti i nuovi tunnel, usare i cmdlet di PowerShell "Get-AzureVNetGatewayKey" per ottenere le chiavi precondivise IPsec/IKE per ogni tunnel.
 
 Ad esempio:
@@ -172,7 +165,7 @@ Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 
 Se si preferisce, è possibile usare anche l'API REST *Ottenere la chiave condivisa del gateway di rete virtuale* per ottenere le chiavi precondivise.
 
-## <a name="7-verify-your-connections"></a>7. Verificare le connessioni
+## <a name="7-verify-your-connections"></a>7. verificare le connessioni
 Verificare lo stato del tunnel multisito. Dopo aver scaricato le chiavi per ogni tunnel, è opportuno verificare le connessioni. Usare "Get-AzureVnetConnection" per ottenere un elenco di tunnel di reti virtuali, come illustrato nell'esempio seguente. VNet1 è il nome della rete virtuale.
 
 ```powershell

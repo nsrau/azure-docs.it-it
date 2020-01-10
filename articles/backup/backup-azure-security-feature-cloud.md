@@ -3,12 +3,12 @@ title: Funzionalità di sicurezza per proteggere i carichi di lavoro cloud
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496933"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829630"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
@@ -89,7 +89,7 @@ Il ' DeleteState ' dell'elemento di backup cambierà da' NotDeleted ' a' ToBeDel
 
 #### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Esecuzione dell'operazione di eliminazione mediante Azure PowerShell
 
-Per prima cosa, recuperare l'elemento di backup pertinente che si trova nello stato di eliminazione temporanea, ovvero che sta per essere eliminato
+Per prima cosa, recuperare l'elemento di backup pertinente che si trova nello stato di eliminazione temporanea, ovvero sta per essere eliminato.
 
 ```powershell
 
@@ -164,7 +164,7 @@ I dati di backup in stato di eliminazione temporanea prima della disabilitazione
 A tale scopo, seguire questa procedura:
 
 1. Seguire i passaggi per [disabilitare l'eliminazione](#disabling-soft-delete)temporanea.
-2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup** e scegliere la macchina virtuale eliminata temporaneamente
+2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup**e scegliere la macchina virtuale eliminata temporaneamente.
 
 ![Scegliere una macchina virtuale temporaneamente eliminata](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -232,19 +232,32 @@ Se gli elementi sono stati eliminati prima della disabilitazione dell'eliminazio
 2. Disabilitare quindi la funzionalità di eliminazione temporanea usando l'API REST usando la procedura descritta [qui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Eliminare quindi i backup usando l'API REST come indicato [qui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
-## <a name="other-security-features"></a>Altre funzionalità di sicurezza
+## <a name="encryption"></a>Crittografia
 
-### <a name="storage-side-encryption"></a>Crittografia lato archiviazione
+### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite da Microsoft
 
-Archiviazione di Azure crittografa automaticamente i dati in modo permanente nel cloud. La crittografia protegge i dati e ti aiuta a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. I dati in archiviazione di Azure vengono crittografati e decrittografati in modo trasparente usando la crittografia AES a 256 bit, una delle crittografie a blocchi più solide disponibili ed è conforme a FIPS 140-2. La crittografia di archiviazione di Azure è simile alla crittografia BitLocker per Windows. Backup di Azure crittografa automaticamente i dati prima di archiviarli. Il servizio Archiviazione di Azure decrittografa i dati prima di recuperarli.  
+I dati di backup vengono crittografati automaticamente usando la crittografia di archiviazione di Azure. La crittografia protegge i dati e consente di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. I dati vengono crittografati e decrittografati in modo trasparente usando la crittografia AES a 256 bit, una delle crittografie a blocchi più solide disponibili ed è conforme a FIPS 140-2. La crittografia di archiviazione di Azure è simile alla crittografia BitLocker per Windows.
 
 In Azure, i dati in transito tra archiviazione di Azure e l'insieme di credenziali sono protetti da HTTPS. Questi dati rimangono all'interno della rete backbone di Azure.
 
-Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)inattivi.  Consultare le [domande frequenti su backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) per rispondere a eventuali domande sulla crittografia.
+Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)inattivi. Vedere le domande [frequenti su backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) per rispondere a eventuali domande sulla crittografia.
 
-### <a name="vm-encryption"></a>Crittografia VM
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
-È possibile eseguire il backup e il ripristino di macchine virtuali di Azure (VM) Windows o Linux con dischi crittografati tramite il servizio backup di Azure. Per istruzioni, vedere backup [e ripristino di macchine virtuali crittografate con backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Quando si esegue il backup di macchine virtuali di Azure, è anche possibile crittografare i dati di backup nell'insieme di credenziali di servizi di ripristino usando le chiavi di crittografia archiviate nel Azure Key Vault.
+
+>[!NOTE]
+>Questa funzionalità è attualmente in uso in anticipo. Compilare [questo sondaggio](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) se si vuole crittografare i dati di backup usando chiavi gestite dal cliente. Si noti che la possibilità di usare questa funzionalità è soggetta all'approvazione del servizio backup di Azure.
+
+### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Backup di macchine virtuali con dischi gestiti crittografate con chiavi gestite dal cliente
+
+Backup di Azure consente di eseguire il backup di macchine virtuali di Azure contenenti dischi crittografati usando chiavi gestite dal cliente. Per informazioni dettagliate, vedere [crittografia dei dischi gestiti con chiavi gestite dal cliente](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview).
+
+### <a name="backup-of-encrypted-vms"></a>Backup di macchine virtuali crittografate
+
+È possibile eseguire il backup e il ripristino di macchine virtuali di Azure (VM) Windows o Linux con dischi crittografati tramite il servizio backup di Azure. Per istruzioni, vedere [eseguire il backup e il ripristino di macchine virtuali crittografate con backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## <a name="other-security-features"></a>Altre funzionalità di sicurezza
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Protezione dei punti di ripristino di backup di Azure
 
@@ -258,7 +271,7 @@ Per altre informazioni, vedere [usare il controllo degli accessi in base al ruol
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>È necessario abilitare la funzionalità di eliminazione temporanea in ogni insieme di credenziali?
 
-No, viene compilata e abilitata per impostazione predefinita per tutti gli insiemi di credenziali dei servizi di ripristino.
+No, viene creato e abilitato per impostazione predefinita per tutti gli insiemi di credenziali dei servizi di ripristino.
 
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>È possibile configurare il numero di giorni per cui i dati verranno conservati nello stato di eliminazione temporanea dopo il completamento dell'operazione di eliminazione?
 
@@ -286,7 +299,7 @@ Non è possibile eliminare l'insieme di credenziali di servizi di ripristino se 
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>È possibile eliminare i dati prima del periodo di eliminazione temporanea di 14 giorni dopo l'eliminazione?
 
-No. Non è possibile forzare l'eliminazione degli elementi eliminati temporaneamente, che vengono eliminati automaticamente dopo 14 giorni. Questa funzionalità di sicurezza è abilitata per salvaguardare i dati di backup da eliminazioni accidentali o dannose.  È necessario attendere 14 giorni prima di eseguire qualsiasi altra azione nella macchina virtuale.  Gli elementi eliminati temporaneamente non verranno addebitati.  Se è necessario proteggere nuovamente le VM contrassegnate per l'eliminazione temporanea entro 14 giorni da un nuovo insieme di credenziali, contattare il supporto tecnico Microsoft.
+No. Non è possibile forzare l'eliminazione degli elementi eliminati temporaneamente, che vengono eliminati automaticamente dopo 14 giorni. Questa funzionalità di sicurezza è abilitata per salvaguardare i dati di backup da eliminazioni accidentali o dannose.  È necessario attendere 14 giorni prima di eseguire qualsiasi altra azione nella macchina virtuale.  Gli elementi eliminati temporaneamente non verranno addebitati.  Se è necessario riproteggere le VM contrassegnate per l'eliminazione temporanea entro 14 giorni da un nuovo insieme di credenziali, contattare il supporto tecnico Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>È possibile eseguire operazioni di eliminazione temporanea in PowerShell o nell'interfaccia della riga di comando?
 

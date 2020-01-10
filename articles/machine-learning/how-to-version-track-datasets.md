@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: f70c826d839be1de82f3f21cf615f261a2193358
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536434"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834787"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Set di impostazioni di versione e di rilevamento negli esperimenti
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -169,9 +169,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-È anche possibile trovare i `input_datasets` dagli esperimenti usando [Azure Machine Learning Studio (versione classica)](https://ml.azure.com/). 
+È anche possibile trovare i `input_datasets` dagli esperimenti usando [Azure Machine Learning Studio](https://ml.azure.com/). 
 
-Nell'immagine seguente viene illustrato dove trovare il set di dati di input di un esperimento in Azure Machine Learning Studio (classico). Per questo esempio, passare al riquadro **Experiments (esperimenti** ) e aprire la scheda **Properties (proprietà** ) per un'esecuzione specifica dell'esperimento, `keras-mnist`.
+La figura seguente mostra dove trovare il set di dati di input di un esperimento in Azure Machine Learning Studio. Per questo esempio, passare al riquadro **Experiments (esperimenti** ) e aprire la scheda **Properties (proprietà** ) per un'esecuzione specifica dell'esperimento, `keras-mnist`.
 
 ![Set di dati di input](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -183,7 +183,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o [Azure Machine Learning Studio (classico)](https://ml.azure.com/). La vista seguente si trova nel riquadro **set di impostazioni** in **Asset**. Selezionare il set di dati e quindi selezionare la scheda **modelli** per un elenco dei modelli registrati con il set di dati. 
+Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o [Azure Machine Learning Studio](https://ml.azure.com/). La vista seguente si trova nel riquadro **set di impostazioni** in **Asset**. Selezionare il set di dati e quindi selezionare la scheda **modelli** per un elenco dei modelli registrati con il set di dati. 
 
 ![Modelli di set di dati di input](./media/how-to-version-track-datasets/dataset-models.png)
 

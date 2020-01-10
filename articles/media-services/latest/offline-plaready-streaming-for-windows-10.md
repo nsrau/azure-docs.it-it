@@ -1,5 +1,5 @@
 ---
-title: Configurare l'account per lo streaming offline di contenuto protetto da PlayReady - Azure
+title: Streaming PlayReady offline con servizi multimediali V3-Azure
 description: Questo articolo illustra come configurare l'account di Servizi multimediali di Azure per lo streaming PlayReady offline per Windows 10.
 services: media-services
 keywords: DASH, DRM, modalità offline Widevine, ExoPlayer, Android
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 15a3e2f7fee6d130b1913ec4f74069a09d5aec53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974054"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779788"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Streaming PlayReady offline per Windows 10
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming PlayReady offline per Windows 10 con servizi multimediali V3
 
 Servizi multimediali di Azure supporta il download o la riproduzione offline con la protezione DRM. Questo articolo illustra il supporto offline di Servizi multimediali di Azure per i client Windows 10/PlayReady. Per altre informazioni sul supporto della modalità offline per i dispositivi iOS/FairPlay e Android/Widevine, vedere gli articoli seguenti:
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure supporta il download o la riproduzione offline con
 > [!NOTE]
 > Il DRM offline viene addebitato solo per l'esecuzione di una singola richiesta di licenza quando si Scarica il contenuto. Eventuali errori non vengono addebitati.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Questa sezione descrive alcuni concetti di base sulla riproduzione in modalità offline, in particolare perché:
 
@@ -124,7 +124,7 @@ In sintesi, è stata ottenuta la modalità offline in Servizi multimediali di Az
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

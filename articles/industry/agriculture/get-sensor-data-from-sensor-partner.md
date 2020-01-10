@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777785"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
@@ -41,28 +41,36 @@ Le informazioni precedenti vengono fornite dall'integratore di sistemi. Per even
 
 In alternativa, è possibile generare le credenziali eseguendo questo script da Azure Cloud Shell. Seguire questa procedura.
 
-1. Scaricare il [file zip](https://aka.ms/farmbeatspartnerscript)ed estrarlo nell'unità locale. Due file sono inclusi nel file zip.
-2. Accedere a https://portal.azure.com/ e aprire Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro della portale di Azure.
+1. Scaricare il [file zip](https://aka.ms/farmbeatspartnerscriptv2)ed estrarlo nell'unità locale. Sarà presente un file all'interno del file zip.
+2. Accedere a https://portal.azure.com/ e passare a Azure Active Directory-> registrazioni per l'app
+
+3. Fare clic sulla registrazione dell'app creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome di FarmBeats datahub.
+
+4. Fare clic su "esporre un'API"-> fare clic su "Aggiungi applicazione client" e immettere **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** e selezionare "autorizzazione ambito". In questo modo si concede l'accesso all'interfaccia della riga di comando di Azure (cloud Shell) per eseguire i passaggi seguenti.
+
+5. Aprire Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro della portale di Azure.
 
     ![Barra degli strumenti portale di Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Verificare che l'ambiente sia impostato su **PowerShell**. Per impostazione predefinita, è impostato su bash.
+6. Verificare che l'ambiente sia impostato su **PowerShell**. Per impostazione predefinita, è impostato su bash.
 
     ![Impostazione della barra degli strumenti di PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-4. Caricare i due file dal passaggio 1 nell'istanza di Cloud Shell.
+7. Caricare il file dal passaggio 1 nell'istanza di Cloud Shell.
 
     ![Pulsante carica barra degli strumenti](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Passare alla directory in cui sono stati caricati i file. Per impostazione predefinita, vengono caricati nella home directory sotto il nome utente.
-6. Eseguire lo script riportato di seguito:
+8. Passare alla directory in cui è stato caricato il file. Per impostazione predefinita, i file vengono caricati nella home directory sotto il nome utente.
+
+9. Eseguire lo script seguente. Lo script richiede l'ID tenant che può essere ottenuto dalla pagina Panoramica di Azure Active Directory >.
 
     ```azurepowershell-interactive 
 
-    ./generateCredentials.ps1   
+    ./generatePartnerCredentials.ps1   
 
     ```
-7. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**. La stringa di connessione EventHub è disponibile come parte della risposta API in spavalderia.
+
+10. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrare i dati del dispositivo usando le credenziali generate
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 365692cccb3f1ed2646272521c84bdc4ef2b2147
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 66c5873749924df2133cb1ba4711b779e0aba24a
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538111"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834734"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -262,7 +262,9 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-Per altre informazioni sulla distribuzione, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+Per altre informazioni sulla distribuzione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
+
+Per altre informazioni sulla personalizzazione dell'ambiente Python, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md). 
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>Usare un'immagine con l'interfaccia della riga di comando Machine Learning
 
@@ -294,5 +296,5 @@ Per altre informazioni sulla distribuzione di un modello tramite l'interfaccia d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su [dove eseguire la distribuzione e su come](service/how-to-deploy-and-where.md).
+* Altre informazioni su [dove eseguire la distribuzione e su come](how-to-deploy-and-where.md).
 * Informazioni su come eseguire il [training e distribuire modelli di apprendimento automatico usando Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

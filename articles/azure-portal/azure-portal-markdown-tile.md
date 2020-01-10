@@ -5,34 +5,51 @@ services: azure-portal
 keywords: ''
 author: mblythe
 ms.author: mblythe
-ms.date: 01/25/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3d2e6d2d0bde76a35a18373fabf64ce36c6c320e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 17d86b7c89ea5fb24c2adea22c5047c3e1ac3b6f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640143"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832648"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Usare un riquadro markdown nei dashboard di Azure per visualizzare il contenuto personalizzato
 
-È possibile aggiungere un riquadro markdown ai dashboard di Azure per visualizzare il contenuto statico personalizzato. È ad esempio possibile visualizzare istruzioni di base, un'immagine o un set di collegamenti ipertestuali con un riquadro markdown.
+È possibile aggiungere un riquadro markdown ai dashboard di Azure per visualizzare il contenuto statico personalizzato. Ad esempio, è possibile visualizzare le istruzioni di base, un'immagine o un set di collegamenti ipertestuali in un riquadro Markdown.
 
 ## <a name="add-a-markdown-tile-to-your-dashboard"></a>Aggiungere un riquadro markdown al dashboard
 
-1. Selezionare **Dashboard** nella barra laterale del portale di Azure. Se sono stati creati dashboard personalizzati, nella visualizzazione dashboard usare l'elenco a discesa per selezionare il dashboard in cui deve essere visualizzato il riquadro markdown personalizzato. Selezionare l'icona di modifica per aprire la **Raccolta riquadri**.
+1. Selezionare **Dashboard** nella barra laterale del portale di Azure.
+
+   ![Screenshot che mostra la sidebar del portale](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+
+1. Se sono stati creati dashboard personalizzati, nella visualizzazione dashboard usare l'elenco a discesa per selezionare il dashboard in cui deve essere visualizzato il riquadro markdown personalizzato. Selezionare l'icona di modifica per aprire la **Raccolta riquadri**.
 
    ![Screenshot con la modifica della visualizzazione del dashboard](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-2. Nella **Raccolta riquadri** individuare il riquadro denominato **Markdown** e fare clic su **Aggiungi**. Il riquadro viene aggiunto al dashboard e si apre il riquadro **Modifica markdown**.
+1. Nella **raccolta di riquadri**individuare il riquadro denominato **Markdown** e selezionare **Aggiungi**. Il riquadro viene aggiunto al dashboard e si apre il riquadro **Modifica markdown**.
 
-1. Modificare i campi **Titolo**, **Sottotitolo** e **Contenuto** per personalizzare il riquadro. Nell'esempio illustrato di seguito il riquadro markdown è stato modificato per visualizzare le informazioni personalizzate sull'help desk.
+1. Immettere i valori per **titolo** e **sottotitolo**, che vengono visualizzati nel riquadro dopo lo spostamento in un altro campo.
 
-   ![Screenshot con la modifica della visualizzazione del riquadro markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Screenshot che mostra i risultati dell'immissione di titolo e sottotitolo](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-4. Selezionare **Fine** per chiudere il riquadro **Modifica markdown**. Il contenuto verrà visualizzato nel riquadro Markdown, che può quindi essere ridimensionato trascinando il punto di controllo nell'angolo inferiore destro.
+1. Selezionare una delle opzioni per includere il contenuto di Markdown: **modifica inline** o **Inserisci contenuto tramite URL**.
+
+   - Selezionare **modifica inline** se si desidera immettere direttamente Markdown.
+
+      ![Screenshot che mostra l'immissione di contenuto inline](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+
+   - Selezionare **Inserisci contenuto con URL** se si vuole usare il contenuto Markdown esistente ospitato online.
+
+      ![Screenshot che illustra l'immissione dell'URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+
+      > [!NOTE]
+      > Per una maggiore sicurezza, è possibile creare un file Markdown e archiviarlo in un [BLOB dell'account di archiviazione di Azure in cui è abilitata la crittografia](../storage/common/storage-service-encryption.md), quindi puntare al file usando l'opzione URL. Il contenuto di Markdown viene crittografato tramite le opzioni di crittografia dell'account di archiviazione. Solo gli utenti con autorizzazioni per il file possono visualizzare il contenuto di Markdown nel dashboard.
+
+1. Selezionare **Fine** per chiudere il riquadro **Modifica markdown**. Il contenuto viene visualizzato nel riquadro Markdown, che è possibile ridimensionare trascinando il quadratino nell'angolo in basso a destra.
 
    ![Screenshot con il riquadro markdown personalizzato](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 

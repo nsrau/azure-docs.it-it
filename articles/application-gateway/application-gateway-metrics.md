@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551387"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777819"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -36,7 +36,7 @@ Sono disponibili le metriche seguenti relative alla tempistica della richiesta e
 
   Tempo medio necessario per l'elaborazione di una richiesta e la relativa risposta da inviare. Viene calcolato come media dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al momento in cui termina l'operazione di invio della risposta. È importante tenere presente che questo in genere include il tempo di elaborazione del gateway applicazione, il tempo in cui i pacchetti di richiesta e risposta vengono spostati in rete e il tempo impiegato dal server back-end per rispondere.
   
-Se il *RTT del client* è molto più del *tempo totale del gateway applicazione*, è possibile dedurre che la latenza osservata dal client è dovuta alla connettività di rete tra il client e il gateway applicazione. Se entrambe le latenze sono confrontabili, la latenza elevata potrebbe essere dovuta a uno dei seguenti: gateway applicazione, rete tra il gateway applicazione e l'applicazione back-end o le prestazioni dell'applicazione back-end.
+Dopo aver filtrato in base al listener, se il *RTT del client* è molto più del *tempo totale del gateway applicazione*, è possibile dedurre che la latenza osservata dal client è dovuta alla connettività di rete tra il client e il gateway applicazione. Se entrambe le latenze sono confrontabili, la latenza elevata potrebbe essere dovuta a uno dei seguenti: gateway applicazione, rete tra il gateway applicazione e l'applicazione back-end o le prestazioni dell'applicazione back-end.
 
 - **Tempo di risposta primo byte back-end**
 

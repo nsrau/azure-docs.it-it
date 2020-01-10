@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562052"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834041"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Panoramica della diagnostica di funzioni di Azure
 
@@ -42,9 +42,9 @@ Dopo aver selezionato un riquadro, è possibile visualizzare un elenco di argome
 
 Dopo aver scelto un argomento, è possibile visualizzare un report di diagnostica specifico per l'app per le funzioni. I report di diagnostica usano le icone di stato per indicare se sono presenti problemi specifici dell'app. Viene visualizzata una descrizione dettagliata del problema, delle azioni consigliate, delle metriche correlate e dei documenti utili. I report di diagnostica personalizzati vengono generati da una serie di controlli eseguiti nell'app per le funzioni. I report di diagnostica possono essere uno strumento utile per individuare i problemi nell'app per le funzioni e guidare l'utente alla risoluzione del problema.
 
-## <a name="find-the-problem-code"></a>Trovare il codice problema 
+## <a name="find-the-problem-code"></a>Trovare il codice problema
 
-Per le funzioni basate su script, è possibile usare **l'esecuzione di funzioni** e gli **errori** in **app per le funzioni o segnalare errori** per restringere la riga di codice che causa eccezioni o errori. Questa funzionalità può essere utile per ottenere la causa principale e correggere i problemi da una riga di codice specifica. Questa opzione non è disponibile per C# le funzioni precompilate e Java.
+Per le funzioni basate su script, è possibile usare **l'esecuzione di funzioni e gli errori** in **app per le funzioni o segnalare errori** per restringere la riga di codice che causa eccezioni o errori. Questa funzionalità può essere utile per ottenere la causa principale e correggere i problemi da una riga di codice specifica. Questa opzione non è disponibile per C# le funzioni precompilate e Java.
 
 ![Report di diagnostica sugli errori di esecuzione della funzione](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

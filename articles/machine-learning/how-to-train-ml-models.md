@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3205f853088245461e854562999164f9813f3bd5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f8f7d16c9fa5141add5c661c0e05cc93da436614
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536629"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834892"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,3 +158,4 @@ Per i notebook sui modelli di training usando gli estimatori specifici del Frame
 * [Eseguire il training di modelli di TensorFlow](how-to-train-tensorflow.md)
 * [Ottimizzare gli iperparametri](how-to-tune-hyperparameters.md)
 * [Distribuire un modello con training](how-to-deploy-and-where.md)
+* [Creazione e gestione di ambienti per il training e la distribuzione](how-to-use-environments.md)

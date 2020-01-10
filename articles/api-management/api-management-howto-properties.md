@@ -10,37 +10,40 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824166"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834304"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di gestione API di Azure
 
 I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati.
 
-Ogni istanza del servizio gestione API ha una raccolta Properties di coppie chiave/valore, denominate valori denominati, globali per l'istanza del servizio. Non esiste alcun limite imposto per il numero di elementi nella raccolta. I valori denominati possono essere usati per gestire i valori stringa costanti in tutti i criteri e la configurazione dell'API. Ogni valore denominato può avere gli attributi seguenti:
+Ogni istanza del servizio gestione API ha una raccolta di coppie chiave/valore, denominata valori denominati, globali per l'istanza del servizio. Non esiste alcun limite imposto per il numero di elementi nella raccolta. I valori denominati possono essere usati per gestire i valori stringa costanti in tutti i criteri e la configurazione dell'API. Ogni valore denominato può avere gli attributi seguenti:
 
-| Attributo      | Tipo            | Descrizione                                                                                                                         |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | stringa          | Utilizzato per fare riferimento al valore denominato nei criteri. Stringa da uno a 256 caratteri. Sono consentiti solo lettere, numeri, punti e trattini. |
-| `Value`        | stringa          | Valore effettivo. Non devono essere vuoti o contenere solo spazi. Lunghezza massima di 4096 caratteri.                                     |
-| `Secret`       | boolean         | Determina se il valore è un segreto e se deve essere crittografato.                                                            |
+| Attributo      | Tipo            | Description                                                                                                                            |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `Display name` | string          | Utilizzato per fare riferimento al valore denominato nei criteri. Stringa da uno a 256 caratteri. Sono consentiti solo lettere, numeri, punti e trattini. |
+| `Value`        | string          | Valore effettivo. Non devono essere vuoti o contenere solo spazi. Lunghezza massima di 4096 caratteri.                                        |
+| `Secret`       | boolean         | Determina se il valore è un segreto e se deve essere crittografato.                                                               |
 | `Tags`         | matrice di valori string | Utilizzato per filtrare l'elenco di valori denominati. Fino a 32 tag.                                                                                    |
 
 ![Valori denominati](./media/api-management-howto-properties/named-values.png)
 
 I valori denominati possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `Expression` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. Il valore denominato `Credential` è contrassegnato come segreto, quindi il relativo valore non viene visualizzato per impostazione predefinita.
 
-| Name       | Valore                      | Segreto | Tag          |
+| Nome       | Valore                      | Segreto | Tag          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Valore      | 42                         | False  | numeri vitali |
-| Credenziali | ••••••••••••••••••••••     | True   | security      |
-| Expression | @(DateTime.Now.ToString()) | False  |               |
+| Valore      | 42                         | Falso  | numeri vitali |
+| Credenziale | ••••••••••••••••••••••     | Vero   | sicurezza      |
+| Expression | @(DateTime.Now.ToString()) | Falso  |               |
+
+> [!NOTE]
+> Anziché i valori denominati archiviati in un servizio gestione API, è possibile usare i valori archiviati nel servizio [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) come illustrato in questo [esempio](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
 ## <a name="to-add-and-edit-a-named-value"></a>Per aggiungere e modificare un valore denominato
 
@@ -50,9 +53,9 @@ I valori denominati possono contenere stringhe letterali ed [espressioni di crit
 2. Selezionare **Valori denominati**.
 3. Premere **+Aggiungi**.
 
-    Nome e Valore sono obbligatori. Se il valore è un segreto, selezionare la casella *di controllo questo è un segreto* . Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
+    Nome e Valore sono obbligatori. Se il valore è un segreto, selezionare la casella _di controllo questo è un segreto_ . Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
 
-4. Fare clic su **Create**.
+4. Fare clic su **Crea**.
 
 Una volta creato il valore denominato, è possibile modificarlo facendo clic su di esso. Se si modifica il nome del valore denominato, tutti i criteri che fanno riferimento a quel valore denominato vengono aggiornati automaticamente in modo da usare il nuovo nome.
 
@@ -99,7 +102,7 @@ Quando questo criterio viene valutato, `{{ExpressionProperty}}` viene sostituito
 
 È possibile eseguirne i test nel portale per sviluppatori chiamando un'operazione il cui ambito contiene criteri con valori denominati. Nell'esempio seguente viene chiamata un'operazione che contiene i due criteri di esempio precedenti `set-header` con valori denominati. La risposta contiene due intestazioni personalizzate che vengono configurate tramite criteri con valori denominati.
 
-![portale per sviluppatori][api-management-send-results]
+![Portale per sviluppatori][api-management-send-results]
 
 Se si esamina la [traccia di controllo API](api-management-howto-api-inspector.md) per una chiamata che include i due criteri di esempio precedenti con i valori denominati, è possibile visualizzare i due criteri di `set-header` con i valori denominati inseriti e la valutazione dell'espressione di criteri per il valore denominato che contiene l'espressione di criteri.
 
@@ -110,8 +113,8 @@ Mentre i valori denominati possono contenere espressioni di criteri, non possono
 ## <a name="next-steps"></a>Passaggi successivi
 
 -   Ulteriori informazioni sull'uso dei criteri
-    -   [Criteri in Gestione API](api-management-howto-policies.md)
-    -   [Riferimenti per i criteri](/azure/api-management/api-management-policies)
+    -   [Criteri di Gestione API](api-management-howto-policies.md)
+    -   [Riferimento ai criteri](/azure/api-management/api-management-policies)
     -   [Espressioni di criteri](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png

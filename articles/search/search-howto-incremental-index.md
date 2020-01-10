@@ -1,129 +1,185 @@
 ---
-title: Aggiungi indicizzazione incrementale (anteprima)
+title: Configurare la cache e l'arricchimento incrementale (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Abilitare il rilevamento delle modifiche e mantenere lo stato del contenuto arricchito per l'elaborazione controllata in un Skills cognitivo. Questa funzionalità è attualmente in anteprima pubblica.
+description: Abilitare la memorizzazione nella cache e mantenere lo stato del contenuto arricchito per l'elaborazione controllata in un Skills cognitivo. Questa funzionalità è attualmente in anteprima pubblica.
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 92da697c95f2b9ea544bb1f9bfa689c13bd0d2ae
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/06/2020
+ms.openlocfilehash: 1eaf4e7b2d769217ceace3ece339adff727c7835
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806763"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832059"
 ---
-# <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Come configurare l'indicizzazione incrementale dei documenti arricchiti in Azure ricerca cognitiva
+# <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Come configurare la memorizzazione nella cache per l'arricchimento incrementale in Azure ricerca cognitiva
 
 > [!IMPORTANT] 
-> L'indicizzazione incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
+> L'arricchimento incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
 
-Questo articolo illustra come aggiungere lo stato e la memorizzazione nella cache ai documenti arricchiti che passano attraverso una pipeline di arricchimento ricerca cognitiva di Azure in modo da poter indicizzare in modo incrementale i documenti da qualsiasi origine dati supportata. Per impostazione predefinita, un insieme di competenze è senza stato e la modifica di qualsiasi parte della relativa composizione richiede una ripetizione completa dell'indicizzatore. Con l'indicizzazione incrementale, l'indicizzatore può determinare quali parti della pipeline sono state modificate, riutilizzando gli arricchimenti esistenti per le parti non modificate e modificando i miglioramenti per i passaggi che cambiano. Il contenuto memorizzato nella cache viene inserito in archiviazione di Azure.
+Questo articolo illustra come aggiungere la memorizzazione nella cache a una pipeline di arricchimento per poter modificare in modo incrementale i passaggi senza dover ricompilare ogni volta. Per impostazione predefinita, un insieme di competenze è senza stato e la modifica di qualsiasi parte della relativa composizione richiede una ripetizione completa dell'indicizzatore. Con l'arricchimento incrementale, l'indicizzatore è in grado di determinare quali parti dell'albero del documento devono essere aggiornate in base alle modifiche rilevate nelle definizioni di skillt o indicizzatore. L'output elaborato esistente viene mantenuto e riutilizzato laddove possibile. 
 
-Se non si ha familiarità con la configurazione degli indicizzatori, iniziare con l' [indicizzatore Panoramica](search-indexer-overview.md) e quindi continuare con [skillsets](cognitive-search-working-with-skillsets.md) per informazioni sulle pipeline di arricchimento. Per ulteriori informazioni sui concetti chiave, vedere [indicizzazione incrementale](cognitive-search-incremental-indexing-conceptual.md).
+Il contenuto memorizzato nella cache viene inserito in archiviazione di Azure usando le informazioni dell'account fornite. Il contenitore, denominato `ms-az-search-indexercache-<alpha-numerc-string>`, viene creato quando si esegue l'indicizzatore. Deve essere considerato un componente interno gestito dal servizio di ricerca e non deve essere modificato.
 
-## <a name="modify-an-existing-indexer"></a>Modificare un indicizzatore esistente
+Se non si ha familiarità con la configurazione degli indicizzatori, iniziare con l' [indicizzatore Panoramica](search-indexer-overview.md) e quindi continuare con [skillsets](cognitive-search-working-with-skillsets.md) per informazioni sulle pipeline di arricchimento. Per ulteriori informazioni sui concetti chiave, vedere [arricchimento incrementale](cognitive-search-incremental-indexing-conceptual.md).
 
-Se si dispone di un indicizzatore esistente, attenersi alla procedura seguente per abilitare l'indicizzazione incrementale.
+## <a name="enable-caching-on-an-existing-indexer"></a>Abilitare la memorizzazione nella cache su un indicizzatore esistente
 
-### <a name="step-1-get-the-indexer"></a>Passaggio 1: ottenere l'indicizzatore
+Se si dispone di un indicizzatore esistente che dispone già di un livello di competenze, attenersi alla procedura descritta in questa sezione per aggiungere la memorizzazione nella cache. Come operazione monouso, sarà necessario reimpostare e rieseguire l'indicizzatore in modo completo prima che l'elaborazione incrementale possa essere applicata.
 
-Iniziare con un indicizzatore esistente valido con l'origine dati e l'indice già definiti. L'indicizzatore deve essere eseguibile. Usando un client API, creare una [richiesta Get](https://docs.microsoft.com/rest/api/searchservice/get-indexer) per ottenere la configurazione corrente dell'indicizzatore a cui si desidera aggiungere l'indicizzazione incrementale.
+> [!TIP]
+> Come modello di prova, è possibile eseguire la [Guida introduttiva](cognitive-search-quickstart-blob.md) di questo portale per creare gli oggetti necessari e quindi usare il post o il portale per effettuare gli aggiornamenti. Potrebbe essere necessario alleghi una risorsa Servizi cognitivi fatturabile. Quando si esegue l'indicizzatore più volte, l'allocazione giornaliera gratuita viene esaurita prima di poter completare tutti i passaggi.
+
+### <a name="step-1-get-the-indexer-definition"></a>Passaggio 1: ottenere la definizione dell'indicizzatore
+
+Iniziare con un indicizzatore esistente valido con i componenti seguenti: origine dati, competenze, indice. L'indicizzatore deve essere eseguibile. Usando un client API, creare una [richiesta Get Indexer](https://docs.microsoft.com/rest/api/searchservice/get-indexer) per ottenere la configurazione corrente dell'indicizzatore.
 
 ```http
-GET https://[service name].search.windows.net/indexers/[your indexer name]?api-version=2019-05-06-Preview
+GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
 Content-Type: application/json
-api-key: [admin key]
+api-key: [YOUR-ADMIN-KEY]
 ```
 
-### <a name="step-2-add-the-cache-property"></a>Passaggio 2: aggiungere la proprietà cache
+Copiare la definizione dell'indicizzatore dalla risposta.
 
-Modificare la risposta dalla richiesta GET per aggiungere la proprietà `cache` all'indicizzatore. L'oggetto cache richiede solo una singola proprietà, `storageConnectionString` che è la stringa di connessione all'account di archiviazione. 
+### <a name="step-2-modify-the-cache-property-in-the-indexer-definition"></a>Passaggio 2: modificare la proprietà cache nella definizione dell'indicizzatore
+
+Per impostazione predefinita, la proprietà `cache` è null. Usare un client API per aggiungere la configurazione della cache (il portale non supporta questo aggiornamento del particolato). 
+
+Modificare l'oggetto cache per includere le proprietà obbligatorie e facoltative seguenti: 
+
++ Il `storageConnectionString` è obbligatorio e deve essere impostato su una stringa di connessione di archiviazione di Azure. 
++ La `enableReprocessing` proprietà booleana è facoltativa (`true` per impostazione predefinita) e indica che l'arricchimento incrementale è abilitato. È possibile impostarlo su `false` per sospendere l'elaborazione incrementale mentre altre operazioni che richiedono un utilizzo intensivo di risorse, ad esempio l'indicizzazione di nuovi documenti, sono in corso e quindi vengono riportate successivamente a `true`.
 
 ```json
 {
-    "name": "myIndexerName",
-    "targetIndexName": "myIndex",
-    "dataSourceName": "myDatasource",
-    "skillsetName": "mySkillset",
+    "name": "<YOUR-INDEXER-NAME>",
+    "targetIndexName": "<YOUR-INDEX-NAME>",
+    "dataSourceName": "<YOUR-DATASOURCE-NAME>",
+    "skillsetName": "<YOUR-SKILLSET-NAME>",
     "cache" : {
-        "storageConnectionString" : "Your storage account connection string",
-        "enableReprocessing": true,
-        "id" : "Auto generated Id you do not need to set"
+        "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
+        "enableReprocessing": true
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {
-        "configuration": {
-            "enableAnnotationCache": true
-        }
-    }
+    "parameters": []
 }
 ```
-#### <a name="enable-reporocessing"></a>Abilita reporocessing
-
-Facoltativamente, è possibile impostare la proprietà booleana `enableReprocessing` all'interno della cache, che per impostazione predefinita è impostata su true. Il flag di `enableReprocessing` consente di controllare il comportamento dell'indicizzatore. Negli scenari in cui si desidera che l'indicizzatore conferisca la priorità all'aggiunta di nuovi documenti all'indice, impostare il flag su false. Una volta che l'indicizzatore è stato aggiornato con i nuovi documenti, capovolgendo il flag su true, l'indicizzatore può iniziare a guidare i documenti esistenti fino a garantire la coerenza finale. Durante il periodo in cui il flag di `enableReprocessing` è impostato su false, l'indicizzatore scrive solo nella cache, ma non elabora i documenti esistenti in base alle modifiche identificate alla pipeline di arricchimento.
 
 ### <a name="step-3-reset-the-indexer"></a>Passaggio 3: reimpostare l'indicizzatore
 
-> [!NOTE]
-> La reimpostazione dell'indicizzatore comporterà l'elaborazione di tutti i documenti nell'origine dati in modo che il contenuto possa essere memorizzato nella cache. Tutte le funzionalità di arricchimento cognitive verranno eseguite di nuovo in tutti i documenti.
->
-
-Quando si configura l'indicizzazione incrementale per gli indicizzatori esistenti, è necessario reimpostare l'indicizzatore per assicurarsi che tutti i documenti siano in uno stato coerente. Reimpostare l'indicizzatore usando l' [API REST](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
+Quando si configura l'arricchimento incrementale per gli indicizzatori esistenti, è necessario reimpostare l'indicizzatore per assicurarsi che tutti i documenti siano in uno stato coerente. Per questa attività è possibile usare il portale o un client API e l' [API REST di reimpostazione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) .
 
 ```http
-POST https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-Preview
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2019-05-06-Preview
 Content-Type: application/json
-api-key: [admin key]
+api-key: [YOUR-ADMIN-KEY]
 ```
 
 ### <a name="step-4-save-the-updated-definition"></a>Passaggio 4: salvare la definizione aggiornata
 
-Aggiornare la definizione dell'indicizzatore con una richiesta PUT, il corpo della richiesta deve contenere la definizione dell'indicizzatore aggiornata.
+Aggiornare la definizione dell'indicizzatore con una richiesta PUT, il corpo della richiesta deve contenere la definizione dell'indicizzatore aggiornata con la proprietà cache. Se si ottiene un 400, controllare la definizione dell'indicizzatore per verificare che tutti i requisiti siano soddisfatti (origine dati, competenze, indice).
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-Preview
+PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
 Content-Type: application/json
-api-key: [admin key]
+api-key: [YOUR-ADMIN-KEY]
 {
-    "name" : "your indexer name",
+    "name" : "<YOUR-INDEXER-NAME>",
     ...
     "cache": {
-        "storageConnectionString": "[your storage connection string]",
+        "storageConnectionString": "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
         "enableReprocessing": true
     }
 }
 ```
 
-Se si emette un'altra richiesta GET nell'indicizzatore, la risposta dal servizio includerà una `cacheId` proprietà nell'oggetto cache. Il `cacheId` è il nome del contenitore che conterrà tutti i risultati memorizzati nella cache e lo stato intermedio di ogni documento elaborato da questo indicizzatore.
+Se si emette un'altra richiesta GET nell'indicizzatore, la risposta dal servizio includerà una `ID` proprietà nell'oggetto cache. La stringa alfanumerica viene aggiunta al nome del contenitore contenente tutti i risultati memorizzati nella cache e lo stato intermedio di ogni documento elaborato da questo indicizzatore. L'ID verrà usato per assegnare un nome univoco alla cache nell'archivio BLOB.
 
-## <a name="enable-incremental-indexing-on-new-indexers"></a>Abilitare l'indicizzazione incrementale nei nuovi indicizzatori
+    "cache": {
+        "ID": "<ALPHA-NUMERIC STRING>",
+        "enableReprocessing": true,
+        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
+    }
 
-Per impostare l'indicizzazione incrementale per un nuovo indicizzatore, includere la proprietà `cache` nel payload della definizione dell'indicizzatore. Assicurarsi di usare la versione `2019-05-06-Preview` dell'API.
+### <a name="step-5-run-the-indexer"></a>Passaggio 5: eseguire l'indicizzatore
 
-## <a name="overriding-incremental-indexing"></a>Override dell'indicizzazione incrementale
+Per eseguire l'indicizzatore, è anche possibile usare il portale. Dall'elenco indicizzatori selezionare l'indicizzatore e fare clic su **Esegui**. Un vantaggio dell'uso del portale è che è possibile monitorare lo stato dell'indicizzatore, annotare la durata del processo e il numero di documenti elaborati. Le pagine del portale vengono aggiornate ogni pochi minuti.
 
-Quando è configurata, l'indicizzazione incrementale tiene traccia delle modifiche apportate alla pipeline di indicizzazione e determina la coerenza finale tra l'indice e le proiezioni. In alcuni casi, è necessario eseguire l'override di questo comportamento per assicurarsi che l'indicizzatore non esegua operazioni aggiuntive in seguito a un aggiornamento della pipeline di indicizzazione. Se ad esempio si aggiorna la stringa di connessione dell'origine dati, è necessario reimpostare l'indicizzatore e reindicizzare tutti i documenti quando l'origine dati è cambiata. Tuttavia, se si aggiorna solo la stringa di connessione con una nuova chiave, non si vuole che la modifica provochi aggiornamenti ai documenti esistenti. Viceversa, è possibile che l'indicizzatore invalide la cache e arricchisca i documenti anche se non viene apportata alcuna modifica alla pipeline di indicizzazione. È ad esempio possibile che si desideri invalidare l'indicizzatore se si ridistribuisce un'abilità personalizzata con un nuovo modello e si desidera rieseguire le competenze in tutti i documenti.
+In alternativa, è possibile usare REST per eseguire l'indicizzatore:
 
-### <a name="override-reset-requirement"></a>Sostituisci requisito di reimpostazione
+```http
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2019-05-06-Preview
+Content-Type: application/json
+api-key: [YOUR-ADMIN-KEY]
+```
 
-Quando si apportano modifiche alla pipeline di indicizzazione, le modifiche che comportano l'invalidamento della cache richiedono la reimpostazione dell'indicizzatore. Se si sta apportando una modifica alla pipeline dell'indicizzatore e non si vuole che il rilevamento delle modifiche invalide la cache, è necessario impostare il `ignoreResetRequirement` parametro QueryString su `true` per le operazioni nell'indicizzatore o nell'origine dati.
+Dopo l'esecuzione dell'indicizzatore, è possibile trovare la cache nell'archivio BLOB di Azure. Il nome del contenitore è nel formato seguente: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
-### <a name="override-change-detection"></a>Sostituisci rilevamento modifiche
+> [!NOTE]
+> Una reimpostazione e una riesecuzione dell'indicizzatore comportano una ricompilazione completa, in modo che il contenuto possa essere memorizzato nella cache. Tutte le arricchimenti cognitivi verranno rieseguite in tutti i documenti.
+>
 
-Quando si eseguono aggiornamenti per il set di competenze che comportano il contrassegno dei documenti come incoerenti, ad esempio l'aggiornamento di un URL di competenze personalizzato quando viene ridistribuita l'abilità, impostare il parametro della stringa di query `disableCacheReprocessingChangeDetection` su `true` sugli aggiornamenti del set di competenze.
+### <a name="step-6-modify-a-skillset-and-confirm-incremental-enrichment"></a>Passaggio 6: modificare un valore di competenze e confermare l'arricchimento incrementale
 
-### <a name="force-change-detection"></a>Forza rilevamento modifiche
+Per modificare un file di competenze, è possibile usare il portale per modificare la definizione JSON. Se ad esempio si usa la traduzione del testo, una semplice modifica inline da `en` a `es` o a un'altra lingua è sufficiente per il test di prova dell'arricchimento incrementale.
 
-Quando si vuole che la pipeline di indicizzazione riconosca una modifica a un'entità esterna, ad esempio la distribuzione di una nuova versione di un'abilità personalizzata, è necessario aggiornare le competenze e "toccare" la competenza specifica modificando la definizione di competenze, in particolare l'URL da forzare rilevamento delle modifiche e invalidare la cache per tale capacità.
+Eseguire di nuovo l'indicizzatore. Vengono aggiornate solo le parti di un albero di documenti arricchito. Se è stata usata la [Guida introduttiva del portale](cognitive-search-quickstart-blob.md) come proof-of-Concept, modificando l'esperienza di traduzione del testo in "es", si noterà che vengono aggiornati solo 8 documenti anziché i 14 originali. I file di immagine non interessati dal processo di conversione vengono riutilizzati dalla cache.
+
+## <a name="enable-caching-on-new-indexers"></a>Abilitare la memorizzazione nella cache per i nuovi indicizzatori
+
+Per configurare l'arricchimento incrementale per un nuovo indicizzatore, è sufficiente includere la proprietà `cache` nel payload della definizione dell'indicizzatore quando si chiama [Crea indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Ricordarsi di specificare la versione `2019-05-06-Preview` dell'API durante la creazione di un indicizzatore con questa proprietà. 
+
+
+```json
+{
+    "name": "<YOUR-INDEXER-NAME>",
+    "targetIndexName": "<YOUR-INDEX-NAME>",
+    "dataSourceName": "<YOUR-DATASOURCE-NAME>",
+    "skillsetName": "<YOUR-SKILLSET-NAME>",
+    "cache" : {
+        "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
+        "enableReprocessing": true
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": []
+    }
+}
+```
+
+## <a name="checking-for-cached-output"></a>Verifica dell'output memorizzato nella cache
+
+La cache viene creata, utilizzata e gestita dall'indicizzatore e il relativo contenuto non viene rappresentato in un formato leggibile. Il modo migliore per determinare se la cache viene utilizzata consiste nell'eseguire l'indicizzatore e confrontare le metriche before-and-after per i conteggi del tempo di esecuzione e dei documenti. 
+
+Si supponga, ad esempio, un insieme di competenze che inizia con l'analisi dell'immagine e il riconoscimento ottico dei caratteri (OCR) dei documenti analizzati, seguiti dall'analisi downstream del testo risultante. Se si modifica una competenza del testo downstream, l'indicizzatore può recuperare tutte le immagini elaborate in precedenza e il contenuto OCR dalla cache, aggiornando ed elaborando solo le modifiche relative al testo indicate dalle modifiche. È possibile prevedere un minor numero di documenti nel conteggio dei documenti (ad esempio, 8/8 rispetto a 14/14 nell'esecuzione originale), tempi di esecuzione più brevi e minori costi per la fattura.
+
+## <a name="working-with-the-cache"></a>Uso della cache
+
+Quando la cache è operativa, gli indicizzatori controllano la cache ogni volta che viene chiamato l' [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/run-indexer) , per vedere quali parti dell'output esistente possono essere utilizzate. 
+
+La tabella seguente riepiloga il modo in cui le varie API sono correlate alla cache:
+
+| API SmartBear Ready!           | Effetto della cache     |
+|---------------|------------------|
+| [Crea indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) | Crea ed esegue un indicizzatore al primo utilizzo, inclusa la creazione di una cache se la definizione dell'indicizzatore lo specifica. |
+| [Esegui indicizzatore](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Esegue una pipeline di arricchimento su richiesta. Questa API legge dalla cache se esiste o crea una cache se si aggiunge la memorizzazione nella cache a una definizione di indicizzatore aggiornata. Quando si esegue un indicizzatore in cui è abilitata la memorizzazione nella cache, l'indicizzatore omette i passaggi se è possibile usare l'output memorizzato nella cache. |
+| [Reimposta indicizzatore](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Cancella l'indicizzatore delle informazioni di indicizzazione incrementale. La successiva esecuzione dell'indicizzatore (su richiesta o pianificazione) prevede una rielaborazione completa da zero, inclusa la ripetizione dell'esecuzione di tutte le competenze e la ricompilazione della cache. Dal punto di vista funzionale, equivale a eliminare l'indicizzatore e a ricrearlo. |
+| [Reimposta le competenze](preview-api-resetskills.md) | Specifica le competenze da rieseguire durante la successiva esecuzione dell'indicizzatore, anche se non sono state modificate competenze. La cache viene aggiornata di conseguenza. Gli output, ad esempio un archivio informazioni o un indice di ricerca, vengono aggiornati usando i dati riutilizzabili della cache e il nuovo contenuto in base alle competenze aggiornate. |
+
+Per ulteriori informazioni sul controllo di ciò che accade alla cache, vedere [gestione della cache](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo illustra l'indicizzazione incrementale per gli indicizzatori che includono skillsets. Per approfondire le proprie conoscenze, vedere gli articoli sulla reindicizzazione in generale, applicabili a tutti gli scenari di indicizzazione in Azure ricerca cognitiva.
+L'arricchimento incrementale è applicabile agli indicizzatori che contengono skillsets. Come passaggio successivo, visitare la documentazione relativa alle competenze per comprendere i concetti e la composizione. 
 
-+ [Come ricompilare un indice del ricerca cognitiva di Azure](search-howto-reindex.md). 
-+ [Come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure](search-howto-large-index.md). 
+Inoltre, una volta abilitata la cache, è opportuno conoscere i parametri e le API che determinano la memorizzazione nella cache, inclusa la modalità di sostituzione o di forzare comportamenti specifici. Per altre informazioni, vedere i collegamenti seguenti:
+
++ [Concetti e composizione di competenze](cognitive-search-working-with-skillsets.md)
++ [Come creare un oggetto di competenze](cognitive-search-defining-skillset.md)
++ [Introduzione all'arricchimento e alla memorizzazione nella cache incrementali](cognitive-search-incremental-indexing-conceptual.md)

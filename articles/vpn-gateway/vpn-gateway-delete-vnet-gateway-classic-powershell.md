@@ -1,26 +1,19 @@
 ---
-title: 'Eliminare un gateway di rete virtuale: PowerShell: Azure classico | Microsoft Docs'
+title: 'Eliminare un gateway di rete virtuale: Azure classico'
 description: Eliminare un gateway di rete virtuale usando PowerShell nel modello di distribuzione classico.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ff8e42cecb705e57ce85c92e84a0ad9b78929a5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60863981"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778499"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminare un gateway di rete virtuale usando PowerShell (classico)
 
@@ -32,13 +25,13 @@ ms.locfileid: "60863981"
 
 Questo articolo illustra come eliminare un gateway VPN nel modello di distribuzione classica tramite PowerShell. Dopo aver eliminato il gateway di rete virtuale, modificare il file di configurazione di rete per rimuovere gli elementi che non sono più in uso.
 
-## <a name="connect"></a>Passaggio 1: Connect to Azure
+## <a name="connect"></a>Passaggio 1: Connettersi ad Azure
 
-### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installare i cmdlet di PowerShell più recenti.
+### <a name="1-install-the-latest-powershell-cmdlets"></a>1. installare i cmdlet di PowerShell più recenti.
 
 Scaricare e installare la versione più recente dei cmdlet di PowerShell per Gestione del servizio di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-### <a name="2-connect-to-your-azure-account"></a>2. Connettersi all'account di Azure. 
+### <a name="2-connect-to-your-azure-account"></a>2. connettersi all'account Azure. 
 
 Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 

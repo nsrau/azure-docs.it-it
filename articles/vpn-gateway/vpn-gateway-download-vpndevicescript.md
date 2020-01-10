@@ -1,6 +1,7 @@
 ---
-title: 'Scaricare gli script di configurazione del dispositivo VPN per le connessioni VPN S2S: Azure Resource Manager | Microsoft Docs'
+title: Scaricare gli script di configurazione del dispositivo VPN per le connessioni VPN S2S
 description: In questo articolo viene illustrato il download degli script di configurazione del dispositivo VPN per le connessioni VPN S2S con i gateway VPN di Azure tramite Azure Resource Manager.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -8,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bce6a05938af9b8726b1b52ccb65d22d7492cfe
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157523"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778448"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Scaricare gli script di configurazione del dispositivo VPN per le connessioni VPN S2S
 

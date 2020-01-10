@@ -1,14 +1,14 @@
 ---
 title: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
-ms.date: 12/17/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 16d1b4d9d51c377c4aa09b5e35b02790d8a1b8dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09e42a65891494370250fbab9b22cdf37a6fd318
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453546"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834124"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -32,9 +32,12 @@ Per eseguire l'onboarding del tenant di un cliente, è necessario che abbia una 
 
 - ID del tenant del provider di servizi, in cui si gestiranno le risorse del cliente
 - ID del tenant del cliente, che avrà le risorse gestite dal provider di servizi
-- ID di ogni specifica sottoscrizione nel tenant del cliente che verrà gestito dal provider di servizi o che contiene i gruppi di risorse che verranno gestiti dal provider di servizi
+- ID di sottoscrizione per ogni sottoscrizione specifica nel tenant del cliente che verrà gestito dal provider di servizi (o che contiene i gruppi di risorse che verranno gestiti dal provider di servizi).
 
-Se queste informazioni non sono già disponibili, è possibile recuperarle in uno dei modi seguenti. Assicurarsi di usare questi valori esatti nella distribuzione.
+> [!NOTE]
+> Anche se si vuole caricare solo uno o più gruppi di risorse all'interno di una sottoscrizione, la distribuzione deve essere eseguita a livello di sottoscrizione, quindi è necessario l'ID sottoscrizione.
+
+Se questi valori ID non sono già disponibili, è possibile recuperarli in uno dei seguenti modi. Assicurarsi di usare questi valori esatti nella distribuzione.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -113,9 +116,9 @@ Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Az
 |Campo  |Definizione  |
 |---------|---------|
 |**mspOfferName**     |Nome che descrive questa definizione. Questo valore viene visualizzato al cliente come titolo dell'offerta.         |
-|**mspOfferDescription**     |Breve descrizione dell'offerta (ad esempio, "contoso VM Management offer"),      |
+|**mspOfferDescription**     |Breve descrizione dell'offerta (ad esempio, "contoso VM Management offer").      |
 |**managedByTenantId**     |ID tenant.          |
-|**authorizations**     |I valori di **PrincipalId** per gli utenti, i gruppi o i nomi SPN del tenant, ognuno con un **principalIdDisplayName** per aiutare i clienti a comprendere lo scopo dell'autorizzazione e con mapping a un valore **roleDefinitionId** predefinito per specificare il livello di accesso,         |
+|**authorizations**     |I valori di **PrincipalId** per gli utenti, i gruppi o i nomi SPN del tenant, ognuno con un **principalIdDisplayName** per aiutare i clienti a comprendere lo scopo dell'autorizzazione e con mapping a un valore **roleDefinitionId** predefinito per specificare il livello di accesso.      |
 
 > [!TIP]
 > Assicurarsi che le voci **managedByTenantID**, **principalIdDisplayName**e **roleDefinitionId** siano identiche ai valori usati da Azure. Non usare lettere maiuscole in questi valori.
@@ -132,7 +135,7 @@ Il modello scelto dipenderà dal fatto che si stia caricando un'intera sottoscri
 |Sottoscrizione (quando si usa un'offerta pubblicata in Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Il processo descritto di seguito richiede una distribuzione separata per ogni sottoscrizione in corso di onboarding, anche se si trovano nello stesso tenant del cliente. Quando si caricano più gruppi di risorse all'interno di sottoscrizioni diverse nello stesso tenant del cliente, è necessario specificare anche distribuzioni separate. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione.
+> Il processo descritto di seguito richiede una distribuzione separata a livello di sottoscrizione per ogni sottoscrizione da caricare, anche se si stanno caricando sottoscrizioni nello stesso tenant del cliente. Quando si caricano più gruppi di risorse all'interno di sottoscrizioni diverse nello stesso tenant del cliente, è necessario specificare anche distribuzioni separate. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguita in una distribuzione a livello di sottoscrizione.
 >
 > Le distribuzioni separate sono necessarie anche se si applicano più offerte alla stessa sottoscrizione (o gruppi di risorse all'interno di una sottoscrizione). Ogni offerta applicata deve usare un diverso **mspOfferName**.
 
@@ -198,7 +201,7 @@ Dopo aver aggiornato il file dei parametri, un utente nel tenant del cliente dev
 Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile avviarla nel portale di Azure. È possibile eseguire la distribuzione tramite PowerShell o l'interfaccia della riga di comando di Azure, come illustrato di seguito.
 
 > [!IMPORTANT]
-> Questa distribuzione deve essere eseguita da un account non Guest nel tenant del cliente che ha il [ruolo predefinito proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione da caricare (o che contiene i gruppi di risorse sottoposto a onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nella portale di Azure, aprire **controllo di accesso (IAM)** , [elencare tutti i ruoli](../../role-based-access-control/role-definitions-list.md#list-all-roles), quindi selezionare **proprietario** per visualizzare tutti gli utenti con tale ruolo.
+> Questa distribuzione a livello di sottoscrizione deve essere eseguita da un account non Guest nel tenant del cliente che dispone del [ruolo predefinito proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione sottoposto a onboarding (o che contiene i gruppi di risorse di cui è in corso l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 ### <a name="powershell"></a>PowerShell
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 0ad569977194441b026c2c987ecad544ce40cfa1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2e08c1c0fbd0962adee44af949be280701915a1e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227353"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834059"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -46,12 +46,12 @@ Il trigger di Azure Cosmos DB usa il [feed di modifiche di Azure Cosmos DB](../c
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script C# (.csx)](#trigger---c-script-example)
+* [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-Ignorare esempi trigger
+[Ignora esempi trigger](#trigger---c-attributes)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
@@ -87,11 +87,11 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Ignorare esempi trigger
+[Ignora esempi trigger](#trigger---c-attributes)
 
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
-L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive i messaggi di log quando vengono modificati i record di Cosmos DB.
+L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive messaggi di log quando vengono aggiunti o modificati Cosmos DB record.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -125,11 +125,11 @@ Ecco il codice script C#:
     }
 ```
 
-Ignorare esempi trigger
+[Ignora esempi trigger](#trigger---c-attributes)
 
 ### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
 
-L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive i messaggi di log quando vengono modificati i record di Cosmos DB.
+L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive messaggi di log quando vengono aggiunti o modificati Cosmos DB record.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -156,9 +156,11 @@ Ecco il codice JavaScript:
     }
 ```
 
-### <a name="trigger---java-example"></a>Trigger - esempio Java
+[Ignora esempi trigger](#trigger---c-attributes)
 
-L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione. La funzione C# è interessata in caso di inserimenti o aggiornamenti nel database e nella raccolta specificati.
+### <a name="trigger---java-example"></a>Trigger - Esempio Java
+
+L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione. La funzione viene richiamata quando sono presenti inserimenti o aggiornamenti nel database e nella raccolta specificati.
 
 ```json
 {
@@ -193,11 +195,12 @@ Ecco il codice Java:
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBTrigger` per i parametri il cui valore deriva da Cosmos DB.  Questa annotazione può essere usata con i tipi nativi Java, POJO o i valori nullable usando facoltativo\<T >.
 
 
-Ignorare esempi trigger
+[Ignora esempi trigger](#trigger---c-attributes)
+
 
 ### <a name="trigger---python-example"></a>Trigger - Esempio di Python
 
-L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione scrive i messaggi di log quando vengono modificati i record di Cosmos DB.
+L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione scrive messaggi di log quando vengono aggiunti o modificati Cosmos DB record.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -250,7 +253,7 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDBTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** || Il valore deve essere impostato su `cosmosDBTrigger`. |
 |**direction** || Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
@@ -258,7 +261,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**connectionStringSetting**|**ConnectionStringSetting** | Il nome di un'impostazione dell'app che contiene la stringa di connessione usata per connettersi all'account di Azure Cosmos DB monitorato. |
 |**databaseName**|**DatabaseName**  | Il nome del database di Azure Cosmos DB con la raccolta monitorata. |
 |**collectionName** |**CollectionName** | Il nome della raccolta monitorata. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Facoltativo) Il nome di un'impostazione app che contiene la stringa di connessione al servizio in cui si trova la raccolta del lease. Se non impostato, viene usato il valore `connectionStringSetting`. Questo parametro viene impostato automaticamente al momento della creazione dell'associazione nel portale. La stringa di connessione per la raccolta di lease deve avere autorizzazioni di scrittura.|
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | Opzionale Nome di un'impostazione dell'app che contiene la stringa di connessione all'account di Azure Cosmos DB che contiene la raccolta di lease. Se non impostato, viene usato il valore `connectionStringSetting`. Questo parametro viene impostato automaticamente al momento della creazione dell'associazione nel portale. La stringa di connessione per la raccolta di lease deve avere autorizzazioni di scrittura.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Facoltativo) Il nome del database in cui si trova la raccolta usata per archiviare i lease. Se non impostato, viene usato il valore dell'impostazione `databaseName`. Questo parametro viene impostato automaticamente al momento della creazione dell'associazione nel portale. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Facoltativo) Il nome della raccolta usata per archiviare i lease. Se non impostato, viene usato il valore `leases`. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Facoltativo) Se impostato su `true`, la raccolta di lease viene creata automaticamente se non esiste già. Il valore predefinito è `false`. |
@@ -296,7 +299,7 @@ L'associazione di input di Azure Cosmos DB usa l'API SQL per recuperare uno o pi
 Vedere gli esempi specifici di ogni linguaggio per leggere un singolo documento specificando un valore di ID:
 
 * [C#](#input---c-examples)
-* [Script C# (.csx)](#input---c-script-examples)
+* [Script C# (file con estensione csx)](#input---c-script-examples)
 * [F#](#input---f-examples)
 * [Java](#input---java-examples)
 * [JavaScript](#input---javascript-examples)
@@ -333,7 +336,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>Trigger della coda e ricerca dell'ID da JSON (C#)
 
-L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. La funzione viene attivata da un messaggio in coda contenente un oggetto JSON. Il trigger Queue analizza il file JSON in un oggetto denominato `ToDoItemLookup`, che contiene l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. La funzione viene attivata da un messaggio in coda contenente un oggetto JSON. Il trigger della coda analizza il codice JSON in un oggetto di tipo `ToDoItemLookup`, che contiene l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -1115,7 +1118,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>Trigger HTTP e ricerca dell'ID dai dati della route (JavaScript)
 
-L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
+L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -1328,7 +1331,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>Trigger HTTP e ricerca dell'ID dai dati della route (Python)
 
-L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
+L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -1682,7 +1685,7 @@ public class DocByIdFromRouteSqlQuery {
 
 #### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP trigger e recupero di più documenti dai dati della route con SqlQuery (Java)
 
-L'esempio seguente illustra una funzione Java che recupera più documenti. La funzione viene attivata da una richiesta HTTP che usa un parametro di route ```desc``` per specificare la stringa da cercare nel campo ```description```. Il termine di ricerca viene usato per recuperare una raccolta di documenti dal database e dalla raccolta specificati, convertendo il set di risultati in ```ToDoItem[]``` e passandolo come argomento alla funzione.
+Nell'esempio seguente viene illustrata una funzione Java che recupera più documenti. La funzione viene attivata da una richiesta HTTP che usa un parametro di route ```desc``` per specificare la stringa da cercare nel campo ```description```. Il termine di ricerca viene usato per recuperare una raccolta di documenti dal database e dalla raccolta specificati, convertendo il set di risultati in ```ToDoItem[]``` e passandolo come argomento alla funzione.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1732,7 +1735,7 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `cosmosDB`.        |
 |**direction**     || Il valore deve essere impostato su `in`.         |
@@ -1761,7 +1764,7 @@ L'associazione di output di Azure Cosmos DB consente di scrivere un nuovo docume
 Vedere gli esempi specifici per ciascun linguaggio:
 
 * [C#](#output---c-examples)
-* [Script C# (.csx)](#output---c-script-examples)
+* [Script C# (file con estensione csx)](#output---c-script-examples)
 * [F#](#output---f-examples)
 * [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
@@ -2100,14 +2103,6 @@ Ecco il codice F#:
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
     open Microsoft.Extensions.Logging
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
     let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
       log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
@@ -2369,7 +2364,7 @@ Per un esempio completo, vedere Output - esempio in C#.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `cosmosDB`.        |
 |**direction**     || Il valore deve essere impostato su `out`.         |
@@ -2392,7 +2387,7 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | riferimento |
+| Associazione | Riferimenti |
 |---|---|
 | Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
@@ -2417,10 +2412,10 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------|
 |GatewayMode|Gateway|La modalità di connessione usata dalla funzione durante la connessione al servizio di Azure Cosmos DB. Le opzioni sono `Direct` e `Gateway`|
-|Protocol|Https|Il protocollo di connessione usato dalla funzione durante la connessione al servizio di Azure Cosmos DB.  Leggere [qui per una spiegazione di entrambe le modalità](../cosmos-db/performance-tips.md#networking)|
+|Protocollo|Https|Il protocollo di connessione usato dalla funzione durante la connessione al servizio di Azure Cosmos DB.  Leggere [qui per una spiegazione di entrambe le modalità](../cosmos-db/performance-tips.md#networking)|
 |leasePrefix|N/D|Prefisso di lease da usare in tutte le funzioni in un'app.|
 
 ## <a name="next-steps"></a>Passaggi successivi

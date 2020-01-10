@@ -1,19 +1,18 @@
 ---
-title: 'Generare ed esportare i certificati per le connessioni da punto a sito: MakeCert: Azure | Microsoft Docs'
+title: 'Gateway VPN di Azure: generare & certificati di esportazione per P2S: MakeCert'
 description: Creare un certificato radice autofirmato, esportare la chiave pubblica e generare certificati client con MakeCert.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768107"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833982"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generare ed esportare certificati per connessioni da punto a sito usando MakeCert
 
@@ -28,7 +27,7 @@ Anche se è consigliabile usare la [procedura con PowerShell per Windows 10](vpn
 La procedura seguente illustra come creare un certificato autofirmato usando MakeCert. Questi passaggi non sono specifici di un modello di distribuzione. Sono validi sia per Gestione risorse che per il modello classico.
 
 1. Scaricare e installare [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Dopo l'installazione, è in genere possibile trovare l'utilità makecert.exe nel percorso seguente: ' C:\Programmi\Microsoft file (x86) \Windows Kits\10\bin\<arch >'. È tuttavia possibile che sia stato installato in un altro percorso. Aprire un prompt dei comandi come amministratore e passare al percorso dell'utilità MakeCert. È possibile usare l'esempio seguente, apportando le modifiche necessarie per il percorso corretto:
+2. Dopo l'installazione, in genere è possibile trovare l'utilità makecert.exe nel percorso seguente: "C:\Programmi (x86)\Windows Kits\10\bin\<arch>". È tuttavia possibile che sia stato installato in un altro percorso. Aprire un prompt dei comandi come amministratore e passare al percorso dell'utilità MakeCert. È possibile usare l'esempio seguente, apportando le modifiche necessarie per il percorso corretto:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027381"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834176"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -56,7 +56,7 @@ Dopo avere completato i passaggi precedenti, si è l'amministratore globale del 
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Aggiunta del nome di dominio a un tenant gestito in Azure AD
 
-1. Aprire il [centro di amministrazione Microsoft 365](https://admin.microsoft.com).
+1. Aprire l'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com).
 2. Selezionare la scheda **utenti** e creare un nuovo account utente con un nome come *User\@fourthcoffeexyz.onmicrosoft.com* che non usa il nome di dominio personalizzato. 
 3. Assicurarsi che il nuovo account utente abbia privilegi di amministratore globale per il tenant di Azure AD.
 4. Aprire la scheda **domini** nell'interfaccia di amministrazione di Microsoft 365, selezionare il nome di dominio e selezionare **Rimuovi**. 
@@ -80,7 +80,7 @@ Se si gestisce già un tenant con i servizi di Azure o Office 365, non è possib
 
 Quando si verifica la proprietà del nome di dominio, Azure AD lo rimuove dal tenant non gestito e lo sposta nel tenant esistente. L'acquisizione esterna della proprietà di una directory non gestita da parte di un amministratore richiede lo stesso processo convalida di convalida TXT DNS dell'acquisizione interna della proprietà da parte di un amministratore, con la differenza che anche gli elementi seguenti vengono spostati con il nome di dominio:
 
-- Users
+- Utenti
 - Sottoscrizioni
 - Assegnazioni di licenze
 
@@ -113,7 +113,7 @@ Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Az
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlet di Azure AD PowerShell per l'opzione ForceTakeover
 È possibile visualizzare questi cmdlet usati in [Esempio di PowerShell](#powershell-example).
 
-Cmdlet | Utilizzo
+Cmdlet | Uso
 ------- | -------
 `connect-msolservice` | Quando richiesto, accedere al tenant gestito.
 `get-msoldomain` | Mostra i nomi di dominio associati al tenant corrente.
@@ -130,40 +130,40 @@ Cmdlet | Utilizzo
 
 1. Connettersi ad Azure AD usando le credenziali usate per rispondere all'offerta self-service:
    ```powershell
-    Install-Module -Name MSOnline
-    $msolcred = get-credential
+   Install-Module -Name MSOnline
+   $msolcred = get-credential
     
-    connect-msolservice -credential $msolcred
+   connect-msolservice -credential $msolcred
    ```
 2. Ottenere un elenco di domini:
   
    ```powershell
-    Get-MsolDomain
+   Get-MsolDomain
    ```
 3. Eseguire il cmdlet Get-MsolDomainVerificationDns per creare una richiesta di verifica:
    ```powershell
-    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
-  
-    For example:
-  
-    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+   Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+   ```
+    Ad esempio:
+   ```
+   Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
 4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Ad esempio:
    ```powershell
-    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+   MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. Nello spazio dei nomi DNS pubblico creare un record txt DNS che contiene il valore copiato nel passaggio precedente. Il nome per questo record è quello del dominio padre, quindi se si crea questo record di risorse usando il ruolo DNS di Windows Server, lasciare il nome record vuoto e incollare solo il valore nella casella di testo.
 6. Eseguire il cmdlet Confirm-MsolDomain per verificare la richiesta di verifica:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+   Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
    Ad esempio:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+   Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
    ```
 
 Una richiesta di verifica riporta al prompt senza errori.
@@ -171,7 +171,7 @@ Una richiesta di verifica riporta al prompt senza errori.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md)
-* [modalità di installazione e configurazione di Azure PowerShell](/powershell/azure/overview)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

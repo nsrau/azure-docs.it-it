@@ -1,5 +1,5 @@
 ---
-title: Configurare gli avvisi sugli eventi del log di diagnostica dal gateway VPN di Azure
+title: 'Gateway VPN di Azure: configurare gli avvisi per gli eventi del log di diagnostica'
 description: Procedura per configurare gli avvisi sugli eventi del log di diagnostica del gateway VPN
 services: vpn-gateway
 author: anzaman
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: d914c020553bace7ea5ab8898ac4093fea30e6c9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e2d0227f7481f75c1b0a4e3fe9d0fa3134a7261c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307003"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778601"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configurare gli avvisi per gli eventi del log di diagnostica dal gateway VPN
 
@@ -35,17 +35,17 @@ Nei passaggi di esempio seguenti viene creato un avviso per un evento di disconn
 
 1. Nella portale di Azure cercare **log Analytics** in **tutti i servizi** e selezionare aree di **lavoro log Analytics**.
 
-   ![Selezioni per passare ad aree di lavoro log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Crea")
+   ![Selezioni per passare ad aree di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Creazione")
 
 2. Selezionare **Crea** nella pagina **log Analytics** .
 
-   ![Pagina log Analytics con pulsante Crea](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Seleziona")
+   ![Pagina Log Analytics con pulsante Crea](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Seleziona")
 
 3. Selezionare **Crea nuovo** e specificare i dettagli.
 
-   ![Dettagli per la creazione di un'area di lavoro log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Seleziona")
+   ![Dettagli per la creazione di un'area di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Seleziona")
 
-4. Trovare il gateway VPN nel pannello **monitora** > **impostazioni di diagnostica** .
+4. Trovare il gateway VPN nel pannello **monitoraggio** > **impostazioni di diagnostica** .
 
    ![Selezioni per la ricerca del gateway VPN nelle impostazioni di diagnostica](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Seleziona")
 

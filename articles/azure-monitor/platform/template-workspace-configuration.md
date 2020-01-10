@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/09/2020
+ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363371"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834216"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "75363371"
 
 È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare aree di lavoro log Analytics in monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
 
-* Creare un'area di lavoro inclusa l'impostazione del piano tariffario 
+* Creare un'area di lavoro, inclusa l'impostazione del piano tariffario e della riservatezza
 * Aggiungere una soluzione
 * Creare le ricerche salvate
 * Creare un gruppo di computer
@@ -47,7 +47,19 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
-L'esempio seguente crea un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome e il percorso della nuova area di lavoro (usando i valori predefiniti per gli altri parametri dell'area di lavoro, ad esempio il piano tariffario e la conservazione).  
+Nell'esempio seguente viene creata un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome e il percorso della nuova area di lavoro. Usa valori specificati per altri parametri dell'area di lavoro, ad esempio la [modalità di controllo di accesso](design-logs-deployment.md#access-control-mode), il piano tariffario, la conservazione e il livello di prenotazione della capacità.
+
+Per la prenotazione della capacità, si definisce una prenotazione di capacità selezionata per l'inserimento dei dati specificando lo SKU `CapacityReservation` e un valore in GB per la proprietà `capacityReservationLevel`. Nell'elenco seguente vengono illustrati i valori e il comportamento supportati per la configurazione.
+
+- Dopo aver impostato il limite di prenotazione, non è possibile passare a uno SKU diverso entro 31 giorni.
+
+- Una volta impostato il valore di prenotazione, è possibile aumentarlo solo entro 31 giorni.
+
+- È possibile impostare il valore di `capacityReservationLevel` in multipli di 100, con un valore massimo pari a 50000.
+
+- Se si aumenta il livello di prenotazione, il timer viene reimpostato e non è possibile modificarlo per altri 31 giorni da questo aggiornamento.  
+
+- Se si modifica qualsiasi altra proprietà per l'area di lavoro, ma si mantiene il limite di prenotazione allo stesso livello, il timer non viene reimpostato. 
 
 ### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
 
@@ -64,6 +76,21 @@ L'esempio seguente crea un'area di lavoro usando un modello dal computer locale.
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -101,11 +128,18 @@ L'esempio seguente crea un'area di lavoro usando un modello dal computer locale.
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -168,9 +202,9 @@ Il modello di esempio seguente illustra come:
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -257,7 +291,7 @@ Il modello di esempio seguente illustra come:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -267,7 +301,9 @@ Il modello di esempio seguente illustra come:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]",
+          "name": "CapacityReservation",
+          "capacityReservationLevel": 100
         }
       },
       "resources": [

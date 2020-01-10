@@ -2,19 +2,19 @@
 title: Convalida del contenuto per i criteri del Marketplace | Azure Marketplace
 description: Questo articolo descrive come diventare un editore in Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: pabutler
-ms.openlocfilehash: 060856cd43b978cec58ab08e1bb5b524bc2a4285
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/31/2019
+ms.author: evansma
+ms.openlocfilehash: f4cd5083d694cb7c463596b7b45c384e0dc8b28d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822956"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779740"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -29,14 +29,14 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 |:--- |:--- |:--- |:--- |
 | 1 | Clienti potenziali destinatari | Aver configurato un cliente potenziale destinatario| Le informazioni CRM dei clienti potenziali destinatari del catalogo OCP sono elencate anche nella scheda delle soluzioni partner | 
 | 2 | Titolo dell'offerta | Descrive la soluzione offerta. Corrisponde alla promozione online della soluzione nel sito Web del partner | Contiene parole chiave di ricerca |
-| 3 | Logo | Il logo viene visualizzato correttamente | Il logo viene visualizzato correttamente, con l'[immagine del banner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish) corrispondente all'immagine nel portale di Azure in grande formato |
+| 3 | Logo | Il logo viene visualizzato correttamente | Il logo viene visualizzato correttamente e include [immagine Hero che è l'immagine di formato grande nel portale di Azure |
 | 4 |  Descrizione dell'offerta | <br>• 2-3 paragrafi <br>• La soluzione offerta è immediatamente comprensibile <br>• La descrizione dell'offerta non contiene errori di ortografia e grammatica <br>• La descrizione dell'offerta è completa e acquisisce: destinatari, tipo di utente, motivo per cui è utile (valore prop) <br>• La descrizione dell'offerta è in formato descrittivo e suddivisa in paragrafi, con frasi brevi e facili da comprendere | <br>• È indicato il settore di destinazione, se pertinente <br>• Lo stile di formattazione è corretto: l'intestazione di ogni paragrafo è costituita da una frase di riepilogo del contenuto che segue, nel quale i vantaggi chiave sono evidenziati dall'uso di punti elenco, se appropriato. L'obiettivo è di consentire una comprensione immediata dell'offerta da parte del lettore, grazie a un formato di visualizzazione chiaro che non richieda la lettura di paragrafi. <br>• I paragrafi sono separati da un certo spazio e l'impressione generale è quella di una brochure. Ciò significa che la descrizione non usa un linguaggio tecnico o criptico ma termini semplici e comprensibili. | 
 | 5 | Categorie e settori | <br>• Le categorie corrispondono alle caratteristiche della soluzione offerta <br>• Non includere categorie non adatte alla soluzione <br>• È stato selezionato il settore ottimale oppure sono stati selezionati tutti i settori appropriati (se non esiste un settore ottimale) | <br>• Massimo 3 categorie <br>• Massimo 3 settori |
 | 6 | Immagini | <br>• Le immagini non sono obbligatorie, ma se fornite devono essere visualizzate ed essere ad alta risoluzione. <br>• I requisiti per le immagini sono elencati sia in CPP che qui <br>• Il testo incluso nello screenshot è leggibile con un'immagine chiara | La soluzione offerta è immediatamente comprensibile |
 | 7 | Video | <br>• Non è obbligatorio inserire un video, ma se questo viene fornito deve essere riprodotto senza errori. <br>• Se fornito, non deve fare riferimento a società concorrenti, A MENO CHE non che illustri una soluzione di migrazione |<br>• Idealmente deve durare almeno 3 minuti <br>• Il contenuto del video rende la soluzione offerta facilmente comprensibile <br>• Demo delle funzionalità della soluzione |
-| 8 | Stato (invito all'azione) | <br>Deve essere contrassegnato da uno dei tipi seguenti: <ul>o Contattami</ul><ul>o Prova/Scarica la versione di prova gratuita ora/Inizia la prova/Test drive</ul><ul>o Acquista ora/Scarica ora</ul> | Il cliente può immediatamente capire quali sono i passaggi successivi: <ul>1. provare la versione di valutazione</ul> <ul>2. Acquista ora</ul><ul>3. contattare via posta elettronica o numero di telefono per disporre di PoC, assessment o briefing.</ul> | 
+| 8 | Stato (invito all'azione) | <br>Deve essere etichettato come uno dei tipi seguenti: <ul>o Contattami</ul><ul>o Prova/Scarica la versione di prova gratuita ora/Inizia la prova/Test drive</ul><ul>o Acquista adesso/Ottieni adesso</ul> | Il cliente può immediatamente capire quali sono i passaggi successivi: <ul>1. provare la versione di valutazione</ul> <ul>2. Acquista ora</ul><ul>3. contattare via posta elettronica o numero di telefono per disporre di PoC, assessment o briefing.</ul> | 
 | 9 | Prezzi della soluzione | I prezzi della soluzione, sotto forma di tabella o di descrizione dettagliata, sono obbligatori e devono essere espressi nella valuta locale del partner che offre la soluzione | Devono essere disponibili più opzioni di fatturazione con diversi livelli di prezzo, per offrire diverse possibilità di scelta ai clienti |    
-| 10 | Ulteriori informazioni | I collegamenti nella parte inferiore (sotto la descrizione, distinti dai collegamenti di Marketplace a sinistra), che consentono di accedere ad altre informazioni sulla soluzione, devono essere disponibili pubblicamente e visualizzati correttamente |   I collegamenti devono consentire l'accesso a elementi specifici (ad esempio a pagine specifiche) del sito del partner, non semplicemente alla home page | 
+| 10 | Altre informazioni | I collegamenti nella parte inferiore (sotto la descrizione, non i collegamenti al Marketplace a sinistra) portano ad altre informazioni sulla soluzione e sono disponibili pubblicamente e vengono visualizzati correttamente |    Collegamenti a elementi specifici (ad esempio, pagine specifiche nel sito partner) e non solo al sito della Home page del partner | 
 | 11 | Supporto per la soluzione e Guida | Inserire un collegamento ad almeno una delle informazioni seguenti: <br>o   Numeri di telefono <br>o Indirizzo e-mail del supporto <br>o Agenti di chat <br>o   Forum della community |<br>• Tutti i metodi di supporto elencati: telefono ed e-mail. <br>•    Il tipo di supporto a pagamento deve essere offerto gratuitamente durante il periodo di prova o di test drive | 
 | 12 | Note legali | Le norme e le condizioni devono essere disponibili tramite un URL pubblico |  | 
 
@@ -45,10 +45,10 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 
 |  | Elemento | Requisiti di base | Requisiti ottimali | 
 |:--- |:--- |:--- |:--- |
-|  | Stato | Un collegamento deve consentire l'accesso all'esperienza di prova gestita dal cliente | Sono disponibili anche altri inviti all'azione (ad esempio, Acquista ora) | 
+|  | Stato dell'elenco. | Un collegamento deve consentire l'accesso all'esperienza di prova gestita dal cliente | Sono disponibili anche altre CTAs (ad esempio, Acquista ora) | 
 
 ---
-## <a name="saas-apps-requirements"></a>Requisiti delle app SaaS
+## <a name="saas-app-requirements"></a>Requisiti delle app SaaS
 
 |  | Elemento | Requisiti di base | Requisiti ottimali | 
 |:--- |:--- |:--- |:--- |
@@ -81,7 +81,7 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 
 |  | Elemento | Requisiti di base | Requisiti ottimali |
 |:--- |:--- |:--- |:--- |
-| 1 | Titolo dell'offerta  |  <br>• Deve indicare in modo chiaro il tipo e la durata del servizio nel formato seguente: NOME: TIPO DURATA. (ad esempio, "impegno offerta: modello di prova di 1 settimana")  | <br>•  Non ripete il nome dell'editore <br>•  Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare titoli lunghi. | 
+| 1 | Titolo dell'offerta  |  <br>• È necessario elencare il tipo di servizio e la durata nel formato seguente: Nome: durata tipo. (ovvero "impegno offerta: modello di prova di 1 settimana")  | <br>•  Non ripete il nome dell'editore <br>•  Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare titoli lunghi. | 
 | 2 | Descrizione dell'offerta  |<br>• Verificare l'utilizzo appropriato dei [ nomi dei prodotti Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx) <br>• Le offerte contrassegnate da un prezzo stimato devono essere accompagnate da una nota, all'inizio o alla fine, che spieghi gli elementi che causano la variabilità (trasferta presso il cliente, numero di server di cui eseguire la migrazione e così via). <br>• Per ogni tipo di offerta, la descrizione ha i requisiti seguenti: <ul><br>o   I briefing devono avere almeno 4 o 5 punti elenco con informazioni sugli argomenti trattati </ul> <ul><br>o   Tutti i workshop devono riportare il programma </ul><ul><br>o   Tutti i programmi devono essere suddivisi per giorno o per settimana, a seconda della durata del workshop </ul><ul><br>o   Per le offerte di valutazioni, modelli di verifica, workshop non di training e implementazioni sono necessari risultati finali </ul><ul><br>o i workshop di formazione non necessitano di risultati finali, ma necessitano di un'agenda più dettagliata con argomenti che verranno analizzati. | <br>•  Per tutte le offerte sono disponibili programma e risultati finali <br>•  L'offerta include un paragrafo nella sezione superiore con il contesto della società che offre il servizio <br>• La prima sezione dell'offerta è costituita da un paragrafo sul valore del servizio stesso |
 | 3 | Formattazione Markdown  | Tutte le offerte devono usare la formattazione Markdown in modo che il rendering dell'offerta sia corretto se viene convertito in formato HTML  |  |
 | 4 | Categorie e settori | Categorie non pertinenti |  | 
@@ -92,7 +92,7 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 | 9 | Competenze |<br>• Almeno una delle competenze seguenti:<br>• Sviluppo di applicazioni <br>• Integrazione di applicazioni <br>• Application Lifecycle Management <br>• Piattaforma cloud <br>• Analisi dei dati <br>• Data center <br>• Piattaforma dati <br>• DevOps |
 | 10 | Prodotti | Azure (obbligatorio) | |
 | 11 | Paese/Area geografica | Assicurarsi che il paese e l'area corrispondano alla valuta scelta | |
-| 12 | Ulteriori informazioni  | <br>• I collegamenti nella parte inferiore (sotto la descrizione, distinti dai collegamenti di Marketplace a sinistra), che consentono di accedere ad altre informazioni sulla soluzione, devono essere disponibili pubblicamente e visualizzati correttamente. <br>• I collegamenti devono avere un "nome descrittivo" e non essere visualizzati come nome file di tutti i download | |
+| 12 | Altre informazioni  | <br>• I collegamenti nella parte inferiore (sotto la descrizione, non i collegamenti al Marketplace a sinistra) portano ad altre informazioni sulla soluzione e sono disponibili pubblicamente e vengono visualizzati correttamente. <br>• I collegamenti devono avere un "nome descrittivo" e non essere visualizzati come nome file di tutti i download | |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

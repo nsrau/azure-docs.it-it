@@ -8,24 +8,28 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 39dea152545d210c48e21853c3c03c63843a4d81
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818656"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779103"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
 Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare questi materiali di marketing, andare al [portale Cloud Partner](https://cloudpartner.azure.com/#insights). 
 
 ## <a name="storefront-offer-details"></a>Dettagli dell'offerta della vetrina
+
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
 | Nome offerta | Specificare un titolo efficace:<br> <ul> <li> Il nome dell'app deve comunicare ai clienti il valore essenziale. </li> <li> Includere nel titolo dell'app parole chiave di ricerca per ottenere priorità più elevate nei risultati dei motori di ricerca. </li> </ul> Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta: [duration] [tipo di offerta] (ad esempio *Contoso: implementazione di 2 settimane*) <br><br> Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
 | Descrizione dell'offerta | Fornire una descrizione chiara dell'offerta:<br> <ul> <li> Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione. </li> <li> Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca. </li> <li> Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire. </li> <li> Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti.</li> <li> Inoltre, le inserzioni di servizi di consulenza devono indicare chiaramente il servizio professionale fornito. </li></ul> I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti:<ul><li>Descrizione del prodotto.</li><li>Tipo di utente che ottiene vantaggi dal prodotto.</li><li>Necessità o problema del cliente a cui risponde il prodotto.</li></ul> |
 
+Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare questi materiali di marketing, andare al [portale Cloud Partner](https://cloudpartner.azure.com/#insights). 
+
 ## <a name="storefront-listing-details"></a>Dettagli dell'inserzione della vetrina
+
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
 | Settori: solo le app AppSource e i servizi di consulenza | Selezionare i settori se l'offerta risponde a esigenze specifiche di settore: <ul><li> Nella descrizione dell'offerta mettere in risalto le funzionalità specifiche per i settori selezionati.</li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [portale cloud partner](https://cloudpartner.azure.com/#insights). |
@@ -44,9 +48,9 @@ Azure Marketplace e Microsoft AppSource sono vetrini che soddisfano i requisiti 
 | \* Automotive     | \* Automotive |
 | Agricoltura     | \* Altro-non segmentato |
 | Distribuzione    | \* Ingrosso <br> \* Pacco & spedizione pacchetti |
-| Formazione     | \* Istruzione superiore <br> \* Primario & istruzione secondaria/K-12 <br> \* Librerie & musei |
+| Istruzione     | \* Istruzione superiore <br> \* Primario & istruzione secondaria/K-12 <br> \* Librerie & musei |
 | Servizi finanziari     | \* Banking & mercati finanziari <br> \* Assicurazione |
-| Government    | \* Defense & Intelligence (usata per essere definita sicurezza nazionale e pubblica) <br> \* Sicurezza pubblica & giustizia <br> \* Governo civile |
+| Pubblica amministrazione    | \* Defense & Intelligence (usata per essere definita sicurezza nazionale e pubblica) <br> \* Sicurezza pubblica & giustizia <br> \* Governo civile |
 | Healthcare (chiamato Health)   | \* Pagante integrità <br> \* Provider integrità <br> \* Farmaci |
 | Produzione di & risorse (chiamate produzione)   | \* & Chimico agrochimica <br> \* Produzione discreta <br> \* Energia |
 | Vendita al dettaglio & beni di consumo (usati per la chiamata al dettaglio)  | \* Beni di consumo <br> \* Rivenditori |
@@ -56,6 +60,18 @@ Azure Marketplace e Microsoft AppSource sono vetrini che soddisfano i requisiti 
 | \* Ospitalità & viaggio  | \* Alberghi & svago <br> \* Trasporto & viaggio <br> \* Ristoranti & servizi alimentari |
 | \* Altri settori pubblici  | \* Silvicoltura & pesca <br> \* No profit |
 | \* Immobiliare  | \* Altro-non segmentato |
+
+### <a name="industries"></a>Settori
+
+La selezione del settore si applica solo alle offerte pubblicate per AppSource e servizi di consulenza pubblicati in Azure Marketplace. Selezionare industrie e/o verticali se l'offerta soddisfa le esigenze specifiche del settore, chiamando le funzionalità specifiche del settore nella descrizione dell'offerta. È possibile selezionare fino a due (2) settori e due (2) verticali per settore selezionato.
+
+### <a name="applicable-products"></a>Prodotti applicabili
+
+Consente di selezionare i prodotti applicabili con cui funziona l'app per l'offerta per la visualizzazione in prodotti selezionati in AppSource.
+
+### <a name="search-keywords"></a>Parole chiave di ricerca
+
+Le parole chiave consentono ai clienti di trovare l'offerta durante la ricerca. Identificare le parole chiave di ricerca principali per l'offerta, incorporarle nel riepilogo e nella descrizione dell'offerta, oltre che nella sezione relativa alla parola chiave della sezione dettagli dell'offerta.
 
 ## <a name="storefront-marketing-details"></a>Dettagli di marketing della vetrina
 | Impostazione della vetrina | Procedura consigliata |

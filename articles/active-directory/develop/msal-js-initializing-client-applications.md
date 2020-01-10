@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916503"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777837"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inizializzare le applicazioni client usando MSAL. js
 Questo articolo descrive l'inizializzazione di Microsoft Authentication Library per JavaScript (MSAL. js) con un'istanza di un'applicazione agente utente. L'applicazione agente utente è una forma di applicazione client pubblica in cui il codice client viene eseguito in un agente utente, ad esempio un Web browser. Questi client non archiviano i segreti, perché il contesto del browser è accessibile apertamente. Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
@@ -116,7 +116,7 @@ Di seguito è riportato il set totale di opzioni configurabili attualmente suppo
         * `https://login.microsoftonline.com/common`: consente di accedere agli utenti con account aziendali o dell'Istituto di istruzione o con un account personale Microsoft.
         * `https://login.microsoftonline.com/organizations/`: consente di accedere agli utenti con account aziendali o dell'Istituto di istruzione.
         * `https://login.microsoftonline.com/consumers/`: consente di accedere agli utenti solo con account Microsoft personali (Live).
-    * In Azure AD B2C, è nel formato `https://<instance>/tfp/<tenant>/<policyName>/`, dove istanza è il dominio Azure AD B2C, tenant è il nome del tenant Azure AD B2C, PolicyName è il nome del criterio B2C da applicare.
+    * In Azure AD B2C, è nel formato `https://<instance>/tfp/<tenant>/<policyName>/`, in cui l'istanza è il dominio Azure AD B2C ad esempio {nome-tenant}. b2clogin. com, tenant è il nome del tenant Azure AD B2C ad esempio {nome-tenant}. onmicrosoft. com, PolicyName è il nome del criterio B2C da applicare.
 
 
 - **validateAuthority**: facoltativo.  Convalidare l'autorità emittente dei token. Il valore predefinito è `true`. Per le applicazioni B2C, poiché il valore dell'autorità è noto e può essere diverso per ogni criterio, la convalida dell'autorità non funzionerà e deve essere impostata su `false`.
@@ -125,7 +125,7 @@ Di seguito è riportato il set totale di opzioni configurabili attualmente suppo
 
 - **postLogoutRedirectUri**: facoltativo.  Reindirizza l'utente a `postLogoutRedirectUri` dopo la disconnessione. Il valore predefinito è `redirectUri`.
 
-- **navigateToLoginRequestUrl**: facoltativo. Possibilità di disattivare la navigazione predefinita per avviare la pagina dopo l'accesso. Il valore predefinito è true. Viene usato solo per i flussi di reindirizzamento.
+- **navigateToLoginRequestUrl**: facoltativo. Possibilità di disattivare la navigazione predefinita per avviare la pagina dopo l'accesso. L'impostazione predefinita è true. Viene usato solo per i flussi di reindirizzamento.
 
 - **cacheLocation**: facoltativo.  Imposta lo spazio di archiviazione del browser su `localStorage` o `sessionStorage`. Il valore predefinito è `sessionStorage`.
 

@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,13 +8,18 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390556"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833877"
 ---
+## <a name="limitations"></a>Limitazioni
+
+- I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
+- Sono supportate le serie di macchine virtuali seguenti: DSv3 e ESv3. 
+
 ## <a name="benefits"></a>Vantaggi 
 
 Per riservare l'intero host sono disponibili i vantaggi seguenti:
@@ -22,7 +27,6 @@ Per riservare l'intero host sono disponibili i vantaggi seguenti:
 -   Isolamento hardware a livello di server fisico. Non verranno inserite altre macchine virtuali negli host. Gli host dedicati vengono distribuiti negli stessi Data Center e condividono la stessa rete e l'infrastruttura di archiviazione sottostante come altri host non isolati.
 -   Controllo sugli eventi di manutenzione avviati dalla piattaforma Azure. Sebbene la maggior parte degli eventi di manutenzione non abbia alcun effetto sulle macchine virtuali, esistono alcuni carichi di lavoro sensibili in cui ogni secondo di pausa può avere un certo effetto. Con gli host dedicati è possibile acconsentire esplicitamente a una finestra di manutenzione per ridurre l'effetto sul servizio.
 -   Con il vantaggio Azure Hybrid puoi usare licenze personalizzate per Windows e SQL in Azure. L'uso dei vantaggi ibridi offre vantaggi aggiuntivi. Per ulteriori informazioni, vedere [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 
 ## <a name="groups-hosts-and-vms"></a>Gruppi, host e macchine virtuali  
@@ -62,7 +66,7 @@ Le macchine virtuali distribuite in host con domini di errore diversi avranno i 
 
 Il modello di esempio Gestione risorse disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) USA zone e domini di errore per diffondere gli host per la resilienza massima in un'area.
 
-## <a name="maintenance-control"></a>Controllo manutenzione
+## <a name="maintenance-control"></a>Controllo della manutenzione
 
 L'infrastruttura che supporta le macchine virtuali può essere occasionalmente aggiornata per migliorare l'affidabilità, le prestazioni, la sicurezza e per avviare nuove funzionalità. La piattaforma Azure tenta di ridurre al minimo l'effetto della manutenzione della piattaforma laddove possibile, ma i clienti con carichi di lavoro *sensibili alla manutenzione* non possono tollerare anche pochi secondi che la macchina virtuale debba essere bloccata o disconnessa per la manutenzione.
 
@@ -99,11 +103,11 @@ Per altre informazioni, vedere [prezzi di host dedicati di Azure](https://aka.ms
 
 Uno SKU viene definito per un host e rappresenta la serie di dimensioni e il tipo di VM. È possibile combinare più macchine virtuali di dimensioni diverse all'interno di un singolo host, purché siano delle stesse serie di dimensioni. Il tipo è la generazione hardware attualmente disponibile nell'area.
 
-Diverse `types` per la stessa serie di VM proverranno da diversi fornitori di CPU e hanno diverse generazioni di CPU e numero di core.
+Diverse `types` per la stessa serie di VM proverranno da diversi fornitori di CPU e con diverse generazioni di CPU e numero di core.
 
 Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
 
-Durante l'anteprima, si supporterà il seguente SKU\types host: DSv3_Type1 e ESv3_Type1
+Gli host dedicati supportano i SKU\types host seguenti: DSv3_Type1 e ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Ciclo di vita dell'host
@@ -115,6 +119,6 @@ Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue un
 |----------|----------------|
 | Host disponibile     | Nessun problema noto con l'host.   |
 | Host sottoposto a indagine  | Si sono verificati problemi con l'host che si sta cercando. Si tratta di uno stato di transizione necessario per consentire ad Azure di provare e identificare l'ambito e la causa radice del problema identificato. Le macchine virtuali in esecuzione nell'host potrebbero essere interessate. |
-| Deallocazione in sospeso host   | Azure non può ripristinare lo stato integro dell'host e richiedere la ridistribuzione delle macchine virtuali da questo host. Se `autoReplaceOnFailure` è abilitato, le macchine virtuali vengono *riparate* in hardware integro. In caso contrario, è possibile che la macchina virtuale sia in esecuzione in un host che sta per avere esito negativo.|
+| Deallocazione in sospeso host   | Azure non può ripristinare lo stato integro dell'host e richiedere la ridistribuzione delle macchine virtuali da questo host. Se `autoReplaceOnFailure` è abilitato, le macchine virtuali vengono *risanate* in hardware integro. In caso contrario, è possibile che la macchina virtuale sia in esecuzione in un host che sta per avere esito negativo.|
 | Host deallocato  | Tutte le macchine virtuali sono state rimosse dall'host. Non vengono più addebitati costi per questo host perché l'hardware è stato escluso dalla rotazione.   |
 

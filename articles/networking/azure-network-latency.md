@@ -5,14 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 12/04/2019
+ms.date: 01/08/2020
 ms.author: mnayak
-ms.openlocfilehash: 3947df81b67d5aefc1b628b6ddaf8275152a4cd3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 91b528cc6900a3ec91ff7189f58f941226b8acd5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893087"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779723"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Statistiche sulla latenza di round trip di rete di Azure
 
@@ -22,17 +22,11 @@ Azure monitora costantemente la latenza (velocità) delle aree principali della 
 
 Le misurazioni di latenza vengono raccolte dagli agenti ThousandEyes, ospitate in aree del cloud di Azure in tutto il mondo, che inviano continuamente sonde di rete tra loro in intervalli di 1 minuto. Le statistiche relative alla latenza mensile derivano dalla media degli esempi raccolti per il mese.
 
-## <a name="november-2019-latency-figures"></a>Cifre latenza 2019 di novembre
+## <a name="december-2019-latency-figures"></a>Cifre latenza 2019 dicembre
 
-**Aggiornamento di novembre:** Sono state aggiunte 3 aree.
+I tempi di round trip della media mensile tra le aree di Azure per gli ultimi 30 giorni (che terminano il 31 dicembre 2019) sono riportati di seguito. Le misurazioni seguenti sono basate su [ThousandEyes](https://thousandeyes.com).
 
-* Norvegia orientale
-* Norvegia occidentale
-* Australia
-
-I tempi di round trip della media mensile tra le aree di Azure per gli ultimi 30 giorni (che terminano il 30 novembre 2019) sono riportati di seguito. Le misurazioni seguenti sono basate su [ThousandEyes](https://thousandeyes.com).
-
-![Statistiche sulla latenza tra aree di Azure](media/azure-network-latency/latency-nov-2019.png)
+[Statistiche sulla latenza tra aree di Azure ![](media/azure-network-latency/december.jpg)](media/azure-network-latency/december.jpg#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

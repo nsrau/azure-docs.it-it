@@ -1,5 +1,5 @@
 ---
-title: Reimpostare un'istanza di gateway VPN di Azure per ristabilire tunnel IPsec | Microsoft Docs
+title: Reimpostare un gateway VPN di Azure per ristabilire il tunnel IPsec
 description: Questo articolo descrive la reimpostazione di Gateway VPN di Azure per ristabilire i tunnel IPsec. L'articolo riguarda i gateway VPN nei modelli di distribuzione classica e Resource Manager.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 6fd4bdf15ea5693a50403f3c31f72b920871f04f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563041"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779808"
 ---
-# <a name="reset-a-vpn-gateway"></a>Reimpostare un gateway VPN
+# <a name="reset-a-vpn-gateway"></a>Ripristinare un gateway VPN
 
 La reimpostazione del gateway VPN di Azure è utile se si perde la connettività VPN cross-premise in uno o più tunnel VPN da sito a sito. In questa situazione tutti i dispositivi VPN funzionano correttamente, ma non sono in grado di stabilire tunnel IPsec con i gateway VPN di Azure. Questo articolo consente di reimpostare il gateway VPN.
 

@@ -12,41 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033359"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833845"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Anteprima: distribuire macchine virtuali in host dedicati usando il Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
 Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
-Assicurarsi di aver installato Azure PowerShell versione 2.4.2 o successiva ed è stato effettuato l'accesso a un account Azure in con `Connect-AzAccount`. Per installare la versione 2.4.2, aprire un prompt di PowerShell e digitare:
+Assicurarsi di aver installato Azure PowerShell versione 2.8.0 o successiva ed è stato effettuato l'accesso a un account Azure in con `Connect-AzAccount`. 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
-```
+## <a name="limitations"></a>Limitazioni
 
-Per abilitare la funzionalità di anteprima del modulo in PowerShell, è necessaria almeno la versione 1.6.0 del modulo PowerShellGet. Le versioni più recenti di PowerShell core sono state integrate automaticamente, ma per le versioni precedenti di PowerShell è possibile eseguire il comando seguente per eseguire l'aggiornamento alla versione più recente:
+- I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
+- Sono supportate le serie di macchine virtuali seguenti: DSv3 e ESv3. 
 
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Gli host dedicati di Azure sono attualmente disponibili in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitazioni di anteprima note**
-> - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-> - La versione iniziale di anteprima supporta la serie di VM seguente: DSv3 e ESv3. 
-
-
-
-## <a name="create-a-host-group"></a>Creazione di un gruppo host
+## <a name="create-a-host-group"></a>Creare un gruppo host
 
 Un **gruppo host** è una risorsa che rappresenta una raccolta di host dedicati. È possibile creare un gruppo host in un'area e una zona di disponibilità e aggiungervi host. Quando si pianifica la disponibilità elevata, sono disponibili opzioni aggiuntive. Con gli host dedicati è possibile usare una o entrambe le opzioni seguenti: 
 - Span tra più zone di disponibilità. In questo caso, è necessario disporre di un gruppo host in ognuna delle zone che si desidera utilizzare.
@@ -90,7 +74,7 @@ $dHost = New-AzHost `
    -PlatformFaultDomain 1
 ```
 
-## <a name="create-a-vm"></a>Creare una macchina virtuale
+## <a name="create-a-vm"></a>Creare una VM
 
 Creare una macchina virtuale nell'host dedicato. 
 

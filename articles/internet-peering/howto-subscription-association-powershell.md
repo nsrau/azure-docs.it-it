@@ -1,0 +1,95 @@
+---
+title: Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
+titleSuffix: Azure
+description: Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
+services: internet-peering
+author: prmitiki
+ms.service: internet-peering
+ms.topic: article
+ms.date: 11/27/2019
+ms.author: prmitiki
+ms.openlocfilehash: e7239fdedafedc96a382de6c3c2f90b5da4df00c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75774250"
+---
+# <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
+
+Prima di inviare una richiesta di peering, è necessario associare l'ASN alla sottoscrizione di Azure seguendo questa procedura.
+
+Se si preferisce, è possibile completare questa guida usando il [portale](howto-subscription-association-portal.md).
+
+### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
+[!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
+
+## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Creare Peerasn sugli per associare l'ASN alla sottoscrizione di Azure
+
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Accedere al proprio account Azure e selezionare la sottoscrizione
+[!INCLUDE [Account](./includes/account-powershell.md)]
+
+### <a name="update-the-peer-information-associated-with-this-subscription"></a>Aggiornare le informazioni del peer associate a questa sottoscrizione
+
+```powershell
+New-AzPeerAsn `
+    -Name "Contoso_1234" `
+    -PeerName "Contoso" `
+    -PeerAsn 1234 `
+    -Email noc@contoso.com, support@contoso.com `
+    -Phone "+1 (555) 555-5555"
+```
+
+> [!NOTE]
+> -Name corrisponde al nome della risorsa e può essere qualsiasi elemento selezionato. Tuttavia,-peerName corrisponde al nome della società e deve essere il più vicino possibile al profilo PeeringDB. Si noti che il valore per-peerName supporta solo i caratteri a-z, A-Z e lo spazio.
+
+Una sottoscrizione può avere più ASN. Aggiornare le informazioni di peering per ogni ASN. Verificare che "Name" sia univoco per ogni ASN.
+
+I peer dovrebbero avere un profilo completo e aggiornato in [PeeringDB](https://www.peeringdb.com). Queste informazioni vengono utilizzate durante la registrazione per convalidare i dettagli del peer, ad esempio le informazioni relative ai NOC, le informazioni di contatto tecnico e la loro presenza presso le strutture di peering e così via.
+
+Si noti che al posto di **{SubscriptionId}** nell'output precedente verrà visualizzato l'ID sottoscrizione effettivo.
+
+## <a name="view-status-of-a-peerasn"></a>Visualizzare lo stato di un Peerasn sugli
+
+Verificare lo stato di convalida ASN usando il comando seguente:
+
+```powershell
+Get-AzPeerAsn
+```
+
+Di seguito è riportato un esempio di risposta:
+```powershell
+PeerContactInfo : Microsoft.Azure.PowerShell.Cmdlets.Peering.Models.PSContactInfo
+PeerName        : Contoso
+ValidationState : Approved
+PeerAsnProperty : 1234
+Name            : Contoso_1234
+Id              : /subscriptions/{subscriptionId}/providers/Microsoft.Peering/peerAsns/Contoso_1234
+Type            : Microsoft.Peering/peerAsns
+```
+
+> [!IMPORTANT]
+> Attendere che il ValidationState "Approved" prima di inviare una richiesta di peering. L'approvazione può richiedere fino a 12 ore.
+
+## <a name="modify-peerasn"></a>Modificare Peerasn sugli
+È possibile modificare le informazioni di contatto del NOC in qualsiasi momento.
+
+Di seguito è riportato un esempio:
+
+```powershell
+Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
+```
+
+## <a name="delete-peerasn"></a>Elimina Peerasn sugli
+L'eliminazione di un Peerasn sugli non è attualmente supportata. Se è necessario eliminare Peerasn sugli, contattare il [peering Microsoft](mailto:peering@microsoft.com).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Creare o modificare un peering diretto](howto-direct-powershell.md)
+* [Convertire un peering diretto legacy in una risorsa di Azure](howto-legacy-direct-powershell.md)
+* [Creare o modificare il peering di Exchange](howto-exchange-powershell.md)
+* [Convertire un peering di Exchange legacy in una risorsa di Azure](howto-legacy-exchange-powershell.md)
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+Per altre informazioni, vedere [domande frequenti sul peering Internet](faqs.md)

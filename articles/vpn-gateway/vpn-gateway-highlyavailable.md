@@ -1,26 +1,18 @@
 ---
-title: Panoramica della configurazioni a disponibilità elevata con gateway VPN di Azure | Documentazione Microsoft
+title: 'Gateway VPN di Azure: Panoramica-configurazioni del gateway a disponibilità elevata'
 description: Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata con gateway VPN di Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760328"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779621"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata
 Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata per la connettività cross-premise e da rete virtuale a rete virtuale con gateway VPN di Azure.
@@ -79,7 +71,7 @@ Questa topologia richiederà due gateway di rete locali e due connessioni per su
 ## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>Connettività da rete virtuale a rete virtuale a disponibilità elevata tramite gateway VPN di Azure
 La stessa configurazione di tipo attivo-attivo può essere applicata anche alle connessioni da rete virtuale a rete virtuale di Azure. È possibile creare gateway VPN di tipo attivo-attivo per entrambe le reti virtuali e connetterle tra loro in modo da ottenere la stessa connettività a maglia completa di 4 tunnel tra le due reti virtuali, come illustrato nel diagramma di seguito:
 
-![Da rete virtuale a rete virtuale](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![Tra reti virtuali](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
 Ciò assicura che tra le due reti virtuali sia sempre presente una coppia di tunnel per qualsiasi evento di manutenzione pianificata, garantendo una disponibilità ancora maggiore. Anche se la stessa topologia per la connettività cross-premise richiede due connessioni, per la topologia da rete virtuale a rete virtuale illustrata sopra sarà necessaria una sola connessione per ogni gateway. BGP è inoltre facoltativo, a meno che non sia necessario il routing di transito sulla connessione da rete virtuale a rete virtuale.
 

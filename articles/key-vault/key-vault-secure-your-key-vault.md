@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5152859bec944c761d4608d1e039d56423d57bcd
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301054"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832749"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -34,8 +34,8 @@ Entrambi i piani usano Azure Active Directory (Azure AD) per l'autenticazione. P
 
 Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Tutti i chiamanti in entrambi i piani devono essere registrati in questo tenant ed eseguire l'autenticazione per accedere all'insieme di credenziali delle chiavi. In entrambi i casi, le applicazioni possono accedere a un insieme di credenziali delle chiavi in due modi:
 
-- **Accesso utente più applicazione**: l'applicazione accede all'insieme di credenziali delle chiavi per conto di un utente connesso. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. L'accesso utente viene concesso in due modi. Gli utenti possono accedere all'insieme di credenziali delle chiavi da un'applicazione oppure devono usare un'applicazione specifica (definita _identità composta_).
-- **Accesso solo dell'applicazione**: l'applicazione viene eseguita come servizio daemon o processo in background. All'identità di applicazione viene concesso l'accesso all'insieme di credenziali delle chiavi.
+- **Utente e accesso all'applicazione**: l'applicazione accede Key Vault per conto di un utente connesso. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. L'accesso utente viene concesso in due modi. Gli utenti possono accedere all'insieme di credenziali delle chiavi da un'applicazione oppure devono usare un'applicazione specifica (definita _identità composta_).
+- **Accesso solo all'applicazione**: l'applicazione viene eseguita come servizio daemon o processo in background. All'identità di applicazione viene concesso l'accesso all'insieme di credenziali delle chiavi.
 
 Per entrambi i tipi di accesso, l'applicazione esegue l'autenticazione con Azure AD. L'applicazione usa qualsiasi [metodo di autenticazione supportato](../active-directory/develop/authentication-scenarios.md) in base al tipo di applicazione. L'applicazione acquisisce un token per una risorsa del piano per la concessione dell'accesso. La risorsa è un endpoint nel piano dati o di gestione, in base all'ambiente di Azure. L'applicazione usa il token e invia una richiesta API REST all'insieme di credenziali delle chiavi. Per altre informazioni, vedere l'[intero flusso di autenticazione](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -62,11 +62,11 @@ Nel piano di gestione si usa il controllo degli accessi in base al ruolo per aut
 
 Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un livello di ambito specifico assegnando i ruoli Controllo degli accessi in base al ruolo appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. A un ruolo Controllo degli accessi in base al ruolo è possibile assegnare i livelli di ambiti seguenti:
 
-- **Sottoscrizione** Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e a tutte le risorse in tale sottoscrizione.
-- **Gruppo di risorse**: Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di gruppo di risorse si applica a tutte le risorse di tale gruppo.
-- **Risorsa specifica**: Un ruolo Controllo degli accessi in base al ruolo assegnato per una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
+- **Sottoscrizione**: un ruolo RBAC assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e alle risorse all'interno della sottoscrizione.
+- **Gruppo di risorse**: un ruolo RBAC assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
+- **Risorsa specifica**: un ruolo controllo degli accessi in base al ruolo assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
 
-Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md).
+Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per ulteriori informazioni, vedere [RBAC: ruoli predefiniti](../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Se un utente ha le autorizzazioni `Contributor` per un piano di gestione di un insieme di credenziali delle chiavi, l'utente può concedere a se stesso l'accesso al piano dati impostando criteri di accesso dell'insieme di credenziali delle chiavi. È necessario controllare attentamente chi ha accesso al ruolo `Contributor` per gli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti autorizzati possano accedere e gestire gli insiemi di credenziali delle chiavi, le chiavi, i segreti e i certificati.
@@ -89,18 +89,18 @@ L'accesso al piano dati viene concesso impostando i criteri di accesso di Key Va
 
 ## <a name="example"></a>Esempio
 
-In questo esempio si sviluppa un'applicazione che usa un certificato per SSL, il servizio Archiviazione di Azure per archiviare i dati e una chiave RSA a 2.048 bit per le operazioni di firma. L'applicazione viene eseguita in una macchina virtuale di Azure (o un set di scalabilità di macchine virtuali). È possibile usare un insieme di credenziali delle chiavi per archiviare i segreti dell'applicazione. È possibile archiviare il certificato bootstrap usato dall'applicazione per l'autenticazione con Azure AD.
+In questo esempio si sta sviluppando un'applicazione che usa un certificato per TLS/SSL, archiviazione di Azure per archiviare i dati e una chiave RSA a 2.048 bit per le operazioni di firma. L'applicazione viene eseguita in una macchina virtuale di Azure (o un set di scalabilità di macchine virtuali). È possibile usare un insieme di credenziali delle chiavi per archiviare i segreti dell'applicazione. È possibile archiviare il certificato bootstrap usato dall'applicazione per l'autenticazione con Azure AD.
 
 È necessario l'accesso alle chiavi e ai segreti seguenti:
-- **Certificato SSL**: usato per SSL.
+- **Certificato TLS/SSL**: usato per TLS/SSL.
 - **Chiave di archiviazione**: usata per accedere all'account di archiviazione.
 - **Chiave RSA a 2.048 bit**: usata per le operazioni di firma.
-- **Certificato bootstrap**: per eseguire l'autenticazione con Azure AD. Una volta concesso l'accesso, è possibile recuperare la chiave di archiviazione e usare la chiave RSA per la firma.
+- **Certificato bootstrap**: usato per l'autenticazione con Azure ad. Una volta concesso l'accesso, è possibile recuperare la chiave di archiviazione e usare la chiave RSA per la firma.
 
 È necessario definire i ruoli seguenti per specificare chi può gestire, distribuire e controllare l'applicazione:
-- **Team responsabile della sicurezza**: personale IT che lavora nell'ufficio del responsabile della sicurezza o collaboratori analoghi. Il team responsabile della sicurezza si occupa della salvaguardia di segreti. I segreti possono includere certificati SSL, chiavi RSA usate per la firma, stringhe di connessione e chiavi degli account di archiviazione.
-- **Sviluppatori e operatori**: il personale che sviluppa l'applicazione e la distribuisce in Azure. I membri di questo team non fanno parte del personale responsabile della sicurezza. Non devono avere accesso ai dati sensibili, come i certificati SSL e le chiavi RSA. Solo l'applicazione da loro distribuita deve avere accesso ai dati sensibili.
-- **Revisori**: questo ruolo è per i collaboratori che non sono membri del personale IT generico o di sviluppo. Queste persone verificano l'uso e la gestione di certificati, chiavi e segreti per garantire la conformità agli standard di sicurezza. 
+- **Team di sicurezza**: il personale IT di Office of the CSO (Chief Security Officer) o collaboratori simili. Il team responsabile della sicurezza si occupa della salvaguardia di segreti. I segreti possono includere certificati TLS/SSL, chiavi RSA per la firma, stringhe di connessione e chiavi dell'account di archiviazione.
+- **Sviluppatori e operatori**: il personale che sviluppa l'applicazione e la distribuisce in Azure. I membri di questo team non fanno parte del personale responsabile della sicurezza. Non dovrebbero avere accesso a dati sensibili come i certificati TLS/SSL e le chiavi RSA. Solo l'applicazione da loro distribuita deve avere accesso ai dati sensibili.
+- **Revisori**: questo ruolo è per i collaboratori che non sono membri dello sviluppo o del personale IT generale. Queste persone verificano l'uso e la gestione di certificati, chiavi e segreti per garantire la conformità agli standard di sicurezza. 
 
 C'è un altro ruolo che non rientra nell'ambito dell'applicazione: l'amministratore della sottoscrizione (o del gruppo di risorse). L'amministratore della sottoscrizione configura le autorizzazioni di accesso iniziali per il team responsabile della sicurezza. L'accesso al team responsabile della sicurezza viene concesso tramite un gruppo di risorse che contiene le risorse necessarie per l'applicazione.
 
@@ -115,7 +115,7 @@ C'è un altro ruolo che non rientra nell'ambito dell'applicazione: l'amministrat
 - Aggiornare periodicamente chiavi e segreti.
 
 **Sviluppatori e operatori**
-- Ottenere riferimenti per i certificati bootstrap e SSL (identificazioni personali), la chiave di archiviazione (URI del segreto) e la chiave RSA (URI della chiave) per la firma dal team responsabile della sicurezza.
+- Ottenere i riferimenti dal team di sicurezza per i certificati bootstrap e TLS/SSL (identificazioni personali), la chiave di archiviazione (URI del segreto) e la chiave RSA (URI chiave) per la firma.
 - Sviluppare e distribuire l'applicazione per l'accesso a chiavi e segreti a livello di codice.
 
 **Revisori**
@@ -123,12 +123,12 @@ C'è un altro ruolo che non rientra nell'ambito dell'applicazione: l'amministrat
 
 Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli e l'applicazione. 
 
-| Role | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati |
+| Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati |
 | --- | --- | --- |
 | Team responsabile della sicurezza | Collaboratore di Key Vault | Chiavi: backup, create, delete, get, import, list, restore<br>Segreti: tutte le operazioni |
-| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | Nessuna |
-| Revisori | Nessuna | Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. |
-| Applicazione | Nessuna | Chiavi: sign<br>Segreti: get |
+| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | Nessuno |
+| Revisori | Nessuno | Chiavi: list<br>Segreti: list<br><br> **Nota**: questa autorizzazione consente ai revisori di controllare gli attributi (tag, date di attivazione, date di scadenza) per le chiavi e i segreti non emessi nei log. |
+| Richiesta | Nessuno | Chiavi: sign<br>Segreti: get |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità App Web di Servizio app di Azure), sviluppatori e operatori necessitano dell'accesso `Contributor` a tali tipi di risorse. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.
 
@@ -139,7 +139,7 @@ Per altre informazioni su come distribuire certificati, chiavi di accesso e segr
 È possibile concedere la maggior parte delle autorizzazioni di accesso tramite il portale di Azure. Per concedere autorizzazioni granulari, è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 I frammenti di codice di PowerShell in questa sezione sono creati basandosi sui presupposti seguenti:
-- L'amministratore di Azure AD ha creato i gruppi di sicurezza per rappresentare i tre ruoli: Contoso Security Team, Contoso App DevOps e Contoso App Auditors. L'amministratore ha aggiunto gli utenti ai rispettivi gruppi.
+- L'amministratore Azure AD ha creato gruppi di sicurezza per rappresentare i tre ruoli: team di sicurezza di Contoso, Contoso App DevOps e Contoso App Auditors. L'amministratore ha aggiunto gli utenti ai rispettivi gruppi.
 - Tutte le risorse si trovano nel gruppo di risorse **ContosoAppRG**.
 - I log dell'insieme di credenziali delle chiavi sono archiviati nell'account di archiviazione **contosologstorage**. 
 - L'insieme di credenziali delle chiavi **ContosoKeyVault** e l'account di archiviazione **contosologstorage** si trovano nello stesso percorso di Azure.
@@ -183,7 +183,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 
 I ruoli personalizzati definiti possono essere assegnati solo alla sottoscrizione in cui viene creato il gruppo di risorse **ContosoAppRG**. Per usare un ruolo personalizzato per altri progetti in altre sottoscrizioni, aggiungere altre sottoscrizioni all'ambito per il ruolo.
 
-Per il personale DevOps, l'assegnazione del ruolo personalizzato per l'autorizzazione `deploy/action` per l'insieme di credenziali delle chiavi ha come ambito il gruppo di risorse. Solo le macchine virtuali create nel gruppo di risorse **ContosoAppRG** possono accedere ai segreti (certificati SSL e bootstrap). Le macchine virtuali create in altri gruppi di risorse da un membro del team DevOps non possono accedere a questi segreti, anche se dispongono dei relativi URI.
+Per il personale DevOps, l'assegnazione del ruolo personalizzato per l'autorizzazione `deploy/action` per l'insieme di credenziali delle chiavi ha come ambito il gruppo di risorse. Solo le macchine virtuali create nel gruppo di risorse **ContosoAppRG** possono accedere ai segreti (TLS/SSL e certificati bootstrap). Le macchine virtuali create in altri gruppi di risorse da un membro del team DevOps non possono accedere a questi segreti, anche se dispongono dei relativi URI.
 
 Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere più complessi. È possibile modificare le autorizzazioni per l'insieme di credenziali delle chiavi in base alle esigenze. In questo esempio si presuppone che il team responsabile della sicurezza fornisca i riferimenti a chiavi e segreti (URI e identificazioni personali) usati dal personale DevOps nelle applicazioni. Sviluppatori e operatori non necessitano di alcun accesso al piano dati. In questo articolo è stato analizzato in particolare come proteggere l'insieme di credenziali delle chiavi. Tenere presenti considerazioni simili per la protezione di [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/security/), [account di archiviazione](../storage/common/storage-security-guide.md) e altre risorse di Azure.
 

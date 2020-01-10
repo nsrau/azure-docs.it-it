@@ -1,38 +1,36 @@
 ---
-title: Indicizzazione incrementale (anteprima)
+title: Arricchimento incrementale (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Configurare la pipeline di arricchimento intelligenza artificiale per guidare i dati alla coerenza finale per gestire gli aggiornamenti per competenze, skillsets, indicizzatori o origini dati. Questa funzionalità è attualmente disponibile in anteprima pubblica
+description: Memorizzare nella cache il contenuto intermedio e le modifiche incrementali dalla pipeline di arricchimento di intelligenza artificiale in archiviazione di Azure per mantenere gli investimenti nei documenti elaborati esistenti. Questa funzionalità è attualmente in anteprima pubblica.
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/09/2020
+ms.openlocfilehash: a5b12a426e52c3b80c58a30b320b2f746bbe990d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790941"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832189"
 ---
-# <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Che cos'è l'indicizzazione incrementale in Azure ricerca cognitiva?
+# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduzione all'arricchimento e alla memorizzazione nella cache incrementali in Azure ricerca cognitiva
 
 > [!IMPORTANT] 
-> L'indicizzazione incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
+> L'arricchimento incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Al momento non è disponibile alcun supporto per il portale o .NET SDK.
 
-L'indicizzazione incrementale è una nuova funzionalità di Azure ricerca cognitiva che aggiunge la memorizzazione nella cache e lo stato al contenuto arricchito in un cognitivo, garantendo il controllo dell'elaborazione e della rielaborazione dei singoli passaggi in una pipeline di arricchimento. Non solo consente di mantenere l'investimento monetario nell'elaborazione, ma anche un sistema più efficiente. Quando le strutture e il contenuto vengono memorizzati nella cache, un indicizzatore può determinare quali competenze sono state modificate ed eseguire solo quelle che sono state modificate, oltre a eventuali competenze dipendenti a valle. 
-
-Con l'indicizzazione incrementale, la versione corrente della pipeline di arricchimento fa il minimo del lavoro necessario per garantire la coerenza di tutti i documenti nell'indice. Per gli scenari in cui si desidera il controllo completo, è possibile utilizzare controlli con granularità fine per eseguire l'override dei comportamenti previsti. Per ulteriori informazioni sulla configurazione, vedere [configurare l'indicizzazione incrementale](search-howto-incremental-index.md).
+L'arricchimento incrementale aggiunge la memorizzazione nella cache e informazioni sullo stato a una pipeline di arricchimento, preservando l'investimento nell'output esistente, modificando solo i documenti interessati da particolari modifiche. Non solo questo consente di mantenere l'investimento monetario nell'elaborazione (in particolare, l'OCR e l'elaborazione di immagini), ma anche un sistema più efficiente. Quando le strutture e il contenuto vengono memorizzati nella cache, un indicizzatore può determinare quali competenze sono state modificate ed eseguire solo quelle che sono state modificate, oltre a eventuali competenze dipendenti a valle. 
 
 ## <a name="indexer-cache"></a>Cache dell'indicizzatore
 
-L'indicizzazione incrementale aggiunge una cache dell'indicizzatore alla pipeline di arricchimento. L'indicizzatore memorizza nella cache i risultati del cracking dei documenti e gli output di ogni competenza per ogni documento. Quando un set di competenze viene aggiornato, vengono rieseguite solo le competenze modificate, o a valle. I risultati aggiornati vengono scritti nella cache e il documento viene aggiornato nell'indice e nell'archivio conoscenze.
+L'arricchimento incrementale aggiunge una cache alla pipeline di arricchimento. L'indicizzatore memorizza nella cache i risultati di cracking del documento più gli output di ogni competenza per ogni documento. Quando un set di competenze viene aggiornato, vengono rieseguite solo le competenze modificate, o a valle. I risultati aggiornati vengono scritti nella cache e il documento viene aggiornato nell'indice di ricerca o nell'archivio delle informazioni.
 
-Fisicamente, la cache è un account di archiviazione. Tutti gli indici in un servizio di ricerca possono condividere lo stesso account di archiviazione per la cache dell'indicizzatore. A ogni indicizzatore viene assegnato un identificatore di cache univoco e non modificabile.
+Fisicamente, la cache è archiviata in un contenitore BLOB nell'account di archiviazione di Azure. Tutti gli indici in un servizio di ricerca possono condividere lo stesso account di archiviazione per la cache dell'indicizzatore. A ogni indicizzatore viene assegnato un identificatore univoco e non modificabile della cache al contenitore utilizzato.
 
-### <a name="cache-configuration"></a>Configurazione della cache
+## <a name="cache-configuration"></a>Configurazione della cache
 
-È necessario impostare la proprietà `cache` nell'indicizzatore per iniziare a trarre vantaggio dall'indicizzazione incrementale. Nell'esempio seguente viene illustrato un indicizzatore con la memorizzazione nella cache abilitata. Nelle sezioni seguenti vengono descritte alcune parti specifiche di questa configurazione.
+È necessario impostare la proprietà `cache` nell'indicizzatore per iniziare a trarre vantaggio dall'arricchimento incrementale. Nell'esempio seguente viene illustrato un indicizzatore con la memorizzazione nella cache abilitata. Nelle sezioni seguenti vengono descritte alcune parti specifiche di questa configurazione. Per ulteriori informazioni, vedere la pagina relativa alla [configurazione dell'arricchimento incrementale](search-howto-incremental-index.md).
 
 ```json
 {
@@ -42,50 +40,70 @@ Fisicamente, la cache è un account di archiviazione. Tutti gli indici in un ser
     "skillsetName": "mySkillset",
     "cache" : {
         "storageConnectionString" : "Your storage account connection string",
-        "enableReprocessing": true,
-        "id" : "Auto generated Id you do not need to set"
+        "enableReprocessing": true
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {}
+    "parameters": []
 }
 ```
 
-Se si imposta questa proprietà per la prima volta in un indicizzatore esistente, sarà necessario reimpostarla, che comporterà l'elaborazione di tutti i documenti nell'origine dati. L'obiettivo dell'indicizzazione incrementale consiste nel rendere i documenti nell'indice coerenti con l'origine dati e la versione corrente del set di competenze. La reimpostazione dell'indice è il primo passo per ottenere questa coerenza, poiché elimina gli eventuali documenti arricchiti dalle versioni precedenti del set di competenze. L'indicizzatore deve essere reimpostato per poter iniziare con una baseline coerente.
+Se si imposta questa proprietà su un indicizzatore esistente, sarà necessario reimpostare e rieseguire l'indicizzatore, che comporterà l'elaborazione di tutti i documenti nell'origine dati. Questo passaggio è necessario per eliminare tutti i documenti arricchiti dalle versioni precedenti del livello di competenze. 
 
-### <a name="cache-lifecycle"></a>Ciclo di vita della cache
+## <a name="cache-management"></a>Gestione della cache
 
-Il ciclo di vita della cache è gestito dall'indicizzatore. Se la proprietà `cache` nell'indicizzatore è impostata su null o la stringa di connessione è stata modificata, la cache esistente verrà eliminata. Il ciclo di vita della cache è anche legato al ciclo di vita dell'indicizzatore. Se viene eliminato un indicizzatore, viene eliminata anche la cache associata.
+Il ciclo di vita della cache è gestito dall'indicizzatore. Se la proprietà `cache` nell'indicizzatore è impostata su null o la stringa di connessione viene modificata, la cache esistente viene eliminata alla successiva esecuzione dell'indicizzatore. Il ciclo di vita della cache è anche legato al ciclo di vita dell'indicizzatore. Se viene eliminato un indicizzatore, viene eliminata anche la cache associata.
 
-### <a name="indexer-cache-mode"></a>Modalità della cache dell'indicizzatore
+Mentre l'arricchimento incrementale è progettato per rilevare e rispondere alle modifiche senza alcun intervento da parte dell'utente, è possibile utilizzare parametri per eseguire l'override dei comportamenti predefiniti:
 
-La cache dell'indicizzatore può funzionare in modalità in cui i dati vengono solo scritti nella cache oppure vengono scritti nella cache e usati per riarricchire i documenti.  È possibile sospendere temporaneamente l'arricchimento incrementale impostando la proprietà `enableReprocessing` nella cache su `false` e riprenderlo in seguito per ottenere la coerenza finale impostandola su `true`. Questo controllo è particolarmente utile quando si vuole dare la priorità all'indicizzazione dei nuovi documenti rispetto a garantire la coerenza fra tutti i documenti.
++ Sospendere la memorizzazione nella cache
++ Ignorare i controlli delle competenze
++ Ignora controlli origine dati
++ Valutazione Force Skills
 
-## <a name="change-detection-override"></a>Override del rilevamento delle modifiche
+### <a name="suspend-caching"></a>Sospendere la memorizzazione nella cache
 
-L'indicizzazione incrementale offre un controllo granulare su tutti gli aspetti della pipeline di arricchimento. Questo controllo consente di gestire le situazioni in cui una modifica potrebbe avere conseguenze indesiderate. Se ad esempio si modifica un set di competenze e si aggiorna l'URL di una competenza personalizzata, l'indicizzatore invaliderà i risultati memorizzati nella cache per tale competenza. Se occorre semplicemente trasferire l'endpoint in una macchina virtuale diversa o ridistribuire la competenza con una nuova chiave di accesso, si vorrà certamente evitare che i documenti esistenti vengano rielaborati.
+È possibile sospendere temporaneamente l'arricchimento incrementale impostando la proprietà `enableReprocessing` nella cache su `false` e riprenderlo in seguito per ottenere la coerenza finale impostandola su `true`. Questo controllo è particolarmente utile quando si vuole dare la priorità all'indicizzazione dei nuovi documenti rispetto a garantire la coerenza fra tutti i documenti.
 
-Per assicurarsi che l'indicizzatore possa solo arricchire gli aggiornamenti richiesti in modo esplicito, gli aggiornamenti al set di competenze possono facoltativamente impostare il `disableCacheReprocessingChangeDetection` parametro QueryString su `true`. Se impostato, questo parametro garantisce che venga eseguito il commit solo degli aggiornamenti al set di competenze, senza valutare gli effetti della modifica sulla raccolta di documenti esistente.
+### <a name="bypass-skillset-evaluation"></a>Ignora valutazione competenze
 
-Nell'esempio seguente viene illustrato l'utilizzo di QueryString. Fa parte della richiesta, con coppie chiave-valore separate da &. 
+La modifica di un skillt e la rielaborazione di tali competenze sono in genere di mano. Tuttavia, alcune modifiche apportate a un insieme di competenze non possono causare la rielaborazione, ad esempio la distribuzione di un'abilità personalizzata in un nuovo percorso o con una nuova chiave di accesso. Probabilmente si tratta di modifiche periferiche che non hanno alcun effetto reale sulla sostanza del. 
+
+Se si è certi che una modifica al set di competenze è effettivamente superficiale, è necessario eseguire l'override della valutazione di Skills impostando il parametro `disableCacheReprocessingChangeDetection` su `true`:
+
+1. Chiamare Update Skills e modificare la definizione di Skills.
+1. Aggiungere il parametro `disableCacheReprocessingChangeDetection=true` nella richiesta.
+1. Inviare la modifica.
+
+L'impostazione di questo parametro garantisce che vengano sottoposte a commit solo gli aggiornamenti alla definizione del set di competenze e che la modifica non venga valutata per gli effetti sul Corpus esistente.
+
+Nell'esempio seguente viene illustrata una richiesta Update Skills con il parametro:
 
 ```http
 PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
-## <a name="cache-invalidation"></a>Invalidamento della cache
+### <a name="bypass-data-source-validation-checks"></a>Ignorare i controlli di convalida dell'origine dati
 
-Lo scenario opposto è quello in cui viene distribuita una nuova versione di una competenza personalizzata, all'interno della pipeline di arricchimento non vengono apportate modifiche, ma è necessario che una competenza specifica venga invalidata e tutti i documenti interessati vengano rielaborati in modo da riflettere i vantaggi di un modello aggiornato. Nei casi di questo tipo è possibile chiamare l'operazione di invalidamento delle competenze sul set di competenze. L'API di reimpostazione delle competenze accetta una richiesta POST con l'elenco degli output delle competenze nella cache che deve essere invalidata. Per altre informazioni sull'API Reimposta le competenze, vedere [reimpostare l'indicizzatore (API REST di ricerca)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
+La maggior parte delle modifiche apportate a una definizione dell'origine dati invalida la cache. Tuttavia, per gli scenari in cui si sa che una modifica non deve invalidare la cache, ad esempio la modifica di una stringa di connessione o la rotazione della chiave nell'account di archiviazione, aggiungere il`ignoreResetRequirement` parametro nell'aggiornamento dell'origine dati. L'impostazione di questo parametro su `true` consente l'esecuzione del commit, senza attivare una condizione di reimpostazione che comporterebbe la ricompilazione e il popolamento di tutti gli oggetti da zero.
 
-## <a name="bi-directional-change-detection"></a>Rilevamento delle modifiche bidirezionali
+```http
+PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
+```
 
-Oltre a spostarsi in avanti ed elaborare i nuovi documenti, gli indicizzatori ora sono in grado anche di spostarsi indietro e rielaborare i documenti precedentemente elaborati per ottenere la coerenza. Con questa nuova funzionalità, è importante comprendere come risultano le modifiche apportate ai componenti della pipeline di arricchimento nel lavoro dell'indicizzatore. L'indicizzatore Accoda il lavoro da eseguire quando identifica una modifica invalidante o incoerente rispetto al contenuto memorizzato nella cache.
+### <a name="force-skillset-evaluation"></a>Valutazione Force Skills
 
-### <a name="invalidating-changes"></a>Modifiche invalidanti
+Lo scopo della cache è quello di evitare un'elaborazione non necessaria, ma si supponga di aver apportato una modifica a una competenza o a un esperto che l'indicizzatore non rileva, ad esempio le modifiche apportate ai componenti esterni come un skillt personalizzato. 
 
-Le modifiche invalidanti sono rare ma hanno un effetto significativo sullo stato della pipeline di arricchimento. Una modifica invalidante è una modifica che fa sì che l'intera cache non sia più valida. Un esempio di modifica invalidante è quello in cui l'origine dati viene aggiornata. Per gli scenari in cui si è certi che la modifica non deve invalidare la cache, ad esempio la rotazione della chiave nell'account di archiviazione, è necessario impostare il `ignoreResetRequirement` parametro QueryString su `true` sull'operazione di aggiornamento della risorsa specifica per assicurarsi che l'operazione non venga rifiutata.
+In questo caso, è possibile usare l'API [Reimposta competenze](preview-api-resetskills.md) per forzare la rielaborazione di una determinata competenza, incluse le competenze a valle che hanno una dipendenza dall'output di tale capacità. Questa API accetta una richiesta POST con un elenco di competenze da invalidare e rieseguire. Dopo aver reimpostato le competenze, eseguire l'indicizzatore per eseguire l'operazione.
 
-Ecco l'elenco completo delle modifiche che, se apportate, invaliderebbero la cache:
+## <a name="change-detection"></a>Rilevamento delle modifiche
+
+Una volta abilitata una cache, l'indicizzatore valuta le modifiche nella composizione della pipeline per determinare il contenuto che può essere riutilizzato e che necessita di rielaborazione. Questa sezione enumera le modifiche che invalidano la cache in modo non corretto, seguite da modifiche che attivano l'elaborazione incrementale. 
+
+### <a name="changes-that-invalidate-the-cache"></a>Modifiche che invalidano la cache
+
+Una modifica invalidante è una modifica che fa sì che l'intera cache non sia più valida. Un esempio di modifica invalidante è quello in cui l'origine dati viene aggiornata. Ecco l'elenco completo delle modifiche che, se apportate, invaliderebbero la cache:
 
 * Modifica del tipo di origine dati
 * Modifica del contenitore dell'origine dati
@@ -103,11 +121,9 @@ Ecco l'elenco completo delle modifiche che, se apportate, invaliderebbero la cac
     * Radice documento
     * Azione per immagini (modifiche alla modalità di estrazione delle immagini)
 
-### <a name="inconsistent-changes"></a>Modifiche incoerenti
+### <a name="changes-that-trigger-incremental-processing"></a>Modifiche che attivano l'elaborazione incrementale
 
-Un esempio di modifica incoerente è un aggiornamento del set di competenze che modifica una competenza. La modifica può rendere incoerente una parte della cache. L'indicizzatore identificherà il lavoro per ristabilire la coerenza.  
-
-Ecco l'elenco completo delle modifiche che causano l'incoerenza della cache:
+L'elaborazione incrementale consente di valutare la definizione delle competenze e di determinare le competenze da rieseguire, aggiornando selettivamente le parti interessate dell'albero del documento. Di seguito è riportato l'elenco completo delle modifiche risultante dall'arricchimento incrementale:
 
 * Competenza nel set di competenze di tipo diverso Tipo OData della competenza aggiornato
 * Parametri specifici delle competenze aggiornati, ad esempio l'URL, i valori predefiniti o altri parametri
@@ -118,43 +134,39 @@ Ecco l'elenco completo delle modifiche che causano l'incoerenza della cache:
 * Modifiche alle proiezioni dell'archivio conoscenze, risultanti nella ripetizione della proiezione dei documenti
 * Modifiche ai mapping dei campi di output in un indicizzatore risultanti nella ripetizione della proiezione dei documenti nell'indice
 
-## <a name="rest-api-reference-for-incremental-indexing"></a>Informazioni di riferimento sull'API REST per l'indicizzazione incrementale
+## <a name="api-reference-content-for-incremental-enrichment"></a>Contenuto di riferimento API per l'arricchimento incrementale
 
-REST `api-version=2019-05-06-Preview` fornisce le API per l'indicizzazione incrementale, con aggiunte a indicizzatori, skillsets e origini dati. La documentazione di riferimento attualmente non include queste aggiunte. Nella sezione seguente vengono descritte le modifiche dell'API.
+REST `api-version=2019-05-06-Preview` fornisce le API per l'arricchimento incrementale, con aggiunte a indicizzatori, skillsets e origini dati. La [documentazione di riferimento ufficiale](https://docs.microsoft.com/rest/api/searchservice/) è per le API disponibili a livello generale e non riguarda le funzionalità in anteprima. La sezione seguente fornisce il contenuto di riferimento per le API interessate.
+
+Informazioni sull'utilizzo ed esempi sono disponibili in [configurare la memorizzazione nella cache per l'arricchimento incrementale](search-howto-incremental-index.md).
 
 ### <a name="indexers"></a>Indicizzatori
 
 [Crea indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) e [Aggiorna indicizzatore](https://docs.microsoft.com/rest/api/searchservice/update-indexer) esporrà ora le nuove proprietà relative alla cache:
 
-* `StorageAccountConnectionString`: la stringa di connessione all'account di archiviazione che verrà utilizzata per memorizzare nella cache i risultati intermedi.
++ `StorageAccountConnectionString`: la stringa di connessione all'account di archiviazione che verrà utilizzata per memorizzare nella cache i risultati intermedi.
 
-* `CacheId`: il `cacheId` è l'identificatore del contenitore all'interno dell'account di archiviazione `annotationCache` che verrà usato come cache per questo indicizzatore. Questa cache sarà univoca per questo indicizzatore e, se l'indicizzatore viene eliminato e ricreato con lo stesso nome, `cacheId` verrà rigenerato. `cacheId` non può essere impostato, viene sempre generato dal servizio.
++ `EnableReprocessing`: impostare su `true` per impostazione predefinita, se impostato su `false`, i documenti continueranno a essere scritti nella cache, ma nessun documento esistente verrà rielaborato in base ai dati della cache.
 
-* `EnableReprocessing`: impostare su `true` per impostazione predefinita, se impostato su `false`, i documenti continueranno a essere scritti nella cache, ma nessun documento esistente verrà rielaborato in base ai dati della cache.
-
-Alcuni indicizzatori (tramite [origini dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)) recuperano i dati tramite query. Per le query che recuperano dati, gli indicizzatori supporteranno anche un nuovo parametro della stringa di query: `ignoreResetRequirement` deve essere impostato su `true` quando l'azione di aggiornamento non deve invalidare la cache.
++ `ID` (sola lettura): il `ID` è l'identificatore del contenitore all'interno dell'account di archiviazione `annotationCache` che verrà usato come cache per questo indicizzatore. Questa cache sarà univoca per questo indicizzatore e, se l'indicizzatore viene eliminato e ricreato con lo stesso nome, `ID` verrà rigenerato. `ID` non può essere impostato, viene sempre generato dal servizio.
 
 ### <a name="skillsets"></a>Set di competenze
 
-Skillsets non supporterà alcuna nuova operazione, ma supporterà un nuovo parametro stringa di query : `disableCacheReprocessingChangeDetection` deve essere impostato su `true` quando non si vuole aggiornare i documenti esistenti in base all'azione corrente.
++ Il set di [competenze di aggiornamento](https://docs.microsoft.com/rest/api/searchservice/update-skillset) supporta un nuovo parametro nella richiesta: `disableCacheReprocessingChangeDetection`, che deve essere impostato su `true` quando non si desidera aggiornare i documenti esistenti in base all'azione corrente.
+
++ [Reimpostazione delle competenze](preview-api-resetskills.md) è una nuova operazione utilizzata per invalidare un skillt.
 
 ### <a name="datasources"></a>Datasources
 
-Datasources non supporterà alcuna nuova operazione, ma supporterà un nuovo parametro stringa di query: `ignoreResetRequirement` deve essere impostato su `true` quando l'azione di aggiornamento non deve invalidare la cache.
-
-## <a name="best-practices"></a>Procedure consigliate
-
-L'approccio consigliato per l'utilizzo dell'indicizzazione incrementale consiste nel configurarla impostando la proprietà cache in un nuovo indicizzatore o reimpostando un indicizzatore esistente e impostando la proprietà cache.
++ Alcuni indicizzatori recuperano i dati tramite query. Per le query che recuperano dati, l' [aggiornamento dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/update-datasource) supporta un nuovo parametro in una richiesta `ignoreResetRequirement`, che deve essere impostata su `true` quando l'azione di aggiornamento non deve invalidare la cache.
 
 Usare il `ignoreResetRequirement` sporadicamente perché potrebbe causare incoerenza indesiderata nei dati che non verranno rilevati facilmente.
 
-## <a name="takeaways"></a>Risultati
-
-L'indicizzazione incrementale è una potente funzionalità che estende il rilevamento delle modifiche dall'origine dati a tutti gli aspetti della pipeline di arricchimento, tra cui l'origine dati, la versione corrente del proprio insieme di competenze e l'indicizzatore. Con l'evolversi delle competenze, dei set di competenze o degli arricchimenti, la pipeline di arricchimento garantisce che venga svolto il minor lavoro possibile, pur continuando a elaborare i documenti fino alla coerenza finale.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per acquisire familiarità con l'indicizzazione incrementale, aggiungere una cache a un indicizzatore esistente o aggiungere la cache durante la definizione di un nuovo indicizzatore.
+L'arricchimento incrementale è una funzionalità potente che estende il rilevamento delle modifiche per l'arricchimento di skillsets e intelligenza artificiale. Con l'evolversi di skillsets, l'arricchimento incrementale garantisce il minor lavoro possibile, pur continuando a garantire la coerenza finale dei documenti.
+
+Per iniziare, aggiungere una cache a un indicizzatore esistente o aggiungere la cache quando si definisce un nuovo indicizzatore.
 
 > [!div class="nextstepaction"]
-> [Configurare l'indicizzazione incrementale](search-howto-incremental-index.md)
+> [Configurare la memorizzazione nella cache per l'arricchimento incrementale](search-howto-incremental-index.md)

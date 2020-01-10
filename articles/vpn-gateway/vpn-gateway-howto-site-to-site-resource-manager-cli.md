@@ -1,25 +1,26 @@
 ---
-title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito: Interfaccia della riga di comando | Microsoft Docs'
+title: 'Connettere reti locali a una rete virtuale: VPN da sito a sito: interfaccia della riga di comando'
 description: Passaggi per creare una connessione IPsec dalla rete locale a una rete virtuale di Azure tramite Internet pubblico. Questa procedura consentirà di creare una connessione gateway VPN da sito a sito cross-premise usando l'interfaccia della riga di comando.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d28a5a37be2947ea6cc7019d2b3cc73932c60d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161508"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779094"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creare una rete virtuale con una connessione VPN da sito a sito usando l'interfaccia della riga di comando
 
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare una connessione gateway VPN da sito a sito dalla rete locale alla rete virtuale. I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:<br>
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -67,13 +68,13 @@ GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Eseguire la connessione alla sottoscrizione
+## <a name="Login"></a>1. connettersi alla sottoscrizione
 
 Se si sceglie di eseguire l'interfaccia della riga di comando in locale, connettersi alla propria sottoscrizione. Se si usa Azure Cloud Shell nel browser, non è necessario connettersi alla sottoscrizione. Si verrà connessi automaticamente in Azure Cloud Shell. Dopo la connessione è tuttavia opportuno verificare che si stia usando la sottoscrizione corretta.
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="rg"></a>2. Creare un gruppo di risorse
+## <a name="rg"></a>2. creare un gruppo di risorse
 
 L'esempio seguente crea un gruppo di risorse denominato "TestRG1" nella località "eastus". Se è già disponibile un gruppo di risorse nell'area in cui si vuole creare la rete virtuale, è possibile usarlo.
 
@@ -81,7 +82,7 @@ L'esempio seguente crea un gruppo di risorse denominato "TestRG1" nella localit�
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="VNet"></a>3. Crea rete virtuale
+## <a name="VNet"></a>3. creare una rete virtuale
 
 Se non si ha già una rete virtuale, crearne una usando il comando [az network vnet create](/cli/azure/network/vnet). Quando si crea una rete virtuale, verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale.
 
@@ -96,7 +97,7 @@ L'esempio seguente crea una rete virtuale denominata "TestVNet1" e una subnet "S
 az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
-## 4. <a name="gwsub"></a>Creare la subnet del gateway
+## 4. <a name="gwsub"> </a>creare la subnet del gateway
 
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
@@ -109,7 +110,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="localnet"></a>5. Creare il gateway di rete locale
+## <a name="localnet"></a>5. creare il gateway di rete locale
 
 Il gateway di rete locale in genere fa riferimento al percorso locale. Assegnare al sito un nome che Azure possa usare come riferimento, quindi specificare l'indirizzo IP del dispositivo VPN locale con cui si creerà una connessione. Specificare anche i prefissi degli indirizzi IP che verranno instradati tramite il gateway VPN al dispositivo VPN. I prefissi degli indirizzi specificati sono quelli disponibili nella rete locale. Se la rete locale viene modificata, è possibile aggiornare facilmente i prefissi.
 
@@ -124,7 +125,7 @@ Usare il comando [az network local-gateway create](/cli/azure/network/local-gate
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6. Richiedere un indirizzo IP pubblico
+## <a name="PublicIP"></a>6. richiedere un indirizzo IP pubblico
 
 Un gateway VPN deve avere un indirizzo IP pubblico. È necessario richiedere prima di tutto la risorsa dell'indirizzo IP e quindi farvi riferimento durante la creazione del gateway di rete virtuale. L'indirizzo IP viene assegnato dinamicamente alla risorsa durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Non è possibile richiedere un'assegnazione degli indirizzi IP pubblici statici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
@@ -134,7 +135,7 @@ Usare il comando [az network public-ip create](/cli/azure/network/public-ip) per
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
-## <a name="CreateGateway"></a>7. Creare il gateway VPN
+## <a name="CreateGateway"></a>7. creare il gateway VPN
 
 Creare il gateway VPN di rete virtuale. Per completare la creazione di un gateway VPN, possono essere necessari fino a 45 minuti o più.
 
@@ -150,7 +151,7 @@ Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/az
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
-## <a name="VPNDevice"></a>8. Configurare il dispositivo VPN
+## <a name="VPNDevice"></a>8. configurare il dispositivo VPN
 
 Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VPN. In questo passaggio viene configurato il dispositivo VPN. Durante la configurazione del dispositivo VPN, è necessario quanto segue:
 
@@ -165,7 +166,7 @@ Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VP
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>9. Creare la connessione VPN
+## <a name="CreateConnection"></a>9. creare la connessione VPN
 
 Creare la connessione VPN da sito a sito tra il gateway di rete virtuale e il dispositivo VPN locale. Prestare particolare attenzione al valore della chiave condivisa, che deve corrispondere al valore della chiave condivisa configurato per il dispositivo VPN.
 
@@ -177,7 +178,7 @@ az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --
 
 La connessione verrà stabilita in breve tempo.
 
-## <a name="toverify"></a>10. Verificare la connessione VPN
+## <a name="toverify"></a>10. verificare la connessione VPN
 
 [!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 

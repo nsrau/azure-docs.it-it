@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 0c2441aaf0cffd357f917a8c600f7399b339bfb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: b59600ffa6a83d00a83d642ab337df2e71cbee06
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689080"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777904"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -167,7 +167,7 @@ Selezionare **Salva** dopo aver completato questi campi.
 
 ### <a name="category"></a>Categoria
 
-Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Nella descrizione dell'offerta, richiamare il modo in cui l'offerta supporta queste categorie.
+Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Per scoprire come l'offerta supporta queste categorie nella descrizione dell'offerta. 
 
 ### <a name="industry"></a>Settore
 

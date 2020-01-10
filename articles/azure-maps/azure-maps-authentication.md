@@ -1,20 +1,20 @@
 ---
 title: Autenticazione con Mappe di Azure | Microsoft Docs
-description: Autenticazione per l'uso dei servizi di Mappe di Azure.
+description: Azure Active Directory (Azure AD) o l'autenticazione con chiave condivisa per l'utilizzo di Microsoft Azure Maps Services. Informazioni su come ottenere la chiave di sottoscrizione di Azure maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575647"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834190"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
@@ -22,12 +22,14 @@ Azure Maps supporta due modi per autenticare le richieste: chiave condivisa e Az
 
 ## <a name="shared-key-authentication"></a>Autenticazione con chiave condivisa
 
-L'autenticazione con chiave condivisa passa le chiavi generate dall'account Mappe di Azure con ogni richiesta a Mappe di Azure.  Vengono generate due chiavi quando viene creato l'account Azure maps. Per ogni richiesta ai servizi di Mappe di Azure occorre aggiungere la chiave di sottoscrizione come parametro all'URL.
+L'autenticazione con chiave condivisa passa le chiavi generate da un account Azure Maps a ogni richiesta a Maps di Azure. Per ogni richiesta ai servizi di Azure Maps, la *chiave di sottoscrizione* deve essere aggiunta come parametro all'URL. Le chiavi primarie e secondarie vengono generate dopo la creazione dell'account Azure maps. Si consiglia di usare la chiave primaria come chiave di sottoscrizione quando si chiama Azure Maps usando l'autenticazione con chiave condivisa. La chiave secondaria può essere usata in scenari come le modifiche delle chiavi in sequenza.  
+
+Per informazioni sulla visualizzazione delle chiavi nell'portale di Azure, vedere [Manage Authentication](https://aka.ms/amauthdetails).
 
 > [!Tip]
 > È consigliabile rigenerare le chiavi regolarmente. Vengono fornite due chiavi per mantenere attive le connessioni con una chiave durante la rigenerazione dell'altra. Quando si rigenerano le chiavi è necessario aggiornare tutte le applicazioni che accedono all'account per usare le nuove chiavi.
 
-Per informazioni sulla visualizzazione delle chiavi, vedere [Visualizzare i dettagli di autenticazione](https://aka.ms/amauthdetails).
+
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticazione con Azure Active Directory (anteprima)
 
@@ -46,7 +48,7 @@ Mappe di Azure genera un *identificatore univoco (ID client)* per ogni account M
 | Ambiente Azure   | Endpoint token Azure AD |
 | --------------------|-------------------------|
 | Azure Public        | https://login.microsoftonline.com |
-| Azure Government    | https://login.microsoftonline.us |
+| Azure per enti pubblici    | https://login.microsoftonline.us |
 
 
 Per altre informazioni su come configurare Azure AD e richiedere i token per Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).

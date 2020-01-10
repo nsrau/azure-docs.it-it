@@ -1,34 +1,34 @@
 ---
-title: Crittografia inattiva con chiavi gestite dal cliente (anteprima)
+title: Crittografia inattiva con chiavi gestite dal cliente
 titleSuffix: Azure Cognitive Search
-description: Integrare la crittografia lato server su indici e mappe sinonimi in Azure ricerca cognitiva tramite chiavi create e gestite in Azure Key Vault. Questa funzionalità è attualmente in anteprima pubblica.
+description: Integrare la crittografia lato server su indici e mappe sinonimi in Azure ricerca cognitiva usando chiavi create e gestite in Azure Key Vault.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 01/08/2020
+ms.openlocfilehash: 2663e6c37819acf7cb781779107673b8ee3aec53
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112928"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832237"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia dei dati inattivi in Azure ricerca cognitiva usando chiavi gestite dal cliente in Azure Key Vault
 
-> [!IMPORTANT] 
-> Il supporto per la crittografia inattiva è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità è disponibile nell' [API REST versione 2019-05-06-Preview](search-api-preview.md) e [.net SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md) . Attualmente non è disponibile alcun supporto per il portale.
-
-Per impostazione predefinita, Azure ricerca cognitiva crittografa il contenuto utente inattivo con le [chiavi gestite dal servizio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). È possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando le chiavi create e gestite in Azure Key Vault. Questo articolo illustra i passaggi necessari.
+Per impostazione predefinita, Azure ricerca cognitiva crittografa il contenuto indicizzato inattivo con le [chiavi gestite dal servizio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). È possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando le chiavi create e gestite in Azure Key Vault. Questo articolo illustra i passaggi necessari.
 
 La crittografia lato server è supportata tramite l'integrazione con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con Azure Key Vault è anche possibile controllare l'utilizzo della chiave. 
 
 La crittografia con chiavi gestite dal cliente viene configurata a livello di indice o sinonimo quando tali oggetti vengono creati e non nel livello di servizio di ricerca. Non è possibile crittografare il contenuto già esistente. 
 
-È possibile usare chiavi diverse da insiemi di credenziali delle chiavi diversi. Questo significa che un singolo servizio di ricerca può ospitare più mappe indexes\synonym crittografate, ognuna delle quali è crittografata con una chiave gestita dal cliente diversa, insieme a mappe indexes\synonym che non sono crittografate con chiavi gestite dal cliente. 
+Non è necessario che tutte le chiavi si trovino nella stessa Key Vault. Un singolo servizio di ricerca può ospitare più indici crittografati o mappe di sinonimi ciascuno crittografato con le proprie chiavi di crittografia gestite dal cliente archiviate in insiemi di credenziali delle chiavi diversi.  È anche possibile avere indici e mappe sinonimi nello stesso servizio che non sono crittografati con chiavi gestite dal cliente. 
 
-## <a name="prerequisites"></a>prerequisiti
+> [!IMPORTANT] 
+> Questa funzionalità è disponibile nell' [API REST versione 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) e [.net SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Attualmente non è disponibile alcun supporto per la configurazione delle chiavi di crittografia gestite dal cliente nel portale di Azure.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 In questo esempio vengono usati i servizi seguenti. 
 
@@ -38,11 +38,14 @@ In questo esempio vengono usati i servizi seguenti.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) viene usata per attività di configurazione.
 
-+ Per chiamare l'API REST di anteprima, è possibile usare il [post](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure ricerca cognitiva SDK](https://aka.ms/search-sdk-preview) . Al momento non è disponibile alcun supporto per il portale o .NET SDK per la crittografia gestita dal cliente.
++ [Postazione](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure ricerca cognitiva SDK](https://aka.ms/search-sdk-preview) possono essere usati per chiamare l'API REST. Al momento non è disponibile il supporto del portale per la crittografia gestita dal cliente.
+
+>[!Note]
+> A causa della natura della crittografia con la funzionalità chiavi gestite dal cliente, Azure ricerca cognitiva non sarà in grado di recuperare i dati se la chiave dell'insieme di credenziali delle chiavi di Azure viene eliminata. Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi di Key Vault, è **necessario** abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault prima di poterla utilizzare. Per ulteriori informazioni, vedere [Azure Key Vault soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="1---enable-key-recovery"></a>1-Abilita ripristino chiavi
 
-Questo passaggio è facoltativo ma consigliato. Dopo aver creato la risorsa Azure Key Vault, abilitare l' **eliminazione** temporanea e **ripulire la protezione** nell'insieme di credenziali delle chiavi selezionato eseguendo i comandi di PowerShell o dell'interfaccia della riga di comando di Azure seguenti:   
+Dopo aver creato la risorsa Azure Key Vault, abilitare l' **eliminazione** temporanea e **ripulire la protezione** nell'insieme di credenziali delle chiavi selezionato eseguendo i comandi di PowerShell o dell'interfaccia della riga di comando di Azure seguenti:   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -57,9 +60,6 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```azurecli-interactive
 az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
-
->[!Note]
-> A causa della natura della crittografia con la funzionalità chiavi gestite dal cliente, Azure ricerca cognitiva non sarà in grado di recuperare i dati se la chiave dell'insieme di credenziali delle chiavi di Azure viene eliminata. Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi di Key Vault, è consigliabile abilitare l'eliminazione temporanea e ripulire la protezione nell'insieme di credenziali delle chiavi selezionato. Per ulteriori informazioni, vedere [Azure Key Vault soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="2---create-a-new-key"></a>2-creare una nuova chiave
 
@@ -85,7 +85,7 @@ L'assegnazione di un'identità al servizio di ricerca consente di concedere Key 
 
 Azure ricerca cognitiva supporta due modi per assegnare l'identità, ovvero un'identità gestita o un'applicazione Azure Active Directory gestita esternamente. 
 
-Se possibile, usare un'identità gestita. È il modo più semplice per assegnare un'identità al servizio di ricerca e dovrebbe funzionare nella maggior parte degli scenari. Se si usano più chiavi per gli indici e le mappe sinonimi oppure se la soluzione si trova in un'architettura distribuita che impedisce l'autenticazione basata sull'identità, usare l' [approccio avanzato Azure Active Directory gestito dall'esterno](#aad-app) , descritto alla fine di questo articolo.
+Se possibile, usare un'identità gestita. È il modo più semplice per assegnare un'identità al servizio di ricerca e dovrebbe funzionare nella maggior parte degli scenari. Se si usano più chiavi per gli indici e le mappe sinonimi oppure se la soluzione si trova in un'architettura distribuita che impedisce l'autenticazione basata sull'identità, usare l' [approccio avanzato Azure Active Directory gestito esternamente](#aad-app) , descritto alla fine di questo articolo.
 
  In generale, un'identità gestita consente al servizio di ricerca di eseguire l'autenticazione a Azure Key Vault senza archiviare le credenziali nel codice. Il ciclo di vita di questo tipo di identità gestita è associato al ciclo di vita del servizio di ricerca, che può avere una sola identità gestita. [Altre informazioni sulle identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -228,7 +228,7 @@ Per creare un'applicazione AAD nel portale:
 
 >[!Important]
 > Quando si decide di usare un'applicazione AAD di autenticazione invece di un'identità gestita, tenere presente che Azure ricerca cognitiva non è autorizzato a gestire l'applicazione AAD per conto dell'utente e la gestione dell'applicazione AAD, ad esempio rotazione della chiave di autenticazione dell'applicazione.
-> Quando si modifica un'applicazione AAD o la relativa chiave di autenticazione, qualsiasi mappa di sinonimi o di ricerca cognitiva di Azure che usa tale applicazione deve prima essere aggiornata per usare la nuova applicazione ID\key **prima** di eliminare l'applicazione precedente o la relativa autorizzazione e prima di revocarne l'accesso Key Vault.
+> Quando si modifica un'applicazione AAD o la relativa chiave di autenticazione, qualsiasi mappa di sinonimi o di ricerca cognitiva di Azure che usa tale applicazione deve prima essere aggiornata per usare la nuova applicazione ID\key **prima** di eliminare l'applicazione precedente o la relativa chiave di autorizzazione e prima di revocare l'accesso al Key Vault.
 > In caso contrario, il mapping dell'indice o del sinonimo sarà inutilizzabile, in quanto non sarà in grado di decrittografare il contenuto quando l'accesso alla chiave viene perso.   
 
 ## <a name="next-steps"></a>Passaggi successivi

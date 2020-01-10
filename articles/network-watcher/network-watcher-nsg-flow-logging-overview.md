@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 2530c9b2f366bd64013c7125b4d7984ca2a69248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 509545443bc08e8613d5f7a9ba7f33d2a90684b8
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454279"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830514"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -86,14 +86,12 @@ Per gli stati *C* ed *E* del flusso, i conteggi di byte e pacchetti sono contegg
 
 Di seguito è riportato un testo di esempio di log dei flussi. Come si può osservare, più record seguono l'elenco di proprietà descritto nella sezione precedente.
 
-## <a name="nsg-flow-logging-considerations"></a>Considerazioni relative alla registrazione dei flussi dei gruppi di sicurezza di rete
+## <a name="nsg-flow-logging-considerations"></a>Considerazioni sulla registrazione del flusso NSG
 
 **Considerazioni sull'account di archiviazione**: 
 
-1. Località: l'account di archiviazione usato deve trovarsi nella stessa area del NSG.
-2. Nessun firewall: i log di flusso NSG non vengono caricati come [servizio Microsoft attendibile per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Vedere [ricerca per categorie disabilitare il firewall nell'account di archiviazione?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) per disabilitare il firewall. 
-3. Nessun endpoint di servizio: a causa di una limitazione corrente, i log possono essere emessi direttamente solo negli account di archiviazione e non tramite gli endpoint di servizio. Vedere [ricerca per categorie usare i log di flusso NSG con gli endpoint del servizio?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) per informazioni sulla rimozione degli endpoint di servizio esistenti.
-4. Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i log di flusso NSG smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riabilitare i log dei flussi di NSG.
+- Località: l'account di archiviazione usato deve trovarsi nella stessa area del NSG.
+- Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i log di flusso NSG smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riabilitare i log dei flussi di NSG.
 
 **Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni [, vedere come viene valutato il traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated) nei gruppi di sicurezza di rete.
 

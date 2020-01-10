@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 338575158b91e90112548af5be0dcef68d521852
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c5beaddc92b3c8bf00f8ea7d121b01b53ee25ee7
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444296"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830463"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copiare dati da Google Cloud Storage usando Azure Data Factory
 
@@ -145,7 +145,7 @@ Le proprietà seguenti sono supportate per Google Cloud storage in `storeSetting
 
 | Proprietà                 | Description                                                  | Obbligatorio                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AmazonS3ReadSetting**. | Sì                                                         |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AmazonS3ReadSettings**. | Sì                                                         |
 | ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                                          |
 | prefix                   | Prefisso per la chiave dell'oggetto S3 nel bucket specificato configurato nel set di dati per filtrare gli oggetti di origine. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando non si specificano le proprietà `wildcardFolderPath` e `wildcardFileName`. |                                                             |
 | wildcardFolderPath       | Percorso della cartella con caratteri jolly nel bucket specificato configurati nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                                          |
@@ -177,11 +177,11 @@ Le proprietà seguenti sono supportate per Google Cloud storage in `storeSetting
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AmazonS3ReadSetting",
+                    "type": "AmazonS3ReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"

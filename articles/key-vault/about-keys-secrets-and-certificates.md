@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799406"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832928"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -312,7 +312,7 @@ Sono supportati due tipi di chiave *RSA* oppure *RSA HSM* con certificati. La po
 
 Oltre ai metadati del certificato, a una chiave e a un segreto indirizzabili, un certificato di Key Vault contiene anche attributi e tag.  
 
-#### <a name="attributes"></a>Attributi
+#### <a name="attributes"></a>Attributes
 
 Gli attributi di certificato si riflettono negli attributi della chiave e del segreto indirizzabile creati quando viene creato KV certificato.  
 
@@ -376,9 +376,9 @@ La tabella seguente rappresenta il mapping dei criteri di utilizzo della chiave 
 
 Un oggetto del certificato Key Vault contiene una configurazione utilizzata per comunicare con un provider dell’autorità di certificazione selezionato per ordinare certificati x509.  
 
--   Key Vault agisce in collaborazione con i provider dell’autorità di certificazione seguente per certificati SSL
+-   Partner di Key Vault con i provider di autorità di certificazione seguenti per i certificati TLS/SSL
 
-|**Nome provider**|**Località**|
+|**Nome provider**|**Percorsi**|
 |----------|--------|
 |DigiCert|Supportata in tutte le posizioni del servizio dell'insieme di credenziali delle chiavi nel cloud pubblico e Azure per enti pubblici|
 |GlobalSign|Supportata in tutte le posizioni del servizio dell'insieme di credenziali delle chiavi nel cloud pubblico e Azure per enti pubblici|
@@ -389,7 +389,7 @@ Prima della creazione di un'autorità di certificazione in Key Vault, è necessa
 
     -   Un amministratore dell'organizzazione deve eseguire l’onboardig della propria azienda (es. Contoso) con almeno un provider di autorità di certificazione.  
 
-2. L'amministratore crea le credenziali del richiedente per Key Vault al fine di registrare (e rinnovare) i certificati SSL  
+2. L'amministratore crea le credenziali del richiedente per Key Vault per la registrazione e il rinnovo dei certificati TLS/SSL  
 
     -   Fornisce la configurazione da utilizzare per creare un oggetto dell'autorità di certificazione del provider nell'insieme di credenziali delle chiavi  
 

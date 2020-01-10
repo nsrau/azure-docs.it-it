@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c402d47f40a351d70f688aa93c5e1501c93b39dd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371956"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779875"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio
 
@@ -61,7 +61,7 @@ Il livello di accesso sporadico presenta costi di archiviazione più bassi e cos
 
 Il livello di accesso dell'archivio ha il costo di archiviazione più basso. Ma offre costi di recupero dei dati più elevati rispetto ai livelli ad accesso frequente e sporadico. Il recupero dei dati nel livello archivio può richiedere diverse ore. I dati devono rimanere nel livello di archiviazione per almeno 180 giorni oppure essere soggetti a un addebito per l'eliminazione anticipata.
 
-Mentre un BLOB si trova nell'archiviazione dell'archivio, i dati BLOB sono offline e non possono essere letti, copiati, sovrascritti o modificati. Non è possibile creare snapshot di un BLOB nella risorsa di archiviazione dell'archivio. I metadati del BLOB rimangono tuttavia online e disponibili ed è quindi possibile visualizzare il BLOB e le relative proprietà. Per i BLOB nell'archivio, le uniche operazioni valide sono GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob.
+Mentre un BLOB si trova nell'archiviazione dell'archivio, i dati BLOB sono offline e non possono essere letti, sovrascritti o modificati. Per leggere o scaricare un BLOB in archivio, è innanzitutto necessario riattivarlo in un livello online. Non è possibile creare snapshot di un BLOB nella risorsa di archiviazione dell'archivio. I metadati del BLOB rimangono tuttavia online e disponibili ed è quindi possibile visualizzare il BLOB e le relative proprietà. Per i BLOB nell'archivio, le uniche operazioni valide sono GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob e DeleteBlob. Per altre informazioni, vedere [reidratare i dati BLOB dal livello archivio](storage-blob-rehydration.md) .
 
 Gli scenari di utilizzo di esempio per il livello di accesso dell'archivio includono:
 
@@ -77,9 +77,9 @@ La modifica del livello di accesso dell'account si applica a tutti gli oggetti _
 
 ## <a name="blob-level-tiering"></a>Organizzazione a livello di BLOB
 
-L'organizzazione a livello di BLOB consente di modificare il livello dei dati a livello di oggetto con una sola operazione, [Imposta livello BLOB](/rest/api/storageservices/set-blob-tier). È possibile modificare facilmente il livello di accesso di un BLOB tra frequente, sporadico o archivio, in base alle variazioni dei modelli di utilizzo, senza dover spostare i dati da un account a un altro. Tutte le modifiche ai livelli vengono applicate immediatamente. La riattivazione di un BLOB dall'archivio, tuttavia, può richiedere diverse ore.
+L'organizzazione a livello di BLOB consente di modificare il livello dei dati a livello di oggetto con una sola operazione, [Imposta livello BLOB](/rest/api/storageservices/set-blob-tier). È possibile modificare facilmente il livello di accesso di un BLOB tra frequente, sporadico o archivio, in base alle variazioni dei modelli di utilizzo, senza dover spostare i dati da un account a un altro. Tutte le richieste di modifica del livello si verificano immediatamente e le modifiche al livello tra accesso frequente e accesso sporadico sono La riattivazione di un BLOB dall'archivio, tuttavia, può richiedere diverse ore.
 
-L'ora dell'ultima modifica a livello di BLOB viene esposta tramite la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso). Se un BLOB si trova nel livello archivio, non può essere sovrascritto, quindi il caricamento dello stesso BLOB non è consentito in questo scenario. Quando si sovrascrive un BLOB nel livello ad accesso frequente o sporadico, il BLOB appena creato eredita il livello del BLOB che è stato sovrascritto, a meno che il nuovo livello di accesso al BLOB non venga impostato in modo esplicito al momento della creazione.
+L'ora dell'ultima modifica a livello di BLOB viene esposta tramite la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso). Quando si sovrascrive un BLOB nel livello ad accesso frequente o sporadico, il BLOB appena creato eredita il livello del BLOB che è stato sovrascritto, a meno che il nuovo livello di accesso al BLOB non venga impostato in modo esplicito al momento della creazione. Se un BLOB si trova nel livello archivio, non può essere sovrascritto, quindi il caricamento dello stesso BLOB non è consentito in questo scenario. 
 
 > [!NOTE]
 > Il livello di archiviazione archivio e l'organizzazione a livello di BLOB supportano solo BLOB in blocchi. Attualmente non è possibile modificare il livello di un BLOB in blocchi con snapshot.
@@ -127,17 +127,18 @@ La tabella seguente illustra un confronto tra l'archiviazione BLOB in blocchi di
 <sup>2</sup> spazio di archiviazione supporta attualmente 2 priorità di reidratazione, alta e standard, che offre latenze di recupero diverse. Per altre informazioni, vedere [reidratare i dati BLOB dal livello archivio](storage-blob-rehydration.md).
 
 > [!NOTE]
-> Gli account di archiviazione BLOB supportano gli stessi obiettivi di prestazioni e scalabilità degli account di archiviazione per utilizzo generico V2. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Gli account di archiviazione BLOB supportano gli stessi obiettivi di prestazioni e scalabilità degli account di archiviazione per utilizzo generico V2. Per altre informazioni, vedere [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](scalability-targets.md).
 
 ## <a name="quickstart-scenarios"></a>Scenari introduttivi
 
-Questa sezione presenta gli scenari seguenti usando il portale di Azure:
+In questa sezione vengono illustrati gli scenari seguenti usando il portale di Azure e PowerShell:
 
 - Come modificare il livello di accesso predefinito di un account di archiviazione BLOB o per utilizzo generico v2.
 - Come modificare il livello di un BLOB in un account di archiviazione BLOB o per utilizzo generico v2.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Modificare il livello di accesso all'account predefinito di un account per utilizzo generico v2 o di archiviazione BLOB
 
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nella portale di Azure cercare e selezionare **tutte le risorse**.
@@ -150,11 +151,27 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 1. Nella parte superiore, fare clic su **Salva** .
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Modificare il livello di un BLOB in un account di archiviazione BLOB o GPv2
+![Modificare il livello dell'account di archiviazione](media/storage-tiers/account-tier.png)
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Per modificare il livello di account, è possibile usare lo script di PowerShell seguente. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. 
+```powershell
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to hot
+Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+---
+
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Modificare il livello di un BLOB in un account di archiviazione BLOB o GPv2
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nella portale di Azure cercare e selezionare **tutte le risorse**.
+
+1. Selezionare l'account di archiviazione.
 
 1. Selezionare il contenitore e quindi selezionare il BLOB.
 
@@ -163,6 +180,29 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 1. Selezionare il **livello di accesso**ad accesso frequente, **ad**accesso sporadico o **Archivio** . Se il BLOB è attualmente in archivio e si vuole riattivarlo a un livello online, è anche possibile selezionare una priorità di reidratazione **standard** o **High**.
 
 1. Selezionare **Save (Salva** ) nella parte inferiore.
+
+![Modificare il livello dell'account di archiviazione](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Per modificare il livello BLOB, è possibile usare lo script di PowerShell seguente. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. La variabile `$containerName` deve essere inizializzata con il nome del contenitore. La variabile `$blobName` deve essere inizializzata con il nome del BLOB. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to archive
+$blob.ICloudBlob.SetStandardBlobTier("Archive")
+```
+---
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -214,11 +254,11 @@ Tutte le operazioni nell'accesso frequente e nell'accesso sporadico sono coerent
 
 **Quando si riattiva un BLOB dal livello archivio al livello ad accesso frequente o sporadico, come è possibile sapere quando la riattivazione è stata completata?**
 
-Durante la riattivazione, è possibile usare l'operazione Get Blob Properties per eseguire il polling dell'attributo di **stato dell'archivio** e confermare il completamento della modifica del livello. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **Livello di accesso** indica un il nuovo livello frequente o sporadico.  
+Durante la riattivazione, è possibile usare l'operazione Get Blob Properties per eseguire il polling dell'attributo di **stato dell'archivio** e confermare il completamento della modifica del livello. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **Livello di accesso** indica un il nuovo livello frequente o sporadico. Per altre informazioni, vedere [reidratare i dati BLOB dal livello archivio](storage-blob-rehydration.md) .
 
 **Dopo avere impostato il livello di un BLOB, quando inizieranno a essere fatturati i costi con la tariffa appropriata?**
 
-Ogni BLOB viene sempre fatturato in base al livello indicato dalla proprietà **Livello di accesso** del BLOB. Quando si imposta un nuovo livello per un BLOB, la proprietà **Livello di accesso** rispecchia immediatamente il nuovo livello per tutte le transizioni. La riattivazione di un BLOB dal livello archivio a un livello ad accesso frequente o sporadico, tuttavia, può richiedere diverse ore. In questo caso, vengono addebitate le tariffe di archiviazione fino al completamento della riattivazione, a quel punto la proprietà **livello di accesso** riflette il nuovo livello. A questo punto viene addebitata la tariffa per il BLOB a caldo o ad accesso sporadico.
+Ogni BLOB viene sempre fatturato in base al livello indicato dalla proprietà **Livello di accesso** del BLOB. Quando si imposta un nuovo livello online per un BLOB, la proprietà **livello di accesso** riflette immediatamente il nuovo livello per tutte le transizioni. Tuttavia, la riattivazione di un BLOB dal livello Archivio offline a un livello frequente o sporadico può richiedere diverse ore. In questo caso, vengono addebitate le tariffe di archiviazione fino al completamento della riattivazione, a quel punto la proprietà **livello di accesso** riflette il nuovo livello. Una volta riattivato il livello online, viene addebitato il BLOB alla tariffa ad accesso frequente o ad accesso sporadico.
 
 **Ricerca per categorie determinare se viene addebitato un costo di eliminazione anticipata quando si elimina o si trasferisce un BLOB dal livello di accesso sporadico o archivio?**
 
@@ -230,7 +270,7 @@ Il portale di Azure, PowerShell e gli strumenti dell'interfaccia della riga di c
 
 **Quanti dati è possibile archiviare nei livelli ad accesso frequente, ad accesso sporadico e archivio?**
 
-L'archiviazione dei dati insieme ad altri limiti viene impostata a livello di account e non per livello di accesso. È possibile scegliere di usare tutto il limite in un livello o in tutti e tre i livelli. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+L'archiviazione dei dati insieme ad altri limiti viene impostata a livello di account e non per livello di accesso. È possibile scegliere di usare tutto il limite in un livello o in tutti e tre i livelli. Per altre informazioni, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

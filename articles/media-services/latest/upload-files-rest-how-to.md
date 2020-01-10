@@ -1,5 +1,5 @@
 ---
-title: Caricare file in un account di Servizi multimediali mediante REST | Microsoft Docs
+title: Caricare file in un account di servizi multimediali di Azure v3 usando REST | Microsoft Docs
 description: Informazioni su come ottenere contenuti multimediali in Servizi multimediali creando e caricando asset.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389810"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779162"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Caricare file in un account di Servizi multimediali mediante REST
 
@@ -53,7 +53,7 @@ Questa sezione illustra come ottenere un URL di firma di accesso condiviso gener
 1. Selezionare **Assets (Asset)**  -> **List the Asset URLs (Elenca gli URL degli asset)** .
 2. Fare clic su **Invia**.
 
-    ![Carica un file](./media/upload-files/postman-create-sas-locator.png)
+    ![Caricare un file](./media/upload-files/postman-create-sas-locator.png)
 
 Viene visualizzata la **risposta** con le informazioni sugli URL dell'asset. Copiare il primo URL e usarlo per caricare il file.
 
@@ -63,4 +63,4 @@ Usare le API o gli SDK di archiviazione di Azure, ad esempio l' [API REST di arc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST](stream-files-tutorial-with-rest.md)
+[Esercitazione: codificare un file remoto in base all'URL e trasmettere il video REST](stream-files-tutorial-with-rest.md)

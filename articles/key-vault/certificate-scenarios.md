@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b6a44bc31e21a63b12a0d06c537cc026ed77e386
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879317"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832862"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
@@ -38,15 +38,15 @@ I certificati sono costituiti da tre risorse correlate che collegate tra loro fo
 **Passaggio 1**. Provider autorità di certificazione (CA)  
 -   L'onboarding come amministratore IT o PKI o altro utente responsabile della gestione degli account con le CA per una determinata azienda (ad esempio, Contoso) è un prerequisito per usare i certificati di Key Vault.  
     Le CA seguenti sono gli attuali provider partner di Key Vault.  
-    -   DigiCert: Key Vault offre certificati SSL OV con DigiCert.  
-    -   GlobalSign-Key Vault offre certificati di protezione con GlobalSign.  
+    -   DigiCert-Key Vault offre certificati di protezione/SSL OV con DigiCert.  
+    -   GlobalSign-Key Vault offre certificati di protezione/SSL OV con GlobalSign.  
 
-**Passaggio 2**. Un amministratore account per un provider CA crea le credenziali che verranno usate da Key Vault per la registrazione, il rinnovo e l'uso di certificati SSL tramite Key Vault.
+**Passaggio 2** : un amministratore dell'account per un provider di autorità di certificazione crea le credenziali che devono essere usate da Key Vault per registrare, rinnovare e usare i certificati TLS/SSL tramite Key Vault.
 
 **Passaggio 3**. A seconda dell'autorità di certificazione, un amministratore di Contoso e un dipendente di Contoso (utente di Key Vault) proprietario di certificati possono ottenere un certificato dall'amministratore o direttamente dall'account con la CA.  
 
 - Avviare un'operazione di aggiunta di credenziali in un insieme di credenziali delle chiavi [ impostando una risorsa autorità di certificazione](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Un'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.
-  - Esempio: MyDigiCertIssuer  
+  - Ex. MyDigiCertIssuer  
     -   Provider  
     -   Credenziali: credenziali dell'account CA. Ogni autorità di certificazione ha dati specifici.  
 
@@ -62,9 +62,9 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
 
 **Passaggio 4**. Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero in verde nel diagramma precedente.  
   (1) Nel diagramma precedente, l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.  
-  (2) Key Vault invia una richiesta di certificato SSL alla CA.  
-  (3) L'applicazione esegue il polling di Key Vault, in un processo di ciclo e attesa, per il completamento del certificato. La creazione del certificato è completata quando Key Vault riceve la risposta della CA con il certificato x509.  
-  (4) La CA risponde alla richiesta di certificato SSL di Key Vault con un certificato SSL X509.  
+  (2)-Key Vault invia una richiesta di certificato TLS/SSL alla CA.  
+  (3) L'applicazione esegue il polling di Key Vault, in un processo di ciclo e attesa, per il completamento del certificato. La creazione del certificato è completa quando Key Vault riceve la risposta della CA con il certificato X.509.  
+  (4)-la CA risponde alla richiesta di certificato TLS/SSL di Key Vault con un certificato TLS/SSL X509.  
   (5) La creazione del nuovo certificato viene completata con l'unione del certificato X509 per la CA.  
 
   L'utente di Key Vault crea un certificato specificando i criteri.
@@ -95,7 +95,7 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
 
 -   Se non vengono eseguite altre operazioni, Key Vault per prima cosa invierà un avviso di scadenza. 
 
--   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, Esempio: se non sono presenti informazioni sull'autorità di certificazione.  
+-   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, Ex. se non sono presenti informazioni sull'autorità di certificazione.  
 
 ### <a name="formats-of-import-we-support"></a>Formati di importazione supportati
 Sono supportati i seguenti tipi di importazione per il formato di file PEM. Un singolo certificato con codifica PEM insieme a una chiave codificata PKCS # 8 e non crittografata con la seguente

@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120126"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778346"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -83,7 +83,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
    b. **NOT EQUALS** (DIVERSO DA). La clausola restituisce "true" se l'attributo valutato non corrisponde al valore della stringa di input (con distinzione tra maiuscole e minuscole).
 
-   C. **IS TRUE** (È VERO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano true.
+   c. **IS TRUE** (È VERO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano true.
 
    d. **IS FALSE** (È FALSO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano false.
 
@@ -94,8 +94,9 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
    g. **REGEX MATCH** (CORRISPONDENZA REGEX). La clausola restituisce "true" se l'attributo valutato corrisponde a un modello di espressione regolare. Ad esempio: ([1-9][0-9]) corrisponde a qualsiasi numero compreso tra 10 e 99.
 
    h. **NOT REGEX MATCH** (NESSUNA CORRISPONDENZA REGEX). La clausola restituisce "true" se l'attributo valutato non corrisponde a un modello di espressione regolare.
-
-8. Selezionare **Aggiungi nuova clausola di ambito**.
+ 
+>[!IMPORTANT] 
+> I filtri di inclusione e IsMemberOf non sono supportati. Verranno rimossi presto dall'interfaccia utente.
 
 9. Facoltativamente, ripetere i passaggi 7 e 8 per aggiungere altre clausole di ambito.
 
@@ -112,11 +113,11 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 
 ## <a name="common-scoping-filters"></a>Filtri di ambito comuni
-| Target Attribute| Operatore | Valore | DESCRIZIONE|
+| Target Attribute| Operatore | Valore | Description|
 |----|----|----|----|
 |userPrincipalName|CORRISPONDENZA REGEX|.\*@domain.com |Tutti gli utenti con userPrincipal che dispone del @domain.com di dominio saranno nell'ambito del provisioning|
 |userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che dispone del dominio @domain.com saranno fuori dall'ambito per il provisioning|
-|department|È uguale A|vendite|Tutti gli utenti del reparto vendite rientrano nell'ambito del provisioning|
+|department|EQUALS|sales|Tutti gli utenti del reparto vendite rientrano nell'ambito del provisioning|
 |workerID|CORRISPONDENZA REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Tutti i dipendenti con workerIDs compreso tra 1 milione e 2 milioni rientrano nell'ambito del provisioning.|
 
 ## <a name="related-articles"></a>Articoli correlati

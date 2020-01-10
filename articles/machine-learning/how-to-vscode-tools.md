@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: d5843937233309e1b37f0127d364066a8a747e21
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 59002d0f17fc7213d8db0fad01b1f984542adbd5
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538241"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834814"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introduzione ad Azure Machine Learning per Visual Studio Code
 
@@ -332,5 +332,7 @@ Di seguito è riportato un esempio di come distribuire un servizio Web:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una procedura dettagliata su come eseguire il training con Azure Machine Learning all'esterno di Visual Studio Code, vedere [esercitazione: eseguire il training dei modelli con Azure Machine Learning](tutorial-train-models-with-aml.md).
-* Per una procedura dettagliata su come modificare, eseguire ed eseguire il debug di codice localmente, vedere l'esercitazione relativa a [Python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* Per una procedura dettagliata su come eseguire il training con Azure Machine Learning all'esterno di Visual Studio Code, vedere [esercitazione: eseguire il training dei modelli con Azure Machine Learning](tutorial-train-models-with-aml.md)
+* Per una procedura dettagliata su come modificare, eseguire ed eseguire il debug di codice localmente, vedere l'esercitazione relativa a [Python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial)
+* Per altre informazioni sulla personalizzazione dell'ambiente Python, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md)
+

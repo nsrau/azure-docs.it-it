@@ -1,26 +1,19 @@
 ---
-title: 'Configurare il tunneling forzato per connessioni di Azure da sito a sito: Azure Resource Manager | Microsoft Docs'
+title: Configurare il tunneling forzato per le connessioni da sito a sito
 description: Come reindirizzare o forzare tutto il traffico associato a Internet verso il percorso locale.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: b4d9a469e46d964055d9459901ebdb9c6d04cf24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b32bfba61f1c6f3f00c5189f611d84069dd9da
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157469"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779672"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurare il tunneling forzato tramite il modello di distribuzione Azure Resource Manager
 
@@ -55,7 +48,7 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 * Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
   
   * **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale.
-  * **Route in locale:** al gateway VPN di Azure.
+  * **Route locali:** al gateway VPN di Azure.
   * **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati che non rientrano nelle due route precedenti vengono eliminati.
 * Questa procedura usa le route definite dall'utente per creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alle subnet della rete virtuale per abilitare il tunneling forzato in tali subnet.
 * Il tunneling forzato deve essere associato a una rete virtuale con un gateway VPN basato su route. È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale. È anche necessario configurare il dispositivo VPN locale usando 0.0.0.0/0 come selettori di traffico. 
@@ -63,7 +56,7 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 
 ## <a name="configuration-overview"></a>Panoramica della configurazione
 
-La procedura seguente consente di creare un gruppo di risorse e una rete virtuale. Si passerà quindi alla creazione di un gateway VPN e alla configurazione del tunneling forzato. In questa procedura, la rete virtuale "MultiTier-VNet" include tre subnet: "Frontend", "Midtier" e "Backend", con quattro connessioni cross-premise: "DefaultSiteHQ" e tre rami.
+La procedura seguente consente di creare un gruppo di risorse e una rete virtuale. Si passerà quindi alla creazione di un gateway VPN e alla configurazione del tunneling forzato. In questa procedura, la rete virtuale 'MultiTier-VNet' include tre subnet: 'Frontend', 'Midtier' e 'Backend' con quattro connessioni cross-premise: 'DefaultSiteHQ' e tre rami.
 
 La procedura illustrata consente di impostare 'DefaultSiteHQ' come connessione predefinita del sito per il tunneling forzato e di configurare le subnet 'Midtier' e 'Backend' per l'uso del tunneling forzato.
 
@@ -80,7 +73,7 @@ Installare la versione più recente dei cmdlet di PowerShell per Azure Resource 
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
 
-## <a name="configure-forced-tunneling"></a>È possibile configurare il tunneling forzato?
+## <a name="configure-forced-tunneling"></a>Configurare il tunneling forzato
 
 > [!NOTE]
 > Potrebbero essere visualizzati avvisi indicanti che il tipo di oggetto di output del cmdlet verrà modificato in una versione futura. Si tratta del comportamento previsto ed è possibile ignorare questi avvisi.

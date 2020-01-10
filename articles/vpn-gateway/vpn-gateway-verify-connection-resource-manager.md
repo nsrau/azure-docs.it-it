@@ -1,26 +1,18 @@
 ---
-title: Verificare una connessione di Gateway VPN | Documentazione Microsoft
+title: 'Gateway VPN di Azure: verificare una connessione gateway'
 description: Questo articolo descrive come verificare una connessione di Gateway VPN alla rete virtuale.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: bcece64a85a69c705b0f7f915dafe29123a2cd4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40417b078577424b1ba13ce60f4f773a1c8fd4dc
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128365"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780148"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificare una connessione di Gateway VPN
 
@@ -55,4 +47,4 @@ Per verificare una connessione al gateway VPN nel modello di distribuzione class
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* È possibile aggiungere macchine virtuali alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
+* È possibile aggiungere macchine virtuali alla rete virtuale. Per i passaggi, vedere [Creare la prima macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
