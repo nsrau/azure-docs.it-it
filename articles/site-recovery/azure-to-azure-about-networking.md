@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 1/8/2020
 ms.author: sutalasi
-ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9fe3b4c0b7acc9c1e980d5885043d30503c211c4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954200"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754489"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -55,29 +55,30 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
-Se si usa un proxy firewall basato su IP o regole NSG per controllare la connettività in uscita, è necessario consentire i seguenti intervalli IP.
+Se si usa un proxy firewall basato su IP o NSG per controllare la connettività in uscita, è necessario consentire gli intervalli IP.
 
 - Tutti gli intervalli di indirizzi IP che corrispondono agli account di archiviazione nell'area di origine
     - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
 - Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
     - Se in futuro vengono aggiunti nuovi indirizzi ad Azure Active Directory (AAD), è necessario creare nuove regole NSG.
-- Indirizzi IP dell'endpoint di servizio di Site Recovery, disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e che variano a seconda della posizione di destinazione. 
+- Creare una regola NSG basata su tag del servizio EventsHub per l'area di destinazione, consentendo l'accesso al monitoraggio Site Recovery.
+- Creare una regola NSG basata su tag del servizio AzureSiteRecovery per consentire l'accesso al servizio Site Recovery in qualsiasi area.
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
 
 
-Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
+Se si preferisce usare Site Recovery intervalli di indirizzi IP (scelta non consigliata), fare riferimento alla tabella seguente:
 
    **Destinazione** | **IP di Site Recovery** |  **IP di monitoraggio di Site Recovery**
    --- | --- | ---
    Asia orientale | 52.175.17.132 | 13.94.47.61
-   Asia sudorientale | 52.187.58.193 | 13.76.179.223
+   Asia sud-orientale | 52.187.58.193 | 13.76.179.223
    India centrale | 52.172.187.37 | 104.211.98.185
    India meridionale | 52.172.46.220 | 104.211.224.190
    Stati Uniti centro-settentrionali | 23.96.195.247 | 168.62.249.226
    Europa settentrionale | 40.69.212.238 | 52.169.18.8
    Europa occidentale | 52.166.13.64 | 40.68.93.145
-   Stati Uniti Orientali | 13.82.88.226 | 104.45.147.24
+   Stati Uniti orientali | 13.82.88.226 | 104.45.147.24
    Stati Uniti occidentali | 40.83.179.48 | 104.40.26.199
    Stati Uniti centro-meridionali | 13.84.148.14 | 104.210.146.250
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
@@ -95,8 +96,8 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Regno Unito meridionale | 51.140.43.158 | 51.140.189.52
    Regno Unito meridionale 2 | 13.87.37.4| 13.87.34.139
    Regno Unito settentrionale | 51.142.209.167 | 13.87.102.68
-   Corea del Sud centrale | 52.231.28.253 | 52.231.32.85
-   Corea del Sud meridionale | 52.231.198.185 | 52.231.200.144
+   Corea centrale | 52.231.28.253 | 52.231.32.85
+   Corea meridionale | 52.231.198.185 | 52.231.200.144
    Francia centrale | 52.143.138.106 | 52.143.136.55
    Francia meridionale | 52.136.139.227 |52.136.136.62
    Australia centrale| 20.36.34.70 | 20.36.46.142
@@ -104,11 +105,11 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Sudafrica occidentale | 102.133.72.51 | 102.133.26.128
    Sudafrica settentrionale | 102.133.160.44 | 102.133.154.128
    Governo degli Stati Uniti - Virginia | 52.227.178.114 | 23.97.0.197
-   Governo degli Stati Uniti - Iowa | 13.72.184.23 | 23.97.16.186
-   Governo degli Stati Uniti - Arizona | 52.244.205.45 | 52.244.48.85
-   Governo degli Stati Uniti - Texas | 52.238.119.218 | 52.238.116.60
-   Dipartimento della difesa Stati Uniti orientali | 52.181.164.103 | 52.181.162.129
-   Dipartimento della difesa Stati Uniti centrali | 52.182.95.237 | 52.182.90.133
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   US Gov Arizona | 52.244.205.45 | 52.244.48.85
+   US Gov Texas | 52.238.119.218 | 52.238.116.60
+   US DoD (area orientale) | 52.181.164.103 | 52.181.162.129
+   US DoD (area centrale) | 52.182.95.237 | 52.182.90.133
    Cina settentrionale | 40.125.202.254 | 42.159.4.151
    Cina settentrionale 2 | 40.73.35.193 | 40.73.33.230
    Cina orientale | 42.159.205.45 | 42.159.132.40
@@ -137,11 +138,9 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di destinazione:
+3. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponda al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
 
-   **Località** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
-    --- | --- | ---
-   Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
+4. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
 
 ### <a name="nsg-rules---central-us"></a>Regole NSG - Stati Uniti centrali
 
@@ -151,12 +150,9 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
 
 2. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureActiveDirectory" nel gruppo di sicurezza di rete.
 
-3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di origine:
+3. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Eastus" in NSG che corrisponde alla posizione di origine. In questo modo è possibile accedere al monitoraggio Site Recovery.
 
-   **Località** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
-    --- | --- | ---
-   Stati Uniti Orientali | 13.82.88.226 | 104.45.147.24
-
+4. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
 
 ## <a name="network-virtual-appliance-configuration"></a>Configurazione di appliance virtuali di rete
 

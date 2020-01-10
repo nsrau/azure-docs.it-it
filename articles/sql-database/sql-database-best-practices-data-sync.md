@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821865"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771684"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -128,7 +128,7 @@ Quando si crea un gruppo di sincronizzazione, iniziare con dati in un solo datab
 
 Se i database si trovano in data center diversi, ogni riga deve spostarsi da un data center a un altro, con il conseguente aumento dei costi della sincronizzazione iniziale.
 
-#### <a name="recommendation"></a>Raccomandazione
+#### <a name="recommendation"></a>Recommendation
 
 Se possibile, iniziare con i dati in un unico database del gruppo di sincronizzazione.
 
@@ -157,7 +157,7 @@ Si verifica un ciclo di sincronizzazione quando all'interno di un gruppo di sinc
 > [!NOTE]
 > Queste modifiche non verranno mai propagate. L'unico modo per risolvere il problema è ricreare il gruppo di sincronizzazione.
 
-#### <a name="recommendation"></a>Raccomandazione
+#### <a name="recommendation"></a>Recommendation
 
 Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazione attraverso l'interfaccia del portale e del log.
 
@@ -217,6 +217,14 @@ Non provare a rimuovere un database da un gruppo di sincronizzazione e quindi a 
 Rimuovere prima un database da un gruppo di sincronizzazione. Distribuire quindi la modifica e attendere che venga completato il deprovisioning. Al termine di questa operazione, è possibile modificare il gruppo di sincronizzazione e distribuire le modifiche.
 
 Se si prova a rimuovere un database e quindi a modificare un gruppo di sincronizzazione senza aver prima distribuito una delle modifiche, una delle due operazioni avrà esito negativo. L'interfaccia del portale può essere visualizzata in modo incoerente. In questo caso, aggiornare la pagina per ripristinare lo stato corretto.
+
+### <a name="avoid-schema-refresh-timeout"></a>Evitare il timeout dell'aggiornamento dello schema
+
+Se si dispone di uno schema complesso da sincronizzare, durante un aggiornamento dello schema potrebbe verificarsi un "timeout dell'operazione" Se il database dei metadati di sincronizzazione dispone di uno SKU inferiore (ad esempio: Basic). 
+
+#### <a name="solution"></a>Soluzione
+
+Per attenuare questo problema, aumentare le prestazioni del database dei metadati di sincronizzazione per avere uno SKU superiore, ad esempio S3. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:

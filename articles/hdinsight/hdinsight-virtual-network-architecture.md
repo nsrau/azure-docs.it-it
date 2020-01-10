@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665329"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744740"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di Azure HDInsight
 
@@ -22,7 +22,7 @@ Questo articolo illustra le risorse presenti quando si distribuisce un cluster H
 
 I cluster Azure HDInsight hanno tipi diversi di macchine virtuali o nodi. Ogni tipo di nodo svolge un ruolo nel funzionamento del sistema. La tabella seguente riepiloga questi tipi di nodo e i relativi ruoli nel cluster.
 
-| Tipo | Descrizione |
+| Tipo | Description |
 | --- | --- |
 | Nodo head |  Per tutti i tipi di cluster ad eccezione di Apache Storm, i nodi head ospitano i processi che gestiscono l'esecuzione dell'applicazione distribuita. Il nodo Head è anche il nodo in cui è possibile accedere tramite SSH ed eseguire le applicazioni che vengono quindi coordinate per l'esecuzione tra le risorse del cluster. Il numero di nodi head è fisso a due per tutti i tipi di cluster. |
 | Nodo ZooKeeper | Zookeeper coordina le attività tra i nodi che eseguono l'elaborazione dei dati. Il nodo head viene anche designato come leader e tiene traccia del nodo head che esegue un servizio master specifico. Il numero di nodi ZooKeeper è fisso a tre. |
@@ -31,6 +31,16 @@ I cluster Azure HDInsight hanno tipi diversi di macchine virtuali o nodi. Ogni t
 | Nodo Region | Per il tipo di cluster HBase, il nodo Region (noto anche come nodo dati) esegue il server di area. I server di area servono e gestiscono una parte dei dati gestiti da HBase. I nodi Region possono essere aggiunti o rimossi dal cluster per ridimensionare la capacità di elaborazione e gestire i costi.|
 | Nodo Nimbus | Per il tipo di cluster Storm, il nodo Nimbus offre funzionalità simili a quelle del nodo head. Il nodo Nimbus Assegna attività ad altri nodi in un cluster tramite Zookeeper, che coordina l'esecuzione delle topologie Storm. |
 | Nodo supervisore | Per il tipo di cluster Storm, il nodo Supervisor esegue le istruzioni fornite dal nodo Nimbus per eseguire l'elaborazione desiderata. |
+
+## <a name="resource-naming-conventions"></a>Convenzioni di denominazione delle risorse
+
+Usare nomi di dominio completi (FQDN) per indirizzare i nodi del cluster. È possibile ottenere i nomi di dominio completi per diversi tipi di nodo nel cluster usando l' [API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). 
+
+Questi FQDN saranno nel formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+
+Il `<node-type-prefix>` sarà *HN* per *nodi head, per* i nodi del ruolo di lavoro e *Zn* per i nodi Zookeeper.
+
+Se è necessario solo il nome host, usare solo la prima parte dell'FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## <a name="basic-virtual-network-resources"></a>Risorse di rete virtuale di base
 
@@ -44,18 +54,18 @@ La tabella seguente riepiloga i nove nodi del cluster creati quando HDInsight vi
 
 | Tipo di risorsa | Numero presente | Dettagli |
 | --- | --- | --- |
-|Nodo head | two |    |
-|Nodo Zookeeper | three | |
-|Nodo del ruolo di lavoro | two | Questo numero può variare in base alla configurazione del cluster e al ridimensionamento. Per Apache Kafka è necessario un minimo di tre nodi di lavoro.  |
-|Nodo gateway | two | I nodi del gateway sono macchine virtuali di Azure create in Azure, ma non sono visibili nella sottoscrizione. Se è necessario riavviare questi nodi, contattare il supporto tecnico. |
+|Nodo head | due |    |
+|Nodo Zookeeper | tre | |
+|Nodo del ruolo di lavoro | due | Questo numero può variare in base alla configurazione del cluster e al ridimensionamento. Per Apache Kafka è necessario un minimo di tre nodi di lavoro.  |
+|Nodo gateway | due | I nodi del gateway sono macchine virtuali di Azure create in Azure, ma non sono visibili nella sottoscrizione. Se è necessario riavviare questi nodi, contattare il supporto tecnico. |
 
 Le risorse di rete seguenti sono presenti automaticamente nella rete virtuale usata con HDInsight:
 
 | Risorsa di rete | Numero presente | Dettagli |
 | --- | --- | --- |
-|Bilanciamento del carico | three | |
+|Load Balancer | tre | |
 |Interfacce di rete | nove | Questo valore è basato su un normale cluster, in cui ogni nodo dispone di una propria interfaccia di rete. Le nove interfacce sono per i due nodi head, tre nodi Zookeeper, due nodi del ruolo di lavoro e due nodi gateway indicati nella tabella precedente. |
-|Indirizzi IP pubblici | two |    |
+|Indirizzi IP pubblici | due |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>Endpoint per la connessione a HDInsight
 

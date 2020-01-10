@@ -5,24 +5,24 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409111"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768921"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
-Quando si crea un'app per le funzioni in Azure, è necessario scegliere un piano di hosting per l'app. Sono disponibili tre piani di hosting per funzioni di Azure: [piano a consumo](#consumption-plan), [piano Premium](#premium-plan)e [piano di servizio app](#app-service-plan).
+Quando si crea un'app per le funzioni in Azure, è necessario scegliere un piano di hosting per l'app. Sono disponibili tre piani di hosting per funzioni di Azure: piano a [consumo](#consumption-plan), [piano Premium](#premium-plan)e [piano dedicato (servizio app)](#app-service-plan).
 
 Il piano di hosting scelto determina i comportamenti seguenti:
 
 * Modalità di ridimensionamento dell'app per le funzioni.
 * Risorse disponibili per ogni istanza dell'app per le funzioni.
-* Supporto per le funzionalità avanzate, ad esempio la connettività VNET.
+* Supporto per le funzionalità avanzate, ad esempio la connettività di rete virtuale di Azure.
 
-Sia il consumo che i piani Premium aggiungono automaticamente la potenza di calcolo quando il codice è in esecuzione. L'app viene scalata orizzontalmente quando necessario per gestire il carico e viene ridotta quando il codice viene arrestato. Per il piano a consumo, non è necessario pagare in anticipo le macchine virtuali inattive o la capacità di riserva.  
+Sia il consumo che i piani Premium aggiungono automaticamente la potenza di calcolo quando il codice è in esecuzione. L'app viene scalata orizzontalmente quando necessario per gestire il carico e viene ridimensionata quando l'esecuzione del codice viene arrestata. Per il piano a consumo, non è necessario pagare in anticipo le macchine virtuali inattive o la capacità di riserva.  
 
 Il piano Premium offre funzionalità aggiuntive, ad esempio le istanze di calcolo Premium, la possibilità di limitare le istanze a tempo indefinito e la connettività VNet.
 
@@ -33,7 +33,7 @@ Il piano di servizio app consente di sfruttare i vantaggi dell'infrastruttura de
 Il supporto delle funzionalità rientra nelle due categorie seguenti:
 
 * _Disponibile a livello generale (GA)_ : completamente supportato e approvato per l'uso in produzione.
-* _Anteprima_: non ancora completamente supportato e approvato per l'uso in produzione.
+* _Anteprima_: non ancora completamente supportato né approvato per l'uso in produzione.
 
 La tabella seguente indica il livello di supporto corrente per i tre piani di hosting, quando è in esecuzione in Windows o Linux:
 
@@ -78,7 +78,7 @@ Si consideri il piano Premium di funzioni di Azure nelle situazioni seguenti:
 * Si dispone di un numero elevato di esecuzioni di piccole dimensioni e si dispone di una fattura di esecuzione elevata, ma di una fattura con un minimo di GB nel piano a consumo.
 * Sono necessarie più opzioni di CPU o memoria rispetto a quelle fornite dal piano a consumo.
 * Il codice deve essere eseguito più a lungo del [tempo di esecuzione massimo consentito](#timeout) nel piano a consumo.
-* Sono necessarie funzionalità disponibili solo in un piano Premium, ad esempio connettività VNET/VPN.
+* Sono necessarie funzionalità disponibili solo in un piano Premium, ad esempio la connettività di rete virtuale.
 
 Quando si eseguono funzioni JavaScript in un piano Premium, è consigliabile scegliere un'istanza con un minor numero di vCPU. Per ulteriori informazioni, vedere la pagina relativa alla [scelta dei piani Premium a core singolo](functions-reference-node.md#considerations-for-javascript-functions).  
 

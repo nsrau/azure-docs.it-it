@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615039"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772619"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Risolvere i problemi relativi alle prestazioni delle macchine virtuali di Azure in Linux o Windows
 
@@ -212,11 +212,11 @@ Con le nuove offerte di disco in archiviazione standard, i limiti di IOPS e velo
 
 #### <a name="references"></a>Riferimenti
 
-* [Obiettivi di scalabilità per i dischi delle macchine virtuali](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Obiettivi di scalabilità e prestazioni per gli account di archiviazione BLOB di pagine Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 La larghezza di banda dell'account di archiviazione viene misurata in base alle metriche dell'account di archiviazione: TotalIngress e TotalEgress. Sono disponibili soglie diverse per la larghezza di banda a seconda del tipo di ridondanza e delle aree.
 
-* [Obiettivi di scalabilità per BLOB, code, tabelle e file](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md)
 
 Controllare TotalIngress e TotalEgress in base ai limiti di ingresso e uscita per il tipo di ridondanza e l'area dell'account di archiviazione.
 

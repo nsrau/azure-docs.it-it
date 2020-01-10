@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 44542fb299d769a3916407e09691a72efed01c79
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a775da59680004dadf0cec872057adfd5a16f49
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462424"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749849"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 Questo articolo descrive le procedure consigliate per la sicurezza delle macchine virtuali e dei sistemi operativi.
@@ -139,7 +139,7 @@ L'uso improprio delle risorse può essere un problema quando i processi della VM
 
 Si consiglia di usare [Monitoraggio di Azure](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) per ottenere visibilità sull'integrità della risorsa. Monitoraggio di Azure offre:
 
-- [File di log di diagnostica delle risorse](../../azure-monitor/platform/resource-logs-overview.md): monitora le risorse della VM e identifica i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità.
+- [File di log di diagnostica delle risorse](../../azure-monitor/platform/platform-logs-overview.md): monitora le risorse della VM e identifica i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità.
 - [Estensione Diagnostica di Azure](/azure/azure-monitor/platform/diagnostics-extension-overview): offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 Le organizzazioni che non monitorano le prestazioni delle VM non possono capire se determinate modifiche nei modelli di prestazioni sono normali o anomale. Una VM che consuma più risorse del normale potrebbe indicare un attacco proveniente da una risorsa esterna o un l'esecuzione di un processo compromesso.

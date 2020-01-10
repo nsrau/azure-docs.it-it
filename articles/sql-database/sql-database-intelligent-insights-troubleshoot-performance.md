@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b6ec1952d730b6515032572def65806a1ccbc0b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 386c44cbf7a86e1a1dc92b918d87d0d8c1e60dd2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810359"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744713"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
@@ -331,4 +331,4 @@ Intelligent Insights in genere ha bisogno di un'ora di tempo per eseguire l'anal
 - Informazioni sui concetti di [Intelligent Insights](sql-database-intelligent-insights.md).
 - Usare il [log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitorare un [database SQL di Azure usando Analisi SQL di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md).
+- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).

@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed376a3f500f6d6af3d0eab7f98b68e856513600
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546999"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745457"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Come configurare il monitoraggio in Gemelli digitali di Azure
 
@@ -26,7 +26,7 @@ Questo articolo fornisce un riepilogo delle opzioni di registrazione e monitorag
 
 ## <a name="review-activity-logs"></a>Rivedere i log attività
 
-I [log attività](../azure-monitor/platform/activity-logs-overview.md) di Azure forniscono informazioni rapide sulle cronologie di eventi e operazioni a livello di sottoscrizione per ogni istanza del servizio di Azure.
+I [log attività](../azure-monitor/platform/platform-logs-overview.md) di Azure forniscono informazioni rapide sulle cronologie di eventi e operazioni a livello di sottoscrizione per ogni istanza del servizio di Azure.
 
 Gli eventi a livello di sottoscrizione includono:
 
@@ -57,7 +57,7 @@ Per la registrazione avanzata delle attività:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Abilitare i log di diagnostica dei clienti
 
-Per integrare la registrazione delle attività, è possibile configurare le [impostazioni di diagnostica](../azure-monitor/platform/resource-logs-overview.md) di Azure per ogni istanza di Azure. Mentre i log attività si riferiscono agli eventi a livello di sottoscrizione, la registrazione diagnostica fornisce informazioni approfondite sulla cronologia operativa delle risorse.
+Per integrare la registrazione delle attività, è possibile configurare le [impostazioni di diagnostica](../azure-monitor/platform/platform-logs-overview.md) di Azure per ogni istanza di Azure. Mentre i log attività si riferiscono agli eventi a livello di sottoscrizione, la registrazione diagnostica fornisce informazioni approfondite sulla cronologia operativa delle risorse.
 
 Esempi di registrazione diagnostica includono:
 
@@ -127,8 +127,8 @@ Gemelli digitali di Azure supporta anche la registrazione e il controllo di sicu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [log attività](../azure-monitor/platform/activity-logs-overview.md) di Azure
+- Altre informazioni sui [log attività](../azure-monitor/platform/platform-logs-overview.md) di Azure
 
-- Approfondimento sulle impostazioni di diagnostica di Azure con la lettura di una [panoramica dei log di diagnostica](../azure-monitor/platform/resource-logs-overview.md)
+- Approfondimento sulle impostazioni di diagnostica di Azure con la lettura di una [panoramica dei log di diagnostica](../azure-monitor/platform/platform-logs-overview.md)
 
 - Scopri di più sui [log di monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md).

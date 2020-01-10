@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/09/2019
-ms.openlocfilehash: ce51923dbc6f909adad1df5a8c0bcd0723371970
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 125450394a829667d45479e6e0b7844a0357f009
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435838"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750009"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
 
@@ -86,7 +86,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
           <credential name="metastore_token" type="hcat">
              <property>
                 <name>hcat.metastore.uri</name>
-                <value>thrift://hn0-<clustername>.<Domain>.com:9083</value>
+                <value>thrift://<active-headnode-name>-<clustername>.<Domain>.com:9083</value>
              </property>
              <property>
                 <name>hcat.metastore.principal</name>
@@ -214,6 +214,23 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
 
 2. All'apertura dell'editor nano, usare il codice XML seguente come contenuto del file:
 
+<<<<<<< HEAD
+   ```bash
+       nameNode=adl://home
+       jobTracker=headnodehost:8050
+       queueName=default
+       examplesRoot=examples
+       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+       oozie.use.system.libpath=true
+       user.name=[domainuser]
+       jdbcPrincipal=hive/<active-headnode-name>.<Domain>.com@<Domain>.COM
+       jdbcURL=[jdbcurlvalue]
+       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+   ```
+=======
     ```bash
     nameNode=adl://home
     jobTracker=headnodehost:8050
@@ -229,6 +246,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
     hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
     hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
     ```
+>>>>>>> 0650d78429b6d1b43cddf90fc713eb4050d71eef
 
    - Usare l'URI `adl://home` per la proprietà `nameNode` se Azure Data Lake Storage Gen1 è la risorsa di archiviazione del cluster principale. Se si usa l'archiviazione BLOB di Azure, modificarla in `wasb://home`. Se si usa Azure Data Lake Storage Gen2, modificare questo `abfs://home`.
    - Sostituire `domainuser` con il nome utente per il dominio.  

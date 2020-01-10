@@ -1,5 +1,5 @@
 ---
-title: Richieste di aumento della quota a livello di area di Azure | Microsoft Docs
+title: Richiedere un aumento dei limiti di quota di vCPU regionali di Azure | Microsoft Docs
 description: Richieste di aumento della quota a livello di area
 author: sowmyavenkat86
 ms.author: svenkat
@@ -7,90 +7,100 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e262651a6e040c40dbe240ad3437eff1914aa3e5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850007"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750835"
 ---
-# <a name="standard-quota-regional-vcpu-limit-increase"></a>Quota standard: aumento del limite di vCPU a livello di area 
+# <a name="standard-quota-increase-limits-by-region"></a>Quota standard: aumentare i limiti per area 
 
-Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. Le **macchine virtuali con pagamento in base al** consumo e le **istanze di VM riservate** usano la quota standard. Le **VM spot** usano la quota spot. 
+Azure Resource Manager supporta due tipi di quote vCPU per le macchine virtuali:
+* Le *macchine virtuali con pagamento in base* al consumo e le *istanze di VM riservate* sono soggette a una *quota vCPU standard*.
+* Le *macchine virtuali spot* sono soggette a una *quota vCPU di spot*. 
 
-La quota vCPU standard per le istanze con pagamento in base al consumo e VM riservate viene applicata a due livelli per ogni sottoscrizione in ogni area.
+La quota di vCPU standard per le istanze con pagamento in base al consumo e per le VM riservate viene applicata a due livelli per ogni sottoscrizione in ogni area:
+* Il primo livello è il *limite di vCPU regionale totale* (in tutte le serie di macchine virtuali).
+* Il secondo livello è il *limite di vCPU serie per macchina virtuale* (ad esempio, la serie D vCPU).
  
-Il primo livello è il **limite di vCPU regionale totale** (in tutte le serie di VM) e il secondo livello è il **limite di vCPU per serie di VM** , ad esempio la serie D vCPU. Ogni volta che viene distribuita una nuova VM, la somma dell'utilizzo di vCPU nuovo ed esistente per tale serie di macchine virtuali non deve superare la quota di vCPU approvata per la serie di VM specifica. Inoltre, il numero totale di vCPU nuovo ed esistente distribuito in tutte le serie di macchine virtuali non deve superare la quota vCPU regionale totale approvata per la sottoscrizione. Se una di queste quote viene superata, la distribuzione della macchina virtuale non sarà possibile. È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali da portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità.
+Ogni volta che si distribuisce una nuova macchina virtuale spot, l'utilizzo totale nuovo ed esistente di vCPU per tale serie di macchine virtuali non deve superare la quota di vCPU approvata per la serie di macchine virtuali in questione. Inoltre, il numero totale di vCPU nuovi ed esistenti distribuiti in tutte le serie di macchine virtuali non deve superare la quota vCPU regionale totale approvata per la sottoscrizione. Se una di queste quote viene superata, la distribuzione della macchina virtuale non è consentita. 
 
-Quando viene creata una nuova sottoscrizione, la vCPU locale totale predefinita potrebbe non essere uguale alla somma delle quote predefinite di vCPU per tutte le singole serie di macchine virtuali. Ciò può comportare una sottoscrizione con una quota sufficiente per ogni singola serie di VM che si vuole distribuire, ma non una quota sufficiente per la vCPU regionale totale per tutte le distribuzioni. In questo caso, sarà necessario inviare una richiesta per aumentare in modo esplicito il limite di vCPU regionale totale. Il limite di vCPU regionale totale non può superare la somma della quota approvata in tutte le serie di VM per l'area.
+È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali usando il portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità.
 
-Per altre informazioni sulle quote vCPU standard, vedere la pagina delle [quote vCPU della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e la pagina relativa ai [limiti di sottoscrizione e servizio di Azure](https://aka.ms/quotalimits) .
+Quando si crea una nuova sottoscrizione, il numero totale predefinito di vCPU regionali potrebbe non essere uguale alla quota vCPU predefinita totale per tutte le singole serie di macchine virtuali. Questa discrepanza può comportare una sottoscrizione con una quota sufficiente per ogni singola serie di macchine virtuali che si desidera distribuire. Ma potrebbe non essere disponibile una quota sufficiente a contenere la vCPU regionale totale per tutte le distribuzioni. In questo caso, è necessario inviare una richiesta per aumentare in modo esplicito il limite del numero totale di vCPU regionali. Il limite di vCPU regionale totale non può superare la quota approvata totale tra tutte le serie di macchine virtuali per l'area.
 
-Altre informazioni su come **aumentare i limiti di vCPU della VM spot** [qui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Per altre informazioni sulle quote vCPU standard, vedere la pagina relativa alle [quote vCPU della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e ai [limiti del servizio e della sottoscrizione di Azure](https://aka.ms/quotalimits).
 
-È possibile richiedere un aumento del **limite di vCPU regionale totale delle VM standard** tramite il pannello **Guida e supporto** oppure il pannello **utilizzi e quota** nel portale.
+Per altre informazioni su come aumentare i limiti di vCPU per le VM spot, vedere [quota spot: aumentare i limiti per tutte le serie di macchine virtuali](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
-## <a name="request-standard-quota-regional-vcpu-limit-increase-at-subscription-level-using-the-help--support-blade"></a>Richiedere l'aumento del limite di vCPU Regional per la quota standard a livello di sottoscrizione usando il pannello Guida e supporto
+È possibile richiedere un aumento del limite di quota standard di vCPU in base all'area in uno dei due modi, come descritto nelle sezioni successive.
 
-Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
+## <a name="request-a-quota-increase-by-region-from-the-help--support-pane"></a>Richiedere un aumento della quota per area dal riquadro "Guida e supporto"
 
-1. In https://portal.azure.com selezionare **Guida e supporto**.
+Per richiedere un aumento della quota di vCPU per area dal riquadro **Guida e supporto** , eseguire le operazioni seguenti: 
 
-![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
+1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com)selezionare **Guida e supporto**.
+
+   ![Collegamento "Guida e supporto"](./media/resource-manager-core-quotas-request/helpsupport.png)
  
-2.  Selezionare **Nuova richiesta di supporto**. 
+1. Nel riquadro **Guida e supporto** selezionare **nuova richiesta di supporto**. 
 
-![Nuova richiesta di supporto](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![Nuova richiesta di supporto](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. Nell'elenco a discesa tipo di problema scegliere **limiti per servizio e sottoscrizione (quote)** .
+1. Nell'elenco a discesa **tipo di problema** selezionare limiti per **servizio e sottoscrizione (quote)** .
 
-![Elenco a discesa tipo di problema](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Elenco a discesa "tipo di problema"](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
-4. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+1. Nell'elenco a discesa **sottoscrizione** selezionare la sottoscrizione di cui si vuole aumentare la quota.
 
-![Seleziona newS Subscription](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![Elenco a discesa "sottoscrizione"](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Selezionare **altre richieste** nell'elenco a discesa **tipo di quota** .
+1. Nell'elenco a discesa **tipo di quota** selezionare **altre richieste**.
 
-![Tipo di quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![Elenco a discesa "tipo di quota"](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
-6. Nel riquadro dei **Dettagli** fornire informazioni aggiuntive in base all'esempio riportato di seguito, per elaborare la richiesta e continuare con la creazione del case. 
-    1.  **Modello di distribuzione** : specificare ' Gestione risorse '
-    2.  **Area richiesta** : specificare l'area richiesta, ad esempio Stati Uniti orientali 2
-    3.  **Nuovo valore limite** : specificare il limite per la nuova area. Questo non deve superare la somma della quota approvata per le famiglie di SKU individuali per questa sottoscrizione
+1. Nella casella **Descrizione** del riquadro **Dettagli problema** specificare le informazioni aggiuntive seguenti: 
 
-![Dettagli quota](./media/resource-manager-core-quotas-request/regional-details.png)
+    a. Per **modello di distribuzione**specificare **Gestione risorse**.  
+    b. Per **Region (area**) specificare l'area obbligatoria (ad esempio, **Stati Uniti orientali 2**).  
+    c. Per il **nuovo limite**, specificare un nuovo limite di vCPU per l'area. Questo valore non deve superare la somma delle quote approvate per le singole serie di SKU per questa sottoscrizione.
 
-## <a name="request-total-regional-vcpus-quota-increase-at-subscription-level-using-the-usages--quota-blade"></a>Richiedi un aumento della quota di vCPU regionale totale a livello di sottoscrizione usando il pannello **utilizzi e quote**
+    ![Riquadro "Dettagli problema"](./media/resource-manager-core-quotas-request/regional-details.png)
 
-Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure. 
+1. Selezionare **Salva e continua** per continuare a creare la richiesta di supporto.
 
-1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
+## <a name="request-a-quota-increase-by-region-from-the-subscriptions-pane"></a>Richiedere un aumento della quota per area dal riquadro "sottoscrizioni"
 
-![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
+Per richiedere un aumento della quota di vCPU per area dal riquadro **sottoscrizioni** , eseguire le operazioni seguenti: 
 
-2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com)selezionare **sottoscrizioni**.
 
-![Selezionare la sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Collegamento "sottoscrizioni"](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-3. Selezionare **Utilizzo e quote**.
+1. Selezionare la sottoscrizione di cui si vuole aumentare la quota.
 
-![Selezionare Utilizzo e quote](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![Riquadro "sottoscrizioni"](./media/resource-manager-core-quotas-request/select-subscription.png)
 
-4. Nell'angolo superiore destro selezionare **Richiedi aumento**.
+1. Nel riquadro sinistro della pagina **\<nome sottoscrizione >** selezionare **utilizzo e quote**.
 
-![Richiedi aumento](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Collegamento "utilizzo + quote"](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-5. Selezionare **altre richieste** nell'elenco a discesa **tipo di quota** .
+1. In alto a destra selezionare **Richiedi aumento**.
 
-![Tipo di quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+   ![Richiedi aumento](./media/resource-manager-core-quotas-request/request-increase.png)
 
-6. Nel riquadro dei **Dettagli** fornire informazioni aggiuntive in base all'esempio riportato di seguito, per elaborare la richiesta e continuare con la creazione del case. 
-    1.  **Modello di distribuzione** : specificare ' Gestione risorse '
-    2.  **Area richiesta** : specificare l'area richiesta, ad esempio Stati Uniti orientali 2
-    3.  **Nuovo valore limite** : specificare il limite per la nuova area. Questo non deve superare la somma della quota approvata per le famiglie di SKU individuali per questa sottoscrizione
+1. Nell'elenco a discesa **tipo di quota** selezionare **altre richieste**.
 
-![Dettagli quota](./media/resource-manager-core-quotas-request/regional-details.png)
+   ![Elenco a discesa "tipo di quota"](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
+1. Nella casella **Descrizione** del riquadro **Dettagli problema** specificare le informazioni aggiuntive seguenti: 
 
+    a. Per **modello di distribuzione**specificare **Gestione risorse**.  
+    b. Per **Region (area**) specificare l'area obbligatoria (ad esempio, **Stati Uniti orientali 2**).  
+    c. Per il **nuovo limite**, specificare un nuovo limite di vCPU per l'area. Questo valore non deve superare la somma delle quote approvate per le singole serie di SKU per questa sottoscrizione.
+
+    ![Riquadro "Dettagli problema"](./media/resource-manager-core-quotas-request/regional-details.png)
+
+1. Selezionare **Salva e continua** per continuare a creare la richiesta di supporto.
 

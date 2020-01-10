@@ -2,15 +2,16 @@
 title: Introduzione ai microservizi in Azure
 description: Panoramica dell'importanza di compilare applicazioni cloud con un approccio basato su microservizi per lo sviluppo di applicazioni moderne e descrizione dell'uso di Azure Service Fabric come piattaforma per raggiungere questo obiettivo.
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: e23c571d2000b5565da018d6ddf70a6388cb9226
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.custom: sfrev
+ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466316"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750627"
 ---
-# <a name="why-use-a-microservices-approach-to-building-applications"></a>Perché usare un approccio basato su microservizi per la creazione di applicazioni?
+# <a name="why-use-a-microservices-approach-to-building-applications"></a>Perché usare un approccio basato su microservizi per la creazione di applicazioni
 
 Per gli sviluppatori di software, il factoring di un'applicazione in parti componenti non è una novità. Viene in genere usato un approccio a più livelli, con un archivio back-end, la logica di business di livello intermedio e un'interfaccia utente (UI) front-end. Ciò che *è* cambiato negli ultimi anni è che gli sviluppatori stanno creando applicazioni distribuite per il cloud.
 
@@ -128,7 +129,8 @@ Potrebbe sembrare ovvio e spesso trascurato, ma un microservizio deve segnalare 
 
 L'integrità è diversa dalla diagnostica. Per integrità si intende la segnalazione dello stato corrente da parte del microservizio per consentire l'esecuzione di azioni appropriate. Un esempio efficace riguarda l'interazione con i meccanismi di aggiornamento e distribuzione per assicurare la disponibilità. Sebbene un servizio potrebbe essere attualmente non integro a causa di un arresto anomalo del processo o del riavvio del computer, il servizio potrebbe essere ancora operativo. L'ultima operazione necessaria consiste nel peggiorare la situazione avviando un aggiornamento. L'approccio migliore consiste nell'esaminare prima o attendere il tempo necessario per il ripristino del microservizio. Gli eventi di integrità di un microservizio consentono di prendere decisioni informate e favoriscono in effetti la creazione di servizi con funzionalità di riparazione automatica.
 
-## <a name="guidance-for-designing-microservices-on-azure"></a>Linee guida per la progettazione di microservizi in Azure 
+## <a name="guidance-for-designing-microservices-on-azure"></a>Linee guida per la progettazione di microservizi in Azure
+
 Visitare il centro architetture di Azure per indicazioni sulla [progettazione e la creazione di microservizi in Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric come piattaforma di microservizi
@@ -185,7 +187,6 @@ In questa fase, l'applicazione è completamente composta da microservizi (o sudd
 Forse. In Microsoft, poiché più team hanno iniziato a sviluppare per il cloud per motivi aziendali, molti di essi hanno realizzato i vantaggi derivanti dall'adozione di un approccio simile a un microservizio. Bing, ad esempio, USA i microservizi per anni. Per altri team, l'approccio basato su microservizi era una novità. I team riscontravano problemi difficili da risolvere ed estranei alle loro aree di competenza principali. Questo è il motivo per cui Service Fabric acquisito la trazione come tecnologia per la creazione di servizi.
 
 L'obiettivo di Service Fabric consiste nel ridurre le complessità della creazione di applicazioni di microservizi, in modo da non dover superare il numero di riprogettazioni costose. Iniziare con piccole soluzioni, ridimensionarle secondo le esigenze, deprecare servizi, aggiungerne di nuovi ed evolversi secondo le esigenze di utilizzo del cliente. È anche evidente che devono essere ancora risolti molti altri problemi per rendere i microservizi più accessibili per la maggior parte degli sviluppatori. I contenitori e il modello di programmazione Actor sono esempi di piccoli passaggi in questa direzione. Per semplificare l'approccio ai microservizi, siamo sicuri che emergono più innovazioni.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

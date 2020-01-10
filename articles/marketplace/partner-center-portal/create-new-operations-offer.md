@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4708f2e0d6d4aadba228b82cf07e0a7f58b8f68a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0318f851f547aed7c7682c9e6841f71d56c98be1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825593"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750923"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Crea una nuova offerta di Dynamics 365 per le operazioni
 
@@ -58,7 +58,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione con questo token.
 
-#### <a name="contact-me"></a>Contact me (Contattami)
+#### <a name="contact-me"></a>Contattami
 
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
@@ -70,7 +70,7 @@ Per abilitare una test drive, selezionare la casella **Abilita una test drive** 
 
 #### <a name="type-of-test-drive"></a>Tipo di test drive
 
-Selezionare una delle opzioni seguenti:
+Selezionare una delle seguenti opzioni:
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : modello di distribuzione che contiene tutte le risorse di Azure che costituiscono la soluzione. I prodotti che soddisfano questo scenario usano solo le risorse di Azure.
 - **[Dynamics 365 for business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft ospita e gestisce il servizio di test drive (inclusi il provisioning e la distribuzione) per un sistema di pianificazione delle risorse aziendali centrale (finanza, operazioni, supply chain, CRM e così via).  
@@ -99,11 +99,11 @@ La pagina delle **Proprietà** consente di definire le categorie e i settori usa
 
 ### <a name="category"></a>Categoria
 
-Selezionare un minimo di uno e un massimo di tre categorie. Questi verranno usati per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di richiamare il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. 
+Selezionare un massimo di due (2) categorie, tra cui una categoria primaria e una secondaria (facoltativo). Selezionare un massimo di due (2) sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile nella categoria selezionata.
 
 ### <a name="industry"></a>Settore
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+Facoltativamente, è possibile selezionare fino a due settori e due verticali in ogni settore. Queste categorie vengono usate per la visualizzazione dell'offerta, quando il settore e le verticali vengono usati nei filtri di ricerca e applicati nella vetrina.  Se l'offerta è destinata a un settore specifico e/o verticale, assicurarsi di descrivere il modo in cui l'offerta supporta i settori selezionati o verticali nella descrizione dell'offerta.  In caso contrario, se l'offerta non è specifica del settore, non effettuare una selezione e lasciare vuota questa sezione.
 
 ### <a name="app-version"></a>Versione dell'app
 
@@ -132,7 +132,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 > [!NOTE]
 > Il contenuto dell'offerta (ad esempio la descrizione, i documenti, le schermate, le condizioni per l'utilizzo e così via) non deve essere in inglese, purché la descrizione dell'offerta inizi con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche accettabile fornire un URL di *collegamento utile* per offrire contenuto in una lingua diversa da quella usata nell'offerta di visualizzazione del contenuto.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
@@ -140,7 +140,7 @@ Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di of
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri). Questa operazione può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>Description
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie. 
 
@@ -155,7 +155,7 @@ Alcuni suggerimenti per scrivere la descrizione:
 - Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti. 
 - Prendere in considerazione l'uso di tag HTML per formattare la descrizione e renderla più accattivante.
 
-### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
+### <a name="search-keywords"></a>Parole chiave di ricerca
 
 Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per aiutare i clienti a trovare l'offerta nel Marketplace. Per ottenere risultati ottimali, provare a usare queste parole chiave anche nella descrizione.
 
@@ -171,7 +171,7 @@ Questa sezione consente di fornire i collegamenti per aiutare i clienti a compre
 
 Immettere l'URL in cui i clienti possono ottenere ulteriori informazioni sull'offerta.
 
-#### <a name="privacy-policy-url"></a>URL informativa sulla privacy
+#### <a name="privacy-policy-url"></a>URL Informativa sulla privacy
 
 Immettere l'URL dell'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida.
 
@@ -256,7 +256,7 @@ La pagina **test drive** consente di configurare una dimostrazione (o "test driv
 
 Sono disponibili i tipi di unità di test seguenti, ognuno con requisiti di configurazione tecnici specifici.
 
-- [Gestione risorse di Azure](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [App per la logica](#technical-configuration-for-logic-app-test-drive)
 - [Power bi](#technical-configuration-not-required-for-power-bi-test-drives) (configurazione tecnica non necessaria)
@@ -337,7 +337,7 @@ L'opzione di **elenco del Marketplace** disponibile nella scheda **test drive** 
 
 - **Manuale dell'utente** (obbligatorio): una procedura dettagliata approfondita dell'esperienza test drive. Il manuale dell'utente dovrebbe coprire esattamente ciò che si vuole che il cliente possa ottenere dall'esperienza del test drive e fungere da riferimento per eventuali domande. Il file deve essere in formato PDF ed essere denominato (255 caratteri al massimo) dopo il caricamento.
 
-- **Video: aggiungere video** (facoltativo): è possibile caricare video in YouTube o Vimeo e farvi riferimento con un collegamento e un'immagine di anteprima (533 x 324 pixel), in modo che un cliente possa visualizzare una descrizione dettagliata delle informazioni che consentono di comprendere meglio il test drive, tra cui come usare correttamente le funzionalità dell'offerta e comprendere gli scenari in cui vengono evidenziati i vantaggi.
+- **Video: aggiungere video** (facoltativo): è possibile caricare video in YouTube o Vimeo e farvi riferimento con un collegamento e un'immagine di anteprima (533 x 324 pixel), in modo che un cliente possa visualizzare una descrizione dettagliata delle informazioni che consentono di comprendere meglio le test drive, tra cui come usare correttamente le funzionalità dell'offerta e comprendere gli scenari in cui vengono evidenziati i vantaggi.
   - **Nome** (obbligatorio)
   - **URL (solo YouTube o Vimeo)** (obbligatorio)
   - **Anteprima (533 x 324px)** : il file di immagine deve essere in formato png.
@@ -377,4 +377,4 @@ Se è la prima volta che si pubblica questa offerta, è possibile:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiornare un'offerta esistente nel Marketplace commerciale](./update-existing-offer.md)
+- [Aggiornare un'offerta esistente nel marketplace commerciale](./update-existing-offer.md)

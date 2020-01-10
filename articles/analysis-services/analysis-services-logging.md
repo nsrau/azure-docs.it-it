@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572783"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749758"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/azure-monitor-log-hub.md).
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Registrazione diagnostica in Archiviazione, Hub eventi o log di Monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -26,7 +26,7 @@ Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito 
 
 È possibile selezionare le categorie **Engine** (Motore), **Service** (Servizio) e **Metrics** (Metriche).
 
-### <a name="engine"></a>Engine (Motore)
+### <a name="engine"></a>Motore
 
 Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutti gli [eventi estesi](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events) (XEvent). Non è possibile selezionare eventi singoli. 
 
@@ -42,18 +42,18 @@ Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutt
 |Query     |   Fine query      |
 |Comandi:     |  Inizio comando       |
 |Comandi:     |  Fine comando       |
-|Errori e avvisi     |   Tipi di errore      |
-|Scoprire     |   Fine individuazione      |
+|Errori e avvisi     |   Errore      |
+|Identificazione     |   Fine individuazione      |
 |Notifica     |    Notifica     |
-|sessione     |  Inizializzazione sessione       |
-|Blocchi    |  Deadlock       |
-|Elaborazione di query     |   Inizio query SE VertiPaq      |
-|Elaborazione di query     |   Fine query SE VertiPaq      |
-|Elaborazione di query     |   Corrispondenza cache query SE VertiPaq      |
-|Elaborazione di query     |   Inizio query diretta      |
-|Elaborazione di query     |  Fine query diretta       |
+|Session     |  Inizializzazione sessione       |
+|Locks    |  Deadlock       |
+|Elaborazione delle query     |   Inizio query SE VertiPaq      |
+|Elaborazione delle query     |   Fine query SE VertiPaq      |
+|Elaborazione delle query     |   Corrispondenza cache query SE VertiPaq      |
+|Elaborazione delle query     |   Inizio query diretta      |
+|Elaborazione delle query     |  Fine query diretta       |
 
-### <a name="service"></a>Service
+### <a name="service"></a>Servizio
 
 |Nome operazione  |Ambito  |
 |---------|---------|
@@ -88,7 +88,7 @@ La categoria metrica registra le stesse [metriche del server](analysis-services-
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metrics** (Metriche). Selezionare questa opzione per archiviare informazioni dettagliate in [Metrics](analysis-services-monitor.md#server-metrics) (Metriche). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
-3. Fare clic su **Save**.
+3. Fare clic su **Salva**.
 
     Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 
@@ -164,7 +164,7 @@ Nel generatore di query espandere **LogManagement** > **AzureDiagnostics**. Azur
 
 #### <a name="example-1"></a>Esempio 1
 
-La query seguente restituisce le durate per ogni evento di fine/aggiornamento di query per un database modello e un server. Se la scalabilità orizzontale è aumentata, i risultati vengono suddivisi in base alla replica perché il numero di replica è incluso in ServerName_s. Il raggruppamento per RootActivityId_g riduce il conteggio delle righe recuperato dall'API REST di Diagnostica di Azure e aiuta a rimanere entro i limiti descritti in [log Analytics limiti di velocità](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
+La query seguente restituisce le durate per ogni evento di fine/aggiornamento di query per un database modello e un server. Se si aumenta la scalabilità orizzontale, i risultati vengono suddivisi per replica perché il numero di replica è incluso in ServerName_s. Il raggruppamento per RootActivityId_g riduce il conteggio delle righe recuperato dall'API REST Diagnostica di Azure e aiuta a rimanere entro i limiti descritti in [log Analytics limiti di velocità](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
 let window = AzureDiagnostics
@@ -179,7 +179,7 @@ window
 
 #### <a name="example-2"></a>Esempio 2
 
-La query seguente restituisce la memoria e il consumo di QPU per un server. Se la scalabilità orizzontale è aumentata, i risultati vengono suddivisi in base alla replica perché il numero di replica è incluso in ServerName_s.
+La query seguente restituisce la memoria e il consumo di QPU per un server. Se si aumenta la scalabilità orizzontale, i risultati vengono suddivisi per replica perché il numero di replica è incluso in ServerName_s.
 
 ```Kusto
 let window = AzureDiagnostics
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md).
+Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Vedere [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.

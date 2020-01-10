@@ -44,6 +44,9 @@
         - name: Impostare l'ordine di distribuzione delle risorse
           displayName: 'dependent resources, dependency'
           href: template-tutorial-create-templates-with-dependent-resources.md
+        - name: Usare lo script di distribuzione
+          displayName: custom script
+          href: template-tutorial-deployment-script.md
         - name: Usare le condizioni
           href: template-tutorial-use-conditions.md
         - name: Integrare Key Vault
@@ -122,6 +125,9 @@
               href: add-resource-extensions.md
         - name: Output
           href: template-outputs.md
+        - name: Script di distribuzione
+          displayName: custom script
+          href: deployment-script-template.md
         - name: Modularizzare i modelli
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

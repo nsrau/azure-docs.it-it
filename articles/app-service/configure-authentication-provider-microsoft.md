@@ -5,12 +5,12 @@ ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 12e16cc7e17ae217a334fe25d71672ab2cafa5a8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671931"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768436"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configurare l'app del servizio app per l'uso dell'account di accesso Microsoft
 
@@ -18,11 +18,11 @@ ms.locfileid: "74671931"
 
 Questo argomento descrive come configurare il servizio app di Azure per usare l'account Microsoft come provider di autenticazione. 
 
-## <a name="register-microsoft-account"></a>Registrare l'app con l'account Microsoft
+## <a name="register-microsoft-account"> </a>Registrare l'app con l'account Microsoft
 
 1. Passare a [**registrazioni app**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure. Se necessario, accedere con l'account Microsoft.
 1. Selezionare **nuova registrazione**, quindi immettere un nome di applicazione.
-1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Sostituire *\<app-Domain-name >* con il nome di dominio dell'app.  Ad esempio `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Assicurarsi di usare lo schema HTTPS nell'URL.
+1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://<app-domain-name>/.auth/login/microsoftaccount/callback`. Sostituire *\<app-Domain-name >* con il nome di dominio dell'app.  Ad esempio: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Assicurarsi di usare lo schema HTTPS nell'URL.
 
 1. Selezionare **Registra**.
 1. Copiare l' **ID applicazione (client)** . Sarà necessario più avanti.
@@ -30,9 +30,9 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 1. Copiare il valore visualizzato nella pagina **certificati & segreti** . Una volta lasciata, la pagina non verrà più visualizzata.
 
     > [!IMPORTANT]
-    > La password è una credenziale di sicurezza importante. Non condividerla con altri e non distribuirla all'interno di un'applicazione client.
+    > Il valore del segreto client (password) è una credenziale di sicurezza importante. Non condividerla con altri e non distribuirla all'interno di un'applicazione client.
 
-## <a name="secrets"></a>Aggiungere le informazioni dell'account Microsoft all'applicazione del servizio app
+## <a name="secrets"> </a>Aggiungere le informazioni sull'account Microsoft all'applicazione del servizio app
 
 1. Passare all'applicazione nella [Azure portal].
 1. Selezionare **impostazioni** > **autenticazione/autorizzazione**e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.

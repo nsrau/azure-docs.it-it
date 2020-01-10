@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146857"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768555"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 
-Il gateway dati locale garantisce il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a lavorare con più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, PowerApps e Microsoft Flow. È possibile associare più servizi nella stessa sottoscrizione e nella stessa area con un singolo gateway. Sebbene il gateway installato sia lo stesso in tutti i servizi, Azure Analysis Services e le app per la logica hanno alcuni passaggi aggiuntivi.
+Il gateway dati locale garantisce il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a usare più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, Power Apps e Power automatizzate. È possibile associare più servizi nella stessa sottoscrizione e nella stessa area con un singolo gateway. Sebbene il gateway installato sia lo stesso in tutti i servizi, Azure Analysis Services e le app per la logica hanno alcuni passaggi aggiuntivi.
 
 Per Azure Analysis Services, il primo processo di configurazione con il gateway è un processo in quattro parti:
 
@@ -89,5 +89,5 @@ Gli articoli seguenti sono inclusi nel contenuto generale del gateway dati local
 * [Configurare le impostazioni proxy](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
 * [Modificare le impostazioni di comunicazione](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
 * [Configurare i file di log](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Risoluzione dei problemi](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Risolvere i problemi](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
 * [Monitorare e ottimizzare le prestazioni del gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)

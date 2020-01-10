@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424799"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768149"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale Azure Active Directory
 
@@ -29,8 +29,6 @@ Questo articolo fornisce informazioni di supporto per le opzioni di configurazio
 - Condizione per le applicazioni client
 - Requisito per le applicazioni client approvate
 
-Se queste informazioni non soddisfano le aspettative, lasciare un commento alla fine di questo articolo.
-
 ## <a name="cloud-apps-assignments"></a>Assegnazioni di app cloud
 
 Con i criteri di accesso condizionale è possibile controllare il modo in cui gli utenti accedono alle [app Cloud](conditions.md#cloud-apps-and-actions). Quando si configura un criterio di accesso condizionale, è necessario selezionare almeno un'app cloud. 
@@ -41,6 +39,7 @@ Con i criteri di accesso condizionale è possibile controllare il modo in cui gl
 
 È possibile assegnare un criterio di accesso condizionale alle app Cloud seguenti da Microsoft:
 
+- Office 365 (anteprima)
 - Azure Analysis Services
 - Azure DevOps
 - Database SQL di Azure e data warehouse- [altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -73,6 +72,22 @@ Con i criteri di accesso condizionale è possibile controllare il modo in cui gl
 - Skype for Business Online
 - Rete privata virtuale (VPN)
 - Windows Defender ATP
+
+### <a name="office-365-preview"></a>Office 365 (anteprima)
+
+Office 365 fornisce servizi di produttività e collaborazione basati sul cloud come Exchange, SharePoint e Microsoft teams. I servizi cloud di Office 365 sono profondamente integrati per garantire esperienze uniformi e collaborative. L'app Office 365 (anteprima) consente di utilizzare tutti i servizi in una sola volta. È consigliabile usare la nuova app Office 365 (anteprima), anziché fare riferimento a singole app cloud come Office 365 Exchange Online e Office 365 SharePoint Online per evitare problemi che possono verificarsi a causa di criteri non coerenti e dipendenze del servizio.
+
+Applicazioni principali incluse nell'app client Office 365 (anteprima):
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Microsoft Teams
+- Office 365 Yammer
+- Portale di Office
+- Microsoft Forms
+- Microsoft Power Automate
+- Microsoft Planner
+- Microsoft PowerApps
 
 ### <a name="other-applications"></a>Altre applicazioni
 

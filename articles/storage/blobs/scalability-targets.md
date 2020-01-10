@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8b32a26875b41ab95166460d0209b70383530592
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3d0dd4683c990e2bd5b2f6f1990f1b379f76fc75
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479397"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748824"
 ---
 # <a name="scalability-and-performance-targets-for-blob-storage"></a>Obiettivi di scalabilità e prestazioni per l'archiviazione BLOB
 
@@ -30,3 +30,4 @@ ms.locfileid: "75479397"
 - [Obiettivi di scalabilità per gli account di archiviazione standard](../common/scalability-targets-standard-account.md)
 - [Obiettivi di scalabilità per gli account di archiviazione BLOB in blocchi Premium](scalability-targets-premium-block-blobs.md)
 - [Obiettivi di scalabilità per il provider di risorse di archiviazione di Azure](../common/scalability-targets-resource-provider.md)
+- [Limiti e quote della sottoscrizione di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

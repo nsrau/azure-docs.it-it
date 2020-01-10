@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/17/2019
+ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b2209e2ada2d825714d08b6ac3237583df28272a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459467"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749371"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
@@ -59,7 +59,7 @@ Esempio di errore non elaborato:
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Creazione di VM host sessione desktop virtuale Windows
 
-È possibile creare macchine virtuali host sessione in diversi modi, ma il team di desktop virtuali Windows supporta solo i problemi di provisioning delle VM correlati all'offerta di [Azure Marketplace](https://azuremarketplace.microsoft.com/) . Per informazioni dettagliate, vedere [problemi relativi all'uso di desktop virtuali Windows-effettuare il provisioning di un'offerta di Azure Marketplace](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering)
+È possibile creare macchine virtuali host sessione in diversi modi, ma il team di desktop virtuali Windows supporta solo i problemi di provisioning delle VM correlati all'offerta di [Azure Marketplace](https://azuremarketplace.microsoft.com/) . Per ulteriori informazioni, vedere [problemi di utilizzo del desktop virtuale di Windows: effettuare il provisioning di un'offerta di Azure Marketplace](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering)
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemi di utilizzo del desktop virtuale di Windows: effettuare il provisioning di un'offerta di Azure Marketplace
 
@@ -138,8 +138,16 @@ Esempio di errore non elaborato:
 
 **Motivo 2:** Il nome di dominio non viene risolto.
 
-**Correzione 2:** Vedere l'errore "Impossibile risolvere il nome di dominio" per le macchine virtuali non appartenenti al dominio nella [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
+**Correzione 2:** Vedere [errore: il nome di dominio non viene risolto](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) nella [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
 
+**Motivo 3:** La configurazione DNS della rete virtuale (VNET) è impostata sul **valore predefinito**.
+
+Per risolvere il problema, eseguire le operazioni seguenti:
+
+1. Aprire il portale di Azure e passare al pannello **reti virtuali** .
+2. Individuare il VNET, quindi selezionare **server DNS**.
+3. Il menu server DNS verrà visualizzato sul lato destro dello schermo. Nel menu selezionare **personalizzato**.
+4. Verificare che i server DNS elencati in personalizzato corrispondano al controller di dominio o al dominio Active Directory. Se il server DNS non è visibile, è possibile aggiungerlo immettendo il relativo valore nel campo **Aggiungi server DNS** .
 
 ### <a name="error-your-deployment-failedunauthorized"></a>Errore: la distribuzione non è riuscita. ..\Unauthorized
 
@@ -159,7 +167,7 @@ Esempio di errore non elaborato:
 
 **Motivo 2:** Errore temporaneo con connessione.
 
-**Correzione:** Verificare che l'ambiente desktop virtuale Windows sia integro eseguendo l'accesso con PowerShell. Completare manualmente la registrazione della macchina virtuale in [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Correzione:** Verificare che l'ambiente desktop virtuale Windows sia integro eseguendo l'accesso con PowerShell. Completare manualmente la registrazione della macchina virtuale in [creare un pool di host con PowerShell](create-host-pools-powershell.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Errore: il nome utente amministratore specificato non è consentito
 
@@ -347,7 +355,7 @@ Esempio di errore non elaborato:
 
 **Motivo:** L'amministratore del tenant desktop virtuale Windows specificato richiede l'accesso a Azure Multi-Factor Authentication (multi-factor authentication).
 
-**Correzione:** Creare un'entità servizio e assegnarle un ruolo per il tenant di desktop virtuale Windows seguendo la procedura descritta in [esercitazione: creare entità servizio e assegnazioni di ruolo con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). Dopo aver verificato che sia possibile accedere a desktop virtuale Windows con l'entità servizio, eseguire di nuovo l'offerta di Azure Marketplace o il modello di Azure Resource Manager di GitHub, a seconda del metodo in uso. Seguire le istruzioni riportate di seguito per immettere i parametri corretti per il metodo.
+**Correzione:** Creare un'entità servizio e assegnarle un ruolo per il tenant di desktop virtuale Windows seguendo la procedura descritta in [esercitazione: creare entità servizio e assegnazioni di ruolo con PowerShell](create-service-principal-role-powershell.md). Dopo aver verificato che sia possibile accedere a desktop virtuale Windows con l'entità servizio, eseguire di nuovo l'offerta di Azure Marketplace o il modello di Azure Resource Manager di GitHub, a seconda del metodo in uso. Seguire le istruzioni riportate di seguito per immettere i parametri corretti per il metodo.
 
 Se si sta eseguendo l'offerta di Azure Marketplace, fornire i valori per i parametri seguenti per eseguire correttamente l'autenticazione a desktop virtuale di Windows:
 

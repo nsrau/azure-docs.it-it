@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 82e62b6d0925aa53fc8456addb4732b16e69080b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9b08dd60020dad6f747167f35e8d172fdc24a59e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935800"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751526"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per la GPU sono macchine virtuali specializzate disponibili con una o più GPU NVIDIA. Queste dimensioni sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica. Questo articolo fornisce informazioni relative a numero e tipo di GPU, vCPU, dischi dati e schede di rete. Anche velocità effettiva di archiviazione e larghezza di banda della rete sono incluse per ogni dimensione di questo raggruppamento.
 
@@ -38,8 +38,8 @@ Le macchine virtuali della serie NC sono basate sulla scheda [NVIDIA Tesla K80](
 | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Standard_NC6 |6 |56 | 340 | 1 | 12 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 24 | 48 | 2 |
-| Standard_NC24 |24 |224 | 1\.440 | 4 | 48 | 64 | 4 |
-| Standard_NC24r* |24 |224 | 1\.440 | 4 | 48 | 64 | 4 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 48 | 64 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 48 | 64 | 4 |
 
 1 GPU = Pari a metà scheda K80.
 
@@ -93,22 +93,34 @@ Le macchine virtuali serie NCv3 sono basate sulle GPU [NVIDIA Tesla V100](https:
 
 *Con supporto di RDMA
 
-## <a name="ndv2-series-preview"></a>Serie NDv2 (anteprima)
+## <a name="updated-ndv2-series-preview"></a>Aggiornamento della serie NDv2 (anteprima)
 
 Archiviazione Premium: supportata
 
 Caching archiviazione Premium: supportato
 
-Infiniband: non supportato
+InfiniBand: supportato
 
-Le macchine virtuali della serie NDv2 sono una novità della famiglia di GPU e sono state progettate per le esigenze di carichi di lavoro di tipo HPC, intelligenza artificiale e Machine Learning. È alimentato da 8 GPU NVIDIA Tesla V100 NVLINK interconnesse e 40 core Intel Xeon Platinum 8168 (Skylake) e 672 GiB della memoria di sistema. Un'istanza NDv2 offre prestazioni eccellenti di tipo FP32 e FP64 per carichi di lavoro per HPC e intelligenza artificiale mediante Cuda, TensorFlow, Pytorch, Caffe e altri framework.
+La macchina virtuale della serie NDv2 è una nuova aggiunta alla famiglia di GPU progettata per le esigenze dei carichi di lavoro di intelligenza artificiale, apprendimento automatico, simulazione e HPC con accelerazione più impegnativa. 
 
-[Iscriviti e ottieni l'accesso a queste macchine virtuali durante l'anteprima](https://aka.ms/ndv2signup).
+NDv2 è alimentato da 8 GPU NVIDIA Tesla V100 NVLINK-connected, ciascuna con 32 GB di memoria GPU. Ogni macchina virtuale NDv2 dispone anche di 40 core Intel Xeon Platinum 8168 (Skylake) senza Hyper-Threading e 672 GiB della memoria di sistema. 
+
+Le istanze di NDv2 offrono prestazioni eccellenti per i carichi di lavoro HPC e intelligenza artificiale che usano i kernel CUDA con ottimizzazione per la GPU e i molti strumenti di intelligenza artificiale, Machine Learning e analisi che supportano l'accelerazione della GPU predefinita, ad esempio TensorFlow, Pytorch, caffe, RAPIDS e altro quadri. 
+
+In modo critico, il NDv2 viene creato sia per la scalabilità verticale che per il calcolo, ovvero per sfruttare 8 GPU per macchina virtuale, sia per la scalabilità orizzontale (sfruttando più macchine virtuali che interagiscono tra loro). La serie NDv2 supporta ora le reti back-end InfiniBand EDR 100 Gigabit, simili a quelle disponibili nella serie HB della VM HPC, per consentire il clustering a prestazioni elevate per gli scenari paralleli, incluso il training distribuito per AI e ML. Questa rete back-end supporta tutti i principali protocolli InfiniBand, inclusi quelli usati dalle librerie NCCL2 di NVIDIA, consentendo un clustering di GPU senza problemi.
+
+> Quando si [Abilita InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) nella macchina virtuale ND40rs_v2, usare il driver OFED Mellanox 4.7-1.0.0.1.
+
+> A causa di una maggiore memoria GPU, la nuova macchina virtuale ND40rs_v2 richiede l'uso di [macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e immagini del Marketplace. 
+
+> [Iscriversi per richiedere l'accesso anticipato all'anteprima della macchina virtuale NDv2.](https://aka.ms/AzureNDrv2Preview)
+
+> Nota: la ND40s_v2 con 16 GB di memoria per GPU non è più disponibile in anteprima ed è stata sostituita dalla ND40rs_v2 aggiornata.
 <br>
 
 | Dimensioni | vCPU | Memoria: GiB | Archiviazione temporanea (SSD): GiB | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda di rete massima | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000/800 | 24000 Mbps | 8 |
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000/800 | 24000 Mbps | 8 |
 
 ## <a name="nd-series"></a>Serie ND
 
@@ -147,7 +159,7 @@ Ogni GPU di istanze NV viene fornita con una licenza GRID. Questa licenza consen
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
-| Standard_NV24 |24 |224 |1\.440 | 4 | 32 | 64 | 4 | 4 | 100 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
 1 GPU = Pari a metà scheda M60.
 

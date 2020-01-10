@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: d783751137510febf9fb2e31d9d44728a049d88d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d8f0f6c63c584cacfa5c996bd541ce4dfc4bd289
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611817"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763930"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usare un modello esistente con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Se si dispone di un modello di apprendimento automatico di cui è stato eseguito
 >
 > Per altre informazioni sui concetti e i termini usati in questo articolo, vedere [gestire, distribuire e monitorare i modelli di Machine Learning](concept-model-management-and-deployment.md).
 >
-> Per informazioni generali sul processo di distribuzione, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Per informazioni generali sul processo di distribuzione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -138,7 +138,7 @@ dependencies:
     - keras
 ```
 
-Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="entry-script"></a>Script di immissione
 
@@ -223,7 +223,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Definire la distribuzione
 
@@ -250,7 +250,7 @@ L'interfaccia della riga di comando carica la configurazione di distribuzione da
 }
 ```
 
-La distribuzione in una destinazione di calcolo diversa, ad esempio il servizio Azure Kubernetes nel cloud di Azure, è semplice come la modifica della configurazione della distribuzione. Per ulteriori informazioni, vedere [come e dove distribuire i modelli](service/how-to-deploy-and-where.md).
+La distribuzione in una destinazione di calcolo diversa, ad esempio il servizio Azure Kubernetes nel cloud di Azure, è semplice come la modifica della configurazione della distribuzione. Per ulteriori informazioni, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
@@ -277,7 +277,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
-Per ulteriori informazioni sulla distribuzione, vedere [come e dove distribuire i modelli](service/how-to-deploy-and-where.md).
+Per ulteriori informazioni sulla distribuzione, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 ## <a name="request-response-consumption"></a>Consumo richiesta-risposta
 
@@ -304,5 +304,5 @@ Per ulteriori informazioni sull'utilizzo del servizio distribuito, vedere la pag
 
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)
-* [Come e dove distribuire i modelli](service/how-to-deploy-and-where.md)
+* [Come e dove distribuire i modelli](how-to-deploy-and-where.md)
 * [Come creare un client per un modello distribuito](how-to-consume-web-service.md)

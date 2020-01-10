@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225395"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754241"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creare un servizio di bilanciamento del carico interno usando il modulo Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -48,7 +48,7 @@ Per distribuire un servizio di bilanciamento del carico, è necessario creare gl
 * Configurazione del probe: probe dello stato di integrità per le macchine virtuali.
 * Regole NAT in ingresso: regole delle porte per l'accesso diretto alle macchine virtuali.
 
-Per altre informazioni sui componenti del servizio di bilanciamento del carico, vedere [Supporto di Azure Resource Manager per il servizio di bilanciamento del carico](load-balancer-arm.md).
+Per ulteriori informazioni sui componenti del servizio di bilanciamento del carico, vedere [Azure Load Balancer Components](load-balancer-overview.md#load-balancer-components).
 
 La procedura seguente illustra come configurare un servizio di bilanciamento del carico tra due macchine virtuali.
 
@@ -90,7 +90,7 @@ Creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico. S
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per tutte le risorse in questo gruppo di risorse. Usare sempre lo stesso gruppo di risorse per tutti i comandi correlati alla creazione del servizio di bilanciamento del carico.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per tutte le risorse in questo gruppo di risorse. Usare sempre lo stesso gruppo di risorse per tutti i comandi correlati alla creazione del servizio di bilanciamento del carico.
 
 Nell'esempio è stato creato un gruppo di risorse denominato **NRP-RG** nell'area Stati Uniti occidentali.
 
@@ -330,5 +330,5 @@ Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare la modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
+* [Configurare la modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
 * [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

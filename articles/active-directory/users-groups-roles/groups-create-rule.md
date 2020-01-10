@@ -1,6 +1,6 @@
 ---
-title: Creare un gruppo dinamico e controllare lo stato-Azure AD | Microsoft Docs
-description: Come creare una regola di appartenenza a un gruppo nella portale di Azure, controllare lo stato.
+title: Creare o modificare un gruppo dinamico e ottenere lo stato Azure AD | Microsoft Docs
+description: Come creare o aggiornare una regola di appartenenza a un gruppo nella portale di Azure e controllarne lo stato di elaborazione.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900945"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768767"
 ---
-# <a name="create-a-dynamic-group-and-check-status"></a>Creare un gruppo dinamico e controllare lo stato
+# <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Crea o aggiorna un gruppo dinamico in Azure Active Directory
 
 In Azure Active Directory (Azure AD), è possibile usare le regole per determinare l'appartenenza al gruppo in base alle proprietà dell'utente o del dispositivo. Questo articolo illustra come configurare una regola per un gruppo dinamico nella portale di Azure.
 L'appartenenza dinamica è supportata per i gruppi di sicurezza o per i gruppi di Office 365. Quando viene applicata una regola di appartenenza a un gruppo, gli attributi utente e dispositivo vengono valutati per le corrispondenze con la regola di appartenenza. Quando un attributo viene modificato per un utente o un dispositivo, vengono elaborate tutte le regole dinamiche del gruppo nell'organizzazione per le modifiche dell'appartenenza. Utenti e dispositivi vengono aggiunti o rimossi se soddisfano le condizioni per un gruppo. I gruppi di sicurezza possono essere usati per dispositivi o utenti, ma i gruppi di Office 365 possono essere solo gruppi di utenti.
@@ -40,7 +40,7 @@ Di seguito sono riportati alcuni esempi di regole avanzate o sintassi per cui è
 > [!NOTE]
 > Il generatore regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Potrebbe essere visualizzato un messaggio quando il generatore regole non è in grado di visualizzare la regola. Il generatore regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
 
-![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Per esempi di sintassi, proprietà, operatori e valori supportati per una regola di appartenenza, vedere [regole di appartenenza dinamiche per i gruppi in Azure Active Directory](groups-dynamic-membership.md).
 
@@ -63,6 +63,20 @@ Per esempi di sintassi, proprietà, operatori e valori supportati per una regola
 1. Selezionare **Crea** nella pagina **nuovo gruppo** per creare il gruppo.
 
 Se la regola immessa non è valida, una spiegazione del motivo per cui non è stato possibile elaborare la regola viene visualizzata in una notifica di Azure nel portale. Leggerlo attentamente per comprendere come correggere la regola.
+
+## <a name="to-update-an-existing-rule"></a>Per aggiornare una regola esistente
+
+1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account di amministratore globale, amministratore del gruppo, amministratore di Intune o ruolo di amministratore utente nel tenant.
+1. Selezionare **gruppi** > **tutti i gruppi**.
+1. Selezionare un gruppo per aprirne il profilo.
+1. Nella pagina profilo per il gruppo selezionare regole di **appartenenza dinamica**. Il generatore regole supporta fino a cinque espressioni. Per aggiungere più di cinque espressioni, è necessario utilizzare la casella di testo.
+
+   ![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-create-rule/update-dynamic-group-rule.png)
+
+1. Per visualizzare le proprietà dell'estensione personalizzata disponibili per la regola di appartenenza:
+   1. Selezionare **Ottieni proprietà estensione personalizzata**
+   1. Immettere l'ID applicazione, quindi selezionare **Aggiorna proprietà**.
+1. Dopo aver aggiornato la regola, selezionare **Salva**.
 
 ## <a name="turn-on-or-off-welcome-email"></a>Attivare o disattivare il messaggio di posta elettronica di benvenuto
 

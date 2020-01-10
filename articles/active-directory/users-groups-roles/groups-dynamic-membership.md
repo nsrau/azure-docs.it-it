@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538782"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768716"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -48,9 +48,9 @@ Di seguito sono riportati alcuni esempi di regole avanzate o sintassi per cui è
 > [!NOTE]
 > Il generatore regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Potrebbe essere visualizzato un messaggio quando il generatore regole non è in grado di visualizzare la regola. Il generatore regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
 
-Per altre istruzioni dettagliate, vedere [aggiornare un gruppo dinamico](groups-update-rule.md).
+Per altre istruzioni dettagliate, vedere [creare o aggiornare un gruppo dinamico](groups-create-rule.md).
 
-![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Sintassi della regola per una singola espressione
 
@@ -69,8 +69,8 @@ Per una singola espressione le parentesi sono facoltative. La lunghezza totale d
 Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
 
 - Proprietà
-- Operator
-- Value
+- Operatore
+- Valore
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
@@ -78,29 +78,29 @@ L'ordine delle parti in un'espressione è importante per evitare gli errori di s
 
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
-- boolean
-- Stringa
+- Boolean
+- string
 - Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
 | companyName | Qualsiasi valore di stringa o *null* | (user.companyName -eq "value") |
 | department |Qualsiasi valore di stringa o *null* |(user.department -eq "valore") |
-| displayName |Qualsiasi valore stringa. |(user.displayName -eq "valore") |
-| employeeId |Qualsiasi valore stringa. |(user.employeeId -eq "valore")<br>(user.employeeId -ne *null*) |
+| displayName |Qualsiasi valore di stringa |(user.displayName -eq "valore") |
+| employeeId |Qualsiasi valore di stringa |(user.employeeId -eq "valore")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Qualsiasi valore di stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
 | givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
 | jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |
@@ -119,14 +119,14 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | surname |Qualsiasi valore di stringa o *null* |(user.surname -eq "valore") |
 | telephoneNumber |Qualsiasi valore di stringa o *null* |(user.telephoneNumber -eq "valore") |
 | usageLocation |Codice di paese di due lettere |(user.usageLocation -eq "US") |
-| userPrincipalName |Qualsiasi valore stringa. |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |Qualsiasi valore di stringa |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro guest *null* |(user.userType -eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| properties | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
-| otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
+| otherMails |Qualsiasi valore di stringa |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 Per le proprietà usate per le regole dei dispositivi, vedere [Regole per i dispositivi](#rules-for-devices).
@@ -135,7 +135,7 @@ Per le proprietà usate per le regole dei dispositivi, vedere [Regole per i disp
 
 Nella tabella seguente sono elencati tutti gli operatori supportati e la relativa sintassi per un'espressione singola. Gli operatori possono essere usati con o senza trattino (-) come prefisso.
 
-| Operator | Sintassi |
+| Operatore | Sintassi |
 | --- | --- |
 | Non uguale a |-ne |
 | Uguale a |-eq |
@@ -249,7 +249,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| properties | Valori | Utilizzo |
+| Proprietà | Valori | Uso |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -373,7 +373,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Qualsiasi valore stringa. |(Device. displayName-EQ "Rob iPhone")
- deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contiene "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
+ deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contiene "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Qualsiasi valore stringa. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | nome di una categoria di dispositivo valido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")

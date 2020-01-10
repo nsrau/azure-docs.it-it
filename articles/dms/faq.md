@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 07/10/2019
-ms.openlocfilehash: 11aec9c62c388155f8d90b7a89171937f22dd9d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438011"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745406"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Domande frequenti sull'uso del servizio migrazione del database di Azure
 
@@ -37,7 +37,7 @@ Il servizio attualmente supporta un'ampia gamma di coppie di origine/destinazion
 Altri scenari di migrazione sono in anteprima e richiedono l'invio di una candidatura tramite il sito di anteprima DMS. Per un elenco completo degli scenari in anteprima e per iscriversi a una di queste offerte, vedere il [sito di anteprima DMS](https://aka.ms/dms-preview/).
 
 **D. quali versioni di SQL Server supportano il servizio migrazione del database di Azure come origine?**
-Quando si esegue la migrazione da SQL Server, le origini supportate per il servizio migrazione del database di Azure sono SQL Server da 2005 a SQL Server 2017.
+Quando si esegue la migrazione da SQL Server, le origini supportate per il servizio migrazione del database di Azure sono SQL Server da 2005 a SQL Server 2019.
 
 **D: quando si usa il servizio migrazione del database di Azure, qual è la differenza tra una migrazione offline e una migrazione in linea?**
 È possibile usare il servizio migrazione del database di Azure per eseguire migrazioni offline e online. Con una migrazione *offline* , il tempo di inattività dell'applicazione viene avviato all'avvio della migrazione. Con una migrazione in *linea* , il tempo di inattività è limitato al tempo necessario per il superamento al termine della migrazione. È consigliabile testare una migrazione offline per determinare se il tempo di inattività è accettabile. In caso contrario, eseguire una migrazione online.
@@ -58,14 +58,14 @@ Sono necessari alcuni prerequisiti per garantire che il servizio migrazione del 
 
 In base ai prerequisiti del Servizio Migrazione del database di Azure comuni a tutti gli scenari di migrazione supportati, è necessario:
 
-* Creare una VNet per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale di Azure (VNet) non blocchino le seguenti porte di comunicazione 443, 53, 9354, 445, 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione seguenti 443, 53, 9354, 445, 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 
 Per un elenco di tutti i prerequisiti necessari per competere con scenari di migrazione specifici usando il servizio migrazione del database di Azure, vedere le esercitazioni correlate nella [documentazione](https://docs.microsoft.com/azure/dms/dms-overview) del servizio migrazione del database di azure in docs.Microsoft.com.
 
 **D. Ricerca per categorie trovare l'indirizzo IP per il servizio migrazione del database di Azure in modo che sia possibile creare un elenco Consenti per le regole del firewall usate per accedere al database di origine per la migrazione?**
-Potrebbe essere necessario aggiungere regole del firewall che consentono al servizio migrazione del database di Azure di accedere al database di origine per la migrazione. L'indirizzo IP per il servizio è dinamico, ma, se si usa Express Route, questo indirizzo viene assegnato privatamente dalla rete aziendale. Il modo più semplice per identificare l'indirizzo IP appropriato consiste nel cercare nello stesso gruppo di risorse della risorsa del servizio migrazione del database di Azure di cui è stato effettuato il provisioning per trovare l'interfaccia di rete associata. Il nome della risorsa dell'interfaccia di rete inizia in genere con il prefisso NIC ed è seguito da una sequenza alfanumerica univoca, ad esempio NIC-jj6tnztnmarpsskr82rbndyp. Se si seleziona questa risorsa dell'interfaccia di rete, è possibile visualizzare l'indirizzo IP che deve essere incluso nell'elenco indirizzi consentiti nella pagina del portale di Azure della panoramica.
+Potrebbe essere necessario aggiungere regole del firewall che consentono al servizio migrazione del database di Azure di accedere al database di origine per la migrazione. L'indirizzo IP del servizio è dinamico, ma se si usa ExpressRoute, questo indirizzo viene assegnato privatamente dalla rete aziendale. Il modo più semplice per identificare l'indirizzo IP appropriato consiste nel cercare nello stesso gruppo di risorse della risorsa del servizio migrazione del database di Azure di cui è stato effettuato il provisioning per trovare l'interfaccia di rete associata. Il nome della risorsa dell'interfaccia di rete inizia in genere con il prefisso NIC ed è seguito da una sequenza alfanumerica univoca, ad esempio NIC-jj6tnztnmarpsskr82rbndyp. Se si seleziona questa risorsa dell'interfaccia di rete, è possibile visualizzare l'indirizzo IP che deve essere incluso nell'elenco indirizzi consentiti nella pagina del portale di Azure della panoramica.
 
 Potrebbe essere necessario includere nell'elenco indirizzi consentiti anche l'origine della porta su cui SQL Server è in ascolto. Per impostazione predefinita, si tratta della porta 1433, ma l'istanza di SQL Server di origine potrebbe essere configurata per l'ascolto anche su altre porte. In questo caso, è necessario includere anche tali porte nell'elenco indirizzi consentiti. È possibile determinare la porta su cui SQL Server è in ascolto usando una query DMV:
 
@@ -85,8 +85,8 @@ Potrebbe essere necessario includere nell'elenco indirizzi consentiti anche l'or
     GO
 ```
 
-**D. Ricerca per categorie configurare una rete virtuale di Azure?**
-Oltre alle numerose esercitazioni Microsoft che illustrano il processo di configurazione di una rete virtuale di Azure, è disponibile la documentazione ufficiale nell'articolo[Rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+**D. Ricerca per categorie configurare una Rete virtuale di Microsoft Azure?**
+Sebbene più esercitazioni di Microsoft possano illustrare il processo di configurazione di una rete virtuale, la documentazione ufficiale viene visualizzata nell'articolo [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## <a name="usage"></a>Uso
 
@@ -106,7 +106,7 @@ Durante una semplice migrazione di database tipica, è necessario:
 ## <a name="troubleshooting-and-optimization"></a>Risoluzione dei problemi e ottimizzazione
 
 **D. Sto configurando un progetto di migrazione in DMS e ho difficoltà a connettersi al database di origine. Cosa dovrei fare?**
-In caso di problemi di connessione al sistema di database di origine durante la migrazione, creare una macchina virtuale nella VNet con la quale si configura l'istanza di DMS. Nella macchina virtuale dovrebbe essere possibile eseguire un test di connessione, ad esempio usando un file UDL per testare una connessione a SQL Server o scaricare Robo 3T per testare le connessioni MongoDB. Se il test della connessione ha esito positivo, non è necessario un problema con la connessione al database di origine. Se il test della connessione non riesce, contattare l'amministratore di rete.
+In caso di problemi di connessione al sistema di database di origine durante la migrazione, creare una macchina virtuale nella rete virtuale con cui si configura l'istanza di DMS. Nella macchina virtuale dovrebbe essere possibile eseguire un test di connessione, ad esempio usando un file UDL per testare una connessione a SQL Server o scaricare Robo 3T per testare le connessioni MongoDB. Se il test della connessione ha esito positivo, non è necessario un problema con la connessione al database di origine. Se il test della connessione non riesce, contattare l'amministratore di rete.
 
 **D. perché il servizio migrazione del database di Azure non è disponibile o è stato arrestato?**
 Se l'utente arresta in modo esplicito il servizio migrazione del database di Azure o se il servizio è inattivo per un periodo di 24 ore, il servizio si troverà in uno stato interrotto o sospeso automaticamente. In entrambi i casi, il servizio non sarà disponibile e risulterà in stato di arresto.  Per riprendere l'esecuzione delle migrazioni attive, riavviare il servizio.

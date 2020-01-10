@@ -1,6 +1,6 @@
 ---
 title: Eseguire la migrazione da Google Maps | Microsoft Docs
-description: Esercitazione su come eseguire la migrazione da Google Maps a mappe di Azure.
+description: Esercitazione su come eseguire la migrazione da Google Maps a Microsoft Azure maps. Le linee guida illustrano come passare alle API e agli SDK di Azure maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ea9afc413a7fb187042c9d832fa1c16802993eed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6709c42b19b18c8cae783a6b4ecc2c0721e1217d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481230"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770306"
 ---
 # <a name="migrate-from-google-maps"></a>Eseguire la migrazione da Google Maps
 
@@ -22,7 +22,7 @@ Questa esercitazione fornisce informazioni dettagliate su come eseguire la migra
 
 ## <a name="azure-maps-platform-overview"></a>Panoramica della piattaforma mappe di Azure
 
-Azure Maps offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali, con i dati della mappa aggiornati regolarmente per fornire contesto geografico per le applicazioni Web e per dispositivi mobili. Mappe di Azure dispone di un set di API REST conforme all'API di Azure per le mappe, la ricerca, il routing, il traffico, i fusi orari, la georilevazione, il geoschermatura, i dati delle mappe e le operazioni spaziali, unitamente agli SDK Web e Android, per rendere lo sviluppo semplice, flessibile e portatile tra più piattaforme.
+Azure Maps offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali, con i dati della mappa aggiornati regolarmente per fornire contesto geografico per le applicazioni Web e per dispositivi mobili. Azure Maps dispone di un set di API REST conforme a Azure One API per le mappe, la ricerca, il routing, il traffico, i fusi orari, la georilevazione, il geoschermatura, i dati delle mappe, il meteo, la mobilità e le operazioni spaziali accompagnati da SDK Web e Android per rendere lo sviluppo semplice, flessibile e portatile tra più piattaforme.
 
 ## <a name="high-level-platform-comparison"></a>Confronto tra piattaforme di alto livello
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468280"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752238"
 ---
 Gli snapshot incrementali (anteprima) sono backup temporizzati per i dischi gestiti che, quando vengono eseguiti, sono costituiti solo da tutte le modifiche apportate dopo l'ultimo snapshot. Quando si tenta di scaricare o utilizzare in altro modo uno snapshot incrementale, viene utilizzato il VHD completo. Questa nuova funzionalità per gli snapshot dei dischi gestiti può consentire loro di essere più conveniente, perché non è più necessario archiviare l'intero disco con ogni singolo snapshot, a meno che non si scelga di. Analogamente agli snapshot regolari, è possibile usare gli snapshot incrementali per creare un disco gestito completo o, per creare uno snapshot regolare.
 
@@ -23,7 +23,7 @@ Gli snapshot incrementali offrono inoltre una funzionalità differenziale, dispo
 
 ## <a name="restrictions"></a>Restrizioni
 
-- Gli snapshot incrementali sono attualmente disponibili solo nelle aree Stati Uniti orientali, Stati Uniti centrali, Canada centrale, Stati Uniti centro-occidentali ed Europa settentrionale.
+- Gli snapshot incrementali sono attualmente disponibili solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-occidentali, Canada orientale, Canada centrale ed Europa settentrionale.
 - Attualmente non è possibile creare snapshot incrementali dopo aver modificato le dimensioni di un disco.
 - Non è attualmente possibile spostare gli snapshot incrementali tra le sottoscrizioni.
 - Attualmente, è possibile generare solo URI SAS di un massimo di cinque snapshot di una particolare famiglia di snapshot in un determinato momento.

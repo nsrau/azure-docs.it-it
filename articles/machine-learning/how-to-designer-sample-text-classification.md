@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 3116b88cd50fa9f348b418cfc90fe21986944b74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539996"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771428"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compilare un classificatore per stimare la categoria aziendale usando Azure Machine Learning Designer.
 
@@ -110,9 +110,9 @@ Per controllare il risultato, selezionare la porta di output del **modello Evalu
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esplorare gli altri esempi disponibili per la finestra di progettazione:
-- [Esempio 1: regressione: stimare il prezzo di un'automobile](service/how-to-designer-sample-regression-automobile-price-basic.md)
-- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](service/how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](service/how-to-designer-sample-classification-predict-income.md)
-- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: varianza di stima](service/how-to-designer-sample-classification-churn.md)
-- [Esempio 6-Classificazione: stima dei ritardi dei voli](service/how-to-designer-sample-classification-flight-delay.md)
+- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](how-to-designer-sample-classification-predict-income.md)
+- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
+- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408724"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768827"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Procedure consigliate per l'uso di mappe di Azure servizio di ricerca
 
@@ -33,7 +33,7 @@ Per eseguire chiamate alle API del servizio Mappe sono necessari un account di M
 > Per eseguire una query sul servizio di ricerca, è possibile usare l' [app post](https://www.getpostman.com/apps) per compilare chiamate REST oppure è possibile usare qualsiasi ambiente di sviluppo API preferito.
 
 
-## <a name="best-practices-for-geocoding"></a>Procedure consigliate per la geocodifica
+## <a name="best-practices-for-geocoding-address-search"></a>Procedure consigliate per la geocodifica (Ricerca indirizzi)
 
 Quando si cerca un indirizzo completo o parziale usando le mappe di Azure servizio di ricerca, viene eseguito il termine di ricerca e vengono restituite le coordinate di longitudine e latitudine dell'indirizzo. Questo processo è denominato geocodifica. La capacità di geocodifica in un paese dipende dalla copertura dei dati stradali e dalla precisione di geocodifica del servizio di geocodifica.
 
@@ -58,10 +58,12 @@ Per altre informazioni sulle funzionalità di geocodifica di Azure Maps per paes
 
 
    **Parametri di ricerca fuzzy**
+   
+   L' [API ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) di Azure Maps è il servizio consigliato da usare quando non si conoscono gli input degli utenti per una query di ricerca. L'API combina la ricerca di punti di interesse e la geocodifica in una *ricerca a riga singola*canonica. 
 
    1. Il `minFuzzyLevel` e `maxFuzzyLevel`, consentono di restituire corrispondenze rilevanti anche quando i parametri di query non corrispondono esattamente alle informazioni desiderate. Per impostazione predefinita, la maggior parte delle query di ricerca `minFuzzyLevel=1` e `maxFuzzyLevel=2` per ottenere prestazioni e ridurre i risultati anomali. Si prenda ad esempio un termine di ricerca "restrant", che viene abbinato a "Restaurant" quando il `maxFuzzyLevel` è impostato su 2. È possibile eseguire l'override dei livelli fuzzy predefiniti in base alle esigenze della richiesta. 
 
-   2. È inoltre possibile specificare il set esatto di tipi di risultato da restituire utilizzando il parametro `idxSet`. A questo scopo è possibile inviare un elenco delimitato da virgole di indici, l'ordine degli elementi non è rilevante. Gli indici supportati sono i seguenti:
+   2. È anche possibile classificare in ordine di priorità il set esatto di tipi di risultato da restituire utilizzando il parametro `idxSet`. A questo scopo, è possibile inviare un elenco delimitato da virgole di indici; l'ordine degli elementi non è rilevante. Sono supportati gli indici seguenti:
 
        * `Addr` - **intervalli di indirizzi**: per alcune strade sono presenti punti di indirizzo interpolati dall'inizio e dalla fine della strada; questi punti sono rappresentati come intervalli di indirizzi.
        * `Geo` - **geografie**: aree in una mappa che rappresentano la divisione amministrativa di una terra, ovvero paese, stato, città.
@@ -317,7 +319,10 @@ La ricerca di punti di interesse (PDI) consente di richiedere i risultati dei pu
 
 Per migliorare la pertinenza dei risultati e le informazioni nella risposta, la risposta alla ricerca punto di interesse (PDI) include le informazioni sul marchio che possono essere usate ulteriormente per analizzare la risposta.
 
+È anche possibile inviare un elenco delimitato da virgole di nomi di marchi nella richiesta. È possibile utilizzare l'elenco per limitare i risultati a marchi specifici utilizzando il parametro `brandSet`. L'ordine degli elementi non è rilevante. Quando vengono specificati più marchi, vengono restituiti solo i risultati che appartengono almeno a uno degli elenchi specificati.
+
 Si effettuerà una richiesta di ricerca di una [categoria](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) di punti di interesse per le stazioni di gas vicino a Microsoft Campus (Redmond, WA). Se si osserva la risposta, è possibile visualizzare le informazioni sul marchio per ogni PDI restituito.
+
 
 **Query di esempio:**
 

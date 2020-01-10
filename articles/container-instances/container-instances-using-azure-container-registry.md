@@ -3,15 +3,15 @@ title: Distribuire l'immagine del contenitore da Azure Container Registry
 description: Informazioni su come distribuire i contenitori in Istanze di Azure Container usando le immagini contenitore in un Registro Azure Container.
 services: container-instances
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 823a25f388860fa55962a717b9dfed22f5d9c103
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533281"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770518"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
@@ -25,7 +25,9 @@ ms.locfileid: "74533281"
 
 ## <a name="configure-registry-authentication"></a>Configurare l'autenticazione del registro
 
-In qualsiasi scenario di produzione l'accesso a un Registro Azure Container deve essere fornito tramite [entità servizio](../container-registry/container-registry-auth-service-principal.md). Le entità servizio consentono di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
+In uno scenario di produzione in cui si fornisce l'accesso a servizi e applicazioni "Head", è consigliabile configurare l'accesso al registro di sistema tramite un' [entità servizio](../container-registry/container-registry-auth-service-principal.md). Un'entità servizio consente di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
+
+Azure Container Registry offre [Opzioni di autenticazione](../container-registry/container-registry-authentication.md)aggiuntive.
 
 Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
 
@@ -33,7 +35,9 @@ Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e u
 
 Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](../key-vault/key-vault-overview.md), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
 
-Aggiornare la variabile `RES_GROUP` con il nome di un gruppo di risorse esistente in cui creare l'insieme di credenziali delle chiavi e `ACR_NAME` con il nome del registro contenitori. Specificare un nome per il nuovo insieme di credenziali delle chiavi in `AKV_NAME`. Il nome dell'insieme di credenziali deve essere univoco in Azure e avere una lunghezza compresa tra 3 e 24 caratteri alfanumerici, iniziare con una lettera, finire con una lettera o una cifra e non contenere trattini consecutivi.
+Aggiornare la variabile `RES_GROUP` con il nome di un gruppo di risorse esistente in cui creare l'insieme di credenziali delle chiavi e `ACR_NAME` con il nome del registro contenitori. Per brevità, i comandi in questo articolo presuppongono che il registro di sistema, l'insieme di credenziali delle chiavi e le istanze di contenitore siano tutti creati nello stesso gruppo di risorse.
+
+ Specificare un nome per il nuovo insieme di credenziali delle chiavi in `AKV_NAME`. Il nome dell'insieme di credenziali deve essere univoco in Azure e avere una lunghezza compresa tra 3 e 24 caratteri alfanumerici, iniziare con una lettera, finire con una lettera o una cifra e non contenere trattini consecutivi.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -45,12 +49,12 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 ### <a name="create-service-principal-and-store-credentials"></a>Creare un'entità servizio e archiviare le credenziali
 
-A questo punto occorre creare un'entità servizio e archiviarne le credenziali nell'insieme di credenziali delle chiavi.
+Creare ora un'entità servizio e archiviarne le credenziali nell'insieme di credenziali delle chiavi.
 
 Il comando seguente usa [AZ ad SP create-for-RBAC][az-ad-sp-create-for-rbac] per creare l'entità servizio e [AZ Keys Vault Secret impostati][az-keyvault-secret-set] per archiviare la **password** dell'entità servizio nell'insieme di credenziali.
 
 ```azurecli
-# Create service principal, store its password in AKV (the registry *password*)
+# Create service principal, store its password in vault (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
@@ -67,7 +71,7 @@ L'argomento `--role` nel comando precedente configura l'entità servizio con il 
 Quindi, archiviare nell'insieme di credenziali il valore *appId* dell'entità servizio, che corrisponde al **nome utente** passato a Registro Azure Container per l'autenticazione.
 
 ```azurecli
-# Store service principal ID in AKV (the registry *username*)
+# Store service principal ID in vault (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
@@ -116,9 +120,10 @@ Una volta avviato il contenitore, è possibile passare al suo FQDN nel browser p
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Distribuire con un modello di Azure Resource Manager
 
-È possibile specificare le proprietà di Registro Azure Container in un modello di Azure Resource Manager includendo la proprietà `imageRegistryCredentials` nella definizione del gruppo di contenitori:
+È possibile specificare le proprietà del registro contenitori di Azure in un modello di Azure Resource Manager includendo la proprietà `imageRegistryCredentials` nella definizione del gruppo di contenitori. Ad esempio, è possibile specificare direttamente le credenziali del registro di sistema:
 
 ```JSON
+[...]
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -126,7 +131,10 @@ Una volta avviato il contenitore, è possibile passare al suo FQDN nel browser p
     "password": "imageRegistryPassword"
   }
 ]
+[...]
 ```
+
+Per le impostazioni complete del gruppo di contenitori, vedere il [riferimento al modello di gestione risorse](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
 
 Per informazioni dettagliate sul riferimento ai segreti di Azure Key Vault in un modello di Resource Manager, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 

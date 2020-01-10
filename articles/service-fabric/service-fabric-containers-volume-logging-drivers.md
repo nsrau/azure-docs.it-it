@@ -1,22 +1,21 @@
 ---
-title: Driver Volume File di Azure Service Fabric (GA)
+title: File di Azure driver del volume per Service Fabric
 description: Service Fabric supporta l'uso di File di Azure per eseguire il backup di volumi dal contenitore.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464796"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750051"
 ---
-# <a name="service-fabric-azure-files-volume-driver"></a>Driver del volume File di Azure Service Fabric
-Il plug-in del volume File di Azure, un plug-in del [volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) che fornisce volumi basati su [file di Azure](/azure/storage/files/storage-files-introduction) per i contenitori Docker è ora disponibile a livello **generale**.
+# <a name="azure-files-volume-driver-for-service-fabric"></a>File di Azure driver del volume per Service Fabric
 
-Questo plug-in di volume Docker viene offerto come pacchetto di applicazione di Service Fabric distribuibile nei cluster di Service Fabric, con lo scopo di fornire volumi basati su File di Azure per altre applicazioni contenitore di Service Fabric distribuite nel cluster.
+Il driver del volume File di Azure è un plug-in del [volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) che fornisce volumi basati su [file di Azure](/azure/storage/files/storage-files-introduction) per i contenitori docker. Viene inserito in un pacchetto come applicazione Service Fabric che può essere distribuita in un cluster Service Fabric per fornire volumi per altre applicazioni contenitore Service Fabric all'interno del cluster.
 
 > [!NOTE]
-> La versione 6.5.661.9590 del plug-in del volume File di Azure è una versione GA (disponibile a livello generale). 
+> La versione 6.5.661.9590 del plug-in del volume File di Azure è stata rilasciata per la disponibilità generale.
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -55,7 +54,6 @@ Nella sezione fabricSettings del modello di Azure Resource Manager (per le distr
   }
 ]
 ```
-
 
 ## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Distribuire un'applicazione di esempio usando Service Fabric File di Azure driver del volume
 

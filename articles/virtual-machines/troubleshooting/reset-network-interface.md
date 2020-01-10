@@ -12,16 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a809cabd2ace1b18af6c93dc54348137e9ba5750
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111729"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749916"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Come reimpostare l'interfaccia di rete per la VM Windows di Azure 
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina virtuale Windows di Azure per risolvere i problemi quando non è possibile connettersi alla macchina virtuale (VM) Windows di Microsoft Azure dopo:
 
@@ -47,7 +45,7 @@ Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina 
 8. La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
 9.  Provare a eseguire RDP al computer in uso. Se ha esito positivo, è possibile modificare l'indirizzo IP privato originale se si vuole. In caso contrario è possibile mantenerlo. 
 
-#### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
+#### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
 1. Verificare che sia installata [la versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti:
@@ -88,7 +86,7 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 8.  La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
 9.  Provare a eseguire RDP al computer in uso. Se l'operazione ha esito positivo, è possibile scegliere di ripristinare l'indirizzo IP privato originale.  
 
-#### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
+#### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
 1. Verificare che sia installata [la versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti:

@@ -1,42 +1,42 @@
 ---
 title: Regole di accesso al firewall
-description: Configurare le regole per accedere a un registro contenitori di Azure da dietro un firewall.
+description: Configurare le regole per accedere a un registro contenitori di Azure da dietro un firewall, consentendo l'accesso all'API REST di archiviazione ("whitelist") e ai nomi di dominio dell'endpoint di archiviazione o agli intervalli di indirizzi IP specifici del servizio.
 ms.topic: article
 ms.date: 07/17/2019
-ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455179"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745195"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall
 
 Questo articolo illustra come configurare le regole nel firewall per consentire l'accesso a un registro contenitori di Azure. Ad esempio, un dispositivo Azure IoT Edge dietro un firewall o un server proxy potrebbe dover accedere a un registro contenitori per eseguire il pull di un'immagine del contenitore. In alternativa, un server bloccato in una rete locale potrebbe avere l'esigenza di accedere per eseguire il push di un'immagine.
 
-Se invece si vuole configurare le regole di accesso alla rete in ingresso in un registro contenitori per consentire l'accesso solo all'interno di una rete virtuale di Azure o di un intervallo di indirizzi IP pubblici, vedere [limitare l'accesso a un registro contenitori di Azure da una rete virtuale](container-registry-vnet.md).
+Se invece si vogliono configurare le regole di accesso alla rete in ingresso in un registro contenitori solo in una rete virtuale di Azure o da un intervallo di indirizzi IP pubblici, vedere [limitare l'accesso a un registro contenitori di Azure da una rete virtuale](container-registry-vnet.md).
 
 ## <a name="about-registry-endpoints"></a>Informazioni sugli endpoint del registro di sistema
 
 Per eseguire il pull o il push di immagini o altri artefatti in un registro contenitori di Azure, un client come un daemon Docker deve interagire con HTTPS con due endpoint distinti.
 
-* **Endpoint API REST del registro** di sistema: le operazioni di autenticazione e gestione del registro di sistema vengono gestite tramite l'endpoint API REST pubblico del registro di sistema. Questo endpoint è l'URL del server di accesso del registro di sistema o un intervallo di indirizzi IP associato. 
+* **Endpoint API REST del registro** di sistema: le operazioni di autenticazione e gestione del registro di sistema vengono gestite tramite l'endpoint API REST pubblico del registro di sistema. Questo endpoint è il nome del server di accesso del registro di sistema o un intervallo di indirizzi IP associato. 
 
-* **Endpoint di archiviazione** : Azure [alloca l'archiviazione BLOB](container-registry-storage.md) negli account di archiviazione di Azure per conto di ogni registro di sistema per gestire le immagini del contenitore e altri artefatti. Quando un client accede a livelli immagine in un registro contenitori di Azure, effettua richieste usando un endpoint dell'account di archiviazione fornito dal registro di sistema.
+* **Endpoint di archiviazione** : Azure [alloca l'archiviazione BLOB](container-registry-storage.md) negli account di archiviazione di Azure per conto di ogni registro per gestire i dati per le immagini del contenitore e altri artefatti. Quando un client accede a livelli immagine in un registro contenitori di Azure, effettua richieste usando un endpoint dell'account di archiviazione fornito dal registro di sistema.
 
 Se il registro di sistema è con [replica geografica](container-registry-geo-replication.md), un client potrebbe dover interagire con gli endpoint REST e di archiviazione in un'area specifica o in più aree replicate.
 
-## <a name="allow-access-to-rest-and-storage-urls"></a>Consenti l'accesso agli URL REST e di archiviazione
+## <a name="allow-access-to-rest-and-storage-domain-names"></a>Consentire l'accesso ai nomi di dominio REST e di archiviazione
 
-* **Endpoint REST** : consentire l'accesso all'URL del server del registro di sistema, ad esempio `myregistry.azurecr.io`
-* **Endpoint di archiviazione** : consentire l'accesso a tutti gli account di archiviazione BLOB di Azure usando il carattere jolly `*.blob.core.windows.net`
+* **Endpoint REST** : consente di accedere al nome completo del server di accesso al registro di sistema, ad esempio `myregistry.azurecr.io`
+* **Endpoint di archiviazione (dati)** : consentire l'accesso a tutti gli account di archiviazione BLOB di Azure usando il carattere jolly `*.blob.core.windows.net`
 
 
 ## <a name="allow-access-by-ip-address-range"></a>Consenti l'accesso in base all'intervallo di indirizzi IP
 
-Se è necessario consentire l'accesso a indirizzi IP specifici, scaricare gli [intervalli IP di Azure e i tag del servizio-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519).
+Se l'organizzazione dispone di criteri per consentire l'accesso solo a indirizzi IP o intervalli di indirizzi specifici, scaricare gli [intervalli IP di Azure e i tag di servizio-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Per trovare gli intervalli IP dell'endpoint REST di ACR, cercare **AzureContainerRegistry** nel file JSON.
+Per trovare gli intervalli IP dell'endpoint REST di ACR per i quali è necessario consentire l'accesso, cercare **AzureContainerRegistry** nel file JSON.
 
 > [!IMPORTANT]
 > Gli intervalli di indirizzi IP per i servizi di Azure possono cambiare e gli aggiornamenti vengono pubblicati settimanalmente. Scaricare regolarmente il file JSON e apportare gli aggiornamenti necessari nelle regole di accesso. Se lo scenario prevede la configurazione delle regole del gruppo di sicurezza di rete in una rete virtuale di Azure per accedere ad Azure Container Registry, usare invece il [tag del servizio](#allow-access-by-service-tag) **AzureContainerRegistry** .

@@ -1,6 +1,6 @@
 ---
-title: Risolvere gli errori con Gestione aggiornamenti
-description: Informazioni su come risolvere i problemi relativi a Gestione aggiornamenti.
+title: Risolvere gli errori con Gestione aggiornamenti di Azure
+description: Informazioni su come risolvere i problemi relativi alla soluzione Gestione aggiornamenti in Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416769"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769796"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 

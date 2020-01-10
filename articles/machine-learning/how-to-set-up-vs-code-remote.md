@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: a91035773d4427f0f3c07097eb3e02fc08c5f375
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528760"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771820"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Eseguire il debug interattivo su un'istanza di calcolo Azure Machine Learning con VS Code remoto
 
@@ -23,7 +23,7 @@ In questo articolo si apprenderà come configurare Visual Studio Code remoto in 
 > [!NOTE]
 > Le istanze di calcolo sono disponibili solo per le aree di lavoro con **Stati Uniti centro-settentrionali** o **Regno Unito meridionale** come area geografica.
 
-+ Un' [istanza di calcolo Azure Machine Learning](/azure/machine-learning/service/concept-compute-instance) è una workstation basata su cloud completamente gestita per gli esperti di dati e offre funzionalità di gestione e disponibilità aziendale per gli amministratori IT. 
++ Un' [istanza di calcolo Azure Machine Learning](concept-compute-instance.md) è una workstation basata su cloud completamente gestita per gli esperti di dati e offre funzionalità di gestione e disponibilità aziendale per gli amministratori IT. 
 
 
 + [Visual Studio Code remoto](https://code.visualstudio.com/docs/remote/remote-overview) Lo sviluppo consente di usare un contenitore, un computer remoto o il sottosistema Windows per Linux (WSL) come un ambiente di sviluppo completo. 
@@ -117,4 +117,4 @@ Da questo punto in poi si sta lavorando completamente sull'istanza di calcolo ed
 
 Ora che è stato configurato Visual Studio Code remoto, è possibile usare un'istanza di calcolo come calcolo remoto da Visual Studio Code per eseguire il debug interattivo del codice. 
 
-[Esercitazione: eseguire il training del primo modello ml](/azure/machine-learning/service/tutorial-1st-experiment-sdk-train) Mostra come usare un'istanza di calcolo con un notebook integrato.
+[Esercitazione: eseguire il training del primo modello ml](tutorial-1st-experiment-sdk-train.md) Mostra come usare un'istanza di calcolo con un notebook integrato.

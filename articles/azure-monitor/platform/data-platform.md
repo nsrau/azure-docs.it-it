@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894131"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750989"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati di monitoraggio di Azure
 
@@ -48,7 +48,7 @@ I [log](data-platform-logs.md) sono eventi che si sono verificati nel sistema. P
 I log in monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics basata su [azure Esplora dati](/azure/data-explorer/) , che fornisce un potente motore di analisi e un [linguaggio di query avanzato](/azure/kusto/query/). I log forniscono in genere informazioni sufficienti per fornire il contesto completo del problema identificato e sono utili per identificare i casi principali dei problemi.
 
 > [!NOTE]
-> È importante distinguere tra i log di monitoraggio di Azure e le origini dei dati di log in Azure. Gli eventi a livello di sottoscrizione in Azure, ad esempio, vengono scritti in un [log attività](activity-logs-overview.md) che è possibile visualizzare dal menu monitoraggio di Azure. La maggior parte delle risorse scriverà le informazioni operative in un [log delle risorse](resource-logs-overview.md) che è possibile inviare in posizioni diverse. Log di monitoraggio di Azure è una piattaforma di dati di log che raccoglie log attività e log delle risorse insieme ad altri dati di monitoraggio per offrire analisi approfondite nell'intero set di risorse.
+> È importante distinguere tra i log di monitoraggio di Azure e le origini dei dati di log in Azure. Gli eventi a livello di sottoscrizione in Azure, ad esempio, vengono scritti in un [log attività](platform-logs-overview.md) che è possibile visualizzare dal menu monitoraggio di Azure. La maggior parte delle risorse scriverà le informazioni operative in un [log delle risorse](platform-logs-overview.md) che è possibile inviare in posizioni diverse. Log di monitoraggio di Azure è una piattaforma di dati di log che raccoglie log attività e log delle risorse insieme ad altri dati di monitoraggio per offrire analisi approfondite nell'intero set di risorse.
 
 
  È possibile usare le [query di log](../log-query/log-query-overview.md) in modo interattivo con [log Analytics](../log-query/portals.md) nel portale di Azure o aggiungere i risultati a un [dashboard di Azure](../learn/tutorial-app-dashboards.md) per la visualizzazione in combinazione con altri dati. È inoltre possibile creare [avvisi del log](alerts-log.md) che attiveranno un avviso in base ai risultati di una query di pianificazione.
@@ -71,7 +71,7 @@ La tabella seguente confronta le metriche e i log in monitoraggio di Azure.
 |:---|:---|:---|
 | Vantaggi | Scenari semplici e in grado di essere in tempo quasi reale, ad esempio gli avvisi. Ideale per il rilevamento rapido dei problemi. | Analizzato con il linguaggio di query avanzato. Ideale per l'analisi approfondita e l'identificazione della causa radice. |
 | Dati | Solo valori numerici | Dati di testo o numerici |
-| Structure | Set standard di proprietà, tra cui l'ora di esempio, la risorsa monitorata e un valore numerico. Alcune metriche includono più dimensioni per un'ulteriore definizione. | Set univoco di proprietà a seconda del tipo di log. |
+| Struttura | Set standard di proprietà, tra cui l'ora di esempio, la risorsa monitorata e un valore numerico. Alcune metriche includono più dimensioni per un'ulteriore definizione. | Set univoco di proprietà a seconda del tipo di log. |
 | Raccolta | Raccolta a intervalli regolari. | Può essere raccolto sporadicamente poiché gli eventi attivano un record da creare. |
 | Visualizzare nel portale di Azure | Esplora metriche | Log Analytics |
 | Le origini dati includono | Metriche della piattaforma raccolte dalle risorse di Azure.<br>Applicazioni monitorate da Application Insights.<br>Personalizzato definito dall'applicazione o dall'API. | Log delle applicazioni e delle risorse.<br>Soluzioni di monitoraggio.<br>Agenti ed estensioni VM.<br>Richieste ed eccezioni dell'applicazione.<br>Centro sicurezza di Azure.<br>API dell'agente di raccolta dati. |

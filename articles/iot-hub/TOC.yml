@@ -83,7 +83,9 @@
       href: tutorial-connectivity.md
 - name: Concetti
   items:
-    - name: Imposizione di TLS 1.2
+    - name: Supporto TLS
+      href: iot-hub-tls.md
+    - name: Deprecazione di TLS 1.0 e 1.1
       href: tls-1.2-everywhere.md
     - name: Panoramica degli arricchimenti dei messaggi
       href: iot-hub-message-enrichments-overview.md

@@ -12,32 +12,31 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058013"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749887"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Non è possibile stabilire una connessione RDP a Macchine virtuali di Azure perché il servizio Client DHCP è disabilitato
 
 Questo articolo descrive un problema che impedisce di stabilire una connessione Desktop remoto a macchine virtuali Windows di Azure dopo che il servizio Client DHCP è stato disabilitato nella macchina virtuale.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Sintomi
 Non è possibile stabilire una connessione RDP a una macchina virtuale in Azure perché il servizio Client DHCP è disabilitato nella macchina virtuale. Controllando lo screenshot in [Diagnostica di avvio](../troubleshooting/boot-diagnostics.md) nel portale di Azure, si vede che la macchina virtuale viene avviata normalmente e attende le credenziali nella schermata di accesso. Si visualizzano in modalità remota i log eventi nella macchina virtuale usando il Visualizzatore eventi. Si noterà che il servizio Client DHCP non è avviato o restituisce un errore di avvio. Di seguito è riportato un log di esempio:
 
-**Nome del log**: Sistema </br>
-**Origine**: Gestione controllo servizi </br>
-**Data**: 16/12/2015 11:19:36 </br>
-**ID evento**: 7022 </br>
+**Log Name**: System </br>
+**Source**: Service Control Manager </br>
+**Date**: 12/16/2015 11:19:36 AM </br>
+**Event ID**: 7022 </br>
 **Categoria attività**: Nessuna </br>
-**Livello**: Errore </br>
-**Parole chiave**: Classica</br>
-**Utente**: N/D </br>
+**Level**: Error </br>
+**Keywords**: Classic</br>
+**Utente**: N/A </br>
 **Computer**: myvm.cosotos.com</br>
-**Descrizione**: Il servizio DHCP Client si è bloccato all'avvio.</br>
+**Description**: The DHCP Client service hung on starting.</br>
 
 Per le macchine virtuali di Resource Manager, è possibile usare la console seriale di accesso per eseguire query relative ai log eventi 7022 usando il comando seguente:
 
@@ -123,7 +122,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 
     1. [Collegare un disco dati alla macchina virtuale](../windows/attach-managed-disk-portal.md
 ).
-    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato. Sostituire la lettera con il valore corretto.
+    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio: `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato. Sostituire la lettera con il valore corretto.
     3. Scollegare l'unità dati e collegarla a una macchina virtuale in esecuzione in cui è installato lo strumento di monitoraggio del processo.
 
 6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale in esecuzione. Applicare quindi il filtro  **Result is ACCESS DENIED** (Risultato è ACCESSO NEGATO), come illustrato nello screenshot seguente：
@@ -183,7 +182,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 
 1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino. Verificare che il disco collegato sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
-3.  Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Questo script presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituire la lettera con il valore corretto nella macchina virtuale.
+3.  Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Questo script presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituire la lettera in modo appropriato con il valore nella macchina virtuale.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM

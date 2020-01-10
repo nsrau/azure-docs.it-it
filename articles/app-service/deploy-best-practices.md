@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670095"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750477"
 ---
 # <a name="deployment-best-practices"></a>Procedure consigliate per la distribuzione
 
@@ -66,3 +66,12 @@ Usare sempre la cache locale in combinazione con gli [slot di distribuzione](dep
 ### <a name="high-cpu-or-memory"></a>CPU o memoria elevata
 
 Se il piano di servizio app usa oltre il 90% della CPU o della memoria disponibile, la macchina virtuale sottostante potrebbe avere problemi di elaborazione della distribuzione. Quando si verifica questo problema, aumentare temporaneamente il numero di istanze per eseguire la distribuzione. Al termine della distribuzione, è possibile restituire il numero di istanze al valore precedente.
+
+Per altre informazioni sulle procedure consigliate, vedere la pagina relativa alla [diagnostica del servizio app](https://docs.microsoft.com/azure/app-service/overview-diagnostics) per individuare le procedure consigliate di utilità pratica specifiche per la risorsa.
+
+- Passare all'app Web nel [portale di Azure](https://portal.azure.com).
+- Fare clic su **diagnostica e risoluzione dei problemi** nel percorso di spostamento a sinistra, che consente di aprire la diagnostica del servizio app.
+- Scegliere riquadro **Best Practices** Homepage.
+- Fare clic su procedure consigliate **per la disponibilità & le prestazioni** o le procedure consigliate **per la configurazione ottimale** per visualizzare lo stato corrente dell'app per quanto riguarda queste procedure consigliate.
+
+È anche possibile usare questo collegamento per aprire direttamente la diagnostica del servizio app per la risorsa: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

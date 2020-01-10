@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 30a5058dc47bb9ef22ee3fddb9cc4c2b90271bc2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9bb324c3863a13e1f47e1b31f7656ab8c77a6f1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479163"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763148"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -273,7 +273,7 @@ I criteri personalizzati e Azure AD B2C tenant sono ora pronti. Successivamente,
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *SAMLApp1*.
-1. In **tipi di account supportati**selezionare **account in qualsiasi directory organizzativa o provider di identità.**
+1. In **tipi di account supportati**selezionare **account solo in questa directory organizzativa**
 1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://localhost`. Questo valore verrà modificato in un secondo momento nel manifesto della registrazione dell'applicazione.
 1. Selezionare **concedi il consenso dell'amministratore alle autorizzazioni OpenID e offline_access**.
 1. Selezionare **Registra**.
@@ -285,11 +285,11 @@ Per le app SAML, è necessario configurare diverse proprietà nel manifesto dell
 1. Nella [portale di Azure](https://portal.azure.com)passare alla registrazione dell'applicazione creata nella sezione precedente.
 1. In **Gestisci**selezionare **manifesto** per aprire l'editor manifesto. Nelle sezioni seguenti vengono modificate diverse proprietà.
 
-#### <a name="identifieruri"></a>IdentifierUri
+#### <a name="identifieruris"></a>identifierUris
 
-Il `IdentifierUri` è una raccolta di stringhe contenente URI definiti dall'utente che identificano in modo univoco un'app Web all'interno del tenant di Azure AD B2C. L'URI dell'identificatore deve provenire da un dominio verificato all'interno della directory dell'organizzazione. Ad esempio: `https://contoso.onmicrosoft.com/app-name`. Il provider di servizi deve impostare questo valore nell'elemento `Issuer` di una richiesta SAML.
+Il `identifierUris` è una raccolta di stringhe contenente URI definiti dall'utente che identificano in modo univoco un'app Web all'interno del tenant di Azure AD B2C. Il provider di servizi deve impostare questo valore nell'elemento `Issuer` di una richiesta SAML.
 
-#### <a name="samlmetadataurl"></a>SamlMetadataUrl
+#### <a name="samlmetadataurl"></a>samlMetadataUrl
 
 Questa proprietà rappresenta l'URL dei metadati disponibili pubblicamente del provider di servizi. L'URL dei metadati può puntare a un file di metadati caricato in qualsiasi endpoint accessibile in modo anonimo, ad esempio l'archivio BLOB.
 
@@ -303,7 +303,7 @@ Per questa esercitazione che usa l'applicazione di test SAML, usare il valore se
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
-#### <a name="replyurlwithtype-optional"></a>ReplyUrlWithType (facoltativo)
+#### <a name="replyurlswithtype-optional"></a>replyUrlsWithType (facoltativo)
 
 Se non si specifica un URI di metadati, è possibile specificare in modo esplicito l'URL di risposta. Questa proprietà facoltativa rappresenta la `AssertionConsumerServiceUrl` (`SingleSignOnService` URL nei metadati del provider di servizi) e si presuppone che il `BindingType` sia `HTTP POST`.
 

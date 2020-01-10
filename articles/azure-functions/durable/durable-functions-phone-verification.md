@@ -4,12 +4,12 @@ description: Informazioni su come gestire l'interazione umana e i timeout nell'e
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232817"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769575"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
@@ -153,7 +153,7 @@ Content-Length: 145
 Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di Visual Studio:
 
 > [!NOTE]
-> È necessario installare il `Microsoft.Azure.WebJobs.Extensions.Twilio` pacchetto Nuget per eseguire il codice di esempio riportato di seguito.
+> È necessario installare il pacchetto NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` per eseguire il codice di esempio riportato di seguito.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

@@ -3,28 +3,23 @@ title: Creazione e caricamento di un VHD Ubuntu Linux in Azure
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Ubuntu Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 3e097959-84fc-4f6a-8cc8-35e087fd1542
+author: MicahMcKittrick-MSFT
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: szark
-ms.openlocfilehash: cdf2c6c0d5621223655fc4571affcdde4563ac97
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.author: mimckitt
+ms.openlocfilehash: e8226322ad1aa9a1079834cc26b4ff8a1b40a204
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258273"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750155"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparare una macchina virtuale Ubuntu per Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="official-ubuntu-cloud-images"></a>Immagini di Ubuntu Cloud ufficiali
+
 Ubuntu attualmente pubblica dischi rigidi virtuali di Azure ufficiali per il download all'indirizzo [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Se si deve creare un'immagine Ubuntu specializzata per Azure, piuttosto che seguire la procedura manuale riportata sotto si consiglia di iniziare con questi noti VHD funzionanti e personalizzarli in base alle esigenze. Le ultime versioni delle immagini sono sempre disponibili nei seguenti percorsi:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
@@ -54,7 +49,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
 
-3. Sostituire gli archivi correnti nell'immagine in modo da usare quelli Azure di Ubuntu. La procedura varia leggermente in base alla versione di Ubuntu.
+3. Sostituire i repository correnti nell'immagine per usare il repository di Azure di Ubuntu. La procedura varia leggermente in base alla versione di Ubuntu.
    
     Prima di modificare `/etc/apt/sources.list`, è consigliabile eseguire un backup:
    

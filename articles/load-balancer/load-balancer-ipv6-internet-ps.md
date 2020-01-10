@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: fb697003da8c0604b2ce1e8956fcd434014b5b82
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0294efb7510d4240cfdd6386c7f8bef1d4184538
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077049"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754484"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introduzione alla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 
@@ -55,13 +55,13 @@ La procedura seguente illustra come creare un servizio di bilanciamento del cari
 
 Per distribuire un servizio di bilanciamento del carico è necessario creare e configurare gli oggetti seguenti:
 
-* Configurazione di IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
-* Pool di indirizzi back-end: contiene interfacce di rete (NIC) per le macchine virtuali per la ricezione di traffico di rete dal servizio di bilanciamento del carico.
+* Configurazione IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
+* Pool di indirizzi back-end: contiene le interfacce di rete (NIC) per le macchine virtuali che ricevono il traffico di rete dal servizio di bilanciamento del carico.
 * Regole di bilanciamento del carico: contengono regole per il mapping di una porta pubblica nel servizio di bilanciamento del carico alle porte nel pool di indirizzi back-end.
 * Regole NAT in ingresso: contengono regole per il mapping di una porta pubblica nel servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
 * Probe: contengono probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
 
-Per altre informazioni, vedere [Supporto di Azure Resource Manager per Load Balancer](load-balancer-arm.md).
+Per ulteriori informazioni, vedere [Azure Load Balancer Components](load-balancer-overview.md#load-balancer-components).
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Configurazione di PowerShell per l'uso di Resource Manager
 
@@ -81,7 +81,7 @@ Assicurarsi di avere la versione di produzione più recente del modulo Azure Res
     Get-AzSubscription
     ```
 
-3. Scegliere le sottoscrizioni ad Azure da usare.
+3. Scegliere quali sottoscrizioni Azure usare.
 
     ```azurepowershell-interactive
     Select-AzSubscription -SubscriptionId 'GUID of subscription'

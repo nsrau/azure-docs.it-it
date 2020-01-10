@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 861d62f40dc9d8ca2c80e295495df8538ea7cd8d
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
-ms.translationtype: HT
+ms.openlocfilehash: f60d9714db71325bd9c67cae6e2f82d54f8e5eb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659543"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753920"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -122,6 +122,9 @@ Questo errore si verifica se il percorso dell'endpoint server si trova sul volum
 <a id="-2147024894"></a>**La creazione dell'endpoint server non riesce, con questo errore: "MgmtServerJobFailed" (codice errore:-2147024894 o 0x80070002)**  
 Questo errore si verifica se il percorso dell'endpoint server specificato non è valido. Verificare che il percorso dell'endpoint server specificato sia un volume NTFS collegato in locale. Si noti che Sincronizzazione file di Azure non supporta le unità mappate come percorso dell'endpoint server.
 
+<a id="-2134375640"></a>**La creazione dell'endpoint server non riesce, con questo errore: "MgmtServerJobFailed" (codice errore:-2134375640 o 0x80c80328)**  
+Questo errore si verifica se il percorso dell'endpoint server specificato non è un volume NTFS. Verificare che il percorso dell'endpoint server specificato sia un volume NTFS collegato in locale. Si noti che Sincronizzazione file di Azure non supporta le unità mappate come percorso dell'endpoint server.
+
 <a id="-2134347507"></a>**La creazione dell'endpoint server non riesce, con questo errore: "MgmtServerJobFailed" (codice errore:-2134347507 o 0x80c8710d)**  
 Questo errore si verifica perché Sincronizzazione file di Azure non supporta gli endpoint server nei volumi che dispongono di una cartella System Volume Information compressa. Per risolvere il problema, decomprimere la cartella System Volume Information. Se la cartella System Volume Information è l'unica cartella compressa nel volume, seguire questa procedura:
 
@@ -172,6 +175,7 @@ Nel server che viene visualizzato come "non in linea" nel portale, esaminare l'I
 - Se **GetNextJob è stato completato con stato:-2134347756** viene registrato, il server non è in grado di comunicare con il servizio sincronizzazione file di Azure a causa di un firewall o un proxy. 
     - Se il server si trova dietro un firewall, verificare che la porta 443 in uscita sia consentita. Se il firewall limita il traffico a domini specifici, verificare che i domini elencati nella [documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall siano accessibili.
     - Se il server si trova dietro un proxy, configurare le impostazioni del proxy a livello di computer o specifiche dell'app seguendo la procedura descritta nella [documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
+    - Usare il cmdlet test-StorageSyncNetworkConnectivity per verificare la connettività di rete agli endpoint del servizio. Per altre informazioni, vedere [testare la connettività di rete agli endpoint di servizio](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
 
 - Se **GetNextJob è stato completato con stato:-2134347764** viene registrato, il server non è in grado di comunicare con il servizio sincronizzazione file di Azure a causa di un certificato scaduto o eliminato.  
     - Eseguire il comando di PowerShell seguente nel server per reimpostare il certificato usato per l'autenticazione:

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671501"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768487"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il Servizio app di Azure
 Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -37,7 +37,7 @@ Per ulteriori informazioni sulle applicazioni "con stato" e "senza stato", è po
 Una causa comune dell'esaurimento delle connessioni TCP in uscita è l'impiego di librerie client non implementate per il riutilizzo delle connessioni TCP o il mancato uso di un protocollo di livello superiore, ad esempio keep-alive HTTP. Rivedere la documentazione di ogni libreria a cui fanno riferimento le app nel piano di servizio app per verificare che tali librerie siano configurate o accessibili nel codice per un efficiente riutilizzo delle connessioni in uscita. Seguire anche le indicazioni della documentazione delle librerie per le corrette operazioni di creazione, rilascio o pulizia per evitare la perdita di connessioni. Mentre è in corso l'esame delle librerie client, è possibile attenuare l'impatto sulle prestazioni aumentando il numero di istanze.
 
 ### <a name="nodejs-and-outgoing-http-requests"></a>Node.js e richieste HTTP in uscita
-Quando si usa Node.js ed è presente un numero rilevante di richieste HTTP in uscita, è importante saper gestire il protocollo keep-alive HTTP. È possibile usare il pacchetto [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` per semplificarne la gestione nel codice.
+Quando si usa Node.js ed è presente un numero rilevante di richieste HTTP in uscita, è importante saper gestire il protocollo keep-alive HTTP. È possibile usare il pacchetto `npm` [per agentkeepalive](https://www.npmjs.com/package/agentkeepalive) per semplificare il codice.
 
 È necessario gestire sempre la risposta `http` anche se non si interviene nel gestore. Se la risposta non viene gestita correttamente, l'applicazione alla fine rimane bloccata a causa dell'esaurimento delle risorse socket.
 
@@ -65,3 +65,13 @@ Quando si verificano errori di backup, esaminare i risultati più recenti per ca
 ## <a name="nodejs"></a>Quando vengono distribuite nuove app Node.js nel Servizio app di Azure
 La configurazione predefinita del Servizio app di Azure per le app Node.js mira a soddisfare al meglio le esigenze delle app più comuni. Se la configurazione dell'app Node.js può trarre vantaggio dall'ottimizzazione personalizzata per migliorare le prestazioni oppure per ottimizzare l'utilizzo delle risorse di rete, della memoria o della CPU, vedere [Procedure consigliate e guida alla risoluzione dei problemi per le applicazioni Node nel servizio app di Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Questo articolo descrive le impostazioni di iisnode che può essere necessario configurare per l'app Node.js, illustra i vari scenari o problemi possibili per l'app e indica come risolvere questi problemi.
 
+
+## <a name="next-steps"></a>Fasi successive
+Per altre informazioni sulle procedure consigliate, vedere la pagina relativa alla [diagnostica del servizio app](https://docs.microsoft.com/azure/app-service/overview-diagnostics) per individuare le procedure consigliate di utilità pratica specifiche per la risorsa.
+
+- Passare all'app Web nel [portale di Azure](https://portal.azure.com).
+- Fare clic su **diagnostica e risoluzione dei problemi** nel percorso di spostamento a sinistra, che consente di aprire la diagnostica del servizio app.
+- Scegliere riquadro **Best Practices** Homepage.
+- Fare clic su procedure consigliate **per la disponibilità & le prestazioni** o le procedure consigliate **per la configurazione ottimale** per visualizzare lo stato corrente dell'app per quanto riguarda queste procedure consigliate.
+
+È anche possibile usare questo collegamento per aprire direttamente la diagnostica del servizio app per la risorsa: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

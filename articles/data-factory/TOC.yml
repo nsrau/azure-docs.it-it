@@ -29,84 +29,98 @@
       href: data-flow-create.md
 - name: Esercitazioni
   items:
-    - name: Copiare i dati nel cloud
+    - name: Copiare e inserire dati
       items:
-        - name: Strumento Copia dati
-          href: tutorial-copy-data-tool.md
-        - name: Interfaccia utente
-          href: tutorial-copy-data-portal.md
-        - name: .NET
-          href: tutorial-copy-data-dot-net.md
-    - name: Copiare i dati locali nel cloud
-      items:
-        - name: Strumento Copia dati
-          href: tutorial-hybrid-copy-data-tool.md
-        - name: Interfaccia utente
-          href: tutorial-hybrid-copy-portal.md
-        - name: Azure PowerShell
-          href: tutorial-hybrid-copy-powershell.md
-    - name: Copiare dati in blocco
-      items:
-        - name: Interfaccia utente
-          href: tutorial-bulk-copy-portal.md
-        - name: Azure PowerShell
-          href: tutorial-bulk-copy.md
-    - name: Copiare i dati in modo incrementale
-      href: tutorial-incremental-copy-overview.md
-      items:
-        - name: 1 - Copiare da una tabella
-          items:
-            - name: Interfaccia utente
-              href: tutorial-incremental-copy-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-powershell.md
-        - name: 2 - Copiare da più tabelle
-          items:
-            - name: Interfaccia utente
-              href: tutorial-incremental-copy-multiple-tables-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-multiple-tables-powershell.md
-        - name: 3 - Usare la funzionalità di rilevamento delle modifiche
-          items:
-            - name: Interfaccia utente
-              href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
-        - name: 4 - Copiare i nuovi file in base a LastModifiedDate
+        - name: Da Archiviazione BLOB di Azure al database SQL di Azure
           items:
             - name: Strumento Copia dati
+              href: tutorial-copy-data-tool.md
+            - name: Interfaccia utente
+              href: tutorial-copy-data-portal.md
+            - name: .NET
+              href: tutorial-copy-data-dot-net.md
+        - name: Da un database di SQL Server locale ad Archiviazione BLOB di Azure
+          items:
+            - name: Strumento Copia dati
+              href: tutorial-hybrid-copy-data-tool.md
+            - name: Interfaccia utente
+              href: tutorial-hybrid-copy-portal.md
+            - name: Azure PowerShell
+              href: tutorial-hybrid-copy-powershell.md
+        - name: Da Amazon Web Services S3 ad Azure Data Lake Storage
+          items:
+            - name: Azure Data Lake Storage Gen2
+              href: load-azure-data-lake-storage-gen2.md
+            - name: Azure Data Lake Storage Gen1
+              href: load-azure-data-lake-store.md
+        - name: Da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2
+          href: load-azure-data-lake-storage-gen2-from-gen1.md
+        - name: Dal database SQL di Azure ad Azure Synapse Analytics
+          href: load-azure-sql-data-warehouse.md
+        - name: Da SAP BW ad Azure Data Lake Storage Gen2
+          href: load-sap-bw-data.md
+        - name: Da Office 365 ad Archiviazione BLOB di Azure
+          href: load-office-365-data.md
+        - name: Più tabelle in blocco
+          items:
+            - name: Interfaccia utente
+              href: tutorial-bulk-copy-portal.md
+            - name: Azure PowerShell
+              href: tutorial-bulk-copy.md
+        - name: Caricare i dati in modo incrementale
+          href: tutorial-incremental-copy-overview.md
+          items:
+            - name: Da una tabella di database SQL di Azure
+              items:
+                - name: Interfaccia utente
+                  href: tutorial-incremental-copy-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-powershell.md
+            - name: Da più tabelle SQL Server locali
+              items:
+                - name: Interfaccia utente
+                  href: tutorial-incremental-copy-multiple-tables-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-multiple-tables-powershell.md
+            - name: Uso delle informazioni sul rilevamento modifiche in SQL Server
+              items:
+                - name: Interfaccia utente
+                  href: tutorial-incremental-copy-change-tracking-feature-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+            - name: Nuovi file in base agli ultimi dati modificati
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
-        - name: 5 - Copiare i nuovi file per nomi file partizionati in base al tempo
-          items:
-            - name: Strumento Copia dati
+            - name: Nuovi file ordinati per nomi file partizionati in base al tempo
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Trasformare e preparare i dati con flussi di dati
+    - name: Trasformare i dati
       items:
-        - name: Trasformare i dati con un flusso di dati di mapping
-          href: tutorial-data-flow.md
-        - name: Esercitazioni video sul flusso di dati di mapping
-          href: data-flow-tutorials.md
-        - name: Preparare i dati con un flusso di dati di wrangling
+        - name: Trasformare i dati con i flussi di dati di mapping
+          items:
+            - name: Trasformare i dati con i flussi di dati di mapping
+              href: tutorial-data-flow.md
+            - name: Esercitazioni video sul flusso di dati di mapping
+              href: data-flow-tutorials.md
+        - name: Preparare i dati con i flussi di dati di wrangling
           href: wrangling-data-flow-tutorial.md
-    - name: Trasformazioni esterne
-      items:
-        - name: HDInsight Spark
+        - name: Uso di servizi esterni
           items:
-            - name: Interfaccia utente
-              href: tutorial-transform-data-spark-portal.md
-            - name: Azure PowerShell
-              href: tutorial-transform-data-spark-powershell.md
-        - name: Notebook di Databricks
-          items:
-            - name: Interfaccia utente
-              href: transform-data-using-databricks-notebook.md
-    - name: Trasformazione Hive nella rete virtuale
-      items:
-        - name: Interfaccia utente
-          href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-hive-virtual-network.md
-    - name: Aggiungere la creazione di rami e il concatenamento
+            - name: HDInsight Spark
+              items:
+                - name: Interfaccia utente
+                  href: tutorial-transform-data-spark-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-transform-data-spark-powershell.md
+            - name: Notebook di Databricks
+              items:
+                - name: Interfaccia utente
+                  href: transform-data-using-databricks-notebook.md
+            - name: Trasformazione Hive nella rete virtuale
+              items:
+                - name: Interfaccia utente
+                  href: tutorial-transform-data-hive-virtual-network-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-transform-data-hive-virtual-network.md
+    - name: Flusso di controllo
       items:
         - name: Interfaccia utente
           href: tutorial-control-flow-portal.md
@@ -118,19 +132,6 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
-    - name: Caricare dati in Data Lake Storage Gen2
-      href: load-azure-data-lake-storage-gen2.md
-      items:
-        - name: Copiare da Data Lake Storage Gen1
-          href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: Carica Synapse Analytics (in precedenza SQL Data Warehouse)
-      href: load-azure-sql-data-warehouse.md
-    - name: Caricare dati in Data Lake Storage Gen1
-      href: load-azure-data-lake-store.md
-    - name: Caricare dati SAP BW
-      href: load-sap-bw-data.md
-    - name: Caricare dati di Office 365
-      href: load-office-365-data.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -512,18 +513,20 @@
           href: data-flow-window.md
     - name: Impostare parametri
       items:
-        - name: Impostare parametri per i servizi collegati
+        - name: Impostazione dei parametri per i servizi collegati
           href: parameterize-linked-services.md
         - name: Linguaggio di espressione
           href: control-flow-expression-language-functions.md
         - name: Variabili di sistema
           href: control-flow-system-variables.md
-        - name: Parametri del flusso di dati
+        - name: Impostazione dei parametri per i flussi di dati di mapping
           href: parameters-data-flow.md
     - name: Security
       items:
         - name: Considerazioni relative alla sicurezza per lo spostamento dei dati
           href: data-movement-security-considerations.md
+        - name: Indirizzi IP di Azure Integration Runtime
+          href: azure-integration-runtime-ip-addresses.md
         - name: Archiviare le credenziali in Azure Key Vault
           href: store-credentials-in-key-vault.md
         - name: Usare i segreti di Azure Key Vault nelle attività della pipeline
@@ -616,20 +619,20 @@
           href: solution-template-move-files.md
         - name: Trasformare i dati con Databricks
           href: solution-template-databricks-notebook.md
-    - name: Guida per la risoluzione dei problemi
+    - name: Guide alla risoluzione dei problemi
       items:
-        - name: Risoluzione dei problemi delle attività
+        - name: attività
           href: data-factory-troubleshoot-guide.md
-        - name: Risoluzione dei problemi del connettore
+        - name: Connettori
           href: connector-troubleshoot-guide.md
-        - name: Risoluzione dei problemi di gestione di Azure-SSIS IR
-          href: ssis-integration-runtime-management-troubleshoot.md
-        - name: Risoluzione dei problemi del runtime di integrazione self-hosted
-          href: self-hosted-integration-runtime-troubleshoot-guide.md
-        - name: Risoluzione dei problemi dell'esecuzione di pacchetti in Azure-SSIS IR
-          href: ssis-integration-runtime-ssis-activity-faq.md
-        - name: Risoluzione dei problemi dei flussi di dati
+        - name: Flussi di dati
           href: data-flow-troubleshoot-guide.md
+        - name: Runtime di integrazione self-hosted
+          href: self-hosted-integration-runtime-troubleshoot-guide.md
+        - name: Runtime di integrazione Azure-SSIS
+          href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Esecuzione di pacchetti in Azure-SSIS IR
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Scenari
   items:
     - name: Migrazione dei dati per Data Lake e EDW
@@ -670,18 +673,18 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Risorse
   items:
+    - name: White paper
+      href: whitepapers.md
+    - name: Domande frequenti
+      href: frequently-asked-questions.md
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: Porre una domanda - Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
     - name: Porre una domanda - Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Richiedere una funzionalità
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Domande frequenti
-      href: frequently-asked-questions.md
-    - name: White paper
-      href: whitepapers.md
-    - name: Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Disponibilità per area

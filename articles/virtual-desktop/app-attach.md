@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356256"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772551"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
@@ -40,7 +40,7 @@ In primo luogo, è necessario ottenere l'immagine del sistema operativo da usare
      >[!NOTE]
      >Per accedere al portale di Windows Insider, è necessario essere membri del programma Windows Insider. Per ulteriori informazioni sul programma Windows Insider, consultare la [documentazione di Windows Insider](https://docs.microsoft.com/windows-insider/at-home/).
 
-2. Scorrere verso il basso fino alla sezione **Select Edition** e selezionare **Windows 10 Insider Preview Enterprise (Fast) – Build xxxxx**.
+2. Scorrere verso il basso fino alla sezione **Select Edition** e selezionare **Windows 10 Insider Preview Enterprise (Fast) – Build 19035** o versione successiva.
 
 3. Selezionare **conferma**, quindi selezionare la lingua che si vuole usare e quindi fare di nuovo clic su **conferma** .
     

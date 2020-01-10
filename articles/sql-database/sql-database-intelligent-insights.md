@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151427"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745115"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
 
@@ -190,4 +190,4 @@ Nel caso in cui una delle eccezioni critiche monitorate superi le soglie assolut
 - Informazioni su come [risolvere i problemi di prestazioni del database SQL con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Usare il [log di diagnostica delle prestazioni del database SQL generato da Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Informazioni su come [monitorare un database SQL usando Analisi SQL](../azure-monitor/insights/azure-sql.md).
-- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md).
+- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158892"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771003"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Ottenere una stringa di connessione ad Hub eventi
 
@@ -44,7 +44,7 @@ Questo articolo illustra in dettaglio vari modi per ottenere la stringa di conne
 6. Nella pagina **Spazio dei nomi di Hub eventi** selezionare **Criteri di accesso condivisi** nel menu a sinistra.
 
     ![Voce di menu Criteri di accesso condivisi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Selezionare un **criterio di accesso condiviso** nell'elenco dei criteri. Il criterio predefinito è denominato: **RootManageSharedAccessPolicy**. È possibile aggiungere un criterio con le autorizzazioni appropriate (lettura, scrittura) e usare quel criterio. 
+7. Selezionare un **criterio di accesso condiviso** nell'elenco dei criteri. Quello predefinito è denominato: **RootManageSharedAccessPolicy**. È possibile aggiungere un criterio con le autorizzazioni appropriate (lettura, scrittura) e usare quel criterio. 
 
     ![Criteri di accesso condiviso di Hub eventi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. Selezionare il pulsante di **copia** accanto al campo **Chiave primaria della stringa di connessione**. 
@@ -68,6 +68,12 @@ Per ottenere la stringa di connessione per lo spazio dei nomi, è possibile usar
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
+In alternativa, è possibile usare il comando seguente per ottenere la stringa di connessione per un'entità EventHub:
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+```
+
 Per altre informazioni sui comandi dell'interfaccia della riga di comando di Azure per Hub eventi, vedere [Azure CLI for Event Hubs](/cli/azure/eventhubs) (Interfaccia della riga di comando di Azure per Hub eventi).
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -75,4 +81,4 @@ Per altre informazioni sui comandi dell'interfaccia della riga di comando di Azu
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Creare un hub eventi](event-hubs-create.md)

@@ -5,12 +5,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descrive i processi che consentono di Azure Dev Spaces e il modo in cui vengono configurati nel file di configurazione azds. YAML
 keywords: azds. YAML, Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori
-ms.openlocfilehash: 9efae0e9d6bc53e08dce604fa79aa29e158ecabd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e96541b0008dca9cbaeda92152f835c188036971
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280144"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771139"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Funzionamento e configurazione di Azure Dev Spaces
 
@@ -440,4 +440,4 @@ Per iniziare a usare lo sviluppo in team, vedere gli articoli procedure seguenti
 
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

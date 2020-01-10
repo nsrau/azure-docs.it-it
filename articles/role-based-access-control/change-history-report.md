@@ -15,23 +15,23 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 753c626fe44193b83cbd992f225fe01c2ff67f89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172408"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744815"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo per le risorse di Azure
 
-È talvolta necessario visualizzare informazioni sulle modifiche del controllo degli accessi in base al ruolo per le risorse di Azure, ad esempio a scopo di controllo o per la risoluzione di problemi. Ogni volta che un utente apporta modifiche alle assegnazioni o alle definizioni di ruolo all'interno delle sottoscrizioni, le modifiche vengono registrate in [Log attività di Azure](../azure-monitor/platform/activity-logs-overview.md). È possibile visualizzare i log attività per vedere tutte le modifiche apportate al controllo degli accessi in base al ruolo negli ultimi 90 giorni.
+È talvolta necessario visualizzare informazioni sulle modifiche del controllo degli accessi in base al ruolo per le risorse di Azure, ad esempio a scopo di controllo o per la risoluzione di problemi. Ogni volta che un utente apporta modifiche alle assegnazioni o alle definizioni di ruolo all'interno delle sottoscrizioni, le modifiche vengono registrate in [Log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). È possibile visualizzare i log attività per vedere tutte le modifiche apportate al controllo degli accessi in base al ruolo negli ultimi 90 giorni.
 
 ## <a name="operations-that-are-logged"></a>Operazioni registrate
 
 Ecco le operazioni correlate al controllo degli accessi in base al ruolo che vengono registrate nel log attività:
 
 - Crea assegnazione ruolo
-- Elimina assegnazione di ruolo
+- Elimina assegnazione ruolo
 - Crea o aggiorna la definizione del ruolo personalizzata
 - Elimina la definizione del ruolo personalizzata
 
@@ -43,10 +43,10 @@ Il modo più semplice per iniziare è visualizzare i log attività con il portal
 
 Il log attività nel portale include diversi filtri. Di seguito sono elencati i filtri correlati al controllo degli accessi in base al ruolo:
 
-|Applica filtro  |Value  |
+|Filtra  |Valore  |
 |---------|---------|
-|Categoria evento     | <ul><li>Amministrativa</li></ul>         |
-|Operazione     | <ul><li>Crea assegnazione ruolo</li> <li>Elimina assegnazione di ruolo</li> <li>Crea o aggiorna la definizione del ruolo personalizzata</li> <li>Elimina la definizione del ruolo personalizzata</li></ul>      |
+|Categoria evento     | <ul><li>Administrative</li></ul>         |
+|Operazione     | <ul><li>Crea assegnazione ruolo</li> <li>Elimina assegnazione ruolo</li> <li>Crea o aggiorna la definizione del ruolo personalizzata</li> <li>Elimina la definizione del ruolo personalizzata</li></ul>      |
 
 
 Per altre informazioni sui log attività, vedere [Visualizzare eventi nel log attività](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sull'integrità del ruolo di lavoro ibrido per Runbook Windows in Azure Gestione aggiornamenti
-description: Informazioni su come risolvere i problemi del ruolo di lavoro ibrido per Runbook in Windows che supporta Gestione aggiornamenti.
+title: Diagnosticare il ruolo di lavoro ibrido per Runbook di Windows-Azure Gestione aggiornamenti
+description: Informazioni su come risolvere i problemi relativi al ruolo di lavoro ibrido per Runbook di automazione di Azure in Windows che supporta Gestione aggiornamenti.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850126"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769813"
 ---
-# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Informazioni sull'integrità del ruolo di lavoro ibrido per Runbook Windows in Gestione aggiornamenti
+# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Comprendere e risolvere l'integrità del ruolo di lavoro ibrido per Runbook Windows in Gestione aggiornamenti
 
 Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti, è possibile verificare l'integrità di un agente di lavoro ibrido per Runbook per determinare il problema sottostante. Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per i computer Azure dalla portale di Azure e dai computer non Azure nello [scenario offline](#troubleshoot-offline).
 

@@ -66,6 +66,8 @@
     - name: Creare e configurare Personalizza esperienze
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: Gestire i criteri di apprendimento
+      href: how-to-learning-policy.md
     - name: Analisi
       items:
         - name: Valutazione offline

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2eabf0167865333131e0f8e5b0c4ccb409e40e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427071"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771241"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -61,7 +61,7 @@ Aggiunta del supporto per i nuovi codificatori partner consigliati seguenti per 
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>Miglioramenti della codifica file
-
+- È ora disponibile un nuovo set di impostazioni di codifica compatibile con il contenuto. Produce un set di MP4s allineati a GOP usando la codifica compatibile con il contenuto. Dato un contenuto di input, il servizio esegue un'analisi leggera iniziale del contenuto di input. USA tali risultati per determinare il numero ottimale di livelli, la velocità in bit appropriata e le impostazioni di risoluzione per il recapito tramite flusso adattivo. Questo set di impostazioni è particolarmente efficace per i video di bassa complessità e di complessità media, in cui i file di output sono a velocità in bit inferiori, ma con una qualità che offre comunque una valida esperienza ai visualizzatori. L'output conterrà file MP4 con interfoliazione video e audio. Per altre informazioni, vedere le [specifiche API aperte](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
 - Miglioramento delle prestazioni e del multithreading per il ridimensionamento in Media Encoder Standard. In condizioni specifiche, il cliente dovrebbe vedere un miglioramento delle prestazioni compreso tra il 5-40% di codifica VOD. Il contenuto con complessità bassa codificato in più velocità in bit vedrà un aumento delle prestazioni più elevato. 
 - La codifica standard ora mantiene una cadenza del GOP normale per il contenuto della frequenza dei fotogrammi variabile (VFR) durante la codifica VOD quando si usa l'impostazione GOP basata sul tempo.  Questo significa che il cliente che invia un contenuto misto di frequenza dei fotogrammi che varia da 15-30 fps ad esempio dovrebbe ora visualizzare le distanze GOP regolari calcolate nell'output per i file MP4 in streaming a bitrate adattivo. Ciò consente di migliorare la capacità di passare da una traccia all'altra durante la distribuzione tramite HLS o DASH. 
 -  Miglioramento della sincronizzazione AV per il contenuto di origine con frequenza dei fotogrammi variabile (VFR)

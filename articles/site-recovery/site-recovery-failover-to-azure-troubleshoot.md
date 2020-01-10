@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61280627"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754434"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Risolvere gli errori durante il failover di un computer fisico o di una macchina virtuale VMware in Azure
 
@@ -24,7 +24,7 @@ Durante il failover di una macchina virtuale in Azure è possibile che l'utente 
 
 Site Recovery non è riuscito a creare un'operazione di failover sulla macchina virtuale in Azure. Questo può verificarsi a causa di uno dei motivi seguenti:
 
-* Non è disponibile una quota sufficiente per creare la macchina virtuale: È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota.
+* Non è disponibile una quota sufficiente per creare la macchina virtuale: è possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota.
 
 * Si sta tentando di effettuare il failover delle macchine virtuali delle famiglie di dimensioni diverse nello stesso set di disponibilità. Assicurarsi di aver scelto la stessa famiglia di dimensioni per tutte le macchine virtuali nello stesso set di disponibilità. È possibile modificare le dimensioni passando alle impostazioni Calcolo e rete della macchina virtuale e ritentando il failover.
 
@@ -106,31 +106,43 @@ Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **
 >[!Note]
 >Per l'abilitazione di qualsiasi altra impostazione che non sia Diagnostica di avvio è necessario installare l'agente di macchine virtuali di Azure nella macchina virtuale prima del failover.
 
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>Non è possibile aprire la console seriale dopo il failover di un computer basato su UEFI in Azure
+
+Se è possibile connettersi al computer tramite RDP ma non è possibile aprire la console seriale, attenersi alla procedura seguente:
+
+* Se il sistema operativo del computer è Red Hat o Oracle Linux 7. */8.0, eseguire il comando seguente nella macchina virtuale di Azure di failover con le autorizzazioni radice. Riavviare la macchina virtuale dopo il comando.
+
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+* Se il sistema operativo del computer è CentOS 7. *, eseguire il comando seguente nella macchina virtuale di Azure di failover con le autorizzazioni radice. Riavviare la macchina virtuale dopo il comando.
+
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>Messaggio di arresto imprevisto (ID evento 6008)
 
 Quando si esegue l'avvio di una macchina virtuale Windows dopo il failover e si riceve un messaggio di arresto imprevisto nella macchina virtuale ripristinata, significa che non è stato acquisito uno stato di arresto della macchina virtuale nel punto di ripristino usato per il failover. Questo accade quando si effettua il ripristino ad un punto in cui la macchina virtuale non è stata completamente arrestata.
 
-In genere, non è motivo di preoccupazione e può essere ignorato per i failover non pianificati. Se è previsto il failover, assicurarsi che la macchina virtuale viene arrestata in modo corretto prima del failover e fornire il tempo necessario per in attesa di replica dei dati in locale da inviare ad Azure. Usare l'opzione **Più recente** nella [schermata Failover](site-recovery-failover.md#run-a-failover) in modo che tutti i dati in sospeso in Azure siano elaborati in un punto di recupero, che viene quindi usato per il failover della macchina virtuale.
+In genere, non è motivo di preoccupazione e può essere ignorato per i failover non pianificati. Se il failover è pianificato, assicurarsi che la macchina virtuale venga arrestata correttamente prima del failover e fornisca tempo sufficiente per l'invio in Azure di dati di replica in sospeso. Usare l'opzione **Più recente** nella [schermata Failover](site-recovery-failover.md#run-a-failover) in modo che tutti i dati in sospeso in Azure siano elaborati in un punto di recupero, che viene quindi usato per il failover della macchina virtuale.
 
 ## <a name="unable-to-select-the-datastore"></a>Non è possibile selezionare l'archivio dati
 
-Questo problema è indicato quando è in grado di visualizzare il portale l'archivio dati in Azure durante il tentativo di abilitare la riprotezione la macchina virtuale che ha riscontrato un failover. Infatti, il Master target non è riconosciuto come una macchina virtuale in vCenter aggiunto ad Azure Site Recovery.
+Questo problema è indicato quando non è possibile visualizzare l'archivio dati nel portale di Azure quando si tenta di riproteggere la macchina virtuale che ha riscontrato un failover. Questo è dovuto al fatto che la destinazione master non viene riconosciuta come macchina virtuale in vCenter aggiunti al Azure Site Recovery.
 
-Per altre informazioni su come eseguire la riprotezione di una macchina virtuale, vedere [ma la Riprotezione ed eseguire indietro macchine a un sito locale dopo il failover in Azure](vmware-azure-reprotect.md).
+Per altre informazioni sulla riprotezione di una macchina virtuale, vedere [eseguire la riprotezione e il failback di computer in un sito locale dopo il failover in Azure](vmware-azure-reprotect.md).
 
 Per risolvere il problema:
 
-Creare manualmente il Master target in vCenter che gestisce la macchina di origine. L'archivio dati saranno disponibile dopo il successivo vCenter individuazione e l'aggiornamento operazioni sull'infrastruttura.
+Creare manualmente la destinazione master nel vCenter che gestisce il computer di origine. L'archivio dati sarà disponibile dopo le successive operazioni di individuazione e aggiornamento dell'infrastruttura di vCenter.
 
 > [!Note]
 > 
-> Le operazioni di individuazione e l'aggiornamento dell'infrastruttura possono richiedere fino a 30 minuti. 
+> Per completare le operazioni di individuazione e aggiornamento dell'infrastruttura possono essere necessari fino a 30 minuti. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registrazione di destinazione Master Linux con CS ha esito negativo con un errore SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>La registrazione della destinazione master Linux con CS ha esito negativo con un errore SSL 35 
 
-La registrazione di destinazione Master di Site Recovery di Azure con il server di configurazione non riesce a causa di un Proxy autenticato abilitato nella destinazione Master. 
+Il Azure Site Recovery la registrazione di destinazione master con il server di configurazione non riesce a causa dell'abilitazione del proxy autenticato nella destinazione master. 
  
-Questo errore è indicato da stringhe seguenti nel log di installazione: 
+Questo errore è indicato dalle stringhe seguenti nel registro di installazione: 
 
 ```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
@@ -138,23 +150,23 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 Per risolvere il problema:
  
-1. Nel server di configurazione della macchina virtuale, aprire un prompt dei comandi e verificare le impostazioni del proxy usando i comandi seguenti:
+1. Nella VM del server di configurazione aprire un prompt dei comandi e verificare le impostazioni del proxy usando i comandi seguenti:
 
-    Cat /etc/environment echo $http_proxy echo https_proxy $ 
+    cat/etc/environment Echo $http _proxy Echo $https _proxy 
 
-2. Se l'output del comando precedente mostra che vengono definite le impostazioni di http_proxy o https_proxy, usare uno dei metodi seguenti per sbloccare le comunicazioni del server di destinazione Master con server di configurazione:
+2. Se l'output dei comandi precedenti mostra che sono definite le impostazioni http_proxy o https_proxy, usare uno dei metodi seguenti per sbloccare le comunicazioni di destinazione master con il server di configurazione:
    
-   - Scaricare il [lo strumento PsExec](https://aka.ms/PsExec).
-   - Utilizzare lo strumento per accedere al contesto utente di sistema e determinare se l'indirizzo del proxy è configurato. 
-   - Se il proxy è configurato, aprire Internet Explorer in un contesto utente di sistema utilizzando lo strumento PsExec.
+   - Scaricare lo [strumento PsExec](https://aka.ms/PsExec).
+   - Utilizzare lo strumento per accedere al contesto utente del sistema e determinare se l'indirizzo proxy è configurato. 
+   - Se il proxy è configurato, aprire IE in un contesto utente di sistema utilizzando lo strumento PsExec.
   
-     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+     **PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"**
 
-   - Per assicurarsi che il server di destinazione master può comunicare con il server di configurazione:
+   - Per assicurarsi che il server di destinazione master sia in grado di comunicare con il server di configurazione:
   
-     - Modificare le impostazioni di proxy in Internet Explorer per ignorare l'indirizzo IP del server di destinazione Master tramite il proxy.   
+     - Modificare le impostazioni del proxy in Internet Explorer per ignorare l'indirizzo IP del server di destinazione master tramite il proxy.   
      Oppure
-     - Disabilitare il proxy nel server di destinazione Master. 
+     - Disabilitare il proxy nel server di destinazione master. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

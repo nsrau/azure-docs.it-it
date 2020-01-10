@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c26e5c6b4bd484b643182e9e4ade3d71929fdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 638a90615d248b3c2829770432dd6a08eb4bb2fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486209"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771735"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Guida dell'amministratore di Azure Lab Services
 Anche gli amministratori IT che gestiscono le risorse cloud di un'organizzazione sono in genere responsabili della configurazione dell'account Lab per la propria organizzazione. Gli amministratori o gli educatori creano Lab in aula nell'account Lab. Questo articolo fornisce una panoramica generale delle risorse di Azure e delle linee guida per la loro creazione.
@@ -68,7 +68,7 @@ Nell'elenco seguente sono evidenziati gli scenari in cui è possibile che più d
 - **Budget separato per account Lab**
 
     Invece di avere segnalato tutti i costi del Lab in aula per un singolo account Lab, potrebbe essere necessario disporre di un budget più chiaramente separato. Continuando con l'esempio riportato sopra, è possibile creare un account Lab per ogni reparto universitario per separare il budget di conseguenza. Con gestione costi di Azure è possibile visualizzare il costo per ogni singolo account Lab.
-• **Isolare i laboratori pilota da laboratori attivi**
+- **Isolare i laboratori pilota da laboratori attivi**
 
     È possibile che si verifichino casi in cui si desidera pilotare le modifiche dei criteri a un account Lab senza influire potenzialmente sui Lab attivi. In questo tipo di scenario la creazione di un account Lab separato a scopo pilota consente di isolare le modifiche. 
 
@@ -129,7 +129,7 @@ Quando si configurano le risorse di Azure Lab Services, è necessario fornire un
     Il percorso dell'account Lab indica l'area per questa risorsa. I Lab della classe creati nell'account Lab possono essere distribuiti in qualsiasi area all'interno della stessa area geografica. L'area specifica in cui vengono distribuite le macchine virtuali del Lab viene selezionata automaticamente in base alla capacità disponibile nell'area in quel momento.  
     Se un amministratore consente agli autori di Lab di scegliere la posizione del Lab in aula, le località disponibili per la selezione si basano sulla capacità locale disponibile durante la creazione del Lab.
 
-    Il percorso del Lab della classe determina anche che le dimensioni di calcolo della macchina virtuale sono disponibili per la selezione. Alcune dimensioni di calcolo sono disponibili solo in percorsi specifici.
+    Il percorso del Lab della classe determina anche le dimensioni di calcolo della macchina virtuale disponibili per la selezione. Alcune dimensioni di calcolo sono disponibili solo in percorsi specifici.
 - **Raccolta immagini condivise**
 
     L'area indica l'area di origine in cui viene archiviata la prima versione dell'immagine prima che venga replicata automaticamente nelle aree di destinazione.

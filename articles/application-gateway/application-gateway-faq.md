@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658305"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770085"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -122,7 +122,7 @@ Usare gestione traffico per distribuire il traffico tra più gateway applicazion
 
 Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [scalabilità automatica e gateway applicazione con ridondanza della zona](application-gateway-autoscaling-zone-redundant.md).
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>La scalabilità manuale o la riduzione del tempo di inattività comporta tempi di inattività
+### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>La scalabilità manuale o automatica aumenta o diminuisce i tempi di inattività?
 
 No. Le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
 

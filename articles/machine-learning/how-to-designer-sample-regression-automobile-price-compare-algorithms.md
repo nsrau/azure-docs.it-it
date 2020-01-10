@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: a4148389992bc100be66175a75b32d61acaf2f46
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f8cf20743ee5420312ed751a26796a0859956ae7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659875"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771445"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Eseguire il Training & confrontare più modelli di regressione per stimare i prezzi delle automobili con Azure Machine Learning Designer
 
@@ -25,7 +25,7 @@ ms.locfileid: "75659875"
 
 Informazioni su come creare una pipeline di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima). Questo esempio consente di eseguire il training e confrontare più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche. Forniremo la logica per le scelte effettuate in questa pipeline, in modo da poter affrontare i problemi di apprendimento automatico.
 
-Se si sta iniziando a usare Machine Learning, vedere la [versione di base](service/how-to-designer-sample-regression-automobile-price-basic.md) di questa pipeline.
+Se si sta iniziando a usare Machine Learning, vedere la [versione di base](how-to-designer-sample-regression-automobile-price-basic.md) di questa pipeline.
 
 Ecco il grafico completato per questa pipeline:
 
@@ -92,9 +92,9 @@ Questi risultati mostrano che il modello compilato con la **regressione dell'alb
 
 Esplorare gli altri esempi disponibili per la finestra di progettazione:
 
-- [Esempio 1: regressione: stimare il prezzo di un'automobile](service/how-to-designer-sample-regression-automobile-price-basic.md)
-- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](service/how-to-designer-sample-classification-predict-income.md)
-- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: varianza di stima](service/how-to-designer-sample-classification-churn.md)
-- [Esempio 6-Classificazione: stima dei ritardi dei voli](service/how-to-designer-sample-classification-flight-delay.md)
+- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](how-to-designer-sample-classification-predict-income.md)
+- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
+- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
 - [Esempio 7-classificazione di testo: set di dati di Wikipedia SP 500](how-to-designer-sample-text-classification.md)

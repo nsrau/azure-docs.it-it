@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644937"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771258"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
@@ -98,8 +98,28 @@ Per questo scenario, ogni macchina virtuale nel pool back-end ha tre interfacce 
 * Front-end 1: un'interfaccia di loopback all'interno del sistema operativo guest configurato con l'indirizzo IP di Front-end 1
 * Front-end 2: un'interfaccia di loopback all'interno del sistema operativo guest configurato con l'indirizzo IP di Front-end 2
 
+Per ogni macchina virtuale nel pool back-end, eseguire i comandi seguenti al prompt dei comandi di Windows.
+
+Per ottenere l'elenco dei nomi di interfaccia presenti nella macchina virtuale, digitare il comando seguente:
+
+    netsh interface show interface 
+
+Per la scheda di interfaccia di rete della VM (gestione di Azure), digitare il comando seguente:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   (sostituire interfacet con il nome di questa interfaccia)
+
+Per ogni interfaccia di loopback aggiunta, ripetere i comandi seguenti:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   (sostituire InterfaceName con il nome di questa interfaccia di loopback)
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   (sostituire InterfaceName con il nome di questa interfaccia di loopback)
+
 > [!IMPORTANT]
 > La configurazione delle interfacce di loopback viene eseguita all'interno del sistema operativo guest. Questa configurazione non viene eseguita o gestita da Azure. Senza questa configurazione, le regole non funzionano. Le definizioni dei probe di integrità usano il DIP della macchina virtuale anziché l'interfaccia di loopback che rappresenta il front-end DSR. Il servizio deve quindi mettere a disposizione le risposte probe su una porta DIP che rifletta lo stato del servizio offerto nell'interfaccia di loopback che rappresenta il front-end DSR.
+
 
 Si supponga la stessa configurazione front-end dello scenario precedente:
 

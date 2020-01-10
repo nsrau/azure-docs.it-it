@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4f37c54699329f43a5bbdd5c4543ae3a7b2166f5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048837"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750460"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
@@ -24,7 +24,7 @@ Sincronizzazione file di Azure svolge la funzione di servizio di orchestrazione 
 
 - Archiviazione di Azure
 - Sincronizzazione file di Azure
-- Gestione risorse di Azure
+- Azure Resource Manager
 - Servizi di autenticazione
 
 > [!Note]  
@@ -89,9 +89,9 @@ Come indicato in una sezione precedente, la porta 443 deve essere aperta in usci
 
 La tabella seguente illustra i domini necessari per la comunicazione:
 
-| Servizio | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Utilizzo |
+| Servizio | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Uso |
 |---------|----------------|---------------|------------------------------|
-| **Gestione risorse di Azure** | https://management.azure.com | https://management.usgovcloudapi.net | Qualsiasi chiamata utente (ad esempio, PowerShell) giunge o passa attraverso questo URL, inclusa la chiamata di registrazione iniziale del server. |
+| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualsiasi chiamata utente (ad esempio, PowerShell) giunge o passa attraverso questo URL, inclusa la chiamata di registrazione iniziale del server. |
 | **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Le chiamate di Azure Resource Manager devono essere effettuate da un utente autenticato. Per l'autenticazione utente viene usato questo URL. |
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Nel corso del processo di distribuzione di Sincronizzazione file di Azure verrà creata un'entità servizio nella sessione di Azure Active Directory associata alla sottoscrizione. A tale scopo viene usato questo URL. Questa entità viene usata per delegare una quantità minima di diritti al servizio Sincronizzazione file di Azure. L'utente che esegue la configurazione iniziale di Sincronizzazione file di Azure deve essere un utente autenticato con privilegi di proprietario della sottoscrizione. |
 | **Archiviazione di Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando il server scarica un file, esegue lo spostamento dati in modo più efficiente se comunica direttamente con la condivisione file di Azure nell'account di archiviazione. Il server ha una chiave di firma di accesso condiviso che consente l'accesso solo a specifiche condivisioni file. |
@@ -114,26 +114,26 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 | Pubblico | Canada orientale | https:\//kailani-cae.one.microsoft.com | Canada centrale | https:\//tm-kailani.cae.one.microsoft.com |
 | Pubblico | India centrale | https:\//kailani-cin.one.microsoft.com | India meridionale | https:\//tm-kailani-cin.one.microsoft.com |
 | Pubblico | Stati Uniti centrali | https:\//kailani-cus.one.microsoft.com | Stati Uniti orientali 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Pubblico | Asia orientale | https:\//kailani11.one.microsoft.com | Asia sudorientale | https:\//tm-kailani11.one.microsoft.com |
-| Pubblico | Stati Uniti Orientali | https:\//kailani1.one.microsoft.com | Stati Uniti occidentali | https:\//tm-kailani1.one.microsoft.com |
+| Pubblico | Asia orientale | https:\//kailani11.one.microsoft.com | Asia sud-orientale | https:\//tm-kailani11.one.microsoft.com |
+| Pubblico | Stati Uniti orientali | https:\//kailani1.one.microsoft.com | Stati Uniti occidentali | https:\//tm-kailani1.one.microsoft.com |
 | Pubblico | Stati Uniti orientali 2 | https:\//kailani-ess.one.microsoft.com | Stati Uniti centrali | https:\//tm-kailani-ess.one.microsoft.com |
 | Pubblico | Giappone orientale | https:\//japaneast01.afs.azure.net | Giappone occidentale | https:\//tm-japaneast01.afs.azure.net |
 | Pubblico | Giappone occidentale | https:\//japanwest01.afs.azure.net | Giappone orientale | https:\//tm-japanwest01.afs.azure.net |
-| Pubblico | Corea del Sud centrale | https:\//koreacentral01.afs.azure.net/ | Corea del Sud meridionale | https:\//tm-koreacentral01.afs.azure.net/ |
-| Pubblico | Corea del Sud meridionale | https:\//koreasouth01.afs.azure.net/ | Corea del Sud centrale | https:\//tm-koreasouth01.afs.azure.net/ |
+| Pubblico | Corea centrale | https:\//koreacentral01.afs.azure.net/ | Corea meridionale | https:\//tm-koreacentral01.afs.azure.net/ |
+| Pubblico | Corea meridionale | https:\//koreasouth01.afs.azure.net/ | Corea centrale | https:\//tm-koreasouth01.afs.azure.net/ |
 | Pubblico | Stati Uniti centro-settentrionali | https:\//northcentralus01.afs.azure.net | Stati Uniti centro-meridionali | https:\//tm-northcentralus01.afs.azure.net |
 | Pubblico | Europa settentrionale | https:\//kailani7.one.microsoft.com | Europa occidentale | https:\//tm-kailani7.one.microsoft.com |
 | Pubblico | Stati Uniti centro-meridionali | https:\//southcentralus01.afs.azure.net | Stati Uniti centro-settentrionali | https:\//tm-southcentralus01.afs.azure.net |
 | Pubblico | India meridionale | https:\//kailani-sin.one.microsoft.com | India centrale | https:\//tm-kailani-sin.one.microsoft.com |
-| Pubblico | Asia sudorientale | https:\//kailani10.one.microsoft.com | Asia orientale | https:\//tm-kailani10.one.microsoft.com |
+| Pubblico | Asia sud-orientale | https:\//kailani10.one.microsoft.com | Asia orientale | https:\//tm-kailani10.one.microsoft.com |
 | Pubblico | Regno Unito meridionale | https:\//kailani-uks.one.microsoft.com | Regno Unito occidentale | https:\//tm-kailani-uks.one.microsoft.com |
 | Pubblico | Regno Unito occidentale | https:\//kailani-ukw.one.microsoft.com | Regno Unito meridionale | https:\//tm-kailani-ukw.one.microsoft.com |
 | Pubblico | Stati Uniti centro-occidentali | https:\//westcentralus01.afs.azure.net | Stati Uniti occidentali 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Pubblico | Europa occidentale | https:\//kailani6.one.microsoft.com | Europa settentrionale | https:\//tm-kailani6.one.microsoft.com |
-| Pubblico | Stati Uniti occidentali | https:\//kailani.one.microsoft.com | Stati Uniti Orientali | https:\//tm-kailani.one.microsoft.com |
+| Pubblico | Stati Uniti occidentali | https:\//kailani.one.microsoft.com | Stati Uniti orientali | https:\//tm-kailani.one.microsoft.com |
 | Pubblico | Stati Uniti occidentali 2 | https:\//westus201.afs.azure.net | Stati Uniti centro-occidentali | https:\//tm-westus201.afs.azure.net |
-| Government | Governo degli Stati Uniti - Arizona | https:\//usgovarizona01.afs.azure.us | Governo degli Stati Uniti - Texas | https:\//tm-usgovarizona01.afs.azure.us |
-| Government | Governo degli Stati Uniti - Texas | https:\//usgovtexas01.afs.azure.us | Governo degli Stati Uniti - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
+| Pubblica amministrazione | US Gov Arizona | https:\//usgovarizona01.afs.azure.us | US Gov Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Pubblica amministrazione | US Gov Texas | https:\//usgovtexas01.afs.azure.us | US Gov Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Se si usano account di archiviazione con ridondanza locale (LRS) o con ridondanza della zona (ZRS), è sufficiente abilitare l'URL elencato in "URL dell'endpoint primario".
 
@@ -144,6 +144,15 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 > - https:\//kailani.one.microsoft.com (endpoint primario: Stati Uniti occidentali)
 > - https:\//kailani1.one.microsoft.com (area di failover abbinata: Stati Uniti orientali)
 > - https:\//tm-kailani.one.microsoft.com (URL di individuazione dell'area primaria)
+
+## <a name="test-network-connectivity-to-service-endpoints"></a>Testare la connettività di rete agli endpoint di servizio
+Una volta che un server è stato registrato con il servizio Sincronizzazione file di Azure, è possibile usare il cmdlet test-StorageSyncNetworkConnectivity e ServerRegistration. exe per testare le comunicazioni con tutti gli endpoint (URL) specifici del server. Questo cmdlet consente di risolvere i problemi quando la comunicazione incompleta impedisce al server di lavorare completamente con Sincronizzazione file di Azure e può essere usata per ottimizzare le configurazioni del proxy e del firewall.
+
+Per eseguire il test della connettività di rete, installare Sincronizzazione file di Azure Agent 9,1 o versione successiva ed eseguire i comandi di PowerShell seguenti:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Test-StorageSyncNetworkConnectivity
+```
 
 ## <a name="summary-and-risk-limitation"></a>Riepilogo e limitazione dei rischi
 Gli elenchi riportati in questo documento contengono gli URL con cui comunica attualmente Sincronizzazione file di Azure. I firewall devono essere in grado di consentire il traffico in uscita da questi domini. Microsoft si impegna a mantenere l'elenco costantemente aggiornato.

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440352"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754452"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -252,6 +252,25 @@ In alcuni scenari, quando si esegue un'attività di copia in Data Factory, verra
 In questo esempio, durante l'esecuzione di una copia, Data Factory tiene traccia di un elevato utilizzo di DTU nel database SQL di Azure sink. Questa condizione rallenta le operazioni di scrittura. Il suggerimento consiste nell'aumentare la DTU nel livello del database SQL di Azure:
 
 ![Monitoraggio della copia con suggerimenti per l'ottimizzazione delle prestazioni](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+## <a name="resume-from-last-failed-run"></a>Riprendi dall'ultima esecuzione non riuscita
+
+L'attività di copia supporta la ripresa dall'ultima esecuzione non riuscita quando si copiano grandi dimensioni dei file così come sono con il formato binario tra archivi basati su file e si sceglie di mantenere la gerarchia di cartelle o file dall'origine al sink, ad esempio per migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2. Si applica ai seguenti connettori basati su file: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), [archiviazione file di Azure](connector-azure-file-storage.md), [file System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md)e [SFTP](connector-sftp.md).
+
+È possibile utilizzare l'attività di copia Resume nei due modi seguenti:
+
+- **Nuovo tentativo a livello di attività:** È possibile impostare il numero di tentativi per l'attività di copia. Durante l'esecuzione della pipeline, se l'esecuzione dell'attività di copia non riesce, il successivo tentativo automatico verrà avviato dal punto di errore dell'ultima versione di valutazione.
+- **Riesegui da attività non riuscita:** Al termine dell'esecuzione della pipeline, è anche possibile attivare una riesecuzione dall'attività non riuscita nella visualizzazione monitoraggio dell'interfaccia utente di ADF o a livello di codice. Se l'attività non riuscita è un'attività di copia, la pipeline non verrà rieseguita solo da questa attività, ma riprenderà anche dal punto di errore dell'esecuzione precedente.
+
+    ![Copia ripresa](media/copy-activity-overview/resume-copy.png)
+
+Pochi punti da notare:
+
+- Resume si verifica a livello di file. Se l'attività di copia ha esito negativo durante la copia di un file, nella prossima esecuzione il file specifico verrà copiato di nuovo.
+- Per il corretto funzionamento del ripristino, non modificare le impostazioni dell'attività di copia tra le riesecuzioni.
+- Quando si copiano dati da Amazon S3, BLOB di Azure, Azure Data Lake Storage Gen2 e Google Cloud Storage, l'attività di copia può riprendere da un numero arbitrario di file copiati. Mentre per il resto dei connettori basati su file come origine, l'attività di copia supporta il ripristino da un numero limitato di file, in genere nell'intervallo di decine di migliaia e varia a seconda della lunghezza dei percorsi dei file; i file oltre questo numero verranno copiati di nuovo durante le riesecuzioni.
+
+Per altri scenari rispetto alla copia binaria del file, la riesecuzione dell'attività di copia inizia dall'inizio.
 
 ## <a name="preserve-metadata-along-with-data"></a>Mantieni metadati insieme ai dati
 

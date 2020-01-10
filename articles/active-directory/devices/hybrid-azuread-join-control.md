@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 18da289f9d364fa79023809324d59b89b8ac898c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073623"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768113"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Convalida controllata dell'aggiunta ad Azure AD ibrido
 
@@ -64,7 +64,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
       1. Nome valore: **TenantId**
       1. Tipo di valore: **REG_SZ**
       1. Dati valore: il GUID o **l'ID di directory** dell'istanza di Azure ad (questo valore è disponibile nella **portale di Azure** > **Azure Active Directory** **Proprietà** >  > **ID directory**)
-   1. Fare clic su **OK**
+   1. Fare clic su **OK**.
 1. Fare clic con il pulsante destro del mouse sul registro e scegliere **nuovo** > **elemento del registro di sistema**
    1. Nella scheda **generale** configurare quanto segue:
       1. Azione: **aggiornamento**
@@ -73,13 +73,13 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
       1. Nome valore: **TenantName**
       1. Tipo di valore: **REG_SZ**
       1. Dati valore: il **nome di dominio** verificato se si usa un ambiente federato, ad esempio ad FS. Il **nome di dominio** verificato o il nome di dominio onmicrosoft.com, ad esempio `contoso.onmicrosoft.com` se si usa l'ambiente gestito
-   1. Fare clic su **OK**
+   1. Fare clic su **OK**.
 1. Chiudere l'editor per l'oggetto Criteri di gruppo appena creato
 1. Collegare l'oggetto Criteri di gruppo appena creato all'unità organizzativa desiderata contenente i computer aggiunti a un dominio che appartengono al popolamento di implementazione controllato
 
 ### <a name="configure-ad-fs-settings"></a>Configurare le impostazioni di AD FS
 
-Se si utilizza AD FS, è necessario innanzitutto configurare SCP sul lato client utilizzando le istruzioni indicate sopra, ma collegando l'oggetto Criteri di gruppo ai server di AD FS. L'oggetto SCP definisce l'origine dell'autorità per gli oggetti dispositivo. Può essere locale o Azure AD. Quando viene configurato per AD FS, l'origine per gli oggetti dispositivo viene stabilita come Azure AD.
+Se si utilizza AD FS, prima di tutto è necessario configurare SCP sul lato client attenendosi alle istruzioni sopra riportate mediante il collegamento dell'oggetto Criteri di gruppo ai server di AD FS. L'oggetto SCP definisce l'origine dell'autorità per gli oggetti dispositivo. Può essere locale o Azure AD. Quando SCP sul lato client è configurato per AD FS, l'origine per gli oggetti dispositivo viene stabilita come Azure AD.
 
 > [!NOTE]
 > Se non è stato possibile configurare SCP sul lato client nei server AD FS, l'origine per le identità del dispositivo verrebbe considerata come in locale. ADFS avvierà quindi l'eliminazione degli oggetti dispositivo dalla directory locale dopo il periodo stabilito definito nell'attributo "MaximumInactiveDays" della registrazione del dispositivo ADFS. È possibile trovare gli oggetti di registrazione del dispositivo ADFS usando il [cmdlet Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).

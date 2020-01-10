@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 6325af9f577fbee1ab1621acbf10497fab2b78df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689153"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754214"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funzionalità supportate disponibili nel centro sicurezza di Azure
 
@@ -40,7 +40,7 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 ||**Macchine virtuali di Azure**|**Set di scalabilità di macchine virtuali di Azure**|**Computer non Azure**|**Prezzi**
 |[Integrazione di Microsoft Defender ATP](security-center-wdatp.md)|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Standard|
 |[Avvisi di rilevamento delle minacce per l'analisi comportamentale delle macchine virtuali](security-center-alerts-iaas.md)|✔|✔|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
-|[Avvisi di rilevamento minacce non file](alerts-reference.md#alerts-filelessattackdetect)|✔|✔|✔|Standard|
+|[Avvisi di rilevamento minacce non file](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Avvisi di rilevamento minacce basati sulla rete](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
 |[Accesso just-in-time alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Valutazione della vulnerabilità nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
@@ -66,7 +66,7 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 ||**Macchine virtuali di Azure**|**Set di scalabilità di macchine virtuali di Azure**|**Computer non Azure**|**Prezzi**
 |[Integrazione di Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Standard|
 |[Avvisi di rilevamento delle minacce per l'analisi comportamentale delle macchine virtuali](security-center-alerts-iaas.md)|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
-|[Avvisi di rilevamento minacce non file](alerts-reference.md#alerts-filelessattackdetect)|-|-|-|Standard|
+|[Avvisi di rilevamento minacce non file](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Avvisi di rilevamento minacce basati sulla rete](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
 |[Accesso just-in-time alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Valutazione della vulnerabilità nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|

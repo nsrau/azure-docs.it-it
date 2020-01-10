@@ -504,6 +504,8 @@
           href: sql-database-security-tutorial.md
         - name: Flusso di dati con Analisi di flusso
           href: sql-database-stream-analytics.md
+        - name: Eseguire la migrazione di un database SQLite al database SQL di Azure serverless
+          href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
     - name: Concetti
       items:
         - name: Risorse del database singolo

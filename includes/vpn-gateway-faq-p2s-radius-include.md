@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f9b787413dd6e2aaeafd4aa3bcee0eff746abece
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b802cab7d52fd886770c326e97d0378a0da64762
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310544"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751942"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -53,4 +53,4 @@ Sì, l'autenticazione RADIUS funziona sia con IKEv2 che con SSTP VPN. 
 
 ### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>L'autenticazione RADIUS funziona con il client OpenVPN?
 
-L'autenticazione RADIUS non è supportata per il client OpenVPN.
+L'autenticazione RADIUS è supportata per il protocollo OpenVPN solo tramite PowerShell.

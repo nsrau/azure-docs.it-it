@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9582881626f58ebbbae5648fe5d4b46e14fd5850
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462276"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763326"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Elencare le assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
 
@@ -40,6 +40,22 @@ Il modo più semplice per visualizzare i ruoli assegnati a un utente o a un grup
     ![Assegnazione dei ruoli a un utente](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizioni** .
+
+## <a name="list-owners-of-a-subscription"></a>Elenca i proprietari di una sottoscrizione
+
+Gli utenti a cui è stato assegnato il ruolo di [proprietario](built-in-roles.md#owner) per una sottoscrizione possono gestire tutti gli elementi nella sottoscrizione. Per elencare i proprietari di una sottoscrizione, seguire questa procedura.
+
+1. Nel portale di Azure fare clic su **Tutti i servizi** e quindi **Sottoscrizioni**.
+
+1. Fare clic sulla sottoscrizione di cui si desidera elencare i proprietari.
+
+1. Fare clic su **Controllo di accesso (IAM)** .
+
+1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
+
+1. Scorrere fino alla sezione **owners (proprietari** ) per visualizzare tutti gli utenti a cui è stato assegnato il ruolo di proprietario per questa sottoscrizione.
+
+   ![Controllo di accesso alla sottoscrizione-scheda assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Elencare le assegnazioni di ruolo in un ambito
 

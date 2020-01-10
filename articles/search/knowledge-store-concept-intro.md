@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2cde70579e61d1911008f7c8126ad7bda132eac1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 9a6fa62384615f60da88bb41da8ad3538d34e62a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563497"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754103"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduzione agli archivi conoscenze in Ricerca cognitiva di Azure
 
@@ -30,7 +30,7 @@ Fisicamente, un archivio conoscenze è una [risorsa di archiviazione di Azure](h
 
 ## <a name="benefits-of-knowledge-store"></a>Vantaggi del knowledge store
 
-Un archivio informazioni fornisce la struttura, il contesto e i contenuti effettivi ottenuti da file di dati non strutturati e semistrutturati, come i BLOB, i file di immagine sottoposti ad analisi o persino i dati strutturati, rimodellati in nuovi moduli. In una [procedura dettagliata](knowledge-store-howto.md)è possibile vedere prima di tutto come un documento JSON denso viene partizionato in sottostrutture, ricostituito in nuove strutture e reso disponibile per i processi downstream come Machine Learning e carichi di lavoro Data Science.
+Un archivio informazioni fornisce la struttura, il contesto e i contenuti effettivi ottenuti da file di dati non strutturati e semistrutturati, come i BLOB, i file di immagine sottoposti ad analisi o persino i dati strutturati, rimodellati in nuovi moduli. In una [procedura dettagliata](knowledge-store-create-rest.md)è possibile vedere prima di tutto come un documento JSON denso viene partizionato in sottostrutture, ricostituito in nuove strutture e reso disponibile per i processi downstream come Machine Learning e carichi di lavoro Data Science.
 
 Sebbene sia utile vedere cosa può produrre una pipeline di arricchimento di intelligenza artificiale, il potenziale reale di un archivio informazioni è la possibilità di modificare la forma dei dati. È possibile iniziare con un set di competenze di base e quindi iterarlo per aggiungere livelli crescenti di struttura, che è possibile combinare in nuove strutture, utilizzabili in altre app oltre a Ricerca cognitiva di Azure.
 

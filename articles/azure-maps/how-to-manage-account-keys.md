@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5697989696d0d375e52baeb9f7332e7013d16bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957305"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768844"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gestire l'account Mappe di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "65957305"
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-new-account"></a>Creare un nuovo account
+## <a name="create-a-new-account"></a>Crea un nuovo account
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -43,9 +43,9 @@ Viene quindi visualizzata una pagina di conferma. È possibile confermare l'elim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Configurare l'autenticazione con le mappe di Azure:
+Configurare l'autenticazione con Maps di Azure e informazioni su come ottenere una chiave di sottoscrizione di Azure Maps:
 > [!div class="nextstepaction"]
-> [Gestire l'autenticazione](how-to-manage-authentication.md)
+> [Gestisci autenticazione](how-to-manage-authentication.md)
 
 Informazioni su come gestire il piano tariffario dell'account Mappe di Azure:
 > [!div class="nextstepaction"] 

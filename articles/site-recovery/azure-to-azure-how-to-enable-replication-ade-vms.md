@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954676"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772228"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
 
 Questo articolo descrive come eseguire la replica di macchine virtuali di Azure con crittografia dischi di Azure abilitata, da un'area di Azure a un'altra.
 
 >[!NOTE]
-> Site Recovery attualmente supporta ADE, con e senza Azure Active Directory (AAD) per le macchine virtuali che eseguono Windows.  Per i computer che eseguono ADE 1,1 (senza AAD), le macchine virtuali Windows devono usare Managed Disks. Le macchine virtuali con dischi non gestiti non sono supportate. Se si passa da ADE 0,1 (con AAD) a 1,1, è necessario disabilitare la replica e abilitare la replica per una macchina virtuale dopo l'abilitazione di 1,1.
+> Site Recovery attualmente supporta ADE, con e senza Azure Active Directory (AAD) per le macchine virtuali che eseguono sistemi operativi Windows e Linux.  Per i computer che eseguono ADE 1,1 (senza AAD), le VM devono usare Managed Disks. Le macchine virtuali con dischi non gestiti non sono supportate. Se si passa da ADE 0,1 (con AAD) a 1,1, è necessario disabilitare la replica e abilitare la replica per una macchina virtuale dopo l'abilitazione di 1,1.
 
 
 ## <a id="required-user-permissions"></a>Autorizzazioni utente necessarie
@@ -37,7 +37,7 @@ Per abilitare la replica delle macchine virtuali abilitate per la crittografia d
 - Autorizzazioni della chiave di Key Vault (obbligatoria solo se le VM usano la chiave di crittografia della chiave per crittografare le chiavi di crittografia del disco)
     - Operazioni di gestione delle chiavi
         - Ottenere, elencare e creare
-    - Operazioni di crittografia
+    - Operazioni crittografiche
         - Decrittografia e crittografia
 
 Per gestire le autorizzazioni, passare alla risorsa di Key Vault nel portale. Aggiungere le autorizzazioni necessarie per l'utente. L'esempio seguente illustra come abilitare le autorizzazioni per l'insieme di credenziali delle chiavi *ContosoWeb2Keyvault*, che si trova nell'area di origine.

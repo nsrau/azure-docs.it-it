@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e7ddb548d8dad5bdcc3021941877903377af9318
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076994"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771479"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
-Azure Load Balancer Standard supporta scenari di [zone di disponibilità](../availability-zones/az-overview.md) . È possibile usare Load Balancer Standard per ottimizzare la disponibilità nello scenario end-to-end allineando le risorse alle zone e distribuendo le risorse tra le zone.  Esaminare le [zone di disponibilità](../availability-zones/az-overview.md) per indicazioni sulle zone di disponibilità, quali aree attualmente supportano le zone di disponibilità e altri concetti e prodotti correlati. le zone di disponibilità in combinazione con Load Balancer Standard sono un set di funzionalità espansivo e flessibile che consente di creare molti scenari diversi.  Leggere questo documento per comprendere questi [concetti](#concepts) e le [linee guida di progettazione](#design) degli scenari fondamentali.
+Azure Load Balancer Standard supporta scenari di [zone di disponibilità](../availability-zones/az-overview.md) . È possibile usare Load Balancer Standard per ottimizzare la disponibilità nello scenario end-to-end allineando le risorse alle zone e distribuendo le risorse tra le zone.  Esaminare le [zone di disponibilità](../availability-zones/az-overview.md) per indicazioni sulle zone di disponibilità, quali aree attualmente supportano le zone di disponibilità e altri concetti e prodotti correlati. Le zone di disponibilità in combinazione con Load Balancer Standard sono un set di funzionalità espansivo e flessibile che consente di creare molti scenari diversi.  Leggere questo documento per comprendere questi [concetti](#concepts) e le [linee guida di progettazione](#design) degli scenari fondamentali.
 
 >[!IMPORTANT]
 >Esaminare [zone di disponibilità](../availability-zones/az-overview.md) per gli argomenti correlati, incluse le informazioni specifiche dell'area.

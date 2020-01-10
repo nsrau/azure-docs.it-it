@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aadf3a18d41d8dfe878439893c9d1ed25172fa2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406489"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749046"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -133,9 +133,12 @@ Assicurarsi di sostituire il nome della risorsa di Application Insights e di spe
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Regola di avviso di anomalie degli errori V2 (non classica)
+### <a name="failure-anomalies-alert-rule"></a>Regola di avviso anomalie errori
 
-Questo modello di Azure Resource Manager illustra la configurazione di una regola di avviso per le anomalie di errore V2 con gravità 2. Questa nuova versione della regola di avviso per le anomalie degli errori fa parte della nuova piattaforma di avvisi di Azure e sostituisce la versione classica che verrà ritirata come parte del [processo di ritiro degli avvisi classici](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Questo modello di Azure Resource Manager illustra la configurazione di una regola di avviso di anomalie di errore con gravità 2. Questa nuova versione della regola di avviso per le anomalie degli errori fa parte della nuova piattaforma di avvisi di Azure e sostituisce la versione classica che verrà ritirata come parte del [processo di ritiro degli avvisi classici](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+> [!NOTE]
+> Le anomalie degli errori sono un servizio globale, quindi la posizione della regola viene creata nel percorso globale.
 
 ```json
 {
@@ -166,7 +169,7 @@ Questo modello di Azure Resource Manager illustra la configurazione di una regol
 ```
 
 > [!NOTE]
-> Questo modello di Azure Resource Manager è univoco per la regola di avviso delle anomalie di errore V2 ed è diverso dalle altre regole di rilevamento intelligente classiche descritte in questo articolo.   
+> Questo modello di Azure Resource Manager è univoco per la regola di avviso di anomalie degli errori ed è diverso dalle altre regole di rilevamento intelligente classiche descritte in questo articolo.
 
 ## <a name="smart-detection-rule-names"></a>Nomi delle regole di rilevamento intelligente
 

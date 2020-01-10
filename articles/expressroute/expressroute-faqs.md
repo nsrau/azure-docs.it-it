@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 734bb48d1ddb50af7c28e948c8267b4cd88fcdf7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437035"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770986"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -48,6 +48,14 @@ Sì. I circuiti ExpressRoute sono configurati per consentire di potenziare fino 
 
 Sì. Dopo l'installazione, il circuito ExpressRoute consente di accedere ai servizi all'interno di una rete virtuale e ad altri servizi di Azure contemporaneamente. La connessione alle reti virtuali viene eseguita tramite il percorso di peering privato e ad altri servizi tramite il percorso di peering Microsoft.
 
+### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>In che modo reti virtuali si annuncia sul peering privato ExpressRoute?
+
+Il gateway di ExpressRoute annuncia lo *spazio di indirizzi* della VNet di Azure, non è possibile includere/escludere a livello di subnet. Si tratta sempre dello spazio degli indirizzi VNet annunciato. Inoltre, se viene usato il peering VNet e il VNet con peering ha abilitato "use Remote Gateway", verrà annunciato anche lo spazio degli indirizzi del VNet con peering.
+
+### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>È possibile filtrare le route provenienti dalla rete locale?
+
+L'unico modo per filtrare/includere le route è il router perimetrale locale. Le route definite dall'utente possono essere aggiunte in VNet per influire su un routing specifico, ma questo sarà statico e non fa parte dell'annuncio BGP.
+
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute offre un contratto di servizio?
 
 Per informazioni, vedere [Contratto di servizio di ExpressRoute](https://azure.microsoft.com/support/legal/sla/).
@@ -73,7 +81,8 @@ Se il circuito ExpressRoute è abilitato per il peering Microsoft di Azure, è p
 * Azure Active Directory
 * [Desktop virtuale Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (community di Servizi globali di Azure)
-* È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.
+* Indirizzi IP pubblici di Azure per IaaS (macchine virtuali, gateway di rete virtuale, servizio di bilanciamento del carico e così via)  
+* Sono supportate anche la maggior parte degli altri servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.
 
 **Non supportato:**
 

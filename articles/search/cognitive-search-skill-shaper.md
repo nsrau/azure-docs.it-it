@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791871"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754126"
 ---
 # <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
 
@@ -24,7 +24,7 @@ Inoltre, l'abilità **shaper** illustrata nello [scenario 3](#nested-complex-typ
 Il nome dell'output è sempre "output". Internamente, la pipeline può eseguire il mapping di un nome diverso, ad esempio "analyzedText", come illustrato negli esempi riportati di seguito, ma la capacità di **shaper** restituisce "output" nella risposta. Questo potrebbe essere importante se si esegue il debug di documenti approfonditi e si nota la discrepanza nella denominazione oppure se si compila una competenza personalizzata e si esegue la struttura della risposta manualmente.
 
 > [!NOTE]
-> L'abilità dell' **shaper** non è associata a un'API servizi cognitivi e non viene addebitata l'utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di miglioramenti al giorno.
+> L'abilità dell' **shaper** non è associata a un'API servizi cognitivi e non viene addebitata l'utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -249,7 +249,7 @@ In questo caso, lo **shaper** crea un tipo complesso. Questa struttura esiste in
 ## <a name="see-also"></a>Vedi anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come usare i tipi complessi](search-howto-complex-data-types.md)
-+ [Archivio informazioni (anteprima)](knowledge-store-concept-intro.md)
-+ [Come iniziare a usare l'archivio informazioni](knowledge-store-howto.md)
++ [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
++ [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)

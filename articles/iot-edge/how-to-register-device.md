@@ -4,17 +4,17 @@ description: Usare l'estensione IoT per l'interfaccia della riga di comando di A
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32121681b14989f23e29c3701826b4494988c263
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434110"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772432"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registrare un dispositivo Azure IoT Edge
 
@@ -22,9 +22,9 @@ Prima di poter usare i dispositivi Internet delle cose con Azure IoT Edge, è ne
 
 È possibile scegliere di eseguire la registrazione usando uno degli strumenti seguenti:
 
-* [Portale di Azure](https://portal.azure.com) offre un'interfaccia utente grafica per la creazione, la visualizzazione e la gestione delle risorse di Azure.
-* [Visual Studio Code](https://code.visualstudio.com/) è un editor del codice sorgente. Azure Internet Extensions consente di gestire facilmente le risorse di Internet delle cose dallo stesso strumento in cui si stanno sviluppando soluzioni Internet.
-* [CLI di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando per la gestione delle risorse di Azure. I comandi riutilizzabili sono utili per automatizzare le attività.
+* [Registrare un dispositivo nel portale di Azure](#register-in-the-azure-portal) se si preferisce un'interfaccia utente grafica per creare, visualizzare e gestire le risorse di Azure.
+* È possibile [registrare un dispositivo con Visual Studio Code](#register-with-visual-studio-code) se si preferisce gestire le risorse di Azure. nella stessa posizione in cui si sviluppano le soluzioni Internet.
+* [Registrare un dispositivo con l'interfaccia della riga di](#register-with-the-azure-cli) comando di Azure se si preferisce usare gli strumenti da riga di comando per la gestione delle risorse di Azure o si intende automatizzare le attività.
 
 ## <a name="register-in-the-azure-portal"></a>Eseguire la registrazione nel portale di Azure
 

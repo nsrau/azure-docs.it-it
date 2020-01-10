@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/04/2020
+ms.openlocfilehash: ee8e11670d5b3e0f0edd57e3f87566faa60d4bc4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720020"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754406"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servizio ricerca cognitiva di Azure-versione 2019-05-06-Preview
 
@@ -25,11 +25,11 @@ Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API R
 
 ## <a name="new-in-2019-05-06-preview"></a>Novità in 2019-05-06-Preview
 
-+ L' [indicizzazione incrementale](cognitive-search-incremental-indexing-conceptual.md) è una nuova modalità di indicizzazione che consente di aggiungere lo stato e la memorizzazione nella cache a un oggetto di competenze, consentendo di riutilizzare l'output esistente quando le definizioni dei dati di origine, degli indicizzatori e delle competenze sono invariate. Questa funzionalità si applica solo agli arricchimenti definiti un competenze cognitive.
++ L' [arricchimento incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md) aggiunge la memorizzazione nella cache a una pipeline di arricchimento, consentendo di riutilizzare l'output esistente se una modifica di destinazione, ad esempio un aggiornamento a un skillt o a un altro oggetto, non modifica il contenuto. La memorizzazione nella cache si applica solo ai documenti arricchiti prodotti da un skillt.
 
-+ [Cosmos DB indicizzatore](search-howto-index-cosmosdb.md) supporta l'API MongoDB, l'API Gremlin e la API Cassandra.
++ [Cosmos DB indicizzatore](search-howto-index-cosmosdb.md) supporta l'API MongoDB (anteprima), l'API Gremlin (anteprima) e la API Cassandra (anteprima).
 
-+ [Azure Data Lake storage Gen2 indicizzatore](search-howto-index-azure-data-lake-storage.md) può indicizzare il contenuto e i metadati da data Lake storage Gen2.
++ [Azure Data Lake storage Gen2 indicizzatore (anteprima)](search-howto-index-azure-data-lake-storage.md) può indicizzare il contenuto e i metadati da data Lake storage Gen2.
 
 + L' [estrazione dei documenti (anteprima)](cognitive-search-skill-document-extraction.md) è una competenza cognitiva usata durante l'indicizzazione che consente di estrarre il contenuto di un file dall'interno di un skillt. In precedenza, il cracking del documento si verificava solo prima dell'esecuzione di Skills. Con l'aggiunta di questa competenza, è anche possibile eseguire questa operazione all'interno dell'esecuzione di competenze.
 

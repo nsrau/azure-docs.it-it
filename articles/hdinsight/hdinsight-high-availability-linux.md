@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8b914b8ffe995cf31f8a22b6f80250431facc770
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682242"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747866"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -33,7 +33,7 @@ I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azu
 
 Per garantire un'alta disponibilità dei servizi Hadoop, HDInsight fornisce due nodi head. Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster HDInsight. Alcuni servizi, ad esempio Apache HDFS o Apache Hadoop YARN, sono "attivi" in qualsiasi momento soltanto in un nodo head. Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
 
-I nodi head, e altri nodi in HDInsight, hanno un valore numerico all'interno del nome host del nodo. Ad esempio, `hn0-CLUSTERNAME` o `hn4-CLUSTERNAME`.
+Per ottenere i nomi host per diversi tipi di nodi nel cluster, usare l' [API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Non associare il valore numerico con il fatto che un nodo sia primario o secondario. Il valore numerico serve solo per specificare un nome univoco per ogni nodo.
@@ -64,7 +64,7 @@ L'accesso al cluster tramite Internet avviene mediante un gateway pubblico. L'ac
 
 L'accesso tramite il gateway pubblico è limitato alle porte 443 (HTTPS), 22 e 23.
 
-|Port |Descrizione |
+|Porta |Description |
 |---|---|
 |443|Usato per accedere a Ambari e ad altre interfacce utente Web o API REST ospitate nei nodi head.|
 |22|Usato per accedere al nodo head primario o al nodo perimetrale con SSH.|
@@ -88,7 +88,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 Questo comando restituisce un valore simile al seguente, che contiene l'URL interno da usare con il comando `oozie`:
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 Per altre informazioni sull'uso dell'API REST Ambari, vedere [Gestire i cluster HDInsight mediante l'API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -97,7 +97,7 @@ Per altre informazioni sull'uso dell'API REST Ambari, vedere [Gestire i cluster 
 
 È possibile connettersi a nodi che non sono direttamente accessibili tramite Internet usando i metodi seguenti:
 
-|Metodo |Descrizione |
+|Metodo |Description |
 |---|---|
 |SSH|Dopo avere stabilito la connessione a un nodo head usando SSH, è possibile usare SSH dal nodo head per connettersi ad altri nodi del cluster. Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Tunnel SSH|Se è necessario accedere a un servizio Web ospitato in uno dei nodi non esposti a Internet, è necessario usare un tunnel SSH. Per altre informazioni, vedere il documento [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).|
@@ -119,7 +119,7 @@ Esistono molte icone che possono essere visualizzate accanto a un servizio per i
 
 Gli avvisi seguenti consentono di monitorare la disponibilità di un cluster:
 
-| Nome avviso                               | Descrizione                                                                                                                                                                                  |
+| Nome avviso                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stato monitoraggio metrica                    | Questo avviso indica lo stato del processo di monitoraggio delle metriche in base a quanto determinato dallo script di stato del monitoraggio.                                                                                   |
 | Heartbeat agente Ambari                   | Questo avviso viene generato se il server ha perso il contatto con un agente.                                                                                                                        |
@@ -194,7 +194,7 @@ La risposta restituita è simile al codice JSON seguente:
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -203,7 +203,7 @@ La risposta restituita è simile al codice JSON seguente:
 }
 ```
 
-L'URL indica che il servizio è attualmente in esecuzione sul nodo head denominato **hn0-CLUSTERNAME**.
+L'URL indica che il servizio è attualmente in esecuzione in un nodo head denominato **cluster. wutj3h4ic1zejluqhxzvckxq0g**.
 
 Lo stato indica che il servizio è in esecuzione, o **AVVIATO**.
 
@@ -241,7 +241,7 @@ Ogni nodo head può avere voci di log univoche, perciò è consigliabile control
 
 È anche possibile connettersi al nodo head usando SSH File Transfer Protocol o Secure File Transfer Protocol (SFTP) e scaricare direttamente i file di log.
 
-In modo analogo all'uso di un client SSH, quando si stabilisce la connessione al cluster è necessario specificare il nome dell'account utente SSH e l'indirizzo SSH del cluster. Ad esempio, `sftp username@mycluster-ssh.azurehdinsight.net`. Specificare la password per l'account quando richiesto oppure specificare una chiave pubblica tramite il parametro `-i`.
+In modo analogo all'uso di un client SSH, quando si stabilisce la connessione al cluster è necessario specificare il nome dell'account utente SSH e l'indirizzo SSH del cluster. Ad esempio: `sftp username@mycluster-ssh.azurehdinsight.net`. Specificare la password per l'account quando richiesto oppure specificare una chiave pubblica tramite il parametro `-i`.
 
 Una volta stabilita la connessione, viene visualizzato un messaggio di `sftp>`. Da questo prompt è possibile modificare le directory nonché caricare e scaricare i file. Ad esempio, i comandi seguenti consentono di passare alla directory **/var/log/hadoop/hdfs** directory e quindi scaricare tutti i file nella directory.
 

@@ -4,7 +4,7 @@
   href: introduction.md
 - name: Security Controls
   items:
-    - name: Panoramica
+    - name: Panoramica dei controlli di sicurezza di Azure
       href: overview.md
     - name: Sicurezza di rete
       href: security-control-network-security.md

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 034ad7a074f60f1e2e9a0e6190f405972250c95d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529910"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751079"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure
-I [log della piattaforma](resource-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare i log della piattaforma a destinazioni diverse.
+I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare i log della piattaforma a destinazioni diverse.
 
 > [!IMPORTANT]
 > Prima di creare un'impostazione di diagnostica per raccogliere il log attività, è necessario disabilitare prima di tutto la configurazione legacy. Per informazioni dettagliate, vedere [raccogliere log attività di Azure con impostazioni legacy](diagnostic-settings-legacy.md) .
@@ -136,4 +136,4 @@ Vedere [creare un'impostazione di diagnostica in monitoraggio di Azure usando un
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Scopri di più sui log della piattaforma Azure](resource-logs-overview.md)
+* [Scopri di più sui log della piattaforma Azure](platform-logs-overview.md)

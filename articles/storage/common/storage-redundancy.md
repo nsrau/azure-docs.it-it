@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7517c4d9b3f9b58d9cf745f5001078837e1fbfea
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560369"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748169"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -52,7 +52,7 @@ Tutti i dati per tutti i tipi di account di archiviazione vengono replicati, inc
 Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium archiviazione su disco supporta attualmente solo l'archiviazione con ridondanza locale (con ridondanza locale). Archiviazione BLOB in blocchi di Azure Premium supporta l'archiviazione redudant locale (con ridondanza locale) e la zona redudant Storage (ZRS) in determinate aree.
+> Azure Premium archiviazione su disco supporta attualmente solo l'archiviazione con ridondanza locale (con ridondanza locale). Archiviazione BLOB in blocchi Premium di Azure supporta l'archiviazione con ridondanza locale (con ridondanza locale) e l'archiviazione con ridondanza della zona (ZRS) in determinate aree.
 
 ## <a name="changing-replication-strategy"></a>Modifica della strategia di replica
 
@@ -76,7 +76,7 @@ Se si esegue la migrazione dell'account di archiviazione da RA-GRS a GRS o con r
 - [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)
 - [Archiviazione con ridondanza geografica (GZRS) per disponibilità elevata e durabilità massima (anteprima)](storage-redundancy-gzrs.md)
-- [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
+- [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](scalability-targets-standard-account.md)
 - [Progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 - [Archiviazione di Microsoft Azure opzioni di ridondanza e archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Paper SOSP - Archiviazione di Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

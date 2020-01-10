@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 4edf17026384ad8a6bfe4ecea847f4a91076634f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646575"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763590"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ L'inferenza o il punteggio del modello è la fase in cui il modello distribuito 
 > Sebbene i frammenti di codice in questo articolo usino un modello TensorFlow, è possibile applicare le informazioni a qualsiasi framework di Machine Learning che supporti GPU.
 
 > [!NOTE]
-> Le informazioni contenute in questo articolo si basano sulle informazioni contenute nell'articolo [How to Deploy to Azure Kubernetes Service](service/how-to-deploy-azure-kubernetes-service.md) . In questo articolo viene in genere illustrata la distribuzione in AKS, in questo articolo viene illustrata la distribuzione specifica della GPU
+> Le informazioni contenute in questo articolo si basano sulle informazioni contenute nell'articolo [How to Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) . In questo articolo viene in genere illustrata la distribuzione in AKS, in questo articolo viene illustrata la distribuzione specifica della GPU
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ L'inferenza o il punteggio del modello è la fase in cui il modello distribuito 
 
     * Per creare e registrare il modello Tensorflow usato per creare questo documento, vedere [come eseguire il training di un modello Tensorflow](how-to-train-tensorflow.md).
 
-* Informazioni generali [su come e dove distribuire i modelli](service/how-to-deploy-and-where.md).
+* Informazioni generali [su come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 ## <a name="connect-to-your-workspace"></a>Connettersi all'area di lavoro
 
@@ -94,7 +94,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure effettuerà la fatturazione fino a quando il cluster AKS esiste. Assicurarsi di eliminare il cluster AKS al termine dell'operazione.
 
-Per altre informazioni sull'uso di AKS con Azure Machine Learning, vedere [come eseguire la distribuzione nel servizio Azure Kubernetes](service/how-to-deploy-azure-kubernetes-service.md).
+Per altre informazioni sull'uso di AKS con Azure Machine Learning, vedere [come eseguire la distribuzione nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Scrivere lo script di immissione
 
@@ -135,7 +135,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Questo file è denominato `score.py`. Per ulteriori informazioni sugli script di immissione, vedere [How and where to deploy](service/how-to-deploy-and-where.md).
+Questo file è denominato `score.py`. Per ulteriori informazioni sugli script di immissione, vedere [How and where to deploy](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Definire l'ambiente conda
 
@@ -289,6 +289,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuire il modello in FPGA](service/how-to-deploy-fpga-web-service.md)
+* [Distribuire il modello in FPGA](how-to-deploy-fpga-web-service.md)
 * [Distribuire il modello con ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
 * [Eseguire il training di modelli DNN di Tensorflow](how-to-train-tensorflow.md)

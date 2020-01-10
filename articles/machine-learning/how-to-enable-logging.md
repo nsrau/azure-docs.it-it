@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 36959804a0dff0c332c0e1511044769898f6f68d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 571962f69c0a9bbdb32e9790b1595af6a618697b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537383"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771377"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Abilitare la registrazione in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -117,7 +117,7 @@ logs = service.get_logs()
 service.update(enable_app_insights=True)
 ```
 
-Per ulteriori informazioni sull'utilizzo di Application Insights in Azure Machine Learning Studio, vedere la [procedura](service/how-to-enable-app-insights.md) .
+Per ulteriori informazioni sull'utilizzo di Application Insights in Azure Machine Learning Studio, vedere la [procedura](how-to-enable-app-insights.md) .
 
 ## <a name="python-native-logging-settings"></a>Impostazioni native della registrazione di Python
 

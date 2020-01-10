@@ -1,5 +1,5 @@
 ---
-title: Cos'è l'insieme di credenziali chiave di Azure? | Microsoft Docs
+title: Che cos'è Azure Key Vault? | Microsoft Docs
 description: Informazioni su come Azure Key Vault protegge le chiavi crittografiche e i segreti usati dalle applicazioni e dai servizi cloud.
 services: key-vault
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63d02dc3e098a48292731de84089fc4547987a25
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 7f32664f4bb9407d915b7909f9ecdeebe96bd551
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004228"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771939"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault concetti di base
 
@@ -24,29 +24,29 @@ Ecco altri termini importanti:
 
 - **Tenant**: un tenant è l'organizzazione che possiede e gestisce una specifica istanza dei servizi cloud Microsoft. Viene spesso usato per fare riferimento al set di servizi di Azure e Office 365 per un'organizzazione.
 
-- **Proprietario dell'insieme di credenziali**: il proprietario di un insieme di credenziali può creare un insieme di credenziali delle chiavi e ottenerne l'accesso e il controllo completi. Il proprietario dell'insieme di credenziali può anche configurare il controllo per registrare chi accede a segreti e chiavi. Gli amministratori possono controllare il ciclo di vita delle chiavi. Possono passare a una nuova versione della chiave, eseguirne il backup e svolgere attività correlate.
+- **Proprietario dell'insieme di credenziali**: il proprietario può creare un insieme di credenziali delle chiavi e ottenerne un accesso e controllo completi. Il proprietario dell'insieme di credenziali può anche configurare il controllo per registrare chi accede a segreti e chiavi. Gli amministratori possono controllare il ciclo di vita delle chiavi. Possono passare a una nuova versione della chiave, eseguirne il backup e svolgere attività correlate.
 
-- **Consumer dell'insieme di credenziali**: quando il proprietario dell'insieme di credenziali concede l'accesso a un consumer, quest'ultimo può eseguire azioni sugli asset all'interno dell'insieme di credenziali delle chiavi. Le azioni disponibili dipendono dalle autorizzazioni concesse.
+- **Consumer dell'insieme di credenziali**: quando il proprietario dell'insieme di credenziali gli concede l'accesso, il consumer può eseguire azioni sulle risorse nell'insieme di credenziali delle chiavi. Le azioni disponibili dipendono dalle autorizzazioni concesse.
 
-- **Resource** (Risorsa): una risorsa è un elemento gestibile disponibile tramite Azure. Esempi comuni sono la macchina virtuale, l'account di archiviazione, l'app Web, il database e la rete virtuale. Sono disponibili molte altre.
+- **Risorsa**: una risorsa è un elemento gestibile disponibile tramite Azure. Esempi comuni sono la macchina virtuale, l'account di archiviazione, l'app Web, il database e la rete virtuale. Sono disponibili molte altre.
 
-- **Gruppo di risorse**: Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione.
+- **Gruppo di risorse**: un gruppo di risorse è un contenitore con risorse correlate per una soluzione di Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione.
 
-- **Entità servizio**: Un'entità servizio di Azure è un'identità di sicurezza usata da app, servizi e strumenti di automazione creati dall'utente per accedere a risorse di Azure specifiche. È possibile considerarlo come una "identità utente" (nome utente e password o certificato) con un ruolo specifico e autorizzazioni strettamente controllate. A differenza di un'identità utente generica, un'entità servizio dovrà eseguire solo operazioni specifiche. Migliora la sicurezza se si concede solo il livello di autorizzazione minimo necessario per eseguire le attività di gestione.
+- **Entità servizio**: un'entità servizio di Azure è un'identità di sicurezza usata da app, servizi e strumenti di automazione creati dall'utente per accedere a risorse di Azure specifiche. È possibile considerarlo come una "identità utente" (nome utente e password o certificato) con un ruolo specifico e autorizzazioni strettamente controllate. A differenza di un'identità utente generica, un'entità servizio dovrà eseguire solo operazioni specifiche. Migliora la sicurezza se si concede solo il livello di autorizzazione minimo necessario per eseguire le attività di gestione.
 
-- [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md): Azure AD è il servizio Active Directory di un tenant. Ogni directory dispone di uno o più domini. A una directory possono essere associate molte sottoscrizioni, ma un solo tenant.
+- [Azure Active Directory (Azure ad)](../active-directory/active-directory-whatis.md): Azure ad è il servizio Active Directory per un tenant. Ogni directory dispone di uno o più domini. A una directory possono essere associate molte sottoscrizioni, ma un solo tenant.
 
 - **ID tenant di Azure**: un ID tenant è un modo univoco per identificare un'istanza di Azure AD all'interno di una sottoscrizione di Azure.
 
-- **Identità gestite**: Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. L'uso di un'identità gestita consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare questa identità per l'autenticazione in Key Vault o in qualsiasi servizio che supporti l'autenticazione di Azure AD, senza dover inserire le credenziali nel codice. Per altre informazioni, vedere la figura seguente e la [Panoramica delle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+- **Identità gestite**: Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma il codice deve eseguire l'autenticazione a Key Vault per recuperarli. L'uso di un'identità gestita consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare questa identità per l'autenticazione in Key Vault o in qualsiasi servizio che supporti l'autenticazione di Azure AD, senza dover inserire le credenziali nel codice. Per altre informazioni, vedere la figura seguente e la [Panoramica delle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
     ![Diagramma del funzionamento delle identità gestite per le risorse di Azure](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 Per eseguire qualsiasi operazione con Key Vault, è prima necessario eseguire l'autenticazione. Esistono tre modi per eseguire l'autenticazione a Key Vault:
 
-- [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md): Quando si distribuisce un'app in una macchina virtuale in Azure, è possibile assegnare un'identità alla macchina virtuale che ha accesso a Key Vault. È anche possibile assegnare identità ad [altre risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Il vantaggio di questo approccio è che l'app o il servizio non gestisce la rotazione del primo segreto. Azure ruota automaticamente l'identità. Questo approccio è consigliato come procedura consigliata. 
-- **Entità servizio e certificato**: È possibile usare un'entità servizio e un certificato associato con accesso a Key Vault. Questo approccio non è consigliato perché il proprietario o lo sviluppatore dell'applicazione deve ruotare il certificato.
+- [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md): quando si distribuisce un'app in una macchina virtuale in Azure, è possibile assegnare un'identità alla macchina virtuale che ha accesso a Key Vault. È anche possibile assegnare identità ad [altre risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Il vantaggio di questo approccio è che l'app o il servizio non gestisce la rotazione del primo segreto. Azure ruota automaticamente l'identità. Questo approccio è consigliato come procedura consigliata. 
+- **Entità servizio e certificato**: è possibile usare un'entità servizio e un certificato associato con accesso a Key Vault. Questo approccio non è consigliato perché il proprietario o lo sviluppatore dell'applicazione deve ruotare il certificato.
 - **Entità servizio e segreto**: Sebbene sia possibile usare un'entità servizio e un segreto per l'autenticazione a Key Vault, non è consigliabile. È difficile ruotare automaticamente il segreto di bootstrap usato per l'autenticazione Key Vault.
 
 
@@ -54,7 +54,7 @@ Per eseguire qualsiasi operazione con Key Vault, è prima necessario eseguire l'
 
 La seguente tabella permette di capire meglio come l'insieme di credenziali chiave aiuti a soddisfare le esigenze degli sviluppatori e degli amministratori della sicurezza.
 
-| Role | Presentazione del problema | Soluzione offerta dall'insieme di credenziali chiave di Azure |
+| Ruolo | Presentazione del problema | Soluzione offerta dall'insieme di credenziali chiave di Azure |
 | --- | --- | --- |
 | Sviluppatore di un'applicazione Azure |"Desidero scrivere un'applicazione per Azure che usa chiavi per la firma e la crittografia. Tuttavia, desidero che queste chiavi siano esterne all'applicazione, in modo che la soluzione sia adatta a un'applicazione geograficamente distribuita. <br/><br/>Voglio che queste chiavi e questi segreti siano protetti, senza dover scrivere manualmente il codice, e voglio poterli usare facilmente dall'applicazione ottenendo prestazioni ottimali." |√ Le chiavi vengono archiviate in un insieme di credenziali e richiamate dall'URI quando è necessario.<br/><br/> √ Le chiavi vengono protette da Azure con algoritmi standard del settore, lunghezze delle chiavi e moduli di protezione hardware.<br/><br/> √ Le chiavi vengono elaborate in moduli di protezione hardware che risiedono negli stessi data center di Azure in cui si trovano le applicazioni. In questo modo si ottiene una migliore affidabilità e una latenza ridotta rispetto a chiavi che si trovano in una posizione diversa, ad esempio in locale. |
 | Sviluppatore di software come un servizio (SaaS) |"Non voglio essere in alcun modo responsabile delle chiavi e dei segreti dei tenant dei miei clienti. <br/><br/>Voglio che siano i clienti a possedere e gestire le chiavi per potermi concentrare su ciò che so fare meglio, ovvero fornire le principali funzionalità del software." |√ I clienti possono importare le loro chiavi in Azure e gestirle. Quando un'applicazione SaaS deve eseguire operazioni di crittografia usando le chiavi dei clienti, Key Vault esegue queste operazioni per conto dell'applicazione. L'applicazione non vede le chiavi dei clienti. |

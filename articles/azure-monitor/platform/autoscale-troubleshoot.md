@@ -4,12 +4,12 @@ description: Rilevamento di problemi con la scalabilità automatica di Azure usa
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364442"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751344"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Risoluzione dei problemi di scalabilità automatica di Azure
  
@@ -97,7 +97,7 @@ Nella schermata delle impostazioni di scalabilità automatica passare alla sched
 
 ## <a name="autoscale-resource-logs"></a>Ridimensionare automaticamente i log delle risorse
 
-Come per qualsiasi altra risorsa di Azure, il servizio di scalabilità automatica fornisce i [log delle risorse](resource-logs-overview.md). Esistono due categorie di log.
+Come per qualsiasi altra risorsa di Azure, il servizio di scalabilità automatica fornisce i [log delle risorse](platform-logs-overview.md). Esistono due categorie di log.
 
 - **Valutazioni di scalabilità** automatica: il motore di scalabilità automatica registra le voci di log per ogni singola valutazione di condizione ogni volta che esegue un controllo.  La voce include i dettagli sui valori osservati delle metriche, le regole valutate e se la valutazione ha generato o meno un'azione di scalabilità.
 

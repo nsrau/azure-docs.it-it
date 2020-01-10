@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933653"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770017"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza nel dispositivo Internet delle cose
 
@@ -29,7 +29,7 @@ Per altre informazioni, vedere [l'articolo relativo all'architettura di riferime
 
 Gli agenti vengono sviluppati come progetti open source e sono disponibili in due versioni: <br> [C](https://aka.ms/iot-security-github-c)e [C#](https://aka.ms/iot-security-github-cs).
 
-In questo articolo viene spiegato come: 
+In questo articolo vengono illustrate le operazioni seguenti: 
 > [!div class="checklist"]
 > * Confrontare le versioni degli agenti di sicurezza
 > * Individuare le piattaforme agente supportate
@@ -48,18 +48,18 @@ L'agente di sicurezza basato su C ha un footprint di memoria inferiore ed è la 
 | Piattaforme Windows supportate? | No | Sì |
 | Prerequisiti di Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Piattaforme Linux supportate? | Sì, x64 e x86 | Sì, solo x64 |
-| Prerequisiti per Linux | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins, sudo, netstat, iptables |
+| Prerequisiti di Linux | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins, sudo, netstat, iptables |
 | Impronta disco | 10,5 MB | 90 MB |
 | Footprint di memoria (in media) | 5,5 MB | 33 MB |
-| [Autenticazione](concept-security-agent-authentication-methods.md) nell'hub Internet | Sì | Yes |
-| [Raccolta](how-to-agent-configuration.md#supported-security-events) dati di sicurezza | Yes | Sì |
+| [Autenticazione](concept-security-agent-authentication-methods.md) nell'hub Internet | Sì | Sì |
+| [Raccolta](how-to-agent-configuration.md#supported-security-events) dati di sicurezza | Sì | Sì |
 | Aggregazione di eventi | Sì | Sì |
 | Configurazione remota tramite il [modulo di sicurezza gemello](concept-security-module.md) | Sì | Sì |
 |
 
 ## <a name="security-agent-installation-guidelines"></a>Linee guida per l'installazione degli agenti di sicurezza
 
-Per **Windows**: È necessario eseguire lo script Install SecurityAgent. ps1 da una finestra di PowerShell Administrator. 
+Per **Windows**: lo script Install SecurityAgent. ps1 deve essere eseguito da una finestra di PowerShell amministratore. 
 
 Per **Linux**: InstallSecurityAgent.sh deve essere eseguito come superuser. È consigliabile predisporre il comando di installazione con "sudo".
 
@@ -91,10 +91,10 @@ Nell'elenco seguente sono incluse tutte le piattaforme attualmente supportate.
 |Centro sicurezza di Azure per l'agente Internet |Sistema operativo |Architettura |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64|
+|C|Ubuntu 18.04 |   x64, ARMv7|
 |C|Debian 9 |   x64, x86|
 |C#|Ubuntu 16.04    |x64|
-|C#|Ubuntu 18.04    |x64|
+|C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
 |C#|Windows 10 Internet core, Build 17763    |x64|

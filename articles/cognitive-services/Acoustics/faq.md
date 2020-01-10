@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0484fc9fc2af5514ba0f5b61277146a51757057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fa4b6499260219b0eb8ea4df4b4ccfd5263b57bb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855036"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770204"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Domande frequenti sui progetti acustici
 
@@ -26,9 +26,9 @@ Il progetto Acoustics suite di plug-in è un sistema acustico che calcola il com
 
 ## <a name="where-can-i-download-the-plugin"></a>Dove si può scaricare il plug-in?
 
-È possibile scaricare il [plug](https://www.microsoft.com/download/details.aspx?id=57346) -in del progetto Acoustics Unity o il plug-in [Acoustics Unreal del progetto](https://www.microsoft.com/download/details.aspx?id=58090).
+È possibile scaricare il plug-in del [progetto Acoustics Unity](https://www.microsoft.com/download/details.aspx?id=57346) o il plug-in [Acoustics Unreal del progetto](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-ltxgt-platform"></a>Il progetto Acoustics supporta &lt;la&gt; piattaforma x?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Il progetto Acoustics supporta &lt;piattaforma x&gt;?
 
 Il supporto della piattaforma acustica del progetto si evolve in base alle esigenze dei clienti. Per ulteriori informazioni sul supporto di piattaforme aggiuntive, contattare [Microsoft nel forum del problema](https://github.com/microsoft/ProjectAcoustics/issues) relativo all'acustica del progetto.
 
@@ -75,6 +75,10 @@ Project Acoustics fornisce parametri acustici accurati e affidabili anche per am
 ## <a name="what-exactly-happens-during-baking"></a>Cosa accade esattamente durante il "baking"?
 
 Un Bake è costituito da simulazioni Wave acustiche di aree di simulazione Cuboid centrate su ogni Probe del listener.
+
+## <a name="is-my-source-content-secure"></a>Il contenuto di origine è sicuro?
+
+Il progetto Acoustics non carica la geometria della scena di origine nel cloud. Al contrario, la simulazione opera su un voxelization della scena, che viene combinata con i dati della posizione del probe e archiviati in un formato proprietario.     
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Provare il [contenuto di esempio del progetto Acoustics Unity](unity-quickstart.md) o un [contenuto di esempio non reale](unreal-quickstart.md)

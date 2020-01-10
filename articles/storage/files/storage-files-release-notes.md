@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cc919cabab94e078b8a212feec40047639a36341
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67f04b3873da020853c2523f6acc8c7dc7dcdedc
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452920"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749595"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -142,6 +142,7 @@ Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continu
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud
 - Se un file a più livelli viene copiato in un'altra posizione usando Robocopy, il file risultante non è suddiviso in livelli. L'attributo offline potrebbe essere impostato perché Robocopy include erroneamente tale attributo nelle operazioni di copia.
 - Quando si copiano file tramite robocopy, usare l'opzione /MIR per conservare i timestamp dei file. In questo modo i file meno recenti verranno archiviati a livelli prima dei file aperti più di recente.
+- Se il file Pagefile. sys si trova in un volume in cui è abilitata la suddivisione in livelli nel cloud, i file potrebbero non riuscire a livello. Il file Pagefile. sys deve trovarsi in un volume in cui è disabilitata la suddivisione in livelli nel cloud.
 
 ## <a name="agent-version-8000"></a>Versione dell'agente 8.0.0.0
 Le note sulla versione seguenti sono relative alla versione 8.0.0.0 dell'agente di Sincronizzazione file di Azure (rilasciato l'8 ottobre 2019).

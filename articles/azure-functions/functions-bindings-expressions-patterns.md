@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227231"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769524"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modelli di espressione di binding di funzioni di Azure
 
@@ -20,7 +20,7 @@ Quasi tutte le espressioni sono identificate tramite la disposizione del testo t
 
 Tipi di espressioni di associazione
 
-* [Impostazioni app](#binding-expressions---app-settings)
+* [Impostazioni dell'app](#binding-expressions---app-settings)
 * [Nome file del trigger](#trigger-file-name)
 * [Metadati dei trigger](#trigger-metadata)
 * [Payload JSON](#json-payloads)
@@ -142,7 +142,7 @@ Un trigger di archiviazione code di Azure, ad esempio, supporta le proprietà se
 * QueueTrigge: attivazione del contenuto del messaggio, se una stringa valida
 * DequeueCount
 * ExpirationTime
-* id
+* ID
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
@@ -285,7 +285,7 @@ L'espressione di associazione `{rand-guid}` crea un GUID. Il percorso del BLOB s
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -298,7 +298,7 @@ L'espressione di associazione `DateTime` viene risolta in `DateTime.UtcNow`. Il 
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## <a name="binding-at-runtime"></a>Associazione in fase di esecuzione

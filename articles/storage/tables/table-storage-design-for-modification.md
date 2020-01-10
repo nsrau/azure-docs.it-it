@@ -1,5 +1,5 @@
 ---
-title: Progettare tabelle di archiviazione di Azure per la modifica dei dati | Microsoft Docs
+title: Progettare l'archiviazione tabelle di Azure per la modifica dei dati | Microsoft Docs
 description: Progettare tabelle per la modifica dei dati nell'archiviazione tabelle di Azure.
 services: storage
 author: MarkMcGeeAtAquent
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325885"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771547"
 ---
 # <a name="design-for-data-modification"></a>Progettazione per la modifica dei dati
 Questo articolo esamina le considerazioni relative alla progettazione per ottimizzare inserimenti, aggiornamenti ed eliminazioni. In alcuni casi, sarà necessario valutare il compromesso tra progettazioni che ottimizzano le query e progettazioni che ottimizzano la modifica dei dati, come avviene per le progettazioni per i database relazionali (anche se le tecniche per gestire i compromessi tra progettazioni sono diverse in un database relazionale). La sezione Modelli di progettazione tabella descrive in dettaglio alcuni schemi progettuali per il servizio tabelle ed evidenzia alcuni di questi compromessi. In pratica si vedrà che molte progettazioni ottimizzate per le query delle entità vanno bene anche per la modifica delle entità.  

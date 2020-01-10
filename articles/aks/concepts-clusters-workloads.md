@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: a6b696e16d2c946572cc213115fb440775fce3fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 349d7d8206cc4139de020234ee063e85f9a8f9ef
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442966"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768640"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -95,22 +95,22 @@ Per mantenere le prestazioni e le funzionalità del nodo, le risorse vengono ris
 |---|---|---|---|---|---|---|---|
 |Kube-riservato (millicore)|60|100|140|180|260|420|740|
 
-- **Memoria** : la memoria riservata include la somma di due valori
+- **Memoria: la** memoria usata da AKS include la somma di due valori.
 
-1. Il daemon kubelet viene installato in tutti i nodi dell'agente Kubernetes per gestire la creazione e la terminazione del contenitore. Per impostazione predefinita, in AKS questo daemon presenta la seguente regola di rimozione: memory. available < 750Mi, il che significa che un nodo deve sempre avere almeno 750 mi allocabile in ogni momento.  Quando un host è al di sotto di tale soglia di memoria disponibile, il kubelet terminerà uno dei pod in esecuzione per liberare memoria nel computer host e proteggerlo.
+1. Il daemon kubelet viene installato in tutti i nodi dell'agente Kubernetes per gestire la creazione e la terminazione del contenitore. Per impostazione predefinita, in AKS questo daemon presenta la seguente regola di rimozione: *Memory. available < 750Mi*, il che significa che un nodo deve sempre avere almeno 750 mi allocabile in ogni momento.  Quando un host è al di sotto di tale soglia di memoria disponibile, il kubelet terminerà uno dei pod in esecuzione per liberare memoria nel computer host e proteggerlo. Si tratta di un'azione reattiva quando la memoria disponibile diminuisce oltre la soglia 750Mi.
 
-2. Il secondo valore è una frequenza progressiva di memoria riservata per la corretta funzione del daemon kubelet (KUBE-reserved).
+2. Il secondo valore è una frequenza progressiva di prenotazioni di memoria per la corretta funzione del daemon kubelet (KUBE-reserved).
     - 25% dei primi 4 GB di memoria
     - 20% dei 4 GB di memoria successivi (fino a 8 GB)
     - 10% dei prossimi 8 GB di memoria (fino a 16 GB)
     - 6% dei 112 GB di memoria successivi (fino a 128 GB)
     - 2% di memoria superiore a 128 GB
 
-In seguito a queste due regole definite imposte per garantire l'integrità dei nodi Kubernetes e Agent, la quantità di CPU e memoria allocabile verrà visualizzata in meno rispetto al nodo stesso. Non è possibile modificare le prenotazioni di risorse definite in precedenza.
+Le regole precedenti per l'allocazione di memoria e CPU vengono usate per rendere integri i nodi dell'agente, alcuni pod di sistema host critici per l'integrità del cluster. Queste regole di allocazione fanno anche in modo che il nodo segnali una quantità di memoria e CPU meno allocabile rispetto a quella che sarebbe se non facesse parte di un cluster Kubernetes. Non è possibile modificare le prenotazioni di risorse sopra indicate.
 
-Se, ad esempio, un nodo dispone di 7 GB, verrà segnalato il 34% della memoria non allocabile:
+Se, ad esempio, un nodo dispone di 7 GB, verrà segnalato il 34% della memoria non allocabile al di sopra della soglia di rimozione hardware di 750Mi.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
 Oltre alle prenotazioni per Kubernetes, il sistema operativo node sottostante riserva anche una quantità di risorse di CPU e memoria per mantenere le funzioni del sistema operativo.
 

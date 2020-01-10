@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 5bceb6715fc3fd2f9f23738936df2f2c549d0212
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: aaa279596532d3a1d47a974b48a45bd67101fa95
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048185"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768623"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -28,6 +28,8 @@ Questo articolo introduce i principali concetti utili per gestire il ridimension
 ## <a name="manually-scale-pods-or-nodes"></a>Ridimensionare manualmente i pod o i nodi
 
 È possibile ridimensionare manualmente le repliche (pod) e i nodi per verificare come risponde l'applicazione a una modifica delle risorse disponibili e dello stato. Il ridimensionamento manuale delle risorse consente anche di definire una quantità specifica di risorse da usare per mantenere un costo fisso, ad esempio il numero di nodi. Per eseguire manualmente la scalabilità, è necessario definire la replica o il numero di nodi. L'API Kubernetes pianifica quindi la creazione di Pod aggiuntivi o lo svuotamento dei nodi in base alla replica o al numero di nodi.
+
+Quando si ridimensionano i nodi, l'API Kubernetes chiama l'API di calcolo di Azure pertinente collegata al tipo di calcolo usato dal cluster. Ad esempio, per i cluster basati su un set di scalabilità di macchine virtuali, la logica per la selezione dei nodi da rimuovere è determinata dall'API dei set di scalabilità di macchine virtuali. Per altre informazioni sulla modalità di selezione dei nodi per la rimozione in una scala ridotta, vedere le [domande frequenti su vmss](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
 Per iniziare a ridimensionare manualmente i pod e i nodi, vedere [ridimensionare le applicazioni in AKS][aks-scale].
 
@@ -85,7 +87,7 @@ Istanze di Azure Container consente di distribuire rapidamente istanze di conten
 
 L'applicazione non richiede alcuna modifica per usare i nodi virtuali. Le distribuzioni possono essere ridimensionate su Istanze di Azure Container e il servizio Azure Kubernetes senza ritardo mentre il ridimensionamento automatico del cluster distribuisce nuovi nodi nel cluster del servizio Azure Kubernetes.
 
-I nodi virtuali vengono distribuiti in una subnet aggiuntiva nella stessa rete virtuale del cluster del servizio Azure Kubernetes. Questa configurazione di rete virtuale consente di proteggere il traffico tra Istanze di Azure Container e il servizio Azure Kubernetes. Come un cluster servizio Azure Kubernetes, un'istanza di Istanze di Azure Container è una risorsa di calcolo logica e sicura isolata dagli altri utenti.
+I nodi virtuali vengono distribuiti in una subnet aggiuntiva nella stessa rete virtuale del cluster del servizio Azure Kubernetes. Questa configurazione di rete virtuale consente di proteggere il traffico tra Istanze di Azure Container e il servizio Azure Kubernetes. Come un cluster del servizio Azure Kubernetes, un'istanza di Istanze di Azure Container è una risorsa di calcolo logica e sicura isolata dagli altri utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,15 +7,15 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: 4c910fd72805ce8cb1e7baa6b4252d6b2192fe36
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541517"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750984"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>Raccolta del log attività di Azure con le impostazioni legacy
-Il [log attività di Azure](activity-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Fino a poco tempo fa, è stato creato un profilo di log per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione e viene usato un connettore per raccoglierle in un' [area di lavoro log Analytics](activity-log-collect.md). Questo articolo descrive la differenza tra i metodi, come usare le impostazioni legacy esistenti e come cancellare le impostazioni legacy in preparazione per le impostazioni di diagnostica.
+Il [log attività di Azure](platform-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Fino a poco tempo fa, è stato creato un profilo di log per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione e viene usato un connettore per raccoglierle in un' [area di lavoro log Analytics](activity-log-collect.md). Questo articolo descrive la differenza tra i metodi, come usare le impostazioni legacy esistenti e come cancellare le impostazioni legacy in preparazione per le impostazioni di diagnostica.
 
 
 ## <a name="differences-between-methods"></a>Differenze tra i metodi

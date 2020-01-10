@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 91150251140379c15d4ab3711ded571c9ad2c024
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ace19f17f5d7a5e920808b76258459c0eba62890
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101659"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750539"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM in una macchina virtuale Linux in Azure  
 
 Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente configurabile e flessibile. In questa esercitazione viene descritta la distribuzione della macchina virtuale di Azure base in combinazione con l'installazione e la configurazione di Oracle Automated Storage Management (ASM).  Si apprenderà come:
 
@@ -32,8 +32,6 @@ Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente 
 > * Inizializzare l'installazione di Oracle ASM
 > * Creare un database Oracle gestito da ASM
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
@@ -47,7 +45,7 @@ Per creare un gruppo di risorse, usare il comando [az group create](/cli/azure/g
 az group create --name myResourceGroup --location eastus
 ```
 
-### <a name="create-a-vm"></a>Creare una macchina virtuale
+### <a name="create-a-vm"></a>Creare una VM
 
 Per creare una macchina virtuale basata sull'immagine del database Oracle e configurarla per l'utilizzo di Oracle ASM, utilizzare il comando [az vm create](/cli/azure/vm). 
 
@@ -211,7 +209,7 @@ Per questa esercitazione, l'utente predefinito è *grid* mentre il gruppo predef
    fdisk /dev/sdc
    ```
    
-   Utilizzando le risposte fornite in precedenza, l'output del comando fdisk dovrebbe essere simile al seguente:
+   Usando le risposte fornite in precedenza, l'output del comando `fdisk` dovrebbe essere simile al seguente:
 
    ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -247,7 +245,7 @@ Per questa esercitazione, l'utente predefinito è *grid* mentre il gruppo predef
    Syncing disks.
    ```
 
-4. Ripetere il comando precedente fdisk per `/dev/sdd`, `/dev/sde` e `/dev/sdf`.
+4. Ripetere il `fdisk` comando precedente per `/dev/sdd`, `/dev/sde`e `/dev/sdf`.
 
 5. Controllare la configurazione del disco:
 
@@ -428,7 +426,7 @@ La configurazione di Oracle ASM richiede un'interfaccia grafica per completare l
    > La chiave deve contenere la stringa `ssh-rsa`. In aggiunta, il contenuto della chiave deve essere una singola riga di testo.
    >  
 
-6. Nel sistema client, avviare PuTTY. Nel pannello **Categoria** andare in **Connessione** > **SSH** > **Autenticazione**. Nella casella **Private key file for authentication** (File della chiave privata per l'autenticazione) individuare la chiave generata in precedenza.
+6. Nel sistema client, avviare PuTTY. Nel riquadro **categoria** passare a **connessione** > **SSH** > **AUTH**. Nella casella **file di chiave privata per l'autenticazione** passare alla chiave generata in precedenza.
 
    ![Screenshot delle opzioni di autenticazione SSH](./media/oracle-asm/setprivatekey.png)
 
@@ -512,7 +510,7 @@ Per configurare l'installazione di Oracle ASM, completare la procedura seguente:
 
    Verrà visualizzato ASM Configuration Assistant (Assistente alla configurazione di ASM).
 
-2. Nella finestra di dialogo **Configure ASM: Disk Groups** (Configura ASM: gruppi di dischi) fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
+2. Nella finestra di dialogo **Configurare ASM: gruppi di dischi**, fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
 
 3. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)** :
 
@@ -524,7 +522,7 @@ Per configurare l'installazione di Oracle ASM, completare la procedura seguente:
 
    ![Screenshot della finestra di dialogo Create Disk Group (Creare il gruppo di dischi)](./media/oracle-asm/asm02.png)
 
-4. Nella finestra di dialogo **Configure ASM: Disk Groups** (Configura ASM: gruppi di dischi) fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
+4. Nella finestra di dialogo **Configurare ASM: gruppi di dischi**, fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
 
 5. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)** :
 
@@ -582,8 +580,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esercitazione: configurare Oracle DataGuard](configure-oracle-dataguard.md)
+[Esercitazione: Configurare Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Esercitazione: configurare Oracle GoldenGate](Configure-oracle-golden-gate.md)
+[Esercitazione: Configurare Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Revisione: [Definire l'architettura di un database Oracle](oracle-design.md)

@@ -3,12 +3,12 @@ title: Eseguire il backup di un database di SAP HANA in Azure con backup di Azur
 description: Questo articolo illustra come eseguire il backup di un database di SAP HANA in macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 3246f6cf8046e0a0c5795059ad3448b70130e7e1
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: c5df198d009f0d4a9f37a68d6b21386f06842722
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496967"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753963"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -30,11 +30,60 @@ Per configurare il database per il backup, vedere le sezioni [prerequisiti](tuto
 
 ### <a name="set-up-network-connectivity"></a>Configurare la connettività di rete
 
-Per tutte le operazioni, la macchina virtuale SAP HANA richiede la connettività agli indirizzi IP pubblici di Azure. Le operazioni della macchina virtuale, ad esempio individuazione dei database, configurazione e pianificazione dei backup, ripristino dei punti di ripristino e così via, non funzionano in assenza di connettività. Stabilire la connettività consentendo l'accesso agli intervalli IP dei data center Azure:
+Per tutte le operazioni, la macchina virtuale SAP HANA richiede la connettività agli indirizzi IP pubblici di Azure. Le operazioni della macchina virtuale (individuazione del database, configurazione dei backup, pianificazione dei backup, ripristino dei punti di ripristino e così via) hanno esito negativo senza connettività agli indirizzi IP pubblici di Azure.
 
-* È possibile scaricare gli [intervalli di indirizzi IP](https://www.microsoft.com/download/details.aspx?id=41653) dei data center Azure e quindi consentirvi l'accesso.
-* Se si usano i gruppi di sicurezza di rete, è possibile usare il [tag del servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud per consentire tutti gli indirizzi IP pubblici di Azure. Per modificare le regole dei gruppi di sicurezza di rete, è possibile usare il cmdlet [Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0).
-* La porta 443 deve essere aggiunta all'elenco di elementi consentiti, perché il trasporto avviene tramite HTTPS.
+Stabilire la connettività usando una delle opzioni seguenti:
+
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Consenti gli intervalli IP del Data Center di Azure
+
+Questa opzione consente gli [intervalli IP](https://www.microsoft.com/download/details.aspx?id=41653) nel file scaricato. Per accedere a un gruppo di sicurezza di rete (NSG), usare il cmdlet Set-AzureNetworkSecurityRule. Se l'elenco dei destinatari sicuri include solo indirizzi IP specifici dell'area, sarà necessario aggiornare anche l'Azure AD Azure Active Directory elenco dei destinatari sicuri per abilitare l'autenticazione.
+
+#### <a name="allow-access-using-nsg-tags"></a>Consenti l'accesso con tag NSG
+
+Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita a backup di Azure. Inoltre, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati usando [le regole](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) per Azure ad e archiviazione di Azure. Questa operazione può essere eseguita dal portale di Azure o tramite PowerShell.
+
+Per creare una regola tramite il portale:
+
+  1. In **tutti i servizi**, passare a **gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
+  2. Selezionare **regole di sicurezza in uscita** in **Impostazioni**.
+  3. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto in [impostazioni delle regole di sicurezza](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Verificare che l'opzione **destinazione** sia impostata su **tag servizio** e il **tag servizio di destinazione** sia impostato su **AzureBackup**.
+  4. Fare clic su **Aggiungi**per salvare la regola di sicurezza in uscita appena creata.
+
+Per creare una regola usando PowerShell:
+
+ 1. Aggiungere le credenziali dell'account Azure e aggiornare i cloud nazionali<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Selezionare la sottoscrizione di NSG<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Selezionare il NSG<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Aggiungi regola Consenti connessioni in uscita per il servizio backup di Azure<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Aggiungi regola Consenti uscita per il tag del servizio di archiviazione<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Aggiungi regola Consenti connessioni in uscita per il tag del servizio AzureActiveDirectory<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Salva NSG<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Consentire l'accesso usando i tag del firewall di Azure**. Se si usa il firewall di Azure, creare una regola dell'applicazione usando il [tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Questo consente l'accesso in uscita a backup di Azure.
+
+**Distribuire un server proxy HTTP per instradare il traffico**. Quando si esegue il backup di un database di SAP HANA in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a backup e dati di Azure in archiviazione di Azure. L'estensione per il backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
+
+Le opzioni di connettività includono i vantaggi e gli svantaggi seguenti:
+
+**Opzione** | **Vantaggi** | **Svantaggi**
+--- | --- | ---
+Consentire gli intervalli di indirizzi IP | Nessun costo aggiuntivo | Complesso da gestire perché gli intervalli di indirizzi IP cambiano nel tempo <br/><br/> Consente di accedere all'intero Azure, non solo all'archiviazione di Azure
+Usare i tag del servizio NSG | Più facile da gestire quando le modifiche all'intervallo vengono unite automaticamente <br/><br/> Nessun costo aggiuntivo <br/><br/> | Può essere usato solo con gruppi <br/><br/> Consente di accedere all'intero servizio
+Usare i tag FQDN del firewall di Azure | Facile da gestire perché i nomi di dominio completi necessari vengono gestiti automaticamente | Può essere usato solo con il firewall di Azure
+Usare un proxy HTTP | È consentito il controllo granulare nel proxy sugli URL di archiviazione <br/><br/> Singolo punto di accesso Internet alle macchine virtuali <br/><br/> Non soggetto alle modifiche degli indirizzi IP di Azure | Costi aggiuntivi per l'esecuzione di una macchina virtuale con il software proxy
 
 ## <a name="onboard-to-the-public-preview"></a>Eseguire l'onboarding nell'anteprima pubblica
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
-ms.openlocfilehash: 97737feca466a6b373a60f01624a038512203bfd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d6c948c7fdfe2c5dc89c3e284ada33c2f7b542db
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645923"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750676"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
 
@@ -67,7 +67,7 @@ Nella casella di ricerca nella parte superiore del portale immettere *Gruppi di 
 1. Nella casella di ricerca nella parte superiore del portale immettere *Gruppi di sicurezza di rete*. Selezionare la voce **Gruppi di sicurezza di rete** quando viene visualizzata nei risultati della ricerca.
 2. Selezionare nell'elenco il gruppo di sicurezza di rete di cui si vogliono visualizzare i dettagli. In **IMPOSTAZIONI** è possibile visualizzare le **Regole di sicurezza in ingresso** e le **Regole di sicurezza in uscita**, le **Interfacce di rete** e le **Subnet** a cui è associato il gruppo di sicurezza di rete. È anche possibile abilitare o disabilitare i **Log di diagnostica** e visualizzare le **Regole di sicurezza effettive**. Per altre informazioni, vedere [Log di diagnostica](virtual-network-nsg-manage-log.md) e [Visualizzare le regole di sicurezza effettive](diagnose-network-traffic-filter-problem.md).
 3. Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli articoli seguenti:
-    *   [Log attività](../azure-monitor/platform/activity-logs-overview.md)
+    *   [Log attività](../azure-monitor/platform/platform-logs-overview.md)
     *   [Controllo di accesso (IAM)](../role-based-access-control/overview.md)
     *   [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

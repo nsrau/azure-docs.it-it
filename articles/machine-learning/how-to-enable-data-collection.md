@@ -11,19 +11,19 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9058fbbe9b238877b842e79d98041fa0b681bc8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539762"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771394"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> Il Azure Machine Learning SDK di monitoraggio verrà ritirato a breve. L'SDK è ancora appropriato per gli sviluppatori che attualmente usano l'SDK per monitorare la tendenza dei dati nei modelli. Per i nuovi clienti è tuttavia consigliabile usare il monitoraggio semplificato [dei dati con Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
+> Il Azure Machine Learning SDK di monitoraggio verrà ritirato a breve. L'SDK è ancora appropriato per gli sviluppatori che attualmente usano l'SDK per monitorare la tendenza dei dati nei modelli. Per i nuovi clienti è tuttavia consigliabile usare il monitoraggio semplificato [dei dati con Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 Questo articolo illustra come raccogliere i dati del modello di input da Azure Machine Learning. Viene anche illustrato come distribuire i dati di input in un cluster di Azure Kubernetes Service (AKS) e archiviare i dati di output nell'archivio BLOB di Azure.
 

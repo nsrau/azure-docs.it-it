@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 581b6b4143f5924c27bac726bbea823761574c1b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540724"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75764644"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -226,4 +226,4 @@ A questo punto si dispone di un servizio Web operativo per generare stime. È po
 * Provare l'esercitazione end-to-end [per creare il primo esperimento di Machine Learning automatizzato con Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Scopri di più su Machine Learning e Azure Machine Learning automatizzati](concept-automated-ml.md) .
 * [Informazioni sui risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
-* [Informazioni su come utilizzare un servizio Web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
+* [Informazioni su come utilizzare un servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

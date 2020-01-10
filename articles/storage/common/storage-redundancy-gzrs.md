@@ -8,18 +8,18 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534316"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748252"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
 L'archiviazione con ridondanza della zona geografica (GZRS) (anteprima) si associa alla disponibilità elevata di [archiviazione con ridondanza della zona (ZRS)](storage-redundancy-zrs.md) con protezione da interruzioni a livello di area, come fornito dall' [archiviazione con ridondanza geografica (GRS)](storage-redundancy-grs.md). I dati in un account di archiviazione GZRS vengono replicati in tre [zone di disponibilità di Azure](../../availability-zones/az-overview.md) nell'area primaria e anche replicati in un'area geografica secondaria per la protezione da emergenze locali. Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. Per ulteriori informazioni ed eccezioni, fare riferimento alla [documentazione](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Con un account di archiviazione GZRS, è possibile continuare a leggere e scrivere dati se una zona di disponibilità diventa non disponibile o non è recuperabile. Inoltre, i dati sono anche durevoli in caso di un'interruzione completa dell'area o di un'emergenza in cui l'area primaria non è recuperabile. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno. GZRS offre anche gli stessi [obiettivi di scalabilità](storage-scalability-targets.md) di con ridondanza locale, ZRS, GRS o RA-GRS. Facoltativamente, è possibile abilitare l'accesso in lettura ai dati nell'area secondaria con archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) se le applicazioni devono essere in grado di leggere i dati in caso di emergenza nell'area primaria.
+Con un account di archiviazione GZRS, è possibile continuare a leggere e scrivere dati se una zona di disponibilità diventa non disponibile o non è recuperabile. Inoltre, i dati sono anche durevoli in caso di un'interruzione completa dell'area o di un'emergenza in cui l'area primaria non è recuperabile. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno. GZRS offre anche gli stessi obiettivi di scalabilità di con ridondanza locale, ZRS, GRS o RA-GRS. Facoltativamente, è possibile abilitare l'accesso in lettura ai dati nell'area secondaria con archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) se le applicazioni devono essere in grado di leggere i dati in caso di emergenza nell'area primaria.
 
 Microsoft consiglia di usare GZRS per le applicazioni che richiedono coerenza, durabilità, disponibilità elevata, prestazioni ottimali e resilienza per il ripristino di emergenza. Per la sicurezza aggiuntiva dell'accesso in lettura all'area secondaria in caso di emergenza a livello di area, abilitare RA-GZRS per l'account di archiviazione.
 
@@ -160,3 +160,4 @@ Un rappresentante del supporto contatterà l'utente per fornire assistenza.
 - [Replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](scalability-targets-standard-account.md)

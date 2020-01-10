@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 2d2e929335f6af2ee24a81e719d9d0d899f7b8ef
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 114f710c9d0e85ecde4ab163401c714c5e28a708
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241848"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771599"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem... RequestBodyTooLarge "viene visualizzato nel registro applicazioni di Apache Spark streaming in HDInsight
 
@@ -26,7 +26,7 @@ Errore: `NativeAzureFileSystem ... RequestBodyTooLarge` viene visualizzato nel l
 
 È probabile che il file di registro eventi Spark raggiunga il limite di lunghezza del file per WASB.
 
-In Spark 2,3 ogni app Spark genera un file di log eventi Spark. Il file di registro eventi Spark per un'app Spark streaming continua a crescere mentre l'app è in esecuzione. Attualmente un file in WASB ha un limite di 50000 blocchi e le dimensioni predefinite del blocco sono pari a 4 MB. Quindi, nella configurazione predefinita le dimensioni massime del file sono di 195 GB. Tuttavia, archiviazione di Azure ha aumentato le dimensioni massime del blocco a 100 MB, che hanno consentito il limite di file singolo a 4,75 TB. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
+In Spark 2,3 ogni app Spark genera un file di log eventi Spark. Il file di registro eventi Spark per un'app Spark streaming continua a crescere mentre l'app è in esecuzione. Attualmente un file in WASB ha un limite di 50000 blocchi e le dimensioni predefinite del blocco sono pari a 4 MB. Quindi, nella configurazione predefinita le dimensioni massime del file sono di 195 GB. Tuttavia, archiviazione di Azure ha aumentato le dimensioni massime del blocco a 100 MB, che hanno consentito il limite di file singolo a 4,75 TB. Per altre informazioni, vedere [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../../storage/blobs/scalability-targets.md).
 
 ## <a name="resolution"></a>Risoluzione
 

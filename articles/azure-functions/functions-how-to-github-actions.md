@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433170"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769150"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
@@ -46,7 +46,7 @@ In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione
 
 ## <a name="download-the-publishing-profile"></a>Scaricare il profilo di pubblicazione
 
-Per scaricare il profilo di pubblicazione del functionapp, passare alla pagina **Panoramica** dell'app e fare clic su **Ottieni profilo di pubblicazione**.
+Per scaricare il profilo di pubblicazione dell'app per le funzioni, passare alla pagina **Panoramica** dell'app e fare clic su **Ottieni profilo di pubblicazione**.
 
    ![Scarica profilo di pubblicazione](media/functions-how-to-github-actions/get-publish-profile.png)
 
@@ -54,11 +54,14 @@ Copiare il contenuto del file.
 
 ## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
 
-1. In [GitHub](https://github.com)esplorare il repository, selezionare **Impostazioni** > **Secrets** > **aggiungere un nuovo segreto**.
+1. In [GitHub](https://github.com)passare al repository, selezionare **Impostazioni** > **Secrets** > **aggiungere un nuovo segreto**.
 
    ![Aggiungi segreto](media/functions-how-to-github-actions/add-secret.png)
 
-1. Usare `AZURE_CREDENTIALS` per il **nome** e l'output del comando copiato per **valore**, se si seleziona **Aggiungi segreto**. Se si utilizza il profilo di pubblicazione, utilizzare `SCM_CREDENTIALS` per il **nome** e il contenuto del file per **valore**.
+1. Aggiungere un nuovo segreto.
+
+   * Se si usa l'entità servizio creata usando l'interfaccia della riga di comando di Azure, usare `AZURE_CREDENTIALS` come **nome**. Incollare quindi l'output dell'oggetto JSON copiato per **valore**e selezionare **Aggiungi segreto**.
+   * Se si usa un profilo di pubblicazione, usare `SCM_CREDENTIALS` come **nome**. Usare quindi il contenuto del file del profilo di pubblicazione per **valore**e selezionare **Aggiungi segreto**.
 
 GitHub è ora in grado di eseguire l'autenticazione all'app per le funzioni in Azure.
 

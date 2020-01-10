@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,14 +8,22 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 93f6bc8533218af7f0e6dcd1c5f7be6fe8c00e29
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69520850"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752055"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
+
+### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Cosa è necessario fare se si verifica una mancata corrispondenza del certificato durante la connessione tramite l'autenticazione del certificato?
+
+Deselezionare **"verifica l'identità del server convalidando il certificato"** o **aggiungere il nome di dominio completo del server insieme al certificato durante la** creazione manuale di un profilo. A tale scopo, è possibile eseguire **RASPHONE** da un prompt dei comandi e selezionare il profilo dall'elenco a discesa.
+
+Il bypass della convalida dell'identità del server non è consigliato in generale, ma con l'autenticazione del certificato di Azure, lo stesso certificato viene usato per la convalida del server nel protocollo di tunneling VPN (IKEv2/SSTP) e nel protocollo EAP. Poiché il certificato del server e il nome di dominio completo sono già convalidati dal protocollo di tunneling VPN, è ridondante per convalidare di nuovo lo stesso in EAP.
+
+![da punto a sito](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificato server")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>È possibile usare la CA radice PKI interna per generare certificati per la connettività da punto a sito?
 

@@ -1,5 +1,5 @@
 ---
-title: Utilizzo delle proiezioni in un archivio informazioni (anteprima)
+title: Proiezioni in un archivio informazioni (anteprima)
 titleSuffix: Azure Cognitive Search
 description: Salvare e modellare i dati arricchiti dalla pipeline di indicizzazione dell'intelligenza artificiale in un archivio informazioni per l'uso in scenari diversi dalla ricerca full-text. L'archivio conoscenze è attualmente disponibile in anteprima pubblica.
 manager: nitinme
@@ -7,20 +7,20 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790011"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754531"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilizzo delle proiezioni in un archivio informazioni in Azure ricerca cognitiva
+# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Proiezioni in un archivio informazioni in Azure ricerca cognitiva
 
 > [!IMPORTANT] 
 > L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
-Azure ricerca cognitiva consente di arricchire il contenuto tramite competenze cognitive predefinite e competenze personalizzate come parte dell'indicizzazione. Gli arricchimenti aggiungono la struttura ai documenti e rendono più efficiente la ricerca. In molti casi, i documenti arricchiti sono utili per scenari diversi dalla ricerca, ad esempio per le informazioni di data mining.
+Azure ricerca cognitiva consente di arricchire il contenuto tramite competenze cognitive predefinite e competenze personalizzate come parte dell'indicizzazione. Gli arricchimenti creano nuove informazioni in cui non esisteva in precedenza: estraendo le informazioni dalle immagini, individuando i sentimenti, le frasi chiave ed entità dal testo, per citarne alcune. Gli arricchimenti aggiungono inoltre la struttura al testo non differenziato. Tutti questi processi generano documenti che rendono più efficace la ricerca full-text. In molti casi, i documenti arricchiti sono utili per scenari diversi dalla ricerca, ad esempio per le informazioni di data mining.
 
 Le proiezioni, un componente dell' [Archivio informazioni](knowledge-store-concept-intro.md), sono viste di documenti arricchiti che possono essere salvati nell'archiviazione fisica per scopi di data mining. Una proiezione consente di "proiettare" i dati in una forma allineata alle esigenze, mantenendo le relazioni in modo che gli strumenti come Power BI possano leggere i dati senza sforzi aggiuntivi.
 
@@ -34,7 +34,7 @@ L'archivio informazioni supporta tre tipi di proiezioni:
 
 + **File**: quando è necessario salvare le immagini estratte dai documenti, le proiezioni di file consentono di salvare le immagini normalizzate nell'archivio BLOB.
 
-Per visualizzare le proiezioni definite nel contesto, eseguire un'istruzione per iniziare a [usare l'archivio informazioni](knowledge-store-howto.md).
+Per visualizzare le proiezioni definite nel contesto, eseguire un'istruzione alla volta [creare un archivio informazioni in Rest](knowledge-store-create-rest.md).
 
 ## <a name="projection-groups"></a>Gruppi di proiezione
 
@@ -114,12 +114,6 @@ Di seguito è riportato un esempio di proiezioni di tabella.
 
 Come illustrato in questo esempio, le frasi chiave e le entità sono modellate in tabelle diverse e conterranno un riferimento all'elemento padre (per cui è possibile eseguire la manutenzione) per ogni riga.
 
-<!---
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
---->
-
 ## <a name="object-projections"></a>Proiezioni oggetto
 
 Le proiezioni oggetto sono rappresentazioni JSON dell'albero di arricchimento che possono essere originate da qualsiasi nodo. In molti casi, per generare una proiezione di oggetti è possibile usare la stessa capacità di **shaper** che crea una proiezione di tabella. 
@@ -143,10 +137,8 @@ Le proiezioni oggetto sono rappresentazioni JSON dell'albero di arricchimento ch
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -160,9 +152,8 @@ Le proiezioni oggetto sono rappresentazioni JSON dell'albero di arricchimento ch
 
 Per la generazione di una proiezione di oggetti sono necessari alcuni attributi specifici dell'oggetto:
 
-+ storageContainer: il contenitore in cui verranno salvati gli oggetti
++ storageContainer: contenitore BLOB in cui verranno salvati gli oggetti
 + Source: percorso del nodo della struttura ad albero di arricchimento che è la radice della proiezione
-+ Key: un percorso che rappresenta una chiave univoca per l'oggetto da archiviare. Verrà usato per creare il nome del BLOB nel contenitore.
 
 ## <a name="file-projection"></a>Proiezione file
 
@@ -219,4 +210,4 @@ Infine, se è necessario esportare i dati dall'archivio informazioni, Azure Data
 Come passaggio successivo, creare il primo archivio informazioni usando i dati di esempio e le istruzioni.
 
 > [!div class="nextstepaction"]
-> [Creazione di un archivio informazioni](knowledge-store-howto.md).
+> [Creare un archivio informazioni in Rest](knowledge-store-create-rest.md).

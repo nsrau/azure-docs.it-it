@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c6e60474f74a23add429bf13ca7744afb8e8e1a3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 72006f907a1c1641308c8ee43e7a405765410789
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777579"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770884"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorare le prestazioni del cluster in Azure HDInsight
 
@@ -72,7 +72,7 @@ Nell'interfaccia utente di ResourceManager selezionare **Scheduler** (Utilità d
 
 ## <a name="storage-throttling"></a>Limitazione del servizio di archiviazione
 
-È possibile che si verifichi un collo di bottiglia delle prestazioni del cluster a livello di archiviazione. Questo tipo di collo di bottiglia è spesso dovuto al *blocco* delle operazioni di input/output (i/o), che si verificano quando le attività in esecuzione inviano un maggior numero di operazioni di i/o rispetto al servizio di archiviazione Questo blocco crea una coda di richieste di I/O in attesa di essere elaborate al termine dell'elaborazione delle richieste di I/O correnti. I blocchi sono dovuti alla *limitazione dell'archiviazione*, che non è un limite fisico, ma piuttosto un limite imposto dal servizio di archiviazione da un contratto di servizio (SLA). Questo limite impedisce infatti che il servizio venga monopolizzato da un singolo client o tenant. Il contratto di servizio limita il numero di I/O al secondo (IOPS) consentiti in Archiviazione di Azure: per informazioni dettagliate, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+È possibile che si verifichi un collo di bottiglia delle prestazioni del cluster a livello di archiviazione. Questo tipo di collo di bottiglia è spesso dovuto al *blocco* delle operazioni di input/output (i/o), che si verificano quando le attività in esecuzione inviano un maggior numero di operazioni di i/o rispetto al servizio di archiviazione Questo blocco crea una coda di richieste di I/O in attesa di essere elaborate al termine dell'elaborazione delle richieste di I/O correnti. I blocchi sono dovuti alla *limitazione dell'archiviazione*, che non è un limite fisico, ma piuttosto un limite imposto dal servizio di archiviazione da un contratto di servizio (SLA). Questo limite impedisce infatti che il servizio venga monopolizzato da un singolo client o tenant. Il contratto di contratto limita il numero di operazioni di i/o al secondo (IOPS) per archiviazione di Azure. per i dettagli, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../storage/common/scalability-targets-standard-account.md).
 
 Se si usa archiviazione di Azure, per informazioni sul monitoraggio dei problemi relativi all'archiviazione, inclusa la limitazione, vedere [monitorare, diagnosticare e risolvere i problemi archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 

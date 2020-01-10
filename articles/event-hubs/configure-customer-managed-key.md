@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 3af951d120282767bd71bc569d8c0bfe39dafffe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a5aa6a2e2578a995e4ef00489557fc02623e2d6a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705456"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744818"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure (anteprima)
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
@@ -21,7 +21,7 @@ Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia 
 >[!NOTE]
 > Questa funzionalità è attualmente in anteprima. Si consiglia di non utilizzare in in un ambiente di produzione.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Hub eventi di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key – BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia dei dati inattivi di hub eventi di Azure.
 
 L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
@@ -87,7 +87,7 @@ Una volta revocata la chiave di crittografia, il servizio Hub eventi nello spazi
 > Se si elimina una chiave di crittografia esistente dall'insieme di credenziali delle chiavi e la si sostituisce con una nuova chiave nello spazio dei nomi di hub eventi, poiché la chiave di eliminazione è ancora valida (così come è memorizzata nella cache) per un massimo di un'ora, i dati obsoleti (crittografati con la chiave precedente) potrebbero ancora essere accessibili insieme  con i nuovi dati, che ora è accessibile solo tramite la nuova chiave. Questo comportamento è progettato nella versione di anteprima della funzionalità. 
 
 ## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica 
-L'impostazione di log di diagnostica per gli spazi dei nomi abilitati per BYOK fornisce le informazioni necessarie sulle operazioni quando uno spazio dei nomi è crittografato con chiavi gestite dal cliente. Questi log possono essere abilitati e successivamente trasmessi a un hub eventi o analizzati tramite log Analytics o trasmessi all'archiviazione per eseguire analisi personalizzate. Per altre informazioni sui log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md).
+L'impostazione di log di diagnostica per gli spazi dei nomi abilitati per BYOK fornisce le informazioni necessarie sulle operazioni quando uno spazio dei nomi è crittografato con chiavi gestite dal cliente. Questi log possono essere abilitati e successivamente trasmessi a un hub eventi o analizzati tramite log Analytics o trasmessi all'archiviazione per eseguire analisi personalizzate. Per altre informazioni sui log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Abilitare i log utente
 Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.
@@ -107,18 +107,18 @@ Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.
 ## <a name="log-schema"></a>Schema del log 
 Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogni voce contiene campi stringa che usano il formato descritto nella tabella seguente. 
 
-| name | Description |
+| Nome | Description |
 | ---- | ----------- | 
 | TaskName | Descrizione dell'attività non riuscita. |
 | ActivityId | ID interno usato per il rilevamento. |
 | category | Definisce la classificazione dell'attività. Se, ad esempio, la chiave dell'insieme di credenziali delle chiavi è disabilitata, sarà una categoria di informazioni o se non è possibile decrittografare una chiave, potrebbe rientrare in errore. |
-| ResourceId | ID della risorsa Azure Resource Manager |
+| resourceId | ID della risorsa Azure Resource Manager |
 | keyVault | Nome completo dell'insieme di credenziali delle chiavi. |
-| key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
+| Key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
 | version | Versione della chiave usata. |
-| operation | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
-| code | Codice associato all'operazione. Esempio: codice errore 404 indica che la chiave non è stata trovata. |
-| Message | Qualsiasi messaggio di errore associato all'operazione |
+| operazione | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
+| codice | Codice associato all'operazione. Esempio: codice errore 404 indica che la chiave non è stata trovata. |
+| message | Qualsiasi messaggio di errore associato all'operazione |
 
 Di seguito è riportato un esempio di log per una chiave gestita dal cliente:
 
@@ -152,21 +152,21 @@ Di seguito è riportato un esempio di log per una chiave gestita dal cliente:
 }
 ```
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 Come procedura consigliata, abilitare sempre i log, come illustrato nella sezione precedente. Consente di tenere traccia delle attività quando è abilitata la crittografia BYOK. Consente inoltre di rientrare nell'ambito dei problemi.
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
 
 | Azione | Codice di errore | Stato risultante dei dati |
 | ------ | ---------- | ----------------------- | 
-| Rimuovere l'autorizzazione wrap/unwrap da un insieme di credenziali delle chiavi | 403 |    Inaccessibile |
-| Rimuovere l'appartenenza al ruolo AAD da un'entità AAD che ha concesso l'autorizzazione wrap/unwrap | 403 |  Inaccessibile |
-| Eliminare una chiave di crittografia dall'insieme di credenziali delle chiavi | 404 | Inaccessibile |
+| Rimuovere l'autorizzazione wrap/unwrap da un insieme di credenziali delle chiavi | 403 |    Inaccessible |
+| Rimuovere l'appartenenza al ruolo AAD da un'entità AAD che ha concesso l'autorizzazione wrap/unwrap | 403 |  Inaccessible |
+| Eliminare una chiave di crittografia dall'insieme di credenziali delle chiavi | 404 | Inaccessible |
 | Eliminare l'insieme di credenziali delle chiavi | 404 | Inaccessibile (si presuppone che l'eliminazione temporanea sia abilitata, che è un'impostazione obbligatoria). |
-| Modificare il periodo di scadenza della chiave di crittografia in modo che sia già scaduto | 403 |   Inaccessibile  |
-| Modifica del NBF (non prima) in modo tale che la chiave di crittografia della chiave non sia attiva | 403 | Inaccessibile  |
-| Selezionare l'opzione **Consenti servizi MSFT** per il firewall dell'insieme di credenziali delle chiavi o bloccare l'accesso di rete all'insieme di credenziali delle chiavi con la chiave di crittografia | 403 | Inaccessibile |
-| Trasferimento dell'insieme di credenziali delle chiavi in un tenant diverso | 404 | Inaccessibile |  
+| Modificare il periodo di scadenza della chiave di crittografia in modo che sia già scaduto | 403 |   Inaccessible  |
+| Modifica del NBF (non prima) in modo tale che la chiave di crittografia della chiave non sia attiva | 403 | Inaccessible  |
+| Selezionare l'opzione **Consenti servizi MSFT** per il firewall dell'insieme di credenziali delle chiavi o bloccare l'accesso di rete all'insieme di credenziali delle chiavi con la chiave di crittografia | 403 | Inaccessible |
+| Trasferimento dell'insieme di credenziali delle chiavi in un tenant diverso | 404 | Inaccessible |  
 | Problemi di rete intermittenti o interruzione di DNS/AAD/MSI |  | Accessibile tramite la chiave di crittografia dei dati memorizzata nella cache |
 
 > [!IMPORTANT]

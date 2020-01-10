@@ -1,19 +1,19 @@
 ---
 title: Ricompilare un indice di ricerca
 titleSuffix: Azure Cognitive Search
-description: Aggiungere nuovi elementi, aggiornare gli elementi o i documenti esistenti o eliminare i documenti obsoleti in una ricompilazione completa o indicizzazione incrementale parziale per aggiornare un indice di ricerca cognitiva di Azure.
+description: Aggiungere nuovi elementi, aggiornare gli elementi o i documenti esistenti o eliminare i documenti obsoleti in una ricompilazione completa o indicizzazione parziale per aggiornare un indice di ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 18cfa3c6fde399ea61e09c5788c72ce20e5570e8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112962"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754385"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Come ricompilare un indice in Azure ricerca cognitiva
 
@@ -25,7 +25,7 @@ A differenza delle ricompilazioni che prevedono che l'indice venga portato offli
 
 ## <a name="rebuild-conditions"></a>Condizioni di ricompilazione
 
-| Condizione | DESCRIZIONE |
+| Condizione | Description |
 |-----------|-------------|
 | Modificare la definizione di un campo | La modifica di un nome di campo, di un tipo di dati o di [attributi di indice](https://docs.microsoft.com/rest/api/searchservice/create-index) specifici (searchable, filterable, sortable, facetable) richiede una ricompilazione completa. |
 | Assegnare un analizzatore a un campo | Gli [analizzatori](search-analyzers.md) vengono definiti in un indice e quindi assegnati ai campi. È possibile aggiungere una nuova definizione di analizzatore a un indice in qualsiasi momento, ma è possibile *assegnare* un analizzatore solo quando il campo viene creato. Questo vale per entrambe le proprietà **analyzer** e **indexAnalyzer**. La proprietà **searchAnalyzer** è un'eccezione perché è possibile assegnare questa proprietà a un campo esistente. |
@@ -56,7 +56,7 @@ Un'attività che invece può essere eseguita con facilità è l'*aggiornamento d
 
 Gli [indicizzatori](search-indexer-overview.md) semplificano l'attività di aggiornamento dei dati. Un indicizzatore può indicizzare solo una tabella o una vista nell'origine dati esterna. Per indicizzare più tabelle, il metodo più semplice consiste nel creare una vista che unisca le tabelle e proietti le colonne da indicizzare. 
 
-Quando si usano indicizzatori che eseguono una ricerca per indicizzazione sulle origini dati esterne, verificare la presenza di una colonna di "limite massimo" nei dati di origine. Se ne esiste una, è possibile usarla per il rilevamento delle modifiche incrementali selezionando solo le righe con contenuto nuovo o modificato. Per l'[Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) viene usato un campo `lastModified`. Nell'[archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection) `timestamp` svolge lo stesso ruolo. Analogamente, sia l'[indicizzatore di database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) che l'[indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) contengono campi per contrassegnare gli aggiornamenti di riga. 
+Quando si usano indicizzatori che eseguono una ricerca per indicizzazione sulle origini dati esterne, verificare la presenza di una colonna di "limite massimo" nei dati di origine. Se ne esiste una, è possibile usarla per il rilevamento delle modifiche incrementali selezionando solo le righe con contenuto nuovo o modificato. Per l'[Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) viene usato un campo `lastModified`. Nell'[archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection)`timestamp` svolge lo stesso ruolo. Analogamente, sia l'[indicizzatore di database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) che l'[indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) contengono campi per contrassegnare gli aggiornamenti di riga. 
 
 Per altre informazioni sugli indicizzatori, vedere [Indicizzatori in Ricerca di Azure](search-indexer-overview.md) e [Reset Indexer (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) (Reimposta indicizzatore (API REST del servizio Ricerca di Azure)).
 
@@ -93,7 +93,7 @@ Quando si carica l'indice, l'indice invertito di ogni campo viene popolato con t
 
 È possibile iniziare a eseguire query su un indice subito dopo il caricamento del primo documento. Se si conosce l'ID di un documento, l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/lookup-document) restituisce il documento specifico. Per un test su più larga scala, è possibile aspettare che l'indice venga caricato completamente e quindi usare le query per verificare il contesto che ci si aspetta di vedere.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)

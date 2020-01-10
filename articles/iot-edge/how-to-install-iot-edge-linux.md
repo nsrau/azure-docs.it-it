@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: ec463efb1282c311757bb90fd614e1247459c80f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457336"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772415"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian
 
@@ -108,11 +108,11 @@ Installare il daemon di sicurezza. Il pacchetto è installato in `/etc/iotedge/`
    sudo apt-get install iotedge
    ```
 
-Una volta completata l'installazione di IoT Edge, l'output richiederà di aggiornare il file di configurazione. Seguire i passaggi nella sezione [configurare il daemon di sicurezza Azure IOT Edge](#configure-the-security-daemon) per completare il provisioning del dispositivo. 
+Una volta completata l'installazione di IoT Edge, l'output richiederà di aggiornare il file di configurazione. Per completare il provisioning del dispositivo, seguire la procedura descritta nella sezione [configurare il daemon di sicurezza](#configure-the-security-daemon) . 
 
 ## <a name="install-a-specific-runtime-version"></a>Installare una versione runtime specifica
 
-Se si vuole installare una versione specifica del runtime di Azure IoT Edge, è possibile indirizzare i file dei componenti direttamente dal repository di GitHub IoT Edge. Usare la procedura seguente per ottenere tutti i componenti IoT Edge nel dispositivo: il motore di Moby e l'interfaccia della riga di comando, il libiothsm e infine il daemon di sicurezza IoT Edge.
+Se si vuole installare una versione specifica di Moby e di Azure IoT Edge runtime invece di usare le versioni più recenti, è possibile indirizzare i file dei componenti direttamente dal repository di IoT Edge GitHub. Usare la procedura seguente per ottenere tutti i componenti IoT Edge nel dispositivo: il motore di Moby e l'interfaccia della riga di comando, il libiothsm e infine il daemon di sicurezza IoT Edge. Passare alla sezione successiva, [configurare il daemon di sicurezza](#configure-the-security-daemon), se non si desidera passare a una versione specifica del runtime.
 
 1. Passare alla [Azure IOT Edge versioni](https://github.com/Azure/azure-iotedge/releases)e individuare la versione di rilascio di destinazione. 
 
@@ -158,7 +158,7 @@ Una volta completata l'installazione di IoT Edge, l'output richiederà di aggior
 
 ## <a name="configure-the-security-daemon"></a>Configurare il daemon di sicurezza
 
-Configurare il runtime IoT Edge per collegare il dispositivo fisico con un'identità del dispositivo esistente in un hub IoT di Azure.
+Configurare il runtime di IoT Edge per collegare il dispositivo fisico con un'identità del dispositivo esistente in un hub IoT di Azure.
 
 Il daemon può essere configurato usando il file di configurazione in `/etc/iotedge/config.yaml`. Il file è protetto da scrittura per impostazione predefinita e possono essere necessarie autorizzazioni elevate per modificarlo.
 
@@ -245,7 +245,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 
-Se è stata usata la **configurazione manuale** nella sezione precedente, il runtime di IoT Edge deve essere correttamente sottoposto a provisioning e in esecuzione nel dispositivo. Se è stata usata la **configurazione automatica**, è necessario completare alcuni passaggi aggiuntivi in modo che il runtime possa registrare il dispositivo con l'hub IoT per tuo conto. Per i passaggi successivi, vedere [creare ed effettuare il provisioning di un TPM simulato IOT Edge dispositivo in una macchina virtuale Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
+Se è stata usata la **configurazione manuale** nella sezione precedente, il runtime IoT Edge deve essere correttamente sottoposto a provisioning e in esecuzione nel dispositivo. Se è stata usata la **configurazione automatica**, è necessario completare alcuni passaggi aggiuntivi in modo che il runtime possa registrare il dispositivo con l'hub IoT per conto dell'utente. Per i passaggi successivi, vedere [creare ed effettuare il provisioning di un TPM simulato IOT Edge dispositivo in una macchina virtuale Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
 È possibile controllare lo stato del daemon IoT Edge:
 
@@ -265,7 +265,9 @@ Eseguire un controllo automatizzato per la configurazione e gli errori di rete p
 sudo iotedge check
 ```
 
-E, elencare i moduli in esecuzione:
+Fino a quando non si distribuisce il primo modulo per IoT Edge nel dispositivo, il modulo del sistema **$edgeHub** non verrà distribuito nel dispositivo. Di conseguenza, il controllo automatico restituirà un errore per il controllo della connettività `Edge Hub can bind to ports on host`. Questo errore può essere incornato a meno che non avvenga dopo la distribuzione di un modulo nel dispositivo.
+
+Infine, elencare i moduli in esecuzione:
 
 ```bash
 sudo iotedge list
@@ -294,7 +296,7 @@ Molti produttori di dispositivi incorporati spediscono immagini del dispositivo 
 Verrà fornito un output dettagliato che contiene lo stato delle funzionalità del kernel utilizzate dal runtime di Moby. È necessario assicurarsi che tutti gli elementi in `Generally Necessary` e `Network Drivers` siano abilitati per garantire che il kernel sia completamente compatibile con il runtime di Moby.  Se sono state identificate le funzionalità mancanti, abilitarle ricompilando il kernel dall'origine e selezionando i moduli associati da includere nel file kernel. config appropriato.  Analogamente, se si usa un generatore di configurazione kernel come defconfig o menuconfig, trovare e abilitare le rispettive funzionalità e ricompilare il kernel di conseguenza.  Dopo aver distribuito il kernel appena modificato, eseguire di nuovo lo script Check-config per verificare che tutte le funzionalità necessarie siano state abilitate correttamente.
 
 
-## <a name="uninstall-iot-edge"></a>Disinstallazione di IoT Edge
+## <a name="uninstall-iot-edge"></a>Disinstallare IoT Edge
 
 Per rimuovere IoT Edge da un dispositivo Linux, usare i comandi seguenti dalla riga di comando.
 

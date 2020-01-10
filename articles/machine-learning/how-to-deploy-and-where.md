@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/17/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 51d5afc365c33fe6d4cb719263bad19341170415
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689317"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753995"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -164,6 +164,13 @@ Per ulteriori informazioni sull'utilizzo di modelli sottoposti a training all'es
 Per ospitare la distribuzione del servizio Web, è possibile usare le seguenti destinazioni di calcolo o risorse di calcolo:
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+## <a name="single-versus-multi-model-endpoints"></a>Endpoint singoli e multimodello
+Azure ML supporta la distribuzione di uno o più modelli dietro un singolo endpoint.
+
+Gli endpoint multimodello usano un contenitore condiviso per ospitare più modelli. Questo consente di ridurre i costi di overhead, migliorare l'utilizzo e concatenare i moduli in modo analogo. I modelli specificati nello script di distribuzione sono montati e resi disponibili sul disco del contenitore di servizio. è possibile caricarli in memoria su richiesta e assegnare un punteggio in base al modello specifico richiesto al momento del punteggio.
+
+Per un esempio E2E che illustra come usare più modelli dietro un singolo endpoint in contenitori, vedere [questo esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
 ## <a name="prepare-to-deploy"></a>Preparare la distribuzione
 
@@ -618,6 +625,9 @@ Vedere [eseguire la distribuzione in istanze di contenitore di Azure](how-to-dep
 ### <a id="aks"></a>Servizio Azure Kubernetes (sviluppo/test e produzione)
 
 Vedere [eseguire la distribuzione nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
+
+### <a name="ab-testing-controlled-rollout"></a>Test A/B (implementazione controllata)
+Per altre informazioni, vedere [implementazione controllata dei modelli ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) .
 
 ## <a name="consume-web-services"></a>Utilizzare i servizi Web
 

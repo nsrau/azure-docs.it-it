@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: abee04afca45a2d6f558858b4490c8be1f37a2f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451288"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772517"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console seriale di Azure per Linux
 
@@ -63,6 +63,7 @@ Distribuzione      | Accesso alla console seriale
 :-----------|:---------------------
 Red Hat Enterprise Linux    | L'accesso alla console seriale è abilitato per impostazione predefinita.
 CentOS      | L'accesso alla console seriale è abilitato per impostazione predefinita.
+Debian      | L'accesso alla console seriale è abilitato per impostazione predefinita.
 Ubuntu      | L'accesso alla console seriale è abilitato per impostazione predefinita.
 CoreOS      | L'accesso alla console seriale è abilitato per impostazione predefinita.
 SUSE        | Le immagini SLES più recenti disponibili in Azure hanno l'accesso alla console seriale abilitato per impostazione predefinita. Se si usano versioni precedenti (fino alla 10) di SLES in Azure, vedere l'[articolo della Knowledge Base](https://www.novell.com/support/kb/doc.php?id=3456486) per abilitare la console seriale.

@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare e testare funzioni di Azure usando 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 04074579b3eb34175a6d29897bbd38b95ae3a596
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 571519b996948a9fc4ac98e18e510fcee1dbef9b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230666"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769771"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni dettagliate su come usare Visual Studio pe
 
 Se non specificato diversamente, le procedure e gli esempi indicati sono per Visual Studio 2019. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Gli strumenti di funzioni di Azure sono inclusi nel carico di lavoro di sviluppo di Azure di Visual Studio a partire da Visual Studio 2017. Assicurarsi di includere il carico di lavoro **sviluppo di Azure** nell'installazione di Visual Studio.
 
@@ -63,7 +63,7 @@ Altre risorse necessarie, ad esempio un account di archiviazione di Azure, vengo
 1. Al termine dell'aggiornamento, scegliere **Chiudi** e riavviare Visual Studio.
 
 > [!NOTE]  
-In Visual Studio 2019 e versioni successive l'estensione strumenti di funzioni di Azure viene aggiornata come parte di Visual Studio.  
+> In Visual Studio 2019 e versioni successive l'estensione strumenti di funzioni di Azure viene aggiornata come parte di Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Creare un progetto di Funzioni di Azure
 
@@ -207,7 +207,7 @@ Questa operazione visualizza la finestra di dialogo **Impostazioni applicazione*
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
-**Locale** rappresenta un valore di impostazione del file local.settings.json, mentre **Remoto** è l'impostazione corrente nell'app per le funzioni in Azure.  Scegliere **Aggiungi impostazione** per creare una nuova impostazione dell'app. Usare il collegamento **Inserisci valore da locale** per copiare un valore di impostazione nel campo **Remoto**. Le modifiche in sospeso vengono scritte nel file delle impostazioni locali e nell'app per le funzioni quando si seleziona **OK**.
+**Locale** rappresenta un valore di impostazione del file local.settings.json, mentre **Remoto** è l'impostazione corrente nell'app per le funzioni in Azure.  Scegliere **Aggiungi impostazione** per creare una nuova impostazione di app. Usare il collegamento **Inserisci valore da locale** per copiare un valore di impostazione nel campo **Remoto**. Le modifiche in sospeso vengono scritte nel file delle impostazioni locali e nell'app per le funzioni quando si seleziona **OK**.
 
 > [!NOTE]
 > Per impostazione predefinita, il file local. Settings. JSON non viene archiviato nel controllo del codice sorgente. Ciò significa che quando si clona un progetto di funzioni locali dal controllo del codice sorgente, il progetto non dispone di un file local. Settings. JSON. In questo caso, è necessario creare manualmente il file local. Settings. JSON nella radice del progetto, in modo che la finestra di dialogo **Impostazioni applicazione** funzioni come previsto. 

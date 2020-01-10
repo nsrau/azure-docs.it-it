@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847593"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762876"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -68,7 +68,7 @@ In base alle esigenze dell'organizzazione, può essere necessario personalizzare
 Per verificare o modificare i valori del blocco intelligente per l'organizzazione, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare e selezionare *Azure Active Directory*. Selezionare i **metodi di autenticazione** > la protezione con **password**.
+1. Cercare e selezionare *Azure Active Directory*. Selezionare i **metodi di autenticazione** > **sicurezza** > la **protezione con password**.
 1. Impostare il valore di **Soglia di blocco**, in base al numero di accessi non riusciti consentiti per un account prima che venga applicato il primo blocco. Il valore predefinito è 10.
 1. Impostare il valore di **Durata del blocco in secondi** sulla durata in secondi di ogni blocco. Il valore predefinito è 60 secondi (1 minuto).
 

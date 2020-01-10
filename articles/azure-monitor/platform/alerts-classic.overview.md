@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2d150006fb4638d3efb15111013d17e43c8b125e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893587"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747014"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -31,7 +31,7 @@ In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e Integ
  ![Opzioni di avviso nel portale di Azure](media/alerts-classic.overview/monitor-alert-screen2.png)
 
 La nuova esperienza utente degli avvisi offre i vantaggi seguenti rispetto all'esperienza degli avvisi in versione classica:
--   **Migliore sistema di notifica**: tutti gli avvisi più recenti usano gruppi di azioni, ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics precedenti non usano gruppi di azioni.
+-   **Migliore sistema di notifica**: tutti gli avvisi più recenti usano gruppi di azioni, ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni.
 -   **Esperienza di creazione unificata**: tutte le funzionalità di creazione per metriche, log e log attività in Monitoraggio di Azure, Log Analytics e Application Insights si trovano in un'unica posizione.
 -   **Visualizzazione degli avvisi di Log Analytics attivati nel portale di Azure**: è ora possibile visualizzare anche gli avvisi di Log Analytics attivati nella sottoscrizione. In precedenza, era necessario un portale separato.
 -   **Separazione tra avvisi attivati e regole di avviso**: viene fatta distinzione tra regole di avviso (definizioni delle condizioni che attivano gli avvisi) e avvisi attivati (istanze di attivazione delle regole di avviso) e sono pertanto disponibili visualizzazioni separate per le attività operative e la configurazione.
@@ -43,7 +43,7 @@ Gli avvisi delle metriche più recenti presentano i seguenti vantaggi rispetto a
 -   **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, in modo da monitorare un segmento interessante della metrica.
 -   **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate. Gli avvisi più recenti supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
 -   **Monitoraggio combinato di più metriche**: è possibile monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato.
--   **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](../../azure-monitor/platform/action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi.  Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics precedenti non usano gruppi di azioni. 
+-   **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](../../azure-monitor/platform/action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi.  Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni. 
 -   **Metriche dai log** (anteprima pubblica): i dati di log diretti a Log Analytics possono essere ora estratti in metriche di Monitoraggio di Azure e quindi essere oggetto di avvisi come le altre metriche. Vedere [Avvisi (versione classica)](alerts-classic.overview.md) per la terminologia degli avvisi classici. 
 
 
@@ -93,7 +93,7 @@ Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione 
 * Configurare gli [avvisi delle metriche classici per PowerShell](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per l'interfaccia della riga di comando](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per l'API REST del Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Altre informazioni sul [log attività](activity-logs-overview.md)
+* Altre informazioni sul [log attività](platform-logs-overview.md)
 * Configurare [gli avvisi del log attività tramite il portale di Azure](activity-log-alerts.md)
 * Configurare [gli avvisi del log attività tramite Resource Manager](alerts-activity-log.md)
 * Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md)

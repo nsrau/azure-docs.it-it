@@ -4,12 +4,12 @@ description: Informazioni sui gruppi di contenitori in istanze di contenitore di
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: ca160c62160bc5233139dccc650474811c4cd784
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19fa50f83a2593b8914931e25fa99cb2e4896227
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442288"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770272"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
@@ -66,7 +66,7 @@ In questo scenario è possibile impostare un limite di risorse di 2 CPU per l'is
 
 ## <a name="networking"></a>Rete
 
-I gruppi di contenitori possono condividere un indirizzo IP esterno e uno spazio dei nomi di porta su tale indirizzo IP. Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. Poiché i contenitori all'interno del gruppo condividono uno spazio dei nomi di porta, il mapping delle porte non è supportato. 
+I gruppi di contenitori possono condividere un indirizzo IP esterno, una o più porte su tale indirizzo IP e un'etichetta DNS con un nome di dominio completo (FQDN). Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. Poiché i contenitori all'interno del gruppo condividono uno spazio dei nomi di porta, il mapping delle porte non è supportato. Quando viene eliminato il gruppo di contenitori, verranno rilasciati l'indirizzo IP e il nome di dominio completo di un gruppo di contenitori. 
 
 All'interno di un gruppo di contenitori, le istanze dei contenitori possono raggiungere reciprocamente tramite localhost su qualsiasi porta, anche se queste porte non sono esposte esternamente nell'indirizzo IP del gruppo o dal contenitore.
 
@@ -74,7 +74,13 @@ Facoltativamente, distribuire i gruppi di contenitori in una [rete virtuale di A
 
 ## <a name="storage"></a>Archiviazione
 
-È possibile impostare il montaggio di volumi esterni all'interno di un gruppo di contenitori ed eseguire il mapping di tali volumi in percorsi specifici all'interno dei singoli contenitori di un gruppo.
+È possibile impostare il montaggio di volumi esterni all'interno di un gruppo di contenitori I volumi supportati includono:
+* [Condivisione file di Azure][azure-files]
+* [Segreto][secret]
+* [Directory vuota][empty-directory]
+* [Repository git clonato][volume-gitrepo]
+
+ed eseguire il mapping di tali volumi in percorsi specifici all'interno dei singoli contenitori di un gruppo. 
 
 ## <a name="common-scenarios"></a>Scenari comuni
 
@@ -110,5 +116,8 @@ Informazioni su come distribuire un gruppo con più contenitori con un modello d
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
+[secret]: container-instances-volume-secret.md
+[volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
+[empty-directory]: container-instances-volume-emptydir.md
 [az-container-export]: /cli/azure/container#az-container-export

@@ -7,13 +7,13 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: ef7d78b292561e87eac12200bc0b9d68299759d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443621"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749352"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizzare i dati da Time Series Insights in Power BI
 
@@ -41,8 +41,8 @@ Assicurarsi di iscriversi per ottenere una [sottoscrizione gratuita di Azure](ht
 
 Per connettere l'ambiente di Time Series Insights al Power BI, attenersi alla procedura seguente:
 
-1. Apri Esplora Time Series Insights                      
-1. Esportare dati come query o come dati non elaborati                       
+1. Apri Esplora Time Series Insights
+1. Esportare dati come query o come dati non elaborati
 1. Apri Power BI Desktop
 1. Carica da query personalizzata
 
@@ -51,13 +51,14 @@ Per connettere l'ambiente di Time Series Insights al Power BI, attenersi alla pr
 Per iniziare:
 
 1. Aprire Esplora Time Series Insights Preview e curare i dati.
-1. Dopo aver creato una vista soddisfatta, passare al menu a discesa **altre azioni** e fare clic su **Connetti a Power bi**. 
+1. Dopo aver creato una vista soddisfatta, passare al menu a discesa **altre azioni** e fare clic su **Connetti a Power bi**.
 
     [esportazione di ![Time Series Insights Preview Explorer](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Impostare i parametri all'interno di questa scheda:
 
-   1. Consente di specificare un intervallo di tempo relativo da visualizzare. Se si è soddisfatti della visualizzazione esistente, lasciarlo come intervallo di tempo **esistente**. 
+   1. Consente di specificare un intervallo di tempo relativo da visualizzare. Se si è soddisfatti della visualizzazione esistente, lasciarlo come intervallo di tempo **esistente**.
+   
    1. Scegliere tra **eventi non elaborati**e **aggregati** . 
    
        > [!NOTE]

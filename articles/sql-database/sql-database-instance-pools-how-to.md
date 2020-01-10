@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810342"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754048"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guida alle procedure per pool di istanze del database SQL di Azure (anteprima)
 
@@ -41,7 +41,7 @@ La tabella seguente illustra le operazioni disponibili correlate ai pool di ista
 
 [Comandi di PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponibili
 
-|Cmdlet |Descrizione |
+|Cmdlet |Description |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Crea un pool di istanze del database SQL di Azure. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Restituisce informazioni sul pool di istanze di SQL Azure. |
@@ -92,11 +92,17 @@ Ai pool di istanze si applicano le restrizioni seguenti:
 
 - Solo per utilizzo generico e quinta generazione sono disponibili in anteprima pubblica.
 - Il nome del pool può contenere solo lettere minuscole, numeri e trattini e non può iniziare con un trattino.
-- Per ottenere l'ID della subnet, usare `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
 - Se si desidera utilizzare vantaggio Azure Hybrid (Vantaggio Azure Hybrid), viene applicato a livello di pool di istanze. È possibile impostare il tipo di licenza durante la creazione del pool o aggiornarlo in qualsiasi momento dopo la creazione.
 
 > [!IMPORTANT]
 > La distribuzione di un pool di istanze è un'operazione a esecuzione prolungata che richiede circa 4,5 ore.
+
+Per ottenere i parametri di rete:
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 Per creare un pool di istanze:
 
@@ -104,7 +110,7 @@ Per creare un pool di istanze:
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `

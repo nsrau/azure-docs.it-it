@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 92ff08d460e9bf11b49700570a156a101811a533
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0df55f4ce790d6ea38f44ce0ca6dab43085c3455
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435998"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770918"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori Azure
 
@@ -133,7 +133,7 @@ La maggior parte delle applicazioni deve archiviare i dati, quindi, tuttavia, si
   > **Come iniziare**: [creare un database SQL in pochi minuti usando il Portale di Azure](../../sql-database/sql-database-get-started.md).
 
 
-È possibile usare [Azure Data Factory](../../data-factory/introduction.md) per spostare in Azure dati locali esistenti. Se non è ancora possibile spostare i dati nel cloud, [Connessioni ibride](../../biztalk-services/integration-hybrid-connection-overview.md) in Servizi BizTalk consente di connettere le app ospitate del servizio app a risorse locali. È anche possibile connettersi ai servizi dati e di archiviazione di Azure dalle applicazioni locali.
+È possibile usare [Azure Data Factory](../../data-factory/introduction.md) per spostare in Azure dati locali esistenti. Se non si è pronti per spostare i dati nel cloud, [connessioni ibride](../../app-service/app-service-hybrid-connections.md) nel servizio app Azure consente di connettere l'app ospitata del servizio app alle risorse locali. È anche possibile connettersi ai servizi dati e di archiviazione di Azure dalle applicazioni locali.
 
 #### <a name="docker-support"></a>Supporto Docker
 
@@ -147,11 +147,11 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
   > 
   > **Come iniziare**: [creare un ambiente Docker in Azure tramite l'estensione VM di Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
-- **servizio Azure Container**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione delle applicazioni all'interno di contenitori. Per altre informazioni sul servizio contenitore, vedere [Azure Container Service introduction](../../container-service/container-service-intro.md) (Introduzione al servizio Azure Container).
+- **Azure Kubernetes Service**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione di applicazioni in contenitori. Per altre informazioni sul servizio Azure Kubernetes, vedere [Introduzione al servizio Kubernetes di Azure](../../aks/intro-kubernetes.md).
 
   > **Uso consigliato**: quando è necessario creare ambienti scalabili e pronti per la produzione che offrano strumenti di pianificazione e gestione aggiuntivi o quando si vuole distribuire un cluster Docker Swarm.
   > 
-  > **Come iniziare**: [distribuire un cluster di contenitori Docker](../../container-service/dcos-swarm/container-service-deployment.md).
+  > Come **iniziare**: [distribuire un cluster del servizio Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 - **Docker Machine**: consente di installare e gestire Docker Engine in host virtuali tramite comandi di Docker Machine.
 
@@ -185,7 +185,7 @@ Per altre informazioni sulle procedure consigliate per la sicurezza in Azure, ve
 
 Con l'applicazione in esecuzione in Azure, è necessario monitorare le prestazioni, controllare la presenza di problemi e vedere in che modo i clienti usano l'app. Azure offre diverse opzioni di monitoraggio.
 
--   **Visual Studio Application Insights**: servizio di analisi estendibile ospitato in Azure che si integra con Visual Studio per il monitoraggio delle applicazioni Web in tempo reale. Fornisce i dati necessari per migliorare continuamente le prestazioni e l'usabilità delle app. Questo miglioramento si verifica se le applicazioni sono ospitate in Azure o meno.
+-   **Application Insights**: un servizio di analisi estendibile ospitato in Azure che si integra con Visual Studio per monitorare le applicazioni Web Live. Fornisce i dati necessari per migliorare continuamente le prestazioni e l'usabilità delle app. Questo miglioramento si verifica se le applicazioni sono ospitate in Azure o meno.
 
     >**Come iniziare**: seguire l'[esercitazione di Application Insights](../../azure-monitor/app/app-insights-overview.md).
 

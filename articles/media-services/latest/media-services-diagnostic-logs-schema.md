@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5e416087df6c27eff42db487e90ff908d7d49df8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977693"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750880"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
 [Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)ed esportarli in [log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
 
-Per informazioni dettagliate, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md) e [log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/resource-logs-overview.md).
+Per informazioni dettagliate, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md) e [log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 Questo articolo descrive gli schemi dei log di diagnostica di servizi multimediali.
 
@@ -34,11 +34,11 @@ Per una descrizione dettagliata dello schema dei log di diagnostica di primo liv
 
 ## <a name="key-delivery-log-schema"></a>Schema del log di distribuzione delle chiavi
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Proprietà
 
 Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |keyId|ID della chiave richiesta.|
 |keyType|Può essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|
@@ -46,7 +46,7 @@ Queste proprietà sono specifiche dello schema del log di distribuzione delle ch
 |tokenType|Tipo di token.|
 |statusMessage|Messaggio di stato.|
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Proprietà dello schema delle richieste di recapito delle chiavi.
 
@@ -110,7 +110,7 @@ Proprietà dello schema delle richieste di recapito delle chiavi.
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

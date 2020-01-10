@@ -3,12 +3,12 @@ title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433088"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769116"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
@@ -72,13 +72,13 @@ Nella versione 2.x sono state apportate le modifiche seguenti:
 
 * Per impostazione predefinita vengono implementate limitazioni di concorrenza HTTP per le funzioni di piano a consumo, con un valore predefinito di 100 richieste simultanee per istanza. È possibile modificare questa condizione nell'impostazione [`maxConcurrentRequests`](functions-host-json.md#http) del file host.json.
 
-* Per via delle [limitazioni di .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), il supporto per le funzioni script F# (fsx) è stato rimosso. Le funzioni F# compilate (.fs) sono ancora supportate.
+* A causa delle [limitazioni di .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), F# è stato rimosso il supporto per le funzioni di script (con estensione FSX). Le funzioni F# compilate (.fs) sono ancora supportate.
 
 * Il formato dell'URL del trigger Griglia di eventi è stato modificato in `https://{app}/runtime/webhooks/{triggerName}`.
 
 ## <a name="migrating-from-2x-to-3x"></a>Migrazione da 2. x a 3. x
 
-Funzioni di Azure versione 3. x è molto compatibile con le versioni 2. x.  Molte app devono essere in grado di eseguire l'aggiornamento in modo sicuro a 3. x senza apportare modifiche al codice.  Durante il passaggio a 3. x è consigliato, assicurarsi di eseguire test completi prima di modificare la versione principale nelle app di produzione.
+Funzioni di Azure versione 3. x è strettamente compatibile con la versione 2. x.  Molte app devono essere in grado di eseguire l'aggiornamento in modo sicuro a 3. x senza apportare modifiche al codice.  Durante il passaggio a 3. x è consigliato, assicurarsi di eseguire test completi prima di modificare la versione principale nelle app di produzione.
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>Modifiche di rilievo tra 2. x e 3. x
 
@@ -119,7 +119,7 @@ La versione del runtime di Funzioni usata dalle app pubblicate in Azure è deter
 
 #### <a name="visual-studio-runtime-versions"></a>Versioni del runtime di Visual Studio
 
-In Visual Studio è possibile selezionare la versione del runtime quando si crea un progetto. Gli strumenti di Funzioni di Azure per Visual Studio supportano entrambe le versioni principali del runtime. Durante il debugging e la pubblicazione viene usata la versione corretta in base alle impostazioni del progetto. Le impostazioni della versione vengono definite nel file `.csproj` nelle proprietà seguenti:
+In Visual Studio è possibile selezionare la versione del runtime quando si crea un progetto. Strumenti di funzioni di Azure per Visual Studio supporta le tre versioni principali del runtime. Durante il debugging e la pubblicazione viene usata la versione corretta in base alle impostazioni del progetto. Le impostazioni della versione vengono definite nel file `.csproj` nelle proprietà seguenti:
 
 ##### <a name="version-1x"></a>Versione 1.x
 
@@ -150,7 +150,7 @@ In Visual Studio è possibile selezionare la versione del runtime quando si crea
 È possibile aprire una funzione esistente destinata a 2. x e passare alla versione 3. x modificando il file di `.csproj` e aggiornando i valori precedenti.  Visual Studio gestisce automaticamente le versioni di runtime in base ai metadati del progetto.  Tuttavia, è possibile che non sia mai stata creata un'app 3. x prima che Visual Studio non abbia ancora i modelli e il runtime per 3. x nel computer.  Questo può presentarsi con un errore simile a "nessun runtime di funzioni disponibile che corrisponde alla versione specificata nel progetto".  Per recuperare i modelli e il runtime più recenti, vedere l'esperienza di creazione di un nuovo progetto di funzione.  Quando si arriva alla schermata di selezione della versione e del modello, attendere che Visual Studio completi il recupero dei modelli più recenti.  Quando sono disponibili e visualizzati i modelli più recenti di .NET Core 3, dovrebbe essere possibile eseguire ed eseguire il debug di qualsiasi progetto configurato per la versione 3. x.
 
 > [!IMPORTANT]
-> Le funzioni versione 3. x possono essere sviluppate solo in Visual Studio se si usa la versione 16,4 o successive.
+> Le funzioni versione 3. x possono essere sviluppate solo in Visual Studio se si usa Visual Studio versione 16,4 o successive.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>Visual Studio Code e Strumenti di base di Funzioni di Azure
 

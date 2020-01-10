@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0bb928fe23fcfc3580b0c3951c48f2636ab86c81
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526703"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772279"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
@@ -30,7 +30,7 @@ Le tipiche attività di data science includono esplorazione, modellazione e dist
 
 Un data scientist può esplorare i dati e creare report in diversi modi, usando le librerie e i pacchetti disponibili per Python (ad esempio matplotlib) o con R (ad esempio ggplot o reticolo). I data scientist possono personalizzare il codice in base alle esigenze di esplorazione dei dati per scenari specifici. Le esigenze quando si gestiscono i dati strutturati sono diverse rispetto a quelle per i dati non strutturati, ad esempio testo o immagini. 
 
-I prodotti come Azure Machine Learning forniscono anche la [preparazione avanzata dei dati](../service/how-to-transform-data.md) per data wrangling ed esplorazione, inclusa la creazione di funzionalità. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
+I prodotti come Azure Machine Learning forniscono anche la [preparazione avanzata dei dati](../how-to-create-register-datasets.md) per data wrangling ed esplorazione, inclusa la creazione di funzionalità. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
 
 Il risultato finale alla fine di questa fase è un report di esplorazione dei dati. Il report deve fornire una vista abbastanza completa dei dati da usare per la modellazione e una valutazione del fatto che i dati siano o meno adatti per procedere con il passaggio di modellazione. L'utilità TDSP (Team Data Science Process) descritta nelle sezioni seguenti per l'esplorazione semi-automatica, la modellazione e la creazione di report offre anche esplorazione dei dati standard e report di modellazione. 
 

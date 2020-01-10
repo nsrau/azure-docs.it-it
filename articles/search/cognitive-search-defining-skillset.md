@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114544"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754558"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
 
@@ -235,7 +235,7 @@ L'output, in questo caso la descrizione di una società, viene generato per ogni
 
 ## <a name="add-structure"></a>Aggiungi struttura
 
-Il set di competenze genera informazioni strutturate da dati non strutturati. Si consideri l'esempio seguente:
+Il set di competenze genera informazioni strutturate da dati non strutturati. Prendere in considerazione gli esempi seguenti:
 
 *"Nel quarto trimestre Microsoft ha registrato $1,1 miliardi in ricavi da LinkedIn, la società di social networking acquistata l'anno scorso. L'acquisizione consente a Microsoft di combinare le funzionalità di LinkedIn con le relative funzionalità CRM e Office. Gli azionisti sono entusiasti del progresso fino a questo punto. "*
 
@@ -249,7 +249,7 @@ Fino ad ora, questa struttura è stata solo interna, solo di memoria e usata sol
 
 [Archivio informazioni](knowledge-store-concept-intro.md) è una funzionalità di anteprima di Azure ricerca cognitiva per il salvataggio del documento arricchito. Un archivio informazioni creato, supportato da un account di archiviazione di Azure, è il repository in cui i dati arricchiti vengono archiviati. 
 
-Una definizione dell'archivio informazioni viene aggiunta a un oggetto di competenze. Per una procedura dettagliata dell'intero processo, vedere [come iniziare a usare l'archivio informazioni](knowledge-store-howto.md).
+Una definizione dell'archivio informazioni viene aggiunta a un oggetto di competenze. Per una procedura dettagliata dell'intero processo, vedere [creare un archivio informazioni in Rest](knowledge-store-create-rest.md).
 
 ```json
 "knowledgeStore": {

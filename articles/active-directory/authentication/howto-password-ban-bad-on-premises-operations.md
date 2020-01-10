@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24fa03fe12f584e9da32b547f0d8128e5ff28803
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d8602a9c5b69c47c2f663dab461394ef5e1a9bed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847729"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762859"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>procedure operative della password di protezione di Azure AD
 
@@ -28,11 +28,11 @@ Seguire le indicazioni fornite nell'articolo [Configurazione dell'elenco persona
 
 ## <a name="enable-password-protection"></a>Abilitare la password di protezione
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**, metodi di **autenticazione**e quindi **proteggere con password**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**, **sicurezza**, metodi di**autenticazione**e quindi **proteggere con password**.
 1. Impostare **Enable Password Protection on Windows Server Active Directory** (Abilita la password di protezione in Windows Server Active Directory) su **Sì**
 1. Come indicato nella [Guida alla distribuzione](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), è consigliabile impostare inizialmente **Modalità** su **Controllo**
    * Dopo avere familiarizzato con la funzione, è possibile impostare **Modalità** su **Applicato**
-1. Fare clic su **Salva**.
+1. Fare clic su **Save** (Salva).
 
 ![Abilitazione dei componenti della password di protezione di Azure AD nel portale di Azure](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 

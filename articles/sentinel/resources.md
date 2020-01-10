@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762718"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771292"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Risorse utili per l'uso di Azure Sentinel
 
@@ -32,7 +32,7 @@ Connettori per app per la logica di Azure: <https://docs.microsoft.com/connector
 
 
 ## <a name="auditing-and-reporting"></a>Controllo e creazione di report
-I log di controllo di Azure Sentinel vengono conservati nei [log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).
+I log di controllo di Azure Sentinel vengono conservati nei [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Le operazioni supportate seguenti possono essere controllate.
 
@@ -44,8 +44,6 @@ Le operazioni supportate seguenti possono essere controllate.
 |Elimina flusso di lavoro    |Microsoft.Logic/workflows|
 |Crea ricerca salvata    |Microsoft. OperationalInsights/Workspaces/savedSearches|
 |Elimina ricerca salvata    |Microsoft. OperationalInsights/Workspaces/savedSearches|
-|Imposta dashboard  |Microsoft. Portal/Dashboards|
-|Elimina dashboard   |Microsoft. Portal/Dashboards|
 |Aggiornare le regole di avviso |Microsoft. SecurityInsights/alertRules|
 |Elimina regole di avviso |Microsoft. SecurityInsights/alertRules|
 |Aggiornare le azioni di risposta alle regole di avviso |Microsoft. SecurityInsights/alertRules|
@@ -57,7 +55,7 @@ Le operazioni supportate seguenti possono essere controllate.
 |Crea commenti case   |Microsoft. SecurityInsights/case|
 |Aggiornare i connettori dati |Microsoft. SecurityInsights/dataconnectors|
 |Elimina connettori dati |Microsoft. SecurityInsights/dataconnectors|
-|Impostazioni aggiornamento    |Microsoft. SecurityInsights/Settings|
+|Aggiorna impostazioni    |Microsoft. SecurityInsights/Settings|
 
 ### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Visualizzare i dati di controllo e report in Sentinel di Azure
 

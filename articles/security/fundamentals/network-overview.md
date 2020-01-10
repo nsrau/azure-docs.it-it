@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384192"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749946"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -32,7 +32,7 @@ Questo articolo illustra alcune delle opzioni offerte da Azure nell'area della s
 * Controllo di accesso alla rete
 * Firewall di Azure
 * Accesso remoto sicuro e connettività cross-premise
-* Availability
+* Disponibilità
 * Risoluzione dei nomi
 * Architettura di rete perimetrale
 * Protezione DDoS di Azure
@@ -134,7 +134,7 @@ Ad esempio, i requisiti di sicurezza possono includere:
 
 Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo come servizio con disponibilità elevata incorporata e scalabilità del cloud senza restrizioni. Alcune funzionalità includono:
 
-* disponibilità elevata
+* Disponibilità elevata
 * Scalabilità del cloud
 * Regole di filtro del nome di dominio completo dell'applicazione
 * Regole di filtro per il traffico di rete
@@ -212,7 +212,7 @@ Altre informazioni:
 
 Un altro modo per connettere le reti virtuali è il [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md). Questa funzionalità consente di connettere due reti Azure in modo che la comunicazione tra di esse avvenga sull'infrastruttura backbone Microsoft senza passare attraverso la rete Internet. Con il peering di rete virtuale è possibile connettere due reti virtuali all'interno della stessa area oppure due reti virtuali in aree Azure diverse. Per limitare la connettività tra subnet o sistemi diversi è possibile usare gruppi di sicurezza di rete.
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilità
 
 La disponibilità è un componente fondamentale di qualsiasi programma di sicurezza. Se gli utenti e i sistemi non possono accedere alle risorse necessarie attraverso la rete, il servizio può essere considerato compromesso. Azure offre tecnologie di rete che supportano i meccanismi a disponibilità elevata seguenti:
 
@@ -369,7 +369,7 @@ Per altre informazioni su Network Watcher e su come avviare i test di alcune del
 > [!NOTE]
 > Per ricevere le notifiche più aggiornate sulla disponibilità e lo stato di questo servizio, vedere la [pagina degli aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
-### <a name="azure-security-center"></a>Centro sicurezza di Azure
+### <a name="azure-security-center"></a>Centro sicurezza Azure
 
 Il Centro sicurezza di Azure aiuta a impedire, rilevare e rispondere alle minacce offrendo visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio set di soluzioni di sicurezza.
 
@@ -395,7 +395,7 @@ Altre informazioni:
 
 La registrazione a livello di rete è una funzione chiave per qualsiasi scenario di sicurezza di rete. In Azure è possibile registrare le informazioni ottenute per i gruppi di sicurezza di rete per avere informazioni di registrazione a livello di rete. Con la registrazione dei gruppi di sicurezza di rete si ottengono informazioni da:
 
-* [Log attività](../../azure-monitor/platform/activity-logs-overview.md). Vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. Nelle versioni precedenti sono noti come "log di controllo" o "log operativi".
+* [Log attività](../../azure-monitor/platform/platform-logs-overview.md). Vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. Nelle versioni precedenti sono noti come "log di controllo" o "log operativi".
 * Log eventi. Forniscono informazioni sulle regole applicate ai gruppi di sicurezza di rete.
 * Log contatori. Consentono di sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 

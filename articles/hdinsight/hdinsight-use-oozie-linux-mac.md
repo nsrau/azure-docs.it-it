@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241681"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744918"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
 
@@ -61,7 +61,7 @@ Il flusso di lavoro usato in questo documento prevede due azioni. Le azioni sono
 
 ## <a name="create-the-working-directory"></a>Creare la directory di lavoro
 
-Oozie presuppone che tutte le risorse necessarie per un processo siano archiviate nella stessa directory. In questo esempio viene usato `wasbs:///tutorials/useoozie`. Per creare questa directory, completare la procedura seguente:
+Oozie presuppone che tutte le risorse necessarie per un processo siano archiviate nella stessa directory. In questo esempio viene utilizzato `wasbs:///tutorials/useoozie`. Per creare questa directory, completare la procedura seguente:
 
 1. Modificare il codice seguente per sostituire `sshuser` con il nome utente SSH per il cluster e sostituire `CLUSTERNAME` con il nome del cluster.  Immettere quindi il codice per connettersi al cluster HDInsight [usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
@@ -300,7 +300,7 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Valore ricevuto al passaggio 1.|
     |admin| Nome dell'account di accesso per il cluster HDInsight, se non è amministratore.|
-    |Nomeserver| Nome del server di database SQL di Azure.|
+    |serverName| Nome del server di database SQL di Azure.|
     |sqlLogin| Accesso al server di database SQL di Azure.|
     |sqlPassword| Password di accesso al server del database SQL di Azure.|
 
@@ -394,10 +394,10 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 
     ```xml
     <name>oozie.base.url</name>
-    <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
+    <value>http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    La parte `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` è l'URL da usare con il comando Oozie.
+    La parte `http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie` è l'URL da usare con il comando Oozie.
 
 2. Modificare il codice per sostituire l'URL con quello ricevuto in precedenza. Per creare una variabile di ambiente per l'URL, usare il codice seguente, in modo che non sia necessario eseguirne la digitazione per ogni comando:
 
@@ -480,7 +480,7 @@ Con l'API REST di Oozie, è possibile compilare strumenti personalizzati che fun
 
 * **URI**: è possibile accedere all'API REST all'esterno del cluster in `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticazione**: per eseguire l'autenticazione, usare l'API, l'account (admin) e la password HTTP del cluster, ad esempio:
+* **Autenticazione**: per eseguire l'autenticazione, usare l'API, l'account (admin) e la password HTTP del cluster, Ad esempio:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -643,7 +643,7 @@ Per accedere all'interfaccia utente Web di Oozie, completare la procedura seguen
 
     ![Scheda informazioni processo della console Web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 L'interfaccia utente di Oozie consente di visualizzare i log di Oozie. Contiene anche collegamenti ai log di JobTracker per le attività di MapReduce avviate dal flusso di lavoro. Il modello per la risoluzione dei problemi deve essere il seguente:
 

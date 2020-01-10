@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/16/2019
-ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a84dee783240f7f662dab2f04275ead3a3dfe09
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460653"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750779"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -33,7 +33,7 @@ I database singoli, i database in pool di pool elastici e i database dell'istanz
 Per altre informazioni sulle categorie di metriche e di log supportate dai vari servizi di Azure, vedere:
 
 - [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md)
+- [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 Questo articolo fornisce indicazioni che consentono di abilitare la telemetria della diagnostica per i database SQL di Azure, i pool elastici e le istanze gestite. Può anche aiutare a configurare Analisi SQL di Azure come strumento di monitoraggio per la visualizzazione dei dati di telemetria diagnostica del database.
 
@@ -736,7 +736,7 @@ Altre informazioni sul [formato di log di Intelligent Insights](sql-database-int
 Per informazioni su come abilitare la registrazione e comprendere le categorie di metriche e di log supportate dai vari servizi di Azure, vedere:
 
 - [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/resource-logs-overview.md)
+- [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 Per informazioni su Hub eventi, leggere:
 

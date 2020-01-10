@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: backup
 author: dcurwin
 ms.service: backup
@@ -8,20 +8,11 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: ca6c57b139b195b94dc7171336cfcc34d18b1872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2fd03c70cffa4efcb30518ebe6c54ca899869e16
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829164"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752159"
 ---
-I limiti seguenti si applicano ai Backup di Azure.
-
-| **Limite** | **Default** |
-| --- | --- |
-| Server o computer che possono essere registrati in un insieme di credenziali. | Windows Server/Windows client/System Center Data Protection Manager: 50. <br/><br/> VM IaaS: 1.000.  |
-| Dimensioni di un'origine dati nell'archivio dell'insieme di credenziali. |54.400-GB massimo. Il limite non si applica al backup della macchina virtuale IaaS. |
-| Insiemi di credenziali di backup in una sottoscrizione di Azure. |insiemi di credenziali 500 per area. |
-| Pianificare i backup giornalieri. |Windows Server/client: tre giorni.<br/> System Center DPM: due al giorno. <br/> Macchine virtuali IaaS: una volta al giorno.  |
-| Dischi dati collegati a una macchina virtuale di Azure per il backup. | 16 |
-| Singolo disco dati collegato alla macchina virtuale di Azure per il backup.| 32 TB|
+Per un riepilogo delle impostazioni e delle limitazioni del supporto di backup di Azure, vedere [matrici di supporto di backup di Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix).

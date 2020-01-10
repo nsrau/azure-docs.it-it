@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159728"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763080"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: creare un modello di generatore di immagini di Azure 
 
@@ -28,7 +28,7 @@ Questo è il formato di modello di base:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+             },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -51,11 +51,11 @@ Il `type` è il tipo di risorsa, che deve essere `"Microsoft.VirtualMachineImage
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Località
+## <a name="location"></a>Percorso
 
 Il percorso è l'area in cui verrà creata l'immagine personalizzata. Per l'anteprima di Image Builder sono supportate le aree seguenti:
 
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
 - Stati Uniti occidentali
@@ -116,7 +116,7 @@ L'API richiede un'SourceType ' che definisce l'origine per la compilazione dell'
 
 Il generatore di immagini di Azure supporta solo l'uso di file ISO DVD binari pubblicati Red Hat Enterprise Linux 7. x per l'anteprima. Image Builder supporta:
 - RHEL 7.3 
-- RHEL 7,4 
+- RHEL 7.4 
 - RHEL 7.5 
  
 ```json
@@ -139,7 +139,7 @@ Azure Image Builder supporta le seguenti immagini di Azure Marketplace:
 * Ubuntu 18.04
 * Ubuntu 16.04
 * RHEL 7,6
-* CentOS 7,6
+* CentOS 7.6
 * Windows 2016
 * Windows 2019
 
@@ -275,7 +275,8 @@ Il verbi di riavvio consente di riavviare una macchina virtuale Windows e attend
 
 ```json 
      "customize": [ 
-            "type{ ": "WindowsRestart", 
+         {
+            "type": "WindowsRestart", 
             "restartCommand": "shutdown /r /f /t 0 /c", 
             "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
             "restartTimeout": "5m"
@@ -383,7 +384,7 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 Per eseguire l'override dei comandi, usare i provisioner di script PowerShell o Shell per creare i file di comando con il nome esatto del file e inserirli nelle directory corrette:
 
 * Windows: c:\DeprovisioningScript.ps1
-* Linux:/tmp/DeprovisioningScript.sh
+* Linux: /tmp/DeprovisioningScript.sh
 
 Il generatore di immagini leggerà questi comandi, che verranno scritti nei log AIB,' Customization. log '. Vedere [risoluzione dei problemi relativi](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) alla procedura di raccolta dei log.
  

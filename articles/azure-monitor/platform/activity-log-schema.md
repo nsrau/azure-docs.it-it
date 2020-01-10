@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: df2594165909c55de2de562c9717299d189a20d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531021"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749458"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
-Il [log attività di Azure](activity-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema dell'evento per ogni categoria. 
+Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema dell'evento per ogni categoria. 
 
 Gli esempi seguenti illustrano lo schema quando si accede al log attività dal portale, da PowerShell, dall'interfaccia della riga di comando e dall'API REST. Lo schema è diverso quando si esegue [lo streaming del log attività in hub eventi o di archiviazione](resource-logs-stream-event-hubs.md). Alla fine dell'articolo viene fornito un mapping delle proprietà allo [schema dei log delle risorse](diagnostic-logs-schema.md) .
 
@@ -865,6 +865,6 @@ Di seguito è riportato un esempio di un evento che utilizza questo schema.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sul log attività](activity-logs-overview.md)
+* [Altre informazioni sul log attività](platform-logs-overview.md)
 * [Creare un'impostazione di diagnostica per inviare il log attività a Log Analytics area di lavoro, archiviazione di Azure o hub eventi](diagnostic-settings.md)
 

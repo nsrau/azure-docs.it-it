@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: 4ebf6ecea0b08f416bd1bd11382116dda2107ecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4af646569edc8a9274af752e7e4f2a36585ae4d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409644"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769099"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitoraggio di funzioni di Azure con i log di monitoraggio di Azure
 
@@ -25,11 +25,11 @@ Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/ku
 
 ## <a name="setting-up"></a>Configurazione
 
-Nella sezione monitoraggio selezionare impostazioni di **diagnostica** e quindi fare clic su **Aggiungi**.
+Nella sezione **monitoraggio** selezionare impostazioni di **diagnostica** e quindi fare clic su **Aggiungi impostazione di diagnostica**.
 
 ![Aggiungere un'impostazione di diagnostica](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-Nella pagina impostazione scegliere **Invia a log Analytics**e in **log** scegliere **FunctionAppLogs**, questa tabella contiene i log desiderati.
+Nella pagina **impostazioni di diagnostica** scegliere **Invia a log Analytics**, quindi selezionare l'area di lavoro log Analytics. In **log** scegliere **FunctionAppLogs**, questa tabella contiene i log desiderati.
 
 ![Aggiungere un'impostazione di diagnostica](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -72,7 +72,7 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Esecuzione di query sui log
 
-Per eseguire una query sui log generati, passare all'area di lavoro di log Analytics e fare clic su **log**.
+Per eseguire una query sui log generati, passare all'area di lavoro Log Analytics configurata per l'invio dei log delle funzioni e fare clic su **log**.
 
 ![Finestra query nell'area di lavoro LA](media/functions-monitor-log-analytics/querying.png)
 

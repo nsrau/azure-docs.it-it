@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/17/2019
-ms.openlocfilehash: 4b2f9e7f12b468f12fcfbe1b0af5c2918aa6c6ad
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4a8a548e6a073c38dbc1f5600d721a7cdb97f120
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541166"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762825"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -134,7 +134,7 @@ Per altre informazioni sul funzionamento della crittografia dei dati inattivi in
 
 È possibile usare SSL per proteggere la comunicazione interna tra Azure Machine Learning microservizi e per proteggere le chiamate esterne all'endpoint di assegnazione dei punteggi. Tutti gli accessi di archiviazione di Azure si verificano anche su un canale sicuro.
 
-Per altre informazioni, vedere [usare SSL per proteggere un servizio Web tramite Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service).
+Per altre informazioni, vedere [usare SSL per proteggere un servizio Web tramite Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Uso di Azure Key Vault
 

@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: 5e840960c66f586882e64a655ddbfa078dae51ef
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/08/2019
+ms.openlocfilehash: eb181cbf6c647c816886f330502a9a46cb956dee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646643"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763284"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: eseguire il training e distribuire un modello dall'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -213,7 +213,7 @@ Per eseguire il training di un modello, è possibile fornire i dati di training 
 Per registrare il set di dati utilizzando il file di `dataset.json`, utilizzare il comando seguente:
 
 ```azurecli-interactive
-az ml dataset register -f dataset.json
+az ml dataset register -f dataset.json --skip-validation
 ```
 
 L'output di questo comando è simile al codice JSON seguente:
@@ -368,6 +368,9 @@ Per distribuire un modello, utilizzare il comando seguente:
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
+> [!NOTE]
+> È possibile che venga visualizzato un avviso che indica che non è stato possibile controllare l'esistenza di LocalWebservice. È possibile ignorare questo problema, poiché non si distribuisce un servizio Web locale.
+
 Questo comando distribuisce un nuovo servizio denominato `myservice`, usando la versione 1 del modello registrato in precedenza.
 
 Il file di `inferenceConfig.yml` fornisce informazioni su come eseguire l'inferenza, ad esempio lo script di ingresso (`score.py`) e le dipendenze software. Per ulteriori informazioni sulla struttura di questo file, vedere lo [schema di configurazione dell'inferenza](reference-azure-machine-learning-cli.md#inference-configuration-schema). Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con il Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
@@ -413,6 +416,13 @@ Sebbene sia possibile creare un'applicazione client per chiamare l'endpoint, l'i
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
 ```
+
+> [!TIP]
+> Se si usa PowerShell, usare invece il comando seguente:
+>
+> ```powershell
+> az ml service run -n myservice -d `@testdata.json
+> ```
 
 La risposta dal comando è simile a `[ 3 ]`.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463926"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771616"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "75463926"
 
 ![Struttura file](./media/storage-files-introduction/files-concepts.png)
 
-* **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Per informazioni dettagliate sulla capacità degli account di archiviazione, vedere gli [obiettivi di scalabilità e prestazioni](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Per informazioni dettagliate sulla capacità dell'account di archiviazione, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
 
 * **Condivisione**: una condivisione di Archiviazione file è una condivisione file SMB in Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino alla capacità totale della condivisione file. La capacità totale per le condivisioni file Premium e standard è 100 TiB.
 
@@ -205,29 +205,40 @@ Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In
 
 |Area |Ridondanza supportata |
 |-------|---------|
+|Australia centrale    |LRS     |
+|Australia centrale 2    |LRS     |
 |Australia orientale |LRS     |
 |Australia sudorientale|LRS |
+|Brasile meridionale    |LRS     |
 |Canada centrale  |LRS     |
 |Canada orientale     |LRS     |
 |India centrale  |LRS     |
-|Stati Uniti centrali *   |LRS     |
+|Stati Uniti centrali *   |CON RIDONDANZA LOCALE, ZRS    |
 |Asia orientale      |LRS     |
 |Stati Uniti orientali *        |CON RIDONDANZA LOCALE, ZRS|
-|Stati Uniti orientali 2 *      |LRS     |
+|Stati Uniti orientali 2 *      |CON RIDONDANZA LOCALE, ZRS     |
 |Francia centrale |CON RIDONDANZA LOCALE, ZRS|
 |Francia meridionale   |LRS     |
 |Giappone orientale     |LRS     |
+|Giappone occidentale     |LRS     |
+|Corea centrale  |LRS     |
+|Corea meridionale    |LRS     |
 |Stati Uniti centro-settentrionali |LRS   |
 |Europa settentrionale   |LRS     |
 |India meridionale    |LRS     |
 |Stati Uniti centro-meridionali |LRS     |
 |Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|
+|Svizzera settentrionale    |LRS     |
+|Svizzera occidentale    |LRS     |
 |Emirati Arabi Uniti centrali    |LRS     |
-|Regno Unito meridionale   |LRS     |
+|Emirati Arabi Uniti settentrionali    |LRS     |
+|Regno Unito settentrionale   |CON RIDONDANZA LOCALE, ZRS    |
+|Regno Unito meridionale    |LRS     |
 |Regno Unito occidentale    |LRS     |
 |Stati Uniti centro-occidentali|LRS     |
 |Europa occidentale *    |CON RIDONDANZA LOCALE, ZRS|
-|Stati Uniti occidentali *        |LRS     |
+|India occidentale   |LRS     |
+|Stati Uniti occidentali        |LRS     |
 |Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|
 
 \* supportato per i nuovi account, non tutti gli account esistenti hanno completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
@@ -248,7 +259,7 @@ Attualmente, le dimensioni massime per una condivisione file di Azure sono 100 T
 
 Esistono diverse semplici opzioni per trasferire i dati in blocco da una condivisione file esistente, ad esempio una condivisione file locale, in File di Azure. Quelle più diffuse includono (elenco non completo):
 
-* **Sincronizzazione file di Azure**: come parte di una prima sincronizzazione tra una condivisione file di Azure, ovvero un "Endpoint cloud", e uno spazio dei nomi della directory di Windows, ovvero un "Endpoint server", Sincronizzazione file di Azure replicherà tutti i dati dalla condivisione file esistente a File di Azure.
+* **[Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)** : come parte di una prima sincronizzazione tra una condivisione file di Azure (un "endpoint cloud") e uno spazio dei nomi di directory Windows (un "endpoint server"), sincronizzazione file di Azure eseguirà la replica di tutti i dati dalla condivisione file esistente al file di Azure.
 * **[Importazione/Esportazione di Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati in una condivisione file di Azure tramite la spedizione delle unità disco rigido a un data center di Azure. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy è un noto strumento di copia incluso in Windows e Windows Server. Robocopy può essere usato per trasferire i dati in File di Azure montando la condivisione file in locale e quindi usando il percorso montato come destinazione del comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy è un'utilità della riga di comando progettata per copiare i dati da e verso File di Azure, oltre ad Archiviazione BLOB di Azure usando semplici comandi con prestazioni ottimali.

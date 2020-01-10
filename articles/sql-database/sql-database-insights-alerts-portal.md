@@ -11,16 +11,16 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810377"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745944"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creare avvisi per il database SQL di Azure e il data warehouse usando il portale di Azure
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Questo articolo descrive come impostare gli avvisi per il database SQL di Azure e il data warehouse usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata. Questo articolo include anche le procedure consigliate per impostare i periodi di avviso.    
 
 > [!IMPORTANT]
@@ -39,7 +39,7 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite
 
-* [Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [interfaccia della riga di comando](../azure-monitor/platform/alerts-classic-portal.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -48,7 +48,7 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 1. Nel [portale](https://portal.azure.com/), individuare la risorsa da monitorare e selezionarla.
 2. Selezionare **Avvisi (versione classica)** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
    
-     ![Monitoraggio](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
+     ![Monitorare](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SOLO SQL DATA WAREHOUSE**: Fare clic sul grafo **Utilizzo di DWU**. Selezionare **Visualizza avvisi classici**
 
@@ -74,18 +74,18 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 
 ## <a name="sql-database-alert-values"></a>Valori degli avvisi per il database SQL
 
-| Tipo di risorsa | Nome della metrica | Nome descrittivo | Tipo di aggregazione | Intervallo di tempo minimo per l'avviso|
+| Tipo di risorsa | Nome misurazione | Nome descrittivo | Tipo di aggregazione | Intervallo di tempo minimo per l'avviso|
 | --- | --- | --- | --- | --- |
 | Database SQL | cpu_percent | Percentuale CPU | Media | 5 minuti |
 | Database SQL | physical_data_read_percent | Percentuale di I/O di dati | Media | 5 minuti |
 | Database SQL | log_write_percent | Percentuale I/O registro | Media | 5 minuti |
 | Database SQL | dtu_consumption_percent | Percentuale di DTU | Media | 5 minuti |
-| Database SQL | storage | Dimensioni totali database | Massima | 30 minuti |
+| Database SQL | archiviazione | Dimensioni totali database | Massimo | 30 minuti |
 | Database SQL | connection_successful | Connessioni riuscite | Totale | 10 minuti |
 | Database SQL | connection_failed | Connessioni non riuscite | Totale | 10 minuti |
 | Database SQL | blocked_by_firewall | Blocco da parte del firewall | Totale | 10 minuti |
 | Database SQL | deadlock | Deadlock | Totale | 10 minuti |
-| Database SQL | storage_percent | Percentuale di dimensioni del database | Massima | 30 minuti |
+| Database SQL | storage_percent | Percentuale di dimensioni del database | Massimo | 30 minuti |
 | Database SQL | xtp_storage_percent | Percentuale archiviazione OLTP interna alla memoria (anteprima) | Media | 5 minuti |
 | Database SQL | workers_percent | Percentuale ruoli di lavoro | Media | 5 minuti |
 | Database SQL | sessions_percent | Percentuale sessioni | Media | 5 minuti |
@@ -101,7 +101,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 | Pool elastico | eDTU_limit | Limite eDTU | Media | 10 minuti |
 | Pool elastico | storage_limit | Limite archiviazione | Media | 10 minuti |
 | Pool elastico | eDTU_used | Uso eDTU | Media | 10 minuti |
-| Pool elastico | storage_used | Uso archiviazione | Media | 10 minuti |
+| Pool elastico | storage_used | Risorse di archiviazione usate | Media | 10 minuti |
 ||||||               
 | SQL Data Warehouse | cpu_percent | Percentuale CPU | Media | 10 minuti |
 | SQL Data Warehouse | physical_data_read_percent | Percentuale di I/O di dati | Media | 10 minuti |
@@ -109,7 +109,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 | SQL Data Warehouse | connection_failed | Connessioni non riuscite | Totale | 10 minuti |
 | SQL Data Warehouse | blocked_by_firewall | Blocco da parte del firewall | Totale | 10 minuti |
 | SQL Data Warehouse | service_level_objective | Livello di servizio del database | Totale | 10 minuti |
-| SQL Data Warehouse | dwu_limit | Limite DWU | Massima | 10 minuti |
+| SQL Data Warehouse | dwu_limit | Limite DWU | Massimo | 10 minuti |
 | SQL Data Warehouse | dwu_consumption_percent | Percentuale DWU | Media | 10 minuti |
 | SQL Data Warehouse | dwu_used | Uso DWU | Media | 10 minuti |
 ||||||
@@ -118,5 +118,5 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 ## <a name="next-steps"></a>Passaggi successivi
 * [Leggere una panoramica del monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) che include anche i tipi di informazioni che è possibile raccogliere e monitorare.
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
-* Leggere una [panoramica dei log di diagnostica](../azure-monitor/platform/resource-logs-overview.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
+* Leggere una [panoramica dei log di diagnostica](../azure-monitor/platform/platform-logs-overview.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.

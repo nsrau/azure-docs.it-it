@@ -1,10 +1,10 @@
 ---
-title: Sviluppare un'applicazione Web di Azure AD protetta | Microsoft Docs
+title: Sviluppare un'applicazione Web Azure AD protetta | Microsoft Docs
 description: Questa semplice app di esempio implementa le procedure consigliate per la sicurezza che consentono di migliorare l'applicazione e il comportamento di sicurezza dell'organizzazione quando si sviluppa in Azure.
 keywords: na
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159844"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771275"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Sviluppare un'app sicura per un'app Azure AD
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Questo esempio è una semplice Azure Active Directory con app Web che si collega a risorse di sicurezza per lo sviluppo di app in Azure. L'app implementa le procedure consigliate per la sicurezza che consentono di migliorare l'applicazione e il comportamento di sicurezza dell'organizzazione quando si sviluppano app in Azure.
 
@@ -39,7 +39,7 @@ Durante lo sviluppo e la distribuzione di questa app, si apprenderà come
 
 Dopo aver sviluppato e distribuito l'app, è necessario configurare l'app Web di esempio seguente insieme alle misure di configurazione e sicurezza descritte.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 L'app è una tipica applicazione a più livelli con tre livelli. Il front-end, il back-end e il livello di database con componenti di monitoraggio e di gestione segreta integrati sono illustrati di seguito:
 
 ![Architettura dell'app](./media/secure-aad-app/architecture.png)
@@ -334,7 +334,7 @@ Ora che è stata abilitata l'integrazione della rete virtuale, è possibile aggi
 
 5. Nel pannello subnet del NSG selezionare **associa**, selezionare la rete virtuale creata nella distribuzione e selezionare la subnet del gateway denominata **GW-Subnet**. NSG viene applicato alla subnet.
 
-6. Creare un'altra NSG come nel passaggio precedente, questa volta per l'istanza del servizio app. Assegnargli un nome. Aggiungere la regola in ingresso per la porta 443 come per il gateway applicazione NSG.
+6. Creare un'altra NSG come nel passaggio precedente, questa volta per l'istanza del servizio app. Assegnare un nome. Aggiungere la regola in ingresso per la porta 443 come per il gateway applicazione NSG.
 
    Se è stata distribuita un'istanza del servizio app in un'istanza di ambiente del servizio app, che non è il caso di questa app, è possibile aggiungere regole in ingresso per consentire i probe di integrità dei servizi di Azure aprendo le porte 454-455 nei gruppi di sicurezza in ingresso del servizio app NSG. Ecco la configurazione:
 
@@ -358,7 +358,7 @@ Crittografia dischi di Azure sfrutta la funzionalità BitLocker di Windows per f
 ### <a name="identity-management"></a>Gestione delle identità
 Le tecnologie seguenti forniscono funzionalità per gestire l'accesso ai dati dei titolari di carte nell'ambiente Azure
 - Azure Active Directory è il servizio Microsoft di gestione di identità e Directory basato sul cloud multi-tenant. Tutti gli utenti per questa soluzione vengono creati in Azure Active Directory, inclusi gli utenti che accedono alla WebApp di Azure.
-- Il controllo degli accessi in base al ruolo di Azure consente agli amministratori di definire le autorizzazioni di accesso con granularità fine per concedere solo la quantità di accesso necessario agli utenti per eseguire i propri processi. Invece di concedere a ogni utente autorizzazioni senza limiti per le risorse di Azure, gli amministratori possono consentire solo determinate azioni per l'accesso ai dati dei possessori di carte. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione stessa.
+- Il controllo degli accessi in base al ruolo di Azure consente agli amministratori di definire le autorizzazioni di accesso con granularità fine per concedere solo la quantità di accesso necessario agli utenti per eseguire i propri processi. Invece di concedere a ogni utente autorizzazioni senza limiti per le risorse di Azure, gli amministratori possono consentire solo determinate azioni per l'accesso ai dati dei possessori di carte. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione.
 - Azure Active Directory Privileged Identity Management consente ai clienti di ridurre al minimo il numero di utenti che hanno accesso a determinate informazioni, ad esempio i dati di titolari di carte. Gli amministratori possono usare Azure Active Directory Privileged Identity Management per individuare, limitare e monitorare le identità con privilegi e il rispettivo accesso alle risorse. Questa funzionalità può essere usata anche per applicare l'accesso amministrativo on demand e Just-In-Time quando necessario.
 - Azure Active Directory Identity Protection rileva le potenziali vulnerabilità che interessano le identità di un'organizzazione, configura le risposte automatiche per rilevare azioni sospette correlate alle identità di un'organizzazione ed esamina sospette eventi imprevisti per eseguire le azioni appropriate per risolverli.
 ### <a name="secrets-management"></a>Gestione dei segreti
@@ -388,9 +388,9 @@ Con il Centro sicurezza di Azure, i clienti possono applicare e gestire centralm
    - Probe di integrità personalizzati.
    - Il Centro sicurezza di Azure e un Azure Advisor forniscono protezione e notifiche aggiuntive. Centro sicurezza di Azure mette a disposizione anche un sistema di reputazione.
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
-I servizi di Azure registrano in modo completo le attività di sistema e degli utenti, nonché dell'integrità del sistema:
+I servizi di Azure registrano in modo completo le attività di sistema e degli utenti e l'integrità del sistema:
    - Log attività: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) forniscono informazioni approfondite sulle operazioni eseguite sulle risorse in una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-   - Log di diagnostica: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i registri eventi del sistema di Windows, i log di archiviazione di Azure, i log di controllo Key Vault e l'accesso del gateway applicazione e i log del firewall. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un periodo massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
+   - Log di diagnostica: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i registri eventi del sistema di Windows, i log di archiviazione di Azure, i log di controllo Key Vault e l'accesso del gateway applicazione e i log del firewall. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
 ### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
    Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per tipo nelle aree di lavoro di Log Analytics, in modo che sia possibile analizzare tutti i dati insieme, indipendentemente dalla rispettiva origine. Il Centro sicurezza di Azure si integra inoltre con i log di monitoraggio di Azure, consentendo ai clienti di usare query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 
@@ -411,7 +411,7 @@ I servizi di Azure registrano in modo completo le attività di sistema e degli u
    - Chiave di Application Insights
    - Chiave di accesso all'archiviazione dati
    - Stringa di connessione
-   - Nome tabella dati
+   - Data table name
    - Credenziali dell'utente
    - I criteri di accesso avanzati vengono configurati in base alle necessità
    - I criteri di accesso Key Vault vengono definiti con le autorizzazioni minime necessarie per le chiavi e i segreti
@@ -443,16 +443,16 @@ I servizi di Azure registrano in modo completo le attività di sistema e degli u
 1.  Tornare al portale di Azure. Nel riquadro di spostamento a sinistra selezionare il servizio Azure Active Directory, quindi selezionare Registrazioni app.
 2.  Nella schermata risultante selezionare l'applicazione WebApp-OpenIDConnect-DotNet-code-V2.
 3.  Nella scheda autenticazione nella sezione URI di reindirizzamento selezionare Web nella casella combinata e aggiungere gli URI di reindirizzamento seguenti.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o nella sezione Impostazioni avanzate impostare l'URL di disconnessione su https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o nella sezione Impostazioni avanzate impostare Disconnetti URL su https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  Nella scheda personalizzazione o aggiornare l'URL della Home page all'indirizzo del servizio app, ad esempio https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o salvare la configurazione.
 5.  Se l'applicazione chiama un'API Web, assicurarsi di applicare le modifiche necessarie nel progetto appSettings. JSON, in modo che chiami l'URL dell'API pubblicata invece di localhost.
 Pubblicazione dell'esempio
-    1.  Dalla scheda Panoramica del servizio app scaricare il profilo di pubblicazione facendo clic sul collegamento Ottieni profilo di pubblicazione e salvarlo. È inoltre possibile utilizzare altri meccanismi di distribuzione, ad esempio dal controllo del codice sorgente.
+    1.  Dalla scheda Panoramica del servizio app scaricare il profilo di pubblicazione facendo clic sul collegamento Ottieni profilo di pubblicazione e salvarlo. È anche possibile usare altri meccanismi di distribuzione, ad esempio dal controllo del codice sorgente.
     2.  Passare a Visual Studio e passare al progetto WebApp-OpenIDConnect-DotNet-code-V2. Fare clic con il pulsante destro del mouse sul progetto nella Esplora soluzioni e scegliere pubblica. Fare clic su Importa profilo nella barra inferiore e importare il profilo di pubblicazione scaricato in precedenza.
     3.  Fare clic su Configura e nella scheda connessione aggiornare l'URL di destinazione in modo che sia un HTTPS nell'URL home page, ad esempio https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Fare clic su Avanti.
-    4.  Nella scheda Impostazioni verificare che l'opzione Abilita autenticazione organizzativa non sia selezionata. Fare clic su Save. Fare clic su pubblica nella schermata principale.
-    5.  Visual Studio pubblicherà il progetto e aprirà automaticamente un browser per l'URL del progetto. Se viene visualizzata la pagina Web predefinita del progetto, la pubblicazione ha avuto esito positivo.
+    4.  Nella scheda Impostazioni verificare che l'opzione Abilita autenticazione organizzativa non sia selezionata. Fai clic su Salva. Fare clic su pubblica nella schermata principale.
+    5.  Visual Studio pubblicherà il progetto e aprirà automaticamente un browser all'URL corrispondente. Se viene visualizzata la pagina Web predefinita del progetto, la pubblicazione ha avuto esito positivo.
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementare Multi-Factor Authentication per Azure Active Directory
    Gli amministratori devono assicurarsi che gli account di sottoscrizione nel portale siano protetti. La sottoscrizione è vulnerabile agli attacchi perché gestisce le risorse create. Per proteggere la sottoscrizione, abilitare Multi-Factor Authentication nella scheda **Azure Active Directory** della sottoscrizione.
 
@@ -465,7 +465,7 @@ Per abilitare l'autenticazione a più fattori per gli accessi amministrativi
    1. Passare alla scheda **Azure Active Directory** nella portale di Azure
    2. Nella categoria sicurezza selezionare accesso condizionale. Viene visualizzata questa schermata
 
-       ![Accesso condizionale-criteri](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Accesso condizionale - Criteri](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Se non è possibile creare un nuovo criterio
 
@@ -560,4 +560,4 @@ Per creare questa area di lavoro
 
 - [Progettazione](secure-design.md)
 - [Sviluppo](secure-develop.md)
-- [Distribuzione](secure-deploy.md)
+- [Distribuire](secure-deploy.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: cf79911c24998c3d00937937cce5c68bbb564f1e
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392285"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751571"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete: Azure Resource Manager si applicano i limiti seguenti solo per le risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -58,20 +58,29 @@ ms.locfileid: "75392285"
 #### <a name="load-balancer"></a>Limiti del servizio di bilanciamento del carico
 I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure Resource Manager per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
-| Gruppi | Limite predefinito/massimo |
-| --- | --- |
-| Servizi di bilanciamento del carico | 1\.000 | 
-| Regole per risorsa, Basic | 250 |
-| Regole per risorsa, Standard | 1\.500 | 
-| Regole per NIC (in tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300 |
-| Configurazioni IP front-end, di base | 200 |
-| Configurazioni IP front-end, standard | 600 |
-| Pool back-end, di base | 100, singolo set di disponibilità |
-| Pool back-end, standard | 1\.000, rete virtuale singola |
-| Risorse back-end per ogni servizio di bilanciamento del carico, standard<sup>1</sup> | 150 |
-| Porte a disponibilità elevata, standard | 1 per front-end interno |
+**Load Balancer Standard**
+
+| Gruppi                                | Limite predefinito/massimo         |
+|-----------------------------------------|-------------------------------|
+| Servizi di bilanciamento del carico                          | 1\.000                         |
+| Regole per risorsa                      | 1\.500                         |
+| Regole per NIC (in tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                           |
+| Configurazioni IP front-end             | 600                           |
+| Dimensioni del pool back-end                          | 1\.000 istanze, rete virtuale singola |
+| Risorse back-end per ogni servizio di bilanciamento del carico<sup>1<sup>   | 150                 |
+| Porte a disponibilità elevata                 | 1 per front-end interno      |
 
 <sup>1</sup> Il limite è fino a 150 risorse, in qualsiasi combinazione di risorse autonome della macchina virtuale, risorse dei set di disponibilità e risorse del set di scalabilità di macchine virtuali.
+
+**Load Balancer di base**
+
+| Gruppi                                | Limite predefinito/massimo        |
+|-----------------------------------------|------------------------------|
+| Servizi di bilanciamento del carico                          | 1\.000                        |
+| Regole per risorsa                      | 250                          |
+| Regole per NIC (in tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                          |
+| Configurazioni IP front-end             | 200                          |
+| Dimensioni del pool back-end                           | 100 istanze, set di disponibilità singolo |
 
 #### <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo alle risorse di rete gestite tramite il modello di distribuzione **classica** per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 

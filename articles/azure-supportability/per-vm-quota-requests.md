@@ -1,131 +1,155 @@
 ---
-title: Richieste di aumento della quota di vCPU per macchina virtuale Azure | Microsoft Docs
-description: richieste di aumento della quota di vCPU per macchina virtuale
+title: Richiedere un aumento dei limiti di quota di vCPU per ogni serie di macchine virtuali di Azure | Microsoft Docs
+description: Questo articolo illustra come richiedere un aumento del limite di quota per ogni vCPU di VM.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 280561126186e4c70399b3a1ddd177ff4eb54400
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fc59ffda245834c716067bc63e6c3745fa5d23b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850041"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750202"
 ---
-# <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>Quota standard: aumento del limite di vCPU per serie di VM
+# <a name="standard-quota-increase-limits-by-vm-series"></a>Quota standard: aumentare i limiti per serie di macchine virtuali
 
-Gestione risorse supporta due tipi di quote vCPU per le macchine virtuali. **Le macchine virtuali con pagamento in base al consumo e le istanze di VM riservate** usano la quota standard. Le **VM spot** usano la quota spot. La quota vCPU standard per le istanze con pagamento in base al consumo e le VM riservate viene applicata a due livelli per ogni sottoscrizione in ogni area
+Azure Resource Manager supporta due tipi di quote vCPU per le macchine virtuali:
+* Le *macchine virtuali con pagamento in base* al consumo e le *istanze di VM riservate* sono soggette a una *quota vCPU standard*.
+* Le *macchine virtuali spot* sono soggette a una *quota vCPU di spot*. 
 
-Il primo livello è il **limite di vCPU regionale totale** (in tutte le serie di VM) e il secondo livello è il **limite di vCPU per serie di VM** , ad esempio la serie dv3 vCPU. Ogni volta che viene distribuita una nuova VM, la somma dell'utilizzo di vCPU nuovo ed esistente per tale serie di macchine virtuali non deve superare la quota di vCPU approvata per la serie di VM specifica. Inoltre, il numero totale di vCPU nuovo ed esistente distribuito in tutte le serie di macchine virtuali non deve superare la quota vCPU regionale totale approvata per la sottoscrizione. Se una di queste quote viene superata, la distribuzione della macchina virtuale non sarà possibile.
-È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali da portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità. 
+La quota di vCPU standard per le istanze con pagamento in base al consumo e per le VM riservate viene applicata a due livelli per ogni sottoscrizione in ogni area:
+* Il primo livello è il *limite di vCPU regionale totale* (in tutte le serie di macchine virtuali).
+* Il secondo livello è il *limite di vCPU serie per macchina virtuale* (ad esempio, vCPU della serie dv3). 
 
-Per altre informazioni sulle quote vCPU standard, vedere la pagina delle [quote vCPU della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e la pagina relativa ai [limiti di sottoscrizione e servizio di Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
+Ogni volta che si distribuisce una nuova macchina virtuale spot, l'utilizzo totale nuovo ed esistente di vCPU per tale serie di macchine virtuali non deve superare la quota di vCPU approvata per la serie di macchine virtuali in questione. Inoltre, il numero totale di vCPU nuovi ed esistenti distribuiti in tutte le serie di macchine virtuali non deve superare la quota vCPU regionale totale approvata per la sottoscrizione. Se una di queste quote viene superata, la distribuzione della macchina virtuale non è consentita.
 
-Altre informazioni su come aumentare il limite di vCPU a livello di area per la quota standard [qui](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
+È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali usando il portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità. 
 
-Altre informazioni su come **aumentare i limiti di vCPU della VM spot** [qui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Per altre informazioni sulle quote vCPU standard, vedere la pagina relativa alle [quote vCPU della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e ai [limiti del servizio e della sottoscrizione di Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
 
-È possibile richiedere un aumento del **limite di quota di vCPU standard per ogni serie di VM** tramite il pannello **Guida e supporto** oppure il pannello **utilizzi e quota** nel portale.
+Per informazioni su come aumentare il limite di vCPU in base all'area per la quota standard, vedere [quota standard: aumentare i limiti per area](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-## <a name="request-standard-vcpu-quota-increase-per-vm-series-at-subscription-level-using-the-help--support-blade"></a>Richiedi aumento della quota di vCPU standard per serie di VM a livello di sottoscrizione usando il pannello Guida e supporto
+Per altre informazioni su come aumentare i limiti di vCPU per le VM spot, vedere [quota spot: aumentare i limiti per tutte le serie di macchine virtuali](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
-Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
+È possibile richiedere un aumento del limite di quota di vCPU standard per ogni serie di VM in uno dei due modi, come descritto nelle sezioni successive.
 
-È anche possibile richiedere una quota per più aree tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 11 riportato di seguito.
+## <a name="request-a-standard-quota-increase-from-the-help--support-pane"></a>Richiedere un aumento della quota standard dal riquadro "Guida e supporto"
 
-1. In https://portal.azure.com selezionare **Guida e supporto**.
+Per richiedere un aumento della quota di vCPU standard per ogni serie di VM dal riquadro **Guida e supporto** , eseguire le operazioni seguenti: 
 
-   ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
+> [!NOTE]
+> È anche possibile richiedere un aumento del limite di quota per più aree tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 8.
+
+1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com)selezionare **Guida e supporto**.
+
+   ![Collegamento "Guida e supporto"](./media/resource-manager-core-quotas-request/helpsupport.png)
  
-2.  Selezionare **Nuova richiesta di supporto**. 
+1. Nel riquadro **Guida e supporto** selezionare **nuova richiesta di supporto**. 
 
-     ![Nuova richiesta di supporto](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![Nuova richiesta di supporto](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. Nell'elenco a discesa tipo di problema scegliere **limiti per servizio e sottoscrizione (quote)** .
+1. Nell'elenco a discesa **tipo di problema** selezionare limiti per **servizio e sottoscrizione (quote)** .
 
-   ![Elenco a discesa tipo di problema](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Elenco a discesa "tipo di problema"](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
-4. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+1. Nell'elenco a discesa **sottoscrizione** selezionare la sottoscrizione di cui si vuole aumentare la quota.
 
-   ![Seleziona newS Subscription](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![Elenco a discesa "sottoscrizione"](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Selezionare **calcolo-VM (Core-vCPU) limite sottoscrizione aumenta** nell'elenco a discesa **tipo di quota** . 
+1. Nell'elenco a discesa **tipo di quota** selezionare aumenta il **limite di sottoscrizione Compute-VM (Cores-vCPU)** . 
 
-   ![Seleziona tipo di quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Elenco a discesa "tipo di quota"](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. In **Dettagli problema**specificare informazioni aggiuntive per l'elaborazione della richiesta facendo clic su **Fornisci dettagli**.
+1. In **Dettagli problema**nella scheda **Dettagli** selezionare **specificare i dettagli**, quindi immettere informazioni aggiuntive per elaborare la richiesta.
 
-   ![Specificare i dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Collegamento "fornire i dettagli"](./media/resource-manager-core-quotas-request/provide-details.png)
 
-7. Nel pannello **Dettagli quota** selezionare modello di **distribuzione** e selezionare un **percorso.**
+1. Nel riquadro **Dettagli quota** in alto a destra, procedere come segue:
 
-   ![Dettagli quota DM](./media/resource-manager-core-quotas-request/1-7.png)
+   ![Riquadro "Dettagli quota"](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. Per il percorso selezionato selezionare **tipo** di valore come **"standard"** . È possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni sull' **aumento dei limiti di quota spot** nella [pagina](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
+   a. Nell'elenco a discesa **modello di distribuzione** selezionare il modello appropriato.
 
-   ![Famiglia SKU](./media/resource-manager-core-quotas-request/1-8.png)
+   b. Nell'elenco a discesa **percorsi** selezionare una località. Per il percorso selezionato, in **tipi**, nella casella **selezionare un tipo** immettere **standard**.
 
-9. Selezionare le **famiglie di SKU** che richiedono un aumento
+   ![Riquadro "Dettagli quota"-tipi di quota](./media/resource-manager-core-quotas-request/1-8.png)
 
-   ![Famiglia SKU](./media/resource-manager-core-quotas-request/1-9.png)
-
-10. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa famiglia di SKU oppure fare clic sull'icona Ignora "x". 
-
-   ![Nuovi limiti](./media/resource-manager-core-quotas-request/1-10.png)
-
-11. Per richiedere una quota per più percorsi, è possibile verificare in un'altra **posizione** dall'elenco a discesa e selezionare il tipo di macchina virtuale appropriato. Questo passaggio consente di precaricare le famiglie di SKU selezionate per la **posizione** precedente nel nuovo percorso ed è sufficiente immettere i nuovi limiti desiderati.
-
-   ![Percorsi multipli](./media/resource-manager-core-quotas-request/1-11.png)
+   In **tipi**è possibile richiedere i tipi di quota standard e spot da un singolo caso di supporto tramite supporto per più selezioni.
    
-12. Dopo aver immesso la quota desiderata per ogni famiglia di SKU, fare clic su **Salva e continua** nel pannello Dettagli quota per continuare con la creazione della richiesta di supporto.
+   Per altre informazioni su come aumentare i limiti di quota spot, vedere [macchine virtuali di Azure spot per i set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-## <a name="request-standard-vcpu-quota-increase-per-vm-series-at-subscription-level-using-usages--quota-blade"></a>Richiedi aumento della quota di vCPU standard per serie di macchine virtuali a livello di sottoscrizione usando il pannello utilizzi e quote
+   c. Sotto l'elenco a discesa **standard** selezionare la serie di SKU di cui si desidera aumentare le quote.
 
-Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure.
+   ![Riquadro "Dettagli quota"-serie SKU](./media/resource-manager-core-quotas-request/1-9.png)
 
-È anche possibile **richiedere una quota per più aree** tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 10 riportato di seguito
+   d. Immettere i nuovi limiti di quota desiderati per questa sottoscrizione. Per rimuovere uno SKU dall'elenco, deselezionare la casella di controllo accanto allo SKU oppure selezionare l'icona **Elimina** (X). 
 
-1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
+   ![Casella di testo "limite nuovo vCPU"](./media/resource-manager-core-quotas-request/1-10.png)
 
-   ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
+1. Per richiedere un aumento della quota per più percorsi, selezionare un percorso aggiuntivo nell'elenco a discesa e quindi selezionare un tipo di macchina virtuale appropriato. È quindi possibile immettere un limite che si applica alla località aggiuntiva.
 
-2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+   ![Percorsi aggiuntivi nel riquadro "Dettagli quota"](./media/resource-manager-core-quotas-request/1-11.png)
+   
+1. Selezionare **Salva e continua** per continuare a creare la richiesta di supporto.
 
-   ![Selezionare la sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription.png)
+## <a name="request-a-standard-quota-increase-from-the-subscriptions-pane"></a>Richiedere un aumento della quota standard dal riquadro "sottoscrizioni"
 
-3. Selezionare **Utilizzo e quote**.
+Per richiedere un aumento della quota di vCPU standard per ogni serie di VM dal riquadro **sottoscrizioni** , eseguire le operazioni seguenti:
 
-   ![Selezionare Utilizzo e quote](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+> [!NOTE]
+> È anche possibile richiedere un aumento del limite di quota per più aree tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 7.
 
-4. Nell'angolo superiore destro selezionare **Richiedi aumento**.
+1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com)selezionare **sottoscrizioni**.
+
+   ![Collegamento "sottoscrizioni"](./media/resource-manager-core-quotas-request/subscriptions.png)
+
+1. Selezionare la sottoscrizione di cui si vuole aumentare la quota.
+
+   ![Riquadro "sottoscrizioni"](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+1. Nel riquadro sinistro della pagina **\<nome sottoscrizione >** selezionare **utilizzo e quote**.
+
+   ![Collegamento "utilizzo + quote"](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+1. In alto a destra selezionare **Richiedi aumento**.
 
    ![Richiedi aumento](./media/resource-manager-core-quotas-request/request-increase.png)
 
-5. Il **limite di sottoscrizione Compute-VM (Cores-vCPU) aumenta** come tipo di virgolette. 
+1. Nell'elenco a discesa **tipo di quota** selezionare aumenta il **limite di sottoscrizione Compute-VM (Cores-vCPU)** .
 
-   ![Compilare i moduli](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Elenco a discesa "tipo di quota"](./media/resource-manager-core-quotas-request/select-quota-type.png)
    
-6. Nel pannello **Dettagli quota** selezionare modello di distribuzione e selezionare un percorso.
+1. Nel riquadro **Dettagli quota** in alto a destra, procedere come segue:
 
-   ![Pannello Problema della quota](./media/resource-manager-core-quotas-request/1-1-6.png)
+   ![Riquadro "Dettagli quota"](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. Per il percorso selezionato selezionare **tipo** di valore come **"standard"** . È possibile richiedere sia i tipi di quota standard che quelli con priorità bassa da un singolo caso di supporto tramite supporto per più selezioni nel campo **tipo** . Altre informazioni su come **aumentare i limiti di vCPU** in questa [pagina](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
+   a. Nell'elenco a discesa **modello di distribuzione** selezionare il modello appropriato.
 
-   ![Serie SKU selezionata](./media/resource-manager-core-quotas-request/1-1-7.png)
+   b. Nell'elenco a discesa **percorsi** selezionare una località. 
    
+   c. Per il percorso selezionato, in **tipi**selezionare **selezionare un tipo**, quindi selezionare la casella di controllo **standard** .
+
+   ![Casella di controllo "standard"](./media/resource-manager-core-quotas-request/1-1-7.png)
    
-8. Selezionare le **famiglie di SKU** che richiedono un aumento
-
-   ![Serie SKU selezionata](./media/resource-manager-core-quotas-request/1-1-8.png)
-
-9. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa famiglia di SKU oppure fare clic sull'icona Ignora "x". 
-
-   ![Richiesta di nuova quota per lo SKU](./media/resource-manager-core-quotas-request/1-1-9.png)
+   In **tipi**è possibile richiedere sia i tipi di quota standard che quelli con priorità bassa da un singolo caso di supporto tramite supporto per più selezioni.
    
+   Per altre informazioni su come aumentare i limiti di quota spot, vedere [macchine virtuali di Azure spot per i set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-10. Per richiedere una quota per più percorsi, è possibile verificare in un'altra **posizione** dall'elenco a discesa e selezionare il tipo di macchina virtuale appropriato. Questo passaggio consente di precaricare le famiglie di SKU selezionate per la **posizione** precedente nel nuovo percorso ed è sufficiente immettere i nuovi limiti desiderati.
+   d. Sotto l'elenco a discesa **standard** selezionare la serie di SKU di cui si desidera aumentare le quote.
+
+   ![Riquadro "Dettagli quota"-serie SKU](./media/resource-manager-core-quotas-request/1-1-8.png)
+
+   e. Immettere i nuovi limiti di quota desiderati per questa sottoscrizione. Per rimuovere uno SKU dall'elenco, deselezionare la casella di controllo accanto allo SKU oppure selezionare **Elimina** (X). 
+
+   ![Casella di testo "limite nuovo vCPU"](./media/resource-manager-core-quotas-request/1-1-9.png)
    
-    ![Richiesta di nuova quota per lo SKU](./media/resource-manager-core-quotas-request/1-1-10.png)
+1. Per richiedere un aumento della quota per più percorsi, selezionare un percorso aggiuntivo nell'elenco a discesa e quindi selezionare un tipo di macchina virtuale appropriato. 
+
+   Con questo passaggio viene precaricata la serie di SKU selezionata per le posizioni precedenti. Immettere i limiti di quota che si desidera applicare alla serie aggiuntiva.
+   
+   ![Percorsi aggiuntivi nel riquadro "Dettagli quota"](./media/resource-manager-core-quotas-request/1-1-10.png)
  
+1. Selezionare **Salva e continua** per continuare a creare la richiesta di supporto.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b5acda30f7f4a01e1b7b6ac82652452c3c40e3bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747700"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768504"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Distribuire un gateway self-hosted di gestione API di Azure a Docker
 
@@ -33,7 +33,7 @@ Questo articolo illustra la procedura per la distribuzione del gateway di gestio
 - [Effettuare il provisioning di una risorsa gateway nell'istanza di gestione API](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> Il gateway self-hosted è incluso in un contenitore Docker basato su Linux.
+> Il gateway self-hosted è incluso in un contenitore Docker basato su Linux x86-64.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Distribuire il gateway self-hosted in Docker
 

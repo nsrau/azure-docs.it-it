@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c95772c8f10d7170a06d1d6793545a60fc8dd7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422206"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750749"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
@@ -238,11 +238,9 @@ Per inserire questi segreti nel file di configurazione di Spring o Tomcat, usare
 
 ### <a name="using-the-java-key-store"></a>Uso dell'archivio chiavi Java
 
-Per impostazione predefinita, tutti i certificati pubblici o privati [caricati nel servizio app Linux](../configure-ssl-certificate.md) verranno caricati nell'archivio chiavi Java quando il contenitore viene avviato. Ciò significa che i certificati caricati saranno disponibili nel contesto di connessione quando si effettuano connessioni TLS in uscita. Dopo aver caricato il certificato, sarà necessario riavviare il servizio app affinché venga caricato nell'archivio chiavi Java.
+Per impostazione predefinita, tutti i certificati pubblici o privati [caricati nel servizio app Linux](../configure-ssl-certificate.md) verranno caricati nei rispettivi archivi chiavi Java quando il contenitore viene avviato. Dopo aver caricato il certificato, sarà necessario riavviare il servizio app affinché venga caricato nell'archivio chiavi Java. I certificati pubblici vengono caricati nell'archivio chiavi in `$JAVA_HOME/jre/lib/security/cacerts`e i certificati privati vengono archiviati nel `$JAVA_HOME/lib/security/client.jks`.
 
-È possibile interagire o eseguire il debug dello strumento chiave Java [aprendo una connessione SSH](app-service-linux-ssh-support.md) al servizio app ed eseguendo il comando `keytool`. Vedere la [documentazione dello strumento chiave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) per un elenco di comandi. I certificati vengono archiviati nel percorso del file dell'archivio chiavi predefinito di Java, `$JAVA_HOME/jre/lib/security/cacerts`.
-
-Potrebbe essere necessaria una configurazione aggiuntiva per la crittografia della connessione JDBC. Per informazioni sul driver JDBC scelto, vedere la documentazione.
+Potrebbe essere necessaria una configurazione aggiuntiva per la crittografia della connessione JDBC con i certificati nell'archivio chiavi Java. Per informazioni sul driver JDBC scelto, vedere la documentazione.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
@@ -250,11 +248,27 @@ Potrebbe essere necessaria una configurazione aggiuntiva per la crittografia del
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### <a name="manually-initialize-and-load-the-key-store"></a>Inizializzare e caricare manualmente l'archivio chiavi
+#### <a name="initializing-the-java-key-store"></a>Inizializzazione dell'archivio chiavi Java
 
-È possibile inizializzare l'archivio chiavi e aggiungere i certificati manualmente. Creare un'impostazione dell'app, `SKIP_JAVA_KEYSTORE_LOAD`con un valore `1` per disabilitare il caricamento automatico dei certificati nell'archivio chiavi da parte del servizio app. Tutti i certificati pubblici caricati nel servizio app tramite il portale di Azure vengono archiviati in `/var/ssl/certs/`. I certificati privati vengono archiviati in `/var/ssl/private/`.
+Per inizializzare l'oggetto `import java.security.KeyStore`, caricare il file dell'archivio chiavi con la password. La password predefinita per entrambi gli archivi delle chiavi è "changeit".
 
-Per ulteriori informazioni sull'API dell'archivio chiavi, consultare [la documentazione ufficiale](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
+
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### <a name="manually-load-the-key-store"></a>Caricare manualmente l'archivio chiavi
+
+È possibile caricare manualmente i certificati nell'archivio chiavi. Creare un'impostazione dell'app, `SKIP_JAVA_KEYSTORE_LOAD`con un valore `1` per disabilitare il caricamento automatico dei certificati nell'archivio chiavi da parte del servizio app. Tutti i certificati pubblici caricati nel servizio app tramite il portale di Azure vengono archiviati in `/var/ssl/certs/`. I certificati privati vengono archiviati in `/var/ssl/private/`.
+
+È possibile interagire o eseguire il debug dello strumento chiave Java [aprendo una connessione SSH](app-service-linux-ssh-support.md) al servizio app ed eseguendo il comando `keytool`. Vedere la [documentazione dello strumento chiave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) per un elenco di comandi. Per ulteriori informazioni sull'API dell'archivio chiavi, consultare [la documentazione ufficiale](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Configurare le piattaforme APM
 
@@ -372,7 +386,7 @@ Lo script di avvio effettuerà una [trasformazione XSL](https://www.w3schools.co
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 Di seguito è riportato un esempio di file XSL. Il file XSL di esempio aggiunge un nuovo nodo connettore al file server. XML di Tomcat.

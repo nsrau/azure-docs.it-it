@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c72357b0e60f36082a468063ecf2bca329cd70be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355292"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749648"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -44,7 +44,7 @@ I clienti possono condividere feedback per la descrizione e la pertinenza dell'a
 
 ## <a name="audit-log"></a>Log di controllo
 
-La maggior parte delle attività di risoluzione dei problemi nel Centro sicurezza di Azure viene eseguita osservando prima di tutto i record del [log di controllo](../azure-monitor/platform/activity-logs-overview.md) del componente in cui si è verificato il problema. Tramite i log di controllo, è possibile determinare:
+La maggior parte delle attività di risoluzione dei problemi nel Centro sicurezza di Azure viene eseguita osservando prima di tutto i record del [log di controllo](../azure-monitor/platform/platform-logs-overview.md) del componente in cui si è verificato il problema. Tramite i log di controllo, è possibile determinare:
 
 * Quali operazioni sono state eseguite.
 * Chi ha avviato l'operazione.

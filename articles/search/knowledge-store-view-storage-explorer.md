@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/30/2019
-ms.openlocfilehash: 176f0f197db3393c4ef8c37d05234fce41a494e1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563208"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754076"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualizzare un archivio conoscenze con Storage Explorer
 
@@ -62,4 +62,4 @@ Connettere questo archivio informazioni a Power BI per un'analisi più approfond
 
 > [!div class="nextstepaction"]
 > [Connettersi con Power BI](knowledge-store-connect-power-bi.md)
-> [creare un archivio informazioni in Rest](knowledge-store-howto.md)
+> [creare un archivio informazioni in Rest](knowledge-store-create-rest.md)

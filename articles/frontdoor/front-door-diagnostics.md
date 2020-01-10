@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e379e67fb733c968a755afd245d079239f559c89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677902"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751412"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoraggio di metriche e log nel servizio front-end di Azure
 
@@ -25,20 +25,20 @@ Con il servizio front door di Azure è possibile monitorare le risorse nei modi 
 - **Metrics** (Metriche). Il front-end di Azure dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
 - **Log**. I log attività e di diagnostica consentono di salvare o utilizzare le prestazioni, l'accesso e altri dati da una risorsa a scopo di monitoraggio.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Metriche
 
 Le metriche sono una funzionalità per alcune risorse di Azure che consentono di visualizzare i contatori delle prestazioni nel portale. Di seguito sono riportate le metriche front-end disponibili:
 
-| Metrica | Nome visualizzato per la metrica | Unità | Dimensioni | Descrizione |
+| Metrica | Nome visualizzato per la metrica | Unità | Dimensioni | Description |
 | --- | --- | --- | --- | --- |
-| RequestCount | Conteggio richieste | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di richieste client gestite da Frontdoor.  |
+| RequestCount | Conteggio richieste | Conteggio | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di richieste client gestite da Frontdoor.  |
 | RequestSize | Dimensioni della richiesta | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di byte inviati come richieste dai client a Frontdoor. |
 | ResponseSize | Dimensioni della risposta | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di byte inviati come risposte da Frontdoor ai client. |
 | TotalLatency | Latenza totale | Millisecondi | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Tempo calcolato dalla richiesta client ricevuta dalla porta anteriore finché il client non ha riconosciuto l'ultimo byte di risposta da sportello anteriore. |
-| BackendRequestCount | Conteggio delle richieste del back-end | Count | HttpStatus</br>HttpStatusGroup</br>Back-end | Numero di richieste inviate da Frontdoor ai back-end. |
+| BackendRequestCount | Conteggio delle richieste del back-end | Conteggio | HttpStatus</br>HttpStatusGroup</br>Back-end | Numero di richieste inviate da Frontdoor ai back-end. |
 | BackendRequestLatency | Latenza della richiesta del back-end | Millisecondi | Back-end | Tempo calcolato dal momento dell'invio della richiesta al back-end da parte di Frontdoor al momento della ricezione da parte di Frontdoor dell'ultimo byte della risposta inviata dal back-end. |
-| BackendHealthPercentage | Percentuale di integrità del back-end | Percent | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
-| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Count | PolicyName</br>RuleName</br>Azione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
+| BackendHealthPercentage | Percentuale di integrità del back-end | Percentuale | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
+| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Azione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
 
 ## <a name="activity-log"></a>Log attività
 
@@ -59,7 +59,7 @@ Accedere ai log attività nel servizio front door o a tutti i log delle risorse 
 ## <a name="diagnostic-logging"></a>Log di diagnostica
 I log di diagnostica forniscono informazioni dettagliate sulle operazioni e sugli errori importanti per il controllo e la risoluzione dei problemi. I log di diagnostica sono diversi dai log attività.
 
-I log attività forniscono informazioni approfondite sulle operazioni eseguite sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Per altre informazioni, vedere [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/resource-logs-overview.md).
+I log attività forniscono informazioni approfondite sulle operazioni eseguite sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Per altre informazioni, vedere [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ![Log di diagnostica](./media/front-door-diagnostics/diagnostic-log.png)
 
@@ -73,7 +73,7 @@ Per configurare i log di diagnostica per il servizio front-door:
 
 Il servizio front door fornisce attualmente log di diagnostica (in batch ogni ora). I log di diagnostica forniscono singole richieste API a ogni voce con lo schema seguente:
 
-| Proprietà  | Descrizione |
+| Proprietà  | Description |
 | ------------- | ------------- |
 | ClientIp | Indirizzo IP del client che ha eseguito la richiesta. |
 | ClientPort | Porta IP del client che ha effettuato la richiesta. |

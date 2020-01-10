@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 12522de6bec4698f8a5b7a931bbc382f65a74265
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4ef268367d1c4c8808cbda3814c863940bcdc32b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537253"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771905"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>Interpretazione dei modelli per le esecuzioni locali e remote
 
@@ -362,7 +362,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
    [Importanza della funzionalità locale del dashboard di visualizzazione ![](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Riquadro **modelli**
-  1. Se il modello originale è stato registrato seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where), è possibile selezionare **modelli** nel riquadro a sinistra per visualizzarlo.
+  1. Se il modello originale è stato registrato seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), è possibile selezionare **modelli** nel riquadro a sinistra per visualizzarlo.
   1. Selezionare un modello e quindi la scheda **spiegazioni** per visualizzare il dashboard di visualizzazione spiegazione.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretazione in fase di inferenza
@@ -427,7 +427,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
 
 1. Distribuire l'immagine in una destinazione di calcolo attenendosi alla procedura seguente:
 
-   1. Se necessario, registrare il modello di stima originale seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+   1. Se necessario, registrare il modello di stima originale seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
    1. Creare un file di assegnazione dei punteggi.
 

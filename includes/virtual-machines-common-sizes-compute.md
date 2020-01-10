@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279178"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751956"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -31,7 +31,7 @@ Archiviazione Premium: supportata
 
 Caching archiviazione Premium: supportato
 
-| Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensioni             | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000/31 (32)           | 3200/47                | 2 / 875                 |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000/63 (64)           | 6400/95                | 2 / 1750               |
@@ -44,6 +44,15 @@ Caching archiviazione Premium: supportato
 
 <sup>1</sup> le macchine virtuali serie Fsv2 includono tecnologia Intel® Hyper-Threading.
 
-<sup>2</sup> l'uso di più di 64 vCPU richiede uno di questi sistemi operativi guest supportati: Windows Server 2016, Ubuntu 16,04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7,3 o Oracle Linux 7,3 con LIS 4.2.1.
+<sup>2</sup> l'uso di più di 64 vCPU richiede uno di questi sistemi operativi guest supportati:
+- Windows Server 2016 o versione successiva
+- Ubuntu 16,04 LTS o versioni successive, con kernel ottimizzato per Azure (kernel 4,15 o versione successiva)
+- SLES 12 SP2 o versione successiva
+- RHEL o CentOS versione 6,7 alla 6,10, con il pacchetto LIS fornito da Microsoft (o versioni successive) installato
+- RHEL o CentOS versione 7,3, con il pacchetto LIS fornito da Microsoft (o versioni successive) installato
+- RHEL o CentOS versione 7,6 o successiva
+- Oracle Linux con UEK4 o versione successiva
+- Debian 9 con il kernel di backports, Debian 10 o versione successiva
+- CoreOS con un kernel 4,14 o versione successiva
 
 <sup>3</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.

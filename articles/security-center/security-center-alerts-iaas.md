@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: b101fd30ddbdbf0f8fdf6e02394cb10b9af5f4b0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a5ed91cef6e49fcb71c35f2262479be45a018651
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666364"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754299"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Rilevamento delle minacce per VM e server nel centro sicurezza di Azure
 
@@ -41,7 +41,7 @@ Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e 
 
     Tuttavia, tramite l'analisi della memoria, è possibile rilevare questo tipo di attacco. Analizzando la memoria nel dump di arresto anomalo del sistema, il Centro sicurezza può rilevare le tecniche usate dagli attacchi. Ad esempio, l'attacco potrebbe tentare di sfruttare le vulnerabilità del software, accedere ai dati riservati e mantenersi nascosto in un computer compromesso. Il Centro sicurezza funziona con un effetto minimo sulle prestazioni degli host.
 
-    Per un elenco degli avvisi di analisi dei dump di arresto anomalo del sistema, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-crashdump).
+    Per informazioni dettagliate sugli avvisi di analisi dei dump di arresto anomalo del sistema, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-windows).
 
 * **Rilevamento** <a name="windows-fileless"></a> di attacchi non file: gli attacchi di file che hanno come destinazione gli endpoint sono comuni. Per evitare il rilevamento, gli attacchi con file inseriscono payload dannosi nella memoria. I payload degli utenti malintenzionati vengono mantenuti nella memoria dei processi compromessi ed eseguono un'ampia gamma di attività dannose.
 
@@ -49,7 +49,7 @@ Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e 
 
     Rileva l'evidenza di exploit, inserimento di codice ed esecuzione di payload dannosi. Il rilevamento di attacchi non file genera avvisi di sicurezza dettagliati per accelerare la valutazione degli avvisi, la correlazione e il tempo di risposta downstream. Questo approccio integra le soluzioni EDR basate su eventi, garantendo una maggiore copertura del rilevamento.
 
-    Per un elenco degli avvisi di rilevamento degli attacchi senza file, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-filelessattackdetect).
+    Per informazioni dettagliate sugli avvisi di rilevamento degli attacchi senza file, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-windows).
 
 > [!NOTE]
 > È possibile simulare gli avvisi di Windows scaricando il [PlayBook del Centro sicurezza di Azure: avvisi di sicurezza](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046).

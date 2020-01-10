@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: c4fe7a696461b617307c2cd87276a91d6a1edaeb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541465"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771633"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definire le pipeline di Machine Learning in YAML
 
@@ -439,4 +439,4 @@ Schedule:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [usare l'estensione CLI per Azure Machine Learning](service/reference-azure-machine-learning-cli.md).
+Informazioni su come [usare l'estensione CLI per Azure Machine Learning](reference-azure-machine-learning-cli.md).

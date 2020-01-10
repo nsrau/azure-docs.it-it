@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: af0c5a42b71829bbfd51d77c047af45c1df6fd4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363643"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750401"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -2324,4 +2324,4 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Metriche in Monitoraggio di Azure](data-platform.md)
 * [Create alerts on metrics](alerts-overview.md)
-* [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](resource-logs-overview.md)
+* [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](platform-logs-overview.md)

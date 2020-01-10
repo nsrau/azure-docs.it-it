@@ -3,23 +3,20 @@ title: Creare e caricare un VHD Linux basato su CentOS in Azure
 description: Come creare e caricare un disco rigido virtuale Azure (VHD) che contiene un sistema operativo Linux basato su CentOS.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/25/2019
-ms.author: szark
-ms.openlocfilehash: 1ac2b24649363538d2728f302941b5a4bf5dd357
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.author: mimckitt
+ms.openlocfilehash: a5a6dd7e451d3204c8ab2bd2eae95db93c2f0837
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534152"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750234"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su CentOS per Azure
 
@@ -81,7 +78,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 
-7. Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
+7. Assicurarsi che il servizio di rete venga eseguito all'avvio attivando il seguente comando:
 
     ```bash
     sudo chkconfig network on

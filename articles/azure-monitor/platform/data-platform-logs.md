@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 269744d5e9552d87c3fa619f33e02c833b3841be
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2772535ff5eb7cf1e50c40b8ff075f67e71e1326
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894165"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751007"
 ---
 # <a name="logs-in-azure-monitor"></a>Log in Monitoraggio di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "74894165"
 I log in monitoraggio di Azure sono particolarmente utili per l'esecuzione di analisi complesse tra i dati provenienti da un'ampia gamma di origini. Questo articolo descrive come sono strutturati i log in monitoraggio di Azure, cosa è possibile fare con i dati e identifica origini dati diverse che archiviano i dati nei log.
 
 > [!NOTE]
-> È importante distinguere tra i log di monitoraggio di Azure e le origini dei dati di log in Azure. Gli eventi a livello di sottoscrizione in Azure, ad esempio, vengono scritti in un [log attività](activity-logs-overview.md) che è possibile visualizzare dal menu monitoraggio di Azure. La maggior parte delle risorse scriverà le informazioni operative in un [log delle risorse](resource-logs-overview.md) che è possibile inviare in posizioni diverse. Log di monitoraggio di Azure è una piattaforma di dati di log che raccoglie log attività e log delle risorse insieme ad altri dati di monitoraggio per offrire analisi approfondite nell'intero set di risorse.
+> È importante distinguere tra i log di monitoraggio di Azure e le origini dei dati di log in Azure. Gli eventi a livello di sottoscrizione in Azure, ad esempio, vengono scritti in un [log attività](platform-logs-overview.md) che è possibile visualizzare dal menu monitoraggio di Azure. La maggior parte delle risorse scriverà le informazioni operative in un [log delle risorse](platform-logs-overview.md) che è possibile inviare in posizioni diverse. Log di monitoraggio di Azure è una piattaforma di dati di log che raccoglie log attività e log delle risorse insieme ad altri dati di monitoraggio per offrire analisi approfondite nell'intero set di risorse.
 
 ## <a name="what-are-azure-monitor-logs"></a>Che cosa sono i log di monitoraggio di Azure?
 
@@ -43,11 +43,11 @@ La tabella seguente elenca i diversi modi in cui è possibile usare i log in mon
 
 |  |  |
 |:---|:---|
-| Analisi | Usare [log Analytics](../log-query/get-started-portal.md) nel portale di Azure per scrivere [query di log](../log-query/log-query-overview.md) e analizzare i dati di log in modo interattivo usando il motore di analisi Esplora dati potente.<br>Usare la [console Application Insights Analytics](../app/analytics.md) nel portale di Azure per scrivere query di log e analizzare i dati di log in modo interattivo da Application Insights. |
+| Analizzare | Usare [log Analytics](../log-query/get-started-portal.md) nel portale di Azure per scrivere [query di log](../log-query/log-query-overview.md) e analizzare i dati di log in modo interattivo usando il motore di analisi Esplora dati potente.<br>Usare la [console Application Insights Analytics](../app/analytics.md) nel portale di Azure per scrivere query di log e analizzare i dati di log in modo interattivo da Application Insights. |
 | Visualizzare | Aggiungere i risultati della query con rendering come tabelle o grafici in un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md).<br>Creare una [cartella di lavoro](../app/usage-workbooks.md) per combinare più set di dati in un report interattivo. <br>Esportazione dei risultati di una query in [Power BI](powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.<br>Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttare il dashboard e combinarli con altre origini dati.|
-| Alert | Configurazione di una [regola di avviso per il log](alerts-log.md) che invia una notifica o esegue un'[azione automatica](action-groups.md) quando i risultati della query corrispondono a un risultato specifico.<br>Configurare una [regola di avviso](alerts-metric-logs.md) per la metrica per determinati log di dati di log estratti come metriche. |
+| Avviso | Configurazione di una [regola di avviso per il log](alerts-log.md) che invia una notifica o esegue un'[azione automatica](action-groups.md) quando i risultati della query corrispondono a un risultato specifico.<br>Configurare una [regola di avviso](alerts-metric-logs.md) per la metrica per determinati log di dati di log estratti come metriche. |
 | Recupero | Accedere ai risultati delle query di log da una riga di comando usando l' [interfaccia](/cli/azure/ext/log-analytics/monitor/log-analytics)della riga di comando<br>Accedere ai risultati delle query di log da una riga di comando usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accedere ai risultati delle query di log da un'applicazione personalizzata usando l' [API REST](https://dev.loganalytics.io/). |
-| Esportazione | Compilare un flusso di lavoro per recuperare i dati di log e copiarli in una posizione esterna usando app per la [logica](~/articles/logic-apps/index.yml). |
+| Esporta | Compilare un flusso di lavoro per recuperare i dati di log e copiarli in una posizione esterna usando app per la [logica](~/articles/logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Come sono strutturati i dati nei log di monitoraggio di Azure?
@@ -99,7 +99,7 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 | System Center Operations Manager | Connettere Operations Manager gruppo di gestione a monitoraggio di Azure per raccogliere dati di eventi e prestazioni dagli agenti locali nei log. Per informazioni dettagliate su questa configurazione, vedere [connettersi Operations Manager log Analytics](om-agents.md) . |
 
 
-### <a name="applications"></a>applicazioni
+### <a name="applications"></a>Applicazioni
 
 | Dati | Description |
 |:---|:---|

@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230678"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769218"
 ---
 # <a name="azure-functions-deployment-slots"></a>Slot di distribuzione di funzioni di Azure
 
-Gli slot di distribuzione di funzioni di Azure consentono all'app per le funzioni di eseguire istanze diverse denominate "slot". Gli slot sono ambienti diversi esposti tramite un endpoint disponibile pubblicamente. Viene sempre eseguito il mapping di un'istanza dell'app allo slot di produzione ed è possibile scambiare istanze assegnate a uno slot su richiesta. Le app per le funzioni in esecuzione nel piano di servizio app possono avere più slot, mentre in consumo è consentito un solo slot.
+Gli slot di distribuzione di funzioni di Azure consentono all'app per le funzioni di eseguire istanze diverse denominate "slot". Gli slot sono ambienti diversi esposti tramite un endpoint disponibile pubblicamente. Viene sempre eseguito il mapping di un'istanza dell'app allo slot di produzione ed è possibile scambiare istanze assegnate a uno slot su richiesta. Le app per le funzioni in esecuzione nel piano di servizio app possono avere più slot, mentre nel piano a consumo è consentito un solo slot.
 
 Di seguito viene illustrato il modo in cui le funzioni sono interessate dallo swapping degli slot:
 
@@ -72,7 +72,7 @@ Per creare un'impostazione di distribuzione, attenersi alla procedura seguente:
 - In *funzionalità della piattaforma > impostazioni generali*fare clic su **configurazione** .
 - Fare clic sul nome dell'impostazione che si vuole usare con lo slot corrente
 - Fare clic sulla casella di controllo **Impostazioni slot di distribuzione**
-- Fare clic su **OK**
+- Fare clic su **OK**.
 - Quando l'impostazione del pannello scompare, fare clic su **Salva** per conservare le modifiche
 
 ![Impostazione dello slot di distribuzione](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
@@ -81,14 +81,14 @@ Per creare un'impostazione di distribuzione, attenersi alla procedura seguente:
 
 Gli slot sono vuoti quando si crea uno slot. Per distribuire l'applicazione in uno slot, è possibile usare qualsiasi [tecnologia di distribuzione supportata](./functions-deployment-technologies.md) .
 
-## <a name="scaling"></a>Ridimensionamento
+## <a name="scaling"></a>Scalabilità
 
 Tutti gli slot si adattano allo stesso numero di ruoli di lavoro dello slot di produzione.
 
 - Per i piani a consumo, lo slot viene ridimensionato con l'app per le funzioni ridimensionata.
 - Per i piani di servizio app, l'app viene ridimensionata a un numero fisso di thread di lavoro. Gli slot vengono eseguiti nello stesso numero di processi di lavoro del piano dell'app.
 
-## <a name="add-a-slot"></a>Aggiungere uno slot
+## <a name="add-a-slot"></a>Aggiungi uno slot
 
 È possibile aggiungere uno slot tramite l' [interfaccia](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) della riga di comando o tramite il portale. I passaggi seguenti illustrano come creare un nuovo slot nel portale:
 
@@ -132,10 +132,10 @@ Usando l' [interfaccia](https://docs.microsoft.com/cli/azure/functionapp/deploym
 - [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [scambio](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [scambio automatico](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>Modificare il piano di servizio app
+## <a name="change-app-service-plan"></a>Cambia il piano di servizio app
 
 Con un'app per le funzioni in esecuzione in un piano di servizio app, è possibile modificare il piano di servizio app sottostante per uno slot.
 
@@ -154,7 +154,7 @@ Per modificare il piano di servizio app di uno slot, attenersi alla procedura se
 
 1. Selezionare un nuovo piano di servizio app o crearne uno nuovo
 
-1. Fare clic su **OK**
+1. Fare clic su **OK**.
 
     ![Modificare il piano di servizio app](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 

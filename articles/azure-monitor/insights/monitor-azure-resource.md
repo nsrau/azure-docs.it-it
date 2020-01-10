@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529695"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747302"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitoraggio delle risorse di Azure con monitoraggio di Azure
 Quando le applicazioni e i processi aziendali critici si basano sulle risorse di Azure, è opportuno monitorarle per la disponibilità, le prestazioni e il funzionamento. Questo articolo descrive i dati di monitoraggio generati dalle risorse di Azure e come è possibile usare le funzionalità di monitoraggio di Azure per analizzare e generare avvisi su questi dati.
@@ -57,8 +57,8 @@ Le risorse in Azure generano [log](../platform/data-platform-logs.md) e [metrich
 
 
 - [Metriche della piattaforma](../platform/data-platform-metrics.md) : valori numerici che vengono raccolti automaticamente a intervalli regolari e descrivono un aspetto di una risorsa in un determinato momento. 
-- [Log delle risorse](../platform/resource-logs-overview.md) : forniscono informazioni approfondite sulle operazioni eseguite all'interno di una risorsa di Azure (il piano dati), ad esempio il recupero di un segreto da un Key Vault o l'esecuzione di una richiesta a un database. Il contenuto e la struttura dei log delle risorse variano in base al servizio di Azure e al tipo di risorsa.
-- [Log attività](../platform/activity-logs-overview.md) : fornisce informazioni approfondite sulle operazioni su ogni risorsa di Azure nella sottoscrizione dall'esterno (il piano di gestione), ad esempio la creazione di una nuova risorsa o l'avvio di una macchina virtuale. Si tratta di informazioni su cosa, chi e quando per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione.
+- [Log delle risorse](../platform/platform-logs-overview.md) : forniscono informazioni approfondite sulle operazioni eseguite all'interno di una risorsa di Azure (il piano dati), ad esempio il recupero di un segreto da un Key Vault o l'esecuzione di una richiesta a un database. Il contenuto e la struttura dei log delle risorse variano in base al servizio di Azure e al tipo di risorsa.
+- [Log attività](../platform/platform-logs-overview.md) : fornisce informazioni approfondite sulle operazioni su ogni risorsa di Azure nella sottoscrizione dall'esterno (il piano di gestione), ad esempio la creazione di una nuova risorsa o l'avvio di una macchina virtuale. Si tratta di informazioni su cosa, chi e quando per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione.
 
 
 ## <a name="configuration-requirements"></a>Requisiti di configurazione
@@ -67,8 +67,8 @@ Le risorse in Azure generano [log](../platform/data-platform-logs.md) e [metrich
 Alcuni dati di monitoraggio vengono raccolti automaticamente, ma potrebbe essere necessario eseguire alcune configurazioni a seconda delle esigenze. Per informazioni specifiche su ogni tipo di dati di monitoraggio, vedere le informazioni riportate di seguito.
 
 - [Metriche della piattaforma](../platform/data-platform-metrics.md) : le metriche della piattaforma vengono raccolte automaticamente nelle [metriche di monitoraggio di Azure](../platform/data-platform-metrics.md) senza che sia necessaria alcuna configurazione. Creare un'impostazione di diagnostica per inviare le voci ai log di monitoraggio di Azure o inoltrarli all'esterno di Azure.
-- [Log delle](../platform/resource-logs-overview.md) risorse: i log delle risorse vengono generati automaticamente dalle risorse di Azure, ma non vengono raccolti senza un'impostazione di diagnostica.  Creare un'impostazione di diagnostica per inviare le voci ai log di monitoraggio di Azure o inoltrarli all'esterno di Azure.
-- [Log attività](../platform/activity-logs-overview.md) : il log attività viene raccolto automaticamente senza alcuna configurazione necessaria e può essere visualizzato nella portale di Azure. Creare un'impostazione di diagnostica per copiarla nei log di monitoraggio di Azure o per inviarli all'esterno di Azure.
+- [Log delle](../platform/platform-logs-overview.md) risorse: i log delle risorse vengono generati automaticamente dalle risorse di Azure, ma non vengono raccolti senza un'impostazione di diagnostica.  Creare un'impostazione di diagnostica per inviare le voci ai log di monitoraggio di Azure o inoltrarli all'esterno di Azure.
+- [Log attività](../platform/platform-logs-overview.md) : il log attività viene raccolto automaticamente senza alcuna configurazione necessaria e può essere visualizzato nella portale di Azure. Creare un'impostazione di diagnostica per copiarla nei log di monitoraggio di Azure o per inviarli all'esterno di Azure.
 
 ### <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
 Per raccogliere dati nei log di monitoraggio di Azure è necessaria un'area di lavoro Log Analytics. È possibile avviare il monitoraggio rapido del servizio creando una nuova area di lavoro, ma può essere utile usare un'area di lavoro che raccoglie dati da altri servizi. Per informazioni dettagliate sulla creazione di un'area di lavoro e sulla [progettazione della distribuzione dei log di monitoraggio di Azure](../platform/design-logs-deployment.md) , vedere [creare un'area di lavoro log Analytics nel portale di Azure](../learn/quick-create-workspace.md) . Se si usa un'area di lavoro esistente nell'organizzazione, sarà necessario disporre delle autorizzazioni appropriate, come descritto in [gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure](../platform/manage-access.md). 

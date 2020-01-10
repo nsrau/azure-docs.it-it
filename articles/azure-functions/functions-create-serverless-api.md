@@ -6,26 +6,26 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 8bb30da9be5a025f87e5c6d17e0233d0793f3acb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230688"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769269"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizzare un endpoint HTTP in funzioni di Azure
 
-Questo articolo illustra come funzioni di Azure consente di creare API altamente scalabili. Funzioni di Azure include una raccolta di trigger HTTP e binding integrati che semplificano la creazione di un endpoint in una varietà di linguaggi, inclusi Node.JS, C# e altri. In questo articolo verrà personalizzato un trigger HTTP per gestire azioni specifiche nella progettazione dell'API. Ci si preparerà inoltre a far crescere l'API integrandola con i proxy di Funzioni di Azure e a configurare API fittizie. Tutto ciò avviene nell'ambiente di calcolo senza server di Funzioni di Azure, pertanto non è necessario preoccuparsi della scalabilità delle risorse ma è possibile concentrarsi semplicemente sulla logica di API.
+Questo articolo illustra come funzioni di Azure consente di creare API altamente scalabili. Funzioni di Azure include una raccolta di trigger HTTP e binding incorporati, che semplificano la creazione di un endpoint in una varietà di linguaggi, tra cui node. js, C#e altro ancora. In questo articolo verrà personalizzato un trigger HTTP per gestire azioni specifiche nella progettazione dell'API. Ci si preparerà inoltre a far crescere l'API integrandola con i proxy di Funzioni di Azure e a configurare API fittizie. Tutto ciò avviene nell'ambiente di calcolo senza server di Funzioni di Azure, pertanto non è necessario preoccuparsi della scalabilità delle risorse ma è possibile concentrarsi semplicemente sulla logica di API.
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 La funzione risultante verrà usata per la parte restante di questo articolo.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedere a Azure
 
-Aprire il Portale di Azure. A tale scopo, accedere al link [https://portal.azure.com](https://portal.azure.com) con l'account di Azure.
+Aprire il portale di Azure. A tale scopo, accedere al link [https://portal.azure.com](https://portal.azure.com) con l'account di Azure.
 
 ## <a name="customize-your-http-function"></a>Personalizzare la funzione HTTP
 
@@ -37,7 +37,7 @@ Per impostazione predefinita, la funzione attivata da HTTP è configurata per ac
 
 1. Usare le impostazioni di trigger HTTP come specificato nella tabella.
 
-    | Campo | Valore di esempio | DESCRIZIONE |
+    | Campo | Valore di esempio | Description |
     |---|---|---|
     | Metodi HTTP consentiti | Metodi selezionati | Determina quali metodi HTTP possono essere usati per chiamare questa funzione |
     | Metodi HTTP selezionati | GET | Consente di usare solo i metodi HTTP selezionati per chiamare questa funzione |
@@ -47,7 +47,7 @@ Per impostazione predefinita, la funzione attivata da HTTP è configurata per ac
     > [!NOTE] 
     > Si noti che non è stato incluso il prefisso del percorso base `/api` nel modello di route e l'operazione viene gestita da un'impostazione globale.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 Altre informazioni sulla personalizzazione delle funzioni HTTP sono riportate in [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
@@ -88,7 +88,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.c
     > [!NOTE] 
     > Le impostazioni di app sono consigliate perché la configurazione dell'host eviti una dipendenza di ambiente hard-coded per il proxy. Usare le impostazioni dell'app significa che è possibile spostare la configurazione del proxy tra ambienti e saranno applicate le impostazioni dell'app specifiche dell'ambiente.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Creazione di un proxy nel front-end
 
@@ -97,7 +97,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.c
     ![Creazione di un proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Usare le impostazioni specificate nella tabella. 
 
-    | Campo | Valore di esempio | DESCRIZIONE |
+    | Campo | Valore di esempio | Description |
     |---|---|---|
     | Nome | HelloProxy | Nome descrittivo utilizzato solo per la gestione |
     | Modello di route | /api/remotehello | Determina quale route viene usata per chiamare questo proxy |
@@ -105,7 +105,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.c
     
 1. Si noti che Proxy non fornisce il prefisso del percorso di base `/api` e questo deve essere incluso nel modello di route.
 1. La sintassi `%HELLO_HOST%` fa riferimento all'impostazione di app creata in precedenza. L'URL risolto punterà alla funzione originale.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 1. È possibile provare il nuovo proxy copiando l'URL del proxy e testandolo nel browser o con il proprio client HTTP preferito.
     1. Per usare una funzione anonima:
         1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`

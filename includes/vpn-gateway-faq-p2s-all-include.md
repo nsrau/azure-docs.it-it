@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7dfa3df078ffe8aac3e63f14624a65a47b11a56a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 9b106ea43e6a11d616ed2212636975bbbbf65631
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353602"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752014"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN è possibile includere nella configurazione da punto sito?
 
@@ -35,12 +35,6 @@ Sono supportati i sistemi operativi client seguenti:
 * iOS
 
 [!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
-
-### <a name="what-should-i-do-if-i-am-getting-a-certificate-mismatch-when-connecting"></a>Quali operazioni è necessario eseguire se si verifica una mancata corrispondenza del certificato durante la connessione?
-
-Deselezionare **"verifica l'identità del server convalidando il certificato"** o **aggiungere l'FQDN del server insieme al certificato durante la** creazione manuale di un profilo. Per eseguire questa operazione, è possibile eseguire **RASPHONE** da un prompt dei comandi e selezionare il profilo dall'elenco a discesa.
-
-![da punto a sito](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificato server")
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>È possibile attraversare proxy e firewall con la funzionalità Da punto a sito
 
