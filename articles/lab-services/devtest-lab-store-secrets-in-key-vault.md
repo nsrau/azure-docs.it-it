@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f16d84f66f2da6094054d161f286070fc86a73b
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622915"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720124"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Archiviare segreti in un insieme di credenziali delle chiavi in Azure DevTest Labs
 Potrebbe essere necessario inserire un segreto complesso quando si usa Azure DevTest Labs: password per la macchina virtuale Windows, la chiave pubblica SSH per la macchina virtuale Linux o il token di accesso personale per clonare il repository Git tramite un artefatto. I segreti sono in genere lunghi e contengono caratteri casuali. Pertanto, l'immissione può essere difficile e poco pratica specialmente se si usa lo stesso segreto più volte.
 
 Per risolvere questo problema e mantenere i segreti in un luogo sicuro, DevTest Labs supporta l'archiviazione dei segreti in un [insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-overview.md). Quando un utente salva un segreto per la prima volta, il servizio DevTest Labs crea automaticamente un insieme di credenziali delle chiavi nello stesso gruppo di risorse che contiene il lab e archivia il segreto nell'insieme di credenziali delle chiavi. DevTest Labs crea un insieme di credenziali delle chiavi separato per ogni utente. 
+
+Si noti che l'utente Lab dovrà prima creare una macchina virtuale Lab prima di poter creare un segreto nell'insieme di credenziali delle chiavi. Questo perché il servizio DevTest lab deve associare l'utente del Lab a un documento utente valido prima di poter creare e archiviare i segreti nell'insieme di credenziali delle chiavi. 
+
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Salvare un segreto in Azure Key Vault
 Per salvare il segreto in Azure Key Vault procedere come segue:

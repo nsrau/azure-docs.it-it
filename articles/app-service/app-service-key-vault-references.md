@@ -6,17 +6,14 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f0d3d36d3489557f0a07e9400c59debb2dca7073
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671461"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728753"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
-
-> [!NOTE] 
-> I riferimenti Key Vault non sono attualmente disponibili nei piani a consumo Linux.
 
 Questo argomento illustra come usare i segreti da Azure Key Vault all'interno dell'applicazione di Servizio app o Funzioni di Azure senza che siano richieste modifiche al codice. [Azure Key Vault](../key-vault/key-vault-overview.md) è un servizio che supporta la gestione centralizzata dei segreti con controllo completo sui criteri di accesso e sulla cronologia di controllo.
 
@@ -190,7 +187,7 @@ Per ottenere altre informazioni, è anche possibile usare uno dei rilevatori pre
 ### <a name="using-the-detector-for-app-service"></a>Uso del detector per il servizio app
 
 1. Nel portale passare all'app.
-2. Selezionare **diagnostica e Risolvi i problemi**.
+2. Selezionare **Diagnostica e risoluzione dei problemi**.
 3. Scegliere **disponibilità e prestazioni** e selezionare **app Web in basso.**
 4. Individuare **Key Vault Application Settings Diagnostics** e fare clic su **altre informazioni**.
 
@@ -199,6 +196,6 @@ Per ottenere altre informazioni, è anche possibile usare uno dei rilevatori pre
 
 1. Nel portale passare all'app.
 2. Passare a **funzionalità della piattaforma.**
-3. Selezionare **diagnostica e Risolvi i problemi**.
+3. Selezionare **Diagnostica e risoluzione dei problemi**.
 4. Scegliere **disponibilità e prestazioni** e selezionare l'app per le **funzioni inattiva o segnalazione errori.**
 5. Fare clic su **Key Vault impostazioni applicazione diagnostica.**

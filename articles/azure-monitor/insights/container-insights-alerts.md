@@ -1,18 +1,14 @@
 ---
 title: Creare avvisi sulle prestazioni per il monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come creare avvisi personalizzati in base alle query di log per l'utilizzo della memoria e della CPU da monitoraggio di Azure per i contenitori.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/26/2019
-ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 01/07/2020
+ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841626"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730926"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come configurare gli avvisi per i problemi di prestazioni in monitoraggio di Azure per i contenitori
 
@@ -288,13 +284,14 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
 >
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **monitoraggio** dal riquadro sul lato sinistro. In **Insights**selezionare **contenitori**.
-3. Nella scheda **cluster monitorati** selezionare un cluster dall'elenco.
-4. Nel riquadro sul lato sinistro sotto **monitoraggio**selezionare **log** per aprire la pagina log di monitoraggio di Azure. Usare questa pagina per scrivere ed eseguire query Log Analytics di Azure.
-5. Nella pagina **logs** selezionare **+ nuova regola di avviso**.
-6. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logica non definita >** condizione predefinita del log personalizzato. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
-7. Incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** .
-8. Configurare l'avviso come segue:
+2. Nella portale di Azure cercare e selezionare **log Analytics aree di lavoro**.
+3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro che supporta monitoraggio di Azure per i contenitori. 
+4. Nel riquadro sul lato sinistro selezionare **log** per aprire la pagina log di monitoraggio di Azure. Usare questa pagina per scrivere ed eseguire query Log Analytics di Azure.
+5. Nella pagina **logs** incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** e quindi selezionare **Run (Esegui** ) per convalidare i risultati. Se non si esegue questo passaggio, l'opzione **+ nuovo avviso** non è disponibile per la selezione.
+6. Selezionare **+ nuovo avviso** per creare un avviso del log.
+7. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logica non definita >** condizione predefinita del log personalizzato. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
+8. Incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** .
+9. Configurare l'avviso come segue:
 
     1. Nell'elenco a discesa **In base a** selezionare **Unità di misura della metrica**. Una misura metrica crea un avviso per ogni oggetto nella query con un valore superiore alla soglia specificata.
     1. Per **condizione**selezionare **maggiore di**e immettere **75** come **soglia** iniziale di base per gli avvisi di utilizzo della CPU e della memoria. Per l'avviso di spazio su disco insufficiente immettere **90**. In alternativa, immettere un valore diverso che soddisfi i criteri.
@@ -302,11 +299,11 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
     1. Per configurare un avviso per l'utilizzo della CPU o della memoria del contenitore, in **Aggregate on**selezionare **containerName**. Per configurare l'avviso per nodo cluster su disco basso, selezionare **ClusterId**.
     1. Nella sezione **valutato in base** a impostare il valore del **periodo** su **60 minuti**. La regola viene eseguita ogni 5 minuti e restituisce i record creati nell'ultima ora dall'ora corrente. Impostazione del periodo di tempo su un'ampia finestra account per la potenziale latenza dei dati. Garantisce inoltre che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai attivato.
 
-9. Selezionare **per completare** la regola di avviso.
-10. Immettere un nome nel campo **Nome regola di avviso** . Specificare una **Descrizione** che fornisca dettagli sull'avviso. E selezionare un livello di gravità appropriato dalle opzioni fornite.
-11. Per attivare immediatamente la regola di avviso, accettare il valore predefinito per **Abilita regola al momento della creazione**.
-12. Selezionare un **gruppo di azioni** esistente o creare un nuovo gruppo. Questo passaggio garantisce che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso. Configurare in base alle modalità di gestione degli eventi imprevisti da parte del team operativo IT o DevOps.
-13. Selezionare **Crea regola di avviso** per completare la regola di avviso. L'esecuzione inizia immediatamente.
+10. Selezionare **per completare** la regola di avviso.
+11. Immettere un nome nel campo **Nome regola di avviso** . Specificare una **Descrizione** che fornisca dettagli sull'avviso. E selezionare un livello di gravità appropriato dalle opzioni fornite.
+12. Per attivare immediatamente la regola di avviso, accettare il valore predefinito per **Abilita regola al momento della creazione**.
+13. Selezionare un **gruppo di azioni** esistente o creare un nuovo gruppo. Questo passaggio garantisce che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso. Configurare in base alle modalità di gestione degli eventi imprevisti da parte del team operativo IT o DevOps.
+14. Selezionare **Crea regola di avviso** per completare la regola di avviso. L'esecuzione inizia immediatamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

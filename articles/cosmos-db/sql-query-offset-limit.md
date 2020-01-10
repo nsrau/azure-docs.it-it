@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873251"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732587"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Clausola limite OFFSET in Azure Cosmos DB
 
@@ -37,9 +37,9 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Osservazioni
   
-  Nella clausola limite OFFSET sono necessari sia il numero di OFFSET che il numero di limiti. Se viene utilizzata una clausola di `ORDER BY` facoltativa, il set di risultati viene prodotto facendo ignorare i valori ordinati. In caso contrario, la query restituirà un ordine fisso di valori. Attualmente questa clausola è supportata solo per le query all'interno di una singola partizione. le query tra partizioni non le supportano ancora.
+  Nella clausola limite OFFSET sono necessari sia il numero di OFFSET che il numero di limiti. Se viene utilizzata una clausola di `ORDER BY` facoltativa, il set di risultati viene prodotto facendo ignorare i valori ordinati. In caso contrario, la query restituirà un ordine fisso di valori. Questa clausola è ora supportata per le query all'interno di una singola partizione e per le query tra partizioni.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Ad esempio, di seguito viene illustrata una query che ignora il primo valore e restituisce il secondo valore (in ordine di nome della città residente):
 

@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786419"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732451"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -67,12 +67,12 @@ Questo articolo usa i termini seguenti:
 
 ### <a name="training-resources"></a>Risorse di formazione
 
-| resources| Collegamento e descrizione |
+| Risorse| Collegamento e descrizione |
 | - | - |
 | Webinar su richiesta| [Gestire le applicazioni aziendali con Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Informazioni su come Azure AD possibile ottenere l'accesso Single Sign-on alle applicazioni SaaS aziendali e procedure consigliate per il controllo dell'accesso. |
 | Video| [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Come distribuire il provisioning utenti in Active Directory di Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrazione di Salesforce con Azure AD: come automatizzare il provisioning degli utenti](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Corsi online| SkillUp online: [gestione delle identità](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Informazioni su come integrare Azure AD con molte applicazioni SaaS e proteggere l'accesso degli utenti a tali applicazioni. |
-| Documentazione| [Autenticazione moderna con Azure Active Directory per le applicazioni Web (riferimento per gli sviluppatori) 1 ° edizione](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Si tratta di una guida autorevole e approfondita per la creazione di soluzioni di autenticazione Active Directory per questi nuovi ambienti. |
+| Libri| [Autenticazione moderna con Azure Active Directory per le applicazioni Web (riferimento per gli sviluppatori) 1 ° edizione](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Si tratta di una guida autorevole e approfondita per la creazione di soluzioni di autenticazione Active Directory per questi nuovi ambienti. |
 | Esercitazioni| Vedere l' [elenco delle esercitazioni sull'integrazione di app Saas con Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
 | FAQ| [Domande frequenti](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sul provisioning utenti automatizzato |
 
@@ -138,7 +138,7 @@ La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica 
 
 ### <a name="plan-a-pilot"></a>Pianificare un progetto pilota
 
-È consigliabile che la configurazione iniziale del provisioning utenti automatico si trovi in un ambiente di test con un piccolo subset di utenti prima di ridimensionarlo a tutti gli utenti nell'ambiente di produzione.
+È consigliabile che la configurazione iniziale del provisioning utenti automatico si trovi in un ambiente di test con un piccolo subset di utenti prima di ridimensionarlo a tutti gli utenti nell'ambiente di produzione. Vedere le [procedure consigliate](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) per l'esecuzione di un progetto pilota.
 
 #### <a name="best-practices-for-a-pilot"></a>Procedure consigliate per un progetto pilota  
 
@@ -293,7 +293,7 @@ Gli amministratori devono controllare il report di riepilogo del provisioning pe
 
 Si consiglia di assumere la proprietà di e di utilizzare questi report in una cadenza che soddisfi i requisiti dell'organizzazione. Azure AD mantiene la maggior parte dei dati di controllo per 30 giorni.
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 Per risolvere eventuali problemi che possono verificarsi durante il provisioning, vedere i collegamenti seguenti:
 
@@ -319,7 +319,7 @@ Per risolvere eventuali problemi che possono verificarsi durante il provisioning
 
 * [Agente di provisioning di Azure AD Connect: cronologia delle versioni](https://docs.microsoft.com/azure/active-directory/manage-apps/provisioning-agent-release-version-history)
 
-#### <a name="resources"></a>resources
+#### <a name="resources"></a>Risorse
 
 * [Fornire commenti e suggerimenti sul prodotto](https://feedback.azure.com/forums/169401-azure-active-directory)
 

@@ -6,18 +6,26 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 74fcce412b2673a3ec9e4809cef018f1afbc3530
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 2f6203deb5e06ba69a3b4d06297d5e702992c79d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812831"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708057"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1,0 e 1,1 da usare con cache di Azure per Redis
 
 È disponibile un push a livello di settore verso l'uso esclusivo di Transport Layer Security (TLS) versione 1,2 o successiva. Le versioni di TLS 1,0 e 1,1 sono note come vulnerabili ad attacchi come BEAST e POODLE e per avere altre vulnerabilità comuni (CVE). Non supportano inoltre i moderni metodi di crittografia e i pacchetti di crittografia consigliati dagli standard di conformità PCI (Payment Card Industry). Questo [Blog sulla sicurezza di TLS](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) illustra alcune di queste vulnerabilità in modo più dettagliato.
 
-Anche se nessuna di queste considerazioni costituisce un problema immediato, è consigliabile interrompere l'uso di TLS 1,0 e 1,1 a breve. Cache di Azure per Redis smetterà di supportare queste versioni di TLS il 31 marzo 2020. Dopo tale data, l'applicazione dovrà usare TLS 1,2 o versione successiva per comunicare con la cache.
+Come parte di questo sforzo, verranno apportate le modifiche seguenti alla cache di Azure per redis:
+
+* A partire dal 13 gennaio 2020 verrà configurata la versione minima di TLS predefinita da 1,2 per le istanze di cache appena create.  A questo punto le istanze di cache esistenti non verranno aggiornate.  Se necessario, sarà possibile ripristinare [la versione minima di TLS](cache-configure.md#access-ports) a 1,0 o 1,1 per compatibilità con le versioni precedenti.  Questa modifica può essere eseguita tramite la portale di Azure o altre API di gestione.
+* A partire dal 31 marzo 2020 verrà interrotto il supporto delle versioni di TLS 1,0 e 1,1. Dopo questa modifica, l'applicazione dovrà usare TLS 1,2 o versione successiva per comunicare con la cache.
+
+Inoltre, nell'ambito di questa modifica, verrà rimosso il supporto per i gruppi di crittografia meno recenti e non sicuri.  Quando la cache è configurata con una versione minima di TLS 1,2, i gruppi di crittografia supportati saranno limitati a quanto segue.
+
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
 
 Questo articolo fornisce indicazioni generali su come rilevare le dipendenze da queste versioni precedenti di TLS e rimuoverle dall'applicazione.
 
@@ -42,15 +50,15 @@ Per impostazione predefinita, i client .NET Core di redis usano la versione più
 
 ### <a name="java"></a>Java
 
-I client Java Redis usano TLS 1,0 in Java versione 6 o versioni precedenti. JEDIS, lattuga e Radisson non possono connettersi alla cache di Azure per Redis se TLS 1,0 è disabilitato nella cache. Attualmente non esiste alcuna soluzione nota.
+I client Java Redis usano TLS 1,0 in Java versione 6 o versioni precedenti. JEDIS, lattuga e Redisson non possono connettersi alla cache di Azure per Redis se TLS 1,0 è disabilitato nella cache. Aggiornare il framework Java per usare le nuove versioni di TLS.
 
-In Java 7 o versioni successive, i client Redis non usano TLS 1,2 per impostazione predefinita, ma possono essere configurati. Lattuga e Radisson non supportano questa configurazione in questo momento. Si interrompono se la cache accetta solo connessioni TLS 1,2. JEDIS consente di specificare le impostazioni TLS sottostanti con il frammento di codice seguente:
+Per Java 7, i client Redis non usano TLS 1,2 per impostazione predefinita, ma possono essere configurati. JEDIS consente di specificare le impostazioni TLS sottostanti con il frammento di codice seguente:
 
 ``` Java
 SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
 SSLParameters sslParameters = new SSLParameters();
 sslParameters.setEndpointIdentificationAlgorithm("HTTPS");
-sslParameters.setProtocols(new String[]{"TLSv1", "TLSv1.1", "TLSv1.2"});
+sslParameters.setProtocols(new String[]{"TLSv1.2"});
  
 URI uri = URI.create("rediss://host:port");
 JedisShardInfo shardInfo = new JedisShardInfo(uri, sslSocketFactory, sslParameters, null);
@@ -59,6 +67,10 @@ shardInfo.setPassword("cachePassword");
  
 Jedis jedis = new Jedis(shardInfo);
 ```
+
+I client lattuga e Redisson non supportano ancora la specifica della versione di TLS, quindi verranno Interrompi se la cache accetta solo connessioni TLS 1,2. Le correzioni per questi client vengono esaminate, quindi controllare con questi pacchetti una versione aggiornata con questo supporto.
+
+In Java 8, per impostazione predefinita viene usato TLS 1,2 e non è necessario aggiornare la configurazione client nella maggior parte dei casi. Per essere sicuri, testare l'applicazione.
 
 ### <a name="nodejs"></a>Node.js
 

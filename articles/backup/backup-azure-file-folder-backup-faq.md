@@ -3,12 +3,12 @@ title: Backup di file e cartelle-domande comuni
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b66eb7bca3c9a57f6b44697aa0340cd852fc3db4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173052"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720362"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
@@ -66,7 +66,7 @@ Quando si rinomina un computer Windows, tutti i backup attualmente configurati v
 
 * È necessario registrare il nuovo nome del computer con l'insieme di credenziali per il backup.
 * Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione è un backup *completo* .
-* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual è la lunghezza massima del percorso file per il backup?
 
@@ -76,9 +76,9 @@ L'agente MARS si basa su NTFS e utilizza la specifica della lunghezza del FilePa
 
 L'agente MARS si basa su NTFS e supporta i [caratteri supportati](/windows/desktop/FileIO/naming-a-file#naming-conventions) nei nomi file e nei percorsi.
 
-### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Viene visualizzato l'avviso "backup di Azure non è stato configurato per questo server".
+### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Viene visualizzato l'avviso "backup di Azure non configurati per questo server"
 
-Questo avviso può essere visualizzato anche se sono stati configurati criteri di backup, quando le impostazioni di pianificazione del backup archiviate nel server locale non sono le stesse delle impostazioni archiviate nell'insieme di credenziali di backup.
+Questo avviso può essere visualizzato anche se sono stati configurati criteri di backup, quando le impostazioni di pianificazione del backup archiviate nel server locale non sono uguali a quelle archiviate nell'insieme di credenziali per il backup.
 
 * Quando il server o le impostazioni sono state ripristinate in uno stato valido noto, le pianificazioni di backup possono non essere sincronizzate.
 * Se viene visualizzato questo avviso, [configurare](backup-azure-manage-windows-server.md) di nuovo il criterio di backup e quindi eseguire un backup su richiesta per risincronizzare il server locale con Azure.
@@ -91,7 +91,7 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 
 * Lo spazio disponibile nei volumi della cartella della cache è uguale almeno al 5-10% delle dimensioni totali dei dati di backup.
 * Se lo spazio disponibile nel volume è inferiore al 5%, aumentare la dimensione del volume oppure spostare la cartella della cache in un volume con spazio sufficiente.
-* Se si esegue il backup dello stato del sistema Windows, sarà necessario disporre di un numero aggiuntivo di 30-35 GB di spazio libero nel volume contenente la cartella della cache.
+* Se si esegue il backup dello stato del sistema Windows, saranno necessari altri 30-35 GB di spazio libero nel volume contenente la cartella della cache.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Come verificare se la cartella Scratch è valida e accessibile
 
@@ -130,9 +130,9 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Dove si trova la cartella della cache?
 
-I percorsi seguenti per la cartella della cache non sono consigliati:
+Non è consigliabile usare i percorsi seguenti per la cartella della cache:
 
-* Condivisione di rete/supporti rimovibili: la cartella della cache deve essere locale nel server di cui è necessario eseguire il backup tramite il backup online. I percorsi di rete o i supporti rimovibili, ad esempio le unità USB, non sono supportati
+* Condivisione di rete/supporti rimovibili: la cartella della cache deve essere locale nel server di cui è necessario eseguire il backup tramite il backup online. I percorsi di rete o i supporti rimovibili come le unità USB non sono supportati.
 * Volumi offline: la cartella della cache deve essere online per il backup previsto con l'agente di backup di Azure
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Sono presenti attributi della cartella della cache che non sono supportati?
@@ -145,17 +145,53 @@ Per la cartella della cache non sono supportati gli attributi seguenti o le rela
 * Sparse
 * Reparse-Point
 
-La cartella della cache e il disco rigido virtuale dei metadati non hanno gli attributi necessari per l'agente di Backup di Azure.
+La cartella della cache e il VHD dei metadati non hanno gli attributi necessari per l'agente di backup di Azure.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>È possibile modificare la quantità di larghezza di banda usata per il backup?
 
-Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-configure-vault.md#enable-network-throttling).
+Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-configure-vault.md#enable-network-throttling)
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Ripristinare
+
+### <a name="manage"></a>Gestire
+
+**È possibile eseguire il ripristino se si dimentica la passphrase?**
+L'agente di backup di Azure richiede una passphrase (fornita durante la registrazione) per decrittografare i dati di cui è stato eseguito il backup durante il ripristino. Esaminare gli scenari seguenti per comprendere le opzioni per la gestione di una passphrase persa:
+
+| Computer originale <br> *(computer di origine in cui sono stati eseguiti i backup)* | Passphrase | Opzioni disponibili |
+| --- | --- | --- |
+| Disponibile |Lost |Se il computer originale (in cui sono stati eseguiti i backup) è disponibile e ancora registrato con lo stesso insieme di credenziali di servizi di ripristino, è possibile rigenerare la passphrase attenendosi alla [procedura](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)seguente.  |
+| Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
+
+Prendere in considerazione le condizioni seguenti:
+
+* Se si disinstalla e si registra di nuovo l'agente nello stesso computer originale con
+  * *Stessa passphrase*, sarà possibile ripristinare i dati di cui è stato eseguito il backup.
+  * *Passphrase diversa*, quindi non sarà possibile ripristinare i dati di cui è stato eseguito il backup.
+* Se si installa l'agente in un *computer diverso* con
+  * *Stessa passphrase* (usata nel computer originale), sarà possibile ripristinare i dati di cui è stato eseguito il backup.
+  * *Passphrase diversa*. non sarà possibile ripristinare i dati di cui è stato eseguito il backup.
+* Se il computer originale è danneggiato (evitando di rigenerare la passphrase tramite la console MARS), ma è possibile ripristinare o accedere alla cartella Scratch originale usata dall'agente MARS, potrebbe essere possibile ripristinare (se la password è stata dimenticata). Per ulteriore assistenza, contattare il supporto tecnico.
+
+**Ricerca per categorie ripristinare se è stato perso il computer originale (in cui sono stati eseguiti I backup)?**
+
+Se si ha la stessa passphrase (fornita durante la registrazione) del computer originale, è possibile ripristinare i dati di cui è stato eseguito il backup in una macchina alternativa. Esaminare gli scenari seguenti per comprendere le opzioni di ripristino.
+
+| Computer originale | Passphrase | Opzioni disponibili |
+| --- | --- | --- |
+| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino** > **un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
+
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?
 
 Se un processo di ripristino in corso viene annullato, il processo di ripristino viene arrestato. Tutti i file ripristinati prima dell'annullamento rimanere nella destinazione configurata (percorso originale o alternativo), senza rollback.
+
+### <a name="does-the-mars-agent-back-up-and-restore-acls-set-on-files-folders-and-volumes"></a>L'agente MARS esegue il backup e il ripristino degli ACL impostati su file, cartelle e volumi?
+
+* L'agente MARS esegue il backup degli ACL impostati su file, cartelle e volumi
+* Per l'opzione ripristino del volume, l'agente MARS fornisce un'opzione per ignorare il ripristino delle autorizzazioni ACL per il file o la cartella da ripristinare
+* Per le singole opzioni di ripristino di file e cartelle, l'agente MARS verrà ripristinato con le autorizzazioni ACL (non è possibile ignorare il ripristino ACL).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

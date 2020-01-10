@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8f7cd864d90b8ab17a180a00a7a6d4bb683da9be
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 35efbb8d4d97ab52abb20487d15a80985946c499
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873302"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732604"
 ---
 # <a name="lower-azure-cosmos-db"></a>INFERIORE (Azure Cosmos DB)
  Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli.  
-  
+
+La funzione di sistema inferiore non utilizza l'indice. Se si prevede di eseguire confronti frequenti senza distinzione tra maiuscole e minuscole, la funzione di sistema inferiore può utilizzare una quantità significativa di ur. In tal caso, anziché utilizzare la funzione di sistema più bassa per normalizzare i dati ogni volta per i confronti, è possibile normalizzare l'involucro al momento dell'inserimento. Quindi, una query come SELECT * FROM c dove LOWER (c. Name) =' Bob ' diventa semplicemente SELECT * FROM c WHERE c.name =' Bob '.
+
 ## <a name="syntax"></a>Sintassi
   
 ```sql
@@ -32,7 +34,7 @@ LOWER(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene illustrato come utilizzare `LOWER` in una query.  
   

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 76a87d539e19acc30944a6a896cb0e01f431fa37
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073572"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708356"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
 
@@ -70,7 +70,7 @@ Con i criteri di memorizzazione nella cache illustrati in questo esempio, la pri
 
 9. Nell'elemento **outbound** aggiungere il criterio seguente:
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     **durata** specifica l'intervallo di scadenza delle risposte memorizzate nella cache. In questo esempio l'intervallo è di **20** secondi.
 

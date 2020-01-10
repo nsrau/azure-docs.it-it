@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935057"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732383"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Usare il partizionamento per ottimizzare l'elaborazione con analisi di flusso di Azure
 
@@ -21,11 +21,11 @@ Questo articolo illustra come usare il partizionamento per ridimensionare la que
 Potrebbe non essere possibile usare la [parallelizzazione](stream-analytics-parallelization.md) se:
 
 * Non si controlla la chiave di partizione per il flusso di input.
-* L'origine "spruzza" input tra più partizioni che successivamente devono essere unite. 
-
-## <a name="how-to-repartition"></a>Come ripartizionare
+* L'origine "spruzza" input tra più partizioni che successivamente devono essere unite.
 
 Il partizionamento o il rimescolamento è necessario quando si elaborano i dati in un flusso non partizionato in base a uno schema di input naturale, ad esempio **PartitionID** per hub eventi. Quando si esegue la ripartizione, ogni partizione può essere elaborata in modo indipendente, che consente di scalare in modo lineare la pipeline di streaming.
+
+## <a name="how-to-repartition"></a>Come ripartizionare
 
 Per eseguire la ripartizione, utilizzare la parola chiave **in** dopo un'istruzione **Partition by** nella query. Nell'esempio seguente i dati vengono partizionati per **DeviceID** in un numero di partizioni pari a 10. L'hashing di **DeviceID** viene usato per determinare quale partizione deve accettare il sottoflusso. I dati vengono scaricati in modo indipendente per ogni flusso partizionato, supponendo che l'output supporti le Scritture partizionate e disponga di 10 partizioni.
 

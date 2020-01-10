@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: b874c0dcc1f394866e74b45e6bc335a25ce24499
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 42c637839172dab09a8721a93a67785a748afd2f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930022"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708903"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -37,7 +37,7 @@ L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i 
 
 - **Mancata corrispondenza nel numero di colonne tra l'origine e il sink**.
 
-    Esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV che contengono più o meno di sei colonne vengono rilevate come incompatibili e vengono ignorate.
+    Esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV contenenti più di sei colonne vengono rilevate come incompatibili e vengono ignorate.
 
 - **Violazione della chiave primaria per la scrittura in SQL Server/database SQL di Azure/Azure Cosmos DB**.
 
@@ -70,7 +70,7 @@ L'esempio seguente offre la definizione JSON per specificare di ignorare le righ
 }
 ```
 
-Proprietà | Description | Valori consentiti | Obbligatoria
+Proprietà | Description | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Specifica se ignorare o meno le righe incompatibili durante la copia. | Vero<br/>False (impostazione predefinita) | No
 redirectIncompatibleRowSettings | Un gruppo di proprietà che può essere specificato quando si vuole registrare le righe incompatibili. | &nbsp; | No

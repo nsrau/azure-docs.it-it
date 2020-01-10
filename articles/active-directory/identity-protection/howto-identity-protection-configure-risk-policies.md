@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 01/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382167"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707006"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: configurare e abilitare i criteri di rischio
 
 Come illustrato nell'articolo precedente, i [criteri di protezione delle identità](concept-identity-protection-policies.md) hanno due criteri di rischio che è possibile abilitare nella directory. 
 
-- Configura
+- Criteri di rischio di accesso
 - Criteri di rischio utente
 
 ![Pagina Panoramica sicurezza per abilitare i criteri di rischio di accesso e utente](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
@@ -31,7 +31,7 @@ Entrambi i criteri funzionano per automatizzare la risposta ai rilevamenti dei r
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Se l'organizzazione desidera consentire agli utenti di eseguire autonomamente la correzione quando vengono rilevati rischi, gli utenti devono essere registrati per la reimpostazione della password self-service e per Azure Multi-Factor Authentication. Per un'esperienza ottimale, è consigliabile [abilitare l'esperienza di registrazione delle informazioni di sicurezza combinata](../authentication/howto-registration-mfa-sspr-combined.md) . Consentire agli utenti di eseguire autonomamente il monitoraggio e l'aggiornamento a uno stato produttivo più rapidamente senza richiedere l'intervento dell'amministratore. Gli amministratori possono comunque visualizzare questi eventi ed esaminarli dopo il fatto. 
 
@@ -46,6 +46,8 @@ La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri 
 ## <a name="exclusions"></a>Esclusioni
 
 Tutti i criteri consentono di escludere gli utenti, ad esempio l' [accesso di emergenza o gli account amministratore break-Glass](../users-groups-roles/directory-emergency-access.md). Le organizzazioni possono determinare che devono escludere altri account da criteri specifici in base al modo in cui vengono usati gli account. Tutte le esclusioni devono essere esaminate regolarmente per verificare se sono ancora applicabili.
+
+I [percorsi di rete](../conditional-access/location-condition.md) attendibili configurati vengono usati da Identity Protection in alcuni rilevamenti dei rischi per ridurre i falsi positivi.
 
 ## <a name="enable-policies"></a>Abilita criteri
 

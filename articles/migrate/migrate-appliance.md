@@ -1,23 +1,20 @@
 ---
-title: Architettura Azure Migrate Appliance
+title: Appliance Azure Migrate
 description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 49545ca6c43c272c3fd84f8bee59b8617aae136d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c3ac39759cc096bb27535877084e14f4ed50cea9
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232561"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719580"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
 Questo articolo descrive l'appliance Azure Migrate. Si distribuisce l'appliance quando si usano Azure Migrate strumenti di valutazione e migrazione per individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. 
 
-[Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, oltre a offerte di fornitori di software indipendenti (ISV) di terze parti.
+[Azure Migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione ad Azure di carichi di lavoro e app locali, oltre che di VM del cloud privato/pubblico. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi.
 
 
 
@@ -25,36 +22,84 @@ Questo articolo descrive l'appliance Azure Migrate. Si distribuisce l'appliance 
 
 I tipi di appliance Azure Migrate e l'utilizzo sono i seguenti.
 
-**Distribuito come** | **Usata per** | **Dettagli**
---- | --- |  ---
-Macchina virtuale VMware | Valutazione delle VM VMware con lo strumento Azure Migrate assessment.<br/><br/> Migrazione senza agente di macchine virtuali VMware con lo strumento di migrazione di Azure Migrate server | Scaricare il modello OVA e importarlo in server vCenter per creare la macchina virtuale dell'appliance.
-Macchina virtuale Hyper-V | Valutazione delle VM Hyper-V con lo strumento Azure Migrate assessment. | Scaricare il disco rigido virtuale compresso e importarlo in Hyper-V per creare la macchina virtuale dell'appliance.
+**Scenario** | **Strumento** | **Usata per** 
+--- | --- 
+Macchina virtuale VMware | Azure Migrate: valutazione del server; Azure Migrate: migrazione del server | Individuare le macchine virtuali VMware<br/><br/> Individuare le app e le dipendenze<br/><br/> Raccolta dei metadati del computer e delle prestazioni per le valutazioni.<br/><br/> Eseguire la replica di macchine virtuali VMware con migrazione senza agenti.
+Macchina virtuale Hyper-V | Azure Migrate: valutazione del server | Individuare le VM Hyper-V<br/><br/> Raccolta dei metadati del computer e delle prestazioni per le valutazioni.
+Computer fisico |  Azure Migrate: strumento di valutazione |  Individuare i server fisici<br/><br/> Raccolta dei metadati del computer e delle prestazioni per le valutazioni.
 
-## <a name="appliance-access"></a>Accesso Appliance
+## <a name="appliance---vmware"></a>Appliance-VMware 
 
-Dopo aver configurato il dispositivo, è possibile accedere in modalità remota alla macchina virtuale dell'appliance tramite la porta TCP 3389. È anche possibile accedere in remoto all'app di gestione Web per l'appliance sulla porta 44368 con URL: `https://<appliance-ip-or-name>:44368`.
-
-## <a name="appliance-license"></a>Licenza Appliance
-L'Appliance viene fornita con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
-
-## <a name="appliance-agents"></a>Agenti Appliance
-Nell'appliance sono installati questi agenti.
-
-**Agent** | **Dettagli**
+**Requisito** | **VMware** 
 --- | ---
-Agente di individuazione | Raccoglie i dati di configurazione delle macchine virtuali locali
-Agente di valutazione | Consente di profilare l'ambiente locale per raccogliere i dati sulle prestazioni della macchina virtuale.
-Adapter di migrazione | Orchestra la replica della macchina virtuale e coordina la comunicazione tra le macchine virtuali e Azure.
-Gateway di migrazione | Invia i dati della macchina virtuale replicata in Azure.
+**Formato di download** | . OVA 
+**Collegamento per il download** | https://aka.ms/migrate/appliance/vmware 
+**Dimensioni del download** | 11,2 GB
+**License** | Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
+**Hardware** | Risorse su vCenter per allocare una macchina virtuale con 32 GB di RAM 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno. 
+**Valore hash** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**server vCenter/host** | La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.<br/><br/> server vCenter che esegue 5,5, 6,0, 6,5 o 6,7.
+**Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
+**Individuazione** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una singola server vCenter.
+**Componenti del dispositivo** | App di gestione: app Web in appliance per l'input dell'utente durante la distribuzione.<br/> Agente di individuazione: raccoglie i dati di configurazione del computer.<br/> Agente di valutazione: raccolta dei dati sulle prestazioni.<br/> DRA: Orchestra la replica della macchina virtuale e coordina la comunicazione tra computer/Azure.<br/> Gateway: Invia i dati replicati in Azure.<br/> Aggiornamento automatico del servizio: Aggiorna componenti (eseguito ogni 24 ore).
 
 
-## <a name="appliance-deployment-requirements"></a>Requisiti di distribuzione dell'appliance
+## <a name="appliance---hyper-v"></a>Appliance-Hyper-V
 
-- [Esaminare](migrate-support-matrix-vmware.md#assessment-appliance-requirements) i requisiti di distribuzione per un appliance VMware e gli URL a cui l'appliance deve accedere.
-- [Esaminare](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) i requisiti di distribuzione per un appliance Hyper-V e gli URL a cui l'appliance deve accedere.
+**Requisito** | **Hyper-V** 
+--- | ---
+**Formato di download** | Cartella compressa (con VHD)
+**Collegamento per il download** | https://aka.ms/migrate/appliance/hyperv 
+**Dimensioni del download** | 10 GB
+**License** | Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
+**Hardware** | Risorse nell'host Hyper-V per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.
+**Valore hash** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**Host Hyper-V** | Esecuzione di Windows Server 2012 R2 o versione successiva.
+**Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
+**Individuazione** | Un dispositivo può individuare fino a 5000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a un massimo di 300 host Hyper-V.
+**Componenti del dispositivo** | App di gestione: app Web in appliance per l'input dell'utente durante la distribuzione.<br/> Agente di individuazione: raccoglie i dati di configurazione del computer.<br/> Agente di valutazione: raccolta dei dati sulle prestazioni.<br/>  Aggiornamento automatico del servizio: Aggiorna componenti (esecuzione ogni 24 ore)
 
 
-## <a name="collected-performance-data-vmware"></a>Dati sulle prestazioni raccolti-VMware
+## <a name="appliance---physical"></a>Appliance-fisico
+
+**Requisito** | **Fisico** 
+--- | ---
+**Formato di download** | Cartella compressa (con script del programma di installazione di PowerShell)
+**Collegamento per il download** | [Collegamento per il download](https://go.microsoft.com/fwlink/?linkid=2105112)
+**Dimensioni del download** | 59,7 MB
+**Hardware** | Il computer che esegue l'appliance richiede 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione.
+**Valore hash** | MD5:96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+**Software** | Il computer appliance deve eseguire Windows Server 2016. Il server deve essere un server fisico dedicato o una macchina virtuale.
+**Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
+**Individuazione** | Un'appliance può individuare fino a 250 di server fisici.
+**Componenti del dispositivo** | App di gestione: app Web in appliance per l'input dell'utente durante la distribuzione.<br/> Agente di individuazione: raccoglie i dati di configurazione del computer.<br/> Agente di valutazione: raccolta dei dati sulle prestazioni.<br/>  Aggiornamento automatico del servizio: Aggiorna componenti (eseguito ogni 24 ore).
+**Accesso/porte** | Dopo aver configurato il dispositivo, le connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL:' https://< Appliance-IP-or-name >: 44368.<br/><br/> Connessioni in uscita sulla porta 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
+
+## <a name="url-access"></a>accesso con URL
+
+Il dispositivo Azure Migrate richiede la connettività a Internet.
+
+- Quando si distribuisce il dispositivo, Azure Migrate esegue un controllo della connettività agli URL riepilogati nella tabella seguente.
+- Se si usa un proxy basato su URL per connettersi a Internet, consentire l'accesso a questi URL, assicurandosi che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
+
+**URL** | **Dettagli**  
+--- | --- |
+*.portal.azure.com  | Passare al portale di Azure.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Accedere alla sottoscrizione di Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app Active Directory per l'appliance per comunicare con Azure Migrate.
+management.azure.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
+dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
+*.vault.azure.net | Gestisci i segreti nel Azure Key Vault.
+aka.ms/* | Consente l'accesso a collegamenti aka.
+download.microsoft.com/download | Consenti i download dal Download Microsoft.
+*.servicebus.windows.net | Comunicazione tra l'appliance e il servizio Azure Migrate.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connettersi agli URL del servizio Azure Migrate.
+*.blob.core.windows.net | Caricare i dati negli account di archiviazione.
+
+
+## <a name="collected-data---vmware"></a>Dati raccolti-VMware
+
+### <a name="collected-performance-data-vmware"></a>Dati sulle prestazioni raccolti-VMware
 
 Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance raccoglie e Invia ad Azure.
 
@@ -63,14 +108,14 @@ Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance rac
 Uso della CPU | cpu.usage.average | Costo/dimensioni VM consigliate
 Utilizzo della memoria | mem.usage.average | Costo/dimensioni VM consigliate
 Velocità effettiva lettura disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
-Velocità effettiva scrittura disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
+Velocità effettiva scritture disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Operazioni di lettura disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Operazioni di scrittura su disco al secondo | virtualDisk.numberWriteAveraged.average  | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Velocità effettiva di lettura NIC (MB al secondo) | net.received.average | Calcolo delle dimensioni della macchina virtuale
-Velocità effettiva scrittura NIC (MB al secondo) | net.transmitted.average  |Calcolo delle dimensioni della macchina virtuale
+Velocità effettiva Scritture NIC (MB al secondo) | net.transmitted.average  |Calcolo delle dimensioni della macchina virtuale
 
 
-## <a name="collected-metadata-vmware"></a>Metadati raccolti-VMware
+### <a name="collected-metadata-vmware"></a>Metadati raccolti-VMware
 
 > [!NOTE]
 > I metadati individuati dal dispositivo Azure Migrate vengono usati per semplificare le operazioni di ridimensionamento delle applicazioni durante la migrazione in Azure, l'analisi dell'idoneità di Azure, l'analisi delle dipendenze delle applicazioni e la pianificazione dei costi. Microsoft non utilizza questi dati in relazione a qualsiasi controllo di conformità delle licenze.
@@ -81,7 +126,7 @@ Di seguito è riportato l'elenco completo dei metadati delle macchine virtuali V
 --- | --- 
 **Dettagli computer** | 
 ID macchina virtuale | vm.Config.InstanceUuid 
-Nome della VM | vm.Config.Name
+Nome della VM. | vm.Config.Name
 ID server vCenter | VMwareClient.Instance.Uuid
 Descrizione macchina virtuale | vm.Summary.Config.Annotation
 Nome prodotto con licenza | vm.Client.ServiceContent.About.LicenseProductName
@@ -99,7 +144,7 @@ Valore chiave disco | disk.Key
 Numero Dikunit | disk.UnitNumber
 Valore chiave controller del disco | disk.ControllerKey.Value
 Gigabyte con provisioning | virtualDisk.DeviceInfo.Summary
-Nome del disco | Valore generato tramite disco. UnitNumber, disco. Chiave, disco. ControllerKey. VAlue
+Nome disco | Valore generato tramite disco. UnitNumber, disco. Chiave, disco. ControllerKey. VAlue
 Operazioni di lettura per secondo | virtualDisk.numberReadAveraged.average
 Operazioni di scrittura per secondo | virtualDisk.numberWriteAveraged.average
 Velocità effettiva lettura (MB al secondo) | virtualDisk.read.average
@@ -122,9 +167,9 @@ Dettagli Data Center per cartella host | ((Datacenter)container).HostFolder
 Dettagli cluster per host | ((ClusterComputeResource)container).Host
 Dettagli host per macchina virtuale | ((HostSystem)container).VM
 
+## <a name="collected-data---hyper-v"></a>Dati raccolti-Hyper-V
 
-
-## <a name="collected-performance-data-hyper-v"></a>Dati sulle prestazioni raccolti-Hyper-V
+### <a name="collected-performance-data-hyper-v"></a>Dati sulle prestazioni raccolti-Hyper-V
 
 > [!NOTE]
 > I metadati individuati dal dispositivo Azure Migrate vengono usati per semplificare le operazioni di ridimensionamento delle applicazioni durante la migrazione in Azure, l'analisi dell'idoneità di Azure, l'analisi delle dipendenze delle applicazioni e la pianificazione dei costi. Microsoft non utilizza questi dati in relazione a qualsiasi controllo di conformità delle licenze.
@@ -144,7 +189,7 @@ Scheda di rete virtuale Hyper-V | Byte inviati al secondo | Calcolo delle dimens
 - L'utilizzo della memoria è (pressione corrente * memoria fisica visibile Guest)/100.
 - I valori di utilizzo del disco e della rete vengono raccolti dai contatori delle prestazioni di Hyper-V elencati.
 
-## <a name="collected-metadata-hyper-v"></a>Metadati raccolti-Hyper-V
+### <a name="collected-metadata-hyper-v"></a>Metadati raccolti-Hyper-V
 
 Ecco l'elenco completo dei metadati della macchina virtuale Hyper-V che l'appliance raccoglie e Invia ad Azure.
 
@@ -162,7 +207,7 @@ Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | GuestIntr
 Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
 **Dettagli per disco** | 
 Identificatore disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | digitare
+Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Tipo
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Padre del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | ParentPath
 **Dettagli per NIC** | 
@@ -180,18 +225,17 @@ ID MAC NIC (schede di interfaccia di rete legacy) | Dati MsvmEmulatedEthernetPor
 
 L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il processo seguente.
 
-
 1. **Avvia individuazione**:
     - Quando si avvia l'individuazione nell'appliance Hyper-V, comunica con gli host Hyper-V sulle porte WinRM 5985 (HTTP) e 5986 (HTTPS).
     - Quando si avvia l'individuazione nell'appliance VMware, per impostazione predefinita comunica con il server vCenter sulla porta TCP 443. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarla nell'app Web Appliance.
 2. **Raccogliere i metadati e i dati sulle prestazioni**:
     - L'appliance usa una sessione di Common Information Model (CIM) per raccogliere i dati delle macchine virtuali Hyper-V dall'host Hyper-V sulle porte 5985 e 5986.
     - Per impostazione predefinita, l'appliance comunica con la porta 443 per raccogliere i dati delle macchine virtuali VMware dal server vCenter.
-3. **Invia dati**: il dispositivo invia i dati raccolti a Azure migrate server Assessment e Azure migrate migrazione del server sulla porta SSL 443.
+3. **Invia dati**: il dispositivo invia i dati raccolti a Azure migrate server Assessment e Azure migrate migrazione del server sulla porta SSL 443. Il dispositivo è in grado di connettersi ad Azure tramite Internet oppure è possibile usare ExpressRoute con peering pubblico/Microsoft.
     - Per i dati sulle prestazioni, l'appliance raccoglie i dati di utilizzo in tempo reale.
         - I dati sulle prestazioni vengono raccolti ogni 20 secondi per VMware e ogni 30 secondi per Hyper-V per ogni metrica delle prestazioni.
-        - Viene eseguito il rollup dei dati raccolti per creare un singolo punto dati per dieci minuti.
-        - Il valore di picco dell'utilizzo viene selezionato da tutti i punti dati di 20/30 secondi e inviato ad Azure per il calcolo della valutazione.
+        - Viene eseguito il rollup dei dati raccolti per creare un singolo punto dati per 10 minuti.
+        - Il valore di picco dell'utilizzo viene selezionato da tutti i punti dati da 20 a 30 secondi e inviato ad Azure per il calcolo della valutazione.
         - In base al valore percentile specificato nelle proprietà di valutazione (cinquantesimo/90/95/99 °), i punti di dieci minuti sono ordinati in ordine crescente e il valore percentile appropriato viene usato per calcolare la valutazione
     - Per la migrazione del server, l'appliance avvia la raccolta dei dati della macchina virtuale e la replica in Azure.
 4. Valutazione **e migrazione**: è ora possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure migrate Assessment server. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.

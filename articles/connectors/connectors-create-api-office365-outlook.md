@@ -1,91 +1,93 @@
 ---
 title: Connettersi a Office 365 Outlook
-description: Gestire posta elettronica, contatti e calendari con le API REST di Office 365 e App per la logica di Azure
+description: Automatizzare le attività e i flussi di lavoro che gestiscono la posta elettronica, i contatti e i calendari in Office 365 Outlook usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/08/2020
 tags: connectors
-ms.openlocfilehash: 858366947fe21a20d6f112fc51899d1533a36472
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789589"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732695"
 ---
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Guida introduttiva al connettore Outlook di Office 365
-Il connettore Office 365 Outlook consente l'interazione con Outlook in Office 365. Usare questo connettore per creare, modificare e aggiornare i contatti e gli elementi del calendario e anche per ottenere, inviare e rispondere ai messaggio di posta elettronica.
+# <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gestire la posta elettronica, i contatti e i calendari in Office 365 Outlook usando app per la logica di Azure
 
-Con Office 365 Outlook è possibile:
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Outlook per Office 365](/connectors/office365connector/)è possibile creare attività e flussi di lavoro automatizzati per gestire l'account di Office 365 compilando app per la logica. Ad esempio, è possibile automatizzare queste attività:
 
-* Creare il flusso di lavoro usando le funzionalità di posta elettronica e calendario in Office 365. 
-* Usare i trigger per avviare il flusso di lavoro quando è presente un nuovo messaggio di posta elettronica, quando viene aggiornato un elemento del calendario e altro ancora.
-* Usare azioni per inviare un messaggio di posta elettronica, creare un nuovo evento del calendario e altro ancora. Ad esempio, quando è presente un nuovo oggetto in Salesforce (trigger), inviare un messaggio di posta elettronica a Office 365 Outlook (azione). 
+* Ottenere, inviare e rispondere alla posta elettronica. 
+* Pianifica riunioni nel calendario.
+* Aggiungere e modificare i contatti. 
 
-Questo articolo illustra come usare il connettore Office 365 Outlook in un'app per la logica ed elenca i trigger e le azioni.
+È possibile usare qualsiasi trigger per avviare il flusso di lavoro, ad esempio quando arriva un nuovo messaggio di posta elettronica, quando viene aggiornato un elemento del calendario o quando si verifica un evento in un servizio di differenza, ad esempio Salesforce. È possibile usare azioni che rispondono all'evento trigger, ad esempio, inviare un messaggio di posta elettronica o creare un nuovo evento del calendario. 
 
 > [!NOTE]
-> Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.
-> 
-> 
+> Per automatizzare le attività per un account @outlook.com o @hotmail.com, usare il [connettore Outlook.com](../connectors/connectors-create-api-outlook.md).
 
-Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../logic-apps/logic-apps-overview.md) e [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="connect-to-office-365"></a>Connettersi a Office 365
-Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a Office 365 Outlook, è necessaria prima di tutto una *connessione* a Office 365. Per creare una connessione, immettere le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Pertanto, per creare la connessione a Office 365 Outlook, immettere le credenziali dell'account Office 365 Outlook.
+* Un [account Office 365](https://www.office.com/)
 
-## <a name="create-the-connection"></a>Creare la connessione
-> [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-> 
-> 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
-## <a name="use-a-trigger"></a>Usare un trigger
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. I trigger eseguono il "polling" del servizio agli intervalli e con la frequenza desiderati. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* App per la logica in cui si vuole accedere all'account Office 365 Outlook. Per avviare il flusso di lavoro con un trigger Office 365 Outlook, è necessario disporre di un'app per la [logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per aggiungere un'azione di Office 365 Outlook al flusso di lavoro, l'app per la logica deve avere già un trigger.
 
-1. Nell'app per la logica digitare "office 365" per ottenere l'elenco dei trigger:  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. Selezionare **Office 365 Outlook - All'avvio imminente di un prossimo evento**. Se esiste già una connessione, selezionare un calendario dall'elenco a discesa.
-   
-    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-   
-    Se viene chiesto di effettuare l'accesso, immettere i dettagli di accesso per creare la connessione. La sezione [Creare la connessione](connectors-create-api-office365-outlook.md#create-the-connection) di questo argomento elenca i passaggi necessari. 
-   
-   > [!NOTE]
-   > In questo esempio l'app per la logica viene eseguita quando viene aggiornato un evento del calendario. Per vedere i risultati del trigger, aggiungere un'altra azione che invia un SMS al proprio cellulare. Ad esempio, aggiungere l'azione di Twilio *Send message* (Invia messaggio) che invia un SMS 15 minuti prima dell'avvio dell'evento del calendario. 
-   > 
-   > 
-3. Selezionare il pulsante **Modifica** e impostare i valori **Frequenza** e **Intervallo**. Ad esempio, se si vuole che il trigger esegua il poll ogni 15 minuti, impostare **Frequenza** su **Minuto** e **Intervallo** su **15**. 
-   
-    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-4. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
+## <a name="add-a-trigger"></a>Aggiungere un trigger
 
-## <a name="use-an-action"></a>Usare un'azione
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un evento che avvia il flusso di lavoro nell'app per la logica. Questo esempio di app per la logica usa un trigger di polling che verifica la presenza di eventuali eventi del calendario aggiornati nell'account di posta elettronica, in base all'intervallo e alla frequenza specificati.
 
-1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
+1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica vuota nella finestra di progettazione dell'app per la logica.
+
+1. Nella casella di ricerca immettere `office 365 outlook` come filtro. Questo esempio consente **di selezionare l'avvio imminente di un prossimo evento**.
    
-    ![](./media/connectors-create-api-office365-outlook/add-action.png)
-2. Selezionare **Aggiungi un'azione**.
-3. Nella casella di testo digitare "office 365" per ottenere l'elenco di tutte le azioni disponibili.
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. Nell'esempio scegliere **Office 365 Outlook - Crea contatto**. Se esiste già una connessione, scegliere l'**ID cartella**, il **nome** e le altre proprietà:  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
-   
-    Se viene richiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-office365-outlook.md#create-the-connection) di questo argomento descrive queste proprietà. 
-   
-   > [!NOTE]
-   > In questo esempio si crea un nuovo contatto in Office 365 Outlook. Per creare il contatto è possibile usare l'output di un altro trigger. Ad esempio, aggiungere il trigger di SalesForce *When an object is created* (Quando viene creato un oggetto). Aggiungere quindi l'azione di Office 365 Outlook *Crea contatto* che usa i campi di SalesForce per creare il nuovo contatto in Office 365. 
-   > 
-   > 
-5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
+   ![Selezionare trigger per avviare l'app per la logica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
+
+1. Se viene richiesto di eseguire l'accesso, fornire le credenziali di Office 365 in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà del trigger.
+
+   Questo esempio Mostra come selezionare il calendario controllato dal trigger, ad esempio:
+
+   ![Configurare le proprietà del trigger](./media/connectors-create-api-office365-outlook/select-calendar.png)
+
+1. Nel trigger impostare i valori di **frequenza** e **intervallo** . Per aggiungere altre proprietà del trigger disponibili, ad esempio il **fuso orario**, selezionare le proprietà dall'elenco **Aggiungi nuovo parametro** .
+
+   Ad esempio, se si desidera che il trigger verifichi il calendario ogni 15 minuti, impostare **frequenza** su **minuto**e impostare **intervallo** su `15`. 
+
+   ![Impostare la frequenza e l'intervallo per il trigger](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
+
+Aggiungere ora un'azione che viene eseguita dopo il trigger attivato. Ad esempio, è possibile aggiungere l'azione di **invio del messaggio** Twilio, che invia un testo quando un evento del calendario inizia in 15 minuti.
+
+## <a name="add-an-action"></a>Aggiungere un'azione
+
+Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'operazione eseguita dal flusso di lavoro nell'app per la logica. Questo esempio di app per la logica crea un nuovo contatto in Office 365 Outlook. È possibile utilizzare l'output di un altro trigger o azione per creare il contatto. Si supponga, ad esempio, che l'app per la logica usi il trigger Dynamics 365 **quando viene creato un record**. È possibile aggiungere l'azione Office 365 Outlook **Crea contatto** e usare gli output del trigger Salesforce per creare il nuovo contatto.
+
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
+
+1. Per aggiungere un'azione come ultimo passaggio del flusso di lavoro, selezionare **nuovo passaggio**. 
+
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore sulla freccia tra questi passaggi. Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
+
+1. Nella casella di ricerca immettere `office 365 outlook` come filtro. Questo esempio Mostra come selezionare **Crea contatto**.
+
+   ![Selezionare l'azione da eseguire nell'app per la logica](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+
+1. Se viene richiesto di eseguire l'accesso, fornire le credenziali di Office 365 in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà dell'azione.
+
+   Questo esempio Mostra come selezionare la cartella contatti in cui l'azione crea il nuovo contatto, ad esempio:
+
+   ![Configurare le proprietà dell'azione](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
+
+   Per aggiungere altre proprietà dell'azione disponibili, selezionare le proprietà dall'elenco **Aggiungi nuovo parametro** .
+
+1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/office365connector/). 
+Per informazioni tecniche sui trigger, sulle azioni e sui limiti descritti nel file di spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227816"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708258"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -22,7 +22,7 @@ Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file di
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Cause 1: condivisione con limitazione delle richieste
 
-La quota predefinita in una condivisione Premium è 100 GiB, che fornisce 100 IOPS Baseline (con un potenziale aumento fino a 300 per un'ora). Per ulteriori informazioni sul provisioning e la relativa relazione con IOPS, vedere la sezione relativa alle condivisioni sottoposte a [provisioning](storage-files-planning.md#provisioned-shares) nella Guida alla pianificazione.
+La quota predefinita in una condivisione Premium è 100 GiB, che fornisce 100 IOPS Baseline (con un potenziale aumento fino a 300 per un'ora). Per ulteriori informazioni sul provisioning e la relativa relazione con IOPS, vedere la sezione relativa alle [condivisioni sottoposte a provisioning](storage-files-planning.md#provisioned-shares) nella Guida alla pianificazione.
 
 Per verificare se la condivisione è stata limitata, è possibile sfruttare le metriche di Azure nel portale.
 
@@ -41,6 +41,9 @@ Per verificare se la condivisione è stata limitata, è possibile sfruttare le m
 1. Aggiungere un filtro per **responseType** e verificare se le richieste hanno un codice di risposta **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
 
 ![Opzioni di metrica per le condivisioni file Premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+> [!NOTE]
+> Per ricevere un avviso se una condivisione file è limitata, vedere [come creare un avviso se una condivisione file è limitata](#how-to-create-an-alert-if-a-file-share-is-throttled).
 
 ### <a name="solution"></a>Soluzione
 
@@ -168,3 +171,38 @@ Maggiore della latenza prevista per l'accesso File di Azure per carichi di lavor
 ### <a name="workaround"></a>Soluzione alternativa
 
 - Installare l' [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponibile.
+
+## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Come creare un avviso se una condivisione file è limitata
+
+1. Nella [portale di Azure](https://portal.azure.com)fare clic su **monitoraggio**. 
+
+2. Fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
+
+3. Fare clic su **Seleziona** per selezionare la risorsa **account di archiviazione/file** che contiene la condivisione file su cui si vuole inviare l'avviso, quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
+
+4. Fare clic su **Aggiungi** per aggiungere una condizione.
+
+5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica **transazioni** .
+
+6. Nel pannello **Configura logica** per i segnali passare alla dimensione **tipo di risposta** , fare clic sull'elenco a discesa **valori dimensione** e selezionare **SuccessWithThrottling** (per SMB) o **ClientThrottlingError** (per REST). 
+
+  > [!NOTE]
+  > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata.  Per aggiungere il valore della dimensione, fare clic sul **+** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #6.
+
+7. Passare alla dimensione **condivisione file** , fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni di file su cui si vuole inviare l'avviso. 
+
+  > [!NOTE]
+  > Se la condivisione file è una condivisione file standard, l'elenco a discesa valori dimensione sarà vuoto perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione. 
+
+8. Definire i **parametri di avviso** (soglia, operatore, granularità e frequenza aggregazione) usati per valutare la regola di avviso della metrica e fare clic su **fine**.
+
+  > [!TIP]
+  > Se si usa una soglia statica, il grafico delle metriche può aiutare a determinare una soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
+
+9. Aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+
+10. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+
+11. Fare clic su **Crea regola di avviso** per creare l'avviso.
+
+Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

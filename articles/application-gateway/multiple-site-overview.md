@@ -4,19 +4,19 @@ description: Questo articolo offre una panoramica del supporto di più siti in u
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
+ms.date: 1/7/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0192d27ebfa696376ce79f90a6ceeb816dfb1e46
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835348"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719954"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
-L'hosting di più siti consente di configurare più applicazioni Web nella stessa istanza del gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente, il gateway applicazione gestisce il traffico per contoso.com e fabrikam.com da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
+L'hosting di più siti consente di configurare più di un'applicazione Web sulla stessa porta di un gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente, il gateway applicazione gestisce il traffico per contoso.com e fabrikam.com da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

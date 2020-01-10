@@ -1,5 +1,5 @@
 ---
-title: Benchmarking delle applicazioni nell'archiviazione su disco di Azure - dischi gestiti
+title: Benchmarking dell'applicazione in archiviazione su disco di Azure
 description: Informazioni sul processo di benchmarking delle applicazioni in Azure.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 600b456cd77d866f1365b7dadfa9ea2473db0fa4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 77e542e9bff399e58b433286385864478bcb5076
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698765"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719546"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarking di un disco
 
@@ -26,7 +26,6 @@ Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Procedere con l'articolo sulla progettazione per prestazioni elevate. In tale articolo viene descritto come creare un elenco di controllo analogo a quello per l'applicazione esistente per il prototipo. Usando gli strumenti di benchmarking è possibile simulare i carichi di lavoro e misurare le prestazioni nel prototipo dell'applicazione. Sarà quindi possibile determinare quale offerta di dischi può soddisfare o superare i requisiti relativi alle prestazioni per l'applicazione. Si potranno quindi implementare le stesse indicazioni per l'applicazione di produzione.
+Passare al nostro articolo sulla [progettazione per prestazioni elevate](premium-storage-performance.md).
 
-> [!div class="nextstepaction"]
-> Per iniziare, vedere l'articolo sulla [progettazione per prestazioni elevate](premium-storage-performance.md).
+In questo articolo viene creato un elenco di controllo simile all'applicazione esistente per il prototipo. Usando gli strumenti di benchmarking è possibile simulare i carichi di lavoro e misurare le prestazioni nel prototipo dell'applicazione. Sarà quindi possibile determinare quale offerta di dischi può soddisfare o superare i requisiti relativi alle prestazioni per l'applicazione. Si potranno quindi implementare le stesse indicazioni per l'applicazione di produzione.

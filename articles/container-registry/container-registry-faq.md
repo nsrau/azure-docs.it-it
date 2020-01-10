@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456401"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708309"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti sul Registro Azure Container
 
@@ -32,7 +32,7 @@ Sì. Di seguito è riportato [un modello](https://github.com/Azure/azure-quickst
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>L'analisi delle vulnerabilità di sicurezza per le immagini in ACR?
 
-Sì. Vedere la documentazione di [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sì. Vedere la documentazione del [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Ricerca per categorie configurare Kubernetes con Container Registry di Azure?
 
@@ -101,7 +101,7 @@ La propagazione delle modifiche alle regole del firewall richiede tempo. Dopo av
 - [Perché l'utilizzo della quota del registro di sistema non viene ridotto dopo l'eliminazione di immagini?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [Ricerca per categorie convalidare le modifiche della quota di archiviazione?](#how-do-i-validate-storage-quota-changes)
 - [Ricerca per categorie eseguire l'autenticazione con il registro di sistema quando si esegue l'interfaccia della riga di comando in un contenitore?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Azure Container Registry offre la configurazione solo TLS v 1.2 e come abilitare TLS v 1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [Come abilitare TLS 1,2?](#how-to-enable-tls-12)
 - [Azure Container Registry supporta l'attendibilità del contenuto?](#does-azure-container-registry-support-content-trust)
 - [Ricerca per categorie concedere l'accesso alle immagini pull o push senza autorizzazione per la gestione della risorsa del registro di sistema?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Ricerca per categorie abilitare la quarantena delle immagini automatica per un registro](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
@@ -181,13 +181,16 @@ Eseguire quindi l'autenticazione con il registro di sistema:
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Azure Container Registry offre la configurazione solo TLS v 1.2 e come abilitare TLS v 1.2?
+### <a name="how-to-enable-tls-12"></a>Come abilitare TLS 1,2?
 
-Sì. Abilitare TLS usando un client Docker recente (versione 18.03.0 e successive). 
+Abilitare TLS 1,2 usando qualsiasi client Docker recente (versione 18.03.0 e successive). 
+
+> [!IMPORTANT]
+> A partire dal 13 gennaio 2020, Azure Container Registry richiederà tutte le connessioni sicure da server e applicazioni per l'uso di TLS 1,2. Il supporto per TLS 1,0 e 1,1 verrà ritirato.
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>Il Registro Azure Container supporta Content Trust?
 
-Sì, è possibile usare immagini attendibili in Azure Container Registry, perché il [notatore Docker](https://docs.docker.com/notary/getting_started/) è stato integrato e può essere abilitato. Per informazioni dettagliate, vedere [attendibilità del contenuto in Azure container Registry](container-registry-content-trust.md).
+Sì, è possibile usare immagini attendibili in Azure Container Registry, perché [il notatore Docker](https://docs.docker.com/notary/getting_started/) è stato integrato e può essere abilitato. Per informazioni dettagliate, vedere [attendibilità del contenuto in Azure container Registry](container-registry-content-trust.md).
 
 
 ####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Dove si trova il file per l'identificazione personale?
@@ -357,10 +360,10 @@ Per informazioni dettagliate, vedere la [documentazione di Docker](https://docs.
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Le nuove autorizzazioni utente potrebbero non essere valide immediatamente dopo l'aggiornamento
 
-Quando si concedono nuove autorizzazioni (nuovi ruoli) a un'entità servizio, la modifica potrebbe non avere effetto immediato. Esistono due possibili motivi:
+Quando si concedono nuove autorizzazioni (nuovi ruoli) a un'entità servizio, la modifica potrebbe non avere effetto immediato. Le ragioni possibili sono due:
 
 * Ritardo dell'assegnazione di ruolo Azure Active Directory. Normalmente è veloce, ma potrebbero essere necessari pochi minuti a causa del ritardo della propagazione.
-* Ritardo delle autorizzazioni nel server del token ACR. Questa operazione potrebbe richiedere fino a 10 minuti. Per attenuare, è possibile `docker logout` e quindi eseguire di nuovo l'autenticazione con lo stesso utente dopo 1 minuto:
+* Ritardo delle autorizzazioni nel server del token ACR. Ciò potrebbe richiedere fino a 10 minuti. Per attenuare, è possibile `docker logout` e quindi eseguire di nuovo l'autenticazione con lo stesso utente dopo 1 minuto:
 
   ```bash
   docker logout myregistry.azurecr.io
@@ -427,14 +430,14 @@ Contattare l'amministratore di rete o verificare la configurazione e la connetti
 
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Perché la richiesta pull o push ha esito negativo con un'operazione non consentita?
 
-Ecco alcune senarios in cui le operazioni potrebbero non essere consentite:
-* I registri classici non sono più supportati. Eseguire l'aggiornamento a uno [SKU](https://aka.ms/acr/skus) supportati usando [AZ ACR Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) o il portale di Azure.
+Di seguito sono riportati alcuni scenari in cui le operazioni potrebbero non essere consentite:
+* I registri classici non sono più supportati. Eseguire l'aggiornamento a uno [SKU](https://aka.ms/acr/skus) supportati usando [AZ ACR update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) o il portale di Azure.
 * L'immagine o il repository potrebbe essere bloccato in modo che non possa essere eliminato o aggiornato. È possibile usare il comando [AZ ACR Show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) per visualizzare gli attributi correnti.
 * Alcune operazioni non sono consentite se l'immagine è in quarantena. Altre informazioni sulla [quarantena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Ricerca per categorie raccogliere tracce http in Windows?
 
-#### <a name="prerequisites"></a>prerequisiti
+#### <a name="prerequisites"></a>Prerequisiti
 
 - Abilitare la decrittografia di HTTPS in Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Abilitare Docker per l'uso di un proxy tramite l'interfaccia utente di Docker: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -495,7 +498,7 @@ Attualmente non è supportato GitLab per i trigger di origine.
 
 ## <a name="run-error-message-troubleshooting"></a>Eseguire la risoluzione dei problemi del messaggio di errore
 
-| Messaggio di errore | Guida per la risoluzione dei problemi |
+| Messaggio di errore | Guida alla risoluzione dei problemi |
 |---|---|
 |Nessun accesso è stato configurato per la macchina virtuale, pertanto non è stata trovata alcuna sottoscrizione|Questo problema può verificarsi se si usa `az login --identity` nell'attività ACR. Si tratta di un errore temporaneo che si verifica quando l'assegnazione di ruolo dell'identità gestita non è stata propagata. Attendere alcuni secondi prima di riprovare.|
 

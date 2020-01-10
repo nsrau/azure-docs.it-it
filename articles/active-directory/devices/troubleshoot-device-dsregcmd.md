@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379210"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707945"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd
 
@@ -28,10 +28,10 @@ Questa sezione elenca i parametri di stato di join del dispositivo. La tabella s
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Stato del dispositivo |
 | ---   | ---   | ---   | ---   |
-| SÌ | NO | NO | Azure AD aggiunto |
-| NO | NO | SÌ | Aggiunto a un dominio |
-| SÌ | NO | SÌ | Aggiunto AD ibrido |
-| NO | SÌ | SÌ | Unitamente a DRS locale |
+| YES | NO | NO | Azure AD aggiunto |
+| NO | NO | YES | Account di dominio |
+| YES | NO | YES | Aggiunto AD ibrido |
+| NO | YES | YES | Unitamente a DRS locale |
 
 > [!NOTE]
 > Lo stato Workplace Join (Azure AD registrato) viene visualizzato nella sezione "stato utente"
@@ -81,7 +81,7 @@ Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD a
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>Dettagli tenant
+## <a name="tenant-details"></a>Dettagli del tenant
 
 Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD aggiunto (non Azure AD registrato). Questa sezione elenca i dettagli del tenant comune quando un dispositivo viene aggiunto al Azure AD.
 
@@ -297,10 +297,22 @@ In questa sezione viene visualizzato l'output dei controlli di integrità di int
 
 ## <a name="ngc-prerequisite-check"></a>Controllo dei prerequisiti NGC
 
-Questa sezione esegue i controlli prerequisito per il provisioning di una chiave NGC. 
+Questa sezione esegue i controlli prerequisito per il provisioning di Windows Hello for business (WHFB). 
 
 > [!NOTE]
-> Non è possibile visualizzare i dettagli del controllo dei prerequisiti NGC in dsregcmd/status se l'utente ha già configurato le credenziali NGC.
+> Non è possibile visualizzare i dettagli del controllo dei prerequisiti di NGC in dsregcmd/status se l'utente è già stato configurato correttamente WHFB.
+
+- **IsDeviceJoined:** impostare su "Yes" Se il dispositivo è stato aggiunto al Azure ad.
+- **IsUserAzureAD:** impostare su "Yes" se l'utente connesso è presente in Azure ad.
+- **PolicyEnabled:** impostare su "Yes" Se il criterio WHFB è abilitato nel dispositivo.
+- **PostLogonEnabled:** impostare su "Yes" se la registrazione WHFB viene attivata in modo nativo dalla piattaforma. Se è impostato su "NO", significa che la registrazione di Windows Hello for business è attivata da un meccanismo personalizzato
+- **DeviceEligible:** impostare su "Sì" Se il dispositivo soddisfa i requisiti hardware per la registrazione con WHFB.
+- **SessionIsNotRemote:** impostare su "Yes" se l'utente corrente è connesso direttamente al dispositivo e non in remoto.
+- **CertEnrollment:** specifico per la distribuzione del trust tra certificati WHFB, che indica l'autorità di registrazione dei certificati per WHFB. Impostare su "autorità di registrazione" se l'origine del criterio WHFB è Criteri di gruppo, "gestione dei dispositivi mobili" se l'origine è MDM. "None" in caso contrario
+- **AdfsRefreshToken:** specifico per la distribuzione del trust tra certificati WHFB. Presente solo se CertEnrollment è "autorità di registrazione". Indica se il dispositivo ha un PRT aziendale per l'utente.
+- **AdfsRaIsReady:** specifico per la distribuzione del trust tra certificati WHFB.  Presente solo se CertEnrollment è "autorità di registrazione". Impostare su "YES" se ADFS è indicato nei metadati di individuazione che supporta WHFB *e* se è disponibile il modello di certificato di accesso.
+- **LogonCertTemplateReady:** specifico per la distribuzione del trust tra certificati WHFB. Presente solo se CertEnrollment è "autorità di registrazione". Impostare su "Sì" se lo stato del modello di certificato di accesso è valido e consente di risolvere i problemi relativi ad ADFS.
+- **PreReqResult:** -fornisce il risultato di tutte le valutazioni dei prerequisiti di WHFB. Impostare su "Esegui il provisioning" se la registrazione WHFB viene avviata come attività di post-accesso quando l'utente accede alla prossima volta.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Output controllo prerequisiti NGC di esempio
 

@@ -10,17 +10,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8239b25f5ebf94d7368190f3169d0637d9943df1
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842748"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720293"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
 
@@ -65,18 +64,18 @@ Prima di configurare G Suite per il provisioning utenti automatico con Azure AD,
 
     ![Selezionare Security (Sicurezza).][10]
 
-2. Nella pagina **Security** (Sicurezza) fare clic su **API Reference** (Riferimento API).
+1. Nella pagina **Security** (Sicurezza) fare clic su **API Reference** (Riferimento API).
 
     ![Selezionare API Reference (Riferimento API).][15]
 
-3. Selezionare **Enable API access**.
+1. Selezionare **Enable API access**.
 
     ![Selezionare API Reference (Riferimento API).][16]
 
    > [!IMPORTANT]
    > Per ogni utente di cui si intende eseguire il provisioning in G Suite, il nome utente in Azure AD **deve** essere associato a un dominio personalizzato. Ad esempio, nomi utente simili a bob@contoso.onmicrosoft.com non vengono accettati da G Suite. mentre bob@contoso.com viene accettato. È possibile modificare il dominio di un utente esistente seguendo le istruzioni riportate [qui](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
 
-4.  Dopo aver aggiunto e verificato i domini personalizzati desiderati con Azure AD, è necessario verificarli di nuovo con G Suite. Per verificare i domini in G Suite, fare riferimento alla procedura seguente:
+1. Dopo aver aggiunto e verificato i domini personalizzati desiderati con Azure AD, è necessario verificarli di nuovo con G Suite. Per verificare i domini in G Suite, fare riferimento alla procedura seguente:
 
     a. Nella [console di amministrazione di G Suite](https://admin.google.com/)selezionare **domini**.
 
@@ -94,11 +93,11 @@ Prima di configurare G Suite per il provisioning utenti automatico con Azure AD,
 
     e. Ripetere i passaggi precedenti per tutti i domini aggiuntivi che si intende aggiungere a G Suite.
 
-5. Determinare quindi l'account amministratore che si vuole usare per gestire il provisioning utenti in G Suite. Passare a **ruoli di amministratore**.
+1. Determinare quindi l'account amministratore che si vuole usare per gestire il provisioning utenti in G Suite. Passare a **ruoli di amministratore**.
 
     ![Selezionare Google Apps][26]
-    
-6. Per il **ruolo di amministratore** dell'account, modificare i **privilegi** per quel ruolo. Assicurarsi di abilitare tutti i **privilegi dell'API di amministratore** in modo che l'account possa essere usato per il provisioning.
+
+1. Per il **ruolo di amministratore** dell'account, modificare i **privilegi** per quel ruolo. Assicurarsi di abilitare tutti i **privilegi dell'API di amministratore** in modo che l'account possa essere usato per il provisioning.
 
     ![Selezionare Google Apps][27]
 
@@ -110,15 +109,15 @@ Per configurare G Suite per il provisioning utenti automatico con Azure AD, sar�
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+1. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **g Suite**, selezionare **g Suite** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca immettere **g Suite**, selezionare **g Suite** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![G Suite nell'elenco risultati](common/search-new-app.png)
 
@@ -138,65 +137,68 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **G Suite**.
+1. Nell'elenco di applicazioni selezionare **G Suite**.
 
     ![Collegamento di G Suite nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning**.
+1. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare **Modalità di provisioning** su **Automatico**.
+1. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali amministratore** selezionare **Autorizza**. Verrà aperta una finestra di dialogo di autorizzazione di Google in una nuova finestra del browser.
+1. Nella sezione **Credenziali amministratore** selezionare **Autorizza**. Verrà aperta una finestra di dialogo di autorizzazione di Google in una nuova finestra del browser.
 
     ![Autorizzare G Suite](media/google-apps-provisioning-tutorial/authorize.png)
 
-6. Confermare che si desidera concedere Azure AD autorizzazioni per apportare modifiche al tenant di G Suite. Selezionare **Accetto**.
+1. Confermare che si desidera concedere Azure AD autorizzazioni per apportare modifiche al tenant di G Suite. Selezionare **Accetto**.
 
     ![Verificare le autorizzazioni.][28]
 
-7. Nel portale di Azure selezionare **Test connessione** per verificare che Azure AD possa connettersi all'app. Se la connessione non riesce, verificare che l'account di G Suite disponga delle autorizzazioni di amministratore di team. Ripetere quindi il passaggio per l'**autorizzazione**.
+1. Nel portale di Azure selezionare **Test connessione** per verificare che Azure AD possa connettersi all'app. Se la connessione non riesce, verificare che l'account di G Suite disponga delle autorizzazioni di amministratore di team. Ripetere quindi il passaggio per l'**autorizzazione**.
 
-8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+1. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Salva**
+1. Fare clic su **Salva**.
 
-9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a G Suite**.
+1. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a G Suite**.
 
     ![Mapping utente G Suite](media/google-apps-provisioning-tutorial/usermappings.png)
 
-10. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a G Suite nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in G Suite per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+1. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a G Suite nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in G Suite per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
     ![Attributi utente di G Suite](media/google-apps-provisioning-tutorial/userattributes.png)
 
-11. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to G Suite**.
+1. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to G Suite**.
 
     ![Mapping del gruppo G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Esaminare gli attributi di gruppo sincronizzati da Azure AD a G Suite nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in G Suite per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche. L'interfaccia utente Visualizza il set predefinito di mapping degli attributi tra Azure AD e G Suite. È possibile scegliere di aggiungere altri attributi, ad esempio unità organizzativa, facendo clic su Aggiungi nuovo mapping. 
+1. Esaminare gli attributi di gruppo sincronizzati da Azure AD a G Suite nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in G Suite per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche. L'interfaccia utente Visualizza il set predefinito di mapping degli attributi tra Azure AD e G Suite. È possibile scegliere di aggiungere altri attributi, ad esempio unità organizzativa, facendo clic su Aggiungi nuovo mapping.
 
     ![Attributi gruppo G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-13. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Per abilitare il servizio di provisioning Azure AD per G Suite, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+1. Per abilitare il servizio di provisioning Azure AD per G Suite, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-15. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in G Suite scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+1. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in G Suite scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-16. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+1. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning in G Suite.
+
+> [!NOTE]
+> Se gli utenti dispongono già di un account personale/utente esistente che usa l'indirizzo di posta elettronica dell'utente Azure AD, potrebbe verificarsi un problema che potrebbe essere risolto usando lo strumento Google Transfer prima di eseguire la sincronizzazione della directory.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
@@ -211,7 +213,6 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
-
 
 <!--Image references-->
 

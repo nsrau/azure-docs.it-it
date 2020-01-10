@@ -1,19 +1,18 @@
 ---
 title: "Distribuire l'archiviazione BLOB nel modulo nel dispositivo: Azure IoT Edge"
 description: Distribuire un modulo di archiviazione BLOB di Azure al dispositivo IoT Edge per archiviare i dati nei dispositivi perimetrali.
-author: arduppal
-ms.author: arduppal
-ms.date: 08/07/2019
+author: kgremban
+ms.author: kgremban
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-manager: mchad
-ms.openlocfilehash: b89532038b00e28eb7c43232683349652af6bc3f
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fe09fb47a75ff9d412ffab2daafaf241a43443b4
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665866"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75729608"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuire l'archiviazione BLOB di Azure nel modulo IoT Edge al dispositivo
 
@@ -38,24 +37,32 @@ Il portale di Azure illustra la creazione di un manifesto di distribuzione e il 
 
 ### <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Il portale di Azure dispone di una procedura guidata che illustra la creazione di un manifesto di distribuzione, anziché compilare manualmente il documento JSON. Sono previsti tre passaggi: **Add modules** (Aggiungere moduli), **Specify routes** (Specificare route) e **Review deployment** (Verificare la distribuzione).
+Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Il portale di Azure dispone di una procedura guidata che illustra la creazione di un manifesto di distribuzione, anziché compilare manualmente il documento JSON. Include tre passaggi organizzati in schede: **moduli**, **Route**e **Revisione + creazione**.
 
 #### <a name="add-modules"></a>Aggiungere moduli
 
-1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
+1. Nella sezione **moduli IOT Edge** della pagina fare clic sull'elenco a discesa **aggiungi** e selezionare **IOT Edge modulo** per visualizzare la pagina **Aggiungi IOT Edge modulo** .
 
-1. Dai tipi di moduli nell'elenco a discesa selezionare **IOT Edge modulo**.
+2. Nella scheda **Impostazioni modulo** immettere un nome per il modulo e quindi specificare l'URI dell'immagine del contenitore:
 
-1. Specificare un nome per il modulo e quindi specificare l'immagine del contenitore:
+   Esempi:
+  
+   - **Nome del modulo IOT Edge**: `azureblobstorageoniotedge`
+   - **URI immagine**: `mcr.microsoft.com/azure-blob-storage:latest`
 
-   - **Nome** : azureblobstorageoniotedge
-   - **URI immagine** -MCR.Microsoft.com/Azure-BLOB-Storage:Latest
+   ![Impostazioni del modulo gemello](./media/how-to-deploy-blob/addmodule-tab1.png)
+
+   Non selezionare **Aggiungi** fino a quando non sono stati specificati i valori nelle schede **Impostazioni modulo**, **Opzioni di creazione contenitori**e **modulo gemello** , come descritto in questa procedura.
 
    > [!IMPORTANT]
    > Azure IoT Edge distingue tra maiuscole e minuscole quando si effettuano chiamate ai moduli e l'SDK di archiviazione usa anche il valore minuscolo. Anche se il nome del modulo in [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) è **AzureBlobStorageonIoTEdge**, la modifica del nome in minuscolo consente di garantire che le connessioni all'archivio BLOB di Azure nel modulo IOT Edge non vengano interrotte.
 
-1. I valori predefiniti per la **creazione di opzioni del contenitore** definiscono i binding della porta necessari per il contenitore, ma è necessario aggiungere anche le informazioni sull'account di archiviazione e un montaggio per l'archiviazione nel dispositivo. Sostituire il codice JSON predefinito nel portale con il codice JSON seguente:
+3. Nella scheda **Crea opzioni del contenitore** si fornirà il codice JSON per fornire informazioni sull'account di archiviazione e un montaggio per l'archiviazione nel dispositivo.
 
+   ![Impostazioni del modulo gemello](./media/how-to-deploy-blob/addmodule-tab3.png)
+
+   Copiare e incollare il codice JSON seguente nella casella, facendo riferimento alle descrizioni dei segnaposto nel passaggio successivo.
+  
    ```json
    {
      "Env":[
@@ -73,72 +80,71 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
    }
    ```
 
-1. Aggiornare il codice JSON copiato con le informazioni seguenti:
+4. Aggiornare il file JSON copiato per le **Opzioni di creazione del contenitore** con le informazioni seguenti:
 
-   - Sostituire `<your storage account name>` con un nome facile da ricordare. I nomi degli account devono avere una lunghezza di 3 e 24 caratteri, con lettere minuscole e numeri. Nessun spazio.
+   - Sostituire `<your storage account name>` con un nome facile da ricordare. I nomi degli account devono avere una lunghezza di 3 e 24 caratteri, con lettere minuscole e numeri. Nessuno spazio.
 
    - Sostituire `<your storage account key>` con una chiave Base64 a 64 byte. È possibile generare una chiave con strumenti quali [GeneratePlus](https://generate.plus/en/base64). Queste credenziali verranno usate per accedere all'archiviazione BLOB da altri moduli.
 
    - Sostituire `<storage mount>` in base al sistema operativo del contenitore. Specificare il nome di un [volume](https://docs.docker.com/storage/volumes/) o il percorso assoluto in una directory nel dispositivo IoT Edge in cui si desidera che il modulo BLOB archivi i suoi dati. Il montaggio di archiviazione esegue il mapping di una posizione nel dispositivo fornita a una posizione impostata nel modulo.
 
-     - Per i contenitori Linux, il formato è *\<percorso di archiviazione o volume >:/blobroot*. Ad esempio
-         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume:/blobroot** 
+     - Per i contenitori Linux, il formato è *\<percorso di archiviazione o volume >:/blobroot*. Ad esempio:
+         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume:/blobroot**
          - usare [Binding Mount](https://docs.docker.com/storage/bind-mounts/): **/SRV/containerdata:/blobroot**. Assicurarsi di seguire i passaggi per [concedere l'accesso alla directory all'utente del contenitore](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Per i contenitori di Windows, il formato è *\<percorso di archiviazione o volume >: C:/BlobRoot*. Ad esempio
-         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume: C:/blobroot**. 
+     - Per i contenitori di Windows, il formato è *\<percorso di archiviazione o volume >: C:/BlobRoot*. Ad esempio:
+         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume: C:/blobroot**.
          - usare [Bind mount](https://docs.docker.com/storage/bind-mounts/): **c:/ContainerData: c:/BlobRoot**.
          - Anziché utilizzare l'unità locale, è possibile eseguire il mapping del percorso di rete SMB. per ulteriori informazioni, vedere [utilizzo della condivisione SMB come archiviazione locale](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
      > Non modificare la seconda metà del valore di montaggio dell'archiviazione, che fa riferimento a una posizione specifica nel modulo. Il montaggio dell'archiviazione deve sempre terminare con **:/blobroot** per i contenitori Linux e **: C:/blobroot** per i contenitori di Windows.
 
-1. Impostare le proprietà [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) e [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) per il modulo copiando il codice JSON seguente e incollarlo nella casella delle **proprietà desiderate del modulo set del dispositivo gemello** . Configurare ogni proprietà con un valore appropriato, salvarla e continuare con la distribuzione. Se si usa il simulatore di IoT Edge, impostare i valori per le variabili di ambiente correlate per queste proprietà, che è possibile trovare nella sezione spiegazione di [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) e [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
+5. Nella scheda **Impostazioni dispositivi gemelli del modulo** copiare il codice JSON seguente e incollarlo nella casella.
+
+   ![Impostazioni del modulo gemello](./media/how-to-deploy-blob/addmodule-tab4.png)
+
+   Configurare ogni proprietà con un valore appropriato, come indicato dai segnaposto. Se si usa il simulatore di IoT Edge, impostare i valori per le variabili di ambiente correlate per queste proprietà, come descritto in [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) e [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    ```json
    {
-     "properties.desired": {
-       "deviceAutoDeleteProperties": {
-         "deleteOn": <true, false>,
-         "deleteAfterMinutes": <timeToLiveInMinutes>,
-         "retainWhileUploading":<true,false>
+     "deviceAutoDeleteProperties": {
+       "deleteOn": <true, false>,
+       "deleteAfterMinutes": <timeToLiveInMinutes>,
+       "retainWhileUploading": <true,false>
+     },
+     "deviceToCloudUploadProperties": {
+       "uploadOn": <true, false>,
+       "uploadOrder": "<NewestFirst, OldestFirst>",
+       "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+       "storageContainersForUpload": {
+         "<source container name1>": {
+           "target": "<target container name1>"
+         }
        },
-       "deviceToCloudUploadProperties": {
-         "uploadOn": <true, false>,
-         "uploadOrder": "<NewestFirst, OldestFirst>",
-         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "storageContainersForUpload": {
-           "<source container name1>": {
-             "target": "<target container name1>"
-           }
-         },
-         "deleteAfterUpload":<true,false>
-       }
+       "deleteAfterUpload": <true,false>
      }
    }
-
-      ```
-
-   ![impostare le opzioni di creazione di contenitori, proprietà deviceAutoDeleteProperties e deviceToCloudUploadProperties](./media/how-to-deploy-blob/iotedge-custom-module.png)
+   ```
 
    Per informazioni sulla configurazione di deviceToCloudUploadProperties e deviceAutoDeleteProperties dopo la distribuzione del modulo, vedere [modificare il modulo gemello](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Per ulteriori informazioni sulle proprietà desiderate, vedere [definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
 
-1. Selezionare **Salva**.
+6. Selezionare **Aggiungi**.
 
-1. Scegliere **Avanti** per proseguire con la sezione relativa alle route.
+7. Selezionare **Avanti: Route** per passare alla sezione route.
 
 #### <a name="specify-routes"></a>Specificare le route
 
-Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezione revisione.
+Mantenere le route predefinite e selezionare **Avanti: rivedere + crea** per passare alla sezione revisione.
 
 #### <a name="review-deployment"></a>Verificare la distribuzione
 
 La sezione relativa alla verifica mostra il manifesto della distribuzione JSON che è stato creato in base alle selezioni nelle due sezioni precedenti. Sono stati dichiarati anche due moduli che non sono stati aggiunti: **$edgeAgent** e **$edgeHub**. Questi due moduli costituiscono il [runtime di IoT Edge](iot-edge-runtime.md) e sono impostazioni predefinite obbligatorie in ogni distribuzione.
 
-Controllare le informazioni sulla distribuzione e quindi selezionare **Submit** (Invia).
+Esaminare le informazioni di distribuzione e quindi selezionare **Crea**.
 
 ### <a name="verify-your-deployment"></a>Verificare la distribuzione
 
-Dopo l'invio della distribuzione, si torna alla pagina **IoT Edge** dell'hub IoT.
+Dopo aver creato la distribuzione, tornare alla pagina **IOT Edge** dell'hub Internet.
 
 1. Selezionare il dispositivo IoT Edge impostato come destinazione della distribuzione per aprirne i dettagli.
 1. Nei dettagli del dispositivo verificare che il modulo di archiviazione BLOB sia elencato sia come **Specificato nella distribuzione** che come **Segnalato dal dispositivo**.
@@ -157,12 +163,12 @@ Azure IoT Edge fornisce modelli di Visual Studio Code per assistere allo svilupp
 
    Seguire i prompt nel riquadro comandi per creare la soluzione.
 
-   | Campo | Value |
+   | Campo | Valore |
    | ----- | ----- |
    | Selezionare la cartella | Scegliere il percorso nel computer di sviluppo per Visual Studio Code creare i file di soluzione. |
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **Existing Module (Enter full image URL)** (Modulo esistente - Immettere l'URL completo dell'immagine). |
-   | Provide a module name (Specificare un nome per il modulo) | Immettere un nome in lettere minuscole per il modulo, ad esempio **azureblobstorageoniotedge**.<br /><br />È importante usare un nome in lettere minuscole per il modulo Azure Blob Storage on IoT Edge. IoT Edge distingue tra maiuscole e minuscole nei riferimenti ai moduli e Storage SDK usa per impostazione predefinita caratteri minuscoli. |
+   | Provide a module name (Specificare un nome per il modulo) | Immettere un nome in lettere minuscole per il modulo, ad esempio **azureblobstorageoniotedge**.<br/><br/>È importante usare un nome in lettere minuscole per il modulo Azure Blob Storage on IoT Edge. IoT Edge distingue tra maiuscole e minuscole nei riferimenti ai moduli e Storage SDK usa per impostazione predefinita caratteri minuscoli. |
    | Provide Docker image for the module (Specificare l'immagine Docker per il modulo) | Specificare l'URI dell'immagine: **mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code usa le informazioni specificate per creare una soluzione IoT Edge e quindi la carica in una nuova finestra. Il modello di soluzione crea un modello di manifesto della distribuzione che include l'immagine del modulo di archiviazione BLOB, ma è necessario configurare le opzioni per la creazione del modulo.
@@ -188,18 +194,17 @@ Azure IoT Edge fornisce modelli di Visual Studio Code per assistere allo svilupp
 
       ![Aggiornare il modulo createOptions-Visual Studio Code](./media/how-to-deploy-blob/create-options.png)
 
-1. Sostituire `<your storage account name>` con un nome facile da ricordare. I nomi degli account devono avere una lunghezza di 3 e 24 caratteri, con lettere minuscole e numeri. Nessun spazio.
+1. Sostituire `<your storage account name>` con un nome facile da ricordare. I nomi degli account devono avere una lunghezza di 3 e 24 caratteri, con lettere minuscole e numeri. Nessuno spazio.
 
 1. Sostituire `<your storage account key>` con una chiave Base64 a 64 byte. È possibile generare una chiave con strumenti quali [GeneratePlus](https://generate.plus/en/base64). Queste credenziali verranno usate per accedere all'archiviazione BLOB da altri moduli.
 
 1. Sostituire `<storage mount>` in base al sistema operativo del contenitore. Specificare il nome di un [volume](https://docs.docker.com/storage/volumes/) o il percorso assoluto in una directory nel dispositivo IoT Edge in cui si desidera che il modulo BLOB archivi i suoi dati. Il montaggio di archiviazione esegue il mapping di una posizione nel dispositivo fornita a una posizione impostata nel modulo.  
 
-      
-     - Per i contenitori Linux, il formato è *\<percorso di archiviazione o volume >:/blobroot*. Ad esempio
-         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume:/blobroot** 
+     - Per i contenitori Linux, il formato è *\<percorso di archiviazione o volume >:/blobroot*. Ad esempio:
+         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume:/blobroot**
          - usare [Binding Mount](https://docs.docker.com/storage/bind-mounts/): **/SRV/containerdata:/blobroot**. Assicurarsi di seguire i passaggi per [concedere l'accesso alla directory all'utente del contenitore](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Per i contenitori di Windows, il formato è *\<percorso di archiviazione o volume >: C:/BlobRoot*. Ad esempio
-         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume: C:/blobroot**. 
+     - Per i contenitori di Windows, il formato è *\<percorso di archiviazione o volume >: C:/BlobRoot*. Ad esempio:
+         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume: C:/blobroot**.
          - usare [Bind mount](https://docs.docker.com/storage/bind-mounts/): **c:/ContainerData: c:/BlobRoot**.
          - Anziché utilizzare l'unità locale, è possibile eseguire il mapping del percorso di rete SMB. per ulteriori informazioni, vedere [utilizzo della condivisione SMB come archiviazione locale](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 

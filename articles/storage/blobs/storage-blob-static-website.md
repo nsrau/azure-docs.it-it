@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311213"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708163"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
@@ -50,19 +50,22 @@ I file nel contenitore di **$Web** fanno distinzione tra maiuscole e minuscole, 
 
 Gli utenti possono visualizzare il contenuto del sito da un browser usando l'URL pubblico del sito Web. È possibile trovare l'URL usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. Usare questa tabella come riferimento.
 
-|Strumento| Materiale sussidiario |
+|Strumento| Guida |
 |----|----|
-|**Portale di Azure** | [Trovare l'URL del sito Web usando il portale di Azure](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Azure portal** | [Trovare l'URL del sito Web usando il portale di Azure](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Interfaccia della riga di comando di Azure** | [Trovare l'URL del sito Web usando l'interfaccia della riga di comando di Azure](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Modulo di Azure PowerShell** | [Trovare l'URL del sito Web usando PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-L'URL del sito contiene un codice regionale. Ad esempio, l'URL `https://contosoblobaccount.z22.web.core.windows.net/` contiene il codice regionale `z22`.
+L'URL del sito contiene un codice regionale. Ad esempio, l'URL `https://contosoblobaccount.z22.web.core.windows.net/` contiene `z22`di codice regionale.
 
 Sebbene il codice debba rimanere nell'URL, è solo per uso interno e non sarà necessario usare tale codice in altro modo.
 
 Il documento di indice specificato quando si Abilita l'hosting di siti web statici viene visualizzato quando gli utenti aprono il sito e non specificano un file specifico (ad esempio: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 Se il server restituisce un errore 404 e non è stato specificato un documento di errore quando è stato abilitato il sito Web, all'utente viene restituita una pagina predefinita di 404.
+
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) non è supportato con il sito Web statico.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Effetti dell'impostazione del livello di accesso pubblico del contenitore Web
 
@@ -76,7 +79,7 @@ Sebbene l'endpoint del sito Web statico primario non sia interessato, una modifi
 
 Ad esempio, se si modifica il livello di accesso pubblico del contenitore **$Web** da **privato (nessun accesso anonimo)** a **BLOB (accesso in lettura anonimo solo per BLOB)** , il livello di accesso pubblico all'endpoint del sito Web statico primario `https://contosoblobaccount.z22.web.core.windows.net/index.html` non cambia.
 
-Tuttavia, l'accesso pubblico all'endpoint di servizio BLOB primario `https://contosoblobaccount.blob.core.windows.net/$web/index.html` passa da privato a pubblico. Ora gli utenti possono aprire il file usando uno di questi due endpoint.
+Tuttavia, l'accesso pubblico all'endpoint di servizio BLOB primario `https://contosoblobaccount.blob.core.windows.net/$web/index.html` viene modificato da privato a pubblico. Ora gli utenti possono aprire il file usando uno di questi due endpoint.
 
 ## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Rete per la distribuzione di contenuti (CDN) e supporto Secure Socket Layer (SSL)
 
@@ -99,7 +102,7 @@ Per informazioni dettagliate sull'hosting del dominio in Azure, vedere [ospitare
 
 È possibile abilitare l'hosting di siti web statici gratuitamente. Viene addebitato solo l'archiviazione BLOB utilizzata dal sito e i costi operativi. Per altri dettagli sui prezzi di Archiviazione BLOB di Azure, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Metriche
 
 È possibile abilitare le metriche nelle pagine statiche del sito Web. Dopo aver abilitato le metriche, le statistiche sul traffico sui file nel contenitore **$Web** vengono segnalate nel dashboard delle metriche.
 

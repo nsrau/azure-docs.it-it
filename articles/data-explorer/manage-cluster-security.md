@@ -7,22 +7,20 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: c6f7e921886a6acdaa31d0f69f57119c339c0b8b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 0f935999b68a7283c032d43c42d688b273d5c450
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172600"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720345"
 ---
-# <a name="secure-your-cluster-in-azure-data-explorer"></a>Proteggere il cluster in Azure Esplora dati
+# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Proteggere il cluster in Azure Esplora dati-portale di Azure
 
-[Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption-overview) consente di proteggere e salvaguardare i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Fornisce la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali del cluster. Si integra anche con [Azure Key Vault](/azure/key-vault/) che consente di controllare e gestire le chiavi e i segreti di crittografia del disco e di assicurarsi che tutti i dati nei dischi delle macchine virtuali siano crittografati quando sono inattivi in archiviazione di Azure. 
-
-Le impostazioni di sicurezza del cluster consentono di abilitare la crittografia del disco nel cluster.
+[Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption-overview) consente di proteggere e salvaguardare i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Fornisce la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali del cluster. Si integra anche con [Azure Key Vault](/azure/key-vault/), che consente di controllare e gestire le chiavi e i segreti di crittografia del disco e di assicurarsi che tutti i dati nei dischi delle macchine virtuali siano crittografati. 
   
-## <a name="enable-encryption-at-rest"></a>Abilitare la crittografia inattiva
+## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Abilitare la crittografia dei inattivi nella portale di Azure
   
-L'abilitazione della [crittografia](/azure/security/fundamentals/encryption-atrest) dei dati inattivi nel cluster garantisce la protezione dei dati archiviati (inattivi). 
+Le impostazioni di sicurezza del cluster consentono di abilitare la crittografia del disco nel cluster. L'abilitazione della [crittografia](/azure/security/fundamentals/encryption-atrest) dei dati inattivi nel cluster garantisce la protezione dei dati archiviati (inattivi). 
 
 1. Nella portale di Azure passare alla risorsa cluster di Azure Esplora dati. Sotto l'intestazione **Impostazioni** selezionare **sicurezza**. 
 

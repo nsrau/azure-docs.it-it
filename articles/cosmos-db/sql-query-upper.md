@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6b0f025948803a23c5b3c8bb6415c0e111b946b2
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9809a138a5e28eb069d545d39cfda815c915bd78
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349050"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728889"
 ---
 # <a name="upper-azure-cosmos-db"></a>SUPERIORE (Azure Cosmos DB)
  Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli.  
-  
+
+La funzione di sistema superiore non utilizza l'indice. Se si prevede di eseguire confronti frequenti senza distinzione tra maiuscole e minuscole, la funzione di sistema superiore può utilizzare una quantità significativa di ur. In tal caso, anziché utilizzare la funzione di sistema superiore per normalizzare i dati ogni volta per i confronti, è possibile normalizzare la combinazione di maiuscole e minuscole al momento dell'inserimento. Quindi, una query come SELECT * FROM c dove UPPER (c. Name) =' BOB ' diventa semplicemente SELECT * FROM c WHERE c.name =' BOB '.
+
 ## <a name="syntax"></a>Sintassi
   
 ```sql

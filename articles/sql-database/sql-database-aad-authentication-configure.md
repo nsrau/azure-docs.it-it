@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 11/06/2019
-ms.openlocfilehash: 76ca8a5d781c22279ccad633cc7c5bc98d645df8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 01/07/2020
+ms.openlocfilehash: dc2661bbc443201d6a2da4b5efb7ecdc2caad444
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901416"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732570"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurare e gestire l'autenticazione di Azure Active Directory con SQL
 
@@ -214,7 +214,7 @@ Il comando seguente rimuove l'amministratore di Azure AD per l'istanza gestita d
 Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È anche possibile eseguire il provisioning di un amministratore Azure AD per l'istanza gestita di SQL chiamando i comandi CLI seguenti:
 
@@ -287,7 +287,7 @@ Cmdlet usati per il provisioning e la gestione di Azure AD amministratore per il
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Restituisce informazioni sull'amministratore di Azure Active Directory attualmente configurato per il server di Azure SQL o Azure SQL Data Warehouse. |
 
-Usare il comando Get-Help di PowerShell per visualizzare altre informazioni per ognuno di questi comandi. Ad esempio `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
+Usare il comando Get-Help di PowerShell per visualizzare altre informazioni per ognuno di questi comandi. Ad esempio: `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
 Lo script seguente effettua il provisioning di un gruppo di amministratori di Azure AD denominato **DBA_Group** (ID oggetto `40b79501-b343-44ed-9ce7-da4c8cc7353f`) per il server **demo_server** in un gruppo di risorse denominato **Group-23**:
 
@@ -322,7 +322,7 @@ L'esempio seguente illustra come rimuovere un amministratore di Azure AD:
 Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile effettuare il provisioning di un amministratore Azure AD chiamando i comandi CLI seguenti:
 
@@ -345,14 +345,17 @@ Per ulteriori informazioni sui comandi dell'interfaccia della riga di comando, v
 È necessario installare il software seguente in tutti i computer client da cui le applicazioni o gli utenti si connettono al database SQL di Azure o ad Azure SQL Data Warehouse con le identità di Azure AD:
 
 - .NET Framework 4.6 o versioni successive da [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory Authentication Library per SQL Server (*ADALSQL.DLL*) è disponibile in più lingue (sia per x86 che per amd64) dall'Area download in [Microsoft Active Directory Authentication Library per Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory libreria di autenticazione per SQL Server (*adal. DLL*). Di seguito sono riportati i collegamenti di download per installare la versione più recente di SSMS, ODBC e driver di OLE DB che contiene *adal.* Libreria di dll.
+    1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+    1. [Driver ODBC 17 per SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
+    1. [OLE DB driver 18 per SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
 È possibile soddisfare questi requisiti tramite:
 
-- L'installazione di [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) o [SQL Server Data Tools per Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) soddisfa i requisiti di .NET Framework 4.6.
-- SSMS installa la versione x86 di *ADALSQL.DLL*.
-- SSDT installa la versione amd64 di *ADALSQL.DLL*.
-- L'ultima versione di Visual Studio disponibile nella pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) soddisfa i requisiti di .NET Framework 4.6, ma non installa la versione amd64 di *ADALSQL.DLL*richiesta.
+- L'installazione della versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) o [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) soddisfa il requisito .NET Framework 4,6.
+    - SSMS installa la versione x86 di *adal. DLL*.
+    - SSDT installa la versione amd64 di *adal. DLL*.
+    - La versione più recente di Visual Studio per i [download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) soddisfa i requisiti di .NET Framework 4,6, ma non installa la versione amd64 richiesta di *adal. DLL*.
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD
 
@@ -513,9 +516,13 @@ Le istruzioni seguenti eseguono la connessione usando la versione 13.1 di sqlcmd
 > `sqlcmd` con il comando `-G` non funziona con le identità di sistema e richiede un account di accesso dell'entità utente.
 
 ```cmd
-sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
+
+## <a name="troubleshooting-azure-ad-authentication"></a>Risoluzione dei problemi Autenticazione di Azure AD
+
+Informazioni aggiuntive sulla risoluzione dei problemi relativi a Autenticazione di Azure AD sono disponibili nel Blog seguente: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

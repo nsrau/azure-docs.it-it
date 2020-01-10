@@ -1,18 +1,14 @@
 ---
 title: Monitoraggio di Kubernetes con monitoraggio di Azure per contenitori | Microsoft Docs
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con monitoraggio di Azure per i contenitori.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: 1cd0223a16a6308e777e4a0167154e975202df7b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 01/07/2020
+ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872979"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75731017"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -24,13 +20,7 @@ Per informazioni su come abilitare monitoraggio di Azure per i contenitori, vede
 
 Monitoraggio di Azure offre una visualizzazione a più cluster che mostra lo stato di integrità di tutti i cluster Kubernetes monitorati che eseguono Linux e Windows Server 2019 distribuiti tra gruppi di risorse nelle sottoscrizioni. Mostra i cluster individuati in tutti gli ambienti che non sono monitorati dalla soluzione. È possibile comprendere immediatamente l'integrità del cluster e, da qui, è possibile eseguire il drill-down nella pagina delle prestazioni del nodo e del controller oppure spostarsi per visualizzare i grafici delle prestazioni per il cluster. Per i cluster AKS individuati e identificati come non monitorati, è possibile abilitare il monitoraggio in qualsiasi momento. 
 
-Le principali differenze nel monitoraggio di un cluster di Windows Server con monitoraggio di Azure per i contenitori rispetto a un cluster Linux sono le seguenti:
-
-- La metrica RSS di memoria non è disponibile per i nodi e i contenitori di Windows.
-- Le informazioni sulla capacità di archiviazione su disco non sono disponibili per i nodi Windows.
-- Il supporto per i log in tempo reale è disponibile ad eccezione dei log del contenitore di Windows.
-- Vengono monitorati solo gli ambienti Pod, non gli ambienti docker.
-- Con la versione di anteprima, sono supportati un massimo di 30 contenitori di Windows Server. Questa limitazione non si applica ai contenitori Linux. 
+Le principali differenze nel monitoraggio di un cluster di Windows Server con monitoraggio di Azure per i contenitori rispetto a un cluster Linux sono descritte [qui](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) nell'articolo introduttivo.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -76,23 +66,23 @@ Lo stato di integrità calcola lo stato complessivo del cluster come il *peggior
 
 Nella tabella seguente viene fornita una suddivisione del calcolo che controlla gli Stati di integrità per un cluster monitorato nella visualizzazione multicluster.
 
-| |Status |Disponibilità |  
+| |Stato |Disponibilità |  
 |-------|-------|-----------------|  
 |**Pod utente**| | |  
 | |Integro |100% |  
 | |Avviso |90 - 99% |  
 | |Critico |<90% |  
-| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |  
+| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |  
 |**Pod di sistema**| | |  
 | |Integro |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
-| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
+| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
 |**Node** | | |
 | |Integro |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
-| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
+| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
 
 Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **cluster** selezionando il nome del cluster. Passare quindi alla pagina prestazioni **nodi** selezionando il rollup dei nodi nella colonna **nodi** per quel cluster specifico. In alternativa, è possibile eseguire il drill-down nella pagina prestazioni **controller** selezionando il rollup della colonna **Pod utente** o **pod di sistema** .
 
@@ -100,7 +90,7 @@ Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **c
 
 L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **insights** > **cluster** dal riquadro a sinistra oppure quando è stato selezionato un cluster dalla visualizzazione a più cluster. Le informazioni sul cluster sono organizzate in quattro prospettive:
 
-- HDInsight
+- Cluster
 - Nodi 
 - Controller 
 - Contenitori
@@ -201,8 +191,8 @@ Le informazioni presentate quando si visualizza la scheda **nodi** sono descritt
 
 | Colonna | Description | 
 |--------|-------------|
-| name | Nome dell'host. |
-| Status | Visualizzazione Kubernetes dello stato del nodo. |
+| Nome | Nome dell'host. |
+| Stato | Visualizzazione Kubernetes dello stato del nodo. |
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Min, AVG, cinquantesimo, 90, 95, max | Valore effettivo del nodo medio basato sul percentile durante la durata selezionata. Il valore medio viene misurato in base al limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
 | Contenitori | Numero di contenitori. |
@@ -230,8 +220,8 @@ Le informazioni visualizzate quando si visualizzano i controller sono descritte 
 
 | Colonna | Description | 
 |--------|-------------|
-| name | Nome del controller.|
-| Status | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
+| Nome | Nome del controller.|
+| Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Contenitori | Numero totale di contenitori per il controller o il pod. |
@@ -242,7 +232,7 @@ Le informazioni visualizzate quando si visualizzano i controller sono descritte 
 
 Le icone nel campo stato indicano lo stato online dei contenitori.
  
-| Icona | Status | 
+| Icona | Stato | 
 |--------|-------------|
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|
 | ![Icona dello stato in attesa o sospesa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|
@@ -267,8 +257,8 @@ Le informazioni visualizzate quando si visualizzano i contenitori sono descritte
 
 | Colonna | Description | 
 |--------|-------------|
-| name | Nome del controller.|
-| Status | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| Nome | Nome del controller.|
+| Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Pod | Contenitore in cui è presente il pod.| 
@@ -279,7 +269,7 @@ Le informazioni visualizzate quando si visualizzano i contenitori sono descritte
 
 Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella tabella seguente.
  
-| Icona | Status |  
+| Icona | Stato |  
 |--------|-------------|  
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|  
 | ![Icona dello stato in attesa o sospesa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|  

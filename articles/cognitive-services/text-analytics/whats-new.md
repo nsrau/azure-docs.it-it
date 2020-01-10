@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6ef23c03f01cd8e83d4327f358eaf12209659ce8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 6fa7d6a93a56cc531df238a8580207ef7a89d5d0
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286449"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732621"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -35,7 +35,7 @@ La versione successiva di Named Entity Recognition (NER) è ora disponibile per 
 Il collegamento di entità supporta inglese e spagnolo. Il supporto del linguaggio NER varia in base al tipo di entità. 
 
 > [!div class="nextstepaction"]
-> [Altre informazioni su Named Entity Recognition V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)
+> [Altre informazioni su Named Entity Recognition V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>Anteprima pubblica di Analisi del sentiment V3-2019 ottobre
 
@@ -47,7 +47,7 @@ La [prossima versione di analisi del sentiment](https://westus.dev.cognitive.mic
 Supporta inglese (`en`), giapponese (`ja`), cinese semplificato (`zh-Hans`), cinese tradizionale (`zh-Hant`), francese (`fr`), Italiano (`it`), spagnolo (`es`), olandese (`nl`), portoghese (`pt`) e tedesco (`de`) ed è disponibile nelle aree geografiche seguenti: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`e `West US 2`. 
 
 > [!div class="nextstepaction"]
-> [Altre informazioni su Analisi del sentiment V3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
+> [Altre informazioni su Analisi del sentiment V3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

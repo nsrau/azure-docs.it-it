@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare insiemi di credenziali dei ser
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273385"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708523"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -17,7 +17,7 @@ Un insieme di credenziali dei Servizi di ripristino è un'entità che archivia i
 
 Per creare un insieme di credenziali dei servizi di ripristino:
 
-1. Accedere alla sottoscrizione nel [portale di Azure](https://portal.azure.com/).
+1. Accedere alla propria sottoscrizione nel [portale di Azure](https://portal.azure.com/).
 
 2. Nel menu a sinistra selezionare **Tutti i servizi**.
 
@@ -27,7 +27,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
     ![Inserire e selezionare le insiemi di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/all-services.png)
 
-    Verrà visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino nella sottoscrizione.
+    Viene visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
 
 4. Nel dashboard di **Insiemi di credenziali dei Servizi di ripristino** selezionare **Aggiungi**.
 
@@ -68,17 +68,59 @@ Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insiem
 
    - Se si usa Azure come endpoint di archiviazione di backup primario, è consigliabile continuare a usare l'impostazione con **ridondanza geografica** predefinita.
    - Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure.
-   - Altre informazioni sulla ridondanza [geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) .
+   - Altre informazioni sulla [ridondanza geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) .
 
 > [!NOTE]
 > Per modificare il **tipo di replica di archiviazione** (con ridondanza locale o con ridondanza geografica) per un insieme di credenziali di servizi di ripristino, è necessario eseguire prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata e non è possibile modificare il **tipo di replica di archiviazione**.
 
+## <a name="set-cross-region-restore"></a>Imposta ripristino tra aree
+
+Come una delle opzioni di ripristino, Cross Region Restore (CRR) consente di ripristinare le macchine virtuali di Azure in un'area secondaria, ovvero un' [area abbinata ad Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Questa opzione consente di:
+
+- eseguire esercitazioni in caso di requisiti di controllo o di conformità
+- ripristinare la macchina virtuale o il relativo disco in caso di emergenza nell'area primaria.
+
+Per scegliere questa funzionalità, selezionare **Abilita ripristino tra aree** nel pannello **configurazione backup** .
+
+Per questo processo, esistono implicazioni relative ai prezzi a livello di archiviazione.
+
+>[!NOTE]
+>Prima di iniziare:
+>
+>- Esaminare la [matrice di supporto](backup-support-matrix.md#cross-region-restore) per un elenco di tipi e aree gestiti supportati.
+>- La funzionalità di ripristino tra aree (CRR) è attualmente disponibile solo nell'area WCUS.
+>- CRR è una funzionalità di consenso esplicito a livello di insieme di credenziali GRS (disattivata per impostazione predefinita).
+>- Usare *"FeatureName": "CrossRegionRestore"* per eseguire l'onboarding della sottoscrizione a questa funzionalità.
+>- Se si esegue l'onboarding in questa funzionalità durante l'anteprima pubblica limitata, il messaggio di posta elettronica di approvazione della verifica includerà i dettagli relativi ai criteri tariffari.
+>- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
+>- Attualmente CRR è supportato solo per il tipo di gestione di backup-macchina virtuale di Azure ARM (la macchina virtuale di Azure classica non sarà supportata).  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
+
+### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree
+
+Un insieme di credenziali creato con ridondanza GRS include l'opzione per configurare la funzionalità di ripristino tra aree. Ogni insieme di credenziali GRS avrà un banner, che sarà collegato alla documentazione. Per configurare CRR per l'insieme di credenziali, passare al pannello configurazione backup che contiene l'opzione per abilitare questa funzionalità.
+
+ ![Banner di configurazione di backup](./media/backup-azure-arm-restore-vms/banner.png)
+
+1. Dal portale passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà.
+2. Per abilitare la funzionalità, fare clic su **Abilita ripristino tra aree in questo** insieme di credenziali.
+
+   ![Prima di fare clic su Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+
+   ![Dopo aver fatto clic su Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+
+Informazioni su come [visualizzare gli elementi di backup nell'area secondaria](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
+
+Informazioni su come eseguire [il ripristino nell'area secondaria](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+
+Informazioni su come [monitorare i processi di ripristino dell'area secondaria](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+
 ## <a name="modifying-default-settings"></a>Modifica delle impostazioni predefinite
 
-Si consiglia vivamente di rivedere le impostazioni predefinite per il **tipo di replica di archiviazione** e **le impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali. 
-* Per impostazione predefinita, il **tipo di replica di archiviazione** è impostato su con **ridondanza geografica**. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) . 
-* Per impostazione predefinita, l' **eliminazione** temporanea è **abilitata** negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) .
+Si consiglia vivamente di rivedere le impostazioni predefinite per il **tipo di replica di archiviazione** e **le impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali.
 
+- Per impostazione predefinita, il **tipo di replica di archiviazione** è impostato su con **ridondanza geografica**. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) .
+
+- Per impostazione predefinita, l' **eliminazione** temporanea è **abilitata** negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

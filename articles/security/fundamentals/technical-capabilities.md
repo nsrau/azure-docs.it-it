@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41289110049a7f907b76c8f9a8b2d9dc850f201c
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468069"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707204"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
@@ -71,7 +71,7 @@ Il [portale Azure Active Directory](https://aad.portal.azure.com/) è disponibil
 
 Di seguito sono riportate le principali funzionalità di gestione delle identità di Azure:
 
-- Single sign-on
+- Single Sign-On
 
 - Multi-Factor Authentication
 
@@ -85,7 +85,7 @@ Di seguito sono riportate le principali funzionalità di gestione delle identit�
 
 - Protezione dell’identità
 
-#### <a name="single-sign-on"></a>Single sign-on
+#### <a name="single-sign-on"></a>Single Sign-On
 
 L'accesso [Single Sign-On (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) consente di accedere a tutte le applicazioni e le risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
@@ -157,7 +157,7 @@ La fatturazione costituisce il punto di partenza per il controllo di accesso in 
 
 Le sottoscrizioni dispongono anche di un'associazione a una directory. Una directory definisce un set di utenti. Possono essere utenti dell'azienda o dell'istituto di istruzione che ha creato la directory oppure utenti esterni, ossia utenti con account Microsoft. Le sottoscrizioni sono accessibili da un sottogruppo di questi utenti della directory che sono stati nominati Amministratori del servizio (SA) o Co-amministratori (CA); l'unica eccezione è che, per motivi di compatibilità, gli account Microsoft (precedentemente Windows Live ID) possono essere nominati SA o CA senza essere presenti nella directory.
 
-Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero insufficiente di autorizzazioni impedisce ai dipendenti di svolgere efficientemente il proprio lavoro. Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) consente di risolvere questo problema offrendo una gestione specifica degli accessi per Azure.
+Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente impedisce ai dipendenti di svolgere il proprio lavoro in modo efficiente. Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) consente di risolvere questo problema offrendo una gestione specifica degli accessi per Azure.
 
 ![Accesso protetto alle risorse](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -171,7 +171,7 @@ Uno degli aspetti fondamentali della protezione dei dati nel cloud consiste nel 
 
 - Inattivi: sono inclusi tutti gli oggetti, i contenitori e i tipi di archiviazione di informazioni esistenti in forma statica nei supporti fisici, siano essi dischi magnetici o dischi ottici.
 
-- In transito: quando i dati vengono trasferiti tra componenti, percorsi o programmi, ad esempio sulla rete, attraverso un bus di servizio (da locale a cloud e viceversa, incluse le connessioni ibride, ad esempio ExpressRoute) o durante un processo di input/output , è pensata come in movimento.
+- In transito: quando i dati vengono trasferiti tra componenti, percorsi o programmi, ad esempio sulla rete, attraverso un bus di servizio (da locale a cloud e viceversa, incluse le connessioni ibride, ad esempio ExpressRoute) o durante un processo di input/output, è considerato come in movimento.
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
@@ -194,7 +194,7 @@ L'obiettivo della crittografia dei dati inattivi è crittografare tutti i dati. 
 > [!Note]
 > Non solo i "dati applicazione" o le "informazioni personali", ma tutti i dati correlati all'applicazione, inclusi i metadati degli account (mapping delle sottoscrizioni, informazioni relative al contratto, informazioni personali).
 
-Valutare quali risorse di archiviazione vengono usate per archiviare i dati, ad esempio:
+Valutare quali risorse di archiviazione vengono usate per archiviare i dati, Ad esempio:
 
 - Risorsa di archiviazione esterna (ad esempio, SQL Azure, DocumentDB, HDInsight, Data Lake e così via)
 
@@ -476,7 +476,7 @@ Esegue il monitoraggio di:
 
 - **Eventi e metriche personalizzati** scritti dall'utente stesso nel codice del client o del server per tenere traccia di eventi aziendali come gli articoli venduti o delle partite vinte.
 
-L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) consente di usare le risorse incluse nella soluzione come un gruppo.
+L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) consente di usare le risorse incluse nella soluzione come un gruppo.
 
 È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione.
 

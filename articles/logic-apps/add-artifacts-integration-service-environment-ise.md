@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793301"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732244"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Aggiungere elementi all'ambiente Integration Services (ISE) in app per la logica di Azure
 
-Dopo aver creato un [ambiente di Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), aggiungere elementi, ad esempio app per la logica, account di integrazione e connettori, in modo che possano accedere alle risorse nella rete virtuale di Azure.
+Dopo aver creato un [ambiente di Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), aggiungere elementi, ad esempio app per la logica, account di integrazione e connettori, in modo che possano accedere alle risorse nella rete virtuale di Azure. Ad esempio, i connettori ISE gestiti che diventano disponibili dopo la creazione di ISE non vengono visualizzati automaticamente nella finestra di progettazione dell'app per la logica. Prima di poter usare questi connettori ISE, è necessario [aggiungerli e distribuirli](#add-ise-connectors-environment) manualmente in ISE, in modo che vengano visualizzati nella finestra di progettazione dell'app per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -84,17 +84,17 @@ Per creare un account di integrazione che usa ISE, seguire questa procedura:
 
 ## <a name="add-ise-connectors"></a>Aggiungi connettori ISE
 
-È possibile aggiungere i connettori gestiti da Microsoft disponibili per l'uso in ISE, ma non distribuiti in ISE.
+I connettori gestiti da Microsoft che diventano disponibili dopo la creazione di ISE non vengono visualizzati automaticamente in selezione connettore nella finestra di progettazione dell'app per la logica. Prima di poter usare questi connettori ISE, è necessario aggiungerli e distribuirli manualmente in ISE, in modo che vengano visualizzati nella finestra di progettazione dell'app per la logica.
 
 1. Nel menu ISE, in **Impostazioni**, selezionare **connettori gestiti**. Sulla barra degli strumenti fare clic su **Aggiungi**.
 
    ![Visualizzazione di connettori gestiti](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. Nel riquadro **Aggiungi un nuovo connettore gestito** aprire l'elenco **trova connettore** . Se è disponibile il connettore desiderato, selezionarlo e quindi selezionare **Crea**.
+1. Nel riquadro **Aggiungi un nuovo connettore gestito** aprire l'elenco **trova connettore** . Selezionare il connettore ISE che si vuole usare ma non è ancora distribuito in ISE. Selezionare **Create** (Crea).
 
-   L'elenco Mostra solo i connettori idonei ma non distribuiti in ISE. I connettori già distribuiti in ISE non sono disponibili per la selezione.
+   ![Selezionare il connettore ISE che si vuole distribuire in ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![Seleziona connettore idoneo](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   Solo i connettori ISE che sono idonei, ma non ancora distribuiti in ISE, saranno disponibili per la selezione. I connettori già distribuiti in ISE non sono disponibili per la selezione.
 
 <a name="create-custom-connectors-environment"></a>
 

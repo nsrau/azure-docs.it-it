@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: 27c83bffe40fd80f87542ee4486ef90e684bd5a6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/16/2019
+ms.openlocfilehash: f024659385a92df97b55e88ae217aa9e1e13d860
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931858"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732349"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
-Per gli scenari in cui le app per la logica e gli account di integrazione devono accedere a una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md), creare un [*ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE è un ambiente privato e isolato che usa risorse di archiviazione dedicate e altre risorse che vengono mantenute separate dal servizio app per la logica pubblico o "globale". Questa separazione riduce anche qualsiasi impatto che altri tenant di Azure possono avere sulle prestazioni delle app create.
+Per gli scenari in cui le app per la logica e gli account di integrazione devono accedere a una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md), creare un [*ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE è un ambiente privato e isolato che usa risorse di archiviazione dedicate e altre risorse che vengono mantenute separate dal servizio pubblico, "globale", per le app per la logica multi-tenant. Questa separazione riduce anche qualsiasi impatto che altri tenant di Azure possono avere sulle prestazioni delle app create. Un ISE fornisce anche indirizzi IP statici. Questi indirizzi IP sono distinti dagli indirizzi IP statici condivisi dalle app per la logica nel servizio pubblico multi-tenant.
 
 Quando si crea un ISE, Azure *inserisce* tale ISE nella rete virtuale di Azure, che quindi distribuisce il servizio app per la logica nella rete virtuale. Quando si crea un'app per la logica o un account di integrazione, selezionare ISE come percorso. L'app per la logica o l'account di integrazione può quindi accedere direttamente alle risorse, ad esempio alle macchine virtuali (VM), ai server, ai sistemi e ai servizi della rete virtuale in uso.
 
@@ -68,7 +68,10 @@ Quando si usa ISE con una rete virtuale di Azure, un problema di installazione c
 
 Per assicurarsi che ISE sia accessibile e che le app per la logica di ISE siano in grado di comunicare tra le subnet nella rete virtuale, [aprire le porte in questa tabella](#network-ports-for-ise). Se le porte necessarie non sono disponibili, ISE non funzionerà correttamente.
 
-* Se si dispone di più ISEs e la rete virtuale usa il [firewall di Azure](../firewall/overview.md) o un' [appliance virtuale di rete](../virtual-network/virtual-networks-overview.md#filter-network-traffic), è possibile [configurare un unico indirizzo IP in uscita, pubblico e prevedibile](connect-virtual-network-vnet-set-up-single-ip-address.md) per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall per ogni ISE nella destinazione.
+* Se sono presenti più istanze di ISE che richiedono l'accesso ad altri endpoint con restrizioni IP, distribuire un [firewall di Azure](../firewall/overview.md) o un' [appliance di rete virtuale](../virtual-network/virtual-networks-overview.md#filter-network-traffic) nella rete virtuale e indirizzare il traffico in uscita attraverso il firewall o l'appliance virtuale di rete. È quindi possibile [configurare un unico indirizzo IP in uscita, pubblico, statico e prevedibile](connect-virtual-network-vnet-set-up-single-ip-address.md) che tutte le istanze di ISE nella rete virtuale possono usare per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall in questi sistemi di destinazione per ogni ISE.
+
+   > [!NOTE]
+   > È possibile usare questo approccio per un singolo ISE quando lo scenario richiede la limitazione del numero di indirizzi IP che richiedono l'accesso. Valutare se i costi aggiuntivi per il firewall o l'appliance di rete virtuale hanno senso per lo scenario. Scopri di più sui [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 * Se è stata creata una nuova rete virtuale di Azure e le subnet senza vincoli, non è necessario configurare i [gruppi di sicurezza di rete (gruppi)](../virtual-network/security-overview.md#network-security-groups) nella rete virtuale per controllare il traffico tra le subnet.
 
@@ -84,14 +87,14 @@ Questa tabella descrive le porte nella rete virtuale di Azure che ISE USA e in c
 
 > [!IMPORTANT]
 > Le porte di origine sono effimere, quindi assicurarsi di impostarle su `*` per tutte le regole.
-> Per la comunicazione interna all'interno delle subnet, ISE richiede di aprire tutte le porte all'interno di tali subnet.
 
-| Finalità | Direzione | Porte di destinazione | Tag del servizio di origine | Tag del servizio di destinazione | Note |
+| Finalità | Direction | Porte di destinazione | Tag del servizio di origine | Tag del servizio di destinazione | Note |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
+| Comunicazione tra subnet | In ingresso e in uscita | * | - | - | **Importante**: per la comunicazione tra i componenti all'interno delle subnet, assicurarsi di aprire tutte le porte all'interno di tali subnet. |
+| Comunicazione tra subnet | In ingresso e in uscita | 80, 443 | VirtualNetwork | VirtualNetwork | Per la comunicazione tra subnet |
 | Comunicazione dalle App per la logica di Azure | In uscita | 80, 443 | VirtualNetwork | Internet | La porta dipende dal servizio esterno con cui comunica il servizio app per la logica |
 | Azure Active Directory | In uscita | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
 | Dipendenza da Archiviazione di Azure | In uscita | 80, 443 | VirtualNetwork | Archiviazione | |
-| Comunicazione tra subnet | In ingresso e in uscita | 80, 443 | VirtualNetwork | VirtualNetwork | Per la comunicazione tra subnet |
 | Comunicazione alle App per la logica di Azure | In ingresso | 443 | Endpoint di accesso interno: <br>VirtualNetwork <p><p>Endpoint di accesso esterno: <br>Internet <p><p>**Nota**: questi endpoint fanno riferimento all'impostazione dell'endpoint [selezionata durante la creazione di ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | Indirizzo IP del computer o del servizio che chiama qualsiasi trigger di richiesta o webhook presente nell'app per la logica. La chiusura o il blocco di questa porta impedisce le chiamate HTTP alle app per la logica con trigger di richiesta. |
 | Cronologia di esecuzione dell'app per la logica | In ingresso | 443 | Endpoint di accesso interno: <br>VirtualNetwork <p><p>Endpoint di accesso esterno: <br>Internet <p><p>**Nota**: questi endpoint fanno riferimento all'impostazione dell'endpoint [selezionata durante la creazione di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-environment). Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | Indirizzo IP del computer da cui si visualizza la cronologia di esecuzione dell'app per la logica. Sebbene la chiusura o il blocco di questa porta non impedisca la visualizzazione della cronologia di esecuzione, non è possibile visualizzare gli input e gli output per ogni passaggio della cronologia di esecuzione. |
 | Gestione delle connessioni | In uscita | 443 | VirtualNetwork  | AppService | |
@@ -107,7 +110,7 @@ Questa tabella descrive le porte nella rete virtuale di Azure che ISE USA e in c
 | Gestione API - endpoint di gestione | In ingresso | 3443 | APIManagement | VirtualNetwork | |
 | Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | In uscita | 5672 | VirtualNetwork | Hub eventi | |
 | Istanze di accesso Cache Azure per Redis tra Role Instances | In ingresso <br>In uscita | 6379-6383 | VirtualNetwork | VirtualNetwork | Inoltre, per usare ISE con cache di Azure per Redis, è necessario aprire le [porte in uscita e in ingresso descritte nelle domande frequenti su cache di Azure per Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Servizio di bilanciamento del carico di Azure | In ingresso | * | AzureLoadBalancer | VirtualNetwork | |
+| Azure Load Balancer | In ingresso | * | AzureLoadBalancer | VirtualNetwork | |
 ||||||
 
 <a name="create-environment"></a>
@@ -129,17 +132,17 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    ![Fornire i dettagli dell'ambiente](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatorio | Valore | Description |
    |----------|----------|-------|-------------|
-   | **Sottoscrizione** | SÌ | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
-   | **Gruppo di risorse** | SÌ | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
-   | **Nome dell'ambiente del servizio di integrazione** | SÌ | <*Nome ambiente*> | Il nome ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti (`.`). |
-   | **Località** | SÌ | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
-   | **SKU** | SÌ | **Premium** o **Developer (nessun contratto di contratto)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
-   | **Capacità aggiuntiva** | Premium: <br>SÌ <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Il numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere la capacità di ISE](#add-capacity). |
-   | **Endpoint di accesso** | SÌ | **Interno** o **esterno** | Il tipo di endpoint di accesso da usare per ISE, che determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Il tipo di endpoint influiscono anche sull'accesso a input e output nella cronologia delle esecuzioni dell'app per la logica. Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
-   | **Rete virtuale** | SÌ | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si ha una rete, [creare prima di tutto una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: è possibile eseguire questo Injection *solo* quando si crea ISE. |
-   | **Subnet** | SÌ | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet). |
+   | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
+   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
+   | **Nome dell'ambiente del servizio di integrazione** | Sì | <*Nome ambiente*> | Il nome ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti (`.`). |
+   | **Posizione** | Sì | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
+   | **SKU** | Sì | **Premium** o **Developer (nessun contratto di contratto)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
+   | **Capacità aggiuntiva** | Premium: <br>Sì <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Il numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [aggiungere la capacità di ISE](#add-capacity). |
+   | **Endpoint di accesso** | Sì | **Interno** o **esterno** | Tipo di endpoint di accesso da usare per ISE. Questi endpoint determinano se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. <p><p>La selezione influiscono anche sul modo in cui è possibile visualizzare e accedere agli input e agli output nella cronologia delle esecuzioni dell'app per la logica. Per altre informazioni, vedere [ISE endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
+   | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si ha una rete, [creare prima di tutto una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: è possibile eseguire questo Injection *solo* quando si crea ISE. |
+   | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione e la distribuzione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -156,7 +159,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    * Usa il [formato CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio di indirizzi della classe B.
 
-   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet *deve avere almeno* 32 indirizzi come *minimo*. ad esempio:
+   * USA almeno un `/27` nello spazio degli indirizzi, perché ogni subnet *deve avere almeno* 32 indirizzi come *minimo*. Ad esempio:
 
      * `10.0.0.0/27` ha 32 indirizzi, perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32.
 
@@ -223,6 +226,9 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
 1. Per iniziare a creare app per la logica e altri artefatti in ISE, vedere [aggiungere elementi agli ambienti del servizio di integrazione](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
+   > [!IMPORTANT]
+   > I connettori ISE gestiti che diventano disponibili dopo la creazione di ISE non vengono visualizzati automaticamente in selezione connettore nella finestra di progettazione dell'app per la logica. Prima di poter usare questi connettori ISE, è necessario [aggiungerli manualmente a ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) , in modo che vengano visualizzati nella finestra di progettazione dell'app per la logica.
+
 <a name="add-capacity"></a>
 
 ## <a name="add-ise-capacity"></a>Aggiungere la capacità di ISE
@@ -254,6 +260,12 @@ L'unità di base Premium ISE ha una capacità fissa, quindi se è necessaria una
      1. Al termine, scegliere **Aggiungi**.
 
 1. Al termine delle impostazioni di scalabilità automatica, salvare le modifiche.
+
+## <a name="delete-ise"></a>Elimina ISE
+
+Prima di eliminare un ISE non più necessario o un gruppo di risorse di Azure che contiene un ISE, verificare di non avere criteri o blocchi nel gruppo di risorse di Azure che contiene queste risorse o nella rete virtuale di Azure, perché questi elementi possono bloccare l'eliminazione.
+
+Dopo aver eliminato l'ISE, potrebbe essere necessario attendere fino a 9 ore prima di provare a eliminare la rete virtuale o le subnet di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

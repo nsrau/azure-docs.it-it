@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811356"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732400"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 
-L'obiettivo dell'architettura a disponibilità elevata nel database SQL di Azure è garantire che il database sia in esecuzione il 99,99% del tempo, senza doversi preoccupare dell'effetto delle operazioni di manutenzione e delle interruzioni. Azure gestisce automaticamente le attività di manutenzione critiche, ad esempio l'applicazione di patch, i backup, gli aggiornamenti di Windows e SQL, nonché eventi non pianificati, ad esempio hardware, software o errori di rete sottostanti.  Quando l'istanza di SQL sottostante viene patchata o viene eseguito il failover, il tempo di inattività non è evidente se si [Usa la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Database SQL di Azure può effettuare rapidamente il recupero anche nei casi più critici garantendo che i dati siano sempre disponibili.
+L'obiettivo dell'architettura a disponibilità elevata nel database SQL di Azure è garantire che il database sia operativo per almeno il 99,99% del tempo. per altre informazioni su un contratto di sicurezza specifico per i diversi livelli, vedere il [contratto di contratto per il database SQL](https://azure.microsoft.com/support/legal/sla/sql-database/)di Azure, senza preoccuparsi dell'effetto delle operazioni di manutenzione e delle interruzioni. Azure gestisce automaticamente le attività di manutenzione critiche, ad esempio l'applicazione di patch, i backup, gli aggiornamenti di Windows e SQL, nonché eventi non pianificati, ad esempio hardware, software o errori di rete sottostanti.  Quando l'istanza di SQL sottostante viene patchata o viene eseguito il failover, il tempo di inattività non è evidente se si [Usa la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Database SQL di Azure può effettuare rapidamente il recupero anche nei casi più critici garantendo che i dati siano sempre disponibili.
 
 La soluzione a disponibilità elevata è progettata per garantire che i dati di cui è stato eseguito il commit non vengano mai persi a causa di errori, che le operazioni di manutenzione non influiscano sul carico di lavoro e che il database non sia un singolo punto di guasto nell'architettura software. Non ci sono finestre di manutenzione o tempi di inattività che richiedono l'arresto del carico di lavoro mentre il database viene aggiornato o se ne esegue la manutenzione. 
 
@@ -39,7 +39,7 @@ Questi livelli di servizio sfruttano l'architettura di disponibilità standard. 
 
 Il modello di disponibilità standard include due livelli:
 
-- Livello di calcolo senza stato che esegue il processo `sqlservr.exe` e contiene solo dati temporanei e memorizzati nella cache, ad esempio TempDB, i database modello nell'unità SSD collegata e la cache dei piani, il pool di buffer e il pool columnstore in memoria. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza `sqlservr.exe`, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario.
+- Livello di calcolo senza stato che esegue il processo di `sqlservr.exe` e contiene solo dati temporanei e memorizzati nella cache, ad esempio TempDB, i database modello nell'unità SSD collegata e la cache dei piani, il pool di buffer e il pool columnstore in memoria. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza `sqlservr.exe`, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario.
 - Un livello dati con stato con i file di database (con estensione MDF/ldf) archiviati nell'archivio BLOB di Azure. Archiviazione BLOB di Azure include funzionalità integrate di disponibilità e ridondanza dei dati. Garantisce che tutti i record nel file di log o nella pagina del file di dati verranno conservati anche se SQL Server processo si arresta in modo anomalo.
 
 Ogni volta che il motore di database o il sistema operativo viene aggiornato o viene rilevato un errore, Azure Service Fabric sposterà il processo di SQL Server senza stato in un altro nodo di calcolo senza stato con capacità sufficiente. I dati nell'archivio BLOB di Azure non sono interessati dallo spostamento e i file di dati e di log vengono associati al processo di SQL Server appena inizializzato. Questo processo garantisce una disponibilità del 99,99%, ma un carico di lavoro elevato può subire un calo delle prestazioni durante la transizione, perché la nuova istanza di SQL Server inizia con la cache a freddo.
@@ -62,8 +62,8 @@ L'architettura del livello di servizio con iperscalabilità è descritta in [arc
 
 Il modello di disponibilità in iperscalabilità include quattro livelli:
 
-- Un livello di calcolo senza stato che esegue i processi `sqlservr.exe` e contiene solo dati temporanei e memorizzati nella cache, ad esempio la cache RBPEX non coprente, TempDB, il database modello e così via, nell'unità SSD collegata e nella cache dei piani, nel pool di buffer e nel pool columnstore in memoria. Questo livello senza stato include la replica di calcolo primaria e, facoltativamente, un numero di repliche di calcolo secondarie che possono fungere da destinazioni di failover.
-- Livello di archiviazione senza stato formato da server di pagine. Questo livello è il motore di archiviazione distribuito per i processi `sqlservr.exe` in esecuzione sulle repliche di calcolo. Ogni server della pagina contiene solo dati temporanei e memorizzati nella cache, ad esempio la copertura della cache RBPEX nell'unità SSD collegata e le pagine di dati memorizzate nella cache. Ogni server di pagina dispone di un server di paging associato in una configurazione Active-Active per fornire bilanciamento del carico, ridondanza e disponibilità elevata.
+- Livello di calcolo senza stato che esegue i processi di `sqlservr.exe` e contiene solo dati temporanei e memorizzati nella cache, ad esempio la cache RBPEX non coprente, TempDB, il database modello e così via, nell'unità SSD collegata e nella cache dei piani, nel pool di buffer e nel pool columnstore in memoria. Questo livello senza stato include la replica di calcolo primaria e, facoltativamente, un numero di repliche di calcolo secondarie che possono fungere da destinazioni di failover.
+- Livello di archiviazione senza stato formato da server di pagine. Questo livello è il motore di archiviazione distribuito per i processi di `sqlservr.exe` in esecuzione sulle repliche di calcolo. Ogni server della pagina contiene solo dati temporanei e memorizzati nella cache, ad esempio la copertura della cache RBPEX nell'unità SSD collegata e le pagine di dati memorizzate nella cache. Ogni server di pagina dispone di un server di paging associato in una configurazione Active-Active per fornire bilanciamento del carico, ridondanza e disponibilità elevata.
 - Un livello di archiviazione del log delle transazioni con stato formato dal nodo di calcolo che esegue il processo del servizio di log, l'area di destinazione del log delle transazioni e l'archiviazione a lungo termine del log delle transazioni. La zona di destinazione e l'archiviazione a lungo termine usano archiviazione di Azure, che fornisce disponibilità e [ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy) per il log delle transazioni, garantendo la durabilità dei dati per le transazioni di cui
 - Un livello di archiviazione dati con stato con i file di database (con estensione MDF/NDF) archiviati in archiviazione di Azure e aggiornati dai server delle pagine. Questo livello usa le funzionalità di disponibilità e [ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy) dei dati di archiviazione di Azure. Garantisce che ogni pagina di un file di dati venga mantenuta anche se i processi in altri livelli di architettura iperscalare si arrestano in modo anomalo o se i nodi di calcolo hanno esito negativo.
 
@@ -98,7 +98,7 @@ La disponibilità elevata è una parte fondamentale della piattaforma del databa
 > [!IMPORTANT]
 > Il comando di failover non è al momento disponibile nel livello di servizio con iperscalabilità e per Istanza gestita.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Il database SQL di Azure offre una soluzione di disponibilità elevata incorporata che è strettamente integrata con la piattaforma Azure. Dipende da Service Fabric per il rilevamento e il ripristino degli errori, sull'archiviazione BLOB di Azure per la protezione dei dati e su zone di disponibilità per una maggiore tolleranza di errore. Inoltre, il database SQL di Azure sfrutta la Always On tecnologia del gruppo di disponibilità SQL Server per la replica e il failover. La combinazione di queste tecnologie consente alle applicazioni di realizzare in modo completo i vantaggi di un modello di archiviazione mista e supportare i contratti di servizio più complessi.
 
