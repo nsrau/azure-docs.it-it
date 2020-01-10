@@ -1,26 +1,18 @@
 ---
-title: Risolvere i problemi di connessione VPN da punto a sito di Azure dai client Mac OS X | Microsoft Docs
+title: 'Gateway VPN di Azure: risolvere i problemi relativi alle connessioni da punto a sito: Mac OS X client'
 description: Procedura per risolvere i problemi di connessione client VPN da punto a sito in Mac OS X
 services: vpn-gateway
-documentationcenter: na
 author: anzaman
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f76fd7bce539ebcf79216aabb5bf868b2d18107a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457081"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780182"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Risolvere i problemi di connessione VPN da punto a sito dai client Mac OS X
 
@@ -63,7 +55,7 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
 
 Se si segue la procedura precedente e tutto viene configurato correttamente, scaricare [Wireshark](https://www.wireshark.org/#download) ed eseguire un'acquisizione pacchetti.
 
-1. Filtrare in base a *isakmp* ed esaminare i pacchetti **IKE_SA**. Dovrebbe essere possibile esaminare i dettagli della proposta per l'associazione di sicurezza nel **Payload: associazione di sicurezza**. 
+1. Filtrare in base a *isakmp* ed esaminare i pacchetti **IKE_SA**. È possibile esaminare i dettagli della proposta SA in **Payload: Security Association** (Payload: associazione di sicurezza). 
 2. Verificare che il client e il server dispongano di un set comune.
 
    ![pacchetto](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 

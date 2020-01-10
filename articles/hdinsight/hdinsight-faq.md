@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644597"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830378"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: domande frequenti
 
@@ -84,23 +84,9 @@ Sì. Per installare componenti aggiuntivi o personalizzare la configurazione del
 
 - Script durante o dopo la creazione. Gli script vengono richiamati tramite [azione script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), ovvero un'opzione di configurazione che è possibile usare dal portale di Azure cmdlet di Windows PowerShell HDInsight o HDINSIGHT .NET SDK. Questa opzione di configurazione può essere usata dai cmdlet di Windows PowerShell portale di Azure, HDInsight o HDInsight .NET SDK.
 
-- `sudo` o altri metodi dopo il provisioning del cluster.
-  
 - [Piattaforma applicativa HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) per installare le applicazioni dell'ecosistema.
 
-Tuttavia, i team supporto tecnico Microsoft possono offrire supporto solo per le situazioni seguenti:
-
-- Problemi o errori che si verificano durante il caricamento dello script. Eventuali errori durante l'esecuzione di script personalizzati esulano dall'ambito di un ticket di supporto.
-
-- Applicazioni aggiuntive che fanno parte del processo di creazione del cluster. 
-
 Per un elenco dei componenti supportati [, vedere quali sono i componenti e le versioni di Apache Hadoop disponibili con HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
-
-Il supporto dei singoli componenti può variare anche in base al tipo di cluster. Ad esempio, Spark non è supportato in un cluster Kafka e viceversa.
-
-Per le applicazioni e i servizi all'esterno del processo di creazione del cluster, contattare il fornitore o il provider di servizi per assistenza. È anche possibile usare molti siti di supporto della community. Esempi sono i [Forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) e [stack overflow](https://stackoverflow.com/). Anche per i progetti Apache sono disponibili siti specifici nel [sito Web di Apache](https://apache.org/). Ad esempio, [Hadoop](https://hadoop.apache.org/). 
-
-Per altre informazioni sul supporto tecnico di Azure, vedere [domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>È possibile aggiornare i singoli componenti preinstallati nel cluster?
 

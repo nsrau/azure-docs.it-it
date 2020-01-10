@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689134"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834953"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -66,7 +66,7 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 |--------|-----------|
 | **Failover dell'account** |Non ancora supportato|
 | **AzCopy** | Supporto specifico della versione <br><br>Usare solo la versione più recente di AzCopy ([AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Le versioni precedenti di AzCopy, ad esempio AzCopy v 8.1, non sono supportate.|
-| **Criteri di gestione del ciclo di vita dell'archiviazione BLOB di Azure** | Sono supportati i criteri di gestione del ciclo di vita (anteprima).  Sono supportati tutti i livelli di accesso. Il livello di accesso all'archivio è attualmente in anteprima. L'eliminazione degli snapshot BLOB non è ancora supportata. <br><br> Attualmente sono presenti bug che influiscono sui criteri di gestione del ciclo di vita e sul livello di accesso dell'archivio.  Iscriversi per l'anteprima dei criteri di gestione del ciclo di vita e del livello di accesso di archiviazione [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
+| **Criteri di gestione del ciclo di vita dell'archiviazione BLOB di Azure** | Sono supportati i criteri di gestione del ciclo di vita (anteprima).  Iscriversi per l'anteprima dei criteri di gestione del ciclo di vita e del livello di accesso di archiviazione [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>Sono supportati tutti i livelli di accesso. Il livello di accesso all'archivio è attualmente in anteprima. L'eliminazione degli snapshot BLOB non è ancora supportata.  Attualmente sono presenti bug che influiscono sui criteri di gestione del ciclo di vita e sul livello di accesso dell'archivio.  |
 | **Rete per la distribuzione di contenuti di Azure (CDN)** | Non ancora supportato|
 | **Ricerca di Azure** |Supportato (anteprima)|
 | **Azure Storage Explorer** | Supporto specifico della versione. <br><br>Utilizzare solo le versioni `1.6.0` o versione successiva. <br> Attualmente esiste un bug di archiviazione che influisce sulla versione `1.11.0` che può causare errori di autenticazione in determinati scenari. È in corso il rollup di una correzione per il bug di archiviazione, ma come soluzione alternativa è consigliabile usare la versione `1.10.x`, disponibile come [download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` non è influenzato dal bug di archiviazione.|
@@ -74,7 +74,7 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 | **Blobfuse** |Non ancora supportato|
 | **Domini personalizzati** |Non ancora supportato|
 | **Storage Explorer nella portale di Azure** | Supporto limitato. Gli ACL non sono ancora supportati. |
-| **Registrazione diagnostica** |I log di diagnostica sono supportati (anteprima).<br><br>L'abilitazione dei log nell'portale di Azure non è attualmente supportata. Di seguito è riportato un esempio di come abilitare i log usando PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Assicurarsi di specificare `Blob` come valore del parametro `-ServiceType`, come illustrato in questo esempio. <br><br>Attualmente non è possibile usare Azure Storage Explorer per la visualizzazione dei log di diagnostica. Per visualizzare i log, usare AzCopy o gli SDK.
+| **Registrazione diagnostica** |I log di diagnostica sono supportati (anteprima). <br><br>Non è possibile usare Azure Storage Explorer 1.10. x per la visualizzazione dei log di diagnostica. Per visualizzare i log, usare AzCopy o gli SDK.
 | **Archiviazione non modificabile** |Non ancora supportato <br><br>L'archiviazione non modificabile offre la possibilità di archiviare i dati in un [worm (scrivere una sola volta, leggere molti)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) stato.|
 | **Livelli a livello di oggetto** |Sono supportati i livelli ad accesso sporadico e archivio. Il livello archivio è in anteprima. Tutti gli altri livelli di accesso non sono ancora supportati. <br><br> Attualmente sono presenti bug che interessano il livello di accesso dell'archivio.  Iscriversi per l'anteprima del livello di accesso dell'archivio [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
 | **Siti web statici** |Non ancora supportato <br><br>In particolare, la possibilità di gestire i file nei [siti web statici](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|

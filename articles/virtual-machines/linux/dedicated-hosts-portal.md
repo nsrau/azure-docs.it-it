@@ -3,29 +3,26 @@ title: Distribuire host dedicati di Azure usando il portale di Azure
 description: Distribuire le macchine virtuali in host dedicati usando il portale di Azure.
 services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/25/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 296c43c7c1345c67cc5b83749272e56c122ee535
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c8e2ac929b3285b0ba122928485b423e34dc8f4f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036417"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835139"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Anteprima: distribuire macchine virtuali in host dedicati usando il portale
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuire macchine virtuali in host dedicati tramite il portale
 
 Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
-## <a name="create-a-vm"></a>Creare una macchina virtuale
+## <a name="create-a-vm"></a>Creare una VM
 
 1. Scegliere **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 1. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace, cercare e selezionare **Ubuntu Server 16.04 LTS** di Canonical e quindi scegliere **Crea**.

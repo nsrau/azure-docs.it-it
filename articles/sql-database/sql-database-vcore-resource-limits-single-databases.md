@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
-ms.date: 12/11/2019
-ms.openlocfilehash: 4455181ddf69613ba07bcaeedb26273a4bb5a74d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.reviewer: carlrab
+ms.date: 01/09/2020
+ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647850"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834975"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto vCore
 
@@ -322,9 +322,10 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dati TempDB (GB)|333|
 |Tipo di risorse di archiviazione|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Numero massimo di IOPS dati *|23.040|
+|Numero massimo di IOPS dati *|12.800|
 |Velocità massima log (MBps)|30|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|3600|
+|Numero massimo di accessi simultanei|3600|
 |Numero massimo di sessioni simultanee|30.000|
 |Numero di repliche|1|
 |Zone di disponibilità multiple|N/D|
@@ -448,21 +449,22 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 
 ### <a name="m-series-compute-generation-preview"></a>Generazione di calcolo della serie M (anteprima)
 
-|Dimensioni di calcolo|GP_M_128|
+|Dimensioni di calcolo|BC_M_128|
 |:--- | --: |
 |Generazione di calcolo|Serie M|
 |vCore|128|
-|Memoria (GB)|3767|
+|Memoria (GB)|3767,1|
 |Supporto per columnstore|Sì|
-|Archiviazione OLTP in memoria (GB)|481|
+|Archiviazione OLTP in memoria (GB)|1768|
 |Dimensioni massime dei dati (GB)|4096|
 |Dimensioni massime del log (GB)|2048|
 |Dimensioni massime dati TempDB (GB)|4096|
 |Tipo di risorse di archiviazione|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Numero massimo di IOPS dati *|204.800|
-|Velocità massima log (MBps)|192|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|12800|
+|Numero massimo di IOPS dati *|160.000|
+|Velocità massima log (MBps)|264|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|12.800|
+|Numero massimo di accessi simultanei|12.800|
 |Numero massimo di sessioni simultanee|30000|
 |Numero di repliche|4|
 |Zone di disponibilità multiple|Sì|

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: d6370509b49ae464b53525e7320676b04912bd12
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113718"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780241"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratare i dati BLOB dal livello archivio
 
@@ -48,7 +48,69 @@ I BLOB nel livello archivio devono essere archiviati per almeno 180 giorni. Se s
 > [!NOTE]
 > Per altre informazioni sui prezzi per i BLOB in blocchi e la riattivazione dei dati, vedere [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Per ulteriori informazioni sugli addebiti per il trasferimento di dati in uscita, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="quickstart-scenarios"></a>Scenari introduttivi
+
+### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Reidratare un BLOB di archiviazione in un livello online
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+1. Accedere al [portale di Azure](https://portal.azure.com).
+
+1. Nella portale di Azure cercare e selezionare **tutte le risorse**.
+
+1. Selezionare l'account di archiviazione.
+
+1. Selezionare il contenitore e quindi selezionare il BLOB.
+
+1. In **proprietà BLOB**selezionare **modifica livello**.
+
+1. Selezionare il **livello** accesso frequente o **ad** accesso sporadico. 
+
+1. Selezionare una priorità di reidratazione **standard** o **alta**.
+
+1. Selezionare **Save (Salva** ) nella parte inferiore.
+
+![Modificare il livello dell'account di archiviazione](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Lo script di PowerShell seguente può essere usato per modificare il livello BLOB di un BLOB di archiviazione. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. La variabile `$containerName` deve essere inizializzata con il nome del contenitore. La variabile `$blobName` deve essere inizializzata con il nome del BLOB. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to Hot using Standard priority rehydrate
+$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+```
+---
+
+### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Copiare un BLOB di archiviazione in un nuovo BLOB con un livello online
+Lo script di PowerShell seguente può essere usato per copiare un BLOB di archiviazione in un nuovo BLOB all'interno dello stesso account di archiviazione. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. Le variabili `$srcContainerName` e `$destContainerName` devono essere inizializzate con i nomi dei contenitori. Le variabili `$srcBlobName` e `$destBlobName` devono essere inizializzate con i nomi dei BLOB. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$srcContainerName = ""
+$destContainerName = ""
+$srcBlobName == ""
+$destBlobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Copy source blob to a new destination blob with access tier hot using standard rehydrate priority
+Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
+```
+
+## <a name="next-steps"></a>Fasi successive
 
 * [Informazioni sui livelli di archiviazione BLOB](storage-blob-storage-tiers.md)
 * [Controllare i prezzi di accesso frequente, accesso sporadico e archivio negli account di archiviazione BLOB e per utilizzo generico v2 in base all'area](https://azure.microsoft.com/pricing/details/storage/)

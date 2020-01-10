@@ -4,12 +4,12 @@ description: Risolvere i problemi di installazione e registrazione del server di
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 7fc27a2624fc38883135bdb6d2767625ab02a5a5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665325"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830208"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
@@ -46,11 +46,11 @@ Prima di iniziare la risoluzione dei problemi relativi a Backup di Microsoft Azu
 | --- | --- | --- |
 | Eseguire il backup | Impossibile creare il punto di ripristino online | **Messaggio di errore**: l'agente di backup di Microsoft Azure non è riuscito a creare uno snapshot del volume selezionato. <br> **Soluzione alternativa**: provare ad aumentare lo spazio nel volume del punto di ripristino e di replica.<br> <br> **Messaggio di errore**: l'agente di backup di Microsoft Azure non è in grado di connettersi al servizio OBEngine <br> **Soluzione alternativa**: verificare che OBEngine sia presente nell'elenco dei servizi in esecuzione nel computer. Se il servizio OBEngine non è in esecuzione, usare il comando "net start OBEngine" per avviarlo. <br> <br> **Messaggio di errore**: la passphrase di crittografia per questo server non è impostata. Configurare una passphrase di crittografia. <br> **Soluzione alternativa**: provare a configurare una passphrase di crittografia. Se l'operazione non riesce, seguire questa procedura: <br> <ol><li>Verificare che il percorso dei file temporanei esista. Questo è il percorso indicato nel Registro di sistema in **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config** con il nome **ScratchLocation**.</li><li> Se il percorso dei file temporanei esiste, provare di nuovo a eseguire la registrazione con la passphrase precedente. *Quando si configura una passphrase di crittografia, salvarla in un luogo sicuro.*</li><ol>|
 
-## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>Le credenziali dell'insieme di credenziali fornite non corrispondono all'insieme in cui è registrato il server
+## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>I server DPM originali ed esterni devono essere registrati nello stesso insieme di credenziali
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Ripristinare | **Codice di errore**: CBPServerRegisteredVaultDontMatchWithCurrent/insieme di credenziali errore: 100110 <br/> <br/>**Messaggio di errore**: le credenziali dell'insieme di credenziali fornite sono diverse dall'insieme di credenziali in cui è registrato il server | **Causa**: questo problema si verifica quando si tenta di ripristinare i file nel server alternativo dal server originale utilizzando l'opzione di ripristino DPM esterno e se il server che viene ripristinato e il server originale da cui viene eseguito il backup dei dati non sono associati allo stesso insieme di credenziali del servizio di ripristino.<br/> <br/>**Soluzione alternativa** Per risolvere questo problema, assicurarsi che il server originale e quello alternativo siano registrati nello stesso insieme di credenziali.|
+| Ripristinare | **Codice di errore**: CBPServerRegisteredVaultDontMatchWithCurrent/insieme di credenziali errore: 100110 <br/> <br/>**Messaggio di errore**: i server DPM originali ed esterni devono essere registrati nello stesso insieme di credenziali | **Causa**: questo problema si verifica quando si tenta di ripristinare i file nel server alternativo dal server originale utilizzando l'opzione di ripristino DPM esterno e se il server che viene ripristinato e il server originale da cui viene eseguito il backup dei dati non sono associati allo stesso insieme di credenziali del servizio di ripristino.<br/> <br/>**Soluzione alternativa** Per risolvere questo problema, assicurarsi che il server originale e quello alternativo siano registrati nello stesso insieme di credenziali.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>I processi di creazione dei punti di ripristino online per VM VMware non riescono
 

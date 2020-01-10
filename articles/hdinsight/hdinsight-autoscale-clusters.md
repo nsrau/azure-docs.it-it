@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666036"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780063"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
@@ -26,12 +26,14 @@ La funzionalità di scalabilità automatica del cluster di Azure HDInsight conse
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+| Versione | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 senza ESP | Sì 2,3 solo| SÌ | No | No | No | No | No |
-| HDInsight 4,0 senza ESP | SÌ | SÌ | No | No | No | No | No |
-| HDInsight 3,6 con ESP | Sì 2,3 solo | SÌ | No | No | No | No | No |
-| HDInsight 4,0 con ESP | SÌ | SÌ | No | No | No | No | No |
+| HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 3,6 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 4,0 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
+
+\* cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
 ## <a name="how-it-works"></a>Come funziona
 
@@ -245,7 +247,7 @@ Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati 
 
 | Stato del cluster | Spiegazione |
 |---|---|
-| Running | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
+| In esecuzione | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
 | Aggiornamento  | È in corso l'aggiornamento della configurazione di scalabilità automatica del cluster.  |
 | Configurazione di HDInsight  | È in corso un'operazione di scalabilità verticale o verticale del cluster.  |
 | Errore di aggiornamento  | HDInsight ha rilevato problemi durante l'aggiornamento della configurazione di scalabilità automatica. I clienti possono scegliere di ritentare l'aggiornamento o disabilitare la scalabilità automatica.  |

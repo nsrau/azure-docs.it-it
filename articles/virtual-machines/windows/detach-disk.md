@@ -2,25 +2,20 @@
 title: Scollegare un disco dati da una macchina virtuale Windows-Azure
 description: Scollegare un disco dati da una macchina virtuale in Azure usando il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-service-management
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 01/08/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 93db2935fdc41787bb1820d1f8ce85ac05ef0863
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 301f3abd26f702f3f29c8833c835ba7d0e41bcaf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033351"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834612"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 
@@ -40,22 +35,29 @@ Non è possibile rimuovere *a caldo* un disco dati tramite PowerShell, ma è pos
 In questo esempio verrà rimosso il disco denominato **myDisk** dalla macchina virtuale **myVM** nel gruppo di risorse **myResourceGroup**. Prima di tutto, rimuovere il disco usando il cmdlet [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk). Aggiornare quindi lo stato della macchina virtuale usando il cmdlet [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) per completare il processo di rimozione del disco dati.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVM"
+Remove-AzVMDataDisk `
+   -VM $VirtualMachine `
+   -Name "myDisk"
+Update-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -VM $VirtualMachine
 ```
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
 
+È possibile rimuovere a *caldo* un disco dati, ma assicurarsi che non venga usato attivamente il disco prima di scollegarlo dalla macchina virtuale.
+
 1. Dal menu a sinistra selezionare **Macchine virtuali**.
-2. Selezionare la macchina virtuale con il disco dati che si vuole scollegare e fare clic su **Arresta** per deallocare la macchina virtuale.
-3. Nel riquadro delle macchine virtuali selezionare **Dischi**.
-4. Nella parte superiore del riquadro **Dischi** selezionare **Modifica**.
-5. Nel riquadro **Dischi** fare clic sul pulsante per scollegare il disco ![Immagine del pulsante Scollega](./media/detach-disk/detach.png) nella parte più a destra del disco dati.
-5. Dopo aver rimosso il disco, fare clic su **Salva** nella parte superiore del riquadro.
-6. Nel riquadro delle macchine virtuali fare clic su **Panoramica** e quindi fare clic su **Avvia** nella parte superiore del riquadro per riavviare la macchina virtuale.
+1. Selezionare la macchina virtuale con il disco dati che si desidera scollegare.
+1. In **Impostazioni** selezionare **Dischi**.
+1. Nella parte superiore del riquadro **Dischi** selezionare **Modifica**.
+1. Nell'estremità destra del disco dati che si desidera scollegare nel riquadro **dischi** selezionare **Disconnetti**.
+1. Selezionare **Save (Salva** ) nella parte superiore della pagina per salvare le modifiche.
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 

@@ -1,26 +1,19 @@
 ---
-title: 'Creare una connessione tra reti virtuali: classico: portale di Azure | Microsoft Docs'
+title: 'Creare una connessione tra reti virtuali: classica: portale di Azure'
 description: Connettere tra loro diverse reti virtuali di Azure tramite PowerShell e il portale di Azure.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 8ebfe1bc2e578fa85f209f4dd67a00535e619c7e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407912"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834619"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
 
@@ -29,7 +22,7 @@ ms.locfileid: "60407912"
 Questo articolo consente di creare una connessione gateway VPN tra reti virtuali. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. I passaggi di questo articolo sono applicabili al modello di distribuzione classico e al portale di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -80,7 +73,7 @@ La tabella seguente mostra un esempio di come definire le reti virtuali. Usare g
 
 **Esempio**
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
+| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Stati Uniti orientali |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -101,21 +94,21 @@ Quando si segue questo articolo come esercizio, è possibile usare i valori di e
 **Valori per TestVNet1**
 
 Nome: TestVNet1<br>
-Spazio degli indirizzi: 10.11.0.0/16, 10.12.0.0/16 (facoltativo)<br>
+Spazio di indirizzi: 10.11.0.0/16, 10.12.0.0/16 (facoltativo)<br>
 Subnet name: predefinito<br>
 Intervallo di indirizzi subnet: 10.11.0.1/24<br>
 Gruppo di risorse: ClassicRG<br>
-Percorso: Stati Uniti orientali<br>
+Location: Stati Uniti orientali<br>
 GatewaySubnet: 10.11.1.0/27
 
 **Valori per TestVNet4**
 
 Nome: TestVNet4<br>
-Spazio degli indirizzi: 10.41.0.0/16, 10.42.0.0/16 (facoltativo)<br>
+Spazio di indirizzi: 10.41.0.0/16, 10.42.0.0/16 (facoltativo)<br>
 Subnet name: predefinito<br>
 Intervallo di indirizzi subnet: 10.41.0.1/24<br>
 Gruppo di risorse: ClassicRG<br>
-Percorso: Stati Uniti occidentali<br>
+Località: Stati Uniti occidentali<br>
 GatewaySubnet: 10.41.1.0/27
 
 **Quando si creano le reti virtuali, tenere presenti le seguenti impostazioni:**
@@ -142,7 +135,7 @@ Ad esempio, TestVNet1 si connette al sito di rete locale creato dall'utente con 
 
 Il sito locale per ogni rete virtuale è l'altra rete virtuale. Per la configurazione vengono usati i valori nell'esempio seguente:
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
+| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Stati Uniti orientali |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |

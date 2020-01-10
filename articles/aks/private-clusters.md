@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: 8af0f998df2a92e51078a2e23806cca07ff08ca3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6152becb8debd0700ddab6190284514c6d6cf69d
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480086"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830055"
 ---
 # <a name="public-preview---private-azure-kubernetes-service-cluster"></a>Anteprima pubblica-cluster di servizi Kubernetes di Azure privato
 
@@ -81,16 +81,16 @@ Dove--Enable-Private-cluster è un flag obbligatorio per un cluster privato
 #### <a name="advanced-networking"></a>Rete avanzata  
 
 ```azurecli-interactive
-az aks create \ 
-    --resource-group <private-cluster-resource-group>\ 
-    --name <private-cluster-name> \ 
-    --load-balancer-sku standard
-    --enable-private-cluster 
-    --network-plugin azure \ 
-    --vnet-subnet-id <subnet-id> \ 
-    --docker-bridge-address 172.17.0.1/16 \ 
-    --dns-service-ip 10.2.0.10 \ 
-    --service-cidr 10.2.0.0/24 \ 
+az aks create \
+    --resource-group <private-cluster-resource-group> \
+    --name <private-cluster-name> \
+    --load-balancer-sku standard \
+    --enable-private-cluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 
 ```
 Dove--Enable-Private-cluster è un flag obbligatorio per un cluster privato 
 
@@ -108,6 +108,11 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, gli u
     * fare clic sull'area DNS privato 
     * Selezionare il collegamento rete virtuale nel riquadro sinistro
     * creare un nuovo collegamento per aggiungere il VNET della macchina virtuale all'area DNS privato *(sono necessari alcuni minuti per rendere disponibile il collegamento della zona DNS)*
+    * tornare al gruppo di risorse MC_ * nel portale
+    * Selezionare la rete virtuale nel riquadro di destra. Il nome della rete virtuale avrà il formato AKS-vnet-*.
+    * Selezionare i peering nel riquadro sinistro
+    * fare clic su Aggiungi e aggiungere la rete virtuale della VM e creare il peering.
+    * Passare a VNET in cui si dispone della macchina virtuale e quindi fare clic su peer e selezionare la rete virtuale AKS e creare il peering. Se gli intervalli di indirizzi nella rete virtuale AKS e nella rete virtuale della VM sono in conflitto, il peering avrà esito negativo. Per ulteriori informazioni sul peering di rete virtuale, fare riferimento a questo [documento][virtual-network-peering] .
 * Connettersi tramite SSH alla macchina virtuale
 * Installare lo strumento Kubectl ed eseguire i comandi Kubectl
 
@@ -132,3 +137,5 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, gli u
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b409824c2adb544560dfa17b4871ba23760d35c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443868"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835006"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti sull'istanza gestita di database SQL
 
@@ -105,7 +105,7 @@ Se entrambe le generazioni hardware non sono supportate nella stessa area, la mo
 
 ## <a name="tune-performance"></a>Ottimizzare le prestazioni
 
-\* * Ricerca per categorie ottimizzare le prestazioni dell'istanza gestita? **
+**Ricerca per categorie ottimizzare le prestazioni dell'istanza gestita?**
 
 Per utilizzo generico istanza gestita utilizza l'archiviazione remota a causa delle dimensioni dei file di dati e di log importanti per le prestazioni. Per ulteriori informazioni, vedere [conseguenze delle dimensioni del file di registro in per utilizzo generico istanza gestita prestazioni](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
@@ -180,8 +180,8 @@ Per comprendere meglio i vantaggi, i costi e i rischi associati alla distribuzio
 
 ## <a name="dns-refresh"></a>Aggiornamento DNS 
 
-\* * È possibile eseguire l'aggiornamento DNS? **
-  
+**È possibile eseguire l'aggiornamento DNS?**
+
 Attualmente non è disponibile una funzionalità per aggiornare la configurazione del server DNS per l'istanza gestita.
 
 Alla fine, la configurazione DNS verrà aggiornata:

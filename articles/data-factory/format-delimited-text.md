@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2e70a7b900ad918cda05ce34204e2de1e6e67ef
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931266"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830191"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato testo delimitato in Azure Data Factory
 
@@ -26,10 +26,10 @@ Il formato testo delimitato è supportato per i connettori seguenti [: Amazon S3
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di testo delimitato.
 
-| Proprietà         | Description                                                  | Obbligatoria |
+| Proprietà         | Description                                                  | Obbligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà Type del set di dati deve essere impostata su **DelimitedText**. | SÌ      |
-| location         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`.  | SÌ      |
+| type             | La proprietà Type del set di dati deve essere impostata su **DelimitedText**. | Sì      |
+| posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`.  | Sì      |
 | columnDelimiter  | Carattere o caratteri utilizzati per separare le colonne in un file. Attualmente, il delimitatore multicarattere è supportato solo per il mapping del flusso di dati ma non per l'attività di copia. <br>Il valore predefinito è **`,`virgola** , quando il delimitatore di colonna è definito come una stringa vuota, ovvero nessun delimitatore, l'intera riga viene considerata come una colonna singola. | No       |
 | rowDelimiter     | Singolo carattere o "\r\n" usato per separare le righe in un file.<br>Il valore predefinito è uno dei seguenti valori **in lettura: ["\r\n", ",", "\n"]** e **"\n" o "\r\n" in scrittura** mediante mapping del flusso di dati e dell'attività di copia rispettivamente. <br>Quando `rowDelimiter` è impostato su nessun delimitatore (stringa vuota), il `columnDelimiter` deve essere impostato come nessun delimitatore (stringa vuota), ovvero per trattare l'intero contenuto come valore singolo. | No       |
 | quoteChar        | Carattere singolo per citare i valori di colonna se contiene un delimitatore di colonna. <br>Il valore predefinito è **virgolette doppie** `"`. <br>Per il mapping del flusso di dati, `quoteChar` non può essere una stringa vuota. <br>Per l'attività di copia, quando `quoteChar` viene definito come stringa vuota, significa che non sono presenti virgolette e il valore della colonna non è racchiuso tra virgolette e `escapeChar` viene usato per eseguire l'escape del delimitatore di colonna e di se stesso. | No       |
@@ -75,35 +75,35 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate nella sezione ***\*origine\**** dell'attività di copia.
 
-| Proprietà       | Description                                                  | Obbligatoria |
+| Proprietà       | Description                                                  | Obbligatorio |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **DelimitedTextSource**. | SÌ      |
+| type           | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **DelimitedTextSource**. | Sì      |
 | formatSettings | Gruppo di proprietà. Vedere la tabella **delle impostazioni di lettura testo delimitate** . | No       |
 | storeSettings  | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. | No       |
 
 **Impostazioni di lettura testo delimitato** supportate in `formatSettings`:
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Description                                                  | Obbligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Il tipo di formatSettings deve essere impostato su **DelimitedTextReadSetting**. | SÌ      |
-| skipLineCount | Indica il numero di righe **non vuote** da ignorare durante la lettura di dati da file di input. <br>Se sono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input. | No       |
+| type          | Il tipo di formatSettings deve essere impostato su **DelimitedTextReadSettings**. | Sì      |
+| skipLineCount | Indica il numero di righe **non vuote** da ignorare durante la lettura di dati da file di input. <br>Se vengono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e quindi le informazioni dell'intestazione vengono lette dal file di input. | No       |
 
 ### <a name="delimited-text-as-sink"></a>Testo delimitato come sink
 
 Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attività di copia.
 
-| Proprietà       | Description                                                  | Obbligatoria |
+| Proprietà       | Description                                                  | Obbligatorio |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **DelimitedTextSink**. | SÌ      |
+| type           | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **DelimitedTextSink**. | Sì      |
 | formatSettings | Gruppo di proprietà. Vedere la tabella **delle impostazioni di scrittura testo delimitate** . |          |
 | storeSettings  | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings`.  | No       |
 
 **Impostazioni di scrittura testo delimitate** supportate in `formatSettings`:
 
-| Proprietà      | Description                                                  | Obbligatoria                                              |
+| Proprietà      | Description                                                  | Obbligatorio                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | Il tipo di formatSettings deve essere impostato su **DelimitedTextWriteSetting**. | SÌ                                                   |
-| fileExtension | Estensione di file utilizzata per assegnare un nome ai file di output, ad esempio `.csv``.txt`. Deve essere specificato quando il `fileName` non è specificato nel set di dati DelimitedText di output. | Sì quando il nome file non è specificato nel set di dati di output |
+| type          | Il tipo di formatSettings deve essere impostato su **DelimitedTextWriteSettings**. | Sì                                                   |
+| fileExtension | Estensione di file utilizzata per assegnare un nome ai file di output, ad esempio `.csv``.txt`. Deve essere specificato quando il `fileName` non è specificato nel set di dati DelimitedText di output. Quando il nome del file viene configurato nel set di dati di output, verrà usato come nome del file di sink e l'impostazione dell'estensione di file verrà ignorata.  | Sì quando il nome file non è specificato nel set di dati di output |
 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
 

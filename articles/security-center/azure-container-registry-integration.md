@@ -12,21 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552679"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780046"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integrazione di Azure Container Registry con Centro sicurezza (anteprima)
 
 Azure Container Registry (ACR) è un servizio di registro Docker privato gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. Si basa sul registro Docker open source 2,0.
 
-Per una maggiore visibilità delle vulnerabilità del registro di sistema e delle immagini, gli utenti del livello standard del Centro sicurezza di Azure possono abilitare il bundle facoltativo dei registri contenitori. Il costo per l'utilizzo di questa funzionalità viene addebitato per ogni immagine, non per analisi. Per altre informazioni, vedere la pagina relativa ai [prezzi](security-center-pricing.md). Con il bundle abilitato, il Centro sicurezza analizza automaticamente le immagini nel registro di sistema ogni volta che viene eseguito il push di un'immagine nel registro.
+Se si usa il livello standard del Centro sicurezza di Azure, è possibile aggiungere il bundle dei registri contenitori. Questa funzionalità facoltativa offre una maggiore visibilità sulle vulnerabilità delle immagini nei registri. Abilitare o disabilitare il bundle a livello di sottoscrizione per coprire tutti i registri in una sottoscrizione. Questa funzionalità viene addebitata per ogni immagine, non per analisi, come illustrato nella [pagina dei prezzi](security-center-pricing.md). 
 
-> [!NOTE]
-> La prima analisi del Centro sicurezza di un registro si verificherà solo dopo l'abilitazione del bundle dei registri contenitori e il push di un'immagine nel registro di sistema.
+L'abilitazione del bundle dei registri contenitori garantisce che il Centro sicurezza sia pronto per l'analisi delle immagini che vengono inserite nel registro di sistema. Le analisi sono a livello di immagine: il Centro sicurezza non analizza il registro di sistema, analizza le immagini archiviate nel registro di sistema. 
+
+Ogni volta che viene eseguito il push di un'immagine nel registro, il Centro sicurezza analizza automaticamente tale immagine. Per attivare l'analisi di un'immagine, eseguirne il push nel repository.
+
 
 Al termine dell'analisi, in genere dopo circa 10 minuti, i risultati sono disponibili nelle raccomandazioni del Centro sicurezza, come indicato di seguito:
 

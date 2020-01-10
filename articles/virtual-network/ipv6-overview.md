@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/19/2019
 ms.author: kumud
-ms.openlocfilehash: a44f99b5a7f25a7350e6a63cf85c6b2287647162
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373248"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780080"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Che cos'è IPv6 per la rete virtuale di Azure? (Anteprima)
 
@@ -75,7 +75,7 @@ IPv6 per Azure VNET è un set di funzionalità di base che consente ai clienti d
 ## <a name="limitations"></a>Limitazioni
 La versione corrente di IPv6 per la rete virtuale di Azure presenta le limitazioni seguenti:
 - IPv6 per rete virtuale di Azure (anteprima) è disponibile in tutte le aree di Azure globali, ma solo in Azure globale, non ancora nei cloud governativi.
-- Non è possibile usare Express Route e i gateway VPN in una VNET con IPv6 abilitato, direttamente o con peering con "UseRemoteGateway". 
+- I gateway VPN e ExpressRoute non possono essere usati in un VNET con IPv6 abilitato, direttamente o con peering con "UseRemoteGateway". 
 - La piattaforma Azure (AKS e così via) non supporta la comunicazione IPv6 per i contenitori.  
 
 ## <a name="pricing"></a>Prezzi

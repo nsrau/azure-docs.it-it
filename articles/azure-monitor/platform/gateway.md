@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 1811796de96e87343544f63fcee7acdd9907693c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530987"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830140"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -103,7 +103,7 @@ Nella tabella seguente viene illustrato approssimativamente il numero di agenti 
 
 ## <a name="download-the-log-analytics-gateway"></a>Scaricare il gateway di Log Analytics
 
-Ottenere la versione più recente del file di installazione del gateway Log Analytics dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=54443) o dalla portale di Azure.
+Ottenere la versione più recente del file di installazione del gateway Log Analytics dall'area download Microsoft ([collegamento di download](https://go.microsoft.com/fwlink/?linkid=837444)) o dalla portale di Azure.
 
 Per ottenere il gateway Log Analytics dal portale di Azure, seguire questa procedura:
 

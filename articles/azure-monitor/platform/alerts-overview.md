@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7f6c7f22cef1cf49a9ff7b2cb87716abd61821c4
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396513"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830327"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -60,7 +60,7 @@ Di seguito sono riportati gli attributi chiave di una regola di avviso:
 
 ## <a name="what-you-can-alert-on"></a>Oggetto degli avvisi
 
-È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](../../azure-monitor/platform/data-sources-reference.md). Sono incluse, ad esempio:
+È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](../../azure-monitor/platform/data-sources.md). Sono incluse, ad esempio:
 - Valori della metrica
 - Query di ricerca log
 - Eventi dei log attività

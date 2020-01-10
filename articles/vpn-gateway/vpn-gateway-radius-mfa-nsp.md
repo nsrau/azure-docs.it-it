@@ -1,5 +1,5 @@
 ---
-title: Autenticazione RADIUS del gateway VPN protetto di Azure con il server NPS per l'autenticazione a più fattori | Microsoft Docs
+title: Integrare NPS con l'autenticazione RADIUS del gateway VPN per l'autenticazione a più fattori
 description: Descrive come integrare l'autenticazione RADIUS del gateway di Azure con server NPS per l'autenticazione a più fattori.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: ab152cca1d809d92803a3e50ea83da1cbcd8243c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174616"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780369"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrare l'autenticazione RADIUS del gateway VPN di Azure con server NPS per l'autenticazione a più fattori 
 
@@ -30,7 +30,7 @@ L'articolo descrive come integrare il server di criteri di rete (NPS) con l'aute
 
 Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Active Directory (Azure AD), che deve essere sincronizzata dall'ambiente locale o cloud. L'utente deve anche avere già completato il processo di registrazione automatica per l'autenticazione a più fattori.  Per altre informazioni, vedere come [Configurare l'account per la verifica in due passaggi](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)
 
-## <a name="detailed-steps"></a>procedura dettagliata
+## <a name="detailed-steps"></a>Procedura dettagliata
 
 ### <a name="step-1-create-a-virtual-network-gateway"></a>Passaggio 1: creare un gateway di rete virtuale
 

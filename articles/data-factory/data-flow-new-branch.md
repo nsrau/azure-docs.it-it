@@ -1,31 +1,28 @@
 ---
-title: Trasformazione nuovo ramo flusso di dati mapping
-description: Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
+title: Più rami nel flusso di dati di mapping
+description: Replica di flussi di dati nel flusso di dati di mapping con più rami
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: b4617689fe1ab14856bde9a4e8134b12aa6d815b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/08/2020
+ms.openlocfilehash: 71fb9f1ba9952be0e6b3910dd1079aa6d3c0482d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930305"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834479"
 ---
-# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
+# <a name="creating-a-new-branch-in-mapping-data-flow"></a>Creazione di un nuovo ramo nel flusso di dati di mapping
 
-![Opzioni ramo](media/data-flow/menu.png "menu")
+Aggiungere un nuovo ramo per eseguire più set di operazioni e trasformazioni nello stesso flusso di dati. L'aggiunta di un nuovo ramo è utile quando si vuole usare la stessa origine di per più sink o per unire i dati in modo automatico.
 
-Con la creazione di un ramo, il flusso di dati corrente viene replicato in un altro flusso. Usare la trasformazione Nuovo ramo per eseguire più set di operazioni e trasformazioni sullo stesso flusso di dati.
+Un nuovo ramo può essere aggiunto dall'elenco di trasformazione in modo analogo ad altre trasformazioni. Il **nuovo ramo** sarà disponibile solo come azione quando esiste una trasformazione esistente dopo la trasformazione che si sta tentando di creare un ramo.
 
-Esempio: il flusso di dati dispone di una trasformazione di origine con un set selezionato di colonne e conversioni di tipi di dati. È quindi possibile posizionare una colonna derivata subito dopo tale origine. Nell'elenco Derived Column (Colonna derivata) viene creato un nuovo campo che combina nome e cognome per creare un nuovo campo "Nome completo".
+![Aggiunta di un nuovo ramo](media/data-flow/new-branch2.png "Aggiunta di un nuovo ramo")
 
-È possibile intervenire sul nuovo flusso con un set di trasformazioni e un sink su una riga, quindi usare la trasformazione Nuovo ramo per creare una copia del flusso in cui è possibile trasformare gli stessi dati con un set diverso di trasformazioni. Trasformando i dati copiati in un ramo separato, è possibile successivamente effettuare il sink di tali dati in un percorso distinto.
+Nell'esempio seguente il flusso di dati legge i dati relativi alle corse dei taxi. L'output aggregato per giorno e fornitore è obbligatorio. Anziché creare due flussi di dati distinti che leggono dalla stessa origine, è possibile aggiungere un nuovo ramo. In questo modo è possibile eseguire entrambe le aggregazioni come parte dello stesso flusso di dati. 
 
-> [!NOTE]
-> "New Branch" (Nuovo ramo) comparirà come azione nel menu Transformation (Trasformazione) solo in presenza di una trasformazione successiva dopo la posizione corrente in cui si tenta di creare un ramo. Questo significa che non sarà disponibile un'opzione "New Branch" (Nuovo ramo) alla fine, fino a quando non si aggiunge un'altra trasformazione dopo la trasformazione di selezione.
-
-![Ramo](media/data-flow/branch2.png "Ramo 2")
+![Aggiunta di un nuovo ramo](media/data-flow/new-branch.png "Aggiunta di un nuovo ramo")
