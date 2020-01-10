@@ -8,79 +8,137 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/06/2019
 ms.author: aahi
-ms.openlocfilehash: ae5222dcd05740ecb9747037b315c4e920b3eabd
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a9bfa2a51341bf60f92378f5d96a390bd1d92db1
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326633"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732779"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
-L' [API di riconoscimento entità denominata](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) accetta un testo non strutturato e per ogni documento JSON restituisce un elenco di entità ambiguità con collegamenti ad altre informazioni sul Web (Wikipedia e Bing).
-
-## <a name="entity-linking-and-named-entity-recognition"></a>Collegamento di entità e riconoscimento di entità denominate
-
-L'endpoint di `entities` del Analisi del testo supporta sia il riconoscimento delle entità denominate (NER) che il collegamento di entità.
+Il API Analisi del testo consente di usare un testo non strutturato e restituisce un elenco di entità ambiguità, con collegamenti ad altre informazioni sul Web. L'API supporta sia il riconoscimento delle entità denominate (NER) che il collegamento di entità.
 
 ### <a name="entity-linking"></a>Collegamento di entità
-Per collegamento delle entità si intende la capacità di identificare senza ambiguità l'identità di un'entità trovata nel testo, ad esempio per determinare se "Marte" viene usato per indicare il pianeta o il dio romano della guerra. Questo processo richiede la presenza di una knowledge base a cui sono collegate le entità riconosciute. Wikipedia è usata come knowledge base per l'endpoint `entities` di Analisi del testo.
+
+Il collegamento di entità è la possibilità di identificare e risolvere le ambiguità dell'identità di un'entità trovata nel testo, ad esempio per determinare se un'occorrenza della parola `Mars` si riferisce al pianeta o al Dio romano della guerra. Questo processo richiede la presenza di una Knowledge base in una lingua appropriata per collegare entità riconosciute nel testo. 
+
 
 ### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
-Il riconoscimento delle entità denominate (NER) è la possibilità di identificare entità diverse nel testo e di classificarle in classi o tipi predefiniti. 
 
-## <a name="named-entity-recognition-v3-public-preview"></a>Anteprima pubblica di riconoscimento entità denominata V3
+Il riconoscimento delle entità denominate (NER) è la possibilità di identificare entità diverse nel testo e di classificarle in classi o tipi predefiniti. Ad esempio: persone, luoghi e organizzazioni.
 
-La versione successiva di riconoscimento entità denominata è ora disponibile per l'anteprima pubblica. Fornisce aggiornamenti per il collegamento di entità e il riconoscimento di entità denominate. Provare a usare la [console di test dell'API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral).
+## <a name="named-entity-recognition-versions-and-features"></a>Versioni e funzionalità di riconoscimento entità denominate
 
-:::row:::
-    :::column span="":::
-        **Funzionalità**
-    :::column-end:::
-    ::: column span="":::
-        **Descrizione** 
-    :::column-end:::
-:::row-end:::
-<!-- expanded types and subtypes row-->
-:::row:::
-    :::column span="":::
-        Tipi di entità e sottotipi espansi
-    :::column-end:::
-    :::column span="":::
-     Classificazione e rilevamento espanse per diversi tipi di entità denominate.
-    :::column-end:::
-:::row-end:::
-<!-- separate endpoints row-->
-:::row:::
-    :::column span="":::
-        Endpoint di richiesta separati 
-    :::column-end:::
-    :::column span="":::
-        Separare gli endpoint per l'invio di entità di collegamento e richieste NER.
-    :::column-end:::
-:::row-end:::
-<!-- model-version row -->
-:::row:::
-    :::column span="":::
-        parametro `model-version`
-    :::column-end:::
-    :::column span="":::
-        Parametro facoltativo per la scelta di una versione del modello Analisi del testo. Attualmente solo il modello predefinito è disponibile per l'utilizzo.
-    :::column-end:::
-:::row-end:::
+Nel API Analisi del testo sono disponibili due versioni di Named Entity Recognition-V2 e V3. La versione 3 (anteprima pubblica) fornisce maggiori dettagli nelle entità che possono essere rilevate e categorizzate.
+
+| Funzionalità                                                         | NER V2 | NER V3 |
+|-----------------------------------------------------------------|--------|--------|
+| Metodi per richieste singole e batch                          | X      | X      |
+| Riconoscimento di entità di base in diverse categorie              | X      | X      |
+| Classificazione espansa per le entità riconosciute                 |        | X      |
+| Separare gli endpoint per l'invio di entità di collegamento e richieste NER. |        | X      |
+| Gestione della versione dei modelli                                                |        | X      |
+
+Per informazioni, vedere Supporto per le [lingue](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
+
+#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
 
 ### <a name="entity-types"></a>Tipi di entità
 
-Il riconoscimento delle entità denominate V3 fornisce il rilevamento espanso tra più tipi. Attualmente, NER V3 è in grado di riconoscere le categorie di entità seguenti. Per un elenco dettagliato delle entità e dei linguaggi supportati, vedere l'articolo [tipi di entità denominati](../named-entity-types.md) .
+> [!NOTE]
+> Il riconoscimento delle entità denominate (NER) versione 2 supporta solo le entità seguenti. NER V3 è in versione di anteprima pubblica e espande in modo sostanziale il numero e la profondità delle entità riconosciute nel testo.   
 
-* General
+| Tipo  | Sottotipo | Esempio |
+|:-----------   |:------------- |:---------|
+| Persona        | N/D\*         | "Jeff", "Bill Gates"     |
+| Percorso      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Organizzazione  | N/D\*         | "Microsoft"   |
+| Quantità      | Numero        | "6", "sei"     |
+| Quantità      | Percentuale    | "50%", "cinquanta percento"|
+| Quantità      | Ordinale       | "2°", "secondo"     |
+| Quantità      | Età           | "90 giorni", "30 anni"    |
+| Quantità      | Valuta      | "$ 10,99"     |
+| Quantità      | Dimensione     | "10 miglia", "40 cm"     |
+| Quantità      | Temperatura   | "32 gradi"    |
+| Data e ora      | N/D\*         | "4 febbraio 2012 18:30"      |
+| Data e ora      | Data          | "2 maggio 2017", "02/05/2017"   |
+| Data e ora      | Durata          | "8", "8:00"  |
+| Data e ora      | Intervallo di date     | "dal 2 maggio al 5 maggio"    |
+| Data e ora      | Intervallo orario     | "dalle 18 alle 19"     |
+| Data e ora      | Durata      | "1 minuto e 45 secondi"   |
+| Data e ora      | Configurazione           | "ogni martedì"     |
+| URL           | N/D\*         | "https:\//www.bing.com"    |
+| Indirizzo di posta elettronica         | N/D\*         | "support@contoso.com" |
+| Numero di telefono degli Stati Uniti  | N/D\*         | (Solo numeri telefonici US) "(312) 555-0176" |
+| Indirizzo IP    | N/D\*         | 10.0.0.100 |
+
+\*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.  Tutti i tipi di entità supportati elencati sono disponibili solo per le lingue inglese, cinese semplificato, francese, tedesco e spagnolo.
+
+### <a name="request-endpoints"></a>Endpoint di richiesta
+
+Il riconoscimento delle entità denominate V2 usa un singolo endpoint per le richieste NER e il collegamento di entità:
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+
+#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+
+### <a name="entity-types"></a>Tipi di entità
+
+Il riconoscimento delle entità denominate V3 fornisce il rilevamento espanso tra più tipi. Attualmente, NER V3 è in grado di riconoscere le categorie di entità seguenti:
+
+* Informazioni di carattere generale
 * Informazioni personali 
+
+Per un elenco dettagliato delle entità e dei linguaggi supportati, vedere l'articolo relativo ai [tipi di entità supportati da ner V3](../named-entity-types.md) .
 
 ### <a name="request-endpoints"></a>Endpoint di richiesta
 
 Il riconoscimento delle entità denominate V3 Usa endpoint distinti per le richieste NER e per il collegamento di entità. Usare un formato URL seguente in base alla richiesta:
+
+NER
+* Entità generali-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Informazioni personali-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Collegamento di entità
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>Gestione della versione dei modelli
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+---
+
+## <a name="sending-a-rest-api-request"></a>Invio di una richiesta API REST
+
+### <a name="preparation"></a>Preparazione
+
+È necessario disporre di documenti JSON nel formato seguente: ID, testo, lingua.
+
+Ogni documento deve essere composto da un massimo di 5.120 caratteri ed è possibile avere fino a 1.000 elementi (ID) per raccolta. La raccolta viene inviata nel corpo della richiesta.
+
+### <a name="structure-the-request"></a>Strutturare la richiesta
+
+Creare una richiesta POST. È possibile usare la **console di testing API** o di [posting](text-analytics-how-to-call-api.md) nei collegamenti seguenti per strutturare rapidamente e inviarne una. 
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
+#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
+
+[Informazioni di riferimento sul riconoscimento delle entità denominate (NER) V2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+La versione 2 usa l'endpoint seguente per le richieste di collegamento di entità e NER: 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+
+#### <a name="version-3tabversion-3"></a>[Versione 3](#tab/version-3)
+
+[Informazioni di riferimento sul riconoscimento delle entità denominate V3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
+
+La versione 3 Usa endpoint distinti per le richieste NER e il collegamento di entità. Usare un formato URL seguente in base alla richiesta:
 
 NER
 * Entità generali-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
@@ -90,269 +148,145 @@ NER
 Collegamento di entità
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-### <a name="model-versioning"></a>Gestione della versione dei modelli
+---
 
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+Impostare un'intestazione della richiesta per includere la chiave di API Analisi del testo. Nel corpo della richiesta fornire i documenti JSON preparati.
 
-## <a name="supported-types-for-named-entity-recognition-v2"></a>Tipi supportati per il riconoscimento di entità denominato V2
+### <a name="example-ner-request"></a>Richiesta NER di esempio 
 
-> [!NOTE]
-> Le entità seguenti sono supportate da NER (Named Entity Recognition) versione 2. [Ner V3](#named-entity-recognition-v3-public-preview) è in versione di anteprima pubblica e espande in modo sostanziale il numero e la profondità delle entità riconosciute nel testo.   
-
-| digitare  | SubType | Esempio |
-|:-----------   |:------------- |:---------|
-| Person        | N/D\*         | "Jeff", "Bill Gates"     |
-| Location      | N/D\*         | "Redmond, Washington", "Parigi"  |
-| Organizzazione  | N/D\*         | "Microsoft"   |
-| Quantità      | NUMBER        | "6", "sei"     |
-| Quantità      | Percentuale    | "50%", "cinquanta percento"|
-| Quantità      | Ordinale       | "2°", "secondo"     |
-| Quantità      | Age           | "90 giorni", "30 anni"    |
-| Quantità      | Valuta      | "$ 10,99"     |
-| Quantità      | Dimensione     | "10 miglia", "40 cm"     |
-| Quantità      | Temperatura   | "32 gradi"    |
-| DateTime      | N/D\*         | "4 febbraio 2012 18:30"      |
-| DateTime      | Date          | "2 maggio 2017", "02/05/2017"   |
-| DateTime      | Time          | "8", "8:00"  |
-| DateTime      | DateRange     | "Dal 2 maggio al 5 maggio"    |
-| DateTime      | TimeRange     | "dalle 18 alle 19"     |
-| DateTime      | Durata      | "1 minuto e 45 secondi"   |
-| DateTime      | Configurazione           | "ogni martedì"     |
-| URL           | N/D\*         | "https:\//www.bing.com"    |
-| Email         | N/D\*         | "support@contoso.com" |
-| Numero di telefono degli Stati Uniti  | N/D\*         | (Solo numeri telefonici US) "(312) 555-0176" |
-| Indirizzo IP    | N/D\*         | 10.0.0.100 |
-
-\*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.  Tutti i tipi di entità supportati elencati sono disponibili solo per le lingue inglese, cinese semplificato, francese, tedesco e spagnolo.
-
-### <a name="language-support"></a>Supporto per le lingue
-
-L'uso del collegamento delle entità in varie lingue richiede l'uso di una corrispondente knowledge base in ciascuna lingua. Il collegamento delle entità in Analisi del testo significa che ogni lingua supportata dall'endpoint `entities` si collegherà al corpus Wikipedia corrispondente in tale lingua. Poiché le dimensioni del corpora variano tra le lingue, è prevista anche una variazione dell'entità collegata al richiamo della funzionalità. Per ulteriori informazioni, vedere l'articolo [supporto della lingua](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
-
-## <a name="preparation"></a>Operazioni preliminari
-
-È necessario disporre di documenti JSON nel formato seguente: ID, testo, lingua
-
-Per le lingue attualmente supportate, vedere [questo elenco](../text-analytics-supported-languages.md).
-
-Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento e ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare al collegamento delle entità.
+Di seguito è riportato un esempio di contenuto che è possibile inviare all'API. Il formato della richiesta è identico per entrambe le versioni dell'API.
 
 ```json
+{
+  "documents": [
     {
-        "documents": [
-            {
-                "id": "1",
-                "language": "en",
-                "text": "Jeff bought three dozen eggs because there was a 50% discount."
-            },
-            {
-                "id": "2",
-                "language": "en",
-                "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
-            }
-        ]
+      "language": "en",
+      "id": "1",
+      "text": "I had a wonderful trip to Seattle last week."
     }
+  ]
+}
 ```
 
-## <a name="step-1-structure-the-request"></a>Passaggio 1: Strutturare la richiesta
-
-I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
-
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [entità API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
-+ Impostare l'endpoint HTTP per l'estrazione delle frasi chiave usando una risorsa di Analisi del testo in Azure oppure un'istanza di un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). È necessario includere `/text/analytics/v2.1/entities`. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
-
-+ Impostare un'intestazione della richiesta per includere [la chiave di accesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) per analisi del testo operazioni.
-
-+ Nel corpo della richiesta specificare la raccolta di documenti JSON preparata per l'analisi.
-
-> [!Tip]
-> Usare [Postman](text-analytics-how-to-call-api.md) oppure aprire la **console di test dell'API** nella [documentazione](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) per strutturare una richiesta e inviarla tramite POST al servizio.
-
-## <a name="step-2-post-the-request"></a>Passaggio 2: Pubblicare la richiesta
+## <a name="post-the-request"></a>Pubblicare la richiesta
 
 Al momento della ricezione della richiesta viene eseguita l'analisi. Vedere la sezione relativa ai [limiti dei data](../overview.md#data-limits) nella panoramica per informazioni sulle dimensioni e il numero di richieste che è possibile inviare al minuto e al secondo.
 
-Tenere presente che il servizio è senza stato. Nessun dato viene archiviato nell'account. I risultati vengono restituiti immediatamente nella risposta.
+Il API Analisi del testo è senza stato. Nessun dato è archiviato nell'account e i risultati vengono restituiti immediatamente nella risposta.
 
-## <a name="step-3-view-results"></a>Passaggio 3: Visualizzare i risultati
+## <a name="view-results"></a>Visualizzazione dei risultati
 
-Tutte le richieste POST restituiscono una risposta JSON formattata con gli ID e le proprietà rilevate.
+Tutte le richieste POST restituiscono una risposta in formato JSON con gli ID e le proprietà dell'entità rilevata.
 
 L'output viene restituito immediatamente. Si possono trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale e quindi importarlo in un'applicazione che consente di ordinare, cercare e modificare i dati.
 
-Un esempio dell'output del collegamento delle entità è il seguente:
+#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
 
+### <a name="example-ner-v2-response"></a>Risposta di esempio NER V2
 ```json
-    {
-        "Documents": [
-            {
-                "Id": "1",
-                "Entities": [
-                    {
-                        "Name": "Jeff",
-                        "Matches": [
-                            {
-                                "Text": "Jeff",
-                                "Offset": 0,
-                                "Length": 4
-                            }
-                        ],
-                        "Type": "Person"
-                    },
-                    {
-                        "Name": "three dozen",
-                        "Matches": [
-                            {
-                                "Text": "three dozen",
-                                "Offset": 12,
-                                "Length": 11
-                            }
-                        ],
-                        "Type": "Quantity",
-                        "SubType": "Number"
-                    },
-                    {
-                        "Name": "50",
-                        "Matches": [
-                            {
-                                "Text": "50",
-                                "Offset": 49,
-                                "Length": 2
-                            }
-                        ],
-                        "Type": "Quantity",
-                        "SubType": "Number"
-                    },
-                    {
-                        "Name": "50%",
-                        "Matches": [
-                            {
-                                "Text": "50%",
-                                "Offset": 49,
-                                "Length": 3
-                            }
-                        ],
-                        "Type": "Quantity",
-                        "SubType": "Percentage"
-                    }
-                ]
-            },
-            {
-                "Id": "2",
-                "Entities": [
-                    {
-                        "Name": "Great Depression",
-                        "Matches": [
-                            {
-                                "Text": "The Great Depression",
-                                "Offset": 0,
-                                "Length": 20
-                            }
-                        ],
-                        "WikipediaLanguage": "en",
-                        "WikipediaId": "Great Depression",
-                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                        "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                    },
-                    {
-                        "Name": "1929",
-                        "Matches": [
-                            {
-                                "Text": "1929",
-                                "Offset": 30,
-                                "Length": 4
-                            }
-                        ],
-                        "Type": "DateTime",
-                        "SubType": "DateRange"
-                    },
-                    {
-                        "Name": "By 1933",
-                        "Matches": [
-                            {
-                                "Text": "By 1933",
-                                "Offset": 36,
-                                "Length": 7
-                            }
-                        ],
-                        "Type": "DateTime",
-                        "SubType": "DateRange"
-                    },
-                    {
-                        "Name": "Gross domestic product",
-                        "Matches": [
-                            {
-                                "Text": "GDP",
-                                "Offset": 49,
-                                "Length": 3
-                            }
-                        ],
-                        "WikipediaLanguage": "en",
-                        "WikipediaId": "Gross domestic product",
-                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                        "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                    },
-                    {
-                        "Name": "United States",
-                        "Matches": [
-                            {
-                                "Text": "America",
-                                "Offset": 56,
-                                "Length": 7
-                            }
-                        ],
-                        "WikipediaLanguage": "en",
-                        "WikipediaId": "United States",
-                        "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                        "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                        "Type": "Location"
-                    },
-                    {
-                        "Name": "25",
-                        "Matches": [
-                            {
-                                "Text": "25",
-                                "Offset": 72,
-                                "Length": 2
-                            }
-                        ],
-                        "Type": "Quantity",
-                        "SubType": "Number"
-                    },
-                    {
-                        "Name": "25%",
-                        "Matches": [
-                            {
-                                "Text": "25%",
-                                "Offset": 72,
-                                "Length": 3
-                            }
-                        ],
-                        "Type": "Quantity",
-                        "SubType": "Percentage"
-                    }
-                ]
-            }
-        ],
-        "Errors": []
-    }
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "wikipediaScore": 0.15046201222847677,
+        "entityTypeScore": 0.80624294281005859,
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7
+      }],
+      "wikipediaLanguage": "en",
+      "wikipediaId": "Seattle",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+      "type": "Location"
+    }, {
+      "name": "last week",
+      "matches": [{
+        "entityTypeScore": 0.8,
+        "text": "last week",
+        "offset": 34,
+        "length": 9
+      }],
+      "type": "DateTime",
+      "subType": "DateRange"
+    }]
+  }],
+  "errors": []
+}
 ```
 
-## <a name="summary"></a>summary
+#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+
+### <a name="example-v3-responses"></a>Risposte di esempio V3
+
+La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. Di seguito sono riportate le risposte per entrambe le operazioni.
+
+#### <a name="example-ner-response"></a>Risposta NER di esempio
+
+```json
+{
+    "documents": [{
+    "id": "1",
+    "entities": [{
+        "text": "Seattle",
+        "type": "Location",
+        "offset": 26,
+        "length": 7,
+        "score": 0.80624294281005859
+    }, {
+        "text": "last week",
+        "type": "DateTime",
+        "subtype": "DateRange",
+        "offset": 34,
+        "length": 9,
+        "score": 0.8
+    }]
+    }],
+    "errors": [],
+    "modelVersion": "2019-10-01"
+}
+```
+
+#### <a name="example-entity-linking-response"></a>Esempio di risposta di collegamento di entità
+
+```json
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7,
+        "score": 0.15046201222847677
+      }],
+      "language": "en",
+      "id": "Seattle",
+      "url": "https://en.wikipedia.org/wiki/Seattle",
+      "dataSource": "Wikipedia"
+    }]
+  }],
+  "errors": [],
+  "modelVersion": "2019-10-01"
+}
+```
+
+---
+
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 
-+ L'[API entità](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) è disponibile per le lingue selezionate.
-+ I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
-+ La richiesta POST viene indirizzata a un endpoint `/entities` usando una [chiave di accesso personalizzata e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) valido per la sottoscrizione.
-+ L'output di risposta, che consiste di entità collegate (inclusi punteggi di attendibilità, offset e collegamenti Web per ogni ID di documento) può essere usato in qualsiasi applicazione
+* Il riconoscimento delle entità denominate è disponibile per le lingue selezionate in due versioni.
+* I documenti JSON nel corpo della richiesta includono un ID, il testo e il codice della lingua.
+* Le richieste POST vengono inviate a uno o più endpoint, usando una [chiave di accesso personalizzata e un endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) valido per la sottoscrizione.
+* L'output di risposta, che consiste di entità collegate (inclusi punteggi di attendibilità, offset e collegamenti Web per ogni ID di documento) può essere usato in qualsiasi applicazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [API Analisi del testo](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
 * [Panoramica di Analisi del testo](../overview.md)
-* [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>
-* [Pagina del prodotto Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759712)
+* [Uso della libreria client di Analisi del testo](../quickstarts/text-analytics-sdk.md)
+* [Novità](../whats-new.md)

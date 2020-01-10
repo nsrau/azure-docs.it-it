@@ -9,23 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 01/07/2020
 ms.author: diberry
-ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8c29ebd675bb6af66203c13824dacbe9ea2421a2
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837360"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732796"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
 
-L'entità predefinita **datetimeV2** estrae i valori di data e ora. Questi valori vengono risolti in un formato standardizzato per l'uso da parte dei programmi client. Quando un'espressione ha una data o un'ora non complete, LUIS include _i valori passati e futuri_ nella risposta dell'endpoint. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti datetimeV2 per le finalità dell'applicazione. 
+L'entità predefinita **datetimeV2** estrae i valori di data e ora. Questi valori vengono risolti in un formato standardizzato per l'uso da parte dei programmi client. Quando un'espressione ha una data o un'ora non complete, LUIS include _i valori passati e futuri_ nella risposta dell'endpoint. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti datetimeV2 per le finalità dell'applicazione.
 
 ## <a name="types-of-datetimev2"></a>Tipi di datetimeV2
 DatetimeV2 è gestito dal repository GitHub del [testo dei riconoscitori](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) .
 
-## <a name="example-json"></a>JSON di esempio 
+## <a name="example-json"></a>JSON di esempio
 
 Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
 
@@ -115,14 +115,14 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 |Nome proprietà |Tipo e descrizione proprietà|
 |---|---|
-|Entità|**stringa** - Testo estratto dall'espressione con tipo di data, ora, intervallo di date o intervallo di tempo.|
+|Persona giuridica|**stringa** - Testo estratto dall'espressione con tipo di data, ora, intervallo di date o intervallo di tempo.|
 |type|**string** - Uno dei [sottotipi di datetimeV2](#subtypes-of-datetimev2)
 |startIndex|**int** - L'indice nell'espressione dove inizia l'entità.|
 |endIndex|**int** - L'indice nell'espressione dove termina l'entità.|
 |resolution|Dispone di una matrice `values` con uno, due o quattro [valori di risoluzione](#values-of-resolution).|
 |end|Il valore finale di un intervallo di tempo o date, nello stesso formato di `value`. Usato solo se `type` è `daterange`, `timerange`, o `datetimerange`|
 
-* * * 
+* * *
 
 ## <a name="subtypes-of-datetimev2"></a>Sottotipi di datetimeV2
 
@@ -141,13 +141,14 @@ L'entità predefinita **datetimeV2** include i sottotipi seguenti. Nella tabella
   * Una data o un intervallo di date ambigui per quanto riguarda l'anno
   * Un'ora o un intervallo di tempo ambigui per quanto riguarda il valore antemeridiano o postmeridiano. Ad esempio, le 3:00 del 3 aprile, in quanto il sistema orario statunitense arriva a 12 ore.
 
-Ogni elemento della matrice `values` può contenere i campi seguenti: 
+Ogni elemento della matrice `values` può contenere i campi seguenti:
 
 |Nome proprietà|Descrizione proprietà|
 |--|--|
 |timex|Ora, data o intervallo di date espressi nel formato TIMEX che segue lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e gli attributi TIMEX3 per l'annotazione con il linguaggio TimeML. Questa annotazione è descritta nelle [linee guida TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|mod|termine usato per descrivere come usare il valore, ad esempio `before`, `after`.|
 |type|Sottotipo, che può essere uno degli elementi seguenti: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration``set`.|
-|value|**Facoltativo.** Un oggetto DateTime nel formato AAAA-MM-GG (date), HH: mm: SS (Time) aaaa-MM-GG HH: mm: SS (DateTime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
+|Valore|**Facoltativa.** Un oggetto DateTime nel formato AAAA-MM-GG (date), HH: mm: SS (Time) aaaa-MM-GG HH: mm: SS (DateTime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
 
 ## <a name="valid-date-values"></a>Valori di daae validi
 
@@ -159,13 +160,13 @@ Ogni elemento della matrice `values` può contenere i campi seguenti:
 
 ## <a name="ambiguous-dates"></a>Date ambigue
 
-Se la data può essere nel passato o nel futuro, LUIS fornisce entrambi i valori. Un esempio è un'espressione che include il mese e la data senza l'anno.  
+Se la data può essere nel passato o nel futuro, LUIS fornisce entrambi i valori. Un esempio è un'espressione che include il mese e la data senza l'anno.
 
 Ad esempio, data la seguente espressione:
 
 `May 2nd`
 
-* Se la data corrente è il 3 maggio 2017, LUIS indica sia "2017-05-02" sia "2018-05-02" come valori. 
+* Se la data corrente è il 3 maggio 2017, LUIS indica sia "2017-05-02" sia "2018-05-02" come valori.
 * Se la data corrente è il 1° maggio 2017, LUIS indica sia "2016-05-02" sia "2017-05-02" come valori.
 
 L'esempio seguente illustra la risoluzione dell'entità "may 2nd". Questa risoluzione presuppone che la data corrente sia compresa tra il 2 maggio 2017 e il 1° maggio 2018.
@@ -269,7 +270,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
     }
   ]
 ```
-* * * 
+* * *
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>Esempi di risoluzione di un intervallo di date per data numerica
 
@@ -373,7 +374,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
     }
   ]
 ```
-* * * 
+* * *
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>Esempi di risoluzione di un intervallo di date per giorno della settimana
 
@@ -474,7 +475,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
     }
   ]
 ```
-* * * 
+* * *
 
 ## <a name="ambiguous-time"></a>Ora ambigua
 La matrice di valori ha due elementi ora se l'ora o l'intervallo di tempo sono ambigui. In caso sia presente un'ora ambigua, vengono indicati sia il valore antemeridiano sia quello postmeridiano.
@@ -484,7 +485,7 @@ La matrice di valori ha due elementi ora se l'ora o l'intervallo di tempo sono a
 La risposta JSON DatetimeV2 è cambiata nell'API V3. L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espressione con un intervallo di tempo.
 
 Modifiche dall'API v2:
-* `datetimeV2.timex.type` proprietà non viene più restituita perché viene restituita a livello padre, `datetimev2.type`. 
+* `datetimeV2.timex.type` proprietà non viene più restituita perché viene restituita a livello padre, `datetimev2.type`.
 * La proprietà `datetimeV2.value` è stata rinominata `datetimeV2.timex`.
 
 Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
@@ -579,7 +580,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
   ]
 ```
 
-* * * 
+* * *
 
 ## <a name="time-resolution-example"></a>Esempio di risoluzione temporale
 
@@ -666,22 +667,22 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 ]
 ```
 
-* * * 
+* * *
 
 ## <a name="deprecated-prebuilt-datetime"></a>Entità datetime predefinita deprecata
 
-L'entità `datetime` predefinita è deprecata e sostituita da **datetimeV2**. 
+L'entità `datetime` predefinita è deprecata e sostituita da **datetimeV2**.
 
 Per sostituire `datetime` con `datetimeV2` nell'app LUIS, completare i passaggi seguenti:
 
-1. Aprire il riquadro **Entità** dell'interfaccia web LUIS. 
+1. Aprire il riquadro **Entità** dell'interfaccia web LUIS.
 2. Eliminare l'entità **datetime** predefinita.
 3. Fare clic su **Aggiungi un'entità predefinita**
 4. Selezionare **datetimeV2** e fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-Informazioni sulle entità [dimensioni](luis-reference-prebuilt-dimension.md), [posta elettronica](luis-reference-prebuilt-email.md) e [numero](luis-reference-prebuilt-number.md). 
+Informazioni sulle entità [dimensioni](luis-reference-prebuilt-dimension.md), [posta elettronica](luis-reference-prebuilt-email.md) e [numero](luis-reference-prebuilt-number.md).
 
