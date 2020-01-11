@@ -100,6 +100,8 @@
               href: concepts-aad-authentication.md
             - name: Collegamento privato
               href: concepts-data-access-and-security-private-link.md
+            - name: Crittografia dei dati
+              href: concepts-data-encryption-postgresql.md
         - name: Continuità aziendale
           items:
             - name: Introduzione alla continuità aziendale
@@ -259,6 +261,10 @@
               href: howto-configure-privatelink-portal.md
             - name: Interfaccia della riga di comando di Azure
               href: howto-configure-privatelink-cli.md
+        - name: Crittografia dei dati
+          items:
+            - name: Portale di Azure
+              href: howto-data-encryption-portal.md
         - name: Riavviare il server
           items:
             - name: Portale di Azure
