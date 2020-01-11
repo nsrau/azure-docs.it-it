@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660308"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861099"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -104,7 +104,7 @@ Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi 
 - Creare una notifica quando vengono soddisfatte determinate condizioni per una lettura del sensore in ingresso.
 - Collegare metadati del grafico alla lettura del sensore prima di inviare una notifica.
 
-Per altre informazioni, vedere [Come usare le funzioni definite dall'utente](./how-to-user-defined-functions.md).
+Per altre informazioni, vedere [come usare le funzioni definite dall'utente](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Esempi
 
@@ -114,7 +114,7 @@ Il [repository GitHub per l'esempio C# di Gemelli digitali](https://github.com/A
 
 ### <a name="role-assignment"></a>Assegnazione di ruolo
 
-Le azioni di una funzione definita dell'utente sono soggette al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) di Gemelli digitali di Azure per proteggere i dati all'interno del servizio. Le assegnazioni di ruolo definiscono quali funzioni definite dall'utente possiedono le autorizzazioni appropriate per interagire con il grafico spaziale e le relative entità. Ad esempio, una funzione definita dall'utente potrebbe avere la capacità e l'autorizzazione per *CREARE*, *LEGGERE*, *AGGIORNARE* o *ELIMINARE* i dati del grafico in uno spazio specificato. Il livello di accesso di una funzione definita dell'utente viene controllato quando la funzione definita dall'utente chiede dati al grafico o tenta un'operazione. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](./security-create-manage-role-assignments.md).
+Le azioni di una funzione definita dell'utente sono soggette al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) di Gemelli digitali di Azure per proteggere i dati all'interno del servizio. Le assegnazioni di ruolo definiscono quali funzioni definite dall'utente possiedono le autorizzazioni appropriate per interagire con il grafico spaziale e le relative entità. Ad esempio, una funzione definita dall'utente potrebbe avere la capacità e l'autorizzazione per *CREARE*, *LEGGERE*, *AGGIORNARE* o *ELIMINARE* i dati del grafico in uno spazio specificato. Il livello di accesso di una funzione definita dell'utente viene controllato quando la funzione definita dall'utente chiede dati al grafico o tenta un'operazione. Per altre informazioni, vedere [controllo degli accessi in base al ruolo](./security-create-manage-role-assignments.md).
 
 È possibile che un matcher attivi una funzione definita dall'utente priva di assegnazioni di ruolo. In questo caso, la funzione definita dall'utente non riuscirà a leggere alcun dato dal grafico.
 

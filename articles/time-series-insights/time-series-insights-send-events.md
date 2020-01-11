@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 159f79e61b43761db5a65c101928d4e6ac5b4d29
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894813"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861779"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
 
@@ -24,7 +24,7 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 
 ## <a name="configure-an-event-hub"></a>Configurare un hub eventi
 
-1. Per informazioni su come creare un hub eventi, vedere la [documentazione di Hub eventi](https://docs.microsoft.com/azure/event-hubs/).
+1. Per informazioni su come creare un hub eventi, vedere la [documentazione di hub eventi](https://docs.microsoft.com/azure/event-hubs/).
 1. Nella casella di ricerca cercare **hub eventi**. Nell'elenco restituito selezionare **Hub eventi**.
 1. Selezionare l'hub eventi.
 1. Quando si crea un hub eventi, si sta creando uno spazio dei nomi dell'hub eventi. Se non è ancora stato creato un hub eventi nello spazio dei nomi, nel menu, in **entità**, creare un hub eventi.  
@@ -61,7 +61,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 1. Completare i passaggi per [creare un'origine evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) se non ne è stata ancora creata una.
 
-1. Impostare un valore per `timeSeriesId`. Per altre informazioni su **ID serie temporale**, vedere [Time Series Models](./time-series-insights-update-tsm.md) (Modelli Time Series).
+1. Impostare un valore per `timeSeriesId`. Per ulteriori informazioni sull' **ID della serie temporale**, vedere [modelli Time Series](./time-series-insights-update-tsm.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Esempio di push di eventi a mulini a vento
 
@@ -80,7 +80,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 1. Selezionare **Click to start** (Fare clic per avviare). Il simulatore genera istanza JSON che è possibile usare direttamente.
 
-1. Tornare all'hub eventi nel portale di Azure. Nella pagina **Overview (panoramica** ) vengono visualizzati i nuovi eventi ricevuti dall'hub eventi.
+1. Tornare all'hub eventi nel portale di Azure. Nella pagina **Overview** vengono visualizzati i nuovi eventi ricevuti dall'hub eventi.
 
     [![una pagina Panoramica di hub eventi che mostra le metriche per l'hub eventi](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
@@ -149,7 +149,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 * **Output**: due eventi. La proprietà **location** viene copiata in ogni evento.
 
-    |location|events.id|events.timestamp|
+    |posizione|events.id|events.timestamp|
     |--------|---------------|----------------------|
     |WestUs|device1|2016-01-08T01:08:00Z|
     |WestUs|device2|2016-01-08T01:17:00Z|
@@ -190,7 +190,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 * **Output**: due eventi.
 
-    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |posizione|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|

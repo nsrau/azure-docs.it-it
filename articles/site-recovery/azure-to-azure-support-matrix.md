@@ -2,13 +2,14 @@
 title: Matrice di supporto per il ripristino di emergenza di macchine virtuali di Azure con Azure Site Recovery
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali di Azure in un'area secondaria con Azure Site Recovery.
 ms.topic: article
-ms.date: 12/23/2019
-ms.openlocfilehash: b8809682f4d2bed72eec1d64b2ac40b664237632
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 01/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1e30170f521fa21cb69fb1879ea4335025d8d959
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551591"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863928"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali di Azure tra aree di Azure
 
@@ -202,7 +203,7 @@ Ridondanza | Sono supportate le archiviazioni con ridondanza locale e geografica
 Archiviazione ad accesso frequente e sporadico | Supporto non disponibile | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Spazi di archiviazione | Supportato |
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.   
-Crittografia inattiva (CMK) | Non supportato |   
+Crittografia inattiva (CMK) | Supportato | Per Managed Disks sono supportati sia il software che le chiavi HSM    
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. Le macchine virtuali che usano dischi non gestiti non sono supportate |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Supportato |
 Aggiunta a caldo | Supportato | L'abilitazione della replica per un disco dati aggiunto a una macchina virtuale di Azure replicata è supportata per le macchine virtuali che usano dischi gestiti.

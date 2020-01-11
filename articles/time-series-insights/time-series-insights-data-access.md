@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c7a70d8209c5c349fc082d939a24deac23fa954d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328146"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863428"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 
@@ -113,7 +113,7 @@ Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AA
 
 1. Il Guest ora può accedere all'ambiente condiviso usando l'URL dell'ambiente fornito dall'amministratore. Possono immettere tale URL nel Web browser per l'accesso immediato.
 
-1. L'utente Guest visualizzerà il tenant dell'amministratore selezionando l'icona del profilo nell'angolo superiore destro di Esplora serie temporali.
+1. Il tenant dell'amministratore verrà visualizzato all'utente guest dopo aver selezionato l'icona del profilo nell'angolo superiore destro di Esplora serie temporali.
 
     [![selezione avatar in insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 

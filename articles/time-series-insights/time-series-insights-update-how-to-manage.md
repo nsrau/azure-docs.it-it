@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f75e7112a8fc90c6c49ede7cd0ac726401fc1a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452629"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861728"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Effettuare il provisioning e la gestione di Anteprima di Azure Time Series Insights
 
@@ -86,7 +86,7 @@ Per creare un ambiente di anteprima Azure Time Series Insights:
 
 ## <a name="manage-the-environment"></a>Gestire l'ambiente
 
-È possibile gestire l'ambiente Anteprima di Azure Time Series Insights tramite il portale di Azure. Quando si gestiscono i portale di Azure, vengono visualizzate alcune differenze principali tra un ambiente di anteprima Azure Time Series Insights PAYG e gli ambienti S1 o S2 disponibili a livello generale:
+È possibile gestire l'ambiente Anteprima di Azure Time Series Insights tramite il portale di Azure. Esistono alcune differenze principali tra un ambiente PAYG Azure Time Series Insights anteprima e gli ambienti S1 o S2 disponibili a livello generale da tenere presente quando si gestisce l'ambiente tramite la portale di Azure:
 
 * Il pannello **Panoramica** di portale di Azure Preview presenta le modifiche seguenti:
 

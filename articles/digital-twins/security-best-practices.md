@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229045"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860946"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Procedure consigliate per la sicurezza di Gemelli digitali di Azure
 
@@ -46,7 +46,7 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > [!div class="checklist"]
 > * Crittografare i dati salvati, archiviati o salvati in modo permanente.
 > * Richiedere la modifica o l'aggiornamento periodico di password o chiavi.
-> * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Vedere la sezione [Procedure consigliate per il controllo degli accessi in base al ruolo](#role-based-access-control-best-practices) seguente.
+> * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Leggere la sezione [procedure consigliate per il controllo degli accessi in base al ruolo](#role-based-access-control-best-practices) .
 > * Si consideri una topologia di rete divisa in modo che i dispositivi in ogni rete siano isolati dagli altri.
 > * Usare la crittografia avanzata. Richiedi password lunghe, USA protocolli sicuri e autenticazione a più [fattori](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
@@ -56,7 +56,7 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > Leggi le [procedure consigliate](../iot-fundamentals/iot-security-best-practices.md) per la sicurezza di Azure. per iniziare una strategia di sicurezza completa.
 
 > [!NOTE]
-> Per altre informazioni sull'elaborazione e monitoraggio degli eventi, vedere [Routing di eventi e messaggi](./concepts-events-routing.md).
+> Per altre informazioni sull'elaborazione e il monitoraggio degli eventi, vedere [indirizzare eventi e messaggi con i dispositivi gemelli digitali di Azure](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Procedure consigliate per Azure Active Directory
 

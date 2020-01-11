@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660342"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862476"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Connettività dei dispositivi e dati di telemetria in ingresso
 
@@ -21,7 +21,7 @@ I dati di telemetria inviati da dispositivi e sensori formano la struttura porta
 
 Per iniziare, creare una risorsa hub IoT di Azure alla radice del grafico spaziale. La risorsa hub IoT consente a tutti i dispositivi sotto lo spazio radice di inviare messaggi. Dopo la creazione dell'hub IoT, registrare i dispositivi con sensori all'interno dell'istanza di Gemelli digitali. I dispositivi possono inviare dati a un servizio Gemelli digitali tramite [Azure IoT SDK per dispositivi](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-Per una guida dettagliata all'onboarding dei dispositivi, vedere [Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafico spaziale](tutorial-facilities-setup.md). A grandi linee, i passaggi sono i seguenti:
+Per una guida dettagliata su come portare i dispositivi a bordo, vedere l' [esercitazione per distribuire e configurare i dispositivi gemelli digitali](tutorial-facilities-setup.md). A grandi linee, i passaggi sono i seguenti:
 
 - Distribuire un'istanza di Gemelli digitali di Azure dal [portale di Azure](https://portal.azure.com).
 - Creare spazi nel grafico.

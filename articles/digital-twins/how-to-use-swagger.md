@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4470a89455fd4b49fb7bb5ae26375f9cf9884c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a14f3f6c17423dd9a86cbafe477fb8148932d43c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456946"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863530"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentazione di riferimento di Swagger per Gemelli digitali di Azure
 
@@ -50,9 +50,9 @@ Sono elencati anche i modelli a oggetti dell'API Gestione.
 
 È possibile selezionare ogni modello a oggetti elencato per visualizzare un riepilogo più dettagliato degli attributi principali.
 
-[![modelli di spavalderia espanso per visualizzare il contenuto dei modelli](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[![modelli di spavalderia espanso per leggere il contenuto dei modelli](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
-I modelli a oggetti di Swagger generati sono utili per visualizzare tutti gli oggetti e le API di [Gemelli digitali di Azure](./concepts-objectmodel-spatialgraph.md) disponibili. Gli sviluppatori possono usare questa risorsa quando compilano soluzioni in Gemelli digitali di Azure.
+I modelli a oggetti spavalderia generati sono utili per leggere tutti [gli oggetti e le API](./concepts-objectmodel-spatialgraph.md)dei dispositivi gemelli digitali di Azure disponibili. Gli sviluppatori possono usare questa risorsa quando compilano soluzioni in Gemelli digitali di Azure.
 
 ## <a name="endpoint-summary"></a>Riepilogo degli endpoint
 
@@ -66,13 +66,13 @@ Ogni endpoint elencato include anche le informazioni obbligatorie sulla richiest
 
 [![gli endpoint di spavalderia visualizzati nell'interfaccia utente di spavalderia](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-È possibile fare clic su ogni risorsa per visualizzare una panoramica più dettagliata.
+Selezionare ogni risorsa per visualizzare i contenuti aggiuntivi per ottenere una panoramica più dettagliata.
 
 ## <a name="use-swagger-to-test-endpoints"></a>Usare Swagger per testare gli endpoint
 
 Una delle funzionalità più potenti offerte da Swagger è la possibilità di testare un endpoint API direttamente dall'interfaccia utente della documentazione.
 
-Dopo aver selezionato un endpoint specifico, verrà visualizzato **Prova**.
+Dopo aver selezionato un endpoint specifico, verrà visualizzato il pulsante **prova** .
 
 [pulsante prova di ![spavalderia](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
@@ -84,7 +84,7 @@ Dopo l'esecuzione del test, è possibile convalidare i dati della risposta.
 
 ## <a name="swagger-response-data"></a>Dati della risposta di Swagger
 
-Ogni endpoint elencato include anche i dati del corpo della risposta per convalidare lo sviluppo e i test. Questi esempi includono il codice JSON e i codici di stato desiderati per le richieste HTTP riuscite.
+Ogni endpoint elencato include anche i dati del corpo della risposta per convalidare lo sviluppo e i test. Questi esempi includono i codici di stato e JSON per le richieste HTTP riuscite.
 
 [esempio di risposta JSON ![spavalderia](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
@@ -124,7 +124,7 @@ Al termine della registrazione del Azure Active Directory:
 
     [![modale Reindirizzamento di spavalderia](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-Per altre informazioni sul test interattivo delle richieste protette tramite OAuth 2.0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
+Per altre informazioni su come testare in modo interattivo le richieste protette da OAuth 2,0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: ad70bbe36369c03225079d1194043e6ceb109c6f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671001"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866991"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurare File di Azure in un contenitore di Windows nel servizio app
 
@@ -31,6 +31,15 @@ Questa guida illustra come accedere ad archiviazione di Azure nei contenitori di
 > File di Azure è un archivio non predefinito e fatturato separatamente, non incluso nell'app Web. Non supporta l'uso della configurazione del firewall a causa delle limitazioni dell'infrastruttura.
 >
 
+## <a name="limitations"></a>Limitazioni
+
+- Archiviazione di Azure nei contenitori di Windows è **in anteprima** e **non è supportata** per gli **scenari di produzione**.
+- Archiviazione di Azure nei contenitori di Windows supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura).
+- Archiviazione di Azure nei contenitori di Windows **non** è attualmente supportata per gli scenari di Bring your own code nei piani di servizio app di Windows.
+- Archiviazione di Azure nei contenitori di Windows **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
+- Archiviazione di Azure nei contenitori di Windows consente **di specificare fino a cinque punti di** montaggio per ogni app.
+- Archiviazione di Azure viene fatturato in modo indipendente e **non incluso** nell'app Web. Scopri di più sui [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage).
+
 ## <a name="link-storage-to-your-web-app-preview"></a>Collegare la risorsa di archiviazione all'app Web (anteprima)
 
  Per montare una condivisione File di Azure in una directory nell'app del servizio app, usare il comando [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) . Il tipo di archiviazione deve essere risorsa.
@@ -41,14 +50,13 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 È consigliabile eseguire questa operazione per tutte le altre directory che si desidera collegare a una condivisione File di Azure.
 
-## <a name="verify"></a>Verificare
+## <a name="verify"></a>Verifica
 
 Una volta che una condivisione di File di Azure è collegata a un'app Web, è possibile verificarla eseguendo il comando seguente:
 
 ```azurecli
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 714faa43f34de965055ceba80de08972dd4192ac
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792668"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861201"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in app per la logica di Azure
 
@@ -42,8 +42,6 @@ Diversamente dalle identità assegnate dall'utente, non è necessario creare man
 
 * [Azure portal](#azure-portal-system-logic-app)
 * [Modelli di Gestione risorse di Azure](#template-system-logic-app)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* [interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -59,7 +57,7 @@ Diversamente dalle identità assegnate dall'utente, non è necessario creare man
 
    ![ID oggetto per l'identità assegnata dal sistema](./media/create-managed-service-identity/object-id.png)
 
-   | Proprietà | Value | Description |
+   | Proprietà | Valore | Description |
    |----------|-------|-------------|
    | **ID oggetto** | <*identity-resource-ID*> | Identificatore univoco globale (GUID) che rappresenta l'identità assegnata dal sistema per l'app per la logica nel tenant di Azure AD |
    ||||
@@ -105,7 +103,7 @@ Quando Azure crea la definizione di risorsa dell'app per la logica, l'oggetto `i
 }
 ```
 
-| Property (JSON) | Value | Description |
+| Property (JSON) | Valore | Description |
 |-----------------|-------|-------------|
 | `principalId` | <*principal-ID*> | Identificatore univoco globale (GUID) dell'oggetto entità servizio per l'identità gestita che rappresenta l'app per la logica nel tenant del Azure AD. Questo GUID viene talvolta visualizzato come "ID oggetto" o `objectID`. |
 | `tenantId` | <*Azure-AD-tenant-ID*> | Identificatore univoco globale (GUID) che rappresenta il tenant del Azure AD in cui l'app per la logica è ora un membro. All'interno del tenant di Azure AD, l'entità servizio ha lo stesso nome dell'istanza dell’app per la logica. |
@@ -115,7 +113,17 @@ Quando Azure crea la definizione di risorsa dell'app per la logica, l'oggetto `i
 
 ## <a name="give-identity-access-to-resources"></a>Fornire l'accesso alle identità alle risorse
 
-Dopo aver configurato un'identità gestita per l'app per la logica, è possibile [concedere a tale identità l'accesso ad altre risorse di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). È quindi possibile usare tale identità per l'autenticazione.
+Prima di poter usare l'identità gestita assegnata dal sistema dell'app per la logica per l'autenticazione, concedere all'identità l'accesso alla risorsa di Azure in cui si prevede di usare l'identità. Per completare questa attività, assegnare il ruolo appropriato a tale identità nella risorsa di Azure di destinazione. Di seguito sono riportate le opzioni che è possibile usare:
+
+* [Azure portal](#azure-portal-assign-access)
+* [Modello di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)): per altre informazioni, vedere Aggiungere un'assegnazione di ruolo usando il controllo degli accessi in base al [ruolo e Azure PowerShell di Azure](../role-based-access-control/role-assignments-powershell.md).
+* INTERFACCIA della riga di comando di Azure ([AZ Role Assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)): per altre informazioni, vedere [aggiungere un'assegnazione di ruolo usando RBAC di](../role-based-access-control/role-assignments-cli.md)Azure
+* [API REST di Azure](../role-based-access-control/role-assignments-rest.md)
+
+<a name="azure-portal-assign-access"></a>
+
+### <a name="assign-access-in-the-azure-portal"></a>Assegnare l'accesso nella portale di Azure
 
 1. Nella [portale di Azure](https://portal.azure.com)passare alla risorsa di Azure in cui si vuole che l'identità gestita abbia accesso.
 
@@ -165,13 +173,13 @@ Questi passaggi illustrano come usare l'identità gestita con un trigger o un'az
 
    Ad esempio, il trigger o l'azione HTTP può usare l'identità assegnata dal sistema abilitata per l'app per la logica. In generale, il trigger o l'azione HTTP usa queste proprietà per specificare la risorsa o l'entità a cui si vuole accedere:
 
-   | Proprietà | Obbligatoria | Description |
+   | Proprietà | Obbligatorio | Description |
    |----------|----------|-------------|
-   | **Metodo** | SÌ | Metodo HTTP usato dall'operazione che si vuole eseguire |
-   | **URI** | SÌ | URL dell'endpoint per l'accesso alla risorsa o all'entità di Azure di destinazione. La sintassi dell'URI include in genere l' [ID risorsa](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) per la risorsa o il servizio di Azure. |
+   | **Metodo** | Sì | Metodo HTTP usato dall'operazione che si vuole eseguire |
+   | **URI** | Sì | URL dell'endpoint per l'accesso alla risorsa o all'entità di Azure di destinazione. La sintassi dell'URI include in genere l' [ID risorsa](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) per la risorsa o il servizio di Azure. |
    | **Intestazioni** | No | Eventuali valori di intestazione necessari o che si desidera includere nella richiesta in uscita, ad esempio il tipo di contenuto |
    | **Query** | No | Tutti i parametri di query necessari o che si desidera includere nella richiesta, ad esempio il parametro per un'operazione specifica o la versione dell'API per l'operazione che si desidera eseguire |
-   | **Autenticazione** | SÌ | Tipo di autenticazione da usare per autenticare l'accesso alla risorsa o all'entità di destinazione |
+   | **autenticazione** | Sì | Tipo di autenticazione da usare per autenticare l'accesso alla risorsa o all'entità di destinazione |
    ||||
 
    Come esempio specifico, si supponga di voler eseguire l' [operazione snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) su un BLOB nell'account di archiviazione di Azure in cui è stato precedentemente configurato l'accesso per l'identità. Tuttavia, il [connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblob/) attualmente non offre questa operazione. In alternativa, è possibile eseguire questa operazione tramite l' [azione http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) o un'altra [operazione API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
@@ -181,13 +189,13 @@ Questi passaggi illustrano come usare l'identità gestita con un trigger o un'az
 
    Per eseguire l' [operazione snapshot BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), l'azione http specifica le proprietà seguenti:
 
-   | Proprietà | Obbligatoria | Valore di esempio | Description |
+   | Proprietà | Obbligatorio | Valore di esempio | Description |
    |----------|----------|---------------|-------------|
-   | **Metodo** | SÌ | `PUT`| Metodo HTTP usato dall'operazione BLOB di snapshot |
-   | **URI** | SÌ | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID risorsa per un file di archiviazione BLOB di Azure nell'ambiente globale (pubblico) di Azure, che usa questa sintassi |
+   | **Metodo** | Sì | `PUT`| Metodo HTTP usato dall'operazione BLOB di snapshot |
+   | **URI** | Sì | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID risorsa per un file di archiviazione BLOB di Azure nell'ambiente globale (pubblico) di Azure, che usa questa sintassi |
    | **Intestazioni** | Sì, per archiviazione di Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | I valori di intestazione `x-ms-blob-type` e `x-ms-version` richiesti per le operazioni di archiviazione di Azure. <p><p>**Importante**: nel trigger http in uscita e nelle richieste di azione per archiviazione di Azure, l'intestazione richiede la proprietà `x-ms-version` e la versione dell'API per l'operazione che si vuole eseguire. <p>Per altre informazioni, vedere gli argomenti seguenti: <p><p>[intestazioni di richiesta - -BLOB di snapshot](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>[controllo delle versioni di - per i servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Query** | Sì, per questa operazione | `comp` = `snapshot` | Nome e valore del parametro di query per l'operazione snapshot BLOB. |
-   | **Autenticazione** | SÌ | `Managed Identity` | Tipo di autenticazione da usare per l'autenticazione dell'accesso al BLOB di Azure |
+   | **autenticazione** | Sì | `Managed Identity` | Tipo di autenticazione da usare per l'autenticazione dell'accesso al BLOB di Azure |
    |||||
 
    Ecco l'azione HTTP di esempio che Mostra tutti i valori delle proprietà:
@@ -228,7 +236,7 @@ Per interrompere l'uso dell'identità assegnata dal sistema per l'app per la log
 * [Azure portal](#azure-portal-disable)
 * [Modelli di Gestione risorse di Azure](#template-disable)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/remove-azroleassignment)
-* [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-delete)
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-delete)
 
 Se si elimina l'app per la logica, Azure rimuove automaticamente l'identità gestita dal Azure AD.
 

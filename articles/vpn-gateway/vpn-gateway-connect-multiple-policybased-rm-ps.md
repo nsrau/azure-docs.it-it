@@ -2,18 +2,17 @@
 title: 'Gateway VPN di Azure: connettere i gateway a più dispositivi VPN basati su criteri locali'
 description: Configurare un gateway VPN basato su route di Azure per più dispositivi VPN basati su criteri usando Azure Resource Manager e PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 029b7ce31e7e3f1c71d9fbe806b2d76d8a98d24b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146709"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863741"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connettere i gateway VPN di Azure a più dispositivi VPN basati su criteri locali usando PowerShell
 
@@ -63,11 +62,11 @@ Come illustrato nel diagramma, il gateway VPN di Azure ha selettori di traffico 
 
 Le istruzioni contenute in questo articolo seguono lo stesso esempio descritto in [Configurare criteri IPsec/IKE per connessioni da sito a sito o da rete virtuale a rete virtuale](vpn-gateway-ipsecikepolicy-rm-powershell.md) per stabilire una connessione VPN da sito a sito. Vedere il diagramma seguente:
 
-![Criteri da sito a sito](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
 Flusso di lavoro per abilitare questa connettività:
 1. Creare la rete virtuale, il gateway VPN e il gateway di rete locale per la connessione cross-premise
-2. Creare criteri IPsec/IKE
+2. Creare un criterio IPsec/IKE
 3. Applicare i criteri quando si crea la connessione da sito a sito o da rete virtuale a rete virtuale e **abilitare i selettori di traffico basati su criteri** nella connessione
 4. Se la connessione è già stata creata, è possibile applicare o aggiornare i criteri per una connessione esistente
 

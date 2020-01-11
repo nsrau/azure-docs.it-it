@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
-ms.translationtype: HT
+ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834379"
+ms.locfileid: "75863088"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Azure ricerca cognitiva
 
@@ -38,6 +38,8 @@ Le versioni API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono invar
 ### <a name="december-2019"></a>Dicembre 2019
 
 + [Crea app (anteprima)](search-create-app-portal.md) è una nuova procedura guidata nel portale che genera un file HTML scaricabile. Il file include uno script incorporato che esegue il rendering di un'app Web di tipo "localhost" operativa, associata a un indice nel servizio di ricerca. Le pagine sono configurabili nella procedura guidata e possono contenere una barra di ricerca, l'area dei risultati, l'esplorazione dell'intestazione laterale e il supporto per le query typeahead. È possibile modificare il codice HTML offline per estendere o personalizzare il flusso di lavoro o l'aspetto.
+
++ [Creare un endpoint privato per le connessioni sicure (anteprima)](service-create-private-endpoint.md) spiega come configurare un collegamento privato per proteggere le connessioni al servizio di ricerca. Questa funzionalità di anteprima è disponibile su richiesta e usa il [collegamento privato di Azure](../private-link/private-link-overview.md) e la [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) come parte della soluzione.
 
 ### <a name="november-2019---ignite-conference"></a>Novembre 2019-conferenza Ignite
 

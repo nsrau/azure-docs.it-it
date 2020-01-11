@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452549"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861575"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticare e risolvere i problemi di un ambiente di anteprima
 
@@ -29,7 +29,7 @@ Questo problema può verificarsi se non si dispone delle autorizzazioni per acce
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: non vengono visualizzati dati in Esplora anteprime
 
-Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [strumento di esplorazione dell'anteprima di Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
+Esistono diversi motivi comuni per cui i dati potrebbero non essere visualizzati in [esplora Azure Time Series Insights Preview](https://insights.timeseries.azure.com/preview).
 
 - L'origine evento potrebbe non ricevere correttamente i dati.
 
@@ -39,7 +39,7 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
 - I dati dell'origine evento non sono in formato JSON.
 
-    Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi di dati in formato JSON, vedere [Forme JSON supportate](./how-to-shape-query-json.md).
+    Time Series Insights supporta solo dati in formato JSON. Per gli esempi JSON, leggere le [forme JSON supportate](./how-to-shape-query-json.md).
 
 - Alla chiave dell'origine evento manca un'autorizzazione obbligatoria.
 
@@ -61,13 +61,13 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
 - La proprietà ID di Time Series specificata al momento del provisioning è errata, mancante o null.
 
-    Questo problema può verificarsi se la proprietà ID di Time Series non è configurata in modo corretto al momento del provisioning dell'ambiente. Per altre informazioni, leggere [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID Time Series). In questo momento, non è possibile aggiornare un ambiente Time Series Insights esistente per usare un ID Time Series differente.
+    Questo problema può verificarsi se la proprietà ID di Time Series non è configurata in modo corretto al momento del provisioning dell'ambiente. Per ulteriori informazioni, leggere le [procedure consigliate per la scelta di un ID di serie temporale](./time-series-insights-update-how-to-id.md). In questo momento, non è possibile aggiornare un ambiente Time Series Insights esistente per usare un ID Time Series differente.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: alcuni dati risultano mancanti.
 
 È possibile che si stia inviando i dati senza ID Time Series.
 
-- Questo problema può verificarsi quando si inviano gli eventi senza il campo ID Time Series nel payload. Per altre informazioni, vedere [Forme JSON supportate](./how-to-shape-query-json.md).
+- Questo problema può verificarsi quando si inviano gli eventi senza il campo ID Time Series nel payload. Per altre informazioni, vedere [forme JSON supportate](./how-to-shape-query-json.md).
 - Questo problema può verificarsi perché l'ambiente è limitato nelle richieste.
 
     > [!NOTE]
@@ -97,7 +97,7 @@ Se la proprietà Timestamp non è specificata in modo esplicito, l'hub IoT o hub
 
 - È possibile accedere a un ambiente Time Series Insights S1 o S2.
 
-   I modelli Time Series sono supportati solo negli ambienti con pagamento in base al consumo. Per altre informazioni su come accedere all'ambiente S1 o S2 da Esplora Time Series Insights Preview, vedere visualizzare i [dati in Esplora risorse](./time-series-insights-update-explorer.md).
+   I modelli Time Series sono supportati solo negli ambienti con pagamento in base al consumo. Per altre informazioni su come accedere all'ambiente S1 o S2 da Esplora Time Series Insights Preview, vedere visualizzare i [dati nella finestra di esplorazione](./time-series-insights-update-explorer.md).
 
    [Non ![alcun evento nell'ambiente.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -107,7 +107,7 @@ Se la proprietà Timestamp non è specificata in modo esplicito, l'hub IoT o hub
 
 ## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: tutte le istanze personali in Esplora anteprime non dispongono di un elemento padre
 
-Questo problema può verificarsi se l'ambiente non dispone di una gerarchia di modelli Time Series definita. Per altre informazioni, vedere [Lavorare con modelli di Time Series](./time-series-insights-update-how-to-tsm.md).
+Questo problema può verificarsi se l'ambiente non dispone di una gerarchia di modelli Time Series definita. Per altre informazioni, vedere [usare i modelli Time Series](./time-series-insights-update-how-to-tsm.md).
 
   [![istanze con stato non associato verrà visualizzato un avviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 

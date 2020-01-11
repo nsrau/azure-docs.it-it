@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374724"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861388"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modello Time Series in Azure Time Series Insights Preview
 
@@ -186,7 +186,7 @@ Nell'esempio JSON precedente:
 * `ManufactureDate` definisce una gerarchia con `year` padre e `month`figlio. Ogni `ManufactureDate` può avere più `years`, che a loro volta possono avere più `months`.
 
 > [!TIP]
-> Per Time Series Insights API dell'istanza e il supporto CRUD, vedere l'articolo sull' [esecuzione di query sui dati](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API Hierarchy](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Per Time Series Insights API dell'istanza e il supporto CRUD, vedere l'articolo relativo all' [esecuzione di query sui dati](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API Hierarchy](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Esempio di gerarchia
 
@@ -231,7 +231,7 @@ La [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/sam
 [esempio di tipo di modello Time Series ![](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Per Time Series Insights API dell'istanza e il supporto CRUD, vedere l'articolo sull' [esecuzione di query sui dati](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)per l'API di tipo.
+> Per Time Series Insights API dell'istanza e il supporto CRUD, leggere l'articolo sull' [esecuzione di query sui dati](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API di tipo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### <a name="type-properties"></a>Proprietà del tipo
 
@@ -391,7 +391,7 @@ Le variabili vengono archiviate nella definizione del tipo di un modello Time Se
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights](./time-series-insights-update-storage-ingress.md).
+- Leggere [Azure Time Series Insights archiviazione in anteprima e in ingresso](./time-series-insights-update-storage-ingress.md).
 
 - Informazioni sulle operazioni comuni del modello Time Series nella [modellazione dei dati in Azure Time Series Insights Preview](./time-series-insights-update-how-to-tsm.md)
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1deca696ba576849701eb8719de7fbaa7895a26a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615104"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861405"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -116,9 +116,9 @@ Potrebbe essere necessario accedere ai dati visualizzati in Esplora Time Series 
 
 È possibile accedere ai dati in tre modi:
 
-* Dallo strumento di esplorazione dell'anteprima di Time Series Insights È possibile esportare i dati come file CSV dalla finestra di esplorazione. Per altre informazioni, vedere [Strumento di esplorazione dell'anteprima di Time Series Insights](./time-series-insights-update-explorer.md).
+* Dallo strumento di esplorazione dell'anteprima di Time Series Insights È possibile esportare i dati come file CSV dalla finestra di esplorazione. Per altre informazioni, vedere [Time Series Insights anteprima di Esplora risorse](./time-series-insights-update-explorer.md).
 * Dall'API di Time Series Insights Preview. È possibile raggiungere l'endpoint API in `/getRecorded`. Per altre informazioni su questa API, vedere [Query Time Series](./time-series-insights-update-tsq.md).
-* Direttamente da un account di archiviazione di Azure. È necessario l'accesso in lettura a qualsiasi account usato per accedere ai dati di Time Series Insights Preview. Per altre informazioni, vedere [Gestire l'accesso alle risorse degli account di archiviazione di Azure](../storage/blobs/storage-manage-access-to-resources.md).
+* Direttamente da un account di archiviazione di Azure. È necessario l'accesso in lettura a qualsiasi account usato per accedere ai dati di Time Series Insights Preview. Per altre informazioni, vedere [gestire l'accesso alle risorse dell'account di archiviazione](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### <a name="data-deletion"></a>Eliminazione di dati
 
@@ -128,7 +128,7 @@ Non eliminare i file di anteprima Time Series Insights. Gestisci i dati correlat
 
 Parquet è un formato di file a colonne open source progettato per l'archiviazione e le prestazioni efficienti. Time Series Insights anteprima usa parquet per questi motivi. I dati vengono partizionati in base all'ID della serie temporale per le prestazioni delle query su larga scala.  
 
-Per ulteriori informazioni sul tipo di file parquet, vedere la [documentazione parquet](https://parquet.apache.org/documentation/latest/).
+Per ulteriori informazioni sul tipo di file parquet, leggere la [documentazione parquet](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights anteprima archivia le copie dei dati come segue:
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2146b1bd782aba5d98729a2d37d956744e469ba1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369253"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860249"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Scegliere una tecnologia di elaborazione del flusso e analisi in tempo reale in Azure
 
@@ -41,10 +41,6 @@ Analisi di flusso di Azure offre un'esperienza predefinita completa. È possibil
 * Alla latenza end-to-end di 100-ms dall'input in arrivo all'hub eventi, per l'output di destinazione in hub eventi, incluso il ritardo di rete da e verso hub eventi, a velocità effettiva elevata sostenuta
 
 ## <a name="when-to-use-other-technologies"></a>Quando utilizzare altre tecnologie
-
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>È necessario eseguire l'input da o l'output a Kafka
-
-Analisi di flusso di Azure non dispone di un adattatore di input o di output Apache Kafka. Se gli eventi sono in esecuzione o se è necessario inviarli a Kafka e non si ha la necessità di eseguire il proprio cluster Kafka, è possibile continuare a usare l'analisi di flusso inviando eventi a hub eventi usando l'API Kafka di hub eventi senza modificare il mittente dell'evento. Se è necessario eseguire il proprio cluster Kafka, è possibile usare lo streaming strutturato Spark, che è completamente supportato in [Azure Databricks](../azure-databricks/index.yml)o Storm in [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Si desidera scrivere funzioni definite dall'utente, Uda e deserializzatori personalizzati in un linguaggio diverso da JavaScript oC#
 

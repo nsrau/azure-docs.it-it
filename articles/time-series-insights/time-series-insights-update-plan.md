@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b25639b237979aff8980c1ff5b8787d298c157e1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452443"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861465"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 
@@ -34,7 +34,7 @@ Gli articoli seguenti illustrano le procedure consigliate per la pianificazione 
 * Come [inviare eventi in modo efficiente in JSON](#shape-your-events).
 * Time Series Insights [Opzioni di ripristino di emergenza aziendale](#business-disaster-recovery).
 
-Azure Time Series Insights usa un modello di business con pagamento in base al consumo. Per altre informazioni sui costi e la capacità, vedere [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/) (Prezzi di Time Series Insights).
+Azure Time Series Insights usa un modello di business con pagamento in base al consumo. Per ulteriori informazioni sugli addebiti e sulla capacità, vedere [Time Series Insights prezzi](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 ## <a name="the-preview-environment"></a>Ambiente di anteprima
 
@@ -48,7 +48,7 @@ Come parte del processo di provisioning, specificare se si vuole abilitare un ar
 Le query sull'archivio a caldo sono gratuite, mentre le query sull'archivio a freddo sono soggette a costi. È importante comprendere i modelli di query e pianificare la configurazione del negozio a caldo di conseguenza. È consigliabile che le analisi interattive sui dati più recenti risiedano nel negozio a caldo e l'analisi dei modelli e le tendenze a lungo termine risiedano a freddo.
 
 > [!NOTE]
-> Per altre informazioni su come eseguire query sui dati caldi, [vedere qui](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> Per altre informazioni su come eseguire query sui dati caldi, vedere le informazioni di [riferimento sulle API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 Per iniziare, sono necessari altri tre elementi:
 
@@ -80,7 +80,7 @@ Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodament
 
 È ora possibile configurare il modello Time Series dell'ambiente Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello utilizza gli ID della serie temporale, che vengono mappati a un'istanza di che associa la risorsa univoca a variabili, note come tipi e gerarchie. Informazioni sul nuovo [modello Time Series](./time-series-insights-update-tsm.md).
 
-Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilarlo e caricarlo prima di eseguire il push dei dati in Time Series Insights. Per compilare il modello, vedere [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md) (Usare il modello Time Series).
+Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilarlo e caricarlo prima di eseguire il push dei dati in Time Series Insights. Per compilare il modello, vedere [usare il modello Time Series](./time-series-insights-update-how-to-tsm.md).
 
 Per molti clienti, il modello Time Series esegue il mapping a un modello di risorse esistente o al sistema ERP già in uso. Se non si dispone di un modello esistente, viene [offerta](https://github.com/Microsoft/tsiclient) un'esperienza utente predefinita per ottenerlo rapidamente. Per conoscere i vantaggi di un modello, visualizzare l'[ambiente demo di esempio](https://insights.timeseries.azure.com/preview/demo).
 
@@ -93,7 +93,7 @@ Una buona norma:
 * Archiviare i metadati nel modello Time Series.
 * Verificare che la modalità della serie temporale, i campi dell'istanza e gli eventi includano solo le informazioni necessarie, ad esempio un ID della serie temporale o una proprietà timestamp.
 
-Per altre informazioni, vedere [Shape events](./time-series-insights-send-events.md#supported-json-shapes) (Dare forma agli eventi).
+Per ulteriori informazioni, leggere [eventi forma](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

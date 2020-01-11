@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0aed84dc4d78f8e83f568ff3e73d1300aaedbcaa
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456907"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860963"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Connettersi ed eseguire l'autenticazione con le API
 
@@ -24,7 +24,7 @@ Per una panoramica di Azure AD, visitare la [pagina relativa ai concetti fondame
 > [!TIP]
 > Seguire l' [esercitazione](tutorial-facilities-setup.md) per configurare ed eseguire un'app di esempio per i dispositivi digitali gemelli di Azure.
 
-Per integrare un'applicazione o un servizio con Azure AD, uno sviluppatore deve prima di tutto registrare l'applicazione con Azure AD. Per istruzioni dettagliate e gli screenshot, vedere [questo avvio rapido](../active-directory/develop/quickstart-register-app.md).
+Per integrare un'applicazione o un servizio con Azure AD, uno sviluppatore deve prima di tutto registrare l'applicazione con Azure AD. Per istruzioni dettagliate e schermate, leggi [questa Guida introduttiva](../active-directory/develop/quickstart-register-app.md).
 
 Azure AD supporta [cinque scenari applicativi principali](../active-directory/develop/v2-app-types.md):
 
@@ -49,7 +49,7 @@ Quando progettano soluzioni per Gemelli digitali, in genere gli sviluppatori cre
 
 1. Il token acquisito viene quindi usato per chiamare o eseguire l'autenticazione con API più a valle tramite il flusso On-Behalf-Of
 
-Per istruzioni su come orchestrare il flusso on-behalf-of, vedere [Flusso On-Behalf-Of di OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). È anche possibile visualizzare esempi di codice in [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) (Chiamare un'API Web downstream).
+Per istruzioni su come orchestrare il flusso per conto di, vedere [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)per il flusso. È anche possibile visualizzare esempi di codice in [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) (Chiamare un'API Web downstream).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

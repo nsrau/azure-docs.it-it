@@ -4,16 +4,16 @@ description: Informazioni su come monitorare un account di archiviazione in Azur
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211863"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862833"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -129,7 +129,7 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 >
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Account di archiviazione** e quindi il nome dell'account di archiviazione per aprire il relativo pannello.
-1. Selezionare **Diagnostica** nella sezione **Monitoraggio** del pannello del menu.
+1. Selezionare **impostazioni di diagnostica (versione classica)** nella sezione **monitoraggio (classico)** del pannello del menu.
 
     ![Voce di menu Diagnostica in Monitoraggio nel portale di Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 

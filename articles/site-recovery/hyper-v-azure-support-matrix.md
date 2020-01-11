@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 1/10/2020
 ms.author: raynew
-ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133023"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863894"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -51,8 +51,8 @@ Sistema operativo guest | Qualsiasi sistema operativo guest [supportato per Azur
 
 **Azione** | **Dettagli**
 --- | ---
-Ridimensionare li disco nella macchina virtuale Hyper-V replicata | Non supportati. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
-Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportati. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
+Ridimensionare li disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
+Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
 
 ## <a name="hyper-v-network-configuration"></a>Configurazione di rete Hyper-V
 
@@ -75,7 +75,7 @@ Rete delle macchine virtuali guest: più NIC | Sì | Sì
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | Sì | Sì
+ExpressRoute di Azure | Sì | Sì
 ILB | Sì | Sì
 ELB | Sì | Sì
 Gestione traffico di Azure | Sì | Sì
@@ -89,7 +89,7 @@ Rete accelerata | No | No
 
 ## <a name="hyper-v-host-storage"></a>Archiviazione host Hyper-V
 
-**Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
+**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | --- 
 NFS | ND | ND
 SMB 3.0 | Sì | Sì
@@ -98,7 +98,7 @@ Percorsi multipli (MPIO). Testato con:<br></br> DSM Microsoft, EMC PowerPath 5,7
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
-**Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
+**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
 VMDK | ND | ND
 VHD/VHDX | Sì | Sì
@@ -130,11 +130,11 @@ Archiviazione ad accesso sporadico | No | No
 Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
 Crittografia per dati inattivi (SSE)| Sì | Sì
-Crittografia inattiva (CMK)| No | No
+Crittografia inattiva (CMK) <br></br> (Solo per failover a Managed Disks)| Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
 Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No | No
 Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
-Modifica account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
+Modifica dell'account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
 
 
 ## <a name="azure-compute-features"></a>Funzionalità di calcolo di Azure
@@ -143,7 +143,7 @@ Modifica account di archiviazione | No. L'account di archiviazione di Azure di d
 --- | --- | ---
 Set di disponibilità | Sì | Sì
 HUB | Sì | Sì  
-Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
+Managed Disks | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 
@@ -158,12 +158,12 @@ Conteggio dischi del sistema operativo | 1 | Il controllo dei prerequisiti ha es
 Conteggio dischi dati | Fino a 16  | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Dimensioni VHD dischi dati | Fino a 4.095 GB | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede |
-VHD condiviso | Non supportato | Il controllo dei prerequisiti ha esito negativo se non supportato.
-Disco FC | Non supportato | Il controllo dei prerequisiti ha esito negativo se non supportato.
+VHD condiviso | Supporto non disponibile | Il controllo dei prerequisiti ha esito negativo se non supportato.
+Disco FC | Supporto non disponibile | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Formato disco rigido | VHD <br/><br/> VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
-BitLocker | Non supportato | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
-Nome della VM | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
-Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+BitLocker | Supporto non disponibile | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
+Nome della VM. | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
+Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="recovery-services-vault-actions"></a>Azioni dell'insieme di credenziali dei Servizi di ripristino
 

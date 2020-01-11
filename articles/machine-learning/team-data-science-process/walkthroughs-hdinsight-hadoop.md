@@ -3,20 +3,20 @@ title: Analisi in Azure HDInsight Hadoop con Hive - Processo di data science per
 description: Esempi del processo di data science per i team che descrive l'uso di Hive in Azure HDInsight Hadoop per eseguire analisi predittive.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804663"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864163"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Procedure dettagliate di data science per HDInsight Hadoop con Hive in Azure 
 
@@ -36,7 +36,7 @@ Lo scenario viene implementato usando Hive con un [cluster Azure HDInsight Hadoo
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Stimare i clic sugli annunci usando Hive con HDInsight Hadoop
 
-La procedura dettagliata [Usare cluster Hadoop di Azure HDInsight in un set di dati da 1 TB](hive-criteo-walkthrough.md) usa un set di dati relativo ai clic su [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibile pubblicamente per stimare se viene lasciata una mancia e l'intervallo di importi previsto. Lo scenario viene implementato usando Hive con un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) per archiviare ed esplorare i dati di esempio nonché progettarne le funzionalità e sottocampionarli. Usa Azure Machine Learning per compilare, eseguire il training e assegnare un punteggio a un modello di classificazione binario che prevede se un utente fa clic su un annuncio. La procedura dettagliata si conclude illustrando come pubblicare uno di questi modelli come servizio Web.
+La procedura dettagliata [usare cluster Azure HDInsight Hadoop in un set di dati da 1 TB](hive-criteo-walkthrough.md) usa un set di dati [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibile pubblicamente per stimare se una mancia viene pagata e gli importi previsti. Lo scenario viene implementato usando Hive con un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) per archiviare ed esplorare i dati di esempio nonché progettarne le funzionalità e sottocampionarli. Usa Azure Machine Learning per compilare, eseguire il training e assegnare un punteggio a un modello di classificazione binario che prevede se un utente fa clic su un annuncio. La procedura dettagliata si conclude illustrando come pubblicare uno di questi modelli come servizio Web.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

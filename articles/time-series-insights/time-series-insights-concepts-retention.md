@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: f479433ef486c12a00f74b220d46f84f5f979e7c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561286"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863462"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights
 
@@ -44,7 +44,7 @@ Entrambi i criteri di conservazione dei dati sono descritti in dettaglio più av
 ## <a name="purge-old-data"></a>Eliminare i dati meno recenti
 
 - **Elimina dati obsoleti** è l'impostazione predefinita per gli ambienti Azure Time Series Insights.  
-- È preferibile **eliminare i dati obsoleti** quando gli utenti vogliono visualizzare sempre i *dati più recenti* nell'ambiente Time Series Insights.
+- È preferibile **eliminare i dati obsoleti** quando gli utenti vogliono avere sempre i *dati più recenti* nell'ambiente Time Series Insights.
 - L'impostazione **Ripulisci dati obsoleti** *Elimina* i dati dopo che sono stati raggiunti i limiti dell'ambiente (periodo di conservazione, dimensioni o conteggio, a seconda di quale valore viene raggiunto per primo). L'assorbimento è impostato a 30 giorni per impostazione predefinita.
 - I dati inseriti meno recenti vengono eliminati per primi (approccio "First in First out").
 

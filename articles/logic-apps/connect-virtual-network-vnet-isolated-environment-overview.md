@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527859"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860751"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -23,7 +23,7 @@ Dopo aver creato l'ISE, quando si crea l'app per la logica o l'account di integr
 
 ![Selezionare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-L'app per la logica ora può accedere direttamente ai sistemi interni o connessi alla rete virtuale usando uno di questi elementi:
+L'app per la logica ora può accedere direttamente ai sistemi interni o connessi alla rete virtuale usando uno di questi elementi, che vengono eseguiti all'interno dello stesso ISE dell'app per la logica:
 
 * Un connettore con etichetta **ISE**per quel sistema
 * Un trigger o un'azione incorporata con etichetta **Core**, ad esempio il trigger o l'azione http
@@ -43,23 +43,21 @@ Questa panoramica descrive più dettagliatamente il modo in cui un ISE fornisce 
 
 Quando si crea un ambiente del servizio integrato (ISE) in Azure, è possibile selezionare la rete virtuale di Azure in cui si vuole *inserire* ISE. Azure inserisce, o distribuisce, un'istanza privata del servizio app per la logica nella rete virtuale. Questa azione crea un ambiente isolato in cui è possibile creare ed eseguire le app per la logica in risorse dedicate. Quando si crea l'app per la logica, si seleziona ISE come posizione dell'app, che consente all'app per la logica di accedere direttamente alla rete virtuale e alle risorse in tale rete.
 
-Le app per la logica in un ambiente del servizio di integrazione offrono le stesse esperienze utente e funzionalità simili a quelle del servizio App per la logica globale. Non solo è possibile usare gli stessi trigger predefiniti, le azioni predefinite e i connettori del servizio app per la logica globale, ma è anche possibile usare connettori specifici di ISE. Ad esempio, di seguito sono riportati alcuni connettori standard che offrono versioni eseguite in ISE:
+Le app per la logica in un ISE forniscono le stesse esperienze utente e funzionalità simili a quelle del servizio pubblico app per la logica globale. È possibile usare tutti gli stessi trigger, azioni e connettori gestiti predefiniti disponibili nel servizio app per la logica globale. Alcuni connettori gestiti offrono versioni di ISE aggiuntive. La differenza esiste nella posizione in cui vengono eseguite e le etichette che visualizzano nella finestra di progettazione dell'app per la logica quando si lavora all'interno di ISE.
 
-* Archiviazione BLOB, Archiviazione file e Archiviazione tabelle di Azure
-* Code di Azure, bus di servizio di Azure, hub eventi di Azure e IBM MQ
-* FTP e SFTP-SSH
-* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
-* AS2, X12 ed EDIFACT
+![Connettori con e senza etichette in ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-La differenza tra connettori dell'ambiente del servizio di integrazione e quelli non dell'ambiente del servizio di integrazione è data dalle posizioni in cui i trigger e le azioni vengono eseguiti:
+* I trigger e le azioni predefiniti visualizzano l'etichetta **principale** e vengono sempre eseguiti nello stesso ISE dell'app per la logica. I connettori gestiti che visualizzano l'etichetta **ISE** vengono eseguiti anche nello stesso ISE dell'app per la logica.
 
-* In ISE, i trigger e le azioni predefiniti, ad esempio HTTP, vengono sempre eseguiti nello stesso ISE dell'app per la logica e visualizzano l'etichetta **principale** .
+  Ad esempio, di seguito sono riportati alcuni connettori che offrono le versioni di ISE:
 
-  ![Selezionare i trigger e le azioni predefiniti "core"](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  * Archiviazione BLOB, Archiviazione file e Archiviazione tabelle di Azure
+  * Code di Azure, bus di servizio di Azure, hub eventi di Azure e IBM MQ
+  * FTP e SFTP-SSH
+  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * AS2, X12 ed EDIFACT
 
-* I connettori eseguiti in ISE hanno versioni ospitate pubblicamente disponibili nel servizio app per la logica globale. Per i connettori che offrono due versioni, i connettori con l'etichetta **ISE** vengono sempre eseguiti nello stesso ISE dell'app per la logica. I connettori senza l'etichetta **ISE** vengono eseguiti nel servizio App per la logica globale.
-
-  ![Selezionare i connettori ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* I connettori gestiti che non visualizzano etichette aggiuntive vengono sempre eseguiti nel servizio app per la logica globale pubblico, ma è comunque possibile usare questi connettori in un'app per la logica basata su ISE.
 
 Un ISE fornisce anche maggiori limiti per durata dell'esecuzione, conservazione dell'archiviazione, velocità effettiva, timeout di richieste e risposte HTTP, dimensioni dei messaggi e richieste di connettori personalizzati. Per altre informazioni, vedere [limiti e configurazione per app per la logica di Azure](logic-apps-limits-and-config.md).
 

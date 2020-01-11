@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3e73afa89ee61243784c5952eeda26a79d508dee
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900237"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863411"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
@@ -34,7 +34,7 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa A: i dati dell'origine evento non sono in formato JSON
 
-Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi di dati in formato JSON, vedere [Forme JSON supportate](./how-to-shape-query-json.md).
+Azure Time Series Insights supporta solo dati in formato JSON. Per gli esempi JSON, leggere le [forme JSON supportate](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: manca un'autorizzazione necessaria per la chiave dell'origine evento
 
@@ -69,7 +69,7 @@ In presenza di eventi meno recenti nell'origine eventi, è possibile scegliere t
 - Modificare i limiti di conservazione dell'origine eventi per eliminare gli eventi meno recenti che non si vuole visualizzare in Time Series Insights.
 - Eseguire il provisioning di un ambiente di dimensioni maggiori, in termini di numero di unità, per aumentare la velocità effettiva per gli eventi meno recenti. Ritornando all'esempio precedente, se lo stesso ambiente S1 venisse esteso a cinque unità per un giorno, sarebbe possibile recuperare entro tale giorno. Se la produzione di eventi di stato costante è di circa 1 milione o meno di eventi al giorno, è possibile ridurre la capacità dell'evento tornando a una unità dopo essere tornati in pari.
 
-La limitazione viene applicata in base alla capacità e al tipo di SKU dell'ambiente. Tutte le origini evento all'interno dell'ambiente condividono questa capacità. Se l'origine evento dell'hub IoT e dell'hub eventi esegue il push dei dati oltre il limite imposto, si verificheranno una limitazione nelle richieste e un ritardo.
+La limitazione viene applicata in base alla capacità e al tipo di SKU dell'ambiente. Tutte le origini evento all'interno dell'ambiente condividono questa capacità. Se l'origine evento per l'hub Internet o l'hub eventi esegue il push dei dati oltre i limiti applicati, si verificheranno una limitazione e un ritardo.
 
 Il diagramma seguente mostra un ambiente Time Series Insights con uno SKU S1 e una capacità pari a 3. È consentito l'ingresso di 3 milioni di eventi al giorno.
 
@@ -82,11 +82,11 @@ Si supponga, ad esempio, che un ambiente inserisca messaggi da un hub eventi. La
 
 Un ambiente SKU S1 con una capacità pari a 3 consente l'ingresso di soli 2.100 eventi al minuto (1 milione di eventi al giorno = 700 eventi al minuto in tre unità = 2.100 eventi al minuto). 
 
-Per una descrizione generale di come funziona la logica di appiattimento, vedere [Forme JSON supportate](./how-to-shape-query-json.md).
+Per informazioni generali sul funzionamento della logica di appiattimento, vedere [forme JSON supportate](./how-to-shape-query-json.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Risoluzioni consigliate per la limitazione eccessiva
 
-Per correggere il ritardo, aumentare la capacità SKU dell'ambiente. Per altre informazioni, vedere [Scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) (Scalare l'ambiente Time Series Insights).
+Per correggere il ritardo, aumentare la capacità SKU dell'ambiente. Per altre informazioni, vedere [ridimensionare l'ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Motivo B: l'inserimento iniziale dei dati cronologici rallenta il traffico in ingresso
 
@@ -109,9 +109,9 @@ Verificare che il nome e il valore della proprietà timestamp siano conformi all
 
 Il modo più semplice per garantire l'acquisizione e il corretto funzionamento del nome della proprietà timestamp consiste nell'usare lo strumento di esplorazione di Azure Time Series Insights. All'interno dello strumento di esplorazione di Azure Time Series Insights, usando il grafico, selezionare un periodo di tempo dopo aver specificato il nome della proprietà timestamp. Fare clic con il pulsante destro del mouse sulla selezione e selezionare l'opzione **Esplora eventi**.
 
-L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto alla parola **Timestamp** è visualizzato **($ts)** .
+L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto al **timestamp**di Word verrà visualizzato **($TS)** .
 
-Non dovrebbero essere presenti i valori seguenti:
+I valori seguenti non verranno visualizzati:
 
 - *(ABC)* : indica che Time Series Insights sta leggendo i valori dei dati come stringhe.
 - *Calendar Icon*: indica che Time Series Insights sta leggendo il valore dei dati come *DateTime*.

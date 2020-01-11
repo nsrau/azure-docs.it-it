@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: a4b0debc712504e8cb3c6d61372bd3a82c7932bb
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b068eeeada842f2439f6135bfa8567a6c9709d12
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497025"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862816"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 
@@ -30,10 +30,20 @@ Quando si usa SQL Server Integration Services (SSIS) in Azure Data Factory, è n
 
 - Si desidera connettersi a archivi dati/risorse configurati con regole del firewall IP da pacchetti SSIS eseguiti nel Azure-SSIS IR.
 
-Data Factory consente di aggiungere i Azure-SSIS IR a una rete virtuale creata tramite il modello di distribuzione classica o il modello di distribuzione di Azure Resource Manager. 
+Data Factory consente di aggiungere i Azure-SSIS IR a una rete virtuale creata tramite il modello di distribuzione classica o il modello di distribuzione di Azure Resource Manager.
 
 > [!IMPORTANT]
 > La rete virtuale classica verrà deprecata. utilizzare invece la rete virtuale Azure Resource Manager.  Se si usa già la rete virtuale classica, passare alla rete virtuale Azure Resource Manager il prima possibile.
+
+L'esercitazione [configurazione di un runtime di integrazione di Azure-SQL Server Integration Services (SSIS) per l'aggiunta a una rete virtuale](tutorial-deploy-ssis-virtual-network.md) Mostra la procedura minima tramite portale di Azure. Questo articolo espande l'esercitazione e descrive tutte le attività facoltative:
+
+- Se si usa la rete virtuale (versione classica).
+- Se si importano indirizzi IP pubblici personalizzati per la Azure-SSIS IR.
+- Se si usa il proprio server di Domain Name System (DNS).
+- Se si usa un gruppo di sicurezza di rete (NSG) nella subnet.
+- Se si usa Azure ExpressRoute o una route definita dall'utente (UDR).
+- Se si usano Azure-SSIS IR personalizzati.
+- Se si usa il provisioning di Azure PowerShell.
 
 ## <a name="access-to-on-premises-data-stores"></a>Accesso agli archivi dati locali
 
@@ -319,7 +329,7 @@ Dopo aver configurato la rete virtuale Azure Resource Manager o la rete virtuale
 
    ![Elenco di data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Selezionare il data factory con il Azure-SSIS IR nell'elenco. Verrà visualizzata la home page della data factory. Selezionare il riquadro **Creare e distribuire**. Verrà visualizzata l'interfaccia utente di Data Factory in una scheda separata. 
+1. Selezionare il data factory con il Azure-SSIS IR nell'elenco. Verrà visualizzata la home page della data factory. Selezionare il riquadro **autore & monitoraggio** . Verrà visualizzata l'interfaccia utente di Data Factory in una scheda separata. 
 
    ![Home page di Data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

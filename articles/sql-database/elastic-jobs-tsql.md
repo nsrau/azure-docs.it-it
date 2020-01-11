@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: deefc1cc1d8fe82eab9ec0085b3a11ccd2fe7840
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6b70eb1a6e51c98311ae51648b1a9618f9c3349d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820607"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861337"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -405,7 +405,7 @@ Le stored procedure seguenti sono disponibili nel [database dei processi](sql-da
 
 
 
-|Stored procedure  |Descrizione  |
+|Stored procedure  |Description  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     Aggiunge un nuovo processo.    |
 |[sp_update_job](#sp_update_job)    |      Aggiorna un processo esistente.   |
@@ -419,7 +419,7 @@ Le stored procedure seguenti sono disponibili nel [database dei processi](sql-da
 |[sp_delete_target_group](#sp_delete_target_group)     |    Elimina un gruppo di destinazione.     |
 |[sp_add_target_group_member](#sp_add_target_group_member)     |    Aggiunge un database o un gruppo di database a un gruppo di destinazione.     |
 |[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Rimuove un membro del gruppo di destinazione da un gruppo di destinazione.    |
-|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Rimuove i record della cronologia per un processo.     |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Rimuove i record della cronologia relativi a un processo.     |
 
 
 
@@ -468,13 +468,13 @@ Valore che indica quando deve essere eseguito il processo. schedule_interval_typ
 Numero di periodi schedule_interval_count tra ogni esecuzione del processo. schedule_interval_count è di tipo int e il valore predefinito è 1. Il valore deve essere maggiore o uguale a 1.
 
 [ **\@schedule_start_time =** ] schedule_start_time  
-Data dalla quale è possibile avviare l'esecuzione del processo. schedule_start_time è di tipo DATETIME2 e il valore predefinito è 00.00.00.0000000 0001-01-01.
+Data in cui l'esecuzione del processo può avere inizio. schedule_start_time è di tipo DATETIME2 e il valore predefinito è 00.00.00.0000000 0001-01-01.
 
 [ **\@schedule_end_time =** ] schedule_end_time  
-Data in cui è possibile arrestare l'esecuzione del processo. schedule_end_time è di tipo DATETIME2 e il valore predefinito è 9999-12-31 11:59:59.0000000. 
+Data in cui l'esecuzione del processo può essere arrestata. schedule_end_time è di tipo DATETIME2 e il valore predefinito è 9999-12-31 11:59:59.0000000. 
 
 [ **\@job_id =** ] output job_id  
-Numero di identificazione del processo assegnato al processo se viene creato correttamente. job_id è una variabile di output di tipo uniqueidentifier.
+Numero di identificazione del processo assegnato al processo se creato correttamente. job_id è una variabile di output di tipo uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valori del codice restituito
 
@@ -484,7 +484,7 @@ Numero di identificazione del processo assegnato al processo se viene creato cor
 sp_add_job deve essere eseguito dal database dell'agente processo specificato al momento della creazione dell'agente processo.
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 
 - jobs_reader
@@ -535,10 +535,10 @@ Valore che indica quando deve essere eseguito il processo. schedule_interval_typ
 Numero di periodi schedule_interval_count tra ogni esecuzione del processo. schedule_interval_count è di tipo int e il valore predefinito è 1. Il valore deve essere maggiore o uguale a 1.
 
 [ **\@schedule_start_time =** ] schedule_start_time  
-Data dalla quale è possibile avviare l'esecuzione del processo. schedule_start_time è di tipo DATETIME2 e il valore predefinito è 00.00.00.0000000 0001-01-01.
+Data in cui l'esecuzione del processo può avere inizio. schedule_start_time è di tipo DATETIME2 e il valore predefinito è 00.00.00.0000000 0001-01-01.
 
-[ **\@schedule_end_time =** ] schedule_end_time  
-Data in cui è possibile arrestare l'esecuzione del processo. schedule_end_time è di tipo DATETIME2 e il valore predefinito è 9999-12-31 11:59:59.0000000. 
+[ **\@schedule_end_time=** ] schedule_end_time  
+Data in cui l'esecuzione del processo può essere arrestata. schedule_end_time è di tipo DATETIME2 e il valore predefinito è 9999-12-31 11:59:59.0000000. 
 
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (operazione completata) o 1 (operazione non riuscita)
@@ -546,7 +546,7 @@ Data in cui è possibile arrestare l'esecuzione del processo. schedule_end_time 
 #### <a name="remarks"></a>Osservazioni
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -578,7 +578,7 @@ Specifica se eseguire l'eliminazione e annullare le eventuali esecuzioni del pro
 #### <a name="remarks"></a>Osservazioni
 La cronologia del processo viene eliminata automaticamente quando si elimina un processo.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -625,7 +625,7 @@ Aggiunge un passaggio a un processo.
 Nome del processo a cui aggiungere il passaggio. job_name è di tipo nvarchar(128).
 
 [ **\@step_id =** ] step_id  
-Numero di identificazione della sequenza per il passaggio del processo. I numeri di identificazione dei passaggi iniziano da 1 e vengono incrementati senza interruzioni. Se l'ID è già assegnato a un passaggio esistente, l'ID di questo passaggio e di tutti i passaggi successivi verrà incrementato in modo da inserire il nuovo passaggio nella sequenza. Se non è specificato, step_id verrà assegnato automaticamente all'ultimo passaggio della sequenza. step_id è di tipo int.
+Numero di identificazione sequenziale per il passaggio del processo. I numeri di identificazione dei passaggi iniziano da 1 e vengono incrementati senza interruzioni. Se l'ID è già assegnato a un passaggio esistente, l'ID di questo passaggio e di tutti i passaggi successivi verrà incrementato in modo da inserire il nuovo passaggio nella sequenza. Se non è specificato, step_id verrà assegnato automaticamente all'ultimo passaggio della sequenza. step_id è di tipo int.
 
 [ **\@step_name =** ] step_name  
 Nome del passaggio. È necessario specificare il nome, tranne che per il primo passaggio di un processo che, per praticità, ha il nome predefinito "JobStep". step_name è di tipo nvarchar(128).
@@ -664,7 +664,7 @@ Numero di tentativi di esecuzione se il tentativo iniziale non riesce. Ad esempi
 [ **\@step_timeout_seconds =** ] step_timeout_seconds  
 Tempo massimo consentito per l'esecuzione del passaggio. Se questo tempo viene superato, l'esecuzione del processo termina con un ciclo di vita TimedOut. step_timeout_seconds è di tipo int e il valore predefinito è 43.200 secondi (12 ore).
 
-[ **\@OUTPUT_TYPE =** ] ' output_type '  
+[ **\@output_type =** ] 'output_type'  
 Se non è Null, il tipo di destinazione in cui viene scritto il primo set di risultati del comando. output_type è di tipo nvarchar(50) e il valore predefinito è NULL.
 
 Se specificato, il valore deve essere SqlDatabase.
@@ -703,7 +703,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 #### <a name="remarks"></a>Osservazioni
 Quando sp_add_jobstep ha esito positivo, viene incrementato il numero di versione corrente del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione. Se il processo è in esecuzione, l'esecuzione non conterrà il nuovo passaggio.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:  
 
 - jobs_reader
@@ -749,7 +749,7 @@ Aggiorna un passaggio di un processo.
 Nome del processo a cui appartiene il passaggio. job_name è di tipo nvarchar(128).
 
 [ **\@step_id =** ] step_id  
-Numero di identificazione per il passaggio del processo da modificare. È necessario specificare step_id o step_name. step_id è di tipo int.
+Numero di identificazione del passaggio del processo da modificare. È necessario specificare step_id o step_name. step_id è di tipo int.
 
 [ **\@step_name =** ] ' step_name '  
 Nome del passaggio da modificare. È necessario specificare step_id o step_name. step_name è di tipo nvarchar(128).
@@ -794,7 +794,7 @@ Numero di tentativi di esecuzione se il tentativo iniziale non riesce. Ad esempi
 [ **\@step_timeout_seconds =** ] step_timeout_seconds  
 Tempo massimo consentito per l'esecuzione del passaggio. Se questo tempo viene superato, l'esecuzione del processo termina con un ciclo di vita TimedOut. step_timeout_seconds è di tipo int e il valore predefinito è 43.200 secondi (12 ore).
 
-[ **\@OUTPUT_TYPE =** ] ' output_type '  
+[ **\@output_type =** ] 'output_type'  
 Se non è Null, il tipo di destinazione in cui viene scritto il primo set di risultati del comando. Per reimpostare il valore di output_type su NULL, impostare il valore del parametro su '' (stringa vuota). output_type è di tipo nvarchar(50) e il valore predefinito è NULL.
 
 Se specificato, il valore deve essere SqlDatabase.
@@ -827,7 +827,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 #### <a name="remarks"></a>Osservazioni
 Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp_update_jobstep ha esito positivo, viene incrementato il numero di versione del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 
 - jobs_reader
@@ -839,7 +839,7 @@ Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sez
 
 ### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
-Rimuove un passaggio da un processo.
+Rimuove un passaggio di un processo.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -853,7 +853,7 @@ Rimuove un passaggio da un processo.
 
 #### <a name="arguments"></a>Argomenti
 [ **\@job_name =** ] ' job_name '  
-Nome del processo da cui rimuovere il passaggio. job_name è di tipo nvarchar(128), senza alcun valore predefinito.
+Nome del processo da cui si desidera rimuovere il passaggio. job_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ **\@step_id =** ] step_id  
 Numero di identificazione per il passaggio del processo da eliminare. È necessario specificare step_id o step_name. step_id è di tipo int.
@@ -872,7 +872,7 @@ Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp
 
 Gli altri passaggi del processo verranno rinumerati automaticamente per colmare il vuoto lasciato dal passaggio del processo eliminato.
  
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -897,7 +897,7 @@ Avvia l'esecuzione di un processo.
 
 #### <a name="arguments"></a>Argomenti
 [ **\@job_name =** ] ' job_name '  
-Nome del processo da cui rimuovere il passaggio. job_name è di tipo nvarchar(128), senza alcun valore predefinito.
+Nome del processo da cui si desidera rimuovere il passaggio. job_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ **\@job_execution_id =** ] output job_execution_id  
 Parametro di output che verrà assegnato all'ID dell'esecuzione del processo. job_version è di tipo uniqueidentifier.
@@ -908,7 +908,7 @@ Parametro di output che verrà assegnato all'ID dell'esecuzione del processo. jo
 #### <a name="remarks"></a>Osservazioni
 Nessuno.
  
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -936,7 +936,7 @@ Numero di identificazione dell'esecuzione del processo da arrestare. job_executi
 #### <a name="remarks"></a>Osservazioni
 Nessuno.
  
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -968,7 +968,7 @@ Nome del gruppo di destinazione da creare. target_group_name è di tipo nvarchar
 #### <a name="remarks"></a>Osservazioni
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -996,7 +996,7 @@ Nome del gruppo di destinazione da eliminare. target_group_name è di tipo nvarc
 #### <a name="remarks"></a>Osservazioni
 Nessuno.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -1052,7 +1052,7 @@ Valori del codice restituito 0 (operazione completata) o 1 (operazione non riusc
 #### <a name="remarks"></a>Osservazioni
 Un processo viene eseguito in tutti i database singoli in un server di database SQL o un pool elastico al momento dell'esecuzione quando un server di database SQL o un pool elastico è incluso nel gruppo di destinazione.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -1117,7 +1117,7 @@ Nome del gruppo di destinazione da cui rimuovere il membro del gruppo di destina
 #### <a name="remarks"></a>Osservazioni
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -1144,7 +1144,7 @@ GO
 
 ### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
-Rimuove i record della cronologia per un processo.
+Rimuove i record della cronologia relativi a un processo.
 
 #### <a name="syntax"></a>Sintassi
 
@@ -1157,18 +1157,18 @@ Rimuove i record della cronologia per un processo.
 
 #### <a name="arguments"></a>Argomenti
 [ **\@job_name =** ] ' job_name '  
-Nome del processo per cui eliminare i record della cronologia. job_name è di tipo nvarchar(128) e il valore predefinito è NULL. È necessario specificare job_id o job_name, ma non è possibile specificarli entrambi.
+Nome del processo di cui si desidera eliminare i record della cronologia. job_name è di tipo nvarchar(128) e il valore predefinito è NULL. È necessario specificare job_id o job_name, ma non è possibile specificarli entrambi.
 
 [ **\@job_id =** ] job_id  
- Numero di identificazione del processo per i record da eliminare. job_id è di tipo uniqueidentifier e il valore predefinito è NULL. È necessario specificare job_id o job_name, ma non è possibile specificarli entrambi.
+ Numero di identificazione del processo dei record da eliminare. job_id è di tipo uniqueidentifier e il valore predefinito è NULL. È necessario specificare job_id o job_name, ma non è possibile specificarli entrambi.
 
 [ **\@oldest_date =** ] oldest_date  
- Record meno recente da conservare nella cronologia. oldest_date è DATETIME2 e il valore predefinito è NULL. Quando viene specificato oldest_date, sp_purge_jobhistory rimuove solo i record meno recenti rispetto al valore specificato.
+ Il record meno recente da conservare nella cronologia. oldest_date è DATETIME2 e il valore predefinito è NULL. Quando viene specificato oldest_date, sp_purge_jobhistory rimuove solo i record meno recenti rispetto al valore specificato.
 
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (operazione completata) o 1 (operazione non riuscita) I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
-#### <a name="permissions"></a>autorizzazioni
+#### <a name="permissions"></a>Autorizzazioni
 Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin possono eseguire questa stored procedure. Per fare in modo che un utente possa solo monitorare i processi, è possibile includere l'utente nel ruolo del database seguente nel database dell'agente processo specificato al momento della creazione dell'agente processo:
 - jobs_reader
 
@@ -1192,7 +1192,7 @@ GO
 Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-automation-overview.md#job-database).
 
 
-|Visualizza  |Descrizione  |
+|Visualizza  |Description  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Mostra la cronologia di esecuzione dei processi.      |
 |[jobs](#jobs-view)     |   Mostra tutti i processi.      |
@@ -1200,7 +1200,7 @@ Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-
 |[jobsteps](#jobsteps-view)     |     Mostra tutti i passaggi nella versione corrente di ogni processo.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Mostra tutti i passaggi in tutte le versioni di ogni processo.    |
 |[target_groups](#target_groups-view)     |      Mostra tutti i gruppi di destinazione.   |
-|[target_group_members](#target_groups_members-view)     |   Mostra tutti i membri di tutti i gruppi di destinazione.      |
+|[target_group_members](#target_group_members-view)     |   Mostra tutti i membri di tutti i gruppi di destinazione.      |
 
 
 ### <a name="job_executions-view"></a>visualizzazione job_executions
@@ -1210,13 +1210,13 @@ Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-
 Mostra la cronologia di esecuzione dei processi.
 
 
-|Nome colonna|   Tipo di dati   |Descrizione|
+|Nome colonna|   Tipo di dati   |Description|
 |---------|---------|---------|
-|**job_execution_id**   |uniqueidentifier|  ID univoco di un'istanza di un'esecuzione di un processo.
+|**job_execution_id**   |UNIQUEIDENTIFIER|  ID univoco di un'istanza di un'esecuzione di un processo.
 |**job_name**   |nvarchar(128)  |Nome del processo.
-|**job_id** |uniqueidentifier|  ID univoco del processo.
-|**job_version**    |int    |Versione del processo (aggiornata automaticamente ogni volta che viene modificato il processo).
-|**step_id**    |int|   Identificatore univoco (a livello di processo) per il passaggio. NULL indica che si tratta dell'esecuzione del processo padre.
+|**job_id** |UNIQUEIDENTIFIER|  ID univoco del processo.
+|**job_version**    |int    |Versione del processo aggiornata automaticamente in corrispondenza di ogni modifica del processo.
+|**step_id**    |int|   Identificatore univoco (all'interno del processo) del passaggio. NULL indica che si tratta dell'esecuzione del processo padre.
 |**is_active**| bit |Indica se le informazioni sono attive o inattive. 1 indica i processi attivi, mentre 0 indica quelli inattivi.
 |**lifecycle**| nvarchar(50)|Valore che indica lo stato del processo: "Created", "In Progress", "Failed", "Succeeded", "Skipped", "SucceededWithSkipped"|
 |**create_time**|   datetime2(7)|   Data e ora in cui è stato creato il processo.
@@ -1224,9 +1224,9 @@ Mostra la cronologia di esecuzione dei processi.
 |**end_time**|  datetime2(7)    |Data e ora di completamento dell'esecuzione del processo. NULL se il processo non è ancora stato eseguito o l'esecuzione non è ancora stata completata.
 |**current_attempts**   |int    |Numero di tentativi di esecuzione del passaggio. Il valore è 0 per il processo padre oppure 1 o superiore per le esecuzioni dei processi figlio, in base ai criteri di esecuzione.
 |**current_attempt_start_time** |datetime2(7)|  Data e ora di avvio dell'esecuzione del processo. NULL indica che si tratta dell'esecuzione del processo padre.
-|**last_message**   |nvarchar(max)| Messaggio della cronologia dei processi o dei passaggi. 
+|**last_message**   |nvarchar(max)| Messaggio della cronologia relativo al processo o al passaggio. 
 |**target_type**|   nvarchar(128)   |Tipo di database o raccolta di database di destinazione, inclusi tutti i database in un server, tutti i database in un pool elastico o un database. I valori validi per target_type sono "SqlServer", "SqlElasticPool" o "SqlDatabase". NULL indica che si tratta dell'esecuzione del processo padre.
-|**target_id**  |uniqueidentifier|  ID univoco del membro del gruppo di destinazione.  NULL indica che si tratta dell'esecuzione del processo padre.
+|**target_id**  |UNIQUEIDENTIFIER|  ID univoco del membro del gruppo di destinazione.  NULL indica che si tratta dell'esecuzione del processo padre.
 |**target_group_name**  |nvarchar(128)  |Nome del gruppo di destinazione. NULL indica che si tratta dell'esecuzione del processo padre.
 |**target_server_name**|    nvarchar(256)|  Nome del server di database SQL contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". NULL indica che si tratta dell'esecuzione del processo padre.
 |**target_database_name**   |nvarchar(128)| Nome del database contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlDatabase". NULL indica che si tratta dell'esecuzione del processo padre.
@@ -1238,11 +1238,11 @@ Mostra la cronologia di esecuzione dei processi.
 
 Mostra tutti i processi.
 
-|Nome colonna|   Tipo di dati|  Descrizione|
+|Nome colonna|   Tipo di dati|  Description|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome del processo.|
-|**job_id**|    uniqueidentifier    |ID univoco del processo.|
-|**job_version**    |int    |Versione del processo (aggiornata automaticamente ogni volta che viene modificato il processo).|
+|**job_id**|    UNIQUEIDENTIFIER    |ID univoco del processo.|
+|**job_version**    |int    |Versione del processo aggiornata automaticamente in corrispondenza di ogni modifica del processo.|
 |**description**    |nvarchar(512)| Descrizione del processo. Bit enabled    Indica se il processo è abilitato o disabilitato. 1 indica i processi abilitati, mentre 0 indica processi disabilitati.|
 |**schedule_interval_type** |nvarchar(50)   |Valore che indica quando deve essere eseguito il processo: "Once", "Minutes", "Hours", "Days", "Weeks", "Months"
 |**schedule_interval_count**|   int|    Numero di periodi schedule_interval_type tra ogni esecuzione del processo.|
@@ -1256,11 +1256,11 @@ Mostra tutti i processi.
 
 Mostra tutte le versioni dei processi.
 
-|Nome colonna|   Tipo di dati|  Descrizione|
+|Nome colonna|   Tipo di dati|  Description|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome del processo.|
-|**job_id**|    uniqueidentifier    |ID univoco del processo.|
-|**job_version**    |int    |Versione del processo (aggiornata automaticamente ogni volta che viene modificato il processo).|
+|**job_id**|    UNIQUEIDENTIFIER    |ID univoco del processo.|
+|**job_version**    |int    |Versione del processo aggiornata automaticamente in corrispondenza di ogni modifica del processo.|
 
 
 ### <a name="jobsteps-view"></a>Vista jobsteps
@@ -1269,27 +1269,27 @@ Mostra tutte le versioni dei processi.
 
 Mostra tutti i passaggi nella versione corrente di ogni processo.
 
-|Nome colonna    |Tipo di dati| Descrizione|
+|Nome colonna    |Tipo di dati| Description|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Nome del processo.|
-|**job_id** |uniqueidentifier   |ID univoco del processo.|
-|**job_version**|   int|    Versione del processo (aggiornata automaticamente ogni volta che viene modificato il processo).|
-|**step_id**    |int    |Identificatore univoco (a livello di processo) per il passaggio.|
+|**job_id** |UNIQUEIDENTIFIER   |ID univoco del processo.|
+|**job_version**|   int|    Versione del processo aggiornata automaticamente in corrispondenza di ogni modifica del processo.|
+|**step_id**    |int    |Identificatore univoco (all'interno del processo) del passaggio.|
 |**step_name**  |nvarchar(128)  |Nome univoco (a livello di processo) per il passaggio.|
 |**command_type**   |nvarchar(50)   |Tipo di comando da eseguire nel passaggio del processo. Per la versione 1, il valore deve essere uguale a "TSql", che è anche il valore predefinito.|
 |**command_source** |nvarchar(50)|  Posizione del comando. Per la versione 1, "Inline" è il valore predefinito e l'unico valore accettato.|
 |**command**|   nvarchar(max)|  I comandi da eseguire dai processi elastici tramite command_type.|
 |**credential_name**|   nvarchar(128)   |Nome delle credenziali con ambito database usate per l'esecuzione del processo.|
 |**target_group_name**| nvarchar(128)   |Nome del gruppo di destinazione.|
-|**target_group_id**|   uniqueidentifier|   ID univoco del gruppo di destinazione.|
+|**target_group_id**|   UNIQUEIDENTIFIER|   ID univoco del gruppo di destinazione.|
 |**initial_retry_interval_seconds**|    int |Ritardo prima del primo tentativo. Il valore predefinito è 1.|
 |**maximum_retry_interval_seconds** |int|   Ritardo massimo tra i tentativi. Se il ritardo tra i tentativi supera questo valore, viene limitato in base al valore. Il valore predefinito è 120.|
 |**retry_interval_backoff_multiplier**  |real|  Moltiplicatore da applicare al ritardo tra i tentativi se più tentativi di esecuzione del passaggio del processo hanno esito negativo. Il valore predefinito è 2.0.|
-|**retry_attempts** |int|   Numero di tentativi da eseguire se il passaggio ha esito negativo. Il valore predefinito è 10, che indica nessun tentativo.|
-|**step_timeout_seconds**   |int|   Quantità di tempo in minuti tra i tentativi. Il valore predefinito è 0, che indica un intervallo di 0 minuti.|
+|**retry_attempts** |int|   Numero di tentativi da eseguire in caso di esecuzione errata del passaggio. Il valore predefinito è 10, che indica nessun tentativo.|
+|**step_timeout_seconds**   |int|   Numero di minuti che devono trascorrere tra i tentativi. Il valore predefinito è 0, che indica un intervallo di 0 minuti.|
 |**output_type**    |nvarchar(11)|  Posizione del comando. Nell'anteprima corrente, "Inline" è il valore predefinito e l'unico valore accettato.|
 |**output_credential_name**|    nvarchar(128)   |Nome delle credenziali da usare per la connessione al server di destinazione per l'archiviazione del set di risultati.|
-|**output_subscription_id**|    uniqueidentifier|   ID univoco della sottoscrizione del server\database di destinazione per il set di risultati ottenuto dall'esecuzione della query.|
+|**output_subscription_id**|    UNIQUEIDENTIFIER|   ID univoco della sottoscrizione del server\database di destinazione per il set di risultati ottenuto dall'esecuzione della query.|
 |**output_resource_group_name** |nvarchar(128)| Nome del gruppo di risorse in cui si trova il server di destinazione.|
 |**output_server_name**|    nvarchar(256)   |Nome del server di destinazione per il set di risultati.|
 |**output_database_name**   |nvarchar(128)| Nome del database di destinazione per il set di risultati.|
@@ -1310,26 +1310,26 @@ Mostra tutti i passaggi in tutte le versioni di ogni processo. Lo schema è iden
 
 Elenca tutti i gruppi di destinazione.
 
-|Nome colonna|Tipo di dati| Descrizione|
+|Nome colonna|Tipo di dati| Description|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |Nome del gruppo di destinazione, una raccolta di database. 
-|**target_group_id**    |uniqueidentifier   |ID univoco del gruppo di destinazione.
+|**target_group_id**    |UNIQUEIDENTIFIER   |ID univoco del gruppo di destinazione.
 
-### <a name="target_groups_members-view"></a>visualizzazione target_groups_members
+### <a name="target_group_members-view"></a>visualizzazione target_group_members
 
-[jobs].[target_groups_members]
+[processi]. [target_group_members]
 
 Mostra tutti i membri di tutti i gruppi di destinazione.
 
-|Nome colonna|Tipo di dati| Descrizione|
+|Nome colonna|Tipo di dati| Description|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|Nome del gruppo di destinazione, una raccolta di database. |
-|**target_group_id**    |uniqueidentifier   |ID univoco del gruppo di destinazione.|
+|**target_group_id**    |UNIQUEIDENTIFIER   |ID univoco del gruppo di destinazione.|
 |**membership_type**    |int|   Specifica se il membro del gruppo di destinazione è incluso o escluso nel gruppo di destinazione. I valori validi per target_group_name sono "Include" o "Exclude".|
 |**target_type**    |nvarchar(128)| Tipo di database o raccolta di database di destinazione, inclusi tutti i database in un server, tutti i database in un pool elastico o un database. I valori validi per target_type sono "SqlServer", "SqlElasticPool", "SqlDatabase" o "SqlShardMap".|
-|**target_id**  |uniqueidentifier|  ID univoco del membro del gruppo di destinazione.|
+|**target_id**  |UNIQUEIDENTIFIER|  ID univoco del membro del gruppo di destinazione.|
 |**refresh_credential_name**    |nvarchar(128)  |Nome delle credenziali con ambito database usate per la connessione al membro del gruppo di destinazione.|
-|**subscription_id**    |uniqueidentifier|  ID univoco della sottoscrizione.|
+|**subscription_id**    |UNIQUEIDENTIFIER|  ID univoco della sottoscrizione.|
 |**resource_group_name**    |nvarchar(128)| Nome del gruppo di risorse in cui si trova il membro del gruppo di destinazione.|
 |**server_name**    |nvarchar(128)  |Nome del server di database SQL contenuto nel gruppo di destinazione. Specificato solo se target_type è "SqlServer". |
 |**database_name**  |nvarchar(128)  |Nome del database contenuto nel gruppo di destinazione. Specificato solo quando target_type è "SqlDatabase".|
@@ -1339,7 +1339,7 @@ Mostra tutti i membri di tutti i gruppi di destinazione.
 
 ## <a name="resources"></a>Risorse
 
- - ![Icona di collegamento all'argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona di collegamento all'argomento") [convenzioni della sintassi Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![Icona di collegamento all'argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona di collegamento a un argomento") [convenzioni della sintassi Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

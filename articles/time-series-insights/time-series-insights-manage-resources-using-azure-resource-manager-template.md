@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452851"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861847"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -75,8 +75,8 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      | --- | --- |
      | existingEventHubResourceId | Un ID di risorsa facoltativo di un hub eventi esistente che verrà connesso all'ambiente di Time Series Insights tramite l'origine evento. **NOTA:** l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per eseguire l'operazione listkey nell'hub eventi di origine. Se non viene superato alcun valore, verrà creato un nuovo hub eventi dal modello. |
      | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |
-     | environmentSkuName | Il nome dello SKU. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
-     | environmentSkuCapacity | La capacità unità dello Sku. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
+     | environmentSkuName | Il nome dello SKU. Per ulteriori informazioni, leggere la [pagina relativa ai prezzi Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+     | environmentSkuCapacity | La capacità unità dello Sku. Per ulteriori informazioni, leggere la [pagina relativa ai prezzi Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
      | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO 8601, ad esempio `P30D` per un criterio di conservazione di 30 giorni. |
      | eventSourceDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'origine evento. |
      | eventSourceTimestampPropertyName | La proprietà di evento che verrà usata come timestamp dell'origine evento. Se non è specificato un valore per timestampPropertyName o se viene specificato null o una stringa vuota, verrà usata l'ora di creazione dell'evento. |
@@ -86,7 +86,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
    * Ad esempio, per creare un ambiente verrebbe usato il file dei parametri seguente e un'origine evento che legge gli eventi da un hub eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
 
-     ```json
+     ```JSON
      {
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
          "contentVersion": "1.0.0.0",
@@ -119,7 +119,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      }
      ```
   
-    * Per altre informazioni, vedere l'articolo [Parametri](../azure-resource-manager/templates/parameter-files.md).
+    * Per altre informazioni, vedere l'articolo [sui parametri](../azure-resource-manager/templates/parameter-files.md) .
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuire il modello di avvio rapido in locale tramite PowerShell
 
@@ -174,7 +174,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Creare la distribuzione
 
-    * Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/deployment-modes.md).
+    * Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per ulteriori informazioni, vedere [distribuzioni incrementali e complete](../azure-resource-manager/deployment-modes.md).
 
     * Il comando seguente richiede cinque parametri obbligatori nella finestra di PowerShell:
 
@@ -252,4 +252,4 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla gestione delle risorse di Time Series Insights tramite le API REST a livello di programmazione, vedere [Gestione di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- Per informazioni sulla gestione a livello di codice delle risorse Time Series Insights usando le API REST, vedere [gestione Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).

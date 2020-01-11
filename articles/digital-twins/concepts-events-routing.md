@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660325"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862357"
 ---
 # <a name="routing-iot-events-and-messages"></a>Routing di eventi e messaggi
 
@@ -53,7 +53,7 @@ Attualmente Gemelli digitali di Azure supporta gli elementi **EventType** seguen
 
 > [!IMPORTANT]  
 > Non tutti gli elementi **EndpointType** supportano tutti gli **EventType**.
-> Vedere la tabella seguente per gli elementi **EventTypes** consentiti per ogni elemento **EndpointType**.
+> Esaminare la tabella seguente per i **EventTypes** consentiti per ogni **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,10 +62,10 @@ Attualmente Gemelli digitali di Azure supporta gli elementi **EventType** seguen
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->Per altre informazioni su come creare endpoint e per esempi di schema degli eventi, vedere [Traffico in uscita ed endpoint](how-to-egress-endpoints.md).
+>Per ulteriori informazioni su come creare endpoint ed esempi di schema degli eventi, vedere in [uscita ed endpoint](how-to-egress-endpoints.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sui limiti dell'anteprima di Gemelli digitali di Azure, vedere [Limiti del servizio durante l'anteprima pubblica](concepts-service-limits.md).
+- Per informazioni sui limiti di anteprima di Azure Digital Twins, vedere [limiti del servizio di anteprima pubblica](concepts-service-limits.md).
 
-- Per provare un esempio di Gemelli digitali di Azure, vedere [Guida introduttiva: Trovare le stanze disponibili ](quickstart-view-occupancy-dotnet.md).
+- Per provare un esempio di Azure Digital Twins, vedere la [Guida introduttiva per trovare le chat disponibili](quickstart-view-occupancy-dotnet.md).
