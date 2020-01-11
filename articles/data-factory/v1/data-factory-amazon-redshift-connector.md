@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c9e10df9f2be2a07bc7b7af0e01905d5b278d35
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924874"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894219"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -59,14 +59,14 @@ Le sezioni seguenti descrivono le proprietà JSON che vengono usate per definire
 
 La tabella seguente include le descrizioni degli elementi JSON specifici di un servizio collegato Amazon Redshift.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 | --- | --- | --- |
-| **type** |Questa proprietà deve essere impostata su **AmazonRedshift**. |SÌ |
-| **server** |Indirizzo IP o nome host del server Amazon Redshift. |SÌ |
+| **type** |Questa proprietà deve essere impostata su **AmazonRedshift**. |Sì |
+| **server** |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | **port** |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No (il valore predefinito è 5439) |
-| **database** |Nome del database Amazon Redshift. |SÌ |
-| **username** |Nome dell'utente che ha accesso al database. |SÌ |
-| **password** |La password per l'account utente. |SÌ |
+| **database** |Nome del database Amazon Redshift. |Sì |
+| **username** |Nome dell'utente che ha accesso al database. |Sì |
+| **password** |La password per l'account utente. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
@@ -74,7 +74,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sul percorso dei dati nell'archivio. La sezione **typeProperties** per un set di dati di tipo **RelationalTable**, che include il set di dati Amazon Redshift, ha le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 | --- | --- | --- |
 | **tableName** |Nome della tabella nel database Amazon Redshift a cui fa riferimento il servizio collegato. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -84,7 +84,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 | --- | --- | --- |
 | **query** | Usare la query personalizzata per leggere i dati. |No (se è specificata la proprietà **tableName** di un set di dati) |
 | **redshiftUnloadSettings** | Contiene il gruppo di proprietà quando si usa il comando **UNLOAD** di Redshift. | No |
@@ -93,7 +93,7 @@ Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, 
 
 In alternativa, è possibile usare il tipo **RelationalSource**, che include Amazon Redshift, con la proprietà seguente nella sezione **typeProperties**. Si noti che questo tipo di origine non supporta il comando **UNLOAD** di Redshift.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 | --- | --- | --- |
 | **query** |Usare la query personalizzata per leggere i dati. | No (se è specificata la proprietà **tableName** di un set di dati) |
 
@@ -146,7 +146,7 @@ L'esempio include le entità di Data Factory seguenti:
 * Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](#dataset-properties)
 * Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* Una [pipeline](data-factory-create-pipelines.md) con un'attività di copia che usa le proprietà [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties)
+* Una [pipeline](data-factory-create-pipelines.md) con un'attività di copia che usa le proprietà [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 L'esempio copia i dati dai risultati di una query in Amazon Redshift a un BLOB di Azure ogni ora. Le proprietà JSON utilizzate in questi esempi sono descritte nelle sezioni riportate dopo le definizioni di entità.
 
@@ -331,16 +331,16 @@ Quando l'attività di copia converte i dati da un tipo Amazon Redshift a un tipo
 | --- | --- |
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
-| BIGINT |Int64 |
-| DECIMAL |DECIMAL |
-| REAL |Singolo |
-| DOUBLE PRECISION |DOUBLE |
-| BOOLEAN |Stringa |
-| CHAR |Stringa |
-| VARCHAR |Stringa |
+| bigint |Int64 |
+| DECIMAL |Decimal |
+| real |Singolo |
+| DOUBLE PRECISION |Double |
+| BOOLEAN |string |
+| CHAR |string |
+| VARCHAR |string |
 | DATE |Data e ora |
-| TIMESTAMP |Data e ora |
-| TEXT |Stringa |
+| timestamp |Data e ora |
+| TEXT |string |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni su come eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 22bf4dcd472cf2d7804b571e09093535f30b053f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647425"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895309"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Risolvere i problemi relativi a un processo lento o in errore in un cluster HDInsight
 
@@ -91,7 +91,7 @@ HDInsight si basa su diversi servizi di Azure. Esegue i server virtuali in Azure
 #### <a name="check-azure-service-usage-limits"></a>Controllare i limiti di utilizzo del servizio Azure
 
 Se si avvia un cluster di grandi dimensioni o sono stati avviati più cluster simultaneamente, possono verificarsi errori in un cluster se è stato superato un limite del servizio Azure. I limiti del servizio variano a seconda della sottoscrizione di Azure. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-È possibile chiedere a Microsoft di aumentare il numero di risorse di HDInsight disponibili (ad esempio, core delle VM e istanze delle VM) con una [richiesta di aumento della quota di core per Resource Manager](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+È possibile chiedere a Microsoft di aumentare il numero di risorse di HDInsight disponibili (ad esempio, core delle VM e istanze delle VM) con una [richiesta di aumento della quota di core per Resource Manager](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 #### <a name="check-the-release-version"></a>Controllare la versione di rilascio
 

@@ -232,7 +232,7 @@
     - name: Vista dei costi Enterprise disabilitata
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Contattare il supporto tecnico
-      href: ../azure-supportability/how-to-create-azure-support-request.md
+      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Esempi
   items:
     - name: API REST

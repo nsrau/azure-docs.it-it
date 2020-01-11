@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505966"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894836"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestire i controller del dispositivo StorSimple
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questa esercitazione vengono descritte le diverse operazioni che è possibile eseguire nei controller del dispositivo StorSimple. I controller del dispositivo StorSimple sono controller ridondanti (peer) in una configurazione attiva-passiva. In un determinato momento, un solo controller è attivo e sta elaborando tutte le operazioni su disco e di rete. L'altro controller è in modalità passiva. Se il controller attivo non restituisce l'esito positivo, il controller passivo diventa automaticamente attivo.
 
@@ -47,7 +47,7 @@ Il riavvio di un dispositivo non è un'operazione problematica per gli iniziator
 
 > [!IMPORTANT]
 > * **Un controller in esecuzione non deve mai essere fisicamente rimosso poiché potrebbe causare una perdita di ridondanza e un maggior rischio di tempi di inattività.**
-> * La procedura seguente si applica solo al dispositivo StorSimple fisico. Per informazioni su come avviare, arrestare e riavviare l'appliance cloud StorSimple, vedere [Work with the cloud appliance](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance) (usare l'appliance virtuale).
+> * La procedura seguente si applica solo al dispositivo StorSimple fisico. Per informazioni su come avviare, arrestare e riavviare l'appliance cloud StorSimple, vedere [Work with the cloud appliance](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance) (usare l'appliance virtuale).
 
 È possibile riavviare o arrestare un singolo controller del dispositivo mediante il portale di Azure del servizio Gestione dispositivi di StorSimple o Windows PowerShell per StorSimple.
 

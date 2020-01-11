@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989628"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896345"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
-Crittografia dischi di Azure consente di proteggere e salvaguardare i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Usa la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali (VM) di Azure ed è integrato con [Azure Key Vault](../../key-vault/index.yml) per facilitare il controllo e la gestione delle chiavi e dei segreti di crittografia del disco. 
+Crittografia dischi di Azure consente di proteggere i dati per soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Usa la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali (VM) di Azure ed è integrato con [Azure Key Vault](../../key-vault/index.yml) per facilitare il controllo e la gestione delle chiavi e dei segreti di crittografia del disco. 
 
 Se si usa il [Centro sicurezza di Azure](../../security-center/index.yml), l'utente viene avvisato se sono presenti macchine virtuali non crittografate. Gli avvisi vengono visualizzati con un livello di gravità elevato e la raccomandazione di crittografare tali macchine virtuali.
 
@@ -25,6 +25,7 @@ Se si usa il [Centro sicurezza di Azure](../../security-center/index.yml), l'ute
 > [!WARNING]
 > - Se in precedenza è stato usato crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, è necessario continuare a usare questa opzione per crittografare la macchina virtuale. Per informazioni dettagliate, vedere [crittografia dischi di Azure con Azure ad (versione precedente)](disk-encryption-overview-aad.md) . 
 > - Alcune indicazioni possono comportare un maggior utilizzo delle risorse di calcolo, rete o dati con un conseguente aumento dei costi di licenza o sottoscrizione. Per creare le risorse in Azure nella aree geografiche supportate, è necessario avere una sottoscrizione di Azure attiva e valida.
+> - Attualmente le macchine virtuali di seconda generazione non supportano crittografia dischi di Azure. Per informazioni dettagliate, vedere [supporto per le macchine virtuali di seconda generazione in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) .
 
 È possibile apprendere le nozioni di base di crittografia dischi di Azure per Linux in pochi minuti con la Guida [introduttiva creare e crittografare una VM Linux con l'interfaccia](disk-encryption-cli-quickstart.md) della riga di comando di Azure o [creare e crittografare una VM Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -34,7 +35,7 @@ Se si usa il [Centro sicurezza di Azure](../../security-center/index.yml), l'ute
 
 Le macchine virtuali Linux sono disponibili in un [intervallo di dimensioni](sizes.md). Crittografia dischi di Azure non è disponibile nelle [VM Basic, serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)o nelle macchine virtuali che non soddisfano i requisiti di memoria minimi seguenti:
 
-| Macchine virtuali | Requisito memoria minima |
+| Macchina virtuale | Requisito memoria minima |
 |--|--|
 | VM Linux quando si crittografano solo i volumi di dati| 2 GB |
 | VM Linux durante la crittografia di volumi di dati e sistemi operativi e in cui la radice (/) file system utilizzo è 4 GB o meno | 8 GB |
@@ -52,12 +53,12 @@ Crittografia dischi di Azure è supportata in un subset di [distribuzioni Linux 
 
 Le distribuzioni di server Linux che non sono approvate da Azure non supportano crittografia dischi di Azure. di quelle approvate, solo le distribuzioni e le versioni seguenti supportano crittografia dischi di Azure:
 
-| Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
+| Distribuzione di Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
 | Ubuntu | 18,04| Disco del sistema operativo e dati |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | Disco del sistema operativo e dati |
-| RHEL | 7,7 | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RHEL | 7.7 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.6 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.5 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.4 | Sistema operativo e disco dati (vedere la nota di seguito) |
@@ -65,7 +66,7 @@ Le distribuzioni di server Linux che non sono approvate da Azure non supportano 
 | RHEL | 7.2 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 6.8 | Disco dati (vedere la nota di seguito) |
 | RHEL | 6.7 | Disco dati (vedere la nota di seguito) |
-| CentOS | 7,7 | Disco del sistema operativo e dati |
+| CentOS | 7.7 | Disco del sistema operativo e dati |
 | CentOS | 7.6 | Disco del sistema operativo e dati |
 | CentOS | 7.5 | Disco del sistema operativo e dati |
 | CentOS | 7.4 | Disco del sistema operativo e dati |
@@ -91,7 +92,7 @@ Verificare che le impostazioni /etc/fstab siano configurate correttamente per il
 - Prima di avviare la crittografia, assicurarsi di arrestare tutti i servizi e i processi che potrebbero scrivere sui dischi dati montati e disabilitarli, in modo che non vengano riavviati automaticamente dopo un riavvio. È possibile che i file vengano aperti in queste partizioni evitando che la procedura di crittografia li rimonta, causando un errore di crittografia. 
 - Dopo il riavvio, il processo di Crittografia dischi di Azure avrà bisogno di tempo per montare i dischi appena crittografati. Non saranno disponibili immediatamente dopo un riavvio. Il processo richiede tempo per iniziare, sbloccare e quindi montare le unità crittografate prima che siano disponibili per l'accesso da parte di altri processi. Questo processo potrebbe richiedere più di un minuto dopo il riavvio, a seconda delle caratteristiche di sistema.
 
-Un esempio di comandi che possono essere usati per montare i dischi dati e creare le voci/etc/fstab necessarie è disponibile nello script dell'interfaccia della riga di comando dei [prerequisiti di crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started) (righe 244-248) e nei prerequisiti di [crittografia dischi di Azure PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
+Un esempio di comandi che possono essere usati per montare i dischi dati e creare le voci/etc/fstab necessarie è disponibile nello script dell'interfaccia della riga di comando dei [prerequisiti di crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started) (righe 244-248) e nello script di PowerShell dei prerequisiti di [crittografia dischi di Azure](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 
@@ -123,9 +124,9 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 
 - [Guida introduttiva: creare e crittografare una VM Linux con l'interfaccia della riga di comando](disk-encryption-cli-quickstart.md)
 - [Guida introduttiva: creare e crittografare una VM Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md)
-- [Scenari di crittografia dischi di Azure nelle macchine virtuali Linux](disk-encryption-linux.md)
+- [Scenari di crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-linux.md)
 - [Script dell'interfaccia della riga di comando dei prerequisiti di crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started)
 - [Script di PowerShell per prerequisiti di crittografia dischi di Azure](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
-- [Creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md)
+- [Creazione e configurazione di un insieme di credenziali delle chiavi per la crittografia dischi di Azure](disk-encryption-key-vault.md)
 
 

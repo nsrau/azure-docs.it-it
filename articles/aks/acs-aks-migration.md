@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658543"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889517"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione ad Azure Kubernetes Service (AKS)
 
@@ -87,9 +87,9 @@ Quando si esegue la migrazione di cluster, è possibile che siano stati collegat
 
 ## <a name="ensure-valid-quotas"></a>Verificare le quote valide
 
-Poiché le macchine virtuali aggiuntive verranno distribuite nella sottoscrizione durante la migrazione, è necessario verificare che i limiti e le quote siano sufficienti per tali risorse. Potrebbe essere necessario richiedere un aumento della [quota vCPU](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+Poiché le macchine virtuali aggiuntive verranno distribuite nella sottoscrizione durante la migrazione, è necessario verificare che i limiti e le quote siano sufficienti per tali risorse. Potrebbe essere necessario richiedere un aumento della [quota vCPU](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
-Potrebbe essere necessario richiedere un aumento delle [quote di rete](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) per assicurarsi di non esaurire gli indirizzi IP. Per ulteriori informazioni, vedere la pagina relativa agli [intervalli IP e di rete per AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) .
+Potrebbe essere necessario richiedere un aumento delle [quote di rete](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) per assicurarsi di non esaurire gli indirizzi IP. Per ulteriori informazioni, vedere la pagina relativa agli [intervalli IP e di rete per AKS](https://docs.microsoft.com/azure/aks/configure-kubenet) .
 
 Per altre informazioni, vedere [sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Per controllare le quote correnti, nella portale di Azure passare al pannello [sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selezionare la sottoscrizione e quindi selezionare **utilizzo e quote**.
 

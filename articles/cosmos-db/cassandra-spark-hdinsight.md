@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f728baedf9e325f224ce52e64325064f553d2671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bef4ee14cb4a7d64d80dc5776d8ecea0f831881a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893703"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887633"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Accedere all'API Cassandra di Azure Cosmos DB da Spark in YARN con HDInsight
 
@@ -27,9 +27,9 @@ Questo articolo illustra come accedere all'API Cassandra di Azure Cosmos DB da S
 
 * [Effettuare il provisioning di un cluster HDInsight Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 
-* [Esaminare gli esempi di codice per usare l'API Cassandra](cassandra-spark-generic.md#next-steps)
+* [Esaminare gli esempi di codice per l'uso dell'API Cassandra](cassandra-spark-generic.md#next-steps)
 
-* [Usare cqlsh per la convalida, se si preferisce](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
+* [Usare cqlsh per la convalida, se si preferisce](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
 * **Configurazione dell'API Cassandra in Spark2**: il connettore Spark per Cassandra richiede che i dettagli della connessione a Cassandra vengano inizializzati nel contesto di Spark. Quando si avvia un notebook di Jupyter, la sessione e il contesto di Spark sono già inizializzati e non è consigliabile arrestare e reinizializzare il contesto di Spark finché non viene completato con ogni set di configurazione durante l'avvio del notebook di Jupyter predefinito di HDInsight. Una soluzione alternativa consiste nell'aggiungere i dettagli dell'istanza di Cassandra direttamente alla configurazione del servizio Ambari Spark2. Si tratta di un'attività occasionale per ogni cluster ed è necessario riavviare il servizio Spark2.
  
@@ -134,6 +134,6 @@ Per i processi di produzione automatizzati, i programmi Spark vengono inviati al
 
 * [Come creare un programma Spark Scala in un IDE e inviarlo al cluster HDInsight Spark tramite Livy per l'esecuzione](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
-* [Come connettersi all'API Cassandra di Azure Cosmos DB da un programma Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Come connettersi all'API Cassandra di Azure Cosmos DB da un programma Spark in Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
-* [Elenco completo di esempi di codice per usare l'API Cassandra](cassandra-spark-generic.md)
+* [Elenco completo di esempi di codice per l'uso dell'API Cassandra](cassandra-spark-generic.md)

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: f39e5ee7126fe381ad4ba77ec9a876db5f0a1ef6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 60d9c7fb57e079fde54d60df9b90266ccb94acdc
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747256"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895822"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestione delle notifiche di manutenzione pianificata
 
@@ -29,7 +29,7 @@ Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le pre
 
 La manutenzione pianificata che richiede un riavvio viene pianificata in cicli. Ogni ondata ha un ambito diverso (aree),
 
-- e inizia con un avviso ai clienti. Per impostazione predefinita, l'avviso viene inviato ai comproprietari e ai proprietari della sottoscrizione. È possibile aggiungere altri destinatari e opzioni di messaggistica, ad esempio posta elettronica, SMS e webhook, usando gli [avvisi del log attività](../azure-monitor/platform/platform-logs-overview.md).  
+- e inizia con un avviso ai clienti. Per impostazione predefinita, l'avviso viene inviato ai comproprietari e ai proprietari della sottoscrizione. È possibile aggiungere altri destinatari e opzioni di messaggistica, ad esempio posta elettronica, SMS e webhook, usando gli [avvisi del log attività](../service-health/alerts-activity-log-service-notifications.md).  
 - Una volta inviata una notifica, viene resa disponibile una *finestra Self-Service* . Durante questa finestra è possibile eseguire una query sulle macchine virtuali interessate e avviare la manutenzione in base alle proprie esigenze di pianificazione. La finestra Self-Service è in genere di circa 35 giorni.
 - Dopo l'intervallo in modalità self-service, viene avviato un *intervallo di manutenzione pianificato*. In un determinato momento di questo intervallo Azure pianifica e applica la manutenzione necessaria alla macchina virtuale. 
 

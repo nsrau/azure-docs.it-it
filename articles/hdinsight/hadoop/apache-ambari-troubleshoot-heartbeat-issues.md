@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: 9f7d3fb5363a5eb2d79287bc9a9398bfdcbc4aec
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087830"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895377"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemi di heartbeat di Apache Ambari in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
-## <a name="scenario-high-cpu-utilization"></a>Scenario: Utilizzo CPU elevato
+## <a name="scenario-high-cpu-utilization"></a>Scenario: utilizzo CPU elevato
 
 ### <a name="issue"></a>Problema
 
@@ -57,7 +57,7 @@ A causa dei diversi bug di Ambari Agent, in rari casi, l'agente Ambari può aver
 
 ---
 
-## <a name="scenario-ambari-agent-not-started"></a>Scenario: Agente Ambari non avviato
+## <a name="scenario-ambari-agent-not-started"></a>Scenario: agente Ambari non avviato
 
 ### <a name="issue"></a>Problema
 
@@ -81,7 +81,7 @@ Gli avvisi sono causati dall'agente Ambari non in esecuzione.
     ps -ef | grep failover
     ```
 
-    Se i servizi del controller di failover non sono in esecuzione, è probabile che a causa di un problema si impedisca a HDInsight-Agent di avviare il controller di failover. Controllare il log HDInsight-Agent `/var/log/hdinsight-agent/hdinsight-agent.out` dal file.
+    Se i servizi del controller di failover non sono in esecuzione, è probabile che a causa di un problema si impedisca a HDInsight-Agent di avviare il controller di failover. Controllare HDInsight-Agent log da `/var/log/hdinsight-agent/hdinsight-agent.out` file.
 
 ---
 
@@ -91,6 +91,6 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+* È possibile connettersi con [@AzureSupport](https://twitter.com/azuresupport) , l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

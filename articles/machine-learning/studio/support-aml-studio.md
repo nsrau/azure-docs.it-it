@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: af181291ca9dd748b587266c97f32fa3fb64242e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ee4ef451888638c0ba33d7938c88b836b28f3fe5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838611"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894636"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Ottenere supporto e formazione per Azure Machine Learning Studio (versione classica)
 
@@ -35,7 +35,7 @@ Vedere le risorse sull'apprendimento:
 
 Vedere queste risorse di supporto:
 
-+ **Supporto tecnico per i clienti di Azure**: [inviare e gestire le richieste di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) tramite il portale di Azure.
++ **Supporto tecnico per i clienti di Azure**: [inviare e gestire le richieste di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) tramite il portale di Azure.
 
 + **Forum utenti**: porre domande, rispondere alle domande e connettersi con altri utenti nel [Forum di supporto di Azure Machine Learning Studio (classico) su MSDN](https://aka.ms/aml-forum-studio).
 

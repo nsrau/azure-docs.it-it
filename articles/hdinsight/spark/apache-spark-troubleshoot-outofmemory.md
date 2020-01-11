@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: f3f89de07e2e17a4dda47ce3650391af38663004
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087195"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894321"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'uso di Apache Spark componenti nei cluster HDInsight di Azure.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scenario: Eccezione OutOfMemoryError per Apache Spark
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scenario: eccezione OutOfMemoryError per Apache Spark
 
 ### <a name="issue"></a>Problema
 
@@ -60,7 +60,7 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
 
 1. Determinare le dimensioni massime dei dati che possono essere gestiti dall'applicazione Spark. Eseguire una stima delle dimensioni in base al valore massimo della dimensione dei dati di input, i dati intermedi prodotti dalla trasformazione dei dati di input e dei dati di output prodotte ulteriormente la trasformazione dei dati intermedi. Se la stima iniziale non è sufficiente, aumentare leggermente le dimensioni e scorrere fino a quando non si verificano errori di memoria.
 
-1. Assicurarsi che il cluster HDInsight da utilizzare disponga di sufficienti risorse in termini di memoria e core per supportare l'applicazione Spark. Questo può essere determinato visualizzando la sezione relativa alle metriche del cluster dell'interfaccia utente di YARN del cluster per i valori della **memoria usata** rispetto a. **Totale memoria** e **Vcore usati** rispetto a **VCores Total** (VCore totali).
+1. Assicurarsi che il cluster HDInsight da utilizzare disponga di sufficienti risorse in termini di memoria e core per supportare l'applicazione Spark. Questo può essere determinato visualizzando la sezione metrica cluster dell'interfaccia utente di YARN del cluster per i valori di **memoria usata** e **memoria totale** e **Vcore usati** rispetto al **totale Vcore**.
 
     ![visualizzazione memoria core yarn](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
@@ -90,7 +90,7 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scenario: Errore di spazio heap Java durante il tentativo di aprire Apache Spark server di cronologia
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scenario: errore di spazio heap Java durante il tentativo di aprire Apache Spark server di cronologia
 
 ### <a name="issue"></a>Problema
 
@@ -116,13 +116,13 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>Risoluzione
 
-È possibile aumentare la memoria del server della cronologia di Spark `SPARK_DAEMON_MEMORY` modificando la proprietà nella configurazione di Spark e riavviando tutti i servizi.
+È possibile aumentare la memoria del server della cronologia di Spark modificando la proprietà `SPARK_DAEMON_MEMORY` nella configurazione di Spark e riavviando tutti i servizi.
 
 È possibile eseguire questa operazione dall'interfaccia utente del browser Ambari selezionando la sezione Spark2/config/Advanced Spark2-ENV.
 
 ![Sezione Advanced spark2-ENV](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-Aggiungere la proprietà seguente per modificare la memoria del server della cronologia di Spark da 1g `SPARK_DAEMON_MEMORY=4g`a 4G:.
+Aggiungere la proprietà seguente per modificare la memoria del server della cronologia di Spark da 1g a 4G: `SPARK_DAEMON_MEMORY=4g`.
 
 ![Proprietà Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
@@ -130,7 +130,7 @@ Assicurarsi di riavviare tutti i servizi interessati da Ambari.
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scenario: Non è possibile avviare il server Livio nel cluster Apache Spark
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scenario: non è possibile avviare il server Livio nel cluster Apache Spark
 
 ### <a name="issue"></a>Problema
 
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Causa
 
-`java.lang.OutOfMemoryError: unable to create new native thread`Highlights OS non può assegnare più thread nativi a JVM. Ha confermato che questa eccezione è causata dalla violazione del limite del numero di thread per processo.
+`java.lang.OutOfMemoryError: unable to create new native thread` evidenziare il sistema operativo non può assegnare più thread nativi a JVM. Ha confermato che questa eccezione è causata dalla violazione del limite del numero di thread per processo.
 
 Quando il server Livio si interrompe in modo imprevisto, vengono interrotte anche tutte le connessioni ai cluster Spark, il che significa che tutti i processi e i dati correlati andranno perduti. In HDP 2,6 è stato introdotto il meccanismo di ripristino della sessione, Livio archivia i dettagli della sessione in Zookeeper da ripristinare dopo che il server Livio è stato ripristinato.
 
@@ -239,7 +239,7 @@ Eliminare tutte le voci usando i passaggi descritti di seguito.
 1. Attendere il completamento del comando precedente e il cursore per restituire la richiesta e quindi riavviare il servizio Livio da Ambari, che dovrebbe avere esito positivo.
 
 > [!NOTE]
-> `DELETE`la sessione di Livio dopo aver completato l'esecuzione. Le sessioni batch di Livio non verranno eliminate automaticamente non appena l'app Spark viene completata, ovvero in base alla progettazione. Una sessione di Livio è un'entità creata da una richiesta POST sul server REST di Livio. È `DELETE` necessaria una chiamata per eliminare l'entità. In alternativa, è necessario attendere l'avvio del GC.
+> `DELETE` sessione di Livio una volta completata l'esecuzione. Le sessioni batch di Livio non verranno eliminate automaticamente non appena l'app Spark viene completata, ovvero in base alla progettazione. Una sessione di Livio è un'entità creata da una richiesta POST sul server REST di Livio. Per eliminare l'entità è necessaria una chiamata `DELETE`. In alternativa, è necessario attendere l'avvio del GC.
 
 ---
 
@@ -255,4 +255,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

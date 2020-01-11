@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b3a424c142fbfcbfe5e4c1802f3ba61da655f77f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425942"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896023"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -76,7 +76,7 @@ Durante questa fase si pianifica la migrazione del carico di lavoro SAP alla pia
     - [Strategia di assegnazione di tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing).
     - Convenzioni di denominazione per le macchine virtuali e altri componenti dell'infrastruttura e/o nomi logici.
 5.  Contratto Microsoft supporto tecnico Premier. Identificare Microsoft Technical Account Manager (TAM). Per i requisiti di supporto SAP, vedere la [Nota di supporto sap #2015553](https://launchpad.support.sap.com/#/notes/2015553).
-6.  Il numero di sottoscrizioni di Azure e la quota di core per le sottoscrizioni. [Aprire le richieste di supporto per aumentare le quote delle sottoscrizioni di Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) in base alle esigenze.
+6.  Il numero di sottoscrizioni di Azure e la quota di core per le sottoscrizioni. [Aprire le richieste di supporto per aumentare le quote delle sottoscrizioni di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) in base alle esigenze.
 7.  Riduzione dei dati e piano di migrazione dei dati per la migrazione dei dati SAP in Azure. Per i sistemi SAP NetWeaver, SAP offre linee guida su come limitare il volume di grandi quantità di dati. Vedere [questa guida SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) sulla gestione dei dati nei sistemi SAP ERP. Parte del contenuto si applica anche ai sistemi NetWeaver e S/4HANA in generale.
 8.  Approccio di distribuzione automatizzato. L'obiettivo dell'automazione delle distribuzioni di infrastruttura in Azure consiste nel distribuire in modo deterministico e ottenere risultati deterministici. Molti clienti usano gli script basati su PowerShell o sull'interfaccia della riga di comando. Esistono tuttavia diverse tecnologie open source che è possibile usare per distribuire l'infrastruttura di Azure per SAP e persino installare il software SAP. È possibile trovare esempi su GitHub:
     - [Distribuzioni SAP automatizzate nel cloud di Azure](https://github.com/Azure/sap-hana)

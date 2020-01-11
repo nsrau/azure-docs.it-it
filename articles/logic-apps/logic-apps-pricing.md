@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 80eadcadad58cc126a9213c9e5bc5c65c1eb5c6c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793446"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896392"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -29,7 +29,7 @@ Ad esempio, le azioni includono:
 
 * Trigger, che sono azioni speciali. Tutte le app per la logica richiedono un trigger come primo passaggio.
 * [Azioni predefinite o native](../connectors/apis-list.md#built-in) come http, chiamate a funzioni di Azure e gestione API e così via
-* Chiamate a [connettori gestiti](../connectors/apis-list.md##managed-connectors) come Outlook 365, Dropbox e così via
+* Chiamate a [connettori gestiti](../connectors/apis-list.md#managed-connectors) come Outlook 365, Dropbox e così via
 * Passaggi del flusso di controllo, ad esempio cicli, istruzioni condizionali e così via
 
 Ai [connettori standard](../connectors/apis-list.md#managed-connectors) viene addebitato il [prezzo del connettore standard](https://azure.microsoft.com/pricing/details/logic-apps). I [connettori aziendali](../connectors/apis-list.md#managed-connectors) disponibili a livello generale vengono addebitati al [prezzo di Enterprise Connector](https://azure.microsoft.com/pricing/details/logic-apps), mentre i connettori Enterprise di anteprima pubblica vengono addebitati al [prezzo del connettore standard](https://azure.microsoft.com/pricing/details/logic-apps).
