@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/07/2020
-ms.openlocfilehash: 7a3749f61e6e656f750059ee76881a2e3f3b7912
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d6419e86e1a541638a7053654bfcd7945aa41ae7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865038"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891064"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di monitoraggio di Azure 
 
-Questo articolo fornisce informazioni generali e procedure per configurare le chiavi gestite dal cliente (CMK) e le aree di lavoro Log Analytics e i componenti Application Insights. Una volta configurata, tutti i dati inviati alle aree di lavoro vengono crittografati con la chiave Azure Key Vault.
+Questo articolo fornisce informazioni generali e procedure per configurare le chiavi gestite dal cliente (CMK) per le aree di lavoro Log Analytics e i componenti di Application Insights. Una volta configurata, tutti i dati inviati alle aree di lavoro vengono crittografati con la chiave Azure Key Vault.
 
 Prima della configurazione è consigliabile esaminare [limitazioni e vincoli](#Limitations and constraints) .
 
@@ -181,7 +181,7 @@ DELETE
 https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
 ```
 
-### <a name="grant-key-vault-permissions"></a>Concedere autorizzazioni Key Vault
+### <a name="grant-key-vault-permissions"></a>concedere autorizzazioni Key Vault
 
 Aggiornare il Key Vault e aggiungere i criteri di accesso con le autorizzazioni ' Get ',' wrap Key ' è Unwrap Key ' per l'ID risorsa *cluster* o il nome della risorsa *cluster* . Queste autorizzazioni verranno propagate alla risorsa di archiviazione di monitoraggio di Azure.
 
@@ -195,7 +195,7 @@ Sono necessari alcuni minuti prima che la risorsa *cluster* venga propagata in A
 
 Quando si crea una nuova versione di una chiave, è necessario aggiornare la risorsa cluster con Azure Key Vault dettagli dell'identificatore di chiave, per consentire all'archiviazione di monitoraggio di Azure di usare la nuova versione. Per ottenere l'identificatore della chiave, selezionare la versione corrente della chiave in Azure Key Vault:
 
-![Concedere autorizzazioni Key Vault](media/customer-managed-keys/key-identifier-8bit.png)
+![concedere autorizzazioni Key Vault](media/customer-managed-keys/key-identifier-8bit.png)
 
 Aggiornare la risorsa *cluster* KeyVaultProperties con i dettagli dell'identificatore di chiave.
 

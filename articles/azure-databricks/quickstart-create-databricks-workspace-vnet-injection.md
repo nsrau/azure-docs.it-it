@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893432"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889002"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Guida introduttiva: creare un'area di lavoro Azure Databricks nella propria rete virtuale
 
@@ -29,11 +29,11 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 > [!Note]
 > Questa esercitazione non può essere eseguita usando una **sottoscrizione di valutazione gratuita di Azure**.
-> Se l'utente ha un account gratuito, andare al proprio profilo e modificare la sottoscrizione a **con pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/). Quindi [rimuovere il limite di spesa](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) per le vCPU nell'area dell'utente. Quando si crea l'area di lavoro Azure Databricks, è possibile selezionare il piano tariffario **Versione di valutazione (Premium - Unità Databricks gratuite per 14 giorni)** per concedere l'accesso gratuito Premium per 14 giorni dell'area di lavoro alle Unità Databricks di Azure.
+> Se l'utente ha un account gratuito, andare al proprio profilo e modificare la sottoscrizione a **con pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/). Quindi [rimuovere il limite di spesa](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) per le vCPU nell'area dell'utente. Quando si crea l'area di lavoro Azure Databricks, è possibile selezionare il piano tariffario **Versione di valutazione (Premium - Unità Databricks gratuite per 14 giorni)** per concedere l'accesso gratuito Premium per 14 giorni dell'area di lavoro alle Unità Databricks di Azure.
 
 ## <a name="create-a-virtual-network"></a>Crea una rete virtuale
 
-1. Scegliere **Crea una risorsa** dal menu del portale di Azure. Selezionare quindi rete **> rete virtuale**.
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**. Selezionare quindi rete **> rete virtuale**.
 
     ![Creare una rete virtuale in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-portal.png)
 
@@ -41,11 +41,11 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
     |Impostazione|Valore consigliato|Description|
     |-------|---------------|-----------|
-    |name|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
+    |Nome|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
     |Spazio degli indirizzi|10.1.0.0/16|Intervallo di indirizzi della rete virtuale nella notazione CIDR. L'intervallo CIDR deve essere compreso tra/16 e/24|
     |Sottoscrizione|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Gruppo di risorse|databricks-avvio rapido|Selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse per l'account.|
-    |Località|\<Selezionare l'area più vicina agli utenti\>|Selezionare una posizione geografica in cui è possibile ospitare la rete virtuale. Usare la località più vicina agli utenti.|
+    |Percorso|\<Selezionare l'area più vicina agli utenti\>|Selezionare una posizione geografica in cui è possibile ospitare la rete virtuale. Usare la località più vicina agli utenti.|
     |Nome della subnet|default|Selezionare un nome per la subnet predefinita nella rete virtuale.|
     |Intervallo di indirizzi subnet|10.1.0.0/24|Intervallo di indirizzi della subnet nella notazione CIDR. Deve essere contenuto nello spazio degli indirizzi della rete virtuale. Non è possibile modificare l'intervallo di indirizzi di una subnet in uso.|
 
@@ -57,7 +57,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
-1. Scegliere **Crea una risorsa** dal menu del portale di Azure. Quindi selezionare **Analytics > databricks**.
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**. Quindi selezionare **Analytics > databricks**.
 
     ![Creare un'area di lavoro Azure Databricks in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-portal.png)
 
@@ -68,9 +68,9 @@ Accedere al [portale di Azure](https://portal.azure.com/).
     |Nome dell'area di lavoro|databricks-avvio rapido|Selezionare un nome per l'area di lavoro Azure Databricks.|
     |Sottoscrizione|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Gruppo di risorse|databricks-avvio rapido|Selezionare lo stesso gruppo di risorse usato per la rete virtuale.|
-    |Località|\<Selezionare l'area più vicina agli utenti\>|Scegliere lo stesso percorso della rete virtuale.|
+    |Percorso|\<Selezionare l'area più vicina agli utenti\>|Scegliere lo stesso percorso della rete virtuale.|
     |Piano tariffario|Scegliere tra standard o Premium.|Per altre informazioni sui piani tariffari, vedere la [pagina dei prezzi di databricks](https://azure.microsoft.com/pricing/details/databricks/).|
-    |Distribuire Azure Databricks area di lavoro nella rete virtuale (VNet)|SÌ|Questa impostazione consente di distribuire un'area di lavoro Azure Databricks nella rete virtuale.|
+    |Distribuire Azure Databricks area di lavoro nella rete virtuale (VNet)|Sì|Questa impostazione consente di distribuire un'area di lavoro Azure Databricks nella rete virtuale.|
     |Rete virtuale|databricks-avvio rapido|Selezionare la rete virtuale creata nella sezione precedente.|
     |Nome della subnet pubblica|subnet pubblica|Usare il nome predefinito della subnet pubblica.|
     |Intervallo CIDR della subnet pubblica|10.179.64.0/18|Utilizzare un intervallo CIDR fino a e includendo/26.|

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 971d7432c841c4ef984c7bbd7899fce733512303
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787183"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888142"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Inviare chiamate in uscita agli endpoint HTTP o HTTPS usando app per la logica di Azure
 
@@ -48,7 +48,7 @@ Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un e
 
    Questo esempio rinomina il trigger in "trigger HTTP" in modo che il passaggio abbia un nome più descrittivo. Inoltre, nell'esempio in seguito viene aggiunta un'azione HTTP ed entrambi i nomi devono essere univoci.
 
-1. Specificare i valori per i [parametri del trigger http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) che si desidera includere nella chiamata all'endpoint di destinazione. Impostare la ricorrenza per la frequenza con cui si desidera che il trigger verifichi l'endpoint di destinazione.
+1. Specificare i valori per i [parametri del trigger http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) che si desidera includere nella chiamata all'endpoint di destinazione. Impostare la ricorrenza per la frequenza con cui si desidera che il trigger verifichi l'endpoint di destinazione.
 
    Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -78,7 +78,7 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
    Questo esempio rinomina l'azione in "azione HTTP" in modo che il passaggio abbia un nome più descrittivo.
 
-1. Specificare i valori per i [parametri dell'azione http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) che si desidera includere nella chiamata all'endpoint di destinazione.
+1. Specificare i valori per i [parametri dell'azione http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) che si desidera includere nella chiamata all'endpoint di destinazione.
 
    Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -138,17 +138,17 @@ Di seguito è riportato lo stesso esempio che mostra la definizione JSON dell'az
 
 Per ulteriori informazioni sui parametri trigger e Action, vedere le sezioni seguenti:
 
-* [Parametri del trigger HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [Parametri azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [Parametri del trigger HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [Parametri azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>Dettagli dell'output
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP, che restituisce queste informazioni:
 
-| Nome proprietà | Type | Description |
+| Nome proprietà | Tipo | Description |
 |---------------|------|-------------|
-| Headers | object | Intestazioni della richiesta |
-| body | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| headers | object | Intestazioni della richiesta |
+| Corpo | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
 | Codice di stato | int | Codice di stato della richiesta |
 |||
 

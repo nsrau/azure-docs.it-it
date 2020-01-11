@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 41547787a3b7add1baa05a41d6785d1cd926165d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929597"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892837"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiare dati da Cassandra usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -37,7 +37,7 @@ Questo connettore Cassandra è supportato per le attività seguenti:
 In particolare, il connettore Cassandra supporta:
 
 - Cassandra **versioni 2.x e 3.x**.
-- Copia dei dati con l'autenticazione **Base** o **Anonima**.
+- La copia dei dati usando l'autenticazione **Di base** o **Anonima**.
 
 >[!NOTE]
 >Per attività in esecuzione nel runtime di integrazione self-hosted, Cassandra 3.x è supportato dalla versione 3.7 del runtime di integrazione e versioni successive.
@@ -58,15 +58,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type |La proprietà type deve essere impostata su: **Cassandra** |SÌ |
-| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |SÌ |
+| type |La proprietà type deve essere impostata su: **Cassandra** |Sì |
+| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (il valore predefinito è 9042) |
-| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono **Base** e **Anonimo**. |SÌ |
-| Nome utente |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
+| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono: **Di base** e **Anonima**. |Sì |
+| username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì, se authenticationType è impostato su Basic. |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
 >La connessione a Cassandra mediante SSL non è attualmente supportata.
@@ -101,9 +101,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Cassandra, impostare la proprietà type del set di dati su **CassandraTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **CassandraTable** | SÌ |
+| type | La proprietà type del set di dati deve essere impostata su: **CassandraTable** | Sì |
 | keyspace |Nome del keyspace o schema nel database Cassandra. |No (se per "CassandraSource" è specificato "query") |
 | tableName |Nome della tabella in un database Cassandra. |No (se per "CassandraSource" è specificato "query") |
 
@@ -136,9 +136,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Cassandra, impostare il tipo di origine nell'attività di copia su **CassandraSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **CassandraSource** | SÌ |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **CassandraSource** | Sì |
 | query |Usare la query personalizzata per leggere i dati. Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. |No (se nel set di dati sono specificati "tableName" e "keyspace"). |
 | consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. Per informazioni dettagliate, vedere [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati).<br/><br/>I valori consentiti sono: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** e **LOCAL_ONE**. |No (il valore predefinito è `ONE`) |
 
@@ -180,21 +180,21 @@ Quando si copiano dati da Cassandra, vengono usati i mapping seguenti tra i tipi
 
 | Tipo di dati di Cassandra | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| ASCII |Stringa |
-| BIGINT |Int64 |
+| ASCII |string |
+| bigint |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |boolean |
-| DECIMAL |DECIMAL |
-| DOUBLE |DOUBLE |
+| BOOLEAN |Boolean |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
 | FLOAT |Singolo |
-| INET |Stringa |
+| INET |string |
 | INT |Int32 |
-| TEXT |Stringa |
-| TIMESTAMP |Data e ora |
+| TEXT |string |
+| timestamp |Data e ora |
 | TIMEUUID |GUID |
 | UUID |GUID |
-| VARCHAR |Stringa |
-| VARINT |DECIMAL |
+| VARCHAR |string |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Per i tipi di raccolta (mappa, set, elenco e così via), vedere la sezione [Uso delle raccolte con una tabella virtuale](#work-with-collections-using-virtual-table) .
@@ -217,7 +217,7 @@ Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo a
 
 Ad esempio, "ExampleTable" è una tabella di un database Cassandra contenente una colonna chiave primaria integer denominata "pk_int", una colonna testo denominata value, una colonna elenco, una colonna mappa e una colonna set (denominata "StringSet").
 
-| pk_int | Value | Elenco | Mappa | StringSet |
+| pk_int | Valore | Elenco | Mappa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valore di esempio 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valore di esempio 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -226,7 +226,7 @@ Il driver genera più tabelle virtuali per rappresentare questa singola tabella.
 
 La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata nell'esempio seguente: 
 
-| pk_int | Value |
+| pk_int | Valore |
 | --- | --- |
 | 1 |"valore di esempio 1" |
 | 3 |"valore di esempio 3" |
@@ -260,7 +260,7 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |
-| 1 |b |
+| 1 |B |
 | 1 |C |
 | 3 |A |
 | 3 |E |
@@ -270,4 +270,4 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md##supported-data-stores-and-formats).
+Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

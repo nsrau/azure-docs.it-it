@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9b17548bf840ff0e2f94ed6933e5abdcc04110c8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286508"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887785"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(DEPRECATO) Servizio contenitore: domande frequenti
 
@@ -64,7 +64,7 @@ Se si usano i [comandi dell'interfaccia della riga di comando di Azure](../../co
 È possibile creare un cluster con 1, 3 o 5 nodi master e scegliere fino a 100 nodi agente.
 
 > [!IMPORTANT]
-> Per cluster di maggiori dimensioni, a seconda della dimensione di VM scelta per i nodi potrebbe essere necessario aumentare la quota di core nella sottoscrizione. Per richiedere un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
+> Per cluster di maggiori dimensioni, a seconda della dimensione di VM scelta per i nodi potrebbe essere necessario aumentare la quota di core nella sottoscrizione. Per richiedere un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../../azure-portal/supportability/how-to-create-azure-support-request.md) senza alcun addebito. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Come si aumenta il numero di master dopo la creazione di un cluster? 

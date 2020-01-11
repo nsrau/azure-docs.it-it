@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
-ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: asgangal
+ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084915"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895018"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad Azure
 
@@ -34,7 +34,7 @@ Se non sono presenti dimensioni che supportano la configurazione della VM di ori
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 
-Contattare il supporto per la [fatturazione di Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) per abilitare la sottoscrizione per la creazione di macchine virtuali con le dimensioni richieste nel percorso di destinazione. Quindi, ripetere l'operazione non riuscita.
+Contattare il supporto per la [fatturazione di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) per abilitare la sottoscrizione per la creazione di macchine virtuali con le dimensioni richieste nel percorso di destinazione. Quindi, ripetere l'operazione non riuscita.
 
 Se il percorso di destinazione ha un vincolo di capacità, disabilitare la replica. Quindi, abilitare la replica in un percorso diverso in cui la sottoscrizione ha una quota sufficiente per creare VM con le dimensioni necessarie.
 
@@ -46,7 +46,7 @@ Se il processo di abilitazione della replica non riesce, viene visualizzato il m
 
 > "Site Recovery configurazione non riuscita."
 
-### <a name="possible-cause"></a>Possibili cause
+### <a name="possible-cause"></a>Possibile causa
 
 I certificati radice attendibili richiesti per l'autorizzazione e l'autenticazione non sono presenti nella macchina virtuale.
 
@@ -80,7 +80,7 @@ Poiché SuSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*)
 
 1. Se il certificato CA radice Symantec non viene trovato, eseguire il comando seguente per scaricare il file. Verificare la presenza di eventuali errori e seguire le azioni consigliate per gli errori di rete.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Controllare se è presente il certificato CA radice Baltimore:
 
@@ -88,7 +88,7 @@ Poiché SuSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*)
 
 1. Se il certificato CA radice Baltimore non viene trovato, eseguire questo comando per scaricare il certificato:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
 
 1. Controllare se è presente il certificato DigiCert_Global_Root_CA:
 
@@ -168,7 +168,7 @@ Per il funzionamento della replica Site Recovery, è richiesta la connettività 
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: non è stato possibile registrare la macchina virtuale di Azure con Site Recovery (codice errore 151195)
 
-#### <a name="possible-cause"></a>Possibili cause 
+#### <a name="possible-cause"></a>Possibile causa 
 
 Non è possibile stabilire la connessione agli endpoint Site Recovery a causa di un errore di risoluzione DNS.
 
@@ -184,7 +184,7 @@ Provare ad accedere al server DNS dalla macchina virtuale. Se il server non è a
 
 ### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problema 2: configurazione Site Recovery non riuscita (codice errore 151196)
 
-#### <a name="possible-cause"></a>Possibili cause
+#### <a name="possible-cause"></a>Possibile causa
 
 Non è possibile stabilire la connessione agli endpoint di autenticazione di Office 365 e di identità IP4.
 
@@ -198,7 +198,7 @@ Se si usano regole di Azure NSG o proxy firewall per controllare la connettivit�
 
 ### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problema 3: la configurazione del Site Recovery non è riuscita (codice errore 151197)
 
-#### <a name="possible-cause"></a>Possibili cause
+#### <a name="possible-cause"></a>Possibile causa
 
 Non è possibile stabilire la connessione per Site Recovery endpoint di servizio.
 
@@ -208,7 +208,7 @@ Site Recovery richiede l'accesso a [Site Recovery intervalli IP](https://docs.mi
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problema 4: la replica da Azure ad Azure non è riuscita quando il traffico di rete passa attraverso un server proxy locale (codice errore 151072)
 
-#### <a name="possible-cause"></a>Possibili cause
+#### <a name="possible-cause"></a>Possibile causa
 
 Le impostazioni proxy personalizzate non sono valide e il Site Recovery agente del servizio Mobility non ha rilevato automaticamente le impostazioni proxy da Internet Explorer.
 
@@ -310,7 +310,7 @@ Quando protegge la macchina virtuale, Site Recovery crea alcuni collegamenti nel
 
 ## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>Non è possibile abilitare la replica a causa di collegamenti a risorse non aggiornati nella VM (codice errore 150226)
 
-### <a name="possible-cause"></a>Possibili cause
+### <a name="possible-cause"></a>Possibile causa
 
 La configurazione della macchina virtuale non è aggiornata rispetto alla protezione Site Recovery precedente.
 
@@ -437,7 +437,7 @@ Quando si verifica questo errore, viene visualizzato il messaggio seguente:
 
 > "Non è stato possibile abilitare la protezione per la macchina virtuale perché contiene *DiskName* con dimensioni *fissoDimensione*) * minore della dimensione minima supportata 1024 MB".
 
-### <a name="possible-cause"></a>Possibili cause
+### <a name="possible-cause"></a>Possibile causa
 
 Il disco è inferiore alle dimensioni supportate di 1024 MB.
 
@@ -447,7 +447,7 @@ Verificare che le dimensioni del disco siano comprese nell'intervallo di dimensi
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>La protezione non è stata abilitata perché la configurazione di GRUB include il nome del dispositivo anziché l'UUID (codice errore 151126)
 
-### <a name="possible-cause"></a>Possibili cause
+### <a name="possible-cause"></a>Possibile causa
 
 I file di configurazione GRUB di Linux (/boot/grub/menu.lst ",/boot/grub/grub.cfg,/boot/GRUB2/grub.cfg o/etc/default/grub) potrebbero specificare i nomi di dispositivo effettivi anziché i valori UUID per i parametri *root* e *Resume* . Site Recovery richiede UUID perché i nomi dei dispositivi possono cambiare. Al riavvio, una macchina virtuale potrebbe non avere lo stesso nome in caso di failover, causando problemi.
 
@@ -483,7 +483,7 @@ Sostituire ogni nome di dispositivo con l'UUID corrispondente:
 
 ## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>L'abilitazione della protezione non è riuscita perché il dispositivo indicato nella configurazione di GRUB non esiste (codice errore 151124)
 
-### <a name="possible-cause"></a>Possibili cause
+### <a name="possible-cause"></a>Possibile causa
 
 I file di configurazione di GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/boot/GRUB2/grub.cfg o/etc/default/grub) potrebbero contenere i parametri *Rd.LVM.lv* o *rd_LVM_LV*. Questi parametri identificano i dispositivi LVM (Logical Volume Manager) che devono essere individuati in fase di avvio. Se questi dispositivi LVM non esistono, il sistema protetto non viene avviato e si blocca nel processo di avvio. Lo stesso problema verrà visualizzato anche con la macchina virtuale di failover. Di seguito sono riportati alcuni esempi:
 
@@ -516,7 +516,7 @@ Il servizio Mobility Site Recovery dispone di molti componenti, uno dei quali è
 
 ## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>Non è stato possibile abilitare la protezione perché il disco gestito di replica esiste già, senza i tag previsti, nel gruppo di risorse di destinazione (codice errore 150161)
 
-### <a name="possible-cause"></a>Possibili cause
+### <a name="possible-cause"></a>Possibile causa
 
 Questo problema può verificarsi se la macchina virtuale è stata precedentemente protetta e quando la replica è stata disabilitata, il disco di replica non è stato pulito.
 

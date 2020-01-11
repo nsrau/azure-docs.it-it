@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 304d0615a12871fb4a9610058bc1be0ad6dff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6dd0734d39237545b7a9bc2553fcd9dea75b8ee0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929539"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892812"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -67,17 +67,17 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Db2** | SÌ |
-| server |Nome del server DB2. È possibile specificare il numero di porta dopo il nome del server delimitato da due punti, ad esempio `server:port`. |SÌ |
-| database |Nome del database DB2. |SÌ |
-| authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Di base**. |SÌ |
-| Nome utente |Specificare il nome utente per la connessione al database DB2. |SÌ |
-| password |Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |SÌ |
+| type | La proprietà type deve essere impostata su: **Db2** | Sì |
+| server |Nome del server DB2. È possibile specificare il numero di porta dopo il nome del server delimitato da due punti, ad esempio `server:port`. |Sì |
+| database |Nome del database DB2. |Sì |
+| authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Di base**. |Sì |
+| username |Specificare il nome utente per la connessione al database DB2. |Sì |
+| password |Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | packageCollection | Specificare in dove vengono creati automaticamente i pacchetti necessari durante l'esecuzione di query sul database | No |
 | certificateCommonName | Quando si usa la crittografia Secure Sockets Layer (SSL) o Transport Layer Security (TLS), è necessario immettere un valore per nome comune del certificato. | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -110,11 +110,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da DB2, sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **Db2Table** | SÌ |
+| type | La proprietà Type del set di dati deve essere impostata su: **Db2Table** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
-| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tabella | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
 | tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -145,9 +145,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da DB2, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **Db2Source** | SÌ |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **Db2Source** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -193,33 +193,33 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 | BigInt |Int64 |
 | Binary |Byte[] |
 | BLOB |Byte[] |
-| Char |Stringa |
-| Clob |Stringa |
-| Data |DateTime |
-| DB2DynArray |Stringa |
-| DbClob |Stringa |
-| DECIMAL |DECIMAL |
-| DecimalFloat |DECIMAL |
-| DOUBLE |DOUBLE |
-| Float |DOUBLE |
-| Graphic |Stringa |
+| Char |string |
+| Clob |string |
+| Data |Datetime |
+| DB2DynArray |string |
+| DbClob |string |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Float |Double |
+| Graphic |string |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Stringa |
-| LongVarGraphic |Stringa |
-| Numeric |DECIMAL |
+| LongVarChar |string |
+| LongVarGraphic |string |
+| Numeric |Decimal |
 | Real |Singolo |
 | SmallInt |Int16 |
-| Durata |Intervallo di tempo |
+| Durata |TimeSpan |
 | Timestamp |Data e ora |
 | VarBinary |Byte[] |
-| VarChar |Stringa |
-| VarGraphic |Stringa |
-| xml |Byte[] |
+| VarChar |string |
+| VarGraphic |string |
+| Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
 Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md##supported-data-stores-and-formats).
+Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

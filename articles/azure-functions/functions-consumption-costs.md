@@ -3,12 +3,12 @@ title: Stima dei costi del piano di consumo in funzioni di Azure
 description: Informazioni su come stimare meglio i costi che possono verificarsi quando si esegue l'app per le funzioni in un piano a consumo in Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613059"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890313"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Stima dei costi del piano a consumo
 
@@ -22,7 +22,7 @@ Esistono attualmente tre tipi di piani di hosting per un'app in esecuzione in fu
 
 Si è scelto il piano che meglio supporta le prestazioni della funzione e i requisiti di costo. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
 
-Questo articolo riguarda solo il piano a consumo, perché questo piano comporta costi variabili. 
+Questo articolo riguarda solo il piano a consumo, perché questo piano comporta costi variabili. Questo articolo sostituisce l'articolo relativo alle [domande frequenti sulla fatturazione dei costi del piano a consumo](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ) .
 
 Durable Functions possono anche essere eseguiti in un piano a consumo. Per ulteriori informazioni sulle considerazioni sui costi quando si utilizza Durable Functions, vedere [Durable Functions fatturazione](./durable/durable-functions-billing.md).
 

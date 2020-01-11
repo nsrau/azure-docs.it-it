@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: c15602163ee1916047b9cb35a516a049f951b302
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195961"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888567"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -28,11 +28,11 @@ Il video seguente illustra l'uso di questo contenitore.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|obbligatori|Scopo|
+|Obbligatorio|Finalità|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -55,7 +55,7 @@ API di creazione per le app in pacchetto:
 
 Il contenitore supporta i valori minimi e consigliati seguenti per le impostazioni:
 
-|Contenitore:| Minima | Consigliato | TPS<br>(Minimo, massimo)|
+|Contenitore| Minima | Consigliato | TPS<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20, 40|
 
@@ -84,7 +84,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 1. [Esportare il pacchetto](#export-packaged-app-from-luis) per il contenitore dal portale di LUIS o tramite le API LUIS.
 1. Spostare il file del pacchetto nella directory di **input** richiesta nel [computer host](#the-host-computer). Non rinominare, modificare, sovrascrivere o decomprimere il file del pacchetto LUIS.
-1. [Eseguire il contenitore](##run-the-container-with-docker-run), con il _punto di montaggio di input_ e le impostazioni di fatturazione richiesti. Sono disponibili altri [esempi](luis-container-configuration.md#example-docker-run-commands) del comando `docker run`. 
+1. [Eseguire il contenitore](#run-the-container-with-docker-run), con il _punto di montaggio di input_ e le impostazioni di fatturazione richiesti. Sono disponibili altri [esempi](luis-container-configuration.md#example-docker-run-commands) del comando `docker run`. 
 1. [Eseguire query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint). 
 1. Dopo aver completato le operazioni con il contenitore, [importare i log dell'endpoint](#import-the-endpoint-logs-for-active-learning) dal punto di montaggio di output nel portale di LUIS e [arrestare](#stop-the-container) il contenitore.
 1. Usare la funzionalità di [apprendimento attivo](luis-how-to-review-endpoint-utterances.md) nella pagina **Review endpoint utterances** (Esamina espressioni endpoint) del portale di LUIS per migliorare l'app.
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Valore |
+| Segnaposto | Valore |
 |-------------|-------|
 | **{APP_ID}** | ID applicazione dell'app LUIS pubblicata. |
 | **{SLOT_NAME}** | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Valore |
+| Segnaposto | Valore |
 |-------------|-------|
 | **{APP_ID}** | ID applicazione dell'app LUIS sottoposta a training. |
 | **{APP_VERSION}** | Versione dell'applicazione dell'app LUIS sottoposta a training. |
@@ -198,7 +198,7 @@ Per scaricare il pacchetto con versione, fare riferimento alla [documentazione d
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori `{ENDPOINT_URI}` e `{API_KEY}`, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) .
 
-Sono disponibili [esempi](luis-container-configuration.md#example-docker-run-commands) del comando `docker run`.
+Sono disponibili [esempi](luis-container-configuration.md#example-docker-run-commands) di comando `docker run`.
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -252,12 +252,12 @@ Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|digitare|Scopo|
+|Query parameter (Parametro di query)|Tipo|Finalità|
 |--|--|--|
-|`query`|stringa|Espressione dell'utente.|
-|`verbose`|boolean|Valore booleano che indica se restituire tutti i metadati per i modelli stimati. Il valore predefinito è false.|
-|`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è false.|
-|`show-all-intents`|boolean|Valore booleano che indica se restituire tutti gli Intent o solo il primo scopo del punteggio. Il valore predefinito è false.|
+|`query`|string|Espressione dell'utente.|
+|`verbose`|boolean|Valore booleano che indica se restituire tutti i metadati per i modelli stimati. L'impostazione predefinita è false.|
+|`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). L'impostazione predefinita è false.|
+|`show-all-intents`|boolean|Valore booleano che indica se restituire tutti gli Intent o solo il primo scopo del punteggio. L'impostazione predefinita è false.|
 
 # <a name="v2-prediction-endpointtabv2"></a>[Endpoint di previsione V2](#tab/v2)
 
@@ -268,13 +268,13 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Query parameter (Parametro di query)|digitare|Scopo|
+|Query parameter (Parametro di query)|Tipo|Finalità|
 |--|--|--|
-|`q`|stringa|Espressione dell'utente.|
-|`timezoneOffset`|number|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
+|`q`|string|Espressione dell'utente.|
+|`timezoneOffset`|d'acquisto|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |
-|`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è true.|
+|`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). L'impostazione predefinita è true.|
 
 ***
 
@@ -372,7 +372,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](lui
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In sintesi:
 

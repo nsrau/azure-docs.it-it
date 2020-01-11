@@ -4,12 +4,12 @@ description: Disponibilità delle risorse di calcolo e memoria per il servizio I
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: danlep
-ms.openlocfilehash: 456b9754d7a6e88705853d4c4d701110e4841eb0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9de5b08eed3aa10015813cbb4724ef4e947005fb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445809"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888006"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -45,9 +45,9 @@ Per i gruppi di contenitori con contenitori basati su Windows Server 2019 (antep
 | Stati Uniti orientali 2, Stati Uniti occidentali 2 | Windows | 2 | 3,5 |
 
 
-## <a name="availability---virtual-network-deployment-preview"></a>Disponibilità - Distribuzione nella rete virtuale (anteprima)
+## <a name="availability---virtual-network-deployment"></a>Disponibilità-distribuzione rete virtuale
 
-Per un gruppo di contenitori distribuito in una [rete virtuale di Azure](container-instances-vnet.md) (anteprima) sono disponibili le aree geografiche e le risorse seguenti.
+Le aree e le risorse seguenti sono disponibili per un gruppo di contenitori distribuito in una [rete virtuale di Azure](container-instances-vnet.md).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 

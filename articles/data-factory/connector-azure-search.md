@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.openlocfilehash: 8a5b7bd366c504f0f5f4652728bf265289fb92e8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 418026d5569cd7e4a7c5239f99650833b1b9514d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929684"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892930"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiare dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory
 
@@ -40,12 +40,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Azure ricerca cognitiva sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureSearch** | SÌ |
-| url | URL per il servizio di ricerca. | SÌ |
-| key | Chiave di amministrazione per il servizio di ricerca. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| type | La proprietà type deve essere impostata su **AzureSearch** | Sì |
+| url | URL per il servizio di ricerca. | Sì |
+| Key | Chiave di amministrazione per il servizio di ricerca. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
 > Quando si copiano dati da un archivio dati cloud a un indice di ricerca, in Azure ricerca cognitiva servizio collegato è necessario fare riferimento a una Azure Integration Runtime con area esplicita in connactVia. Impostare l'area come quella in cui risiede il servizio di ricerca. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
@@ -78,10 +78,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati in ricerca cognitiva di Azure, sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | SÌ |
-| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in ricerca cognitiva di Azure. | SÌ |
+| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Sì |
+| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in ricerca cognitiva di Azure. | Sì |
 
 **Esempio:**
 
@@ -110,9 +110,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare i dati in ricerca cognitiva di Azure, impostare il tipo di origine nell'attività di copia su **AzureSearchIndexSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureSearchIndexSink** | SÌ |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureSearchIndexSink** | Sì |
 | writeBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono: **Merge** (predefinito) e **Carica**. | No |
 | writeBatchSize | Carica i dati nell'indice di ricerca quando la dimensione del buffer raggiunge writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No |
 
@@ -169,11 +169,11 @@ La tabella seguente specifica se un tipo di dati di ricerca cognitiva di Azure �
 
 | Tipo di dati ricerca cognitiva di Azure | Supportato in Azure ricerca cognitiva sink |
 | ---------------------- | ------------------------------ |
-| Stringa | S |
+| string | S |
 | Int32 | S |
 | Int64 | S |
-| DOUBLE | S |
-| boolean | S |
+| Double | S |
+| Boolean | S |
 | DataTimeOffset | S |
 | String Array | N |
 | GeographyPoint | N |
@@ -181,4 +181,4 @@ La tabella seguente specifica se un tipo di dati di ricerca cognitiva di Azure �
 Attualmente, altri tipi di dati, ad esempio ComplexType, non sono supportati. Per un elenco completo dei tipi di dati supportati da Azure ricerca cognitiva, vedere [tipi di dati supportati (ricerca cognitiva di Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md##supported-data-stores-and-formats).
+Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

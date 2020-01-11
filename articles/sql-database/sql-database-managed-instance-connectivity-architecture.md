@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7cb3b4d6b490d09d14046465e0fc58526be5b045
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5a48a686a238d724680e806daaed431107ec72
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433838"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894831"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura di connettività per un'istanza gestita nel database SQL di Azure
 
@@ -66,7 +66,7 @@ Si esaminerà in dettaglio l'architettura di connettività per le istanze gestit
 
 ![Architettura di connettività del cluster virtuale](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-I client si connettono a un'istanza gestita utilizzando un nome host con il formato `<mi_name>.<dns_zone>.database.windows.net`. Questo nome host viene risolto in un indirizzo IP privato anche se è registrato in una zona DNS (Public Domain Name System) ed è risolvibile pubblicamente. Il `zone-id` viene generato automaticamente quando si crea il cluster. Se un cluster appena creato ospita un'istanza gestita secondaria, condivide il relativo ID di zona con il cluster primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per abilitare il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+I client si connettono a un'istanza gestita utilizzando un nome host con il formato `<mi_name>.<dns_zone>.database.windows.net`. Questo nome host viene risolto in un indirizzo IP privato anche se è registrato in una zona DNS (Public Domain Name System) ed è risolvibile pubblicamente. Il `zone-id` viene generato automaticamente quando si crea il cluster. Se un cluster appena creato ospita un'istanza gestita secondaria, condivide il relativo ID di zona con il cluster primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per abilitare il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Questo indirizzo IP privato appartiene al servizio di bilanciamento del carico interno dell'istanza gestita. Il servizio di bilanciamento del carico indirizza il traffico al gateway dell'istanza gestita. Poiché più istanze gestite possono essere eseguite all'interno dello stesso cluster, il gateway usa il nome host dell'istanza gestita per reindirizzare il traffico al servizio motore SQL corretto.
 

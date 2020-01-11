@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272744"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888897"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con AD FS e provider di terze parti per utenti Guest (anteprima)
 |     |
@@ -78,28 +78,28 @@ Per prima cosa, l'organizzazione partner deve configurare il provider di identit
 > [!NOTE]
 > Per illustrare come configurare un provider di identità per la Federazione diretta, si userà Active Directory Federation Services (AD FS) come esempio. Vedere l'articolo [configurare la Federazione diretta con ad FS](direct-federation-adfs.md), che fornisce esempi di come configurare ad FS come provider di identità SAML 2,0 o WS-Fed in preparazione per la Federazione diretta.
 
-### <a name="saml-20-configuration"></a>Configurazione SAML 2,0
+### <a name="saml-20-configuration"></a>Configurazione di SAML 2.0
 
 Azure AD B2B può essere configurato per la Federazione con provider di identità che usano il protocollo SAML con requisiti specifici elencati di seguito. Per altre informazioni sulla configurazione di una relazione di trust tra il provider di identità SAML e Azure AD, vedere [usare un provider di identità saml 2,0 per Single Sign-on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
-> Si noti che il dominio di destinazione per la Federazione diretta non deve essere verificato da DNS in Azure AD. Il dominio dell'URL di autenticazione deve corrispondere al dominio di destinazione oppure deve essere il dominio di un provider di identità consentito. Per informazioni dettagliate, vedere la sezione [limitazioni](#limitations) . 
+> Il dominio di destinazione per la Federazione diretta non deve essere verificato da DNS in Azure AD. Il dominio dell'URL di autenticazione deve corrispondere al dominio di destinazione oppure deve essere il dominio di un provider di identità consentito. Per informazioni dettagliate, vedere la sezione [limitazioni](#limitations) . 
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Attestazioni e attributi SAML 2,0 richiesti
 Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specifici che devono essere configurati nel provider di identità di terze parti. Per configurare la Federazione diretta, è necessario che i seguenti attributi vengano ricevuti nella risposta SAML 2,0 del provider di identità. Questi attributi possono essere configurati tramite il collegamento al file XML del servizio token di sicurezza online oppure immetterli manualmente.
 
 Attributi obbligatori per la risposta SAML 2,0 da IdP:
 
-|Attribute  |Valore  |
+|Attributo  |Valore  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
-|Autorità di certificazione     |URI dell'autorità emittente dell'IdP partner, ad esempio `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Issuer     |URI dell'autorità emittente dell'IdP partner, ad esempio `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Attestazioni necessarie per il token SAML 2,0 emesso da IdP:
 
-|Attribute  |Valore  |
+|Attributo  |Valore  |
 |---------|---------|
 |Formato NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,15 +116,15 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori nel messaggio WS-Fed dall'IdP:
  
-|Attribute  |Valore  |
+|Attributo  |Valore  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
-|Autorità di certificazione     |URI dell'autorità emittente dell'IdP partner, ad esempio `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Issuer     |URI dell'autorità emittente dell'IdP partner, ad esempio `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Attestazioni necessarie per il token WS-Fed emesso da IdP:
 
-|Attribute  |Valore  |
+|Attributo  |Valore  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -133,7 +133,7 @@ Attestazioni necessarie per il token WS-Fed emesso da IdP:
 Si configurerà quindi la Federazione con il provider di identità configurato nel passaggio 1 Azure AD. È possibile usare il portale di Azure AD o PowerShell. Potrebbero essere necessari 5-10 minuti prima che i criteri di federazione diretta abbiano effetto. Durante questo periodo, non tentare di riscattare un invito per il dominio federativo diretto. Gli attributi seguenti sono obbligatori:
 - URI dell'autorità emittente dell'IdP partner
 - Endpoint di autenticazione passiva dell'IdP partner (è supportato solo HTTPS)
-- Certificate
+- Certificato
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Per configurare la Federazione diretta nel portale di Azure AD
 
@@ -152,7 +152,7 @@ Si configurerà quindi la Federazione con il provider di identità configurato n
    - Nome di dominio dell'IdP partner
    - ID entità dell'IdP partner
    - Endpoint del richiedente passivo dell'IdP partner
-   - Certificate
+   - Certificato
    > [!NOTE]
    > L'URL dei metadati è facoltativo, ma è consigliabile. Se si specifica l'URL dei metadati, Azure AD possibile rinnovare automaticamente il certificato di firma al termine della scadenza. Se il certificato viene ruotato per qualsiasi motivo prima della data di scadenza o se non si specifica un URL dei metadati, Azure AD non sarà in grado di rinnovarlo. In questo caso, sarà necessario aggiornare manualmente il certificato di firma.
 

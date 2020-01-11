@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 82c9a13c50f9d9786f405032d6339c8323d9cf68
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2ea1d33f6302a04a7844e4504d30bac897599e69
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229888"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887547"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Creare una richiesta di supporto per Cloudyn
 
@@ -41,7 +41,7 @@ Il ticket di supporto creato viene aggiunto alla coda di supporto. I tempi di ri
 
 Se si desidera creare un ticket di supporto per la fatturazione per Gestione costi, in **Tipo di problema** selezionare **Gestione costi di Azure**.
 
-Per verificare lo stato di una richiesta, vedere [Tutte le richieste di supporto](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
+Per verificare lo stato di una richiesta, vedere [Tutte le richieste di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests).
 
 Se si è un utente di Cloudyn legacy senza un account Azure, è possibile aprire una richiesta di supporto all'indirizzo https://support.microsoft.com/oas/default.aspx?prid=16451.
 

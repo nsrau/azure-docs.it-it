@@ -2,14 +2,14 @@
 title: Distribuire un gruppo di contenitori in rete virtuale di Azure
 description: Informazioni su come distribuire gruppi di contenitori in una rete virtuale Azure nuova o esistente.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442236"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887957"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -24,7 +24,7 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 * Comunicazione tra contenitori e risorse locali tramite un [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) oppure [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Le distribuzioni di gruppi di contenitori in una rete virtuale sono disponibili a livello generale per i carichi di lavoro di produzione solo nelle aree seguenti: **Stati Uniti orientali, Stati Uniti centro-meridionali e Stati Uniti occidentali 2**. In altre aree in cui la funzionalità è disponibile, le distribuzioni di reti virtuali sono attualmente in anteprima, con disponibilità generale pianificata nel prossimo futuro. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. 
 
 
 ## <a name="virtual-network-deployment-limitations"></a>Limitazioni alla distribuzione nella rete virtuale
@@ -33,11 +33,7 @@ Quando si distribuiscono gruppi di contenitori in una rete virtuale, si applican
 
 * Per distribuire gruppi di contenitori in una subnet, quest'ultima non può contenere altri tipi di risorse. Rimuovere tutte le risorse presenti in una subnet esistente prima di distribuire gruppi di contenitori nella subnet oppure creare una nuova subnet.
 * Non è possibile usare un'[identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
-* A causa di altre risorse di rete coinvolte, la distribuzione di un gruppo di contenitori in una rete virtuale è leggermente più lenta, in genere, rispetto a quella di un'istanza di contenitore standard.
-
-## <a name="preview-limitations"></a>Limiti di anteprima
-
-Quando questa funzionalità è in anteprima, quando si distribuiscono gruppi di contenitori in una rete virtuale si applicano le limitazioni seguenti. 
+* A causa delle risorse di rete aggiuntive, la distribuzione di un gruppo di contenitori in una rete virtuale è in genere più lenta rispetto alla distribuzione di un'istanza di contenitore standard.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -46,8 +42,10 @@ I limiti delle risorse del contenitore possono differire dai limiti delle istanz
 ### <a name="unsupported-networking-scenarios"></a>Scenari di rete non supportati 
 
 * **Azure Load Balancer** l'inserimento di un Azure Load Balancer davanti alle istanze di contenitore in un gruppo di contenitori in rete non è supportato
-* **Peering di rete virtuale** : il peering VNet non funzionerà per ACI se la rete a cui viene eseguito il peering di ACI VNet usa uno spazio IP pubblico. Per consentire il funzionamento del peering, la rete con peering deve avere uno spazio IP privato RFC1918. Inoltre, è attualmente possibile eseguire il peering della VNet in un altro VNet
-* **Routing del traffico della rete virtuale** : le route del cliente non possono essere configurate in indirizzi IP pubblici. È possibile configurare le route nello spazio IP privato della subnet delegata in cui vengono distribuite le risorse ACI 
+* **Peering di rete virtuale**
+  * Il peering VNet non funzionerà per ACI se la rete a cui il VNet ACI sta peering usa uno spazio IP pubblico. Per consentire il funzionamento del peering VNet, la rete con peering deve avere uno spazio IP privato RFC 1918. 
+  * È possibile eseguire il peering della VNet in un altro VNet
+* **Routing del traffico della rete virtuale** : le route personalizzate non possono essere configurate intorno agli indirizzi IP pubblici. È possibile configurare le route nello spazio IP privato della subnet delegata in cui vengono distribuite le risorse ACI 
 * **Gruppi di sicurezza di rete** : le regole di sicurezza in uscita in gruppi applicate a una subnet delegata alle istanze di contenitore di Azure non sono attualmente applicate 
 * **IP pubblico o etichetta DNS** : i gruppi di contenitori distribuiti in una rete virtuale non supportano attualmente l'esposizione di contenitori direttamente a Internet con un indirizzo IP pubblico o un nome di dominio completo
 * **Risoluzione dei nomi interna** : la risoluzione dei nomi per le risorse di Azure nella rete virtuale tramite il DNS interno di Azure non è supportata
@@ -99,7 +97,7 @@ Dopo aver distribuito il primo gruppo di contenitori con questo metodo, è possi
 
 Per distribuire un gruppo di contenitori in una rete virtuale esistente:
 
-1. Creare una subnet nella rete virtuale esistente o eliminare *tutte* le altre risorse da una subnet esistente
+1. Creare una subnet all'interno della rete virtuale esistente, usare una subnet esistente in cui è già distribuito un gruppo di contenitori o usare una subnet esistente svuotata di *tutte* le altre risorse
 1. Distribuire un gruppo di contenitori con [AZ container create][az-container-create] e specificare una delle opzioni seguenti:
    * Nome della rete virtuale e della subnet
    * ID risorsa di rete virtuale e ID risorsa della subnet, che permette di usare una rete virtuale di un gruppo di risorse diverso
@@ -115,7 +113,7 @@ Le sezioni seguenti descrivono come distribuire gruppi di contenitori in una ret
 
 Distribuire in primo luogo un gruppo di contenitori e specificare i parametri per una nuova rete virtuale e una nuova subnet. Quando si specificano questi parametri, Azure crea la rete virtuale e la subnet, delega la subnet a Istanze di Azure Container e crea anche un profilo di rete. Dopo che queste risorse sono state create, il gruppo di contenitori viene distribuito nella subnet.
 
-Eseguire il comando [AZ container create][az-container-create] seguente che specifica le impostazioni per una nuova rete virtuale e una nuova subnet. È necessario fornire il nome di un gruppo di risorse creato in un'area che [supporta](#preview-limitations) i gruppi di contenitori in una rete virtuale. Questo comando distribuisce il contenitore Microsoft [ACI-HelloWorld][aci-helloworld] pubblico che esegue un piccolo server Web Node. js che funge da pagina Web statica. Nella sezione successiva viene distribuito un secondo gruppo di contenitori nella stessa subnet e viene testata la comunicazione tra le due istanze di contenitore.
+Eseguire il comando [AZ container create][az-container-create] seguente che specifica le impostazioni per una nuova rete virtuale e una nuova subnet. È necessario specificare il nome di un gruppo di risorse creato in un'area in cui sono [disponibili](#virtual-network-deployment-limitations)le distribuzioni dei gruppi di contenitori in una rete virtuale. Questo comando distribuisce il contenitore Microsoft [ACI-HelloWorld][aci-helloworld] pubblico che esegue un piccolo server Web Node. js che funge da pagina Web statica. Nella sezione successiva viene distribuito un secondo gruppo di contenitori nella stessa subnet e viene testata la comunicazione tra le due istanze di contenitore.
 
 ```azurecli
 az container create \
@@ -180,7 +178,7 @@ L'output del registro illustra che `wget` è stato in grado di connettersi e sca
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>Eseguire una distribuzione in una rete virtuale esistente - YAML
 
-È anche possibile distribuire un gruppo di contenitori in una rete virtuale esistente usando un file YAML. Per distribuire una subnet in una rete virtuale, specificare varie proprietà aggiuntive nel codice YAML:
+È anche possibile distribuire un gruppo di contenitori in una rete virtuale esistente usando un file YAML, un modello di Gestione risorse o un altro metodo programmatico, ad esempio con Python SDK. Per distribuire una subnet in una rete virtuale, specificare varie proprietà aggiuntive nel codice YAML:
 
 * `ipAddress`: impostazioni dell'indirizzo IP per il gruppo di contenitori.
   * `ports`: porte da aprire, se presenti.
@@ -225,7 +223,7 @@ properties:
     - protocol: tcp
       port: '80'
   networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
 tags: null
@@ -263,9 +261,9 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Se viene visualizzato un errore durante il tentativo di rimuovere il profilo di rete, consentire 2-3 giorni per la piattaforma per attenuare automaticamente il problema e ritentare l'eliminazione. Se si verificano ancora problemi durante la rimozione del profilo di rete [, aprire un reqest di supporto.](https://azure.microsoft.com/support/create-ticket/)
+> Se viene visualizzato un errore durante il tentativo di rimuovere il profilo di rete, consentire 2-3 giorni per la piattaforma per attenuare automaticamente il problema e ritentare l'eliminazione. Se si verificano ancora problemi durante la rimozione del profilo di rete, [aprire una richiesta di supporto](https://azure.microsoft.com/support/create-ticket/).
 
-L'anteprima iniziale di questa funzionalità richiede altri comandi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete.
+Questa funzionalità richiede attualmente diversi comandi aggiuntivi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete.
 
 Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gruppo di risorse contenente la rete virtuale e la subnet da eliminare. Se non è stato usato il nome `aci-vnet` suggerito in precedenza, aggiornare il nome della rete virtuale. Lo script viene formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, è necessario modificare di conseguenza l'assegnazione di variabili e le funzioni di accesso.
 

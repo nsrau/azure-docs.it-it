@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974343"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890263"
 ---
 # <a name="pattern-syntax"></a>Sintassi dei criteri
 
@@ -62,7 +62,7 @@ Una combinazione di **raggruppamento** con sintassi **facoltativa** ha un limite
 
 |Consentito|Esempio|
 |--|--|
-|SÌ|([(test1 &#x7c; test2)] &#x7c; test3)|
+|Sì|([(test1 &#x7c; test2)] &#x7c; test3)|
 |No|([([test1] &#x7c; test2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limiti di annidamento per i gruppi con sintassi or-Ing
@@ -71,7 +71,7 @@ Una combinazione di **raggruppamento** con la sintassi **or-ing** ha un limite d
 
 |Consentito|Esempio|
 |--|--|
-|SÌ|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
+|Sì|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
 |No|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintassi per aggiungere un'entità a un modello di criteri
@@ -142,7 +142,7 @@ I segni di punteggiatura (`?`, `!`, `.`) devono essere ignorati ed è necessario
 Altre informazioni sui modelli:
 
 * [Come aggiungere modelli](luis-how-to-model-intent-pattern.md)
-* [Come aggiungere pattern. any Entity](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Come aggiungere pattern. any Entity](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Concetti relativi ai modelli](luis-concept-patterns.md)
 
 Informazioni sul modo in cui viene restituito il [sentimento](luis-reference-prebuilt-sentiment.md) nella risposta JSON.

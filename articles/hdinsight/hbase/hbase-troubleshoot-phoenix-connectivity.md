@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 3f42d50af803713fd498e83880d9ee5d29e8caf3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b886f51bcb2bb7308c49c76563dcb70148bbc583
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091642"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887292"
 ---
-# <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenario: Problemi di connettività Apache Phoenix in Azure HDInsight
+# <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenario: Apache Phoenix problemi di connettività in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
@@ -22,17 +22,17 @@ Questo articolo descrive le procedure di risoluzione dei problemi e le possibili
 
 Non è possibile connettersi ad Apache HBase con Apache Phoenix. I motivi possono variare.
 
-## <a name="cause-incorrect-ip"></a>Causa: IP non corretto
+## <a name="cause-incorrect-ip"></a>Motivo: IP errato
 
 L'IP del nodo Zookeeper attivo non è corretto.
 
 ### <a name="resolution"></a>Risoluzione
 
-L'IP del nodo Zookeeper attivo può essere identificato dall'interfaccia utente di Ambari seguendo i collegamenti a **HBase** >  > **collegamenti rapidi** **ZK (attiva)**  > **Zookeeper info**. Correggere l'indirizzo IP in base alle esigenze.
+L'IP del nodo Zookeeper attivo può essere identificato dall'interfaccia utente di Ambari seguendo i collegamenti a **HBase** > **collegamenti rapidi** > **ZK (attivo)**  > **informazioni Zookeeper**. Correggere l'indirizzo IP in base alle esigenze.
 
 ---
 
-## <a name="cause-systemcatalog-table-offline"></a>Causa: Sistema. Tabella del catalogo offline
+## <a name="cause-systemcatalog-table-offline"></a>Cause: SYSTEM. Tabella del catalogo offline
 
 Quando si eseguono comandi come `!tables`, viene visualizzato un messaggio di errore simile al seguente:
 
@@ -50,13 +50,13 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 Dall'interfaccia utente di Apache Ambari, completare la procedura seguente per riavviare il servizio HMaster in tutti i nodi ZooKeeper:
 
-1. Dalla sezione di **Riepilogo** di HBase passare a **HBase** > **Active HBase Master**.
+1. Dalla sezione di **Riepilogo** di HBase, passare a **HBase** > **Active HBase Master**.
 
 1. Dalla sezione **componenti** riavviare il servizio HBASE master.
 
 1. Ripetere questi passaggi per tutti i rimanenti servizi **Standby HBase Master** (HBase Master in standby).
 
-Possono essere necessari fino a cinque minuti affinché il servizio di HBase Master si stabilizzi e completi il ripristino. Quando la `SYSTEM.CATALOG` tabella torna al normale, il problema di connettività a Apache Phoenix dovrebbe essere risolto automaticamente.
+Possono essere necessari fino a cinque minuti affinché il servizio di HBase Master si stabilizzi e completi il ripristino. Quando la tabella `SYSTEM.CATALOG` torna al normale, il problema di connettività per Apache Phoenix dovrebbe essere risolto automaticamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -66,4 +66,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: c4177e4310be3e03b64c260d88239de71f70c17a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720141"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894892"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -95,7 +95,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensio
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pre-elaborazione avanzata: conteggi facoltativo
 
-Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio la mancata imputazione, la codifica e le trasformazioni dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess). Abilitare questa impostazione con:
+Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio Guardrails dati, codifica e trasformazioni. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess). Abilitare questa impostazione con:
 
 + Azure Machine Learning Studio: selezionare le **Impostazioni Visualizza conteggi** nella sezione **esecuzione configurazione** [con questi passaggi](how-to-create-portal-experiments.md).
 
@@ -161,7 +161,7 @@ Per altre informazioni, vedere un esempio di [Machine Learning automatizzato per
 
 * rilevamento festività e conteggi
 * serie temporali e DNN Learner (ARIMA automatico, profeta, ForecastTCN)
-* supporto di molti modelli tramite raggruppamento
+* molti modelli supportano il raggruppamento
 * convalida incrociata di origine in sequenza
 * ritardi configurabili
 * funzionalità di aggregazione della finestra in sequenza

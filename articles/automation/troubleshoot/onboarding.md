@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 737b963074a2bec851882bddd78ad0b89f48d1d9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769898"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889324"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Risolvere gli errori durante l'onboarding di Gestione aggiornamenti, Rilevamento modifiche e inventario
 
@@ -156,7 +156,7 @@ Una volta rimosse le soluzioni, è possibile scollegare l'area di lavoro. È imp
   * Rimuovere le distribuzioni di aggiornamenti (pianificazioni) dall'account di automazione
 * Avviare/arrestare VM durante gli orari di minore attività
   * Rimuovere i blocchi sui componenti della soluzione nell'account di automazione in **impostazioni** > **blocchi**.
-  * Per ulteriori passaggi per rimuovere la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività vedere, [rimuovere la soluzione avvia/arresta macchina virtuale durante gli orari](../automation-solution-vm-management.md##remove-the-solution)di indisponibilità.
+  * Per ulteriori passaggi per rimuovere la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività vedere, [rimuovere la soluzione avvia/arresta macchina virtuale durante gli orari](../automation-solution-vm-management.md#remove-the-solution)di indisponibilità.
 
 ## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 

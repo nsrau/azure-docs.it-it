@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787047"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888125"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
 
@@ -50,7 +50,7 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 * URL per un endpoint o un'API già distribuita che supporta il modello di sottoscrizione e annullamento della sottoscrizione webhook per i [trigger di Webhook in app](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) per la logica o [azioni webhook nelle app](../logic-apps/logic-apps-create-api-app.md#webhook-actions) per la logica in base alle esigenze
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 * App per la logica in cui si vuole attendere eventi specifici nell'endpoint di destinazione. Per iniziare con il trigger HTTP webhook, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare l'azione HTTP webhook, avviare l'app per la logica con tutti i trigger desiderati. Questo esempio usa il trigger HTTP come primo passaggio.
 
@@ -100,7 +100,7 @@ Questa azione predefinita registra un URL di callback con il servizio specificat
 
    Questo esempio rinomina l'azione in "azione webhook HTTP" in modo che il passaggio abbia un nome più descrittivo.
 
-1. Specificare i valori per i parametri dell'azione webhook HTTP, che sono simili ai [parametri del trigger http webhook](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) che si vuole usare per le chiamate di sottoscrizione e annullamento della sottoscrizione, ad esempio:
+1. Specificare i valori per i parametri dell'azione webhook HTTP, che sono simili ai [parametri del trigger http webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) che si vuole usare per le chiamate di sottoscrizione e annullamento della sottoscrizione, ad esempio:
 
    ![Immettere i parametri dell'azione webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -114,16 +114,16 @@ Questa azione predefinita registra un URL di callback con il servizio specificat
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per altre informazioni sui parametri trigger e Action, che sono simili tra loro, vedere [parametri del webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+Per altre informazioni sui parametri trigger e Action, che sono simili tra loro, vedere [parametri del webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### <a name="output-details"></a>Dettagli dell'output
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP webhook che restituisce queste informazioni:
 
-| Nome proprietà | Type | Description |
+| Nome proprietà | Tipo | Description |
 |---------------|------|-------------|
-| Headers | object | Intestazioni della richiesta |
-| body | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| headers | object | Intestazioni della richiesta |
+| Corpo | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
 | Codice di stato | int | Codice di stato della richiesta |
 |||
 

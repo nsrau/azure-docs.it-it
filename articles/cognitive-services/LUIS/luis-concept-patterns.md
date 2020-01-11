@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280848"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890281"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
@@ -26,7 +26,7 @@ Si consideri un'app di risorse umane che genera report nel grafico aziendale su 
 
 ![Immagine del grafico aziendale](./media/luis-concept-patterns/org-chart.png)
 
-|Espressioni|Finalità stimata|Punteggio finalità|
+|Espressioni|Finalità stimata|Punteggio di finalità|
 |--|--|--|
 |Chi è il sottoposto di Tom?|GetOrgChart|.30|
 |Come si chiama il sottoposto di Tom?|GetOrgChart|.30|
@@ -62,7 +62,7 @@ Per cercare una corrispondenza tra criteri, prima vengono rilevate le entità al
 È possibile compilare un'app con Intent senza espressioni di esempio, purché esista un modello per ogni finalità. Per un'app solo modello, il modello non deve contenere entità apprese dal computer perché queste richiedono espressioni di esempio. 
 
 ## <a name="best-practices"></a>Procedure consigliate
-Informazioni sulle [procedure consigliate](luis-concept-best-practices.md).
+Apprendere le [procedure consigliate](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Sintassi dei criteri
 
@@ -73,7 +73,7 @@ Informazioni sulla sintassi dei modelli dalla Guida di [riferimento alla sintass
 Altre informazioni sui modelli:
 
 * [Come aggiungere modelli](luis-how-to-model-intent-pattern.md)
-* [Come aggiungere pattern. any Entity](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Come aggiungere pattern. any Entity](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Sintassi degli schemi](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

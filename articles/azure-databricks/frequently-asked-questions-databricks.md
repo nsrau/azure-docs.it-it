@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f4164966d1a9662a72d41fefcb7cfbb1b444d614
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129327"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888994"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Domande frequenti su Azure Databricks
 
@@ -29,7 +29,7 @@ Sì. È possibile usare una rete virtuale di Azure (VNET) con Azure Databricks. 
 
 ## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Ricerca per categorie accedere Azure Data Lake Storage da un notebook? 
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 1. In Azure Active Directory (Azure AD) eseguire il provisioning di un'entità servizio e registrare la relativa chiave.
 1. Assegnare le autorizzazioni necessarie all'entità servizio in Data Lake Storage.
 1. Per accedere a un file in Data Lake Storage, usare le credenziali dell'entità servizio in notebook.
@@ -71,7 +71,7 @@ Di seguito sono riportate due soluzioni a questo problema:
 
     b. Aggiungere un utente con indirizzo di posta elettronica `@<tenant_name>.onmicrosoft.com` invece di `@<your_domain>`. È possibile trovare questa opzione in **Domini personalizzati** in Azure AD nel portale di Azure.
     
-    C. Concedere a questo nuovo utente il ruolo **Collaboratore** per la risorsa dell'area di lavoro Databricks.
+    c. Concedere a questo nuovo utente il ruolo **Collaboratore** per la risorsa dell'area di lavoro Databricks.
     
     d. Accedere al portale di Azure con il nuovo utente e trovare l'area di lavoro Databricks.
     
@@ -92,7 +92,7 @@ Se l'utente non ha creato l'area di lavoro e viene aggiunto come utente, contatt
 
 #### <a name="solution"></a>Soluzione
 
-I cluster Databricks usano un indirizzo IP pubblico per ogni nodo. Se la sottoscrizione ha già usato tutti i suoi indirizzi IP pubblici, è necessario [richiedere di aumentare la quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Scegliere **Quota** come **Tipo di problema** e **Rete: ARM** come **Tipo di quota**. In **Dettagli**, richiedere un aumento della quota dell'indirizzo IP pubblico. Se ad esempio il limite corrente è 60 e si vuole creare un cluster a 100 nodi, richiedere l'aumento del limite a 160.
+I cluster Databricks usano un indirizzo IP pubblico per ogni nodo. Se la sottoscrizione ha già usato tutti i suoi indirizzi IP pubblici, è necessario [richiedere di aumentare la quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Scegliere **Quota** come **Tipo di problema** e **Rete: ARM** come **Tipo di quota**. In **Dettagli**, richiedere un aumento della quota dell'indirizzo IP pubblico. Se ad esempio il limite corrente è 60 e si vuole creare un cluster a 100 nodi, richiedere l'aumento del limite a 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: un secondo tipo di errore di avvio del provider dei servizi cloud durante la configurazione del cluster (MissingSubscriptionRegistration)
 
@@ -111,7 +111,7 @@ Per istruzioni più dettagliate, vedere [Provider e tipi di risorse](../azure-re
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problema: per accedere alle risorse dell'organizzazione, Azure Databricks necessita di autorizzazioni che solo un amministratore può concedere.
 
-#### <a name="background"></a>Contesto
+#### <a name="background"></a>Background
 
 Azure Databricks è integrato con Azure Active Directory. È possibile impostare le autorizzazioni in Azure Databricks (ad esempio, per notebook o cluster) specificando gli utenti da Azure AD. Per elencare i nomi degli utenti da Azure AD, Azure Databricks richiede il consenso e l'autorizzazione di lettura per tali informazioni. Se il consenso non è ancora disponibile, viene visualizzato l'errore.
 

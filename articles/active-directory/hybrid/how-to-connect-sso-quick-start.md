@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603398"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888669"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -124,13 +124,13 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a **Configurazione utente** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **Internet Explorer** > il **Pannello di controllo Internet** >  **Pagina sicurezza**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
+3. Passare a **Configurazione utente** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **pagina sicurezza** > Internet **Explorer** > **Pannello di controllo Internet** . Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
    - **Valore** (dati): **1** indica l'area Intranet.
 
-     Il risultato sarà analogo a questo:
+     Il risultato è simile al seguente:
 
      Nome valore: `https://autologon.microsoftazuread-sso.com`
   
@@ -142,15 +142,15 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 5. Fare clic su **OK** e quindi nuovamente su **OK**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Passare a **Configurazione utente** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **Internet Explorer** > il **Pannello di controllo Internet** >  **Pagina sicurezza** > **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
+6. Passare a **Configurazione utente** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **Internet Explorer** ** >  > ** **pagina sicurezza** > **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Abilitare l'impostazione del criterio e quindi fare clic su **OK**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opzione "Preferenza di Criteri di gruppo" - Procedura dettagliata
 
@@ -158,7 +158,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
 3. Passare a **Configurazione utente** > **Preferenze** > **Impostazioni di Windows** > **Registro di sistema** > **Nuovo** > **Elemento Registro di sistema**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
    - **Percorso chiave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,9 +166,9 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
    - **Tipo di valore**: ***REG_DWORD***.
    - **Dati valore**: ***00000001***.
  
-     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 
@@ -213,7 +213,7 @@ Per testare la funzionalità per un utente specifico, verificare che siano soddi
   - L'utente esegue l'accesso da un dispositivo aziendale.
   - Il dispositivo è aggiunto al dominio di Active Directory. _Non_ è necessario che il dispositivo sia [aggiunto ad Azure AD](../active-directory-azureadjoin-overview.md).
   - Il dispositivo ha una connessione diretta al controller di dominio, nella rete aziendale cablata o wireless oppure tramite una connessione di accesso remoto, ad esempio di tipo VPN.
-  - La [funzionalità è stata distribuita](##step-3-roll-out-the-feature) all'utente tramite Criteri di gruppo.
+  - La [funzionalità è stata distribuita](#step-3-roll-out-the-feature) all'utente tramite Criteri di gruppo.
 
 Per testare lo scenario in cui l'utente immette solo il nome utente ma non la password:
    - Accedere a `https://myapps.microsoft.com/` in una nuova sessione privata del browser.
@@ -239,4 +239,4 @@ Per istruzioni su come rinnovare le chiavi, vedere [Accesso Single Sign-On facil
 - [Approfondimento tecnico](how-to-connect-sso-how-it-works.md): comprendere come funziona l'accesso Single Sign-On facile.
 - [Domande frequenti](how-to-connect-sso-faq.md): ottenere risposte alle domande frequenti sull'accesso Single Sign-On facile.
 - [Risoluzione dei problemi](tshoot-connect-sso.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di accesso Single Sign-On facile.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste per nuove funzionalità.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.

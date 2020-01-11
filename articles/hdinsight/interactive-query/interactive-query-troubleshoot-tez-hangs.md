@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 9a7b28dd48be7bbd0c789749ee4a1fa01a17d85f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ec5a0d6e8c0a5236ae3929560e81033d983d4dfb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091350"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895119"
 ---
 # <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>Scenario: Apache Tez applicazione si blocca in Azure HDInsight
 
@@ -30,7 +30,7 @@ Troppi processi inviati; coda di filato lungo.
 
 Scalare verticalmente il cluster o attendere che la coda Yarn venga svuotata.
 
-Per impostazione `yarn.scheduler.capacity.maximum-applications` predefinita, controlla il numero massimo di applicazioni in esecuzione o in sospeso e il valore predefinito `10000`è.
+Per impostazione predefinita `yarn.scheduler.capacity.maximum-applications` controlla il numero massimo di applicazioni in esecuzione o in sospeso e il valore predefinito è `10000`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -40,4 +40,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

@@ -5,16 +5,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: fa4e403733c418a4ceff417dd0cf7b54f9409a49
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151655"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895986"
 ---
-# <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
+# <a name="vpn-gateway-faq"></a>Domande frequenti su Gateway VPN
 
 ## <a name="connecting"></a>Connessione a reti virtuali
 
@@ -72,14 +72,14 @@ I gateway basati su route implementano VPN basate su route. Le VPN basate su rou
 No. Non è possibile modificare un tipo di gateway Azure VNET da criteri in base a route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
 1. Eliminare qualsiasi connessione associata al gateway da eliminare.
 1. Eliminare il gateway:
-1. [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 1. [Azure Powershell - classico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione della VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Il valore 'GatewaySubnet' è necessario?
 
-Sì. La subnet del gateway contiene gli indirizzi IP usati dal servizio del gateway di rete virtuale. È necessario creare una subnet del gateway per la rete virtuale per configurare un gateway di rete virtuale. Per poter funzionare correttamente, tutte le subnet del gateway devono essere denominate 'GatewaySubnet'. Non assegnare un nome diverso alla subnet del gateway. Non distribuire VM o altri elementi alla subnet del gateway.
+Sì. La subnet del gateway contiene gli indirizzi IP usati dai servizi del gateway di rete virtuale. È necessario creare una subnet del gateway per la rete virtuale per configurare un gateway di rete virtuale. Per poter funzionare correttamente, tutte le subnet del gateway devono essere denominate 'GatewaySubnet'. Non assegnare un nome diverso alla subnet del gateway. Non distribuire VM o altri elementi alla subnet del gateway.
 
 Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inclusi nella subnet. Gli indirizzi IP inclusi nella subnet del gateway sono allocati al servizio del gateway. Alcune configurazioni necessitano dell'allocazione di più indirizzi IP ai servizi del gateway rispetto ad altre. È consigliabile assicurarsi che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare la crescita futura e per possibili nuove configurazioni aggiuntive per la connessione. Anche se è possibile creare una subnet del gateway con dimensioni pari a /29, è consigliabile crearne una con dimensioni pari a /27 o superiori, ad esempio /27, /26, /25 e così via. Esaminare i requisiti per la configurazione da creare e verificare che la subnet del gateway disponibile rispetti tali requisiti.
 

@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c05b29dd5909d1371c71bffb9db555c15c5d23ed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764644"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894027"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -150,11 +150,12 @@ Variance| Misura della diffusione dei dati di questa colonna dal relativo valore
 Asimmetria| Misura del modo in cui i dati della colonna sono diversi da una distribuzione normale.
 Curtosi| Misura della quantità di dati di questa colonna rispetto a una distribuzione normale.
 
+
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Opzioni di pre-elaborazione avanzate
 
-Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `Preprocess`. In questo modo, vengono eseguiti automaticamente i passaggi di pre-elaborazione e di conteggi dei dati seguenti.
+Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `Preprocess`. In questo modo, nell'ambito della pre-elaborazione dei dati Guardrails e conteggi passaggi seguenti vengono eseguiti automaticamente.
 
 |Pre-elaborazione di&nbsp;passaggi| Description |
 | ------------- | ------------- |
@@ -167,6 +168,20 @@ Quando si configurano gli esperimenti, è possibile abilitare l'impostazione ava
 |Codifica della destinazione del testo|Per l'input di testo, viene usato un modello lineare in pila con il contenitore di parole per generare la probabilità di ogni classe.|
 |Peso delle evidenze (guai)|Calcola il dolore come misura della correlazione delle colonne categoriche alla colonna di destinazione. Viene calcolato come log del rapporto tra le probabilità out-of-Class di Visual Studio. Questo passaggio restituisce una colonna di funzionalità numerica per classe e rimuove la necessità di imputare in modo esplicito i valori mancanti e il trattamento degli outlier.|
 |Distanza del cluster|Addestra un modello di clustering k-means su tutte le colonne numeriche.  Restituisce k nuove funzionalità, una nuova funzionalità numerica per ogni cluster, che contiene la distanza di ogni campione al centro di ogni cluster.|
+
+### <a name="data-guardrails"></a>Guardrails dati
+
+Automatizzato Machine Learning offre Guardrails di dati che consentono di identificare i potenziali problemi relativi ai dati (ad esempio, valori mancanti, squilibrio della classe) e di intraprendere azioni correttive per ottenere risultati migliori. Sono disponibili numerose procedure consigliate che è possibile applicare per ottenere risultati affidabili. 
+
+La tabella seguente descrive i Guardrails di dati attualmente supportati e gli Stati associati che gli utenti possono incontrare durante l'invio dell'esperimento.
+
+Guardrail|Stato|&nbsp;di condizione per il trigger&nbsp;
+---|---|---
+Valori&nbsp;mancanti&nbsp;l'imputazione |**Operazione riuscita** <br> <br> **Fisso**|    Nessun valore mancante in nessuna delle colonne di input&nbsp; <br> <br> Alcune colonne contengono valori mancanti
+Convalida incrociata|**Eseguita**|Se non viene fornito alcun set di convalida esplicito
+&nbsp;rilevamento della funzionalità di&nbsp;della cardinalità elevata&nbsp;|  **Operazione riuscita** <br> <br>**Eseguita**|   Non sono state rilevate funzionalità di cardinalità elevata <br><br> Sono state rilevate colonne di input con cardinalità elevata
+Rilevamento del bilanciamento della classe |**Operazione riuscita** <br><br><br>**Avvisi** |Le classi sono bilanciate nei dati di training; Un set di dati è considerato bilanciato se ogni classe presenta una rappresentazione corretta del set di dati, misurata in base al numero e al rapporto degli esempi <br> <br> Le classi nei dati di training sono sbilanciate
+Coerenza dei dati delle serie temporali|**Operazione riuscita** <br><br><br><br> **Fisso** |<br> Sono stati analizzati i valori di {Horizon, lag, finestra in sequenza, ovvero la finestra in sequenza, ma non sono stati rilevati potenziali problemi di memoria insufficiente. <br> <br>Sono stati analizzati i valori di {Horizon, lag, Window in sequenza} selezionati che potrebbero causare un esaurimento della memoria da parte dell'esperimento. La finestra in ritardo o in sequenza è stata disattivata.
 
 ## <a name="run-experiment-and-view-results"></a>Eseguire l'esperimento e visualizzare i risultati
 

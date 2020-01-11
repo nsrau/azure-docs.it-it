@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082217"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895786"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
 
@@ -83,9 +83,9 @@ Usando le stime e le raccomandazioni raccolte, è possibile pianificare le risor
 
 È necessario assicurarsi che le quote disponibili nella sottoscrizione di destinazione siano sufficienti per gestire il failover.
 
-**Task** | **Dettagli** | **Azione**
+**Attività** | **Dettagli** | **Azione**
 --- | --- | ---
-**Controlla Core** | Se i core nella quota disponibile non equivalgono o superano il numero di destinazioni totali al momento del failover, i failover avranno esito negativo. | Per le macchine virtuali VMware, verificare di avere un numero sufficiente di core nella sottoscrizione di destinazione per soddisfare la raccomandazione Deployment Planner core.<br/><br/> Per i server fisici, verificare che i core di Azure soddisfino le stime manuali.<br/><br/> Per controllare le quote, nella **sottoscrizione**portale di Azure > fare clic su **utilizzo e quote**.<br/><br/> [Altre](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) informazioni su come aumentare le quote.
+**Controlla Core** | Se i core nella quota disponibile non equivalgono o superano il numero di destinazioni totali al momento del failover, i failover avranno esito negativo. | Per le macchine virtuali VMware, verificare di avere un numero sufficiente di core nella sottoscrizione di destinazione per soddisfare la raccomandazione Deployment Planner core.<br/><br/> Per i server fisici, verificare che i core di Azure soddisfino le stime manuali.<br/><br/> Per controllare le quote, nella **sottoscrizione**portale di Azure > fare clic su **utilizzo e quote**.<br/><br/> [Altre](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) informazioni su come aumentare le quote.
 **Verifica limiti failover** | Il numero di failover non deve superare Site Recovery limiti di failover. |  Se i failover superano i limiti, è possibile aggiungere sottoscrizioni ed eseguire il failover a più sottoscrizioni o aumentare la quota per una sottoscrizione. 
 
 
@@ -95,7 +95,7 @@ I limiti indicano il numero di failover supportati da Site Recovery entro un'ora
 
 Cosa si intende per conformità? Per avviare una macchina virtuale di Azure, Azure richiede che alcuni driver siano in stato di avvio avvio e che i servizi come DHCP siano impostati per l'avvio automatico.
 - I computer che soddisfano queste impostazioni avranno già le impostazioni.
-- Per i computer che eseguono Windows, è possibile verificare in modo proattivo la conformità e renderli conformi, se necessario. [Altre informazioni](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Per i computer che eseguono Windows, è possibile verificare in modo proattivo la conformità e renderli conformi, se necessario. [Altre informazioni](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010)
 - I computer Linux vengono resi conformi solo al momento del failover.
 
 **Il computer è conforme ad Azure?** | **Limiti delle macchine virtuali di Azure (failover del disco gestito)**

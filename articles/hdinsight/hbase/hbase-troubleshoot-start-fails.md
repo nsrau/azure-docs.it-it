@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: d994fe1501dedf6a8ea2c3366f6559c7abac0892
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091619"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887207"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Non è possibile avviare Apache HBase Master (HMaster) in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
-## <a name="scenario-atomic-renaming-failure"></a>Scenario: Errore di ridenominazione atomica
+## <a name="scenario-atomic-renaming-failure"></a>Scenario: errore di ridenominazione atomica
 
 ### <a name="issue"></a>Problema
 
@@ -32,19 +32,19 @@ HMaster esegue un comando list di base nelle cartelle WAL. Se in qualunque momen
 
 ### <a name="resolution"></a>Risoluzione
 
-Controllare lo stack di chiamate e provare a determinare quale cartella potrebbe avere causato il problema (ad esempio, la cartella WAL o la cartella. tmp). In Cloud Explorer o con comandi HDFS provare quindi a individuare il file problematico, In genere, si tratta `*-renamePending.json` di un file. Il `*-renamePending.json` file è un file journal usato per implementare l'operazione di ridenominazione atomica nel driver WASB. A causa di alcuni bug in questa implementazione, questi file possono essere ancora presenti in seguito ad arresti anomali dei processi e così via. Forzare l'eliminazione del file in Cloud Explorer o con comandi HDFS.
+Controllare lo stack di chiamate e provare a determinare quale cartella potrebbe avere causato il problema (ad esempio, la cartella WAL o la cartella. tmp). In Cloud Explorer o con comandi HDFS provare quindi a individuare il file problematico, In genere, si tratta di un file di `*-renamePending.json`. Il file `*-renamePending.json` è un file journal usato per implementare l'operazione di ridenominazione atomica nel driver WASB. A causa di bug in questa implementazione, questi file possono essere lasciati dopo gli arresti anomali del processo e così via. Forzare l'eliminazione di questo file in Cloud Explorer o usando i comandi HDFS.
 
-Talvolta potrebbe essere presente anche un file temporaneo denominato simile `$$$.$$$` a questa posizione. Per visualizzare questo file è necessario usare il comando HDFS `ls`. Non viene visualizzato in Cloud Explorer. Per eliminare il file, usare il comando HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.
+In alcuni casi, potrebbe anche essere presente un file temporaneo denominato simile a `$$$.$$$` in questa posizione. Per visualizzare questo file è necessario usare il comando HDFS `ls`. Non viene visualizzato in Cloud Explorer. Per eliminare il file, usare il comando HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.
 
 Dopo l'esecuzione di questi comandi, HMaster dovrebbe essere avviato immediatamente.
 
 ---
 
-## <a name="scenario-no-server-address-listed"></a>Scenario: Nessun indirizzo server elencato
+## <a name="scenario-no-server-address-listed"></a>Scenario: nessun indirizzo server elencato
 
 ### <a name="issue"></a>Problema
 
-Potrebbe essere visualizzato un messaggio che indica che la `hbase: meta` tabella non è online. L' `hbck` esecuzione di potrebbe `hbase: meta table replicaId 0 is not found on any region.` segnalare che nei log HMaster potrebbe essere visualizzato il messaggio: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
+Potrebbe essere visualizzato un messaggio che indica che la tabella `hbase: meta` non è online. L'esecuzione di `hbck` potrebbe segnalare che `hbase: meta table replicaId 0 is not found on any region.` nei log di HMaster, è possibile che venga visualizzato il messaggio: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
 
 ### <a name="cause"></a>Causa
 
@@ -59,7 +59,7 @@ Impossibile inizializzare HMaster dopo il riavvio di HBase.
     delete 'hbase:meta','hbase:backup <region name>','<column name>'
     ```
 
-1. Eliminare la `hbase: namespace` voce. Questa voce potrebbe essere lo stesso errore che viene segnalato quando viene eseguita `hbase: namespace` l'analisi della tabella.
+1. Eliminare la voce `hbase: namespace`. Questa voce potrebbe essere lo stesso errore che viene segnalato quando viene eseguita l'analisi della tabella `hbase: namespace`.
 
 1. Riavviare Active HMaster dall'interfaccia utente di Ambari per ripristinare lo stato di esecuzione di HBase.
 
@@ -71,11 +71,11 @@ Impossibile inizializzare HMaster dopo il riavvio di HBase.
 
 ---
 
-## <a name="scenario-javaioioexception-timedout"></a>Scenario: Java. io. IOException: TimedOut
+## <a name="scenario-javaioioexception-timedout"></a>Scenario: Java. io. IOException: timeout
 
 ### <a name="issue"></a>Problema
 
-Si verifica il timeout di HMaster con un'eccezione `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`irreversibile simile a:.
+Si verifica il timeout di HMaster con un'eccezione irreversibile simile a: `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`.
 
 ### <a name="cause"></a>Causa
 
@@ -83,7 +83,7 @@ Questo problema potrebbe verificarsi se al riavvio dei servizi HMaster sono pres
 
 ### <a name="resolution"></a>Risoluzione
 
-1. Dall'interfaccia utente di Apache Ambari, passare a **HBase** > **configs**. Nel file personalizzato `hbase-site.xml` aggiungere l'impostazione seguente:
+1. Dall'interfaccia utente di Apache Ambari passare a **HBase** > **configs**. Nel file di `hbase-site.xml` personalizzato aggiungere l'impostazione seguente:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -93,7 +93,7 @@ Questo problema potrebbe verificarsi se al riavvio dei servizi HMaster sono pres
 
 ---
 
-## <a name="scenario-frequent-region-server-restarts"></a>Scenario: Riavvio del server di area frequente
+## <a name="scenario-frequent-region-server-restarts"></a>Scenario: riavvii del server di aree frequenti
 
 ### <a name="issue"></a>Problema
 
@@ -107,11 +107,11 @@ I nodi vengono riavviati periodicamente. Nei log del server di area è possibile
 
 ### <a name="cause"></a>Causa
 
-Pausa `regionserver` GC Long JVM. La sospensione `regionserver` provocherà la mancata risposta e non potrà inviare il battito del cuore a HMaster entro il timeout della sessione ZK. HMaster rileverà `regionserver` che è inattivo e `regionserver` interromperà e riavvierà.
+Pausa GC Long `regionserver` JVM. La pausa causerà la mancata risposta `regionserver` e non potrà inviare il battito del cuore a HMaster entro il timeout della sessione ZK. HMaster rileverà che `regionserver` è inattivo e interromperà l'`regionserver` e verrà riavviato.
 
 ### <a name="resolution"></a>Risoluzione
 
-Modificare il timeout della sessione Zookeeper, non `hbase-site` solo `zookeeper.session.timeout` l'impostazione ma `zoo.cfg` anche `maxSessionTimeout` l'impostazione Zookeeper deve essere modificata.
+Modificare il timeout della sessione Zookeeper, non solo `hbase-site` impostazione `zookeeper.session.timeout` ma anche l'impostazione `zoo.cfg` Zookeeper `maxSessionTimeout` necessario modificare.
 
 1. Accedere all'interfaccia utente di Ambariri, passare a **HBase-> configs-> Settings**, nella sezione timeouts, modificare il valore del timeout della sessione Zookeeper.
 
@@ -125,7 +125,7 @@ Modificare il timeout della sessione Zookeeper, non `hbase-site` solo `zookeeper
 
 ---
 
-## <a name="scenario-log-splitting-failure"></a>Scenario: Errore di suddivisione del log
+## <a name="scenario-log-splitting-failure"></a>Scenario: errore di suddivisione del log
 
 ### <a name="issue"></a>Problema
 
@@ -149,4 +149,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

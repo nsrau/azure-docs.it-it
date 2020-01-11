@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721290"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894971"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminare un insieme di credenziali di Servizi di ripristino per Site Recovery
 
@@ -44,7 +44,7 @@ Prima di poter eliminare un insieme di credenziali, è necessario rimuovere i se
 
 1. Seguire [questa procedura](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) per eliminare le VM Hyper-V gestite da System Center VMM.
 2. Annullare l'associazione ed eliminare tutti i criteri di replica. Eseguire questa operazione nell'insieme di credenziali > **Site Recovery infrastruttura** > per i **criteri di replica** > **di System Center VMM** .
-3. Per annullare la registrazione di un server VMM connesso, attenersi alla [seguente procedura](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) .
+3. Per annullare la registrazione di un server VMM connesso, attenersi alla [seguente procedura](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) .
 4. Quindi, eliminare l'insieme di credenziali.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Eliminare un insieme di credenziali-macchina virtuale Hyper-V in Azure

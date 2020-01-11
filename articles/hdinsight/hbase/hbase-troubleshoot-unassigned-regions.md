@@ -7,22 +7,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: 377a75d098ab4238fadc16b218bc69235f2e732a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091539"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887139"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problemi con i server di area in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
-## <a name="scenario-unassigned-regions"></a>Scenario: Aree non assegnate
+## <a name="scenario-unassigned-regions"></a>Scenario: aree non assegnate
 
 ### <a name="issue"></a>Problema
 
-Quando si `hbase hbck` esegue il comando, viene visualizzato un messaggio di errore simile al seguente:
+Quando si esegue `hbase hbck` comando, viene visualizzato un messaggio di errore simile al seguente:
 
 ```
 multiple regions being unassigned or holes in the chain of regions
@@ -40,19 +40,19 @@ Correggere le assegnazioni. Seguire i passaggi seguenti per ripristinare lo stat
 
 1. Accedere al cluster HBase di HDInsight con SSH.
 
-1. Eseguire `hbase zkcli` il comando per connettersi con la shell ZooKeeper.
+1. Eseguire `hbase zkcli` comando per connettersi con la shell ZooKeeper.
 
-1. Eseguire `rmr /hbase/regions-in-transition` il `rmr /hbase-unsecure/regions-in-transition` comando o.
+1. Eseguire `rmr /hbase/regions-in-transition` o `rmr /hbase-unsecure/regions-in-transition` comando.
 
-1. Uscire dalla shell Zookeeper usando `exit` il comando.
+1. Uscire dalla shell di Zookeeper usando `exit` comando.
 
 1. Aprire l'interfaccia utente di Apache Ambari e quindi riavviare il servizio HBase Master attivo.
 
-1. Eseguire `hbase hbck` di nuovo il comando (senza ulteriori opzioni). Controllare l'output e assicurarsi che tutte le aree siano assegnate.
+1. Eseguire di nuovo `hbase hbck` comando (senza ulteriori opzioni). Controllare l'output e assicurarsi che tutte le aree siano assegnate.
 
 ---
 
-## <a name="scenario-dead-region-servers"></a>Scenario: Server di aree non recapitabili
+## <a name="scenario-dead-region-servers"></a>Scenario: server di aree non recapitabili
 
 ### <a name="issue"></a>Problema
 
@@ -62,9 +62,9 @@ Impossibile avviare i server di area.
 
 Più directory WAL di suddivisione.
 
-1. Ottiene l'elenco di WALs corrente `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`:.
+1. Ottiene l'elenco di WALs corrente: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
 
-1. Esaminare il `wals.out` file. Se sono presenti troppe directory di suddivisione (a partire dalla suddivisione *), è probabile che il server di area non riesca a causa di queste directory.
+1. Esaminare il file di `wals.out`. Se sono presenti troppe directory di suddivisione (a partire dalla suddivisione *), è probabile che il server di area non riesca a causa di queste directory.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -72,9 +72,9 @@ Più directory WAL di suddivisione.
 
 1. Eseguire `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` per ottenere un nuovo elenco di WALs.
 
-1. Spostare le directory di suddivisione * in una cartella `splitWAL`temporanea ed eliminare le directory di suddivisione *.
+1. Spostare le directory di suddivisione * in una cartella temporanea, `splitWAL`ed eliminare le directory di suddivisione *.
 
-1. Eseguire `hbase zkcli` il comando per connettersi con la shell Zookeeper.
+1. Eseguire `hbase zkcli` comando per connettersi con la shell Zookeeper.
 
 1. Eseguire `rmr /hbase-unsecure/splitWAL`.
 
@@ -88,4 +88,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

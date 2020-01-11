@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 90b871c2b75f7ed40c290231ef822258c6b4e6d4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28111e45d365069f80f10b88c38618dbb2b4651d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606877"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896209"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
 
@@ -35,20 +35,21 @@ Per configurare una macchina virtuale Windows 7 in un desktop virtuale Windows:
 5. Passare a Windows Update nella macchina virtuale.
 6. Installare tutti gli aggiornamenti di Windows nella categoria importante.
 7. Installare tutti gli aggiornamenti di Windows nella categoria facoltativa (esclusi i Language Pack). Viene installato l'aggiornamento di Remote Desktop Protocol 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)) necessario per completare queste istruzioni.
-8. Aprire il Editor Criteri di gruppo locali e passare a **Configurazione Computer** > **modelli amministrativi** > **componenti** di Windows ** > Servizi Desktop remoto > host sessione Desktop remoto** > **ambiente di sessione remota**.
+8. Aprire il Editor Criteri di gruppo locali e passare a **Configurazione Computer** > **modelli amministrativi** > **componenti** di Windows ** > Servizi Desktop remoto > host sessione Desktop remoto** ** > ** **ambiente sessione remota**.
 9. Abilitare i criteri Remote Desktop Protocol 8,0.
-10. Riavviare la macchina virtuale eseguendo il comando seguente:
+10. Aggiungere questa macchina virtuale al dominio Active Directory.
+11. Riavviare la macchina virtuale eseguendo il comando seguente:
     
      ```cmd
      shutdown /r /t 0
      ```
     
-11. Seguire le istruzioni riportate [qui](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) per ottenere un token di registrazione.
-12. [Scaricare l'agente desktop virtuale Windows per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
-13. [Scaricare il desktop virtuale windows Agent Manager per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
-14. Aprire il programma di installazione dell'agente desktop virtuale di Windows e seguire le istruzioni. Quando richiesto, fornire la chiave di registrazione creata al passaggio 11.
-15. Aprire il programma di installazione del desktop virtuale di Windows e seguire le istruzioni.
-16. Facoltativamente, bloccare la porta TCP/3389 per rimuovere l'accesso diretto Remote Desktop Protocol alla macchina virtuale.
+12. Seguire le istruzioni riportate [qui](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) per ottenere un token di registrazione.
+13. [Scaricare l'agente desktop virtuale Windows per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+14. [Scaricare il desktop virtuale windows Agent Manager per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+15. Aprire il programma di installazione dell'agente desktop virtuale di Windows e seguire le istruzioni. Quando richiesto, fornire la chiave di registrazione creata nel passaggio 12.
+16. Aprire il programma di installazione del desktop virtuale di Windows e seguire le istruzioni.
+17. Facoltativamente, bloccare la porta TCP/3389 per rimuovere l'accesso diretto Remote Desktop Protocol alla macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

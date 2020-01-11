@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: e70cd6d7745b2754bdda6992c587c5c72643869b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0cc9328fa08f7e9125ecb41576c67f95382bc1bf
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912500"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892384"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiare dati da un'origine OData tramite Azure Data Factory
 
@@ -54,11 +54,11 @@ Le sezioni seguenti presentano informazioni dettagliate sulle proprietà che è 
 
 Per il servizio collegato OData sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **OData**. |SÌ |
-| url | URL radice del servizio OData. |SÌ |
-| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**. L'autenticazione OAuth basata su utente non è supportata. | SÌ |
+| type | La proprietà **type** deve essere impostata su **OData**. |Sì |
+| url | URL radice del servizio OData. |Sì |
+| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**. L'autenticazione OAuth basata su utente non è supportata. | Sì |
 | userName | Specificare **userName** se si usa l'autenticazione di base o di Windows. | No |
 | password | Specificare la proprietà **password** per l'account utente indicato per **userName**. Contrassegnare questo campo come di tipo **SecureString** per l'archiviazione sicura in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | No |
@@ -203,10 +203,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da OData, impostare la proprietà**type** del set di dati su **ODataResource**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **ODataResource**. | SÌ |
-| path | Percorso della risorsa OData. | SÌ |
+| type | La proprietà **type** del set di dati deve essere impostata su **ODataResource**. | Sì |
+| path | Percorso della risorsa OData. | Sì |
 
 **Esempio**
 
@@ -239,9 +239,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da OData, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Description | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **ODataSource**. | SÌ |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **ODataSource**. | Sì |
 | query | Opzioni di query OData per filtrare i dati. Esempio: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: il connettore OData copia dati dall'URL combinato: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
 
 **Esempio**
@@ -285,19 +285,19 @@ Quando si copiano dati da OData, vengono usati i mapping seguenti tra i tipi di 
 | Tipo di dati di OData | Tipo di dati provvisorio di Data Factory |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Booleano |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | Data e ora |
-| Edm.Decimal | DECIMAL |
-| Edm.Double | DOUBLE |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
 | Edm.Single | Singolo |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Stringa |
-| Edm.Time | Intervallo di tempo |
+| Edm.String | string |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
@@ -310,4 +310,4 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di rice
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere [Archivi dati e formati supportati](copy-activity-overview.md##supported-data-stores-and-formats).
+Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

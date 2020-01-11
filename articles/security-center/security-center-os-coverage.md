@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353312"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894615"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -48,7 +48,7 @@ Le sezioni seguenti elencano i sistemi operativi server supportati in cui è pos
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Windows, elencate in precedenza, vedere [funzionalità supportate di macchine virtuali/server](security-center-services.md##vm-server-features).
+Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Windows, elencate in precedenza, vedere [funzionalità supportate di macchine virtuali/server](security-center-services.md#vm-server-features).
 
 ### Sistemi operativi Linux<a name="os-linux"></a>
 
@@ -72,7 +72,7 @@ Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativ
 > [!NOTE]
 > Poiché l'elenco dei sistemi operativi Linux supportati è in continua evoluzione, se lo si preferisce, fare clic [qui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) per visualizzare l'elenco più aggiornato delle versioni supportate, nel caso in cui siano state apportate modifiche dall'ultima pubblicazione di questo argomento.
 
-Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Linux, elencate in precedenza, vedere la pagina relativa alle [funzionalità supportate di macchine virtuali e server](security-center-services.md##vm-server-features).
+Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Linux, elencate in precedenza, vedere la pagina relativa alle [funzionalità supportate di macchine virtuali e server](security-center-services.md#vm-server-features).
 
 ### Servizi di macchine virtuali gestiti<a name="virtual-machine"></a>
 

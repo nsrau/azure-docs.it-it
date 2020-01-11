@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7a70d8209c5c349fc082d939a24deac23fa954d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863428"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894801"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 
@@ -103,7 +103,7 @@ Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AA
 
     [![Guest seleziona inizia a accettare](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. Dopo aver selezionato **inizia** , l'utente guest verrà visualizzato con una casella autorizzazioni associata all'organizzazione dell'amministratore. Quando si concede l'autorizzazione selezionando **accetta**, l'accesso verrà eseguito.
+1. Dopo aver selezionato **Introduzione**, l'utente guest verrà visualizzato con una casella autorizzazioni associata all'organizzazione dell'amministratore. Quando si concede l'autorizzazione selezionando **accetta**, l'accesso verrà eseguito.
 
     [![le autorizzazioni e accetta le revisioni Guest](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 

@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c042cf22334a0163cd5b89e556210db0cd5c15f4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424487"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888767"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -37,9 +37,9 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 ### <a name="declare-app-roles-using-azure-portal"></a>Dichiarare i ruoli dell'app tramite il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Nella barra superiore selezionare l'account e quindi **Cambia directory**.
-1. Quando si apre il riquadro **Directory e sottoscrizione**, dall'elenco **Preferiti** o **Tutte le directory**, scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
-1. Selezionare **Tutti i servizi** nella barra di spostamento a sinistra e scegliere **Azure Active Directory**.
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale.
+1. Nell'elenco **Preferiti** o **tutte le directory** scegliere il tenant Active Directory in cui si vuole registrare l'applicazione.
+1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
 1. Nel riquadro **Azure Active Directory** selezionare **Registrazioni app** per visualizzare un elenco di tutte le applicazioni.
 1. Selezionare l'applicazione in cui si vuole definire i ruoli dell'app. Quindi selezionare **manifest**.
 1. Modificare il manifesto dell'app individuando l'impostazione `appRoles` e aggiungendo tutti i ruoli applicazione desiderati.

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: c72b85bc978191744c55afb73973caa6d3b45db6
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9ecea0576f7cec4e70d6e223b5412a8d8057b2ab
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150953"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894736"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
 
@@ -39,7 +39,7 @@ I valori disponibili per GatewayType sono:
 * VPN
 * ExpressRoute
 
-Un gateway VPN richiede il valore `-GatewayType`Vpn *per* .
+Un gateway VPN richiede la *vpn*`-GatewayType`.
 
 Esempio:
 
@@ -55,7 +55,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configurare uno SKU del gateway
 
-#### <a name="azure-portal"></a>portale di Azure
+#### <a name="azure-portal"></a>Portale di Azure
 
 Se si usa il portale di Azure per creare un gateway di rete virtuale di Resource Manager, è possibile selezionare lo SKU del dal menu a discesa. Le opzioni disponibili corrispondono al tipo di gateway e al tipo di VPN selezionati.
 
@@ -172,8 +172,8 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 | **Classico** | **Gestione risorse** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
-| Non supportato | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
+| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| Supporto non disponibile | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

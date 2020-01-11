@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 6f0aa8a08b8a502edbd15d3ede157b78a13b8588
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7527cd59ef812c108cc53f84ad19f4d2cff9ec5e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479358"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893571"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU AMD nelle VM serie N che eseguono Windows
 
@@ -37,7 +37,7 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 
 1. Connettersi tramite Desktop remoto a ogni macchina virtuale della serie NVv4.
 
-1. Scaricare, estrarre e installare il driver supportato per il sistema operativo Windows.
+1. Download ed estrarre i file di installazione del driver. Passare alla cartella ed eseguire ' Setup. exe ' per installare il driver supportato per il sistema operativo Windows.
 
 ## <a name="verify-driver-installation"></a>Verificare l'installazione del driver
 
