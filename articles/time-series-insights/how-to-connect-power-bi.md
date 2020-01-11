@@ -1,6 +1,6 @@
 ---
-title: Connettere l'ambiente a Power BI-Azure Time Series Insights | Microsoft Docs
-description: Informazioni su come connettere Azure Time Series Insights a Power BI per condividere, visualizzare grafici e visualizzare i dati nell'intera organizzazione.
+title: Connect your environment to Power BI - Azure Time Series Insights | Microsoft Docs
+description: Learn how to connect Azure Time Series Insights to Power BI to share, chart, and display data across your organization.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,50 +8,50 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749352"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863843"
 ---
-# <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizzare i dati da Time Series Insights in Power BI
+# <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualize data from Time Series Insights in Power BI
 
-Azure Time Series Insights è una piattaforma per l'archiviazione, la gestione, l'esecuzione di query e la visualizzazione di dati di serie temporali nel cloud. [Power bi](https://powerbi.microsoft.com) è uno strumento di analisi aziendale con funzionalità di visualizzazione avanzate che consente di condividere informazioni dettagliate e risultati nell'intera organizzazione. È ora possibile integrare entrambi i servizi per sfruttare al meglio le funzionalità di visualizzazione intrinseche di Time Series Insights e di Power BI.
+Azure Time Series Insights is a platform for storing, managing, querying, and visualizing time-series data in the cloud. [Power BI](https://powerbi.microsoft.com) is a business analytics tool with rich visualization capabilities that allows you to share insights and results across your organization. Both services can now be integrated to get the best of both Time Series Insights' inherent visualization capabilities as well as Power BI's.
 
 Si apprenderà come:
 
-* Connettersi Time Series Insights a Power BI tramite il connettore Cloud
-* Creare oggetti visivi con i dati in Power BI
-* Pubblicare il report per Power BI e condividere con il resto dell'organizzazione
+* Connect Time Series Insights to Power BI using the cloud connector
+* Create visuals with your data in Power BI
+* Publish the report to Power BI and share with the rest of your organization
 
-Alla fine, si apprenderà come visualizzare i dati delle serie temporali tramite Azure Time Series Insights e migliorarli con la visualizzazione dei dati avanzata e le funzionalità di condivisione semplici di Power BI.
+By the end, you'll learn how to visualize time-series data through Azure Time Series Insights and enhance it with the strong data visualization and easy sharing capabilities of Power BI.
 
-Assicurarsi di iscriversi per ottenere una [sottoscrizione gratuita di Azure](https://azure.microsoft.com/free/) , se non ne è già disponibile una.
+Make sure to sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Scaricare e installare la versione più recente di [Power bi desktop](https://powerbi.microsoft.com/downloads/)
-* Avere o creare un' [istanza di Azure Time Series Insights Preview](time-series-insights-update-how-to-manage.md)
+* Download and install the latest version of [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+* Have or create an [Azure Time Series Insights Preview instance](time-series-insights-update-how-to-manage.md)
 
 > [!IMPORTANT]
-> Il connettore Power BI è attualmente supportato in Time Series Insights anteprima ambienti con *pagamento in base* al consumo configurati per l' **archivio a caldo**.
+> The Power BI connector is presently supported in Time Series Insights Preview *pay-as-you-go* environments configured for **Warm Store**.
 
-## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Connettere i dati da Time Series Insights a Power BI
+## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Connect data from Time Series Insights to Power BI
 
-Per connettere l'ambiente di Time Series Insights al Power BI, attenersi alla procedura seguente:
+To connect your Time Series Insights environment to Power BI, follow these steps:
 
-1. Apri Esplora Time Series Insights
-1. Esportare dati come query o come dati non elaborati
-1. Apri Power BI Desktop
-1. Carica da query personalizzata
+1. Open Time Series Insights Explorer
+1. Export data as a query or as raw data
+1. Open Power BI Desktop
+1. Load from Custom Query
 
-### <a name="export-data-into-power-bi-desktop"></a>Esportare i dati in Power BI desktop
+### <a name="export-data-into-power-bi-desktop"></a>Export data into Power BI desktop
 
 Per iniziare:
 
-1. Aprire Esplora Time Series Insights Preview e curare i dati.
-1. Dopo aver creato una vista soddisfatta, passare al menu a discesa **altre azioni** e fare clic su **Connetti a Power bi**.
+1. Open the Time Series Insights Preview Explorer and curate your data.
+1. Dopo aver creato una vista soddisfatta, passare al menu a discesa **altre azioni** e selezionare **Connetti a Power bi**.
 
     [esportazione di ![Time Series Insights Preview Explorer](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
@@ -118,7 +118,7 @@ Ora che i dati sono stati importati in Power BI, è possibile creare un report c
 
     [![creare un grafico a linee](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Per aggiungere un altro grafico all'area di disegno, fare clic in un punto qualsiasi dell'area di disegno all'esterno del grafico a linee e ripetere il processo.
+1.  Per aggiungere un altro grafico all'area di disegno, selezionare un punto qualsiasi nell'area di disegno all'esterno del grafico a linee e ripetere il processo.
 
     [![creare grafici aggiuntivi da condividere](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
@@ -138,7 +138,7 @@ Panoramica:
 1. Modificare il payload JSON nel modo desiderato.
 1. Selezionare **fine** e quindi **Chiudi & applica** nella **finestra dell'editor di Power query**.
 
-Verranno applicate le modifiche desiderate.  
+L'interfaccia rifletterà ora le modifiche desiderate applicate.  
 
 ## <a name="next-steps"></a>Fasi successive
 
@@ -146,4 +146,4 @@ Verranno applicate le modifiche desiderate.
 
 * Scopri di più su [Power bi desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* Vedere [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) e [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Leggere [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) e [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

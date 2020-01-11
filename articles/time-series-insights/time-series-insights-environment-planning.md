@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452873"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863377"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Pianificare l'ambiente Azure Time Series Insights GA
 
@@ -32,7 +32,7 @@ Questo articolo descrive come pianificare l'ambiente di Azure Time Series Insigh
 
 Per iniziare a usare Azure Time Series Insights, è consigliabile conoscere la quantità di dati che si prevede di eseguire il push in base al minuto e il tempo necessario per archiviare i dati.  
 
-Per altre informazioni sulla capacità e sulla conservazione per entrambi gli SKU di Time Series Insights, vedere [Prezzi di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Per ulteriori informazioni sulla capacità e la conservazione per gli SKU Time Series Insights, vedere [prezzi Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 Per pianificare meglio l'ambiente di Time Series Insights per il successo a lungo termine, considerare gli attributi seguenti:
 
@@ -71,7 +71,7 @@ Azure Time Series Insights dispone di due modalità:
    [![configurare la conservazione](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
-> Per ulteriori informazioni su come implementare i criteri di conservazione dei dati appropriati, vedere [come configurare la conservazione](./time-series-insights-how-to-configure-retention.md).
+> Per altre informazioni su come implementare un criterio di conservazione dei dati appropriato, vedere [come configurare la conservazione](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Capacità in ingresso
 
@@ -103,7 +103,7 @@ Per calcolare i requisiti di ingresso:
 
 ### <a name="mitigate-throttling-and-latency"></a>Ridurre la limitazione e la latenza
 
-Per informazioni su come evitare la limitazione e la latenza, vedere [Ridurre la limitazione e la latenza](time-series-insights-environment-mitigate-latency.md).
+Per informazioni su come evitare la limitazione e la latenza, vedere [attenuare la latenza e la limitazione delle richieste](time-series-insights-environment-mitigate-latency.md).
 
 ## <a name="shape-your-events"></a>Dare forma agli eventi
 

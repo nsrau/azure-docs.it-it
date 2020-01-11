@@ -2,26 +2,26 @@
 title: Attività per il responsabile del team nel team del processo di data science del team
 description: Una procedura dettagliata delle attività per un responsabile del team per un team del processo di Data Science per i team
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327241"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864282"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Attività per il responsabile del team per un team del processo di Data Science per i team
 
 Questo articolo descrive le attività completate da un responsabile del *Team* per il team Data Science. L'obiettivo del responsabile del team è stabilire un ambiente collaborativo del team che standardizza il [processo di Data Science](overview.md) per i team (TDSP). Il TDSP è progettato per contribuire a migliorare la collaborazione e l'apprendimento del team. 
 
-TDSP è una metodologia agile e iterativa data science per offrire in modo efficiente soluzioni di analisi predittiva e applicazioni intelligenti. Il processo è una distillazione delle procedure consigliate e delle strutture di Microsoft e del settore, necessarie per una corretta implementazione di data science iniziative per aiutare le aziende a realizzare pienamente i vantaggi dei propri programmi di analisi. Per una descrizione dei ruoli del personale e delle attività associate per un team di data science la standardizzazione in TDSP, vedere [ruoli e attività del processo di Data Science](roles-tasks.md)per i team.
+TDSP è una metodologia agile e iterativa data science per offrire in modo efficiente soluzioni di analisi predittiva e applicazioni intelligenti. Il processo distillerà le procedure consigliate e le strutture di Microsoft e del settore.  L'obiettivo è la corretta implementazione di data science iniziative e la realizzazione completa dei vantaggi dei propri programmi di analisi. Per una descrizione dei ruoli del personale e delle attività associate per un team di data science la standardizzazione in TDSP, vedere [ruoli e attività del processo di Data Science](roles-tasks.md)per i team.
 
 Un responsabile del team gestisce un team costituito da diversi data scientist nell'unità data science di un'azienda. A seconda delle dimensioni e della struttura dell'unità data science, il [responsabile del gruppo](group-manager-tasks.md) e il responsabile del team possono essere la stessa persona oppure possono delegare le attività ai surrogati. Le attività da svolgere restano tuttavia le stesse. 
 
@@ -49,7 +49,7 @@ Nell'esercitazione riportata di seguito vengono illustrati i passaggi dettagliat
 > [!NOTE] 
 > Questo articolo usa Azure DevOps e un DSVM per configurare un ambiente del team TDSP, perché questo è il modo in cui implementare TDSP in Microsoft. Se il team USA altre piattaforme di hosting o sviluppo di codice, le attività del responsabile del team sono le stesse, ma il modo per completarle può essere diverso.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa esercitazione si presuppone che le risorse e le autorizzazioni seguenti siano state impostate dal [responsabile del gruppo](group-manager-tasks.md):
 
@@ -178,7 +178,7 @@ Per modificare, caricare o creare file o cartelle direttamente in Azure DevOps:
      
 1. Dopo aver aggiunto o modificato i file, selezionare **commit**.
    
-   ![Esegui commit delle modifiche](./media/team-lead-tasks/commit.png)
+   ![Eseguire il commit delle modifiche](./media/team-lead-tasks/commit.png)
 
 Per lavorare con i repository nel computer locale o in DSVM, è prima necessario copiare o *clonare* i repository nel computer locale, quindi eseguire il commit e il push delle modifiche nei repository del team condivisi, 
 

@@ -8,40 +8,64 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c5a16d957f1e0414f92d0cc03442d88d438e4c92
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d1efd44614cc2384043b32da20f38c91f006459c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793618"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863105"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Risoluzione dei problemi comuni dell'indicizzatore in Azure ricerca cognitiva
 
 Gli indicizzatori possono rientrare in una serie di problemi durante l'indicizzazione dei dati in Azure ricerca cognitiva. Le principali categorie di errore includono:
 
-* [Connessione a un'origine dati](#data-source-connection-errors)
+* [Connessione a un'origine dati o ad altre risorse](#connection-errors)
 * [Elaborazione di documenti](#document-processing-errors)
 * [Inserimento di documenti in un indice](#index-errors)
 
-## <a name="data-source-connection-errors"></a>Errori di connessione all'origine dati
+## <a name="connection-errors"></a>Errori di connessione
 
-### <a name="blob-storage"></a>Archiviazione BLOB
+> [!NOTE]
+> Gli indicizzatori hanno un supporto limitato per l'accesso alle origini dati e ad altre risorse protette dai meccanismi di sicurezza di rete di Azure. Attualmente, gli indicizzatori possono accedere alle origini dati solo tramite meccanismi di restrizione dell'intervallo di indirizzi IP corrispondenti o regole NSG quando applicabile. I dettagli per accedere a ogni origine dati supportata sono disponibili di seguito.
+>
+> È possibile trovare l'indirizzo IP del servizio di ricerca eseguendo il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net`).
+>
+> È possibile trovare l'intervallo di indirizzi IP di `AzureCognitiveSearch` [tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) per l'area geografica in cui è presente il servizio ricerca cognitiva di Azure usando [file JSON scaricabili](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) o tramite l' [API di individuazione dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). L'intervallo di indirizzi IP viene aggiornato settimanalmente.
 
-#### <a name="storage-account-firewall"></a>Firewall dell'account di archiviazione
+### <a name="configure-firewall-rules"></a>Configurare le regole del firewall
 
-Archiviazione di Azure fornisce un firewall configurabile. Per impostazione predefinita, il firewall è disabilitato in modo che Azure ricerca cognitiva possa connettersi all'account di archiviazione.
+Archiviazione di Azure, CosmosDB e SQL di Azure forniscono un firewall configurabile. Non vengono visualizzati messaggi di errore specifici quando il firewall è abilitato. In genere, gli errori del firewall sono generici e hanno un aspetto simile `The remote server returned an error: (403) Forbidden` o `Credentials provided in the connection string are invalid or have expired`.
 
-Non vengono visualizzati messaggi di errore specifici quando il firewall è abilitato. Gli errori del firewall in genere sono simili a `The remote server returned an error: (403) Forbidden`.
+Sono disponibili 2 opzioni per consentire agli indicizzatori di accedere a queste risorse in un'istanza di questo tipo:
 
-È possibile verificare che il firewall sia abilitato nel [portale](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). L'unica soluzione alternativa supportata consiste nel disabilitare il firewall scegliendo di consentire l'accesso da ["tutte le reti"](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
+* Disabilitare il firewall consentendo l'accesso da **tutte le reti** (se possibile).
+* In alternativa, è possibile consentire l'accesso per l'indirizzo IP del servizio di ricerca e l'intervallo di indirizzi IP di `AzureCognitiveSearch` [tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) nelle regole del firewall della risorsa (restrizione intervallo di indirizzi IP).
 
-Se per l'indicizzatore non è associato un valore di competenze, è _possibile_ tentare di [aggiungere un'eccezione](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) per gli indirizzi IP del servizio di ricerca. Tuttavia, questo scenario non è supportato e non è garantito che funzioni correttamente.
+Per informazioni dettagliate sulla configurazione delle restrizioni dell'intervallo di indirizzi IP per ogni tipo di origine dati, vedere i collegamenti seguenti:
 
-È possibile trovare l'indirizzo IP del servizio di ricerca eseguendo il ping del relativo FQDN (`<your-search-service-name>.search.windows.net`).
+* [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-### <a name="cosmos-db"></a>Cosmos DB
+* [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-#### <a name="indexing-isnt-enabled"></a>L'indicizzazione non è abilitata
+* [SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
+
+**Limitazione**: come indicato nella documentazione precedente per archiviazione di Azure, le restrizioni per l'intervallo di indirizzi IP funzioneranno solo se il servizio di ricerca e l'account di archiviazione si trovano in aree diverse.
+
+Le funzioni di Azure (che potrebbero essere usate come [competenze personalizzate dell'API Web](cognitive-search-custom-skill-web-api.md)) supportano anche le [restrizioni degli indirizzi IP](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). L'elenco di indirizzi IP da configurare corrisponde all'indirizzo IP del servizio di ricerca e all'intervallo di indirizzi IP di `AzureCognitiveSearch` tag del servizio.
+
+Per informazioni dettagliate sull'accesso ai dati in SQL Server in una macchina virtuale di Azure, vedere [qui](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+### <a name="configure-network-security-group-nsg-rules"></a>Configurare le regole del gruppo di sicurezza di rete (NSG)
+
+Quando si accede ai dati in un'istanza gestita di SQL o quando si usa una macchina virtuale di Azure come URI del servizio Web per una [competenza API Web personalizzata](cognitive-search-custom-skill-web-api.md), i clienti non devono preoccuparsi di indirizzi IP specifici.
+
+In questi casi, la macchina virtuale di Azure o l'istanza gestita di SQL può essere configurata in modo che risieda in una rete virtuale. Quindi, è possibile configurare un gruppo di sicurezza di rete per filtrare il tipo di traffico di rete che può fluire in entrata e in uscita dalle subnet della rete virtuale e dalle interfacce di rete.
+
+Il tag del servizio `AzureCognitiveSearch` può essere usato direttamente nelle regole del [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) in ingresso senza dover cercare l'intervallo di indirizzi IP.
+
+Ulteriori dettagli sull'accesso ai dati in un'istanza gestita di SQL sono illustrati di [seguito](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+### <a name="cosmosdb-indexing-isnt-enabled"></a>L'indicizzazione di CosmosDB non è abilitata
 
 Il ricerca cognitiva di Azure ha una dipendenza implicita dall'indicizzazione Cosmos DB. Se si disattiva l'indicizzazione automatica in Cosmos DB, Azure ricerca cognitiva restituisce uno stato di esito positivo, ma non riesce a indicizzare il contenuto del contenitore. Per istruzioni su come controllare le impostazioni e attivare l'indicizzazione, vedere [Gestire l'indicizzazione in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 

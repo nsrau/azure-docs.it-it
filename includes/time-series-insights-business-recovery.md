@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980595"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861464"
 ---
 ## <a name="business-disaster-recovery"></a>BCDR (Business disaster recovery)
 
@@ -71,5 +71,5 @@ Se si verifica un evento:
 > * Potrebbe verificarsi anche un ritardo.
 > * Potrebbe verificarsi un picco temporaneo nell'elaborazione del messaggio, perché le operazioni vengono reindirizzate.
 > 
-> Per altre informazioni, vedere [Mitigate latency in Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency) (Mitigare la latenza in Time Series Insights).
+> Per altre informazioni, vedere [attenuare la latenza in Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
 

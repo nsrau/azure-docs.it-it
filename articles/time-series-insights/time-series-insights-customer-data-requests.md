@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 5f0f1cf4202eebd3639d3946cd4c800bc5c216a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c33fce5b6999c5b8372fe4c04401bf55898aee8d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460332"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863445"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
@@ -34,9 +34,9 @@ L'amministratore del tenant può eliminare i dati dei clienti tramite il portale
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Tuttavia, prima di eliminare i dati dei clienti tramite il portale, è necessario rimuovere i criteri di accesso dell'utente dall'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure](time-series-insights-data-access.md).
+Tuttavia, prima di eliminare i dati dei clienti tramite il portale, è necessario rimuovere i criteri di accesso dell'utente dall'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Time Series Insights usando portale di Azure](time-series-insights-data-access.md).
 
-È anche possibile eseguire le operazioni di eliminazione dei criteri di accesso usando l'API REST. Per altre informazioni, vedere [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete) (Criteri di accesso - Delete).
+È anche possibile eseguire le operazioni di eliminazione dei criteri di accesso usando l'API REST. Per ulteriori informazioni, vedere [criteri di accesso in lettura-Elimina](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete).
 
 Time Series Insights si integra con il pannello Criteri nel portale di Azure. Sia Time Series Insights che il pannello Criteri consentono di visualizzare, esportare ed eliminare i dati utente archiviati all'interno del servizio. Le azioni di eliminazione eseguite nel pannello Criteri del portale di Azure fanno sì che i dati utente vengano eliminati anche in Time Series Insights. Ad esempio, se un utente ha una query personale salvata, tale query viene eliminata definitivamente dallo strumento di esplorazione di Time Series Insights. Se l'utente ha una query condivisa salvata, la query persiste, ma le informazioni sull'utente vengono eliminate definitivamente. La nota seguente contiene le istruzioni su come eseguire queste attività.
 
@@ -46,9 +46,9 @@ Analogamente all'eliminazione dei dati, l'amministratore del tenant può visuali
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Se si è un amministratore di tenant, è possibile visualizzare i criteri di accesso ai dati nell'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure](time-series-insights-data-access.md).
+Se si è un amministratore di tenant, è possibile visualizzare i criteri di accesso ai dati nell'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Time Series Insights usando portale di Azure](time-series-insights-data-access.md).
 
-È anche possibile eseguire le operazioni di esportazione dei criteri di accesso mediante l'operazione di elenco in base ad ambiente specificata nell'API REST. Per altre informazioni, vedere [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment) (Criteri di accesso - List By Environment).
+È anche possibile eseguire le operazioni di esportazione dei criteri di accesso mediante l'operazione di elenco in base ad ambiente specificata nell'API REST. Per altre informazioni, vedere [criteri di accesso-elenco in base all'ambiente](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Per eliminare i dati archiviati in Time Series Insights
 
@@ -58,13 +58,13 @@ I dati personali possono essere aggiunti all'archiviazione di Time Series Insigh
 
 Per visualizzare ed esportare i dati archiviati in Time Series Insights, è necessario prima cercarli. Per visualizzare ed esportare i dati è possibile usare lo strumento di esplorazione di Time Series Insights o le API di query di Time Series Insight. Per visualizzare ed esportare i dati mediante lo strumento di esplorazione di Time Series Insights, eseguire prima una ricerca per trovare i dati utente in questione. Dopo aver eseguito la ricerca, fare clic con il pulsante destro del mouse sul grafico e selezionare **Esplora eventi**. Viene visualizzata la griglia degli eventi e vengono presentate le opzioni per esportare i dati come file con estensione csv e json.
 
-Per altre informazioni, vedere [Strumento di esplorazione di Azure Time Series Insights](time-series-insights-explorer.md).
+Per ulteriori informazioni, vedere [Azure Time Series Insights Explorer](time-series-insights-explorer.md).
 
 **Eliminare i dati**
 
 Attualmente, Time Series Insights non supporta l'eliminazione granulare dei dati. Tuttavia, Time Series Insights offre la possibilità di rimuovere i dati dei clienti archiviati configurando i criteri di conservazione. È possibile regolare il periodo di conservazione dell'intero ambiente di Time Series Insights su qualsiasi numero di giorni per supportare i requisiti di eliminazione.
 
-Per altre informazioni, vedere [Configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+Per ulteriori informazioni, vedere [Configuring Retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
-ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483997"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867302"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Connettersi al cluster usando [kubectl][kubectl], il client da riga di comando K
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco dei nodi del cluster.
+Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -146,7 +146,12 @@ azds prep --public
 azds up
 ```
 
-Il `azds prep --public` comando genera il grafico Helm e Dockerfile per l'applicazione. Il `azds up` comando esegue il servizio nello spazio dei nomi.
+Il `azds prep --public` comando genera il grafico Helm e Dockerfile per l'applicazione.
+
+> [!TIP]
+> Il [grafico Dockerfile e Helm](../how-dev-spaces-works.md#prepare-your-code) per il progetto viene usato da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole modificare il modo in cui il progetto viene compilato ed eseguito.
+
+Il `azds up` comando esegue il servizio nello spazio dei nomi.
 
 ```console
 $ azds up

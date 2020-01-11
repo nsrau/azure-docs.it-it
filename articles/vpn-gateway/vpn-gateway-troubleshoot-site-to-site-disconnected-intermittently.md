@@ -1,27 +1,21 @@
 ---
-title: Risolvere i problemi relativi alle disconnessioni VPN da sito a sito di Azure intermittenti | Microsoft Docs
+title: Risolvere i problemi di disconnessione VPN da sito a sito di Azure in modo intermittente
 description: Informazioni su come risolvere il problema per cui la connessione VPN da sito a sito viene periodicamente interrotta.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 394062257f09bb0b8cfa6875795b88d35404f87c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058844"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862561"
 ---
-# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Risoluzione dei problemi: disconnessione intermittente della VPN da sito a sito di Azure
+# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Risoluzione dei problemi: disconnessioni VPN da sito a sito di Azure intermittenti
 
 Può verificarsi un problema a causa del quale una connessione VPN da sito a sito di Microsoft Azure nuova o esistente non è stabile o si interrompe periodicamente. Questo articolo illustra la procedura per identificare e risolvere la causa del problema. 
 

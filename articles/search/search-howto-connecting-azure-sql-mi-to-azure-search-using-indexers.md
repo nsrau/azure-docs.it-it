@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 16daf4a79252134703715ccd88f0b10dda7f4fa6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792163"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863122"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva a SQL Istanza gestita
 
@@ -33,6 +33,13 @@ Creare un Istanza gestita SQL con l'opzione **Abilita endpoint pubblico** selezi
 Verificare che nel gruppo di sicurezza di rete siano presenti le **regole di sicurezza in ingresso** corrette che consentono le connessioni dai servizi di Azure.
 
    ![Regola di sicurezza in ingresso NSG](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "Regola di sicurezza in ingresso NSG")
+
+> [!NOTE]
+> È possibile scegliere di essere più restrittivi nell'accesso in ingresso all'istanza di SQL gestita sostituendo la regola corrente (`public_endpoint_inbound`) con due regole:
+>
+> * Consentire l'accesso in ingresso dal [tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` ("origine" = `AzureCognitiveSearch`)
+>
+> * Consentire l'accesso in ingresso dall'indirizzo IP del servizio di ricerca, che può essere ottenuto effettuando il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net`). ("SOURCE" = `IP address`)
 
 ## <a name="get-public-endpoint-connection-string"></a>Ottenere la stringa di connessione dell'endpoint pubblico
 Assicurarsi di usare la stringa di connessione per l' **endpoint pubblico** (porta 3342, non porta 1433).

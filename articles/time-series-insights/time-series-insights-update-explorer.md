@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746487"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861762"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Esplora Azure Time Series Insights Preview
 
@@ -48,7 +48,7 @@ Azure Time Series Insights Preview Explorer è costituito dai sette elementi seg
 
 ## <a name="1-environment-panel"></a>1. pannello ambiente
 
-Il panello degli ambienti visualizza tutti gli ambienti Time Series Insights a cui si ha accesso. L'elenco include gli ambienti con pagamento in base al consumo (anteprima) e gli ambienti S1/S2 (disponibilità generale). È sufficiente fare clic sull'ambiente Time Series Insights che si vuole usare per immediatamente.
+Il panello degli ambienti visualizza tutti gli ambienti Time Series Insights a cui si ha accesso. L'elenco include gli ambienti con pagamento in base al consumo (anteprima) e gli ambienti S1/S2 (disponibilità generale). È sufficiente selezionare l'ambiente Time Series Insights da usare immediatamente.
 
 1. Selezionare la freccia a discesa accanto all'ambiente visualizzato.
 
@@ -75,7 +75,7 @@ Il Azure Time Series Insights anteprima supporta operazioni CRUD (creazione, let
 * **Gerarchia del modello Time Series**: le gerarchie sono organizzazioni sistematiche dei dati. Le gerarchie rappresentano le relazioni tra entità diverse nei dati di Time Series Insights.
 * **Istanza del modello Time Series**: le istanze sono le serie temporali. Nella maggior parte dei casi sono **DeviceID** o **AssetID**, che è l'identificatore univoco dell'asset nell'ambiente.
 
-Per altre informazioni sul Modello serie temporale, vedere [Modelli serie temporale](./time-series-insights-update-tsm.md).
+Per ulteriori informazioni sul modello Time Series, vedere [modelli di serie](./time-series-insights-update-tsm.md)temporali.
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. albero gerarchico e pannello di ricerca
 
@@ -110,9 +110,9 @@ Il grafico consente di visualizzare le istanze di serie temporali come righe. È
 
 1. **Tipo di grafico**: controlla gli elementi dati disponibili per la visualizzazione.
 
-1. **Dimensioni intervallo**: lo strumento Slider dimensioni intervallo consente di ingrandire e ridurre gli intervalli nello stesso intervallo di tempo. Questo strumento garantisce un controllo più preciso dello spostamento tra intervalli di tempo di particolare entità, consentendo di visualizzare tendenze uniformi in sezioni temporali riferite a millisecondi e pertanto di mostrare sezioni di dati con granularità e risoluzione superiori. Il punto iniziale predefinito del dispositivo di scorrimento è impostato sulla visualizzazione ottimale dei dati basata sulla selezione effettuata, ovvero risoluzione del bilanciamento, velocità della query e granularità.
+1. **Dimensioni intervallo**: lo strumento Slider dimensioni intervallo consente di ingrandire e ridurre gli intervalli nello stesso intervallo di tempo. Questo consente di controllare in modo più preciso lo spostamento tra le vaste sezioni di tempo che mostrano tendenze uniformi fino a sezioni fino al millisecondo, consentendo di esaminare i tagli granulari e a risoluzione elevata dei dati. Il punto iniziale predefinito del dispositivo di scorrimento è impostato sulla visualizzazione ottimale dei dati basata sulla selezione effettuata, ovvero risoluzione del bilanciamento, velocità della query e granularità.
 
-1. **Zoom e panoramica**: fare clic su questo controllo per applicare lo zoom e il panning al grafico.
+1. **Zoom e panoramica**: selezionare questo controllo per applicare lo zoom e il panning al grafico.
 
 1. **Controllo asse y**: scorre le opzioni di visualizzazione asse y disponibili:
 
@@ -122,15 +122,15 @@ Il grafico consente di visualizzare le istanze di serie temporali come righe. È
 
 1. **Elemento marker**: l'elemento dati attualmente selezionato e i relativi dettagli associati.
 
-È possibile analizzare ulteriormente una sezione di dati specifica facendo **clic** con il pulsante destro del mouse su un punto dati nel grafico corrente tenendo premuto il mouse e trascinando l'area selezionata sull'endpoint desiderato. **Fare clic con il pulsante destro del mouse** sull'area blu, selezionare e fare clic su **Zoom** come illustrato di seguito. È anche possibile visualizzare e scaricare gli eventi di telemetria nell'intervallo di tempo selezionato.
+È possibile analizzare ulteriormente una sezione di dati specifica facendo **clic** con il pulsante destro del mouse su un punto dati nel grafico corrente tenendo premuto il mouse e trascinando l'area selezionata sull'endpoint desiderato. **Fare clic con il pulsante destro del mouse** sull'area blu, selezionata, quindi selezionare **Zoom** , come illustrato di seguito. È anche possibile visualizzare e scaricare gli eventi di telemetria nell'intervallo di tempo selezionato.
 
   [zoom del grafico ![anteprima](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-Dopo aver eseguito l'azione di **Zoom** , viene visualizzato il set di dati selezionato. Selezionare il controllo del formato per scorrere le tre rappresentazioni dell'asse y dei dati del Time Series Insights.
+Dopo aver eseguito l'azione di **Zoom** , verrà visualizzato il set di dati selezionato. Selezionare il controllo del formato per scorrere le tre rappresentazioni dell'asse y dei dati del Time Series Insights.
 
   [![l'asse y del grafico di anteprima](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
-Qui è possibile vedere un esempio di **grafico sovrapposto**:
+Di seguito viene fornito un esempio di **grafico sovrapposto** :
 
   [![opzione grafico sovrapposto](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
@@ -207,7 +207,7 @@ Anteprima di Azure Time Series Insights supporta due temi:
 
 Questa sezione si applica solo agli ambienti S1/S2 esistenti che provano a usare lo strumento di esplorazione nell'interfaccia utente aggiornata. Potrebbe essere necessario usare il prodotto e l'anteprima disponibili a livello generale in combinazione. Allo strumento di esplorazione aggiornato sono state aggiunte alcune funzionalità dell'interfaccia utente esistente, ma in Time Series Insights Explorer esistente è possibile ottenere l'esperienza dell'interfaccia utente completa per l'ambiente S1/S2. 
 
-Al posto della gerarchia, viene visualizzato il pannello Time Series Insights termini, in cui si definiscono le query nell'ambiente in uso. Usarlo per filtrare i dati in base a un predicato.
+Invece della gerarchia, viene visualizzato il pannello dei termini di Time Series Insights. Il pannello termini consente di definire query nell'ambiente in uso. Utilizzarlo anche per filtrare i dati in base a un predicato.
 
   [![dove pannello query](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
@@ -222,7 +222,7 @@ Il pannello dell'editor delle condizioni di Anteprima di Time Series Insights ac
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Tutti gli operandi devono essere dello stesso tipo o essere una costante NULL. |
 | `HAS` | string | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
 
-Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supportati, vedere l'articolo relativo all' [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supportati, leggere [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Esempi di clausole WHERE
 

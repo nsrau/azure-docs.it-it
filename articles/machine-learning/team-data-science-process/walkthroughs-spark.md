@@ -1,22 +1,22 @@
 ---
 title: Analisi in HDInsight Spark con PySpark, Scala - Processo di data science per i team
-description: Esempi del processo di data science per i team che descrivono l'uso di PySpark e Scala in Azure HDInsight Spark per eseguire analisi predittive.
+description: Esempi del processo di Data Science per i team che analizzano l'uso di PySpark e scala in un Azure HDInsight Spark.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ce57c37791f9fcf353d08e177eb243f4939b52a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60805520"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864146"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Procedure dettagliate di data science per HDInsight Spark con PySpark e Scala in Azure
 
@@ -26,7 +26,7 @@ Le procedure dettagliate di data science aggiuntive che eseguono il processo di 
 
 ## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Stimare le mance dei taxi con PySpark in Azure Spark
 
-La procedura dettagliata [Usare Spark on Azure HDInsight](spark-overview.md) usa i dati dei taxi di New York per stimare se viene lasciata una mancia e l'intervallo di importi previsto. Usa il processo di analisi scientifica dei dati per i team in uno scenario con un [cluster Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/) per archiviare ed esplorare i dati e progettarne le funzionalità in base al set di dati disponibile pubblicamente relativo a corse e tariffe dei taxi nella città di New York. Questo argomento introduttivo descrive la configurazione del cluster HDInsight Spark e del notebook Jupyter PySpark utilizzati nel resto della procedura dettagliata. Tali notebook illustrano come esplorare i dati e quindi come creare e utilizzare i modelli. Il notebook relativo a modellazione ed esplorazione avanzate dei dati mostra come includere la convalida incrociata, lo sweep di iperparametri e la valutazione del modello.
+Usando i dati dei taxi di New York, la procedura dettagliata [use Spark in Azure HDInsight consente](spark-overview.md) di stimare se una mancia viene pagata e l'intervallo di importi previsti. Questo esempio usa il processo di analisi scientifica dei dati per i team in uno scenario che usa un [cluster di Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e presentare i dati del tecnico dal set di dati relativo alle corse e alle tariffe di NYC Taxi disponibili pubblicamente Questo argomento di panoramica usa un cluster HDInsight Spark e Jupyter notebook di PySpark. Tali notebook illustrano come esplorare i dati e quindi come creare e utilizzare i modelli. Il notebook relativo a modellazione ed esplorazione avanzate dei dati mostra come includere la convalida incrociata, lo sweep di iperparametri e la valutazione del modello.
 
 ### <a name="data-exploration-and-modeling-with-spark"></a>Modellazione ed esplorazione dei dati con Spark 
 Esplorare il set di dati ed eseguire operazioni di creazione, assegnazione dei punteggi e valutazione di modelli di Machine Learning seguendo quanto illustrato nell'argomento [Create binary classification and regression models for data with the Spark MLlib toolkit](spark-data-exploration-modeling.md) (Creare modelli di classificazione binaria e regressione per i dati con il toolkit Spark MLlib).
@@ -40,12 +40,12 @@ Per informazioni su come istruire i modelli sulla convalida incrociata e lo swee
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Stimare le mance dei taxi con Scala in Azure Spark
 
-La procedura dettagliata [Usare Scala con Spark in Azure](scala-walkthrough.md) utilizza i dati dei taxi di New York per stimare se viene lasciata una mancia e l'intervallo di importi previsto. Illustra come usare Scala per attività di Machine Learning con supervisione con la libreria di Machine Learning (MLlib) per Spark e pacchetti SparkML in un cluster Azure HDInsight Spark. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'utilizzo dei modelli. I modelli creati includono la regressione logistica e quella lineare, foreste casuali e alberi con boosting a gradienti.
+La procedura dettagliata [usare scala con Spark in Azure](scala-walkthrough.md) prevede se viene pagata una mancia e l'intervallo di importi previsto. Illustra come usare Scala per attività di Machine Learning con supervisione con la libreria di Machine Learning (MLlib) per Spark e pacchetti SparkML in un cluster Azure HDInsight Spark. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'utilizzo dei modelli. I modelli creati includono la regressione logistica e quella lineare, foreste casuali e alberi con boosting a gradienti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una descrizione dei componenti principali che costituiscono il processo di data science per i team, vedere [Panoramica del processo di data science per i team](overview.md).
+Per una panoramica del processo di analisi scientifica dei dati per i team, vedere [Panoramica del processo di Data Science](overview.md)per i team.
 
-Per una descrizione del ciclo di vita del processo di data science per i team che è possibile usare per definire la struttura dei progetti di data science, vedere [Ciclo di vita del processo di data science per i team](lifecycle.md). Il ciclo di vita descrive tutti i passaggi generalmente seguiti dai progetti in fase di esecuzione. 
+Per una descrizione del ciclo di vita del processo di Data Science per i team, vedere ciclo di vita del [processo di Data Science](lifecycle.md). Questo ciclo di vita descrive i passaggi, dall'inizio alla fine, che in genere seguono i progetti quando vengono eseguiti. 
 

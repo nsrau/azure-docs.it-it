@@ -3,12 +3,12 @@ title: Come creare i criteri di configurazione Guest
 description: Informazioni su come creare criteri di configurazione Guest di criteri di Azure per macchine virtuali Windows o Linux con Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608525"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867328"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -65,7 +65,7 @@ Quando la configurazione Guest controlla una macchina, viene eseguita prima di t
 
 #### <a name="configuration-requirements"></a>Requisiti di configurazione
 
-L'unico requisito per la configurazione Guest per usare una configurazione personalizzata consiste nel fare in modo che il nome della configurazione sia coerente ovunque venga usato.  Sono inclusi il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF archiviato nel pacchetto di contenuto e il nome della configurazione usato in ARM come nome di assegnazione Guest.
+L'unico requisito per la configurazione Guest per usare una configurazione personalizzata consiste nel fare in modo che il nome della configurazione sia coerente ovunque venga usato. Questo requisito di nome include il nome del file zip per il pacchetto di contenuto, il nome della configurazione nel file MOF archiviato nel pacchetto di contenuto e il nome della configurazione utilizzato in un modello di Gestione risorse come nome di assegnazione Guest.
 
 #### <a name="get-targetresource-requirements"></a>Requisiti di Get-TargetResource
 
@@ -181,7 +181,7 @@ Il pacchetto completato deve essere archiviato in un percorso accessibile dalle 
 
 Nella configurazione Guest di criteri di Azure, il modo migliore per gestire i segreti usati in fase di esecuzione è archiviarli in Azure Key Vault. Questa progettazione è implementata all'interno di risorse DSC personalizzate.
 
-1. Per prima cosa, creare un'identità gestita assegnata dall'utente in Azure.
+1. Creare un'identità gestita assegnata dall'utente in Azure.
 
    L'identità viene usata dai computer per accedere ai segreti archiviati in Key Vault. Per i passaggi dettagliati, vedere [creare, elencare o eliminare un'identità gestita assegnata dall'utente con Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -193,9 +193,9 @@ Nella configurazione Guest di criteri di Azure, il modo migliore per gestire i s
 1. Assegnare l'identità assegnata dall'utente al computer.
 
    Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   A livello di scala, assegnare questa identità usando Azure Resource Manager tramite criteri di Azure. Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando un modello](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+   Assegnare questa identità usando Azure Resource Manager tramite criteri di Azure su larga scala. Per i passaggi dettagliati, vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando un modello](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
-1. Infine, all'interno della risorsa personalizzata usare l'ID client generato in precedenza per accedere Key Vault usando il token disponibile dal computer.
+1. Usare l'ID client generato in precedenza all'interno della risorsa personalizzata per accedere Key Vault usando il token disponibile dal computer.
 
    Il `client_id` e l'URL dell'istanza di Key Vault possono essere passati alla risorsa come [Proprietà](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) in modo che la risorsa non debba essere aggiornata per più ambienti o se è necessario modificare i valori.
 
@@ -305,7 +305,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori di conseguenza. L'agente di configurazione Guest crea automaticamente il file YaML usato da INSPEC per archiviare gli attributi. Vedi l'esempio seguente.
+Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori in base alle esigenze. L'agente di configurazione Guest crea automaticamente il file YAML usato da INSPEC per archiviare gli attributi. Vedi l'esempio seguente.
 
 ```powershell
 Configuration FirewalldEnabled {

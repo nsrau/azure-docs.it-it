@@ -1,5 +1,5 @@
 ---
-title: "Connettere una rete virtuale Azure a un'altra rete virtuale con una connessione da rete virtuale a rete virtuale: PowerShell | Microsoft Docs"
+title: "Connettere una VNet a un'altra VNet usando una connessione da VNet a VNet del gateway VPN di Azure: PowerShell"
 description: Connettere reti virtuali tra loro tramite una connessione da rete virtuale a rete virtuale e PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385779"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860521"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
@@ -21,7 +21,7 @@ Questo articolo descrive come connettere reti virtuali tramite il tipo di connes
 I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager e usano PowerShell. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -32,7 +32,7 @@ I passaggi di questo articolo sono applicabili al modello di distribuzione Resou
 
 Ci sono diversi modi per connettere le reti virtuali. Le sezioni seguenti descrivono i diversi metodi di connessione delle reti virtuali.
 
-### <a name="vnet-to-vnet"></a>Da rete virtuale a rete virtuale
+### <a name="vnet-to-vnet"></a>Tra reti virtuali
 
 La configurazione di una connessione da rete virtuale a rete virtuale rappresenta un buon metodo per connettere facilmente le reti virtuali. La connessione di una rete virtuale a un'altra rete virtuale tramite il tipo di connessione da rete virtuale a rete virtuale (VNet2VNet) è simile alla creazione di una connessione IPsec da sito a sito in una posizione locale.  Entrambi i tipi di connettività usano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE ed entrambi funzionano in modo analogo durante la comunicazione. La differenza tra i tipi di connessione è costituita dal modo in cui viene configurato il gateway di rete locale. Quando si crea una connessione da rete virtuale a rete virtuale, non viene visualizzato lo spazio indirizzi del gateway di rete locale, che viene creato e popolato automaticamente. Se si aggiorna lo spazio indirizzi per una rete virtuale, l'altra rete virtuale eseguirà automaticamente il routing allo spazio indirizzi aggiornato. La creazione di una connessione da rete virtuale a rete virtuale è in genere più veloce e semplice rispetto alla creazione di una connessione da sito a sito tra reti virtuali.
 
@@ -40,7 +40,7 @@ La configurazione di una connessione da rete virtuale a rete virtuale rappresent
 
 Se si usa una configurazione di rete complessa, potrebbe essere preferibile connettersi alle reti virtuali usando la procedura di connessione [da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md) invece di quella di connessione da rete virtuale a rete virtuale. Con la procedura di connessione da sito a sito, è necessario creare e configurare manualmente i gateway di rete locali. Il gateway di rete locale per ogni rete virtuale considera l'altra rete virtuale come sito locale. Ciò consente di specificare uno spazio indirizzi aggiuntivo per il gateway di rete locale per il routing del traffico. Se lo spazio indirizzi per una rete virtuale cambia, è necessario aggiornare di conseguenza il gateway di rete locale corrispondente. L'aggiornamento non avviene automaticamente.
 
-### <a name="vnet-peering"></a>Peering di rete virtuale
+### <a name="vnet-peering"></a>Peering reti virtuali
 
 È possibile connettere le reti virtuali tramite il peering reti virtuali. Il peering reti virtuali non usa un gateway VPN e presenta vincoli diversi. I [prezzi per il peering reti virtuali](https://azure.microsoft.com/pricing/details/virtual-network) vengono inoltre calcolati in modo diverso rispetto ai [prezzi per il gateway VPN da rete virtuale a rete virtuale](https://azure.microsoft.com/pricing/details/vpn-gateway). Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
@@ -65,11 +65,11 @@ La differenza principale tra le due è costituita dal fatto che quando si config
 
 Per questo esercizio è possibile combinare le configurazioni oppure sceglierne una da usare. Tutte le configurazioni usano il tipo di connessione da rete virtuale a rete virtuale. Il traffico di rete viene trasmesso tra le reti virtuali connesse direttamente tra loro. In questo esercizio, il traffico da TestVNet4 non viene indirizzato a TestVNet5.
 
-* [Reti virtuali che si trovano nella stessa sottoscrizione](#samesub): Nei passaggi per questa configurazione si usano TestVNet1 e TestVNet4.
+* [Reti virtuali che si trovano nella stessa sottoscrizione](#samesub): la procedura per questa configurazione usa TestVNet1 e TestVNet4.
 
   ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [Reti virtuali che si trovano in sottoscrizioni diverse](#difsub): nei passaggi per questa configurazione si usano TestVNet1 e TestVNet5.
+* [Reti virtuali che si trovano in sottoscrizioni diverse](#difsub): la procedura per questa configurazione usa TestVNet1 e TestVNet5.
 
   ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -93,8 +93,8 @@ Negli esempi vengono usati i valori seguenti:
 
 * Nome della rete virtuale: TestVNet1
 * Gruppo di risorse: TestRG1
-* Percorso: East US
-* TestVNet1: 10.11.0.0/16 e 10.12.0.0/16
+* Location: Stati Uniti orientali
+* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
@@ -102,18 +102,18 @@ Negli esempi vengono usati i valori seguenti:
 * IP pubblico: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5 (per reti virtuali in sottoscrizioni diverse)
+* Connection(1to5): VNet1toVNet5 (per reti virtuali in diverse sottoscrizioni)
 * ConnectionType: VNet2VNet
 
 **Valori per TestVNet4:**
 
 * Nome della rete virtuale: TestVNet4
-* TestVNet2: 10.41.0.0/16 e 10.42.0.0/16
+* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 * FrontEnd: 10.41.0.0/24
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Gruppo di risorse: TestRG4
-* Percorso: Stati Uniti occidentali
+* Località: Stati Uniti occidentali
 * GatewayName: VNet4GW
 * IP pubblico: VNet4GWIP
 * VPNType: RouteBased
@@ -312,7 +312,7 @@ Poiché in questo esercizio si cambia il contesto della sottoscrizione, quando s
 
 * Nome della rete virtuale: TestVNet5
 * Gruppo di risorse: TestRG5
-* Percorso: Giappone orientale
+* Ubicazione: Giappone orientale
 * TestVNet5: 10.51.0.0/16 e 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24

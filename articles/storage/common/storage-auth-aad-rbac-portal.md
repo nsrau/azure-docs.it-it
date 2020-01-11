@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891953"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867511"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usare il portale di Azure per assegnare un ruolo RBAC per l'accesso ai dati BLOB e di Accodamento
 
@@ -45,7 +45,7 @@ Le sezioni seguenti descrivono ognuno di questi passaggi in modo più dettagliat
 
 > [!NOTE]
 > In quanto proprietario dell'account di archiviazione di Azure, non si ricevono automaticamente le autorizzazioni per l'accesso ai dati. È invece necessario assegnare in modo esplicito a se stessi un ruolo di controllo degli accessi in base al ruolo per Archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
-> 
+>
 > Non è possibile assegnare un ruolo con ambito a un contenitore o a una coda se per l'account di archiviazione è abilitato uno spazio dei nomi gerarchico.
 
 ### <a name="assign-a-built-in-rbac-role"></a>Assegnare un ruolo predefinito RBAC
@@ -66,7 +66,7 @@ La procedura descritta qui assegna un ruolo con ambito a livello di singolo cont
 
     ![Screenshot che mostra come assegnare un ruolo di controllo degli accessi in base al ruolo](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. Fare clic su **Salva** L'identità cui è assegnato il ruolo viene visualizzata nell'elenco in corrispondenza del ruolo. Ad esempio, la figura seguente mostra che l'utente aggiunto ha ora autorizzazioni di lettura per i dati nel contenitore denominato *sample-container*.
+1. Fare clic su **Salva**. L'identità cui è assegnato il ruolo viene visualizzata nell'elenco in corrispondenza del ruolo. Ad esempio, la figura seguente mostra che l'utente aggiunto ha ora autorizzazioni di lettura per i dati nel contenitore denominato *sample-container*.
 
     ![Screenshot che mostra l'elenco di utenti assegnati a un ruolo](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
@@ -75,7 +75,6 @@ La procedura descritta qui assegna un ruolo con ambito a livello di singolo cont
 ### <a name="assign-the-reader-role-for-portal-access"></a>Assegnare il ruolo lettore per l'accesso al portale
 
 Quando si assegna un ruolo predefinito o personalizzato per archiviazione di Azure a un'entità di sicurezza, si concede a tale entità di sicurezza le autorizzazioni per l'esecuzione di operazioni sui dati nell'account di archiviazione. I ruoli predefiniti di lettura **dati** forniscono le autorizzazioni di lettura per i dati in un contenitore o in una coda, mentre i ruoli di **collaboratore dati** incorporati forniscono le autorizzazioni di lettura, scrittura ed eliminazione a un contenitore o a una coda. L'ambito delle autorizzazioni è la risorsa specificata.  
-
 Ad esempio, se si assegna il ruolo di **collaboratore dati BLOB di archiviazione** all'utente Mary al livello di un contenitore denominato **Sample-Container**, a Mary viene concesso l'accesso in lettura, scrittura ed eliminazione a tutti i BLOB presenti nel contenitore.
 
 Tuttavia, se Mary vuole visualizzare un BLOB nella portale di Azure, il ruolo di **collaboratore dati BLOB di archiviazione** da solo non fornirà autorizzazioni sufficienti per spostarsi tra il portale e il BLOB per poterlo visualizzare. Sono necessarie altre autorizzazioni di Azure AD per spostarsi nel portale e visualizzare le altre risorse visibili in tale posizione.
@@ -91,8 +90,10 @@ Attenersi alla procedura seguente per assegnare il ruolo **Reader** in modo che 
 1. Eseguire una ricerca per individuare l'entità di sicurezza a cui si desidera assegnare il ruolo.
 1. Salvare l'assegnazione di ruolo.
 
-> [!NOTE]
-> L'assegnazione del ruolo Reader è necessaria solo per gli utenti che devono accedere a BLOB o code usando il portale di Azure. 
+L'assegnazione del ruolo **Reader** è necessaria solo per gli utenti che devono accedere a BLOB o code usando il portale di Azure.
+
+> [!IMPORTANT]
+> La versione di anteprima di Storage Explorer nel portale di Azure non supporta l'utilizzo di Azure AD credenziali per visualizzare e modificare i dati di BLOB o di Accodamento. Storage Explorer nella portale di Azure usa sempre le chiavi dell'account per accedere ai dati. Per usare Storage Explorer nel portale di Azure, è necessario disporre di un ruolo che includa **Microsoft. storage/storageAccounts/listkeys/Action**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

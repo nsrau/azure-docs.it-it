@@ -1,67 +1,64 @@
 ---
-title: Aggiungere un contenitore di archiviazione personalizzato in Linux
+title: Gestire il contenuto da archiviazione di Azure a contenitori Linux
 description: Informazioni su come aggiungere una condivisione di rete personalizzata al contenitore Linux nel servizio app Azure. Condividi i file tra le app, Gestisci il contenuto statico in remoto e accedi localmente e così via.
 author: msangapu-msft
 ms.topic: article
-ms.date: 2/04/2019
+ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 0a1e811787a43be76f94b13a6ec9886510c47d1d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671780"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866964"
 ---
-# <a name="attach-azure-storage-containers-to-linux-containers"></a>Alleghi i contenitori di archiviazione di Azure a contenitori Linux
+# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
 
-Questa guida illustra come aggiungere condivisioni di rete al servizio app in Linux dall'uso di [archiviazione di Azure](/azure/storage/common/storage-introduction). I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
+Questa guida illustra come aggiungere archiviazione di Azure al servizio app in Linux. I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
+
+
+> [!IMPORTANT]
+> Archiviazione di Azure nel servizio app in Linux è una funzionalità di **Anteprima** . Questa funzionalità **non è supportata per gli scenari di produzione**.
+>
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'app Web esistente (servizio app in Linux o app Web per contenitori)
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.46 o successiva)
+- Un [servizio app esistente nell'app Linux](https://docs.microsoft.com/azure/app-service/containers/).
+- Un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
+- Una [condivisione file e una directory di Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
 
-## <a name="create-azure-storage"></a>Creare una risorsa di archiviazione di Azure
 
-> [!NOTE]
-> Archiviazione di Azure è una risorsa di archiviazione non predefinita e fatturata separatamente, non inclusa nell'app Web.
+## <a name="limitations-of-azure-storage-with-app-service"></a>Limitazioni di archiviazione di Azure con il servizio app
+
+- Archiviazione di Azure con il servizio app è **in anteprima** per il servizio app in Linux e app Web per contenitori. Non è **supportata** per gli **scenari di produzione**.
+- Archiviazione di Azure con il servizio app supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura) e **contenitori BLOB di Azure** (sola lettura)
+- Archiviazione di Azure con il servizio app **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
+- Archiviazione di Azure con il servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
+- Archiviazione di Azure **non è incluso** nell'app Web e fatturato separatamente. Scopri di più sui [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage).
+
+> [!WARNING]
+> Le configurazioni del servizio app che usano l'archiviazione BLOB di Azure diventeranno di sola lettura nel 2020 febbraio. [Altre informazioni](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
 >
-> Bring your own storage non supporta l'uso della configurazione del firewall di archiviazione a causa delle limitazioni dell'infrastruttura.
->
 
-Creare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
+## <a name="configure-your-app-with-azure-storage"></a>Configurare l'app con archiviazione di Azure
 
-```azurecli
-#Create Storage Account
-az storage account create --name <storage_account_name> --resource-group myResourceGroup
+Dopo aver creato l' [account di archiviazione di Azure, la condivisione file e la directory](#prerequisites), è ora possibile configurare l'app con archiviazione di Azure.
 
-#Create Storage Container
-az storage container create --name <storage_container_name> --account-name <storage_account_name>
-```
+Per montare un account di archiviazione in una directory dell'app servizio app, usare il comando [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Il tipo di archiviazione può essere AzureBlob o AzureFiles. In questo esempio viene usato risorsa.
 
-## <a name="upload-files-to-azure-storage"></a>Caricare file in Archiviazione di Azure
-
-Per caricare una directory locale nell'account di archiviazione, usare il comando [ `az storage blob upload-batch` ](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) come nell'esempio seguente:
-
-```azurecli
-az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
-```
-
-## <a name="link-storage-to-your-web-app-preview"></a>Collegare la risorsa di archiviazione all'app Web (anteprima)
 
 > [!CAUTION]
-> Collegando una directory esistente in un'app Web a un account di archiviazione il contenuto della directory verrà eliminato. Se si esegue la migrazione dei file di un'app esistente, creare un copia di backup dell'app e del relativo contenuto prima di iniziare.
+> La directory specificata come percorso di montaggio nell'app Web deve essere vuota. Eventuali contenuti archiviati in questa directory verranno eliminati quando verrà aggiunto un montaggio esterno. Se si esegue la migrazione dei file di un'app esistente, creare un copia di backup dell'app e del relativo contenuto prima di iniziare.
 >
 
-Per montare un account di archiviazione in una directory dell'app servizio app, usare il comando [ `az webapp config storage-account add` ](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Il tipo di archiviazione può essere AzureBlob o AzureFiles. Per questo contenitore usare AzureBlob.
-
 ```azurecli
-az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
+az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
 ```
 
 È consigliabile eseguire questa operazione per tutte le altre directory che si vogliono collegare a un account di archiviazione.
 
-## <a name="verify"></a>Verificare
+## <a name="verify-azure-storage-link-to-the-web-app"></a>Verificare il collegamento di archiviazione di Azure all'app Web
 
 Dopo aver collegato un contenitore di archiviazione a un'app Web, è possibile verificare il collegamento eseguendo il comando seguente:
 
@@ -69,11 +66,11 @@ Dopo aver collegato un contenitore di archiviazione a un'app Web, è possibile v
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="use-custom-storage-in-docker-compose"></a>Usare l'archiviazione personalizzata in Docker Compose
+## <a name="use-azure-storage-in-docker-compose"></a>Usare archiviazione di Azure in Docker Compose
 
 Archiviazione di Azure può essere montata con app multicontenitore usando l'ID personalizzato. Per visualizzare il nome dell'ID personalizzato, eseguire [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-Nel file *Docker-compose. yml* mappare l'opzione `volumes` `custom-id`. ad esempio:
+Nel file *Docker-compose. yml* mappare l'opzione `volumes` `custom-id`. Ad esempio:
 
 ```yaml
 wordpress:
@@ -85,3 +82,4 @@ wordpress:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Configurazione delle app Web in Servizio app di Azure](../configure-common.md)
+

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 602be49ef0c60274f1cd016c4f8e870cf033ec7b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892398"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866903"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare la portale di Azure per accedere ai dati di BLOB o di Accodamento
 
@@ -57,8 +57,10 @@ I ruoli predefiniti che supportano l'accesso ai dati BLOB o della coda includono
     
 I ruoli personalizzati possono supportare diverse combinazioni delle stesse autorizzazioni fornite dai ruoli predefiniti. Per altre informazioni sulla creazione di ruoli RBAC personalizzati, vedere [ruoli personalizzati per le risorse di Azure](../../role-based-access-control/custom-roles.md) e informazioni sulle [definizioni di ruolo per le risorse di Azure](../../role-based-access-control/role-definitions.md).
 
-> [!NOTE]
-> L'elenco delle code con un ruolo di amministratore della sottoscrizione classico non è supportato. Per elencare le code, è necessario che un utente abbia assegnato loro il ruolo di **lettore** di Azure Resource Manager, il ruolo di **lettore dati della coda di archiviazione** o il ruolo di **collaboratore dati della coda di archiviazione** .
+L'elenco delle code con un ruolo di amministratore della sottoscrizione classico non è supportato. Per elencare le code, è necessario che un utente abbia assegnato loro il ruolo di **lettore** di Azure Resource Manager, il ruolo di **lettore dati della coda di archiviazione** o il ruolo di **collaboratore dati della coda di archiviazione** .
+
+> [!IMPORTANT]
+> La versione di anteprima di Storage Explorer nel portale di Azure non supporta l'utilizzo di Azure AD credenziali per visualizzare e modificare i dati di BLOB o di Accodamento. Storage Explorer nella portale di Azure usa sempre le chiavi dell'account per accedere ai dati. Per usare Storage Explorer nel portale di Azure, è necessario disporre di un ruolo che includa **Microsoft. storage/storageAccounts/listkeys/Action**.
 
 ## <a name="navigate-to-blobs-or-queues-in-the-portal"></a>Passare a BLOB o code nel portale
 

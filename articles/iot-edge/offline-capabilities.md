@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 951c81b2d65fe17f6e79dbdd699051ba43b86c49
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924862"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867382"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informazioni sulle funzionalità estese offline per IoT Edge dispositivi, moduli e dispositivi figlio
 
@@ -20,21 +20,21 @@ Azure IoT Edge supporta le operazioni offline estese nei dispositivi IoT Edge e 
 
 ## <a name="how-it-works"></a>Come funziona
 
-Quando un dispositivo IoT Edge passa alla modalità offline, l'hub di IoT Edge svolge tre ruoli. Prima di tutto, archivia i messaggi diretti upstream e li salva fino a quando il dispositivo si riconnette. In secondo luogo, agisce per conto dell'hub IoT per l'autenticazione dei moduli e dei dispositivi figlio in modo che possano continuare a funzionare. In terzo luogo, consente le comunicazioni tra i dispositivi figlio che normalmente passerebbero attraverso l'hub IoT. 
+Quando un dispositivo IoT Edge passa alla modalità offline, l'hub di IoT Edge svolge tre ruoli. Prima di tutto, archivia i messaggi diretti upstream e li salva fino a quando il dispositivo si riconnette. In secondo luogo, agisce per conto dell'hub IoT per l'autenticazione dei moduli e dei dispositivi figlio in modo che possano continuare a funzionare. In terzo luogo, consente le comunicazioni tra i dispositivi figlio che normalmente passerebbero attraverso l'hub IoT.
 
 L'esempio seguente mostra il funzionamento di uno scenario IoT Edge in modalità offline:
 
 1. **Configurare i dispositivi**
 
-   Per i dispositivi IoT Edge le funzionalità offline vengono abilitate automaticamente. Per estendere tale funzionalità ad altri dispositivi IoT, è necessario dichiarare una relazione padre-figlio tra i dispositivi nell'hub IoT. Configurare quindi i dispositivi figlio in modo che considerino attendibile il dispositivo padre assegnato e instradare le comunicazioni da dispositivo a cloud tramite il padre come gateway. 
+   Per i dispositivi IoT Edge le funzionalità offline vengono abilitate automaticamente. Per estendere tale funzionalità ad altri dispositivi IoT, è necessario dichiarare una relazione padre-figlio tra i dispositivi nell'hub IoT. Configurare quindi i dispositivi figlio in modo che considerino attendibile il dispositivo padre assegnato e instradare le comunicazioni da dispositivo a cloud tramite il padre come gateway.
 
 2. **Sincronizzare con l'hub Internet**
 
-   Almeno una volta dopo l'installazione del runtime di IoT Edge, il dispositivo IoT Edge deve essere online per la sincronizzazione con l'hub IoT. Con questa sincronizzazione, il dispositivo IoT Edge ottiene informazioni dettagliate sugli eventuali dispositivi figlio assegnati. Il dispositivo IoT Edge aggiorna inoltre in modo sicuro la cache locale per abilitare le operazioni offline e recupera le impostazioni per l'archiviazione locale dei messaggi di telemetria. 
+   Almeno una volta dopo l'installazione del runtime di IoT Edge, il dispositivo IoT Edge deve essere online per la sincronizzazione con l'hub IoT. Con questa sincronizzazione, il dispositivo IoT Edge ottiene informazioni dettagliate sugli eventuali dispositivi figlio assegnati. Il dispositivo IoT Edge aggiorna inoltre in modo sicuro la cache locale per abilitare le operazioni offline e recupera le impostazioni per l'archiviazione locale dei messaggi di telemetria.
 
 3. **Passa alla modalità offline**
 
-   Mentre si è disconnessi dall'hub IoT, il dispositivo IoT Edge, i moduli distribuiti e tutti i dispositivi IoT figlio possono operare a tempo indeterminato. I moduli e i dispositivi figlio possono essere avviati e riavviati eseguendo l'autenticazione con l'hub di IoT Edge mentre è attiva la modalità offline. I dati di telemetria previsti per l'invio upstream all'hub IoT vengono archiviati in locale. La comunicazione tra i moduli o tra i dispositivi IoT figlio viene gestita tramite metodi diretti o messaggi. 
+   Mentre si è disconnessi dall'hub IoT, il dispositivo IoT Edge, i moduli distribuiti e tutti i dispositivi IoT figlio possono operare a tempo indeterminato. I moduli e i dispositivi figlio possono essere avviati e riavviati eseguendo l'autenticazione con l'hub di IoT Edge mentre è attiva la modalità offline. I dati di telemetria previsti per l'invio upstream all'hub IoT vengono archiviati in locale. La comunicazione tra i moduli o tra i dispositivi IoT figlio viene gestita tramite metodi diretti o messaggi.
 
 4. **Riconnettersi e risincronizzare con l'hub Internet delle cose**
 
@@ -44,13 +44,11 @@ L'esempio seguente mostra il funzionamento di uno scenario IoT Edge in modalità
 
 ## <a name="restrictions-and-limits"></a>Restrizioni e limiti
 
-Le funzionalità estese offline descritte in questo articolo sono disponibili in [IOT Edge versione 1.0.7 o successiva](https://github.com/Azure/azure-iotedge/releases). Nelle versioni precedenti è disponibile un subset di funzionalità offline. I dispositivi IoT Edge esistenti che non hanno le funzionalità offline per periodi prolungati non possono essere aggiornati modificando la versione del runtime, ma devono essere riconfigurati con una nuova identità del dispositivo IoT Edge per ottenere queste funzionalità. 
+Le funzionalità estese offline descritte in questo articolo sono disponibili in [IOT Edge versione 1.0.7 o successiva](https://github.com/Azure/azure-iotedge/releases). Nelle versioni precedenti è disponibile un subset di funzionalità offline. I dispositivi IoT Edge esistenti che non hanno le funzionalità offline per periodi prolungati non possono essere aggiornati modificando la versione del runtime, ma devono essere riconfigurati con una nuova identità del dispositivo IoT Edge per ottenere queste funzionalità.
 
-Il supporto delle funzionalità offline per periodi prolungati è disponibile in tutte le aree in cui è disponibile l'hub IoT, **ad eccezione** di Stati Uniti orientali.
+Solo i dispositivi non IoT Edge possono essere aggiunti come dispositivi figlio.
 
-Solo i dispositivi non IoT Edge possono essere aggiunti come dispositivi figlio. 
-
-I dispositivi IoT Edge e i dispositivi figlio assegnati possono funzionare in modo indefinito offline dopo la sincronizzazione iniziale, una volta sola. Tuttavia, l'archiviazione dei messaggi dipende dall'impostazione durata (TTL) e dallo spazio su disco disponibile per l'archiviazione dei messaggi. 
+I dispositivi IoT Edge e i dispositivi figlio assegnati possono funzionare in modo indefinito offline dopo la sincronizzazione iniziale, una volta sola. Tuttavia, l'archiviazione dei messaggi dipende dall'impostazione durata (TTL) e dallo spazio su disco disponibile per l'archiviazione dei messaggi.
 
 ## <a name="set-up-parent-and-child-devices"></a>Configurare dispositivi padre e figlio
 
@@ -104,7 +102,8 @@ Infine, è possibile gestire le relazioni padre-figlio a livello C#di codice usa
 
 È possibile pensare a una relazione padre/figlio come gateway trasparente, in cui il dispositivo figlio ha una propria identità nell'hub degli elementi del tutto ma comunica attraverso il cloud tramite il relativo padre. Per la comunicazione protetta, il dispositivo figlio deve essere in grado di verificare che il dispositivo padre provenga da una fonte attendibile. In caso contrario, terze parti potrebbero configurare dispositivi dannosi per rappresentare gli elementi padre e intercettare le comunicazioni. 
 
-Un modo per creare questa relazione di trust è descritto in dettaglio negli articoli seguenti: 
+Un modo per creare questa relazione di trust è descritto in dettaglio negli articoli seguenti:
+
 * [Configurare un dispositivo IoT Edge come gateway trasparente](how-to-create-transparent-gateway.md)
 * [Connettere un dispositivo downstream (figlio) a un gateway Azure IoT Edge](how-to-connect-downstream-device.md)
 

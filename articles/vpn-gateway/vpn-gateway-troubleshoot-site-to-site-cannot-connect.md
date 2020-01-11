@@ -1,27 +1,20 @@
 ---
-title: Risoluzione di un problema relativo all'impossibilità di stabilire una connessione VPN da sito a sito di Azure | Microsoft Docs
+title: 'Risolvere i problemi relativi a una connessione VPN da sito a sito di Azure che non è in grado di connettere titleSuffix: gateway VPN di Azure'
 description: Informazioni su come risolvere un problema relativo a una connessione VPN da sito a sito che si interrompe improvvisamente e non può essere riconnessa.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058868"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862578"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: la connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
 Dopo aver configurato una connessione VPN da sito a sito tra una rete locale e una rete virtuale di Azure, la connessione VPN si interrompe improvvisamente e non può essere riconnessa. Questo articolo illustra la procedura per risolvere questo tipo di problema. 
 
@@ -53,7 +46,7 @@ Confrontare la chiave condivisa del dispositivo VPN locale con quella del gatewa
 
 Per visualizzare la chiave condivisa per la connessione VPN di Azure, usare uno dei metodi seguenti:
 
-**Portale di Azure**
+**Azure portal**
 
 1. Passare alla connessione gateway VPN di Azure da sito a sito appena creata.
 

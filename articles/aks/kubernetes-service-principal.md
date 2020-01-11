@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913496"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867174"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
@@ -121,7 +121,7 @@ Potrebbe essere necessario accedere alle risorse esistenti del disco in un altro
 
 Se si usa Virtual Kubelet per l’integrazione con il servizio Azure Kubernetes e si sceglie di eseguire Istanze di Azure Container nel gruppo di risorse separato dal cluster del servizio Azure Kubernetes, è necessario concedere all'entità servizio Azure Kubernetes le autorizzazioni da *collaboratore* per il gruppo di risorse di Istanze di Azure Container.
 
-## <a name="additional-considerations"></a>Considerazione aggiuntive
+## <a name="additional-considerations"></a>Altre considerazioni
 
 Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le considerazioni seguenti.
 
@@ -131,6 +131,8 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
 - Quando si specifica l'**ID client** dell'entità servizio, usare il valore di `appId`.
 - Nelle VM del nodo agente nel cluster Kubernetes le credenziali dell'entità servizio vengono archiviate nel file `/etc/kubernetes/azure.json`
 - Quando si usa il comando [AZ AKS create][az-aks-create] per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/aksServicePrincipal.json` nel computer usato per eseguire il comando.
+- Se non si passa in modo specifico un'entità servizio nei comandi aggiuntivi dell'interfaccia della riga di comando di AKS, viene usata l'entità servizio predefinita situata in `~/.azure/aksServicePrincipal.json`.  
+- Facoltativamente, è anche possibile rimuovere il file aksServicePrincipal. JSON e AKS creerà una nuova entità servizio.
 - Quando si elimina un cluster AKS creato da [AZ AKS create][az-aks-create], l'entità servizio creata automaticamente non viene eliminata.
     - Per eliminare l'entità servizio, eseguire una query per il cluster *servicePrincipalProfile. ClientID* e quindi eliminare con [AZ ad app Delete][az-ad-app-delete]. Sostituire il gruppo di risorse e i nomi di cluster seguenti con i propri valori:
 
@@ -138,7 +140,7 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 Le credenziali dell'entità servizio per un cluster AKS vengono memorizzate nella cache dall'interfaccia della riga di comando di Azure. Se queste credenziali sono scadute, si verificano errori durante la distribuzione dei cluster AKS. Il messaggio di errore seguente quando si esegue [AZ AKS create][az-aks-create] può indicare un problema con le credenziali dell'entità servizio memorizzata nella cache:
 

@@ -4,14 +4,14 @@ description: Come gestire e aggiornare la cache HPC di Azure con la portale di A
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166752"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867090"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gestire la cache dalla portale di Azure
 
@@ -23,7 +23,7 @@ Per aprire la pagina Panoramica, selezionare la risorsa della cache nell'portale
 
 I pulsanti nella parte superiore della pagina possono essere utili per gestire la cache:
 
-* [**Scarica**](#flush-cached-data) -scrive tutti i dati memorizzati nella cache nelle destinazioni di archiviazione
+* [**Flush**](#flush-cached-data) -scrive i dati modificati nelle destinazioni di archiviazione
 * [**Aggiornamento**](#upgrade-cache-software) : aggiorna il software della cache
 * **Aggiorna** -ricarica la pagina Panoramica
 * [**Delete: Elimina**](#delete-the-cache) definitivamente la cache
@@ -63,9 +63,18 @@ Fare clic sul pulsante **Aggiorna** per avviare l'aggiornamento software. Lo sta
 
 Il pulsante **Elimina** Elimina la cache. Quando si elimina una cache, tutte le relative risorse vengono distrutte e non vengono più addebitate spese per l'account.
 
-Le destinazioni di archiviazione non sono interessate quando si elimina la cache. È possibile aggiungerli a una futura cache in un secondo momento oppure rimuovere le autorizzazioni separatamente.
+I volumi di archiviazione back-end usati come destinazioni di archiviazione non sono interessati quando si elimina la cache. È possibile aggiungerli a una futura cache in un secondo momento oppure rimuovere le autorizzazioni separatamente.
 
-La cache Scarica automaticamente tutti i dati non salvati nelle destinazioni di archiviazione come parte dell'arresto finale.
+> [!NOTE]
+> La cache HPC di Azure non scrive automaticamente i dati modificati dalla cache nei sistemi di archiviazione back-end prima di eliminare la cache.
+>
+> Per assicurarsi che tutti i dati nella cache siano stati scritti nell'archiviazione a lungo termine, seguire questa procedura:
+>
+> 1. [Rimuovere](hpc-cache-edit-storage.md#remove-a-storage-target) ogni destinazione di archiviazione dalla cache HPC di Azure usando il pulsante Elimina nella pagina Destinazioni di archiviazione. Il sistema scrive automaticamente i dati modificati dalla cache al sistema di archiviazione back-end prima di rimuovere la destinazione.
+> 1. Attendere che la destinazione di archiviazione venga rimossa completamente. Il processo può richiedere un'ora o più se è presente una grande quantità di dati da scrivere dalla cache. Al termine, una notifica del portale indica che l'operazione di eliminazione è stata completata e che la destinazione di archiviazione scompare dall'elenco.
+> 1. Una volta eliminate tutte le destinazioni di archiviazione interessate, è possibile eliminare la cache.
+>
+> In alternativa, è possibile usare l'opzione [Flush](#flush-cached-data) per salvare i dati memorizzati nella cache, ma esiste un piccolo rischio di perdere il lavoro se un client scrive una modifica nella cache al termine dello scaricamento ma prima che l'istanza della cache venga distrutta.
 
 ## <a name="cache-metrics-and-monitoring"></a>Metriche e monitoraggio della cache
 

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f25774f89182004e23605bf4c37d1e1d739df7
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084899"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867027"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
 
@@ -21,15 +21,15 @@ Questo articolo illustra come automatizzare la procedura per la replica di macch
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Esaminare [l'architettura e i componenti dello scenario](hyper-v-vmm-architecture.md).
-- Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
+- Verificare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
 - Assicurarsi che i server Virtual Machine Manager e gli host Hyper-V rispettino i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md).
 - Assicurarsi che le macchine virtuali da replicare siano conformi al [supporto del computer replicato](site-recovery-support-matrix-to-sec-site.md).
 
 
-## <a name="prepare-for-network-mapping"></a>Preparare il mapping delle reti
+## <a name="prepare-for-network-mapping"></a>Eseguire la preparazione per il mapping delle reti
 
 [Mapping di rete](hyper-v-vmm-network-mapping.md) esegue il mapping tra le reti delle macchine virtuali di Virtual Machine Manager locali nei cloud di origine e destinazione. Il mapping esegue queste operazioni:
 
@@ -194,6 +194,14 @@ Dopo aver configurato correttamente server, cloud e reti, abilitare la protezion
 3. Abilitare la replica per la macchina virtuale.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+
+> [!NOTE]
+> Se si vuole eseguire la replica in dischi gestiti abilitati per CMK in Azure, seguire questa procedura con AZ PowerShell 3.3.0 e versioni successive:
+>
+> 1. Abilitare il failover a Managed disks aggiornando le proprietà della macchina virtuale
+> 2. Usare il cmdlet Get-AsrReplicationProtectedItem per recuperare l'ID del disco per ogni disco dell'elemento protetto
+> 3. Creare un oggetto Dictionary usando il cmdlet New-Object "System. Collections. Generic. Dictionary '' 2 [System. String, System. String]" per contenere il mapping dell'ID disco al set di crittografia del disco. Questi set di crittografia del disco devono essere creati in precedenza dall'utente nell'area di destinazione.
+> 4. Aggiornare le proprietà della macchina virtuale usando il cmdlet Set-AsrReplicationProtectedItem passando l'oggetto Dictionary nel parametro-DiskIdToDiskEncryptionSetMap.
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 

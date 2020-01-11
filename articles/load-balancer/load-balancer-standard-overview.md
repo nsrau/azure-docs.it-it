@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 5a4240065039bd6e0633a19c8aad00604970c216
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
-ms.translationtype: HT
+ms.openlocfilehash: 68f95c893646d76a80a4edfeb557064660ff9f1c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834666"
+ms.locfileid: "75864265"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -38,20 +38,6 @@ Le funzioni della risorsa di Load Balancer sono espresse come un front-end, una 
 Un aspetto chiave è l'ambito della rete virtuale per la risorsa.  Mentre Basic Load Balancer esiste all'interno dell'ambito di un set di disponibilità, un Load Balancer Standard è completamente integrato con l'ambito di una rete virtuale e si applicano tutti i concetti di rete virtuale.
 
 Le risorse di Load Balancer sono oggetti all'interno dei quali è possibile esprimere in che modo Azure deve programmare la propria infrastruttura multi-tenant per ottenere lo scenario che si vuole creare.  Non esiste una relazione diretta tra le risorse di Load Balancer e l'infrastruttura effettiva; la creazione di un bilanciamento del carico non crea un'istanza e la capacità è sempre disponibile. Inoltre, non ci sono start up o ritardi di scalabilità da considerare. 
-
-## <a name="why-use-standard-load-balancer"></a>Perché usare Load Balancer Standard?
-
-Load Balancer Standard consente di ridimensionare le applicazioni e di creare disponibilità elevata sia per distribuzioni su scala ridotta sia per architetture grandi e complesse a più zone.
-
-Consultare la tabella seguente per una panoramica delle differenze tra Load Balancer Standard e Load Balancer Basic:
-
->[!NOTE]
-> Per i nuovi progetti è consigliabile adottare Load Balancer Standard. 
-
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
-
-Revisionare i [limiti del servizio di Load Balancer](https://aka.ms/lblimits), nonché i [prezzi](https://aka.ms/lbpricing), e il [contratto di servizio](https://aka.ms/lbsla).
-
 
 ### <a name="backend"></a>Pool back-end
 
@@ -184,12 +170,6 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 4. Collegare tutte le istanze di macchina virtuale alle nuove risorse SKU Standard.
 
 >[!IMPORTANT]
->
->Esistono limitazioni relative all'uso degli SKU Basic e Standard.
->
->Le porte a disponibilità elevata e la diagnostica dello SKU Standard sono disponibili unicamente con lo SKU Standard. Non è possibile eseguire la migrazione da SKU Standard a SKU Basic e mantenere queste funzionalità.
->
->Gli SKU Basic e quelli Standard hanno numerose differenze3, come indicato nel presente articolo.  Assicurarsi di averne la più completa comprensione per capire come gestirli.
 >
 >Per le risorse di Load Balancer e IP pubblico è necessario usare SKU corrispondenti. Non è possibile avere una combinazione di risorse SKU Basic e risorse SKU Standard. Non è possibile collegare le macchine virtuali autonome, le macchine virtuali in una risorsa del set di disponibilità, o una risorsa di un set di scalabilità di macchina virtuale per entrambi gli SKU contemporaneamente.
 

@@ -3,24 +3,24 @@ title: Procedure dettagliate del processo di data science per i team in Azure
 description: Come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589067"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864078"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Procedure dettagliate del processo di data science per i team
 
-Queste **procedure dettagliate complete** illustrano i passaggi del processo di data science per i team in scenari specifici. Viene spiegato come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'**applicazione intelligente**. Le procedure dettagliate sono raggruppate in base alla **piattaforma** in uso.
+Queste **procedure dettagliate complete** illustrano i passaggi del processo di analisi scientifica dei dati per i team per scenari specifici. Illustrano come combinare strumenti cloud, locali e servizi in un flusso di lavoro per un' **applicazione intelligente**. Le procedure dettagliate sono raggruppate in base alla **piattaforma** in uso.
 
 
 ## <a name="walkthrough-descriptions"></a>Descrizioni della procedura dettagliata
@@ -40,7 +40,7 @@ Di seguito sono riportate brevi descrizioni di quanto fornito da questi esempi d
 
 Per una descrizione dei componenti principali che costituiscono il processo di data science per i team, vedere [Panoramica del processo di data science per i team](overview.md).
 
-Per una descrizione del ciclo di vita del processo di data science per i team che è possibile usare per definire la struttura dei progetti di data science, vedere [Ciclo di vita del processo di data science per i team](lifecycle.md). Il ciclo di vita descrive tutti i passaggi generalmente seguiti dai progetti in fase di esecuzione. 
+Per una descrizione del ciclo di vita del processo di Data Science per i team, vedere ciclo di vita del [processo di Data Science](lifecycle.md). Questo ciclo di vita descrive i passaggi, dall'inizio alla fine, che in genere seguono i progetti quando vengono eseguiti. 
 
-Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Per una panoramica, vedere [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

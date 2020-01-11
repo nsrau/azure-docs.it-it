@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: 7f51021df2234438eb81a29887a714b0f09d0998
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 2978ffa68814d176ea1caf485e7e4f1ba72f2597
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563191"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867567"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -188,35 +188,7 @@ Dopo aver importato un file o un URL, QnA Maker converte e archivia il contenuto
 
 Se si aggiunge o modifica il contenuto direttamente nella Knowledge base, utilizzare la **formattazione Markdown** per creare contenuto RTF o modificare il contenuto del formato Markdown già presente nella risposta. QnA Maker supporta gran parte del formato Markdown per fornire funzionalità di testo avanzate ai contenuti. Tuttavia, l'applicazione client, ad esempio un bot di chat, potrebbe non supportare lo stesso set di formati Markdown. È importante testare la visualizzazione delle risposte dell'applicazione client.
 
-Di seguito è riportato l'elenco dei formati Markdown che è possibile usare in QnA Maker:
-
-|Finalità|Format|Markdown di esempio|Rendering<br>come visualizzato in chat bot|
-|--|--|--|--|
-Nuova riga tra due frasi.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![formattare la nuova riga tra due frasi](../media/qnamaker-concepts-datasources/format-newline.png)|
-|Intestazioni da H1 a H6, il numero di `#` indica l'intestazione. 1 `#` è H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formattare con le intestazioni Markdown](../media/qnamaker-concepts-datasources/format-headers.png)<br>![formattare con le intestazioni Markdown da H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
-|Corsivo |`*text*`|`How do I create a bot with *QnA Maker*?`|![formattare con corsivo](../media/qnamaker-concepts-datasources/format-italics.png)|
-|Stringa (in grassetto)|`**text**`|`How do I create a bot with **QnA Maker**?`|![formato con contrassegno forte per grassetto](../media/qnamaker-concepts-datasources/format-strong.png)|
-|URL per il collegamento|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato per URL (collegamento ipertestuale)](../media/qnamaker-concepts-datasources/format-url.png)|
-|\* URL per l'immagine pubblica|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato dell'URL dell'immagine pubblica ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|barrato|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato per barrato](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
-|Grassetto e corsivo|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato per grassetto e corsivo](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
-|URL grassetto per il collegamento|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formattare l'URL in grassetto](../media/qnamaker-concepts-datasources/format-bold-url.png)|
-|URL corsivo per il collegamento|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato per l'URL corsivo](../media/qnamaker-concepts-datasources/format-url-italics.png)|
-|Caratteri di escape Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato per l'URL corsivo](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
-|Elenco ordinato|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>Nell'esempio precedente viene usata la numerazione automatica incorporata in Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>Nell'esempio precedente viene usata la numerazione esplicita.|![formato dell'elenco ordinato](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
-|Elenco non ordinato|`\n * item1 \n * item2`<br>Oppure<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato dell'elenco non ordinato](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|Elenchi annidati|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>È possibile annidare insieme elenchi ordinati e non ordinati. La scheda `\t`indica il livello di rientro dell'elemento figlio.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato per un elenco non ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato dell'elenco ordinato annidato](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
-
-\* QnA Maker non elabora l'immagine in alcun modo. Si tratta del ruolo dell'applicazione client per il rendering dell'immagine.
-
-Se si vuole aggiungere contenuto usando le API della Knowledge base di aggiornamento/sostituzione e il contenuto e il file contengono tag HTML, è possibile mantenere il codice HTML nel file assicurandosi che l'apertura e la chiusura dei tag vengano convertite nel formato codificato.
-
-| Mantieni HTML  | Rappresentazione nella richiesta API  | Rappresentazione in KB |
-|-----------|---------|-------------------------|
-| Sì | \&lt; br\&gt; | &lt;BR&gt; |
-| Sì | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;intestazione&gt;H3&lt;/H3&gt; |
-
-Inoltre, CR LF (\r\n) viene convertito in \n nella KB. LF (\n) viene mantenuto così com'è. Se si vuole eseguire l'escape di qualsiasi sequenza di escape come \t o \n, è possibile usare la barra rovesciata, ad esempio:'\\\\r\\\\n'' è\\\\t'
+Per ulteriori informazioni, vedere gli esempi di Markdown forniti nel [riferimento QnA Maker Markdown](../reference-markdown-format.md) .
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modificare la knowledge base in locale
 

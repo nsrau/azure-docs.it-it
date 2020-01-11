@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Usare un repository Helm privato in uno spazio di sviluppo di Azure.
 keywords: Docker, Kubernetes, Azure, AKS, servizio contenitore di Azure, contenitori, Helm
 manager: gwallace
-ms.openlocfilehash: f212df74ab8102391e4170ccef6b0c3b1129b046
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dddec69dc019f286c714a09e6f1a7e47240d5572
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279927"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867278"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Usare un repository Helm privato in Azure Dev Spaces
 
@@ -35,6 +35,9 @@ Passare alla directory del progetto ed eseguire `azds prep`.
 ```cmd
 azds prep --public
 ```
+
+> [!TIP]
+> Il `prep` comando tenta di generare [un grafico Dockerfile e Helm](../how-dev-spaces-works.md#prepare-your-code) per il progetto. Azure Dev Spaces utilizza questi file per compilare ed eseguire il codice, ma è possibile modificare questi file se si desidera modificare la modalità di compilazione e di esecuzione del progetto.
 
 Creare un file [requirements. YAML][helm-requirements] con il grafico nella directory del grafico dell'applicazione. Ad esempio, se l'applicazione è denominata *App1*, si creeranno *Charts/App1/requirements. YAML*.
 

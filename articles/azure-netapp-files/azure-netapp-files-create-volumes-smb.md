@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300537"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867441"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -40,7 +40,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 * Le porte appropriate devono essere aperte nel server di Windows Active Directory (AD) applicabile.  
     Le porte necessarie sono le seguenti: 
 
-    |     Servizio           |     Port     |     Protocol     |
+    |     Servizio           |     Porta     |     Protocollo     |
     |-----------------------|--------------|------------------|
     |    Servizi Web Active Directory    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -56,9 +56,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     |    Nome NetBIOS       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    LDAP sicuro        |    636       |    TCP           |
-    |    LDAP sicuro        |    3269      |    TCP           |
-    |    W32Time            |    123       |    UDP           |
+    |    w32time            |    123       |    UDP           |
 
 * La topologia del sito per il Active Directory Domain Services di destinazione deve rispettare le procedure consigliate, in particolare la VNet di Azure in cui viene distribuito Azure NetApp Files.  
 
@@ -151,7 +149,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
         
         Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni VNet è possibile delegare una sola subnet a Azure NetApp Files.   
  
-        ![Creazione di un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Creare un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 

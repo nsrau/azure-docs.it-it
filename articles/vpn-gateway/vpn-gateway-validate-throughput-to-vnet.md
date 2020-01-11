@@ -1,20 +1,20 @@
 ---
-title: Convalidare la velocità effettiva della VPN verso una rete virtuale di Microsoft Azure | Microsoft Docs
+title: Convalidare la velocità effettiva VPN in una Rete virtuale di Microsoft Azure
 description: Lo scopo di questo documento è quello di consentire a un utente di convalidare la velocità effettiva della rete dalle relative risorse locali a una macchina virtuale di Azure.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058807"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860487"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
@@ -25,11 +25,11 @@ Questo articolo descrive come convalidare la velocità effettiva della rete dall
 > [!NOTE]
 > Questo articolo ha lo scopo di semplificare la diagnosi e la risoluzione dei problemi comuni. Se non si riesce a risolvere il problema tramite le informazioni seguenti, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 La connessione del gateway VPN coinvolge i componenti seguenti:
 
-* Dispositivo VPN locale (visualizzare un elenco di [dispositivi VPN](vpn-gateway-about-vpn-devices.md#devicetable)convalidati).
+* Dispositivo VPN locale (visualizzare un elenco di [dispositivi VPN convalidati](vpn-gateway-about-vpn-devices.md#devicetable)).
 * Internet pubblico
 * Gateway VPN di Azure
 * Macchina virtuale di Azure
@@ -64,7 +64,7 @@ Questo strumento non esegue operazioni di lettura/scrittura su disco, ma produce
 Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Per dettagli, vedere la [documentazione di iPerf](https://iperf.fr/iperf-doc.php).
 
  > [!NOTE]
- > I prodotti di terze parti descritti in questo articolo sono prodotti da società indipendenti da Microsoft. Microsoft non fornisce alcuna garanzia, implicita o esplicita, in merito alle prestazioni o all'affidabilità di questi prodotti.
+ > I prodotti di terze parti descritti in questo articolo sono prodotti da società indipendenti da Microsoft. Microsoft non fornisce alcuna garanzia, implicita o esplicita, sulle prestazioni o sull'affidabilità di questi prodotti.
 
 ### <a name="run-iperf-iperf3exe"></a>Eseguire iPerf (iperf3.exe)
 
@@ -72,7 +72,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 
 1. In entrambi i nodi abilitare un'eccezione firewall per la porta 5001.
 
-   **Windows:** Eseguire il comando seguente come amministratore:
+   **Windows:** eseguire questo comando come amministratore.
 
    ```CMD
    netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -118,7 +118,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 1. Dopo aver completato i passaggi precedenti, eseguire gli stessi passaggi con i ruoli invertiti, in modo che il nodo del server sarà il nodo client e viceversa.
 
 > [!Note]
-> Iperf non è l'unico strumento. [NTTTCP è una soluzione alternativa per](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing)il testing.
+> Iperf non è l'unico strumento. [NTTTCP è una soluzione alternativa per il testing](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
 
 ## <a name="test-vms-running-windows"></a>Testare le VM che eseguono Windows
 
@@ -126,7 +126,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 
 Scaricare la versione più recente di [latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Prendere in considerazione l'inserimento di latte. exe in una cartella separata, ad esempio`c:\tools`
+Si consiglia di inserire Lattes. exe in una cartella separata, ad esempio `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Consenti latte. exe attraverso Windows Firewall
 
@@ -238,9 +238,9 @@ Anche se la velocità effettiva complessiva valutata con i passaggi precedenti (
 
 Sono state citate le subnet degli intervalli locali che si desidera che Azure raggiunga tramite VPN sul gateway di rete locale. Definire contemporaneamente lo spazio di indirizzi della VNET in Azure al dispositivo locale.
 
-* **Gateway basato su Route**: I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
+* **Gateway basato su Route**: il criterio o il selettore di traffico per le VPN basate su route sono configurati come any-to-any (o caratteri jolly).
 
-* **Gateway basato su criteri**: Le VPN basate su criteri crittografano e reindirizzano i pacchetti tramite tunnel IPsec basati su combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure. I criteri (o selettore di traffico) vengono in genere definiti come un elenco di accesso nella configurazione VPN.
+* **Gateway basato su criteri**: le VPN basate su criteri crittografano e indirizzano i pacchetti tramite tunnel IPSec basati sulle combinazioni di prefissi di indirizzo tra la rete locale e la VNet di Azure. I criteri (o selettore di traffico) vengono in genere definiti come un elenco di accesso nella configurazione VPN.
 
 * Connessioni **UsePolicyBasedTrafficSelector** : ("UsePolicyBasedTrafficSelectors" per $true in una connessione configurerà il gateway VPN di Azure per connettersi al firewall VPN basato su criteri in locale. Se si Abilita PolicyBasedTrafficSelectors, è necessario assicurarsi che il dispositivo VPN disponga dei selettori di traffico corrispondenti definiti con tutte le combinazioni dei prefissi della rete locale (gateway di rete locale) da e verso i prefissi della rete virtuale di Azure, anziché Any-to-any.
 
@@ -252,7 +252,7 @@ Una configurazione non appropriata può causare frequenti disconnessioni all'int
 
 * WinMTR
 * TCPTraceroute
-* `ping`e `psping` (questi strumenti possono fornire una stima corretta di RTT, ma non possono essere usati in tutti i casi).
+* `ping` e `psping` (questi strumenti possono fornire una stima corretta di RTT, ma non possono essere usati in tutti i casi).
 
 ![Verifica latenza](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383305"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863513"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Come creare funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -111,7 +111,7 @@ function process(telemetry, executionContext) {
 
 | Valore | Sostituire con |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | Un nome di limite del contenuto costituito da più parti |
+| USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 | YOUR_SPACE_IDENTIFIER | Identificatore dello spazio  |
 | YOUR_MATCHER_IDENTIFIER | ID del matcher da usare |
 
@@ -193,11 +193,11 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Per un esempio di codice di funzione più complesso definito dall'utente, vedere la [guida introduttiva all'occupazione](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+Per un esempio di codice di funzione definito dall'utente più complesso, leggere la [Guida introduttiva di uso](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Creare un'assegnazione di ruolo
 
-Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'utente. Se non esiste alcuna assegnazione di ruolo per la funzione definita dall'utente, non si avranno le autorizzazioni appropriate per interagire con l'API Gestione o per eseguire azioni sugli oggetti grafo. Le azioni eseguite dalla funzione definita dall'utente non sono esenti dal controllo degli accessi in base al ruolo delle API di gestione di Gemelli digitali di Azure. Ad esempio, è possibile limitare l'ambito delle funzioni definite dall'utente specificando determinati ruoli o percorsi di controllo di accesso. Per altre informazioni, vedere la documentazione relativa al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md).
+Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'utente. Se non esiste alcuna assegnazione di ruolo per la funzione definita dall'utente, non si avranno le autorizzazioni appropriate per interagire con l'API Gestione o per eseguire azioni sugli oggetti grafo. Le azioni eseguite dalla funzione definita dall'utente non sono esenti dal controllo degli accessi in base al ruolo delle API di gestione di Gemelli digitali di Azure. Ad esempio, è possibile limitare l'ambito delle funzioni definite dall'utente specificando determinati ruoli o percorsi di controllo di accesso. Per ulteriori informazioni, vedere la documentazione relativa al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) .
 
 1. [Effettuare una query nell'API di sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) per fare in modo che tutti i ruoli ricevano l'ID da assegnare alle funzioni definite dall'utente. Eseguire questa operazione effettuando una richiesta HTTP GET autenticata a:
 

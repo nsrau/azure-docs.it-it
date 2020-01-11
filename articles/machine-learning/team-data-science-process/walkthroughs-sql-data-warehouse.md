@@ -3,20 +3,20 @@ title: Analisi in SQL Data Warehouse con T-SQL, Python - Processo di data scienc
 description: Esempi che illustrano l'utilizzo di SQL Data Warehouse per eseguire analisi predittive.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c545e73e51ea33db1ced546bf47465197b3fb8e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c8be715391f71e281ca41cc68428a2d29d78783
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589123"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864129"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Procedure dettagliate di data science per SQL Data Warehouse con T-SQL e Python in Azure
 
@@ -27,11 +27,11 @@ Le procedure dettagliate di data science aggiuntive che eseguono il processo di 
 
 ## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Stimare le mance dei taxi usando T-SQL e notebook IPython con SQL Data Warehouse
 
-La procedura dettagliata relativa all'[uso di SQL Data Warehouse](sqldw-walkthrough.md) illustra come compilare e distribuire modelli di classificazione e regressione di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente relativo a corse e tariffe dei taxi nella città di New York.
+La [procedura dettagliata Use SQL data warehouse](sqldw-walkthrough.md) illustra come compilare e distribuire modelli di classificazione e regressione di machine learning usando SQL data warehouse (SQL DW).  I dati sono un set di dati relativo alle corse e alle tariffe di NYC Taxi disponibili pubblicamente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per una descrizione dei componenti principali che costituiscono il processo di data science per i team, vedere [Panoramica del processo di data science per i team](overview.md).
 
-Per una descrizione del ciclo di vita del processo di data science per i team che è possibile usare per definire la struttura dei progetti di data science, vedere [Ciclo di vita del processo di data science per i team](lifecycle.md). Il ciclo di vita descrive tutti i passaggi generalmente seguiti dai progetti in fase di esecuzione. 
+Per una descrizione del ciclo di vita del processo di Data Science per i team, vedere ciclo di vita del [processo di Data Science](lifecycle.md). Questo ciclo di vita descrive i passaggi, dall'inizio alla fine, che in genere seguono i progetti quando vengono eseguiti. 

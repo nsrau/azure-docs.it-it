@@ -4,16 +4,28 @@ description: Come modificare le destinazioni di archiviazione della cache HPC di
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168512"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866996"
 ---
 # <a name="edit-storage-targets"></a>Modificare le destinazioni di archiviazione
+
+È possibile rimuovere o modificare una destinazione di archiviazione dalla pagina **destinazioni di archiviazione** della cache.
+
+## <a name="remove-a-storage-target"></a>Rimuovere una destinazione di archiviazione
+
+Per rimuovere una destinazione di archiviazione, selezionarla nell'elenco e fare clic sul pulsante **Elimina** .
+
+Questa azione rimuove l'associazione di destinazione di archiviazione con questo sistema di cache HPC di Azure, ma non modifica il sistema di archiviazione back-end. Ad esempio, se è stato usato un contenitore di archiviazione BLOB di Azure, il contenitore e il relativo contenuto continuano a esistere dopo averlo eliminato dalla cache. È possibile aggiungere il contenitore a una cache HPC di Azure diversa, aggiungerla nuovamente a questa cache o eliminarla con la portale di Azure.
+
+Tutte le modifiche apportate ai file archiviati nella cache vengono scritte nel sistema di archiviazione back-end prima della rimozione della destinazione di archiviazione. Questo processo può richiedere più di un'ora se nella cache sono presenti numerosi dati modificati.
+
+## <a name="update-storage-targets"></a>Aggiornare le destinazioni di archiviazione
 
 È possibile modificare le destinazioni di archiviazione per modificare alcune delle relative proprietà. Diverse proprietà sono modificabili per diversi tipi di archiviazione:
 
@@ -23,7 +35,7 @@ ms.locfileid: "74168512"
 
   * Percorso dello spazio dei nomi
   * Modello di utilizzo
-  * Export
+  * Esporta
   * Esporta sottodirectory
 
 Non è possibile modificare il nome, il tipo o il sistema di archiviazione back-end di una destinazione di archiviazione (contenitore BLOB o nome host/indirizzo IP NFS). Se è necessario modificare queste proprietà, eliminare la destinazione di archiviazione e creare una sostituzione con il nuovo valore.

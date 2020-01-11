@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3b8c25c09b87dc8e9874870881173944fea1ee73
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894921"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864350"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Formato JSON per ottimizzare le prestazioni delle query 
 
@@ -50,7 +50,7 @@ Le linee guida seguenti consentono di ottenere le migliori prestazioni possibili
 
 ## <a name="example-overview"></a>Panoramica di esempio
 
-Nei due esempi seguenti viene illustrato come inviare eventi per evidenziare le raccomandazioni precedenti. Seguendo ogni esempio, è possibile vedere come sono state applicate le raccomandazioni.
+Nei due esempi seguenti viene illustrato come inviare eventi per evidenziare le raccomandazioni precedenti. Seguendo ogni esempio, è possibile esaminare il modo in cui sono state applicate le raccomandazioni.
 
 Gli esempi sono basati su uno scenario in cui più dispositivi inviano misure o segnali. Le misurazioni o i segnali possono essere la velocità del flusso, la pressione del petrolio, la temperatura e l'umidità del motore. Nel primo esempio sono presenti poche misure in tutti i dispositivi. Il secondo esempio ha molti dispositivi e ogni dispositivo invia molte misurazioni univoche.
 

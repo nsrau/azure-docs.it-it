@@ -1,5 +1,5 @@
 ---
-title: Cluster privato del servizio Kubernetes di Azure
+title: Creare un cluster di servizi Kubernetes di Azure privato
 description: Informazioni su come creare un cluster Azure Kubernetes Service (AKS) privato
 services: container-service
 author: mlearned
@@ -7,30 +7,30 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: 6152becb8debd0700ddab6190284514c6d6cf69d
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: d7b1d82f88afd8ac3d94cbdd2d117834c12d0b96
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830055"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867142"
 ---
-# <a name="public-preview---private-azure-kubernetes-service-cluster"></a>Anteprima pubblica-cluster di servizi Kubernetes di Azure privato
+# <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creare un cluster privato del servizio Kubernetes di Azure (anteprima)
 
-In un cluster privato il piano di controllo/server API avrà indirizzi IP interni definiti in [RFC1918](https://tools.ietf.org/html/rfc1918).  Usando un cluster privato, è possibile verificare che il traffico di rete tra il server API e i pool di nodi rimanga solo sulla rete privata.
+In un cluster privato il piano di controllo o il server API dispone di indirizzi IP interni definiti nel documento [RFC1918-Address Allocation for Private Internets](https://tools.ietf.org/html/rfc1918) . Usando un cluster privato, è possibile verificare che il traffico di rete tra il server API e i pool di nodi rimanga solo sulla rete privata.
 
-La comunicazione tra il piano di controllo/server API, che si trova in una sottoscrizione di Azure gestita da AKS e il pool di cluster/nodi dei clienti, che si trova in una sottoscrizione del cliente, può comunicare tra loro tramite il [servizio di collegamento privato][private-link-service] nel server API VNET e un endpoint privato esposto nella subnet del cluster AKS del cliente.
+Il piano di controllo o il server API si trova in una sottoscrizione di Azure gestita da Azure Kubernetes Service (AKS). Un cluster o un pool di nodi del cliente si trova nella sottoscrizione del cliente. Il server e il cluster o il pool di nodi possono comunicare tra loro tramite il [servizio di collegamento privato di Azure][private-link-service] nella rete virtuale del server API e un endpoint privato esposto nella subnet del cluster AKS del cliente.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
+> Le funzionalità di anteprima di AKS sono self-service e sono offerte in base al consenso esplicito. Le anteprime vengono fornite *così come sono* e sono *disponibili* e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il *massimo sforzo* . Pertanto, le funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
 > * [Criteri di supporto AKS](support-policies.md)
 > * [Domande frequenti relative al supporto tecnico Azure](faq.md)
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
-* È necessaria l'interfaccia della riga di comando di Azure versione 2.0.77 o successiva e l'estensione AKS-Preview 0.4.18
+* L'interfaccia della riga di comando di Azure versione 2.0.77 o successiva e l'estensione dell'interfaccia della riga di comando di Azure AKS Preview 0.4.18
 
-## <a name="current-supported-regions"></a>Aree supportate correnti
+## <a name="currently-supported-regions"></a>Aree attualmente supportate
 * Stati Uniti occidentali
 * Stati Uniti occidentali 2
 * Stati Uniti orientali 2
@@ -39,9 +39,9 @@ La comunicazione tra il piano di controllo/server API, che si trova in una sotto
 * Europa occidentale
 * Australia orientale
 
-## <a name="install-latest-aks-cli-preview-extension"></a>Installare la versione di anteprima dell'interfaccia della riga di comando AKS
+## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installare l'estensione più recente dell'interfaccia della riga di comando di Azure AKS
 
-Per usare i cluster privati, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* 0.4.18 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] ::
+Per usare i cluster privati, è necessaria l'estensione dell'interfaccia della riga di comando di Azure AKS Preview 0.4.18 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure AKS anteprima usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] seguente:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -51,19 +51,19 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 > [!CAUTION]
-> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS, quindi creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
+> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare le impostazioni predefinite per tutti i cluster AKS creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato *registrato*. È possibile controllare lo stato della registrazione usando il comando [AZ feature list][az-feature-list] :
+Potrebbero essere necessari alcuni minuti prima che lo stato della registrazione venga visualizzato come *registrato*. È possibile controllare lo stato usando il comando [AZ feature list][az-feature-list] seguente:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato è registrato, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
+Quando lo stato è registrato, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] seguente:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -71,14 +71,14 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-private-aks-cluster"></a>Creare un cluster AKS privato
 
-#### <a name="default-basic-networking"></a>Rete di base predefinita 
+### <a name="default-basic-networking"></a>Rete di base predefinita 
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Dove--Enable-Private-cluster è un flag obbligatorio per un cluster privato 
+Dove *--Enable-Private-cluster* è un flag obbligatorio per un cluster privato. 
 
-#### <a name="advanced-networking"></a>Rete avanzata  
+### <a name="advanced-networking"></a>Rete avanzata  
 
 ```azurecli-interactive
 az aks create \
@@ -92,43 +92,53 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Dove--Enable-Private-cluster è un flag obbligatorio per un cluster privato 
+Dove *--Enable-Private-cluster* è un flag obbligatorio per un cluster privato. 
 
-## <a name="steps-to-connect-to-the-private-cluster"></a>Passaggi per la connessione al cluster privato
-L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, gli utenti dovranno creare una macchina virtuale di Azure in una rete virtuale e connettersi al server API. I passaggi descritti in
+> [!NOTE]
+> Se l'indirizzo CIDR del Bridge Docker (172.17.0.1/16) si scontra con la CIDR della subnet, modificare l'indirizzo del Bridge Docker in modo appropriato.
 
-* Ottenere le credenziali per la connessione al cluster
+## <a name="connect-to-the-private-cluster"></a>Connettersi al cluster privato
+L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è necessario creare una macchina virtuale (VM) di Azure in una rete virtuale e connettersi al server API. A tale scopo, seguire questa procedura:
+
+1. Ottenere le credenziali per la connessione al cluster.
 
    ```azurecli-interactive
    az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
    ```
-* Creare una macchina virtuale nella stessa VNET del cluster AKS o creare una macchina virtuale in un VNET diverso e peer this VNET con il cluster AKS VNET
-* Se si crea una macchina virtuale in un VNET diverso, sarà necessario configurare un collegamento tra questo VNET e la zona DNS privato
-    * passare al gruppo di risorse MC_ * nel portale 
-    * fare clic sull'area DNS privato 
-    * Selezionare il collegamento rete virtuale nel riquadro sinistro
-    * creare un nuovo collegamento per aggiungere il VNET della macchina virtuale all'area DNS privato *(sono necessari alcuni minuti per rendere disponibile il collegamento della zona DNS)*
-    * tornare al gruppo di risorse MC_ * nel portale
-    * Selezionare la rete virtuale nel riquadro di destra. Il nome della rete virtuale avrà il formato AKS-vnet-*.
-    * Selezionare i peering nel riquadro sinistro
-    * fare clic su Aggiungi e aggiungere la rete virtuale della VM e creare il peering.
-    * Passare a VNET in cui si dispone della macchina virtuale e quindi fare clic su peer e selezionare la rete virtuale AKS e creare il peering. Se gli intervalli di indirizzi nella rete virtuale AKS e nella rete virtuale della VM sono in conflitto, il peering avrà esito negativo. Per ulteriori informazioni sul peering di rete virtuale, fare riferimento a questo [documento][virtual-network-peering] .
-* Connettersi tramite SSH alla macchina virtuale
-* Installare lo strumento Kubectl ed eseguire i comandi Kubectl
+
+1. Effettuare una delle operazioni seguenti:
+   * Creare una VM nella stessa rete virtuale del cluster AKS.  
+   * Creare una macchina virtuale in una rete virtuale diversa ed esaminarla con la rete virtuale del cluster AKS.
+
+     Se si crea una VM in una rete virtuale diversa, configurare un collegamento tra la rete virtuale e la zona DNS privata. A tale scopo, procedere come indicato di seguito:
+    
+     a. Passare al gruppo di risorse MC_ * nel portale di Azure.  
+     b. Selezionare la zona DNS privata.   
+     c. Nel riquadro sinistro selezionare il collegamento **rete virtuale** .  
+     d. Creare un nuovo collegamento per aggiungere la rete virtuale della VM alla zona DNS privata. Sono necessari alcuni minuti per rendere disponibile il collegamento per la zona DNS.  
+     e. Tornare al gruppo di risorse MC_ * nella portale di Azure.  
+     f. Nel riquadro di destra selezionare la rete virtuale. Il nome della rete virtuale ha il formato *AKS-VNET-\** .  
+     g. Nel riquadro sinistro selezionare **peering**.  
+     h. Selezionare **Aggiungi**, aggiungere la rete virtuale della VM e quindi creare il peering.  
+     i. Passare alla rete virtuale in cui è presente la VM, selezionare **peering**, selezionare la rete virtuale AKS e quindi creare il peering. Se gli intervalli di indirizzi nella rete virtuale AKS e nello scontro della rete virtuale della macchina virtuale, il peering ha esito negativo. Per altre informazioni, vedere [peering di rete virtuale][virtual-network-peering].
+
+1. Accedere alla macchina virtuale tramite Secure Shell (SSH).
+1. Installare lo strumento Kubectl ed eseguire i comandi Kubectl.
+
 
 ## <a name="dependencies"></a>Dependencies  
-* Solo LB standard-nessun supporto per il servizio di bilanciamento del carico di base  
+* Il servizio di collegamento privato è supportato solo su Azure Load Balancer standard. Il Azure Load Balancer di base non è supportato.  
 
 ## <a name="limitations"></a>Limitazioni 
-* Le stesse [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano a cluster privati, gli endpoint privati di Azure e gli endpoint di servizio della rete virtuale non sono attualmente supportati nella stessa VNET
-* Nessun supporto per i nodi virtuali in un cluster privato per la selezione di istanze di ACI privato in una VNET di Azure privata
-* Nessun supporto per l'integrazione di Azure DevOps con i cluster privati
-* Se i clienti devono consentire ad ACR di funzionare con il servizio contenitore di gestione dei contenitori privato, è necessario eseguire il peering del VNET del registro contenitori di gruppo con il cluster agente VNET
-* Nessun supporto corrente per Azure Dev Spaces
-* Nessun supporto per la conversione di cluster AKS esistenti in cluster privati  
-* Se si elimina o si modifica l'endpoint privato nella subnet del cliente, il cluster smette di funzionare 
-* Il monitoraggio di Azure per i contenitori Live Data non è attualmente supportato
-* Bring your own DNS non è attualmente supportato
+* Le [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano a cluster privati, endpoint privati di Azure e endpoint di servizio della rete virtuale, che non sono attualmente supportati nella stessa rete virtuale.
+* Nessun supporto per i nodi virtuali in un cluster privato per la rotazione delle istanze ACI (Cisco Application centric Infrastructure) private in una rete virtuale privata di Azure.
+* Nessun supporto per l'integrazione di Azure DevOps con i cluster privati.
+* Per i clienti che devono consentire a Azure Container Registry di lavorare con il servizio contenitore di Azure privato, è necessario eseguire il peering della rete virtuale Container Registry con la rete virtuale del cluster di agenti.
+* Nessun supporto corrente per Azure Dev Spaces.
+* Nessun supporto per la conversione di cluster AKS esistenti in cluster privati.  
+* Se si elimina o si modifica l'endpoint privato nella subnet del cliente, il cluster smette di funzionare. 
+* Il monitoraggio di Azure per i contenitori Live Data non è attualmente supportato.
+* *Bring your own DNS* non è attualmente supportato.
 
 
 <!-- LINKS - internal -->

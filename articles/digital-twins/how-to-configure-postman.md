@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d87112697bfa3aa7bb6b4c8f14420598ccd914cb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304817"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864316"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -97,9 +97,9 @@ Configurare e configurare il post per ottenere un token di Azure Active Director
     | Grant Type (Tipo di concessione) | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL (URL autorizzazione) | Usare l' **URL di autorizzazione** del **passaggio 2** |
-    | ID Client | Usare l' **ID applicazione** per l'app Azure Active Directory creata o riutilizzata nella sezione precedente |
+    | ID client | Usare l' **ID applicazione** per l'app Azure Active Directory creata o riutilizzata nella sezione precedente |
     | Ambito | Lasciare vuoto |
-    | Stato | Lasciare vuoto |
+    | Statale | Lasciare vuoto |
     | Client Authentication (Autenticazione client) | `Send as Basic Auth header` |
 
 1. Il client ora dovrebbe essere visualizzato come:
@@ -130,7 +130,7 @@ Dopo aver completato i passaggi precedenti, configurare Postman per eseguire una
    > * Non è necessario specificare tali intestazioni per ogni parte.
    > * Selezionare `multipart/mixed` o un altro **Content-Type** appropriato per l'intera richiesta.
 
-1. Selezionare infine **Invia** per inviare la richiesta post http multiparte. Un codice di stato `200` o `201` indica una richiesta con esito positivo. Viene visualizzato anche il messaggio di risposta appropriato.
+1. Selezionare infine **Invia** per inviare la richiesta post http multiparte. Un codice di stato `200` o `201` indica una richiesta con esito positivo. Verrà visualizzato il messaggio di risposta appropriato nell'interfaccia client.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

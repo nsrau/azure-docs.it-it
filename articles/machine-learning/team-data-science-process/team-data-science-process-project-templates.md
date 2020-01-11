@@ -2,21 +2,21 @@
 title: Pianificazione di un progetto di data science per i team
 description: Modelli di Microsoft Project ed Excel che consentono di pianificare e gestire i progetti di data science.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253025"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864231"
 ---
 # <a name="team-data-science-process-project-planning"></a>Pianificazione di un progetto di data science per i team
 
@@ -24,9 +24,9 @@ Il processo di data science per i team (TDSP) fornisce un ciclo di vita per stru
 
 Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-- Informazioni commerciali
+- Comprensione del business
 - Acquisizione e comprensione dei dati
-- Modellazione
+- Creazione di modelli
 - Distribuzione
 - Accettazione del cliente
 
@@ -35,7 +35,7 @@ Per le descrizioni delle varie fasi, vedere [Ciclo di vita del processo di data 
  
 ## <a name="microsoft-project-template"></a>Modello di Microsoft Project
 
-Il modello di Microsoft Project per il processo di data science per i team è disponibile qui: [Modello di Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
+Il modello di Microsoft Project per il processo di analisi scientifica dei dati per i team è disponibile qui: [Modello di Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
 
 Quando si apre la pianificazione, fare clic sul collegamento all'estrema sinistra di TDSP. Modificare il nome e la descrizione e quindi aggiungere le altre risorse del team. Stimare le date richieste in base all'esperienza.
 
@@ -48,7 +48,7 @@ Ogni attività ha una nota. Aprire le attività per vedere quali risorse sono gi
 
 ## <a name="excel-template"></a>Modello di Excel
 
-Se non si ha accesso a Microsoft Project, è possibile scaricare un foglio di lavoro di Excel con gli stessi dati usando questo collegamento, [Modello di Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx), e quindi trascinarlo in qualsiasi strumento desiderato.
+Se non si ha accesso Microsoft Project, è possibile scaricare un foglio di lavoro di Excel con gli stessi dati: [Modello di Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) È possibile trascinarlo in qualsiasi strumento che si vuole utilizzare.
 
 Usare questi modelli a proprio rischio. Valgono le [consuete dichiarazioni di non responsabilità](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -58,7 +58,7 @@ Usare questo [repository dei modelli di progetto](https://github.com/Azure/Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Sviluppo agile di progetti di data science](agile-development.md) Questo documento descrive come eseguire un progetto di data science in modo sistematico, collaborativo e con controllo delle versioni all'interno di un team di progetto usando il processo di data science per i team.
+[Sviluppo agile di progetti Data Science](agile-development.md) Questo documento descrive un progetto data science in modo sistematico, controllato dalla versione e collaborativo usando il processo di Data Science per i team.
 
 Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 

@@ -2,13 +2,14 @@
 title: Domande generali sul servizio Azure Site Recovery
 description: Questo articolo descrive le domande generali più diffuse su Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497545"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863564"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -101,7 +102,8 @@ Sì. Quando si crea un insieme di credenziali di Site Recovery in un'area, tutti
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery consente di crittografare la replica?
 Per la replica di macchine virtuali e server fisici tra siti locali, è supportata la crittografia in transito. Per la replica di macchine virtuali e server fisici in Azure, sono supportate sia la crittografia in transito che la [crittografia inattiva (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption).
 
-
+### <a name="how-can-i-enforce-tls-12-on-all-on-premises-azure-site-recovery-components"></a>Come è possibile applicare TLS 1,2 in tutti i componenti Azure Site Recovery locali?
+Gli agenti di mobilità installati negli elementi replicati comunicano con il server di elaborazione solo su TLS 1,2. Tuttavia, la comunicazione dal server di configurazione ad Azure e dal server di elaborazione ad Azure può essere in TLS 1,1 o 1,0. Seguire le [indicazioni](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) per applicare TLS 1,2 in tutti i server di configurazione e i server di elaborazione impostati dall'utente.
 
 
 ## <a name="disaster-recovery"></a>Ripristino di emergenza

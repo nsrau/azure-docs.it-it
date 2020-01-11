@@ -2,24 +2,24 @@
 title: Tenere traccia dello stato di avanzamento dei progetti team Data Science process
 description: Il data science modo in cui i responsabili del gruppo, i lead dei team e i lead del progetto possono tenere traccia dello stato di avanzamento di un progetto data science.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244073"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864197"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>Tenere traccia dello stato di avanzamento dei progetti di data science
 
-I responsabili dei gruppi, i lead del team e i lead del progetto di Data Science possono tenere traccia dello stato di avanzamento dei progetti, ad esempio quali operazioni sono state eseguite, chi ha fatto il lavoro e il lavoro rimanente. 
+I responsabili dei gruppi, i lead del team e i lead del progetto di Data Science possono tenere traccia dello stato di avanzamento dei progetti.  I manager desiderano sapere quali operazioni sono state eseguite, chi ha eseguito il lavoro e il lavoro rimanente.   La gestione delle aspettative è un elemento importante di successo.
 
 ## <a name="azure-devops-dashboards"></a>Dashboard di Azure DevOps
 
@@ -46,8 +46,8 @@ Ecco un semplice dashboard di esempio che tiene traccia delle attività sprint d
 
 - Il **grafico Burn-Up** Mostra il lavoro completato rispetto alla quantità totale di lavoro nello sprint.
 
-![dashboard](./media/track-progress/dashboard.png)
+![Dashboard](./media/track-progress/dashboard.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Procedure dettagliate che eseguono il processo di Data Science per i team](walkthroughs.md) elenca le procedure dettagliate che illustrano tutti i passaggi del processo per scenari specifici, con collegamenti e descrizioni delle anteprime. Negli scenari collegati viene illustrato come combinare strumenti e servizi cloud e locali in flussi di lavoro o pipeline per creare applicazioni intelligenti. 
+[Procedure dettagliate che eseguono il processo di Data Science per i team](walkthroughs.md) elenca le procedure dettagliate che illustrano tutti i passaggi del processo. Negli scenari collegati viene illustrato come gestire le risorse cloud e locali in applicazioni intelligenti. 

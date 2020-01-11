@@ -2,23 +2,22 @@
 title: 'Gateway VPN di Azure: eliminare un gateway: portale'
 description: Eliminare un gateway di rete virtuale usando il portale di Azure nel modello di distribuzione Resource Manager.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
 ms.topic: conceptual
-ms.openlocfilehash: e8c7a9c7b6d38c5fee4f57f65dd61a71f9723c07
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: fba213be2de3b747d3ba962674a03c0bc7df3ed5
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146335"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863666"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminare un gateway di rete virtuale usando il portale
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md) (PowerShell (classico))
 
@@ -58,7 +57,7 @@ A questo punto, viene eliminato il gateway di rete virtuale. I passaggi successi
 
 ## <a name="deleterg"></a>Eliminare un gateway VPN eliminando il gruppo di risorse
 
-Se non si è interessati a mantenere risorse del gruppo di risorse e si vuole solo ricominciare da capo, è possibile eliminare un intero gruppo di risorse. Questo è un modo rapido per rimuovere tutto. La procedura seguente si applica solo al modello di distribuzione Resource Manager.
+Se non si è interessati a mantenere risorse del gruppo di risorse e si vuole solo ricominciare da capo, è possibile eliminare un intero gruppo di risorse. Questo è un modo rapido per rimuovere tutto. La procedura seguente si applica solo al modello di distribuzione di Azure Resource Manager.
 
 1. In **Tutte le risorse**, individuare il gruppo di risorse e fare clic per aprire il pannello.
 2. Fare clic su **Elimina**. Nel pannello Elimina visualizzare le risorse interessate. Assicurarsi che si desidera eliminare tutte le risorse. In caso contrario, usare i passaggi in Eliminare un gateway VPN all'inizio di questo articolo.
