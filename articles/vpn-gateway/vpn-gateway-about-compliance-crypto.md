@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666495"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902832"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Informazioni sui requisiti di crittografia e i gateway VPN di Azure
 
@@ -34,7 +34,7 @@ Il set di criteri predefinito per il gateway VPN di Azure è riportato nell'arti
 
 ## <a name="cryptographic-requirements"></a>Requisiti per la crittografia
 
-Per le comunicazioni che richiedono specifici algoritmi di crittografia o parametri, in genere a causa dei requisiti di conformità o sicurezza, è ora possibile configurare i gateway VPN di Azure per usare un criterio IPsec/IKE personalizzato con algoritmi di crittografia specifici e punti di forza della chiave, anziché i set di criteri predefiniti di Azure.
+Per le comunicazioni che richiedono specifici algoritmi di crittografia o parametri, in genere a causa di requisiti di conformità o di sicurezza, è ora possibile configurare i gateway VPN di Azure per usare un criterio IPsec/IKE personalizzato con algoritmi di crittografia e attendibilità delle chiavi specifici, invece dei set di criteri predefiniti di Azure.
 
 Ad esempio, i criteri della modalità principale IKEv2 per i gateway VPN di Azure usano solo il gruppo Diffie-Hellman 2 (1024 bit), mentre potrebbe essere necessario specificare gruppi più avanzati da usare in IKE, ad esempio il gruppo 14 (2048-bit), il gruppo 24 (gruppo MODP a 2048 bit) o ECP (curva ellittica). gruppi) 256 o 384 bit (rispettivamente il gruppo 19 e il gruppo 20). Simili requisiti si applicano anche ai criteri IPsec in modalità rapida.
 
@@ -49,7 +49,7 @@ I gateway VPN di Azure ora supportano i criteri IPsec/IKE personalizzati per con
 ### <a name="workflow"></a>Flusso di lavoro
 
 1. Creare le reti virtuali, i gateway VPN o i gateway di rete locale per la topologia di connettività, come descritto in altri documenti sulle procedure
-2. Creare criteri IPsec/IKE
+2. Creare un criterio IPsec/IKE
 3. È possibile applicare i criteri quando si crea una connessione S2S o da rete virtuale a rete virtuale
 4. Se la connessione è già stata creata, è possibile applicare o aggiornare i criteri per una connessione esistente
 

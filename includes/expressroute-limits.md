@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67622105"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901924"
 ---
-| Risorsa | Limite predefinito/massimo |
+| Gruppi | Limite predefinito/massimo |
 | --- | --- |
 | Circuiti ExpressRoute per ogni sottoscrizione |10 |
 | Circuiti ExpressRoute per area per ogni sottoscrizione, con Azure Resource Manager |10 |
@@ -42,4 +42,7 @@ ms.locfileid: "67622105"
 | 40 Gbps * |10 |100 |
 | 100 Gbps * |10 |100 |
 
-**Solo ExpressRoute a 100 Gbps*
+**solo ExpressRoute 100 Gbps*
+
+> [!NOTE]
+> Le connessioni Copertura globale vengono conteggiate rispetto al limite di connessioni di rete virtuale per ogni circuito ExpressRoute. Un circuito Premium da 10 Gbps, ad esempio, consentirebbe 5 connessioni Copertura globale e 95 connessioni ai gateway ExpressRoute o 95 Copertura globale connessioni e 5 connessioni ai gateway ExpressRoute o qualsiasi altra combinazione fino al limite di 100 connessioni per il circuito.

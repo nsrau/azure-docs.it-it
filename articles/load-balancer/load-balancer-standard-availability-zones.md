@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: e7ddb548d8dad5bdcc3021941877903377af9318
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771479"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903340"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -209,10 +209,6 @@ Con ridondanza della zona è possibile offrire una semplicità con un'opzione in
 La zona può fornire una garanzia esplicita a una zona, condividendo in modo esplicito il destino con l'integrità della zona. La creazione di una regola di Load Balancer con un front-end di indirizzo IP di zona o una Load Balancer front-end interna di zona può essere un aspetto auspicabile soprattutto se la risorsa collegata è una macchina virtuale di zona nella stessa zona.  Oppure, forse, l'applicazione richiede una conoscenza esplicita dell'area in cui si trova una risorsa e si vuole ragionare in modo esplicito sulla disponibilità in zone separate.  È possibile scegliere di esporre più front-end di zona per un servizio end-to-end distribuito tra zone (vale a dire, front-end di zona in base alla zona per più set di scalabilità di macchine virtuali di zona).  Inoltre, se i front-end di zona sono indirizzi IP pubblici, è possibile usare questi front-end di zona molteplici per esporre il servizio con [Gestione traffico](../traffic-manager/traffic-manager-overview.md).  In alternativa, si possono usare più front-end di zona per ottenere informazioni dettagliate sulle prestazioni e sull'integrità in base alla zona tramite soluzioni di monitoraggio di terze parti ed esporre il servizio complessivo con un front-end con ridondanza della zona. Si devono gestire le risorse di zona solo con front-end di zona allineati alla stessa zona evitando scenari tra zone potenzialmente dannosi per le risorse di zona.  Le risorse di zona esistono solo nelle aree in cui sono presenti zone di disponibilità.
 
 Non è possibile offrire indicazioni generali riguardo alla scelta migliore da fare se non si conosce l'architettura del servizio.  Esaminare i [modelli di progettazione cloud di Azure](https://docs.microsoft.com/azure/architecture/patterns/) per migliorare la resilienza dell'applicazione in scenari di errore.
-
-## <a name="limitations"></a>Limitazioni
-
-- Mentre il piano dati è completamente con ridondanza della zona (a meno che non sia stata specificata una garanzia di zona), le operazioni del piano di controllo non sono completamente con ridondanza della zona.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [zone di disponibilità](../availability-zones/az-overview.md)

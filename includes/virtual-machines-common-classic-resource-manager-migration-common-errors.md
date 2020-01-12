@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9b47d3bde4c4c5ef7fd3d41c038ea078c19db900
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e590c07c3969865d573838352a8a778caa1cc799
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005741"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901696"
 ---
 Questo articolo descrive gli errori più comuni e le relative soluzioni per agevolare la migrazione delle risorse IaaS dal modello di distribuzione classica di Azure allo stack di Azure Resource Manager.
 
@@ -17,11 +17,11 @@ Questo articolo descrive gli errori più comuni e le relative soluzioni per agev
 
 ## <a name="list-of-errors"></a>Elenco degli errori
 
-| Stringa di errore | Mitigazione |
+| Stringa di errore | Strategia di riduzione del rischio |
 | --- | --- |
-| Errore interno del server |In alcuni casi, si tratta di un errore temporaneo che si risolve con un nuovo tentativo. Se l'errore persiste, [contattare il supporto tecnico Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) perché esamini i log della piattaforma. <br><br> **NOTA:** una volta che il team di supporto ha rilevato l'evento imprevisto, non tentare altre soluzioni in autonomia per evitare conseguenze impreviste nell'ambiente. |
+| Errore interno del server |In alcuni casi, si tratta di un errore temporaneo che si risolve con un nuovo tentativo. Se l'errore persiste, [contattare il supporto tecnico Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) perché esamini i log della piattaforma. <br><br> **NOTA:** una volta che il team di supporto ha rilevato l'evento imprevisto, non tentare altre soluzioni in autonomia per evitare conseguenze impreviste nell'ambiente. |
 | La migrazione non è supportata per la distribuzione {nome-distribuzione} in HostedService {nome-servizio-ospitato} perché si tratta di una distribuzione PaaS (Web/di lavoro). |Ciò si verifica quando una distribuzione contiene un ruolo Web o di lavoro. Dal momento che la migrazione è supportata solo per le macchine virtuali, rimuovere il ruolo Web o di lavoro dalla distribuzione e tentare nuovamente la migrazione. |
-| Distribuzione del modello {nome modello} non riuscita. CorrelationId={guid} |Nel back-end del servizio di migrazione, vengono usati i modelli di Azure Resource Manager per creare risorse nello stack di Azure Resource Manager. Dal momento che i modelli sono idempotenti, in genere è possibile ritentare in modo sicuro l'operazione di migrazione per superare l'errore. Se l'errore persiste, [contattare il supporto tecnico Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) e fornire il CorrelationId. <br><br> **NOTA:** una volta che il team di supporto ha rilevato l'evento imprevisto, non tentare altre soluzioni in autonomia per evitare conseguenze impreviste nell'ambiente. |
+| Distribuzione del modello {nome modello} non riuscita. CorrelationId={guid} |Nel back-end del servizio di migrazione, vengono usati i modelli di Azure Resource Manager per creare risorse nello stack di Azure Resource Manager. Dal momento che i modelli sono idempotenti, in genere è possibile ritentare in modo sicuro l'operazione di migrazione per superare l'errore. Se l'errore persiste, [contattare il supporto tecnico Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) e fornire il CorrelationId. <br><br> **NOTA:** una volta che il team di supporto ha rilevato l'evento imprevisto, non tentare altre soluzioni in autonomia per evitare conseguenze impreviste nell'ambiente. |
 | La rete virtuale {nome-rete-virtuale} non esiste. |Questa situazione può verificarsi se la rete virtuale è stata creata nel nuovo portale di Azure. Il nome effettivo della rete virtuale segue il modello "gruppo * \<nome VNET >" |
 | La VM {nome-vm} in HostedService {nome-servizio-ospitato} contiene l'estensione {nome-estensione} non supportata in Azure Resource Manager. È consigliabile disinstallare l'estensione dalla macchina virtuale prima di continuare con la migrazione. |Estensioni XML, ad esempio BGInfo 1.\* non sono supportate in Azure Resource Manager. Queste estensioni non possono essere migrate. Se queste estensioni non vengono disinstallate dalla macchina virtuale, vengono automaticamente disinstallate prima di completare la migrazione. |
 | La macchina virtuale {nome-vm} nel servizio ospitato {nome-servizio-ospitato} contiene l'estensione VMSnapshot/VMSnapshotLinux che non è attualmente supportata per la migrazione. Disinstallare l'estensione dalla macchina virtuale e riaggiungerla tramite Azure Resource Manager al termine della migrazione |Questo è lo scenario in cui la macchina virtuale è configurata per Backup di Azure. Poiché si tratta di uno scenario attualmente non supportato, attenersi alla soluzione descritta in https://aka.ms/vmbackupmigration. |

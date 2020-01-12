@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 79d7454722900eb1d9d6280e35313ef2f4a5cd54
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555678"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903498"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB
 
@@ -23,7 +23,7 @@ Questo articolo illustra come impostare e gestire i criteri di immutabilità e l
 
 ## <a name="set-retention-policies-and-legal-holds"></a>Impostare i criteri di conservazione e le esenzioni legali
 
-### <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 1. Creare un nuovo contenitore o selezionare un contenitore esistente per archiviare i BLOB che devono essere mantenuti nello stato non modificabile. Il contenitore deve trovarsi in un account di archiviazione BLOB o V2 per utilizzo generico.
 
@@ -57,9 +57,9 @@ Questo articolo illustra come impostare e gestire i criteri di immutabilità e l
 
     ![Casella "Nome tag" sotto il tipo di criteri](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. Per cancellare una tenuta legale, è sufficiente rimuovere il tag dell'identificatore di esenzione legale applicato.
+9. Per cancellare una tenuta legale, rimuovere il tag dell'identificatore di esenzione legale applicato.
 
-### <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+### <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage container immutability-policy` e `az storage container legal-hold`. Eseguire `-h` per visualizzare i comandi.
 
@@ -73,7 +73,7 @@ Il modulo AZ. Storage supporta l'archiviazione non modificabile.  Per abilitare 
 2. Rimuovere eventuali installazioni precedenti di Azure PowerShell.
 3. Installare Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-Lo script di PowerShell di esempio seguente viene fornito a scopo di riferimento. Questo script crea un nuovo account di archiviazione e un nuovo contenitore. Viene quindi illustrato come impostare e rimuovere i blocchi a fini giudiziari, creare e bloccare i criteri di conservazione basati sul tempo (noti anche come criteri di immutabilità) ed estendere l'intervallo di conservazione.
+Lo script di PowerShell di esempio seguente viene fornito a scopo di riferimento. Questo script crea un nuovo account di archiviazione e un nuovo contenitore. Viene quindi illustrato come impostare e cancellare i diritti legali, creare e bloccare un criterio di conservazione basato sul tempo (anche noto come criterio di immutabilità) ed estendere l'intervallo di conservazione.
 
 Prima di tutto, creare un account di archiviazione di Azure:
 
@@ -165,6 +165,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## <a name="enabling-allow-protected-append-blobs-writes"></a>Abilitazione di scritture di BLOB Accodamento protetto
+
+A questo punto, è possibile accedere solo all'impostazione `allowProtectedAppendWrites` per i criteri di conservazione basati sul tempo tramite questo [collegamento del portale](https://aka.ms/immutableappendblobs)specifico. 
+
+> [!IMPORTANT] 
+>  L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile e visibile solo nelle aree seguenti:
+> - Stati Uniti orientali
+> - Stati Uniti centro-meridionali
+> - Stati Uniti occidentali 2
+>
+> Per altre informazioni, vedere [Consenti scritture di BLOB di Accodamento protette](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+![Consenti scritture di Accodamento aggiuntive](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

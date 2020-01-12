@@ -8,17 +8,17 @@ author: axisc
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 356f825524192c3b6cf7df7f0460975f23ea4f7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6d20d4031f0ed4d1be4dddf9e33946251d6dd523
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852289"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903327"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal-preview"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure (anteprima)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure
 Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (SSE di Azure). Il bus di servizio Premium si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati con le chiavi gestite da Microsoft. 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Il bus di servizio di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key-BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia del bus di servizio di Azure.
 
 L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
@@ -27,7 +27,6 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una vol
 > Ci sono alcune avvertenze per la chiave gestita dal cliente per la crittografia lato servizio. 
 >   * Questa funzionalità è supportata dal livello [Premium del bus di servizio di Azure](service-bus-premium-messaging.md) . Non può essere abilitata per gli spazi dei nomi del bus di servizio di livello standard.
 >   * La crittografia può essere abilitata solo per gli spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene dati, l'operazione di crittografia avrà esito negativo.
->   * Se gli [endpoint di servizio della rete virtuale (VNet)](service-bus-service-endpoints.md) sono configurati in Azure Key Vault per lo spazio dei nomi del bus di servizio, BYOK non sarà supportato. 
 
 È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../key-vault/key-vault-overview.md)
 
@@ -40,7 +39,7 @@ Questo articolo illustra come configurare un insieme di credenziali delle chiavi
 Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
 
 1. Passare allo spazio dei nomi premium del bus di servizio.
-2. Nella pagina **Impostazioni** dello spazio dei nomi del bus di servizio selezionare **crittografia (anteprima)** .
+2. Nella pagina **Impostazioni** dello spazio dei nomi del bus di servizio selezionare **crittografia**.
 3. Selezionare la **crittografia della chiave gestita dal cliente** , come illustrato nella figura seguente.
 
     ![Abilita chiave gestita dal cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -106,9 +105,6 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
 La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati dal bus di servizio. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi del bus di servizio. Per revocare la chiave di crittografia, è possibile usare i criteri di accesso oppure eliminare la chiave. Altre informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi dall' [accesso sicuro a un insieme di](../key-vault/key-vault-secure-your-key-vault.md)credenziali delle chiavi.
 
 Una volta revocata la chiave di crittografia, il servizio del bus di servizio sullo spazio dei nomi crittografato diventerà inutilizzabile. Se l'accesso alla chiave è abilitato o la chiave eliminata viene ripristinata, il servizio del bus di servizio sceglierà la chiave in modo che sia possibile accedere ai dati dallo spazio dei nomi del bus di servizio crittografato.
-
-> [!NOTE]
-> Se si elimina una chiave di crittografia esistente dall'insieme di credenziali delle chiavi e la si sostituisce con una nuova chiave nello spazio dei nomi del bus di servizio, poiché la chiave di eliminazione è ancora valida (mentre è memorizzata nella cache) per un massimo di un'ora, i dati obsoleti (crittografati con la chiave precedente) potrebbero ancora essere accessibili a Alon g con i nuovi dati, ora accessibili solo tramite la nuova chiave. Questo comportamento è progettato nella versione di anteprima della funzionalità. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

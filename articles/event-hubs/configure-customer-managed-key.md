@@ -8,18 +8,15 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a5aa6a2e2578a995e4ef00489557fc02623e2d6a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744818"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903279"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure (anteprima)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
-
->[!NOTE]
-> Questa funzionalità è attualmente in anteprima. Si consiglia di non utilizzare in in un ambiente di produzione.
 
 ## <a name="overview"></a>Overview
 Hub eventi di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key – BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia dei dati inattivi di hub eventi di Azure.
@@ -41,7 +38,7 @@ Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla
 
 1. Passare al cluster Hub eventi Dedicato.
 1. Selezionare lo spazio dei nomi in cui si vuole abilitare BYOK.
-1. Nella pagina **Impostazioni** dello spazio dei nomi di hub eventi selezionare **crittografia (anteprima)** . 
+1. Nella pagina **Impostazioni** dello spazio dei nomi di hub eventi selezionare **crittografia**. 
 1. Selezionare la **crittografia della chiave gestita dal cliente** , come illustrato nella figura seguente. 
 
     ![Abilita chiave gestita dal cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -72,8 +69,6 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
         ![Selezionare la chiave da Key Vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
     1. Inserire i dettagli per la chiave e fare clic su **Seleziona**. In questo modo verrà abilitata la crittografia dei dati inattivi nello spazio dei nomi con una chiave gestita dal cliente. 
 
-        > [!NOTE]
-        > Per la fase di anteprima, è possibile selezionare solo una chiave. 
 
 ## <a name="rotate-your-encryption-keys"></a>Ruotare le chiavi di crittografia
 È possibile ruotare la chiave nell'insieme di credenziali delle chiavi usando il meccanismo di rotazione di Azure Key Vault. Per altre informazioni, vedere [configurare la rotazione e il controllo delle chiavi](../key-vault/key-vault-key-rotation-log-monitoring.md). È anche possibile impostare le date di attivazione e di scadenza per automatizzare la rotazione delle chiavi. Il servizio Hub eventi rileverà nuove versioni chiave e inizierà a utilizzarle automaticamente.
@@ -82,9 +77,6 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
 La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati da Hub eventi. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi di hub eventi. Per revocare la chiave di crittografia, è possibile usare i criteri di accesso oppure eliminare la chiave. Altre informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi dall' [accesso sicuro a un insieme di](../key-vault/key-vault-secure-your-key-vault.md)credenziali delle chiavi.
 
 Una volta revocata la chiave di crittografia, il servizio Hub eventi nello spazio dei nomi crittografato diventerà inutilizzabile. Se l'accesso alla chiave è abilitato o il tasto CANC viene ripristinato, il servizio Hub eventi selezionerà la chiave in modo che sia possibile accedere ai dati dallo spazio dei nomi di hub eventi crittografati.
-
-> [!NOTE]
-> Se si elimina una chiave di crittografia esistente dall'insieme di credenziali delle chiavi e la si sostituisce con una nuova chiave nello spazio dei nomi di hub eventi, poiché la chiave di eliminazione è ancora valida (così come è memorizzata nella cache) per un massimo di un'ora, i dati obsoleti (crittografati con la chiave precedente) potrebbero ancora essere accessibili insieme  con i nuovi dati, che ora è accessibile solo tramite la nuova chiave. Questo comportamento è progettato nella versione di anteprima della funzionalità. 
 
 ## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica 
 L'impostazione di log di diagnostica per gli spazi dei nomi abilitati per BYOK fornisce le informazioni necessarie sulle operazioni quando uno spazio dei nomi è crittografato con chiavi gestite dal cliente. Questi log possono essere abilitati e successivamente trasmessi a un hub eventi o analizzati tramite log Analytics o trasmessi all'archiviazione per eseguire analisi personalizzate. Per altre informazioni sui log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
@@ -171,10 +163,6 @@ Di seguito sono riportati i codici di errore comuni da cercare quando è abilita
 
 > [!IMPORTANT]
 > Per abilitare il ripristino di emergenza geografico in uno spazio dei nomi che usa la crittografia BYOK, lo spazio dei nomi secondario per l'associazione deve trovarsi in un cluster dedicato ed è necessario che sia abilitata un'identità gestita assegnata dal sistema. Per altre informazioni, vedere [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-> [!NOTE]
-> Se gli endpoint di servizio della rete virtuale (VNet) sono configurati in Azure Key Vault per lo spazio dei nomi di hub eventi, BYOK non sarà supportato. 
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: d337d026e89d2383e25498288ba11a9c60f77b39
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bb60d22c62096725e29b9351bf304504861d9bf1
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228999"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902529"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsight
 
@@ -197,7 +197,7 @@ Per connettersi alle pagine Apache Ambari e ad altre pagine Web tramite la rete 
     Nell'elenco di nodi restituito, trovare i nomi di dominio completi dei nodi head e usarli per connettersi ad Ambari e altri servizi Web. Usare ad esempio `http://<headnode-fqdn>:8080` per accedere ad Ambari.
 
     > [!IMPORTANT]  
-    > Alcuni servizi ospitati nei nodi head sono attivi solo in un nodo per volta. Se nel tentativo di accedere a un servizio in un nodo head si riceve un messaggio di errore 404, passare al nodo head successivo.
+    > Alcuni servizi ospitati nei nodi head sono attivi solo in un nodo alla volta. Se nel tentativo di accedere a un servizio in un nodo head si riceve un messaggio di errore 404, passare al nodo head successivo.
 
 2. Per determinare il nodo e la porta su cui un servizio è disponibile, vedere il documento [Porte usate dai servizi Hadoop su HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
 
@@ -249,9 +249,15 @@ Per un elenco di porte per servizi specifici, vedere il documento [Porte usate d
 
 Per altre informazioni sulle regole del firewall per le appliance virtuali, vedere il documento [Scenario dell'appliance virtuale](../virtual-network/virtual-network-scenario-udr-gw-nva.md).
 
-## <a name="load-balancing"></a>Bilanciamento del carico.
+## <a name="load-balancing"></a>Bilanciamento del carico
 
 Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciamento del carico. Il tipo di questo servizio di bilanciamento del carico è a [livello di SKU Basic](../load-balancer/load-balancer-overview.md#skus) con determinati vincoli. Uno di questi vincoli è che se si hanno due reti virtuali in aree diverse, non è possibile connettersi ai bilanciamenti del carico di base. Per ulteriori informazioni, vedere [domande frequenti sulle reti virtuali: vincoli sul peering VNET globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+
+## <a name="transport-layer-security"></a>Transport Layer Security
+
+Le connessioni al cluster tramite l'endpoint del cluster pubblico `https://<clustername>.azurehdinsight.net` vengono inviate tramite proxy tramite nodi del gateway del cluster. Queste connessioni sono protette usando un protocollo denominato TLS. L'applicazione di versioni superiori di TLS nei gateway migliora la sicurezza per queste connessioni. Per ulteriori informazioni sui motivi per cui è consigliabile utilizzare le versioni più recenti di TLS, vedere la pagina relativa [alla risoluzione del problema tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+
+È possibile controllare la versione o le versioni minime di TLS supportate nei nodi del gateway per il cluster HDInsight usando la proprietà *minSupportedTlsVersion* in un modello di Resource Manager in fase di distribuzione. Per un modello di esempio, vedere il [modello di avvio rapido di TLS 1,2 di HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Questa proprietà supporta tre valori: "1,0", "1,1" e "1,2", che corrispondono rispettivamente a TLS 1.0 +, TLS 1.1 + e TLS 1.2 +. Per impostazione predefinita, senza specificare questa proprietà, i cluster Azure HDInsight accettano le connessioni TLS 1,2 sugli endpoint HTTPS pubblici, oltre alle versioni precedenti per la compatibilità con le versioni precedenti. Infine, HDInsight imporrà TLS 1,2 o versioni successive su tutte le connessioni del nodo del gateway.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -259,6 +265,6 @@ Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciam
 * Per un esempio completo di configurazione di HDInsight per la connessione a una rete locale, vedere [Connettere HDInsight alla rete locale](./connect-on-premises-network.md).
 * Per la configurazione di cluster Apache HBase in reti virtuali di Azure, vedere [creare cluster Apache HBase in HDInsight in rete virtuale di Azure](hbase/apache-hbase-provision-vnet.md).
 * Per la configurazione della replica geografica di Apache HBase, vedere [Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure](hbase/apache-hbase-replication.md).
-* Per altre informazioni sulle reti virtuali di Azure, vedere [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
+* Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 * Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 * Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).

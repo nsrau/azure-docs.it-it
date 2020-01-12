@@ -1,18 +1,18 @@
 ---
 title: Risolvere i problemi di replica delle macchine virtuali di Azure in Azure Site Recovery
 description: Risolvere gli errori durante la replica di macchine virtuali di Azure per il ripristino di emergenza.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgangal
-ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: rochakm
+ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895018"
+ms.locfileid: "75902563"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad Azure
 
@@ -66,7 +66,7 @@ Per altre informazioni, vedere [configurare le radici attendibili e i certificat
 
 Seguire le indicazioni fornite dal distributore della versione del sistema operativo Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati più recente nella macchina virtuale.
 
-Poiché SuSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*) per gestire un elenco di certificati, attenersi alla seguente procedura:
+Poiché SUSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*) per gestire un elenco di certificati, attenersi alla seguente procedura:
 
 1. Accedere come utente ROOT.
 
