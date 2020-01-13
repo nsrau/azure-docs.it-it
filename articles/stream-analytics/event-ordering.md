@@ -1,82 +1,81 @@
 ---
-title: Configurazione evento criteri di ordinamento per Azure Stream Analitica
-description: Questo articolo descrive come configurare anche le impostazioni di ordinamento in Stream Analitica
-services: stream-analytics
+title: Configurazione dei criteri di ordinamento degli eventi per analisi di flusso di Azure
+description: Questo articolo descrive come configurare le impostazioni di ordinamento anche in analisi di flusso
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 47a8ee2c03e67d4fd9b34888430ed0cc702205f6
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461186"
 ---
-# <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurazione evento criteri di ordinamento per Azure Stream Analitica
+# <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurazione dei criteri di ordinamento degli eventi per analisi di flusso di Azure
 
-Questo articolo descrive come configurare e usare l'arrivo in ritardo e i criteri non ordinate di eventi in Azure Stream Analitica. Questi criteri vengono applicati solo quando si usa la [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clausola della query.
+Questo articolo descrive come configurare e usare i criteri di arrivo in ritardo e di eventi non ordinati in analisi di flusso di Azure. Questi criteri vengono applicati solo quando si usa la clausola [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query.
 
-## <a name="event-time-and-arrival-time"></a>Ora dell'evento e l'ora di arrivo
+## <a name="event-time-and-arrival-time"></a>Ora dell'evento e ora di arrivo
 
-Il processo di Stream Analitica può elaborare gli eventi in base a uno *ora evento* oppure *ora di arrivo*. **Tempo evento/applicazione** sia il timestamp presente nel payload dell'evento (quando è stato generato l'evento). **Ora di arrivo** sia il timestamp quando è stato ricevuto l'evento nell'origine di input (archiviazione dell'Hub IoT hub/eventi/Blob). 
+Il processo di analisi di flusso può elaborare gli eventi in base all' *ora dell'evento* o all' *ora di arrivo*. **Evento/ora applicazione** è il timestamp presente nel payload dell'evento (quando è stato generato l'evento). L' **ora di arrivo** è il timestamp in cui l'evento è stato ricevuto nell'origine di input (hub eventi/archiviazione BLOB/Hub). 
 
-Per impostazione predefinita, Stream Analitica elabora gli eventi dal *ora di arrivo*, ma è possibile scegliere di elaborare gli eventi dal *ora evento* usando [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clausola della query. Criteri in ritardo di arrivo e di non in ordine sono applicabili solo se si elaborano gli eventi dall'ora dell'evento. Prendere in considerazione i requisiti di latenza e correttezza per lo scenario durante la configurazione di queste impostazioni. 
+Per impostazione predefinita, l'analisi di flusso elabora gli eventi in base all' *ora di arrivo*, ma è possibile scegliere di elaborare gli eventi in base all'ora dell' *evento* usando la clausola [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query. I criteri di arrivo in ritardo e non ordinati sono applicabili solo se si elaborano gli eventi in base all'ora dell'evento. Prendere in considerazione i requisiti di latenza e correttezza per lo scenario durante la configurazione di queste impostazioni. 
 
-## <a name="what-is-late-arrival-policy"></a>Quali sono i criteri di arrivo in ritardo?
+## <a name="what-is-late-arrival-policy"></a>Che cosa sono i criteri di arrivo in ritardo?
 
-In alcuni casi gli eventi pervengono in ritardo a causa di vari motivi. Ad esempio, un evento in arrivo in ritardo 40 secondi avrà ora evento = ora di arrivo e 10: 00:00 = 00:10:40. Se i criteri di arrivo in ritardo è impostato su 15 secondi, di eventi che arrivano entro 15 secondi verranno entrambi eliminati (non elaborato da Stream Analitica) o è importantissime eventi modificati. Nell'esempio precedente, come l'evento è giunto a 40 secondi in ritardo (più di set di criteri), l'ora dell'evento verrà modificato fino al massimo di ritardo arrivo criteri 10: 00:25 (ora di arrivo - valore dei criteri di arrivo in ritardo). Criterio di arrivo in ritardo predefinito è 5 secondi.
+A volte gli eventi arrivano in ritardo a causa di vari motivi. Ad esempio, un evento che raggiunge i 40 secondi in ritardo avrà l'ora dell'evento = 00:10:00 e l'ora di arrivo = 00:10:40. Se si impostano i criteri di arrivo in ritardo su 15 secondi, eventuali eventi che raggiungono più di 15 secondi verranno eliminati (non elaborati da analisi di flusso) o l'ora dell'evento verrà regolata. Nell'esempio precedente, poiché l'evento è arrivato in ritardo di 40 secondi (più di un set di criteri), l'ora dell'evento verrà modificata fino al numero massimo di criteri di arrivo in ritardo 00:10:25 (ora di arrivo-valore dei criteri di arrivo in ritardo). Il criterio di arrivo in ritardo predefinito è 5 secondi.
 
-## <a name="what-is-out-of-order-policy"></a>Quali sono i criteri di non in ordine? 
+## <a name="what-is-out-of-order-policy"></a>Che cosa sono i criteri non ordinati? 
 
-Anche l'evento potrà arrivare non in ordine. Dopo l'ora dell'evento viene regolato in base a criteri di arrivo in ritardo, è possibile scegliere anche automaticamente eliminare o modificare gli eventi che sono in ordine. Se si imposta questo criterio su 8 secondi, tutti gli eventi che non arrivano in ordine ma entro la finestra di 8 secondi vengono riordinati dall'ora dell'evento. Gli eventi che arrivano in un secondo momento verranno essere eliminati o modificati per il valore massimo dei criteri di non in ordine. Criteri di non in ordine predefinito sono 0 secondi. 
+L'evento può arrivare anche fuori dall'ordine. Quando l'ora dell'evento viene modificata in base ai criteri di arrivo in ritardo, è anche possibile scegliere di eliminare automaticamente o modificare gli eventi non ordinati. Se si imposta questo criterio su 8 secondi, tutti gli eventi che non arrivano in ordine ma all'interno della finestra di 8 secondi vengono riordinati in base all'ora dell'evento. Gli eventi che arrivano in un secondo momento verranno eliminati o modificati in base al valore massimo dei criteri non ordinati. Il criterio predefinito non ordinato è 0 secondi. 
 
 ## <a name="adjust-or-drop-events"></a>Modificare o eliminare eventi
 
-Se gli eventi pervenuti in ritardo o di ordinati in base ai criteri che è stato configurato, è possibile eliminare tali eventi (non elaborati da Stream Analitica) o avere tempo evento regolato.
+Se gli eventi arrivano in ritardo o non sono ordinati in base ai criteri configurati, è possibile eliminare tali eventi (non elaborati da analisi di flusso) o modificare l'ora dell'evento.
 
-Possiamo vedere un esempio di questi criteri in azione.
-<br> **Criteri di arrivo in ritardo:** 5 secondi
-<br> **Criteri di non in ordine:** 8 secondi
+Ecco un esempio di questi criteri in azione.
+<br> **Criteri di arrivo in ritardo:** 15 secondi
+<br> **Criteri non ordinati:** 8 secondi
 
-| N. evento | Ora dell'evento | Ora di arrivo | System.Timestamp | Spiegazione |
+| N. evento. | Ora dell'evento | Ora di arrivo | System.Timestamp | Spiegazione |
 | --- | --- | --- | --- | --- |
-| **1** | 00:10:00  | 00:10:40  | 00:10:25  | Evento è giunto a livello di tolleranza di ritardo e all'esterno. Ora dell'evento Ottiene regolata in modo alla tolleranza per arrivo in ritardo massimo.  |
-| **2** | 00:10:30 | 00:10:41  | 00:10:30  | Eventi arrivati in ritardo, ma all'interno di livello di tolleranza. Quindi, ora dell'evento non ottenere regolato.  |
-| **3** | 00:10:42 | 00:10:42 | 00:10:42 | Evento è giunto sul tempo. Regolazione non necessita.  |
-| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Eventi arrivati in ordine ma entro la tolleranza di 8 secondi. Quindi, ora dell'evento non ottenere regolato. Per motivi di analitica, questo evento viene considerato come numero evento 4 precedente.  |
-| **5** | 00:10:35 | 00:10:45  | 00:10:37 | Evento è giunto a tolleranza di non in ordine e all'esterno di 8 secondi. Quindi, ora dell'evento è allineato al massimo della tolleranza di non in ordine. |
+| **1** | 00:10:00  | 00:10:40  | 00:10:25  | L'evento è arrivato in ritardo e all'esterno del livello di tolleranza. Il tempo dell'evento viene quindi regolato in modo da ottenere la tolleranza massima per arrivo.  |
+| **2** | 00:10:30 | 00:10:41  | 00:10:30  | L'evento è arrivato in ritardo ma entro il livello di tolleranza. L'ora dell'evento non viene modificata.  |
+| **3** | 00:10:42 | 00:10:42 | 00:10:42 | L'evento è arrivato in tempo. Nessun adattamento necessario.  |
+| **4** | 00:10:38  | 00:10:43  | 00:10:38 | L'evento è arrivato fuori ordine ma entro la tolleranza di 8 secondi. Quindi, l'ora dell'evento non viene modificata. Ai fini dell'analisi, questo evento verrà considerato come precedente evento 4.  |
+| **5** | 00:10:35 | 00:10:45  | 00:10:37 | Evento non ordinato e tolleranza esterna di 8 secondi. Quindi, l'ora dell'evento viene adattata al massimo della tolleranza non ordinata. |
 
-## <a name="can-these-settings-delay-output-of-my-job"></a>Queste impostazioni possono ritardare l'output del processo? 
+## <a name="can-these-settings-delay-output-of-my-job"></a>È possibile che queste impostazioni ritardino l'output del processo? 
 
-Sì. Per impostazione predefinita, i criteri di non in ordine sono impostati su zero (00 minuti e 00 secondi). Se si modifica l'impostazione predefinita, nell'output del processo prima viene ritardato dal valore (o versione successiva). 
+Sì. Per impostazione predefinita, i criteri non ordinati sono impostati su zero (00 minuti e 00 secondi). Se si modifica l'impostazione predefinita, il primo output del processo viene ritardato di questo valore (o maggiore). 
 
-Se una delle partizioni di input non riceve gli eventi, è necessario prevedere l'output di ritardo per il valore dei criteri di arrivo in ritardo. Per maggiori informazioni, leggere la sezione di errore InputPartition riportato di seguito. 
+Se una delle partizioni degli input non riceve eventi, è necessario aspettarsi che l'output venga ritardato in base al valore dei criteri di arrivo in ritardo. Per informazioni sul motivo, vedere la sezione errore InputPartition di seguito. 
 
-## <a name="i-see-lateinputevents-messages-in-my-activity-log"></a>Vengono visualizzati alcuni messaggi LateInputEvents nella mio log attività
+## <a name="i-see-lateinputevents-messages-in-my-activity-log"></a>I messaggi LateInputEvents vengono visualizzati nel log attività
 
-Questi messaggi vengono visualizzati per informare l'utente che gli eventi sono arrivati in ritardo e vengono eliminati o modificati in base alla configurazione. Se sono stati configurati criteri di arrivo in ritardo, in modo appropriato, è possibile ignorare questi messaggi. 
+Questi messaggi vengono visualizzati per indicare che gli eventi sono arrivati in ritardo e sono stati eliminati o modificati in base alla configurazione. È possibile ignorare questi messaggi se i criteri di arrivo in ritardo sono stati configurati in modo appropriato. 
 
-Esempio di questo messaggio è: <br>
+Esempio di questo messaggio: <br>
 <code>
 {"message Time":"2019-02-04 17:11:52Z","error":null,
 "message":"First Occurred: 02/04/2019 17:11:48 | Resource Name: ASAjob | Message: Source 'ASAjob' had 24 data errors of kind 'LateInputEvent' between processing times '2019-02-04T17:10:49.7250696Z' and '2019-02-04T17:11:48.7563961Z'. Input event with application timestamp '2019-02-04T17:05:51.6050000' and arrival time '2019-02-04T17:10:44.3090000' was sent later than configured tolerance.","type":"DiagnosticMessage","correlation ID":"49efa148-4asd-4fe0-869d-a40ba4d7ef3b"} 
 </code>
 
-## <a name="i-see-inputpartitionnotprogressing-in-my-activity-log"></a>Vedere InputPartitionNotProgressing nella mio log attività
+## <a name="i-see-inputpartitionnotprogressing-in-my-activity-log"></a>Viene visualizzato InputPartitionNotProgressing nel log attività
 
-L'origine di input (Hub IoT Hub/eventi) probabilmente ha più partizioni. Azure Stream Analitica produce output per l'indicatore di data e ora t1 solo dopo che tutte le partizioni che vengono combinate sono almeno all'ora t1. Ad esempio, si supponga che la query legga da una partizione dell'hub eventi che ha due partizioni. Una delle partizioni, P1, ha eventi fino all'ora t1. L'altra partizione, P2, ha eventi fino all'ora t1 + x. Output viene quindi generato fino all'ora t1. Ma se è presente una partizione esplicita dalla clausola PartitionId, entrambe le partizioni avanzano in modo indipendente. 
+È probabile che l'origine di input (hub eventi/Hub eventi) disponga di più partizioni. Analisi di flusso di Azure genera l'output per il timestamp T1 solo dopo che tutte le partizioni combinate sono almeno all'ora T1. Ad esempio, si supponga che la query legga da una partizione dell'hub eventi che ha due partizioni. Una delle partizioni P1 ha eventi fino all'ora T1. L'altra partizione, P2, ha eventi fino all'ora T1 + x. L'output viene quindi generato fino all'ora T1. Tuttavia, se è presente una clausola esplicita Partition by PartitionId, entrambe le partizioni avanzano in modo indipendente. 
 
-Quando più partizioni dello stesso flusso di input vengono combinate, la tolleranza per arrivo in ritardo è la quantità massima di tempo in cui ogni partizione resta in attesa di nuovi dati. Se non esiste un'unica partizione nell'Hub eventi oppure se l'IoT Hub non riceve gli input, la sequenza temporale per la partizione non avanzamento fino a raggiunge la soglia di tolleranza di arrivo in ritardo. Consente di ritardare l'output per la soglia di tolleranza di arrivo in ritardo. In questi casi, si può vedere il messaggio seguente:
+Quando vengono combinate più partizioni dello stesso flusso di input, la tolleranza per arrivo in ritardo è la quantità massima di tempo di attesa di ogni partizione per i nuovi dati. Se è presente una partizione nell'hub eventi o se l'hub Internet non riceve gli input, la sequenza temporale per tale partizione non avanza fino a raggiungere la soglia di tolleranza per arrivo in ritardo. Questa operazione ritarda l'output in base alla soglia di tolleranza per arrivo in ritardo. In questi casi, è possibile che venga visualizzato il messaggio seguente:
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Questo messaggio per informare l'utente che per almeno una partizione di input è vuota e verrà ritardare l'output per la soglia di arrivo in ritardo. Per ovviare al problema, è consigliabile entrambi:  
-1. Assicurarsi che tutte le partizioni dell'Hub eventi dell'Hub IoT/ricevano l'input. 
-2. Usa Partition by PartitionID clausola della query. 
+Questo messaggio indica che almeno una partizione nell'input è vuota e ritarderà l'output in base alla soglia di arrivo in ritardo. Per ovviare a questo problema, è consigliabile effettuare una delle operazioni seguenti:  
+1. Verificare che tutte le partizioni dell'hub eventi/Hub eventi ricevano l'input. 
+2. Usare la clausola PARTITION BY PartitionID nella query. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Considerazioni sulla gestione di tempo](stream-analytics-time-handling.md)
+* [Considerazioni sulla gestione dell'ora](stream-analytics-time-handling.md)
 * [Metriche disponibili in Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)

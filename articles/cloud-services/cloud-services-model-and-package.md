@@ -2,17 +2,17 @@
 title: Cosa sono un modello del servizio cloud e un pacchetto | Documentazione Microsoft
 description: Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360702"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
 Un servizio cloud viene creato da tre componenti: la definizione del servizio *(.csdef)* , la configurazione del servizio *(.cscfg)* e un pacchetto servizio *(.cspkg)* . Entrambi i file **ServiceDefinition.csdef** e **ServiceConfig.cscfg** sono basati su XML e descrivono la struttura e la configurazione del servizio cloud. Insieme costituiscono il modello. **ServicePackage.cspkg** è un file ZIP generato da **ServiceDefinition.csdef** e contiene, oltre ad altri elementi, tutte le dipendenze necessarie basate su file binari. Azure crea un servizio cloud sia da **ServicePackage.cspkg** che da **ServiceConfig.cscfg**.
@@ -97,7 +97,7 @@ Contiene le definizioni per gli endpoint usati dalle istanze del ruolo per comun
 **ConfigurationSettings**  
 Contiene le definizioni delle impostazioni per le funzionalità di un ruolo specifico.
 
-**Certificates**  
+**Certificati**  
 Contiene le definizioni dei certificati necessari per un ruolo. L'esempio di codice precedente mostra un certificato usato per la configurazione di Azure Connect.
 
 **LocalResources**  
@@ -136,13 +136,13 @@ Il file di configurazione del servizio non viene incluso nel pacchetto con l'app
 
 È possibile fare riferimento allo [schema di configurazione dei servizi](/previous-versions/azure/reference/ee758710(v=azure.100)) per comprendere meglio lo schema XML usato qui, ma ecco anche una rapida spiegazione degli elementi:
 
-**Instances**  
+**Istanze**  
 Configura il numero di istanze in esecuzione per il ruolo. Per evitare che il servizio cloud diventi potenzialmente non disponibile durante gli aggiornamenti, è consigliabile distribuire più istanze dei ruoli esposti al Web. In questo modo si rispettano le linee guida del [contratto di servizio (SLA, Service Level Agreement) per il servizio di calcolo di Azure](https://azure.microsoft.com/support/legal/sla/), che garantisce una connettività esterna pari al 99,95% per i ruoli esposti a Internet quando due o più istanze dei ruoli vengono distribuite per un servizio.
 
 **ConfigurationSettings**  
 Configura le impostazioni per le istanze in esecuzione di un ruolo. Il nome degli elementi `<Setting>` deve corrispondere alle definizioni delle impostazioni nel file di definizione del servizio.
 
-**Certificates**  
+**Certificati**  
 Configura i certificati usati dal servizio. L'esempio di codice precedente mostra come definire il certificato per il modulo RemoteAccess. Il valore dell'attributo *thumbprint* deve essere impostato sull'identificazione personale del certificato da usare.
 
 <p/>
@@ -259,7 +259,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Dove le variabili vengono definite come segue:
 
-| Variabile | Value |
+| Variabile | Valore |
 | --- | --- |
 | \[DirectoryName\] |Sottodirectory della directory radice del progetto contenente il file csdef del progetto Azure. |
 | \[ServiceDefinition\] |Nome del file di definizione del servizio. Per impostazione predefinita, il file è denominato ServiceDefinition.csdef. |
@@ -289,3 +289,6 @@ Si sta usando Visual Studio e si vuole...
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

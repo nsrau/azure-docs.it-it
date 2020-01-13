@@ -1,24 +1,15 @@
 ---
-title: Creare un contenitore di Azure Service Fabric per il server Apache Tomcat in Linux | Microsoft Docs
+title: Creare un contenitore per Apache Tomcat in Linux
 description: Creare un contenitore Linux per esporre un'applicazione in esecuzione nel server Apache Tomcat su Azure Service Fabric. Creare un'immagine Docker con l'applicazione e il server Apache Tomcat, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 7e14a027f17c15c83a4ce25a211ef6106f2d2eaa
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170593"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614418"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Creare un contenitore di Service Fabric in esecuzione nel server Apache Tomcat su Linux
 Apache Tomcat è una nota implementazione open source delle tecnologie Java Servlet e Java Server. Questo articolo illustra come creare un contenitore con Apache Tomcat e una semplice applicazione Web, come distribuire il contenitore in un cluster di Service Fabric in esecuzione su Linux e come connettersi all'applicazione Web.  
@@ -140,11 +131,11 @@ Dopo aver eseguito il push dell'immagine Tomcat in un registro contenitori, è p
    ```
    Quando richiesto, immettere i valori seguenti:
 
-   * Assegnare un nome all'applicazione: ServiceFabricTomcat
+   * Nome dell'applicazione: ServiceFabricTomcat
    * Nome del servizio dell'applicazione: TomcatService
-   * Immettere il nome dell'immagine: Fornire l'URL per l'immagine del contenitore nel registro contenitori. ad esempio, myregistry.azurecr.io/samples/tomcattest.
-   * Comandi: Lasciare vuoto. Dato che per l'immagine è stato definito un punto di ingresso del carico di lavoro, non è necessario specificare in modo esplicito i comandi di input, che vengono eseguiti all'interno del contenitore in modo che la relativa esecuzione continui dopo l'avvio.
-   * Numero di istanze dell'applicazione contenitore Guest: 1
+   * Nome dell'immagine: specificare l'URL dell'immagine del contenitore nel registro contenitori, ad esempio myregistry.azurecr.io/samples/tomcattest.
+   * Comandi: lasciare vuoto questo campo. Dato che per l'immagine è stato definito un punto di ingresso del carico di lavoro, non è necessario specificare in modo esplicito i comandi di input, che vengono eseguiti all'interno del contenitore in modo che la relativa esecuzione continui dopo l'avvio.
+   * Numero di istanze dell'applicazione contenitore guest: 1
 
    ![Generatore Yeoman di Service Fabric per i contenitori](./media/service-fabric-get-started-tomcat/yo-generator.png)
 

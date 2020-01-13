@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450671"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
 
@@ -63,10 +63,10 @@ Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata 
 Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in Monitoraggio di Azure viene popolata con il valore di data/ora specificato per quella voce nel file di log.  Se viene usato un delimitatore nuova riga, TimeGenerated viene popolata con la data e l'ora in cui Monitoraggio di Azure ha raccolto la voce.
 
 1. Fare clic su **Sfoglia** e passare a un file di esempio.  In alcuni browser, questo pulsante potrebbe essere denominato **Scegli file** .
-2. Fare clic su **Next** (Avanti).
+2. Fare clic su **Avanti**.
 3. La procedura guidata per i log personalizzati carica il file ed elenca i record identificati.
 4. Modificare il delimitatore usato per identificare un nuovo record e selezionare il delimitatore che identifica meglio i record nel file di log.
-5. Fare clic su **Next** (Avanti).
+5. Fare clic su **Avanti**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungere percorsi di raccolta di log
 È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome. Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione. È anche possibile fornire più percorsi per un singolo file di log.
@@ -75,7 +75,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| Description | path |
+| Description | Path |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -110,7 +110,7 @@ Usare la procedura seguente nel portale di Azure per rimuovere un log personaliz
 1. Dal menu **Dati** in **Impostazioni avanzate** per l'area di lavoro selezionare **Log personalizzato** per elencare tutti i log personalizzati.
 2. Fare clic su **Rimuovi** accanto al log personalizzato da rimuovere.
 
-## <a name="data-collection"></a>Raccolta dei dati
+## <a name="data-collection"></a>Raccolta dati
 Monitoraggio di Azure raccoglie nuove voci da ogni log personalizzato a intervalli di circa 5 minuti.  L'agente registra la propria posizione in ogni file di log da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Monitoraggio di Azure raccoglie le voci dal punto in cui è stato interrotto, anche se le voci sono state create mentre l'agente era offline.
 
 L'intero contenuto della voce di log viene scritto in una singola proprietà denominata **RawData**.  Vedere [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analisi dei dati di testo in Monitoraggio di Azure) per i metodi per analizzare ogni voce di log importata in più proprietà.
