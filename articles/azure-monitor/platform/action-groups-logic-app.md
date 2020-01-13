@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 0abc7c4ae370a894c46eda38df41d64a6ef2cd91
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ad196f52935af4ab4aa7af1b80183161065d4b4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365023"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
 Questo articolo illustra come configurare e attivare un'app per la logica per creare una conversazione in Microsoft Teams quando viene generato un avviso.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](../../azure-monitor/platform/action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare un avviso agli utenti e correggere il problema.
 
 Il processo generale è il seguente:
@@ -34,7 +34,7 @@ Il processo generale è il seguente:
 
 Il processo è simile se si vuole che l'app per la logica esegua un'azione diversa.
 
-## <a name="create-an-activity-log-alert-administrative"></a>Creare un avviso del log attività: Administrative
+## <a name="create-an-activity-log-alert-administrative"></a>Creare un avviso del log attività: amministrativo
 
 1.  Nel portale di Azure selezionare **Crea una risorsa** nell'angolo superiore sinistro.
 
@@ -46,7 +46,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 4.  Fare clic su **Crea** per creare l'app per la logica. Un messaggio popup indica che l'app per la logica è stata creata. Selezionare **Launch Resource** (Avvia risorsa) per aprire **Progettazione app per la logica**.
 
-5.  Selezionare il trigger: **Alla ricezione di una richiesta HTTP**.
+5.  Selezionare il trigger **Alla ricezione di una richiesta HTTP**.
 
     ![Trigger dell'app per la logica](media/action-groups-logic-app/logic-app-triggers.png "Trigger dell'app per la logica")
 
@@ -56,7 +56,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 7.  Selezionare **Usare il payload di esempio per generare lo schema**.
 
-    ![Usare un esempio di payload](media/action-groups-logic-app/use-sample-payload-button.png "Usare un esempio di payload")
+    ![Usare un payload di esempio](media/action-groups-logic-app/use-sample-payload-button.png "Usare un payload di esempio")
 
 8.  Copiare e incollare il payload di esempio seguente nella finestra di dialogo:
 
@@ -69,10 +69,10 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
                 "activityLog": {
                     "authorization": {
                     "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/…"
+                    "scope": "/subscriptions/�"
                     },
                     "channels": "Operation",
-                    "claims": "…",
+                    "claims": "�",
                     "caller": "logicappdemo@contoso.com",
                     "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
                     "description": "",
@@ -82,12 +82,12 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
                     "level": "Informational",
                     "operationName": "microsoft.insights/activityLogAlerts/write",
                     "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/…",
+                    "resourceId": "/subscriptions/�",
                     "resourceGroupName": "LOGICAPP-DEMO",
                     "resourceProviderName": "microsoft.insights",
                     "status": "Succeeded",
                     "subStatus": "",
-                    "subscriptionId": "…",
+                    "subscriptionId": "�",
                     "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
                     "resourceType": "microsoft.insights/activityLogAlerts"
                 }
@@ -101,13 +101,13 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
     ![Impostare l'intestazione Content-Type](media/action-groups-logic-app/content-type-header.png "Impostare l'intestazione Content-Type")
 
-10. Selezionare **+** **Nuovo passaggio** e quindi selezionare **Aggiungi un'azione**.
+10. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi un'azione**.
 
-    ![Aggiungere un'azione](media/action-groups-logic-app/add-action.png "Aggiungere un'azione")
+    ![Aggiungi un'azione](media/action-groups-logic-app/add-action.png "Aggiungere un'azione")
 
-11. Cercare e selezionare il connettore Microsoft Teams. Scegliere l'azione **Microsoft Teams – Pubblica messaggio**.
+11. Cercare e selezionare il connettore Microsoft Teams. Scegliere l'azione **Invia messaggio a Microsoft teams** .
 
-    ![Azioni di Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Azioni di Microsoft Teams")
+    ![Azioni Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Azioni Microsoft Teams")
 
 12. Configurare l'azione di Microsoft Teams. In **Progettazione app per la logica** viene chiesto di autenticarsi con l'account Office 365. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
 
@@ -125,11 +125,11 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
     > [!NOTE]
     > Sono disponibili due campi dinamici denominati **stato**. Aggiungere entrambi questi campi al messaggio. Usare il campo che si trova nell'elenco delle proprietà **activityLog** ed eliminare l'altro campo. Passare il cursore sul campo **stato** per visualizzare il riferimento completo del campo, come mostrato nella schermata seguente:
 
-    ![Azione Microsoft Teams: Inserisci un messaggio](media/action-groups-logic-app/teams-action-post-message.png "azione Microsoft Teams: Inserisci un messaggio")
+    ![Azione Microsoft teams: pubblica un messaggio](media/action-groups-logic-app/teams-action-post-message.png "Azione Microsoft teams: pubblica un messaggio")
 
 14. Nella parte superiore di **Progettazione app per la logica**, selezionare **Salva** per salvare l'app per la logica.
 
-15. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non si dispone di un gruppo di azioni esistente, vedere [Creare e gestire gruppi di azioni nel portale di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) per crearne uno. Non dimenticare di salvare le modifiche.
+15. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non si dispone di un gruppo di azioni esistente, vedere [creare e gestire gruppi di azioni nel portale di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) per crearne uno. Non dimenticare di salvare le modifiche.
 
     ![Aggiornare il gruppo di azioni](media/action-groups-logic-app/update-action-group.png "Aggiornare il gruppo di azioni")
 
@@ -151,7 +151,7 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
                 "activityLog": {
                     "channels": "Admin",
                     "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                    "description": "…",
+                    "description": "�",
                     "eventSource": "ServiceHealth",
                     "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
                     "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
@@ -159,23 +159,23 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
                     "operationName": "Microsoft.ServiceHealth/incident/action",
                     "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
                     "properties": {
-                        "title": "…",
-                        "service": "…",
+                        "title": "�",
+                        "service": "�",
                         "region": "Global",
-                        "communication": "…",
+                        "communication": "�",
                         "incidentType": "Incident",
-                        "trackingId": "…",
+                        "trackingId": "�",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
                         "impactedServices": "[{"ImpactedRegions"}]",
-                        "defaultLanguageTitle": "…",
-                        "defaultLanguageContent": "…",
+                        "defaultLanguageTitle": "�",
+                        "defaultLanguageContent": "�",
                         "stage": "Active",
                         "communicationId": "11000001466525",
                         "version": "0.1.1"
                     },
                     "status": "Active",
-                    "subscriptionId": "…",
+                    "subscriptionId": "�",
                     "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
                 }
             },
@@ -187,12 +187,12 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
 -  I passaggi 9 e 10 sono gli stessi.
 -  Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
 
-   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti.  Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("0.1.1") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa.   
+   1. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti.  Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("0.1.1") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      !["Condizione di payload di integrità dei servizi"](media/action-groups-logic-app/service-health-payload-condition.png "Condizione di payload di integrità dei servizi")
+      !["Condizione del payload di integrità del servizio"](media/action-groups-logic-app/service-health-payload-condition.png "Condizione del payload di integrità del servizio")
 
    1. Nella condizione **È true** seguire le istruzioni nei passaggi da 11 a 13 in [Creare un avviso del log attività](#create-an-activity-log-alert-administrative) per aggiungere l'azione Microsoft Teams.
 
@@ -209,7 +209,7 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
        <p>[communication]</p>
        ```
 
-       !["Azione pubblicazione con condizione true di integrità dei servizi"](media/action-groups-logic-app/service-health-true-condition-post-action.png "Azione pubblicazione con condizione true di integrità dei servizi")
+       !["Condizione di integrità servizio true post-azione"](media/action-groups-logic-app/service-health-true-condition-post-action.png "Azione di condizione true integrità del servizio post")
 
    1. Per la condizione **È false** specificare un messaggio utile:
 
@@ -219,7 +219,7 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       !["Azione pubblicazione con condizione false di integrità dei servizi"](media/action-groups-logic-app/service-health-false-condition-post-action.png "Azione pubblicazione con condizione false di integrità dei servizi")
+       !["Condizioni di integrità del servizio false post-azione"](media/action-groups-logic-app/service-health-false-condition-post-action.png "Azione post-condizione di integrità del servizio")
 
 - Il passaggio 15 è lo stesso. Seguire le istruzioni per salvare l'app per la logica e aggiornare il gruppo di azioni.
 
@@ -238,7 +238,7 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
         "status": "Activated",
         "context": {
         "timestamp": "2018-04-09T19:00:07.7461615Z",
-        "id": "…",
+        "id": "�",
         "name": "TEST-VM CPU Utilization",
         "description": "",
         "conditionType": "SingleResourceMultipleMetricCriteria",
@@ -260,12 +260,12 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
             }
             ]
         },
-        "subscriptionId": "…",
+        "subscriptionId": "�",
         "resourceGroupName": "TEST",
         "resourceName": "test-vm",
         "resourceType": "Microsoft.Compute/virtualMachines",
-        "resourceId": "…",
-        "portalLink": "…"
+        "resourceId": "�",
+        "portalLink": "�"
         },
         "properties": {}
     }
@@ -275,19 +275,19 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
 - I passaggi 9 e 10 sono gli stessi.
 - Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
 
-  1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti. Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("2.0") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa. 
+  1. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti. Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("2.0") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa. 
      - `schemaId == AzureMonitorMetricAlert`
      - `version == "2.0"`
        
-       !["Condizione di payload dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condizione di payload dell'avviso per la metrica")
+       !["Condizione payload avvisi metrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condizione payload avviso metrica")
 
   1. Nella condizione **È true** aggiungere un ciclo **For each** e l'azione Microsoft Teams. Definire il messaggio usando una combinazione di HTML e contenuto dinamico.
 
-      !["Azione pubblicazione con condizione true dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Azione pubblicazione con condizione true dell'avviso per la metrica")
+      !["La condizione di avviso metrica true Condition post azione](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Avviso di metrica-condizione true-azione post")
 
-  1. Nella condizione **È false** definire un'azione Microsoft Teams per comunicare che l'avviso per la metrica non corrisponde alle aspettative dell'app per la logica. Includere il payload JSON. Si noti come fare riferimento al contenuto dinamico `triggerBody` nell'espressione `json()`.
+  1. Nella condizione **If false** definire un'azione Microsoft teams per comunicare che l'avviso della metrica non corrisponde alle aspettative dell'app per la logica. Includere il payload JSON. Si noti come fare riferimento al contenuto dinamico `triggerBody` nell'espressione `json()`.
 
-      !["Azione pubblicazione con condizione false dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Azione pubblicazione con condizione false dell'avviso per la metrica")
+      !["Condizione di avviso metrica false condizione post azione"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Azione della condizione false di avviso della metrica post")
 
 - Il passaggio 15 è lo stesso. Seguire le istruzioni per salvare l'app per la logica e aggiornare il gruppo di azioni.
 

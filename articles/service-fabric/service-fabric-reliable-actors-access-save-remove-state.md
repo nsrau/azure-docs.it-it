@@ -1,25 +1,16 @@
 ---
-title: Gestire lo stato di Azure Service Fabric | Microsoft Docs
-description: Informazioni su come accedere, salvare e rimuovere lo stato di Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
+title: Gestire lo stato di Service Fabric di Azure
+description: Informazioni su come accedere, salvare e rimuovere lo stato di un Reliable Actor di Azure Service Fabric e considerazioni sulla progettazione di un'applicazione.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725398"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645634"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Accedere, salvare e rimuovere lo stato di Reliable Actors
 I [Reliable Actors](service-fabric-reliable-actors-introduction.md) sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato e mantenere lo stato in modo affidabile. Ogni istanza dell'attore ha un proprio [gestore di stato](service-fabric-reliable-actors-state-management.md): una struttura di dati simile a un dizionario che archivia in modo affidabile le coppie chiave-valore. Il gestore di stato è un wrapper per il provider di stato. Può essere usato per archiviare i dati indipendentemente dall'[impostazione di persistenza](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) usata.
@@ -248,7 +239,7 @@ interface MyActor {
 ```
 
 ## <a name="remove-state"></a>Rimuovere lo stato
-Lo stato può essere rimosso in modo permanente dal gestore di stato di un attore chiamando il metodo *Remove*. Questo metodo genera l'eccezione `KeyNotFoundException` (C#) o `NoSuchElementException`(Java) se si tenta di rimuovere una chiave che non esiste.
+Lo stato può essere rimosso in modo permanente dal gestore di statodi un attore chiamando il metodo *Remove*. Questo metodo genera l'eccezione `KeyNotFoundException` (C#) o `NoSuchElementException`(Java) se si tenta di rimuovere una chiave che non esiste.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

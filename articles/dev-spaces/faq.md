@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Trovare le risposte ad alcune domande comuni su Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 2baab0812061bec7dcf08d35056804313d873889
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c904ae5809a36859ba6428bf026c9016a1a8f747
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482310"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867184"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Domande frequenti su Azure Dev Spaces
 
@@ -18,7 +18,7 @@ Questo indirizzo viene indirizzato a domande frequenti su Azure Dev Spaces.
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Quali aree di Azure forniscono attualmente Azure Dev Spaces?
 
-Per un elenco completo delle aree disponibili, vedere [le aree e le configurazioni supportate][supported-regions].
+Per un elenco completo delle aree disponibili, vedere [aree supportate][supported-regions] .
 
 ## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>È possibile usare Azure Dev Spaces senza un indirizzo IP pubblico?
 
@@ -34,7 +34,7 @@ Sì, è possibile configurare il traffico in ingresso con HTTPS usando [traefik]
 
 ## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>È possibile usare Azure Dev Spaces in un cluster che usa CNI anziché kubenet? 
 
-Sì, è possibile usare Azure Dev Spaces in un cluster AKS che usa CNI per la rete. Ad esempio, è possibile usare Azure Dev Spaces in un cluster AKS con i [contenitori di Windows esistenti][windows-containers], che usa CNI per la rete.
+Sì, è possibile usare Azure Dev Spaces in un cluster AKS che usa CNI per la rete. Ad esempio, è possibile usare Azure Dev Spaces in un cluster AKS con i [contenitori di Windows esistenti][windows-containers], che usa CNI per la rete. Altre informazioni sull'uso di CNI per la rete con Azure Dev Spaces sono disponibili [qui](configure-networking.md#using-azure-container-networking-with-azure-dev-spaces).
 
 ## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>È possibile usare Azure Dev Spaces con I contenitori di Windows?
 
@@ -42,19 +42,11 @@ Attualmente, Azure Dev Spaces è progettato per l'esecuzione solo su Pod e nodi 
 
 ## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>È possibile usare Azure Dev Spaces nei cluster AKS con gli intervalli di indirizzi IP autorizzati del server API abilitati?
 
-Sì, è possibile usare Azure Dev Spaces nei cluster AKS con gli [intervalli di indirizzi IP autorizzati del server API][aks-auth-range] abilitati. Quando si [Crea][aks-auth-range-create] il cluster, è necessario [consentire intervalli aggiuntivi in base all'area geografica][aks-auth-range-ranges]. È anche possibile [aggiornare][aks-auth-range-update] un cluster esistente per consentire tali intervalli aggiuntivi.
+Sì, è possibile usare Azure Dev Spaces nei cluster AKS con gli [intervalli di indirizzi IP autorizzati del server API][aks-auth-range] abilitati. Altre informazioni sull'uso di un cluster AKS con gli intervalli di indirizzi IP autorizzati del server API abilitati con Azure Dev Spaces sono disponibili [qui](configure-networking.md#using-api-server-authorized-ip-ranges-with-azure-dev-spaces).
 
 ### <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>È possibile usare Azure Dev Spaces nei cluster AKS con traffico in uscita limitato per i nodi del cluster?
 
-Sì, è possibile usare Azure Dev Spaces nei cluster AKS con [traffico in uscita limitato per i nodi del cluster][aks-restrict-egress-traffic] abilitati una volta consentiti i nomi di dominio completi seguenti:
-
-| FQDN                                    | Port      | Uso      |
-|-----------------------------------------|-----------|----------|
-| cloudflare.docker.com | HTTPS:443 | Per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
-| gcr.io | HTTP: 443 | Per estrarre le immagini Helm/Tiller |
-| storage.googleapis.com | HTTP: 443 | Per estrarre le immagini Helm/Tiller |
-| azds-<guid>.<location>. azds.io | HTTPS:443 | Per comunicare con Azure Dev Spaces servizi back-end per il controller. L'FQDN esatto è reperibile in "dataplaneFqdn" in% USERPROFILE%\.azds\settings.JSON |
-
+Sì, è possibile usare Azure Dev Spaces nei cluster AKS con [traffico in uscita limitato per i nodi del cluster][aks-restrict-egress-traffic] abilitati dopo che sono stati consentiti i nomi di dominio completi corretti. Altre informazioni sull'uso di un cluster AKS con traffico in uscita limitato per i nodi del cluster abilitato con Azure Dev Spaces sono disponibili [qui](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
@@ -64,5 +56,5 @@ Sì, è possibile usare Azure Dev Spaces nei cluster AKS con [traffico in uscita
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

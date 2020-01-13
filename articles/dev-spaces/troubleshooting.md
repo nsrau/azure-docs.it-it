@@ -3,14 +3,14 @@ title: Risoluzione dei problemi
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: conceptual
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Informazioni su come risolvere i problemi comuni durante l'abilitazione e l'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 64b9cda61e5af3e8b9ea52477b5bf4fa879f48e6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438117"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -391,7 +391,7 @@ Per aggiornare il ruolo RBAC dell'utente per il controller:
     * Per *ruolo*selezionare *collaboratore* o *proprietario*.
     * In *Assegna accesso a* selezionare *Utente, gruppo o entità servizio di Azure AD*.
     * Per *Select*, cercare l'utente a cui si vogliono concedere le autorizzazioni.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Risoluzione dei nomi DNS non completa l'operazione per un URL pubblico associato al servizio Dev Spaces
 
@@ -469,7 +469,7 @@ Dopo aver riavviato i pod, è possibile iniziare a usare lo spazio dei nomi esis
 
 Per abilitare Azure Dev Spaces in un cluster AKS per il quale il traffico in uscita dai nodi del cluster è limitato, è necessario consentire i nomi di dominio completi seguenti:
 
-| FQDN                                    | Port      | Uso      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Per estrarre le immagini Helm/Tiller|

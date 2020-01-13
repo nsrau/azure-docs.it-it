@@ -2,19 +2,15 @@
 title: Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 description: Questa soluzione di gestione delle VM avvia e arresta le macchine virtuali Azure Resource Manager in base a una pianificazione e monitora in modo proattivo i log di monitoraggio di Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c0b022ed759837fc6d922386dd48a2f3a109527a
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
-ms.translationtype: HT
+ms.openlocfilehash: e37b6b800cbe0b4272df227e1411257b33a3e0cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951497"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420797"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -37,7 +33,7 @@ Di seguito sono riportate le limitazioni della soluzione corrente:
 > [!NOTE]
 > Se si usa la soluzione per le macchine virtuali classiche, tutte le macchine virtuali verranno elaborate in sequenza per ogni servizio cloud. Le macchine virtuali vengono comunque elaborate in parallelo tra servizi cloud diversi. Se sono presenti più di 20 macchine virtuali per ogni servizio cloud, è consigliabile creare più pianificazioni con la **ScheduledStartStop_Parent** padre Runbook e specificare 20 VM per ogni pianificazione. Nelle proprietà della pianificazione specificare come elenco delimitato da virgole i nomi delle macchine virtuali nel parametro **VMList** . In caso contrario, se il processo di automazione per questa soluzione viene eseguito più di tre ore, viene temporaneamente scaricato o arrestato in base al limite di [condivisione equa](automation-runbook-execution.md#fair-share) .
 >
-> Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando è in esecuzione la soluzione Avvio/Arresto, è possibile che vengano visualizzati degli errori perché le risorse classiche sono gestite dai cmdlet. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Se si usa una sottoscrizione di CSP, è necessario modificare la variabile [**External_EnableClassicVMs** ](#variables) su **False** dopo la distribuzione.
+> Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando è in esecuzione la soluzione Avvio/Arresto, è possibile che vengano visualizzati degli errori perché le risorse classiche sono gestite dai cmdlet. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Se si usa una sottoscrizione di CSP, è necessario modificare la variabile [**External_EnableClassicVMs**](#variables) su **False** dopo la distribuzione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -55,7 +51,7 @@ Esistono determinate autorizzazioni che un utente deve avere per distribuire la 
 
 Per distribuire la soluzione avvio/arresto di macchine virtuali durante gli orari di indisponibilità in un account di automazione esistente e in Log Analytics area di lavoro, l'utente che distribuisce la soluzione richiede le autorizzazioni seguenti per il **gruppo di risorse**. Per altre informazioni sui ruoli, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).
 
-| Autorizzazione | Scope|
+| Autorizzazione | Ambito|
 | --- | --- |
 | Microsoft.Automation/automationAccounts/read | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/variables/write | Gruppo di risorse |
@@ -81,10 +77,10 @@ Per distribuire la soluzione avvio/arresto di macchine virtuali durante gli orar
 Per distribuire la soluzione avvio/arresto di macchine virtuali durante gli orari di indisponibilità in un nuovo account di automazione e in Log Analytics area di lavoro, l'utente che distribuisce la soluzione deve avere le autorizzazioni definite nella sezione precedente, nonché le autorizzazioni seguenti:
 
 - Coamministratore nella sottoscrizione: è necessario solo per creare l'account RunAs classico se si intende gestire le VM classiche. Per impostazione predefinita, gli [account RunAs classici](automation-create-standalone-account.md#classic-run-as-accounts) non vengono più creati.
-- Membro del [ruolo](../active-directory/users-groups-roles/directory-assign-admin-roles.md) di **sviluppatore dell'applicazione** Azure Active Directory. Per ulteriori informazioni sulla configurazione di account RunAs, vedere [autorizzazioni per la configurazione di account RunAs](manage-runas-account.md#permissions).
+- Membro del ruolo di [](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **sviluppatore dell'applicazione** Azure Active Directory. Per ulteriori informazioni sulla configurazione di account RunAs, vedere [autorizzazioni per la configurazione di account RunAs](manage-runas-account.md#permissions).
 - Collaboratore per la sottoscrizione o per le autorizzazioni seguenti.
 
-| Autorizzazione |Scope|
+| Autorizzazione |Ambito|
 | --- | --- |
 | Microsoft.Authorization/Operations/read | Sottoscrizione|
 | Microsoft.Authorization/permissions/read |Sottoscrizione|
@@ -247,13 +243,13 @@ La tabella seguente elenca i runbook distribuiti nell'account di Automazione da 
 
 Tutti i runbook padre includono il parametro _WhatIf_. Se impostato su **True**, _WhatIf_ supporta i dettagli relativi al comportamento esatto del runbook quando viene eseguito senza il parametro _WhatIf_ e verifica che vengano specificate come destinazione le macchine virtuali corrette. Quando il parametro _WhatIf_ è impostato su **False**, un runbook esegue solo le azioni definite.
 
-|Runbook | parameters | Description|
+|Runbook | Parametri | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chiamato dal runbook padre. Questo runbook crea gli avvisi in base alle risorse per lo scenario AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True o False  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> VMList: Elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_.<br> *WhatIf* convalida la logica del runbook senza eseguirlo.|
-|AutoStop_Disable | None | Disabilita gli avvisi di AutoStop e la pianificazione predefinita.|
+|AutoStop_Disable | none | Disabilita gli avvisi di AutoStop e la pianificazione predefinita.|
 |AutoStop_StopVM_Child | WebHookData | Chiamato dal runbook padre. Le regole di avviso chiamano questo runbook per arrestare la VM.|
-|Bootstrap_Main | None | Usato una sola volta per impostare le configurazioni di bootstrap come webhookURI, che in genere non sono accessibili da Azure Resource Manager. Questo runbook viene rimosso automaticamente dopo il completamento della distribuzione.|
+|Bootstrap_Main | none | Usato una sola volta per impostare le configurazioni di bootstrap come webhookURI, che in genere non sono accessibili da Azure Resource Manager. Questo runbook viene rimosso automaticamente dopo il completamento della distribuzione.|
 |ScheduledStartStop_Child | VMName <br> Azione: avvio o arresto <br> ResourceGroupName | Chiamato dal runbook padre. Esegue un'azione di avvio o arresto per l'arresto pianificato.|
 |ScheduledStartStop_Parent | Azione: avvio o arresto <br>VMList <br> WhatIf: True o False | Questa impostazione ha effetto su tutte le macchine virtuali della sottoscrizione. Modificare **External_Start_ResourceGroupNames** ed **External_Stop_ResourceGroupNames** in modo che vengano eseguiti solo in questi gruppi di risorse di destinazione. È inoltre possibile escludere macchine virtuali specifiche aggiornando la variabile **External_ExcludeVMNames**.<br> VMList: Elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_.<br> _WhatIf_ convalida la logica del runbook senza eseguirlo.|
 |SequencedStartStop_Parent | Azione: avvio o arresto <br> WhatIf: True o False<br>VMList| Crea i tag denominati **sequencestart** e **sequencestop** in ogni macchina virtuale per cui si vuole mettere in sequenza l'attività di avvio/arresto. I nomi dei tag distinguono tra maiuscole e minuscole. Il valore del tag deve essere un numero intero positivo (1, 2, 3) corrispondente all'ordine in cui si vuole eseguire l'avvio o l'arresto. <br> VMList: Elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_. <br> _WhatIf_ convalida la logica del runbook senza eseguirlo. <br> **Nota**: le macchine virtuali devono trovarsi all'interno di gruppi di risorse definiti come External_Start_ResourceGroupNames External_Stop_ResourceGroupNames ed External_ExcludeVMNames nelle variabili di Automazione di Azure. Devono avere i tag appropriati perché le azioni abbiano effetto.|
@@ -308,7 +304,7 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 |CorrelationId | GUID che rappresenta l'ID di correlazione del processo del runbook.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
-|ResourceId | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
+|resourceId | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
 |ResourceGroup | Specifica il nome del gruppo di risorse del processo del runbook.|
 |ResourceProvider | Specifica il servizio di Azure che fornisce le risorse da distribuire e gestire. Per Automazione, il valore è Automazione di Azure.|
 |ResourceType | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
@@ -329,7 +325,7 @@ Automazione crea due tipi di record nell'area di lavoro Log Analytics: log di pr
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
 |ResourceGroup | Specifica il nome del gruppo di risorse del processo del runbook.|
-|ResourceId | Specifica l'ID risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
+|resourceId | Specifica l'ID risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
 |ResourceProvider | Specifica il servizio di Azure che fornisce le risorse da distribuire e gestire. Per Automazione, il valore è Automazione di Azure.|
 |ResourceType | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
 |resultType | Risultato del processo del runbook al momento in cui è stato generato l'evento. Un valore possibile è:<br>- InProgress|
@@ -407,7 +403,7 @@ Per gestire le pianificazioni relative all'avvio e all'arresto in questa soluzio
 2. Creare una pianificazione personalizzata per l'ora di arresto delle macchine virtuali.
 3. Passare al runbook **ScheduledStartStop_Parent** e fare clic su **Pianificazione**. In questo modo è possibile selezionare la pianificazione creata nel passaggio precedente.
 4. Selezionare **Parametri e impostazioni di esecuzione** e impostare il parametro ACTION su "Stop".
-5. Fare clic su **OK** per salvare le modifiche.
+5. Scegliere **OK** per salvare le modifiche.
 
 ## <a name="update-the-solution"></a>Aggiornare la soluzione
 

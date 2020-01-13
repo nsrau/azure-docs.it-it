@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435781"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
@@ -51,11 +51,11 @@ Per altre informazioni su Azure Data Factory, vedere la [documentazione](../../d
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Inserire dati nell'archiviazione file e nell'archivio risultati
 
-I file di dati di origine vengono in genere caricati in una posizione di Archiviazione di Azure o di Azure Data Lake Store. I file possono essere in qualsiasi formato, ma in genere si tratta di file flat come quelli con estensione csv. 
+I file di dati di origine vengono in genere caricati in una posizione di Archiviazione di Azure o di Azure Data Lake Store. I file possono essere in qualsiasi formato, ma in genere si tratta di file flat come quelli con estensione csv.
 
-### <a name="azure-storage"></a>Archiviazione di Azure 
+### <a name="azure-storage"></a>Archiviazione di Azure
 
-[Archiviazione di Azure](https://azure.microsoft.com/services/storage/blobs/) ha [obiettivi di scalabilità specifici](../../storage/common/storage-scalability-targets.md).  Per la maggior parte dei nodi analitici, le prestazioni di Archiviazione di Azure risultano ottimali quando vengono gestiti molti file di piccole dimensioni.  Archiviazione di Azure garantisce prestazioni identiche, a prescindere dal numero di file o dalla relativa dimensione (a condizione che non siano superati i limiti).  In altre parole, è possibile archiviare terabyte di dati e continuare a ottenere prestazioni uniformi, sia che venga usato un subset di dati sia che vengano usati tutti.
+[Archiviazione di Azure](https://azure.microsoft.com/services/storage/blobs/) ha obiettivi di scalabilità specifici. Per altre informazioni, vedere [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../../storage/blobs/scalability-targets.md). Per la maggior parte dei nodi analitici, le prestazioni di Archiviazione di Azure risultano ottimali quando vengono gestiti molti file di piccole dimensioni.  Archiviazione di Azure garantisce prestazioni identiche, a prescindere dal numero di file o dalla relativa dimensione (a condizione che non siano superati i limiti).  In altre parole, è possibile archiviare terabyte di dati e continuare a ottenere prestazioni uniformi, sia che venga usato un subset di dati sia che vengano usati tutti.
 
 Archiviazione di Azure ha diversi tipi di BLOB.  Un *BLOB di aggiunta* è un'ottima scelta per archiviare blog o dati sensore.  
 
@@ -65,9 +65,9 @@ Archiviazione di Azure include anche un livello API WebHDFS per l'archiviazione 
 
 I dati vengono in genere inseriti in Archiviazione di Azure tramite PowerShell, Azure Storage SDK o AZCopy.
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+### <a name="azure-data-lake-storage"></a>Archiviazione Azure Data Lake
 
-Azure Data Lake Storage (ADLS) è un repository con iperscalabilità gestito per dati di analisi compatibili con HDFS.  ADLS usa un paradigma di progettazione simile ad HDFS e offre scalabilità illimitata in termini di capacità totale e dimensione dei singoli file. ADLS è un'ottima scelta quando si lavora con file di grandi dimensioni, poiché un file di questo tipo può essere archiviato in più nodi.  Il partizionamento dei dati in ADLS viene eseguito in background.  Si ottiene una velocità effettiva molto elevata per l'esecuzione di processi di analisi con migliaia di esecutori simultanei che leggono e scrivono centinaia di terabyte di dati in modo efficiente.
+Azure Data Lake Storage (ADLS) è un repository con iperscalabilità gestito per dati di analisi compatibili con HDFS.  ADLS usa un paradigma di progettazione simile ad HDFS e offre scalabilità illimitata in termini di capacità totale e dimensione dei singoli file. ADLS è un'ottima scelta quando si lavora con file di grandi dimensioni, poiché un file di questo tipo può essere archiviato in più nodi.  Il partizionamento dei dati in ADLS viene eseguito in background.  Puoi ottenere velocità effettiva molto elevata per l'esecuzione di processi di analisi con migliaia di esecutori simultanei che leggono e scrivono centinaia di terabyte di dati in modo efficiente.
 
 I dati vengono in genere inseriti in ADLS tramite Azure Data Factory, gli SDK di ADLS, il servizio AdlCopy, Apache DistCp o Apache Sqoop.  La scelta del servizio da usare dipende in gran parte dalla posizione dei dati.  Se i dati si trovano attualmente in un cluster Hadoop esistente, si può usare Apache DistCp, il servizio AdlCopy o Azure Data Factory.  Se si trovano in Archiviazione BLOB di Azure, si può usare Azure Data Lake Storage .NET SDK, Azure PowerShell o Azure Data Factory.
 
@@ -77,11 +77,11 @@ ADLS è ottimizzato anche per l'inserimento di eventi tramite l'hub eventi di Az
 
 Per il caricamento dei set di dati nell'intervallo di terabyte, la latenza di rete può creare seri problemi, in particolare se i dati provengono da una posizione locale.  In questi casi, è possibile usare le opzioni seguenti:
 
-* Azure ExpressRoute:  Azure ExpressRoute consente di creare connessioni private tra i data center di Azure e l'infrastruttura locale. Queste connessioni costituiscono un'opzione affidabile per il trasferimento di grandi quantità di dati. Per altre informazioni, vedere la [Documentazione su ExpressRoute](../../expressroute/expressroute-introduction.md).
+* Azure ExpressRoute: Azure ExpressRoute consente di creare connessioni private tra i data center di Azure e l'infrastruttura locale. Queste connessioni costituiscono un'opzione affidabile per il trasferimento di grandi quantità di dati. Per altre informazioni, vedere la [Documentazione su ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 * Caricamento "offline" dei dati: è possibile usare il [servizio Importazione/Esportazione di Azure](../../storage/common/storage-import-export-service.md) per inviare le unità disco rigido con i dati a un data center di Azure. I dati vengono caricati prima di tutto in BLOB di archiviazione di Azure. È quindi possibile usare [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) o lo strumento [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) per copiare i dati dai BLOB di Archiviazione di Azure in Data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse di Azure
 
 Azure SQL DW è la scelta ottimale per archiviare risultati puliti e preparati per analisi future.  Azure HDInsight consente di eseguire i servizi per Azure SQL DW.
 
@@ -129,7 +129,7 @@ Apache Flume è un servizio distribuito, affidabile e disponibile per raccoglier
 
 Apache Flume non può essere usato con Azure HDInsight.  Un'installazione locale di Hadoop può usare Flume per inviare dati ai BLOB del servizio di archiviazione di Azure o a Azure Data Lake Storage.  Per altre informazioni, vedere [Using Apache Flume with HDInsigh](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso di Apache Flume con HDInsight).
 
-## <a name="transform"></a>Trasforma
+## <a name="transform"></a>Trasformazione
 
 Quando i dati esistono nella posizione scelta, è necessario pulirli, combinarli o prepararli per un modello di utilizzo specifico.  Hive, Pig e Spark SQL sono soluzioni ottime per questo tipo di attività  e sono tutte supportate in HDInsight. 
 

@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 059937cc390a15c986724b3107a7f64fb789fc92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 975f4940590bfbdab559122c68488c51c65d868e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480281"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896310"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Distribuire un sistema di SAP HANA con scalabilità orizzontale con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su Red Hat Enterprise Linux 
 
@@ -435,7 +435,11 @@ Configurare e preparare il sistema operativo seguendo questa procedura:
     mount 10.9.0.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   Per ulteriori informazioni su come modificare `nfs4_disable_idmapping` parametro, vedere https://access.redhat.com/solutions/1749883.
 
 6. **[A]** montare i volumi di Azure NetApp files condivisi.  
 
@@ -569,14 +573,14 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
      * Per **Seleziona utilizzo sistema/immettere l'indice [4]** : immettere **4** (per personalizzato)
      * Per il **percorso dei volumi di dati** [/Hana/data/HN1]: premere INVIO per accettare il valore predefinito
      * Per il **percorso dei volumi di log** [/Hana/log/HN1]: premere INVIO per accettare il valore predefinito
-     * Per **limitare l'allocazione di memoria massima?** [n]\: immettere **n**
+     * Per **limitare l'allocazione di memoria massima?** [n]: immettere **n**
      * Per **nome host certificato per host hanadb1** [hanadb1]: premere INVIO per accettare il valore predefinito
      * Per **nome host certificato per host hanadb2** [hanadb2]: premere INVIO per accettare il valore predefinito
      * Per **nome host certificato per host hanadb3** [hanadb3]: premere INVIO per accettare il valore predefinito
      * Per la **password dell'amministratore di sistema (hn1adm)** : immettere la password
      * Per la **password utente del database di sistema (System)** : immettere la password del sistema
      * Per **Conferma password utente database di sistema (sistema)** : immettere la password del sistema
-     * Per **riavviare il sistema dopo il riavvio del computer?** [n]\: immettere **n** 
+     * Per **riavviare il sistema dopo il riavvio del computer?** [n]: immettere **n** 
      * Per **continuare (y/n)** : convalidare il riepilogo e, in caso di esito positivo, immettere **y**
 
 
