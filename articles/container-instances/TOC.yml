@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Istanze di Azure Container
       href: container-instances-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Distribuire un'istanza di contenitore - Interfaccia della riga di comando
@@ -51,14 +51,18 @@
       href: container-instances-orchestrator-relationship.md
     - name: Considerazioni relative alla sicurezza
       href: container-instances-image-security.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Distribuire
       items:
-        - name: Distribuire in una rete virtuale (anteprima)
+        - name: Eseguire la distribuzione in una rete virtuale
           href: container-instances-vnet.md
         - name: Eseguire la distribuzione da Registro Azure Container
           href: container-instances-using-azure-container-registry.md
+        - name: Crittografare i dati della distribuzione
+          href: container-instances-encrypt-data.md
+        - name: Eseguire la distribuzione in host dedicati
+          href: container-instances-dedicated-hosts.md
     - name: Scenari dei contenitori
       items:
         - name: Impostare i criteri di riavvio per le attività a esecuzione unica
@@ -109,7 +113,7 @@
       items:
         - name: Risolvere i problemi comuni
           href: container-instances-troubleshooting.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container
@@ -139,7 +143,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/container-instances/'
-    - name: Guida di orientamento
+    - name: Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Inviare commenti e suggerimenti per il prodotto
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'

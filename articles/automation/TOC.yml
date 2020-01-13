@@ -15,6 +15,8 @@
       displayName: certificate renewal
     - name: Configurare l'autenticazione con AWS
       href: automation-config-aws-account.md
+    - name: Crittografia di asset protetti in Automazione di Azure
+      href: automation-secure-asset-encryption.md
     - name: Gestire il controllo degli accessi in base al ruolo
       href: automation-role-based-access-control.md
       displayName: RBAC
@@ -40,7 +42,7 @@
           displayName: 'graphical, python, powershell, powershell workflow'
         - name: Informazioni sul flusso di lavoro PowerShell
           href: automation-powershell-workflow.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Creare un runbook
           href: automation-quickstart-create-runbook.md
@@ -183,7 +185,7 @@
             - name: Linux
               href: troubleshoot/update-agent-issues-linux.md
               displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux'
-- name: Change Tracking
+- name: Rilevamento modifiche
   items:
     - name: Panoramica di Rilevamento modifiche
       href: change-tracking.md
@@ -243,7 +245,7 @@
       items:
         - name: PowerShell DSC
           href: /powershell/dsc/overview/overview
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Introduzione
           href: automation-dsc-getting-started.md
@@ -286,7 +288,7 @@
         - name: Risolvere i problemi di State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
-    - name: riferimento
+    - name: Riferimento
       items:
         - name: Soluzioni della community
           items:
@@ -306,7 +308,7 @@
   items:
     - name: Certificati
       href: automation-certificates.md
-    - name: connessioni
+    - name: Connessioni
       href: automation-connections.md
     - name: Credenziali
       href: automation-credentials.md
@@ -356,7 +358,7 @@
     - name: Eseguire la migrazione dall'agente di orchestrazione
       href: automation-orchestrator-migration.md
       displayName: 'SCORCH, runbooks'
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

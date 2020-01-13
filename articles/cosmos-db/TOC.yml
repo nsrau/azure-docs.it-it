@@ -82,6 +82,8 @@
       href: resource-manager-samples.md
 - name: Concetti
   items:
+    - name: Differenze tra NoSQL e database relazionali
+      href: relational-nosql.md
     - name: Distribuzione globale
       items:
         - name: Panoramica
@@ -976,6 +978,8 @@
           href: certificate-based-authentication.md
         - name: Limitare l'accesso utente solo alle operazioni sui dati
           href: how-to-restrict-user-data.md
+        - name: Configurare le chiavi gestite dal cliente
+          href: how-to-setup-cmk.md
     - name: Soluzione pronta per l'azienda
       items:
         - name: Ripristinare i dati da un backup
@@ -1058,6 +1062,8 @@
           href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Eseguire la migrazione di centinaia di terabyte di dati ad Azure Cosmos DB
           href: migrate-cosmosdb-data.md
+        - name: Eseguire la migrazione di dati relazionali uno-a-pochi
+          href: migrate-relational-to-cosmos-db-sql-api.md
     - name: Libreria Bulk Executor
       items:
         - name: Informazioni sulla libreria dell'executor bulk

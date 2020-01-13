@@ -61,6 +61,8 @@
           href: how-dev-spaces-works.md
         - name: Funzionamento di VS Code con Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
+        - name: Configurazione delle impostazioni di rete in topologie diverse
+          href: configure-networking.md
     - name: Procedure
       items:
         - name: Installare Azure Dev Spaces

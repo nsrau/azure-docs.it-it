@@ -16,9 +16,7 @@
       href: manage-app-groups.md
     - name: 5. Creare un pool di host per convalidare gli aggiornamenti dei servizi
       href: create-validation-host-pool.md
-    - name: 6. Distribuire uno strumento di gestione
-      href: manage-resources-using-ui.md
-    - name: 7. Configurare gli avvisi dei servizi
+    - name: 6. Configurare gli avvisi dei servizi
       href: set-up-service-alerts.md
 - name: Procedure
   items:
@@ -70,6 +68,12 @@
       href: set-up-scaling-script.md
     - name: Personalizzare il feed
       href: customize-feed-for-virtual-desktop-users.md
+    - name: Distribuire lo strumento di gestione
+      items:
+        - name: Modello di Azure Resource Manager
+          href: manage-resources-using-ui.md
+        - name: PowerShell
+          href: manage-resources-using-ui-powershell.md
     - name: Usare la diagnostica del servizio
       items:
         - name: Distribuire lo strumento di diagnostica

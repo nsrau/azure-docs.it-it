@@ -36,11 +36,13 @@
       href: architecture-smart-inventory-management-pnp.md
     - name: Architettura dell'analisi punti vendita
       href: store-analytics-architecture.md
+    - name: Architettura del modello di app per il centro di micro-adempimenti
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: Connettività
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Che cosa i modelli di applicazione?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Connettere dispositivi
       items:
@@ -74,13 +76,13 @@
           href: ../preview/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Creare analisi personalizzate con Databricks
           href: ../preview/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-    - name: Administration
+    - name: Amministrazione
       items:
         - name: Modificare le impostazioni dell'applicazione
           href: ../preview/howto-administer.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Esportare l'applicazione
           href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-        - name: Gestire utenti e ruoli
+        - name: Gestione di utenti e ruoli
           href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Gestire la fattura
           href: ../preview/howto-view-bill.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json

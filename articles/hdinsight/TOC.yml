@@ -848,6 +848,8 @@
           href: ./hdinsight-management-ip-addresses.md
         - name: Tag di servizio per Firewall di Azure
           href: ./hdinsight-service-tags.md
+        - name: Crittografia del disco con chiavi gestite dal cliente
+          href: ./disk-encryption.md
     - name: Procedure
       items:
         - name: Usare il broker di identità per la gestione delle credenziali

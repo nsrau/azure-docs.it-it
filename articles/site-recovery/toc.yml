@@ -177,6 +177,8 @@
               href: azure-to-azure-how-to-enable-replication.md
             - name: Abilitare la replica da Azure ad Azure per le VM crittografate
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
+            - name: Abilitare la replica da Azure ad Azure per le VM con dischi abilitati per chiavi gestite dal cliente
+              href: azure-to-azure-how-to-enable-replication-cmk-disks.md
             - name: Abilitare la replica da Azure ad Azure per le macchine virtuali S2D
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: Abilitare la replica per un disco aggiunto
