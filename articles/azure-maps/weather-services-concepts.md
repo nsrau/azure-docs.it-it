@@ -1,6 +1,6 @@
 ---
-title: Concetti relativi ai servizi meteorologici nelle mappe di Azure | Microsoft Docs
-description: Informazioni sui servizi meteorologici nelle mappe di Azure
+title: Concetti relativi ai servizi meteorologici | Mappe Microsoft Azure
+description: In questo articolo verranno illustrati i concetti che si applicano a Microsoft Azure Maps Weather Services.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9d464ab172fcb375d62b9928818362574a485231
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382462"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911035"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
@@ -23,11 +23,11 @@ Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure 
 
 Alcune API del servizio meteorologico consentono all'utente di specificare se i dati vengono restituiti in formato metrica o in unità imperiali. La risposta restituita per queste API includerà anche unitType, un valore numerico che può essere usato per le traduzioni di unità. Per interpretare questi valori, vedere la tabella seguente.
 
-|unitType|DESCRIZIONE         |
+|UnitType|Description         |
 |--------|--------------------|
 |0       |piedi                |
 |1       |pollici              |
-|2       |chilometri               |
+|2       |miles               |
 |3       |millimetro          |
 |4       |centimetro          |
 |5       |Metro               |
@@ -45,16 +45,16 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 |17      |celsius             |
 |18      |fahrenheit          |
 |19      |kelvin              |
-|20      |%             |
+|20      |percent             |
 |21      |float               |
-|22      |numero intero             |
+|22      |integer             |
 
 
 ## <a name="weather-icons"></a>Icone Meteo
 
 Alcune delle API del servizio meteo restituiscono i codici icona (iconCode) nella risposta, un valore numerico che può essere usato per definire l'icona. Non collegarsi direttamente a queste immagini dalle applicazioni, gli URL possono e cambieranno.
 
-| Numero icona |Icona| Giorno | Notte | Text |
+| Numero icona |Icona| Giorno | Notte | Testo |
 |-------------|:----:|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sì |  No    | Sunny|
 | 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sì |  No    | Per lo più soleggiato|
@@ -62,7 +62,7 @@ Alcune delle API del servizio meteo restituiscono i codici icona (iconCode) nell
 | 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sì |  No    | Cloud intermittenti|
 | 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sì |  No    | Sole nebbioso |
 | 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sì |  No    | Per la maggior parte cloud|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sì |  Sì   | Nuvoloso |
+| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sì |  Sì   | che aria tira? |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sì |  Sì   | Tetro (nuvoloso)|
 | 11           |![](./media/weather-services-concepts/fog-i.png)                       | Sì |  Sì   | Nebbia|
 | 12           |![](./media/weather-services-concepts/showers-i.png)                   | Sì |  Sì   | Docce|
@@ -84,7 +84,7 @@ Alcune delle API del servizio meteo restituiscono i codici icona (iconCode) nell
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sì |  Sì   | Accesso frequente|
 | 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sì |  Sì   | Cold|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sì |  Sì   | Ventoso|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sì   | Cancellazione|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sì   | Deseleziona|
 | 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | No  |  Sì   | Per lo più chiaro|
 | 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | No  |  Sì   | Parzialmente nuvoloso|
 | 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | No  |  Sì   | Cloud intermittenti|
@@ -127,7 +127,7 @@ La tabella seguente fornisce indicazioni per interpretare le immagini radar e cr
 
 Di seguito è illustrata la tavolozza dei colori dettagliata per i riquadri radar con codici colore esadecimali e valori di dBZ. dBZ rappresenta l'intensità della precipitazione nel radar meteorologico. 
 
-| **PIOGGIA**             | **ICE**              | **NEVE**              | **MISTO**             |
+| **PIOGGIA**             | **ICE**              | **NEVE**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|
 | **dBZ** **(colore)**  | **dBZ** **(colore)**  | **dBZ** **(colore)**   | **dBZ** **(colore)**   |
 | 1,25 (#93C701) | 1,25 (#E6A5C8) | 1,25 (#9EC8F2)  | 1,25 (#C196E6) |
@@ -220,7 +220,7 @@ Di seguito è riportata la tavolozza colori dettagliata per i riquadri satellite
 |198     |#fe050505     |
 |198,43  |#fe120505     |
 |198,87  |#fc1f0505     |
-|199,3   |#fc2c0606     |
+|199.3   |#fc2c0606     |
 |199,74  |#fa390606     |
 |200,17  |#fa460606     |
 |200,61  |#f8530606     |

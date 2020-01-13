@@ -3,16 +3,16 @@ title: Creare un cluster e un database di Azure Esplora dati usando un modello d
 description: Informazioni su come creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
 author: orspod
 ms.author: orspodek
-ms.reviewer: oflipman
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 9a91f81c9d28f1b3c8d553a2a8a26d53ff1b2b3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 56639d8a29ad8eac465845c8d354d04b31ba6093
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444482"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911954"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
 

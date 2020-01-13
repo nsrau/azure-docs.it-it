@@ -1,6 +1,6 @@
 ---
-title: Supporto della localizzazione nelle mappe di Azure | Microsoft Docs
-description: Informazioni sulle lingue supportate per i servizi disponibili in Mappe di Azure
+title: Supporto per la localizzazione | Mappe Microsoft Azure
+description: In questo articolo vengono illustrate le lingue supportate per i servizi in Microsoft Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 64197cc85822997926a8011af8cb3b981fa9064d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286426"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910441"
 ---
 # <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione nelle mappe di Azure
 
@@ -25,11 +25,11 @@ Azure Maps supporta diversi linguaggi e visualizzazioni in base al paese/area ge
 I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
   
 
-| ID         | Nome                   |  Mappe | Cerca | Routing | Weather | Eventi imprevisti del traffico | Controllo mappa JS |
+| ID         | Nome                   |  Mappe | Cerca | Routing | Clima | Eventi imprevisti del traffico | Controllo mappa JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabo                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
-| bn-BD      | Bangla (Bangladesh)    |       |       |         |     ✓    |                   |                |
+| bn-BD      | Bengalese (Bangladesh)    |       |       |         |     ✓    |                   |                |
 | bn-IN      | Bangla (India)         |       |       |         |     ✓    |                   |                |
 | BS-BA      | Bosniaco                 |       |       |         |     ✓    |                   |                |
 | eu-ES      | Basco                 |       |    ✓   |         |         |                   |                |
@@ -45,10 +45,10 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 | nl-NL      | Olandese (Paesi Bassi)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-AU      | Inglese (Australia)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-NZ      | Inglese (Nuova Zelanda)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en-GB      | Inglese (Gran Bretagna) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en-US      | Inglese (Stati Uniti)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| en-GB      | Inglesi (Gran Bretagna) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| it-IT      | Inglese (Stati Uniti)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estone               |       |    ✓   |         |      ✓    |         ✓         |                |
-| Fil-PH     | Filippino               |       |       |         |     ✓    |                   |                |
+| fil-PH     | Filippino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finlandese                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-FR      | Francese                 |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-CA      | Francese (Canada)      |       |    ✓   |         |     ✓     |                   |                |
@@ -69,9 +69,9 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 | es-419     | Spagnolo (America Latina) |       |    ✓   |         |         |                   |                |
 | lv-LV      | Lettone                |       |    ✓   |         |     ✓    |         ✓         |                |
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| MK-MK      | Macedone             |       |       |         |     ✓    |                   |                |
+| mk-MK      | Macedone             |       |       |         |     ✓    |                   |                |
 | ms-MY      | Malese (alfabeto latino)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
-| Mr-IN      | Marathi                 |       |       |         |     ✓    |                   |                |
+| mr-IN      | Marathi                 |       |       |         |     ✓    |                   |                |
 | nb-NO      | Norvegese bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Mappa con esonimi: lingue ufficiali per tutte le aree con lo specifico sistema di caratteri, se disponibile |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | Mappa con esonimi: esonimi latini. Verrà usato il sistema di caratteri dell'alfabeto latino, se disponibile |   ✓     |        |         |         |                |        ✓         |
@@ -93,8 +93,8 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 | th-TH      | Thai                   |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | uk-UA      | Ucraino               |       |    ✓   |         |     ✓    |                   |                |
-| PK      | Urdu                 |       |       |         |     ✓    |                   |                |
-| UZ-Latn-UZ | Uzbeco                 |       |       |         |     ✓    |                   |                |
+| ur-PK      | Urdu                 |       |       |         |     ✓    |                   |                |
+| uz-Latn-UZ | Uzbeco                 |       |       |         |     ✓    |                   |                |
 | vi-VN      | Vietnamita             |       |    ✓   |         |      ✓    |                  |                |
 
 
@@ -148,7 +148,7 @@ Per impostazione predefinita, il parametro di visualizzazione è impostato su **
 
 Nella tabella seguente vengono fornite le visualizzazioni supportate.
 
-| View         | DESCRIZIONE                            |  Mappe | Cerca | controllo mappa JS |
+| Visualizza         | Description                            |  Mappe | Cerca | controllo mappa JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirati Arabi Uniti (visualizzazione araba)    |   ✓   |        |     ✓          |
 | AR           | Argentina (vista Argentina)           |   ✓   |    ✓   |     ✓          |
@@ -166,5 +166,5 @@ Nella tabella seguente vengono fornite le visualizzazioni supportate.
 | SA           | Arabia Saudita (visualizzazione araba)            |   ✓   |        |     ✓          |
 | SY           | Siria (visualizzazione araba)                   |   ✓   |        |     ✓          |
 | YE           | Yemen (visualizzazione araba)                   |   ✓   |        |     ✓          |
-| Automatico         | Restituisce i dati della mappa in base all'indirizzo IP della richiesta.|   ✓   |    ✓   |     ✓          |
+| Auto         | Restituisce i dati della mappa in base all'indirizzo IP della richiesta.|   ✓   |    ✓   |     ✓          |
 | Unificato      | Visualizzazione unificata (altri)                  |   ✓   |   ✓     |     ✓          |

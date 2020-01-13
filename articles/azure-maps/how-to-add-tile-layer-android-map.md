@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello sezione a mappe Android in mappe di Azure | Microsoft Docs
-description: Come aggiungere un livello sezione a una mappa usando Azure Maps Android SDK
+title: Aggiungere un livello sezione a Maps Android | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come eseguire il rendering di un livello sezione su una mappa usando le mappe di Microsoft Azure Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5d5f50a38db95f6e62bdd8c51aefd5957041e682
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886611"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911520"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
 
@@ -48,7 +48,7 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
 
 È possibile aggiungere un livello sezione alla mappa seguendo questa procedura.
 
-1. Modificare il **layout res > > activity_main. XML** in modo che sia simile a quello riportato di seguito:
+1. Modificare il **layout res > > activity_main. XML** in modo che abbia un aspetto simile al seguente:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
     </FrameLayout>
     ```
 
-2. Copiare il seguente frammento di codice nel metodo OnCreate **()** della `MainActivity.java` classe.
+2. Copiare il seguente frammento di codice nel metodo **OnCreate ()** della classe `MainActivity.java`.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
     });
     ```
     
-    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback onReady **()** . Crea quindi un `TileLayer` oggetto e passa un URL del `tileUrl` riquadro XYZ formattato nell'opzione. L'opacità del livello è impostata su `0.8` e, poiché i riquadri del servizio affiancato sono riquadri di 256 pixel, queste informazioni vengono `tileSize` passate nell'opzione. Il livello sezione viene quindi passato a Maps Layer Manager.
+    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto `TileLayer` e viene passato un URL del riquadro **XYZ** formattato nell'opzione `tileUrl`. L'opacità del livello è impostata su `0.8` e poiché i riquadri del servizio affiancato sono riquadri di 256 pixel, queste informazioni vengono passate nell'opzione `tileSize`. Il livello sezione viene quindi passato a Maps Layer Manager.
 
-    Dopo aver aggiunto il frammento di codice `MainActivity.java` precedente, il dovrebbe essere simile a quello riportato di seguito:
+    Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
     
     ```Java
     package com.example.myapplication;
@@ -172,7 +172,7 @@ Se si esegue ora l'applicazione, viene visualizzata una riga sulla mappa come il
 
 <center>
 
-![Linea mappa Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![linea della mappa Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

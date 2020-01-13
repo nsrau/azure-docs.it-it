@@ -1,6 +1,6 @@
 ---
-title: Copertura per il traffico in Mappe di Azure | Microsoft Docs
-description: Informazioni sulla copertura per il traffico in Mappe di Azure
+title: Copertura del traffico | Mappe Microsoft Azure
+description: In questo articolo vengono fornite informazioni sulla copertura del traffico in Microsoft Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 544cae7f33bfb1077bfdf7f215fb313974334216
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958008"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910390"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
@@ -37,13 +37,13 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Uruguay |✓         |✓         |
 
 
-## <a name="asia-pacific"></a>Asia/Pacifico
+## <a name="asia-pacific"></a>Asia Pacifico
 
 |Paese/Area geografica   |Eventi imprevisti  |Flusso  |
 |---------|:---------:|:---------:|
 |Australia     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|Hong Kong - R.A.S.     |✓         |✓         |
+|RAS di Hong Kong     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
 |RAS di Macao     |✓         |✓         |
@@ -52,7 +52,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Filippine  |✓         |✓         |
 |Singapore     |✓         |✓         |
 |Taiwan     |✓         |✓        |
-|Thailandia     |✓         |✓        |
+|Tailandia     |✓         |✓        |
 |Vietnam   |✓         |✓         |
 
 
@@ -67,13 +67,13 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Bosnia ed Erzegovina    |✓         |✓         |
 |Bulgaria     |✓         |✓         |
 |Croazia     |✓         |✓         |
-|Repubblica ceca     |✓         |✓         |
+|Repubblica Ceca     |✓         |✓         |
 |Danimarca     |✓         |✓         |
 |Estonia     |         | ✓        |
 |Finlandia     |✓         |✓         |
 |+Isole Åland      |✓         |✓         |
 |Francia     |✓         |✓         |
-|Principato di Monaco     |✓         |✓         |
+|Monaco     |✓         |✓         |
 |Germania     |✓         |✓         |
 |Grecia     |✓         |✓         |
 |Ungheria     |✓         |✓         |
@@ -87,7 +87,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Lituania     |✓         |✓         |
 |Lussemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
-|Principato di Monaco   |✓         |✓         |
+|Monaco   |✓         |✓         |
 |Paesi Bassi     |✓         |✓         |
 |Norvegia     |✓         |✓         |
 |Polonia     |✓         |✓         |
@@ -129,7 +129,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Oman     |✓         |✓         |
 |Qatar     |✓         |✓         |
 |Arabia Saudita     |✓         |✓         |
-|Sud Africa     |✓         |✓         |
+|Sudafrica     |✓         |✓         |
 |Emirati Arabi Uniti  |✓         |✓         |
 
 ## <a name="next-steps"></a>Passaggi successivi

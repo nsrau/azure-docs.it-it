@@ -1,6 +1,6 @@
 ---
-title: Gestire l'account Mappe di Azure | Microsoft Docs
-description: È possibile usare il portale di Azure per gestire l'account Mappe di Azure.
+title: Gestire l'account Azure Maps nel portale di Azure | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come usare il portale di Azure per gestire l'account Microsoft Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a5697989696d0d375e52baeb9f7332e7013d16bf
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 92c76780473372c3e2ef87cdf4da0f21a22d9ac6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768844"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911508"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gestire l'account Mappe di Azure
 
@@ -31,13 +31,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 4. Immettere le informazioni del nuovo account.
 
-![Immettere le informazioni dell'account nel portale](./media/how-to-manage-account-keys/new-account-portal.png)
+![Immettere le informazioni sull'account Azure Maps nell'portale di Azure](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## <a name="delete-an-account"></a>Eliminare un account
 
 È possibile eliminare un account dal portale di Azure. Passare alla pagina di panoramica account e selezionare **Elimina**.
 
-![Eliminare l'account nel portale](./media/how-to-manage-account-keys/account-delete-portal.png)
+![Eliminare l'account Azure Maps nell'portale di Azure](./media/how-to-manage-account-keys/account-delete-portal.png)
 
 Viene quindi visualizzata una pagina di conferma. È possibile confermare l'eliminazione dell'account digitandone il nome.
 

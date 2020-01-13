@@ -1,6 +1,6 @@
 ---
-title: Stili delle mappe supportati in Mappe di Azure | Microsoft Docs
-description: Stili delle mappe supportati da Mappe di Azure
+title: Stili della mappa supportati | Mappe Microsoft Azure
+description: In questo articolo vengono illustrati i diversi stili di rendering della mappa supportati dalle mappe Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5368aec04eb0a57654adf5b0d5914282a979dcfd
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325406"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910631"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -21,7 +21,7 @@ Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di segui
 ## <a name="road"></a>strada
 Una mappa **stradale** è una mappa standard che indica le strade, caratteristiche naturali e artificiali e indicazioni di tali caratteristiche.
 
-![strada](./media/supported-map-styles/road.png)
+![stile della mappa stradale](./media/supported-map-styles/road.png)
 
 **API idonee:**
 * [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -42,7 +42,7 @@ Gli stili **blank** e **blank_accessible** map forniscono un'area di disegno vuo
 ## <a name="satellite"></a>satellite 
 Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 
-![satellite](./media/supported-map-styles/satellite.png)
+![stile mappa affiancata satellite](./media/supported-map-styles/satellite.png)
 
 **API idonee:**
 * [Riquadro del satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,7 +52,7 @@ Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte alle immagini del satellite e aeree.
 
-![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
+![stile mappa satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -61,7 +61,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gradazioni di grigio scuro** è una versione scura dello stile della mappa stradale.
 
-![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![stile mappa gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **API idonee:**
 * [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ## <a name="grayscale_light"></a>grayscale_light
 la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 
-![grigio chiaro](./media/supported-map-styles/grayscale_light.png)
+![stile mappa chiaro in scala di grigi](./media/supported-map-styles/grayscale_light.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -83,7 +83,7 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 ## <a name="night"></a>notte
 **notte** è una versione scura dello stile della mappa stradale con strade colorate e simboli.
 
-![notte](./media/supported-map-styles/night.png)
+![stile mappa notturna](./media/supported-map-styles/night.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -92,7 +92,7 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **road shaded relief** è uno dei principali stili di Mappe di Azure, completato con contorni della Terra.
 
-![rilievo ombreggiato](./media/supported-map-styles/shaded-relief.png)
+![stile mappa di rilievo ombreggiato](./media/supported-map-styles/shaded-relief.png)
 
 **API idonee:**
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890171"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912003"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
 
@@ -121,7 +121,7 @@ Dopo l'invio della chiamata, la risposta dell'app per la logica viene visualizza
 >
 > Se si vuole annullare il processo in un secondo momento, selezionare la scheda **intestazioni** . trovare e copiare il valore dell'intestazione **x-ms-Workflow-Run-ID** nella risposta. 
 >
-> ![Response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
+> ![Risposta](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>Annullare un processo unico
 
@@ -191,9 +191,9 @@ Nell'Utilità di pianificazione di Microsoft Azure, se l'azione predefinita non 
 
 1. Al termine, fare clic su **Fine**.
 
-Per altre informazioni sulla gestione delle eccezioni, vedere [Rilevare e gestire gli errori con la proprietà RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+Per altre informazioni sulla gestione delle eccezioni, vedere [Rilevare e gestire gli errori con la proprietà RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>FAQ
 
 <a name="retire-date"></a>
 
@@ -212,7 +212,7 @@ Per altre informazioni sulla gestione delle eccezioni, vedere [Rilevare e gestir
 **D.** Dove si può ottenere supporto per la migrazione dei processi dell'Utilità di pianificazione? <br>
 **R.** Ecco alcuni modi per ottenere supporto: 
 
-**Portale di Azure**
+**Azure portal**
 
 Se la sottoscrizione di Azure ha di un piano di supporto a pagamento, è possibile creare una richiesta di supporto tecnico nel portale di Azure. In caso contrario, è possibile selezionare un'opzione di supporto diversa.
 
@@ -224,7 +224,7 @@ Se la sottoscrizione di Azure ha di un piano di supporto a pagamento, è possibi
    |---------|-------|
    | **Tipo di problema** | **Tecnico** |
    | **Sottoscrizione** | <*sottoscrizione-di-Azure*> |
-   | **Servizio** | In **Monitoraggio e gestione** selezionare **Utilità di pianificazione**. Se non è possibile trovare l' **utilità di pianificazione**, selezionare prima **tutti i servizi** . |
+   | **Service** | In **Monitoraggio e gestione** selezionare **Utilità di pianificazione**. Se non è possibile trovare l' **utilità di pianificazione**, selezionare prima **tutti i servizi** . |
    ||| 
 
 1. Selezionare l'opzione di supporto desiderata. Se si dispone di un piano di supporto a pagamento, fare clic su **Avanti**.

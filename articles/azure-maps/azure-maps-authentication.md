@@ -1,6 +1,6 @@
 ---
-title: Autenticazione con Mappe di Azure | Microsoft Docs
-description: Azure Active Directory (Azure AD) o l'autenticazione con chiave condivisa per l'utilizzo di Microsoft Azure Maps Services. Informazioni su come ottenere la chiave di sottoscrizione di Azure maps.
+title: Metodi di autenticazione | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come Azure Active Directory (Azure AD) o l'autenticazione con chiave condivisa per l'uso di Microsoft Azure Maps Services. Informazioni su come ottenere la chiave di sottoscrizione di Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/30/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 006adae99b2430f4c08ce5fc692598e48f45c239
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834190"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911832"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 

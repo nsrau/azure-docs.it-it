@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello per le mappe termiche a Mappe di Azure | Microsoft Docs
-description: Come aggiungere un livello mappa termica a Azure Maps Web SDK.
+title: Aggiungere un livello mappa termica a una mappa | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come aggiungere un livello mappa termica a una mappa usando il Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b0d07f18682bf39558180753de38a9c5ff106ee3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ead30a80a6568e72f922f355916d31121b49a93b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408531"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911213"
 ---
 # <a name="add-a-heat-map-layer"></a>Aggiungere un livello per le mappe termiche
 

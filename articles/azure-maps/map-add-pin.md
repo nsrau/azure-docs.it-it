@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello simbolo in Mappe di Azure | Microsoft Docs
-description: Come aggiungere simboli ad Azure Maps Web SDK.
+title: Aggiungere un livello di simbolo a una mappa | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come usare il livello dei simboli per personalizzare e aggiungere simboli su una mappa usando il Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480608"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911171"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Aggiungere un livello simbolo a una mappa
 

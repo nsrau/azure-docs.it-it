@@ -1,6 +1,6 @@
 ---
-title: Copertura della geocodifica nelle mappe di Azure | Microsoft Docs
-description: Informazioni sulla copertura della geocodifica nelle mappe Microsoft Azure e in quali aree/paesi è possibile usare geocodificatore di mappe di Azure.
+title: Copertura della geocodifica | Mappe Microsoft Azure
+description: Il processo di conversione dell'indirizzo di posizione nelle coordinate di latitudine e Longitudine è noto come geocodifica. In questo articolo vengono fornite informazioni sulle aree con copertura geocodifica in Microsoft Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/31/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4def947c13588cde57b55aeaa9d958eafa923093
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 38d25b7494f8b2f3e1abdac959edde8969d7d4c7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768810"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911616"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 

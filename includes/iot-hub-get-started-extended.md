@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8da233088389797271541b1aae55ec2e842f252d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: bd08812f83413a997ce655d68d866b145b20dcef
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180257"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912491"
 ---
 ## <a name="extended-iot-scenarios"></a>Scenari IoT estesi
 
@@ -21,9 +21,9 @@ Usare altri servizi e strumenti di Azure. Dopo la connessione del dispositivo al
 
 | Scenario                                                   | Servizio o strumento di Azure              |
 |----------------------------------------------------------- |------------------------------------|
-| [Gestire i messaggi dell'hub IoT](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | Estensione Azure IoT Hub Toolkit per Visual Studio Code|
+| [Gestire i messaggi dell'hub IoT](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | Estensione dell'hub Azure Internet VS Code|
 | [Gestire un dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Interfaccia della riga di comando di Azure ed estensione IoT    |
-| [Gestire un dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | Estensione Azure IoT Hub Toolkit per Visual Studio Code|
+| [Gestire un dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | Estensione dell'hub Azure Internet VS Code|
 | [Salvare i messaggi dell'hub IoT nell'archiviazione di Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Archiviazione tabelle di Azure                |
 | [Visualizzare i dati dei sensori](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualizzare i dati dei sensori](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | App Web di Azure                     |

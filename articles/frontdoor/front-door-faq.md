@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dd315277e6e8f29a103760d605a7da4603190c20
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639855"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908860"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Domande frequenti sul servizio Azure front door
 
@@ -99,7 +99,7 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
     > Lo spazio IP back-end della porta anteriore potrebbe cambiare in un secondo momento, tuttavia, prima che ciò accada, avremmo integrato gli [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519). È consigliabile sottoscrivere gli [intervalli IP e i tag di servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) per eventuali modifiche o aggiornamenti.
 
 -   Filtrare in base ai valori per l'intestazione in ingresso '**X-inoltred-host**' inviata dalla porta anteriore. Gli unici valori consentiti per l'intestazione devono essere tutti gli host front-end definiti nella configurazione della porta anteriore. In realtà, in modo più specifico, solo i nomi host per cui si vuole accettare il traffico, in questo particolare back-end.
-    - Esempio: si può dire che la configurazione della porta anteriore dispone dei seguenti host front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C) e _`notifications.contoso.com`_ (D). Si supponga di avere due backend X e Y. 
+    - Esempio: si può dire che la configurazione della porta anteriore dispone dei seguenti host front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _`api.contoso.com`_ (C) e _`notifications.contoso.com`_ (D). Si supponga di avere due backend X e Y. 
     - Il back-end X deve solo prendere il traffico dai nomi host A e B. il back-end Y può prendere il traffico da A, C e D.
     - Quindi, nel back-end X è necessario accettare solo il traffico con l'intestazione "**X-inoltred-host**" impostata su _`contoso.azurefd.net`_ o _`www.contoso.com`_ . Per tutte le altre operazioni, il back-end X deve rifiutare il traffico.
     - Analogamente, nel back-end Y è necessario accettare solo il traffico con l'intestazione "**X-inoltred-host**" impostata su _`contoso.azurefd.net`_ , _`api.contoso.com`_ o _`notifications.contoso.com`_ . Per tutte le altre operazioni, il back-end Y deve rifiutare il traffico.

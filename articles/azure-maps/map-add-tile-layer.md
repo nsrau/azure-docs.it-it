@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello riquadro in Mappe di Azure | Microsoft Docs
-description: Come aggiungere un livello sezione a Azure Maps Web SDK.
+title: Aggiungere un livello sezione a una mappa | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come sovrapporre un livello sezione su una mappa usando il Microsoft Azure Maps Web SDK. I livelli sezione consentono di eseguire il rendering delle immagini su una mappa.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976445"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911100"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
@@ -40,7 +40,7 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 
 ## <a name="add-a-tile-layer"></a>Aggiungere un livello per i riquadri
 
- Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Quando si visualizzano i dati radar idealmente, gli utenti possono visualizzare chiaramente le etichette delle città mentre esplorano la mappa. a tale scopo, inserire il livello sezione al di `labels` sotto del livello.
+ Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Quando si visualizzano i dati radar idealmente, gli utenti possono visualizzare chiaramente le etichette delle città mentre esplorano la mappa. a tale scopo, inserire il livello sezione al di sotto del livello `labels`.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.

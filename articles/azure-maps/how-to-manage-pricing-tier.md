@@ -1,6 +1,6 @@
 ---
-title: Gestire il piano tariffario dell'account Mappe di Azure | Microsoft Docs
-description: È possibile usare il portale di Azure per gestire l'account Mappe di Azure e i piani tariffari.
+title: Gestire il piano tariffario dell'account Azure Maps | Mappe Microsoft Azure
+description: È possibile usare la portale di Azure per gestire l'account di Microsoft Azure Maps e il relativo piano tariffario.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 43f5c6ea42464a83d070775fae8c5befe35bf60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cba1e56b96f24764af00f04f399d0cdbe54be24
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794209"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911475"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gestire il piano tariffario dell'account Mappe di Azure
 

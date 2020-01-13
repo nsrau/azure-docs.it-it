@@ -1,18 +1,18 @@
 ---
 title: Creare un database e un cluster di Esplora dati di Azure tramite Python
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure usando Python.
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: b3329ccb3edb3077a45e3bbf9ba7b48d7e3a93a2
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 5a3a7d79e43a4e0b4a160837be4d7f3cc33f4a91
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996236"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911950"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creare un database e un cluster di Esplora dati di Azure tramite Python
 
@@ -24,7 +24,7 @@ ms.locfileid: "71996236"
 > * [Python](create-cluster-database-python.md)
 > * [Modello ARM](create-cluster-database-resource-manager.md)
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando Python.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per analisi in tempo reale su volumi elevati di dati in streaming da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,8 +38,8 @@ Per installare il pacchetto di Python per Esplora dati di Azure (Kusto), aprire 
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
-## <a name="authentication"></a>Authentication
-Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazione e un'entità servizio che possano accedere alle risorse. Selezionare [Crea un'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) per creare un'applicazione Azure ad gratuita e aggiungere l'assegnazione di ruolo nell'ambito della sottoscrizione. Viene inoltre illustrato come ottenere i `Directory (tenant) ID`, `Application ID` e `Client Secret`.
+## <a name="authentication"></a>Autenticazione
+Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazione e un'entità servizio che possano accedere alle risorse. Selezionare [Crea un'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) per creare un'applicazione Azure ad gratuita e aggiungere l'assegnazione di ruolo nell'ambito della sottoscrizione. Viene inoltre illustrato come ottenere le `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Creare il cluster di Esplora dati di Azure
 
@@ -87,7 +87,7 @@ Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazio
    | resource_group_name | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
 
     > [!NOTE]
-    > La **creazione di un cluster** è un'operazione a esecuzione prolungata. Il metodo **create_or_update** restituisce un'istanza di LROPoller. per ulteriori informazioni, vedere la [classe LROPoller](/python/api/msrest/msrest.polling.lropoller?view=azure-python) .
+    > La **creazione di un cluster** è un'operazione a esecuzione prolungata. Method **create_or_update** restituisce un'istanza di LROPoller. per ulteriori informazioni, vedere la [classe LROPoller](/python/api/msrest/msrest.polling.lropoller?view=azure-python) .
 
 1. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
 

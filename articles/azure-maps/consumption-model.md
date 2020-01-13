@@ -1,6 +1,6 @@
 ---
-title: Modello di consumo in Mappe di Azure | Microsoft Docs
-description: Informazioni sul modello di consumo in Mappe di Azure
+title: Modelli di consumo del veicolo per il routing | Mappe Microsoft Azure
+description: In questo articolo vengono illustrati i modelli di consumo dei veicoli per il routing in Microsoft Azure maps.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60797909"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911702"
 ---
 # <a name="consumption-model"></a>Modello di utilizzo
 
 Pianificazione percorso fornisce un set di parametri per una descrizione dettagliata del modello di consumo specifico del veicolo.
-A seconda del valore di **vehicleEngineType**, sono supportati due modelli di consumo principali: _combustione_ ed _elettrico_. È un errore specificare parametri che appartengono a modelli diversi nella stessa richiesta.
+A seconda del valore di **vehicleEngineType**, sono supportati due modelli di consumo principali: _Combustione_ e _Elettrico_. È un errore specificare parametri che appartengono a modelli diversi nella stessa richiesta.
 Non è possibile usare il modello di consumo con i valori _bicicletta_ e _pedone_ di **travelMode**.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Vincoli dei parametri per il modello di consumo

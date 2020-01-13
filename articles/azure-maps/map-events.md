@@ -1,6 +1,6 @@
 ---
-title: Gestire gli eventi con le mappe di Azure | Microsoft Docs
-description: Come creare una mappa di SDK Web interattiva con eventi di mapping
+title: Gestire gli eventi della mappa | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come creare una mappa di SDK Web interattiva con eventi di mapping usando il Microsoft Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 99ef5aa0ee8fa542b0aa807cc536ebfbee369e10
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484291"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911071"
 ---
 # <a name="interact-with-the-map"></a>Interazione con la mappa
 
@@ -49,7 +49,7 @@ Il codice seguente aggiunge gli eventi della mappa JavaScript a un marcatore HTM
 
 Nella tabella seguente sono elencati tutti gli eventi della classe Map supportati.
 
-| Evento               | DESCRIZIONE |
+| Evento               | Description |
 |---------------------|-------------|
 | `boxzoomend`        | Generato al termine di un'interazione con lo zoom della finestra.|
 | `boxzoomstart`      | Generato quando viene avviata l'interazione con lo zoom di una finestra.|

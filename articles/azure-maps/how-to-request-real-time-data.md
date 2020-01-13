@@ -1,6 +1,6 @@
 ---
-title: Come richiedere dati in tempo reale in Maps di Azure | Microsoft Docs
-description: Richiedi dati in tempo reale usando il servizio Mobility di Azure maps.
+title: Richiedere dati di transito in tempo reale | Mappe Microsoft Azure
+description: Richiedi dati in tempo reale usando il servizio Mobility Microsoft Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/06/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 5f69bcafbc3abb39b4185e0144ff6029808c0704
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 169764f015f332d07c21ef815e6044c653489774
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432984"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911439"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Richiedi dati in tempo reale usando il servizio Mobility di Azure Maps
 

@@ -1,6 +1,6 @@
 ---
-title: Copertura della mobilità in Maps di Azure | Microsoft Docs
-description: Informazioni sulla copertura della mobilità in mappe di Azure
+title: Copertura della mobilità (transito) | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come coprire la mobilità nelle mappe Microsoft Azure
 author: walsehgal
 ms.author: v-musehg
 ms.date: 06/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1fcad7d3d0cc45f0cfdc0d6523d5fdbc8f573fe2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 658d282260b6c9c427527fdc07bf05a0218fda4a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577003"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910709"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Copertura della mobilità di Maps di Azure
 
@@ -30,7 +30,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="americas"></a>Americhe
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/Area |  Città (area metro) |
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, Cordova, Corrientes, generale Pico, la Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
@@ -46,13 +46,13 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Perù | Cusco, Lima |
 | Portorico | San Juan |
 | Uruguay | Montevideo, punta del Este |
-| Stati Uniti d'America | <p>Albany (NY), Albuquerque (NM), Anchorage (AK), Appleton-Oshkosh-Neenah (WI), Asheville (NC), Atene (OH), Atlanta (GA), Austin (TX), Bakersfield (CA), Baltimore), Bellevue (WA), Berkshire County (MA), Birmingham (AL), Bloomington (IN), Boise (ID), Boston ( MA), Boulder (CO) Brevard County (FL), Buffalo (NY), Butte (MT), Cape Cod), Centre County (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), Cheyenne (WY), Chicago (IL), Cincinnati (OH), Contea di Citrus (FL), Cleveland (OH), Coachella Valley (CA), Colorado Springs (CO), Columbia (TN), Columbus (OH), Corpus Christi (TX), Dallas/Forth Worth (TX), Dayton (OH), Delaware, Denver (CO), Des Moines (IA), Detroit (MI), Duluth (MN), El Paso (TX), Eugene (o ), Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), Flint (MI) Fort Collins (CO), Fort Wayne (IN), Fresno (CA), Gainesville (FL), Grand fork (ND), Grand Rapids (MI), Green Bay (WI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton Roads (VA ), Hanford (CA), Hartford (CT), Hernando County (FL), Honolulu (HI), Houston (TX), Humboldt County (CA), Huntsville (AL), Indianapolis (IN), Itaca (NY), Jackson (MS), Jackson (TN), Jacksonville-St. John ' s County (FL), Johnson City (TN), Jonesboro (AR), Joplin (MO), Juneau (AK), Kalamazoo (MI), Kansas City (MO), Kauai (HI), Ketchum (ID), Knoxville (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Las Vegas (NV), Lawrence (KS), Lee County (FL), Lexington (KY), Lincoln County (o), Little Rock (AR), Los Angeles ( CA), Louisville (KY), Madison (WI), McAllen (TX), Memphis (TN), Miami (FL), Milwaukee/Waukesha (WI), Minneapolis-St. Paul (MN), Missoula (MT), modesto (USA), Moline (IL), Monroe County (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), Navajo Nation), New Haven (CT), New Orleans (LA), NYC-NJ), Ocala (FL), Okaloosa County (FL), Oklahoma City (OK), Omaha (NE), Orlando (FL), Panama City (FL), Pensacola (FL), Peoria (IL), Philadelphia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (ME), Portland (o), Racine (WI), Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Roanoke Valley (VA-Lynchburg), Rochester (NY), Rocky Mountain National Park), Rogue Valley (o), Roseburg (OR), Roseville (CA), Sacramento (CA), Salem (o), Salt Lake City (UT), San Antonio (TX), San Diego ( CA), San Luis Obispo (CA), Santa Barbara (CA), Santa Fe (NM), Sarasota (FL), Savannah (GA), litorale Region (NH), Seattle-Tacoma-Bellevue (WA), SF Bay Area (CA), Sioux City (IA), Sioux Falls (SD), Sitka (AK), Spokane (WA), Springfield (IL), Springfield (Mass), St. George (UT), St. Louis (MO), Stockton (CA), Siracusa-Utica (NY), Tallahassee (FL), Tampa-St. Petersburg (FL), Terre Haute (IN), Toledo (OH), Topeka (KS), attraversamento città (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia County (FL), Waco (TX), Washington (DC), Waterbury (CT), Wichita (KS), Wilmington (NC), Yakima (WA), York County (PA), Yuma County (AZ)</p>|
+| Stati Uniti d'America | <p>Albany (NY), Albuquerque (NM), Anchorage (AK), Appleton-Oshkosh-Neenah (WI), Asheville (NC), Atene (OH), Atlanta (GA), Austin (TX), Bakersfield (CA), Baltimore), Bellevue (WA), Berkshire County (MA), Birmingham (AL), Bloomington (IN), Boise (ID), Boston (MA), Boulder (CO) Brevard County (FL), Buffalo (NY), Butte (MT), Cape Cod), Centre County (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), Cheyenne (WY), Chicago (IL), Cincinnati (OH), Contea di Citrus (FL), Cleveland (OH), Coachella Valley (CA), Colorado Springs (CO), Columbia (TN), Columbus (OH), Corpus Christi (TX), Dallas/Forth Worth (TX), Dayton (OH), Delaware, Denver (CO), Des Moines (IA), Detroit (MI), Duluth (MN), El Paso (TX), Eugene (o), Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), Flint (MI) Fort Collins (CO), Fort Wayne (IN), Fresno (CA), Gainesville (FL), Grand fork (ND), Grand Rapids (MI), Green Bay (WI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton Roads (VA ), Hanford (CA), Hartford (CT), Hernando County (FL), Honolulu (HI), Houston (TX), Humboldt County (CA), Huntsville (AL), Indianapolis (IN), Itaca (NY), Jackson (MS), Jackson (TN), Jacksonville-St. John ' s County (FL), Johnson City (TN), Jonesboro (AR), Joplin (MO), Juneau (AK), Kalamazoo (MI), Kansas City (MO), Kauai (HI), Ketchum (ID), Knoxville (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Las Vegas (NV), Lawrence (KS), Lee County (FL), Lexington (KY), Lincoln County (o), Little Rock (AR), Los Angeles (CA), Louisville (KY), Madison (WI), McAllen (TX), Memphis (TN), Miami (FL), Milwaukee/Waukesha (WI), Minneapolis-St. Paul (MN), Missoula (MT), modesto (USA), Moline (IL), Monroe County (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), Navajo Nation), New Haven (CT), New Orleans (LA), NYC-NJ), Ocala (FL), Okaloosa County (FL), Oklahoma City (OK), Omaha (NE), Orlando (FL), Panama City (FL), Pensacola (FL), Peoria (IL), Philadelphia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (ME), Portland (o), Racine (WI), Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Roanoke Valley (VA-Lynchburg), Rochester (NY), Rocky Mountain National Park), Rogue Valley (o), Roseburg (OR), Roseville (CA), Sacramento (CA), Salem (o), Salt Lake City (UT), San Antonio (TX), San Diego (CA), San Luis Obispo (CA), Santa Barbara (CA), Santa Fe (NM), Sarasota (FL), Savannah (GA), litorale Region (NH), Seattle-Tacoma-Bellevue (WA), SF Bay Area (CA), Sioux City (IA), Sioux Falls (SD), Sitka (AK), Spokane (WA), Springfield (IL), Springfield (Mass), St. George (UT), St. Louis (MO), Stockton (CA), Siracusa-Utica (NY), Tallahassee (FL), Tampa-St. Petersburg (FL), Terre Haute (IN), Toledo (OH), Topeka (KS), attraversamento città (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia County (FL), Waco (TX), Washington (DC), Waterbury (CT), Wichita (KS), Wilmington (NC), Yakima (WA), York County (PA), Yuma County (AZ)</p>|
 | \+ Isole Vergini americane | Isole Vergini statunitensi * |
 
 
-## <a name="asia-pacific"></a>Asia/Pacifico
+## <a name="asia-pacific"></a>Asia Pacifico
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/Area |  Città (area metro) |
 |--------|---------|
 | Australia      | <p>Adelaide, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, South East Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Cina | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Pechino, Guangzhou, Shenzhen, Zhengzhou</P>| 
@@ -67,13 +67,13 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Singapore | Singapore |
 | Corea del Sud | Busan, Seoul |
 | Taiwan | Changhua County, Taipei | 
-| Thailandia | Bangkok, Chiang mai | 
+| Tailandia | Bangkok, Chiang mai | 
 | Vietnam | Hanoi, città di Ho Chi Minh | 
 
 
 ## <a name="europe"></a>Europa
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/Area |  Città (area metro) |
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Atene         | Chios | 
@@ -85,7 +85,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Bulgaria       | <p>Balchik, Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, Sofia</P> |
 | Croazia | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, Zagabria | 
 | Cipro | Larnaca, Limassol, Nicosia | 
-| Repubblica ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
+| Repubblica Ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
 | Danimarca   | Danimarca |
 | Estonia   | Estonia |   
 | Finlandia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola-Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
@@ -111,7 +111,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Malta | Malta | 
 | Romania | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucarest, Buzau, Cluj Napoca, Costanza, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zala</p> | 
 | Russia  | Rostov-on-Don, Volgograd, Ekaterinburg, Kazan, Kirov, Krasnodar, Mosca, Nalchik, Nizhny Novgorod, Novosibirsk, Nojabr ' sk, Omsk, Perm, San Pietroburgo, Tver, Tomsk |
-| Serbia  | Beograd, Kragujevac, NIS, Novi Sad, Valjevo, Subotica | 
+| Serbia  | Beograd, Kragujevac, Nis, Novi Sad, Valjevo, Subotica | 
 | Slovacchia | Banská Bystrica, Bratislava, Kosice, Presov, Prievidza, Trencin | 
 | Slovenia | Koper, Lubiana | 
 | Spagna    | <p>Cocolaa, Alicante, Almería, Asturias, Avila, Badajoz, Bay of Cadice, Barcelona, Bilbao, Burgos, Caceres, Campo de Gibilterra, Castellon de la Plana, Ceuta, Ciudad Real, Cordova, Cuenca, El Hierro, Ferrol, Gran Canaria, Granada, Huelva, Huesca, Ibiza, Jaén-Úbeda , La Palma, Lanzarote, Lleida, Logroño, Lugo, Madrid, Malaga, Mallorca-Maiorca, Melilla, Minorca, Merida, Murcia, Palencia, Pamplona, Salamanca, San Sebastian, Santander, Santiago de Compostela, Segovia, Siviglia, Soria, Tarragona-Reus, Tenerife, Toledo, Valencia, Valladolid, Vigo, Vitoria-Gasteiz, Saragozza-Saragozza</p> |
@@ -124,7 +124,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/Area |  Città (area metro) |
 |---------|---------|
 | Bahrain | Bahrain |
 | Egitto | Cairo    |
@@ -133,7 +133,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Madagascar | Antananarivo |
 | Marocco | Casablanca, Khouribga, Tétouan|
 | Arabia Saudita | Thuwal |
-| Sud Africa | Città del Capo |
+| Sudafrica | Città del Capo |
 | Tunisia | Kairouan |
 | Emirati Arabi Uniti  | Abu Dhabi, Dubai |
 

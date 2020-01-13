@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457060"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911888"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -208,15 +208,15 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 1. (Facoltativo) Impostare la velocità di campionamento su un valore diverso e osservare la variazione della frequenza dei messaggi con `tracestate` nelle proprietà dell'applicazione.
 
-### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>Eseguire l'aggiornamento tramite il toolkit dell'hub IoT di Azure per VS Code
+### <a name="update-using-azure-iot-hub-for-vs-code"></a>Aggiornamento tramite l'hub Azure per VS Code
 
-1. Installare VS Code e quindi installare la versione del toolkit dell'hub IoT di Azure per VS Code più recente da [qui](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+1. Installare VS Code, quindi installare la versione più recente dell'hub Azure per VS Code da [qui](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 1. Aprire VS Code e [impostare la stringa di connessione dell'hub IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
 1. Espandere il dispositivo e cercare **Distributed Tracing Setting (Preview)** (Impostazione traccia distribuita - anteprima). Fare clic sul sottonodo **Update Distributed Tracing Setting (Preview)** (Aggiorna impostazione traccia distribuita - anteprima).
 
-    ![Abilitare la traccia distribuita nel toolkit dell'hub IoT di Azure](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Abilitare la traccia distribuita nell'estensione dell'hub Azure.](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. Nella finestra popup selezionare **Abilita** e quindi premere INVIO per confermare 100 come velocità di campionamento.
 

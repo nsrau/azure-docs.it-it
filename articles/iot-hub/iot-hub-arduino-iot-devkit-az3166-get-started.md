@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 3cdeecd5b7698274b899832d7a66a5572a114e4b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 139d1a470c67d5dab310c4fa2a9171f433df2061
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954507"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912367"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -71,7 +71,7 @@ La Guida introduttiva usa il firmware DevKit precompilato per inviare i dati di 
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
+1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
 
@@ -174,7 +174,7 @@ Per preparare l'ambiente di sviluppo per DevKit, seguire questa procedura:
     > [Installare il pacchetto di estensione degli strumenti di Azure.](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > Il pacchetto di estensione strumenti di Azure per gli strumenti di Azure include il [Workbench per dispositivi Azure](https://aka.ms/iot-workbench) , usato per sviluppare ed eseguire il debug in diversi dispositivi devkit. Il [Toolkit Azure](https://aka.ms/iot-toolkit)per gli hub di Azure, incluso anche nel pacchetto di estensione strumenti di Azure, viene usato per gestire e interagire con hub Azure.
+    > Il pacchetto di estensione strumenti di Azure per gli strumenti di Azure include il [Workbench per dispositivi Azure](https://aka.ms/iot-workbench) , usato per sviluppare ed eseguire il debug in diversi dispositivi devkit. L' [estensione dell'hub](https://aka.ms/iot-toolkit)Internet degli strumenti di Azure, inclusa anche nel pacchetto di estensione strumenti di Azure, viene usata per gestire e interagire con gli hub Azure.
 
 5. Configurare Visual Studio Code con le impostazioni di Arduino.
 
@@ -328,7 +328,7 @@ L'applicazione di esempio viene eseguita correttamente quando vengono visualizza
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e cercare l'hub IoT creato.
 
-    ![portale di Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+    ![Portale di Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. Nel riquadro **Criteri di accesso condivisi** fare clic sul criterio **iothubowner**, quindi annotare la stringa di connessione dell'hub IoT.
 

@@ -1,6 +1,6 @@
 ---
-title: Modelli di immagine in Azure Maps Web SDK | Microsoft Docs
-description: Come usare i modelli di immagine in Azure Maps Web SDK.
+title: Modelli di immagine in Azure Maps Web SDK | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come usare i modelli di immagine con marcatori HTML e diversi livelli nel Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: b9b1543ca37c636f4a82ff9ada3dfe212fa9b8d0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976661"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911564"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
-Le immagini possono essere usate per marcatori HTML e diversi livelli all'interno di Azure Maps Web SDK:
+Le immagini possono essere usate con marcatori HTML e diversi livelli all'interno di Azure Maps Web SDK:
 
  - I livelli dei simboli possono eseguire il rendering di punti sulla mappa con un'icona di immagine. È anche possibile eseguire il rendering dei simboli lungo un tracciato di righe.
  - È possibile eseguire il rendering dei livelli poligono con un'immagine del modello di riempimento. 
@@ -26,13 +26,13 @@ Le immagini possono essere usate per marcatori HTML e diversi livelli all'intern
 
 Per garantire prestazioni ottimali con i livelli, è necessario caricare queste immagini nella risorsa sprite dell'immagine della mappa prima del rendering. Per impostazione predefinita, il [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) di SymbolLayer precarica un paio di immagini marcatore in pochi colori nell'immagine della mappa sprite. Queste stesse immagini del marcatore e altro ancora sono disponibili come modelli SVG e possono essere usate per creare immagini con scale personalizzate, oltre a un colore primario e secondario del cliente. In totale sono disponibili 42 modelli di immagine; 27 icone di simboli e 15 modelli di riempimento poligono.
 
-I modelli di immagine possono essere aggiunti alle risorse sprite dell'immagine della mappa `map.imageSprite.createFromTemplate` utilizzando la funzione. Questa funzione consente di passare fino a cinque parametri;
+I modelli di immagine possono essere aggiunti alle risorse sprite dell'immagine della mappa usando la funzione `map.imageSprite.createFromTemplate`. Questa funzione consente di passare fino a cinque parametri;
 
 ```javascript
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-`id` dove è un identificatore univoco creato che viene assegnato all'immagine quando viene aggiunto allo sprite dell'immagine maps. Usare questo identificatore nei livelli per specificare quale risorsa immagine eseguire il rendering. Specifica `templateName` il modello di immagine da utilizzare. L' `color` opzione consente di impostare il colore principale dell'immagine e `secondaryColor` le opzioni per impostare il colore secondario dell'immagine. L' `scale` opzione consente di ridimensionare il modello di immagine prima di applicarlo all'immagine sprite. Quando l'immagine viene applicata allo sprite dell'immagine, viene convertita in un formato PNG. Per garantire il rendering nitido, è preferibile ridimensionare il modello di immagine prima di aggiungerlo allo sprite rispetto alla scalabilità verticale in un livello.
+dove il `id` è un identificatore univoco creato che viene assegnato all'immagine quando viene aggiunto allo sprite dell'immagine maps. Usare questo identificatore nei livelli per specificare quale risorsa immagine eseguire il rendering. Il `templateName` specifica il modello di immagine da utilizzare. L'opzione `color` imposta il colore principale dell'immagine e le opzioni `secondaryColor` imposta il colore secondario dell'immagine. L'opzione `scale` ridimensiona il modello di immagine prima di applicarlo all'immagine sprite. Quando l'immagine viene applicata allo sprite dell'immagine, viene convertita in un formato PNG. Per garantire il rendering nitido, è preferibile ridimensionare il modello di immagine prima di aggiungerlo allo sprite rispetto alla scalabilità verticale in un livello.
 
 Questa funzione carica in modo asincrono l'immagine nello sprite dell'immagine e quindi restituisce un suggerimento che è possibile attendere il completamento di questa funzione.
 
@@ -52,41 +52,41 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 ## <a name="use-an-image-template-with-a-symbol-layer"></a>Usare un modello di immagine con un livello di simbolo
 
-Quando un modello di immagine viene caricato nello sprite dell'immagine della mappa, è possibile eseguirne il rendering come simbolo in un livello di simbolo facendo riferimento all'ID `image` risorsa `iconOptions`dell'immagine nell'opzione di.
+Quando un modello di immagine viene caricato nello sprite dell'immagine della mappa, è possibile eseguirne il rendering come simbolo in un livello di simbolo facendo riferimento all'ID risorsa dell'immagine nell'opzione `image` della `iconOptions`.
 
-Nell'esempio seguente viene eseguito il rendering di un livello `marker-flat` di simbolo utilizzando il modello di immagine con un colore primario verde acqua e un colore secondario bianco. 
+Nell'esempio seguente viene eseguito il rendering di un livello di simbolo utilizzando il modello di immagine `marker-flat` con un colore primario verde acqua e un colore secondario bianco. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Livello simbolo con modello icona predefinito" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il livello di simbolo della penna <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>con il modello di icona predefinito</a> di Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () in <a href='https://codepen.io'>CodePen</a>.
+Vedere il livello di simbolo della penna <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>con il modello di icona predefinito</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="use-an-image-template-along-a-lines-path"></a>Usare un modello di immagine lungo un tracciato di linee
 
-Quando un modello di immagine viene caricato nello sprite dell'immagine della mappa, è possibile eseguirne il rendering lungo il percorso di una linea aggiungendo una LineString a un'origine dati e usando un livello `lineSpacing`di simbolo con un'opzione e facendo riferimento all'ID della risorsa `image` immagine nell'opzione o f Th `iconOptions`. 
+Quando un modello di immagine viene caricato nello sprite dell'immagine della mappa, è possibile eseguirne il rendering lungo il percorso di una linea aggiungendo una LineString a un'origine dati e usando un livello di simbolo con un'opzione di `lineSpacing`e facendo riferimento all'ID della risorsa immagine nell'opzione `image` di TH `iconOptions`. 
 
-Nell'esempio seguente viene eseguito il rendering di una linea rosa sulla mappa e viene utilizzato un livello `car` di simbolo utilizzando il modello di immagine con un colore primario blu Dodger e un colore secondario bianco. 
+Nell'esempio seguente viene eseguito il rendering di una linea rosa sulla mappa e viene utilizzato un livello di simbolo utilizzando il modello di immagine `car` con un colore primario blu Dodger e un colore secondario bianco. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Livello linea con modello icona predefinito" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>livello linea penna con il modello di icona predefinito</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere il <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>livello linea penna con il modello di icona integrato</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> Se il modello di immagine punta verso l'alto `rotation` , impostare l'opzione icona del livello simboli su 90 se si desidera che punti alla stessa direzione della riga.
+> Se il modello di immagine punta verso l'alto, impostare l'opzione icona `rotation` del livello simboli su 90 se si desidera che punti alla stessa direzione della riga.
 
 ## <a name="use-an-image-template-with-a-polygon-layer"></a>Usare un modello di immagine con un livello poligono
 
-Quando un modello di immagine viene caricato nello sprite dell'immagine della mappa, è possibile eseguirne il rendering come modello di riempimento in un livello poligono facendo riferimento all' `fillPattern` ID risorsa dell'immagine nell'opzione del livello.
+Quando un modello di immagine viene caricato nello sprite dell'immagine della mappa, è possibile eseguirne il rendering come modello di riempimento in un livello poligono facendo riferimento all'ID risorsa dell'immagine nell'opzione `fillPattern` del livello.
 
-Nell'esempio seguente viene eseguito il rendering di un livello `dot` poligono usando il modello di immagine con un colore primario rosso e un colore secondario trasparente.  
+Nell'esempio seguente viene eseguito il rendering di un livello poligono usando il modello di immagine `dot` con un colore primario rosso e un colore secondario trasparente.  
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Riempimento del poligono con il modello di icona predefinito" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il poligono di riempimento della penna <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>con il modello di icona predefinito</a> di<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () in <a href='https://codepen.io'>CodePen</a>.
+Vedere il <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>poligono di riempimento della penna con il modello di icona predefinito</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -94,21 +94,21 @@ Vedere il poligono di riempimento della penna <a href='https://codepen.io/azurem
 
 ## <a name="use-an-image-template-with-an-html-marker"></a>Usare un modello di immagine con un marcatore HTML
 
-Un modello di immagine può essere recuperato usando `altas.getImageTemplate` la funzione e usato come contenuto di un marcatore HTML. Il modello può `htmlContent` essere passato nell'opzione del marcatore e quindi personalizzato mediante le `color`opzioni, `secondaryColor`e `text` .
+Un modello di immagine può essere recuperato usando la funzione `altas.getImageTemplate` e usato come contenuto di un marcatore HTML. Il modello può essere passato nell'opzione `htmlContent` del marcatore e quindi personalizzato utilizzando le opzioni `color`, `secondaryColor`e `text`.
 
-Nell'esempio seguente viene usato `marker-arrow` il modello con un colore primario rosso, un colore secondario rosa e un valore di testo pari a "00".
+Nell'esempio seguente viene usato il modello di `marker-arrow` con un colore primario rosso, un colore secondario rosa e un valore di testo pari a "00".
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Marcatore HTML con modello di icona incorporato" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penna con il modello di icona predefinito</a> di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
+Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penna con il modello di icona predefinito</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="create-custom-reusable-templates"></a>Creare modelli riutilizzabili personalizzati
 
-Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un modulo che aggiunge modelli di immagine aggiuntivi, è possibile aggiungere e recuperare facilmente queste icone da Azure Maps Web SDK usando le funzioni statiche seguenti nel `atlas` namespace.
+Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un modulo che aggiunge modelli di immagine aggiuntivi, è possibile aggiungere e recuperare facilmente queste icone da Azure Maps Web SDK usando le funzioni statiche seguenti nello spazio dei nomi `atlas`.
 
-| Name | Tipo restituito | Descrizione | 
+| Nome | Tipo restituito | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Aggiunge un modello di immagine SVG personalizzato allo spazio dei nomi dell'Atlante. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera un modello SVG in base al nome. |
@@ -116,7 +116,7 @@ Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un m
 
 I modelli di immagine SVG supportano i seguenti valori segnaposto:
 
-| Segnaposto | Descrizione |
+| Segnaposto | Description |
 |-|-|
 | `{color}` | Colore primario. | 
 | `{secondaryColor}` | Colore secondario. | 
@@ -139,13 +139,13 @@ La tabella seguente elenca tutti i modelli di immagine attualmente disponibili i
 
 |||||
 |:-:|:-:|:-:|:-:|
-| marcatore | spessore indicatore | cerchio indicatore | indicatore-Flat |
+| marker | spessore indicatore | cerchio indicatore | indicatore-Flat |
 |![icona marcatore](./media/image-templates/marker.png)|![icona spessore indicatore](./media/image-templates/marker-thick.png)|![icona del cerchio del marcatore](./media/image-templates/marker-circle.png)|![icona marcatore-Flat](./media/image-templates/marker-flat.png)|
 ||||
 | quadrato marcatore | marcatore-quadrato-cluster | freccia marcatore | indicatore-palla-pin | 
 |![icona marcatore-quadrato](./media/image-templates/marker-square.png)|![icona marcatore-quadrato-cluster](./media/image-templates/marker-square-cluster.png)|![icona freccia marcatore](./media/image-templates/marker-arrow.png)|![icona indicatore-palla-pin](./media/image-templates/marker-ball-pin.png)|
 ||||
-| marcatore-quadrato arrotondato | marcatore-quadrato-arrotondato-cluster | bandiera | flag-triangolo |
+| marcatore-quadrato arrotondato | marcatore-quadrato-arrotondato-cluster | flag | flag-triangolo |
 | ![icona marcatore-quadrato arrotondato](./media/image-templates/marker-square-rounded.png) | ![icona del cluster di marcatore-quadrato-arrotondato](./media/image-templates/marker-square-rounded-cluster.png) | ![icona contrassegno](./media/image-templates/flag.png) | ![Flag-icona triangolo](./media/image-templates/flag-triangle.png) |
 ||||
 | triangolo | spessore triangolare | triangolo-freccia su | triangolo-freccia sinistra |
@@ -154,8 +154,8 @@ La tabella seguente elenca tutti i modelli di immagine attualmente disponibili i
 | esagono | spessore esagonale | esagonale arrotondato | esagono-arrotondato-spessore |
 | ![icona esagonale](./media/image-templates/hexagon.png) | ![icona con spessore esagonale](./media/image-templates/hexagon-thick.png) | ![icona esagonale arrotondata](./media/image-templates/hexagon-rounded.png) | ![icona di spessore esagonale-arrotondato](./media/image-templates/hexagon-rounded-thick.png) |
 ||||
-| aggiungi | pin-round | arrotondato-quadrato | arrotondato-spessore quadrato |
-| ![icona Aggiungi](./media/image-templates/pin.png) | ![icona pin-round](./media/image-templates/pin-round.png) | ![icona arrotondata-quadrata](./media/image-templates/rounded-square.png) | ![icona arrotondata-con spessore rettangolare](./media/image-templates/rounded-square-thick.png) |
+| aggiunta | pin-round | arrotondato-quadrato | arrotondato-spessore quadrato |
+| ![Icona Aggiungi](./media/image-templates/pin.png) | ![icona pin-round](./media/image-templates/pin-round.png) | ![icona arrotondata-quadrata](./media/image-templates/rounded-square.png) | ![icona arrotondata-con spessore rettangolare](./media/image-templates/rounded-square-thick.png) |
 ||||
 | freccia su | freccia su-sottile | car ||
 | ![icona freccia su](./media/image-templates/arrow-up.png) | ![freccia su-icona sottile](./media/image-templates/arrow-up-thin.png) | ![icona dell'auto](./media/image-templates/car.png) | |
@@ -164,7 +164,7 @@ La tabella seguente elenca tutti i modelli di immagine attualmente disponibili i
 
 |||||
 |:-:|:-:|:-:|:-:|
-| Checker | controllo-ruotato | Cerchi | Cerchi-spaziatura |
+| Checker | controllo-ruotato | cerchi | Cerchi-spaziatura |
 | ![icona di controllo](./media/image-templates/checker.png) | ![controllo-icona ruotata](./media/image-templates/checker-rotated.png) | ![icona cerchi](./media/image-templates/circles.png) | ![icona con spaziatura a cerchi](./media/image-templates/circles-spaced.png) |
 |||||
 | righe diagonali | diagonali-linee-in basso | strisce diagonali | strisce diagonali-giù |
@@ -183,7 +183,7 @@ Con lo strumento seguente, è possibile eseguire il rendering dei diversi modell
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Opzioni del modello icona" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere le <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opzioni del modello icona</a> della penna di Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>Maps () in <a href='https://codepen.io'>CodePen</a>.
+Vedere le <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opzioni del modello icona</a> della penna per mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
-title: Tipi di interazione degli strumenti di disegno e scelte rapide da tastiera in Maps di Azure | Microsoft Docs
-description: Come creare e modificare forme usando il mouse, il touchscreen o la tastiera in Azure Maps Web SDK
+title: Tipi di interazione degli strumenti di disegno e tasti di scelta rapida nella mappa | Mappe Microsoft Azure
+description: Come creare e modificare forme usando un mouse, un touchscreen o una tastiera in Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8385f294426f6d793f7b539006eafd0b2cb940ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267579f7b4bbfe026f3aa01b00f01f3b872cf4a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481945"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911650"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipi di interazione e tasti di scelta rapida nel modulo strumenti di disegno
 

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello bolle in Mappe di Azure | Microsoft Docs
-description: Come aggiungere un livello Bubble a Azure Maps Web SDK.
+title: Aggiungere un livello Bubble a una mappa | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come aggiungere un livello Bubble a una mappa usando il Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5cc5dbdc89f629c09d47ef683b7ff7fff61d2f49
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976581"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911274"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Aggiungere un livello bolle a una mappa
 
 Questo articolo illustra come è possibile eseguire il rendering dei dati punto da un'origine dati come livello Bubble su una mappa. I livelli bolle eseguono il rendering dei punti come cerchi sulla mappa con raggio dei pixel fisso. 
 
 > [!TIP]
-> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di `filter` geometria dei punti, impostare `['==', ['geometry-type'], 'Point']` la `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` proprietà del livello su o se si desidera includere anche le funzionalità multipoint.
+> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di geometria dei punti, impostare la proprietà `filter` del livello su `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se si desidera includere anche le funzionalità MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Aggiungere un livello per le bolle
 
@@ -62,7 +62,7 @@ Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funz
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrare etichette con un livello bolle
 
-Il codice seguente illustra come usare un livello Bubble per eseguire il rendering di un punto sulla mappa e di un livello di simbolo per eseguire il rendering di un'etichetta. Per nascondere l'icona del livello di simboli, impostare la `image` proprietà delle opzioni dell'icona su `'none'`.
+Il codice seguente illustra come usare un livello Bubble per eseguire il rendering di un punto sulla mappa e di un livello di simbolo per eseguire il rendering di un'etichetta. Per nascondere l'icona del livello di simboli, impostare la proprietà `image` delle opzioni dell'icona su `'none'`.
 
 <br/>
 

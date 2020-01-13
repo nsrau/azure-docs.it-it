@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 785c6f2b36396558cc21ce6c025be59c456ff32d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 0b081229dcb382786fea03dff358b5cc47d77ee7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083267"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912011"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare Azure IoT Tools per Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
 
@@ -23,7 +23,7 @@ ms.locfileid: "74083267"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione
+## <a name="what-you-will-learn"></a>Lezioni dell'esercitazione
 
 Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare i messaggi dal dispositivo al cloud e inviare messaggi dal cloud al dispositivo. I messaggi da dispositivo a cloud possono includere dati di sensori raccolti dal dispositivo e inviati all'hub IoT. I messaggi da cloud a dispositivo possono includere comandi inviati dall'hub IoT al dispositivo per far lampeggiare un LED connesso a quest'ultimo.
 
@@ -64,7 +64,7 @@ Per monitorare i messaggi inviati dal dispositivo all'hub IoT, seguire questi pa
 
 1. Fare clic con il pulsante destro del mouse sul dispositivo e scegliere **Avvia monitoraggio endpoint evento predefinito**.
 
-2. I messaggi monitorati verranno visualizzati nella visualizzazione **OUTPUT** > **Toolkit dell'hub IoT di Azure**.
+2. I messaggi monitorati verranno visualizzati nell' **OUTPUT** > vista **Hub Azure** .
 
 3. Per arrestare il monitoraggio, fare clic con il pulsante destro del mouse sulla visualizzazione **output** e scegliere **Interrompi monitoraggio endpoint evento predefinito**.
 
@@ -76,7 +76,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 
 2. Immettere il messaggio nella casella di input.
 
-3. I risultati verranno visualizzati nella visualizzazione **OUTPUT** > **Azure IoT Hub Toolkit**.
+3. I risultati verranno visualizzati nell' **OUTPUT** > vista **Hub Azure** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

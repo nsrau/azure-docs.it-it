@@ -1,6 +1,6 @@
 ---
-title: Copertura per il rendering in Mappe di Azure | Microsoft Docs
-description: Informazioni sulla copertura per il rendering in Mappe di Azure
+title: Copertura rendering | Mappe Microsoft Azure
+description: In questo articolo vengono fornite informazioni sulle aree con Microsoft Azure code coverage di rendering insieme al relativo livello di dettagli di rendering.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934283"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910678"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
@@ -210,7 +210,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 
 | Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
-| Isole Samoa americane            |   | ✓ |
+| Samoa americane            |   | ✓ |
 | Australia                 | ✓ | ✓ |
 | Isole Cook              |   | Ø |
 | Figi                      |   | Ø |

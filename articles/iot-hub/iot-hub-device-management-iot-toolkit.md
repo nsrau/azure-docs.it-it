@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03997bb6999af9ebaad36cc95f7834e3b9ed4569
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953200"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911920"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Usare Azure IoT Tools per Visual Studio Code per la gestione dei dispositivi dell'hub IoT di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "73953200"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Opzione di gestione          | attività                    |
+| Opzione di gestione          | Attività                    |
 |----------------------------|--------------------------------|
 | Metodi diretti             | Far eseguire un'attività al dispositivo, quale l'avvio o l'arresto dell'invio di messaggi o il riavvio del dispositivo.                                        |
 | Lettura dispositivo gemello           | Ottenere lo stato restituito da un dispositivo. Ad esempio, il dispositivo segnala che il LED sta lampeggiando.                                    |
@@ -71,7 +71,7 @@ Eseguire Azure IoT Tools per Visual Studio Code con varie opzioni di gestione.
 
 2. Immettere il nome e il payload del metodo nella casella di input.
 
-3. I risultati verranno visualizzati nella visualizzazione **OUTPUT** > **Azure IoT Hub Toolkit**.
+3. I risultati verranno visualizzati nell' **OUTPUT** > vista **Hub Azure** .
 
 ## <a name="read-device-twin"></a>Lettura dispositivo gemello
 
@@ -95,7 +95,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 
 2. Immettere il messaggio nella casella di input.
 
-3. I risultati verranno visualizzati nella visualizzazione **OUTPUT** > **Azure IoT Hub Toolkit**.
+3. I risultati verranno visualizzati nell' **OUTPUT** > vista **Hub Azure** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

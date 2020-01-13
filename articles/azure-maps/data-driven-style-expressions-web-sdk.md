@@ -1,6 +1,6 @@
 ---
-title: Espressioni di stile basate sui dati in Azure Maps Web SDK | Microsoft Docs
-description: Come usare le espressioni di stile basate sui dati in Azure Maps Web SDK.
+title: Espressioni di stile basate sui dati in Azure Maps Web SDK | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come usare le espressioni di stile basate sui dati in Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480635"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911771"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -41,7 +41,7 @@ Le espressioni sono rappresentate come matrici JSON. Il primo elemento di un'esp
 
 Azure Maps Web SDK supporta molti tipi di che possono essere usati autonomamente o in combinazione con altre espressioni.
 
-| Tipo di espressioni | DESCRIZIONE |
+| Tipo di espressioni | Description |
 |---------------------|-------------|
 | [Espressione di aggregazione](#aggregate-expression) | Espressione che definisce un calcolo elaborato su un set di dati e che può essere utilizzato con l'opzione `clusterProperties` di un `DataSource`. |
 | [Espressioni booleane](#boolean-expressions) | Le espressioni booleane forniscono un set di espressioni di operatori booleani per la valutazione di confronti booleani. |
@@ -81,16 +81,16 @@ Tutti gli esempi in questo documento utilizzeranno la seguente funzionalità per
 
 Le espressioni di dati consentono di accedere ai dati delle proprietà di una funzionalità. 
 
-| Espressione | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Description |
 |------------|-------------|-------------|
-| `['at', number, array]` | oggetto | Recupera un elemento da una matrice. |
-| `['geometry-type']` | stringa | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['at', number, array]` | object | Recupera un elemento da una matrice. |
+| `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | Valore | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
 | `['get', string, object]` | Valore | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
 | `['id']` | Valore | Ottiene l'ID della funzionalità se ne è presente uno. |
-| `['length', string | array]` | number | Ottiene la lunghezza di una stringa o di una matrice. |
+| `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 
 **esempi**
 
@@ -139,34 +139,34 @@ Analogamente, la struttura dei poligoni viene sottoposta a rendering nei livelli
 
 Le espressioni matematiche forniscono operatori matematici per eseguire calcoli basati sui dati all'interno del Framework di espressioni.
 
-| Espressione | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Description |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | number | Calcola la somma dei numeri specificati. |
-| `['-', number]` | number | Sottrae 0 per il numero specificato. |
-| `['-', number, number]` | number | Sottrae i primi numeri per il secondo numero. |
-| `['*', number, number, …]` | number | Moltiplica i numeri specificati insieme. |
-| `['/', number, number]` | number | Divide il primo numero per il secondo numero. |
-| `['%', number, number]` | number | Calcola il resto quando si divide il primo numero per il secondo numero. |
-| `['^', number, number]` | number | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
-| `['abs', number]` | number | Calcola il valore assoluto del numero specificato. |
-| `['acos', number]` | number | Calcola l'arcoseno del numero specificato. |
-| `['asin', number]` | number | Calcola l'arcoseno del numero specificato. |
-| `['atan', number]` | number | Calcola l'arcotangente del numero specificato. |
-| `['ceil', number]` | number | Arrotonda il numero per eccesso al numero intero successivo. |
-| `['cos', number]` | number | Calcola il coseno del numero specificato. |
-| `['e']` | number | Restituisce la costante matematica `e`. |
-| `['floor', number]` | number | Arrotonda il numero per difetto all'intero intero precedente. |
-| `['ln', number]` | number | Calcola il logaritmo naturale del numero specificato. |
-| `['ln2']` | number | Restituisce la costante matematica `ln(2)`. |
-| `['log10', number]` | number | Calcola il logaritmo in base 10 del numero specificato. |
-| `['log2', number]` | number | Calcola il logaritmo in base due del numero specificato. |
-| `['max', number, number, …]` | number | Calcola il numero massimo nel set di numeri specificato. |
-| `['min', number, number, …]` | number | Calcola il numero minimo nel set di numeri specificato. |
-| `['pi']` | number | Restituisce la costante matematica `PI`. |
-| `['round', number]` | number | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
-| `['sin', number]` | number | Calcola il seno del numero specificato. |
-| `['sqrt', number]` | number | Calcola la radice quadrata del numero specificato. |
-| `['tan', number]` | number | Calcola la tangente del numero specificato. |
+| `['+', number, number, …]` | d'acquisto | Calcola la somma dei numeri specificati. |
+| `['-', number]` | d'acquisto | Sottrae 0 per il numero specificato. |
+| `['-', number, number]` | d'acquisto | Sottrae i primi numeri per il secondo numero. |
+| `['*', number, number, …]` | d'acquisto | Moltiplica i numeri specificati insieme. |
+| `['/', number, number]` | d'acquisto | Divide il primo numero per il secondo numero. |
+| `['%', number, number]` | d'acquisto | Calcola il resto quando si divide il primo numero per il secondo numero. |
+| `['^', number, number]` | d'acquisto | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
+| `['abs', number]` | d'acquisto | Calcola il valore assoluto del numero specificato. |
+| `['acos', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
+| `['asin', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
+| `['atan', number]` | d'acquisto | Calcola l'arcotangente del numero specificato. |
+| `['ceil', number]` | d'acquisto | Arrotonda il numero per eccesso al numero intero successivo. |
+| `['cos', number]` | d'acquisto | Calcola il coseno del numero specificato. |
+| `['e']` | d'acquisto | Restituisce la costante matematica `e`. |
+| `['floor', number]` | d'acquisto | Arrotonda il numero per difetto all'intero intero precedente. |
+| `['ln', number]` | d'acquisto | Calcola il logaritmo naturale del numero specificato. |
+| `['ln2']` | d'acquisto | Restituisce la costante matematica `ln(2)`. |
+| `['log10', number]` | d'acquisto | Calcola il logaritmo in base 10 del numero specificato. |
+| `['log2', number]` | d'acquisto | Calcola il logaritmo in base due del numero specificato. |
+| `['max', number, number, …]` | d'acquisto | Calcola il numero massimo nel set di numeri specificato. |
+| `['min', number, number, …]` | d'acquisto | Calcola il numero minimo nel set di numeri specificato. |
+| `['pi']` | d'acquisto | Restituisce la costante matematica `PI`. |
+| `['round', number]` | d'acquisto | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
+| `['sin', number]` | d'acquisto | Calcola il seno del numero specificato. |
+| `['sqrt', number]` | d'acquisto | Calcola la radice quadrata del numero specificato. |
+| `['tan', number]` | d'acquisto | Calcola la tangente del numero specificato. |
 
 ## <a name="aggregate-expression"></a>Espressione di aggregazione
 
@@ -194,7 +194,7 @@ Le espressioni booleane forniscono un set di espressioni di operatori booleani p
 
 Quando si confrontano i valori, il confronto è fortemente tipizzato. I valori di tipi diversi sono sempre considerati non uguali. I casi in cui i tipi sono noti come diversi in fase di analisi sono considerati non validi e genereranno un errore di analisi. 
 
-| Espressione | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Description |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | Negazione logica. Restituisce `true` se l'input è `false`e `false` se l'input è `true`. |
 | `['!= ', value, value]` | boolean | Restituisce `true` se i valori di input non sono uguali, `false` in caso contrario. |
@@ -397,15 +397,15 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Le espressioni di tipo forniscono strumenti per il test e la conversione di tipi di dati diversi, ad esempio stringhe, numeri e valori booleani.
 
-| Espressione | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | Array \| oggetto | Restituisce una matrice di valori letterali o un valore dell'oggetto. Utilizzare questa espressione per impedire la valutazione di una matrice o di un oggetto come espressione. Questa operazione è necessaria quando un'espressione deve restituire una matrice o un oggetto. |
-| `['image', string]` | stringa | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
+| `['image', string]` | string | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
 | `['to-boolean', value]` | boolean | Converte il valore di input in un valore booleano. Il risultato è `false` quando l'input è una stringa vuota, `0`, `false`, `null`o `NaN`; in caso contrario, il `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte il valore di input in un colore. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false`, il risultato è 0. Se l'input è `true`, il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
-| `['to-string', value]` | stringa | Converte il valore di input in una stringa. Se l'input è `null`, il risultato viene `""`. Se l'input è un valore booleano, il risultato è `"true"` o `"false"`. Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"`. In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
-| `['typeof', value]` | stringa | Restituisce una stringa che descrive il tipo del valore specificato. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | d'acquisto | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false`, il risultato è 0. Se l'input è `true`, il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
+| `['to-string', value]` | string | Converte il valore di input in una stringa. Se l'input è `null`, il risultato viene `""`. Se l'input è un valore booleano, il risultato è `"true"` o `"false"`. Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"`. In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
+| `['typeof', value]` | string | Restituisce una stringa che descrive il tipo del valore specificato. |
 
 > [!TIP]
 > Se nella console del browser viene visualizzato un messaggio di errore simile a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].`, significa che nel codice è presente un'espressione che contiene una matrice che non dispone di una stringa per il primo valore. Se si desidera che l'espressione restituisca una matrice, eseguire il wrapping della matrice con l'espressione `literal`. Nell'esempio seguente viene impostata l'opzione Icon `offset` di un livello Symbol, che deve essere una matrice contenente due numeri, usando un'espressione `match` per scegliere tra due valori di offset in base al valore della proprietà `entityType` della funzionalità Point.
@@ -433,7 +433,7 @@ Le espressioni di tipo forniscono strumenti per il test e la conversione di tipi
 
 Le espressioni colore semplificano la creazione e la modifica dei valori dei colori.
 
-| Espressione | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Crea un valore di colore dai componenti *rosso*, *verde*e *blu* che devono variare tra `0` e `255`e un componente alfa di `1`. Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
 | `['rgba', number, number, number, number]` | color | Crea un valore di colore dai componenti *rosso*, *verde*, *blu* che devono variare tra `0` e `255`e un componente alfa in un intervallo di `0` e `1`. Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
@@ -461,11 +461,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Le espressioni dell'operatore String eseguono operazioni di conversione su stringhe quali la concatenazione e la conversione del case. 
 
-| Espressione | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Description |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | stringa | Concatena più stringhe insieme. Ogni valore deve essere una stringa. Se necessario, utilizzare l'espressione di tipo `to-string` per convertire altri tipi valore in stringa. |
-| `['downcase', string]` | stringa | Converte la stringa specificata in caratteri minuscoli. |
-| `['upcase', string]` | stringa | Converte la stringa specificata in lettere maiuscole. |
+| `['concat', string, string, …]` | string | Concatena più stringhe insieme. Ogni valore deve essere una stringa. Se necessario, utilizzare l'espressione di tipo `to-string` per convertire altri tipi valore in stringa. |
+| `['downcase', string]` | string | Converte la stringa specificata in caratteri minuscoli. |
+| `['upcase', string]` | string | Converte la stringa specificata in caratteri maiuscoli. |
 
 **Esempio**
 
@@ -506,7 +506,7 @@ Esistono tre tipi di metodi di interpolazione che possono essere utilizzati in u
 
 Di seguito è riportato un esempio di come appaiono questi diversi tipi di interpolazioni. 
 
-| Lineare  | Esponenziale | Bezier cubica |
+| Lineari  | Esponenziali | Curva di Bézier cubica |
 |---------|-------------|--------------|
 | ![Grafico interpolazione lineare](media/how-to-expressions/linear-interpolation.png) | ![Grafico di interpolazione esponenziale](media/how-to-expressions/exponential-interpolation.png) | ![Grafico di interpolazione Bezier cubica](media/how-to-expressions/bezier-curve-interpolation.png) |
 
@@ -821,10 +821,10 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Le espressioni di associazione variabili memorizzano i risultati di un calcolo in una variabile in modo che sia possibile farvi riferimento in un'altra posizione in un'espressione più volte senza dover ricalcolarla. Si tratta di un'ottimizzazione utile per le espressioni che coinvolgono molti calcoli
 
-| Espressione | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Description |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Archivia uno o più valori come variabili per l'utilizzo da parte dell'espressione `var` nell'espressione figlio che restituisce il risultato. |
-| `['var', name: string]` | qualsiasi | Fa riferimento a una variabile creata utilizzando l'espressione `let`. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Archivia uno o più valori come variabili per l'utilizzo da parte dell'espressione `var` nell'espressione figlio che restituisce il risultato. |
+| `['var', name: string]` | any | Fa riferimento a una variabile creata utilizzando l'espressione `let`. |
 
 **Esempio**
 

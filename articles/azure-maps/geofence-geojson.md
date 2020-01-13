@@ -1,6 +1,6 @@
 ---
-title: Formato di dati GeoJSON del recinto virtuale nelle Mappe di Azure | Microsoft Docs
-description: Informazioni sul formato di dati GeoJSON del recinto virtuale nelle Mappe di Azure
+title: Formato dati GeoJSON per Geofence | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come preparare i dati di georecinzione che possono essere usati nell'API Microsoft Azure Maps GET e POST geofence.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f853962bba7302affd78d5ef267460893ea80a33
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735133"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911584"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
 
@@ -30,16 +30,16 @@ I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'og
 * `expiredTime` è la data e l'ora di scadenza dei dati di geofencing. Se il valore di `userTime` nella richiesta è successivo rispetto a tale valore, i dati corrispondenti del recinto virtuale sono considerati come dati scaduti e non viene eseguita una query. Su cui, il geometryId dei dati di questo recinto virtuale sarà incluso nella matrice `expiredGeofenceGeometryId` all'interno della risposta del recinto virtuale.
 * `validityPeriod` è un elenco del periodo di validità del recinto virtuale. Se il valore di `userTime` nella richiesta non rientra nel periodo di validità, i dati corrispondenti del recinto virtuale vengono considerati come non validi e non viene eseguita una query. Il geometryId dei dati di questo recinto virtuale è incluso nella matrice `invalidPeriodGeofenceGeometryId` all'interno della risposta del recinto virtuale. Nella tabella seguente vengono illustrate le proprietà dell'elemento validityPeriod.
 
-| NOME | Type | Obbligatorio  | DESCRIZIONE |
+| Nome | Tipo | Obbligatorio  | Description |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | DateTime  | true | Data e ora di inizio del periodo di validità. |
-| endTime   | DateTime  | true |  Data e ora di fine del periodo di validità. |
+| startTime | Datetime  | true | Data e ora di inizio del periodo di validità. |
+| endTime   | Datetime  | true |  Data e ora di fine del periodo di validità. |
 | recurrenceType | string | false |   Il tipo di ricorrenza del periodo. Il valore può essere `Daily`, `Weekly`, `Monthly` o `Yearly`. Il valore predefinito è `Daily`.|
 | businessDayOnly | Boolean | false |  Indica se i dati sono validi solo durante i giorni lavorativi. Il valore predefinito è `false`.|
 
 
-* Tutti i valori delle coordinate sono rappresentati come [Longitudine, latitudine `WGS84`] definito in.
-* Per ciascuna funzionalità, che contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, le proprietà vengono applicate a tutti gli elementi. ad esempio: Tutti i punti in `MultiPoint` useranno lo stesso raggio in modo da formare più recinti virtuali.
+* Tutti i valori delle coordinate sono rappresentati come [Longitudine, latitudine] definito in `WGS84`.
+* Per ciascuna funzionalità, che contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, le proprietà vengono applicate a tutti gli elementi. ad esempio: tutti i punti in `MultiPoint` utilizzeranno lo stesso raggio per formare una georecinzione a più cerchi.
 * In uno scenario punto-cerchio, una geometria circolare può essere rappresentata usando un oggetto di geometria `Point` con proprietà elaborate nell'[Estensione delle geometrie GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 
 Di seguito è riportato un esempio del corpo della richiesta per un recinto virtuale rappresentato come una geometria circolare del recinto virtuale in `GeoJSON` usando un punto centrale e un raggio. Il periodo di validità dei dati del recinto virtuale inizia dalle ore 9 alle 17 del 22.10.2018, ripetuto ogni giorno, ad eccezione dei fine settimana. `expiredTime` indica che i dati del recinto virtuale verranno considerati scaduti, se `userTime` nella richiesta è successivo a `2019-01-01`.  

@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e7239fdedafedc96a382de6c3c2f90b5da4df00c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774250"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908993"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
 
@@ -29,7 +29,24 @@ Se si preferisce, è possibile completare questa guida usando il [portale](howto
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Accedere al proprio account Azure e selezionare la sottoscrizione
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
+### <a name="register-for-peering-resource-provider"></a>Registra per provider di risorse di peering
+Eseguire la registrazione per il provider di risorse di peering nella sottoscrizione usando il comando seguente. Se non si esegue questa operazione, le risorse di Azure necessarie per configurare il peering non sono accessibili.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+È possibile controllare lo stato della registrazione usando i comandi seguenti:
+```powershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+> [!IMPORTANT]
+> Attendere che *RegistrationState* diventi "registrato" prima di procedere. Dopo l'esecuzione del comando potrebbero essere necessari da 5 a 30 minuti.
+
 ### <a name="update-the-peer-information-associated-with-this-subscription"></a>Aggiornare le informazioni del peer associate a questa sottoscrizione
+
+Di seguito è riportato un esempio per aggiornare le informazioni del peer.
 
 ```powershell
 New-AzPeerAsn `

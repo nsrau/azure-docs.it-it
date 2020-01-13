@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d3737be5a3186774f230aef9d932464a27a764f4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775641"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912192"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associare l'ASN peer alla sottoscrizione di Azure tramite il portale
 
@@ -25,6 +25,34 @@ Se si preferisce, è possibile completare questa guida usando [PowerShell](howto
 
 ### <a name="sign-in-to-the-portal"></a>Accedere al portale
 [!INCLUDE [Account](./includes/account-portal.md)]
+
+### <a name="register-for-peering-resource-provider"></a>Registra per provider di risorse di peering
+Eseguire la registrazione per il provider di risorse di peering nella sottoscrizione attenendosi alla procedura descritta di seguito. Se non si esegue questa operazione, le risorse di Azure necessarie per configurare il peering non sono accessibili.
+
+1. Fare clic su **sottoscrizioni** nell'angolo superiore sinistro del portale. Se non viene visualizzato, fare clic su **altri servizi** e cercarlo.
+
+    > [!div class="mx-imgBorder"]
+    > ![sottoscrizioni aperte](./media/rp-subscriptions-open.png)
+
+1. Fare clic sulla sottoscrizione che si vuole usare per il peering.
+
+    > [!div class="mx-imgBorder"]
+    > ![](./media/rp-subscriptions-launch.png) di avvio della sottoscrizione
+
+1. Quando si apre la sottoscrizione, a sinistra fare clic su **provider di risorse**. Quindi, nel riquadro di destra, cercare il *peering* nella finestra di ricerca oppure utilizzare la barra di scorrimento per trovare **Microsoft. peering** ed esaminare lo **stato**. Se lo stato è ***registrato***, ignorare i passaggi seguenti e passare alla sezione **creare peerasn sugli**. Se lo stato è ***NotRegistered***, selezionare **Microsoft. peering** e fare clic su **Register (registra**).
+
+    > [!div class="mx-imgBorder"]
+    > inizio registrazione ![](./media/rp-register-start.png)
+
+1. Osservare che lo stato diventa ***registrazione***.
+
+    > [!div class="mx-imgBorder"]
+    > ![registrazione in corso](./media/rp-register-progress.png)
+
+1. Attendere almeno un minuto per completare la registrazione. Quindi, fare clic su **Aggiorna** e verificare che lo stato sia ***registrato***.
+
+    > [!div class="mx-imgBorder"]
+    > Registrazione ![completata](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Crea Peerasn sugli
 È possibile creare una nuova risorsa Peerasn sugli per associare un numero di sistema autonomo (ASN) a una sottoscrizione di Azure. È possibile associare più ASN a una sottoscrizione creando un **peerasn sugli** per ogni ASN che è necessario associare.
