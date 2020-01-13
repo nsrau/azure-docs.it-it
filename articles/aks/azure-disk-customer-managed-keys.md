@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 01/09/2020
+ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 3efb7a6005d862b15beec0f979b67a701a26ba74
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 96e7c401578ca8311bfe0e6b5477a9d8cab1a24e
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903964"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912720"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Usare le chiavi personalizzate (BYOK) con i dischi di Azure in Azure Kubernetes Service (AKS)
 
@@ -61,7 +61,7 @@ az account list-locations
 az group create -l myAzureRegionName -n myResourceGroup
 
 # Create an Azure Key Vault resource in a supported Azure region
-az keyvault create -n myKeyVaultName -g myResourceGroup-l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
+az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
 ```
 
 ## <a name="create-an-instance-of-a-diskencryptionset"></a>Creare un'istanza di un DiskEncryptionSet
@@ -76,7 +76,7 @@ keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
 keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query [key.kid] -o tsv)
 
 # Create a DiskEncryptionSet
-az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup--source-vault $keyVaultId --key-url $keyVaultKeyUrl 
+az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
 ## <a name="grant-the-diskencryptionset-resource-access-to-the-key-vault"></a>Concedere l'accesso alla risorsa DiskEncryptionSet all'insieme di credenziali delle chiavi
@@ -85,10 +85,10 @@ Usare i gruppi di risorse e DiskEncryptionSet creati nei passaggi precedenti e c
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup--query [identity.principalId] -o tsv)
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query [identity.principalId] -o tsv)
 
 # Update security policy settings
-az keyvault set-policy -n myKeyVaultName -g myResourceGroup--object-id $desIdentity --key-permissions wrapkey unwrapkey get
+az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
 
 # Assign the reader role
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
@@ -96,35 +96,26 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk-with-a-customer-manged-key"></a>Creare un nuovo cluster AKS e crittografare il disco del sistema operativo con una chiave Customer-mangd
 
-Creare un nuovo gruppo di risorse e un cluster AKS, quindi usare la chiave per crittografare il disco del sistema operativo.
+Creare un nuovo gruppo di risorse e un cluster AKS, quindi usare la chiave per crittografare il disco del sistema operativo. La chiave gestita dal cliente è supportata solo nelle versioni di kubernetes superiori alla 1,17
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az resource show -n diskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup-l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionsetid diskEncryptionId
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0
 ```
 
-## <a name="add-a-node-pool-to-an-existing-aks-cluster-and-encrypt-the-os-disk-with-a-customer-managed-key"></a>Aggiungere un pool di nodi a un cluster AKS esistente e crittografare il disco del sistema operativo con una chiave gestita dal cliente
-
-Per impostazione predefinita, i nuovi nodepools non usano dischi crittografati.  È possibile aggiungere un nuovo pool di nodi a un cluster esistente e crittografare il disco del sistema operativo con una chiave personalizzata usando il comando seguente.
-
-```azurecli-interactive
-# Add a nodepool to an existing cluster with BYOK encryption
-nodepool add –-cluster-name myAKSCluster -n myNodePoolName -g myResourceGroup --node-osdisk-diskencryptionsetid diskEncryptionId  
-```
+Quando vengono aggiunti nuovi pool di nodi al cluster creato in precedenza, la chiave gestita dal cliente fornita durante la creazione viene usata per crittografare il disco del sistema operativo
 
 ## <a name="encrypt-your-aks-cluster-data-disk-with-a-customer-managed-key"></a>Crittografare il disco dati del cluster AKS con una chiave gestita dal cliente
 
 È anche possibile crittografare i dischi dati AKS con le proprie chiavi.  Sostituire myResourceGroup e myDiskEncryptionSetName con i valori reali e applicare il YAML.
 
-### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Distribuire l'immagine di esempio da ACR ad AKS
-
-Assicurarsi di disporre delle credenziali AKS appropriate
+Assicurarsi di disporre delle credenziali AKS appropriate. L'entità servizio dovrà avere accesso come collaboratore al gruppo di risorse in cui è presente diskencryptionset. In caso contrario, si otterrà un errore che indica che l'entità servizio non ha le autorizzazioni.
 
 Creare un file denominato **Byok-Azure-disk. YAML** che contiene le informazioni seguenti.  Sostituire myResourceGroup e myDiskEncrptionSetName con i valori.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f5a7e9f1248f9a73786fb9c4a6ecb32691400881
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 61e45a5d13da7af42bbed273e5b39ce2af15d1ca
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894921"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912762"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
 
@@ -67,7 +67,8 @@ Per il momento, sono supportati solo gli scenari seguenti:
 
 Per il momento, sono disponibili anche le restrizioni seguenti:
 
-- **Disponibile solo negli Stati Uniti centro-occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale ed Europa settentrionale.**
+- Disponibile come offerta GA negli Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
+- Disponibile come anteprima pubblica negli Stati Uniti centro-occidentali, Stati Uniti orientali 2, Canada centrale ed Europa settentrionale.
 - I dischi creati da immagini personalizzate crittografate con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
 - Le immagini personalizzate crittografate usando la crittografia lato server e le chiavi gestite dal cliente non possono essere usate nella raccolta di immagini condivise.
@@ -136,8 +137,20 @@ diskEncryptionSetName=yourDiskencryptionSetName
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 
 az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 128 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+```
 
+#### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creare un set di scalabilità di macchine virtuali usando un'immagine del Marketplace, crittografando il sistema operativo e i dischi dati con chiavi gestite dal cliente
 
+```azurecli
+rgName=ssecmktesting
+vmssName=ssecmktestvmss5
+location=WestCentralUS
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+diskEncryptionSetName=diskencryptionset786
+
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
 #### <a name="create-an-empty-disk-encrypted-using-server-side-encryption-with-customer-managed-keys-and-attach-it-to-a-vm"></a>Creare un disco vuoto crittografato usando la crittografia lato server con chiavi gestite dal cliente e associarlo a una macchina virtuale

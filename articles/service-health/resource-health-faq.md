@@ -3,12 +3,12 @@ title: Domande frequenti su Integrità risorse di Azure
 description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f626dc4366cbdd9215704de97bb03fad19422eb
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426513"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912776"
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
@@ -46,7 +46,7 @@ Sì, quando una risorsa non è disponibile, Integrità risorse identifica la cau
 Nel portale le azioni avviate dall'utente sono indicate da un'icona di notifica blu, mentre gli eventi pianificati e non pianificati sono indicati da un'icona di avviso rossa. Altri dettagli sono disponibili in [Panoramica su Integrità risorse di Azure](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>È possibile aggiungere Integrità risorse agli strumenti di monitoraggio personali?
-Integrità risorse dispone del [supporto in anteprima](resource-health-alert-arm-template-guide.md) per gli avvisi basati sul log attività. Gli avvisi del log attività usano i [gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per notificare agli utenti che è stato attivato un avviso. I gruppi di azione supportano un'ampia gamma di canali di notifica, ad esempio le azioni di posta elettronica, SMS, webhook e ITSM.
+Integrità risorse dispone del [supporto](resource-health-alert-arm-template-guide.md) per gli avvisi basati sul log attività. Gli avvisi del log attività usano i [gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per notificare agli utenti che è stato attivato un avviso. I gruppi di azione supportano un'ampia gamma di canali di notifica, ad esempio le azioni di posta elettronica, SMS, webhook e ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Dove si trova Integrità risorse?
 Dopo avere eseguito l'accesso al portale di Azure, è possibile accedere a Integrità risorse in diversi modi:

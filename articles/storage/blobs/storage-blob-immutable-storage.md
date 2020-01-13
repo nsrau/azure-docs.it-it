@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 61a8cf366d5ae03f5267718f8ab20580295ddab5
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903431"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912791"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -80,7 +80,7 @@ Solo i criteri di conservazione basati sul tempo hanno un'impostazione `allowPro
 
 Poiché questa impostazione fa parte di un criterio di conservazione basato sul tempo, i BLOB di Accodamento rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo* . Poiché i nuovi dati possono essere aggiunti oltre la creazione iniziale del BLOB di Accodamento, esiste una lieve differenza nel modo in cui viene determinato il periodo di conservazione. La conservazione effettiva è la differenza tra l'ora dell' **Ultima modifica** del BLOB e l'intervallo di conservazione specificato dall'utente. Analogamente, quando l'intervallo di conservazione viene esteso, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
 
-Si supponga, ad esempio, che un utente crei un criterio di conservazione basato sul tempo con `allowProtectedAppendWrites` abilitato e un intervallo di conservazione di 90 giorni. Un BLOB di Accodamento, _logblob1_, viene creato oggi nel contenitore. i nuovi log continuano a essere aggiunti al BLOB di Accodamento per i successivi 10 giorni. il periodo di conservazione effettivo per il _logblob1_ è quindi di 100 giorni da oggi (l'ora dell'Ultima modifica/aggiunta).
+Si supponga, ad esempio, che un utente crei un criterio di conservazione basato sul tempo con `allowProtectedAppendWrites` abilitato e un intervallo di conservazione di 90 giorni. Un BLOB di Accodamento, _logblob1_, viene creato oggi nel contenitore. i nuovi log continuano a essere aggiunti al BLOB di Accodamento per i successivi 10 giorni. il periodo di conservazione effettivo per il _logblob1_ è quindi di 100 giorni da oggi (l'ora dell'ultimo Accodamento + 90 giorni).
 
 I criteri di conservazione basati sul tempo sbloccati consentono l'abilitazione e la disabilitazione dell'impostazione `allowProtectedAppendWrites` in qualsiasi momento. Quando il criterio di conservazione basato sul tempo è bloccato, non è possibile modificare l'impostazione `allowProtectedAppendWrites`.
 

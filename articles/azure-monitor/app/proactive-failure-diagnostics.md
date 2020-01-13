@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 1eebb41c83071f34cf367826a21c4bfbf0189394
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748954"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912846"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se l'app Web riscontra un aumento anomalo della frequenza delle richieste non riuscite. rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per le richieste, le richieste non riuscite hanno in genere un codice di risposta di 400 o superiore. Per facilitare la valutazione e la diagnosi del problema, nei dettagli dell'avviso viene fornita un'analisi delle caratteristiche degli errori e dei dati delle applicazioni correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -48,13 +48,11 @@ Quando l’analisi viene attivata, il servizio esegue un'analisi cluster della r
 
 Nell'esempio precedente l'analisi ha rivelato che la maggior parte degli errori riguardano un codice risultato, un nome richiesta, un URL del server host e un’istanza del ruolo specifici. 
 
-L’analisi ha anche determinato che la proprietà sistema operativo client è distribuita su più valori e perciò non è presente nell’elenco.
-
 Quando il servizio viene instrumentato con queste chiamate, l'analizzatore cerca un'eccezione e un errore di dipendenza associati alle richieste nel cluster che ha identificato, insieme a un esempio di qualsiasi log di traccia associato a tali richieste.
 
 I risultati dell'analisi vengono inviati all'utente come avviso, a meno che la configurazione attiva preveda di non eseguire questa operazione.
 
-Analogamente agli [avvisi impostati manualmente](../../azure-monitor/app/alerts.md), è possibile esaminare lo stato dell'avviso e configurarlo nella pagina degli avvisi della risorsa Application Insights. A differenza di altri avvisi, non è però necessario impostare o configurare il rilevamento intelligente. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
+Analogamente agli [avvisi impostati manualmente](../../azure-monitor/app/alerts.md), è possibile esaminare lo stato dell'avviso attivato, che può essere risolto se il problema è stato risolto. Configurare le regole di avviso nella pagina avvisi della risorsa Application Insights. A differenza di altri avvisi, non è però necessario impostare o configurare il rilevamento intelligente. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
 
 ### <a name="alert-logic-details"></a>Dettagli della logica degli avvisi
 
@@ -63,6 +61,7 @@ Gli avvisi vengono attivati da un algoritmo di apprendimento automatico propriet
 * Analisi della percentuale di errore delle richieste o delle dipendenze in una finestra temporale scorrevole di 20 minuti.
 * Confronto tra la percentuale di errore degli ultimi 20 minuti rispetto alla percentuale registrata negli ultimi 40 minuti e negli ultimi sette giorni e individuazione delle deviazioni significative che superano di X volte la deviazione standard.
 * Uso di un limite adattivo per la percentuale di errore minima, che varia in base al volume di richieste/dipendenze dell'app.
+* Esiste una logica che può risolvere automaticamente la condizione di monitoraggio avviso attivata, se il problema non viene più rilevato per 8-24 ore.
 
 ## <a name="configure-alerts"></a>Configurare gli avvisi
 
@@ -83,7 +82,7 @@ Fare clic sull'avviso per configurarlo.
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-Si noti che è possibile disabilitare l'avviso di rilevamento intelligente, ma non eliminarlo (o crearne un altro).
+Si noti che è possibile disabilitare o eliminare una regola di avviso di anomalie degli errori, ma non è possibile crearne un'altra nella stessa risorsa Application Insights.
 
 ## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>Esempio del payload del webhook per gli avvisi di anomalie degli errori
 

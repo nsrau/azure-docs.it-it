@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: be9331ccd548628bfc27172c4f6e625bdba1632c
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 81ef598c846d98548be2d3e7647166d655398921
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158909"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912820"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteggi le app Web e le API del servizio app Azure
 
@@ -29,7 +29,7 @@ Per abilitare Advanced Threat Protection per il piano di servizio app Azure, è 
 
 Con il piano di servizio app abilitato, il Centro sicurezza valuta le risorse coperte dal piano di servizio app e genera raccomandazioni sulla sicurezza in base ai risultati ottenuti. Il Centro sicurezza protegge l'istanza di macchina virtuale in cui è in esecuzione il servizio app e l'interfaccia di gestione. Monitora anche le richieste e le risposte inviate da e verso le applicazioni in esecuzione nel servizio app.
 
-Il Centro sicurezza sfrutta la scalabilità del cloud e la visibilità di Azure come provider di servizi cloud per monitorare gli attacchi di app Web comuni. Il Centro sicurezza può individuare gli attacchi alle applicazioni e identificare gli attacchi emergenti, anche se gli utenti malintenzionati sono nella fase di esplorazione, analizzando per identificare le vulnerabilità in più applicazioni ospitate in Azure. In qualità di servizio nativo di Azure, il Centro sicurezza è anche in una posizione univoca per offrire analisi della sicurezza basate su host che coprono i nodi di calcolo sottostanti per questo PaaS, consentendo al centro sicurezza di rilevare gli attacchi contro le applicazioni Web già sfruttate.
+Il Centro sicurezza sfrutta la scalabilità del cloud e la visibilità di Azure come provider di servizi cloud per monitorare gli attacchi di app Web comuni. Il Centro sicurezza può individuare gli attacchi alle applicazioni e identificare gli attacchi emergenti, anche se gli utenti malintenzionati sono nella fase di esplorazione, analizzando per identificare le vulnerabilità in più applicazioni ospitate in Azure. In qualità di servizio nativo di Azure, il Centro sicurezza è anche in una posizione univoca per offrire analisi della sicurezza basate su host che coprono i nodi di calcolo sottostanti per questo PaaS, consentendo al centro sicurezza di rilevare gli attacchi contro le applicazioni Web già sfruttate. Per informazioni dettagliate sugli avvisi di rilevamento delle minacce del Centro sicurezza dal servizio app Azure, vedere [rilevamento delle minacce per il cloud native computing](security-center-alerts-compute.md#azure-app-service-).
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Abilitazione del monitoraggio e della protezione del servizio app
@@ -57,7 +57,7 @@ Per disabilitare il monitoraggio e gli elementi consigliati per il servizio app,
 
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza di Azure, vedere gli articoli seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.

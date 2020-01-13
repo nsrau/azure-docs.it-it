@@ -1,6 +1,6 @@
 ---
-title: Rilevamento delle minacce per i prodotti per la sicurezza di Azure nel centro sicurezza di Azure
-description: Questo argomento presenta i prodotti per la sicurezza di Azure per i quali il Centro sicurezza di Azure può fornire il rilevamento delle minacce
+title: Avvisi di rilevamento delle minacce da prodotti di sicurezza di Azure nel centro sicurezza di Azure
+description: Questo argomento presenta i prodotti di sicurezza di Azure da cui il Centro sicurezza di Azure può visualizzare gli avvisi sulle minacce
 services: security-center
 documentationcenter: na
 author: memildin
@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: memildin
-ms.openlocfilehash: 1ea207f0ba09e0637a08632d5c56591fd1335b22
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 16cae819b1714c2b410cfa311a3602e0f4ed968a
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665726"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913029"
 ---
-# <a name="threat-detection-for-azure-waf-and-azure-ddos-protection"></a>Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure
+# <a name="threat-detection-alerts-from-azure-waf-and-azure-ddos-protection"></a>Avvisi di rilevamento delle minacce da Azure WAF e protezione DDoS di Azure
 
-Il Centro sicurezza di Azure può fornire il rilevamento delle minacce per i prodotti di sicurezza di Azure seguenti, ovvero è necessaria una licenza separata per ogni prodotto:
+Il Centro sicurezza di Azure può visualizzare e raccogliere gli avvisi di rilevamento delle minacce generati dai prodotti di sicurezza di Azure seguenti, ovvero è necessaria una licenza separata per ogni prodotto:
 
 * [Azure WAF](#azure-waf)
 * [Protezione DDoS di Azure](#azure-ddos)

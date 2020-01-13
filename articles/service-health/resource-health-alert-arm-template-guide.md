@@ -3,12 +3,12 @@ title: Creare avvisi di integrità risorse di Azure-modelli di Gestione risorse
 description: Creare avvisi a livello di codice che inviano una notifica quando le risorse di Azure non sono disponibili.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 34367c89666fd486f233136ce7968c7f3bf61912
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c14e3c327d83e75b08f3b52b59970557ec87f5b5
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551717"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912823"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 
@@ -16,8 +16,6 @@ Questo articolo illustrerà come creare avvisi del registro delle attività di i
 
 Integrità risorse di Azure comunica lo stato di integrità attuale e cronologico delle risorse di Azure. Integrità risorse di Azure invia una notifica quasi in tempo reale quando tali risorse subiscono una modifica al loro stato di integrità. Creare avvisi di Integrità risorse di Azure a livello di codice consente agli utenti di creare e personalizzare gli avvisi in blocco.
 
-> [!NOTE]
-> Gli avvisi Integrità risorse sono attualmente in anteprima.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
