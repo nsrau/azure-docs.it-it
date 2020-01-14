@@ -1,5 +1,5 @@
 ---
-title: Script di Azure PowerShell - Creare un database e una raccolta per Azure Cosmos DB - API MongoDB
+title: Script di PowerShell per creare un database e una raccolta nell'API di Azure Cosmos DB per MongoDB
 description: Script di Azure PowerShell - Creare un database e una raccolta per Azure Cosmos DB - API MongoDB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 54fd220978a66081979de456568173a7e2784280
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 347bd6d4d9788516d51d22f43ea60a223e91c49f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444997"
 ---
 # <a name="create-a-database-and-collection-for-azure-cosmos-db---mongodb-api"></a>Creare un database e una raccolta per Azure Cosmos DB - API MongoDB
 

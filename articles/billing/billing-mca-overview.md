@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'account di fatturazione del Contratto del cliente Microsoft - Azure
+title: Introduzione alla fatturazione per il Contratto del cliente Microsoft - Azure
 description: Informazioni sull'account di fatturazione del Contratto del cliente Microsoft
 author: bandersmsft
 manager: amberbhargava
@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: e27d2116cf58c64fca7fb0273c852d6223f00c6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46918810648deb15ce0ae0dd13824702dcfb7073
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226127"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389231"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introduzione all'account di fatturazione per il Contratto del cliente Microsoft
 
 L'account di fatturazione viene creato quando ci si iscrive per usare Azure. Viene usato per gestire le fatture e i pagamenti, oltre che per tenere traccia dei costi. È possibile avere accesso a più account di fatturazione. Ad esempio, l'iscrizione ad Azure potrebbe essere stata eseguita per i progetti personali. È anche possibile accedere ad Azure tramite il contratto Enterprise o il Contratto del cliente Microsoft dell'organizzazione. Per ognuno di questi scenari, si avrà un account di fatturazione distinto.
 
-Questo articolo si applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Questo articolo di applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="your-billing-account"></a>Account di fatturazione
 
@@ -65,7 +65,7 @@ Applicare criteri per controllare gli acquisti di prenotazioni e quelli effettua
 
 I piani di Azure determinano i prezzi e il contratto di servizio per le sottoscrizioni di Azure. Vengono abilitati automaticamente durante la creazione di un profilo di fatturazione. Tutte le sezioni della fattura associate al profilo di fatturazione possono usare questi piani. Gli utenti con accesso alla sezione della fattura usano i piani per creare sottoscrizioni di Azure. I piani di Azure seguenti sono supportati negli account di fatturazione per il Contratto del cliente Microsoft:
 
-| Pianificazione             | Definizione  |
+| Piano             | Definizione  |
 |------------------|-------------|
 |Piano di Microsoft Azure   | Consente agli utenti di creare sottoscrizioni in grado di eseguire qualsiasi carico di lavoro.  |
 |Piano di Microsoft Azure per Sviluppo/test | Consente ai sottoscrittori di Visual Studio di creare sottoscrizioni limitate per carichi di lavoro di sviluppo o test. A queste sottoscrizioni sono associati vantaggi quali tariffe inferiori e accesso a immagini di macchine virtuali esclusive nel portale di Azure. |

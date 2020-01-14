@@ -7,14 +7,14 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio per lo sviluppo in team di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 895d2edbb268eab9944909ecda7193ce945bbf39
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f88a0b146a53a5b14ab17ae0d959e9b8a5567302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438183"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Sviluppo in team usando .NET Core e Visual Studio con Azure Dev Spaces
 
@@ -33,7 +33,7 @@ L'applicazione di esempio non è complessa al momento. Nello sviluppo nel mondo 
 * Il computer di sviluppo potrebbe non disporre di risorse sufficienti per eseguire contemporaneamente tutti i servizi necessari.
 * Alcuni servizi potrebbero dover essere raggiungibili pubblicamente. Ad esempio, per un servizio potrebbe essere necessario un endpoint che risponda a un webhook.
 * Se si vuole eseguire un sottoinsieme dei servizi, è necessario conoscere la gerarchia completa delle dipendenze tra tutti i servizi. Determinarlo può essere difficile, soprattutto con l'aumentare del numero di servizi.
-* Alcuni sviluppatori ricorrono alla simulazione di molte delle loro dipendenze di servizio. Questo approccio può essere utile, ma la gestione di quelle simulazioni può influire presto sui costi di sviluppo. Inoltre, con questo approccio l'ambiente di sviluppo è visto in modo diverso rispetto a quello di produzione, il che può generare l'insorgere di bug.
+* Alcuni sviluppatori ricorrono alla simulazione di molte delle loro dipendenze di servizio. Questo approccio può essere di aiuto, ma la gestione di quelle simulazioni può influire presto sui costi di sviluppo. Inoltre, con questo approccio l'ambiente di sviluppo è visto in modo diverso rispetto a quello di produzione, il che può generare l'insorgere di bug.
 * Di conseguenza, l'esecuzione di qualsiasi tipo di test di integrazione diventa difficile. I test di integrazione possono avvenire in modo realistico solo dopo il commit, il che significa che i problemi verranno riscontrati più avanti nel ciclo di sviluppo.
 
     ![](media/common/microservices-challenges.png)

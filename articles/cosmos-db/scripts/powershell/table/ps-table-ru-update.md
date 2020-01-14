@@ -1,5 +1,5 @@
 ---
-title: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API Tabella
+title: Script di PowerShell per aggiornare la velocità effettiva (UR/s) per l'API Tabella di Azure Cosmos DB
 description: Informazioni su come usare uno script di PowerShell per aggiornare le unità elaborate per un database o un contenitore nell'account dell'API Tabella di Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8188089f216fa33ba958cf670bb321816387f5c9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37e7ab82a42b8bcd633e0c083e1a3f51505a95cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871875"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444914"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Aggiornare le unità richiesta al secondo per una tabella per Azure Cosmos DB - API Tabella
 

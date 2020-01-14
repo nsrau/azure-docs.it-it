@@ -2,23 +2,23 @@
 title: "Esercitazione: Preparare il registro contenitori per la distribuzione dell'immagine"
 description: Esercitazione di Istanze di Azure Container - Parte 2 di 3 - Preparare un Registro Azure Container ed eseguire il push di un'immagine
 ms.topic: tutorial
-ms.date: 03/21/2018
+ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d8a14acb196b257d96792444fe41e7e9f6b73592
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 131ea39b382735423a1edff72774313c4096ea2b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533329"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552420"
 ---
-# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Distribuire un Registro Azure Container ed eseguire il push di un'immagine del contenitore
+# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Creare un Registro Azure Container ed eseguire il push di un'immagine del contenitore
 
 Questa è la parte due di un'esercitazione in tre parti. Nella [prima parte](container-instances-tutorial-prepare-app.md) dell'esercitazione è stata creata un'immagine del contenitore Docker per un'applicazione Web Node.js. In questa esercitazione si esegue il push dell'immagine in Registro Azure Container. Se l'immagine del contenitore non è ancora stata creata, tornare all'esercitazione [1: Creare un'immagine del contenitore](container-instances-tutorial-prepare-app.md).
 
-Registro Azure Container è il registro Docker privato in Azure. In questa esercitazione si crea un'istanza di Registro Azure Container nella sottoscrizione e quindi si esegue il push dell'immagine del contenitore creata in precedenza in tale istanza. In questo articolo, che corrisponde alla seconda parte della serie, è possibile eseguire queste operazioni:
+Registro Azure Container è il registro Docker privato in Azure. In questa esercitazione, la seconda della serie, vengono illustrate le attività seguenti:
 
 > [!div class="checklist"]
-> * Creare un'istanza di Registro Azure Container
+> * Creare un'istanza di Registro Azure Container usando l'interfaccia della riga di comando di Azure
 > * Assegnare un tag all'immagine del contenitore per il Registro Azure Container
 > * Caricare l'immagine nel registro
 
@@ -41,16 +41,15 @@ az group create --name myResourceGroup --location eastus
 Dopo aver creato il gruppo di risorse, creare un'istanza di Registro Azure Container con il comando [az acr create][az-acr-create]. Il nome del registro contenitori deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Sostituire `<acrName>` con un nome univoco per il registro:
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
 Di seguito è riportato l'output di esempio (qui troncato) per una nuova istanza di Registro Azure Container denominata *mycontainerregistry082*:
 
 ```console
-$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
+$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic
 ...
 {
-  "adminUserEnabled": true,
   "creationDate": "2018-03-16T21:54:47.297875+00:00",
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
   "location": "eastus",
@@ -119,7 +118,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-Applicare all'immagine *aci-tutorial-app* il tag loginServer del registro contenitori. Aggiungere anche il tag `:v1` alla fine del nome dell'immagine per indicarne il numero di versione. Sostituire `<acrLoginServer>` con il risultato del comando [az acr show][az-acr-show] eseguito in precedenza.
+Applicare all'immagine *aci-tutorial-app* il tag del server di accesso del registro contenitori. Aggiungere anche il tag `:v1` alla fine del nome dell'immagine per indicarne il numero di versione. Sostituire `<acrLoginServer>` con il risultato del comando [az acr show][az-acr-show] eseguito in precedenza.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -136,7 +135,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro Azure Container
 
-Dopo aver assegnato all'immagine *aci-tutorial-app* il tag con il nome completo del server di accesso del registro privato, è possibile eseguirne il push nel registro con il comando [docker push][docker-push]. Sostituire `<acrLoginServer>` con il nome completo del server di accesso ottenuto nel passaggio precedente.
+Dopo aver assegnato all'immagine *aci-tutorial-app* il tag con il nome completo del server di accesso del registro privato, è possibile eseguire il push dell'immagine nel registro con il comando [docker push][docker-push]. Sostituire `<acrLoginServer>` con il nome completo del server di accesso ottenuto nel passaggio precedente.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -193,7 +192,7 @@ v1
 In questa esercitazione è stata preparata un'istanza di Registro Azure Container da usare con Istanze di Azure Container ed è stato eseguito il push di un'immagine del contenitore nel registro. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Distribuzione di un'istanza di Registro Azure Container
+> * Creazione di un'istanza di Registro Azure Container usando l'interfaccia della riga di comando di Azure
 > * Assegnazione di un tag all'immagine del contenitore per Registro Azure Container
 > * Caricamento di un'immagine in Registro Azure Container
 

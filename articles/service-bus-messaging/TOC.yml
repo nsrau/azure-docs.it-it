@@ -7,7 +7,7 @@
     - name: Confrontare i servizi di messaggistica
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Code del bus di servizio
       items:
@@ -112,7 +112,7 @@
                   href: authenticate-application.md
         - name: Criteri di sicurezza integrati
           href: service-bus-messaging-security-controls.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Creare uno spazio dei nomi
       href: service-bus-create-namespace-portal.md
@@ -182,7 +182,7 @@
           href: service-bus-end-to-end-tracing.md
         - name: Compilare un'applicazione bus di servizio multilivello
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Usare Azure PowerShell per il provisioning delle entità
           href: service-bus-manage-with-ps.md
@@ -203,9 +203,9 @@
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Creare uno spazio dei nomi con argomento, sottoscrizione e regola'
               href: service-bus-resource-manager-namespace-topic-with-rule.md
-    - name: Proteggere
+    - name: Sicurezza
       items:
-        - name: Configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi (anteprima)
+        - name: Configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi
           href: configure-customer-managed-key.md
     - name: Risolvere problemi
       items:
@@ -213,7 +213,7 @@
           href: service-bus-messaging-exceptions.md
         - name: Eccezioni di Resource Manager
           href: service-bus-resource-manager-exceptions.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: .NET
       items:

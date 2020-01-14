@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aea9fbb14d3892419af104c44c8bfd5528eef421
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021919"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638664"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>API Microsoft Graph per Privileged Identity Management (anteprima)
 
@@ -29,6 +29,8 @@ Per informazioni dettagliate sulle API Microsoft Graph, esaminare le [informazio
 
 > [!IMPORTANT]
 > Le API nella versione beta in Microsoft Graph sono disponibili in anteprima e sono soggetti a modifiche. L'uso di queste API nelle applicazioni di produzione non è supportato.
+>
+> Nonostante nei comandi dell'API Graph siano supportate tutte le operazioni PIM, per approvare le richieste di attivazione si usa un sistema diverso. L'API Graph per l'approvazione è attualmente in fase di sviluppo e verrà rilasciata nei prossimi mesi.
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
@@ -39,7 +41,7 @@ Per chiamare le API Microsoft Graph per Privileged Identity Management, è neces
 - `Directory.ReadWrite.All`
 - `PrivilegedAccess.ReadWrite.AzureAD`
 
-### <a name="set-permissions"></a>Impostare le autorizzazioni
+### <a name="set-permissions"></a>Impostare autorizzazioni
 
 Per poter chiamare le API Microsoft Graph per Privileged Identity Management, le applicazioni devono disporre delle autorizzazioni necessarie. Il modo più semplice per specificare le autorizzazioni richieste consiste nell'usare il [framework di consenso di Azure AD](../develop/consent-framework.md).
 

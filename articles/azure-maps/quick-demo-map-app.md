@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ricerca interattiva nelle mappe con Mappe di Azure'
+title: 'Avvio rapido: Ricerca interattiva nelle mappe con Mappe di Azure'
 description: Guida introduttiva di Azure - Creare una demo di una ricerca interattiva sulla mappa con Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408452"
 ---
-# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Guida introduttiva: Creare una mappa per la ricerca interattiva con Mappe di Azure
+# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Avvio rapido: Creare una mappa per la ricerca interattiva con Mappe di Azure
 
 Questo articolo illustra le funzionalità di Mappe di Azure che consentono di creare una mappa che offre agli utenti un'esperienza di ricerca interattiva. L'articolo descrive le operazioni di base seguenti:
 * Creare un proprio account di Mappe di Azure.
@@ -26,24 +26,38 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al [portale di Azure](https://portal.azure.com/).
+Accedere al [portale di Azure](https://portal.azure.com).
 
-## <a name="create-an-account-and-get-your-key"></a>Creare un account e ottenere la chiave
+<a id="createaccount"></a>
 
-1. Nell'angolo in alto a sinistra del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**.
-2. Nella casella **Cerca nel Marketplace** immettere **Mappe**.
-3. Fra i **risultati** selezionare **Mappe**. Selezionare il pulsante **Crea** visualizzato sotto la mappa.
-4. Nella pagina **Crea account di Mappe di Azure** immettere i valori seguenti:
-   - Il **nome** del nuovo account.
-   - La **sottoscrizione** da usare per l'account.
-   - Il **gruppo di risorse** per l'account. Per il gruppo di risorse è possibile selezionare l'opzione **Crea nuovo** o **Usa esistente**.
-   - Selezionare il **piano tariffario** scelto.
-   - Leggere la **Licenza** e l'**Informativa sulla privacy**. Selezionare la casella di controllo per accettare le condizioni.
-   - Infine, selezionare il pulsante **Crea**.
+## <a name="create-an-account-with-azure-maps"></a>Creare un account con Mppe di Azure
 
-     ![Creare un account di Mappe di Azure nel portale](./media/quick-demo-map-app/create-account.png)
+Creare un nuovo account di Mappe con i passaggi seguenti:
 
-5. Dopo avere creato l'account, aprirlo e trovare la sezione delle impostazioni del menu dell'account. Selezionare **Autenticazione** per visualizzare la chiave primaria e la chiave secondaria per l'account di Mappe di Azure. Copiare il valore di **Chiave primaria** negli Appunti in locale per usarlo nella sezione seguente.
+1. Nell'angolo superiore sinistro del [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa**.
+2. Nella casella *Cerca nel Marketplace* digitare **Mappe**.
+3. Fra i *risultati* selezionare **Mappe**. Fare clic sul pulsante **Crea** visualizzato sotto la mappa.
+4. Nella pagina **Crea account di Mappe** immettere i valori seguenti:
+    * La *sottoscrizione* da usare per l'account.
+    * Il nome del *gruppo di risorse* per l'account. Per il gruppo di risorse è possibile selezionare l'opzione *Crea nuovo* o *Usa esistente*.
+    * Il *nome* del nuovo account.
+    * *Piano tariffario* dell'account.
+    * Leggere la *Licenza* e l'*Informativa sulla Privacy* e selezionare la casella di controllo per accettare le condizioni.
+    * Fare clic sul pulsante **Create** (Crea).
+
+![Creare account di Mappe nel portale](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## <a name="get-the-primary-key-for-your-account"></a>Ottenere la chiave primaria per l'account
+
+Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente di eseguire query nelle API di Mappe. Nella chiamata dei servizi di Mappe di Azure è consigliabile usare la chiave primaria dell'account come chiave di sottoscrizione.
+
+1. Aprire l'account di Mappe nel portale.
+2. Nella sezione delle impostazioni selezionare **Autenticazione**.
+3. Copiare il valore di **Chiave primaria** negli Appunti. Salvarlo in locale per usarlo in seguito in questa esercitazione.
+
+![Ottenere la chiave primaria nel portale](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Scaricare l'applicazione
 

@@ -1,6 +1,5 @@
 ---
-title: Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Usare Mongoose per connettersi a Cosmos DB
-titleSuffix: Azure Cosmos DB
+title: Connettere l'app Angular all'API di Azure Cosmos DB per MongoDB tramite Mongoose
 description: Questa esercitazione descrive come compilare un'applicazione Node.js usando Express e Angular per gestire i dati archiviati in Cosmos DB. In questa parte si usa Mongoose per connettersi ad Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
@@ -12,12 +11,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ba893eeb8c2560397f3524d1042566dbafee7d1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69616429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444701"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Usare Mongoose per connettersi a Cosmos DB
 
@@ -34,7 +33,7 @@ In questa parte dell'esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Prima di iniziare questa esercitazione, completare i passaggi della [Parte 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -214,7 +213,7 @@ Successivamente, è necessario configurare le route per gestire gli URL per le r
     });
     ```
 
-1. In **routes.js** `require` il servizio Hero:
+1. In **routes.js**`require` il servizio Hero:
 
     ```javascript
     const heroService = require('./hero.service'); 
@@ -228,11 +227,11 @@ Successivamente, è necessario configurare le route per gestire gli URL per le r
 
 Esaminare ora il codice precedente. In primo luogo c'è il file index.js, che configura il server del nodo. Si noti che configura e definisce le route. Il file routes.js comunica con il servizio Hero e gli indica di ottenere le funzioni come **getHeroes** e passare la richiesta e la risposta. Il file hero.service.js ottiene il modello e si connette a Mongo. Quindi esegue **getHeroes** quando viene chiamato e restituisce una risposta 200. 
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 A questo punto, eseguire l'app seguendo questa procedura:
 
-1. In Visual Studio Code salvare tutte le modifiche. Fare clic sul pulsante **Debug** ![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) a sinistra, quindi sul pulsante **Avvia debug** ![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. In Visual Studio Code salvare tutte le modifiche. Fare clic sul pulsante **Debug**![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) a sinistra, quindi sul pulsante **Avvia debug**![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
 1. Passare ora al browser. Aprire gli **Strumenti di sviluppo** e la **scheda Rete**. Passare a `http://localhost:3000` per visualizzare l'applicazione.
 

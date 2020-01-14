@@ -1,17 +1,17 @@
 ---
-title: Creazione del cluster Azure FXT Edge Filer di Microsoft
+title: 'Esercitazione: Creare il cluster della cache di Azure FXT Edge Filer'
 description: Come creare un cluster di cache di archiviazione ibrida con Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256080"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551268"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Esercitazione: Creare il cluster Azure FXT Edge Filer
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà:
 
 Questa procedura richiede da 15 a 45 minuti, a seconda delle attività di ricerca da eseguire per identificare gli IP indirizzi e le risorse di rete.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, completare questi prerequisiti:
 
@@ -176,7 +176,7 @@ Nella sezione superiore, inserire le informazioni di base per il nuovo cluster.
   
   È necessario impostare singoli account utente per ogni persona che gestisce il cluster, ma non è possibile rimuovere l'utente `admin`. Se è necessario creare utenti aggiuntivi, accedere come `admin`.
  
-  È possibile modificare la password per `admin` nella pagina delle impostazioni **Amministrazione**  >  **Utenti** del pannello di controllo del cluster. Per informazioni dettagliate, vedere la documentazione relativa agli **Utenti** nella [Guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
+  È possibile modificare la password per `admin` nella pagina delle impostazioni **Amministrazione** > **Utenti** del pannello di controllo del cluster. Per informazioni dettagliate, vedere la documentazione relativa agli **Utenti** nella [Guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 

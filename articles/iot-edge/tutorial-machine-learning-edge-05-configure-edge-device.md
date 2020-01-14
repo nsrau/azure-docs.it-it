@@ -8,17 +8,17 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706964"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612871"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Esercitazione: Configurare un dispositivo IoT Edge
 
 > [!NOTE]
-> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per risultati ottimali.
+> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
 
 In questo articolo viene configurata una macchina virtuale di Azure basata su Linux come dispositivo Azure IoT Edge che funge da gateway trasparente. La configurazione del gateway trasparente consente ai dispositivi di connettersi all'hub IoT di Azure tramite il gateway senza riconoscerne l'esistenza. Allo stesso tempo, un utente può interagire con i dispositivi nell'hub IoT senza essere a conoscenza del dispositivo gateway intermedio. In definitiva, il gateway trasparente viene usato per aggiungere analisi dei dispositivi perimetrali con l'aggiunta di moduli IoT Edge al gateway.
 
@@ -28,7 +28,7 @@ I passaggi di questo articolo vengono in genere eseguiti da sviluppatori cloud.
 
 Perché possa operare come gateway, un dispositivo deve essere in grado di connettersi in modo sicuro a dispositivi downstream. Azure IoT Edge permette di usare un'infrastruttura a chiave pubblica (PKI) per configurare connessioni sicure tra dispositivi. Nel caso illustrato si consente la connessione di un dispositivo downstream a un dispositivo IoT Edge che funge da gateway trasparente. Per mantenere un livello di sicurezza ragionevole, il dispositivo downstream deve confermare l'identità del dispositivo IoT Edge. Per altre informazioni su come vengono usati i certificati dai dispositivi IoT Edge, vedere [Dettagli di utilizzo dei certificati di Azure IoT Edge](iot-edge-certs.md).
 
-In questa sezione vengono creati certificati autofirmati usando un'immagine Docker che viene quindi creata ed eseguita. È stato scelto di usare un'immagine Docker per completare questo passaggio perché riduce sensibilmente il numero di passaggi necessari per creare i certificati nel computer di sviluppo Windows. Per informazioni su come produrre i certificati senza usare un contenitore, vedere [Generare certificati con Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows). L'articolo [Generare certificati con Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) include una serie di istruzioni che vengono automatizzate con l'immagine Docker.
+In questa sezione vengono creati certificati autofirmati usando un'immagine Docker che viene quindi creata ed eseguita. È stato scelto di usare un'immagine Docker per completare questo passaggio perché riduce sensibilmente il numero di passaggi necessari per creare i certificati nel computer di sviluppo Windows. Vedere [Creare certificati demo per testare le funzionalità del dispositivo IoT Edge](how-to-create-test-certificates.md) per informazioni sui passaggi automatizzati con l'immagine Docker.
 
 1. Accedere alla macchina virtuale di sviluppo.
 

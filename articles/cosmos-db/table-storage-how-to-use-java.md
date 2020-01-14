@@ -1,5 +1,5 @@
 ---
-title: Come usare l'archiviazione tabelle di Azure o l'API Tabella di Azure Cosmos DB da Java
+title: Usare l'archiviazione tabelle di Azure o l'API Tabella di Azure Cosmos DB da Java
 description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 6b8b2d2d035183861f367c9425ec54d1c9babf34
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e5f9d3fbd7fcf12271329ec324b38b03b4dcd7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444832"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -38,7 +38,7 @@ Questo articolo illustra come eseguire scenari comuni usando il servizio di arch
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
 In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web o in un ruolo di lavoro in Azure.
 
-Per usare gli esempi in questo articolo, installare Java Development Kit (JDK) e creare un account di archiviazione di Azure o un account di Azure Cosmos DB nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nel repository [Azure Storage SDK per Java][Azure Storage SDK for Java] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di Archiviazione di Azure per Java nel sistema dal repository indicato. Dopo avere completato queste attività, è possibile creare un'applicazione Java che usa gli esempi in questo articolo.
+Per usare gli esempi in questo articolo, installare Java Development Kit (JDK) e creare un account di archiviazione di Azure o un account di Azure Cosmos DB nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nel repository [Azure Storage SDK per Java][Azure Storage SDK for Java] in GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di Archiviazione di Azure per Java nel sistema dal repository indicato. Dopo avere completato queste attività, è possibile creare un'applicazione Java che usa gli esempi in questo articolo.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione tabelle
 Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB per accedere alle tabelle:
@@ -595,7 +595,7 @@ catch (Exception e)
 * [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started) (Introduzione al servizio tabelle di Azure in Java)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Azure Storage SDK per Java][Azure Storage SDK for Java]
-* [Riferimento all'SDK del client di Archiviazione di Azure][Riferimento all'SDK del client di Archiviazione di Azure]
+* [Riferimento all'SDK del client di archiviazione di Azure][Azure Storage Client SDK Reference]
 * [API REST di Archiviazione di Azure][Azure Storage REST API]
 * [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure]
 

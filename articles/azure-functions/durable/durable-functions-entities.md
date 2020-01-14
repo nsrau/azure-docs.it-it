@@ -3,14 +3,14 @@ title: Entità durevoli - Funzioni di Azure
 description: Questo articolo contiene informazioni sulle entità durevoli e sul modo di usarle nell'estensione Durable Functions per Funzioni di Azure.
 author: cgillum
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433310"
 ---
 # <a name="entity-functions"></a>Funzioni di entità
 
@@ -41,6 +41,7 @@ Per richiamare un'operazione su un'entità, specificare gli elementi seguenti:
 * **ID entità** dell'entità di destinazione.
 * **Nome dell'operazione**, ovvero una stringa che specifica l'operazione da eseguire. L'entità `Counter`, ad esempio, potrebbe supportare le operazioni `add`, `get` o `reset`.
 * **Input dell'operazione**, ovvero un parametro di input facoltativo per l'operazione. L'operazione di addizione, ad esempio, può accettare come input un valore intero.
+* **Ora pianificata*, un parametro facoltativo che consente di specificare l'ora di recapito dell'operazione. È ad esempio possibile pianificare con la massima affidabilità un'operazione in modo che venga eseguita diversi giorni dopo.
 
 Le operazioni possono restituire un valore di risultato oppure un risultato di errore, ad esempio un errore JavaScript o un'eccezione .NET. Il risultato o l'errore può essere osservato dalle orchestrazioni che hanno chiamato l'operazione.
 
@@ -165,7 +166,7 @@ Gli esempi seguenti illustrano le diverse modalità di accesso alle entità.
 
 ### <a name="example-client-signals-an-entity"></a>Esempio: il client segnala un'entità
 
-Per accedere alle entità da una funzione di Azure ordinaria, ovvero una funzione client, usare il [binding di output del client dell'entità](durable-functions-bindings.md#entity-client). L'esempio seguente illustra una funzione attivata da una coda che segnala un'entità usando questa associazione.
+Per accedere alle entità da una funzione di Azure ordinaria, detta anche funzione client, usare l'[associazione client di entità](durable-functions-bindings.md#entity-client). L'esempio seguente illustra una funzione attivata da una coda che segnala un'entità usando questa associazione.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -186,7 +187,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
 
@@ -203,8 +204,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -214,7 +215,8 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
@@ -249,12 +251,11 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> JavaScript attualmente non supporta la segnalazione di un'entità da un agente di orchestrazione. Usare invece `callEntity`.
 
 Solo le orchestrazioni sono in grado di chiamare entità e ottenere una risposta, che può essere un valore restituito o un'eccezione. Le funzioni client che usano il [binding client](durable-functions-bindings.md#entity-client) possono solo segnalare entità.
 

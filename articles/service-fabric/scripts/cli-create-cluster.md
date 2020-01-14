@@ -1,6 +1,6 @@
 ---
 title: Esempio di distribuzione di script dell'interfaccia della riga di comando di Azure
-description: Creare un cluster Linux di Service Fabric protetto in Azure usando l'interfaccia della riga di comando di Azure.
+description: Come creare un cluster Linux di Service Fabric sicuro in Azure usando l'interfaccia della riga di comando di Azure.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1386be8093cac4f5271886ff736b24acd483d64e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 2b9b98b3ade46abd670283d0e68dc62fda9d8d0a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032821"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526618"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Creare un cluster Linux di Service Fabric protetto in Azure
 

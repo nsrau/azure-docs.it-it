@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare e gestire dati esportati da Gestione costi di Azure'
+title: Esercitazione - Esportare dati da Gestione costi di Azure
 description: Questo articolo descrive come creare e gestire dati esportati di Gestione costi di Azure per poterli usare in sistemi esterni.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a462b3d165a596673049abbbb8b5b8d346f5fc9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d5f6bc4620d60d3eb776a6229450e02035b8290
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229823"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441011"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -25,13 +25,13 @@ Guarda il video [Come pianificare esportazioni in archiviazione con Gestione cos
 
 Gli esempi contenuti in questa esercitazione descrivono in modo dettagliato come esportare dati di gestione dei costi e come verificare che i dati siano stati esportati correttamente.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'esportazione giornaliera
 > * Verificare che i dati vengano raccolti
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 L'esportazione dati è disponibile per tutti i tipi di account di Azure, inclusi i clienti con [contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Sono supportati gli ambiti o le autorizzazioni di Azure seguenti per ogni sottoscrizione per l'esportazione di dati per utente e gruppo. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 - Proprietario: può creare, modificare o eliminare esportazioni pianificate per una sottoscrizione.
@@ -112,7 +112,7 @@ Uno degli scopi dell'esportazione dei dati di Gestione costi è potervi accedere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'esportazione giornaliera

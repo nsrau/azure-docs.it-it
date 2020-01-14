@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706131"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561627"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
@@ -36,7 +36,7 @@ Il caso d'uso principale per Durable Functions è la semplificazione dei requisi
 * [Concatenamento di funzioni](#chaining)
 * [Fan-out/fan-in](#fan-in-out)
 * [API HTTP asincrone](#async-http)
-* [Monitoraggio](#monitoring)
+* [Monitoring](#monitoring)
 * [Interazione umana](#human)
 * [Aggregatore (entità con stato)](#aggregator)
 
@@ -48,7 +48,7 @@ Nel modello di concatenamento di funzioni, una sequenza di funzioni viene esegui
 
 È possibile usare Durable Functions per implementare il modello di concatenamento di funzioni in modo conciso, come illustrato nell'esempio seguente.
 
-In questo esempio i valori `F1`, `F2`, `F3` e `F4` corrispondono ai nomi di altre funzioni nell'app per le funzioni. È possibile implementare il flusso di controllo usando normali costrutti di codice imperativo. Il codice viene eseguito dall'alto verso il basso e può implicare semantica esistente del flusso di controllo del linguaggio, ad esempio istruzioni condizionali e cicli. È possibile includere la logica di gestione degli errori nei in blocchi `try`/`catch`/`finally`.
+In questo esempio, i valori `F1`, `F2`, `F3` ed `F4` sono i nomi di altre funzioni nella stessa app per le funzioni. È possibile implementare il flusso di controllo usando normali costrutti di codice imperativo. Il codice viene eseguito dall'alto verso il basso e può implicare semantica esistente del flusso di controllo del linguaggio, ad esempio istruzioni condizionali e cicli. È possibile includere la logica di gestione degli errori nei in blocchi `try`/`catch`/`finally`.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -353,7 +353,7 @@ Un client esterno può recapitare la notifica degli eventi a una funzione dell'a
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-Un evento può essere generato anche usando il client di orchestrazione durevole di un'altra funzione:
+Un evento può essere generato anche usando il client di orchestrazione durevole di un'altra funzione nella stessa app per le funzioni:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

@@ -1,5 +1,5 @@
 ---
-title: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API Cassandra
+title: Script di PowerShell per aggiornare la velocità effettiva (UR/s) per le risorse dell'API Cassandra di Azure Cosmos DB
 description: Informazioni su come usare uno script di PowerShell per aggiornare le unità elaborate per un keyspace o una tabella nell'API Cassandra di Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 12/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 417ee8d839e65a7625b8ba8daa84cc0dcc41abf5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 4f81f278c87b096b2dae844252229fb1dee45599
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871959"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445069"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Aggiornare le unità richiesta al secondo per un keyspace o una tabella per Azure Cosmos DB - API Cassandra
 

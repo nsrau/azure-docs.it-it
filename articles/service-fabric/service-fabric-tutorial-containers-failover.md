@@ -1,27 +1,17 @@
 ---
-title: Eseguire il failover e ridimensionare un'app su Service Fabric in Azire | Microsoft Docs
+title: Eseguire il failover e ridimensionare un'app per contenitori
 description: In questa esercitazione si apprenderà come viene gestito il failover di un'applicazione contenitore di Azure Service Fabric  e su come ridimensionare i contenitori e i servizi in esecuzione in un cluster.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, contenitori, microservizi, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a13ce98eeebf60a6b61ee9aff01107c61fa94641
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385115"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614095"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Esercitazione: Illustrare il failover e il ridimensionamento dei servizi contenitore con Service Fabric
 
@@ -31,7 +21,7 @@ Questa è la terza di una serie di esercitazioni. In questa esercitazione si app
 > * Informazioni sul failover del contenitore in un cluster di Service Fabric
 > * Ridimensionare i contenitori front-end Web in un'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 L'applicazione della [parte 2](service-fabric-tutorial-package-containers.md) è ora in esecuzione nel cluster attivo di Service Fabric.
 
@@ -68,7 +58,7 @@ Ora è possibile scegliere di modificare il numero di istanze del front-end Web.
 
 ![sfxscaledone][sfxscaledone]
 
-È ora possibile rilevare che esistono due istanze del servizio. Nella visualizzazione albero si può verificare in quali nodi vengono eseguite le istanze.
+Saranno ora presenti due istanze del servizio. Nella visualizzazione albero si può verificare in quali nodi vengono eseguite le istanze.
 
 Con questa semplice attività di gestione abbiamo raddoppiato le risorse disponibili per il servizio front-end per l'elaborazione del carico utente. È importante comprendere che non sono necessarie più istanze di un servizio perché questo venga eseguito in modo affidabile. In caso di problemi di un servizio, Service Fabric assicura l'esecuzione di una nuova istanza del servizio nel cluster.
 

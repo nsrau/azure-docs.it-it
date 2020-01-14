@@ -1,6 +1,5 @@
 ---
-title: App Node.js e Angular con l'API MongoB (parte 1)
-titleSuffix: Azure Cosmos DB
+title: App Angular Node.js con l'API di Azure Cosmos DB per MongoDB (parte 1)
 description: Informazioni su come creare un'app MongoDB con Angular e Node in Azure Cosmos DB mediante le stesse API usate per MongoDB con questa serie di esercitazioni basate su video.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: ec88b8e78c2d73ffa4badbc8ceaa468b4e5169e0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d2e7ce959edffdb2e8c929c81837e0ac3fc3da9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444693"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Creare un'app Angular con l'API Azure Cosmos DB per MongoDB
 
@@ -28,7 +27,7 @@ Questa esercitazione in più parti illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * [Creare un'app Node.js Express con l'interfaccia della riga di comando di Angular](tutorial-develop-mongodb-nodejs-part2.md)
-> * [Compilare l'interfaccia utente con Angular](tutorial-develop-mongodb-nodejs-part3.md)
+> * [Build the UI with Angular (Compilare l'interfaccia utente con Angular)](tutorial-develop-mongodb-nodejs-part3.md)
 > * [Creare un account Azure Cosmos DB mediante l'interfaccia della riga di comando di Azure](tutorial-develop-mongodb-nodejs-part4.md) 
 > * [Usare Mongoose per connettersi ad Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
 > * [Aggiungere le funzioni Post, Put e Delete all'app](tutorial-develop-mongodb-nodejs-part6.md)

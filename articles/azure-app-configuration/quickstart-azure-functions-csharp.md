@@ -2,30 +2,23 @@
 title: Guida introduttiva di Configurazione app di Azure con Funzioni di Azure | Microsoft Docs
 description: Guida introduttiva per l'uso di Configurazione app di Azure con Funzioni di Azure.
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 12/17/2019
 ms.author: yegu
-ms.openlocfilehash: 6329cf0e74bbcf57164afeab5b04e2af4ee43943
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3c8dc27b9d7781a8420fa76e5aeac9637b87c569
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413775"
 ---
-# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app Funzioni di Azure con Configurazione app di Azure
+# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app Funzioni di Azure con Configurazione app di Azure
 
 In questa guida di avvio rapido si incorpora il servizio Configurazione app di Azure in un'app Funzioni di Azure per centralizzare l'archiviazione e la gestione di tutte le impostazioni dell'applicazione separatamente dal codice.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro **Sviluppo di Azure**.
@@ -37,7 +30,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 6. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 
@@ -61,7 +54,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. Aggiungere una proprietà `Configuration` `static` per creare un'istanza singleton di `IConfiguration`. Aggiungere quindi un costruttore `static` per connettersi a Configurazione app chiamando `AddAzureAppConfiguration()`. Questa operazione consentirà di caricare la configurazione una sola volta all'avvio dell'applicazione. La stessa istanza di configurazione verrà usata per tutte le chiamate di Funzioni eseguite successivamente.
+3. Aggiungere una proprietà `static` denominata `Configuration` per creare un'istanza singleton di `IConfiguration`. Aggiungere quindi un costruttore `static` per connettersi a Configurazione app chiamando `AddAzureAppConfiguration()`. Questa operazione consentirà di caricare la configurazione una sola volta all'avvio dell'applicazione. La stessa istanza di configurazione verrà usata per tutte le chiamate di Funzioni eseguite successivamente.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -94,17 +87,19 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di Configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
-
+    ```
     Se si usa Windows PowerShell, eseguire il comando seguente:
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
     Se si usa macOS o Linux, eseguire il comando seguente:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Per testare la funzione premere F5. Se viene visualizzata, accettare la richiesta di Visual Studio di scaricare e installare gli strumenti dell'**interfaccia della riga di comando Azure Functions Core Tools**. Potrebbe essere necessario anche abilitare un'eccezione del firewall per consentire agli strumenti di gestire le richieste HTTP.
+2. Premere F5 per testare la funzione. Se viene visualizzata, accettare la richiesta di Visual Studio di scaricare e installare gli strumenti dell'**interfaccia della riga di comando Azure Functions Core Tools**. Potrebbe essere necessario anche abilitare un'eccezione del firewall per consentire agli strumenti di gestire le richieste HTTP.
 
 3. Copiare l'URL della funzione dall'output di runtime di Funzioni di Azure.
 

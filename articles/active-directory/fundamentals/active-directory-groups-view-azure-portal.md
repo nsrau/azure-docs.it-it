@@ -1,5 +1,5 @@
 ---
-title: Guida di avvio rapido per la visualizzazione di gruppi e membri - Azure Active Directory | Microsoft Docs
+title: Avvio rapido - Visualizzare gruppi e membri - Azure AD
 description: Istruzioni su come cercare e visualizzare i gruppi dell'organizzazione e i membri a essi assegnati.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423022"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -29,7 +29,7 @@ In questa guida introduttiva si visualizzeranno tutti i gruppi esistenti dell'or
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Prima di iniziare, è necessario:
 
 - Creare un tenant di Azure Active Directory. Per altre informazioni, vedere [Accedere al portale di Azure Active Directory e creare un nuovo tenant](active-directory-access-create-new-tenant.md).
@@ -72,7 +72,7 @@ Dopo aver creato un gruppo e un utente, è possibile aggiungere _Alain Charon_ c
 
 2. Nella pagina **Gruppi - Tutti i gruppi** cercare e selezionare il gruppo **MDM policy - West**.
 
-3. Nella pagina **Panoramica di MDM policy - West** selezionare **Membri** nell'area **Gestione**.
+3. Nella pagina **Panoramica MDM policy - West** selezionare **Membri** nell'area **Gestione**.
 
 4. Selezionare **Aggiungi membri** e quindi cercare e selezionare **Alain Charon**.
 

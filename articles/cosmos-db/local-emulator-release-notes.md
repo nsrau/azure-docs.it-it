@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: eb73551c4226df8bc20428558720c0ebbfff96d9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445300"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulatore Azure Cosmos - Note sulla versione e informazioni di download
 
@@ -22,9 +22,13 @@ Questo articolo include le note sulla versione dell'emulatore Azure Cosmos con u
 | | |
 |---------|---------|
 |**Download MSI**|[Area download Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Introduzione**|[Sviluppare in locale con l'emulatore Azure Cosmos](local-emulator.md)|
+|**Operazioni preliminari**|[Sviluppare in locale con l'emulatore Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="272"></a>2.7.2
+
+- Questa versione aggiunge il supporto per il server MongoDB versione 3.6 all'emulatore Cosmos. Per avviare un endpoint MongoDB destinato alla versione 3.6 del servizio, avviare l'emulatore dalla riga di comando con privilegi di amministratore con l'opzione "/EnableMongoDBEndpoint=3.6".
 
 ### <a name="270"></a>2.7.0
 

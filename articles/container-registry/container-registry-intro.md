@@ -3,19 +3,19 @@ title: Registri di contenitori gestiti
 description: Introduzione al servizio Registro Azure Container, che offre registri Docker privati, gestiti e basati sul cloud.
 author: stevelas
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 12/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2ceae0a6d6eb4dc989a53b35dc4a2f64472a5f54
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445721"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
-Registro Azure Container è un servizio gestito di registri Docker privato basato sull'applicazione open source Docker Registry 2.0. Creare e gestire registri contenitori di Azure per archiviare e gestire immagini contenitore Docker private.
+Registro Azure Container è un servizio gestito di registri Docker privato basato sull'applicazione open source Docker Registry 2.0. Creare e gestire registri contenitori di Azure per archiviare e gestire le immagini del contenitore Docker private e gli artefatti correlati.
 
 Usare i registri contenitori di Azure con la pipeline di sviluppo e distribuzione di contenitori esistente oppure usare Attività del Registro Azure Container per compilare immagini di contenitore in Azure. È possibile eseguire compilazioni su richiesta o automatizzare completamente le compilazioni con trigger quali i commit del codice sorgente e gli aggiornamenti delle immagini di base.
 
@@ -38,11 +38,18 @@ Azure offre strumenti, tra cui l'interfaccia della riga di comando di Azure, il 
 
 * **SKU dei registri**. Creare uno o più registri contenitori nella sottoscrizione di Azure. I registri sono disponibili in tre SKU: [Basic, Standard e Premium](container-registry-skus.md), ognuno dei quali supporta l'integrazione webhook, l'autenticazione del registro con Azure Active Directory e la funzionalità di eliminazione. Sfruttare l'archiviazione locale con prossimità di rete delle immagini contenitore creando un registro nella stessa località di Azure delle distribuzioni. Usare la funzionalità di [replica geografica](container-registry-geo-replication.md) dei registri Premium per scenari avanzati di replica e distribuzione di immagini del contenitore. 
 
-  Per [controllare l'accesso](container-registry-authentication.md) a un registro contenitori si usa un'identità di Azure, un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) supportata da Azure Active Directory o un account amministratore specificato. Per accedere al registro, usare l'interfaccia della riga di comando di Azure oppure il comando `docker login` standard.
+* **Sicurezza e accesso**. L'accesso a un registro viene eseguito usando l'interfaccia della riga di comando di Azure oppure il comando `docker login` standard. Registro Azure Container trasferisce le immagini del contenitore tramite HTTPS e supporta TLS per proteggere le connessioni client. 
+
+  > [!IMPORTANT]
+  > A partire dal 13 gennaio 2020, Registro Azure Container richiederà l'uso di TLS 1.2 in tutte le connessioni sicure da server e applicazioni. Il supporto per TLS 1.0 e 1.1 verrà ritirato.
+
+  Per [controllare l'accesso](container-registry-authentication.md) a un registro contenitori si usa un'identità di Azure, un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) supportata da Azure Active Directory o un account amministratore specificato. Usare il controllo degli accessi in base al ruolo per assegnare agli utenti o ai sistemi autorizzazioni specifiche per un registro.
+
+  Le funzionalità di sicurezza dello SKU Premium includono [attendibilità dei contenuti](container-registry-content-trust.md) per la firma dei tag di immagine e [firewall e reti virtuali (anteprima)](container-registry-vnet.md) per limitare l'accesso al registro. Il Centro sicurezza di Azure è facoltativamente integrabile con Registro Azure Container per [analizzare le immagini](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) ogni volta che viene eseguito il push di un'immagine in un registro.
 
 * **Immagini e artefatti supportati**. Le immagini sono raggruppate in un repository e ognuna rappresenta uno snapshot di sola lettura di un contenitore compatibile con Docker. I registri contenitori di Azure possono includere immagini sia Windows che Linux. L'utente controlla i nomi delle immagini per tutte le distribuzioni di contenitori. Usare i [comandi di Docker](https://docs.docker.com/engine/reference/commandline/) standard per effettuare il pull e il push di immagini da e verso un repository. Oltre alle immagini del contenitore Docker, Registro Azure Container archivia i [formati del contenuto correlato](container-registry-image-formats.md), ad esempio [grafici Helm](container-registry-helm-repos.md) e immagini incorporate nella [Specifica di formato di immagine OCI (Open Container Initiative)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
-* **Attività del Registro Azure Container**. Usare [Attività del Registro Azure Container](container-registry-tasks-overview.md) per semplificare la compilazione, il test, il push e la distribuzione di immagini in Azure. Ad esempio, usare Attività del Registro Azure Container per estendere il ciclo interno di sviluppo nel cloud eseguendo l'offload delle operazioni di `docker build` in Azure. Configurare le attività di compilazione per automatizzare la pipeline di applicazione delle patch al sistema operativo e al framework del contenitore e compilare automaticamente le immagini quando il team esegue il commit del codice nel controllo dell'origine.
+* **Compilazione di immagini automatizzata**. Usare [Attività del Registro Azure Container](container-registry-tasks-overview.md) per semplificare la compilazione, il test, il push e la distribuzione di immagini in Azure. Ad esempio, usare Attività del Registro Azure Container per estendere il ciclo interno di sviluppo nel cloud eseguendo l'offload delle operazioni di `docker build` in Azure. Configurare le attività di compilazione per automatizzare la pipeline di applicazione delle patch al sistema operativo e al framework del contenitore e compilare automaticamente le immagini quando il team esegue il commit del codice nel controllo dell'origine.
 
   Le [attività in più passi](container-registry-tasks-overview.md#multi-step-tasks) consentono di definire ed eseguire attività basate su passaggi per creare, testare e correggere le immagini del contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
 

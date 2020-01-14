@@ -1,26 +1,17 @@
 ---
-title: Eseguire il debug di un'app Java nel cluster di Service Fabric locale | Microsoft Docs
+title: Eseguire il debug di un'app Java nel cluster di Service Fabric locale
 description: In questa esercitazione si apprenderà come eseguire il debug e ottenere log da un'applicazione Java di Service Fabric in esecuzione in un cluster locale.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465378"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Esercitazione: Eseguire il debug di un'applicazione Java distribuita in un cluster di Service Fabric locale
 
@@ -41,7 +32,7 @@ Nella seconda parte della serie si apprenderà come:
 > * Reindirizzare i log a un percorso configurabile
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -73,7 +64,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 5. Aggiornare il manifesto dell'applicazione impostando il numero di istanze o di repliche per il servizio di cui eseguire il debug su uno. Questa impostazione evita che si verifichino conflitti per la porta usata per il debug. Per i servizi senza stato, ad esempio, impostare ``InstanceCount="1"``, mentre per i servizi con stato impostare la destinazione e le dimensioni minime del set di repliche su 1 nel modo seguente: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
-6. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)**, fare clic sul pulsante **New** (Nuovo), impostare le proprietà come segue e fare clic su **Appy** (Applica).
+6. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)** , fare clic sul pulsante **New** (Nuovo), impostare le proprietà come segue e fare clic su **Appy** (Applica).
 
     ```
     Name: Voting
@@ -89,7 +80,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 9. Nella finestra **Publish Application** (Pubblica applicazione) selezionare **Local.json** dall'elenco a discesa e fare clic su **Publish** (Pubblica).
 
-10. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)**, fare clic sulla configurazione **Voting** creata e quindi su **Debug**.
+10. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)** , fare clic sulla configurazione **Voting** creata e quindi su **Debug**.
 
 11. Passare al Web browser e accedere a **localhost:8080**. In questo modo, verrà automaticamente raggiunto il punto di interruzione ed Eclipse potrà accedere alla **prospettiva di debug**.
 

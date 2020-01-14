@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Elaborare gli eventi di Apache Kafka tramite Analisi di flusso - Hub eventi di Azure'
+title: Hub eventi di Azure - Elaborare eventi di Apache Kafka
 description: 'Esercitazione: Questo articolo illustra come elaborare gli eventi di Kafka che vengono inseriti tramite hub eventi usando Analisi di flusso di Azure'
 services: event-hubs
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dd429c7e8478bb0576605bcffe3c72bde35ae41e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437260"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -30,7 +30,7 @@ Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kaf
 Non è necessario modificare i client di protocollo o eseguire i propri cluster quando si usa l'endpoint di Kafka esposto da un hub eventi. Hub eventi di Azure supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html) Supporta anche versioni successive. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
@@ -55,7 +55,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
     4. Selezionare la **sottoscrizione** in cui si vuole creare lo spazio dei nomi dell'hub eventi. 
     5. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente. 
     6. Selezionare una **posizione**. 
-    7. Fare clic su **Create**(Crea).
+    7. Fare clic su **Crea**.
     
         ![Creare uno spazio dei nomi](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
 4. Nel **messaggio di notifica** selezionare il **nome del gruppo di risorse**. 
@@ -176,7 +176,7 @@ Dopo aver configurato un processo di Analisi di flusso per leggere un flusso di 
 ### <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 
 1. Fare clic su **Panoramica** nel menu di sinistra. 
-2. Selezionare **Avvia**. 
+2. Selezionare **Start**. 
 
     ![Menu Start](./media/event-hubs-kafka-stream-analytics/start-menu.png)
 1. Nella pagina **Avvia processo** selezionare **Avvia**. 

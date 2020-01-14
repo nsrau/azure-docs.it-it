@@ -1,17 +1,17 @@
 ---
-title: Script di Azure PowerShell - Operazioni relative alla chiave dell'account e alla stringa di connessione per un account di Azure Cosmos
+title: Script di PowerShell per ottenere le oerazioni relative alla chiave e alla stringa di connessione per un account Azure Cosmos
 description: Esempio di script di Azure PowerShell - Operazioni relative alla chiave dell'account e alla stringa di connessione per un account di Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 96be5f09cddf5eefec6b471d30cf87d0f687485d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154753"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441529"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Operazioni relative alla chiave dell'account e alla stringa di connessione per un account di Azure Cosmos con PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "71154753"
 ## <a name="sample-script"></a>Script di esempio
 
 > [!NOTE]
-> Questo esempio dimostra l'uso di un account API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API
+> Questo esempio dimostra l'uso di un account dell'API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

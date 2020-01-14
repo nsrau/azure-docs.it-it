@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860b2f20b4ffda0a1a588ed5d5893ad2c0521a43
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438867"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare l'API REST per creare una pipeline di Azure Data Factory per copiare dati 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "73682841"
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -46,7 +46,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 >  
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -103,7 +103,7 @@ Creare i file JSON seguenti nella cartella che include curl.exe.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Sostituire **accountname** e **accountkey** con il nome e la chiave dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso nelle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+> Sostituire **accountname** e **accountkey** con il nome e la chiave dell'account di archiviazione di Azure. Per informazioni su come recuperare la chiave di accesso alle risorse di archiviazione, vedere [Gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 
 ```JSON
 {
@@ -177,9 +177,9 @@ Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa a
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
-| Tipo | La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
+| type | La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
 | linkedServiceName | Fa riferimento all'oggetto **AzureStorageLinkedService** creato in precedenza. |
 | folderPath | Specifica il **contenitore** BLOB e la **cartella** che contiene i BLOB di input. In questa esercitazione adftutorial è il contenitore BLOB e la cartella è la cartella radice. | 
 | fileName | Questa proprietà è facoltativa. Se si omette questa proprietà, vengono selezionati tutti i file da folderPath. In questa esercitazione come fileName si specifica **emp.txt** e viene quindi selezionato per l'elaborazione solo tale file. |
@@ -220,9 +220,9 @@ Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al 
 ```
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
-| Tipo | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
+| type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
 | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
 | tableName | Specifica la **tabella** in cui i dati vengono copiati. | 
 | frequency/interval | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
@@ -285,7 +285,7 @@ Tenere presente quanto segue:
  
 Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2017-02-03", che equivale a "2017-02-03T00:00:00Z".
  
-Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
+Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
  
 Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
  

@@ -1,5 +1,5 @@
 ---
-title: Script di Azure PowerShell - Creare un'indicizzazione del contenitore disattivata in un account di Azure Cosmos
+title: Script di PowerShell per creare un contenitore senza indice in un account Azure Cosmos
 description: Esempio di script di Azure PowerShell - Creare un'indicizzazione del contenitore disattivata in un account di Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: d216aa7eaa25ee18c7b5e962309e2a08f11df284
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 13bec89b0c6f713a4b8c66f7bab6cda3d6513ef9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441379"
 ---
 # <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Creare un'indicizzazione del contenitore disattivata in un account di Azure Cosmos usando PowerShell
 

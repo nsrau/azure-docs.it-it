@@ -3,21 +3,17 @@ title: Visualizzare e scaricare il file dei dati di utilizzo e addebiti di Azure
 description: Questo articolo descrive come scaricare o visualizzare il file dei dati quotidiani di utilizzo e addebiti di Azure.
 keywords: utilizzo fatturazione, addebiti utilizzo, download utilizzo, visualizzazione utilizzo, fattura di azure, utilizzo di azure
 author: bandersmsft
-manager: jureid
+ms.author: banders
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.author: banders
-ms.openlocfilehash: dcf4e3b9d85909c8f1d149c9d1940a6755b431a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/03/2020
+ms.openlocfilehash: dbb7956bf58d6b997f782d8f88e1eeaf19d6ade8
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224019"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665090"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualizzare e scaricare il file dei dati di utilizzo e addebiti di Azure
 
@@ -35,8 +31,8 @@ Per visualizzare i dati di utilizzo e addebiti di Azure, un cliente con Contratt
 1. A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione o un profilo di fatturazione.
 1. Nel menu a sinistra selezionare **Fatture** in **Fatturazione**.
 1. Nella griglia della fattura trovare la riga del periodo di fatturazione corrispondente ai dati di utilizzo da scaricare.
-1. Fare clic sull'icona del download o sui puntini di sospensione (`...`) a destra.
-1. Selezionare **Scarica il file relativo a utilizzo e addebiti di Azure** nel menu di download.
+1. Selezionare l'**icona del download** o i puntini di sospensione (`...`) a destra.
+1. Il riquadro Download si apre sulla destra. Selezionare **Download** nella sezione **Dettagli utilizzo**.
 
 ## <a name="download-usage-for-ea-customers"></a>Scaricare informazioni sull'utilizzo per i clienti EA
 

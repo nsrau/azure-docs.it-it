@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0cafc439a24c10c4c5a678219a0e0dce84476ff
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423343"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
@@ -44,7 +44,7 @@ Questa guida crea un'applicazione di esempio della piattaforma UWP che esegue qu
 
 Questa guida usa il pacchetto NuGet seguente:
 
-|Libreria|DESCRIZIONE|
+|Libreria|Descrizione|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
@@ -55,7 +55,7 @@ Questa sezione include istruzioni dettagliate per integrare un'applicazione Wind
 L'applicazione creata in questa guida consente di visualizzare un pulsante per eseguire query sull'API Graph e un pulsante di disconnessione. Visualizza inoltre le caselle di testo con i risultati delle chiamate.
 
 > [!NOTE]
-> Se si preferisce scaricare questo progetto Visual Studio di esempio invece di crearlo, è possibile [scaricare il progetto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) e passare direttamente al passaggio di [registrazione dell'applicazione](#register-your-application "application registration step") per configurare il codice di esempio prima che venga eseguito.
+> Se si preferisce scaricare questo progetto Visual Studio di esempio invece di crearlo, è possibile [scaricare il progetto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) e passare direttamente al passaggio di [registrazione dell'applicazione](#register-your-application "passaggio di registrazione dell'applicazione") per configurare il codice di esempio prima che venga eseguito.
 
 ### <a name="create-your-application"></a>Creare l'applicazione
 
@@ -353,7 +353,7 @@ A questo punto è necessario registrare l'applicazione:
 Configurare l'autenticazione per l'applicazione:
 
 1. Tornare al [portale di Azure](https://portal.azure.com) in **Gestisci** selezionare **Autenticazione**.
-1. Nell'elenco **URI di reindirizzamento** selezionare **Client pubblico (per dispositivi mobili e desktop)** per **TIPO** e immettere `urn:ietf:wg:oauth:2.0:oob` per **URI DI REINDIRIZZAMENTO**.
+1. Nella sezione **URI di reindirizzamento** | **URI di reindirizzamento suggeriti per client pubblici (dispositivi mobili, desktop)** selezionare **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Selezionare **Salva**.
 
 Configurare le autorizzazioni API per l'applicazione:
@@ -400,7 +400,7 @@ Nella schermata **Risultati della chiamata API** vengono visualizzate le informa
 
 Nella casella **Informazioni sul token** vengono visualizzate anche informazioni di base sul token acquisite tramite `AcquireTokenInteractive` o `AcquireTokenSilent`:
 
-|Proprietà  |Format  |DESCRIZIONE |
+|Proprietà  |Format  |Descrizione |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |Il nome utente che identifica l'utente.|
 |`Token Expires` |`DateTime` |Data e ora in cui scade il token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
@@ -426,7 +426,7 @@ Quando si accede all'applicazione in un dominio federato di Azure AD, è possibi
 
 Causa: le funzionalità Enterprise e certificati non sono abilitate.
 
-Soluzione: Seguire la procedura descritta in [Abilitare l'autenticazione integrata in domini federati (facoltativo)](#enable-integrated-authentication-on-federated-domains-optional).
+Soluzione Seguire la procedura descritta in [Abilitare l'autenticazione integrata in domini federati (facoltativo)](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problema 2
 

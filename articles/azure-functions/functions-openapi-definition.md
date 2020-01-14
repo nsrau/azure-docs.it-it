@@ -1,16 +1,16 @@
 ---
-title: Creare una definizione OpenAPI per un'API serverless con Gestione API di Azure
+title: Esporre le funzioni con OpenAPI usando Gestione API di Azure
 description: Creare una definizione OpenAPI che consente ad altri servizi e app di chiamare la funzione in Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226812"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562014"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Creare una definizione OpenAPI per un'API serverless con Gestione API di Azure
 
@@ -18,7 +18,7 @@ Le API REST vengono spesso descritte usando una definizione OpenAPI. Questa defi
 
 In questa esercitazione si crea una funzione che determina se una riparazione urgente di una turbina eolica è conveniente. Si crea quindi una definizione OpenAPI per l'app per le funzioni usando [Gestione API di Azure](../api-management/api-management-key-concepts.md), in modo che la funzione possa essere chiamata da altri servizi e app.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una funzione in Azure
@@ -39,7 +39,7 @@ Questa esercitazione usa una funzione attivata tramite HTTP che accetta due para
 * Il tempo stimato, in ore, per effettuare una riparazione della turbina.
 * La capacità della turbina in kilowatt. 
 
-La funzione calcola quindi il costo della riparazione e i ricavi che la turbina potrebbe consentire in un periodo di 24 ore. Per creare la funzione attivata tramite HTTP nel [portale di Azure](https://portal.azure.com), seguire questa procedura.
+La funzione calcola quindi il costo della riparazione e i ricavi che la turbina potrebbe consentire in un periodo di 24 ore. Per creare la funzione attivata tramite HTTP nel [portale di Azure](https://portal.azure.com):
 
 1. Espandere l'app per le funzioni e selezionare il pulsante **+** accanto a **Funzioni**. Fare clic su **Nel portale** > **Continua**.
 
@@ -139,7 +139,7 @@ A questo punto si è pronti per generare la definizione OpenAPI.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | Nome globalmente univoco | Viene generato un nome basato sul nome dell'app per le funzioni. |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova risorsa. |  
-    | **[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Stessa risorsa dell'app per le funzioni, che dovrebbe essere impostata automaticamente. |
+    | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Stessa risorsa dell'app per le funzioni, che dovrebbe essere impostata automaticamente. |
     | **Posizione** | Stati Uniti occidentali | Scegliere l'area Stati Uniti occidentali. |
     | **Nome organizzazione** | Contoso | Nome dell'organizzazione usato nel portale per sviluppatori e per le notifiche di posta elettronica. |
     | **Indirizzo di posta elettronica dell'amministratore** | Indirizzo di posta elettronica in uso | Indirizzo di posta elettronica che ha ricevuto le notifiche di sistema da Gestione API. |

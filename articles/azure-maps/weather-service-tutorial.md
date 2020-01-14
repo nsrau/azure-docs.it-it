@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f641640ff6cf4174e2e1374404d47fc0760f79f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 809c188dc37aba64de27e89e38acd8692c7de032
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979577"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613568"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python)
 
@@ -31,12 +31,15 @@ In questa esercitazione si apprenderà come:
 > * Tracciare i dati delle previsioni sui grafici.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario prima di tutto:
 
-1. Creare una sottoscrizione dell'account di Mappe di Azure nel piano tariffario S0 seguendo le istruzioni riportate in [Gestire l'account di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account).
-2. Ottenere la chiave di sottoscrizione primaria per l'account seguendo le istruzioni riportate in [Ottenere la chiave primaria per l'account](./tutorial-search-location.md#getkey).
+1. Creare una sottoscrizione dell'account di Mappe di Azure nel piano tariffario S0 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps).
+2. Ottenere la chiave di sottoscrizione primaria per l'account seguendo le istruzioni riportate in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+
+Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 Per acquisire familiarità con Azure Notebooks e per informazioni introduttive, seguire le istruzioni riportate in [Creare un notebook di Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
 
@@ -68,7 +71,7 @@ Nello scenario di esempio verranno richieste le previsioni giornaliere per ogni 
 
 
 ```python
-subscription_key = "Your Azure Maps primary subscription key"
+subscription_key = "Your Azure Maps key"
 
 # Get a lists of unique station IDs and their coordinates 
 station_ids = pd.unique(df[['StationID']].values.ravel())
@@ -172,7 +175,7 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-I grafici seguenti visualizzano i dati delle previsioni per la variazione della velocità del vento (grafico a sinistra) e della direzione (grafico a destra) nei 15 giorni successivi alla data odierna.
+I grafici seguenti visualizzano i dati delle previsioni per la variazione della velocità del vento (grafico a sinistra) e della direzione (grafico a destra) nei 15 giorni successivi dal giorno della richiesta dei dati.
 
 <center>
 
@@ -190,6 +193,6 @@ Per esplorare le API di Mappe di Azure usate in questa esercitazione, vedere:
 * [Previsioni giornaliere](https://aka.ms/AzureMapsWeatherDailyForecast)
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 
-Per un elenco completo delle API REST di Mappe di Azure, vedere: [API REST di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/#reference).
+Per un elenco completo delle API REST di Mappe di Azure, vedere: [API REST di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 Per altre informazioni su Azure Notebooks, vedere: [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

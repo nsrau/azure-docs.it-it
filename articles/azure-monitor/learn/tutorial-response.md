@@ -4,21 +4,21 @@ description: Questa esercitazione consente di comprendere l'invio di avvisi con 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11ce572cdb8a04dac07689b37eef76f354475df3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894651"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365623"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Rispondere agli eventi con gli avvisi di Monitoraggio di Azure
 Gli avvisi in Monitoraggio di Azure possono identificare informazioni importanti nel repository di Log Analytics. Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Creare e condividere i dashboard dei dati di Log Analytics](tutorial-logs-dashboards.md).   
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una regola di avviso
@@ -52,7 +52,7 @@ Nell'esempio seguente viene creata una regola di avviso Unità di misura della m
    c. Verificare che i valori predefiniti di **Sottoscrizione** e **Gruppo di risorse** siano corretti. Se non lo sono, selezionare i valori corretti negli elenchi a discesa.   
    d. Nella sezione Azioni specificare un nome per l'azione, ad esempio **Invio di posta elettronica**, e in **Tipo di azione** selezionare **Posta elettronica/SMS/Push/Voce** nell'elenco a discesa. Il riquadro delle proprietà **Posta elettronica/SMS/Push/Voce** si apre sulla destra per fornire informazioni aggiuntive.  
    e. Nel riquadro **Posta elettronica/SMS/Push/Voce** abilitare **Posta elettronica** e specificare un indirizzo SMTP valido a cui recapitare il messaggio.  
-   f. Fare clic su **OK** per salvare le modifiche.<br><br> 
+   f. Scegliere **OK** per salvare le modifiche.<br><br> 
 
     ![Creare un nuovo gruppo di azioni](./media/tutorial-response/action-group-properties-01.png)
 

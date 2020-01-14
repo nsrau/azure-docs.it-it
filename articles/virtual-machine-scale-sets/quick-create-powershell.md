@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva - Creare un set di scalabilità di macchine virtuali con Azure PowerShell | Microsoft Docs
-description: Informazioni su come creare rapidamente un set di scalabilità di macchine virtuali con Azure PowerShell
+title: 'Avvio rapido: Creare un set di scalabilità di macchine virtuali con Azure PowerShell'
+description: Iniziare a usare le distribuzioni imparando a creare rapidamente un set di scalabilità di macchine virtuali con Azure PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 3f2fc70457a6d36bbbb7d8c37c87a8aa4167ab4a
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 52111559ac784e112c4cb3ddbf5ba9e6967385e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351130"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali con Azure PowerShell
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali con Azure PowerShell
 
 
 

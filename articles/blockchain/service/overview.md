@@ -4,12 +4,12 @@ description: Panoramica del servizio Azure Blockchain
 ms.date: 11/21/2019
 ms.topic: overview
 ms.reviewer: janders
-ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455897"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387378"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è il servizio Azure Blockchain?
 
@@ -19,7 +19,7 @@ Il servizio Azure Blockchain è un servizio di contabilità generale completamen
 * Gestione predefinita del consorzio
 * Sviluppo di contratti intelligenti con strumenti di sviluppo noti
 
-Il servizio Azure Blockchain è progettato per supportare più protocolli di contabilità generale. Attualmente, fornisce il supporto per [Quorum](https://www.jpmorgan.com/Quorum) di Ethereum che usa il meccanismo di consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+Il servizio Azure Blockchain è progettato per supportare più protocolli di contabilità generale. Attualmente, fornisce il supporto per [Quorum](https://www.goquorum.com/) di Ethereum che usa il meccanismo di consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
 Queste funzionalità richiedono pochissima amministrazione e sono disponibili senza costi aggiuntivi. È possibile concentrarsi sullo sviluppo di app e sulla logica di business anziché allocare tempo e risorse per la gestione delle macchine virtuali e dell'infrastruttura. È inoltre possibile continuare a sviluppare le applicazioni con gli strumenti open source e la piattaforma di propria scelta, per fornire soluzioni senza dover acquisire nuove competenze.
 
@@ -67,10 +67,17 @@ Blockchain Data Manager per il servizio Azure Blockchain consente di acquisire, 
 
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 
-Serve aiuto o si vuole fornire commenti?
+Per notizie su Azure Blockchain, visitare il [blog di Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) per rimanere sempre aggiornati sull'offerta di servizi blockchain e per informazioni dal team tecnico di Azure Blockchain.
 
-* Visitare il [blog di Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/), [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain) e il [forum di Azure Blockchain](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain).
-* Per fornire commenti e suggerimenti o richiedere nuove funzionalità, creare una richiesta tramite [UserVoice](https://feedback.azure.com/forums/921130-azure-blockchain-service).
+Per inviare un feedback sul prodotto o richiedere nuove funzionalità, pubblicare o votare un'idea tramite il [forum di feedback su Azure per Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Supporto della community
+
+È possibile interagire con i tecnici Microsoft e con gli esperti della community di Azure Blockchain.
+
+* [Forum MSDN su Azure Blockchain](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

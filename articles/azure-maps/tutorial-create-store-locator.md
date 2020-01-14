@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107076"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408033"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
-Questa esercitazione illustra il processo di creazione di un semplice localizzatore di punti vendita con Mappe di Azure. I localizzatori di punti vendita sono molto diffusi. Molti dei concetti usati in questo tipo di applicazione sono applicabili a molti altri tipi di applicazioni. L'offerta di un localizzatore di punti vendita ai clienti è essenziale per la maggior parte delle aziende che vendono direttamente ai consumatori. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra il processo di creazione di un semplice localizzatore di punti vendita con Mappe di Azure. I localizzatori di punti vendita sono molto diffusi. Molti dei concetti usati in questo tipo di applicazione sono applicabili a molti altri tipi di applicazioni. L'offerta di un localizzatore di punti vendita ai clienti è essenziale per la maggior parte delle aziende che vendono direttamente ai consumatori. In questa esercitazione verranno illustrate le procedure per:
     
 > [!div class="checklist"]
 > * Creare una nuova pagina Web con l'API Controllo mappa di Azure.
@@ -33,22 +33,20 @@ Questa esercitazione illustra il processo di creazione di un semplice localizzat
 
 Passare all'[esempio attivo di localizzatore di punti vendita](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) o al [codice sorgente](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare i passaggi di questa esercitazione, è prima di tutto necessario [creare l'account Mappe di Azure](./tutorial-search-location.md#createaccount) e seguire la procedura descritta in [Ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
+Per completare i passaggi di questa esercitazione, è prima di tutto necessario creare un account di Mappe di Azure e ottenere la chiave primaria (chiave di sottoscrizione). Seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Progettazione
 
 Prima di passare al codice, è consigliabile definire la struttura. Il localizzatore di punti vendita può essere semplice o complesso, in base alle necessità specifiche. In questa esercitazione viene creato un localizzatore di punti vendita semplice. L'esercitazione include alcuni suggerimenti utili per estendere alcune funzionalità, se necessario. Verrà creato un localizzatore di punti vendita per una società fittizia denominata Contoso Coffee. La figura seguente mostra un wireframe del layout generale del localizzatore di punti vendita creato in questa esercitazione:
 
-<br/>
 <center>
 
 ![Wireframe di un localizzatore di punti vendita per le posizioni dei bar Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Per massimizzare l'utilità di questo localizzatore di punti vendita, includeremo un layout reattivo che si adatta quando la larghezza dello schermo di un utente è inferiore a 700 pixel. Un layout reattivo semplifica l'uso del localizzatore di punti vendita su un piccolo schermo, ad esempio in un dispositivo mobile. Ecco un wireframe del layout per uno schermo di piccole dimensioni:  
 
-<br/>
 <center>
 
 ![Wireframe del localizzatore di punti vendita di Contoso Coffee su un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
@@ -73,7 +71,6 @@ I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include
 
 Prima di sviluppare un'applicazione di tipo localizzatore di punti vendita, è necessario creare un set di dati dei punti vendita da visualizzare sulla mappa. In questa esercitazione viene usato un set di dati per un bar fittizio denominato Contoso Coffee. Il set di dati per questo semplice localizzatore di punti vendita viene gestito in una cartella di lavoro di Excel. Il set di dati contiene 10.213 posizioni di bar Contoso Coffee in nove paesi/aree geografiche, ovvero Stati Uniti, Canada, Regno Unito, Francia, Germania, Italia, Paesi Bassi, Danimarca e Spagna. Ecco uno screenshot dell'aspetto dei dati:
 
-<br/>
 <center>
 
 ![Screenshot dei dati del localizzatore di punti vendita in una cartella di lavoro di Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
@@ -95,14 +92,12 @@ Un altro approccio consiste nel convertire questo set di dati in un file flat di
 
 Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file. 
 
-<br/>
 <center>
 
 ![Screenshot della finestra di dialogo con Tipo file](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura seguente:
 
-<br/>
 <center>
 
 ![Screenshot di un file di Blocco note che mostra un set di dati con valori delimitati da tabulazioni](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
@@ -112,7 +107,6 @@ Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura 
 
 Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html*, *index.css* e *index.js*. Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images*. In questa applicazione vengono usate dieci immagini per icone, pulsanti e marcatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
 
-<br/>
 <center>
 
 ![Screenshot della cartella del progetto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
@@ -930,21 +924,18 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
 
 Quando un utente seleziona il pulsante My Location per la prima volta, il browser mostra un avviso di sicurezza che richiede l'autorizzazione per accedere alla posizione dell'utente. Se l'utente accetta di condividere la propria posizione, la mappa viene ingrandita per visualizzarla e vengono mostrati i bar presenti nelle vicinanze. 
 
-<br/>
 <center>
 
 ![Screenshot della richiesta del browser di accedere alla posizione dell'utente](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Quando si ingrandisce a sufficienza un'area che include posizioni dei bar, i cluster si separano in singole posizioni. Selezionare una delle icone sulla mappa oppure selezionare un elemento nel pannello laterale per visualizzare una finestra popup che mostra le informazioni per tale posizione.
 
-<br/>
 <center>
 
 ![Screenshot del localizzatore di punti vendita completato](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Se si ridimensiona la finestra del browser fino a una larghezza inferiore a 700 pixel o se si apre l'applicazione in un dispositivo mobile, il layout viene modificato per adattarsi meglio a schermi più piccoli. 
 
-<br/>
 <center>
 
 ![Screenshot della versione del localizzatore di punti vendita per schermi di piccole dimensioni](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
@@ -963,10 +954,10 @@ In questa esercitazione viene illustrato come creare un localizzatore di punti v
 > * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 > [!div class="nextstepaction"]
-> [Visualizzare codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
+> [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
 > [!div class="nextstepaction"]
-> [Visualizzare esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [Visualizzare l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Per altre informazioni sulla copertura e sulle funzionalità di Mappe di Azure:
 

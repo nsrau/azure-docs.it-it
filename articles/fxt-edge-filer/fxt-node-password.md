@@ -1,17 +1,17 @@
 ---
-title: Inizializzare l'hardware - Microsoft Azure FXT Edge Filer
+title: "Esercitazione: Inizializzare l'hardware - Azure FXT Edge Filer"
 description: Come impostare una password iniziale nei nodi Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256009"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550892"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Esercitazione: Impostare password per l'hardware
 
@@ -23,7 +23,7 @@ Eseguire questo passaggio dopo aver installato e cablato il nodo, ma prima di te
 
 Questa esercitazione descrive come connettersi al nodo hardware e impostare la password. 
 
-In questa esercitazione si apprenderà come: 
+In questa esercitazione verranno illustrate le procedure per: 
 
 > [!div class="checklist"]
 > * Collegare una tastiera e un monitor al nodo e accendere il nodo
@@ -34,7 +34,7 @@ Ripetere questi passaggi per ogni nodo che verrà usato nel cluster.
 
 Il completamento di questa esercitazione richiede circa 15 minuti. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, completare i passaggi seguenti: 
 

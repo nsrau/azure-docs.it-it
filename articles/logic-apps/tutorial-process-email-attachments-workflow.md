@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793478"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428782"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
 App per la logica di Azure permette di automatizzare i flussi di lavoro e integrare dati tra servizi di Azure, servizi Microsoft, altre app software come un servizio (SaaS) e sistemi locali. Questa esercitazione illustra come creare un'[app per la logica](../logic-apps/logic-apps-overview.md) che gestisce i messaggi di posta elettronica in arrivo e gli eventuali allegati. Questa app per la logica analizza il contenuto dei messaggi di posta elettronica, lo salva in Archiviazione di Azure e invia notifiche per la verifica del contenuto.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare [Archiviazione di Azure](../storage/common/storage-introduction.md) e Storage Explorer per controllare i messaggi di posta elettronica e gli allegati salvati.
@@ -34,7 +34,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 ![App per la logica completata](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -54,10 +54,10 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 1. Prima di creare un contenitore di archiviazione, [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) con queste impostazioni nella scheda **Generale** nel portale di Azure:
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | valore | Descrizione |
    |---------|-------|-------------|
    | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |  
-   | **Gruppo di risorse** | <*Azure-resource-group*> | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare e gestire le risorse correlate. Questo esempio usa "LA-Tutorial-RG". <p>**Nota:** un gruppo di risorse si trova in un'area specifica. Anche se gli elementi in questa esercitazione potrebbero non essere disponibili in tutte le aree, provare a usare la stessa area, se possibile. |
+   | **Gruppo di risorse** | <*Azure-resource-group*> | Nome del [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) usato per organizzare e gestire le risorse correlate. Questo esempio usa "LA-Tutorial-RG". <p>**Nota:** un gruppo di risorse si trova in un'area specifica. Anche se gli elementi in questa esercitazione potrebbero non essere disponibili in tutte le aree, provare a usare la stessa area, se possibile. |
    | **Nome account di archiviazione** | <*Azure-storage-account-name*> | Il nome dell'account di archiviazione, che deve essere composto da 3 a 24 caratteri e può contenere solo lettere minuscole e numeri. Questo esempio usa "attachmentstorageacct". |
    | **Posizione** | <*Area di Azure*> | Area in cui archiviare le informazioni sull'account di archiviazione. Questo esempio usa "Stati Uniti occidentali". |
    | **Prestazioni** | Standard | Questa impostazione specifica i tipi di dati supportati e il supporto per l'archiviazione dei dati. Vedere [Tipi di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -68,7 +68,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
    Nella scheda **Avanzate** selezionare questa impostazione:
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | valore | Descrizione |
    |---------|-------|-------------|
    | **Trasferimento sicuro necessario** | Disabled | Questa impostazione specifica la sicurezza necessaria per le richieste dalle connessioni. Vedere [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). |
    ||||
@@ -138,7 +138,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
 
 1. Prima di creare una funzione, [creare un'app per le funzioni](../azure-functions/functions-create-function-app-portal.md) con queste impostazioni:
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | valore | Descrizione |
    | ------- | ----- | ----------- |
    | **Nome app** | <*function-app-name*> | Il nome dell'app per le funzioni, che deve essere univoco a livello globale in Azure. Questo esempio usa già "CleanTextFunctionApp", quindi specificare un nome diverso, ad esempio "MyCleanTextFunctionApp-<*nome*>" |
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | La stessa sottoscrizione di Azure usata in precedenza |
@@ -147,7 +147,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
    | **Piano di hosting** | Piano a consumo | Questa impostazione determina la modalità di allocazione e scalabilità delle risorse, ad esempio la potenza di calcolo, per l'esecuzione dell'app per le funzioni. Vedere il [confronto tra piani di hosting](../azure-functions/functions-scale.md). |
    | **Posizione** | Stati Uniti occidentali | La stessa area usata in precedenza |
    | **Stack di runtime** | Lingua preferita | Selezionare un runtime che supporti il linguaggio di programmazione della funzione preferito. Selezionare **.NET** per le funzioni C# e F #. |
-   | **Archiviazione** | cleantextfunctionstorageacct | Creare un account di archiviazione per l'app per le funzioni. Usare solo lettere minuscole e numeri. <p>**Nota:** questo account di archiviazione contiene le app per le funzioni ed è diverso dall'account di archiviazione creato in precedenza per gli allegati di posta elettronica. |
+   | **Storage** | cleantextfunctionstorageacct | Creare un account di archiviazione per l'app per le funzioni. Usare solo lettere minuscole e numeri. <p>**Nota:** questo account di archiviazione contiene le app per le funzioni ed è diverso dall'account di archiviazione creato in precedenza per gli allegati di posta elettronica. |
    | **Application Insights** | Disabilitazione | Attivare il monitoraggio delle applicazioni con [Application Insights](../azure-monitor/app/app-insights-overview.md), ma per questa esercitazione fare clic su **Disabilita** > **Applica**. |
    ||||
 
@@ -177,7 +177,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
 
 1. Dopo l'apertura dell'editor, sostituire il codice del modello con questo codice di esempio, che rimuove il codice HTML e restituisce i risultati al chiamante:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -235,13 +235,13 @@ Dopo aver controllato il funzionamento della funzione, creare l'app per la logic
 
    ![Specificare le informazioni sull'app per la logica](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | valore | Descrizione |
    | ------- | ----- | ----------- |
    | **Nome** | LA-ProcessAttachment | Nome dell'app per la logica |
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | La stessa sottoscrizione di Azure usata in precedenza |
    | **Gruppo di risorse** | LA-Tutorial-RG | Lo stesso gruppo di risorse di Azure usato in precedenza |
    | **Posizione** | Stati Uniti occidentali | La stessa area usata in precedenza |
-   | **Log Analytics** | Off | Per questa esercitazione, selezionare l'impostazione **No**. |
+   | **Log Analytics** | Disattivato | Per questa esercitazione, selezionare l'impostazione **No**. |
    ||||
 
 1. Dopo che Azure ha distribuito l'app, sulla barra degli strumenti di Azure selezionare l'icona delle notifiche e quindi **Vai alla risorsa**.
@@ -274,7 +274,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
       ![Specificare cartella, intervallo e frequenza per la verifica dei messaggi di posta elettronica](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | Impostazione | Valore | DESCRIZIONE |
+      | Impostazione | valore | Descrizione |
       | ------- | ----- | ----------- |
       | **Cartella** | Posta in arrivo | Cartella di posta elettronica da controllare |
       | **Con allegato** | Sì | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, ma controlla solo i nuovi messaggi ed elabora esclusivamente quelli che corrispondono al filtro dell'oggetto. |
@@ -287,7 +287,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    1. Quando viene visualizzata la casella **Filtro oggetto** specificare l'oggetto come elencato qui:
 
-      | Impostazione | Valore | DESCRIZIONE |
+      | Impostazione | valore | Descrizione |
       | ------- | ----- | ----------- |
       | **Filtro oggetto** | `Business Analyst 2 #423501` | Testo da trovare nell'oggetto del messaggio di posta elettronica |
       ||||
@@ -435,7 +435,7 @@ Aggiungere quindi un'azione che crea un BLOB nel contenitore di archiviazione pe
 
    ![Creare una connessione all'account di archiviazione](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | valore | Descrizione |
    | ------- | ----- | ----------- |
    | **Connection Name** (Nome connessione) | AttachmentStorageConnection | Nome descrittivo per la connessione |
    | **Storage Account** | attachmentstorageacct | Nome dell'account di archiviazione creato in precedenza per il salvataggio degli allegati |
@@ -447,7 +447,7 @@ Aggiungere quindi un'azione che crea un BLOB nel contenitore di archiviazione pe
 
    ![Specificare le informazioni sul BLOB per il corpo del messaggio di posta elettronica](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | valore | Descrizione |
    | ------- | ----- | ----------- |
    | **Percorso cartella** | /attachments | Percorso e nome del contenitore creato in precedenza. Per questo esempio, fare clic sull'icona a forma di cartella e quindi selezionare il contenitore "/attachments". |
    | **Nome BLOB** | Campo **Da** | Per questo esempio, come nome del BLOB usare il nome del mittente. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare il campo **Da** sotto l'azione **All'arrivo di un nuovo messaggio di posta elettronica**. |
@@ -532,7 +532,7 @@ Aggiungere quindi l'azione che consente di salvare ogni allegato come BLOB nel c
 
    ![Specificare le informazioni sul BLOB](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | valore | Descrizione |
    | ------- | ----- | ----------- |
    | **Percorso cartella** | /attachments | Percorso e nome del contenitore creato in precedenza. Per questo esempio, fare clic sull'icona a forma di cartella e quindi selezionare il contenitore "/attachments". |
    | **Nome BLOB** | Campo **Nome** | Per questo esempio, come nome del BLOB usare il nome dell'allegato. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare il campo **Nome** sotto l'azione **All'arrivo di un nuovo messaggio di posta elettronica**. |
@@ -597,7 +597,7 @@ Aggiungere quindi un'azione in modo che l'app per la logica invii un messaggio d
 
    Se nell'elenco di contenuto dinamico non si trova un campo previsto, selezionare **Vedi altro** accanto a **All'arrivo di un nuovo messaggio di posta elettronica**.
 
-   | Impostazione | Valore | Note |
+   | Impostazione | valore | Note |
    | ------- | ----- | ----- |
    | **To** | <*indirizzo-posta-elettronica-destinatario*> | AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. |
    | **Oggetto**  | ```ASAP - Review applicant for position:``` **Oggetto** | Oggetto del messaggio di posta elettronica da includere. Fare clic all'interno della casella, immettere il testo dell'esempio e quindi selezionare il campo **Oggetto** nell'elenco di contenuto dinamico sotto **All'arrivo di un nuovo messaggio di posta elettronica**. |

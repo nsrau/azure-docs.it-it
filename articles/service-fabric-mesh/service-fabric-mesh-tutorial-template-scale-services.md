@@ -1,26 +1,17 @@
 ---
-title: Esercitazione - Ridimensionare un'app in esecuzione in Azure Service Fabric Mesh | Microsoft Docs
+title: Esercitazione - Ridimensionare un'app in esecuzione in Azure Service Fabric Mesh
 description: In questa esercitazione si apprenderà come ridimensionare i servizi in un'applicazione in esecuzione in Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 31b1e7a777c65a270b7b08673fcd73a5ab63f11f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351813"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Esercitazione: Ridimensionare un'applicazione in esecuzione in Service Fabric Mesh
 
@@ -41,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -53,7 +44,7 @@ Prima di iniziare questa esercitazione:
 
 Uno dei principali vantaggi della distribuzione di applicazioni in Service Fabric Mesh è la possibilità di ridurre o aumentare facilmente il numero di istanze dei servizi. Questo consente di gestire diverse quantità di carico nei servizi o migliorare la disponibilità.
 
-Questa esercitazione usa l'esempio di elenco di attività come esempio, che è stata [distribuita in precedenza](service-fabric-mesh-tutorial-template-deploy-app.md) e dovrebbe ora essere in esecuzione. L'applicazione ha due servizi: WebFrontEnd e ToDoService. Ogni servizio è stato distribuito inizialmente con un numero di repliche pari a 1.  Per vedere il numero di repliche in esecuzione per il servizio WebFrontEnd, eseguire le operazioni seguenti:
+Questa esercitazione usa come esempio l'applicazione di esempio To Do List, che è stata [distribuita in precedenza](service-fabric-mesh-tutorial-template-deploy-app.md) e ora dovrebbe essere in esecuzione. L'applicazione ha due servizi: WebFrontEnd e ToDoService. Ogni servizio è stato distribuito inizialmente con un numero di repliche pari a 1.  Per vedere il numero di repliche in esecuzione per il servizio WebFrontEnd, eseguire le operazioni seguenti:
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"

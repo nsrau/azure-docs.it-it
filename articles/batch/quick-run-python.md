@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Eseguire un processo batch di Azure - API Python'
-description: Eseguire rapidamente un processo e attività Batch con la libreria client Batch Python.
+title: 'Avvio rapido: Eseguire un processo batch di Azure - API Python'
+description: Eseguire rapidamente un processo e attività di esempio di Azure Batch con la libreria client Batch Python. Apprendere i concetti chiave del servizio Batch.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -12,14 +12,14 @@ ms.author: lahugh
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab628ebe81592e7d5b2e6c79de5a62b368ee772d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390231"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Guida introduttiva: Eseguire il primo processo Batch con l'API Python
+# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Avvio rapido: Eseguire il primo processo Batch con l'API Python
 
 Questa guida introduttiva esegue un processo Azure Batch da un'applicazione compilata con l'API Python di Azure Batch.  Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
@@ -29,7 +29,7 @@ L'applicazione carica più file di dati di input nell'archivio di Azure e quindi
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python versione 2.7, 3.3 o successiva](https://www.python.org/downloads/)
 
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Per vedere il flusso di lavoro di Batch in azione, eseguire questo script:
 

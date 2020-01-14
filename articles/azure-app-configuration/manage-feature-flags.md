@@ -1,5 +1,6 @@
 ---
-title: Esercitazione per l'uso di Configurazione app di Azure per gestire i flag di funzionalità | Microsoft Docs
+title: 'Esercitazione: Usare Configurazione app di Azure per gestire i flag di funzionalità'
+titleSuffix: Azure App Configuration
 description: In questa esercitazione si apprenderà come gestire i flag di funzionalità separatamente dall'applicazione usando Configurazione app di Azure.
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,18 +15,18 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: b7fbf9add67a45c0db89fc11cee5c10bc537ab63
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 620cd6e1712a89e13bf876310c0d3248c4a4d1e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413999"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Esercitazione: Gestire i flag di funzionalità in Configurazione app di Azure
 
 È possibile archiviare tutti i flag di funzionalità in Configurazione app di Azure e amministrarli da un'unica posizione. Configurazione app contiene un'interfaccia utente del portale denominata **Gestione funzionalità** progettata in modo specifico per i flag di funzionalità. Configurazione app supporta in modo nativo anche lo schema dati dei flag di funzionalità .NET Core.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Definire e gestire i flag di funzionalità in Configurazione app.

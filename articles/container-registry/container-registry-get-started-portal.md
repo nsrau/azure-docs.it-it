@@ -4,14 +4,14 @@ description: Imparare rapidamente a creare un registro Docker privato in Registr
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455228"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611237"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida introduttiva: Creare un registro contenitori privato usando il portale di Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Avvio rapido: Creare un registro contenitori privato usando il portale di Azure
 
 Un Registro Azure Container è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva viene creato un registro contenitori di Azure con il portale di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 
@@ -43,7 +43,7 @@ Prendere nota del valore indicato in **Server di accesso**. Questo valore servir
 
 ## <a name="log-in-to-registry"></a>Accedere al registro
 
-Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro Azure Container. Aprire una shell dei comandi nel sistema operativo e usare il comando [az acr login][az-acr-login] nell'interfaccia della riga di comando di Azure.
+Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro Azure Container. Aprire una shell dei comandi nel sistema operativo e usare il comando [az acr login][az-acr-login] nell'interfaccia della riga di comando di Azure. Specificare solo il nome del contenitore. Non includere "azurecr.io".
 
 ```azurecli
 az acr login --name <acrName>

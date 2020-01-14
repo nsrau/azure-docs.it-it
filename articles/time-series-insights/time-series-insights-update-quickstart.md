@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Esplorare l'ambiente demo di anteprima - Azure Time Series Insights | Microsoft Docs"
-description: Informazioni sugli ambienti demo di anteprima di Azure Time Series Insights tramite un avvio rapido di esempio.
+title: "Avvio rapido: Esplorare l'ambiente demo di anteprima - Azure Time Series Insights | Microsoft Docs"
+description: Esplorare le funzionalità principali dell'ambiente demo Azure Time Series Insights (anteprima).
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,15 +9,15 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014768"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497365"
 ---
-# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Guida introduttiva: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
+# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Avvio rapido: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
 
 Questa guida di avvio rapido offre informazioni introduttive sull'ambiente di anteprima di Azure Time Series Insights. La demo gratuita offre una panoramica delle funzionalità principali aggiunte ad Anteprima di Time Series Insights.
 
@@ -43,33 +43,33 @@ Lo strumento di esplorazione di anteprima di Time Series Insights consente di vi
    1. Cambiare l'intervallo di visualizzazione da **1/1/17 20:00:00.00 a 3/10/17 20:00:00.00 (UTC)** .
    1. Per selezionare un sensore, selezionare **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Esaminare quindi i valori visualizzati.
 
-      [![W7 in Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. Di recente, Contoso ha riscontrato un incendio nella turbina eolica **W7**. Le opinioni sulla causa dell'incendio sono diverse. In Time Series Insights è possibile vedere che il sensore dell'allarme antincendio si è attivato durante l'incendio.
 
    1. Cambiare l'intervallo di visualizzazione da **3/9/17 20:00:00.00 a 3/10/17 20:00:00.00 (UTC)** .
    1. Selezionare **Safety System** > **FireAlert**.
 
-      [![Contoso ha riscontrato un incendio nella turbina eolica W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso ha riscontrato un incendio nella turbina eolica W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Esaminare gli altri eventi verificatisi al momento dell'incendio per capire cosa è accaduto. La pressione dell'olio e gli avvisi attivi hanno raggiunto valori di picco subito prima dell'incendio.
 
    1. Selezionare **Pitch System** > **HydraulicOilPressure**.
    1. Selezionare **Pitch System** > **ActiveWarning**.
 
-      [![Esaminare gli altri eventi verificatisi nello stesso momento](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Esaminare gli altri eventi verificatisi nello stesso momento](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. I sensori della pressione dell'olio e degli avvisi attivi hanno raggiunto valori di picco subito prima dell'incendio. Espandere la serie temporale visualizzata per verificare la presenza di altri segnali che conducono all'incendio. Entrambi i sensori hanno fatto registrare una fluttuazione costante nel tempo. Le fluttuazioni indicano un modello persistente e preoccupante.
 
     * Cambiare l'intervallo di visualizzazione da **2/24/17 20:00:00.00 a 3/10/17 20:00:00.00 (UTC)** .
 
-      [![Anche i sensori della pressione dell'olio e degli avvisi attivi hanno raggiunto valori di picco](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Anche i sensori della pressione dell'olio e degli avvisi attivi hanno raggiunto valori di picco](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. L'analisi di due anni di dati cronologici rivela che si era già verificato un incendio con le stesse fluttuazioni dei sensori.
 
     * Cambiare l'intervallo di visualizzazione da **1/1/16 a 12/31/17 (UTC)** (tutti i dati).
 
-      [![Cercare modelli cronologici](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Cercare modelli cronologici](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 Tramite i dati di telemetria di sensori e di Time Series Insights, abbiamo individuato una tendenza a lungo termine nascosta nei dati cronologici. Con queste nuove informazioni dettagliate, è possibile:
 
@@ -84,7 +84,7 @@ Tramite i dati di telemetria di sensori e di Time Series Insights, abbiamo indiv
     1. Cambiare l'intervallo di visualizzazione da **6/1/17 20:00:00.00 a 7/1/17 20:00:00.00 (UTC)** .
     1. Selezionare **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
-       [![Cambiare l'intervallo di visualizzazione e selezionare W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Cambiare l'intervallo di visualizzazione e selezionare W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. L'avviso indica un problema con la tensione del generatore. La potenza complessiva in uscita del generatore si trova entro i normali parametri nell'intervallo corrente. Se si aumenta l'intervallo, si noterà un calo evidente.
 
@@ -92,20 +92,20 @@ Tramite i dati di telemetria di sensori e di Time Series Insights, abbiamo indiv
     1. Selezionare **Generator System** > **ActivePower**.
     1. Cambiare l'intervallo in **3d**.
 
-       [![Cambiare l'intervallo in 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Cambiare l'intervallo in 3d](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. Espandendo l'intervallo di tempo, è possibile determinare se il problema si è risolto o se continua.
 
     * Estendere l'intervallo di tempo fino a 60 giorni.
 
-      [![Estendere l'intervallo di tempo fino a 60 giorni](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Estendere l'intervallo di tempo fino a 60 giorni](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. È possibile aggiungere altri punti dati del sensore per fornire un contesto più ampio. Visualizzando un numero più elevato di sensori, è possibile comprendere meglio il problema. Inserire un indicatore per visualizzare i valori effettivi. 
 
     1. Selezionare **Generator System** e quindi selezionare tre sensori: **GridVoltagePhase1**, **GridVoltagePhase2** e **GridVoltagePhase3**.
     1. Inserire un indicatore nell'ultimo punto dati nell'area visibile.
 
-       [![Inserire un indicatore](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Inserire un indicatore](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     Due dei tre sensori di tensione stanno funzionando in modo analogo ed entro parametri normali. Il sensore **GridVoltagePhase3** sembra essere la causa.
 
@@ -113,7 +113,7 @@ Tramite i dati di telemetria di sensori e di Time Series Insights, abbiamo indiv
 
     * Cambiare la visualizzazione in modo da sovrapporre tutti i sensori di **Generator System** sulla stessa scala del grafico.
 
-      [![Cambiare la visualizzazione per includere tutti i dati](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Cambiare la visualizzazione per includere tutti i dati](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

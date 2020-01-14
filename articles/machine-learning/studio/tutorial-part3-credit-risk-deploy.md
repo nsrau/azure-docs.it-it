@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione 3: Distribuire il modello di rischio di credito'
-titleSuffix: ML Studio (classic) - Azure
-description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito nella versione classica Azure Machine Learning Studio. Questa esercitazione è la terza di una serie in tre parti. Mostra come distribuire un modello come servizio Web.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio (versione classica). Questa esercitazione è la terza di una serie in tre parti. Mostra come distribuire un modello come servizio Web.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio, distribuire, servizio Web
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 4e8e8a114a06029ef9a81d92b60afd575bc9661f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432188"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio (versione classica)
 
@@ -23,7 +23,7 @@ In questa esercitazione si esamina il processo di sviluppo di una soluzione di a
 
 Si supponga di dover prevedere il rischio di credito di un soggetto in base alle informazioni fornite in una richiesta di credito.  
 
-La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si userà la versione classica di Azure Machine Learning Studio e un servizio Web di Machine Learning. 
+La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si useranno Azure Machine Learning Studio (versione classica) e un servizio Web di Machine Learning. 
 
 In questa esercitazione in tre parti si inizia con dati sul rischio di credito disponibili pubblicamente.  Verrà quindi sviluppato e sottoposto a training un modello predittivo.  Il modello verrà infine distribuito come servizio Web.
 
@@ -40,7 +40,7 @@ In questa parte dell'esercitazione verranno eseguite queste operazioni:
 > * Gestire il servizio Web
 > * Accedere al servizio Web
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare la [seconda parte dell'esercitazione](tutorial-part2-credit-risk-train.md).
 

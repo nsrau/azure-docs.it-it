@@ -5,55 +5,58 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 01/04/2019
+ms.date: 12/31/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 12661c77c6a950b482187b09e4465c964e6d6652
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abbde0cb8137650faad563248c8fafe7dc0f469a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494045"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564710"
 ---
-Una delle principali funzionalità di Azure IoT Edge è la possibilità di distribuire codice ai dispositivi IoT Edge dal cloud. I **moduli IoT Edge** sono pacchetti eseguibili implementati come contenitori. In questa sezione viene distribuito un modulo predefinito dalla [sezione Moduli IoT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). 
+Una delle principali funzionalità di Azure IoT Edge è la possibilità di distribuire codice ai dispositivi IoT Edge dal cloud. I **moduli IoT Edge** sono pacchetti eseguibili implementati come contenitori. In questa sezione viene distribuito un modulo predefinito dalla [sezione Moduli IoT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) direttamente dall'hub IoT.
 
-Questo modulo simula un sensore e invia i dati generati. Si tratta di un codice utile per iniziare a usare IoT Edge, perché è possibile usare i dati simulati per lo sviluppo e i test. Per informazioni specifiche sul funzionamento di questo modulo, è possibile visualizzare il [codice sorgente del sensore temperatura simulato](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs). 
+Questo modulo simula un sensore e invia i dati generati. Si tratta di un codice utile per iniziare a usare IoT Edge, perché è possibile usare i dati simulati per lo sviluppo e i test. Per informazioni specifiche sul funzionamento di questo modulo, è possibile visualizzare il [codice sorgente del sensore temperatura simulato](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
 
 Per distribuire il primo modulo da Azure Marketplace, eseguire i passaggi seguenti:
 
-1. Nel [portale di Azure](https://portal.azure.com) immettere **Simulated Temperature Sensor** nella ricerca e aprire il risultato di Marketplace.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
+
+1. Nel menu nel riquadro sinistro, in **Gestione dispositivi automatica**, selezionare **IoT Edge**.
+
+1. Fare clic sull'ID del dispositivo di destinazione nell'elenco dei dispositivi.
+
+1. Sulla barra superiore selezionare **Imposta moduli**.
+
+1. Nella sezione **Moduli IoT Edge** della pagina fare clic su **Aggiungi**.
+
+1. Nel menu a discesa selezionare **Modulo del Marketplace**.
 
    ![Sensore di temperatura simulato nella ricerca del portale di Azure](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-2. Scegliere il dispositivo IoT Edge che riceverà il modulo. Nella pagina **Dispositivi di destinazione per il modulo IoT Edge** specificare le informazioni seguenti:
+1. In **Marketplace dei moduli IoT Edge** cercare il modulo "Simulated Temperature Sensor" (Sensore di temperatura simulato) e aprirlo.
 
-   1. **Sottoscrizione**: selezionare la sottoscrizione che contiene l'hub IoT in uso.
+1. Si noti che il modulo SimulatedTemperatureSensor è compilato automaticamente. Nelle esercitazioni si userà questa pagina per aggiungere altri moduli alla distribuzione. Per questa guida introduttiva, è sufficiente distribuire un modulo. Non sono necessarie credenziali perché il modulo è pubblico.
 
-   2. **Hub IoT**: selezionare il nome dell'hub IoT in uso.
+   ![Impostare i moduli nel dispositivo](./media/iot-edge-deploy-module/set-modules-on-device.png)
 
-   3. **Nome del dispositivo IoT Edge**: se è stato usato il nome del dispositivo suggerito in precedenza in questa guida introduttiva, immettere **myEdgeDevice**. In alternativa, selezionare **Trova dispositivo** per scegliere una voce di un elenco dei dispositivi IoT Edge nell'hub IoT. 
-   
-   4. Selezionare **Create** (Crea).
+   Selezionare **Avanti: Route** per continuare con il passaggio successivo della procedura guidata.
 
-3. Dopo avere scelto un modulo IoT Edge da Azure Marketplace e un dispositivo IoT Edge per riceverlo, viene visualizzata una procedura guidata in tre passaggi che consente di definire esattamente come distribuire il modulo. Nel passaggio **Aggiungi moduli** della procedura guidata il modulo **SimulatedTemperatureSensor** viene inserito automaticamente. Nelle esercitazioni si userà questa pagina per aggiungere altri moduli alla distribuzione. Per questa guida introduttiva, è sufficiente distribuire un modulo. Selezionare **Avanti** per continuare con il passaggio successivo della procedura guidata.
+1. Nella scheda **Route** della procedura guidata è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore. Per la guida introduttiva, si vuole che tutti i messaggi da tutti i moduli siano passati all'hub IoT (`$upstream`). Se il modulo non viene compilato automaticamente, aggiungere il codice seguente per il **valore** del **nome** `upstream`:
 
-4. Nel passaggio **Specifica route** della procedura guidata definire come vengono passati i messaggi tra i moduli e all'hub IoT. Per la guida introduttiva, si vuole che tutti i messaggi da tutti i moduli siano passati all'hub IoT (`$upstream`). Se non viene eseguito il popolamento automatico, aggiungere il codice seguente:
-
-   ```json
-    {
-    "routes": {
-        "route": "FROM /messages/* INTO $upstream"
-        }
-    }
+   ```sql
+    FROM /messages/* INTO $upstream
    ```
-   Quindi selezionare **Avanti**.
 
-5. Nel passaggio **Rivedi distribuzione** della procedura guidata è possibile visualizzare in anteprima il file JSON che definisce tutti i moduli distribuiti nel dispositivo IoT Edge. Si noti che sono inclusi il modulo **SimulatedTemperatureSensor**, nonché due moduli di sistema aggiuntivi denominati **edgeAgent** ed **edgeHub**. Al termine, selezionare **Invia**.
+   Selezionare **Avanti: Rivedi e crea** per continuare con il passaggio successivo della procedura guidata.
 
-   Quando si invia una nuova distribuzione a un dispositivo IoT Edge, non viene eseguito il push di alcun elemento al dispositivo. Al contrario, il dispositivo richiede periodicamente eventuali nuove istruzioni all'hub IoT. Se il dispositivo trova un manifesto della distribuzione aggiornato, usa le informazioni sulla nuova distribuzione per eseguire il pull delle immagini dei moduli dal cloud, quindi avvia l'esecuzione dei moduli in locale. Il processo potrebbe richiedere alcuni minuti. 
+1. Nella scheda **Rivedi e crea** della procedura guidata è possibile visualizzare in anteprima il file JSON che definisce tutti i moduli distribuiti nel dispositivo IoT Edge. Si noti che sono inclusi il modulo **SimulatedTemperatureSensor**, nonché due moduli di sistema aggiuntivi denominati **edgeAgent** ed **edgeHub**. Al termine della revisione, selezionare **Crea**.
 
-6. Dopo aver inviato i dettagli della distribuzione del modulo, verrà nuovamente visualizzata la pagina **IoT Edge** dell'hub IoT. Selezionare il dispositivo dall'elenco dei dispositivi IoT Edge per visualizzarne i dettagli. 
+   Quando si invia una nuova distribuzione a un dispositivo IoT Edge, non viene eseguito il push di alcun elemento al dispositivo. Al contrario, il dispositivo richiede periodicamente eventuali nuove istruzioni all'hub IoT. Se il dispositivo trova un manifesto della distribuzione aggiornato, usa le informazioni sulla nuova distribuzione per eseguire il pull delle immagini dei moduli dal cloud, quindi avvia l'esecuzione dei moduli in locale. Il processo potrebbe richiedere alcuni minuti.
 
-7. Nella pagina dei dettagli dispositivo scorrere verso il basso fino alla sezione **Moduli**. Dovrebbero essere elencati tre moduli: $edgeAgent $edgeHub e SimulatedTemperatureSensor. Se uno o più moduli sono elencati come specificato nella distribuzione ma non segnalati dal dispositivo, il dispositivo IoT Edge ne sta ancora eseguendo l'avvio. Attendere alcuni istanti e selezionare **Aggiorna** nella parte superiore della pagina. 
+1. Dopo aver creato i dettagli della distribuzione del modulo, verrà nuovamente visualizzata la pagina **IoT Edge** dell'hub IoT. Selezionare il dispositivo dall'elenco dei dispositivi IoT Edge per visualizzarne i dettagli.
+
+1. Nella pagina dei dettagli del dispositivo scorrere verso il basso fino alla scheda **Moduli**. Dovrebbero essere elencati tre moduli: $edgeAgent $edgeHub e SimulatedTemperatureSensor. Se uno o più moduli sono elencati come specificato nella distribuzione ma non segnalati dal dispositivo, il dispositivo IoT Edge ne sta ancora eseguendo l'avvio. Attendere alcuni istanti e selezionare **Aggiorna** nella parte superiore della pagina.
 
    ![Visualizzare SimulatedTemperatureSensor nell'elenco dei moduli distribuiti](./media/iot-edge-deploy-module/deployed-modules-marketplace.png)

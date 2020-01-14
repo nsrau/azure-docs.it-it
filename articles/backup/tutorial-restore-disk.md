@@ -4,12 +4,12 @@ description: Informazioni su come ripristinare un disco e creare un ripristino d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 9b2048d8683ba2dde00a874445eb936cfb775cf1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171750"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680572"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Ripristinare un disco e creare una macchina virtuale ripristinata in Azure
 
@@ -27,7 +27,7 @@ Per informazioni sull'uso di PowerShell per ripristinare un disco e creare una m
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.18 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per questa esercitazione è necessaria una macchina virtuale Linux protetta con Backup di Azure. Per simulare un'eliminazione accidentale della macchina virtuale e il processo di recupero, viene creata una macchina virtuale da un disco in un punto di ripristino. Se si necessita di una macchina virtuale Linux protetta con Backup di Azure, vedere [Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando](quick-backup-vm-cli.md).
 
@@ -57,7 +57,43 @@ az backup recoverypoint list \
 
 ## <a name="restore-a-vm-disk"></a>Ripristinare il disco di una macchina virtuale
 
-Per ripristinare il disco dal punto di ripristino, è innanzitutto necessario creare un account di archiviazione di Azure. L'account di archiviazione viene usato per archiviare il disco ripristinato. Nei passaggi aggiuntivi il disco ripristinato viene usato per creare una macchina virtuale.
+> [!IMPORTANT]
+> Si consiglia vivamente di usare l'interfaccia della riga di comando di Azure 2.0.74 o versioni successive per sfruttare tutti i vantaggi di un ripristino rapido, incluso il ripristino dei dischi gestiti. È preferibile che l'utente usi sempre la versione più recente.
+
+### <a name="managed-disk-restore"></a>Ripristino di dischi gestiti
+
+Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gestiti e se lo scopo è quello di ripristinare i dischi gestiti dal punto di ripristino, è prima necessario fornire un account di archiviazione di Azure. Questo account di archiviazione viene usato per archiviare la configurazione della macchina virtuale e il modello di distribuzione che può essere usato in seguito per distribuire la macchina virtuale dai dischi ripristinati. È anche necessario specificare un gruppo di risorse di destinazione in cui verranno ripristinati i dischi gestiti.
+
+1. Per creare un account di archiviazione, usare [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
+
+    ```azurecli-interactive
+    az storage account create \
+        --resource-group myResourceGroup \
+        --name mystorageaccount \
+        --sku Standard_LRS
+    ```
+
+2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) precedente. ***Specificare anche il gruppo di risorse in cui vengono ripristinati i dischi gestiti***.
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --target-resource-group targetRG
+    ```
+
+> [!WARNING]
+> Se il gruppo di risorse di destinazione non è indicato, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato.
+
+### <a name="unmanaged-disks-restore"></a>Ripristino di dischi non gestiti
+
+Se nella macchina virtuale di cui si esegue il backup sono presenti dischi non gestiti e se lo scopo è quello di ripristinare i dischi dal punto di ripristino, è prima necessario fornire un account di archiviazione di Azure. Questo account di archiviazione viene usato per archiviare la configurazione della macchina virtuale e il modello di distribuzione che può essere usato in seguito per distribuire la macchina virtuale dai dischi ripristinati. Per impostazione predefinita, i dischi non gestiti verranno ripristinati nei relativi account di archiviazione originali. Se l'utente vuole ripristinare tutti i dischi non gestiti in un'unica posizione, è possibile usare l'account di archiviazione specificato come posizione di gestione temporanea per tali dischi.
+
+Nei passaggi aggiuntivi il disco ripristinato viene usato per creare una macchina virtuale.
 
 1. Per creare un account di archiviazione, usare [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Il nome dell'account di archiviazione deve contenere solo caratteri minuscoli ed essere univoco globalmente. Sostituire *mystorageaccount* con il nome univoco:
 
@@ -80,9 +116,22 @@ Per ripristinare il disco dal punto di ripristino, è innanzitutto necessario cr
         --rp-name myRecoveryPointName
     ```
 
-## <a name="monitor-the-restore-job"></a>Monitorare il processo di ripristino
+Come indicato in precedenza, i dischi non gestiti verranno ripristinati nei relativi account di archiviazione originali. Questo consente di ottenere le migliori prestazioni di ripristino. Tuttavia, se tutti i dischi non gestiti devono essere ripristinati nell'account di archiviazione specificato, usare il flag pertinente come illustrato di seguito.
 
-Per monitorare lo stato del processo di ripristino, usare [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
+```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --restore-to-staging-storage-account
+    ```
+
+## Monitor the restore job
+
+To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -101,65 +150,105 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quando lo *Stato* del processo di ripristino indica *Completato*, il disco è stato ripristinato nell'account di archiviazione.
-
-## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Convertire il disco ripristinato in un disco gestito
-
-Il processo di ripristino crea un disco non gestito. Per creare una macchina virtuale dal disco, è necessario innanzitutto convertire il disco in un disco gestito.
-
-1. Ottenere le informazioni di connessione per l'account di archiviazione con [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Sostituire *mystorageaccount* con il nome dell'account di archiviazione come illustrato di seguito:
-
-    ```azurecli-interactive
-    export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
-        --resource-group myResourceGroup \
-        --output tsv \
-        --name mystorageaccount )
-    ```
-
-2. Il disco non gestito è protetto nell'account di archiviazione. I comandi seguenti ottengono le informazioni sul disco non gestito e creano una variabile denominata *uri* usata nel passaggio successivo in cui viene creato il disco gestito.
-
-    ```azurecli-interactive
-    container=$(az storage container list --query [0].name -o tsv)
-    blob=$(az storage blob list --container-name $container --query [0].name -o tsv)
-    uri=$(az storage blob url --container-name $container --name $blob -o tsv)
-    ```
-
-3. È ora possibile creare un disco gestito dal disco ripristinato con [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create). La variabile *uri* del passaggio precedente viene usata come origine del disco gestito.
-
-    ```azurecli-interactive
-    az disk create \
-        --resource-group myResourceGroup \
-        --name myRestoredDisk \
-        --source $uri
-    ```
-
-4. Dopo aver creato un disco gestito dal disco ripristinato, cancellare il disco non gestito e l'account di archiviazione con [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete). Sostituire *mystorageaccount* con il nome dell'account di archiviazione come illustrato di seguito:
-
-    ```azurecli-interactive
-    az storage account delete \
-        --resource-group myResourceGroup \
-        --name mystorageaccount
-    ```
+Quando lo *Stato* del processo di ripristino segnala *Completato*, le informazioni necessarie (configurazione della macchina virtuale e modello di distribuzione) sono state ripristinate nell'account di archiviazione.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Creare una macchina virtuale dal disco ripristinato
 
-Il passaggio finale consiste nel creare una macchina virtuale dal disco gestito.
+Il passaggio finale consiste nel creare una macchina virtuale dai dischi ripristinati. Per creare la macchina virtuale, è possibile usare il modello di distribuzione scaricato nell'account di archiviazione specificato.
 
-1. Creare una macchina virtuale dal disco gestito con [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) come illustrato di seguito:
+### <a name="fetch-the-job-details"></a>Recuperare i dettagli del processo
 
-    ```azurecli-interactive
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myRestoredVM \
-        --attach-os-disk myRestoredDisk \
-        --os-type linux
-    ```
+I dettagli del processo risultante includono l'URI del modello che può essere sottoposto a query e distribuito. Usare il comando job show per ottenere altri dettagli per il processo ripristinato attivato.
 
-2. Per verificare che la macchina virtuale sia stata creata dal disco ripristinato, visualizzare l'elenco delle macchine virtuali nel gruppo di risorse con [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) come illustrato di seguito:
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
+```
 
-    ```azurecli-interactive
-    az vm list --resource-group myResourceGroup --output table
-    ```
+L'output di questa query fornirà tutti i dettagli, ma ai fini dell'esercitazione sono rilevanti solo le informazioni relative al contenuto dell'account di archiviazione. È possibile usare la [funzionalità di query](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) dell'interfaccia della riga di comando di Azure per recuperare i dettagli pertinenti
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag
+
+{
+  "Config Blob Container Name": "myVM-daa1931199fd4a22ae601f46d8812276",
+  "Config Blob Name": "config-myVM-1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414.json",
+  "Config Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/config-appvm8-1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json",
+  "Job Type": "Recover disks",
+  "Recovery point time ": "12/25/2019 10:07:11 PM",
+  "Target Storage Account Name": "mystorageaccount",
+  "Target resource group": "mystorageaccountRG",
+  "Template Blob Uri": "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+}
+```
+
+### <a name="fetch-the-deployment-template"></a>Recuperare il modello di distribuzione
+
+Il modello non è direttamente accessibile perché si trova nell'account di archiviazione del cliente e nel contenitore specificato. Per accedere a questo modello, è necessario l'URL completo (insieme a un token di firma di accesso condiviso temporaneo).
+
+È prima necessario estrarre l'URI del BLOB del modello dai dettagli del processo
+
+```azurecli-interactive
+az backup job show \
+    -v myRecoveryServicesVault \
+    -g myResourceGroup \
+    -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414 \
+    --query properties.extendedInfo.propertyBag."""Template Blob Uri"""
+
+"https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
+```
+
+L'URI del BLOB del modello presenterà questo formato e da qui verrà estratto il nome del modello
+
+```https
+https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
+```
+
+Quindi, il nome del modello dell'esempio precedente sarà ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` e il nome del contenitore è ```myVM-daa1931199fd4a22ae601f46d8812276```
+
+Ottenere ora il token di firma di accesso condiviso per il contenitore e il modello come descritto [qui](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+
+```azurecli-interactive
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
+connection=$(az storage account show-connection-string \
+    --resource-group mystorageaccountRG \
+    --name mystorageaccount \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
+    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
+    --output tsv \
+    --connection-string $connection)
+```
+
+### <a name="deploy-the-template-to-create-the-vm"></a>Distribuire il modello per creare la macchina virtuale
+
+A questo punto, distribuire il modello per creare la nuova macchina virtuale, come spiegato [qui](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group ExampleGroup \
+  --template-uri $url?$token
+```
+
+Per verificare che la macchina virtuale sia stata creata dal disco ripristinato, visualizzare l'elenco delle macchine virtuali nel gruppo di risorse con [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) come illustrato di seguito:
+
+```azurecli-interactive
+az vm list --resource-group myResourceGroup --output table
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

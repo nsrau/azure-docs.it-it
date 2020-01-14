@@ -1,26 +1,17 @@
 ---
-title: "Esercitazione: Distribuire un'applicazione Azure Service Fabric Mesh  | Microsoft Docs"
+title: Esercitazione - Distribuire un'applicazione Service Fabric Mesh
 description: Informazioni su come usare Visual Studio per pubblicare un'applicazione Azure Service Fabric Mesh costituita da un sito Web ASP.NET Core che comunica con un servizio web back-end.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eef4cfaff38a96597794354cc991f5d3eeae9404
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351854"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Esercitazione: Distribuire un'applicazione Azure Service Fabric Mesh
 
@@ -42,7 +33,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 

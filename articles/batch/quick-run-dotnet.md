@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva di Azure: Eseguire un processo Batch - .NET'
-description: Eseguire rapidamente un processo e attività Batch con la libreria client Batch .NET.
+description: Eseguire rapidamente un processo e attività di esempio di Azure Batch da un'applicazione C# con la libreria client Batch .NET.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 613f771af71c4f03f7ccf9283b98c09836c312cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390326"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Guida introduttiva: Eseguire il primo processo di Azure Batch con l'API .NET
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Avvio rapido: Eseguire il primo processo di Azure Batch con l'API .NET
 
 Questa guida introduttiva esegue un processo Azure Batch da un'applicazione C# compilata con l'API .NET di Azure Batch. L'applicazione carica più file di dati di input nell'archivio di Azure e quindi crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* di esempio che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
@@ -25,7 +25,7 @@ Questa guida introduttiva esegue un processo Azure Batch da un'applicazione C# c
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs) oppure [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows. 
 
@@ -206,7 +206,7 @@ try
 ...
 ```
 
-### <a name="create-tasks"></a>Creare le attività
+### <a name="create-tasks"></a>Creare attività
 
 L'applicazione crea un elenco di oggetti [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Ogni attività elabora un oggetto `ResourceFile` di input usando una proprietà [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Nell'esempio, la riga di comando esegue il comando `type` di Windows per visualizzare il file di input. Questo comando è un esempio semplice fornito a scopo dimostrativo. Quando si usa Batch, in questa riga di comando si specifica l'app o lo script. Batch offre una serie di modi per distribuire app e script nei nodi di calcolo.
 

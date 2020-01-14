@@ -1,26 +1,17 @@
 ---
-title: Esercitazione - Aggiornare un'app in esecuzione in Azure Service Fabric Mesh | Microsoft Docs
+title: Esercitazione - Aggiornare un'app in esecuzione in Azure Service Fabric Mesh
 description: In questa esercitazione si apprenderà come aggiornare un'applicazione di Service Fabric in esecuzione in Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3567ede82f2eebf602e95dcd012f5c88a40af796
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 42db17fa6474d3230bc523d0cf65b375cf01276e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351738"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Esercitazione: Aggiornare un'applicazione di Service Fabric in esecuzione in Azure Service Fabric Mesh
 
@@ -41,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -53,7 +44,7 @@ Prima di iniziare questa esercitazione:
 
 Uno dei principali vantaggi della distribuzione delle applicazioni su Service Fabric Mesh è la possibilità di aggiornare facilmente la configurazione dell'applicazione.  Ad esempio, la CPU o le risorse di memoria per i servizi.
 
-Questa esercitazione usa l'esempio di elenco di attività come esempio, che è stata [distribuita in precedenza](service-fabric-mesh-tutorial-template-deploy-app.md) e dovrebbe ora essere in esecuzione. L'applicazione ha due servizi: WebFrontEnd e ToDoService. Ogni servizio è stato distribuito inizialmente con le risorse della CPU pari a 0,5.  Per visualizzare le risorse della CPU per il servizio WebFrontEnd, eseguire le operazioni seguenti:
+Questa esercitazione usa come esempio l'applicazione di esempio To Do List, che è stata [distribuita in precedenza](service-fabric-mesh-tutorial-template-deploy-app.md) e ora dovrebbe essere in esecuzione. L'applicazione ha due servizi: WebFrontEnd e ToDoService. Ogni servizio è stato distribuito inizialmente con le risorse della CPU pari a 0,5.  Per visualizzare le risorse della CPU per il servizio WebFrontEnd, eseguire le operazioni seguenti:
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp

@@ -4,16 +4,16 @@ description: Questo articolo illustra le attività comuni eseguite da un amminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: c53a051df0a0100d9209530490d910612be2f30d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4db710dc93b0a1fc3c85d24e9d79fb2e2d552cd1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849922"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644546"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -40,11 +40,11 @@ Gli amministratori dell'organizzazione possono associare account esistenti ai re
 ### <a name="to-associate-an-account-to-a-department"></a>Per associare un account a un reparto
 
 1. Accedere ad Azure EA Portal come amministratore dell'organizzazione.
-1. Fare clic su **Gestisci** nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
 1. Fare clic su **Reparto**.
 1. Passare il puntatore del mouse sulla riga relativa all'account desiderato e fare clic sull'icona della matita a destra.
 1. Selezionare dall'elenco a discesa il reparto desiderato.
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ## <a name="department-spending-quotas"></a>Quote di spesa del reparto
 
@@ -55,7 +55,7 @@ L'amministratore del reparto può visualizzare la quota di spesa, ma l'importo d
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Per impostare la quota (amministratore dell'organizzazione):
 
  1. Aprire Azure EA Portal.
- 1. Fare clic su **Gestisci** nel riquadro di spostamento sinistro.
+ 1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
  1. Fare clic sulla scheda **Reparto**.
  1. Fare clic sul reparto desiderato.
  1. Fare clic sull'icona della matita nella sezione relativa ai dettagli del reparto oppure fare clic sul pulsante **+ Add Department** (Aggiungi reparto) per aggiungere una quota di spesa insieme a un nuovo reparto.
@@ -70,7 +70,7 @@ L'importo della quota del reparto è indipendente dall'impegno monetario corrent
 ### <a name="department-administrator-to-view-the-quota"></a>Per visualizzare la quota (amministratore del reparto):
 
 1. Aprire Azure EA Portal.
-1. Fare clic su **Gestisci** nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
 1. Fare clic sulla scheda **Reparto** ed esaminare la visualizzazione elenco dei reparti con le quote di spesa.
 
 Per i clienti indiretti le funzionalità relative ai costi devono essere abilitate dal partner di canale.
@@ -104,7 +104,7 @@ Questa offerta consente ai sottoscrittori di Visual Studio attivi di eseguire ca
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Per configurare l'offerta Sviluppo/test Enterprise:
 
 1. Accedere come amministratore dell'organizzazione.
-1. Fare clic su **Gestisci** nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
 1. Fare clic sulla scheda **Account**.
 1. Fare clic sulla riga relativa all'account in cui si intende abilitare l'accesso a Sviluppo/test.
 1. Fare clic sull'icona della matita a destra della riga.
@@ -117,6 +117,8 @@ Al momento l'offerta Sviluppo/test non è applicabile ai clienti di Azure per en
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Trasferire un account aziendale in una nuova registrazione
 
+Un trasferimento di account sposta il proprietario dell'account da una registrazione a un'altra. Tutte le sottoscrizioni correlate del proprietario dell'account vengono spostate nella registrazione di destinazione. Questa operazione viene eseguita quando si hanno più registrazioni attive e si vogliono spostare solo determinati proprietari di account.
+
 Quando si trasferisce un account aziendale in una nuova registrazione, tenere presente quanto segue:
 
 - Vengono trasferiti solo gli account specificati nella richiesta. Se si selezionano tutti gli account, vengono trasferiti tutti.
@@ -124,44 +126,37 @@ Quando si trasferisce un account aziendale in una nuova registrazione, tenere pr
 
 ### <a name="effective-transfer-date"></a>Data di validità del trasferimento
 
-La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione in cui si vuole eseguire il trasferimento. La registrazione in cui si sta eseguendo il trasferimento è la _registrazione di destinazione_. Dopo il trasferimento dell'account, tutte le informazioni sull'utilizzo nell'account prima della data di trasferimento rimangono nella registrazione da cui si sta eseguendo il trasferimento. La registrazione da cui si sta eseguendo il trasferimento è la _registrazione di origine_.  L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
+È possibile retrodatare il trasferimento di un account fino alla data di inizio della registrazione di destinazione o fino alla data di inizio dell'account, se successiva. Dopo il trasferimento dell'account, tutte le informazioni sull'utilizzo nell'account prima della data di trasferimento rimangono nella registrazione da cui si sta eseguendo il trasferimento. Le informazioni sull'utilizzo dopo la data di trasferimento vengono spostate nella registrazione di destinazione.
 
-È possibile retrodatare il trasferimento di una registrazione fino alla data di inizio della registrazione di destinazione. oppure fino alla data di inizio effettiva della registrazione di origine.
-
-### <a name="monetary-commitment"></a>Impegno monetario
-
-L'impegno monetario non è trasferibile tra registrazioni. I saldi dell'impegno monetario sono legati contrattualmente alla registrazione in cui è stato ordinato. L'impegno monetario non viene trasferito come parte del processo di trasferimento dell'account o della registrazione.
-
-### <a name="services-affected"></a>Servizi interessati
-
-Durante il trasferimento dell'account non si verifica alcun tempo di inattività. Il trasferimento può essere completato nello stesso giorno della richiesta, se vengono fornite tutte le informazioni necessarie.
-
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Quando si richiede il trasferimento di un account, fornire le informazioni seguenti:
 
-
-- Nome dell'account e ID del proprietario dell'account da trasferire
+- Numero della registrazione di destinazione, nome dell'account e indirizzo di posta elettronica del proprietario dell'account da trasferire
 - Per la registrazione di origine, numero di registrazione e account da trasferire
-- Per la registrazione di destinazione, numero della registrazione in cui eseguire il trasferimento
-- Come data di validità del trasferimento dell'account, una data corrispondente o successiva alla data di inizio della registrazione di destinazione
+- La data di validità del trasferimento dell'account può essere retrodatata fino alla data di inizio della registrazione di destinazione o fino alla data di inizio dell'account, se successiva.
 
 Altri punti da tenere presenti prima del trasferimento di un account:
 
 - Per la registrazione di destinazione e di origine è necessaria l'approvazione di un amministratore EA
 - Se il trasferimento di un account non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di registrazione.
 - Con il trasferimento vengono trasferiti tutti i servizi e le sottoscrizioni correlati agli account specifici.
-- Al termine del trasferimento, l'account trasferito appare inattivo nella registrazione di origine.
-- Il trasferimento di un account può essere retrodatato a qualsiasi giorno entro la data di inizio della registrazione di destinazione.
+- Al termine del trasferimento, l'account trasferito appare inattivo nella registrazione di origine e attivo in quella di destinazione.
 - L'account mostra la data di fine corrispondente alla data del trasferimento effettivo nella registrazione di origine e come data di inizio nella registrazione di destinazione.
 - Qualsiasi utilizzo che si verifica per l'account prima della data del trasferimento effettivo rimane nella registrazione di origine.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Trasferire la registrazione EA in una nuova registrazione
 
+Il trasferimento di una registrazione si prende in considerazione quando:
+
+- Il periodo di impegno di una registrazione corrente è terminato.
+- Una registrazione è nello stato di scadenza/estensione e viene negoziato un nuovo contratto.
+- Si hanno più registrazioni e si vogliono consolidare tutti gli account e la fatturazione in una sola registrazione.
+
 Quando si richiede il trasferimento di un'intera registrazione EA in un'altra registrazione, si verificano le azioni seguenti:
 
-- Vengono trasferiti tutti i servizi di Azure, le sottoscrizioni, gli account, i reparti e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA.
+- Tutti i servizi di Azure, le sottoscrizioni, gli account, i reparti e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA, vengono trasferiti in una nuova registrazione di destinazione.
 - Lo stato della registrazione viene impostato su _Trasferito_. La registrazione trasferita è disponibile solo per la creazione di report cronologici sull'utilizzo.
 - Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione trasferita. Lo stato Trasferito impedisce ulteriori utilizzi per la registrazione.
 - Qualsiasi saldo dell'impegno monetario rimanente nel contratto viene perso, inclusi i periodi futuri.
@@ -171,36 +166,33 @@ Quando si richiede il trasferimento di un'intera registrazione EA in un'altra re
 
 ### <a name="effective-transfer-date"></a>Data di validità del trasferimento
 
-La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione che si vuole trasferire nella registrazione di destinazione.
+La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione di destinazione.
 
 L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
 
-### <a name="effective-transfer-date-in-the-past"></a>Data di validità del trasferimento nel passato
+È possibile retrodatare un trasferimento fino alla data di inizio della registrazione di destinazione, purché la data di trasferimento scelta non influisca sull'utilizzo di una fattura per eccedenza già emessa.
 
-È possibile retrodatare il trasferimento di un account fino alla data di inizio della registrazione di destinazione oppure fino alla data di inizio effettiva della registrazione di origine.
-
-### <a name="monetary-commitment"></a>Impegno monetario
-
-L'impegno monetario non è trasferibile tra registrazioni. I saldi dell'impegno monetario sono legati contrattualmente alla registrazione in cui è stato ordinato. L'impegno monetario non viene trasferito come parte del processo di trasferimento dell'account o della registrazione.
-
-### <a name="services-affected"></a>Servizi interessati
-
-Durante il trasferimento dell'account non si verifica alcun tempo di inattività. Il trasferimento può essere completato nello stesso giorno della richiesta, se vengono fornite tutte le informazioni necessarie.
-
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Quando si richiede il trasferimento di una registrazione, fornire le informazioni seguenti:
 
-- Per la registrazione di origine, numero di registrazione e account da trasferire.
+- Per la registrazione di origine, numero di registrazione.
 - Per la registrazione di destinazione, numero della registrazione in cui eseguire il trasferimento.
 - Come data di validità del trasferimento della registrazione, una data corrispondente o successiva alla data di inizio della registrazione di destinazione. La data scelta non può incidere sull'utilizzo relativo a una fattura per l'eccedenza già emessa.
 
 Altri punti da tenere presenti prima del trasferimento di una registrazione:
 
-- Per la registrazione di destinazione e di origine è necessaria l'approvazione di un amministratore EA.
+- È necessaria l'approvazione degli amministratori EA sia della registrazione di destinazione che di quella di origine.
 - Se il trasferimento di una registrazione non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di account.
-- Vengono trasferiti solo gli account specificati. È possibile richiedere il trasferimento di tutti gli account.
-- La registrazione di origine mantiene il proprio stato come attiva/estesa. È possibile continuare a usarla fino alla scadenza.
+- Lo stato della registrazione di origine verrà aggiornato a Trasferito e sarà disponibile solo per la creazione di report cronologici sull'utilizzo.
+
+### <a name="monetary-commitment"></a>Impegno monetario
+
+L'impegno monetario non è trasferibile tra registrazioni. I saldi dell'impegno monetario sono legati contrattualmente alla registrazione in cui è stato ordinato. L'impegno monetario non viene trasferito come parte del processo di trasferimento dell'account o della registrazione.
+
+### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nessun servizio interessato dai trasferimenti di account e registrazioni
+
+Durante il trasferimento di un account o una registrazione non si verifica alcun tempo di inattività. Il trasferimento può essere completato nello stesso giorno della richiesta, se vengono fornite tutte le informazioni necessarie.
 
 ## <a name="change-account-owner"></a>Cambiare il proprietario dell'account
 
@@ -266,7 +258,7 @@ Per aggiungere un contatto:
 
 1. Fare clic su **+Aggiungi contatto**.
 2. Immettere l'indirizzo di posta elettronica e confermarlo.
-3. Fare clic su **Save**.
+3. Fare clic su **Salva**.
 
 Il nuovo contatto per le notifiche viene visualizzato nella sezione **Contatto per le notifiche**. Per modificare la frequenza di notifica, selezionare il contatto per la notifica e fare clic sul simbolo della matita a destra della riga selezionata. Impostare la frequenza su **giornaliera**, **settimanale**, **mensile** o **nessuna**.
 
@@ -281,7 +273,7 @@ Ogni amministratore partner in Azure EA Portal è in grado di aggiungere o rimuo
 Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, fare clic sulla scheda **Registrazione** e selezionare una casella di registrazione desiderata.
 
 1. Accedere come amministratore partner.
-1. Fare clic su **Gestisci** nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
 1. Fare clic sulla scheda **Partner**.
 1. Fare clic su **+ Aggiungi amministratore** e immettere l'indirizzo di posta elettronica, il contatto per le notifiche e i dettagli delle notifiche.
 1. Fare clic su **Aggiungi**.
@@ -291,7 +283,7 @@ Per visualizzare un elenco di tutte le registrazioni associate alla stessa organ
 Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, fare clic sulla scheda **Registrazione** e selezionare una casella di registrazione desiderata.
 
 1. Accedere come amministratore partner.
-1. Fare clic su **Gestisci** nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
 1. Fare clic sulla scheda **Partner**.
 1. Nella sezione Amministratore selezionare la riga appropriata per l'amministratore che si intende rimuovere.
 1. Fare clic sull'icona X a destra.
@@ -309,7 +301,7 @@ Se un utente non riceve una notifica, verificare che le impostazioni di notifica
 4. Per modificare le preferenze di notifica, passare il puntatore sull'amministratore appropriato e fare clic sul simbolo della matita.
 5. Modificare la frequenza di notifica e le notifiche sul ciclo di vita in base alle esigenze.
 6. Aggiungere un contatto, se necessario, e fare clic su **Aggiungi**.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ![Esempio che mostra la casella Aggiunta di un contatto ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 

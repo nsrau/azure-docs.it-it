@@ -1,26 +1,17 @@
 ---
-title: Configurare Jenkins per un'app Java su Service Fabric in Azure | Microsoft Docs
+title: Configurare Jenkins per un'app Java in Service Fabric in Azure
 description: In questa esercitazione si apprenderà come configurare l'integrazione continua con Jenkins per distribuire un'applicazione Java di Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376653"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Esercitazione: Configurare un ambiente Jenkins per abilitare CI/CD per un'applicazione Java in Service Fabric
 
@@ -40,7 +31,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-java-elk.md)
 > * Configurare l'integrazione continua/distribuzione continua
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Installare Git nel computer locale dalla [pagina di download di Git](https://git-scm.com/downloads). Per altre informazioni su Git, vedere la [documentazione](https://git-scm.com/docs).
 * Avere una conoscenza pratica di [Jenkins](https://jenkins.io/).
@@ -94,9 +85,9 @@ In questa serie di esercitazioni si apprenderà come:
 
    a. Nella sezione generale selezionare la casella di controllo associata a **GitHub project** (Progetto GitHub) e specificare l'URL del progetto GitHub. Questo URL ospita l'applicazione Java di Service Fabric da integrare con il flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio ``https://github.com/testaccount/dev_test``.
 
-   b. Nella sezione **Source Code Management** (Gestione del codice sorgente) selezionare **Git**. Specificare l'URL del repository che ospita l'applicazione Java di Service Fabric che si vuole integrare nel flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio *https://github.com/testaccount/dev_test.git*. Qui è anche possibile specificare il ramo da compilare, ad esempio **/master**.
+   b. Nella sezione **Source Code Management** (Gestione del codice sorgente) selezionare **Git**. Specificare l'URL del repository che ospita l'applicazione Java di Service Fabric che si vuole integrare nel flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio *https://github.com/testaccount/dev_test.git* . Qui è anche possibile specificare il ramo da compilare, ad esempio **/master**.
 
-1. Configurare *GitHub*, che ospita il repository, in modo che possa comunicare con Jenkins. Seguire questa procedura:
+1. Configurare *GitHub*, che ospita il repository, in modo che possa comunicare con Jenkins. Eseguire la procedura descritta di seguito:
 
    a. Passare alla pagina del repository GitHub. Passare a **Settings** (Impostazioni)  > **Integrations and Services** (Integrazioni e servizi).
 
@@ -124,7 +115,7 @@ In questa serie di esercitazioni si apprenderà come:
     > In questo caso il cluster potrebbe essere lo stesso che ospita l'applicazione contenitore Jenkins, nel caso si usi Service Fabric per distribuire l'immagine del contenitore Jenkins.
     >
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ## <a name="update-your-existing-application"></a>Aggiornare l'applicazione esistente
 
@@ -193,7 +184,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Distribuire il contenitore di Jenkins per Service Fabric nel computer

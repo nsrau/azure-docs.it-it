@@ -5,14 +5,14 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cb43f558a5c983a8a4cc3823b278b75cb8cde78d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230735"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562035"
 ---
-# <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Guida introduttiva: Usare Java e Maven per creare e pubblicare una funzione in Azure
+# <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Avvio rapido: Usare Java e Maven per creare e pubblicare una funzione in Azure
 
 Questo articolo illustra come creare e pubblicare una funzione Java in Funzioni di Azure con lo strumento da riga di comando Maven. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP.
 
@@ -21,7 +21,7 @@ Questo articolo illustra come creare e pubblicare una funzione Java in Funzioni 
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per sviluppare funzioni con Java, è necessario che siano installati gli elementi seguenti:
 
@@ -68,7 +68,7 @@ mvn archetype:generate ^
 
 Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione. Quando richiesto, specificare i valori seguenti:
 
-| Valore | DESCRIZIONE |
+| valore | Descrizione |
 | ----- | ----------- |
 | **groupId** | Un valore che identifica in modo univoco il progetto tra tutti gli altri, seguendo le [regole di denominazione dei pacchetti](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) per Java. Gli esempi di questo argomento di avvio rapido usano `com.fabrikam.functions`. |
 | **artifactId** | Un valore che corrisponde al nome del jar, senza un numero di versione. Gli esempi di questo argomento di avvio rapido usano `fabrikam-functions`. |
@@ -76,13 +76,16 @@ Maven chiede i valori necessari per completare la generazione del progetto nella
 | **package** | Un valore che corrisponde al pacchetto Java per il codice della funzione generato. Usare il valore predefinito. Gli esempi di questo argomento di avvio rapido usano `com.fabrikam.functions`. |
 | **appName** | Un nome univoco globale che identifica la nuova app per le funzioni in Azure. Usare il valore predefinito, ossia _artifactId_ con l'aggiunta finale di un numero casuale. Prendere nota di questo valore perché sarà necessario in seguito. |
 | **appRegion** | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. Il valore predefinito è `westus`. Eseguire questo comando dell'[interfaccia della riga di comando di Azure] per ottenere un elenco di tutte le aree:<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resourceGroup** | Il nome del nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) in cui viene creata l'app per le funzioni. Usare `myResourceGroup`, che viene usato dagli esempi di questo argomento di avvio rapido. Un gruppo di risorse deve essere univoco nella sottoscrizione di Azure.|
+| **resourceGroup** | Il nome del nuovo [gruppo di risorse](../azure-resource-manager/management/overview.md) in cui viene creata l'app per le funzioni. Usare `myResourceGroup`, che viene usato dagli esempi di questo argomento di avvio rapido. Un gruppo di risorse deve essere univoco nella sottoscrizione di Azure.|
 
 Digitare `Y` o premere INVIO per confermare.
 
 Maven crea i file di progetto in una nuova cartella denominata _artifactId_, che in questo esempio è `fabrikam-functions`. 
 
 Aprire il nuovo file Function.java dal percorso *src/main/java* in un editor di testo e rivedere il codice generato. Questo codice è una funzione [attivata da HTTP](functions-bindings-http-webhook.md) che restituisce il corpo della richiesta. 
+
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
@@ -119,6 +122,9 @@ Hello AzureFunctions!
 ```
 La [chiave della funzione](functions-bindings-http-webhook.md#authorization-keys) non è necessaria durante l'esecuzione in locale. Usare `Ctrl+C` nel terminal per interrompere il codice funzione.
 
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+
 ## <a name="deploy-the-function-to-azure"></a>Distribuire la funzione in Azure
 
 La prima volta che si distribuisce la nuova app per le funzioni, in Azure vengono create un'app per le funzioni e le risorse correlate. Prima di procedere alla distribuzione, è necessario usare il comando [az login](/cli/azure/authenticate-azure-cli) dell'interfaccia della riga di comando di Azure per accedere alla sottoscrizione di Azure. 
@@ -145,7 +151,10 @@ Questa destinazione Maven `azure-functions:deploy` crea le risorse seguenti in A
 
 La distribuzione inserisce inoltre i file di progetto in un pacchetto e li distribuisce nella nuova app per le funzioni tramite [ZipDeploy](functions-deployment-technologies.md#zip-deploy), con la modalità run-from-package abilitata.
 
-Al termine della distribuzione, è possibile visualizzare l'URL utilizzabile per accedere agli endpoint dell'app per le funzioni. Poiché il trigger HTTP pubblicato usa `authLevel = AuthorizationLevel.FUNCTION`, è necessario ottenere la chiave della funzione per chiamare l'endpoint della funzione tramite HTTP. Il modo più semplice per farlo è tramite il [portale di Azure].
+Al termine della distribuzione, è possibile visualizzare l'URL utilizzabile per accedere agli endpoint dell'app per le funzioni. Poiché il trigger HTTP pubblicato usa `authLevel = AuthorizationLevel.FUNCTION`, è necessario ottenere la chiave della funzione per chiamare l'endpoint della funzione tramite HTTP. Il modo più semplice per farlo è tramite il [Azure portal].
+
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>Ottenere l'URL del trigger HTTP
 
@@ -153,7 +162,7 @@ Al termine della distribuzione, è possibile visualizzare l'URL utilizzabile per
 
 È possibile ottenere l'URL necessario per attivare la funzione, con la chiave della funzione, nel portale di Azure. 
 
-1. Passare al [portale di Azure], accedere, digitare il nome _appName_ dell'app per le funzioni nella casella **Cerca** nella parte superiore della pagina, quindi premere INVIO.
+1. Passare al [Azure portal], accedere, digitare il nome _appName_ dell'app per le funzioni nella casella **Cerca** nella parte superiore della pagina, quindi premere INVIO.
  
 1. Nell'app per le funzioni espandere **Funzioni (sola lettura)** , scegliere la funzione, quindi selezionare **</> Recupera URL della funzione** in alto a destra. 
 
@@ -177,6 +186,9 @@ Viene inviata una richiesta POST all'endpoint della funzione con `AzureFunctions
 Hello AzureFunctions!
 ```
 
+> [!div class="nextstepaction"]
+> [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 È stato creato un progetto di funzioni Java con una funzione attivata tramite HTTP. Il progetto è stato quindi eseguito in un computer locale e distribuito in Azure. A questo punto, estendere la funzione effettuando l'operazione seguente.
@@ -186,4 +198,4 @@ Hello AzureFunctions!
 
 
 [Interfaccia della riga di comando di Azure]: /cli/azure
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

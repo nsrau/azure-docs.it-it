@@ -1,26 +1,15 @@
 ---
-title: Distribuire un'app di Service Fabric con integrazione continua e Azure Pipelines in Azure | Microsoft Docs
+title: Distribuire un'app con integrazione continua e Azure Pipelines
 description: In questa esercitazione si apprenderà come configurare l'integrazione continua e la distribuzione continua per un'applicazione di Service Fabric usando Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838962"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614146"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione con integrazione continua/distribuzione continua in un cluster di Service Fabric
 
@@ -42,7 +31,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -182,7 +171,7 @@ L'aggiornamento dell'applicazione potrebbe richiedere alcuni minuti. Una volta c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere il controllo del codice sorgente al progetto

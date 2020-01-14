@@ -1,5 +1,6 @@
 ---
-title: Usare le revisioni per apportare modifiche non di rilievo in modo sicuro in Gestione API di Azure | Microsoft Docs
+title: Usare le revisioni per apportare modifiche che non causano un'interruzione in Gestione API in modo sicuro
+titleSuffix: Azure API Management
 description: Seguire le procedure di questa esercitazione per apprendere come apportare modifiche non di rilievo usando le revisioni in Gestione API.
 services: api-management
 documentationcenter: ''
@@ -13,17 +14,17 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 811591a3340f07b08b3a954ccd475e926b73a9cf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442757"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Usare le revisioni per apportare modifiche non di rilievo in modo sicuro
 Quando l'API è pronta e inizia a essere usata dagli sviluppatori, è necessario apportare modifiche all'API e contemporaneamente evitare di interferire con i chiamanti dell'API. È anche utile far conoscere agli sviluppatori le modifiche apportate. A tal fine, in Gestione API di Azure sono disponibili le **revisioni**. Per altre informazioni, vedere [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versioni e revisioni) e [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/) (Controllo delle versioni delle API con Gestione API di Azure).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere una nuova revisione
@@ -33,10 +34,10 @@ In questa esercitazione si apprenderà come:
 
 ![Registro modifiche nel portale per sviluppatori](media/api-management-getstarted-revise-api/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 ## <a name="add-a-new-revision"></a>Aggiungere una nuova revisione
@@ -97,7 +98,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere una nuova revisione

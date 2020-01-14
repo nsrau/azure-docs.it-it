@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425033"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD (anteprima)
 
@@ -25,6 +25,8 @@ ms.locfileid: "74272363"
 | Questo articolo descrive una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
+> [!NOTE]
+> A partire dal 22/12/2019, la funzionalità per l'invito di utenti in blocco (anteprima) è stata temporaneamente disabilitata.
 
 Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborare con partner esterni, è possibile invitare nell'organizzazione più utenti guest contemporaneamente. Questa esercitazione descrive come usare il portale di Azure per inviare inviti in blocco a utenti esterni. In particolare, si eseguiranno le operazioni seguenti:
 
@@ -35,7 +37,7 @@ Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborar
 
 Se non si ha Azure Active Directory, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Sono necessari almeno due account di posta elettronica di test a cui inviare gli inviti. Gli account devono essere esterni all'organizzazione. È possibile usare qualsiasi tipo di account, inclusi gli account di social networking, come gli indirizzi gmail.com o outlook.com.
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106712"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613636"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
-Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio di pianificazione itinerari per trovare gli itinerari più adatti per raggiungere un punto di interesse in base alla modalità di trasporto selezionata. Saranno visualizzati due itinerari diversi sulla mappa, uno per le automobili e uno per gli autocarri che potrebbero essere soggetti a limitazioni a causa di altezza, peso e pericolosità del carico. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio di pianificazione itinerari per trovare gli itinerari più adatti per raggiungere un punto di interesse in base alla modalità di trasporto selezionata. Saranno visualizzati due itinerari diversi sulla mappa, uno per le automobili e uno per gli autocarri che potrebbero essere soggetti a limitazioni a causa di altezza, peso e pericolosità del carico. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -26,9 +26,8 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio 
 > * Creare query di itinerario che dichiarano la modalità di viaggio
 > * Visualizzare più itinerari sulla mappa
 
-## <a name="prerequisites"></a>Prerequisiti
-
-Prima di procedere, seguire le istruzioni fornite nella sezione relativa alla [gestione dell'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta nella sezione relativa a come [ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
+## <a name="prerequisites"></a>Prerequisites
+Prima di procedere, seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Creare una nuova mappa
 
@@ -275,7 +274,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -284,10 +283,10 @@ Questa esercitazione illustra come:
 > * Visualizzare più itinerari sulla mappa
 
 > [!div class="nextstepaction"]
-> [Visualizzare codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
+> [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
 > [!div class="nextstepaction"]
-> [Visualizzare esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+> [Visualizzare l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 L'esercitazione successiva illustra il processo di creazione di un semplice localizzatore di punti vendita con Mappe di Azure.
 

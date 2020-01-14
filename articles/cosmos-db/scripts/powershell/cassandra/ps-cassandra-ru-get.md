@@ -1,5 +1,5 @@
 ---
-title: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) di Azure Cosmos DB per l'API Cassandra
+title: Script di PowerShell per ottenere la velocità effettiva (UR/s) per le risorse dell'API Cassandra di Azure Cosmos DB
 description: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) di Azure Cosmos DB per l'API Cassandra
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: b2544a3c704318839f0c2b956db4d39e83d08d3f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9386b95bbc2a3bfd3e3ea362488fcfcdd0a98299
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178999"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441578"
 ---
 # <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Misurare la velocità effettiva (UR/s) per uno spazio delle chiavi o una tabella per Azure Cosmos DB - API Cassandra
 

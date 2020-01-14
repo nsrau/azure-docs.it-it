@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c16fca06950ea06b80f2e27d6fb845f5d0d282c0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701901"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665120"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati sul perimetro con database di SQL Server
 
@@ -24,7 +24,7 @@ Usare Azure IoT Edge e SQL Server per archiviare i dati ed eseguirne query nei d
 
 Questo articolo contiene istruzioni per la distribuzione di un database di SQL Server a un dispositivo IoT Edge. Funzioni di Azure, in esecuzione sul dispositivo IoT Edge, struttura i dati in ingresso e quindi li invia al database. I passaggi descritti in questo articolo sono applicabili anche ad altri database che operano in contenitori, ad esempio MySQL o PostgreSQL.
 
-In questa esercitazione si apprenderà come: 
+In questa esercitazione verranno illustrate le procedure per: 
 
 > [!div class="checklist"]
 > * Usare Visual Studio Code per creare una funzione di Azure
@@ -34,12 +34,13 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti: 
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
-* Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
+* Un [dispositivo Linux AMD64 che esegue Azure IoT Edge](quickstart-linux.md).
+  * I dispositivi ARM, ad esempio Raspberry Pis, non possono eseguire SQL Server. Se si vuole usare SQL in un dispositivo ARM, è possibile eseguire l'iscrizione per provare il [database SQL Edge di Azure](https://azure.microsoft.com/services/sql-database-edge/) in anteprima. 
 * Un registro contenitori, ad esempio [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
@@ -63,7 +64,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 
 3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
 
-   | Campo | Valore |
+   | Campo | valore |
    | ----- | ----- |
    | Selezionare la cartella | Nel computer di sviluppo scegliere la posizione in cui Visual Studio Code dovrà creare i file della soluzione. |
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione, ad esempio **SqlSolution**, oppure accettare l'impostazione predefinita. |
@@ -208,7 +209,7 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
 
 2. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: Aggiungi modulo IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per aggiungere un nuovo modulo: 
 
-   | Campo | Valore | 
+   | Campo | valore | 
    | ----- | ----- |
    | Select deployment template file (Selezionare il file del modello di distribuzione) | Il riquadro comandi evidenzia il file deployment.template.json nella cartella della soluzione corrente. Selezionare questo file.  |
    | Select module template (Selezionare un modello di modulo) | Selezionare **Module from Azure Marketplace** (Modulo da Azure Marketplace). |

@@ -1,5 +1,5 @@
 ---
-title: Script di Azure PowerShell - Operazioni list e get di Azure Cosmos DB per l'API MongoDB
+title: Script di PowerShell per elencare e ottenere le operazioni nell'API di Azure Cosmos DB per MongoDB
 description: Script di Azure PowerShell - Operazioni list e get di Azure Cosmos DB per l'API MongoDB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 47d2f6a14fadfa75e5db28eb44b7ca3410e6503c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 4b5934e82c14f50ef1884a6c5618f4f98d663e1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441427"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Elencare e ottenere database e grafi per Azure Cosmos DB - API MongoDB
 

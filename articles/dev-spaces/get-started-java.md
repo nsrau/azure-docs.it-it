@@ -5,15 +5,15 @@ author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Java nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fcfbdfb371f50601bf1f58bceab51d4299f2847a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438610"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e Java con Azure Dev Spaces
 
@@ -197,7 +197,7 @@ Premere **F5** per eseguire il debug del codice in Kubernetes.
 Come con il comando `up`, il codice viene sincronizzato con lo spazio di sviluppo e un contenitore viene compilato e distribuito in Kubernetes. In questo caso, ovviamente, il debugger è associato al contenitore remoto.
 
 > [!Tip]
-> La barra di stato di VS Code diventerà arancione, per indicare che il debugger è associato. Viene inoltre visualizzato un URL selezionabile, che è possibile usare per aprire l'applicazione.
+> La barra di stato di VS Code diventerà arancione, per indicare che il debugger è collegato. Viene inoltre visualizzato un URL selezionabile, che è possibile usare per aprire l'applicazione.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -215,7 +215,7 @@ public String greeting()
 }
 ```
 
-Salvare il file e quindi nel **riquadro delle azioni di debug** fare clic sul pulsante **Riavvia**.
+Salvare il file e nel **riquadro delle azioni di debug** fare clic sul pulsante **Riavvia**.
 
 ![](media/common/debug-action-refresh.png)
 

@@ -1,26 +1,17 @@
 ---
-title: "Esercitazione: Creare, eseguire il debug distribuire e monitorare un'applicazione multiservizio in Service Fabric Mesh | Microsoft Docs"
+title: Creare e distribuire un'app multiservizio in Service Fabric Mesh
 description: In questa esercitazione viene creata un'applicazione Azure Service Fabric Mesh multiservizio costituita da un sito Web ASP.NET Core che comunica con un servizio web back-end, ne viene eseguito il debug in locale e viene pubblicata in Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805427"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495198"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Esercitazione: creare, eseguire il debug, distribuire e aggiornare un'applicazione multiservizio in Service Fabric Mesh
 
@@ -50,7 +41,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -62,7 +53,7 @@ Prima di iniziare questa esercitazione:
 
 Eseguire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 
-Nella finestra di dialogo **Nuovo progetto** digitare `mesh` nella casella di **ricerca** visualizzata nella parte superiore. Selezionare il modello **Service Fabric Mesh Application** (Applicazione Service Fabric Mesh). Se il modello non viene visualizzato, verificare di avere installato Service Fabric Mesh SDK e la versione di anteprima degli strumenti di Visual Studio, come descritto in [Set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md) (Configurare l'ambiente di sviluppo).  
+Nella finestra di dialogo **Nuovo progetto** digitare `mesh` nella casella di **ricerca** visualizzata nella parte superiore. Selezionare il modello **Service Fabric Mesh Application** (Applicazione Service Fabric Mesh). Se non viene visualizzato il modello, verificare di avere installato Service Fabric Mesh SDK e la versione di anteprima degli strumenti di Visual Studio, come descritto in [Configurare l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md).  
 
 Nella casella **Nome** digitare `todolistapp` e nella casella **Percorso** impostare il percorso della cartella in cui archiviare i file per il progetto.
 
@@ -90,7 +81,7 @@ Verrà visualizzata la finestra di dialogo Applicazione Web ASP.NET Core. Selezi
 
 Per semplicità, gli elementi attività vengono archiviati in un elenco in memoria. Creare una libreria di classi per gli elementi attività e un elenco che funge da contenitore degli elementi. In Visual Studio, in cui è attualmente caricata la soluzione **todolistapp**, selezionare **File** > **Aggiungi** > **Nuovo progetto**.
 
-Nella finestra di dialogo **Aggiungi nuovo progetto** digitare `C# .net core class` nella **casella di ricerca** visualizzata nella parte superiore. Selezionare il modello **Libreria di classi (.NET Core)**.
+Nella finestra di dialogo **Aggiungi nuovo progetto** digitare `C# .net core class` nella **casella di ricerca** visualizzata nella parte superiore. Selezionare il modello **Libreria di classi (.NET Core)** .
 
 Nella casella **Nome** digitare `Model`. Fare clic su **OK** per creare la libreria di classi.
 
@@ -362,7 +353,8 @@ In **Esplora soluzioni** passare al progetto **ToDoService** e aprire **Risorse 
 
 ![Figura 1: file service.yaml di ToDoService](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* Il nome del servizio `ToDoService` si trova in `services:`. Vedere (1) nella figura precedente.
+ Il nome del servizio `ToDoService` si trova in `services:`. Vedere (1) nella figura precedente.
+
 * La porta `80` si trova in `endpoints:`. Vedere (2) nella figura precedente. Il numero di porta del progetto in uso sarà probabilmente diverso.
 
 A questo punto occorre definire le variabili di ambiente che rappresentano il nome del servizio e il numero di porta nel progetto WebFrontEnd, per consentire al progetto di chiamare il servizio back-end.

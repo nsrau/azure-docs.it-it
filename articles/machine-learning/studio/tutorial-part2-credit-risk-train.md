@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione 2: Eseguire il training di modelli di rischio di credito'
 titleSuffix: ML Studio (classic) - Azure
-description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito nella versione classica di Azure Machine Learning Studio. Questa esercitazione è la seconda di una serie in tre parti. Illustra come eseguire il training e la valutazione dei modelli.
+description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio (versione classica). Questa esercitazione è la seconda di una serie in tre parti. Illustra come eseguire il training e la valutazione dei modelli.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio
 author: sdgilley
 ms.author: sgilley
@@ -10,20 +10,20 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: b3f0ebe2cad68759e7feeb7a7cc3dadbbd03ee7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427480"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure Machine Learning Studio (versione classica)
 
-In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice nella versione classica di Machine Learning Studio.  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **seconda di una serie in tre parti**.
+In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio (versione classica).  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **seconda di una serie in tre parti**.
 
 Si supponga di dover prevedere il rischio di credito di un soggetto in base alle informazioni fornite in una richiesta di credito.  
 
-La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si userà la versione classica di Azure Machine Learning Studio e un servizio Web di Machine Learning.  
+La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si useranno Azure Machine Learning Studio (versione classica) e un servizio Web di Machine Learning.  
 
 In questa esercitazione in tre parti si inizia con dati sul rischio di credito disponibili pubblicamente.  Verrà quindi sviluppato e sottoposto a training un modello predittivo.  Il modello verrà infine distribuito come servizio Web.
 
@@ -38,13 +38,13 @@ In questa parte dell'esercitazione verranno eseguite queste operazioni:
 
 Nella [terza parte dell'esercitazione](tutorial-part3-credit-risk-deploy.md) si distribuirà il modello come servizio Web.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare la [prima parte dell'esercitazione](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Eseguire il training di più modelli
 
-Uno dei vantaggi che offre la versione classica di Azure Machine Learning Studio per la creazione di modelli di Machine Learning è la possibilità di valutare più tipi di modelli contemporaneamente in un singolo esperimento e confrontare i risultati. Questo tipo di esperimento consente di trovare la soluzione migliore per il problema che si desidera risolvere.
+Uno dei vantaggi che offre Azure Machine Learning Studio (versione classica) per la creazione di modelli di Machine Learning è la possibilità di valutare più tipi di modelli contemporaneamente in un singolo esperimento e confrontare i risultati. Questo tipo di esperimento consente di trovare la soluzione migliore per il problema che si desidera risolvere.
 
 Nell'esperimento sviluppato in questa esercitazione verranno creati due tipi diversi di modello, quindi ne verranno confrontati i punteggi risultanti per decidere quale algoritmo usare nell'esperimento finale.  
 
@@ -86,7 +86,7 @@ A questo punto è necessario indicare al modulo [Train Model][train-model] (Trai
 
     ![Selezionare la colonna Rischio di credito per il modulo "Train Model" (Training modello)](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
-1. Fare clic sul segno di spunta accanto a **OK**.
+1. Fare clic sul segno di spunta **OK**.
 
 ### <a name="two-class-support-vector-machine"></a>Two-Class Support Vector Machine
 

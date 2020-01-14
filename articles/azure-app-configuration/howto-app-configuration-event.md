@@ -1,5 +1,6 @@
 ---
-title: Esercitazione per impostare Configurazione app di Azure in modo da inviare eventi a un endpoint Web | Microsoft Docs
+title: 'Esercitazione: Usare Configurazione app di Azure per inviare gli eventi a un endpoint Web'
+titleSuffix: Azure App Configuration
 description: Questa esercitazione descrive come impostare le sottoscrizioni di eventi di Configurazione app di Azure per inviare eventi di modifica delle coppie chiave-valore a un endpoint Web.
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,18 +14,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4943a64f72191981fc1b655c431cab00f180e503
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185183"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433700"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Guida introduttiva: Instradare gli eventi di Configurazione app di Azure a un endpoint Web con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Avvio rapido: Instradare gli eventi di Configurazione app di Azure a un endpoint Web con l'interfaccia della riga di comando di Azure
 
 Questo argomento di avvio rapido descrive come configurare le sottoscrizioni di eventi di Configurazione app di Azure per inviare eventi di modifica delle coppie chiave-valore a un endpoint Web. Gli utenti di Configurazione app di Azure possono sottoscrivere eventi generati ogni volta che le coppie chiave-valore vengono modificate. Questi eventi possono attivare webhook, Funzioni di Azure, code di archiviazione di Azure o qualsiasi altro gestore di eventi supportato da Griglia di eventi di Azure. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/). È anche possibile usare Azure Cloud Shell.
 

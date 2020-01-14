@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389984"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457627"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Elenco di controllo di prestazioni e scalabilità di Archiviazione tabelle
 
@@ -25,10 +25,11 @@ Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la f
 
 Questo articolo organizza procedure consolidate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo dell'applicazione di Archiviazione tabelle.
 
-| Operazione completata | Categoria | Considerazioni sulla progettazione |
+| Operazione completata | Category | Considerazioni sulla progettazione |
 | --- | --- | --- |
 | &nbsp; |Obiettivi di scalabilità |[È possibile progettare l'applicazione in modo da non eccedere il numero massimo di account di archiviazione?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Obiettivi di scalabilità |[Si sta evitando il raggiungimento dei limiti di capacità e transazioni?](#capacity-and-transaction-targets) |
+| &nbsp; |Obiettivi di scalabilità |[Si stanno raggiungendo gli obiettivi di scalabilità per le entità al secondo?](#targets-for-data-operations) |
 | &nbsp; |Rete |[I dispositivi sul lato client hanno una larghezza di banda sufficientemente alta e una latenza sufficientemente bassa per raggiungere le prestazioni richieste?](#throughput) |
 | &nbsp; |Rete |[I dispositivi sul lato client hanno un collegamento di qualità elevata?](#link-quality) |
 | &nbsp; |Rete |[L'applicazione client si trova nella stessa area dell'account di archiviazione?](#location) |
@@ -41,7 +42,6 @@ Questo articolo organizza procedure consolidate per le prestazioni in un elenco 
 | &nbsp; |Strumenti |[Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Tentativi |[Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#timeout-and-server-busy-errors) |
 | &nbsp; |Tentativi |[L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#non-retryable-errors) |
-| &nbsp; |Obiettivi di scalabilità |[Si stanno raggiungendo gli obiettivi di scalabilità per le entità al secondo?](#table-specific-scalability-targets) |
 | &nbsp; |Configurazione |[Si sta usando JSON per le richieste della tabella?](#use-json) |
 | &nbsp; |Configurazione |[L'algoritmo Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#disable-nagle) |
 | &nbsp; |Tabelle e partizioni |[I dati sono stati partizionati correttamente?](#schema) |
@@ -61,7 +61,7 @@ Questo articolo organizza procedure consolidate per le prestazioni in un elenco 
 
 Se l'applicazione raggiunge o supera uno o più obiettivi di scalabilità, può verificarsi un aumento delle latenze o delle limitazioni della transazione. Quando Archiviazione di Azure limita l'applicazione, il servizio inizia a restituire i codici di errore "503 Server occupato" o "500 Timeout operazione". Evitare questi errori rispettando i limiti degli obiettivi di scalabilità è una parte importante del miglioramento delle prestazioni dell'applicazione.
 
-Per altre informazioni sugli obiettivi di scalabilità per il servizio tabelle, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure per gli account di archiviazione](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
+Per altre informazioni sugli obiettivi di scalabilità per il servizio tabelle, vedere [Obiettivi di scalabilità e prestazioni per l'archiviazione tabelle](scalability-targets.md).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Numero massimo di account di archiviazione
 
@@ -77,9 +77,17 @@ Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo 
     La compressione dei dati, pur consentendo di risparmiare larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi sulle prestazioni. Valutare gli effetti sulle prestazioni dei requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati sul lato client. Tenere presente che l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati usando gli strumenti standard.
 - Se l'applicazione sta raggiungendo gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi. È consigliabile provare a evitare di raggiungere gli obiettivi di scalabilità implementando i consigli descritti in questo articolo. Tuttavia, l'uso di un backoff esponenziale per i tentativi impedisce all'applicazione di ritentare rapidamente, il che potrebbe peggiorare la limitazione delle richieste. Per altre informazioni, vedere la sezione intitolata [Errori di timeout e server occupato](#timeout-and-server-busy-errors).
 
-## <a name="table-specific-scalability-targets"></a>Obiettivi di scalabilità specifici per tabelle
+### <a name="targets-for-data-operations"></a>Obiettivi per le operazioni sui dati
 
-Oltre ai limiti della larghezza di banda dell'intero account di archiviazione, le tabelle hanno il seguente limite di scalabilità. Il sistema bilancia il carico man mano che il traffico aumenta, ma se si verificano incrementi improvvisi del traffico, il volume della velocità effettiva potrebbe non essere raggiunto immediatamente. Se il modello presenta degli incrementi improvvisi è probabile che vengano visualizzai messaggi di limitazione e/o timeout durante l'incremento perché il servizio di archiviazione bilancia automaticamente il carico della tabella. Un incremento lento in genere produce risultati migliori perché lascia al sistema il tempo di bilanciare il carico in modo corretto.
+Archiviazione di Azure esegue il bilanciamento del carico man mano che aumenta il traffico verso l'account di archiviazione, ma se il traffico presenta picchi improvvisi potrebbe non essere possibile ottenere immediatamente questo volume di velocità effettiva. Durante i picchi è probabile che si verifichino limitazioni della larghezza di banda della rete e/o timeout, in quanto Archiviazione di Azure esegue automaticamente il bilanciamento del carico della tabella. Un incremento lento in genere produce risultati migliori perché lascia al sistema il tempo di bilanciare il carico in modo corretto.
+
+#### <a name="entities-per-second-storage-account"></a>Entità al secondo (account di archiviazione)
+
+Il limite di scalabilità per l'accesso alle tabelle è di 20.000 entità (1 KB ciascuna) al secondo per un account. In generale ogni entità inserita, aggiornata, eliminata o analizzata viene presa in considerazione ai fini del calcolo per l'obiettivo. Quindi, un inserimento batch che contiene 100 entità conta come 100 entità. Una query che analizza 1000 entità e ne restituisce 5 conta come 1000 entità.
+
+#### <a name="entities-per-second-partition"></a>Entità al secondo (partizione)
+
+In una singola partizione l'obiettivo di scalabilità per l'accesso alle tabelle è di 2.000 entità (1 KB ciascuna) al secondo, usando lo stesso conteggio descritto nella sezione precedente.
 
 ## <a name="networking"></a>Rete
 

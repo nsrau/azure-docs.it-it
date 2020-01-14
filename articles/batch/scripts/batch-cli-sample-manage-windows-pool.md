@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Pool Windows in Batch | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare e gestire un pool Windows in Batch
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Pool Windows in Batch
+description: Questo script mostra alcuni dei comandi disponibili nell'interfaccia della riga di comando di Azure per creare e gestire un pool di nodi di calcolo Windows in Azure Batch.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 12/12/2019
 ms.author: lahugh
-ms.openlocfilehash: 429f0545bd909faf86cba39c16f07392115a34b7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 662dda0c72cd50a84751ef92236e4e94b45de450
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390132"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>Esempio di interfaccia della riga di comando: Creare e gestire un pool Windows in Azure Batch
 

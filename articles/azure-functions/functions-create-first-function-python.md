@@ -4,14 +4,14 @@ description: Informazioni su come creare in Azure la prima funzione Python usand
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 18ae1ed000ffe61ce1ea9ff5c18aae98a0ffae65
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433207"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Guida introduttiva: Creare una funzione Python attivata da HTTP in Azure
+# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Avvio rapido: Creare una funzione Python attivata da HTTP in Azure
 
 Questo articolo illustra come usare gli strumenti da riga di comando per creare un progetto Python che viene eseguito in Funzioni di Azure. Viene creata anche una funzione attivata da una richiesta HTTP. Dopo l'esecuzione in locale, il progetto viene infine pubblicato per essere eseguito come [funzione serverless](functions-scale.md#consumption-plan) in Azure. 
 
@@ -19,7 +19,7 @@ Questo articolo è il primo di due guide di avvio rapido di Python per Funzioni 
 
 È inoltre disponibile una [versione basata su Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01) di questo articolo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, è necessario:
 
@@ -124,7 +124,7 @@ Prima di poter distribuire l'app, è necessario creare alcune risorse di Azure.
 
 Un'app per le funzioni offre un ambiente per l'esecuzione del codice delle funzioni. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. 
 
-Eseguire il comando indicato di seguito. Sostituire `<APP_NAME>` con un nome univoco per l'app per le funzioni. Sostituire `<STORAGE_NAME>` con un nome per l'account di archiviazione. `<APP_NAME>` è anche il dominio DNS predefinito per l'app per le funzioni. Questo nome deve essere univoco in tutte le app di Azure.
+Eseguire il comando seguente. Sostituire `<APP_NAME>` con un nome univoco per l'app per le funzioni. Sostituire `<STORAGE_NAME>` con un nome per l'account di archiviazione. `<APP_NAME>` è anche il dominio DNS predefinito per l'app per le funzioni. Questo nome deve essere univoco in tutte le app di Azure.
 
 > [!NOTE]
 > Non è possibile ospitare app Windows e Linux nello stesso gruppo di risorse. Se si dispone d un gruppo di risorse esistente denominato `myResourceGroup` con un'app per le funzioni Windows o un'app Web, sarà necessario usare un gruppo di risorse diverso.
@@ -144,10 +144,10 @@ A questo punto si è pronti per pubblicare il progetto di funzioni locale nell'a
 Dopo aver creato l'app per le funzioni in Azure, è possibile usare il comando [func azure functionapp publish](functions-run-local.md#project-file-deployment) di Azure Functions Core Tools per implementare il codice del progetto in Azure. In questo esempio sostituire `<APP_NAME>` con il nome dell'app.
 
 ```console
-func azure functionapp publish <APP_NAME> --build remote
+func azure functionapp publish <APP_NAME>
 ```
 
-L'opzione `--build remote` crea il progetto Python in remoto in Azure dai file del pacchetto di distribuzione (opzione consigliata). 
+Il progetto Python viene creato in remoto in Azure dai file del pacchetto di distribuzione. 
 
 L'output sarà simile al messaggio seguente, che è stato troncato per migliorarne la leggibilità:
 

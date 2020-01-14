@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 996bc35820d35e031056207adeb707a7ea98a763
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c29aadfde6c0ab01b2e6ed2c9e4bcc59572bef57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424017"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
 Questo avvio rapido contiene un esempio di codice che illustra come un'applicazione UWP (Universal Windows Platform) può consentire l'accesso a utenti con account personali, aziendali o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
 
@@ -51,13 +51,12 @@ Questo avvio rapido contiene un esempio di codice che illustra come un'applicazi
 >      - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
 >      - Selezionare **Registra** per creare l'applicazione.
 > 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
-> 1. Espandere la sezione **Desktop e dispositivi**.  Se **Desktop e dispositivi** non è visibile, fare prima clic sul banner in alto per visualizzare l'anteprima dell'esperienza di autenticazione.
-> 1. Nella sezione **URI di reindirizzamento** selezionare **Aggiungi un URI**.  Digitare **urn:ietf:wg:oauth:2.0:oob**.
+> 1. Nella sezione **URI di reindirizzamento** | **URI di reindirizzamento suggeriti per client pubblici (dispositivi mobili, desktop)** selezionare **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Selezionare **Salva**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Passaggio 1: Configurare l'applicazione
-> Per il funzionamento dell'esempio di codice di questa guida introduttiva è necessario aggiungere un URI di reindirizzamento come **urn:ietf:wg:oauth:2.0:oob**.
+> Per il funzionamento dell'esempio di codice di questa guida di avvio rapido è necessario aggiungere un URI di reindirizzamento come **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >
@@ -96,7 +95,7 @@ Se si vuole provare l'avvio rapido sul computer Windows:
    > Osservare che l'impostazione relativa al dispositivo di destinazione passa da *Dispositivo* a *Computer locale*
 1. Selezionare Debug | **Avvia senza eseguire debug**
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 Questa sezione contiene altre informazioni sulla guida introduttiva.
 

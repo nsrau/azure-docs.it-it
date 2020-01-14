@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: creare un account API Cassandra con un'applicazione Java - Azure Cosmos DB"
+title: "Esercitazione: Creare un'app Java per creare l'account dell'API Cassandra di Azure Cosmos DB"
 description: Questa esercitazione mostra come creare un account API Cassandra e come aggiungere un database (noto anche come keyspace) e una tabella a tale account usando un’applicazione Java.
 author: kanshiG
 ms.author: govindk
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b0103f7b827de77c522f78000c8d28683ac85f4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034614"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441895"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Esercitazione: creare un account API Cassandra di Azure Cosmos DB con un'applicazione Java per archiviare dati chiave/valore
 
@@ -28,9 +28,9 @@ Questa esercitazione illustra le attività seguenti:
 > * Ottenere la stringa di connessione dell’account
 > * Creare il progetto e le dipendenze Maven
 > * Aggiungere un database e una tabella
-> * Esecuzione dell'app
+> * Eseguire l'app
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare. 
 
@@ -47,7 +47,7 @@ Questa esercitazione illustra le attività seguenti:
 
 3. Nel riquadro**Nuovo account** immettere le impostazioni per il nuovo account Azure Cosmos. 
 
-   |Impostazione   |Valore consigliato  |DESCRIZIONE  |
+   |Impostazione   |Valore consigliato  |Descrizione  |
    |---------|---------|---------|
    |ID   |   Immettere un nome univoco    | Immettere un nome univoco per identificare l'account Azure Cosmos. <br/><br/>Dal momento che cassandra.cosmosdb.azure.azure.com viene accodato all'ID specificato per creare il punto di contatto, usare un ID univoco ma facilmente identificabile.         |
    |API    |  Cassandra   |  L'API determina il tipo di account da creare. <br/> Selezionare **Cassandra** perché in questo articolo si creerà un database con colonne ampie su cui è possibile eseguire query usando la sintassi CQL (Cassandra Query Language).  |
@@ -204,7 +204,7 @@ Questa sezione descrive come aggiungere un database (keyspace) e una tabella con
    } 
    ```
  
-## <a name="run-the-app"></a>Esecuzione dell'app 
+## <a name="run-the-app"></a>Eseguire l'app 
 
 1. Aprire un prompt dei comandi o una finestra del terminale. Incollare il codice seguente. 
 

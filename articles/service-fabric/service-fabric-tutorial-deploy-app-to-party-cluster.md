@@ -1,32 +1,23 @@
 ---
-title: Distribuire un'app Service Fabric in un cluster in Azure | Microsoft Docs
-description: Informazioni su come distribuire un'applicazione in un cluster da Visual Studio.
-services: service-fabric
-documentationcenter: .net
+title: Distribuire un'app Service Fabric in un cluster in Azure
+description: Informazioni su come distribuire un'applicazione esistente in un cluster di Azure Service Fabric appena creato da Visual Studio.
 author: athinanthny
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213207"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646008"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure
 
 Questa è la seconda di una serie di esercitazioni. Illustra come distribuire un'applicazione Azure Service Fabric in un nuovo cluster in Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare un cluster.
 > * Distribuire un'applicazione in un cluster remoto con Visual Studio.
@@ -39,7 +30,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 

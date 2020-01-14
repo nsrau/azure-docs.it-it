@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 49b3b5890fe38f6c635e7ba420a1adf5d778de0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438981"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -25,7 +25,7 @@ ms.locfileid: "74703926"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Di seguito sono elencati i passaggi da eseguire nell'ambito di questa procedura 
 4. Creare una data factory denominata **DataFactoryUsingVS**. Distribuire la data factory e tutte le entità di Data Factory, ovvero i servizi collegati, le tabelle e la pipeline.
 5. Dopo la pubblicazione, si useranno i pannelli del portale e l'app di monitoraggio e gestione di Azure per monitorare la pipeline. 
   
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -92,7 +92,7 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
 1. Fare clic con il pulsante destro del mouse su **Servizi collegati** in Esplora soluzioni, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.      
 2. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare **Servizio collegato Archiviazione di Azure** nell'elenco e fare clic su **Aggiungi**.
     ![Servizio collegato Archiviazione di Azure](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Sostituire `<accountname>` e `<accountkey>` con il nome e la chiave dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere le informazioni su come visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione in [Gestire l'account di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+3. Sostituire `<accountname>` e `<accountkey>` con il nome e la chiave dell'account di archiviazione di Azure. Per informazioni su come recuperare la chiave di accesso alle risorse di archiviazione, vedere [Gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
     ![Servizio collegato Archiviazione di Azure](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Salvare il file **AzureStorageLinkedService1.json** .
 
@@ -119,7 +119,7 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    Proprietà | DESCRIZIONE
+    Proprietà | Descrizione
     -------- | ----------- 
     clusterSize | Specifica le dimensioni del cluster Hadoop HDInsight.
     timeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
@@ -168,12 +168,12 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    Proprietà | DESCRIZIONE |
+    Proprietà | Descrizione |
     -------- | ----------- |
-    Tipo |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB di Azure.
+    type |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB di Azure.
     linkedServiceName | Fa riferimento all'oggetto AzureStorageLinkedService1 creato in precedenza.
     fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log.
-    Tipo | I file di log sono in formato testo, quindi viene usato TextFormat. |
+    type | I file di log sono in formato testo, quindi viene usato TextFormat. |
     columnDelimiter | Le colonne nei file di log sono delimitate dalla virgola (`,`).
     frequency/interval | La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile.
     external | Questa proprietà è impostata su true se i dati di input per l'attività non vengono generati dalla pipeline. Viene specificata solo per i set di dati di input. Per il set di dati di input della prima attività, impostare sempre questa proprietà su true.
@@ -303,7 +303,7 @@ In questo passaggio si pubblicano le entità della data factory (servizi collega
     ![Pubblicazione: impostazioni per una nuova data factory](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
    1. Selezionare l’opzione **Crea nuova data factory** .
-   2. Immettere un **nome** univoco per la data factory, Ad esempio:  **DataFactoryUsingVS09152016**. Il nome deve essere univoco a livello globale.
+   2. Immettere un **nome** univoco per la data factory, Ad esempio: **DataFactoryUsingVS09152016**. Il nome deve essere univoco a livello globale.
    3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione** . 
         > [!IMPORTANT]
         > Se non viene visualizzata alcuna sottoscrizione, verificare di aver eseguito l'accesso con un account amministratore o coamministratore della sottoscrizione.
@@ -563,7 +563,7 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 ## <a name="see-also"></a>Vedere anche
 
-| Argomento | DESCRIZIONE |
+| Argomento | Descrizione |
 |:--- |:--- |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo contiene informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro basati sui dati per lo scenario o l'azienda. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |

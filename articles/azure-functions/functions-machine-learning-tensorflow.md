@@ -1,17 +1,17 @@
 ---
-title: Usare Python e TensorFlow in Funzioni di Azure per eseguire inferenze di Machine Learning
+title: Usare Python e TensorFlow per Machine Learning in Azure
 description: Questa esercitazione illustra come applicare modelli di Machine Learning TensorFlow in Funzioni di Azure
 author: anthonychu
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8122a828f19c3daf6c23a866a99a214ee2c4427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230497"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409765"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Esercitazione: Applicare modelli di Machine Learning in Funzioni di Azure con Python e TensorFlow
 
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 Per creare funzioni di Azure in Python, è necessario installare alcuni strumenti.
 

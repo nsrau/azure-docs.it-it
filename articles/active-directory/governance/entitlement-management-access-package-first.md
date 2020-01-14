@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD - Azure Active Directory
+title: Esercitazione - Creare il pacchetto di accesso - Gestione entitlement di Azure AD
 description: Esercitazione dettagliata per la creazione del primo pacchetto di accesso in Gestione entitlement di Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422661"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Esercitazione: Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD
 
@@ -31,7 +31,7 @@ In questa esercitazione l'utente lavora come amministratore IT presso Woodgrove 
 
 ![Panoramica dello scenario](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un pacchetto di accesso con un gruppo come risorsa
@@ -42,7 +42,7 @@ Per una dimostrazione dettagliata del processo di distribuzione di Gestione enti
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare Gestione entitlement di Azure AD è necessario disporre di una delle licenze seguenti:
 
@@ -65,7 +65,7 @@ Una directory di risorse contiene una o più risorse da condividere. In questo p
 
 1. Creare o configurare i due utenti seguenti. È possibile usare questi nomi o nomi diversi. **Admin1** può essere l'utente con cui è stato eseguito l'accesso.
 
-    | NOME | Ruolo directory |
+    | Nome | Ruolo directory |
     | --- | --- |
     | **Admin1** | Amministratore globale<br/>-oppure-<br/>Amministratore utenti |
     | **Requestor1** | Utente |

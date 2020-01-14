@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091951"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498040"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Spostamento delle VM di Azure in un'altra area di Azure
 
@@ -81,7 +81,7 @@ In base alle [architetture](#typical-architectures-for-a-multi-tier-deployment) 
 
      ![Distribuzione di macchine virtuali a istanza singola tra i livelli](media/move-vm-overview/single-zone.png)
 
-* **VM di ogni livello distribuite in set di disponibilità**: È possibile configurare le macchine virtuali di un set di disponibilità in zone di disponibilità separate quando si abilita la replica della macchina virtuale usando Azure Site Recovery. Una volta completato lo spostamento, il contratto di servizio per la disponibilità sarà del 99,9%.
+* **VM di ogni livello distribuite in set di disponibilità**: È possibile configurare le macchine virtuali di un set di disponibilità in zone di disponibilità separate quando si abilita la replica della macchina virtuale usando Azure Site Recovery. Una volta completato lo spostamento, il contratto di servizio per la disponibilità sarà del 99,99%.
 
      ![Distribuzione di macchine virtuali tra set di disponibilità e zone di disponibilità](media/move-vm-overview/aset-azone.png)
 

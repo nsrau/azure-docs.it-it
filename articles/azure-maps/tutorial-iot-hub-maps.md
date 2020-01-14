@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432802"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Esercitazione: Implementare l'analisi spaziale di IoT con Mappe di Azure
 
@@ -77,7 +77,7 @@ La figura seguente rappresenta l'area del recinto virtuale evidenziata in blu e 
   ![Percorso recinto virtuale](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -104,7 +104,8 @@ Per completare i passaggi di questa esercitazione, è necessario prima creare un
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
 
-Per implementare la logica di business basata sull'analisi spaziale di Mappe di Azure è necessario creare un account Mappe di Azure nel gruppo di risorse creato. Seguire le istruzioni in [Gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
+Per implementare la logica di business basata sull'analisi spaziale di Mappe di Azure è necessario creare un account Mappe di Azure nel gruppo di risorse creato. Seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+
 
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
@@ -167,7 +168,7 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
     
     Il valore "geojson" del parametro `dataFormat` nel percorso URL rappresenta il formato dei dati caricati.
 
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione primaria di Mappe di Azure.
+3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore di subscription-key con la chiave di Mappe di Azure.
    
     ![Parametri chiave-valore di Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

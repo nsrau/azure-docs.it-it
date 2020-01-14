@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 06/30/2019
 ms.author: banders
-ms.openlocfilehash: 07f8d897d55868923ecca03797cf18a5346d667c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 20eacdb1ab8f7ebdf118646cd548d7b60b2d2ebc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225803"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644346"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement
 
@@ -27,7 +27,7 @@ I costi di prenotazione e i dati di utilizzo sono disponibili per gli utenti con
 - Effettuare il chargeback per l'utilizzo delle prenotazioni
 - Calcolare il risparmio delle prenotazioni
 - Ottenere i dati di sottoutilizzo delle prenotazioni
-- Ammortizzare i costi di prenotazione
+- Ammortizzare i costi delle prenotazioni
 
 Gli addebiti per Marketplace sono consolidati nei dati di utilizzo. Vengono visualizzati gli addebiti per l'utilizzo proprietario, l'utilizzo del Marketplace e gli acquisti da una singola origine dati.
 
@@ -41,7 +41,7 @@ I dati sono divisi in due set di dati separati: _Costo effettivo_ e _Costo ammor
 
 Ecco un confronto tra i due set di dati:
 
-| Dati | Set di dati Costo effettivo | Set di dati Costo ammortizzato |
+| data | Set di dati Costo effettivo | Set di dati Costo ammortizzato |
 | --- | --- | --- |
 | Acquisti di prenotazioni | Disponibili in questa visualizzazione.<br><br>  Per ottenere questi dati, filtrare per ChargeType = &quot;Purchase&quot;. <br><br> Fare riferimento a ReservationID o ReservationName per sapere a quale prenotazione è relativo l'addebito.  | Non applicabili a questa visualizzazione. <br><br> I costi di acquisto non vengono forniti nei dati ammortizzati. |
 | EffectivePrice | Il valore è zero per l'utilizzo che ottiene lo sconto sulla prenotazione. | Il valore è il costo orario ripartito in modo proporzionale della prenotazione per l'utilizzo con lo sconto per la prenotazione. |
@@ -65,9 +65,9 @@ Sono state modificate altre informazioni disponibili nei dati di utilizzo di Azu
 
 Per ottenere i nuovi dati, chiamare l'[API Dettagli utilizzo](/rest/api/consumption/usagedetails/list). Per informazioni dettagliate sulla terminologia, vedere [Comprendere i termini di utilizzo nel file su utilizzo e costi di Azure](billing-understand-your-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto Enterprise Agreement che usa [EA Portal](https://ea.azure.com). Anche gli amministratori dell'organizzazione in sola lettura possono ottenere i dati.
 
-I dati non sono disponibili in [API di creazione di report per i clienti Enterprise - Dettagli di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Tenere presente che questi dati non sono disponibili in [API di creazione di report per i clienti Enterprise - Dettagli di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Ecco un esempio di chiamata all'API:
+Ecco una chiamata di esempio all'API Dettagli sull'utilizzo:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ Le informazioni riportate nella tabella seguente sulla metrica e sul filtro poss
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV dei dati di utilizzo con i nuovi dati
 
-Gli amministratori EA possono scaricare il file CSV contenente i nuovi dati di utilizzo dal portale di Azure. Questi dati n sono disponibili in [EA Portal](https://ea.azure.com).
+Gli amministratori EA possono scaricare il file CSV contenente i nuovi dati di utilizzo dal portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
 
 Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -113,7 +113,7 @@ I costi di acquisto della prenotazione sono disponibili nei dati di costo effett
 
 Ottenere i dati di costo ammortizzato e filtrare per _ChargeType_ _= UnusedReservation_. Si ottiene la quantità e il costo giornalieri della prenotazione non utilizzata. È possibile filtrare i dati per una prenotazione o un ordine di prenotazione usando rispettivamente i campi _ReservationId_ e _ProductOrderId_. Se una prenotazione è stata utilizzata al 100%, il record ha una quantità pari a 0.
 
-### <a name="amortize-reservation-costs"></a>Ammortizzare i costi di prenotazione
+### <a name="amortize-reservation-costs"></a>Ammortizzare i costi delle prenotazioni
 
 Ottenere i dati di costo ammortizzato e filtrare per un ordine di prenotazione usando _ProductOrderID_ per ottenere i costi ammortizzati giornalieri per una prenotazione.
 

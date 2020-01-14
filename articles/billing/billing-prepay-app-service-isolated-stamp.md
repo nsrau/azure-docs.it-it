@@ -1,5 +1,5 @@
 ---
-title: Risparmiare sui costi della tariffa stamp per il servizio app di Azure per ambiente isolato con la capacità riservata
+title: Risparmiare sui costi del Servizio app di Azure con la capacità riservata
 description: Informazioni su come risparmiare sui costi della tariffa stamp per il servizio app di Azure per ambiente isolato con la capacità riservata.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 5aafc2288b9e6b7ef217ec386211af7c3739c08b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5e2ae705b271f55f8c8888f464c9e73863002c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389129"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Risparmiare sui costi della tariffa stamp per il servizio app di Azure per ambiente isolato con la capacità riservata
 
@@ -51,7 +51,7 @@ Acquistare prenotazioni dello stamp di Windows se nello stamp sono presenti uno 
     - Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto.
     - Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.
 1. Usare l'elenco **Ambito** per scegliere un ambito della sottoscrizione.
-    - **Gruppo di risorse singolo**: lo sconto della prenotazione viene applicato solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
+    - **Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
     - **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
     - **Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise Agreement, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.
 1. In **Area** selezionare un'area di Azure coperta dalla capacità riservata e aggiungere la prenotazione al carrello.
@@ -64,7 +64,7 @@ Dopo l'acquisto, passare a [Prenotazioni](https://portal.azure.com/#blade/Micros
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Cambi self-service e rimborsi per le prenotazioni di Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
+È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="discount-application-shown-in-usage-data"></a>Applicazione dello sconto visualizzata nei dati di utilizzo
 

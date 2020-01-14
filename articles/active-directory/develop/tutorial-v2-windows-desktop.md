@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423351"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chiamare l'API Microsoft Graph da un'app Windows Desktop
 
@@ -50,7 +50,7 @@ La memorizzazione nella cache e l'aggiornamento dei token di accesso vengono ges
 
 Questa guida usa i pacchetti NuGet seguenti:
 
-|Libreria|DESCRIZIONE|
+|Libreria|Descrizione|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL.NET)|
 
@@ -94,7 +94,7 @@ Per creare l'applicazione, eseguire le operazioni seguenti:
 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 
-### <a name="option-2-advanced-mode"></a>Opzione 2: Modalità Avanzata
+### <a name="option-2-advanced-mode"></a>Opzione 2: modalità Avanzata
 
 Per registrare l'applicazione e aggiungere le relative informazioni di registrazione alla soluzione, seguire questa procedura:
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
@@ -107,8 +107,8 @@ Per registrare l'applicazione e aggiungere le relative informazioni di registraz
 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
    1. Nella sezione **URI di reindirizzamento**, nell'elenco URI di reindirizzamento:
    1. Nella colonna **TIPO** selezionare **Client pubblico (per dispositivi mobili e desktop)** .
-   1. Immettere `urn:ietf:wg:oauth:2.0:oob` nella colonna **URI DI REINDIRIZZAMENTO**
-1. Selezionare **Salva**.
+   1. Immettere `https://login.microsoftonline.com/common/oauth2/nativeclient` nella colonna **URI DI REINDIRIZZAMENTO**
+1. Selezionare **Registra**.
 1. Passare a Visual Studio, aprire il file *App.xaml.cs* e quindi sostituire `Enter_the_Application_Id_here` nel frammento di codice seguente con l'ID applicazione appena registrato e copiato.
 
     ```csharp
@@ -256,7 +256,7 @@ In questa sezione si usa MSAL per ottenere un token per l'API Microsoft Graph.
     ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Altre informazioni
+### <a name="more-information"></a>Ulteriori informazioni
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
@@ -371,7 +371,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Altre informazioni
+### <a name="more-information"></a>Ulteriori informazioni
 
 Oltre al token di accesso che viene usato per chiamare l'API Microsoft Graph, dopo l'accesso dell'utente, MSAL ottiene anche un token ID. Questo token contiene un piccolo subset di informazioni relative agli utenti. Il metodo `DisplayBasicTokenInfo` visualizza le informazioni di base contenute nel token. Ad esempio, visualizza l'ID e il nome visualizzato dell'utente, la data di scadenza del token e la stringa che rappresenta il token di accesso. Premendo più volte il pulsante *Call Microsoft Graph API* (Chiama API Microsoft Graph), è possibile vedere che lo stesso token è stato usato per più richieste successive. Se MSAL decide che è il momento di rinnovare il token, è possibile anche vedere la data di scadenza estesa.
 <!--end-collapse-->

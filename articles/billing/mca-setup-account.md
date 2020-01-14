@@ -1,5 +1,5 @@
 ---
-title: Configurare l'account di fatturazione per un Contratto del cliente Microsoft - Azure
+title: Configurare la fatturazione per il Contratto del cliente Microsoft - Azure
 description: Informazioni su come configurare l'account di fatturazione per un Contratto del cliente Microsoft.
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388347"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurare l'account di fatturazione per un Contratto del cliente Microsoft
 
@@ -85,7 +85,7 @@ Il nuovo account di fatturazione semplifica la fatturazione per l'organizzazione
 
 1. Si usa l'account di fatturazione per gestire la fatturazione per il Contratto del cliente Microsoft. Gli amministratori dell'organizzazione diventano proprietari dell'account di fatturazione. Per saperne di più sull'account di fatturazione, vedere le [informazioni sull'account di fatturazione](billing-mca-overview.md#your-billing-account).
 2. Si usa il profilo di fatturazione per gestire la fatturazione per l'organizzazione, in modo analogo alla registrazione Enterprise Agreement. Gli amministratori dell'organizzazione diventano proprietari del profilo di fatturazione. Per saperne di più sui profili di fatturazione, vedere le [informazioni sui profili di fatturazione](billing-mca-overview.md#billing-profiles).
-3. Si usa una sezione della fattura per organizzare i costi in base alle esigenze, in modo analogo ai reparti nella registrazione Enterprise Agreement. Il reparto viene convertito nelle sezioni della fattura e gli amministratori del reparto diventano proprietari delle rispettive sezioni della fattura. Per saperne di più sulle sezioni della fattura, vedere le [informazioni sulle sezioni della fattura](billing-mca-overview.md#invoice-sections).
+3. Si usa una sezione della fattura per organizzare i costi in base alle esigenze, in modo analogo ai reparti nella registrazione Enterprise Agreement. Il reparto viene convertito nelle sezioni della fattura e gli amministratori del reparto diventano proprietari delle rispettive sezioni della fattura. Per saperne di più sulle sezioni della fattura, vedere [Informazioni sulle sezioni della fattura](billing-mca-overview.md#invoice-sections).
 4. Gli account creati nel contratto Enterprise Agreement non sono supportati nel nuovo account di fatturazione. Le sottoscrizioni dell'account appartengono alla rispettiva sezione della fattura per il relativo reparto. I proprietari dell'account possono creare e gestire le sottoscrizioni per le sezioni della fattura.
 
 ## <a name="changes-to-billing-administrator-access"></a>Modifiche apportate all'accesso degli amministratori fatturazione
@@ -97,7 +97,7 @@ Gli amministratori fatturazione della registrazione Enterprise Agreement ottengo
 | **Amministratore dell'organizzazione (sola lettura = no)** | **- Proprietario dell'account di fatturazione** </br> Gestione di tutti gli elementi presenti nell'account di fatturazione </br> **- Proprietario del profilo di fatturazione** </br> Gestione di tutti gli elementi presenti nel profilo di fatturazione </br> **- Proprietario delle sezioni della fattura in tutte le sezioni della fattura** </br> Gestione di tutti gli elementi presenti nelle sezioni della fattura |
 | **Amministratore dell'organizzazione (sola lettura = sì)** | **- Lettore per l'account di fatturazione** </br> Fornisce una visualizzazione di sola lettura di tutti gli elementi nell'account di fatturazione</br> **- Lettore per il profilo di fatturazione** </br> Fornisce una visualizzazione di sola lettura di tutti gli elementi nel profilo di fatturazione</br>**- Ruolo con autorizzazione di lettura per la sezione della fattura in tutte le sezioni della fattura**</br> Fornisce una visualizzazione di sola lettura di tutti gli elementi nelle sezioni della fattura|
 | **Amministratore del reparto (sola lettura = no)** |**- Proprietario della sezione della fattura nella sezione della fattura creata per il rispettivo reparto** </br>Gestione di tutti gli elementi presenti nella sezione della fattura|
-| **Amministratore del reparto (sola lettura = sì)**|**- Ruolo con autorizzazione di lettura per la sezione della fattura nella sezione della fattura creata per il rispettivo reparto**</br> Visualizzazione di sola lettura di tutti gli elementi presenti nella sezione della fattura|
+| **Amministratore del reparto (sola lettura = sì)**|**- Ruolo con autorizzazione di lettura per la sezione della fattura nella sezione della fattura creata per il rispettivo reparto**</br> Fornisce una visualizzazione di sola lettura di tutti gli elementi nella sezione della fattura|
 | **Proprietario dell'account** | **- Autore di sottoscrizioni di Azure nella sezione della fattura creata per il rispettivo reparto** </br>  Creare sottoscrizioni di Azure per la sezione della fattura|
 
 Durante l'accettazione del Contratto del cliente Microsoft viene selezionato un tenant di Azure Active Directory (AD) per il nuovo account di fatturazione. Se non esiste alcun tenant per l'organizzazione, ne viene creato uno nuovo. Il tenant rappresenta l'organizzazione all'interno di Azure Active Directory. Gli amministratori del tenant globali dell'organizzazione usano il tenant per gestire l'accesso di applicazioni e dati nell'organizzazione.
@@ -187,7 +187,7 @@ Per completare la configurazione, è necessario accedere sia al nuovo account di
     - Nel nuovo account di fatturazione viene creata una gerarchia di fatturazione corrispondente alla gerarchia del contratto Enterprise Agreement. Per altre informazioni, vedere [Comprendere le modifiche apportate alla gerarchia di fatturazione](#understand-changes-to-your-billing-hierarchy).
     - Agli amministratori della registrazione Enterprise Agreement viene concesso l'accesso al nuovo account di fatturazione, in modo che possano continuare a gestire la fatturazione per l'organizzazione.
     - Viene eseguita la transizione della fatturazione delle sottoscrizioni di Azure al nuovo account. **La transizione non avrà alcun effetto sui servizi di Azure, che continueranno a funzionare senza alcuna interruzione**.
-    - Le eventuali prenotazioni di Azure vengono spostate nel nuovo account di fatturazione senza alcuna modifica in termini di vantaggi o periodo di validità. 
+    - Le eventuali prenotazioni di Azure vengono spostate nel nuovo account di fatturazione senza alcuna modifica in termini di vantaggi o periodo di validità.
 
 4. È possibile monitorare lo stato della transizione nella pagina **Stato della transizione**.
 

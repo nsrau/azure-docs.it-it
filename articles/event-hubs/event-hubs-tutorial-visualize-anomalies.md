@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale - Hub eventi di Azure'
+title: Hub eventi di Azure - Visualizzare le anomalie dei dati in eventi in tempo reale
 description: 'Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Microsoft Azure'
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/20/2019
+ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437155"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
@@ -22,7 +22,7 @@ Con Hub eventi di Azure, è possibile usare Analisi di flusso di Azure per contr
 
 In questa esercitazione verrà simulato proprio questo esempio. Viene eseguita un'applicazione che crea e invia transazioni con carta di credito a un hub eventi. In seguito vengono letti i flussi di dati in tempo reale con Analisi di flusso di Azure, che separa le transazioni valide da quelle non valide, e quindi si usa Power BI per identificare visivamente le transazioni contrassegnate come non valide.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare uno spazio dei nomi di Hub eventi
 > * Creare un hub eventi
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito][] prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Ai fini di questa esercitazione, sono necessari uno spazio dei nomi di Hub event
 
 Le sezioni seguenti descrivono come eseguire questa procedura necessaria. Seguire l'interfaccia della riga di comando *o* le istruzioni di PowerShell per eseguire la procedura seguente:
 
-1. Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md). 
+1. Creare un [gruppo di risorse](../azure-resource-manager/management/overview.md). 
 
 2. Creare uno spazio dei nomi di Hub eventi. 
 
@@ -227,7 +227,7 @@ Le transazioni con carta di credito dell'hub eventi sono gli input per il proces
 
    **Alias di output**: usare **contosooutputs**. Questo campo è l'alias univoco per l'output. 
 
-   **Nome set di dati**: usare **contosoehdataset**. Questo campo è il nome del set di dati da usare in Power BI. 
+   **Nome del set di dati**: usare **contosoehdataset**. Questo campo è il nome del set di dati da usare in Power BI. 
 
    **Nome tabella**: usare **contosoehtable**. Questo campo è il nome della tabella da usare in Power BI. 
 
@@ -373,7 +373,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare uno spazio dei nomi di Hub eventi
 > * Creare un hub eventi

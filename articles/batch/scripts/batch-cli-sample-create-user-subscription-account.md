@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch - Sottoscrizione utente | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch in modalità sottoscrizione utente
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch - Sottoscrizione utente
+description: Questo script crea un account Azure Batch in modalità sottoscrizione utente. Questo account alloca i nodi di calcolo nella sottoscrizione.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: a22bd7a2ab4e3a9c0d56aa9f4a2137881b6216af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 55429e0aafe978cfa6861d73b132ebcee26de493
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449701"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Esempio di interfaccia della riga di comando: Creare un account Batch in modalità sottoscrizione utente
 

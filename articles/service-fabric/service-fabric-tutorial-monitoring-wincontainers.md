@@ -1,32 +1,22 @@
 ---
-title: Monitoraggio e diagnostica per i contenitori di Windows su Service Fabric in Azure | Microsoft Docs
+title: Monitorare e diagnosticare i contenitori Windows
 description: In questa esercitazione si apprenderà come configurare i log di Monitoraggio di Azure per il monitoraggio e la diagnostica dei contenitori di Windows in Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933921"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614061"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando i log di Monitoraggio di Azure
 
 Questa è la terza parte di un'esercitazione in cui si spiega come configurare i log di Monitoraggio di Azure per monitorare i contenitori di Windows orchestrati in Service Fabric.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare i log di Monitoraggio di Azure per il cluster di Service Fabric
@@ -35,7 +25,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, è necessario:
 
@@ -233,7 +223,7 @@ Verrà visualizzata l'area di lavoro Log Analytics, in cui è possibile visualiz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare i log di Monitoraggio di Azure per il cluster di Service Fabric

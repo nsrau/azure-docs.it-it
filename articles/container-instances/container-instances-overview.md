@@ -4,12 +4,12 @@ description: Il servizio Istanze di Azure Container rappresenta il modo più sem
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533538"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552322"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -21,13 +21,19 @@ Istanze di Azure Container è un'ottima soluzione per qualsiasi scenario e funzi
 
 I contenitori offrono notevoli vantaggi in termini di avvio rispetto alle macchine virtuali. Istanze di Azure Container consente di avviare contenitori in Azure in pochi secondi, senza dover gestire VM né doverne effettuare il provisioning.
 
-## <a name="public-ip-connectivity-and-dns-name"></a>Connettività tramite indirizzo IP pubblico e nome DNS
+## <a name="container-access"></a>Accesso ai contenitori
 
-Istanze di Azure Container consente di esporre i contenitori direttamente in Internet con un indirizzo IP e un nome di dominio completo. Quando si crea un'istanza di contenitore, è possibile specificare un'etichetta personalizzata per il nome DNS, in modo che l'applicazione sia raggiungibile tramite *etichettapersonalizzata*.*areaazure*.contenitoreazure.io.
+Istanze di Azure Container consente di esporre i gruppi di contenitori direttamente in Internet con un indirizzo IP e un nome di dominio completo (FQDN). Quando si crea un'istanza di contenitore, è possibile specificare un'etichetta personalizzata per il nome DNS, in modo che l'applicazione sia raggiungibile tramite *etichettapersonalizzata*.*areaazure*.contenitoreazure.io.
+
+Istanze di Azure Container supporta anche l'esecuzione di un comando in un contenitore in esecuzione offrendo una shell interattiva per facilitare lo sviluppo e la risoluzione dei problemi delle applicazioni. L'accesso viene effettuato tramite HTTPS, usando TLS per proteggere le connessioni client.
+
+> [!IMPORTANT]
+> A partire dal 13 gennaio 2020, Istanze di Azure Container richiederà l'uso di TLS 1.2 in tutte le connessioni sicure da server e applicazioni. Il supporto per TLS 1.0 e 1.1 verrà ritirato.
 
 ## <a name="hypervisor-level-security"></a>Sicurezza a livello di hypervisor
 
 In passato i contenitori offrivano l'isolamento di dipendenze delle applicazioni e la governance delle risorse, ma non erano considerati sufficientemente protetti per l'uso di multi-tenant ostili. Istanze di Azure Container garantisce all'applicazione in un contenitore lo stesso livello di isolamento di cui usufruirebbe in una VM.
+
 
 ## <a name="custom-sizes"></a>Dimensioni personalizzate
 
@@ -37,7 +43,7 @@ Per i processi a elevato utilizzo di calcolo, ad esempio l'apprendimento automat
 
 ## <a name="persistent-storage"></a>Archiviazione permanente
 
-Per recuperare e rendere persistente lo stato con Istanze di Azure Container, è disponibile il [montaggio diretto di condivisioni file di Azure](container-instances-mounting-azure-files-volume.md).
+Per recuperare e rendere persistente lo stato con Istanze di Azure Container, è disponibile il [montaggio diretto di condivisioni di File di Azure](container-instances-mounting-azure-files-volume.md), supportato da Archiviazione di Azure.
 
 ## <a name="linux-and-windows-containers"></a>Contenitori Linux e Windows
 

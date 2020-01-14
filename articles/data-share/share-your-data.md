@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8749f7dee2ceeb09e37cc97d4e5bfe76c52e2da6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499309"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438745"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come:
 > * Abilitare una pianificazione della sincronizzazione per la condivisione dati. 
 > * Aggiungere i destinatari alla condivisione dati. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Indirizzo di posta elettronica per l'accesso ad Azure dei destinatari (gli alias di posta elettronica non funzionano).
@@ -49,7 +49,9 @@ In questa esercitazione si apprenderà come:
 ```                   
 Si noti che *<share_acc_name>* è il nome del proprio account di Condivisione dati. Se ancora non si è provveduto a creare un tale account, è possibile tornare a questo prerequisito in un secondo momento.  
 
-* Accesso del firewall di SQL Server dell'indirizzo IP client: A tale scopo, seguire questa procedura: 1. Passare a *Firewall e reti virtuali* 1. Fare clic sull'interruttore di **attivazione** per consentire l'accesso ai servizi di Azure. 
+* Un [utente del database SQL di Azure con accesso `db_owner`](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users) per esplorare e selezionare le tabelle e/o le visualizzazioni da condividere. 
+
+* Accesso del firewall di SQL Server all'indirizzo IP client: A tale scopo, seguire questa procedura: 1. Passare a *Firewall e reti virtuali* 1. Fare clic sull'interruttore di **attivazione** per consentire l'accesso ai servizi di Azure. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -69,7 +71,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | NOME | *datashareacount* | Specificare un nome per l'account di condivisione dati. |
+    | Nome | *datashareacount* | Specificare un nome per l'account di condivisione dati. |
     | Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'account di condivisione dati.|
     | Resource group | *test-resource-group* | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
     | Location | *Stati Uniti orientali 2* | Selezionare un'area per l'account di condivisione dati.
@@ -99,7 +101,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
     ![Set di dati](./media/datasets.png "Set di dati")
 
-1. Selezionare il tipo di set di dati da aggiungere. 
+1. Selezionare il tipo di set di dati da aggiungere. Se si condivide da un database SQL di Azure o da Azure SQL Data Warehouse, verranno richieste alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
 
     ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 

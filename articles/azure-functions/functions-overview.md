@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7208825581a0bf16f6ee3a3947387b01abfd16d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433061"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introduzione a Funzioni di Azure  
 Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. È possibile scrivere solo il codice necessario per il problema effettivo, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria per eseguirlo. Funzioni può rendere ancora più produttiva l'attività di sviluppo e consente di usare il linguaggio di sviluppo preferito, ad esempio C#, Java, JavaScript, PowerShell e Python. Pagare solo per il tempo in cui il codice viene eseguito ed essere certi che Azure venga ridimensionato in base alle esigenze. Funzioni di Azure consente di sviluppare applicazioni [senza server](https://azure.microsoft.com/solutions/serverless/) in Microsoft Azure.
@@ -61,7 +61,8 @@ Funzioni di Azure si integra con un'ampia gamma di servizi di Azure e di terze p
 ## <a name="pricing"></a>Quanto costa Funzioni?
 Funzioni di Azure offre due tipi di piani tariffari. Scegliere quello più adatto alle proprie esigenze: 
 
-* **Piano A consumo**: quando viene eseguita la funzione, Azure offre tutte le risorse di calcolo necessarie. Non ci si deve preoccupare della gestione delle risorse e si paga solo in base al tempo impiegato per l'esecuzione del codice. 
+* **Piano A consumo**: quando viene eseguita la funzione, Azure offre tutte le risorse di calcolo necessarie. Non ci si deve preoccupare della gestione delle risorse e si paga solo in base al tempo impiegato per l'esecuzione del codice.
+* **Piano Premium**: si specifica un numero di istanze preriscaldate che saranno sempre online e pronte a rispondere immediatamente. Quando la funzione viene eseguita, Azure fornisce le risorse di calcolo aggiuntive eventualmente necessarie. Vengono addebitate le istanze preriscaldate eseguite in modo continuo e le istanze aggiuntive usate quando Azure aumenta e riduce il numero di istanze dell'app.
 * **Piano di Servizio app**: consente di eseguire le funzioni esattamente come le app Web. Se si usa già il servizio app per altre applicazioni, è possibile eseguire le funzioni nello stesso piano senza costi aggiuntivi. 
 
 Per altre informazioni sui piani di hosting, vedere [Confronto di piani di hosting per Funzioni di Azure](functions-scale.md). I dettagli completi sui prezzi sono disponibili nella [pagina Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).

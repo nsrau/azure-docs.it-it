@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423114"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -58,7 +58,10 @@ In Azure AD i dispositivi possono essere gestiti usando strumenti per la gestion
 
 ## <a name="resource-access"></a>Accesso alle risorse
 
-I processi di registrazione e aggiunta offrono agli utenti l'accesso Single Sign-On (SSO) alle risorse del cloud e agli amministratori la possibilità di applicare criteri di accesso condizionale a tali risorse. 
+La registrazione e l'aggiunta di dispositivi ad Azure AD offrono agli utenti un accesso SSO facile alle risorse cloud. Questo processo consente anche agli amministratori di applicare criteri di accesso condizionale alle risorse in base al dispositivo da cui viene eseguito l'accesso. 
+
+> [!NOTE]
+> I criteri di accesso condizionale basati sul dispositivo richiedono dispositivi aggiunti ad Azure AD ibrido oppure dispositivi conformi registrati in Azure AD o aggiunti ad Azure AD.
 
 I dispositivi aggiunti ad Azure AD, o ad Azure AD in modalità ibrida, usufruiscono dell'accesso SSO alle risorse locali dell'organizzazione e alle risorse del cloud. Altre informazioni sono disponibili nell'articolo [Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD](azuread-join-sso.md).
 

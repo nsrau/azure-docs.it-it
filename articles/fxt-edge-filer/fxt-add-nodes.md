@@ -1,19 +1,19 @@
 ---
-title: Configurazione del cluster Microsoft Azure FXT Edge Filer - Aggiungere nodi
+title: 'Esercitazione: Aggiungere nodi a un cluster di Azure FXT Edge Filer'
 description: Come aggiungere nodi alla cache di archiviazione di Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254935"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551948"
 ---
-# <a name="tutorial-add-cluster-nodes"></a>Esercitazione: Aggiungere nodi del cluster 
+# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Esercitazione: Aggiungere nodi del cluster a un cluster di Azure FXT Edge Filer
 
 Un nuovo cluster Azure FXT Edge Filer viene creato con un solo nodo. È possibile aggiungere almeno altri due nodi e abilitare la disponibilità elevata prima di eseguire altre operazioni di configurazione. 
 
@@ -68,7 +68,7 @@ La colonna **Actions** (Azioni) contiene pulsanti che permettono di aggiungere i
 
 Tutti i nodi in un cluster devono usare la stessa versione del sistema operativo, ma non è necessario aggiornare il software prima di aggiungere un nodo. Dopo aver fatto clic sul pulsante **Allow to join** (Consenti aggiunta), il processo di aggiunta al cluster controlla e installa automaticamente il software del sistema operativo corrispondente alla versione nel cluster.
 
-Per altre informazioni sulle opzioni di questa pagina, vedere [ **Cluster** > **FXT Nodes (Nodi FXT)** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) nella guida alla configurazione del cluster.
+Per altre informazioni sulle opzioni di questa pagina, vedere [**Cluster** > **FXT Nodes (Nodi FXT)** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) nella guida alla configurazione del cluster.
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Fare clic sul pulsante "Allow to join" (Consenti aggiunta) 
 

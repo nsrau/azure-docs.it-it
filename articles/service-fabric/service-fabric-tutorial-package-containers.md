@@ -1,27 +1,17 @@
 ---
-title: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric in Azure | Microsoft Docs
+title: Creare un pacchetto e distribuire contenitori
 description: In questa esercitazione si apprenderà come generare una definizione di applicazione di Azure Service Fabric usando Yeoman e creare il pacchetto dell'applicazione.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, contenitori, microservizi, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385047"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614027"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
 
@@ -35,7 +25,7 @@ Questa è la seconda di una serie di esercitazioni. In questa esercitazione vien
 > * Distribuire ed eseguire l'applicazione
 > * Eseguire la pulizia dell'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Vengono usate le immagini del contenitore di cui è stato eseguito il push in Registro Azure Container creato nella [prima](service-fabric-tutorial-create-container-images.md) di questa serie di esercitazioni.
 * Viene [configurato](service-fabric-tutorial-create-container-images.md) l'ambiente di sviluppo Linux.
@@ -261,7 +251,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 ```
 
 > [!Note]
-> Il servizio front-end Web è configurato per l'ascolto del traffico in ingresso sulla porta 80. Per impostazione predefinita, la porta 80 è aperta nelle VM del cluster e nel servizio di bilanciamento del carico di Azure.
+> Il servizio front-end Web è configurato per l'ascolto del traffico in ingresso sulla porta 80. Per impostazione predefinita, la porta 80 è aperta nelle VM del cluster e in Azure Load Balancer.
 >
 
 Per altre informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).

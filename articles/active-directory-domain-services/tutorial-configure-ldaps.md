@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703705"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549449"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Per comunicare con il dominio gestito di Azure Active Directory Domain Services 
 
 Questa esercitazione illustra come configurare LDAPS per un dominio gestito di Azure AD DS.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un certificato digitale per l'uso con Azure AD DS
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -63,7 +63,7 @@ Il certificato richiesto o creato deve soddisfare i requisiti seguenti. Il domin
 
 * **Autorità di certificazione attendibile** : il certificato deve essere emesso da un'autorità ritenuta attendibile dai computer connessi al dominio gestito tramite accesso LDAP sicuro. Questa autorità può essere un'autorità di certificazione pubblica o globale (enterprise) considerata attendibile da questi computer.
 * **Durata** : il certificato deve essere valido almeno per i 3-6 mesi successivi. L'accesso LDAP sicuro al dominio gestito viene interrotto allo scadere del certificato.
-* **Nome soggetto** : il nome del soggetto nel certificato deve includere il dominio gestito. Ad esempio, se il dominio è denominato *aadds.contoso.com*, il nome del soggetto nel certificato deve essere **aadds.contoso.com*.
+* **Nome soggetto** : il nome del soggetto nel certificato deve includere il dominio gestito. Ad esempio, se il dominio è denominato *aadds.contoso.com*, il nome del soggetto nel certificato deve essere * *.aadds.contoso.com*.
     * Il nome DNS o il nome alternativo del soggetto del certificato deve essere un certificato con caratteri jolly per garantire che il protocollo LDAP sicuro funzioni correttamente con Azure AD Domain Services. I controller di dominio usano nomi casuali e possono essere rimossi o aggiunti per assicurarsi che il servizio rimanga disponibile.
 * **Utilizzo di chiavi**: il certificato deve essere configurato per le *firme digitali* e la *crittografia a chiave*.
 * **Scopo del certificato** : il certificato deve essere valido per l'autenticazione server SSL.
@@ -211,7 +211,7 @@ Creare una regola per consentire l'accesso LDAP sicuro in ingresso sulla porta T
 1. Viene visualizzato l'elenco delle regole di sicurezza in ingresso e in uscita esistenti. Sul lato sinistro della finestra del gruppo di sicurezza di rete scegliere **Impostazioni > Regole di sicurezza in ingresso**.
 1. Selezionare **Aggiungi**, quindi creare una regola per consentire la porta *TCP* *636*. Per una maggiore sicurezza, scegliere l'origine come *Indirizzi IP* e quindi specificare il proprio indirizzo IP o l'intervallo valido per l'organizzazione.
 
-    | Impostazione                           | Valore        |
+    | Impostazione                           | valore        |
     |-----------------------------------|--------------|
     | Source (Sorgente)                            | Indirizzi IP |
     | Indirizzi IP/intervalli CIDR di origine | Un indirizzo IP o un intervallo valido per l'ambiente |
@@ -219,9 +219,9 @@ Creare una regola per consentire l'accesso LDAP sicuro in ingresso sulla porta T
     | Destination                       | Qualsiasi          |
     | Intervalli di porte di destinazione           | 636          |
     | Protocollo                          | TCP          |
-    | Azione                            | CONSENTI        |
+    | Azione                            | Allow        |
     | Priorità                          | 401          |
-    | NOME                              | AllowLDAPS   |
+    | Nome                              | AllowLDAPS   |
 
 1. Quando si è pronti, selezionare **Aggiungi** per salvare e applicare la regola.
 
@@ -277,7 +277,7 @@ Se è stata aggiunta una voce DNS al file hosts locale del computer per testare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un certificato digitale per l'uso con Azure AD DS

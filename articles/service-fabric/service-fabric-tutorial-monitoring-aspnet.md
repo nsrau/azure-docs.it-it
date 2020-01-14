@@ -1,26 +1,17 @@
 ---
-title: Monitoraggio e diagnostica per i servizi ASP.NET Core in Azure | Microsoft Docs
+title: Monitorare e diagnosticare i servizi ASP.NET Core
 description: In questa esercitazione si apprenderà come configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core di Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228089"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614044"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
 
@@ -41,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurare il monitoraggio e la diagnostica per l'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -266,7 +257,7 @@ Dopo aver apportato queste modifiche, **Avviare** l'applicazione in modo che com
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 > [!div class="checklist"]
 > * Configurare Application Insights per l'applicazione in uso
 > * Raccogliere i dati di telemetria di risposta per tenere traccia delle comunicazioni basate su HTTP tra i servizi

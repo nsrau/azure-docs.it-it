@@ -4,16 +4,16 @@ description: Questo articolo illustra come gestire la fattura della registrazion
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6faf56554d666ce29b68ba90bb920b4e6c56c30
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849888"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644563"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione EA di Azure
 
@@ -22,8 +22,6 @@ Questo articolo illustra come gestire la fattura della registrazione EA di Azure
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>Modificare un numero di ordine di acquisto per una fattura per eccedenza
 
 Azure EA Portal genera automaticamente un numero di ordine di acquisto predefinito, a meno che l'amministratore della registrazione EA non ne imposti uno prima della data della fattura. Tale amministratore può aggiornare il numero dell'ordine di acquisto anche fino a sette giorni dopo la ricezione di un messaggio di posta elettronica automatico di notifica della fattura.
-
-È inoltre possibile immettere un numero di ordine di acquisto per un account o una sottoscrizione specifica. Per impostazione predefinita, nei report viene usato il numero di ordine di acquisto di livello più basso configurato nella gerarchia; pertanto, se non viene immesso alcun numero di ordine di acquisto della sottoscrizione, verrà usato il numero di ordine di acquisto dell'account e, se non viene immesso alcun ordine di acquisto dell'account, verrà usato l'ordine di acquisto del reparto.
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Per aggiornare il numero di ordine di acquisto dei servizi di Azure:
 
@@ -184,7 +182,7 @@ Tenere presente che si potrebbe riscontrare una latenza fino a un massimo di cin
 ### <a name="to-view-the-report"></a>Per visualizzare il report:
 
 1. Accedere a Enterprise Portal.
-1. Nel riquadro di spostamento sinistro fare clic su **Report**.
+1. Fare clic su **Report** nel riquadro di spostamento a sinistra.
 1. Fare clic sulla scheda **Riepilogo utilizzo**.
 1. Fare clic sull'intervallo di date desiderato.
 1. Scegliere gli account o le sottoscrizioni da visualizzare.
@@ -300,18 +298,18 @@ Gli amministratori dell'organizzazione possono abilitare l'accesso per la visual
     - DA View Charges (Visualizzazione addebiti per amministratori di reparto)
     - AO View Charges (Visualizzazione addebiti per proprietari di account)
  1. Selezionare **Enabled**.
- 1. Fare clic su **Save**.
+ 1. Fare clic su **Salva**.
 
 ### <a name="to-view-reports"></a>Per visualizzare i report:
 
 1. Accedere ad Azure EA Portal come amministratore del reparto o proprietario dell'account.
-1. Nel riquadro di spostamento sinistro fare clic su **Report**.
+1. Fare clic su **Report** nel riquadro di spostamento a sinistra.
 1. Fare clic sulla scheda **Riepilogo utilizzo** per visualizzare graficamente le informazioni relative all'account e alla sottoscrizione.
 1. Fare clic su **Usage Download** (Download utilizzo) per visualizzare i report CSV.
 
 Gli amministratori di reparto e i proprietari di account non possono visualizzare gli addebiti quando usano la funzione _Advanced Report Download_ (Download report avanzati). I costi vengono visualizzati come $ 0.
 
-La visualizzazione addebiti per proprietari di account si estende ai proprietari degli account e a tutti gli utenti che dispongono di autorizzazioni per le sottoscrizioni associate. Se si è un cliente indiretto, le funzionalità relative ai costi devono essere abilitate dal partner di canale.
+La visualizzazione addebiti per proprietari di account si estende ai proprietari degli account e a tutti gli utenti che dispongono di autorizzazioni per le sottoscrizioni associate. Per i clienti indiretti le funzionalità relative ai costi devono essere abilitate dal partner di canale.
 
 ## <a name="move-usage-data-to-another-enrollment"></a>Spostare i dati di utilizzo in un'altra registrazione
 
@@ -489,7 +487,7 @@ Sebbene i clienti possano convertire a EA le sottoscrizioni di Azure dirette ass
 1. Passare a _Gestisci_.
 1. In _Dettagli registrazione_ fare clic sull'icona a forma di matita accanto alla voce _Azure Marketplace_.
 1. Selezionare/deselezionare _Abilitato/Disabilitato_ o _Solo SKU di tipo Gratuito/BYOL\*_ secondo i casi.
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ### <a name="marketplace-charges-in-azure-ea-portal-reports"></a>Addebiti del Marketplace nei report di Azure EA Portal
 
@@ -554,7 +552,7 @@ Alcune offerte specifiche di Azure Marketplace possono usare i fondi dell'impegn
 
 Per informazioni più dettagliate, vedere queste altre fonti di informazioni. Tali file vengono aggiornati due volte al mese, il 6 e il 20 di ogni mese. Di seguito sono riportati i dettagli relativi a ciascun file:
 
-| Titolo appendice | DESCRIZIONE | Convenzione di denominazione URL |
+| Titolo appendice | Descrizione | Convenzione di denominazione URL |
 | --- | --- | --- |
 | [**Friendly Service Names**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Fornisce un elenco di tutti i servizi attivi con la categoria e il nome descrittivo del servizio, il nome dell'impegno e il numero di parte, il nome dell'utilizzo e il numero di parte, le unità di misura e i fattori di conversione tra l'utilizzo riportato e l'utilizzo di Enterprise Portal visualizzato. | Friendly\_Service\_Names.xlsx |
 | [**Service Download Fields**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Questo foglio di calcolo fornisce un elenco di tutte le possibili combinazioni dei campi relativi ai servizi nel report di download dell'utilizzo. | Service\_Download\_Fields.xlsx |

@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui termini nell'elenco prezzi per un Contratto del cliente Microsoft - Azure
+title: Termini presenti nell'elenco prezzi del Contratto del cliente Microsoft - Azure
 description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per un Contratto del cliente Microsoft.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 1e7e698bede44ddb3fe701c50f69164b03fe13d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f4285b8185b2df2694f399f6bcb6751c1e9c6650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449344"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termini presenti nell'elenco prezzi del Contratto del cliente Microsoft
 
@@ -54,7 +54,7 @@ La sezione seguente descrive i termini importanti visualizzati nell'elenco prezz
 | serviceFamily  | Tipo di servizio di Azure. Ad esempio: calcolo, analisi, sicurezza |
 | tierMinimumUnits  | Definisce il limite minimo dell'intervallo di livelli per il quale vengono definiti i prezzi. Se, ad esempio, l'intervallo è compreso tra 0 e 100, tierMinimumUnits sarà 0.  |
 | unitOfMeasure  | Identifica l'unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora. |
-| unitPrice  | Prezzo per unità al momento della fatturazione (non il prezzo effettivo combinato) in base a un contatore e un nome dell'ordine del prodotto.  Note: Il prezzo unitario non è uguale al prezzo effettivo nei download dei dettagli di utilizzo in caso di servizi con prezzi differenziati tra i livelli.  Nel caso di servizi con prezzi per più livelli, il prezzo effettivo è una tariffa combinata tra i livelli e non mostra un prezzo unitario specifico del livello. Il prezzo combinato o il prezzo effettivo è il prezzo netto per la quantità utilizzata che si estende tra più livelli (dove ogni livello ha un prezzo unitario specifico). |
+| unitPrice  | Prezzo per unità al momento della fatturazione (non il prezzo effettivo combinato) in base a un contatore e un nome dell'ordine del prodotto.  Nota: Il prezzo unitario non è uguale al prezzo effettivo nei download dei dettagli di utilizzo in caso di servizi con prezzi differenziati tra i livelli.  Nel caso di servizi con prezzi per più livelli, il prezzo effettivo è una tariffa combinata tra i livelli e non mostra un prezzo unitario specifico del livello. Il prezzo combinato o il prezzo effettivo è il prezzo netto per la quantità utilizzata che si estende tra più livelli (dove ogni livello ha un prezzo unitario specifico). |
 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft

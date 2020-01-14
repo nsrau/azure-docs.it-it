@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 94f11e306f866496d4ae03dad03b070d26d616e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438988"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Esercitazione: Creare la prima data factory di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "73682991"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -41,7 +41,7 @@ La pipeline in questa esercitazione include un'attività: **Attività Hive di HD
 > 
 > Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -117,7 +117,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
         }
     }
     ```
-    Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere le informazioni su come visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione in [Gestire l'account di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+    Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come recuperare la chiave di accesso alle risorse di archiviazione, vedere [Gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 2. In Azure PowerShell passare alla cartella ADFGetStarted.
 3. È possibile usare il cmdlet **New-AzDataFactoryLinkedService** che crea un servizio collegato. Questo cmdlet e altri cmdlet di Data factory usati in questa esercitazione richiedono il passaggio di valori per i parametri *ResourceGroupName* e *DataFactoryName*. In alternativa, è possibile usare **Get-AzDataFactory** per ottenere un oggetto **DataFactory** e passarlo senza digitare *ResourceGroupName* e *DataFactoryName* ogni volta che si esegue un cmdlet. Eseguire il comando seguente per assegnare l'output del cmdlet **Get-AzDataFactory** a una variabile **$df**.
 
@@ -158,7 +158,7 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
     ```
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    |:--- |:--- |
    | clusterSize |Specifica le dimensioni del cluster HDInsight. |
    | timeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
@@ -212,12 +212,12 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    |:--- |:--- |
-   | Tipo |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
+   | type |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
    | linkedServiceName |Fa riferimento all'oggetto StorageLinkedService creato in precedenza. |
    | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
-   | Tipo |I file di log sono in formato testo, quindi viene usato TextFormat. |
+   | type |I file di log sono in formato testo, quindi viene usato TextFormat. |
    | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
    | frequency/interval |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
    | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
@@ -413,7 +413,7 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 ## <a name="see-also"></a>Vedere anche
 
-| Argomento | DESCRIZIONE |
+| Argomento | Descrizione |
 |:--- |:--- |
 | [Informazioni di riferimento sui cmdlet di Data factory](/powershell/module/az.datafactory) |Vedere la documentazione completa sui cmdlet di Data factory |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |

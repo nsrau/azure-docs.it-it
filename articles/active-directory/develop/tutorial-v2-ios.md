@@ -1,6 +1,6 @@
 ---
-title: Introduzione a iOS e macOS - Microsoft Identity Platform | Azure
-description: Informazioni su come le applicazioni iOS e macOS (Swift) possono chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform
+title: Esercitazione su MSAL per iOS e macOS - Microsoft Identity Platform | Azure
+description: Informazioni su come le app iOS e macOS (Swift) possono chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964669"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423411"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Accesso utenti e chiamata di Microsoft Graph da un'app iOS o macOS
 
@@ -45,7 +45,7 @@ Questo esempio usa Microsoft Authentication Library (MSAL) per implementare l'au
 
 Questa esercitazione è applicabile alle app iOS e macOS. Alcuni passaggi sono però diversi tra le due piattaforme. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Per compilare l'app in questa guida, è necessario Xcode 10.x o versione successiva. È possibile scaricare Xcode dal [sito Web iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL di download di Xcode").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). È possibile usare un gestore delle dipendenze o aggiungere la libreria manualmente. Le istruzioni seguenti illustrano come eseguire queste operazioni.
@@ -498,9 +498,9 @@ Per acquisire un token aggiornato in modo invisibile all'utente, aggiungere il c
 
 Dopo aver ottenuto un token, l'app può usarlo nell'intestazione HTTP per effettuare una richiesta autorizzata a Microsoft Graph:
 
-| Chiave dell'intestazione    | value                 |
+| Chiave dell'intestazione    | Valore                 |
 | ------------- | --------------------- |
-| Authorization | Bearer \<access-token> |
+| Autorizzazione | Bearer \<access-token> |
 
 Aggiungere il codice seguente alla classe `ViewController`:
 

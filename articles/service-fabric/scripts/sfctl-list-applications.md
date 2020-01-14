@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Service Fabric - Elencare applicazioni in un cluster
+title: Elencare le applicazioni in un cluster in sfctl
 description: Esempio di script dell'interfaccia della riga di comando di Service Fabric - Elencare le applicazioni di cui è stato eseguito il provisioning in un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 04/13/2018
 ms.author: atsenthi
 ms.custom: ''
-ms.openlocfilehash: cc101a5cc93d7087bc1dd68cafafaa10a0e270b2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 41685e53eb0915f54bdc2d678191e5b767990dde
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035943"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610268"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Elenco di applicazioni eseguite in un cluster di Service Fabric
 

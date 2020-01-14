@@ -1,5 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Usare coppie chiave-valore in un archivio di Configurazione app di Azure | Microsoft Docs
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Usare coppie chiave-valore in un archivio di Configurazione app
+titleSuffix: Azure App Configuration
 description: Fornisce informazioni sull'uso di coppie chiave-valore in un archivio di Configurazione app di Azure
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 51697aa426a638ad536390c4114df5faa18a41ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433569"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Usare coppie chiave-valore in un archivio di Configurazione app di Azure
 
@@ -96,4 +97,4 @@ Questo script usa i comandi seguenti per eseguire operazioni sulle coppie chiave
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando di Configurazione app sono disponibili negli [esempi di interfaccia della riga di comando di Configurazione app di Azure](../cli-samples.md).
+Altri esempi di script sono disponibili negli [esempi dell'interfaccia della riga di comando di Configurazione app di Azure](../cli-samples.md).

@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Caricare dati di esempio in una tabella di API Cassandra in Azure Cosmos DB con un'applicazione Java"
+title: 'Esercitazione: App Java per caricare dati di esempio in una tabella di API Cassandra in Azure Cosmos DB'
 description: Questa esercitazione illustra come caricare i dati utente di esempio in una tabella di API Cassandra in Azure Cosmos DB usando un'applicazione Java.
 author: kanshiG
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: e9fc96b9f26344045aa7e45fe7bdbe389e329377
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 66c292bcb02e3b2b215cabe4968fa30a45422cef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445657"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Esercitazione: Caricare dati di esempio in una tabella di API Cassandra in Azure Cosmos DB
 
@@ -24,11 +24,11 @@ Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * Caricare i dati in una tabella di Cassandra
-> * Esecuzione dell'app
+> * Eseguire l'app
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Questo articolo fa parte di un'esercitazione in più parti. Prima di iniziare a leggere questo documento, [creare l'account, il keyspace e la tabella dell'API Cassandra](create-cassandra-api-account-java.md).   
 
@@ -74,7 +74,7 @@ Usare la procedura seguente per caricare i dati nella tabella dell'API Cassandra
      repository.insertUser(preparedStatement, 5, "PeterS", "Everett");
    ```
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Aprire un prompt dei comandi o una finestra del terminale e modificare il percorso della cartella con il percorso in cui è stato creato il progetto. Eseguire il comando "mvn clean install" per generare il file cosmosdb-cassandra-examples.jar all'interno della cartella di destinazione ed eseguire l'applicazione. 
 

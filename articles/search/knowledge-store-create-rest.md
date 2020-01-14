@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/30/2019
+ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720075"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563225"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Creare un archivio conoscenze di Ricerca cognitiva di Azure con REST
 
@@ -26,35 +26,36 @@ In questo articolo si usa l'interfaccia dell'API REST per inserire, indicizzare 
 
 Dopo aver creato l'archivio conoscenze, è possibile imparare ad accedervi usando [Storage Explorer](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md).
 
-## <a name="create-services"></a>Creare i servizi
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Creare i servizi seguenti:
+> [!TIP]
+> Per questo articolo, è consigliata un'[app desktop Postman](https://www.getpostman.com/). Il [codice sorgente](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) per questo articolo include una raccolta Postman contenente tutte le richieste. 
 
-- Creare un [servizio di ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
+## <a name="create-services-and-load-data"></a>Creare i servizi e caricare i dati
 
-- Creare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio e dell'archivio conoscenze. L'account di archiviazione deve risiedere nella stessa località, ad esempio Stati Uniti occidentali, del servizio Ricerca cognitiva di Azure. Il valore per il **tipo di account** deve essere **Archiviazione v2 (per utilizzo generico v2)** (impostazione predefinita) oppure **Archiviazione (per utilizzo generico v1)** .
+Questa guida di avvio rapido usa Ricerca cognitiva di Azure, Archiviazione BLOB di Azure e [Servizi cognitivi di Azure](https://azure.microsoft.com/services/cognitive-services/) per l'intelligenza artificiale. 
 
-- Consigliato: Ottenere l'[app desktop Postman](https://www.getpostman.com/) per inviare le richieste a Ricerca cognitiva di Azure. È possibile usare l'API REST con qualsiasi strumento che può gestire richieste e risposte HTTP. Postman è una scelta valida per esplorare le API REST e verrà usato in questo articolo. Inoltre, il [codice sorgente](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) di questo articolo include una raccolta di richieste Postman. 
+Poiché il carico di lavoro è molto ridotto, Servizi cognitivi lavora dietro le quinte per offrire un'elaborazione gratuita per un massimo di 20 transazioni al giorno quando vengono richiamate da Ricerca cognitiva di Azure. Se i usano i dati di esempio forniti, è possibile evitare di creare o collegare una risorsa di Servizi cognitivi.
 
-## <a name="store-the-data"></a>Archiviare i dati
+1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Questi dati corrispondono ai dati delle recensioni di hotel salvati in un file CSV (generato da Kaggle.com) e contengono 19 commenti dei clienti su un unico hotel. 
 
-Caricare il file CSV delle recensioni di hotel nell'archivio BLOB di Azure in modo che sia accessibile da un indicizzatore di Ricerca cognitiva di Azure e alimentato attraverso la pipeline di arricchimento tramite intelligenza artificiale.
+1. [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [trovare un account esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) nella sottoscrizione corrente. Si userà l'archiviazione di Azure sia per il contenuto non elaborato da importare che per l'archivio conoscenze che rappresenta il risultato finale.
 
-### <a name="create-a-blob-container-by-using-the-data"></a>Creare un contenitore BLOB usando i dati
+   Scegliere il tipo di account **Archiviazione V2 (utilizzo generico V2)** .
 
-1. Scaricare i [dati sulle recensioni di hotel](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) in un file CSV (HotelReviews_Free.csv). Questi dati provengono da Kaggle.com e contengono il feedback dei clienti sugli hotel.
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'account di archiviazione di Azure.
-1. Creare un [contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Per creare il contenitore, sulla barra di spostamento a sinistra per l'account di archiviazione fare clic su **BLOB** e quindi selezionare **Contenitore**.
-1. In **Nome** immettere **hotel-reviews** come nome del nuovo contenitore.
-1. Selezionare qualsiasi valore per **Livello di accesso pubblico**. In questo caso è stato usato il valore predefinito.
-1. Fare clic su **OK** per creare il contenitore BLOB.
-1. Aprire il nuovo contenitore **hotel-reviews**, selezionare **Carica** e quindi selezionare il file HotelReviews-Free.csv scaricato nel primo passaggio.
+1. Aprire le pagine dei servizi BLOB e creare un contenitore denominato *hotel-reviews*.
+
+1. Fare clic su **Carica**.
 
     ![Caricare i dati](media/knowledge-store-create-portal/upload-command-bar.png "Caricare le recensioni di hotel")
 
-1. Selezionare **Carica** per importare il file CSV in Archiviazione BLOB di Azure. Viene visualizzato il nuovo contenitore:
+1. Selezionare il file **HotelReviews-Free.csv** scaricato nel primo passaggio.
 
-    ![Creare il contenitore BLOB](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Creare il contenitore BLOB")
+    ![Creazione del contenitore BLOB di Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Creazione del contenitore BLOB di Azure")
+
+1. Questa risorsa è quasi terminata, ma prima di chiudere le pagine, fare clic sul collegamento nel riquadro di spostamento sinistro per aprire la pagina **Chiavi di accesso**. Ottenere una stringa di connessione per recuperare i dati dall'archiviazione BLOB. Una stringa di connessione è simile all'esempio seguente: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+1. Sempre nel portale, passare a Ricerca cognitiva di Azure. [Creare un nuovo servizio](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Per questo esercizio è possibile usare un servizio gratuito.
 
 ## <a name="configure-postman"></a>Configurare Postman
 
@@ -72,7 +73,7 @@ Installare e configurare Postman.
 
 Nella scheda **Variables** (Variabili) è possibile aggiungere valori che Postman recupera ogni volta che rileva una variabile specifica racchiusa tra doppie parentesi graffe. Ad esempio, Postman sostituisce il simbolo `{{admin-key}}` con il valore corrente impostato per `admin-key`. Postman effettua questa sostituzione negli URL, nelle intestazioni, nel corpo della richiesta e così via. 
 
-Per ottenere il valore per `admin-key`, passare al servizio Ricerca cognitiva di Azure e selezionare la scheda **Keys** (Chiavi). Sostituire `search-service-name` e `storage-account-name` con i valori scelti in [Creare i servizi](#create-services). Impostare `storage-connection-string` usando il valore presente nella scheda **Chiavi di accesso** dell'account di archiviazione. È possibile lasciare i valori predefiniti per le altre impostazioni.
+Per ottenere il valore per `admin-key`, passare al servizio Ricerca cognitiva di Azure e selezionare la scheda **Keys** (Chiavi). Sostituire `search-service-name` e `storage-account-name` con i valori scelti in [Creare i servizi](#create-services-and-load-data). Impostare `storage-connection-string` usando il valore presente nella scheda **Chiavi di accesso** dell'account di archiviazione. È possibile lasciare i valori predefiniti per le altre impostazioni.
 
 ![Scheda variabili app Postman](media/knowledge-store-create-rest/postman-variables-window.png "Finestra delle variabili di Postman")
 
@@ -152,7 +153,7 @@ Selezionare **Send** (Invia) per inviare la richiesta PUT. Dovrebbe essere visua
 
 ## <a name="create-the-datasource"></a>Creare l'origine dati
 
-A questo punto, connettere Ricerca cognitiva di Azure ai dati degli hotel archiviati nel passaggio [Archiviare i dati](#store-the-data). Per creare l'origine dati, inviare una richiesta POST a `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. È necessario impostare le intestazioni `api-key` e `Content-Type`, come illustrato in precedenza. 
+A questo punto, connettere Ricerca cognitiva di Azure ai dati degli hotel archiviati nell'archivio BLOB. Per creare l'origine dati, inviare una richiesta POST a `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. È necessario impostare le intestazioni `api-key` e `Content-Type`, come illustrato in precedenza. 
 
 In Postman passare alla richiesta **Create DataSource** (Crea origine dati), quindi al riquadro **Body**. Verrà visualizzato il codice seguente:
 

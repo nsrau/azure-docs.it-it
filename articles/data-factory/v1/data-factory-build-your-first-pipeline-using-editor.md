@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683026"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439003"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Esercitazione: Creare la prima data factory con il portale di Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ La pipeline in questa esercitazione ha una sola attività, l'attività Hive di A
 > 
 > Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) e seguire i passaggi descritti nella sezione "Prerequisiti".
 
 Questo articolo non fornisce una panoramica concettuale del servizio Data factory. Per altre informazioni sul servizio, vedere [Introduzione ad Azure Data Factory](data-factory-introduction.md).  
@@ -110,7 +110,7 @@ In questo passaggio, l'account di archiviazione viene collegato alla data factor
 
    ![Servizio collegato di archiviazione](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Sostituire **account name** con il nome del proprio account di archiviazione. Sostituire **account key** con la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere come visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione in [Gestire l'account di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+1. Sostituire **nome account** con il nome del proprio account di archiviazione. Sostituire **chiave account** con la chiave di accesso dell'account di archiviazione. Per informazioni su come recuperare la chiave di accesso alle risorse di archiviazione, vedere [Gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 
 1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
@@ -147,7 +147,7 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice.
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    |:--- |:--- |
    | clusterSize |Specifica le dimensioni del cluster HDInsight. |
    | timeToLive | Specifica il tempo di inattività del cluster HDInsight prima che sia eliminato. |
@@ -165,7 +165,7 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
      Per altre informazioni, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-1. Selezionare **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
+1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
     ![Opzione di distribuzione](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
@@ -208,13 +208,13 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
     ```
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice.
 
-   | Proprietà | Annidata in | DESCRIZIONE |
+   | Proprietà | Annidata in | Descrizione |
    |:--- |:--- |:--- |
-   | Tipo | properties |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB. |
+   | type | properties |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB. |
    | linkedServiceName | format |Fa riferimento all'oggetto AzureStorageLinkedService creato in precedenza. |
    | folderPath | typeProperties | Specifica il contenitore BLOB e la cartella che contiene i BLOB di input. | 
    | fileName | typeProperties |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In questo tutorial viene elaborato solo il file input.log. |
-   | Tipo | format |I file di log sono in formato testo, quindi si usa **TextFormat**. |
+   | type | format |I file di log sono in formato testo, quindi si usa **TextFormat**. |
    | columnDelimiter | format |Le colonne nei file di log sono delimitate dalla virgola (`,`). |
    | frequency/interval | availability |La frequenza è impostata su **Month** e l'intervallo è **1**; ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
    | external | properties | Questa proprietà è impostata su **true** se i dati di input non vengono generati dalla pipeline. In questa esercitazione, il file input.log non viene generato dalla pipeline, quindi la proprietà viene impostata su **true**. |
@@ -261,7 +261,7 @@ Viene ora creato il set di dati di output per rappresentare i dati di output arc
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 In questo passaggio viene creata la prima pipeline con un'attività Hive di HDInsight. La sezione di input è disponibile con cadenza mensile perché la frequenza è impostata su Month e l'intervallo è 1. La sezione di output viene prodotta con cadenza mensile. Anche la proprietà scheduler per un'attività viene impostata su Month. Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. La pianificazione è al momento basata sul set di dati di output. È quindi necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel frammento di codice JSON seguente sono illustrate al termine di questa sezione.
 
-1. Nell'editor di Data Factory fare clic su **Altro** > **Nuova pipeline**.
+1. Nell'editor di Data Factory selezionare **Altro** > **Nuova pipeline**.
 
     ![Opzione Nuova pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
@@ -339,7 +339,7 @@ In questo passaggio viene creata la prima pipeline con un'attività Hive di HDIn
 
    c. **storageaccountname** è stato sostituito con il nome dell'account di archiviazione nel codice JSON della pipeline.
 
-1. Selezionare **Distribuisci** sulla barra dei comandi per distribuire la pipeline. Dal momento che le date e ore di inizio (**start**) e fine (**end**) sono impostate nel passato e **isPaused** è impostato su **false**, la pipeline (l'attività nella pipeline) viene eseguita immediatamente dopo la distribuzione.
+1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline. Dal momento che le date e ore di inizio (**start**) e fine (**end**) sono impostate nel passato e **isPaused** è impostato su **false**, la pipeline (l'attività nella pipeline) viene eseguita immediatamente dopo la distribuzione.
 
 1. Verificare che la pipeline sia visibile nella visualizzazione albero.
 
@@ -435,7 +435,7 @@ In questa esercitazione è stata creata una data factory per elaborare i dati es
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure a un database SQL, vedere [Esercitazione: Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Vedere anche
-| Argomento | DESCRIZIONE |
+| Argomento | Descrizione |
 |:--- |:--- |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e sulle attività in Data Factory e su come usarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Data Factory. |

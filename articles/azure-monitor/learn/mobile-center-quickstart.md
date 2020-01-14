@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva per Azure Application Insights | Microsoft Docs
-description: Fornisce istruzioni per configurare rapidamente un'app per dispositivi mobili per il monitoraggio con Application Insights e App Center
+title: Monitorare app per dispositivi mobili con Application Insights di Monitoraggio di Azure
+description: Istruzioni per configurare rapidamente un'app per dispositivi mobili per il monitoraggio con Application Insights di Monitoraggio di Azure e App Center
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -9,18 +9,18 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: fe514e7a05701901759ab5453e1c1d02870da91d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 07e162dc74a514c9e7e6c82c38b51460a2f797fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398892"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Avviare l'analisi dell'app per dispositivi mobili con App Center e Application Insights
 
 Questa guida introduttiva illustra come eseguire la connessione dell'istanza App Center dell'app ad Application Insights. Con Application Insights è possibile eseguire query, segmentare, filtrare e analizzare i dati di telemetria con gli strumenti più potenti disponibili del servizio [Analytics](https://docs.microsoft.com/mobile-center/analytics/) di App Center.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
@@ -76,13 +76,13 @@ Quando l'app invia eventi personalizzati e questi vengono ricevuti da App Center
 
     Verrà visualizzata una finestra di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        |  Valore           | DESCRIZIONE  |
+    | Impostazioni        |  valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Un valore univoco a livello globale, ad esempio "myApp-iOS" | Nome che identifica l'app da monitorare |
      | **Gruppo di risorse**     | Un nuovo gruppo di risorse o un gruppo esistente del menu | Il gruppo di risorse in cui creare la nuova risorsa di Application Insights |
    | **Posizione** | Un percorso del menu | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
-3. Fare clic su **Create**(Crea).
+3. Fare clic su **Crea**.
 
 Se l'app supporta più piattaforme, iOS, Android e così via, è consigliabile creare risorse di Application Insights separate, una per ogni piattaforma.
 

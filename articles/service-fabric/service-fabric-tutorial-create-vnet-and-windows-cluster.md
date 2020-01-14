@@ -1,26 +1,15 @@
 ---
-title: Creare un cluster di Service Fabric che esegue Windows in Azure | Microsoft Docs
+title: Creare un cluster di Service Fabric che esegue Windows in Azure
 description: In questa esercitazione si apprenderà come usare PowerShell per distribuire un cluster di Service Fabric che segue Windows in una rete virtuale di Azure e in un gruppo di sicurezza di rete.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177978"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551719"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
 
@@ -28,7 +17,7 @@ Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuir
 
 Questa esercitazione descrive uno scenario di produzione. Se si vuole creare un cluster di piccole dimensioni a scopo di test, vedere [Creare un cluster di Service Fabric](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una rete virtuale in Azure usando PowerShell
@@ -53,7 +42,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -112,6 +101,7 @@ Le regole per il traffico in ingresso seguenti vengono abilitate nella risorsa *
 
 * Endpoint di connessione client (TCP): 19000
 * Endpoint del gateway HTTP (HTTP/TCP): 19080
+* SMB: 445
 * Comunicazione tra nodi: 1025, 1026, 1027
 * Intervallo di porte temporaneo: da 49152 a 65534 (sono necessarie almeno 256 porte).
 * Porte utilizzabili per l'applicazione: 80 e 443
@@ -158,7 +148,7 @@ Nel file dei parametri [azuredeploy.parameters.json][parameters] vengono dichiar
 |adminUserName|vmadmin| Nome utente amministratore per le VM del cluster. [Requisiti dei nomi utente per le VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Password amministratore per le VM del cluster. [Requisiti delle password per le VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Nome del cluster. Può contenere solo lettere e numeri. La lunghezza deve essere compresa tra 3 e 23 caratteri.|
-|location|southcentralus| Località del cluster. |
+|posizione|southcentralus| Località del cluster. |
 |certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale SHA1 del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
 |certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato. </p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, ad esempio "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore dell'insieme di credenziali di origine, ad esempio "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
@@ -177,7 +167,7 @@ Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzion
 
 In questo articolo si presuppone che sia già stato creato un tenant. In caso contrario, vedere prima di tutto [Come ottenere un tenant di Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md).
 
-Per semplificare la procedura di configurazione di Azure AD con un cluster di Service Fabric, è stato creato un set di script di Windows PowerShell. [Scaricare gli script](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) nel computer.
+Per semplificare la procedura di configurazione di Azure AD con un cluster di Service Fabric, è stato creato un set di script di Windows PowerShell. [Scaricare gli script](https://github.com/Azure-Samples/service-fabric-aad-helpers) nel computer.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Creare applicazioni Azure AD e assegnare gli utenti ai ruoli
 Creare due applicazioni Azure AD per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa. Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai [ruoli supportati da Service Fabric](service-fabric-cluster-security-roles.md): sola lettura e amministratore.
@@ -675,7 +665,7 @@ New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templa
 
 ## <a name="connect-to-the-secure-cluster"></a>Connettersi al cluster sicuro
 
-Connettersi al cluster usando il modulo di PowerShell Service Fabric installato con Service Fabric SDK.  Installare prima di tutto il certificato nell'archivio personale (My) dell'utente corrente nel computer in uso. Eseguire il seguente comando PowerShell:
+Connettersi al cluster usando il modulo di PowerShell Service Fabric installato con Service Fabric SDK.  Installare prima di tutto il certificato nell'archivio personale (My) dell'utente corrente nel computer in uso. Eseguire il comando PowerShell seguente:
 
 ```powershell
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force

@@ -1,5 +1,5 @@
 ---
-title: Script di Azure PowerShell - Creare uno spazio delle chiavi e una tabella per Azure Cosmos DB - API Cassandra
+title: Script di PowerShell per creare uno spazio delle chiavi e una tabella per l'API Cassandra di Azure Cosmos DB
 description: Script di Azure PowerShell - Creare uno spazio delle chiavi e una tabella per Azure Cosmos DB - API Cassandra
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 52b65b6d9be4220b5d7078fc28e78ae4d764a988
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 8fe877760b32b33da0c1e0dd318e0bca52c2bee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179032"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445153"
 ---
 # <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Creare uno spazio delle chiavi e una tabella per Azure Cosmos DB - API Cassandra
 

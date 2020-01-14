@@ -1,17 +1,17 @@
 ---
-title: Connessioni di rete e alimentazione per Microsoft Azure FXT Edge Filer
+title: 'Esercitazione: Collegare i cavi di un dispositivo Azure FXT Edge Filer'
 description: Informazioni su come cablare le porte di rete e collegare l'alimentazione per il nodo hardware Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 474172284383bc9ba0e5b5c11c66e1b990010184
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254866"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550945"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Esercitazione: Creare connessioni di rete e alimentare il nodo Azure FXT Edge Filer
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà:
 > * Far passare i cavi nel braccio di gestione cavi (Cable Management Arm, CMA)
 > * Connettere l'alimentazione al dispositivo in rack e accenderlo
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione è necessario installare il dispositivo Azure FXT Edge Filer in un rack standard per apparecchiature. Il CMA deve essere installato sul nodo del filer. 
 

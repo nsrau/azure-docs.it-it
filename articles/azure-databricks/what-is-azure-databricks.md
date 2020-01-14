@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410454"
 ---
 # <a name="what-is-azure-databricks"></a>Informazioni su Azure Databricks
 
@@ -37,7 +37,7 @@ Azure Databricks comprende tutte le funzionalità e le tecnologie del cluster Ap
 
 * **Streaming**: elaborazione e analisi dei dati in tempo reale per applicazioni analitiche e interattive. Si integra con HDFS, Flume e Kafka.
 
-* **MLib**: libreria di Machine Learning costituita da utilità e algoritmi di apprendimento comuni, tra cui classificazione, regressione, clustering, filtro collaborativo, riduzione della dimensionalità, nonché primitive di ottimizzazione sottostanti.
+* **MLlib**: libreria di Machine Learning costituita da utilità e algoritmi di apprendimento comuni, tra cui classificazione, regressione, clustering, filtro collaborativo, riduzione della dimensionalità, nonché primitive di ottimizzazione sottostanti.
 
 * **GraphX**: grafi e calcolo dei grafi per casi d'uso di più ampio respiro, dall'analisi cognitiva all'esplorazione dei dati.
 
@@ -95,7 +95,7 @@ Grazie all'integrazione avanzata con Power BI, Azure Databricks consente di indi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: Eseguire un processo Spark in Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+* [Avvio rapido: Eseguire un processo Spark in Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 * [Work with Spark clusters](/azure/databricks/clusters/index) (Usare i cluster Spark)
 * [Usare i blocchi appunti](/azure/databricks/notebooks/index)
 * [Create Spark jobs](/azure/databricks/jobs) (Creare processi Spark)

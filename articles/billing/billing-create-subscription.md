@@ -1,5 +1,5 @@
 ---
-title: Creare una sottoscrizione di Azure aggiuntiva | Microsoft Docs
+title: Creare una sottoscrizione di Azure aggiuntiva
 description: Informazioni su come creare una nuova sottoscrizione di Azure nel portale di Azure.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 0f4df548313e02a9e8eb857bf2c1d798d5ccdcc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449622"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Creare una sottoscrizione di Azure aggiuntiva
 
@@ -57,7 +57,7 @@ Per creare sottoscrizioni è necessario disporre delle autorizzazioni seguenti:
 
 |Campo  |Definizione  |
 |---------|---------|
-|NOME     | Nome visualizzato che consente di identificare facilmente la sottoscrizione nel portale di Azure.  |
+|Nome     | Nome visualizzato che consente di identificare facilmente la sottoscrizione nel portale di Azure.  |
 |Offerta     | Selezionare Sviluppo/test con contratto Enterprise se si intende usare questa sottoscrizione per i carichi di lavoro di sviluppo o test, altrimenti scegliere Microsoft Azure Enterprise. Per creare sottoscrizioni di sviluppo/test con contratto Enterprise, è necessario abilitare l'offerta Sviluppo/test per l'account di registrazione.|
 
 **Contratto del cliente Microsoft**
@@ -66,8 +66,8 @@ Per creare sottoscrizioni è necessario disporre delle autorizzazioni seguenti:
 |---------|---------|
 |Profilo di fatturazione     | Gli addebiti per la sottoscrizione verranno fatturati al profilo di fatturazione selezionato. Se si ha accesso a un solo profilo di fatturazione, la selezione sarà disattivata.     |
 |Sezione della fattura     | Gli addebiti per la sottoscrizione verranno visualizzati in questa sezione della fattura del profilo di fatturazione. Se si ha accesso a una sola sezione della fattura, la selezione sarà disattivata.  |
-|Pianificazione     | Selezionare Piano di Microsoft Azure per Sviluppo/test se si intende usare questa sottoscrizione per i carichi di lavoro di sviluppo o test, altrimenti scegliere Piano di Microsoft Azure. Se è abilitato solo un piano per il profilo di fatturazione, la selezione sarà disattivata.  |
-|NOME     | Nome visualizzato che consente di identificare facilmente la sottoscrizione nel portale di Azure.  |
+|Piano     | Selezionare Piano di Microsoft Azure per Sviluppo/test se si intende usare questa sottoscrizione per i carichi di lavoro di sviluppo o test, altrimenti scegliere Piano di Microsoft Azure. Se è abilitato solo un piano per il profilo di fatturazione, la selezione sarà disattivata.  |
+|Nome     | Nome visualizzato che consente di identificare facilmente la sottoscrizione nel portale di Azure.  |
 
 **Contratto Microsoft Partner**
 
@@ -75,7 +75,7 @@ Per creare sottoscrizioni è necessario disporre delle autorizzazioni seguenti:
 |---------|---------|
 |Customer    | Viene creata la sottoscrizione per il cliente selezionato. Se è presente solo un cliente, la selezione sarà disattivata.  |
 |Rivenditore    | Rivenditore che fornirà i servizi al cliente. Si tratta di un campo facoltativo, applicabile solo ai provider indiretti nel modello a due livelli CSP. |
-|NOME     | Nome visualizzato che consente di identificare facilmente la sottoscrizione nel portale di Azure.  |
+|Nome     | Nome visualizzato che consente di identificare facilmente la sottoscrizione nel portale di Azure.  |
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Creare una sottoscrizione di Azure aggiuntiva a livello di codice
 

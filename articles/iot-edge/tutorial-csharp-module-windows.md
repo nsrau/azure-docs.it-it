@@ -9,18 +9,18 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 041efc62b32e8d8c0c477d9d5715882fd7899cd9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701936"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665217"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Windows
 
 Usare Visual Studio per sviluppare codice C# e distribuirlo in un dispositivo Windows che esegue Azure IoT Edge. 
 
-È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. In questa esercitazione si apprenderà come:    
+È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. In questa esercitazione verranno illustrate le procedure per:    
 
 > [!div class="checklist"]
 > * Usare Visual Studio per creare un modulo IoT Edge basato su C# SDK.
@@ -43,7 +43,7 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 | **Sviluppo di Windows AMD64** | ![Sviluppare moduli C# per WinAMD64 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![Sviluppare moduli C# per WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Debug di Windows AMD64** |   | ![Eseguire il debug di moduli C# per WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo, [Sviluppare un modulo IoT Edge per un dispositivo Windows](tutorial-develop-for-windows.md). Dopo aver completato questa esercitazione, saranno già stati soddisfatti i prerequisiti seguenti: 
 
@@ -76,7 +76,7 @@ Azure IoT Edge Tools offre modelli di progetto per tutti i linguaggi dei moduli 
 
 4. Nella finestra relativa a modulo e applicazione IoT Edge configurare il progetto con i valori seguenti: 
 
-   | Campo | Valore |
+   | Campo | valore |
    | ----- | ----- |
    | Selezionare un modello: | Selezionare **C# Module** (Modulo C#). | 
    | Module project name (Nome progetto modulo) | Assegnare al modulo il nome **CSharpModule**. | 
@@ -92,29 +92,30 @@ Il manifesto della distribuzione condivide le credenziali per il registro conten
 
 1. In Esplora soluzioni di Visual Studio aprire il file **deployment.template.json**. 
 
-2. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent. 
-
-3. Aggiornare la proprietà con le credenziali, usando questo formato: 
+2. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent. L'indirizzo del registro di sistema sarà compilato automaticamente con le informazioni fornite durante la creazione del progetto e i campi nome utente e password conterranno i nomi delle variabili. Ad esempio: 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. Salvare il file deployment.template.json. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-Il codice del modulo predefinito riceve i messaggi in una coda di input e li passa attraverso una coda di output. Si aggiungerà ora del codice in modo che il modulo elabori i messaggi nel dispositivo Edge prima di inoltrarli all'hub IoT. Aggiornare il modulo in modo che analizzi i dati della temperatura in ogni messaggio e invii solo il messaggio all'hub IoT se la temperatura supera una determinata soglia. 
+5. Save your changes to the .env file.
 
-1. In Visual Studio aprire **CSharpModule** > **Program.cs**.
+### Update the module with custom code
 
-2. Nella parte superiore dello spazio dei nomi **CSharpModule** aggiungere tre istruzioni **using** per i tipi che verranno usati in un secondo momento:
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+
+1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+
+2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

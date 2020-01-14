@@ -1,17 +1,17 @@
 ---
-title: 'Script di Azure PowerShell: aggiornare un account di Azure Cosmos'
+title: Script di PowerShell per aggiornare un account Azure Cosmos
 description: Esempio di script di Azure PowerShell - Aggiornare un account di Azure Cosmos o modificare le aree
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: ec160f03fa5a8b9415dc33885fca512d4289f37b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 075c33b0818aa3ec8b16158f538ae302446ff5f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445031"
 ---
 # <a name="update-an-azure-cosmos-account-or-modify-regions-using-powershell"></a>Aggiornare un account Azure Cosmos o modificare le aree con PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "71969699"
 > [!NOTE]
 > Non è possibile modificare le aree e cambiare altre proprietà dell'account Cosmos nella stessa operazione. Queste modifiche devono essere eseguite con due operazioni separate.
 > [!NOTE]
-> Questo esempio dimostra l'uso di un account API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API.
+> Questo esempio dimostra l'uso di un account dell'API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 

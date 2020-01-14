@@ -1,26 +1,17 @@
 ---
-title: Esercitazione - Risorse di pulizia in Azure Service Fabric Mesh | Microsoft Docs
+title: Esercitazione - Pulire le risorse di Azure Service Fabric Mesh
 description: Informazioni su come rimuovere le risorse di Azure Service Fabric Mesh in modo che non vengano addebitati costi per le risorse che non sono più in uso.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351866"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Esercitazione: rimuovere le risorse di Azure
 
@@ -40,7 +31,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -62,7 +53,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-In alternativa, è possibile eliminare il gruppo di risorse **sfmeshTutorial1RG**[dal portale](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups). 
+In alternativa, è possibile eliminare il gruppo di risorse **sfmeshTutorial1RG**[dal portale](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

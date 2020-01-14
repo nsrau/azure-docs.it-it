@@ -1,5 +1,5 @@
 ---
-title: Condizioni nel file Utilizzo e addebiti di Azure per un Contratto del cliente Microsoft
+title: Termini inclusi nel file Utilizzo e addebiti di Azure del Contratto del cliente Microsoft
 description: Informazioni su come leggere e comprendere le sezioni del file CSV Utilizzo e addebiti di Azure per il proprio profilo di fatturazione.
 author: bandersmsft
 manager: jureid
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b46c635b28d693cb0d6ab9e643a8a1ee9e55fc64
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f619d11c3df29a629b8b4da7b440376d6e9aedbd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388891"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Condizioni nel file Utilizzo e addebiti di Azure per un Contratto del cliente Microsoft
 
-Questo articolo si applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Questo articolo di applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Il file CSV Utilizzo e addebiti di Azure contiene gli addebiti sia a livello giornaliero sia a livello di contatore per il periodo di fatturazione corrente.
 
@@ -34,10 +34,10 @@ Se si è un cliente con contratto Enterprise, si noterà che le condizioni nel f
 
 | File CSV di utilizzo del contratto Enterprise di Azure | File CSV Utilizzo e addebiti di Azure del contratto del cliente Microsoft |
 | --- | --- |
-| Data | date |
-| Mese| date |
-| Giorno | date |
-| Year | date |
+| Data | Data |
+| Month| Data |
+| Giorno | Data |
+| Year | Data |
 | Prodotto | product |
 | ID contatore | meterID |
 | MeterCategory | meterCategory |
@@ -65,7 +65,7 @@ Se si è un cliente con contratto Enterprise, si noterà che le condizioni nel f
 
 I termini seguenti sono riportati nel file Utilizzo e addebiti di Azure.
 
-Termine | DESCRIZIONE
+Termine | Descrizione
 --- | ---
 invoiceId | ID univoco del documento elencato nella fattura in formato PDF
 previousInvoiceId | Riferimento a una fattura originale se questa voce è un rimborso
@@ -80,7 +80,7 @@ billingPeriodStartDate | Data di inizio del periodo di fatturazione per il quale
 billingPeriodEndDate | Data di fine del periodo di fatturazione per il quale viene generata la fattura
 servicePeriodStartDate | Data di inizio del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato
 servicePeriodStartDate | Data di fine del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato
-date | Per gli addebiti basati sull'utilizzo di Azure e Marketplace, questa è la data di valutazione. Per gli acquisti una tantum (prenotazioni, Marketplace) o gli addebiti periodici fissi (offerte di supporto), si tratta della data di acquisto.
+Data | Per gli addebiti basati sull'utilizzo di Azure e Marketplace, questa è la data di valutazione. Per gli acquisti una tantum (prenotazioni, Marketplace) o gli addebiti periodici fissi (offerte di supporto), si tratta della data di acquisto.
 serviceFamily | Famiglia di servizi a cui appartiene il servizio
 productOrderId | Identificatore univoco per l'ordine del prodotto
 productOrderName | Nome univoco per l'ordine del prodotto
@@ -104,7 +104,7 @@ resourceGroupName | Nome del gruppo di risorse associato alla risorsa
 resourceId | Identificatore univoco per l'istanza della risorsa
 resourceType | Tipo di istanza della risorsa
 resourceLocation | Identifica la posizione del data center in cui è in esecuzione la risorsa.
-location | Posizione normalizzata della risorsa se sono configurate posizioni di risorse diverse per le stesse aree
+posizione | Posizione normalizzata della risorsa se sono configurate posizioni di risorse diverse per le stesse aree
 quantity | Numero di unità acquistate o utilizzate
 unitOfMeasure | Unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora.
 chargeType | Tipo di addebito. Valori: <ul><li>AsCharged-Usage: Addebiti accumulati in base all'utilizzo di un servizio di Azure. Questo include l'utilizzo delle macchine virtuali che non vengono addebitate a causa di istanze riservate.</li><li>AsCharged-PurchaseMarketplace: Addebiti periodici una tantum o fissi dagli acquisti su Marketplace</li><li>AsCharged-UsageMarketplace: Addebiti per i servizi del Marketplace addebitati in base alle unità di utilizzo</li></ul>

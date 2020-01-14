@@ -1,25 +1,25 @@
 ---
-title: Avvio rapido per usare la cache di Azure per Redis con le app .NET
+title: 'Avvio rapido: Usare Azure Cache for Redis con app .NET'
 description: Questa guida introduttiva illustra come accedere a Cache Redis di Azure dalle app .NET
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2738805043b701d9e116d962f88225a6c6ae3e9b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 05/18/2018
+ms.openlocfilehash: b22d40e29d2150592f2753edd789458fbf25911f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122800"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433519"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Guida introduttiva: Usare Azure Cache for Redis con un'applicazione .NET Framework
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Avvio rapido: Usare Azure Cache for Redis con un'applicazione .NET Framework
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NET Framework per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure. Si usa specificamente il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C# in un'app console .NET.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
@@ -69,7 +69,7 @@ Una volta completata l'installazione, il client della cache *StackExchange.Redis
 
 ## <a name="connect-to-the-cache"></a>Connettersi alla cache
 
-In Visual Studio aprire il file *App.config* e aggiornarlo per includere un attributo `appSettings` `file` che fa riferimento al file *CacheSecrets.config*.
+In Visual Studio aprire il file *App.config* e aggiornarlo includendo un attributo `appSettings` `file` che fa riferimento al file *CacheSecrets.config*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

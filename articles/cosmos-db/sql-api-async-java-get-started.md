@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Compilare un'app Java con l’SDK Async Java per gestire un account API SQL di Azure Cosmos DB"
+title: "Esercitazione: Compilare un'app Java con Async Java SDK in Azure Cosmos DB per gestire i dati in un account API SQL"
 description: Questa esercitazione illustra come archiviare e accedere ai dati in un account API SQL di Azure Cosmos DB tramite un'applicazione Async Java.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 972328ec5052f5089994efbb940ff00c889ae78f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444897"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Esercitazione: Compilare un'app Java con l’SDK Async Java per gestire i dati archiviati in un account API SQL
 
@@ -36,7 +36,7 @@ Questa esercitazione illustra le attività seguenti:
 > * Creazione di documenti JSON
 > * Esecuzione di query sulla raccolta
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Assicurarsi di disporre delle risorse seguenti:
 
@@ -220,7 +220,7 @@ public static Family getJohnsonFamilyDocument() {
     }
 ```
 
-## <a id="Query"></a>Sottoporre a query le risorse di Azure Cosmos DB
+## <a id="Query"></a>Eseguire query sulle risorse di Azure Cosmos DB
 
 Azure Cosmos DB supporta query avanzate sui documenti JSON archiviati in ogni raccolta. Il codice di esempio seguente mostra come eseguire query su documenti in Azure Cosmos DB usando la sintassi SQL con il metodo `queryDocuments`.
 

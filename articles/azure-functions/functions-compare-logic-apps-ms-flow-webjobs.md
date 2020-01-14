@@ -1,19 +1,20 @@
 ---
-title: Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web - Azure
+title: Opzioni di piattaforma di integrazione e automazione in Azure
 description: È possibile confrontare i servizi cloud Microsoft ottimizzati per attività di integrazione, Microsoft Flow, App per la logica, Funzioni e Processi Web.
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409844"
 ---
-# <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Scegliere i servizi di integrazione e automazione appropriati in Azure
 
-Questo articolo confronta i servizi cloud Microsoft seguenti: 
+Questo articolo confronta i servizi cloud Microsoft seguenti:
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/)
 * [Funzioni di Azure](https://azure.microsoft.com/services/functions/)
@@ -39,7 +40,7 @@ La tabella seguente consente di determinare se per una data integrazione è più
 | Scenari |Self-service |Integrazioni avanzate |
 | Strumento di progettazione |Nel browser e app per dispositivi mobili, solo interfaccia utente |Nel browser e in [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) è disponibile la [visualizzazione Codice](../logic-apps/logic-apps-author-definitions.md) |
 | Application Lifecycle Management (ALM) |Progettare ed eseguire test in ambienti non di produzione, passare in produzione quando si è pronti |Azure DevOps: controllo del codice sorgente, test, supporto, automazione e gestibilità in [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Esperienza amministratore |Gestire ambienti di Microsoft Flow e criteri di prevenzione della perdita dei dati, tenere traccia delle licenze: [Interfaccia di amministrazione di Microsoft Flow](https://admin.flow.microsoft.com) |Gestire gruppi di risorse, connessioni, gestione dell'accesso e registrazione: [Portale di Azure](https://portal.azure.com) |
+| Esperienza amministratore |Gestire ambienti di Microsoft Flow e criteri di prevenzione della perdita dei dati, tenere traccia delle licenze: [Interfaccia di amministrazione di Microsoft Flow](https://admin.flow.microsoft.com) |Gestire gruppi di risorse, connessioni, gestione dell'accesso e registrazione: [Azure portal](https://portal.azure.com) |
 | Security |Log di controllo del centro Sicurezza e conformità di Office 365, prevenzione della perdita dei dati, [crittografia di dati inattivi](https://wikipedia.org/wiki/Data_at_rest#Encryption) per dati sensibili |Garanzie di sicurezza di Azure: [Sicurezza di Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), [log di controllo](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Confrontare Funzioni di Azure e App per la logica di Azure
@@ -52,7 +53,7 @@ Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e 
 
 |  | Funzioni permanenti | App per la logica |
 | --- | --- | --- |
-| Sviluppo. | Code-first (imperativo) | Incentrato sulla finestra di progettazione (dichiarativo) |
+| Sviluppo | Code-first (imperativo) | Incentrato sulla finestra di progettazione (dichiarativo) |
 | Connettività | [Circa una dozzina di tipi di associazioni incorporati](functions-triggers-bindings.md#supported-bindings), scrittura di codice per associazioni personalizzate | [Grande raccolta di connettori](../connectors/apis-list.md), [Enterprise Integration Pack per scenari B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [compilazione di connettori personalizzati](../logic-apps/custom-connector-overview.md) |
 | Azioni | Ogni attività è una funzione di Azure; scrittura di codice per funzioni di attività |[Grande raccolta di azioni predefinite](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | Monitoraggio | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [log di Monitoraggio di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
@@ -82,7 +83,7 @@ Basandosi su WebJobs SDK, Funzioni di Azure condivide molti degli stessi trigger
 |[Pagamento a consumo](functions-scale.md#consumption-plan)|✔||
 |[Integrazione con App per la logica](functions-twitter-email.md)|✔||
 | Eventi di attivazione |[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Griglia di eventi di Azure](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Lingue supportate  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| Lingue supportate  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Gestione pacchetti|NPM e NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> Processi Web (senza WebJobs SDK) supporta C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python e altro ancora. Questo elenco non è esaustivo. Un processo Web può eseguire qualsiasi programma o script eseguibile nella sandbox del servizio app.

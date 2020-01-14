@@ -1,19 +1,19 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una Cache di Azure per Redis Premium con clustering
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'istanza di Cache Redis di Azure Premium con clustering
+title: Creare un'istanza di Azure Cache for Redis Premium con clustering - Interfaccia della riga di comando di Azure
+description: Questo esempio di codice dell'interfaccia della riga di comando di Azure illustra come creare un'istanza di Azure Cache for Redis di livello Premium 6 GB con il clustering abilitato e due partizioni.
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: 1813bf7112969436012627147b94f656537029d5
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 68203fe2e054f32ce5764fe4f1b07013b0806104
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122497"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411155"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Creare un'istanza di Cache Redis di Azure Premium con clustering
 

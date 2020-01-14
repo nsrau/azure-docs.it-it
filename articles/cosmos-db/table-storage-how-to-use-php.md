@@ -1,5 +1,5 @@
 ---
-title: Come usare il servizio Tabella di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB da PHP
+title: Usare il servizio Tabella di archiviazione di Azure o l'API Tabella di Azure Cosmos DB da PHP
 description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: aac6755ed90c795b8fff09d9ffde33878ad21a32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1dbf5b02c99c8baca7c0b4f918cb392ddaf37c96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444772"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Come usare il servizio Tabella di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB da PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -62,7 +62,7 @@ In questo documento vengono usate le funzionalità del servizio Tabella di archi
 ## <a name="add-required-references"></a>Aggiungere i riferimenti necessari
 Per usare il servizio Tabella di archiviazione o le API di Azure Cosmos DB, è necessario:
 
-* Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once]
+* Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once].
 * Fare riferimento a tutte le classi usate.
 
 L'esempio seguente illustra come includere il file autoloader e fare riferimento alla classe **TableRestProxy**.
@@ -113,7 +113,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## <a name="create-a-table"></a>Creare una tabella
-Un oggetto **TableRestProxy** consente di creare una tabella usando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del servizio tabelle. Per altre informazioni sul timeout del servizio tabelle, vedere [Setting Timeouts for Table Service Operations][table-service-timeouts] (Impostazione di timeout per le operazioni del servizio tabelle).
+Un oggetto **TableRestProxy** consente di creare una tabella usando il metodo **createTable**. Durante la creazione di una tabella, è possibile impostare il timeout del servizio tabelle. Per altre informazioni sul timeout del servizio tabelle, vedere [Impostazione di timeout per le operazioni del servizio tabelle][table-service-timeouts].
 
 ```php
 require_once 'vendor\autoload.php';
@@ -137,7 +137,7 @@ catch(ServiceException $e){
 }
 ```
 
-Per informazioni sulle restrizioni ai nomi delle tabelle, vedere [Understanding the Table Service Data Model][table-data-model] (Informazioni sul modello di dati del servizio tabelle).
+Per informazioni sulle restrizioni ai nomi delle tabelle, vedere [Informazioni sul modello di dati del servizio tabelle][table-data-model].
 
 ## <a name="add-an-entity-to-a-table"></a>Aggiungere un'entità a una tabella
 Per aggiungere un'entità a una tabella, creare un nuovo oggetto **Entity** e passarlo a **TableRestProxy->insertEntity**. Si noti che durante la creazione di un'entità, è necessario specificare le chiavi `PartitionKey` e `RowKey`. Si tratta di identificatori univoci dell'entità e sono valori che possono essere interrogati molto più velocemente rispetto ad altre proprietà dell'entità. Il sistema usa `PartitionKey` per distribuire automaticamente le entità della tabella in molti nodi di archiviazione. Le entità con lo stesso `PartitionKey` vengono archiviate nello stesso nodo. Operazioni su più entità archiviate nello stesso nodo vengono eseguite più efficacemente che non su entità archiviate in nodi diversi. `RowKey` è l'ID univoco di un'entità all'interno di una partizione.
@@ -174,7 +174,7 @@ catch(ServiceException $e){
 }
 ```
 
-Per informazioni sulle proprietà e i tipi di tabelle, vedere [Understanding the Table Service Data Model][table-data-model] (Informazioni sul modello di dati del servizio tabelle).
+Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle][table-data-model].
 
 La classe **TableRestProxy** offre due metodi alternativi per l'inserimento di entità: **insertOrMergeEntity** e **insertOrReplaceEntity**. Per utilizzare questi metodi, creare una nuova **Entity** e passarla come parametro a uno dei due metodi. Ogni metodo inserirà l'entità se non esiste già. Se l'entità esiste già, **insertOrMergeEntity** aggiornerà i valori delle proprietà esistenti e aggiungerà nuove proprietà se non esistono, mentre **insertOrReplaceEntity** sostituirà completamente un'entità esistente. Nell'esempio seguente viene illustrato come utilizzare **insertOrMergeEntity**. Se l'entità con `PartitionKey` "tasksSeattle" e `RowKey` "1" non esiste già, verrà inserita. Tuttavia, se è già stata inserita (come illustrato nell'esempio precedente), viene aggiornata la proprietà `DueDate` e viene aggiunta la proprietà `Status`. Verranno aggiornate anche le proprietà `Description` e `Location`, ma con valori che non apporteranno alcuna modifica. Se queste due ultime proprietà non sono state aggiunte come illustrato nell'esempio, ma erano disponibili nell'entità di destinazione, i loro valori esistenti non subiranno alcuna modifica.
 
@@ -248,7 +248,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Recuperare tutte le entità di una partizione
-Le query di entità vengono create usando i filtri. Per altre informazioni, vedere [Querying Tables and Entities][filters] (Query di tabelle ed entità). Per recuperare tutte le entità in una partizione usare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities** .
+Le query di entità vengono create usando i filtri. Per altre informazioni, vedere [Query su tabelle ed entità][filters]. Per recuperare tutte le entità in una partizione usare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities** .
 
 ```php
 require_once 'vendor/autoload.php';
@@ -281,7 +281,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Recuperare un subset di entità in una partizione
-Lo stesso modello applicato nell'esempio precedente può essere usato per recuperare un subset di entità in una partizione. Il subset di entità recuperato viene determinato dal filtro usato. Per altre informazioni, vedere [Querying Tables and Entities][filters] (Query di tabelle ed entità). L'esempio seguente illustra come usare un filtro per recuperare tutte le entità con un valore `Location` specifico e un valore `DueDate` precedente a una data specificata.
+Lo stesso modello applicato nell'esempio precedente può essere usato per recuperare un subset di entità in una partizione. Il subset di entità recuperato viene determinato dal filtro usato. Per altre informazioni, vedere [Query su tabelle ed entità][filters]. L'esempio seguente illustra come usare un filtro per recuperare tutte le entità con un valore `Location` specifico e un valore `DueDate` precedente a una data specificata.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -472,7 +472,7 @@ catch(ServiceException $e){
 }
 ```
 
-Per altre informazioni su operazioni batch su tabelle, vedere [Performing Entity Group Transactions][entity-group-transactions] (Esecuzione di transazioni di gruppi di entità).
+Per altre informazioni sull'invio in batch di operazioni su tabelle, vedere [Esecuzione di transazioni di gruppi di entità][entity-group-transactions].
 
 ## <a name="delete-a-table"></a>Eliminare una tabella
 Infine, per eliminare una tabella, passare il nome della tabella al metodo **TableRestProxy->deleteTable**.

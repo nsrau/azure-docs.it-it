@@ -1,24 +1,24 @@
 ---
-title: Esercitazione per la creazione di un'app Web con Cache Redis di Azure che usa il modello cache-aside
-description: Informazioni su come creare un'app Web con Cache Redis di Azure che usa il modello cache-aside
+title: "Esercitazione: Creare un'app Web (cache-aside) - Azure Cache for Redis"
+description: Informazioni su come creare un'app Web che usa il modello cache-aside con Azure Cache for Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121507"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411950"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
 
 In questa esercitazione verrà aggiornata l'app Web ASP.NET *ContosoTeamStats*, creata nella [guida introduttiva di ASP.NET per Cache Redis di Azure](cache-web-app-howto.md), in modo da includere un tabellone punteggi che usa il [modello cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) con Cache Redis di Azure. L'applicazione di esempio mostra un elenco di statistiche del team prese da un database e illustra i diversi modi in cui è possibile usare Cache Redis di Azure per archiviare e recuperare i dati dalla cache in modo da aumentare le prestazioni. Al termine dell'esercitazione, si ottiene un'app Web in esecuzione che legge e scrive in un database, ottimizzata per Cache Redis di Azure e ospitata in Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aumentare la velocità effettiva dei dati e ridurre il carico del database archiviando e recuperando i dati con Cache Redis di Azure.
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
@@ -640,7 +640,7 @@ Per eseguire l'app in locale:
 
 1. Testare ognuno dei nuovi metodi aggiunti alla visualizzazione. Dal momento che la cache è remota in questi test, le prestazioni del database dovrebbero essere leggermente superiori a quelle della cache.
 
-## <a name="publish-and-run-in-azure"></a>Pubblicare ed eseguire in Azure
+## <a name="publish-and-run-in-azure"></a>Pubblicare ed eseguire l'app in Azure
 
 ### <a name="provision-a-sql-azure-database-for-the-app"></a>Effettuare il provisioning di un database di SQL Azure per l'app
 
@@ -678,7 +678,7 @@ In questa sezione si effettuerà il provisioning di un nuovo database di SQL Azu
 
 1. Aggiungere una nuova stringa di connessione denominata *TeamContext* corrispondente alla classe di contesto del database Entity Framework. Incollare la stringa di connessione per il nuovo database come valore. Assicurarsi di sostituire i segnaposto seguenti nella stringa di connessione e fare clic su **Salva**:
 
-    | Placeholder | Valore consigliato |
+    | Segnaposto | Valore consigliato |
     | --- | --- |
     | *{your_username}* | Usare l'**accesso di amministratore server** per il server di database appena creato. |
     | *{your_password}* | Usare la password per il server di database appena creato. |
@@ -701,7 +701,7 @@ In questo passaggio dell'esercitazione l'applicazione verrà aggiornata in Azure
 
     La tabella seguente illustra ogni collegamento all'azione dall'applicazione di esempio:
 
-    | Azione | DESCRIZIONE |
+    | Azione | Descrizione |
     | --- | --- |
     | Creazione di un nuovo sito |Crea un nuovo team. |
     | Play Season |Avvia una stagione di partite, aggiorna le statistiche del team e cancella eventuali dati del team obsoleti dalla cache. |

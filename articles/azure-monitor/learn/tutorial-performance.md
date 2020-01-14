@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900452"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398631"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
@@ -26,7 +26,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 > * Analizzare i dettagli delle visualizzazioni pagina usando il linguaggio di query
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
@@ -72,7 +72,7 @@ Application Insights raccoglie i dettagli sulle prestazioni per le diverse opera
 
     ![Suggerimento per le prestazioni](media/tutorial-performance/6-perf-tip.png)
 
-8.  Per un'ulteriore analisi, è possibile fare clic su **Scarica la traccia** per scaricare la traccia in Visual Studio.
+8.   Per un'ulteriore analisi, è possibile fare clic su **Scarica traccia** per scaricare la traccia e visualizzare i dati con [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## <a name="use-logs-data-for-server"></a>Usare i dati dei log per il server
  Log fornisce un linguaggio di query avanzato che consente di analizzare tutti i dati raccolti da Application Insights. È possibile usare questo strumento per eseguire analisi approfondite sui dati delle richieste e delle prestazioni.

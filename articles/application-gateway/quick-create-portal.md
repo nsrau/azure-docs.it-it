@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Indirizzare il traffico Web con il portale'
+title: 'Avvio rapido: Indirizzare il traffico Web con il portale'
 titleSuffix: Azure Application Gateway
 description: Informazioni su come usare il portale di Azure per creare un gateway applicazione di Azure per il reindirizzamento del traffico Web a macchine virtuali in un pool back-end.
 services: application-gateway
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442347"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
 
 Questa guida di avvio rapido illustra come usare il portale di Azure per creare un gateway applicazione.  Al termine della creazione, si testa il gateway applicazione per verificare che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end. Per semplicità, questo articolo usa una configurazione semplice con un indirizzo IP pubblico front-end, un listener di base per ospitare un singolo sito nel gateway applicazione, due macchine virtuali usate per il pool back-end e una regola di routing delle richieste di base.
 
@@ -48,7 +48,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
 
     In **Configura rete virtuale** creare una nuova rete virtuale selezionando **Crea nuovo**. Nella finestra **Crea rete virtuale** visualizzata immettere i valori seguenti per creare la rete virtuale e due subnet:
 
-    - **Nome**: immettere *myVnet* come nome della rete virtuale.
+    - **Name**: immettere *myVnet* come nome della rete virtuale.
 
     - **Nome subnet** (subnet del gateway applicazione): Nella griglia **Subnet** verrà visualizzata una subnet denominata *Predefinita*. Modificare il nome della subnet in *myAGSubnet*.<br>La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.
 
@@ -66,7 +66,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
 
 1. Nella scheda **Front- end** verificare che **Tipo di indirizzo IP front-end** sia impostato su **Pubblico**. <br>È possibile configurare l'indirizzo IP front-end come pubblico o privato in base al caso d'uso. In questo esempio si sceglierà un indirizzo IP front-end pubblico.
    > [!NOTE]
-   > Per lo SKU v2 del gateway applicazione, è possibile scegliere solo la configurazione **pubblica** dell'IP front-end. La configurazione di soli indirizzi IP front-end privati non è attualmente abilitata per questo SKU v2. È consentita la configurazione di indirizzi IP front-end pubblici e privati.
+   > Per lo SKU v2 del gateway applicazione, è possibile scegliere solo la configurazione **pubblica** dell'IP front-end. La configurazione con indirizzi IP front-end solo privati (modalità con solo bilanciamento del carico interno) non è attualmente abilitata per lo SKU v2. È consentita la configurazione di indirizzi IP front-end pubblici e privati.
 
 2. Scegliere **Crea nuovo** per **Indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico, quindi selezionare **OK**. 
 
@@ -82,7 +82,7 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 2. Nella finestra **Aggiungi un pool back-end** visualizzata immettere i valori seguenti per creare un pool back-end vuoto:
 
-    - **Nome**: immettere *myBackendPool* come nome del pool back-end.
+    - **Name**: immettere *myBackendPool* come nome del pool back-end.
     - **Aggiungi pool back-end senza destinazioni**: selezionare **Sì** per creare un pool back-end senza destinazioni. Le destinazioni back-end verranno aggiunte dopo la creazione del gateway applicazione.
 
 3. Nella finestra **Aggiungi un pool back-end** selezionare **Aggiungi** per salvare la configurazione del pool back-end e tornare alla scheda **Back-end**.

@@ -1,26 +1,17 @@
 ---
-title: Distribuire un'app Java in un cluster di Service Fabric in Azure | Microsoft Docs
+title: Distribuire un'app Java in un cluster di Service Fabric in Azure
 description: In questa esercitazione si apprenderà come distribuire un'applicazione Java di Service Fabric in un cluster di Azure Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465287"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Java in un cluster di Service Fabric in Azure
 
@@ -41,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-java-elk.md)
 > * [Configurare CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -171,7 +162,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    L'URL di firma di accesso condiviso per Hub eventi segue la struttura `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Ad esempio: `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    L'URL di firma di accesso condiviso per Hub eventi segue la struttura `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Ad esempio, usare `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Aprire il file *sfdeploy.parameters.json* e sostituire il contenuto seguente dei passaggi precedenti. [SAS-URL-STORAGE-ACCOUNT] è stato annotato nel passaggio 8. [SAS-URL-EVENT-HUBS] è stato annotato nel passaggio 11.
 
@@ -242,7 +233,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un cluster Linux protetto in Azure

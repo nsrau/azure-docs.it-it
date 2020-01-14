@@ -4,16 +4,16 @@ description: Questo articolo illustra ai clienti con contratto Azure EA come usa
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2f7c4f0d4d8bd7e5209f666dbfca34eaffc8ebc7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 92581cfcace6ec566428c9cb54d205f108399b1f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841371"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660665"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Introduzione ad Azure EA Portal
 
@@ -48,12 +48,13 @@ Il diagramma seguente illustra le semplici gerarchie di Azure EA.
 
 ## <a name="enterprise-user-roles"></a>Ruoli utente dell'organizzazione
 
-Per amministrare i servizi di Azure nella registrazione, sono disponibili quattro ruoli utente amministrativi distinti per l'organizzazione:
+Per amministrare i servizi di Azure nella registrazione, sono disponibili cinque ruoli utente amministrativi distinti per l'organizzazione:
 
 - Amministratore dell'organizzazione
 - Amministratore del reparto
 - Proprietario dell'account
 - Amministratore del servizio
+- Contatto per le notifiche
 
 I ruoli vengono usati per completare le attività in due diversi portali di Microsoft Azure. Azure EA Portal (https://ea.azure.com) ) si usa per gestire fatturazione e costi. Il portale di Azure (https://portal.azure.com) ) si usa per gestire i servizi di Azure.
 
@@ -101,9 +102,15 @@ Ogni account richiede un account aziendale, dell'istituto di istruzione o Micros
 
 L'amministratore del servizio ha le autorizzazioni per gestire i servizi nel portale di Azure e per assegnare utenti al ruolo di coamministratore.
 
+### <a name="notification-contact"></a>Contatto per le notifiche
+
+Il contatto per le notifiche riceve le notifiche sull'utilizzo correlate alla registrazione.
+
 ## <a name="activate-your-enrollment"></a>Attivare la registrazione
 
 Per attivare il servizio, l'amministratore dell'organizzazione iniziale apre Azure EA Portal all'indirizzo [https://ea.azure.com](https://ea.azure.com) e accede usando l'indirizzo di posta elettronica incluso nel messaggio di invito.
+
+Se si ha il ruolo di amministratore EA, non è necessario ricevere il messaggio di posta elettronica di attivazione per accedere ad Azure EA Portal. È possibile passare a [https://ea.azure.com](https://ea.azure.com) e accedere con il proprio indirizzo di posta elettronica (aziendale, dell'istituto di istruzione o Live ID) e la password.
 
 Se si hanno più registrazioni, scegliere quale attivare. Per impostazione predefinita, vengono visualizzate solo le registrazioni attive. Per visualizzare la cronologia delle iscrizioni, deselezionare l'opzione **Attivo** nell'angolo in alto a destra di Azure EA Portal.
 
@@ -295,13 +302,13 @@ Se si dispone già di un account Microsoft Azure esistente nel portale di Micros
 
 ### <a name="associate-an-existing-account"></a>Associare un account esistente
 
-1. Da Enterprise Portal fare clic su **Gestisci**.
+1. In Enterprise Portal fare clic su **Gestisci**.
 1. Fare clic sulla scheda **Account**.
 1. Fare clic su **+Aggiungi account**.
 1. Immettere l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
 1. Confermare l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
 1. Specificare un nome da usare per identificare l'account nei report.
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. È possibile aggiungere un altro account selezionando di nuovo l'opzione **+Aggiungi un account** oppure tornare alla home page selezionando il pulsante **Amministrazione**.
 1. Se si fa clic per visualizzare la pagina **Account**, l'account appena aggiunto verrà visualizzato con stato **In sospeso**.
 
@@ -317,7 +324,7 @@ Se si dispone già di un account Microsoft Azure esistente nel portale di Micros
 
 Sebbene la maggior parte delle sottoscrizioni esegua la conversione dall'ambiente con pagamento in base al consumo a Enterprise Azure, i servizi di Azure Marketplace non procedono in tal modo. Per visualizzare tutte le sottoscrizioni e tutti gli addebiti con un solo colpo d'occhio, è consigliabile aggiungere i servizi di Azure Marketplace a Enterprise Portal:
 
-1. Fare clic su **Gestisci** nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
 1. Fare clic sulla scheda **Registrazione**.
 1. Visualizzare la sezione relativa ai dettagli della registrazione.
 1. A destra del campo Azure Marketplace fare clic sull'icona della matita per abilitarlo e scegliere **Salva**.
@@ -369,7 +376,7 @@ Ecco un video che illustra come visualizzare i dati sull'utilizzo:
 
 ### <a name="download-csv-reports"></a>Scaricare i report CSV
 
-Gli amministratori dell'organizzazione usano la pagina di download dei report mensili per scaricare diversi report come file CSV, tra cui:
+Gli amministratori dell'organizzazione usano la pagina di download dei report mensili per scaricare diversi report come file CSV, Tali impostazioni includono:
 
 - Saldo e addebito
 - Dettagli utilizzo
@@ -445,7 +452,7 @@ Sì, è importante notare tuttavia che tutte le sottoscrizioni di Azure di cui s
 
 Per ripristinare i vantaggi di Azure per le singole sottoscrizioni di Visual Studio dopo aver eseguito l'autenticazione come proprietario dell'account EA, usare per EA le stesse informazioni di accesso della sottoscrizione di Visual Studio e quindi effettuare una delle operazioni seguenti:
 1. Eliminare questo proprietario dell'account da EA Portal dopo aver rimosso o spostato le sottoscrizioni di Azure di cui è proprietario e avergli fatto eseguire di nuovo l'iscrizione ai singoli vantaggi di Azure per Visual Studio.
- Oppure
+ o
 1. Eliminare il sottoscrittore di Visual Studio dal sito di amministrazione in VLSC e riassegnare la sottoscrizione, facendo in modo che questa volta usi altre informazioni di accesso. Potrà quindi eseguire di nuovo l'iscrizione ai singoli vantaggi di Azure per Visual Studio.
 
 ### <a name="what-type-of-subscription-should-i-create"></a>Quale tipo di sottoscrizione è necessario creare?
@@ -523,7 +530,7 @@ Sì. Il pacchetto di contenuto di Microsoft Azure Enterprise per Power BI consen
 **Passare al sito Web di Power BI:**
 
  1. Accedere con un account aziendale o dell'istituto di istruzione valido.
-    - L'account aziendale o dell'Istituto di istruzione può essere uguale o diverso da quello usato per accedere alla registrazione tramite Azure EA Portal.
+    - L'account aziendale o dell'istituto di istruzione può essere uguale o diverso da quello usato per accedere alla registrazione tramite Azure EA Portal.
  1. Nel dashboard dei servizi scegliere:
     - Il riquadro di Microsoft Azure Enterprise.
     - Fare clic su **Connetti**.

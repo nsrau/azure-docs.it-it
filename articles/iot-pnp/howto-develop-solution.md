@@ -3,24 +3,24 @@ title: Interagire con un dispositivo di anteprima Plug and Play IoT da una soluz
 description: Uno sviluppatore di dispositivi può apprendere come usare l'SDK del servizio per interagire con i dispositivi Plug and Play IoT.
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977591"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531344"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Connettersi e interagire con un dispositivo di anteprima Plug and Play IoT
 
 Questa guida pratica illustra come usare gli esempi nell'SDK del servizio Node che mostrano come la soluzione IoT può interagire con i dispositivi di anteprima Plug and Play IoT.
 
-Se non è ancora stato completato l'argomento di avvio rapido [Connettere un dispositivo Plug and Play IoT alla soluzione](quickstart-connect-pnp-device-solution.md), è necessario eseguire questa operazione ora. L'argomento di avvio rapido illustra come scaricare e installare l'SDK ed eseguire alcuni degli esempi.
+Se non è ancora stato completato l'argomento di avvio rapido [Connettere un dispositivo Plug and Play IoT alla soluzione](quickstart-connect-pnp-device-solution-node.md), è necessario eseguire questa operazione ora. L'argomento di avvio rapido illustra come scaricare e installare l'SDK ed eseguire alcuni degli esempi.
 
 Prima di eseguire gli esempi di servizio, aprire un nuovo terminale, passare alla cartella radice del repository clonato, passare alla cartella **digitaltwins/quickstarts/service**, quindi eseguire il comando seguente per installare le dipendenze:
 

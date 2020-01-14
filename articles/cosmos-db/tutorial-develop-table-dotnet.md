@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'API Tabella di Azure Cosmos DB con .NET Standard SDK
+title: API Tabella di Azure Cosmos DB con .NET Standard SDK
 description: Informazioni su come archiviare ed eseguire query sui dati strutturati nell'account dell'API Tabella di Azure Cosmos DB
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7341d86e68986a2e502f714a4dcf1f882200d384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441070"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle con .NET SDK
 
@@ -25,7 +25,7 @@ ms.locfileid: "74870548"
 
 Questa esercitazione descrive un esempio che illustra come usare la [libreria di tabelle Microsoft Azure Cosmos DB per .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) con l'API Tabella di Azure Cosmos DB e l'archiviazione tabelle di Azure. È necessario usare la connessione specifica per il servizio di Azure. Questi scenari vengono esaminati usando esempi C# che illustrano come creare tabelle, inserire/aggiornare i dati, eseguire query sui dati ed eliminare le tabelle.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 
@@ -43,7 +43,7 @@ Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 
 In Visual Studio creare una nuova applicazione console .NET. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2019. È possibile usare la libreria di tabelle di Azure Cosmos DB in qualsiasi tipo di applicazione .NET, ad esempio un servizio cloud o un'app Web di Azure, nonché in applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
-1. Selezionare **File** > **Nuovo** > **Progetto**.
+1. Selezionare **File** > **New** (Nuovo)  > **Project** (Progetto).
 
 1. Scegliere **App console (.NET Core)** , quindi selezionare **Avanti**.
 

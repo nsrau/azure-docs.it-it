@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app multicontenitore"
+title: "Avvio rapido: Creare un'app multicontenitore"
 description: Informazioni su come distribuire la prima app multicontenitore nel servizio app di Azure.
 keywords: servizio app di azure, app web, linux, docker, compose, multicontenitore, multi-contenitore, app web per contenitori, più contenitori, contenitore, wordpress, db azure per mysql, database di produzione con contenitori
 author: msangapu-msft
@@ -7,16 +7,19 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 4a0207299b480136e8054fbe3d4579dd98f45267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430541"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creare un'app multi-contenitore (anteprima) con una configurazione di Docker Compose
 
-[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. Questa guida introduttiva illustra come distribuire un'app multi-contenitore nell'app Web per contenitori in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) con una configurazione di Docker Compose.
+> [!NOTE]
+> La funzionalità multi-contenitore è disponibile in anteprima.
+
+[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. Questa guida di avvio rapido illustra come distribuire un'app multi-contenitore (anteprima) in App Web per contenitori in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) con una configurazione di Docker Compose.
 
 Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.32 o versioni successive). 
 
@@ -130,7 +133,7 @@ La creazione di un'app multi-contenitore in App Web per contenitori è stata **c
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App WordPress multi-contenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurare un contenitore personalizzato](configure-custom-container.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2018
-ms.openlocfilehash: e0e6ffc45d55dc76abdbdf839958479b2ac5d40b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c44f1b39ae700fbd11b7c0866e7150d1edec8c4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926692"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439526"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 
@@ -47,7 +47,7 @@ In questo scenario il database SQL di Azure include alcune tabelle da copiare in
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * **Account di archiviazione di Azure**. L'account di archiviazione di Azure viene usato come archivio BLOB di staging nell'operazione di copia in blocco. 
 * **Database SQL di Azure**. Questo database contiene i dati di origine. 
 * **Azure SQL Data Warehouse**. Questo data warehouse include i dati copiati dal database SQL. 
@@ -85,10 +85,10 @@ Per verificare e attivare l'impostazione, passare a Server di Azure SQL > Sicure
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-     Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+     Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 1. Selezionare **V2** per **version**.
 1. Selezionare la **località** per la data factory. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 1. Al termine della creazione verrà visualizzata la pagina **Data factory**.
    
 1. Fare clic sul riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Data Factory in una scheda separata.
@@ -122,7 +122,7 @@ In questo passaggio viene creato un servizio collegato per collegare il database
 
     f. Per eseguire il test della connessione al database SQL di Azure con le informazioni specificate, fare clic su **Connessione di test**.
   
-    g. Fare clic su **Continue**.
+    g. Fare clic su **Continua**.
 
 
 ### <a name="create-the-sink-azure-sql-data-warehouse-linked-service"></a>Creare il servizio collegato sink Azure SQL Data Warehouse
@@ -143,7 +143,7 @@ In questo passaggio viene creato un servizio collegato per collegare il database
      
     f. Per eseguire il test della connessione al database SQL di Azure con le informazioni specificate, fare clic su **Connessione di test**.
      
-    g. Fare clic su **Continue**.
+    g. Fare clic su **Continua**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Creare il servizio collegato di staging Archiviazione di Azure
 In questa esercitazione l'archivio BLOB di Azure viene usato come area di staging intermedia per abilitare PolyBase per ottimizzare le prestazioni della copia.
@@ -156,7 +156,7 @@ In questa esercitazione l'archivio BLOB di Azure viene usato come area di stagin
     
     b. Selezionare l'**Account di archiviazione di Azure** per **Nome account di archiviazione**.
     
-    c. Fare clic su **Continue**.
+    c. Fare clic su **Continua**.
 
 
 ## <a name="create-datasets"></a>Creare set di dati

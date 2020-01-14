@@ -5,17 +5,17 @@ services: azure-app-configuration
 author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 12/03/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: c98a17be394887ef4e008b079467c85d4ded7e09
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: ccd2a0ded1cd915dc52dea1449d75136bbef18fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413430"
 ---
-1. Per creare un nuovo archivio di Configurazione app, accedere al [portale di Azure](https://portal.azure.com). Nell'angolo superiore sinistro del riquadro selezionare **+ Crea una risorsa**. Nella casella **Cerca nel Marketplace** immettere **Configurazione app** e quindi premere INVIO.
+1. Per creare un nuovo archivio di Configurazione app, accedere al [portale di Azure](https://portal.azure.com). Nell'angolo superiore sinistro della home page selezionare **Crea una risorsa**. Nella casella **Cerca nel Marketplace** immettere **Configurazione app** e quindi premere INVIO.
 
     ![Ricerca di Configurazione app](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
 
@@ -23,7 +23,7 @@ ms.locfileid: "66393322"
 
 1. Nel riquadro **Configurazione app** > **Crea** immettere le impostazioni seguenti:
 
-    | Impostazione | Valore consigliato | DESCRIZIONE |
+    | Impostazione | Valore consigliato | Descrizione |
     |---|---|---|
     | **Nome risorsa** | Nome globalmente univoco | Immettere un nome di risorsa univoco da usare per la risorsa archivio di Configurazione app. Il nome deve essere una stringa contenente da 1 a 63 caratteri che possono includere solo numeri, lettere e il carattere `-`. Il nome non può iniziare o terminare con il carattere `-` e i caratteri `-` consecutivi non sono validi.  |
     | **Sottoscrizione** | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per testare Configurazione app. Se l'account ha una sola sottoscrizione, questa viene selezionata automaticamente e l'elenco **Sottoscrizione** non viene visualizzato. |
@@ -32,6 +32,6 @@ ms.locfileid: "66393322"
 
     ![Creare una risorsa archivio di Configurazione app](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
 
-1. Selezionare **Create** (Crea). Il completamento della distribuzione può richiedere alcuni minuti.
+1. Selezionare **Create** (Crea). La distribuzione può richiedere alcuni minuti.
 
-1. Al termine della distribuzione, selezionare **Impostazioni** > **Chiavi di accesso**. Prendere nota della stringa di connessione della chiave primaria di sola lettura o di quella di sola scrittura. Questa stringa di connessione verrà usata in seguito per configurare l'applicazione in modo da comunicare con l'archivio di Configurazione app creato.
+1. Al termine, selezionare **Impostazioni** > **Chiavi di accesso**. Prendere nota della stringa di connessione della chiave primaria di sola lettura. Questa stringa di connessione verrà usata in seguito per configurare l'applicazione in modo da comunicare con l'archivio di Configurazione app creato.

@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c9e407b271fd77397723ee49f530339847096749
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106628"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613602"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Esercitazione: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
-Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del servizio di pianificazione percorso per trovare il percorso per raggiungere un determinato punto di interesse. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del servizio di pianificazione percorso per trovare il percorso per raggiungere un determinato punto di interesse. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
 > * Impostare le coordinate di un indirizzo
 > * Inviare una query al servizio di pianificazione percorso per ottenere le indicazioni stradali per un punto di interesse
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Prima di procedere, seguire le istruzioni in [Gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
+Prima di procedere, seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -211,7 +211,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -219,10 +219,10 @@ Questa esercitazione illustra come:
 > * Inviare una query al servizio di pianificazione percorso per ottenere le indicazioni stradali per un punto di interesse
 
 > [!div class="nextstepaction"]
-> [Visualizzare codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
+> [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
 > [!div class="nextstepaction"]
-> [Visualizzare esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [Visualizzare l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 L'esercitazione successiva illustra come creare una query del percorso con restrizioni, ad esempio la modalità di trasporto o il tipo di carico, e come visualizzare più percorsi sulla mappa stessa.
 

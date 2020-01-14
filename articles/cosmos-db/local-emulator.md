@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: df662353f7c9c788158ce2dfe05385f022289466
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1c352ad5d18f891cd82d90eef7d0a8c6c3d1cdb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539108"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441683"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -86,7 +86,7 @@ Esplora dati indica se è disponibile un nuovo aggiornamento per il download.
 
 ## <a name="authenticating-requests"></a>Autenticazione delle richieste
 
-Come per Azure Cosmos DB nel cloud, tutte le richieste effettuate nell'emulatore Azure Cosmos devono essere autenticate. L'emulatore Azure Cosmos supporta un singolo account fisso e una chiave di autenticazione nota per l'autenticazione della chiave master. Questo account e questa chiave sono le uniche credenziali consentite per l'uso con l'emulatore Azure Cosmos. Sono:
+Come per Azure Cosmos DB nel cloud, tutte le richieste effettuate nell'emulatore Azure Cosmos devono essere autenticate. L'emulatore Azure Cosmos supporta un singolo account fisso e una chiave di autenticazione nota per l'autenticazione della chiave master. Questo account e questa chiave sono le uniche credenziali consentite per l'uso con l'emulatore Azure Cosmos. ovvero:
 
 ```bash
 Account name: localhost:<port>
@@ -232,45 +232,48 @@ Dal percorso di installazione è possibile usare la riga di comando per avviare 
 
 ### <a name="command-line-syntax"></a>Sintassi della riga di comando
 
-    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
 
-Per visualizzare l'elenco di opzioni, digitare `CosmosDB.Emulator.exe /?` al prompt dei comandi.
+Per visualizzare l'elenco di opzioni, digitare `Microsoft.Azure.Cosmos.Emulator.exe /?` al prompt dei comandi.
 
 |**Opzione** | **Descrizione** | **Comando**| **Argomenti**|
 |---|---|---|---|
-|[Nessun argomento] | Avvia l'emulatore Azure Cosmos con le impostazioni predefinite. |CosmosDB.Emulator.exe| |
-|[Help] |Visualizza l'elenco di argomenti della riga di comando supportati.|CosmosDB.Emulator.exe /? | |
-| GetStatus |Ottiene lo stato dell'emulatore Azure Cosmos. Lo stato è indicato dal codice di uscita: 1 = Avvio, 2 = In esecuzione, 3 = Arrestato. Un codice di uscita negativo indica che si è verificato un errore. Non viene prodotto altro output. | CosmosDB.Emulator.exe /GetStatus| |
-| Shutdown| Arresta l'emulatore Azure Cosmos.| CosmosDB.Emulator.exe /Shutdown | |
-|DataPath | Specifica il percorso in cui archiviare i file di dati. Il valore predefinito è %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<percorsodati\> | \<datapath\>: Un percorso accessibile |
-|Porta | Specifica il numero di porta da usare per l'emulatore. Il valore predefinito è 8081. |CosmosDB.Emulator.exe /Port=\<porta\> | \<porta\>: numero di porta singolo |
-| ComputePort | Specifica il numero di porta da usare per il servizio Gateway di interoperabilità di calcolo. La porta probe dell'endpoint HTTP del gateway viene calcolata come ComputePort + 79. ComputePort e ComputePort + 79 devono pertanto essere aperte e disponibili. I valori predefiniti sono 8900 e 8979. | CosmosDB.Emulator.exe /ComputePort = \<portacalcolo\> | \<portacalcolo\>: numero di porta singolo |
-| EnableMongoDbEndpoint | Abilita l'API MongoDB | CosmosDB.Emulator.exe /EnableMongoDbEndpoint | |
-| MongoPort | Specifica il numero di porta da usare per l'API di compatibilità MongoDB. Il valore predefinito è 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: numero di porta singolo|
-| EnableCassandraEndpoint | Abilita l'API Cassandra | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
-| CassandraPort | Specifica il numero di porta da usare per l'endpoint Cassandra. Il valore predefinito è 10350. | CosmosDB.Emulator.exe /CassandraPort = \<portacassandra\> | \<portacassandra\>: numero di porta singolo |
-| EnableGremlinEndpoint | Abilita l'API Gremlin | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
-| GremlinPort | Numero di porta da usare per l'endpoint Gremlin. Il valore predefinito è 8901. | CosmosDB.Emulator.exe /GremlinPort=\<porta\> | \<porta\>: numero di porta singolo |
-|EnableTableEndpoint | Abilita l'API Tabella di Azure | CosmosDB.Emulator.exe /EnableTableEndpoint | |
-|TablePort | Numero di porta da usare per l'endpoint Tabella di Azure. Il valore predefinito è 8902. | CosmosDB.Emulator.exe /TablePort=\<porta\> | \<porta\>: numero di porta singolo|
-| KeyFile | Legge la chiave di autorizzazione dal file specificato. Usare l'opzione /GenKeyFile per generare un file di chiave | CosmosDB.Emulator.exe /KeyFile=\<nome_file\> | \<nome_file\>: percorso del file |
-| ResetDataPath | Rimuove in modo ricorsivo tutti i file nel percorso specificato. Se non si specifica un percorso, per impostazione predefinita viene usato %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath=\<percorso> | \<percorso\>: Percorso del file  |
-| StartTraces  |  Avvia la raccolta dei log di traccia di debug. | CosmosDB.Emulator.exe /StartTraces | |
-| StopTraces     | Arresta la raccolta dei log di traccia di debug. | CosmosDB.Emulator.exe /StopTraces  | |
-|FailOnSslCertificateNameMismatch | Per impostazione predefinita, l'emulatore rigenera il relativo certificato SSL autofirmato, se il nome alternativo del soggetto del certificato non include il nome di dominio e l'indirizzo IPv4 locale dell'host dell'emulatore, ovvero 'localhost' e '127.0.0.1'. Con questa opzione, l'emulatore invece avrà problemi all'avvio. Sarà quindi necessario usare l'opzione /GenCert per creare e installare un nuovo certificato SSL autofirmato. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | Genera e installa un nuovo certificato SSL autofirmato, includendo facoltativamente un elenco di nomi DNS aggiuntivi separati da virgole per l'accesso all'emulatore tramite la rete. | CosmosDB.Emulator.exe /GenCert=\<nomi-DNS\> |\<nomi-DNS\>: elenco facoltativo di nomi DNS aggiuntivi delimitati da virgole  |
-| DirectPorts |Specifica le porte da usare per la connettività diretta. I valori predefiniti sono 10251, 10252, 10253 e 10254. | CosmosDB.Emulator.exe /DirectPorts:\<portedirette\> | \<portedirette\>: elenco delimitato da virgole di 4 porte |
-| Chiave |Chiave di autorizzazione per l'emulatore. La chiave deve essere la codifica Base 64 di un vettore a 64 byte. | CosmosDB.Emulator.exe /Key:\<chiave\> | \<chiave\>: La chiave deve essere la codifica Base 64 di un vettore a 64 byte.|
-| EnableRateLimiting | Specifica che il comportamento di limitazione della frequenza è abilitato. |CosmosDB.Emulator.exe /EnableRateLimiting | |
-| DisableRateLimiting |Specifica che il comportamento di limitazione della frequenza è disabilitato. |CosmosDB.Emulator.exe /DisableRateLimiting | |
-| NoUI | Non mostra l'interfaccia utente dell'emulatore. | CosmosDB.Emulator.exe /NoUI | |
-| NoExplorer | Non mostra Esplora dati all'avvio. |CosmosDB.Emulator.exe /NoExplorer | | 
-| PartitionCount | Specifica il numero massimo di contenitori partizionati. Per altre informazioni, vedere [Modificare il numero di contenitori](#set-partitioncount). | CosmosDB.Emulator.exe /PartitionCount=\<conteggiopartizioni\> | \<partitioncount\>: numero massimo di contenitori con partizione singola consentiti. Il valore predefinito è 25. Il valore massimo consentito è 250.|
-| DefaultPartitionCount| Specifica il numero predefinito di partizioni per un contenitore partizionato. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<numeropredefinitopartizioni\> | \<numeropredefinitopartizioni\> Il valore predefinito è 25.|
-| AllowNetworkAccess | Consente l'accesso all'emulatore tramite una rete. È necessario passare anche /Key=\<stringa_chiave\> o /KeyFile=\<nome_file\> per abilitare l'accesso alla rete. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<stringa_chiave\> o CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<nome_file\>| |
-| NoFirewall | Non modifica le regole del firewall quando viene usata l'opzione /AllowNetworkAccess. |CosmosDB.Emulator.exe /NoFirewall | |
-| GenKeyFile | Genera una nuova chiave di autorizzazione e la salva nel file specificato. La chiave generata può essere usata con le opzioni /Key o /KeyFile. | CosmosDB.Emulator.exe /GenKeyFile=\<percorso del file della chiave\> | |
-| Consistency | Imposta il livello di coerenza per l'account. | CosmosDB.Emulator.exe /Consistency=\<coerenza\> | \<coerenza\>: Il valore deve essere uno dei [livelli di coerenza](consistency-levels.md) seguenti: Di sessione, Assoluta, Finale, o BoundedStaleness. Il valore predefinito è Session. |
+|[Nessun argomento] | Avvia l'emulatore Azure Cosmos con le impostazioni predefinite. |Microsoft.Azure.Cosmos.Emulator.exe| |
+|[Help] |Visualizza l'elenco di argomenti della riga di comando supportati.|Microsoft.Azure.Cosmos.Emulator.exe /? | |
+| GetStatus |Ottiene lo stato dell'emulatore Azure Cosmos. Lo stato è indicato dal codice di uscita: 1 = Avvio, 2 = In esecuzione, 3 = Arrestato. Un codice di uscita negativo indica che si è verificato un errore. Non viene prodotto altro output. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
+| Shutdown| Arresta l'emulatore Azure Cosmos.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
+|DataPath | Specifica il percorso in cui archiviare i file di dati. Il valore predefinito è %LocalAppdata%\CosmosDBEmulator. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: Un percorso accessibile |
+|Porta | Specifica il numero di porta da usare per l'emulatore. Il valore predefinito è 8081. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<port\> | \<porta\>: numero di porta singolo |
+| ComputePort | Specifica il numero di porta da usare per il servizio Gateway di interoperabilità di calcolo. La porta probe dell'endpoint HTTP del gateway viene calcolata come ComputePort + 79. ComputePort e ComputePort + 79 devono pertanto essere aperte e disponibili. Il valore predefinito è 8900. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<portacalcolo\>: numero di porta singolo |
+| EnableMongoDbEndpoint=3.2 | Abilita l'API MongoDB 3.2 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2 | |
+| EnableMongoDbEndpoint=3.6 | Abilita l'API MongoDB 3.6 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6 | |
+| MongoPort | Specifica il numero di porta da usare per l'API di compatibilità MongoDB. Il valore predefinito è 10255. |Microsoft.Azure.Cosmos.Emulator.exe /MongoPort=\<mongoport\>|\<mongoport\>: numero di porta singolo|
+| EnableCassandraEndpoint | Abilita l'API Cassandra | Microsoft.Azure.Cosmos.Emulator.exe /EnableCassandraEndpoint | |
+| CassandraPort | Specifica il numero di porta da usare per l'endpoint Cassandra. Il valore predefinito è 10350. | Microsoft.Azure.Cosmos.Emulator.exe /CassandraPort=\<cassandraport\> | \<portacassandra\>: numero di porta singolo |
+| EnableGremlinEndpoint | Abilita l'API Gremlin | Microsoft.Azure.Cosmos.Emulator.exe /EnableGremlinEndpoint | |
+| GremlinPort | Numero di porta da usare per l'endpoint Gremlin. Il valore predefinito è 8901. | Microsoft.Azure.Cosmos.Emulator.exe /GremlinPort=\<port\> | \<porta\>: numero di porta singolo |
+|EnableTableEndpoint | Abilita l'API Tabella di Azure | Microsoft.Azure.Cosmos.Emulator.exe /EnableTableEndpoint | |
+|TablePort | Numero di porta da usare per l'endpoint Tabella di Azure. Il valore predefinito è 8902. | Microsoft.Azure.Cosmos.Emulator.exe /TablePort=\<port\> | \<porta\>: numero di porta singolo|
+| KeyFile | Legge la chiave di autorizzazione dal file specificato. Usare l'opzione /GenKeyFile per generare un file di chiave | Microsoft.Azure.Cosmos.Emulator.exe /KeyFile=\<file_name\> | \<nome_file\>: percorso del file |
+| ResetDataPath | Rimuove in modo ricorsivo tutti i file nel percorso specificato. Se non si specifica un percorso, per impostazione predefinita viene usato %LOCALAPPDATA%\CosmosDbEmulator | Microsoft.Azure.Cosmos.Emulator.exe /ResetDataPath=\<path> | \<percorso\>: Percorso del file  |
+| StartTraces  |  Avvia la raccolta dei log di traccia di debug tramite LOGMAN. | Microsoft.Azure.Cosmos.Emulator.exe /StartTraces | |
+| StopTraces     | Arresta la raccolta dei log di traccia di debug tramite LOGMAN. | Microsoft.Azure.Cosmos.Emulator.exe /StopTraces  | |
+| StartWprTraces  |  Avvia la raccolta dei log di traccia di debug tramite lo strumento di registrazione delle prestazioni di Windows. | Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces | |
+| StopWprTraces     | Arresta la raccolta dei log di traccia di debug tramite lo strumento di registrazione delle prestazioni di Windows. | Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces  | |
+|FailOnSslCertificateNameMismatch | Per impostazione predefinita, l'emulatore rigenera il relativo certificato SSL autofirmato, se il nome alternativo del soggetto del certificato non include il nome di dominio e l'indirizzo IPv4 locale dell'host dell'emulatore, ovvero 'localhost' e '127.0.0.1'. Con questa opzione, l'emulatore invece avrà problemi all'avvio. Sarà quindi necessario usare l'opzione /GenCert per creare e installare un nuovo certificato SSL autofirmato. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
+| GenCert | Genera e installa un nuovo certificato SSL autofirmato, includendo facoltativamente un elenco di nomi DNS aggiuntivi separati da virgole per l'accesso all'emulatore tramite la rete. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<nomi-DNS\>: elenco facoltativo di nomi DNS aggiuntivi delimitati da virgole  |
+| DirectPorts |Specifica le porte da usare per la connettività diretta. I valori predefiniti sono 10251, 10252, 10253 e 10254. | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<portedirette\>: elenco delimitato da virgole di 4 porte |
+| Chiave |Chiave di autorizzazione per l'emulatore. La chiave deve essere la codifica Base 64 di un vettore a 64 byte. | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<chiave\>: La chiave deve essere la codifica Base 64 di un vettore a 64 byte.|
+| EnableRateLimiting | Specifica che il comportamento di limitazione della frequenza è abilitato. |Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting | |
+| DisableRateLimiting |Specifica che il comportamento di limitazione della frequenza è disabilitato. |Microsoft.Azure.Cosmos.Emulator.exe /DisableRateLimiting | |
+| NoUI | Non mostra l'interfaccia utente dell'emulatore. | Microsoft.Azure.Cosmos.Emulator.exe /NoUI | |
+| NoExplorer | Non mostra Esplora dati all'avvio. |Microsoft.Azure.Cosmos.Emulator.exe /NoExplorer | | 
+| PartitionCount | Specifica il numero massimo di contenitori partizionati. Per altre informazioni, vedere [Modificare il numero di contenitori](#set-partitioncount). | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: numero massimo di contenitori con partizione singola consentiti. Il valore predefinito è 25. Il valore massimo consentito è 250.|
+| DefaultPartitionCount| Specifica il numero predefinito di partizioni per un contenitore partizionato. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<numeropredefinitopartizioni\> Il valore predefinito è 25.|
+| AllowNetworkAccess | Consente l'accesso all'emulatore tramite una rete. È necessario passare anche /Key=\<stringa_chiave\> o /KeyFile=\<nome_file\> per abilitare l'accesso alla rete. | Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> o Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
+| NoFirewall | Non modifica le regole del firewall quando viene usata l'opzione /AllowNetworkAccess. |Microsoft.Azure.Cosmos.Emulator.exe /NoFirewall | |
+| GenKeyFile | Genera una nuova chiave di autorizzazione e la salva nel file specificato. La chiave generata può essere usata con le opzioni /Key o /KeyFile. | Microsoft.Azure.Cosmos.Emulator.exe /GenKeyFile=\<path to key file\> | |
+| Consistenza | Imposta il livello di coerenza per l'account. | Microsoft.Azure.Cosmos.Emulator.exe /Consistency=\<consistency\> | \<coerenza\>: Il valore deve essere uno dei [livelli di coerenza](consistency-levels.md) seguenti: Di sessione, Assoluta, Finale, o BoundedStaleness. Il valore predefinito è Session. |
 | ? | Mostra il messaggio della Guida.| | |
 
 ## <a id="set-partitioncount"></a>Modificare il numero di contenitori
@@ -289,7 +292,7 @@ Per modificare il numero di contenitori disponibili nell'emulatore Azure Cosmos,
 2. Eliminare tutti i dati dell'emulatore in questa cartella: `%LOCALAPPDATA%\CosmosDBEmulator`.
 3. Chiudere tutte le istanze aperte facendo clic con il pulsante destro del mouse sull'icona dell'**emulatore di Azure Cosmos DB** sull'area di notifica, quindi fare clic su **Esci**. La chiusura di tutte le istanze può richiedere qualche minuto.
 4. Installare la versione più recente dell'[emulatore Azure Cosmos](https://aka.ms/cosmosdb-emulator).
-5. Avviare l'emulatore con il flag PartitionCount impostando un valore <= 250. Ad esempio: `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`.
+5. Avviare l'emulatore con il flag PartitionCount impostando un valore <= 250. Ad esempio: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
 
 ## <a name="controlling-the-emulator"></a>Controllo dell'emulatore
 
@@ -512,11 +515,11 @@ Usare i suggerimenti seguenti per risolvere i problemi relativi all'emulatore Az
 Per raccogliere le tracce di debug, eseguire i comandi seguenti da un prompt dei comandi amministrativi:
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`. Verificare l'area di notifica per assicurarsi che il programma sia stato arrestato. Potrebbe essere necessario qualche minuto. È anche possibile fare semplicemente clic su **Esci** nell'interfaccia utente dell'emulatore Azure Cosmos.
-3. `CosmosDB.Emulator.exe /starttraces`
-4. `CosmosDB.Emulator.exe`
+2. `Microsoft.Azure.Cosmos.Emulator.exe /shutdown`. Verificare l'area di notifica per assicurarsi che il programma sia stato arrestato. Potrebbe essere necessario qualche minuto. È anche possibile fare semplicemente clic su **Esci** nell'interfaccia utente dell'emulatore Azure Cosmos.
+3. `Microsoft.Azure.Cosmos.Emulator.exe /startwprtraces`
+4. `Microsoft.Azure.Cosmos.Emulator.exe`
 5. Riprodurre il problema. Se Esplora dati non funziona, è sufficiente attendere qualche secondo per l'apertura del browser e il rilevamento dell'errore.
-5. `CosmosDB.Emulator.exe /stoptraces`
+5. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
 6. Passare a `%ProgramFiles%\Azure Cosmos DB Emulator` e individuare il file docdbemulator_000001.etl.
 7. Inviare il file con estensione etl insieme alla procedura per la riproduzione all'indirizzo [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) per il debug.
 

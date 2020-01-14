@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355896"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -37,7 +37,7 @@ Managed Disks supporta le [zone di disponibilità](../articles/availability-zone
 
 ### <a name="azure-backup-support"></a>Supporto di Backup di Azure
 
-Per proteggersi da emergenze a livello di area, [Backup di Azure](../articles/backup/backup-overview.md) può essere usato per creare un processo di backup con backup pianificati e criteri di conservazione dei backup. Ciò consente di eseguire semplici operazioni di ripristino delle macchine virtuali in base alle esigenze. Backup di Azure supporta il backup e il ripristino di dischi gestiti. [Altre informazioni](../articles/backup/backup-support-matrix-iaas.md) sul supporto per il backup di macchine virtuali di Azure.
+Per proteggersi da emergenze a livello di area, [Backup di Azure](../articles/backup/backup-overview.md) può essere usato per creare un processo di backup con backup pianificati e criteri di conservazione dei backup. Ciò consente di eseguire semplici operazioni di ripristino delle macchine virtuali in base alle esigenze. Attualmente Backup di Azure supporta dimensioni di disco fino a quattro tebibyte (TiB).  Backup di Azure supporta il backup e il ripristino di dischi gestiti. [Altre informazioni](../articles/backup/backup-support-matrix-iaas.md) sul supporto per il backup di macchine virtuali di Azure.
 
 ### <a name="granular-access-control"></a>Controllo di accesso granulare
 
@@ -126,5 +126,7 @@ Azure usa il canale di rete in ordine di priorità per il traffico del disco e t
 Fare riferimento all'articolo sulla [progettazione per le prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md) per informazioni sulle procedure consigliate per l'ottimizzazione delle configurazioni che includono macchine virtuali e dischi allo scopo di ottenere le prestazioni desiderate.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Per un video che spiega i dischi gestiti in modo più dettagliato, vedere: [Migliore resilienza delle macchine virtuali di Azure con Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 
 Nell'articolo sui tipi di disco vengono fornite altre informazioni sui tipi di disco singolo offerti da Azure, sul tipo ideale per le proprie esigenze e sugli obiettivi in termini di prestazioni.

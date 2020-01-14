@@ -1,5 +1,5 @@
 ---
-title: Completare le attività del Contratto Enterprise nel contratto del cliente Microsoft - Azure
+title: Attività del Contratto Enterprise in un Contratto del cliente Microsoft - Azure
 description: Informazioni su come completare le attività del Contratto Enterprise nel nuovo account di fatturazione.
 author: amberbhargava
 manager: amberb
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 87fe00066989a0b037fc093c8ddf181b8453d5d9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 38639c43d796774571fd25a865bc042bd73e8c01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849871"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644376"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Completare le attività del Contratto Enterprise nell'account di fatturazione per un contratto del cliente Microsoft
 
@@ -27,13 +27,13 @@ Se l'organizzazione ha firmato un contratto del cliente Microsoft per rinnovare 
 
 Il diagramma seguente descrive il modo in cui la fatturazione è organizzata nel nuovo account di fatturazione.
 
-![Immagine della gerarchia post transizione Contratto Enterprise-Contratto del cliente Microsoft](./media/mca-setup-account/mca-post-transition-hierarchy.png)
+![Immagine della gerarchia post transizione contratto Enterprise Agreement-Contratto del cliente Microsoft](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Enterprise Agreement   | Contratto del cliente Microsoft    |
 |------------------------|--------------------------------------------------------|
 | Registrazione            | Usare un profilo di fatturazione per gestire la fatturazione per l'organizzazione, in modo analogo alla registrazione del Contratto Enterprise. Gli amministratori dell'organizzazione diventano proprietari del profilo di fatturazione. Per saperne di più sui profili di fatturazione, vedere [Informazioni sui profili di fatturazione](billing-mca-overview.md#billing-profiles).
-| department            | Usare una sezione della fattura per organizzare i costi, in modo analogo ai reparti nella registrazione del Contratto Enterprise. Il reparto diventa una sezione di fatturazione e gli amministratori del reparto diventano proprietari delle rispettive sezioni della fattura. Per saperne di più sulle sezioni della fattura, vedere [Informazioni sulle sezioni della fattura](billing-mca-overview.md#invoice-sections). |
-| Account               | Gli account creati nel Contratto Enterprise non sono supportati nel nuovo account di fatturazione. Le sottoscrizioni dell'account appartengono alla rispettiva sezione della fattura per il relativo reparto. I proprietari dell'account possono creare e gestire le sottoscrizioni per le sezioni della fattura. |
+| department            | Usare una sezione della fattura per organizzare i costi, in modo analogo ai reparti nella registrazione del Contratto Enterprise. Il reparto viene convertito nelle sezioni della fattura e gli amministratori del reparto diventano proprietari delle rispettive sezioni della fattura. Per saperne di più sulle sezioni della fattura, vedere [Informazioni sulle sezioni della fattura](billing-mca-overview.md#invoice-sections). |
+| Account               | Gli account creati nel contratto Enterprise Agreement non sono supportati nel nuovo account di fatturazione. Le sottoscrizioni dell'account appartengono alla rispettiva sezione della fattura per il relativo reparto. I proprietari dell'account possono creare e gestire le sottoscrizioni per le sezioni della fattura. |
 
 ## <a name="changes-for-enterprise-administrators"></a>Modifiche per gli amministratori dell'organizzazione
 

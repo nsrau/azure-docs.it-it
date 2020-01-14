@@ -15,14 +15,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa82985fcde59c4cfd8d4bec75ae77643f7da448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963529"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424106"
 ---
-# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Guida introduttiva: Compilazione di un'app a singola pagina AngularJS per l'accesso e la disconnessione con Azure Active Directory
+# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Avvio rapido: Compilazione di un'app a singola pagina AngularJS per l'accesso e la disconnessione con Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -48,7 +48,7 @@ Per compilare l'applicazione funzionante completa, sarà necessario:
 2. Installare ADAL e configurare l'app a singola pagina.
 3. Usare ADAL per proteggere le pagine nell'app a singola pagina.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, completare questi prerequisiti:
 

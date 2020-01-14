@@ -1,18 +1,20 @@
 ---
-title: Notebook di Jupyter di esempio per Azure Notebooks
+title: Jupyter Notebook di esempio per Azure Notebooks (anteprima)
 description: Gli esempi sono un ottimo modo per sperimentare i notebook di Jupyter in esecuzione nei servizi cloud gratuiti di Azure Notebooks.
-ms.topic: article
+ms.topic: sample
 ms.date: 01/11/2019
-ms.openlocfilehash: cd615777adb28af6528afd2b95bc853372e799e8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277666"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646314"
 ---
-# <a name="discover-and-use-sample-notebooks"></a>Scoprire e usare i notebook di esempio
+# <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Esplorare e usare notebook di esempio in Azure Notebooks (anteprima)
 
 Internet offre molte raccolte di interessanti e utili notebook di Jupyter che è possibile trasferire facilmente in Azure Notebooks. Questo articolo fornisce un elenco di esempi rilevanti.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Dopo aver identificato un notebook da esplorare, ecco alcuni dettagli che è opportuno conoscere:
 
@@ -21,7 +23,7 @@ Dopo aver identificato un notebook da esplorare, ecco alcuni dettagli che è opp
 
 ## <a name="great-sample-notebooks"></a>Ottimi notebook di esempio
 
-- [Azure Notebooks set starter](https://notebooks.azure.com/#sample-redirect) include Introduzione a Python, R e F#, insieme ai notebook che dimostrano l'accesso ai dati, Azure Machine Learning e alcuni esercizi di Data Science.
+- Lo [starter kit di Azure Notebooks](https://notebooks.azure.com/#sample-redirect) include informazioni introduttive per Python, R e F#, oltre ai notebook che illustrano l'accesso ai dati, Azure Machine Learning e alcuni esercizi di data science.
 - [Introduzione ai notebook di Jupyter](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
 - [Introduzione alla data science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) di Jake Vanderplas.
 - [Raccolta di interessanti notebook](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (progetto Jupyter su GitHub)
@@ -31,7 +33,7 @@ Dopo aver identificato un notebook da esplorare, ecco alcuni dettagli che è opp
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Procedura: configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
-- [Procedura: utilizzare file di dati](work-with-project-data-files.md)
-- [Procedura: accedere alle risorse di dati](access-data-resources-jupyter-notebooks.md)
-- [Procedura: utilizzare Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedura: Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
+- [Procedura: Usare i file di dati](work-with-project-data-files.md)
+- [Procedura: Accedere alle risorse dati](access-data-resources-jupyter-notebooks.md)
+- [Procedura: Usare Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

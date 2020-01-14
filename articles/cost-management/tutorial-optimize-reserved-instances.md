@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: ottimizzazione dei costi di istanza riservata con Cloudyn di Azure | Microsoft Docs'
+title: 'Esercitazione: Ottimizzare i costi di istanza riservata con Cloudyn - Azure'
 description: In questa esercitazione si apprenderà come ottimizzare i costi delle istanze riservate per Azure e Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444577"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -38,7 +38,7 @@ Questa esercitazione illustra come le istanze riservate di Azure e AWS sono supp
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - È necessario disporre di un account Azure.
 - È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.

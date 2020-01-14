@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0165da8adbb28b97d524f1a07c725716b69277d4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8f3b38b3455b171701ff78345a3ee667c2c45071
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223645"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449336"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Ottimizzare i costi di Azure Databricks con un preacquisto
 
@@ -41,8 +41,8 @@ Prima dell'acquisto, calcolare la quantità totale di unità Databricks utilizza
 
 È possibile acquistare piani di Databricks nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Per acquistare capacità riservata, è necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise.
 
-- Il preacquisto è attualmente disponibile solo per i clienti con contratto Enterprise Agreement.
-- È necessario avere un ruolo di proprietario per almeno una sottoscrizione Enterprise.
+- È necessario avere un ruolo di proprietario per almeno un Contratto Enterprise (numeri offerte: MS-AZR-0017P o MS-AZR-0148P) o Contratto del cliente Microsoft o una sottoscrizione individuale con pagamento in base al consumo (numeri offerte: MS-AZR-0003P o MS-AZR-0023P).
+- Per le sottoscrizioni EA, l'opzione Aggiungi istanze riservate deve essere abilitata in EA Portal. Se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
 - Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
 
 **Per effettuare l'acquisto:**
@@ -50,7 +50,7 @@ Prima dell'acquisto, calcolare la quantità totale di unità Databricks utilizza
 1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
 1. Selezionare una sottoscrizione. Usare l'elenco **Sottoscrizione** per selezionare la sottoscrizione usata per pagare la capacità riservata. I costi iniziali relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. I costi vengono detratti dal saldo dell'impegno monetario della registrazione oppure addebitati come eccedenza.
 1. Selezionare un ambito. Usare l'elenco **Ambito** per selezionare un ambito della sottoscrizione.
-    - **Gruppo di risorse singolo**: lo sconto della prenotazione viene applicato solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
+    - **Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
     - **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
     - **Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise Agreement, il contesto di fatturazione è la registrazione.
 1. Selezionare il numero di unità di impegno in Azure Databricks che si vuole acquistare e completare l'acquisto.

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Java in Linux"
+title: "Avvio rapido: Creare un'app Java in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Java in un contenitore Linux nel servizio app.
 keywords: azure, app service, Web app, linux, java, maven, avvio rapido
 author: msangapu-msft
@@ -8,20 +8,20 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 64d70390b3563e17bbe0c70ed426dcda81b50198
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 76521464127780d266ba58eab7306b8fe2930c2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422220"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Guida introduttiva: Creare un'app Java in Servizio app di Azure in Linux
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Linux
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questo argomento di avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in Maven per il Servizio app di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web (WAR) Java nel sistema operativo Linux.
 
 > [!NOTE]
 >
-> La stessa operazione può essere eseguita anche con gli IDE più comuni come Eclipse e IntelliJ. Consultare i documenti simili in [Avvio rapido di Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) oppure in [Avvio rapido di Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> La stessa operazione può essere eseguita anche con IDE diffusi come Eclipse, IntelliJ e VS Code. Vedere i documenti simili di [avvio rapido per Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [avvio rapido per Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) o [avvio rapido per VS Code](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![App di esempio in esecuzione nel Servizio app di Azure](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -91,7 +91,7 @@ Confirm (Y/N)? : Y
 
 Passare nuovamente a `pom.xml` per visualizzare che la configurazione del plug-in è aggiornata. Se necessario, è possibile modificare altre configurazioni per Servizio app di Azure direttamente nel file .pom. Alcune configurazioni comuni sono elencate di seguito:
 
- Proprietà | Obbligatoria | DESCRIZIONE | Versione
+ Proprietà | Obbligatoria | Descrizione | Versione
 ---|---|---|---
 `<schemaVersion>` | false | Specificare la versione dello schema di configurazione. I valori supportati sono: `v1`, `v2`. | 1.5.2
 `<resourceGroup>` | true | Gruppo di risorse di Azure per App Web. | 0.1.0+

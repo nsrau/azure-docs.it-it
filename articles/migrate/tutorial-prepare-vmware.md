@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454561"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparare le macchine virtuali VMware per la valutazione e la migrazione ad Azure
 
@@ -21,7 +21,7 @@ Questo articolo offre informazioni utili su come preparare le macchine virtuali 
 [Azure Migrate](migrate-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti.
 
 
-Questa esercitazione è la prima di una serie che illustra come valutare ed eseguire la migrazione di macchine virtuali VMware. In questa esercitazione si apprenderà come:
+Questa esercitazione è la prima di una serie che illustra come valutare ed eseguire la migrazione di macchine virtuali VMware. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Preparare Azure per l'uso con Azure Migrate.
@@ -62,7 +62,7 @@ Per registrare l'appliance, assegnare le autorizzazioni per consentire ad Azure 
 
 > [!NOTE]
 > - Le app non hanno altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
-> - Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuovere le autorizzazioni.
+> - Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuoverle.
 
 
 #### <a name="grant-account-permissions"></a>Concedere le autorizzazioni all'account
@@ -124,7 +124,7 @@ Controllare i requisiti dell'appliance prima di procedere con la distribuzione.
 
 1. [Verificare](migrate-support-matrix-vmware.md#assessment-appliance-requirements) i requisiti e le limitazioni dell'appliance.
 2. Se si usa un proxy firewall basato su URL, [verificare](migrate-support-matrix-vmware.md#assessment-url-access-requirements) gli URL di Azure a cui l'appliance dovrà accedere. Assicurarsi che il proxy risolva gli eventuali record CNAME ricevuti durante la ricerca degli URL.
-3. Verificare i [dati sulle prestazioni](migrate-appliance.md#collected-performance-data-vmware) e i [metadati](migrate-appliance.md#collected-metadata-vmware) che l'appliance raccoglierà durante l'individuazione e la valutazione.
+3. Verificare i [dati sulle prestazioni](migrate-appliance.md#collected-performance-data-vmware) e i [metadati](migrate-appliance.md#collected-metadata-vmware) che l'appliance raccoglie durante l'individuazione e la valutazione.
 4. [Prendere nota](migrate-support-matrix-vmware.md#assessment-port-requirements) delle porte a cui l'appliance ha eseguito l'accesso.
 5. Nel server vCenter verificare che l'account abbia le autorizzazioni per creare una macchina virtuale mediante un file OVA. L'appliance di Azure Migrate viene distribuita come macchina virtuale VMware tramite un file OVA.
 

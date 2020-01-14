@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: d1e836e0f463d1d2ce2b71d689ed590239cfb607
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 11/26/2019
+ms.openlocfilehash: dec792dfd3a2640fa08ebccd9077c081ba9737bb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406597"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563293"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connettere un archivio conoscenze con Power BI
 
@@ -28,13 +28,14 @@ Questo articolo illustra come connettere ed esplorare un archivio conoscenze usa
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Modello di Power BI di esempio - Solo portale di Azure
 
-Se [l'archivio conoscenze è stato creato con il portale di Azure](knowledge-store-create-portal.md), è possibile usare [l'esempio di modello di Power BI di Ricerca cognitiva di Azure](https://github.com/Azure-Samples/cognitive-search-templates) per visualizzare e sperimentare con le visualizzazioni di Power BI. Questo modello è anche disponibile per il download quando si esegue la procedura guidata **Importa dati**.
+Quando si crea un [archivio conoscenze tramite il portale di Azure](knowledge-store-create-portal.md), è possibile scaricare un [modello di Power BI](https://github.com/Azure-Samples/cognitive-search-templates) nella seconda pagina della procedura guidata **Importa dati**. Questo modello offre numerose visualizzazioni, ad esempio WordCloud e Network Navigator, per il contenuto basato su testo. 
 
-Il modello di esempio eseguirà automaticamente i passaggi di configurazione descritti nella parte restante di questo articolo. Se invece l'archivio conoscenze è stato creato con l'API REST, ignorare il modello e seguire le rimanenti sezioni di questo articolo per connetterlo a Power BI. Iniziare con [Connettersi con Power BI](#connect-with-power-bi).
-
-Il modello di esempio include diverse visualizzazioni, ad esempio WordCloud e Network Navigator. Alcune visualizzazioni del modello, ad esempio la mappa Locations ed Entity-Graph Viewer, non mostrano i dati per l'archivio conoscenze di esempio creato in [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md). Il motivo è che è stato usato solo un sottoinsieme degli arricchimenti tramite intelligenza artificiale disponibili nella procedura guidata **Importa dati**.
+Fare clic su **Scarica modello di Power BI** nella pagina **Aggiungi competenze cognitive** per recuperare e scaricare il modello dal percorso pubblico di GitHub. La procedura guidata consente di modificare il modello per adattarlo alla forma dei dati, come acquisiti nelle proiezioni dell'archivio conoscenze specificate nella procedura guidata. Per questo motivo, il modello scaricato varierà ogni volta che si esegue la procedura guidata, presupponendo input di dati e selezioni di competenze diversi.
 
 ![Modello di Power BI di esempio di Ricerca cognitiva di Azure](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Modello di Power BI di esempio")
+
+> [!NOTE]
+> Anche se il modello viene scaricato mentre la procedura guidata è in corso, sarà necessario attendere che l'archivio conoscenze venga effettivamente creato nell'archiviazione tabelle di Azure prima di poterlo usare.
 
 ## <a name="connect-with-power-bi"></a>Connettersi con Power BI
 
@@ -48,7 +49,11 @@ Il modello di esempio include diverse visualizzazioni, ad esempio WordCloud e Ne
 
 1. Se richiesto, immettere la chiave dell'account di archiviazione.
 
-1. Selezionare le tabelle *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* e *hotelReviewsSsPages*. Queste tabelle sono le proiezioni di tabelle di Azure dei dati di esempio delle recensioni di hotel e includono gli arricchimenti tramite intelligenza artificiale selezionati al momento della creazione dell'archivio conoscenze.
+1. Selezionare le tabelle contenenti i dati delle recensioni di hotel create dalle procedure dettagliate precedenti. 
+
+   + Per la procedura dettagliata relativa al portale, i nomi delle tabelle sono *hotelReviewsSsDocument*, *hotelReviewsSsEntities*, *hotelReviewsSsKeyPhrases* e *hotelReviewsSsPages*. 
+   
+   + Per la procedura dettagliata relativa a REST, i nomi delle tabelle sono *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* e *hotelReviewsSentiment*.
 
 1. Fare clic su **Carica**.
 
@@ -57,7 +62,6 @@ Il modello di esempio include diverse visualizzazioni, ad esempio WordCloud e Ne
    ![Aprire Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Aprire Power Query")
 
 1. Selezionare *hotelReviewsSsDocument* e quindi rimuovere le colonne *PartitionKey*, *RowKey* e *Timestamp*. 
-
    ![Modificare le tabelle](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Modificare le tabelle")
 
 1. Fare clic sull'icona con le frecce opposte sul lato superiore destro della tabella per espandere *Contenuto*. Quando viene visualizzato l'elenco delle colonne, selezionare tutte le colonne e quindi deselezionare le colonne che iniziano con "metadata". Fare clic su **OK** per visualizzare le colonne selezionate.
@@ -82,6 +86,8 @@ Il modello di esempio include diverse visualizzazioni, ad esempio WordCloud e Ne
    ![Convalidare le relazioni](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Convalidare le relazioni")
 
 1. Fare doppio clic su ogni relazione e verificare che **Direzione filtro incrociato** sia impostato su **Entrambe**.  Questa impostazione consente l'aggiornamento degli oggetti visivi quando viene applicato un filtro.
+
+1. Fare clic sul riquadro Report nel riquadro di spostamento a sinistra per esplorare i dati attraverso le visualizzazioni. Per i campi di testo, le tabelle e le schede sono visualizzazioni utili. È possibile scegliere i campi di ognuna delle tre tabelle per compilare la tabella o la scheda. 
 
 <!-- ## Try with larger data sets
 
@@ -114,8 +120,3 @@ Per informazioni su come esplorare questo archivio conoscenze usando Storage Exp
 
 > [!div class="nextstepaction"]
 > [Visualizzare con Storage Explorer](knowledge-store-view-storage-explorer.md)
-
-Per informazioni su come creare un archivio conoscenze usando le API REST e Postman, vedere l'articolo seguente.  
-
-> [!div class="nextstepaction"]
-> [Creare un archivio conoscenze in REST](knowledge-store-howto.md)

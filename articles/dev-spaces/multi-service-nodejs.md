@@ -3,14 +3,14 @@ title: 'Esecuzione di più servizi dipendenti: Node.js e Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug di un'applicazione Node.js multiservizio nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 357a03e154e3c0146d3275e8cba64bc2d966f5b8
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a5fa0aae3a966dd96ee95e6bcafc3b2eec4e6837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438301"
 ---
 # <a name="running-multiple-dependent-services-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Esecuzione di più servizi dipendenti: Node.js e Visual Studio Code con Azure Dev Spaces
 

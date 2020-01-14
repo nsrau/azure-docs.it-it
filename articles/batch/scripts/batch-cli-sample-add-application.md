@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Aggiungere un'applicazione in Batch | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Aggiungere un'applicazione in Batch
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Aggiungere un'applicazione in Batch
+description: Questo script di esempio mostra come aggiungere un'applicazione da usare con un'attività o un pool di Azure Batch.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: ba7f64910e033751df7d158a6fddf36371f2933f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9c580fa7ed4834ca516d373b3c7bb47f4cfd1b38
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390456"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Esempio di interfaccia della riga di comando: Aggiungere un'applicazione a un account Azure Batch
 

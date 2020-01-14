@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 55ae542ed0490248d501cd7c4f50c0a7ba32091a
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707079"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665188"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Windows
 
@@ -24,7 +24,7 @@ Nela procedura di avvio rapido è stato creato un dispositivo IoT Edge usando un
 
 Questa esercitazione usa come esempio la distribuzione di un **modulo C# in un dispositivo Windows**. Questo esempio è stato scelto perché rappresenta lo scenario di sviluppo più comune. Se il proprio interesse è rivolto allo sviluppo in un linguaggio diverso o si prevede di distribuire servizi di Azure come moduli, questa esercitazione è comunque utile per acquisire informazioni sugli strumenti di sviluppo. Una volta appresi i concetti di sviluppo, è possibile scegliere il linguaggio o il servizio di Azure preferito per approfondire i dettagli. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare il computer di sviluppo.
@@ -51,7 +51,7 @@ La tabella seguente elenca gli scenari di sviluppo supportati per i **contenitor
 | **Linguaggi** | C# (debug non supportato) | C <br> C# |
 | **Altre informazioni** | [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge Tools per Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Un computer di sviluppo:
 
@@ -130,10 +130,10 @@ L'estensione Azure IoT Edge Tools fornisce modelli di progetto per tutti i lingu
 
 4. Nella finestra Aggiungi modulo configurare il progetto con i valori seguenti: 
 
-   | Campo | Valore |
+   | Campo | valore |
    | ----- | ----- |
    | Modello di Visual Studio | Selezionare **C# Module** (Modulo C#). | 
-   | Nome modulo | Accettare il valore predefinito **IotEdgeModule1**. | 
+   | Nome del modulo | Accettare il valore predefinito **IotEdgeModule1**. | 
    | URL del repository | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il valore di **Server di accesso** dalla pagina **Panoramica** del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/iotedgemodule1. |
 
       ![Configurare il progetto per il dispositivo di destinazione, il tipo di modulo e il registro contenitori](./media/tutorial-develop-for-windows/add-module-to-solution.png)
@@ -158,7 +158,7 @@ Il runtime IoT Edge richiede le credenziali del registro per eseguire il pull de
 
 1. Aprire il file **deployment.template.json** nella soluzione del modulo.
 
-1. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent e verificare che contenga le informazioni corrette.
+1. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent. L'indirizzo del registro di sistema sarà compilato automaticamente con le informazioni fornite durante la creazione del progetto e i campi nome utente e password conterranno i nomi delle variabili. Ad esempio: 
 
    ```json
    "registryCredentials": {
@@ -192,7 +192,7 @@ L'esempio di codice C# disponibile con il modello di progetto usa la [classe Mod
 
 3. Individuare quindi il metodo **SendEventAsync**.
 
-4. Il metodo [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) consente di elaborare i messaggi ricevuti e di configurare una coda di output per passarli. Esaminare questo metodo e vedere che inizializza una coda di output denominata **output1**. 
+4. Il metodo [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) consente di elaborare i messaggi ricevuti e di configurare una coda di output per passarli. Esaminare questo metodo e notare che inizializza una coda di output denominata **output1**. 
 
    ![Individuare il nome di output nel costruttore SendEventAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
@@ -227,7 +227,7 @@ Specificare le credenziali del registro contenitori in Docker nel computer di sv
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Potrebbe venire visualizzato un avviso di sicurezza in cui si consiglia l'uso di `--password-stdin`. Sebbene si tratti di una procedura consigliata per gli scenari di produzione, esula dell'ambito di questa esercitazione. Per altri dettagli, vedere le informazioni di riferimento sul comando [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   Potrebbe venire visualizzato un avviso di sicurezza in cui si consiglia l'uso di `--password-stdin`. Sebbene si tratti di una procedura consigliata per gli scenari di produzione, esula dell'ambito di questa esercitazione. Per altri dettagli, vedere le informazioni di riferimento sull'[accesso a docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
 ### <a name="build-and-push"></a>Compilazione ed esecuzione del push
 
@@ -237,7 +237,7 @@ Il computer di sviluppo può ora accedere al Registro Container, come pure posso
 
    ![Comando Build and push IoT Edge modules (Compila moduli IoT Edge ed esegui il push)](./media/tutorial-develop-for-windows/build-and-push-modules.png)
 
-   Il comando di compilazione e push avvia tre operazioni. Prima di tutto, crea una nuova cartella nella soluzione denominata **config** che contiene il manifesto completo della distribuzione, basato sulle informazioni del modello di distribuzione e di altri file della soluzione. In secondo luogo, esegue `docker build` per creare l'immagine del contenitore in base al documento dockerfile appropriato per l'architettura di destinazione. Infine, esegue `docker push` per eseguire il push del repository di immagini nel Registro Container. 
+   Il comando di creazione e push avvia tre operazioni. Prima di tutto, crea una nuova cartella nella soluzione denominata **config** che contiene il manifesto completo della distribuzione, basato sulle informazioni del modello di distribuzione e di altri file della soluzione. In secondo luogo, esegue `docker build` per creare l'immagine del contenitore in base al documento dockerfile appropriato per l'architettura di destinazione. Infine, esegue `docker push` per eseguire il push del repository di immagini nel registro contenitori. 
 
    Questo processo può richiedere alcuni minuti quando viene eseguito per la prima volta, ma alla successiva esecuzione dei comandi avviene più rapidamente. 
 

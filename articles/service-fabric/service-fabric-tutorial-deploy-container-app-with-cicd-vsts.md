@@ -1,26 +1,15 @@
 ---
-title: Distribuire un'applicazione contenitore con CI/CD in un cluster di Azure Service Fabric
+title: Distribuire un'applicazione contenitore con l'integrazione continua/distribuzione continua
 description: In questa esercitazione si apprenderà come configurare l'integrazione continua e la distribuzione continua per un'applicazione contenitore di Azure Service Fabric usando Visual Studio e Azure DevOps.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/29/2018
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832732"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614129"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric
 
@@ -34,7 +23,7 @@ Nella seconda parte della serie si apprenderà come:
 > * Creare una definizione di versione in Visual Studio Team Explorer
 > * Distribuire automaticamente e aggiornare un'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -185,7 +174,7 @@ L'aggiornamento dell'applicazione potrebbe richiedere alcuni minuti. Una volta c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere il controllo del codice sorgente al progetto

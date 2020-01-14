@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva per Azure Application Insights | Microsoft Docs
-description: Fornisce istruzioni per configurare rapidamente un'app Web ASP.NET Core per il monitoraggio con Application Insights
+title: Avvio rapido per ASP.NET Core - Application Insights di Monitoraggio di Azure
+description: Istruzioni per configurare rapidamente un'app Web ASP.NET Core per il monitoraggio con Application Insights di Monitoraggio di Azure
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ec39380409d5170efb56530c86a41d934e41728a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e05926d7a76f47cc3c95088fa2d8f1a6e385bbbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399024"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET Core
 
@@ -21,7 +21,7 @@ Con Azure Application Insights, è possibile monitorare facilmente la disponibil
 
 Questa guida introduttiva illustra l'aggiunta di Application Insights SDK a un'applicazione Web ASP.NET Core esistente. Per informazioni sulla configurazione di Application Insights senza Visual Studio, vedere questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva:
 
@@ -50,13 +50,15 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
     Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
 
-   | Impostazioni        |  Valore           | DESCRIZIONE  |
+   | Impostazioni        |  valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
-   | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
+   | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights; è possibile creare un nuovo gruppo di risorse o selezionarne uno esistente. |
    | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
-2. Fare clic su **Create**(Crea).
+2. Fare clic su **Crea**.
+
+
 
 ## <a name="configure-app-insights-sdk"></a>Configurare Application Insights SDK
 
@@ -87,7 +89,7 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
    ![Mappa delle applicazioni](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Fare clic sull'icona di **App Analytics** ![Icona Mappa app](./media/dotnetcore-quick-start/006.png) **Visualizza in Analytics**. Verrà aperta la finestra **Application Insights - Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
+3. Fare clic sull'icona per l'**analisi delle app** ![Icona in Mappa delle applicazioni](./media/dotnetcore-quick-start/006.png) **Visualizza in Analisi**. Verrà aperta la finestra **Application Insights - Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
 
    ![Grafico di analisi delle richieste di un utente in un periodo di tempo](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -106,6 +108,9 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Dopo aver completato i test, è possibile eliminare il gruppo di risorse e le risorse correlate. A tale scopo, seguire questa procedura.
+
+> [!NOTE]
+> Se si è usato un gruppo di risorse esistente, le istruzioni riportate di seguito non sono applicabili e sarà sufficiente eliminare la singola risorsa di Application Insights. Tenere presente che ogni volta che si elimina un gruppo di risorse vengono eliminate tutte le risorse sottostanti appartenenti a tale gruppo.
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic su **myResourceGroup**.
 2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare **myResourceGroup** nella casella di testo e quindi fare clic su **Elimina**.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 0977c4537e409b59be7f9031c488b3317f9f2f0f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 8c252870a82a60a561f12fab9d728c028458212a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415802"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562103"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Esercitazione: Configurare un account lab con Azure Lab Services
 In Azure Lab Services l'account lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. Nell'account lab si concedono ad altri utenti le autorizzazioni alla creazione di lab e di impostano criteri che si applicano a tutti i lab all'interno dell'account lab. Questa esercitazione illustra come creare un account lab come amministratore del lab. 
@@ -52,7 +52,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un acco
     6. Per **Rete virtuale peer** selezionare una rete virtuale peer per la rete lab. I lab creati in questo account sono connessi alla rete virtuale selezionata e hanno accesso alle risorse nella rete virtuale selezionata. 
     7. Specificare un **intervallo di indirizzi** per le macchine virtuali nel lab. L'intervallo di indirizzi deve essere nella notazione CIDR (Classless Interdomain Routing). Ad esempio: 10.20.0.0/23. Le macchine virtuali nel lab verranno create in questo intervallo di indirizzi. Per altre informazioni, vedere [Specificare un intervallo di indirizzi per le macchine virtuali nel lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).
     8. Per il campo **Consenti all'autore del lab di selezionare la località del lab**, specificare se si vuole consentire agli autori di selezionare una località per il lab. L'opzione è disabilitata per impostazione predefinita. Quando l'opzione è disattivata, gli autori del lab non possono specificare una località per il lab che si sta creando. I lab vengono creati nella località geografica più vicina all'account lab. Quando l'opzione è abilitata, un autore può selezionare una località al momento della creazione di un lab. 
-    9. Selezionare **Create**. 
+    9. Selezionare **Create** (Crea). 
 
         ![Finestra Create a lab account (Crea un account lab)](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selezionare l'**icona del campanello** sulla barra degli strumenti (**Notifiche**), verificare se la distribuzione è riuscita e quindi selezionare **Vai alla risorsa**. 
@@ -69,7 +69,7 @@ Per configurare un lab per le classi in un account del lab, l'utente deve essere
 
 Per fornire ai docenti l'autorizzazione per creare lab per le proprie classi, aggiungerli al ruolo **Autore di laboratori**:
 
-1. Nella pagina **Account Lab** selezionare **Controllo di accesso (IAM)**, selezionare **+ Aggiungi** sulla barra degli strumenti e quindi selezionare **+ Aggiungi assegnazione di ruolo** sulla barra degli strumenti. 
+1. Nella pagina **Account Lab** selezionare **Controllo di accesso (IAM)** , selezionare **+ Aggiungi** sulla barra degli strumenti e quindi selezionare **+ Aggiungi assegnazione di ruolo** sulla barra degli strumenti. 
 
     ![Fare clic su Controllo di accesso -> Aggiungi un'assegnazione di ruolo](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. Nella pagina **Aggiungi un'assegnazione di ruolo** selezionare **Autore di lab** per **Ruolo**, scegliere l'utente che si vuole aggiungere a questo ruolo e fare clic su **Salva**. 
@@ -100,7 +100,7 @@ In quanto proprietario di un account del lab, è possibile specificare le immagi
     2. Selezionare una o più immagini nell'elenco selezionando le caselle di controllo prima dei nomi delle immagini nell'elenco e selezionare **Enable selected images** (Abilita immagini selezionate). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come creare un account lab. Per altre informazioni su come creare un lab per le classi in modo professionale, passare alla prossima esercitazione:
+Questa esercitazione ha illustrato come creare un account lab. Per altre informazioni su come creare un lab per le classi in qualità di professore, passare alla prossima esercitazione:
 
 > [!div class="nextstepaction"]
 > [Configurare un lab per le classi](tutorial-setup-classroom-lab.md)

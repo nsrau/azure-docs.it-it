@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109507"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432758"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
-Questa esercitazione illustra come configurare un account con Mappe di Azure e quindi usare le API di Mappe per cercare un punto di interesse. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come configurare un account con Mappe di Azure e quindi usare le API di Mappe per cercare un punto di interesse. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un account di Mappe di Azure
@@ -55,13 +55,15 @@ Creare un nuovo account di Mappe con i passaggi seguenti:
 
 ## <a name="get-the-primary-key-for-your-account"></a>Ottenere la chiave primaria per l'account
 
-Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente di eseguire query nelle API di Mappe.
+Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente di eseguire query nelle API di Mappe. È consigliabile usare la chiave primaria dell'account come chiave di sottoscrizione quando si chiamano i servizi di Mappe di Azure.
 
 1. Aprire l'account di Mappe nel portale.
 2. Nella sezione delle impostazioni selezionare **Autenticazione**.
 3. Copiare il valore di **Chiave primaria** negli Appunti. Salvarlo in locale per usarlo in seguito in questa esercitazione.
 
 ![Ottenere la chiave primaria nel portale](./media/tutorial-search-location/get-key.png)
+
+Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -275,7 +277,7 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un account con Mppe di Azure

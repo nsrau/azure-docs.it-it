@@ -1,5 +1,5 @@
 ---
-title: Guida alle applicazioni a pagina singola JavaScript - Microsoft Identity Platform | Azure
+title: Esercitazione sulle app a pagina singola JavaScript - Microsoft Identity Platform | Azure
 description: Informazioni su come le applicazioni a pagina singola JavaScript possono chiamare un'API che richiede token di accesso generati dall'endpoint di Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423365"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -35,7 +35,7 @@ Questa guida illustra come un'applicazione a pagina singola JavaScript consente 
 ![Illustra come funziona l'app di esempio generata da questa esercitazione](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
 <!--start-collapse-->
-### <a name="more-information"></a>Altre informazioni
+### <a name="more-information"></a>Ulteriori informazioni
 
 L'applicazione di esempio creata in questa guida consente a un'applicazione a pagina singola JavaScript di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint di Microsoft Identity Platform. Per questo scenario, dopo l'accesso di un utente, viene richiesto un token di accesso che viene aggiunto a richieste HTTP tramite l'intestazione dell'autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
 
@@ -46,7 +46,7 @@ L'applicazione di esempio creata in questa guida consente a un'applicazione a pa
 
 Questa guida usa la libreria seguente:
 
-|Libreria|DESCRIZIONE|
+|Libreria|Descrizione|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Authentication Library di Microsoft per l'anteprima di JavaScript|
 
@@ -58,7 +58,7 @@ Questa guida usa la libreria seguente:
 
 ## <a name="set-up-your-web-server-or-project"></a>Impostare il server Web o il progetto
 
-> Si preferisce scaricare questo progetto di esempio? Eseguire una di queste operazioni:
+> Si preferisce scaricare questo progetto di esempio? Effettuare una delle operazioni seguenti:
 > 
 > - Per eseguire il progetto con un server Web locale, ad esempio Node.js, [scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
@@ -66,7 +66,7 @@ Questa guida usa la libreria seguente:
 >
 > Per configurare l'esempio di codice prima di eseguirlo, procedere con il [passaggio di configurazione](#register-your-application).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Per eseguire l'esercitazione, è necessario un server Web locale, ad esempio [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -259,7 +259,7 @@ Aggiungere il codice seguente al file `index.html` tra i tag `<script></script>`
    ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Altre informazioni
+### <a name="more-information"></a>Ulteriori informazioni
 
 Quando un utente seleziona il pulsante **Accedi** per la prima volta, il metodo `signIn` chiama `loginPopup` per farlo accedere. Questo metodo apre una finestra popup con l'*endpoint di Microsoft Identity Platform* per la richiesta e la convalida delle credenziali dell'utente. Dopo aver eseguito l'accesso, l'utente viene reindirizzato alla pagina *index.html* originale. Un token viene ricevuto ed elaborato da `msal.js`, quindi le informazioni contenute nel token vengono memorizzate nella cache. Questo token è noto come *token ID* e contiene informazioni di base sull'utente, ad esempio il nome visualizzato. Se si prevede di usare per qualsiasi scopo i dati forniti da questo token, è necessario verificare che il token venga convalidato dal server back-end per garantire che il token sia stato rilasciato a un utente valido per l'applicazione.
 

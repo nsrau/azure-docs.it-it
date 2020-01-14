@@ -1,5 +1,6 @@
 ---
-title: Esercitazione per l'uso della configurazione dinamica di Configurazione app di Azure in un'app ASP.NET Core | Microsoft Docs
+title: 'Esercitazione: Usare la configurazione dinamica di Configurazione app in ASP.NET Core'
+titleSuffix: Azure App Configuration
 description: In questa esercitazione viene illustrato come aggiornare dinamicamente i dati di configurazione per le app ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433704"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
 
@@ -33,13 +34,13 @@ Questa esercitazione mostra come è possibile implementare aggiornamenti dinamic
 
 Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima opzione ed è disponibile per le piattaforme Windows, macOS e Linux.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare l'applicazione per aggiornarne la configurazione in risposta alle modifiche in un archivio di Configurazione app.
 > * Inserire la configurazione più recente nei controller dell'applicazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -199,7 +200,7 @@ Prima di continuare, completare le procedure descritte in [Creare un'app ASP.NET
 
 5. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:BackgroundColor | green |
     | TestApp:Settings:FontColor | lightGray |

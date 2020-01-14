@@ -1,26 +1,15 @@
 ---
-title: "Esercitazione: Creazione dell'infrastruttura per un cluster di Service Fabric in macchine virtuali di Azure - Azure Service Fabric | Microsoft Docs"
+title: Creare un'infrastruttura per un cluster in macchine virtuali di Azure
 description: In questa esercitazione si apprende come configurare l'infrastruttura delle macchine virtuali di Azure per l'esecuzione di un cluster di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166266"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614010"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare un'infrastruttura di macchine virtuali di Azure per ospitare un cluster di Service Fabric
 
@@ -36,7 +25,7 @@ Nella prima parte della serie si apprenderà come:
 > * Accedere a una delle istanze
 > * Preparare l'istanza per Service Fabric
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure.  Se non si ha ancora un account, accedere al [portale di Azure](https://portal.azure.com) per crearne uno.
 

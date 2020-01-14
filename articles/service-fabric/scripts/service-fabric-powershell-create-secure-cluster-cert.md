@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di script di Azure PowerShell: creare un cluster di Service Fabric | Microsoft Docs'
-description: Esempio di script di Azure PowerShell - Creare un cluster di Service Fabric.
+title: Creare un cluster di Service Fabric in PowerShell
+description: 'Esempio di script di Azure PowerShell: creare un cluster di Service Fabric protetto con un certificato X.509.'
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: ac57778f83a9e7c07360e6ff496186ae78a95dbd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f8e1a0ca86f9346cf07c87a738d48cb56f6d7d57
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035566"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614775"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
 

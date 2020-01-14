@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367604"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione Web con Azure Active Directory B2C
 
 Questa esercitazione illustra come usare Active Directory B2C (Azure AD B2C) per l'iscrizione e l'accesso degli utenti in un'applicazione Web ASP.NET. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social network, aziendali e di Azure Active Directory usando protocolli standard aperti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiornare l'applicazione in Azure AD B2C
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Creare flussi utente](tutorial-create-user-flows.md) per abilitare le esperienze utente nell'applicazione.
 * Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
@@ -94,7 +94,7 @@ Aggiornare le impostazioni nel file Web.config per garantire il funzionamento co
 1. Nel progetto **TaskWebApp** aprire il file **Web.config**.
     1. Aggiornare il valore di `ida:Tenant` e `ida:AadInstance` con il nome del tenant di Azure AD B2C creato. Ad esempio, sostituire `fabrikamb2c` con `contoso`.
     1. Sostituire il valore di `ida:ClientId` con l'ID applicazione registrato.
-    1. Sostituire il valore di `ida:ClientSecret` con la chiave registrata. È necessario codificare in XML il segreto client prima di aggiungerlo al file Web.config.
+    1. Sostituire il valore di `ida:ClientSecret` con la chiave registrata. Se il segreto client contiene entità XML predefinite, ad esempio segno di minore (`<`), maggiore (`>`), e commerciale (`&`) o virgolette doppie (`"`), è necessario applicare una sequenza di escape a tali caratteri tramite la codifica XML del segreto client prima di aggiungerlo al file Web.config.
     1. Sostituire il valore di `ida:SignUpSignInPolicyId` con `b2c_1_signupsignin1`.
     1. Sostituire il valore di `ida:EditProfilePolicyId` con `b2c_1_profileediting1`.
     1. Sostituire il valore di `ida:ResetPasswordPolicyId` con `b2c_1_passwordreset1`.
@@ -120,7 +120,7 @@ La funzionalità **To-Do List** non sarà disponibile finché non si completa l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiornare l'applicazione in Azure AD B2C

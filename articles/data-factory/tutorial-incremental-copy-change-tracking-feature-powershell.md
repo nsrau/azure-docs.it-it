@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: de42acd9cb8ca0520db616237c23b7db9fadb77f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 666bd2f9575019f3bfb77050d27363fef66474bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439275"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 
@@ -69,7 +69,7 @@ In questa esercitazione vengono create due pipeline che eseguono le due operazio
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Azure PowerShell. Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 * **Database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
@@ -151,7 +151,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
-1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il testo del comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tra virgolette doppie e quindi eseguire il comando. Ad esempio: `"adfrg"`. 
+1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il testo del comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) tra virgolette doppie e quindi eseguire il comando. Ad esempio: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -208,10 +208,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
@@ -235,7 +232,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 ### <a name="create-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure.
 In questo passaggio viene collegato il database SQL di Azure alla data factory.
 
-1. Creare un file JSON denominato **AzureSQLDatabaseLinkedService.json** nella cartella **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con il contenuto seguente: Sostituire **&lt;server&gt; &lt;database name **, &lt;user id&gt; e &lt;password&gt;** con il nome del server SQL di Azure, il nome del database, l'ID utente e la password prima di salvare il file. 
+1. Creare un file JSON denominato **AzureSQLDatabaseLinkedService.json** nella cartella **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con il contenuto seguente: Sostituire **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; e &lt;password&gt;** con il nome del server di Azure SQL, il nome del database, l'ID utente e la password prima di salvare il file. 
 
     ```json
     {
@@ -243,10 +240,7 @@ In questo passaggio viene collegato il database SQL di Azure alla data factory.
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
-                    "type": "SecureString"
-                }
+                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
             }
         }
     }

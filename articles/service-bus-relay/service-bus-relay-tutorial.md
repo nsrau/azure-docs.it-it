@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Esporre un servizio REST WCF locale a client esterni tramite Inoltro WCF di Azure'
+title: Esporre un servizio REST WCF locale ai client tramite il servizio Inoltro di Azure
 description: "Esercitazione: Compilare un'applicazione client e un'applicazione di servizio con l'inoltro WCF."
 services: service-bus-relay
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452284"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Esercitazione: Esporre un servizio REST WCF locale a client esterni tramite Inoltro WCF di Azure
 
@@ -43,7 +43,7 @@ In questa esercitazione si eseguiranno le attività seguenti:
 > * Implementare il client WCF.
 > * Eseguire le applicazioni.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 

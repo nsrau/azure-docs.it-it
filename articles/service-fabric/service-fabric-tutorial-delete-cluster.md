@@ -1,32 +1,21 @@
 ---
-title: Eliminare un cluster di Service Fabric in Azure | Microsoft Docs
+title: Eliminare un cluster di Service Fabric in Azure
 description: In questa esercitazione si apprenderà come eliminare un cluster di Service Fabric ospitato in Azure e tutte le risorse che contiene. È possibile eliminare il gruppo di risorse che contiene il cluster o eliminare le risorse in modo selettivo.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c6fd4234257cbb19580a5b406750cc72d03609c0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 802fdfc46344929930b1ffb015b364b4e2360cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465375"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Esercitazione: Rimuovere un cluster di Service Fabric in esecuzione in Azure
 
 Questa esercitazione è la quinta di una serie e illustra come eliminare un cluster di Service Fabric in esecuzione in Azure. Per eliminare completamente un cluster di Service Fabric, è necessario eliminare anche le risorse usate dal cluster. Sono disponibili due opzioni: eliminare il gruppo di risorse che contiene il cluster (in modo da rimuovere la risorsa cluster e le altre risorse del gruppo) oppure eliminare la specifica risorsa cluster e le risorse associate (ma non le altre risorse del gruppo).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eliminare un gruppo di risorse e tutte le risorse che contiene
@@ -43,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -111,7 +100,7 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eliminare un gruppo di risorse e tutte le risorse che contiene

@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione 1: Prevedere il rischio di credito'
 titleSuffix: ML Studio (classic) - Azure
-description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito nella versione classica di Azure Machine Learning Studio. Questa esercitazione è la prima di una serie in tre parti.  Illustra come creare un'area di lavoro, caricare dati e creare un esperimento.
+description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio (versione classica). Questa esercitazione è la prima di una serie in tre parti.  Illustra come creare un'area di lavoro, caricare dati e creare un esperimento.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432253"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Esercitazione 1: Prevedere il rischio di credito - Azure Machine Learning Studio (versione classica)
 
@@ -25,7 +25,7 @@ In questa esercitazione si esamina il processo di sviluppo di una soluzione di a
 
 Si supponga di dover prevedere il rischio di credito di un soggetto in base alle informazioni fornite in una richiesta di credito.  
 
-La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si userà la versione classica di Azure Machine Learning Studio e un servizio Web di Machine Learning.  
+La valutazione del rischio di credito è un problema complesso che verrà tuttavia semplificato con questa esercitazione. Verrà usata come esempio di come è possibile creare una soluzione di analisi predittiva con Microsoft Azure Machine Learning Studio (versione classica). Per questa soluzione si useranno Azure Machine Learning Studio (versione classica) e un servizio Web di Machine Learning.  
 
 In questa esercitazione in tre parti si inizia con dati sul rischio di credito disponibili pubblicamente.  Verrà quindi sviluppato e sottoposto a training un modello predittivo.  Il modello verrà infine distribuito come servizio Web.
 
@@ -38,7 +38,7 @@ In questa parte dell'esercitazione verranno eseguite queste operazioni:
 
 È quindi possibile usare questo esperimento per [eseguire il training dei modelli nella seconda parte](tutorial-part2-credit-risk-train.md) e quindi [distribuirli nella terza parte](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa esercitazione presuppone che Machine Learning Studio (versione classica) sia già stato usato almeno una volta e che alcuni concetti di Machine Learning siano noti, ma non si dà per scontato che l'utente sia un esperto.
 
@@ -95,7 +95,7 @@ Se il modello classifica un utente erroneamente a basso rischio quando è in rea
 
 ### <a name="convert-the-dataset-format"></a>Convertire il formato del set di dati
 
-Nel set di dati originale viene usato un formato con valori delimitati da spazi vuoti. Per il funzionamento ottimale della versione classica di Machine Learning Studio è preferibile usare un file con valori delimitati da virgole (CSV), di conseguenza il set di dati verrà convertito sostituendo gli spazi con le virgole.  
+Nel set di dati originale viene usato un formato con valori delimitati da spazi vuoti. Per il funzionamento ottimale di Machine Learning Studio (versione classica) è preferibile usare un file con valori delimitati da virgole (CSV), di conseguenza il set di dati verrà convertito sostituendo gli spazi con le virgole.  
 
 Esistono diversi modi per convertire questi dati. Un'opzione consiste nell'usare il comando di Windows PowerShell seguente:   
 
@@ -109,7 +109,7 @@ In entrambi i casi è stata creata una versione delimitata da virgole dei dati i
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Caricare il set di dati in Machine Learning Studio (versione classica)
 
-Dopo aver convertito i dati in formato CSV, è necessario caricarli nella versione classica di Machine Learning Studio. 
+Dopo aver convertito i dati in formato CSV è necessario caricarli in Machine Learning Studio (versione classica). 
 
 1. Aprire la home page di Machine Learning Studio (versione classica) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
@@ -145,7 +145,7 @@ Per altre informazioni sull'importazione di altri tipi di dati in un esperimento
 
 ## <a name="create-an-experiment"></a>Creare un esperimento
 
-Il passaggio successivo di questa esercitazione consiste nel creare un esperimento nella versione classica di Machine Learning Studio che usi il set di dati che è stato caricato.  
+Il passaggio successivo di questa esercitazione consiste nel creare un esperimento in Machine Learning Studio (versione classica) che usi il set di dati che è stato caricato.  
 
 1. In Studio (versione classica) fare clic su **+NEW** (Nuovo) nella parte inferiore della finestra.
 1. Selezionare **EXPERIMENT**e quindi selezionare "Blank Experiment". 
@@ -173,7 +173,7 @@ Il passaggio successivo di questa esercitazione consiste nel creare un esperimen
 
 È possibile visualizzare le prime 100 righe di dati e alcune informazioni statistiche per l'intero set di dati: fare clic sulla porta di output del set di dati (il circoletto in basso) e selezionare **Visualize** (Visualizza).  
 
-Poiché il file di dati non presentava intestazioni di colonna, la versione classica di Studio ha assegnato intestazioni generiche (Col1, Col2, *e così via*). Anche se per la creazione di un modello non sono indispensabili intestazioni di colonna precise, queste semplificano l'uso dei dati nell'esperimento. Quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.  
+Poiché il file di dati non presentava intestazioni di colonna, Studio (versione classica) ha assegnato intestazioni generiche (Col1, Col2, *e così via*). Anche se per la creazione di un modello non sono indispensabili intestazioni di colonna precise, queste semplificano l'uso dei dati nell'esperimento. Quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.  
 
 È possibile aggiungere intestazioni di colonna usando il modulo [Edit Metadata][edit-metadata] (Modifica metadati).
 

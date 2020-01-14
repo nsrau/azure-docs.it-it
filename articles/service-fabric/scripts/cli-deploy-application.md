@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 7417eaecddad60c940bf01535b8fb24b8cbef80c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034772"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526601"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Distribuire un'applicazione in un cluster di Service Fabric
+# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Distribuire un'applicazione in un cluster di Service Fabric usando l'interfaccia della riga di comando di Service Fabric
 
 Questo script di esempio copia un pacchetto dell'applicazione in un archivio immagini del cluster, registra il tipo di applicazione nel cluster e crea un'istanza di applicazione dal tipo di applicazione. Anche i servizi predefiniti vengono creati in questa fase.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 7644bac01784ea795f24b967223b0eb37354ca87
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438957"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "73682967"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -42,7 +42,7 @@ La pipeline in questa esercitazione include un'attività: **Attività Hive di HD
 > Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -84,7 +84,7 @@ Creare i file JSON seguenti nella cartella che include curl.exe.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Sostituire **accountname** e **accountkey** con il nome e la chiave dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere le informazioni su come visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione in [Gestire l'account di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+> Sostituire **accountname** e **accountkey** con il nome e la chiave dell'account di archiviazione di Azure. Per informazioni su come recuperare la chiave di accesso alle risorse di archiviazione, vedere [Gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 >
 >
 
@@ -120,7 +120,7 @@ Creare i file JSON seguenti nella cartella che include curl.exe.
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | clusterSize |Dimensioni del cluster HDInsight. |
 | timeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
@@ -166,12 +166,12 @@ Il codice JSON definisce un set di dati denominato **AzureBlobInput**, che rappr
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
-| Tipo |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
+| type |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
 | linkedServiceName |Fa riferimento all'oggetto StorageLinkedService creato in precedenza. |
 | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
-| Tipo |I file di log sono in formato testo, quindi viene usato TextFormat. |
+| type |I file di log sono in formato testo, quindi viene usato TextFormat. |
 | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
 | frequency/interval |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
 | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
@@ -315,7 +315,7 @@ In questo passaggio viene creata un'istanza di Azure Data Factory denominata **F
 Tenere presente quanto segue:
 
 * È necessario specificare un nome univoco globale per la Data factory di Azure. Se nei risultati viene visualizzato l'errore **Il nome "FirstDataFactoryREST" per la data factory non è disponibile**, seguire questa procedura:
-  1. Modificare il nome, ad esempio nomeutenteFirstDataFactoryREST, nel file **datafactory.json** . Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'argomento [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md) .
+  1. Modificare il nome, ad esempio nomeutenteFirstDataFactoryREST, nel file **datafactory.json** . Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
   2. Nel primo comando in cui viene assegnato un valore alla variabile **$cmd** sostituire FirstDataFactoryREST con il nuovo nome ed eseguire il comando.
   3. Eseguire i due comandi seguenti per richiamare l'API REST per creare la data factory e stampare i risultati dell'operazione.
 * Per creare istanze di data factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
@@ -487,7 +487,7 @@ In questa esercitazione è stata creata un'istanza di Azure Data Factory per ela
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta di Azure. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Vedere anche
-| Argomento | DESCRIZIONE |
+| Argomento | Descrizione |
 |:--- |:--- |
 | [Informazioni di riferimento sull'API REST di Data Factory](/rest/api/datafactory/) |Vedere la documentazione completa sui cmdlet di Data factory |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |

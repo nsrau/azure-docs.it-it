@@ -1,26 +1,17 @@
 ---
-title: Esercitazione - Distribuire un'app in Azure Service Fabric Mesh | Microsoft Docs
+title: Esercitazione - Distribuire un'app in Azure Service Fabric Mesh
 description: In questa esercitazione si apprenderà come distribuire un'applicazione in Service Fabric Mesh usando un modello.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306942"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494928"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
 
@@ -43,7 +34,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -264,7 +255,7 @@ I servizi sono specificati nel modello come proprietà della risorsa applicazion
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -345,9 +336,9 @@ Creare l'applicazione e le risorse correlate usando il comando seguente e specif
 
 Nel file di parametri aggiornare i valori dei parametri seguenti:
 
-|Parametro|Valore|
+|Parametro|valore|
 |---|---|
-|location|L'area in cui distribuire l'applicazione.  Ad esempio, "eastus".|
+|posizione|L'area in cui distribuire l'applicazione.  Ad esempio, "eastus".|
 |registryPassword|La password ottenuta in precedenza in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry). Questo parametro nel modello è una stringa sicura e non verrà visualizzata nello stato di distribuzione o nei comandi `az mesh service show`.|
 |registryUserName|Il nome utente ottenuto in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry).|
 |registryServer|Il nome del server del registro ottenuto in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry).|

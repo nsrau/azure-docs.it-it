@@ -9,18 +9,18 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 332229dbcb35a209721fc9b457ebf1e804eaca5f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d44e85b069a38f48ad4ad06814db5fbcb58c9dc6
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561042"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665226"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Windows
 
 Usare Visual Studio per sviluppare codice C e distribuirlo in un dispositivo Windows che esegue Azure IoT Edge. 
 
-È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. In questa esercitazione si apprenderà come:    
+È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. In questa esercitazione verranno illustrate le procedure per:    
 
 > [!div class="checklist"]
 > * Usare Visual Studio per creare un modulo IoT Edge basato sull'SDK per C.
@@ -42,7 +42,7 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Sviluppare moduli C per WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Windows: [Sviluppare moduli IoT Edge per dispositivi Windows](tutorial-develop-for-windows.md). Dopo aver completato questa esercitazione, saranno soddisfatti i prerequisiti seguenti: 
 
@@ -84,7 +84,7 @@ Creare un modello di soluzione C che è possibile personalizzare con il proprio 
 
 4. Nella finestra relativa a modulo e applicazione IoT Edge configurare il progetto con i valori seguenti: 
 
-   | Campo | Valore |
+   | Campo | valore |
    | ----- | ----- |
    | Selezionare un modello: | Selezionare **C Module** (Modulo C). | 
    | Module project name (Nome progetto modulo) | Assegnare al modulo il nome **CModule**. | 
@@ -100,45 +100,43 @@ Il manifesto della distribuzione condivide le credenziali per il registro conten
 
 1. In Esplora soluzioni di Visual Studio aprire il file **deployment.template.json**. 
 
-2. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent. 
-
-3. Aggiornare la proprietà con le credenziali, usando questo formato: 
+2. Trovare la proprietà **registryCredentials** nelle proprietà desiderate di $edgeAgent. L'indirizzo del registro di sistema sarà compilato automaticamente con le informazioni fornite durante la creazione del progetto e i campi nome utente e password conterranno i nomi delle variabili. Ad esempio: 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. Salvare il file deployment.template.json. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-Il codice del modulo predefinito riceve i messaggi in una coda di input e li passa attraverso una coda di output. Si aggiungerà ora del codice in modo che il modulo elabori i messaggi nel dispositivo Edge prima di inoltrarli all'hub IoT. Aggiornare il modulo in modo che analizzi i dati della temperatura in ogni messaggio e invii solo il messaggio all'hub IoT se la temperatura supera una determinata soglia. 
+5. Save your changes to the .env file.
+
+### Update the module with custom code
+
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
 
 
-1. I dati del sensore in questo scenario sono disponibili in formato JSON. Per filtrare i messaggi in formato JSON, importare una libreria JSON per C. Questa esercitazione usa Parson.
+1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
 
-   1. Scaricare il [repository Parson di GitHub](https://github.com/kgabis/parson). Copiare i file **parson.c** e **parson.h** nel progetto **CModule**.
+   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
 
-   2. In Visual Studio aprire il file **CMakeLists.txt** dalla cartella del progetto CModule. All'inizio del file importare i file Parson come libreria denominata **my_parson**.
+   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
 
       ```
-      add_library(my_parson
-          parson.c
-          parson.h
-      )
+      add_library(my_parson        parson.c        parson.h    )
       ```
 
-   3. Aggiungere `my_parson` all'elenco di librerie nella sezione **target_link_libraries** del file CMakeLists.txt.
+   3. Add `my_parson` to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
 
-   4. Salvare il file **CMakeLists.txt**.
+   4. Save the **CMakeLists.txt** file.
 
-   5. Aprire **CModule** > **main.c**. Alla fine dell'elenco di istruzioni include aggiungerne una nuova per includere `parson.h` per il supporto JSON:
+   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
 
       ```c
       #include "parson.h"

@@ -1,7 +1,7 @@
 ---
-title: Guida introduttiva - Creare un set di scalabilità di macchine virtuali nel portale di Azure | Microsoft Docs
-description: Informazioni su come creare rapidamente un set di scalabilità di macchine virtuali nel portale di Azure
-services: virtual-machine-scale-sets
+title: 'Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure'
+description: Iniziare a usare le distribuzioni imparando a creare rapidamente un set di scalabilità di macchine virtuali nel portale di Azure.
+services: virtual-machine-scale-sets.
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351136"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali nel portale di Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva si crea un set di scalabilità di macchine virtuali nel portale di Azure.
 
@@ -38,17 +38,17 @@ Creare prima di tutto un servizio Load Balancer Basic pubblico usando il portale
 1. Nella casella di ricerca digitare **bilanciamento del carico**. Nei risultati della ricerca di **Marketplace** selezionare **Load Balancer**.
 1. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti:
 
-    | Impostazione                 | Valore   |
+    | Impostazione                 | valore   |
     | ---| ---|
     | Subscription  | Selezionare la propria sottoscrizione.    |    
     | Resource group | Selezionare **Crea nuovo** e digitare *myVMSSResourceGroup* nella casella di testo.|
-    | NOME           | *myLoadBalancer*         |
+    | Nome           | *myLoadBalancer*         |
     | Region         | Selezionare **Stati Uniti orientali**.       |
     | Type          | Selezionare **Pubblica**.       |
     | SKU           | Selezionare **Standard**.       |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
     | Nome dell'indirizzo IP pubblico  | *MyPip*   |
-    | Assegnazione| statico |
+    | Assegnazione| Statico |
 
 1. Al termine, selezionare **Rivedi e crea**. 
 1. Dopo la convalida selezionare **Crea**. 

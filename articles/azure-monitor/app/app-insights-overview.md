@@ -8,15 +8,15 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 089b37761c11c02e34c35eb378c64862bc4fbc98
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ba5879543d7640993ac834811ec6a82965557755
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432681"
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
-Application Insights, una funzionalità di [Monitoraggio di Azure](../overview.md), è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web disponibile in più piattaforme che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET, Node.js e Java EE, ospitate in locale, ibride o in un cloud pubblico. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio App Center.
+Application Insights, una funzionalità di [Monitoraggio di Azure](../overview.md), è un servizio estendibile di gestione delle prestazioni delle applicazioni (APM, Application Performance Management) per sviluppatori e professionisti DevOps. Usare questa funzionalità per monitorare le applicazioni live. Oltre a rilevare automaticamente le anomalie nelle prestazioni, include strumenti di analisi avanzati che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET, Node.js e Java EE, ospitate in locale, ibride o in un cloud pubblico. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Come funziona Application Insights?
 Si installa un piccolo pacchetto di strumentazione nell'applicazione e si configura una risorsa di Application Insights nel portale di Microsoft Azure. La strumentazione monitora l'app e invia i dati di telemetria a Monitoraggio di Azure. L'applicazione può essere eseguita ovunque, non deve necessariamente essere ospitata in Azure.
@@ -53,8 +53,8 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 
 |  |  |
 | --- | --- |
-| [**Rilevamento intelligente e avvisi manuali**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Gli avvisi automatici si adattano ai modelli normali di telemetria dell'app e si attivano quando i dati si discostano dal modello consueto. È anche possibile [impostare avvisi](../../azure-monitor/app/alerts.md) per determinati livelli di metriche standard o personalizzate. |![Esempio di avviso](./media/app-insights-overview/alerts-tn.png) |
-| [**Mappa delle applicazioni**](../../azure-monitor/app/app-map.md)<br/>I componenti dell'applicazione, con le metriche e gli avvisi chiave. |![Mappa delle applicazioni](./media/app-insights-overview/appmap-tn.png)  |
+| [**Rilevamento intelligente e avvisi manuali**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Configurare avvisi automatici che si adattano ai modelli normali di telemetria dell'app e si attivano quando i dati si discostano dal modello consueto. È anche possibile [impostare avvisi](../../azure-monitor/app/alerts.md) per determinati livelli di metriche standard o personalizzate. |![Esempio di avviso](./media/app-insights-overview/alerts-tn.png) |
+| [**Mappa delle applicazioni**](../../azure-monitor/app/app-map.md)<br/>Esplorare i componenti dell'app, con metriche chiave e avvisi. |![Mappa delle applicazioni](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profiler**](../../azure-monitor/app/profiler.md)<br/>Ispezionare i profili di esecuzione delle richieste campionate. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Analisi dell'utilizzo**](../../azure-monitor/app/usage-overview.md)<br/>Analizzare la segmentazione e la conservazione degli utenti.|![Strumento Conservazione](./media/app-insights-overview/retention.png) |
 | [**Ricerca diagnostica dei dati dell'istanza**](../../azure-monitor/app/diagnostic-search.md)<br/>Cercare e filtrare eventi come richieste, eccezioni, chiamate a dipendenze, tracce di log e visualizzazioni di pagina.  |![Ricerca nella telemetria](./media/app-insights-overview/search-tn.png) |
@@ -91,7 +91,7 @@ Quando si riceve un avviso o si individua un problema:
 * Scrivere dati di telemetria personalizzati nel codice.
 * Basare il ciclo di sviluppo successivo sulle salde prove derivate dai dati di telemetria.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 Application Insights è uno dei molti servizi ospitati in Microsoft Azure e riceve i dati di telemetria per l’analisi e la presentazione. Prima di eseguire qualsiasi altra operazione, è necessario ottenere una sottoscrizione a [Microsoft Azure](https://azure.com). L'iscrizione è gratuita e, se si sceglie il [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) Basic di Application Insights, la sottoscrizione resta gratuita finché l'applicazione non cresce fino a un uso sostanziale. Se l'organizzazione ha già una sottoscrizione, può aggiungervi l'account Microsoft dell'utente.
 
 È possibile iniziare in diversi modi. Iniziare con il metodo più adatto alle proprie esigenze. È possibile aggiungere gli altri in un secondo momento.

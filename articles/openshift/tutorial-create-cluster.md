@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b8ab4362945b84b4337859a1dad03906cc289c99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378246"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Esercitazione: Creare un cluster Azure Red Hat OpenShift
 
@@ -27,10 +27,10 @@ Nella prima parte della serie, si apprenderà come:
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
 > * Creare un cluster Azure Red Hat OpenShift
-> * [Ridimensionare un cluster Azure Red Hat OpenShift](tutorial-scale-cluster.md)
-> * [Eliminare un cluster Azure Red Hat OpenShift](tutorial-delete-cluster.md)
+> * [Ridimensionare un cluster di Azure Red Hat OpenShift](tutorial-scale-cluster.md)
+> * [Eliminare un cluster di Azure Red Hat OpenShift](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 > [!IMPORTANT]
 > Questa esercitazione richiede la versione 2.0.65 dell'interfaccia della riga di comando di Azure.
@@ -71,7 +71,7 @@ Scegliere una località in cui creare il cluster. Per un elenco di aree di Azure
 LOCATION=<location>
 ```
 
-Impostare `APPID` sul valore salvato nel passaggio 5 di [Creare una registrazione di app Azure AD](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
+Impostare `APPID` sul valore salvato nel passaggio 5 di [Creare una registrazione di app Azure AD](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).
 
 ```bash
 APPID=<app ID value>
@@ -83,13 +83,13 @@ Impostare 'GROUPID' sul valore salvato nel passaggio 10 di [Creare un gruppo di 
 GROUPID=<group ID value>
 ```
 
-Impostare `SECRET` sul valore salvato nel passaggio 8 di [Creare un segreto client](howto-aad-app-configuration.md#create-a-client-secret).  
+Impostare `SECRET` sul valore salvato nel passaggio 8 di [Creare un segreto client](howto-aad-app-configuration.md#create-a-client-secret).
 
 ```bash
 SECRET=<secret value>
 ```
 
-Impostare `TENANT` sul valore dell'ID del tenant salvato nel passaggio 7 di [Creare un nuovo tenant](howto-create-tenant.md#create-a-new-azure-ad-tenant)  
+Impostare `TENANT` sul valore dell'ID del tenant salvato nel passaggio 7 di [Creare un nuovo tenant](howto-create-tenant.md#create-a-new-azure-ad-tenant)
 
 ```bash
 TENANT=<tenant ID>
@@ -105,7 +105,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 Se non è necessario connettere la rete virtuale del cluster creato a una rete virtuale esistente tramite peering, ignorare questo passaggio.
 
-Se si esegue il peering su una rete all'esterno della sottoscrizione predefinita, in tale sottoscrizione sarà necessario anche registrare il provider Microsoft.ContainerService. A questo scopo, eseguire il comando seguente in tale sottoscrizione. In caso contrario, se si esegue il peering su una rete virtuale che si trova nella stessa sottoscrizione, è possibile ignorare il passaggio di registrazione. 
+Se si esegue il peering su una rete all'esterno della sottoscrizione predefinita, in tale sottoscrizione sarà necessario anche registrare il provider Microsoft.ContainerService. A questo scopo, eseguire il comando seguente in tale sottoscrizione. In caso contrario, se si esegue il peering su una rete virtuale che si trova nella stessa sottoscrizione, è possibile ignorare il passaggio di registrazione.
 
 `az provider register -n Microsoft.ContainerService --wait`
 
@@ -121,6 +121,22 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 Ad esempio: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
 
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>Facoltativo: Connettere il cluster a Monitoraggio di Azure
+
+Prima di tutto ottenere l'identificatore dell'area di lavoro Log Analytics **esistente**. Il formato dell'identificatore sarà:
+
+`/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace-id}`.
+
+Se non si conosce il nome dell'area di lavoro Log Analytics o il gruppo di risorse a cui appartiene l'area di lavoro Log Analytics esistente, passare all'[area di lavoro Log Analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) e fare clic sulle aree di lavoro Log Analytics. Verrà visualizzata la pagina Area di lavoro Log Analytics in cui saranno elencati il nome dell'area di lavoro e il gruppo di risorse a cui appartiene.
+
+_Per creare un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace-cli.md)_
+
+Definire una variabile WORKSPACE_ID usando il comando seguente dell'interfaccia della riga di comando in una shell BASH:
+
+```bash
+WORKSPACE_ID=$(az monitor log-analytics workspace show -g {RESOURCE_GROUP} -n {NAME} --query id -o tsv)
+```
+
 ### <a name="create-the-cluster"></a>Creare il cluster
 
 Ora è possibile creare un cluster. Il seguente crea il cluster nel tenant Azure AD specificato, specifica l'oggetto app di Azure AD e il segreto da usare come un'entità di sicurezza e il gruppo di sicurezza che contiene i membri che hanno accesso amministrativo al cluster.
@@ -128,20 +144,29 @@ Ora è possibile creare un cluster. Il seguente crea il cluster nel tenant Azure
 > [!IMPORTANT]
 > Assicurarsi di aver aggiunto correttamente le autorizzazioni appropriate per l'app di Azure AD come [descritto qui](howto-aad-app-configuration.md#add-api-permissions) prima di creare il cluster
 
-Se **non** si esegue il peer di un cluster a una rete virtuale, usare il comando seguente:
+Se **non** si esegue il peering del cluster con una rete virtuale o **non** si vuole usare Monitoraggio di Azure, usare il comando seguente:
 
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
 Se **non** si esegue il peer di un cluster a una rete virtuale, usare il comando seguente che aggiunge il flag `--vnet-peer`:
- 
+
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
 ```
 
+Se si **vuole** usare Monitoraggio di Azure con il cluster, usare il comando seguente che aggiunge il flag `--workspace-id`:
+
+```bash
+az openshift create --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
+```
+
 > [!NOTE]
 > Se viene restituito un errore che indica che il nome host non è disponibile, il nome del cluster potrebbe non essere univoco. Provare a eliminare la registrazione dell'app originale e a ripetere la procedura con un altro nome del cluster in [Creare una nuova registrazione di app](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), omettendo il passaggio della creazione di un nuovo utente e gruppo di sicurezza.
+
+
+
 
 Dopo alcuni minuti, `az openshift create` verrà completato.
 
@@ -210,4 +235,4 @@ In questa parte dell'esercitazione si è appreso come:
 
 Passare all'esercitazione successiva:
 > [!div class="nextstepaction"]
-> [Ridimensionare un cluster Azure Red Hat OpenShift](tutorial-scale-cluster.md)
+> [Ridimensionare un cluster di Azure Red Hat OpenShift](tutorial-scale-cluster.md)

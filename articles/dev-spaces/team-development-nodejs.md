@@ -3,14 +3,14 @@ title: Sviluppo in team con Node.js e Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per lo sviluppo in team di un'applicazione Node.js nel servizio Azure Kubernetes
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 374a6f0944c7d2fe8d97ea2fa4610ba63598ee2e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e2124d6c3f903f6a9faa6c41a2015b7198faf42d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438127"
 ---
 # <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Sviluppo in team con Node.js e Visual Studio Code con Azure Dev Spaces
 
@@ -27,9 +27,9 @@ L'applicazione di esempio non è molto complessa al momento. Nello sviluppo nel 
 
 * Il computer di sviluppo potrebbe non disporre di risorse sufficienti per eseguire contemporaneamente tutti i servizi necessari.
 * Alcuni servizi potrebbero dover essere raggiungibili pubblicamente. Ad esempio, per un servizio potrebbe essere necessario un endpoint che risponda a un webhook.
-* Se si vuole eseguire un subset dei servizi, è necessario conoscere la gerarchia completa delle dipendenze tra tutti i servizi. Determinarlo può essere difficile, soprattutto con l'aumentare del numero di servizi.
-* Alcuni sviluppatori ricorrono alla simulazione di molte delle loro dipendenze di servizio. Questo approccio può essere, ma la gestione di quelle simulazioni può influire presto sui costi di sviluppo. Inoltre, con questo approccio l'ambiente di sviluppo è visto in modo molto diverso dalla produzione e possono insorgere bug.
-* È quindi difficile eseguire qualsiasi tipo di test di integrazione. I test di integrazione possono avvenire in modo realistico solo dopo il commit, il che significa che i problemi verranno riscontrati più avanti nel ciclo di sviluppo.
+* Se si vuole eseguire un sottoinsieme dei servizi, è necessario conoscere la gerarchia completa delle dipendenze tra tutti i servizi. Determinarlo può essere difficile, soprattutto con l'aumentare del numero di servizi.
+* Alcuni sviluppatori ricorrono alla simulazione di molte delle loro dipendenze di servizio. Questo approccio può essere di aiuto, ma la gestione di quelle simulazioni può influire presto sui costi di sviluppo. Inoltre, con questo approccio l'ambiente di sviluppo è visto in modo molto diverso dalla produzione e possono insorgere bug.
+* Di conseguenza, l'esecuzione di qualsiasi tipo di test di integrazione diventa difficile. I test di integrazione possono avvenire in modo realistico solo dopo il commit, il che significa che i problemi verranno riscontrati più avanti nel ciclo di sviluppo.
 
     ![](media/common/microservices-challenges.png)
 
@@ -42,13 +42,13 @@ Quando si sviluppa codice per un servizio, prima che sia pronto per l'archiviazi
 ## <a name="use-dev-spaces-for-team-development"></a>Usare Dev Spaces per lo sviluppo in team
 È possibile dimostrare queste idee con un esempio concreto, usando l'applicazione di esempio *webfrontend* -> *mywebapi*. Si immagini uno scenario in cui uno sviluppatore, Scott, deve apportare una modifica al servizio *mywebapi*, e *solo* a tale servizio. L'applicazione *webfrontend* non deve cambiare come parte dell'aggiornamento di Scott.
 
-_Senza_ usare Dev Spaces, Scott avrebbe a disposizione alcuni modi per sviluppare e testare l'aggiornamento, nessuno dei quali è ideale:
+_Senza_ usare Dev Spaces, Scott avrebbe a disposizione diversi modi per sviluppare e testare l'aggiornamento, nessuno dei quali è ideale:
 * Eseguire TUTTI i componenti in locale. Ciò richiede un computer di sviluppo più potente con Docker installato e potenzialmente MiniKube.
 * Eseguire TUTTI i componenti in uno spazio dei nomi isolato nel cluster Kubernetes. Dal momento che l'applicazione *webfrontend* non viene modificata, si tratta di uno spreco di risorse cluster.
 * Eseguire SOLO *mywebapi* ed eseguire chiamate REST manuali per il test. Non viene testato il flusso end-to-end.
 * Aggiungere codice mirato allo sviluppo all'applicazione *webfrontend* per consentire allo sviluppatore di inviare richieste a un'istanza differente di *mywebapi*. Ciò complica il servizio *webfrontend*.
 
-### <a name="set-up-your-baseline"></a>Impostare la linea di base
+### <a name="set-up-your-baseline"></a>Impostare la baseline
 Prima di tutto è necessario distribuire una baseline dei servizi. Questa distribuzione rappresenterà l'"ultima valida" per poter confrontare facilmente il comportamento del codice locale rispetto alla versione archiviata. Verrà quindi creato uno spazio figlio basato su questa baseline per poter testare le modifiche a *mywebapi* nel contesto dell'applicazione principale.
 
 1. Clonare l'[applicazione di esempio Dev Spaces](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`

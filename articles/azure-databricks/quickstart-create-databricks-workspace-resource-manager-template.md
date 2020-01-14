@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 2fbe1e91204df7901b4ac3ccfdcd323304b2ce3c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c485a21f974e3ed9c8882e7a900d1632b33a1ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706179"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410649"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks con il modello di Azure Resource Manager
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Avvio rapido: Eseguire un processo Spark in Azure Databricks con il modello di Azure Resource Manager
 
 In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un'area di lavoro di Azure Databricks con un cluster Apache Spark. Si esegue un processo nel cluster e si usano grafici personalizzati per produrre report in tempo reale dall'utilizzo gratuito/a pagamento in base ai dati demografici.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 
@@ -47,10 +47,10 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il m
 
    Specificare i valori seguenti:
 
-   |Proprietà  |DESCRIZIONE  |
+   |Proprietà  |Descrizione  |
    |---------|---------|
    |**Sottoscrizione**     | Selezionare la sottoscrizione di Azure nell'elenco a discesa.        |
-   |**Gruppo di risorse**     | Specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/resource-group-overview.md). |
+   |**Gruppo di risorse**     | Specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/management/overview.md). |
    |**Posizione**     | Selezionare **Stati Uniti orientali 2**. Per le altre aree disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).        |
    |**Nome area di lavoro**     | Specificare un nome per l'area di lavoro di Databricks        |
    |**Piano tariffario**     |  Scegliere tra **Standard** e **Premium**. Per altre informazioni su questi piani tariffari, vedere la [pagina dei prezzi di Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
@@ -101,7 +101,7 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
    ![Creare un notebook in Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Creare un notebook in Databricks")
 
-   Fare clic su **Create**(Crea).
+   Fare clic su **Crea**.
 
 3. In questo passaggio associare l'account di archiviazione di Azure con il cluster Databricks Spark. Esistono due modi per eseguire questa associazione. È possibile montare l'account di archiviazione di Azure in Databricks FileSystem (DBFS) oppure accedere direttamente all'account di archiviazione di Azure dall'applicazione creata.
 
@@ -123,7 +123,7 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-     Per istruzioni su come recuperare la chiave dell'account di archiviazione, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys).
+     Per altre informazioni su come recuperare le chiavi di accesso dell'account di archiviazione, vedere [Gestire le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-keys-manage.md).
 
    > [!NOTE]
    > È anche possibile usare Azure Data Lake Store con un cluster Spark in Azure Databricks. Per istruzioni, vedere [Use Data Lake Store with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) (Usare Data Lake Store con Azure Databricks).

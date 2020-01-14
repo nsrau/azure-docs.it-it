@@ -3,12 +3,26 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/15/2018
-ms.openlocfilehash: 890118bf40a621cf92b3999d3ef858955a79d196
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 12/09/2018
+ms.openlocfilehash: c5f736f00c7c048de73b7f4696e29a699107c9cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67134920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382506"
 ---
-È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con accesso alle API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuito. Prima di continuare, è necessaria la chiave di accesso fornita dopo l'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+## <a name="create-an-azure-resource"></a>Creare una risorsa di Azure
+
+Per iniziare a usare l'API Ricerca video Bing, creare una delle risorse di Azure seguenti.
+
+* [Creare una risorsa di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * non richiede una sottoscrizione di Azure,
+    * è gratuita e valida sette giorni. Dopo aver eseguito l'iscrizione, una chiave di valutazione e un endpoint saranno disponibili sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Creare una risorsa Ricerca Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
+    * disponibile tramite il portale di Azure fino a quando la risorsa non viene eliminata.
+    * Usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+
+* [Creare una risorsa multiservizio](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * disponibile tramite il portale di Azure fino a quando la risorsa non viene eliminata.  
+    * Usare la stessa chiave e lo stesso endpoint per le applicazioni in più servizi cognitivi.

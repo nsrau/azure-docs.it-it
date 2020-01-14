@@ -4,15 +4,15 @@ description: Configurare le impostazioni che si applicano all'intero ambiente di
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430494"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 ## <a name="overview"></a>Panoramica
@@ -57,6 +57,19 @@ In alternativa, è possibile aggiornare l'ambiente del servizio app tramite [Esp
 Indipendentemente dalla modalità di invio della modifica, perché le modifiche siano effettive occorrono circa 30 minuti per ognuno dei front-end nell'ambiente del servizio.
 Ad esempio, se un ambiente del servizio app dispone di quattro front-end, per l'aggiornamento della configurazione occorreranno circa due ore. Durante l'implementazione della modifica della configurazione non è possibile eseguire altre operazioni di ridimensionamento o di modifica della configurazione nell'ambiente del servizio app.
 
+## <a name="enable-internal-encryption"></a>Abilitare la crittografia interna
+
+L'ambiente del servizio app funziona come un sistema di black box in cui non è possibile visualizzare i componenti interni o la comunicazione all'interno del sistema. Per consentire una velocità effettiva più elevata, la crittografia non è abilitata per impostazione predefinita tra i componenti interni. Il sistema è sicuro perché il traffico è completamente inaccessibile per il monitoraggio o l'accesso. Tuttavia, se sono presenti requisiti di conformità che richiedono la crittografia completa del percorso dati dall'inizio alla fine, è possibile abilitare questa funzionalità con l'attributo clusterSetting.  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+Dopo aver abilitato l'impostazione InternalEncryption in clusterSetting, è possibile che si verifichino problemi in termini di prestazioni del sistema. Quando si apporta la modifica per abilitare InternalEncryption, l'ambiente del servizio app sarà in uno stato instabile fino a quando la modifica non viene propagata completamente. Il completamento della propagazione completa della modifica può richiedere alcune ore, a seconda del numero di istanze disponibili nell'ambiente del servizio app. È consigliabile non abilitare questa impostazione in un ambiente del servizio app mentre è in uso. Se è necessario abilitare questa impostazione in un ambiente del servizio app usato attivamente, è opportuno deviare il traffico in un ambiente di backup fino al completamento dell'operazione. 
+
 ## <a name="disable-tls-10-and-tls-11"></a>Disabilitare TLS 1.1 e TLS 1.0
 
 Per gestire le impostazioni di TLS in ogni app, è quindi possibile usare le indicazioni fornite nella documentazione [Applicare versioni di TLS](../configure-ssl-bindings.md#enforce-tls-versions). 
@@ -87,7 +100,7 @@ Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco del
 > 
 > 
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello con la definizione di base per la [creazione di un ambiente del servizio app](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->

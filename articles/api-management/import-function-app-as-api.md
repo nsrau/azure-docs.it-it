@@ -1,5 +1,6 @@
 ---
-title: Importare un'app per le funzioni di Azure come API in Gestione API di Azure | Microsoft Docs
+title: Importare un'app per le funzioni di Azure come API in Gestione API
+titleSuffix: Azure API Management
 description: Questa esercitazione illustra come importare un'app per le funzioni di Azure in Gestione API di Azure come API.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442573"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
 
@@ -34,9 +35,9 @@ Si apprenderà come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Completare l'argomento di avvio rapido [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
+* Completare la guida introduttiva [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 * Verificare che nella sottoscrizione sia disponibile un'app Funzioni di Azure. Per altre informazioni, vedere [come creare un'app per le funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Deve contenere funzioni con trigger HTTP e livello di autorizzazione impostato su *Anonimo* o su *Funzione*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -74,7 +75,7 @@ Per creare una nuova API da un'app per le funzioni di Azure, seguire questa proc
 
     ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-06.png)
 
-8. Fare clic su **Create**(Crea).
+8. Fare clic su **Crea**.
 
 ## <a name="append-azure-function-app-to-api"></a>Aggiungere l'app per le funzioni di Azure a un'API esistente
 
@@ -117,7 +118,7 @@ L'importazione di un'app per le funzioni di Azure genera automaticamente:
 * la chiave host nell'app per le funzioni, con il nome apim-{*nome istanza del servizio Gestione API di Azure*},
 * il valore denominato nell'istanza di Gestione API di Azure, con il nome {*nome istanza dell'app per le funzioni di Azure*}-key, che contiene la chiave host creata.
 
-Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle richieste HTTP da Gestione API all'app per le funzioni in un'intestazione. Le API precedenti passano la chiave host come [parametro di query](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Questo comportamento può essere modificato tramite la [chiamata API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) `PATCH Backend` sull'entità*Backend*associata all'app per le funzioni.
+Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle richieste HTTP da Gestione API all'app per le funzioni in un'intestazione. Le API precedenti passano la chiave host come [parametro di query](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Questo comportamento può essere modificato tramite la [chiamata API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) `PATCH Backend` sull'entità *Back-end* associata all'app per le funzioni.
 
 > [!WARNING]
 > Se si rimuove o si modifica il valore della chiave host dell'app per le funzioni di Azure o il valore denominato di Gestione API di Azure, la comunicazione tra i servizi sarà interrotta. I valori non vengono sincronizzati automaticamente.

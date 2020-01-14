@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Aggiornare un'applicazione di Service Fabric | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Aggiornare un'applicazione di Service Fabric.
+title: Aggiornare un'applicazione di Service Fabric in PowerShell
+description: Esempio di script di Azure PowerShell - Aggiornare e monitorare un'applicazione di Service Fabric con PowerShell.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 45186f497371b533451ff374e68b38f9a7eebe51
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3a4ef9fad8567eb145d51c6fef61773cc3a00b11
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035492"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614741"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Aggiornare un'applicazione di Service Fabric
 

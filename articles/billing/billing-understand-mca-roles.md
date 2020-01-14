@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui ruoli amministrativi di fatturazione per i contratti dei clienti Microsoft - Azure
+title: Ruoli di fatturazione per i Contratti del cliente Microsoft - Azure
 description: Questo articolo offre informazioni sui ruoli di fatturazione per gli account di fatturazione di Azure per i contratti dei clienti Microsoft.
 author: amberbhargava
 manager: amberbhargava
@@ -10,24 +10,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: f143297ce3a3e41174cbd6cf59ca3df29f8ebc63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3949d2a70d29f2bfa33596ef2c47f45e1c87c2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388161"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per i contratti dei clienti Microsoft in Azure
 
 Per gestire l'account di fatturazione per un contratto del cliente Microsoft, usare i ruoli descritti nelle sezioni seguenti. Questi ruoli si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md).
 
-Questo articolo si applica a un account di fatturazione per un contratto del cliente Microsoft. Verificare di avere accesso a un contratto del cliente Microsoft.
+Questo articolo di applica a un account di fatturazione per un Contratto del cliente Microsoft. Verificare di avere accesso a un contratto del cliente Microsoft.
 
 ## <a name="billing-role-definitions"></a>Definizioni dei ruoli di fatturazione
 
 La tabella seguente descrive i ruoli di fatturazione usati per gestire l'account di fatturazione, i profili di fatturazione e le sezioni delle fatture.
 
-|Ruolo|DESCRIZIONE|
+|Ruolo|Descrizione|
 |---|---|
 |Proprietario dell'account di fatturazione|Consente di gestire tutti gli elementi per l'account di fatturazione|
 |Collaboratore per l'account di fatturazione|Consente di gestire tutti gli elementi ad eccezione delle autorizzazioni nell'account di fatturazione|
@@ -39,7 +39,7 @@ La tabella seguente descrive i ruoli di fatturazione usati per gestire l'account
 |Proprietario della sezione della fattura|Consente di gestire tutti gli elementi nella sezione della fattura|
 |Collaboratore per la sezione della fattura|Consente di gestire tutti gli elementi ad eccezione delle autorizzazioni nella sezione della fattura|
 |Ruolo con autorizzazioni di lettura per la sezione della fattura|Fornisce una visualizzazione di sola lettura di tutti gli elementi nella sezione della fattura|
-|Autore di sottoscrizioni di Azure|Consente di creare sottoscrizioni di Azure|
+|Autore di sottoscrizioni di Azure|Creare sottoscrizioni di Azure|
 
 ## <a name="billing-account-roles-and-tasks"></a>Ruoli e attività dell'account di fatturazione
 
@@ -200,7 +200,7 @@ La tabella seguente indica il ruolo necessario per completare le attività nel c
 
    ![Screenshot che mostra la rimozione di un amministratore da un account di fatturazione](./media/billing-understand-mca-roles/billing-remove-admin.png)
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un contratto del cliente Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico

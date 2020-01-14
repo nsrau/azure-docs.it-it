@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con Python
+title: Usare l'API Tabella di Azure Cosmos DB e l'archiviazione tabelle di Azure con Python
 description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 883965d1d59e5523527a6aab1e83521d7491bf82
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6c01b9581795f4ac74bd74757b9116c0d5df586d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675703"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444763"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con Python
 
@@ -33,7 +33,7 @@ Questo esempio illustra come usare [Azure Cosmos DB Table SDK per Python](https:
 
 Mentre si lavora agli scenari di questo esempio, è possibile vedere le [informazioni di riferimento sull'API Azure Cosmos DB SDK per Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 

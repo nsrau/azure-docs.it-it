@@ -1,5 +1,6 @@
 ---
-title: Esercitazione per l'integrazione con una pipeline di integrazione e recapito continui tramite Configurazione app di Azure | Microsoft Docs
+title: "Esercitazione: Eseguire l'integrazione con una pipeline di integrazione e recapito continui"
+titleSuffix: Azure App Configuration
 description: Questa esercitazione descrive come generare un file di configurazione usando i dati nella Configurazione app di Azure durante l'integrazione e il recapito continui
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f8adfee1e707181e78f4e845f61477b08af935e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433644"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrare una pipeline CI/CD
 
@@ -37,7 +38,7 @@ L'esempio seguente illustra come includere i dati della Configurazione app di Az
 
 Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Se la compilazione avviene in locale, scaricare e installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se non lo si è già fatto.
 

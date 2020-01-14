@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e5aa41023e1d7f84e8de095d13835d5ebdf66f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434861"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Esercitazione: Definire un nuovo tipo di dispositivo Azure IoT Edge nell'applicazione Azure IoT Central (funzionalità in anteprima)
 
@@ -47,7 +47,7 @@ In questa esercitazione viene anche creato un modello di dispositivo di tipo gat
 * Consente le relazioni con altri modelli di funzionalità di dispositivo.
 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un nuovo modello di dispositivo Azure IoT Edge.
@@ -57,7 +57,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere le relazioni ai modelli di dispositivo downstream.
 > * Pubblicare il modello di dispositivo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario [creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md).
 
@@ -293,8 +293,8 @@ Un modello di dispositivo può includere proprietà cloud. Le proprietà cloud e
 
     | Nome visualizzato      | Tipo semantico | SCHEMA |
     | ----------------- | ------------- | ------ |
-    | Data ultimo utilizzo | Nessuna          | Data   |
-    | Nome del cliente     | Nessuna          | string |
+    | Data ultimo utilizzo | nessuno          | Data   |
+    | Nome del cliente     | nessuno          | string |
 
 2. Selezionare **Salva**.
 
@@ -387,7 +387,7 @@ Dopo la pubblicazione, un modello di dispositivo viene visualizzato nella pagina
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 * Creare un nuovo dispositivo perimetrale come modello di dispositivo foglia.
 * Generare i moduli da un manifesto della distribuzione caricato.
@@ -400,4 +400,4 @@ Questa esercitazione illustra come:
 Dopo aver creato un modello di dispositivo nell'applicazione Azure IoT Central, è possibile:
 
 > [!div class="nextstepaction"]
-> [Connettere il dispositivo](./tutorial-connect-pnp-device.md)
+> [Connettere un dispositivo Edge](./tutorial-add-edge-as-leaf-device.md)

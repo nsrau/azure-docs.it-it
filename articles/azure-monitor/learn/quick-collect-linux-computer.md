@@ -1,9 +1,9 @@
 ---
-title: 'Guida introduttiva: Raccogliere dati da un computer Linux ibrido con Monitoraggio di Azure'
+title: 'Avvio rapido: Raccogliere dati da un computer Linux ibrido con Monitoraggio di Azure'
 description: Questo argomento di avvio rapido descrive come distribuire l'agente di Log Analytics per computer Linux in esecuzione all'esterno di Azure e come abilitare la raccolta di dati con i log di Monitoraggio di Azure.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677954"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530018"
 ---
-# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Guida introduttiva: Raccogliere dati da un computer Linux in un ambiente ibrido con Monitoraggio di Azure
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Avvio rapido: Raccogliere dati da un computer Linux in un ambiente ibrido con Monitoraggio di Azure
 
 [Monitoraggio di Azure](../overview.md) può raccogliere i dati direttamente dai computer fisici o virtuali Linux nell'ambiente in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. L'installazione dell'[agente di Log Analytics](../platform/log-analytics-agent.md) consente a Monitoraggio di Azure di raccogliere dati da un data center o da un altro ambiente cloud. Questo argomento di avvio rapido illustra come configurare e raccogliere dati dal server Linux in pochi semplici passaggi. Per informazioni sulle VM Linux di Azure, vedere [Raccogliere dati sulle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
@@ -55,7 +55,7 @@ Per tenere traccia dello stato di avanzamento della verifica delle informazioni 
 
 ## <a name="obtain-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
 
-Prima di installare l'agente di Log Analytics per Linux, sono necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro Log Analytics.  Queste informazioni sono richieste dallo script del wrapper agente per configurare correttamente l'agente e verificare che possa comunicare correttamente con Monitoraggio di Azure.
+Prima di installare l'agente di Log Analytics per Linux, sono necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro Log Analytics. Queste informazioni sono richieste dallo script del wrapper agente per configurare correttamente l'agente e verificare che possa comunicare correttamente con Monitoraggio di Azure.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -88,7 +88,7 @@ Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Il comando seguente include il parametro `-p` del proxy e la sintassi di esempio.
+    Il comando seguente include il parametro `-p` del proxy e la sintassi di esempio per i casi in cui il server proxy richiede l'autenticazione:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -100,12 +100,13 @@ Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Il comando seguente include il parametro `-p` del proxy e la sintassi di esempio.
+    Il comando seguente include il parametro `-p` del proxy e la sintassi di esempio per i casi in cui il server proxy richiede l'autenticazione:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. Riavviare l'agente eseguendo il comando seguente: 
+
+3. Riavviare l'agente eseguendo il comando seguente: 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]

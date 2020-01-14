@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423385"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Creare un daemon multi-tenant che usa l'endpoint di Microsoft Identity Platform
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Esercitazione: Creare un daemon multi-tenant che usa l'endpoint di Microsoft Identity Platform
 
 Questa esercitazione illustra come usare Microsoft Identity Platform per accedere ai dati dei clienti aziendali Microsoft in un processo non interattivo e di lunga durata. Il daemon di esempio usa la [concessione di credenziali client OAuth2](v2-oauth2-client-creds-grant-flow.md) per acquisire un token di accesso. Il daemon usa il token per chiamare [Microsoft Graph](https://graph.microsoft.io) e accedere ai dati dell'organizzazione.
+
+> [!div class="checklist"]
+> * Integrazione di un'app daemon con Microsoft Identity Platform
+> * Concedere le autorizzazioni dell'applicazione direttamente all'app da un amministratore
+> * Reperimento di un token di accesso per chiamare l'API Microsoft Graph
+> * Chiamata all'API Microsoft Graph
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 L'app viene creata come applicazione MVC ASP.NET. Usa il middleware OWIN OpenID Connect per concedere l'accesso agli utenti.  
 
@@ -42,7 +50,7 @@ Poiché l'app è multi-tenant per i clienti aziendali Microsoft, deve fornire un
 
 Per altre informazioni sui concetti di questo esempio, leggere la [documentazione relativa al protocollo di credenziali client per l'endpoint di Identity Platform](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire l'esempio in questo argomento di avvio rapido, è necessario avere:
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 In alternativa [scaricare l'esempio in un file ZIP](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Registrare l'applicazione di esempio con il tenant di Azure AD
+## <a name="register-your-application"></a>Registrare l'applicazione
 
-L'esempio contiene un unico progetto. Per registrarlo, è possibile:
+L'esempio contiene un unico progetto. Per registrare l'applicazione con il tenant di Azure AD è possibile:
 
-- Seguire le procedure riportate in [Registrare l'esempio con il tenant di Azure Active Directory](#register-the-sample-application-with-your-azure-ad-tenant) e [Configurare l'esempio per l'uso del tenant di Azure AD](#choose-the-azure-ad-tenant).
+- Seguire le procedure riportate in [Registrare l'esempio con il tenant di Azure Active Directory](#register-your-application) e [Configurare l'esempio per l'uso del tenant di Azure AD](#choose-the-azure-ad-tenant).
 - Usare gli script di PowerShell per:
   - Creare *automaticamente* le applicazioni di Azure AD e gli oggetti correlati (password, autorizzazioni, dipendenze).
   - Modificare i file di configurazione dei progetti di Visual Studio.
@@ -237,7 +245,10 @@ Visual Studio pubblicherà il progetto e aprirà automaticamente un browser all'
 1. Salvare la configurazione.
 1. Aggiungere lo stesso URL nell'elenco di valori del menu **Autenticazione** > **URI di reindirizzamento**. Se sono presenti più URL di reindirizzamento, assicurarsi che vi sia una nuova voce che usa l'URI del servizio app per ognuno di essi.
 
-## <a name="community-help-and-support"></a>Assistenza e supporto della community
+## <a name="clean-up-resources"></a>Pulire le risorse
+Quando non è più necessario, eliminare l'oggetto app creato nel passaggio [Registrare l'applicazione](#register-your-application).  Per rimuovere l'applicazione, seguire le istruzioni riportate in [Rimuovere un'applicazione creata dall'utente o dalla relativa organizzazione](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+
+## <a name="get-help"></a>Ottenere aiuto
 
 Usare [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) per ottenere supporto dalla community.
 Inviare prima le proprie domande a Stack Overflow ed esplorare i post esistenti per vedere se qualcuno ha già posto la stessa domanda.
@@ -259,8 +270,8 @@ Per altre informazioni, vedere la documentazione concettuale seguente:
 - [Consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant](howto-convert-app-to-be-multi-tenant.md)
 - [Informazioni sul consenso dell'utente e dell'amministratore](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
 - [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md)
-- [Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
-- [Guida introduttiva: Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md)
+- [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
+- [Avvio rapido: Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md)
 - [Acquisizione di un token per un'applicazione con flussi di credenziali client](msal-client-applications.md)
 
 Per un'applicazione daemon console multi-tenant più semplice, vedere l'[argomento di avvio rapido sul daemon .NET Core](quickstart-v2-netcore-daemon.md).

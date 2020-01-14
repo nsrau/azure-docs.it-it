@@ -1,24 +1,24 @@
 ---
-title: Panoramica dei dischi gestiti di archiviazione su disco di Azure per le macchine virtuali Windows
+title: Panoramica dell'archiviazione su disco di Azure per le macchine virtuali Windows
 description: Panoramica di Azure Managed Disks, che gestisce automaticamente gli account di archiviazione quando si usano macchine virtuali Windows di Azure
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 12/02/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c23cfbc418cca82393a0a66b0ceace622b2833f5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7b2c2c1289a40d63b2f396ee59000c3aedb14c3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460035"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduzione ad Azure Managed Disks
 
-Un disco gestito di Azure è un disco rigido virtuale. È possibile considerarlo come un disco fisico in un server locale, ma virtualizzato. I dischi gestiti di Azure vengono archiviati come BLOB di pagine, ovvero un oggetto di archiviazione di I/O casuale in Azure. Un disco gestito viene definito "gestito" perché è un'astrazione di BLOB di pagine, contenitori BLOB e account di archiviazione di Azure. Con i dischi gestiti, è sufficiente effettuare il provisioning del disco e Azure si occupa di tutto il resto.
+Azure Managed Disks offre volumi di archiviazione a livello di blocco gestiti da Azure e usati con le macchine virtuali di Azure. Un disco gestito può essere considerato come un disco fisico in un server locale, ma virtualizzato. Con i dischi gestiti è sufficiente specificare le dimensioni e il tipo di disco ed effettuare il provisioning del disco. Una volta effettuato il provisioning, Azure gestisce il resto.
 
-Quando si sceglie di usare i dischi gestiti di Azure con i carichi di lavoro, Azure crea e gestisce automaticamente il disco. I tipi di dischi disponibili sono dischi Ultra, SSD Premium, SSD Standard e HDD Standard. Per altre informazioni su ogni singolo tipo di disco, vedere [Selezionare un tipo di disco per macchine virtuali IaaS](disks-types.md).
+I tipi di dischi disponibili sono Ultra, SSD Premium, SSD Standard e HDD Standard. Per informazioni su ogni singolo tipo di disco, vedere [Selezionare un tipo di disco per macchine virtuali IaaS](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

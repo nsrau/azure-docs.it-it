@@ -4,12 +4,12 @@ description: Token di blockchain di Azure è una piattaforma distribuita come se
 ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: c1c18298ba82775c9b10bb79c420704bd462e2b4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387174"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>Che cos'è il servizio Token di blockchain di Azure?
 
@@ -40,6 +40,14 @@ Per altre informazioni sulla gestione degli account di Token di blockchain di Az
 ## <a name="token-taxonomy-framework"></a>Token Taxonomy Framework
 
 Token di blockchain di Azure è basato su un framework standard, Token Taxonomy Framework (TTF). TTF è un set di materiali creati dal gruppo di lavoro per i token TTI ([Token Taxonomy Initiative](https://entethalliance.org/participate/token-taxonomy-initiative/)). Il gruppo di lavoro TTI definisce una tassonomia aziendale per i token e i relativi comportamenti che possono essere applicati a tutti i principali libri mastri, tra cui Ethereum, Quorum, Corda e Hyperledger Fabric. L'obiettivo del gruppo di lavoro è creare un framework che standardizzi l'uso di token da una prospettiva aziendale per favorire la semplificazione e la democratizzazione dello sviluppo basato su token. Consentendo al settore di definire questi token e il relativo comportamento a livello aziendale, l'implementazione dettagliata dei token viene sottratta dalla logica di business che modifica i token.
+
+## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
+
+Per notizie su Azure Blockchain, visitare il [blog di Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) per rimanere sempre aggiornati sull'offerta di servizi blockchain e per informazioni dal team tecnico di Azure Blockchain.
+
+Per accedere all'anteprima di Token di blockchain di Azure, [contattare il team di Token di blockchain di Azure](https://aka.ms/PreviewForm).
+
+Per inviare un feedback sul prodotto o richiedere nuove funzionalità, pubblicare o votare un'idea tramite il [forum di feedback su Azure per Blockchain](https://aka.ms/blockchainuservoice).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

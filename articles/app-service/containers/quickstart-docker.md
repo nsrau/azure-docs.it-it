@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Eseguire un contenitore Linux personalizzato'
+title: 'Avvio rapido: Eseguire un contenitore Linux personalizzato'
 description: Introduzione all'uso dei contenitori Linux nel servizio app Azure distribuendo il primo contenitore personalizzato tramite Registri contenitori di Azure.
 author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 62e6b007e89fc6be726d3d971ca838770db9cb6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422140"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Distribuire un contenitore Linux personalizzato nel servizio app di Azure
 
 Il servizio app in Linux fornisce stack di applicazioni predefiniti in Linux con il supporto per linguaggi quali .NET, PHP, Node.js e altri ancora. È anche possibile usare un'immagine Docker personalizzata per eseguire l'app Web in uno stack di applicazioni non ancora definito in Azure. Questo argomento di avvio rapido illustra come distribuire un'immagine da un [Registro Azure Container](/azure/container-registry) al servizio app.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un [account Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)
@@ -26,7 +26,7 @@ Il servizio app in Linux fornisce stack di applicazioni predefiniti in Linux con
 
 ## <a name="create-an-image"></a>Creare un'immagine
 
-Per completare questa guida di avvio rapido, è necessaria un'immagine dell'app Web appropriata archiviata in un [Registro Azure Container](/azure/container-registry). Seguire le istruzioni contenute nell'articolo [Avvio rapido: Creare un registro contenitori privato con il portale di Azure](/azure/container-registry/container-registry-get-started-portal), ma usare l'immagine `mcr.microsoft.com/azuredocs/go` anziché `hello-world`.
+Per completare questa guida di avvio rapido, è necessaria un'immagine dell'app Web appropriata archiviata in un [Registro Azure Container](/azure/container-registry). Seguire le istruzioni contenute nell'articolo [Avvio rapido: Creare un registro contenitori privato con il portale di Azure](/azure/container-registry/container-registry-get-started-portal), ma usare l'immagine `mcr.microsoft.com/azuredocs/go` anziché `hello-world`. Per riferimento, il [Dockerfile di esempio è disponibile nel repository di esempi di Azure](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Assicurarsi di impostare l'opzione **Utente amministratore** su **Abilita** durante la creazione del registro contenitori. È anche possibile impostare questa opzione dalla sezione **Chiavi di accesso** della pagina del registro nel portale di Azure. Questa impostazione è obbligatoria per l'accesso al servizio app.

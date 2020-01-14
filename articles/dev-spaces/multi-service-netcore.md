@@ -3,14 +3,14 @@ title: 'Esecuzione di più servizi dipendenti: .NET Core e Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug di un'applicazione .NET Core multiservizio nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438307"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Esecuzione di più servizi dipendenti: .NET Core e Visual Studio Code con Azure Dev Spaces
 

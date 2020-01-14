@@ -1,25 +1,22 @@
 ---
-title: Distribuire lo strumento di gestione - Azure
-description: Come installare lo strumento dell'interfaccia utente per gestire le risorse di Desktop virtuale Windows.
+title: Distribuire lo strumento di gestione con un modello di Azure Resource Manager - Azure
+description: Come installare uno strumento dell'interfaccia utente con un modello di Azure Resource Manager per gestire le risorse di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: tutorial
-ms.date: 11/09/2019
+ms.topic: conceptual
+ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
-ms.translationtype: HT
+ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384274"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887360"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Esercitazione: Distribuire uno strumento di gestione
+# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Distribuire uno strumento di gestione con un modello di Azure Resource Manager
 
-Lo strumento di gestione fornisce un'interfaccia utente per la gestione delle risorse di Desktop virtuale Windows. Questa esercitazione descrive come distribuire lo strumento di gestione e come connettersi.
-
->[!NOTE]
->Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows che può essere usata con processi esistenti dell'organizzazione.
+Le istruzioni di questo articolo illustrano come distribuire l'interfaccia utente usando un modello di Azure Resource Manager.
 
 ## <a name="important-considerations"></a>Considerazioni importanti
 
@@ -33,18 +30,17 @@ I browser seguenti sono compatibili con lo strumento di gestione:
 - Mozilla Firefox 52.0 o versione successiva
 - Safari 10 o versione successiva (solo macOS)
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Requisiti per eseguire il modello di Azure Resource Manager
+## <a name="what-you-need-to-deploy-the-management-tool"></a>Requisiti per la distribuzione dello strumento di gestione
 
-Prima di distribuire il modello di Azure Resource Manager, è necessario un utente di Azure Active Directory per distribuire l'interfaccia utente di gestione. Questo utente dovrà avere:
+Prima di distribuire lo strumento di gestione, è necessario che un utente di Azure Active Directory (Azure AD) crei una registrazione dell'app e distribuisca l'interfaccia utente di gestione. Questo utente dovrà avere:
 
 - La funzionalità Multi-Factor Authentication (MFA) disabilitata
 - L'autorizzazione per creare risorse nella sottoscrizione di Azure
-- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questi passaggi per verificare se l'utente ha le [autorizzazioni necessarie](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-Dopo aver distribuito il modello di Azure Resource Manager, è consigliabile avviare l'interfaccia utente di gestione per la convalida. Questo utente dovrà avere:
-- Un'assegnazione di ruolo per visualizzare o modificare il tenant di Desktop virtuale Windows
+Dopo aver distribuito e configurato lo strumento di gestione, è consigliabile chiedere a un utente di avviare l'interfaccia utente di gestione per verificarne il corretto funzionamento. L'utente che avvia l'interfaccia utente di gestione deve avere un'assegnazione di ruolo che gli consenta di visualizzare o modificare il tenant di Desktop virtuale Windows.
 
-## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Eseguire il modello di Azure Resource Manager per effettuare il provisioning dell'interfaccia utente di gestione
+## <a name="deploy-the-management-tool"></a>Distribuire lo strumento di gestione
 
 Prima di iniziare, assicurarsi che le app server e client abbiano il consenso visitando la [pagina di consenso di Desktop virtuale Windows](https://rdweb.wvd.microsoft.com) per il tenant di Azure Active Directory (AAD) rappresentato.
 
@@ -52,26 +48,24 @@ Per distribuire il modello di Azure Resource Manager, seguire queste istruzioni:
 
 1. Passare alla pagina [Azure RDS-Templates di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Distribuire il modello in Azure.
-    - Se la distribuzione viene eseguita in una sottoscrizione Enterprise, scorrere in basso e selezionare **Distribuisci in Azure**. Vedere [Istruzioni per i parametri del modello](#guidance-for-template-parameters).
+    - Se la distribuzione viene eseguita in una sottoscrizione Enterprise, scorrere in basso e selezionare **Distribuisci in Azure**. 
     - Se la distribuzione in Azure viene eseguita in una sottoscrizione di Cloud Solution Provider, seguire queste istruzioni:
         1. Scorrere in basso e fare clic con il pulsante destro del mouse su **Distribuisci in Azure**, quindi scegliere **Copia collegamento**.
         2. Aprire un editor di testo, come il Blocco note, e incollarvi il collegamento.
         3. Subito dopo <https://portal.azure.com/> e prima dell'hashtag (#) immettere una chiocciola (@) seguita dal nome di dominio del tenant. Ecco un esempio del formato: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Accedere al portale di Azure come utente con autorizzazioni di Amministratore/Collaboratore per la sottoscrizione di Cloud Solution Provider.
         5. Incollare nella barra degli indirizzi il collegamento copiato nell'editor di testo.
-
-### <a name="guidance-for-template-parameters"></a>Istruzioni per i parametri del modello
-Ecco come immettere i parametri per configurare lo strumento:
-
-- Per il parametro **isServicePrincipal** selezionare **false**.
-- Per le credenziali, immettere le credenziali di Azure Active Directory con l'autenticazione a più fattori disabilitata. Queste credenziali saranno quelle usate per accedere ad Azure e creare l'applicazione Azure AD e le risorse dell'app Web di Azure. Per altre informazioni, vedere [Requisiti per eseguire il modello di Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
-- Per **applicationName** usare un nome univoco per l'applicazione che verrà registrata in Azure Active Directory. Questo nome verrà usato anche per l'URL dell'app Web. Ad esempio, è possibile usare un nome come "Apr3UX".
+3. Per l'immissione dei parametri, procedere come segue:
+    - Per il parametro **isServicePrincipal** selezionare **false**.
+    - Per le credenziali, immettere le credenziali di Azure AD con l'autenticazione a più fattori disabilitata. Queste credenziali verranno usate per creare l'applicazione di Azure AD e le risorse di Azure. Per altre informazioni, vedere [Requisiti per la distribuzione dello strumento di gestione](#what-you-need-to-deploy-the-management-tool).
+    - Per **applicationName** usare un nome univoco per l'applicazione che verrà registrata in Azure Active Directory. Questo nome verrà usato anche per l'URL dell'app Web. Ad esempio, è possibile usare un nome come "Apr3UX".
+4. Dopo aver specificato i parametri, accettare le condizioni e selezionare **Acquista**.
 
 ## <a name="provide-consent-for-the-management-tool"></a>Fornire il consenso per lo strumento di gestione
 
 Quando il modello di Azure Resource Manager di GitHub viene completato, nel portale di Azure sarà disponibile un gruppo di risorse contenente due servizi app con un piano di servizio app.
 
-Prima di accedere e usare lo strumento di gestione, sarà necessario fornire il consenso per la nuova applicazione di Azure Active Directory associata allo strumento. Fornendo il consenso, si autorizza lo strumento di gestione a effettuare chiamate di gestione a Desktop virtuale Windows per conto dell'utente connesso.
+Prima di accedere e usare lo strumento di gestione, è necessario fornire il consenso per la nuova applicazione di Azure AD associata. Fornendo il consenso, si autorizza lo strumento di gestione a effettuare chiamate di gestione a Desktop virtuale Windows per conto dell'utente connesso.
 
 ![Screenshot che mostra le autorizzazioni concesse quando si fornisce il consenso allo strumento di gestione dell'interfaccia utente.](media/management-ui-delegated-permissions.png)
 
@@ -102,10 +96,10 @@ Per avviare lo strumento, seguire queste istruzioni:
 1. Selezionare la risorsa Servizi app di Azure con il nome specificato nel modello, ad esempio Apr3UX, e passare all'URL associato, ad esempio <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Accedere con le credenziali di Desktop virtuale Windows.
 3. Quando viene chiesto di scegliere un gruppo di tenant, selezionare **Default Tenant Group** (Gruppo di tenant predefinito) nell'elenco a discesa.
-4. Quando si seleziona Default Tenant Group (Gruppo di tenant predefinito), viene visualizzato un menu sul lato destro della finestra. In questo menu trovare il nome del gruppo di tenant e selezionarlo.
-
-> [!NOTE]
-> Se è disponibile un gruppo di tenant personalizzato, immettere il nome manualmente invece di scegliere una voce dell'elenco a discesa.
+4. Quando si seleziona **Default Tenant Group** (Gruppo di tenant predefinito), sul lato destro della finestra viene visualizzato un menu. In questo menu trovare il nome del gruppo di tenant e selezionarlo.
+  
+  > [!NOTE]
+  > Se è disponibile un gruppo di tenant personalizzato, immettere il nome manualmente invece di scegliere una voce dell'elenco a discesa.
 
 ## <a name="report-issues"></a>Segnalare i problemi
 
@@ -113,7 +107,4 @@ Se si verificano problemi con lo strumento di gestione o altri strumenti di Desk
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come distribuire lo strumento di gestione e come connettersi, è possibile scoprire come usare Integrità dei servizi di Azure per monitorare i problemi dei servizi e gli avvisi di integrità.
-
-> [!div class="nextstepaction"]
-> [Configurare gli avvisi dei servizi](./set-up-service-alerts.md)
+Dopo aver appreso come distribuire lo strumento di gestione e come connettersi, è possibile scoprire come usare il servizio di Azure per monitorare i problemi dei servizi e gli avvisi di integrità. Per altre informazioni, vedere l'esercitazione [Configurare gli avvisi dei servizi](./set-up-service-alerts.md).

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: rohogue
-ms.openlocfilehash: 07aba1b1536635e414fc5fab4ece148683909188
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 793a80e7019e72c1cb3087da02d5642639cb8d5e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168643"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647157"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -36,7 +36,7 @@ In **Dettagli servizio** impostare il nome della cache e questi altri attributi:
 
 Nella pagina **Cache** è necessario impostare la capacità della cache. Il valore qui impostato determina la quantità di dati che la cache può contenere e la velocità con cui può gestire le richieste client.
 
-Dopo il periodo di anteprima pubblica, la capacità influirà anche sul costo della cache.
+La capacità influisce anche sul costo della cache.
 
 Scegliere la capacità impostando questi due valori:
 

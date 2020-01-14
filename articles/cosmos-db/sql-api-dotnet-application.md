@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su MVC ASP.NET Core per Azure Cosmos DB: Sviluppo di applicazioni Web'
+title: Esercitazione sull'app Web MVC ASP.NET Core con Azure Cosmos DB
 description: Esercitazione su MVC ASP.NET Core per creare un'applicazione Web MVC con Azure Cosmos DB. Si archivieranno documenti JSON e si accederà ai dati da un'app todo ospitata in Servizio app di Azure - Esercitazione dettagliata su MVC ASP.NET Core.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 1cfb7718c55920d817e1f87407fa1af590e9f006
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720901"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444918"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK
 
@@ -236,7 +236,7 @@ Se si esegue l'applicazione, la pipeline di ASP.NET Core crea istanze di **Cosmo
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente:
 
-![Screenshot dell'applicazione Web di elenco attività creata in questa esercitazione sul database](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+![Screenshot dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
 ## <a name="run-the-application"></a>Passaggio 6: Eseguire l'applicazione in locale
 

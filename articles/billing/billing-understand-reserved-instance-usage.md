@@ -1,5 +1,5 @@
 ---
-title: Utilizzo della prenotazione di Azure per una sottoscrizione singola con pagamento in base al consumo
+title: Utilizzo della prenotazione di Azure per una sottoscrizione singola
 description: Informazioni su come leggere l'utilizzo per identificare come viene applicata la prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo.
 author: bandersmsft
 manager: yashr
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0b578436a118539517d2d515717f2bdd97612d6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 991afd5a91ef5f5586acd624c03babc38b5c1960
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449138"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo
 
@@ -30,7 +30,7 @@ Questo articolo presuppone che la prenotazione venga applicata a una sottoscrizi
 
 Per le sezioni seguenti si presuppone di eseguire una macchina virtuale Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | valore |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Quantità |1|
@@ -65,7 +65,7 @@ Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere i
 
 Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | valore |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Quantità |2|

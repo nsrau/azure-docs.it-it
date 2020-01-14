@@ -1,17 +1,17 @@
 ---
-title: Script di Azure PowerShell - Cambiare la priorità di failover o attivare un failover per un account Azure Cosmos
+title: Script di PowerShell per modificare la priorità di failover per un account Azure Cosmos
 description: Esempi di script di Azure PowerShell - Cambiare la priorità di failover o attivare un failover per un account Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 6a742486918e5134a73256ef6c7490a823f14335
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441514"
 ---
 # <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>Cambiare la priorità di failover o attivare un failover di un account Azure Cosmos tramite PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "71155395"
 > [!NOTE]
 > Qualsiasi modifica apportata a un'area con `failoverPriority=0` attiva un failover manuale e può essere eseguita solo in un account configurato per il failover manuale. Le modifiche apportate a tutte le altre aree cambiano semplicemente la priorità di failover per un account Cosmos.
 > [!NOTE]
-> Questo esempio dimostra l'uso di un account API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API
+> Questo esempio dimostra l'uso di un account dell'API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account or trigger a manual failover")]
 

@@ -1,26 +1,15 @@
 ---
-title: Creare un’app .NET su Service Fabric in Azure | Microsoft Docs
+title: Creare un'app .NET in Service Fabric in Azure
 description: Questa esercitazione illustra come creare un'applicazione con un front-end ASP.NET Core e un back-end con stato Reliable Services e come distribuire l'applicazione in un cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465463"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 
@@ -43,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -180,7 +169,7 @@ Aprire **Views/Home/Index.cshtml**, ovvero la visualizzazione specifica del cont
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Aggiornare il file _Layout.cshtml
+### <a name="update-the-_layoutcshtml-file"></a>Aggiornare il file _Layout.cshtml
 
 Aprire **Views/Shared/_Layout.cshtml**, ovvero il layout predefinito per l'app ASP.NET.  Sostituirne il contenuto con il codice seguente e quindi salvare le modifiche.
 

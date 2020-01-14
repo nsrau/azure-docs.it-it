@@ -6,103 +6,103 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7241287e0438d6da5efb517a89b984bff72848c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461486"
 ---
-# <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Esercitazione: Uso di Traccia distribuita con Azure Spring Cloud
+# <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usare la traccia distribuita con Azure Spring Cloud
 
-Gli strumenti Traccia distribuita di Spring Cloud facilitano il debug e il monitoraggio di problemi complessi. Azure Spring Cloud integra [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con Azure [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) per offrire potenti funzionalità di traccia distribuita dal portale di Azure.
+Gli strumenti di traccia distribuita in Azure Spring Cloud consentono di eseguire facilmente il debug e il monitoraggio di problemi complessi. Azure Spring Cloud integra [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) di Azure. Questa integrazione fornisce funzionalità di traccia distribuita avanzate dal portale di Azure.
 
-In questo articolo verrà spiegato come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
-> * Abilitare Traccia distribuita nel portale di Azure
-> * Aggiungere Spring Cloud Sleuth all'applicazione
-> * Visualizzare le mappe di dipendenze per le applicazioni di microservizi
-> * Avviare la traccia dei dati con filtri diversi
+> * Abilitare Traccia distribuita nel portale di Azure.
+> * Aggiungere Azure Spring Cloud Sleuth all'applicazione.
+> * Visualizzare le mappe di dipendenze per le applicazioni di microservizi.
+> * Eseguire ricerche nei dati di traccia con filtri diversi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa esercitazione:
-
-* Un servizio Azure Spring Cloud in esecuzione e di cui è già stato effettuato il provisioning.  Per effettuare il provisioning e avviare il servizio Azure Spring Cloud, completare questo [argomento di avvio rapido](spring-cloud-quickstart-launch-app-cli.md).
+Per completare questa esercitazione, è necessario un servizio Azure Spring Cloud di cui sia già stato effettuato il provisioning e che sia in esecuzione. Completare la guida di [avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md) per effettuare il provisioning ed eseguire un servizio Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-Abilitare il mittente zipkin per l'invio nel Web aggiungendo la riga seguente nel file application.properties:
+1. Aggiungere la riga seguente nel file application.properties:
 
-```xml
-spring.zipkin.sender.type = web
-```
+   ```xml
+   spring.zipkin.sender.type = web
+   ```
 
-Se è stata seguita la [guida alla preparazione dell'applicazione Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md), è possibile ignorare il passaggio seguente. In caso contrario, passare all'ambiente di sviluppo locale e modificare il file `pom.xml` per includere la dipendenza Spring Cloud Sleuth:
+   Dopo questa modifica, il mittente Zipkin può inviare al Web.
 
-```xml
-<dependencyManagement>
+1. Se è stata seguita la [guida alla preparazione dell'applicazione Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md), è possibile ignorare questo passaggio. In caso contrario, passare all'ambiente di sviluppo locale e modificare il file pom.xml per includere la dipendenza Azure Spring Cloud Sleuth seguente:
+
+    ```xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth</artifactId>
+                <version>${spring-cloud-sleuth.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-sleuth</artifactId>
-            <version>${spring-cloud-sleuth.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
     </dependencies>
-</dependencyManagement>
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-sleuth</artifactId>
-    </dependency>
-</dependencies>
-```
+    ```
 
-* Ripetere la compilazione e la distribuzione per il servizio Azure Spring Cloud in modo da riflettere queste modifiche. 
+1. Ripetere la compilazione e la distribuzione per il servizio Azure Spring Cloud in modo da riflettere queste modifiche.
 
 ## <a name="modify-the-sample-rate"></a>Modificare la frequenza di campionamento
-È possibile cambiare la frequenza con cui vengono raccolti i dati di telemetria modificando la frequenza di campionamento. Se ad esempio si vuole dimezzare la frequenza di campionamento, aprire il file `application.properties` e cambiare la riga seguente:
+
+È possibile cambiare la frequenza con cui vengono raccolti i dati di telemetria modificando la frequenza di campionamento. Se ad esempio si vuole dimezzare la frequenza di campionamento, aprire il file application.properties e modificare la riga seguente:
 
 ```xml
 spring.sleuth.sampler.probability=0.5
 ```
 
-Se è già stata compilata e distribuita un'applicazione, è possibile modificare la frequenza di campionamento aggiungendo la riga precedente come variabile di ambiente nell'interfaccia della riga di comando o nel portale di Azure. 
+Se è già stata compilata e distribuita un'applicazione, è possibile modificare la frequenza di campionamento. A tale scopo, aggiungere la riga precedente come variabile di ambiente nell'interfaccia della riga di comando di Azure o nel portale di Azure.
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
 1. Passare alla pagina del servizio Azure Spring Cloud nel portale di Azure.
-1. Nella sezione Monitoraggio selezionare **Traccia distribuita**.
+1. Nella pagina **Monitoraggio** selezionare **Traccia distribuita**.
 1. Selezionare **Modifica l'impostazione** per modificare o aggiungere una nuova impostazione.
 1. Creare una nuova query di Application Insights o selezionarne una esistente.
-1. Scegliere quale categoria di registrazione si vuole monitorare e specificare il periodo di conservazione (in giorni).
+1. Scegliere quale categoria di registrazione si vuole monitorare e specificare il periodo di conservazione in giorni.
 1. Selezionare **Applica** per applicare la nuova traccia.
 
-## <a name="view-application-map"></a>Visualizzare la mappa delle applicazioni
+## <a name="view-the-application-map"></a>Visualizzare la mappa delle applicazioni
 
-Tornare nella pagina Traccia distribuita e selezionare **View application map** (Visualizza mappa delle applicazioni). Esaminare la rappresentazione visiva dell'applicazione e le impostazioni di monitoraggio. Per informazioni su come usare la mappa delle applicazioni, vedere [questo articolo](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Tornare nella pagina **Traccia distribuita** e selezionare **View application map** (Visualizza mappa delle applicazioni). Esaminare la rappresentazione visiva dell'applicazione e le impostazioni di monitoraggio. Per informazioni su come usare la mappa delle applicazioni, vedere [Mappa delle applicazioni: Valutazione delle applicazioni distribuite](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
 
-## <a name="search"></a>Ricerca
+## <a name="use-search"></a>Usare la ricerca
 
-Usare la funzione di ricerca per eseguire query su altri dati di telemetria specifici. Nella pagina **Traccia distribuita** selezionare **Cerca**. Per altre informazioni su come usare la funzionalità di ricerca, vedere [questo articolo](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Usare la funzione di ricerca per eseguire query su altri dati di telemetria specifici. Nella pagina **Traccia distribuita** selezionare **Cerca**. Per altre informazioni su come usare la funzione di ricerca, vedere [Utilizzo della funzionalità Ricerca in Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
 
-## <a name="application-insights-page"></a>Pagina Application Insights
+## <a name="use-application-insights"></a>Usare Application Insights
 
-Application Insights fornisce funzionalità di monitoraggio oltre alla mappa delle applicazioni e alla ricerca. Cercare il nome dell'applicazione nel portale di Azure e quindi avviare una pagina di Application Insights per altre informazioni. Per altre indicazioni su come usare questi strumenti, [vedere la documentazione](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
-
+Application Insights fornisce funzionalità di monitoraggio oltre alla mappa delle applicazioni e alla funzione di ricerca. Cercare il nome dell'applicazione nel portale di Azure e quindi aprire una pagina di Application Insights per trovare le informazioni di monitoraggio. Per altre indicazioni su come usare questi strumenti, vedere [Query su log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
 ## <a name="disable-application-insights"></a>Disabilitare Application Insights
 
 1. Passare alla pagina del servizio Azure Spring Cloud nel portale di Azure.
-1. Nella sezione Monitoraggio fare clic su **Traccia distribuita**.
-1. Fare clic su **Disabilita** per disabilitare Application Insights
+1. In **Monitoraggio** selezionare **Traccia distribuita**.
+1. Selezionare **Disabilita** per disabilitare Application Insights.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come abilitare e interpretare la traccia distribuita in Azure Spring Cloud. Per informazioni su come associare l'applicazione a un'istanza di Azure CosmosDB, continuare con l'esercitazione successiva.
+In questa esercitazione si è appreso come abilitare e interpretare la traccia distribuita in Azure Spring Cloud. Per informazioni su come associare l'applicazione a un database di Azure Cosmos DB, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Informazioni su come associare l'applicazione a un'istanza di Azure CosmosDB](spring-cloud-tutorial-bind-cosmos.md).
+> [Come eseguire l'associazione a un database di Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)

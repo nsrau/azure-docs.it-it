@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/10/2019
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 70b886286980c065379678ba21ab21e02d0e2bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f2e76229673033ab001c5499739090a7c435ef8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466684"
 ---
 | |
 |--|
-|Se quanto visualizzato sullo schermo non corrisponde alle descrizioni di questo articolo, significa che l'amministratore ha attivato la nuova esperienza **App personali** (anteprima). Per usare l'esperienza precedente, è necessario seguire le istruzioni e le informazioni riportate nella sezione [Guida al portale delle app personali](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-overview).|
-| |
+|Se l'amministratore ha attivato la nuova esperienza in anteprima di **App personali** per l'organizzazione, nella parte superiore della pagina **App personali** verrà visualizzato il banner **È disponibile un'esperienza aggiornata per App personali**. Selezionando **Prova** si passerà immediatamente al nuovo URL (myapplications.microsoft.com) e all'esperienza aggiornata. Successivamente, a ogni accesso alla pagina **App personali** si andrà automaticamente alla nuova esperienza.<br><br>Per non usare più la nuova esperienza, è possibile selezionare **Sì** nel banner **Leave new experience** (Esci dalla nuova esperienza) nella parte superiore della pagina **App personali**. Si tornerà immediatamente all'URL (myapps.microsoft.com) e all'esperienza precedenti. Successivamente, a ogni accesso alla pagina **App personali** si andrà automaticamente all'esperienza precedente.|
+|

@@ -6,18 +6,21 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 327b2aaadd77c00d847504ff16415813d2fcf89c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 555a60579c11a7ecb9b39753c5e4b35e801edeb1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687452"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422170"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in App Web per contenitori
 
+> [!NOTE]
+> La funzionalità multi-contenitore è disponibile in anteprima.
+
 [App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. In questa esercitazione si apprenderà come creare un'app multi-contenitore usando WordPress e MySQL. Questa esercitazione verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.32 o versioni successive).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Convertire una configurazione Docker Compose per l'uso con App Web per contenitori
@@ -29,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione è necessario avere una buona conoscenza di [Docker Compose](https://docs.docker.com/compose/).
 
@@ -508,7 +511,7 @@ Saranno disponibili un log per ogni contenitore e un log aggiuntivo per il proce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 > [!div class="checklist"]
 > * Convertire una configurazione Docker Compose per l'uso con App Web per contenitori
 > * Distribuire un'app multi-contenitore in Azure

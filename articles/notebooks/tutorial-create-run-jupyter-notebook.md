@@ -1,20 +1,31 @@
 ---
-title: 'Esercitazione: creare ed eseguire un notebook di Jupyter in Azure'
-description: Come creare ed eseguire un notebook di Jupyter in Azure Notebooks che illustra il processo di regressione lineare in data science.
+title: 'Esercitazione: Creare ed eseguire Jupyter Notebook - Azure Notebooks (anteprima)'
+description: Informazioni su come creare ed eseguire Jupyter Notebook in Azure Notebooks (anteprima) per mostrare il processo di regressione lineare in data science.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 2c151cb0de2855856e92d9de07ad7dabfda2f55b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277420"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660818"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
 
 Questa esercitazione descrive come usare Azure Notebooks per creare un notebook di Jupyter completo che illustra la regressione lineare semplice. Nel corso di questa esercitazione sarà possibile acquisire familiarità con l'interfaccia utente del notebook di Jupyter, che include la creazione di diverse celle, l'esecuzione delle celle e la visualizzazione del notebook come una presentazione.
 
 Il notebook completato è disponibile in [GitHub - Esempi di Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Questa esercitazione, tuttavia, inizia con un nuovo progetto e un notebook vuoto, in modo da illustrarne la creazione in modo dettagliato.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+In questa esercitazione verranno illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Creare un notebook di progetto con alcuni dati di esempio
+> * Usare l'interfaccia del notebook per creare un'ampia gamma di tipi di celle
+> * Eseguire il notebook
+> * Salvare il notebook
+> * Eseguire il debug del notebook in Visual Studio Code
 
 ## <a name="create-the-project"></a>Creare il progetto
 
@@ -30,10 +41,10 @@ Il notebook completato è disponibile in [GitHub - Esempi di Azure Notebooks](ht
 
 1. Nella finestra popup **Create New Project** (Crea nuovo progetto) visualizzata immettere o impostare i dettagli seguenti e quindi selezionare **Create** (Crea):
 
-    - **Project name** (Nome progetto): Esempio di regressione lineare - Chirps Cricket
-    - **Project ID** (ID progetto): esempio di regressione lineare
-    - **Public project** (Progetto pubblico): (disattivata)
-    - **Create a README.md** (Crea un file README.md): (disattivata)
+   - **Project name** (Nome progetto): Esempio di regressione lineare - Chirps Cricket
+   - **Project ID** (ID progetto): esempio di regressione lineare
+   - **Public project** (Progetto pubblico): (disattivata)
+   - **Create a README.md** (Crea un file README.md): (disattivata)
 
 1. Dopo qualche istante, Azure Notebooks passa al nuovo progetto.
 
@@ -140,15 +151,15 @@ Jupyter fornisce una presentazione integrata dei principali elementi dell'interf
 
 I gruppi di comandi di menu sono i seguenti:
 
-| Menu | DESCRIZIONE |
+| Menu | Descrizione |
 | --- | --- |
 | File | Comandi per gestire il file del notebook, inclusi i comandi per creare e copiare i notebook, visualizzare un'anteprima di stampa e scaricare il notebook in diversi formati. |
-| Modificare | Normali comandi per tagliare, copiare e incollare celle, trovare e sostituire valori, gestire gli allegati delle celle e inserire immagini.  |
+| Modifica | Normali comandi per tagliare, copiare e incollare celle, trovare e sostituire valori, gestire gli allegati delle celle e inserire immagini.  |
 | Visualizza | Comandi per controllare la visibilità delle diverse parti dell'interfaccia utente di Jupyter. |
 | Inserimento | Comandi per inserire una nuova cella sopra o sotto la cella corrente. Questi comandi vengono usati di frequente durante la creazione di un notebook. |
 | Cell (Cella) | I vari comandi **Run** (Esegui) consentono di eseguire una o più celle in diverse combinazioni. I comandi **Cell Type** (Tipo di cella) consentono di modificare il tipo di una cella tra **Code** (Codice), **Markdown** e **Raw NBConvert** (testo normale). I comandi **Current Outputs** (Output correnti) e **All Outputs** (Tutti gli output) consentono di controllare la visualizzazione dell'output del codice eseguito e includono un comando per cancellare tutto l'output. |
 | Kernel | Comandi per gestire la modalità di esecuzione del codice nel kernel, insieme a **Change kernel** (Cambia kernel) per modificare il linguaggio o la versione di Python usati per eseguire il notebook. |
-| Dati | Comandi per caricare e scaricare i file dal progetto o dalla sessione. Vedere [Lavorare con i file di dati di progetto](work-with-project-data-files.md) |
+| data | Comandi per caricare e scaricare i file dal progetto o dalla sessione. Vedere [Lavorare con i file di dati di progetto](work-with-project-data-files.md) |
 | Widgets (Widget) | Comandi per gestire i [widget di Jupyter](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), che offrono funzionalità aggiuntive per la visualizzazione, il mapping e il tracciato.|
 | Guida | Comandi che consentono di accedere alla Guida e alla documentazione per l'interfaccia di Jupyter. |
 
@@ -228,7 +239,7 @@ Come descritto per la cella Markdown precedente, è possibile includere comandi 
 
     ![Indicatore di occupato per il kernel del notebook](media/tutorial/tutorial-kernel-busy.png)
 
-1. Anche l'esecuzione di tutti i comandi `pip install` richiede un certo tempo. Inoltre, poiché questi pacchetti sono già stati installati nell'ambiente del progetto (e poiché sono inclusi anche in Azure Notebooks per impostazione predefinita), vengono visualizzati numerosi messaggi "Requirement already satisfied" (Requisito già soddisfatto). Tutto questo output può essere fonte di distrazione, pertanto selezionare la cella (con un solo clic) e quindi usare il comando **Cell** (Cella)  > **Cell Outputs** (Output cella)  > **Toggle** (Attiva/disattiva) per nascondere l'output. È anche possibile usare il comando **Clear** (Cancella) nello stesso sottomenu per rimuovere completamente l'output.
+1. Anche l'esecuzione di tutti i comandi `pip install` richiede un certo tempo. Inoltre, poiché questi pacchetti sono già stati installati nell'ambiente del progetto (e poiché sono inclusi anche in Azure Notebooks per impostazione predefinita), vengono visualizzati numerosi messaggi "Requirement already satisfied" (Requisito già soddisfatto). Questo output complesso può essere fonte di distrazione, quindi selezionare la cella (con un solo clic) e successivamente usare il comando **Cell** (Cella)  > **Cell Outputs** (Output cella)  > **Toggle** (Attiva/Disattiva) per nascondere l'output. È anche possibile usare il comando **Clear** (Cancella) nello stesso sottomenu per rimuovere completamente l'output.
 
     Il comando **Toggle** (Attiva/disattiva) nasconde solo l'output più recente della cella. Se si esegue nuovamente la cella, l'output viene nuovamente visualizzato.
 

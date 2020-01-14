@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107108"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407840"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -32,11 +32,11 @@ In questa esercitazione si apprenderà come:
 > *   Usare le API del servizio del recinto virtuale di Mappe di Azure per verificare se un asset di costruzione si trova nel cantiere o meno.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
 
-Per completare i passaggi di questa esercitazione, seguire le istruzioni in [Gestire l'account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](./tutorial-search-location.md#getkey) per ottenere la chiave di sottoscrizione primaria per l'account.
+Per completare i passaggi di questa esercitazione, seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 ## <a name="upload-geofences"></a>Caricare i recinti virtuali
 
@@ -56,7 +56,7 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
     
     Il parametro GEOJSON nel percorso URL rappresenta il formato dei dati caricati.
 
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore subscription-key con la chiave di sottoscrizione primaria di Mappe di Azure.
+3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore di subscription-key con la chiave di Mappe di Azure.
    
     ![Parametri chiave-valore di Postman](./media/tutorial-geofence/postman-key-vals.png)
 

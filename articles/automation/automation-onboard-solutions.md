@@ -2,19 +2,15 @@
 title: Caricare le soluzioni per il rilevamento modifiche e gli aggiornamenti in Automazione di Azure
 description: Informazioni su come caricare le soluzioni per il rilevamento modifiche e gli aggiornamenti in Automazione di Azure.
 services: automation
-ms.service: automation
-author: eamonoreilly
-ms.author: eamono
-manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372825"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421836"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Caricare le soluzioni per il rilevamento modifiche e gli aggiornamenti in Automazione di Azure
 
@@ -27,7 +23,7 @@ In questa esercitazione viene illustrato come caricare automaticamente le soluzi
 > * Importare il runbook di caricamento
 > * Avviare il runbook
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione, è necessario quanto segue:
 
@@ -37,7 +33,7 @@ Per completare l'esercitazione, è necessario quanto segue:
 
 ## <a name="onboard-an-azure-vm"></a>Caricare una macchina virtuale di Azure
 
-Esistono diversi modi per eseguire l'onboarding di computer. Ad esempio, è possibile eseguire l'onboarding della soluzione [da una macchina virtuale](automation-onboard-solutions-from-vm.md), [dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md) [dall'account di Automazione](automation-onboard-solutions-from-automation-account.md) o tramite runbook. Questa esercitazione descrive come abilitare Gestione aggiornamenti tramite un runbook. Per caricare automaticamente le macchine virtuali di Azure su larga scala, è necessario caricare una macchina virtuale esistente con la soluzione Rilevamento modifiche o Gestione aggiornamenti. In questo passaggio si carica una macchina virtuale con le funzioni di gestione degli aggiornamenti e il rilevamento delle modifiche.
+Esistono diversi modi per eseguire l'onboarding delle macchine virtuali. Ad esempio, è possibile eseguire l'onboarding della soluzione [da una macchina virtuale](automation-onboard-solutions-from-vm.md), [dall'esplorazione di più macchine virtuali](automation-onboard-solutions-from-browse.md), dall'[account di Automazione](automation-onboard-solutions-from-automation-account.md) o tramite runbook. Questa esercitazione descrive come abilitare Gestione aggiornamenti tramite un runbook. Per caricare automaticamente le macchine virtuali di Azure su larga scala, è necessario caricare una macchina virtuale esistente con la soluzione Rilevamento modifiche o Gestione aggiornamenti. In questo passaggio si carica una macchina virtuale con le funzioni di gestione degli aggiornamenti e il rilevamento delle modifiche.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 
@@ -140,7 +136,7 @@ Per rimuovere una macchina virtuale per Gestione aggiornamenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Caricare una macchina virtuale di Azure manualmente.
