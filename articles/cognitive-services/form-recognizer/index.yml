@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 835eb7bece58e93375c09c51149381d7882702de
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 1fe0aee8967a0072a7ae01abc5791e7a3fd0834d
+  ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75446499"
+  ms.lasthandoff: 01/13/2020
+  ms.locfileid: "75921480"
 landingContent:
 - title: Informazioni su Riconoscimento modulo
   linkLists:
@@ -42,6 +42,10 @@ landingContent:
       url: quickstarts/python-train-extract.md
     - text: Uso dell'API REST (cURL)
       url: quickstarts/curl-train-extract.md
+  - linkListType: tutorial
+    links:
+    - text: Usare Riconoscimento modulo con App per la logica
+      url: tutorial-form-recognizer-with-logic-apps.md
 - title: Creare un set di dati di training
   linkLists:
   - linkListType: how-to-guide

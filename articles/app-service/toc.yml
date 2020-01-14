@@ -220,7 +220,7 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice
     - name: Azure PowerShell
-      href: /powershell
+      href: '/powershell/module/az.websites/#app_service'
     - name: API REST
       href: /rest/api/appservice/
     - name: Modello di Resource Manager

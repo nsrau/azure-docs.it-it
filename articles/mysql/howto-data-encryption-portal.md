@@ -6,21 +6,20 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 10af869a631b620c2c75aa69722dc03df15f8539
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 01c64a6880d671289d02dd36f9e4a9dda2f91131
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903847"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922819"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-server-using-azure-portal"></a>Crittografia dei dati per il server di database di Azure per MySQL con portale di Azure
 
 In questo articolo si apprenderà come configurare e gestire per usare la portale di Azure per configurare la crittografia dei dati per il database di Azure per MySQL.
 
-## <a name="prerequisites-for-powershell"></a>Prerequisiti di PowerShell
+## <a name="prerequisites-for-cli"></a>Prerequisiti per CLI
 
 * È necessario disporre di una sottoscrizione di Azure e avere il ruolo di amministratore di tale sottoscrizione.
-* È necessario che Azure PowerShell sia installato e in esecuzione.
 * Creare una Azure Key Vault e una chiave da usare per la chiave gestita dal cliente.
 * Il Key Vault deve avere la proprietà seguente da usare come chiave gestita dal cliente
     * [eliminazione temporanea](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -45,7 +44,7 @@ In questo articolo si apprenderà come configurare e gestire per usare la portal
 
    ![Panoramica dei criteri di accesso](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Selezionare le **autorizzazioni chiave** selezionare **Get**, **Wrap**, **Unwrap** e l' **entità** che rappresenta il nome del server MySQL.
+2. Selezionare le **autorizzazioni chiave** selezionare **Get**, **Wrap**, **Unwrap** e l' **entità**, ovvero il nome del server MySQL. Se non è possibile trovare l'entità server nell'elenco di entità esistenti, sarà necessario registrarla tentando di configurare la crittografia dei dati per la prima volta, operazione che avrà esito negativo.
 
    ![Panoramica dei criteri di accesso](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
 
@@ -63,7 +62,7 @@ In questo articolo si apprenderà come configurare e gestire per usare la portal
 
 3. Fare clic su **Save** (Salva) per salvare le impostazioni.
 
-4. Per assicurarsi che tutti i file, inclusi i file temporanei, siano crittografati con crittografia completa, è necessario riavviare il server.
+4. Per assicurarsi che tutti i file, inclusi **i file temporanei**, siano crittografati con crittografia completa, è **necessario** **riavviare** il server.
 
 ## <a name="restoring-or-creating-replica-of-the-server-which-has-data-encryption-enabled"></a>Ripristino o creazione della replica del server in cui è abilitata la crittografia dei dati
 
@@ -81,16 +80,18 @@ Una volta che un database di Azure per MySQL è stato crittografato con la chiav
 
    ![Contrassegno server inaccessibile](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Per correggere lo stato inaccessibile, è necessario rivalidare la chiave nel server ripristinato.
+3. Per correggere lo stato inaccessibile, è necessario rivalidare la chiave nel server ripristinato. Fare clic sul pannello **crittografia dei dati** e quindi sul pulsante **riconvalida chiave** .
+
+   > [!NOTE]
+   > Il primo tentativo di riconvalida avrà esito negativo perché all'entità servizio del nuovo server deve essere concesso l'accesso all'insieme di credenziali delle chiavi. Per generare l'entità servizio, fare clic su **riconvalida chiave**, che restituirà un errore ma genererà l'entità servizio. Successivamente, fare riferimento alla procedura descritta [nella sezione 2](https://docs.microsoft.com/azure/mysql/howto-data-encryption-portal#setting-the-right-permissions-for-key-operations) precedente.
 
    ![riconvalida server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
    Sarà necessario concedere l'accesso al nuovo server al Key Vault. 
 
-4. Una volta rivalidata la chiave, il server riprende le funzionalità normali.
+4. Dopo aver registrato l'entità servizio, sarà necessario riconvalidare nuovamente la chiave e il server riprenderà le funzionalità normali.
 
    ![Server normale ripristinato](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

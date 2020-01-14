@@ -10,12 +10,12 @@ ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c501dda60b65f78bb82649bed6bca4b031ad8a6b
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 39568d65978592b360512db2e556cfa6b59760b6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913160"
+ms.locfileid: "75921211"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creazione di un account che supporta chiavi gestite dal cliente per tabelle e code
 
@@ -75,7 +75,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 È necessario configurare un nuovo account di archiviazione per usare la chiave di crittografia dell'account per le code e le tabelle al momento della creazione dell'account di archiviazione. L'ambito della chiave di crittografia non può essere modificato dopo la creazione dell'account.
 
-L'account di archiviazione deve essere di tipo generico V2 e deve essere configurato per l'archiviazione con ridondanza locale (con ridondanza locale). È possibile creare l'account di archiviazione e configurarlo in modo che si basi sulla chiave di crittografia dell'account usando l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager.
+L'account di archiviazione deve essere di tipo generico V2. È possibile creare l'account di archiviazione e configurarlo in modo che si basi sulla chiave di crittografia dell'account usando l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager.
 
 > [!NOTE]
 > Quando viene creato l'account di archiviazione, è possibile configurare facoltativamente solo archiviazione code e tabelle per crittografare i dati con la chiave di crittografia dell'account. Archiviazione BLOB e File di Azure utilizzano sempre la chiave di crittografia dell'account per crittografare i dati.

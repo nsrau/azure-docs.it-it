@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 6a0e24ce7fa11c6373fbaada40cd9f1b1e7f55a2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 78498f06a1ec921813d886b426d62452f850f5e5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325482"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922754"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v 1.0 con griglia di eventi
 
@@ -60,7 +60,7 @@ Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure n
 }
 ```
 
-Una descrizione dettagliata dei campi, dei tipi e delle definizioni disponibili in CloudEvents v 0.1 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Una descrizione dettagliata dei campi, dei tipi e delle definizioni disponibili in CloudEvents v 1.0 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e nello schema Griglia di eventi sono gli stessi, ad eccezione di `content-type`. Per lo schema CloudEvents, tale valore intestazione è `"content-type":"application/cloudevents+json; charset=utf-8"`. Per lo schema Griglia di eventi, tale valore intestazione è `"content-type":"application/json; charset=utf-8"`.
 

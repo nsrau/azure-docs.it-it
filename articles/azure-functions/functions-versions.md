@@ -3,12 +3,12 @@ title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769116"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921862"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
@@ -70,7 +70,7 @@ Nella versione 2.x sono state apportate le modifiche seguenti:
 
 * Il timeout predefinito per le funzioni in un piano di servizio app è ora di 30 minuti. È possibile riportare manualmente il timeout al valore illimitato mediante l'impostazione [functionTimeout](functions-host-json.md#functiontimeout) in host.json.
 
-* Per impostazione predefinita vengono implementate limitazioni di concorrenza HTTP per le funzioni di piano a consumo, con un valore predefinito di 100 richieste simultanee per istanza. È possibile modificare questa condizione nell'impostazione [`maxConcurrentRequests`](functions-host-json.md#http) del file host.json.
+* Le limitazioni di concorrenza HTTP sono implementate per impostazione predefinita per le funzioni del piano a consumo, con un valore predefinito di 100 richieste simultanee per istanza. È possibile modificare questa condizione nell'impostazione [`maxConcurrentRequests`](functions-host-json.md#http) del file host.json.
 
 * A causa delle [limitazioni di .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), F# è stato rimosso il supporto per le funzioni di script (con estensione FSX). Le funzioni F# compilate (.fs) sono ancora supportate.
 

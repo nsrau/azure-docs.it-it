@@ -6,18 +6,18 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bdeff0194bda620250481a215c145b1ec3b2207e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226965"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920786"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Ripristino di emergenza geografico di funzioni di Azure
 
 Quando si verifica un tempo di inattività per intere aree o Data Center di Azure, è fondamentale che il calcolo continui l'elaborazione in un'area diversa.  In questo articolo vengono illustrate alcune strategie che è possibile usare per distribuire le funzioni per consentire il ripristino di emergenza.
 
-## <a name="basic-concepts"></a>Concetti di base
+## <a name="basic-concepts"></a>Concetti fondamentali
 
 Funzioni di Azure vengono eseguite in un'area specifica.  Per ottenere una disponibilità più elevata, è possibile distribuire le stesse funzioni in più aree.  In più aree è possibile fare in modo che funzioni in esecuzione nel modello attivo */attivo* o nel modello *attivo/passivo* .  
 

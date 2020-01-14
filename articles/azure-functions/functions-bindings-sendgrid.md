@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a0731a66af32b45215145c1d4f4404eb008cf897
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d70b05842fc7f251af6aefd743f064c037f63b7b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410035"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922362"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -27,9 +27,6 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 ## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/).
-
-> [!NOTE]
-> Nelle versioni 2. x e successive non viene creato l'argomento o la sottoscrizione configurata nell'istanza di `ServiceBusTrigger`. Queste versioni sono basate su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) che non gestisce la gestione delle code.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -351,9 +348,9 @@ La tabella seguente elenca le proprietà di configurazione dell'associazione dis
 
 | *Function. JSON* (proprietà) | Proprietà attribute/annotation | Description | Facoltativo |
 |--------------------------|-------------------------------|-------------|----------|
-| type || Il valore deve essere impostato su `sendGrid`.| No |
-| direction || Il valore deve essere impostato su `out`.| No |
-| name || Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
+| type |N/D| Il valore deve essere impostato su `sendGrid`.| No |
+| direction |N/D| Il valore deve essere impostato su `out`.| No |
+| name |N/D| Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
 | apiKey | ApiKey | Il nome di un'impostazione dell'app che contiene la chiave API. Se non è impostato, il nome predefinito dell'impostazione dell'app è *AzureWebJobsSendGridApiKey*.| No |
 | to| Per | Indirizzo e-mail del destinatario. | Sì |
 | da| Da | Indirizzo di posta elettronica del mittente. |  Sì |

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 2e08c1c0fbd0962adee44af949be280701915a1e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834059"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921120"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -1594,7 +1594,7 @@ public class DocByIdFromQueryStringPojo {
 
 #### <a name="http-trigger-look-up-id-from-route-data-java"></a>Trigger HTTP e ricerca dell'ID dai dati della route (Java)
 
-L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza un parametro di route per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un documento dal database e dalla raccolta specificati, restituendo il valore come ```Optional<String>```.
+L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa un parametro di route per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un documento dal database e dalla raccolta specificati, restituendo il valore come ```Optional<String>```.
 
 ```java
 public class DocByIdFromRoute {
@@ -1639,7 +1639,7 @@ public class DocByIdFromRoute {
 
 #### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>Trigger HTTP e ricerca dell'ID dai dati della route con SqlQuery (Java)
 
-L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa un parametro di route per specificare l'ID da cercare. Questo ID viene usato per recuperare un documento dal database e dalla raccolta specificati, convertendo il set di risultati in ```ToDoItem[]```, dato che possono essere restituiti molti documenti, a seconda dei criteri di query.
+L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa un parametro di route per specificare l'ID da ricercare. Questo ID viene usato per recuperare un documento dal database e dalla raccolta specificati, convertendo il set di risultati in ```ToDoItem[]```, dato che possono essere restituiti molti documenti, a seconda dei criteri di query.
 
 > [!NOTE]
 > Se è necessario eseguire una query solo con l'ID, è consigliabile usare una ricerca, come negli [esempi precedenti](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), perché utilizzerà meno [unità richiesta](../cosmos-db/request-units.md). Le operazioni di lettura del punto (GET) sono [più efficienti](../cosmos-db/optimize-cost-queries.md) delle query in base all'ID.

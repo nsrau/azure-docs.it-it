@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9978bd567b1b07e8dd0e22e1f02834626281a5dd
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230491"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920671"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funzioni di Azure in Kubernetes con KEDA
 
@@ -83,7 +83,7 @@ func kubernetes remove --namespace keda
 
 KEDA dispone del supporto per i trigger di funzione di Azure seguenti:
 
-* [Code di archiviazione di Azure](functions-bindings-storage-queue.md)
+* [Code di Archiviazione di Azure](functions-bindings-storage-queue.md)
 * [Code del bus di servizio di Azure](functions-bindings-service-bus.md)
 * [Hub eventi di Azure](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
@@ -93,7 +93,7 @@ KEDA dispone del supporto per i trigger di funzione di Azure seguenti:
 
 È possibile usare funzioni di Azure che espongono trigger HTTP, ma KEDA non li gestisce direttamente.  Il Azure Functions Core Tools installerà un progetto correlato, Osiride, che consente di ridimensionare gli endpoint HTTP da 0 a 1.  Il ridimensionamento da 1 a *n* si basa sui criteri tradizionali di scalabilità di Kubernetes.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Creare una funzione usando un'immagine personalizzata](functions-create-function-linux-custom-image.md)

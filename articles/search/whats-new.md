@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863088"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921006"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Azure ricerca cognitiva
 
@@ -33,7 +33,11 @@ Le versioni API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono invar
 
 + Le [chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) sono ora disponibili a livello generale. Se si usa REST, è possibile accedere alla funzionalità usando `api-version=2019-05-06`. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è in anteprima. 
 
-+ *L'accesso IP limitato e l'endpoint privato (anteprima)* in un endpoint del servizio di ricerca sono ora disponibili in **API-Version = 2019-10-01-Preview**. È possibile configurare un endpoint sicuro usando le nuove proprietà **IpRule** e **NETWORKRULESET** nell'API REST di gestione di [creazione o aggiornamento](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) . Per altre informazioni sulle versioni dell'API e sulla disponibilità a livello di area, vedere [come usare l'API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
++ L'accesso privato a un servizio di ricerca è disponibile tramite due meccanismi:
+
+  + È possibile limitare l'accesso a indirizzi IP specifici usando l'API REST di gestione `api-version=2019-10-01-Preview` per creare il servizio. L'API di anteprima include nuove proprietà **IpRule** e **NetworkRuleSet** nell' [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Questa funzionalità di anteprima è disponibile nelle aree selezionate. Per altre informazioni, vedere [come usare l'API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+
+  + Attualmente disponibile tramite un'anteprima con accesso limitato, è possibile effettuare il provisioning di un servizio di ricerca di Azure che supporta l'endpoint privato di Azure per le connessioni dai client nella stessa rete virtuale. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un endpoint privato per una connessione protetta](service-create-private-endpoint.md).
 
 ### <a name="december-2019"></a>Dicembre 2019
 

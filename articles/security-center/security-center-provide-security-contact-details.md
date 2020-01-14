@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: fabccb7a3f49442a009fd69ee6d3b831760751d2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a66ea200082f60a3a763c6a4e2bdea62ec473d8
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201014"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920991"
 ---
-# <a name="provide-security-contact-details-in-azure-security-center"></a>Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
+# <a name="provide-security-contact-details-in-azure-security-center"></a>Aggiunta dei dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.
 
-Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata gravità viene inviata una notifica tramite posta elettronica. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. I gruppi di risorse all'interno di una sottoscrizione ereditano queste impostazioni. 
+Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata gravità viene inviata una notifica tramite posta elettronica. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. I gruppi di risorse all'interno di una sottoscrizione ereditano queste impostazioni. Gli avvisi sono disponibili solo nel livello standard del Centro sicurezza di Azure.
 
 Le notifiche di avviso tramite posta elettronica vengono inviate:
 - Solo per avvisi con gravità alta
@@ -45,15 +45,15 @@ Ad esempio, se è già stato inviato un messaggio di posta elettronica per avvis
 > [!NOTE]
 > Se si sta implementando una raccomandazione, in **raccomandazioni**selezionare **specificare i dettagli dei contatti di sicurezza**e selezionare la sottoscrizione di Azure in cui inserire le informazioni di contatto. Si aprirà **Notifiche tramite posta elettronica**.
 
-   ![Specificare i dettagli dei contatti di sicurezza][2]
+   ![Specificare dettagli del contatto per la sicurezza][2]
 
    * Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non è previsto alcun limite per il numero di indirizzi di posta elettronica che è possibile immettere.
    * Immettere un numero di telefono internazionale per il contatto di sicurezza.
    * Per ricevere messaggi di posta elettronica relativi agli avvisi di elevata gravità, attivare l'opzione **Send me emails about alerts**(Invia messaggi di posta elettronica sugli avvisi).
-   * In futuro, sarà possibile inviare notifiche tramite posta elettronica ai proprietari di sottoscrizioni. Attualmente questa opzione non è disponibile.
+   * È possibile inviare notifiche tramite posta elettronica ai proprietari della sottoscrizione (amministratore del servizio classico e coamministratori, oltre al ruolo di proprietario RBAC nell'ambito della sottoscrizione).
    * Selezionare **Salva** per applicare le informazioni di contatto di sicurezza alla sottoscrizione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.

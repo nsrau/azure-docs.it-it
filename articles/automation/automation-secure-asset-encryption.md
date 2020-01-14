@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: fa8ea40d827807565e71d1e790c8c52986b85ec8
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.openlocfilehash: e645be5ddd51a4fe7e7610e7f639407d5638f746
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904954"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920923"
 ---
 # <a name="secure-assets-in-azure-automation"></a>Proteggere gli asset in automazione di Azure
 
@@ -22,13 +22,13 @@ Gli asset sicuri in Automazione di Azure includono credenziali, certificati, con
 -   Uso delle chiavi gestite da Microsoft
 -   Uso delle chiavi gestite dal cliente
 
-### <a name="microsoft-managed-keys"></a>Chiavi gestite da Microsoft
+## <a name="microsoft-managed-keys"></a>Chiavi gestite da Microsoft
 
 Per impostazione predefinita, l'account di automazione di Azure usa chiavi gestite da Microsoft.
 
 Ogni asset sicuro viene crittografato e archiviato in automazione di Azure tramite una chiave univoca (chiave di crittografia dei dati) generata per ogni account di automazione. Queste chiavi vengono crittografate e archiviate in automazione di Azure usando anche un'altra chiave univoca generata per ogni account denominato chiave di crittografia dell'account (AEK). Queste chiavi di crittografia dell'account vengono crittografate e archiviate in automazione di Azure tramite chiavi gestite da Microsoft. 
 
-### <a name="customer-managed-keys-with-key-vault-preview"></a>Chiavi gestite dal cliente con Key Vault (anteprima)
+## <a name="customer-managed-keys-with-key-vault-preview"></a>Chiavi gestite dal cliente con Key Vault (anteprima)
 
 È possibile gestire la crittografia degli asset protetti in automazione di Azure al livello di un account di automazione con le proprie chiavi. Quando si specifica una chiave gestita dal cliente al livello dell'account di automazione, questa chiave viene usata per proteggere e controllare l'accesso alla chiave di crittografia dell'account per l'account di automazione, che a sua volta viene usata per crittografare e decrittografare tutte le risorse protette. Le chiavi gestite dal cliente offrono maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere gli asset protetti. 
 
@@ -40,12 +40,12 @@ Quando si Abilita la crittografia con chiavi gestite dal cliente per un account 
 
 Un nuovo account di automazione è sempre crittografato con le chiavi gestite da Microsoft. Non è possibile abilitare le chiavi gestite dal cliente al momento della creazione dell'account. Le chiavi gestite dal cliente vengono archiviate in Azure Key Vault e l'insieme di credenziali delle chiavi deve essere sottoposto a provisioning con criteri di accesso che concedono le autorizzazioni chiave all'identità gestita associata all'account di automazione. L'identità gestita è disponibile solo dopo la creazione dell'account di archiviazione.
 
-Quando si modifica la chiave usata per l'automazione di Azure per proteggere la crittografia degli asset abilitando o disabilitando le chiavi gestite dal cliente, aggiornando la versione della chiave o specificando una chiave diversa, la crittografia della chiave radice viene modificata, ma le risorse sicure in Azure Non è necessario crittografare di nuovo l'account di automazione.
+Quando si modifica la chiave usata per la crittografia di asset sicura di automazione di Azure abilitando o disabilitando le chiavi gestite dal cliente, aggiornando la versione della chiave o specificando una chiave diversa, la crittografia della chiave di crittografia dell'account viene modificata, ma gli asset protetti non è necessario crittografare di nuovo l'account di automazione di Azure.
 
 Nelle tre sezioni seguenti vengono descritti i meccanismi di abilitazione delle chiavi gestite dal cliente per un account di automazione. 
 
 > [!NOTE] 
-> Per abilitare le chiavi gestite dal cliente, attualmente è necessario creare API REST di automazione di Azure usando l'API versione 2020-01-13-Preview
+> Per abilitare le chiavi gestite dal cliente, sarà attualmente necessario eseguire chiamate API REST di automazione di Azure usando l'API versione 2020-01-13-Preview
 
 ### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Prerequisiti per l'uso delle chiavi gestite dal cliente in automazione di Azure
 
@@ -126,7 +126,7 @@ Corpo della richiesta
 ```
 
 > [!NOTE] 
-> È necessario fornire i campi tenantId e objectId con i valori Identity. tenantId e Identity. principalId dalla risposta dell'identità gestita per l'account di automazione.
+> È necessario fornire i campi **tenantId** e **ObjectID** con i valori **Identity. tenantId** e **Identity. PrincipalId** rispettivamente dalla risposta dell'identità gestita per l'account di automazione.
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Modificare la configurazione dell'account di automazione per usare la chiave gestita dal cliente
 
@@ -179,11 +179,11 @@ Risposta di esempio
 
 È possibile ruotare una chiave gestita dal cliente in Azure Key Vault in base ai criteri di conformità. Quando la chiave viene ruotata, è necessario aggiornare l'account di automazione per usare il nuovo URI della chiave. 
 
-La rotazione della chiave non attiva la nuova crittografia dei dati nell'account di archiviazione. Non sono necessarie altre azioni da parte dell'utente.
+La rotazione della chiave non attiva la nuova crittografia degli asset protetti nell'account di automazione. Non sono necessarie altre azioni da parte dell'utente.
 
-## <a name="revoke-access-to-customer-managed-keys"></a>Revocare l'accesso alle chiavi gestite dal cliente
+### <a name="revoke-access-to-customer-managed-keys"></a>Revocare l'accesso alle chiavi gestite dal cliente
 
-Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) o l'interfaccia della riga di comando di [Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca efficacemente l'accesso a tutti i dati nell'account di archiviazione, in quanto la chiave di crittografia non è accessibile da parte di archiviazione di Azure.
+Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) o l'interfaccia della riga di comando di [Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca in modo efficace l'accesso a tutti gli asset protetti nell'account di automazione, in quanto la chiave di crittografia non è accessibile da automazione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

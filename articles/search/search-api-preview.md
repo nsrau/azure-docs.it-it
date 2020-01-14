@@ -1,19 +1,19 @@
 ---
 title: API REST versione 2019-05-06-Preview
 titleSuffix: Azure Cognitive Search
-description: L'API REST di Azure ricerca cognitiva Service versione 2019-05-06-Preview include funzionalità sperimentali come l'archivio delle informazioni e le chiavi di crittografia gestite dal cliente.
+description: L'API REST di Azure ricerca cognitiva Service versione 2019-05-06-Preview include funzionalità sperimentali come l'archivio delle informazioni e la memorizzazione nella cache dell'indicizzatore per l'arricchimento incrementale.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/04/2020
-ms.openlocfilehash: ee8e11670d5b3e0f0edd57e3f87566faa60d4bc4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: eb73d614ca94bc1fa007a14f3705e50c74ab9e4f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754406"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922467"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servizio ricerca cognitiva di Azure-versione 2019-05-06-Preview
 
@@ -36,8 +36,6 @@ Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API R
 + [Traduzione testo (anteprima)](cognitive-search-skill-text-translation.md) è una competenza cognitiva utilizzata durante l'indicizzazione che valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato.
 
 + [Archivio informazioni](knowledge-store-concept-intro.md) è una nuova destinazione di una pipeline di arricchimento basata su intelligenza artificiale. La struttura dei dati fisici esiste nell'archiviazione BLOB di Azure e nell'archiviazione tabelle di Azure e viene creata e popolata quando si esegue un indicizzatore con un sistema di competenze cognitive collegato. La definizione di un archivio informazioni viene specificata in una definizione di competenze. All'interno della definizione dell'archivio delle informazioni, è possibile controllare le strutture fisiche dei dati tramite elementi di *proiezione* che determinano la modalità di modellazione dei dati, se i dati vengono archiviati nell'archiviazione tabelle o nell'archiviazione BLOB e se sono presenti più viste.
-
-+ Anche le [chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) per la crittografia sul lato servizio sono una nuova funzionalità di anteprima. Oltre alla crittografia inattiva integrata gestita da Microsoft, è possibile applicare un ulteriore livello di crittografia in cui l'utente è l'unico proprietario delle chiavi.
 
 ## <a name="earlier-preview-features"></a>Funzionalità di anteprima precedenti
 

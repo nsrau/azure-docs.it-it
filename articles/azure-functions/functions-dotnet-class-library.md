@@ -3,12 +3,12 @@ title: Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 description: Informazioni su come sviluppare Funzioni di Azure in C#.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 89b3ae927b14454ac3f58fb510626e315842240f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975483"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921038"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -136,9 +136,9 @@ public static class BindingExpressionsExample
 
 Il processo di compilazione crea un file *function.json* in una cartella della funzione nella cartella di compilazione. Come affermato in precedenza, questo file non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. 
 
-Lo scopo di questo file è fornire informazioni che il controller di scalabilità userà per [decisioni di scalabilità nel piano a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
+Lo scopo di questo file è fornire informazioni al controller di scalabilità da usare per le [decisioni di scalabilità nel piano a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
 
-Il file *function.json* generato include una proprietà `configurationSource` che indica al runtime di usare gli attributi .NET per le associazioni invece della configurazione *function.json*. Ecco un esempio:
+Il file *function.json* generato include una proprietà `configurationSource` che indica al runtime di usare gli attributi .NET per le associazioni invece della configurazione *function.json*. Ad esempio:
 
 ```json
 {
@@ -378,7 +378,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
-L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  ad esempio:
+L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

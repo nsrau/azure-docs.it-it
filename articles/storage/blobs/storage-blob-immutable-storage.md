@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912791"
+ms.locfileid: "75921228"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -76,7 +76,7 @@ Ai criteri di conservazione si applicano i limiti seguenti:
 
 I BLOB di Accodamento sono costituiti da blocchi di dati e ottimizzati per le operazioni di Accodamento dei dati richieste dagli scenari di controllo e registrazione. Per impostazione predefinita, i BLOB di accodamento consentono solo l'aggiunta di nuovi blocchi alla fine del BLOB. Indipendentemente dall'immutabilità, la modifica o l'eliminazione di blocchi esistenti in un BLOB di Accodamento non è sostanzialmente consentita. Per ulteriori informazioni sui BLOB di Accodamento, vedere [informazioni sui BLOB di Accodamento](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Solo i criteri di conservazione basati sul tempo hanno un'impostazione `allowProtectedAppendWrites` che consente di scrivere nuovi blocchi in un BLOB di Accodamento mantenendo la protezione e la conformità dell'immutabilità. Se abilitata, è possibile creare un BLOB di Accodamento direttamente nel contenitore protetto da criteri e continuare ad aggiungere nuovi blocchi di dati alla fine dei BLOB di Accodamento esistenti usando l'API *AppendBlock* . È possibile aggiungere solo nuovi blocchi ed eventuali blocchi esistenti non possono essere modificati o eliminati. Viene comunque applicata la protezione dell'immutabilità del periodo di conservazione, impedendo l'eliminazione del BLOB di Accodamento finché non è trascorso il periodo di conservazione effettivo.  
+Solo i criteri di conservazione basati sul tempo hanno un'impostazione `allowProtectedAppendWrites` che consente di scrivere nuovi blocchi in un BLOB di Accodamento mantenendo la protezione e la conformità dell'immutabilità. Se abilitata, è possibile creare un BLOB di Accodamento direttamente nel contenitore protetto da criteri e continuare ad aggiungere nuovi blocchi di dati alla fine dei BLOB di Accodamento esistenti usando l'API *AppendBlock* . È possibile aggiungere solo nuovi blocchi ed eventuali blocchi esistenti non possono essere modificati o eliminati. Viene comunque applicata la protezione dell'immutabilità del periodo di conservazione, impedendo l'eliminazione del BLOB di Accodamento finché non è trascorso il periodo di conservazione effettivo. L'abilitazione di questa impostazione non influisce sul comportamento di immutabilità di BLOB in blocchi o BLOB di pagine.
 
 Poiché questa impostazione fa parte di un criterio di conservazione basato sul tempo, i BLOB di Accodamento rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo* . Poiché i nuovi dati possono essere aggiunti oltre la creazione iniziale del BLOB di Accodamento, esiste una lieve differenza nel modo in cui viene determinato il periodo di conservazione. La conservazione effettiva è la differenza tra l'ora dell' **Ultima modifica** del BLOB e l'intervallo di conservazione specificato dall'utente. Analogamente, quando l'intervallo di conservazione viene esteso, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
 

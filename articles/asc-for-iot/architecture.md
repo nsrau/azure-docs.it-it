@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a013d4cfcfddc709e60e91adf57bc27c98934a96
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2e55f98f8c7b6ddbc21f7ea8633467461ea5be29
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596576"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922171"
 ---
-# <a name="azure-security-center-for-iot-architecture"></a>Centro sicurezza di Azure per l'architettura dell'it
+# <a name="azure-security-center-for-iot-architecture"></a>Centro sicurezza di Azure per IoT: architettura
 
 Questo articolo illustra l'architettura del sistema funzionale del Centro sicurezza di Azure per la soluzione Internet delle cose. 
 
@@ -36,15 +36,15 @@ Il Centro sicurezza di Azure per l'it è costituito dai componenti seguenti:
  
 ### <a name="azure-security-center-for-iot-workflows"></a>Centro sicurezza di Azure per flussi di lavoro Internet
 
-Il Centro sicurezza di Azure per l'it funziona in uno dei due flussi di lavoro di funzionalità: Incorporata e migliorata  
+Il Centro sicurezza di Azure per l'Internet delle cose funziona in uno dei due flussi di lavoro di funzionalità: incorporata e migliorata  
 
 ### <a name="built-in"></a>Predefinito
-In modalità **predefinita** , il Centro sicurezza di Azure per l'it è abilitato quando si sceglie di attivare l'opzione di **sicurezza** nell'hub Internet. Il monitoraggio, le raccomandazioni e gli avvisi in tempo reale, la modalità incorporata offre visibilità del dispositivo in fase di individuazione e sicurezza senza corrispondenza. La modalità di compilazione non richiede l'installazione dell'agente su tutti i dispositivi e usa l'analisi avanzata sulle attività registrate per analizzare e proteggere il dispositivo Field. 
+In modalità **predefinita** , il Centro sicurezza di Azure per l'it è abilitato quando si sceglie di attivare l'opzione di **sicurezza** nell'hub Internet. Il monitoraggio, le raccomandazioni e gli avvisi in tempo reale, la modalità predefinita offre visibilità dei dispositivi in un singolo passaggio e sicurezza senza corrispondenza. La modalità di compilazione non richiede l'installazione dell'agente su tutti i dispositivi e usa l'analisi avanzata sulle attività registrate per analizzare e proteggere il dispositivo Field. 
 
 ### <a name="enhanced"></a>Avanzato 
 In modalità **avanzata** , dopo l'attivazione dell'opzione di **sicurezza** nell'hub Internet e l'installazione del Centro sicurezza di Azure per gli agenti di dispositivi di tutto il dispositivo, gli agenti raccolgono, aggregano e analizzano gli eventi di sicurezza non elaborati dai dispositivi. Gli eventi di sicurezza non elaborati possono includere connessioni IP, creazione di processi, account di accesso utente e altre informazioni rilevanti per la sicurezza. Il Centro sicurezza di Azure per gli agenti del dispositivo Internet gestisce anche l'aggregazione di eventi per evitare una elevata velocità effettiva della rete. Gli agenti sono altamente personalizzabili e possono essere usati per attività specifiche, ad esempio per l'invio di informazioni importanti al contratto di servizio più veloce o per l'aggregazione di informazioni e contesto di sicurezza estese in segmenti più grandi, evitando i costi di servizio più elevati.
 
-![Centro sicurezza di Azure per l'architettura dell'it](./media/architecture/azure-iot-security-architecture.png)
+![Centro sicurezza di Azure per IoT: architettura](./media/architecture/azure-iot-security-architecture.png)
  
 Gli agenti dispositivo e altre applicazioni usano **Azure Send Security Message SDK** per inviare informazioni di sicurezza nell'hub Azure. Hub cose preleva queste informazioni e le invia al centro sicurezza di Azure per il servizio Internet delle cose.
 
@@ -65,4 +65,4 @@ Questo articolo ha illustrato l'architettura di base e il flusso di lavoro del C
 - [Configurare la soluzione](quickstart-configure-your-solution.md)
 - [Abilitare la sicurezza nell'hub Internet](quickstart-onboard-iot-hub.md)
 - [Domande frequenti sul centro sicurezza di Azure](resources-frequently-asked-questions.md)
-- [Centro sicurezza di Azure per gli avvisi di sicurezza](concept-security-alerts.md)
+- [Avvisi di sicurezza del Centro sicurezza di Azure per IoT](concept-security-alerts.md)

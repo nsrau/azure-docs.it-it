@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto Servizi condivisi ISO 27001
 description: Panoramica e architettura del progetto di esempio Servizi condivisi ISO 27001. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISO 27001.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9723b77f2ba8f9a7030e891130853deb906c456e
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546695"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922550"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001
 
@@ -16,7 +16,7 @@ Il progetto di esempio Servizi condivisi ISO 27001 offre un set di modelli di in
 
 Il progetto [Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 ](../iso27001-ase-sql-workload/index.md) costituisce un'estensione di questo esempio.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Il progetto di esempio Servizi condivisi ISO 27001 distribuisce un'infrastruttura di base in Azure che può essere usata dalle organizzazioni per ospitare più carichi di lavoro basati su data center virtuale.
 Per data center virtuale si intende è un set consolidato di architetture di riferimento, strumenti di automazione e modelli di engagement usato da Microsoft con i principali clienti aziendali. Il progetto di esempio Servizi condivisi si basa su un ambiente di data center virtuale Azure completamente nativo illustrato di seguito.
