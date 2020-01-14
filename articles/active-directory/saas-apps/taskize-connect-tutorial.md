@@ -1,34 +1,34 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Opal | Microsoft Docs"
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Opal.
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Taskize Connect | Microsoft Docs"
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Taskize Connect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 434fc204-e9f9-4678-ad5f-054d621bb2f9
+ms.assetid: 2c5d5e85-f10b-4ae7-ab8b-709c6cb03248
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 12/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19f8d5fdc1b2d5098d67f7ecf2c81e6c29a38a3b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 40a6917938b5cdd2e3449977b4c6c6ed8280a7a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561749"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75470776"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opal"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Opal
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-taskize-connect"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Taskize Connect
 
-Questa esercitazione descrive come integrare Opal con Azure Active Directory (Azure AD). Integrando Opal con Azure AD, è possibile:
+Questa esercitazione descrive come integrare Taskize Connect con Azure Active Directory (Azure AD). Integrando Taskize Connect con Azure AD, è possibile:
 
-* Controllare in Azure AD chi può accedere a Opal.
-* Abilitare gli utenti per l'accesso automatico a Opal con gli account Azure AD personali.
+* Controllare in Azure AD chi può accedere a Taskize Connect.
+* Abilitare gli utenti per l'accesso automatico a Taskize Connect con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,79 +38,75 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di Opal abilitata per l'accesso Single Sign-On (SSO).
+* Sottoscrizione di Taskize Connect abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 
-* Opal supporta l'accesso SSO avviato da **IDP**
+
+* Taskize Connect supporta l'accesso SSO avviato da **SP e IDP**
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
+## <a name="adding-taskize-connect-from-the-gallery"></a>Aggiunta di Taskize Connect dalla raccolta
 
-## <a name="adding-opal-from-the-gallery"></a>Aggiunta di Opal dalla raccolta
-
-Per configurare l'integrazione di Opal in Azure AD è necessario aggiungere Opal dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Taskize Connect in Azure AD, è necessario aggiungere Taskize Connect dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
-1. Nella sezione **Aggiungi dalla raccolta** digitare **Opal** nella casella di ricerca.
-1. Selezionare **Opal** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **Taskize Connect** nella casella di ricerca.
+1. Selezionare **Taskize Connect** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-opal"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Opal
+## <a name="configure-and-test-azure-ad-single-sign-on-for-taskize-connect"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Taskize Connect
 
-Configurare e testare l'accesso SSO di Azure AD con Opal usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Opal.
+Configurare e testare l'accesso SSO di Azure AD con Taskize Connect usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Taskize Connect.
 
-Per configurare e testare l'accesso SSO di Azure AD con Opal, completare le procedure di base seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Taskize Connect, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Opal](#configure-opal-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Opal](#create-opal-test-user)** : per avere una controparte di B.Simon in Opal collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Taskize Connect](#configure-taskize-connect-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Taskize Connect](#create-taskize-connect-test-user)** : per avere una controparte di B.Simon in Taskize Connect collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Opal** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Taskize Connect** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** immettere i valori per i campi seguenti:
+1. Nella sezione **Configurazione SAML di base** l'applicazione è preconfigurata in modalità avviata da **IDP** e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione facendo clic sul pulsante **Salva**. 
 
-    a. Nella casella di testo **Identificatore** digitare un URL: `Opal`
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.ouropal.com/auth/saml/callback`
+    Nella casella di testo **URL di accesso** digitare un URL: `https://connect.taskize.com/connect/`
 
-    > [!NOTE]
-    > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Opal](mailto:support@workwithopal.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
-
-1. L'applicazione Opal prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
+1. L'applicazione Taskize Connect prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
     ![image](common/edit-attribute.png)
 
-1. Oltre quelli elencati in precedenza, l'applicazione Opal prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
+1. Oltre quelli elencati in precedenza, l'applicazione Taskize Connect prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
     | Nome | Attributo di origine|
-    | ---------------| --------------- |
-    | firstname           | user.givenname |
-    | lastname        | user.surname |
+    | ------------------- | -------------------- |    
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.userprincipalname |
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-1. Nella sezione **Configura Opal** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **Configura Taskize Connect** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -128,10 +124,10 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Opal.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Taskize Connect.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Opal**.
+1. Nell'elenco delle applicazioni selezionare **Taskize Connect**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -144,19 +140,22 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-## <a name="configure-opal-sso"></a>Configurare l'accesso Single Sign-On di Opal
+## <a name="configure-taskize-connect-sso"></a>Configurare l'accesso Single Sign-On di Taskize Connect
 
-Per configurare l'accesso Single Sign-On sul lato **Opal**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL copiati appropriati dal portale di Azure al [team di supporto di Opal](mailto:support@workwithopal.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Taskize Connect**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Taskize Connect](mailto:support@taskize.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-opal-test-user"></a>Creare l'utente di test di Opal
+### <a name="create-taskize-connect-test-user"></a>Creare l'utente di test di Taskize Connect
 
-In questa sezione viene creato un utente di nome Britta Simon in Opal. Collaborare con il  [team di supporto di Opal](mailto:support@workwithopal.com) per aggiungere gli utenti nella piattaforma Opal. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+Questa sezione descrive come creare un utente di nome B.Simon in Taskize Connect. Taskize Connect supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Taskize Connect viene creato un nuovo utente, se non esiste ancora.
+
+>[!Note]
+>Per creare un utente manualmente, contattare il [team di supporto di Taskize Connect](mailto:support@taskize.com).
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Opal nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Opal per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Taskize Connect nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Taskize Connect per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -166,5 +165,5 @@ Quando si fa clic sul riquadro di Opal nel pannello di accesso, si dovrebbe acce
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Provare Opal con Azure AD](https://aad.portal.azure.com/)
+- [Provare Taskize Connect con Azure AD](https://aad.portal.azure.com/)
 

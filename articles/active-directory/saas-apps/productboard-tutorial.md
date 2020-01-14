@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443319"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Esercitazione: Integrare productboard con Azure Active Directory
 
@@ -33,7 +33,7 @@ Questa esercitazione descrive come integrare productboard con Azure Active Direc
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -68,7 +68,7 @@ Per configurare e testare l'accesso SSO di Azure AD con productboard, completare
     * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di productboard](#configure-productboard-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di productboard](#create-productboard-test-user)** : per avere una controparte di B.Simon in EZOfficeInventory collegata alla rappresentazione dell'utente in Azure AD.
+    * **[Creare l'utente di test di productboard](#create-productboard-test-user)** : per avere una controparte di B.Simon in productboard collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -130,7 +130,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione in productboard, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura productboard** per passare all'applicazione productboard. Nell'applicazione specificare le credenziali di amministratore per accedere a productboard. L'estensione del browser configurerà automaticamente l'applicazione.
 

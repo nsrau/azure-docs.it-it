@@ -1,34 +1,33 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Klue | Microsoft Docs"
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Klue.
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Talentsoft | Microsoft Docs"
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Talentsoft.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
+ms.assetid: 9807bf77-fd2a-41fe-86d0-d746a8736b2c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 082c167c883b655276c213a48d4d56283074531d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b130bb88ea9a3e08d788171b1d341b8db21a3ed
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430927"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75532714"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-klue"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Klue
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-talentsoft"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Talentsoft
 
-Questa esercitazione descrive come integrare Klue con Azure Active Directory (Azure AD). Integrando Klue con Azure AD, è possibile:
+Questa esercitazione descrive come integrare Talentsoft con Azure Active Directory (Azure AD). Integrando Talentsoft con Azure AD, è possibile:
 
-* Controllare in Azure AD chi può accedere a Klue.
-* Abilitare gli utenti per l'accesso automatico a Klue con gli account Azure AD personali.
+* Controllare in Azure AD chi può accedere a Talentsoft.
+* Abilitare gli utenti per l'accesso automatico a Talentsoft con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,44 +37,43 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di Klue abilitata per l'accesso Single Sign-On (SSO).
+* Sottoscrizione di Talentsoft abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Klue supporta l'accesso SSO avviato da **SP e IDP**
-* Klue supporta il provisioning utenti **JIT**
+* Talentsoft supporta l'accesso SSO avviato da **SP e IDP**
 
-## <a name="adding-klue-from-the-gallery"></a>Aggiunta di Klue dalla raccolta
+## <a name="adding-talentsoft-from-the-gallery"></a>Aggiunta di Talentsoft dalla raccolta
 
-Per configurare l'integrazione di Klue in Azure AD, è necessario aggiungere Klue dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Talentsoft in Azure AD, è necessario aggiungere Talentsoft dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
-1. Nella sezione **Aggiungi dalla raccolta** digitare **Klue** nella casella di ricerca.
-1. Selezionare **Klue** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **Talentsoft** nella casella di ricerca.
+1. Selezionare **Talentsoft** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-klue"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Klue
+## <a name="configure-and-test-azure-ad-single-sign-on-for-talentsoft"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Talentsoft
 
-Configurare e testare l'accesso SSO di Azure AD con Klue usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Klue.
+Configurare e testare l'accesso SSO di Azure AD con Talentsoft usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Talentsoft.
 
-Per configurare e testare l'accesso SSO di Azure AD con Klue, completare le procedure di base seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Talentsoft, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Klue](#configure-klue-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di Klue](#create-klue-test-user)** : per avere una controparte di B.Simon in Klue collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Talentsoft](#configure-talentsoft-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * **[Creare l'utente di test di Talentsoft](#create-talentsoft-test-user)** : per avere una controparte di B.Simon in Talentsoft collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Klue** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Talentsoft** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -83,34 +81,22 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `urn:klue:<Customer ID>`
+    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<fedserver>/<tenant>/trust`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<fedserver>/<tenant>/saml20`
 
 1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<tenant>.talentsoft.com`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Klue](mailto:support@klue.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
-
-1. L'applicazione PureCloud by Genesys prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
-
-    ![image](common/default-attributes.png)
-
-1. Oltre quelli elencati in precedenza, l'applicazione PureCloud by Genesys prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
-
-    | Nome | Attributo di origine|
-    | ---------- | ----------- |
-    | first_name | user.givenname |
-    | last_name  | user.surname |
-    | email      | user.userprincipalname|
+    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Talentsoft](mailto:jlegoff@talentsoft.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-1. Nella sezione **Configura Klue** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **Configura Talentsoft** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -128,10 +114,10 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Klue.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Talentsoft.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Klue**.
+1. Nell'elenco delle applicazioni selezionare **Talentsoft**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -144,19 +130,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-## <a name="configure-klue-sso"></a>Configurare l'accesso Single Sign-On di Klue
+## <a name="configure-talentsoft-sso"></a>Configurare l'accesso Single Sign-On di Talentsoft
 
-Per configurare l'accesso Single Sign-On sul lato **Klue** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Klue](mailto:support@klue.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Talentsoft** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Talentsoft](mailto:jlegoff@talentsoft.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-klue-test-user"></a>Creare l'utente di test di Klue
+### <a name="create-talentsoft-test-user"></a>Creare l'utente di test di Talentsoft
 
-In questa sezione viene creato un utente di nome B.Simon in Klue. Klue supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Klue, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in Talentsoft. Collaborare con il [team di supporto di Talentsoft](mailto:jlegoff@talentsoft.com) per aggiungere gli utenti alla piattaforma Talentsoft. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Klue nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Klue per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Talentsoft nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Talentsoft per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -166,4 +152,4 @@ Quando si fa clic sul riquadro di Klue nel pannello di accesso, si dovrebbe acce
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Provare Klue con Azure AD](https://aad.portal.azure.com/)
+- [Provare Talentsoft con Azure AD](https://aad.portal.azure.com/)

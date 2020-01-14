@@ -1,12 +1,12 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Citrix NetScaler (Kerberos Based Authentication)| Microsoft Docs"
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Citrix NetScaler (Header Based Authentication) | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Citrix NetScaler.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: af501bd0-8ff5-468f-9b06-21e607ae25de
+ms.assetid: b0adc7bf-696d-44c9-a57a-f9e9471b8710
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e825f55a890be49000e209859670caa2c1c875
+ms.openlocfilehash: b9c442ca731ecb10f977c19b86cb32caded36659
 ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431080"
+ms.locfileid: "75470536"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Citrix NetScaler (Kerberos Based Authentication)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-citrix-netscaler-header-based-authentication"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Citrix NetScaler (Header Based Authentication)
 
 Questa esercitazione descrive come integrare Citrix NetScaler con Azure Active Directory (Azure AD). Integrando Citrix NetScaler con Azure AD, è possibile:
 
@@ -48,9 +48,10 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Citrix NetScaler supporta il provisioning utenti **JIT**
 
-- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su Kerberos](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
+- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su intestazione](#configure-citrix-netscaler-single-sign-on-for-header-based-authentication)
 
-- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su intestazione](header-citrix-netscaler-tutorial.md)
+- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su Kerberos](citrix-netscaler-tutorial.md)
+
 
 ## <a name="adding-citrix-netscaler-from-the-gallery"></a>Aggiunta di Citrix NetScaler dalla raccolta
 
@@ -62,6 +63,7 @@ Per configurare l'integrazione di Citrix NetScaler in Azure AD, è necessario ag
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Citrix NetScaler** nella casella di ricerca.
 1. Selezionare **Citrix NetScaler** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
+
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-citrix-netscaler"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Citrix NetScaler
 
@@ -106,6 +108,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
+1. L'applicazione Citrix NetScaler prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona **Modifica** e modificare il mapping degli attributi.
+
+    ![image](common/edit-attribute.png)
+
+1. Oltre quelli elencati in precedenza, l'applicazione Citrix NetScaler prevede il passaggio di altri attributi nella risposta SAML. Nella sezione Attestazioni utente della finestra di dialogo Attributi utente eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
+
+    | Nome | Attributo di origine|
+    | ---------------| --------------- |
+    | mySecretID  | user.userprincipalname |
+    
+    1. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+
+    1. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
+
+    1. Lasciare vuota la casella **Spazio dei nomi**.
+
+    1. Per Origine selezionare **Attributo**.
+
+    1. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
+
+    1. Fare clic su **OK**.
+
+    1. Fare clic su **Salva**.
+
+
 1. Nella sezione **Configura Citrix NetScaler** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
@@ -142,9 +169,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-citrix-netscaler-sso"></a>Configurare l'accesso Single Sign-On di Citrix NetScaler
 
-- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su Kerberos](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
+- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su intestazione](#configure-citrix-netscaler-single-sign-on-for-header-based-authentication)
 
-- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su intestazione](header-citrix-netscaler-tutorial.md)
+- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su Kerberos](citrix-netscaler-tutorial.md)
 
 ### <a name="publishing-web-server"></a>Pubblicazione del server Web 
 
@@ -154,7 +181,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     
     b. Scegliere **Aggiungi**.
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/web01.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/web01.png)
 
     c. Specificare i dettagli del server Web che esegue le applicazioni seguenti:
     * **Nome servizio**
@@ -162,13 +189,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     * **Protocollo**
     * **Porta**
 
-     ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/web01.png)
+     ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/web01.png)
 
 ### <a name="configuring-load-balancer"></a>Configurazione del bilanciamento del carico
 
 1. Per configurare il bilanciamento del carico, seguire questa procedura:
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/load01.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/load01.png)
 
     a. Passare a **Traffic Management > Load Balancing > Virtual Servers** (Gestione traffico > Bilanciamento del carico > Server virtuali).
 
@@ -186,17 +213,17 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Associare il bilanciamento del carico al server virtuale creato in precedenza.
 
-![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/bind01.png)
+![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/bind01.png)
 
-![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/bind02.png)
+![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/bind02.png)
 
 ### <a name="bind-certificate"></a>Associare il certificato
 
 Dal momento che il servizio verrà pubblicato SSL, associare il certificato del server e quindi testare l'applicazione.
 
-![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/bind03.png)
+![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/bind03.png)
 
-![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/bind04.png)
+![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/bind04.png)
 
 ## <a name="citrix-adc-saml-profile"></a>Profilo SAML di Citrix ADC
 
@@ -206,7 +233,7 @@ Dal momento che il servizio verrà pubblicato SSL, associare il certificato del 
 
 2. Fare clic su **Aggiungi** e quindi specificare i dettagli.
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/policy01.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/policy01.png)
 
     a. In Name (Nome) specificare un nome per il **criterio di autenticazione**.
 
@@ -222,7 +249,7 @@ Dal momento che il servizio verrà pubblicato SSL, associare il certificato del 
 
 1. Eseguire la procedura seguente:
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/server01.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/server01.png)
 
     a. Specificare un valore in **Name** (Nome).
 
@@ -238,7 +265,7 @@ Dal momento che il servizio verrà pubblicato SSL, associare il certificato del 
 
 2.  Fare clic su **Add** (Aggiungi) e seguire questa procedura:
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/server02.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/server02.png)
 
     a.  Specificare un **Nome**.
 
@@ -256,17 +283,17 @@ Sarà necessario modificare le due sezioni del server virtuale di autenticazione
 
 1.  **Advanced Authentication Policies** (Criteri di autenticazione avanzati)
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/virtual01.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/virtual01.png)
 
     a. Selezionare il **criterio di autenticazione** creato in precedenza.
 
     b. Fare clic su **Bind** (Associa).
 
-      ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/virtual02.png)
+      ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/virtual02.png)
 
 2. **Form Based Virtual Servers** (Server virtuali basati su form)
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/virtual03.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/virtual03.png)
 
     a.  È necessario specificare un **nome di dominio completo** dal momento che è applicato dall'interfaccia utente.
 
@@ -274,128 +301,94 @@ Sarà necessario modificare le due sezioni del server virtuale di autenticazione
 
     c.  Fare clic su **Bind** (Associa).
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/virtual04.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/virtual04.png)
 
     >[!NOTE]
     >Assicurarsi di fare clic su **Done** (Fine) anche nella pagina di configurazione del server virtuale di autenticazione.
 
 3. Verificare le modifiche. Passare all'URL dell'applicazione. Verrà visualizzata la pagina di accesso al tenant invece del messaggio di accesso non autenticato visualizzato in precedenza.
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/virtual05.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/virtual05.png)
 
-## <a name="configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication"></a>Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su Kerberos
+## <a name="configure-citrix-netscaler-single-sign-on-for-header-based-authentication"></a>Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su intestazione
 
-### <a name="create-a-kerberos-delegation-account-for-citrix-adc"></a>Creare un account di delega Kerberos per Citrix ADC
+### <a name="citrix-adc-configuration"></a>Configurazione di Citrix ADC
 
-1. Creare un account utente (in questo esempio AppDelegation).
+### <a name="create-an-rewrite-action"></a>Creare un'azione di riscrittura
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos01.png)
-
-2. Configurare un nome SPN HOST per questi account.
-
-    * setspn -S HOST/AppDelegation.IDENTT.WORK identt\appdelegation
-    
-        Nell'esempio precedente:
-
-        a. Identt.work    (nome di dominio completo del dominio)
-
-        b. Identt        (nome NetBIOS del dominio)
-
-        c. AppDelegation (nome dell'account utente di delega)
-
-3. Configurare la delega per il server Web 
+1. Passare a **AppExpert > Rewrite > Rewrite Actions** (AppExpert > Riscrivi > Azioni di riscrittura).
  
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos02.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header01.png)
 
-    >[!NOTE]
-    >Nell'esempio precedente il nome del server Web interno che esegue il sito WIA è cweb2.
-
-### <a name="citrix-aaa-kcd--kerberos-delegation-accounts"></a>Citrix AAA KCD (account di delega Kerberos)
-
-1.  Passare a **Citrix Gateway > AAA KCD (Kerberos Constrained Delegation) Accounts** (Gateway Citrix > Account AAA KCD - delega vincolata Kerberos).
-
-2.  Fare clic su Add (Aggiungi) e specificare i dettagli seguenti:
+2.  Scegliere **Aggiungi**.
 
     a.  Specificare un valore in **Name** (Nome).
 
-    b.  Specificare un valore in **Realm** (Area di autenticazione).
+    b.  Impostare Type (Tipo) su **INSERT_HTTP_HEADER**.
 
-    c.  Impostare **Service SPN** (Nome dell'entità servizio) su `http/<host/fqdn>@DOMAIN.COM`.
-    
-    >[!NOTE]
-    >@DOMAIN.com è obbligatorio e deve essere scritto in maiuscolo.
+    c.  Specificare un valore in **HEADER NAME** (NOME INTESTAZIONE), ad esempio SecretID.
 
-    d.  Specificare l'**account utente delegato**.
+    d.  Specificare l'espressione **aaa.USER.ATTRIBUTE(`mySecretID`)** , dove **mySecretID** è l'attestazione SAML di Azure AD inviata a Citrix ADC.
 
-    e.  Selezionare Password for the Delegated user (Password per l'utente delegato) e specificare un valore in **Password**.
+    e.  Fare clic su **Crea**.
 
-    f.  Fare clic su **OK**.
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header02.png)
  
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos03.png)
+### <a name="create-a-rewrite-policy"></a>Creare un criterio di riscrittura.
 
-### <a name="citrix-traffic-policy-and-traffic-profile"></a>Profilo di traffico e criteri di traffico Citrix
+1.  Passare a **AppExpert > Rewrite > Rewrite Policies** (AppExpert > Riscrivi > Criteri di riscrittura).
+ 
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header03.png)
 
-1.  Passare a **Security > AAA - Application Traffic > Policies > Traffic Policies, Profiles and Form SSO Profiles Traffic Policies** (Sicurezza > AAA - Traffico applicazione > Criteri > Criteri di traffico, profili e criteri di traffico profilo per accesso SSO al form).
+2.  Scegliere **Aggiungi**.
 
-2.  Selezionare **Traffic Profiles** (Profili di traffico).
-
-3.  Scegliere **Aggiungi**.
-
-4.  Configurare il profilo di traffico.
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header04.png)
 
     a.  Specificare un valore in **Name** (Nome).
 
-    b.  Specificare un valore in **Single Sign-on**.
+    b.  Scegliere l'**azione** creata in precedenza.
 
-    c.  Nell'elenco a discesa selezionare l'**account KCD** creato nel passaggio precedente.
+    c. In Expression (Espressione) specificare **true**.
 
-    d.  Fare clic su **OK**.
+    d.  Fare clic su **Create** (Crea).
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos04.png)
+### <a name="bind-rewrite-policy-to-virtual-servers"></a>Associare il criterio di riscrittura ai server virtuali
+
+1. È possibile associare un criterio di riscrittura a un server virtuale specifico usando l'interfaccia utente grafica.
+
+2. Passare a **Traffic Management > Load Balancing > Virtual Servers** (Gestione traffico > Bilanciamento del carico > Server virtuali).
+
+3. Nell'elenco dei server virtuali del riquadro dei dettagli selezionare il **server virtuale** al quale si intende associare il criterio di riscrittura e quindi fare clic su **Open** (Apri).
+
+4. Nella finestra di dialogo Configure Virtual Server (Load Balancing) (Configura server virtuale - Bilanciamento del carico) selezionare la scheda **Policies** (Criteri). Nell'elenco sono visualizzati tutti i criteri configurati in NetScaler.
  
-5.  Selezionare **Traffic Policy** (Criterio di traffico).
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header05.png)
 
-6.  Scegliere **Aggiungi**.
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header06.png)
 
-7.  Configurare il criterio di traffico.
+5.  Selezionare la **casella di controllo** accanto al nome del criterio da associare a questo server virtuale.
 
-    a.  Specificare un valore in **Name** (Nome).
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header07.png)
 
-    b.  Nell'elenco a discesa selezionare il **profilo di traffico** creato in precedenza.
-
-    c.  Impostare Expression (Espressione) su **true**.
-
-    d.  Fare clic su **OK**.
-
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos05.png)
-
-### <a name="citrix-bind-traffic-policy-to-virtual-servers"></a>Associare il criterio di traffico Citrix ai server virtuali
-
-È possibile associare un criterio di traffico a un server virtuale specifico usando l'interfaccia utente grafica.
-
-* Passare a **Traffic Management > Load Balancing > Virtual Servers** (Gestione traffico > Bilanciamento del carico > Server virtuali).
-
-* Nell'elenco dei server virtuali del riquadro dei dettagli selezionare il **server virtuale** al quale si intende associare il criterio di riscrittura e quindi fare clic su **Open** (Apri).
-
-* Nella finestra di dialogo Configure Virtual Server (Load Balancing) (Configura server virtuale - Bilanciamento del carico) selezionare la scheda **Policies** (Criteri). Nell'elenco sono visualizzati tutti i criteri configurati in NetScaler.
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header08.png)
  
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos06.png)
+6.  Fare clic su **OK**. Nella barra di stato viene visualizzato un messaggio per informare che il criterio è stato configurato correttamente.
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos07.png)
+### <a name="modify-saml-server-to-extract-attributes-from-claim"></a>Modificare il server SAML per estrarre gli attributi dall'attestazione
 
-1.  Selezionare la **casella di controllo** accanto al nome del criterio da associare a questo server virtuale.
+1.  Passare a **Security > AAA - Application Traffic > Policies > Authentication > Advanced Policies > Actions > Servers** (Sicurezza > AAA - Traffico applicazione > Criteri > Autenticazione > Criteri avanzati > Azioni > Server).
+
+2.  Selezionare il **server SAML di autenticazione** appropriato per l'applicazione.
  
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos08.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header09.png)
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos09.png)
-
-1. Dopo l'associazione del criterio, fare clic su **Done** (Fine).
+3. Nella sezione Attributes (Attributi) digitare gli attributi SAML da estrarre separandoli con una virgola (","). In questo caso viene specificato l'attributo denominato **mySecretID**.
  
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos10.png)
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header10.png)
 
-1. Eseguire test tramite il sito Web integrato Windows.
+4. Verificare l'accesso alle applicazioni.
 
-    ![Configurazione di Citrix NetScaler](./media/citrix-netscaler-tutorial/kerberos11.png)    
+    ![Configurazione di Citrix NetScaler](./media/header-citrix-netscaler-tutorial/header11.png)
 
 ### <a name="create-citrix-netscaler-test-user"></a>Creare l'utente di test di Citrix NetScaler
 
@@ -420,4 +413,4 @@ Quando si fa clic sul riquadro di Citrix NetScaler nel pannello di accesso, si d
 
 - [Provare Citrix NetScaler con Azure AD](https://aad.portal.azure.com/)
 
-- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su intestazione](header-citrix-netscaler-tutorial.md)
+- [Configurare l'accesso Single Sign-On di Citrix NetScaler per l'autenticazione basata su Kerberos](citrix-netscaler-tutorial.md)

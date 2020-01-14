@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 11/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d2bf769169b579cb0a06a48b3a5998efb89eb8fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69891970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443321"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workday
 
@@ -33,7 +33,7 @@ Questa esercitazione descrive come integrare Workday con Azure Active Directory 
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -167,14 +167,14 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
    > [!NOTE]
    > Il valore dell'attributo Environment è collegato al valore dell'URL del tenant:  
-   > -Se il nome di dominio dell'URL tenant di Workday inizia con impl (ad esempio *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), l'attributo **Environment** deve essere impostato su Implementation.  
+   > -Se il nome di dominio dell'URL del tenant di Workday inizia con impl (ad esempio *https://www.myworkday.com/"tenant"/login-saml2.htmld*), l'attributo **Environment** deve essere impostato su Implementation.  
    > -Se il nome di dominio inizia con altro, è necessario contattare il [team di supporto clienti di Workday](https://www.workday.com/en-us/partners-services/services/support.html) per ottenere il valore **Environment** corrispondente.
 
 4. Nella sezione **SAML Setup** seguire questa procedura:
 
     ![SAML Setup](./media/workday-tutorial/IC782926.png "SAML Setup")
 
-    a.  Selezionare **Enable SAML authentication**.
+    a.  Selezionare **Abilita autenticazione SAML**.
 
     b.  Fare clic su **Aggiungi riga**.
 
@@ -213,7 +213,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     c.  Nella casella di testo **Valid To** digitare il valore dell'attributo di fine validità del certificato.
 
     > [!NOTE]
-    > Per individuare la data di inizio e di fine validità, fare doppio clic sul certificato scaricato.  Le date sono elencate nella scheda **Details** .
+    > Per individuare la data di inizio e di fine validità, fare doppio clic sul certificato scaricato.  Le date sono elencate nella scheda **Details** (Dettagli).
     >
     >
 
@@ -233,14 +233,14 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     c. In **Authentication Request Signature Method** selezionare **SHA256**.
 
-    ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method") 
+    ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method")
 
     d. Fare clic su **OK**.
 
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 
     > [!NOTE]
-    > Assicurarsi di aver configurato il single sign-on in modo corretto. Nel caso in cui il single sign-on sia stato configurato in modo errato, potrebbe non essere possibile accedere all'applicazione con le proprie credenziali. In questo caso, Workday fornisce un backup dell'URL di accesso da cui gli utenti possono accedere usando il normale nome utente e la password nel formato seguente: [Your Workday URL]/login.flex?redirect=n
+    > Assicurarsi di aver configurato il single sign-on in modo corretto. Nel caso in cui il single sign-on sia stato configurato in modo errato, potrebbe non essere possibile accedere all'applicazione con le proprie credenziali. In questo caso, Workday fornisce un backup dell’url del log-in da cui gli utenti possono accedere usando il normale nome utente e la password nel formato seguente: [Your Workday URL]/login.flex?redirect=n
 
 ### <a name="create-workday-test-user"></a>Creare l'utente di test di Workday
 

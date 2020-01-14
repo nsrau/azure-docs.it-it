@@ -4,24 +4,23 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 12/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 71521348c5510696add4399d3046833d3b42193c
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970007"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561891"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce
 
@@ -33,7 +32,7 @@ Questa esercitazione descrive come integrare Salesforce con Azure Active Directo
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -70,17 +69,13 @@ Configurare e testare l'accesso SSO di Azure AD con Salesforce usando un utente 
 Per configurare e testare l'accesso SSO di Azure AD con Salesforce, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-2. **[Configurare l'accesso Single Sign-On di Salesforce](#configure-salesforce-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)** : per avere una controparte di B.Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
-3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Salesforce](#configure-salesforce-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * **[Creare l'utente di test di Salesforce](#create-salesforce-test-user)** : per avere una controparte di B.Simon in Salesforce collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
-
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
-
-Per configurare l'accesso Single Sign-On di Azure AD con Salesforce, seguire questa procedura:
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
@@ -90,7 +85,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
     a. Nella casella di testo **URL di accesso** digitare il valore usando il modello seguente:
 
@@ -107,7 +102,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Salesforce](https://help.salesforce.com/support).
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -125,10 +120,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
-   
-    > [!NOTE]
-    > Gli attributi utente di Salesforce fanno distinzione tra maiuscole/minuscole per la convalida SAML.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
@@ -150,48 +142,56 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-salesforce-sso"></a>Configurare l'accesso Single Sign-On di Salesforce
 
-1. Aprire una nuova scheda del browser e accedere all'account di amministratore di Salesforce.
+1. Per automatizzare la configurazione all'interno di Salesforce, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-2. Fare clic su **Setup** (Configura) sotto l'**icona Settings** (Impostazioni) nell'angolo superiore destro della pagina.
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Salesforce** per passare direttamente all'applicazione Salesforce. Nell'applicazione specificare le credenziali di amministratore per accedere a Salesforce. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 13.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+1. Se si vuole configurare manualmente Salesforce, aprire una nuova finestra del Web browser, accedere al sito aziendale di Salesforce come amministratore e seguire questa procedura:
+
+1. Fare clic su **Setup** (Configura) sotto l'**icona Settings** (Impostazioni) nell'angolo superiore destro della pagina.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/configure1.png)
 
-3. Scorrere verso il basso fino alla voce **SETTINGS** (Impostazioni) nel riquadro di spostamento e fare clic su **Identity** (Identità) per espandere la sezione corrispondente. Fare quindi clic su **Single Sign-On Settings**.
+1. Scorrere verso il basso fino alla voce **SETTINGS** (Impostazioni) nel riquadro di spostamento e fare clic su **Identity** (Identità) per espandere la sezione corrispondente. Fare quindi clic su **Single Sign-On Settings**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso.png)
 
-4. Nella pagina **Single Sign-On Settings** fare clic su **Edit**.
+1. Nella pagina **Single Sign-On Settings** fare clic su **Edit**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > Se non si è in grado di abilitare le impostazioni dell'accesso Single Sign-On per l'account Salesforce, potrebbe essere necessario contattare il [team di supporto clienti di Salesforce](https://help.salesforce.com/support).
 
-5. Selezionare **SAML Enabled**, quindi fare clic su **Save**.
+1. Selezionare **SAML Enabled**, quindi fare clic su **Save**.
 
-      ![Configure Single Sign-On](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-enable-saml.png)
 
-6. Per configurare le impostazioni dell'accesso Single Sign-On SAML, fare clic su **New from Metadata File** (Nuovo da file di metadati).
+1. Per configurare le impostazioni dell'accesso Single Sign-On SAML, fare clic su **New from Metadata File** (Nuovo da file di metadati).
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
-7. Fare clic su **Scegli file** per caricare il file XML di metadati scaricato dal portale di Azure e fare clic su **Crea**.
+1. Fare clic su **Scegli file** per caricare il file XML di metadati scaricato dal portale di Azure e fare clic su **Crea**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/xmlchoose.png)
 
-8. Nella pagina **SAML Single Sign-On Settings** (Impostazioni SAML Single Sign-On) i campi vengono popolati automaticamente. Quindi fare clic su Salva.
+1. Nella pagina **SAML Single Sign-On Settings** (Impostazioni SAML Single Sign-On) i campi vengono popolati automaticamente. Quindi fare clic su Salva.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/salesforcexml.png)
 
-9. Nel pannello di navigazione sinistro in Salesforce fare clic su **Company Settings** (Impostazioni aziendali) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale).
+1. Nel pannello di navigazione sinistro in Salesforce fare clic su **Company Settings** (Impostazioni aziendali) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale).
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-my-domain.png)
 
-10. Scorrere verso il basso fino alla sezione **Authentication Configuration**, quindi fare clic su **Edit**.
+1. Scorrere verso il basso fino alla sezione **Authentication Configuration**, quindi fare clic su **Edit**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. Nella sezione **Authentication Configuration** (Autenticazione configurazione) selezionare **AzureSSO** come **Authentication Service** (Servizio di autenticazione) della configurazione SSO SAML e quindi fare clic su  **Save** (Salva).
+1. Nella sezione **Authentication Configuration** (Autenticazione configurazione) selezionare **AzureSSO** come **Authentication Service** (Servizio di autenticazione) della configurazione SSO SAML e quindi fare clic su  **Save** (Salva).
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 

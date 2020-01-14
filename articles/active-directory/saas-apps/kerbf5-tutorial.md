@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786487"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431467"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 
@@ -33,7 +33,7 @@ Questa esercitazione descrive come integrare F5 con Azure Active Directory (Azur
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -132,8 +132,8 @@ Configurare e testare l'accesso SSO di Azure AD con F5 usando un utente di test 
 Per configurare e testare l'accesso SSO di Azure AD con F5, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di F5](#configure-f5-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di F5](#create-f5-test-user)** : per avere una controparte di B.Simon in F5 collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -181,7 +181,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a F5.
 
@@ -284,7 +284,7 @@ Per specificare i controller di dominio e le credenziali per Access Policy Manag
 
 1.  Nella scheda Main (Principale) fare clic su **Access Policy > AAA Servers > Active Directory** (Criteri di accesso > Server AAA > Active Directory). Viene visualizzata la schermata dell'elenco Active Directory Servers (Server Active Directory).
 
-2.  Fare clic su **Create**(Crea). Viene visualizzata la schermata New Server properties (Proprietà del nuovo server).
+2.  Fare clic su **Crea**. Viene visualizzata la schermata New Server properties (Proprietà del nuovo server).
 
 3.  Nel campo **Name** (Nome) digitare un nome univoco per il server di autenticazione.
 
@@ -370,7 +370,7 @@ Per specificare i controller di dominio e le credenziali per Access Policy Manag
     >[!Note]
     > Sarà necessario creare e specificare l'account di delega Kerberos. Fare riferimento alla sezione KCD (vedere l'appendice relativa ai riferimenti per le variabili)
 
-    * **Username Source** (Origine nome utente): session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Username Source** (Origine nome utente): session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **User Realm Source** (Origine area di autenticazione utente): session.logon.last.domain
 

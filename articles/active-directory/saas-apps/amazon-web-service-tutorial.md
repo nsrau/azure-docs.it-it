@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Amazon Web Services (AWS) | Microsoft Docs"
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Amazon Web Services (AWS).
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Amazon Web Services.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 758b14a53927e00a5546147f8d67e556b45acc3c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074024"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689764"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Amazon Web Services (AWS)
 
@@ -54,7 +54,7 @@ Con questi valori Azure AD rimuove il valore di **#** e invia il valore corretto
 > [!Note]
 > Assicurarsi di usare solo un'applicazione della raccolta.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -74,10 +74,10 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è necessario aggiungere Amazon Web Service (AWS) dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con l'account Microsoft personale.
+1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
+1. Nel menu di panoramica di Azure Active Directory scegliere **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Per aggiungere un'applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Amazon Web Services (AWS)** nella casella di ricerca.
 1. Selezionare **Amazon Web Service (AWS)** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
@@ -123,7 +123,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
+1. Nel menu di panoramica di Azure Active Directory scegliere **Utenti** > **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -135,7 +136,8 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Amazon Web Services (AWS).
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
+1. Nel menu di panoramica di Azure Active Directory scegliere **Applicazioni aziendali** > **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Amazon Web Service (AWS)** .
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
@@ -286,7 +288,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 18. Creare un nuovo criterio per questo utente.
 
-    ![Screenshot di Add user (Aggiungi utente)](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Screenshot di Aggiungi utente](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Selezionare **Attach existing policies directly** (Collega direttamente i criteri esistenti).
 
@@ -304,7 +306,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 20. Scaricare le credenziali utente di un utente.
 
-    ![Screenshot di Add user (Aggiungi utente)](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Screenshot di Aggiungi utente](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copiare l'**ID chiave di accesso** e la **chiave di accesso segreta** dell'utente.
 
@@ -353,7 +355,7 @@ Quando si fa clic sul riquadro di Amazon Web Services (AWS) nel pannello di acce
 
  * Nella sezione **Provisioning** è possibile immettere un solo set di credenziali per un unico tenant AWS alla volta. Tutti i ruoli importati vengono scritti nella proprietà `appRoles` dell'oggetto [`servicePrincipal` di Azure AD](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) per il tenant AWS.
 
-   È possibile aggiungere ad Azure AD più tenant AWS, rappresentati da oggetti `servicePrincipals`, dalla raccolta per il provisioning. È però presente un problema noto che impedisce di scrivere automaticamente tutti i ruoli importati da più oggetti `servicePrincipals` AWS usati per il provisioning nell'unico oggetto `servicePrincipal` usato per l'accesso SSO.
+   È possibile aggiungere ad Azure più tenant AWS, rappresentati da oggetti `servicePrincipals`, dalla raccolta per il provisioning. È però presente un problema noto che impedisce di scrivere automaticamente tutti i ruoli importati da più oggetti `servicePrincipals` AWS usati per il provisioning nell'unico oggetto `servicePrincipal` usato per l'accesso SSO.
 
    Per ovviare al problema, è possibile usare l'[API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) per estrarre tutti gli oggetti `appRoles` importati in ogni oggetto `servicePrincipal` AWS in cui è configurato il provisioning. È quindi possibile aggiungere queste stringhe di ruolo all'oggetto `servicePrincipal` AWS in cui è configurato l'accesso SSO.
 
