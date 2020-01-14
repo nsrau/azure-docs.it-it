@@ -1,20 +1,22 @@
 ---
-title: Eseguire la migrazione di un notebook locale di Jupyter in Azure Notebooks
-description: Trasferire rapidamente un notebook di Jupyter in Azure Notebooks dal computer locale o da un URL Web e quindi condividerlo per la collaborazione.
+title: Eseguire la migrazione di un notebook locale di Jupyter in Azure Notebooks (anteprima)
+description: Trasferire rapidamente un notebook di Jupyter in Azure Notebooks (anteprima) dal computer locale o da un URL Web e quindi condividerlo per la collaborazione.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 3b7d5aab05923fb4356e0d45aaf21a77076a870a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277474"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647051"
 ---
-# <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Avvio rapido: Eseguire la migrazione di un notebook di Jupyter locale
+# <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Avvio rapido: Eseguire la migrazione di un notebook locale di Jupyter in Azure Notebooks (anteprima)
 
 I notebook di Jupyter creati da utente in locale sono accessibili solo dall'utente, che potrà condividerli in vari modi, ma ai destinatari resterà una copia locale del notebook, in cui sarà difficile incorporare eventuali modifiche necessarie. È anche possibile archiviare i notebook in un repository online condiviso come GitHub, ma in questo caso è necessario che ogni collaboratore abbia un'installazione Jupyter locale con la stessa configurazione di cui dispone l'utente.
 
 Eseguendo la migrazione in Azure Notebooks dei notebook locali o basati su repository, questi vengono archiviati nel cloud da cui è possibile condividerli immediatamente con i collaboratori. Questi ultimi possono visualizzare ed eseguire il notebook mediante un semplice browser e, se [accedono](quickstart-sign-in-azure-notebooks.md) ad Azure Notebooks, possono anche apportare modifiche.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Questo argomento di avvio rapido illustra il processo di migrazione di un notebook dal computer locale o da un altro URL di file accessibile. Per migrare un notebook da un repository di GitHub, vedere [Avvio rapido: Clonare un notebook](quickstart-clone-jupyter-notebook.md).
 

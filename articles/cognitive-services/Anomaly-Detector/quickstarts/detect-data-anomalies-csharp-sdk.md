@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Rilevare anomalie nei dati delle serie temporali con la libreria client di Rilevamento anomalie per .NET'
+title: 'Avvio rapido: Rilevare anomalie nei dati delle serie temporali con la libreria client di Rilevamento anomalie per .NET'
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati sia come batch che nei dati in streaming.
+description: Questo argomento di avvio rapido illustra come usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati, come batch o in streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 62cf9a03960e895f403ec8fa09407ff61252ecb2
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: abc2e2371368f01c96eb0b4d2f0a777952ebacf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448924"
 ---
-# <a name="quickstart-anomaly-detector-client-library-for-net"></a>Guida introduttiva: Libreria client di Rilevamento anomalie per .NET
+# <a name="quickstart-anomaly-detector-client-library-for-net"></a>Avvio rapido: Libreria client di Rilevamento anomalie per .NET
 
-Questo argomento include informazioni introduttive alla libreria client di Rilevamento anomalie per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Rilevamento anomalie consente di trovare le anomalie nei dati delle serie temporali applicando automaticamente i modelli di mapping più appropriati, indipendentemente dal settore, dallo scenario o dal volume di dati.
+Questo argomento include informazioni introduttive sulla libreria client di Rilevamento anomalie per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Rilevamento anomalie consente di trovare le anomalie nei dati delle serie temporali applicando automaticamente i modelli di mapping più appropriati, indipendentemente dal settore, dallo scenario o dal volume di dati.
 
 Usare la libreria client di Rilevamento anomalie per .NET per:
 
@@ -28,7 +28,7 @@ Usare la libreria client di Rilevamento anomalie per .NET per:
 
 [Documentazione di riferimento della libreria](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Trovare il codice in GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)

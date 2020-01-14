@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: d694a7030f96ef8e652d76cfb6036674aaa71249
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 4b419bd8c19cffaf84582cb4fa9e46592746da3f
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660215"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751491"
 ---
 | | SKU Standard | SKU Basic |
 | --- | --- | --- |
 | Dimensioni del pool back-end | Supporta fino a 1000 istanze. | Supporta fino a 100 istanze. |
-| Endpoint del pool di back-end | Qualsiasi macchina virtuale in una singola rete virtuale, tra cui insiemi di macchine virtuali, set di disponibilità e set di scalabilità di macchine virtuali. | Macchine virtuali in un singolo set di disponibilità o in un set di scalabilità di macchine virtuali. |
+| Endpoint di pool back-end | Qualsiasi macchina virtuale in una singola rete virtuale, tra cui insiemi di macchine virtuali, set di disponibilità e set di scalabilità di macchine virtuali. | Macchine virtuali in un singolo set di disponibilità o in un set di scalabilità di macchine virtuali. |
 | [Probe di integrità](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Comportamento in caso di inattività dei probe](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza __e__ di tutti i probe. | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza. Tutte le connessioni TCP terminano se sono inattivi tutti i probe. |
 | Zone di disponibilità | Front-end di zona e con ridondanza della zona per il traffico in ingresso e in uscita. I mapping dei flussi in uscita non subiscono conseguenze in caso di un errore di zona. Bilanciamento del carico tra zone. | Non disponibile |

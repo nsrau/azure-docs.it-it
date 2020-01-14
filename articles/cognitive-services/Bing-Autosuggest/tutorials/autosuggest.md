@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b6a8b0664cb205a7c3cbdb72f41433b145b02d00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448760"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Esercitazione: Ottenere risultati di suggerimenti automatici in una pagina Web
 
@@ -27,9 +27,9 @@ Questa esercitazione illustra come:
 > - Eseguire una semplice query sull'API Suggerimenti automatici Bing
 > - Visualizzare i risultati della query
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Suggerimenti automatici Bing. Se non si ha una sottoscrizione, [iscriversi per ottenere una versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Suggerimenti automatici Bing. Se non si ha una sottoscrizione, [iscriversi per una versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
 ## <a name="create-a-new-web-page"></a>Creare una nuova pagina Web
 
@@ -106,7 +106,7 @@ La funzione helper getSubscriptionKeyCookie chiede all'utente il valore della ch
     }
 ```
 
-La funzione helper getSubscriptionKeyLocalStorage tenta innanzitutto di recuperare la chiave dell'API Suggerimenti automatici Bing cercando il cookie appropriato. Se il cookie non viene trovato, la funzione chiede all'utente il valore della chiave, e quindi lo restituisce.
+La funzione helper getSubscriptionKeyLocalStorage tenta innanzitutto di recuperare la chiave dell'API Suggerimenti automatici Bing cercando il cookie appropriato. Se il cookie non viene trovato, la funzione chiede all'utente il valore della chiave e quindi lo restituisce.
 
 ```html
     function getSubscriptionKeyLocalStorage() {
@@ -184,7 +184,7 @@ La funzione accetta due parametri: il contenuto del campo modulo HTML e la chiav
 function bingAutosuggest(query, key) {
 ```
 
-Specificare l'endpoint dell'API Suggerimenti automatici Bing e dichiarare un oggetto XMLHttpRequest che verrà usato per inviare richieste all'endpoint.
+Specificare l'endpoint dell'API Suggerimenti automatici Bing e dichiarare un oggetto XMLHttpRequest, che verrà usato per inviare richieste. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";
@@ -266,7 +266,7 @@ Creare un modulo HTML con un campo di testo. Gestire l'evento **oninput** e chia
 </form>
 ```
 
-Aggiungere il tag HTML **div** usato per visualizzare i risultati. Il codice JavaScript definito in precedenza fa riferimento a questo tag **div**.
+Aggiungere il tag **div** HTML usato per visualizzare i risultati. Il codice JavaScript definito in precedenza fa riferimento a questo tag **div**.
 
 ```html
 <h2>Results</h2>

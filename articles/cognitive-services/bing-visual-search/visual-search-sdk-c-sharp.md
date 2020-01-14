@@ -1,38 +1,38 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'SDK per C# - Ricerca visiva Bing"
+title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'SDK per C# - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come caricare un'immagine usando l'SDK di Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
+description: Questo argomento di avvio rapido illustra come caricare un'immagine e ottenere le relative immagini dettagliate usando l'SDK di Ricerca visiva Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 3db40f999770823052f07a328d3d8dc8c01ce345
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b1f5274bcae1f6e59f6dea94beee810a4613d739
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383586"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446601"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per C#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per C#
 
 Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dettagliate sulle immagini dal servizio Ricerca visiva Bing con l'SDK per C#. Mentre Ricerca visiva Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 * Il pacchetto NuGet di Ricerca visiva. 
-    - Da Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere `Manage NuGet Packages` dal menu. Installare il pacchetto `Microsoft.Azure.CognitiveServices.Search.VisualSearch`. Installando i pacchetti NuGet viene anche installato quanto segue:
+    - Da Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere `Manage NuGet Packages` dal menu. Installare il pacchetto `Microsoft.Azure.CognitiveServices.Search.VisualSearch`. Installando i pacchetti NuGet vengono anche installati gli elementi seguenti:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496381"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610608"
 ---
 # <a name="connect-data-sources"></a>Connettere le origini dati
 
@@ -43,7 +43,8 @@ Per eseguire l'onboarding di Azure Sentinel, è necessario innanzitutto connette
 
 Azure Sentinel supporta i metodi di connessione dati seguenti:
 
-- **Servizi Microsoft**:<br> I servizi Microsoft sono connessi in modo nativo. Sfruttando la struttura di Azure per l'integrazione immediata, è possibile connettere le soluzioni seguenti in pochi clic:
+- **Integrazione da servizio a servizio**:<br> alcuni servizi, come AWS e i servizi Microsoft, sono connessi in modo nativo. Tali servizi sfruttano la struttura di Azure per l'integrazione immediata, di conseguenza è possibile connettere le soluzioni seguenti in pochi clic:
+    - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Office 365](connect-office-365.md)
     - [Log di controllo e di accesso di Azure AD](connect-azure-active-directory.md)
     - [Attività di Azure](connect-azure-activity.md)

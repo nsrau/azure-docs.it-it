@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Creare un set di scalabilità di macchine virtuali per Windows in Azure'
-description: In questa esercitazione si apprenderà come usare Azure PowerShell per creare e distribuire un'applicazione a disponibilità elevata nelle macchine virtuali Windows usando un set di scalabilità di macchine virtuali
+title: 'Esercitazione: Creare un set di scalabilità di macchine virtuali Windows'
+description: Informazioni su come usare Azure PowerShell per creare e distribuire un'applicazione a disponibilità elevata nelle VM Windows usando un set di scalabilità di macchine virtuali
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6fcf0c14d58e70659ee5e21b03245b705294b445
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bf53b2777c5d1e4d774a9f5ee9df119a0deac9d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067899"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464984"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Windows con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di macchine virtuali nel set di scalabilità, nonché definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure e viene spiegato come:
@@ -44,7 +44,7 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 
 Le VM vengono create in base alle esigenze in un set di scalabilità. È possibile definire regole di scalabilità automatica per controllare le modalità e i tempi di aggiunta e rimozione delle VM dal set di scalabilità. Queste regole possono essere attivate in base a determinate metriche, ad esempio il carico della CPU, l'utilizzo della memoria o il traffico di rete.
 
-I set di scalabilità supportano fino a 1.000 VM quando si usa un'immagine della piattaforma Azure. Per i carichi di lavoro con requisiti significativi di installazione o personalizzazione di VM, si consiglia di [creare un'immagine di VM personalizzata](tutorial-custom-images.md). È possibile creare fino a 300 macchine virtuali in un set di scalabilità quando si usa un'immagine personalizzata.
+I set di scalabilità supportano fino a 1000 macchine virtuali quando si usa un'immagine della piattaforma Azure. Per i carichi di lavoro con requisiti significativi di installazione o personalizzazione di VM, si consiglia di [creare un'immagine di VM personalizzata](tutorial-custom-images.md). È possibile creare fino a 300 macchine virtuali in un set di scalabilità quando si usa un'immagine personalizzata.
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
@@ -160,7 +160,7 @@ Immettere l'indirizzo IP pubblico in un Web browser. Verrà visualizzata l'app W
 
 ![Esecuzione del sito IIS](./media/tutorial-create-vmss/running-iis-site.png)
 
-Per verificare il funzionamento del set di scalabilità, è possibile imporre l'aggiornamento del Web browser per visualizzare la distribuzione del traffico da parte del bilanciamento del carico tra tutte le VM che eseguono l'app.
+Per verificare il funzionamento del set di scalabilità, è possibile imporre l'aggiornamento del Web browser per visualizzare la distribuzione del traffico da parte del bilanciamento del carico tra tutte le macchine virtuali che eseguono l'app.
 
 
 ## <a name="management-tasks"></a>Attività di gestione
@@ -291,4 +291,4 @@ In questa esercitazione è stato creato un set di scalabilità di macchine virtu
 Passare all'esercitazione successiva per maggiori informazioni sui concetti di bilanciamento del carico per le macchine virtuali.
 
 > [!div class="nextstepaction"]
-> [Bilanciare il carico delle macchine virtuali](tutorial-load-balancer.md)
+> [Bilanciare il carico di macchine virtuali](tutorial-load-balancer.md)

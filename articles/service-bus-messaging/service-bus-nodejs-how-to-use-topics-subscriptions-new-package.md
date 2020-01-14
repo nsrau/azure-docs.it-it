@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Node.js'
-description: "Guida introduttiva: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un'app Node.js."
+title: Usare gli argomenti e le sottoscrizioni del bus di servizio o di Azure con Node.js
+description: "Avvio rapido: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un'app Node.js."
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -14,22 +14,22 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 160f9831a23ed16fc33ddbbb9b4e07a5627a3f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462123"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure/service-bus
-> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto di Node.js"]
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Avvio rapido: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure/service-bus
+> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
 Questa esercitazione illustra come scrivere un programma Node.js per inviare messaggi a un argomento del bus di servizio e ricevere messaggi da una sottoscrizione del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Questo pacchetto usa il [protocollo AMQP 1.0 ](service-bus-amqp-overview.md) più veloce, mentre il precedente pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usava le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
 
-## <a name="prerequisites"></a>Prerequisiti
-- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Se non si hanno un argomento e una sottoscrizione da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare argomenti e sottoscrizioni](service-bus-quickstart-topics-subscriptions-portal.md) per creare argomenti e sottoscrizioni. Prendere nota della stringa di connessione per l'istanza del bus di servizio e dei nomi dell'argomento e della sottoscrizione creati. Questi valori verranno usati negli esempi.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ L'interazione con un argomento del bus di servizio inizia con la creazione di un
     });
     ```
 3. Immettere la stringa di connessione e il nome dell'argomento nel codice precedente.
-4. Eseguire quindi questo file tramite il comando `node send.js` nel prompt dei comandi. 
+4. Eseguire quindi questo file tramite il comando `node send.js` in un prompt dei comandi. 
 
 Congratulazioni! I messaggi sono stati inviati a una coda del bus di servizio.
 
@@ -128,11 +128,11 @@ L'interazione con una sottoscrizione del bus di servizio inizia con la creazione
     });
     ```
 3. Immettere la stringa di connessione e i nomi dell'argomento e della sottoscrizione nel codice precedente.
-4. Eseguire quindi questo file tramite il comando `node receiveMessages.js` nel prompt dei comandi.
+4. Eseguire quindi questo file tramite il comando `node receiveMessages.js` in un prompt dei comandi.
 
 Congratulazioni! I messaggi sono stati ricevuti da una sottoscrizione del bus di servizio
 
-Il metodo [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) accetta `ReceiveMode`, vale a dire un'enumerazione con i valori [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Ricordarsi di [finalizzare i messaggi](message-transfers-locks-settlement.md#settling-receive-operations) se si usa la modalità `PeekLock` usando uno dei metodi `complete()`, `abandon()`, `defer()`o `deadletter()` del messaggio.
+Il metodo [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) accetta `ReceiveMode`, vale a dire un'enumerazione con i valori [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Ricordarsi di [finalizzare i messaggi](message-transfers-locks-settlement.md#settling-receive-operations) se si usa la modalità `PeekLock` usando uno dei metodi `complete()`, `abandon()`, `defer()`o `deadletter()` nel messaggio.
 
 ## <a name="subscription-filters-and-actions"></a>Filtri e azioni nelle sottoscrizioni
 Il bus di servizio supporta [filtri e azioni nelle sottoscrizioni](topic-filters.md). È quindi possibile filtrare i messaggi in arrivo in una sottoscrizione e modificarne le proprietà.

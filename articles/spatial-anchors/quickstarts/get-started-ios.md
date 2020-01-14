@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app iOS"
+title: "Avvio rapido: Creare un'app iOS"
 description: In questa guida introduttiva si apprenderà come compilare un'app iOS usando Ancoraggi nello spazio.
 author: craigktreasure
 manager: vriveras
@@ -8,14 +8,14 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 39732ef785fc610572f917be77dec3f560698fb7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 277a669484201a060a2bb5455d6154165bbb8e84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465160"
 ---
-# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Guida introduttiva: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
+# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Avvio rapido: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
 
 Questa guida introduttiva illustra come creare un'app iOS usando [Ancoraggi nello spazio di Azure](../overview.md) in Swift o Objective-C. Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app iOS ARKit in grado di salvare e richiamare un ancoraggio nello spazio.
 
@@ -28,12 +28,12 @@ Si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
 
 - Un computer macOS abilitato per lo sviluppo in cui è installata la versione più recente di <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> e <a href="https://cocoapods.org" target="_blank">CocoaPods</a>.
-- Git installato tramite HomeBrew. Immettere il comando seguente in una singola riga del terminale: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Quindi eseguire `brew install git`.
+- Git installato tramite HomeBrew. Immettere il comando seguente in una singola riga del terminale: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Eseguire quindi `brew install git` e `brew install git-lfs`.
 - Un dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatibile con ARKit</a> abilitato per lo sviluppo.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -87,7 +87,7 @@ open ./SampleObjC.xcworkspace
 
 ## <a name="configure-account-identifier-and-key"></a>Configurare l'identificatore e la chiave dell'account
 
-Il passaggio successivo consiste nel configurare l'app in modo da usare l'identificatore e la chiave dell'account. Questi dati sono stati copiati in un editor di testo durante [la configurazione della risorsa di ancoraggi nello spazio](#create-a-spatial-anchors-resource).
+Il passaggio successivo consiste nel configurare l'app in modo da usare l'identificatore e la chiave dell'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
@@ -115,7 +115,7 @@ Connettere il dispositivo iOS al Mac e impostare lo **schema attivo** sul dispos
 
 Selezionare **Build and then run the current scheme** (Compila e quindi esegui lo schema corrente).
 
-![Compilare ed eseguire](./media/get-started-ios/deploy-run.png)
+![Distribuire ed eseguire](./media/get-started-ios/deploy-run.png)
 
 > [!NOTE]
 > Se viene visualizzato un errore `library not found for -lPods-SampleObjC`, è probabile che sia stato aperto il file `.xcodeproj` invece di `.xcworkspace`. Aprire `.xcworkspace` e riprovare.

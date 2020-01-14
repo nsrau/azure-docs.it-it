@@ -3,17 +3,17 @@ title: "Eseguire il debug e l'iterazione in Kubernetes: Visual Studio Code e Jav
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Sviluppo rapido Kubernetes con contenitori, microservizi e Java in Azure
+description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Java nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Java, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5f0f9991ae8718b60221c3f291b6169f677b59c5
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8050e7793146456894ce86ab89e1563c6282b8df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438280"
 ---
-# <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Guida introduttiva: Eseguire il debug e l'iterazione in Kubernetes con Visual Studio Code e Java - Azure Dev Spaces
+# <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes con Visual Studio Code e Java - Azure Dev Spaces
 
 In questa guida si apprenderà come:
 
@@ -26,7 +26,7 @@ Azure Dev Spaces consente anche di eseguire il debug e l'iterazione usando:
 - [.NET Core e Visual Studio Code](quickstart-netcore.md)
 - [.NET Core e Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/free).
 - [Visual Studio Code installato](https://code.visualstudio.com/download).
@@ -94,7 +94,7 @@ Quando Visual Studio Code richiede anche di configurare le immagini di base, la 
 
 ![Selezionare la porta esposta](media/get-started-java/select-exposed-port.png)
 
-![Selezionare l'endpoint pubblico](media/get-started-java/select-public-endpoint.png)
+![Selezione dell'endpoint pubblico](media/get-started-java/select-public-endpoint.png)
 
 Questo comando consente di preparare il progetto per l'esecuzione in Azure Dev Spaces generando un Dockerfile e un grafico Helm. Genera inoltre una directory *.vscode* con la configurazione di debug alla radice del progetto.
 

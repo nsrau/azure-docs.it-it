@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di Visione artificiale per Go | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Visione artificiale per Go'
 titleSuffix: Azure Cognitive Services
-description: Introduzione alla libreria client di Visione artificiale per Go.
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Visione artificiale per Go.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72943094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382310"
 ---
-# <a name="quickstart-computer-vision-client-library-for-go"></a>Guida introduttiva: Libreria client di Visione artificiale per Go
+# <a name="quickstart-computer-vision-client-library-for-go"></a>Avvio rapido: Libreria client di Visione artificiale per Go
 
 Introduzione alla libreria client di Visione artificiale per Go. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Visione artificiale consente di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione di informazioni.
 
@@ -28,7 +28,7 @@ Usare la libreria client di Visione artificiale per Go per:
 
 [Documentazione di riferimento](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Pacchetto](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione più recente di [Go](https://golang.org/dl/)
@@ -99,7 +99,7 @@ Successivamente, si inizierà ad aggiungere il codice per eseguire diverse opera
 
 Le classi e le interfacce seguenti gestiscono alcune delle funzionalità principali dell'SDK Visione artificiale per Go.
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Questa classe è necessaria per tutte le funzionalità di Visione artificiale, ad esempio l'analisi delle immagini e la lettura del testo. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per eseguire la maggior parte delle operazioni con le immagini.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Questo tipo contiene i risultati di una chiamata di funzione **AnalyzeImage**. Esistono tipi simili per ogni funzione specifica della categoria.|

@@ -7,24 +7,24 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/30/2019
+ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533947"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563462"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Guida introduttiva: Creare un archivio conoscenze di Ricerca cognitiva di Azure nel portale di Azure
+# <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Avvio rapido: Creare un archivio conoscenze di Ricerca cognitiva di Azure nel portale di Azure
 
 > [!IMPORTANT] 
 > L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che consente di rendere persistente l'output di una pipeline di competenze cognitive per analisi successive o per l'elaborazione downstream. 
 
-Una pipeline accetta immagini e testo non strutturato come contenuto non elaborato, applica l'intelligenza artificiale tramite Servizi cognitivi, ad esempio l'elaborazione di immagini e linguaggi naturali, creando come output contenuto arricchito, ovvero nuove strutture e informazioni. Uno degli artefatti fisici creati da una pipeline è un [archivio conoscenze](knowledge-store-concept-intro.md), a cui è possibile accedere tramite strumenti per analizzare ed esplorare il contenuto.
+Una pipeline accetta testo e immagini non strutturate come contenuto non elaborato, applica l'intelligenza artificiale tramite Servizi cognitivi (ad esempio OCR, analisi delle immagini e elaborazione del linguaggio naturale), estrae informazioni e restituisce nuove strutture e informazioni. Uno degli artefatti fisici creati da una pipeline è un [archivio conoscenze](knowledge-store-concept-intro.md), a cui è possibile accedere tramite strumenti per analizzare ed esplorare il contenuto.
 
-In questa guida di avvio rapido verranno combinati servizi e dati nel cloud di Azure per creare un archivio conoscenze. Si userà quindi la procedura guidata **Importa dati** nel portale per riunire tutti i dati ottenuti. Il risultato finale include il contenuto originale e quello generato dall'intelligenza artificiale che è possibile visualizzare nel portale ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
+In questa guida di avvio rapido verranno combinati servizi e dati nel cloud di Azure per creare un archivio conoscenze. Si userà quindi la procedura guidata **Importa dati** nel portale per riunire tutti i dati ottenuti. Il risultato finale include il contenuto di testo originale e quello generato dall'intelligenza artificiale che è possibile visualizzare nel portale ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -38,13 +38,9 @@ Poiché il carico di lavoro è molto ridotto, Servizi cognitivi lavora dietro le
 
 1. [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [trovare un account esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) nella sottoscrizione corrente. Si userà l'archiviazione di Azure sia per il contenuto non elaborato da importare che per l'archivio conoscenze che rappresenta il risultato finale.
 
-   Questo account prevede due requisiti:
+   Scegliere il tipo di account **Archiviazione V2 (utilizzo generico V2)** .
 
-   + Scegliere la stessa area di Ricerca cognitiva di Azure. 
-   
-   + Scegliere il tipo di account Archiviazione V2 (utilizzo generico V2). 
-
-1. Aprire le pagine dei servizi BLOB e creare un contenitore.  
+1. Aprire le pagine dei servizi BLOB e creare un contenitore denominato *hotel-reviews*.
 
 1. Fare clic su **Carica**.
 
@@ -54,9 +50,9 @@ Poiché il carico di lavoro è molto ridotto, Servizi cognitivi lavora dietro le
 
     ![Creazione del contenitore BLOB di Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Creazione del contenitore BLOB di Azure")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. Questa risorsa è quasi terminata, ma prima di chiudere le pagine, fare clic sul collegamento nel riquadro di spostamento sinistro per aprire la pagina **Chiavi di accesso**. Ottenere una stringa di connessione per recuperare i dati dall'archiviazione BLOB. Una stringa di connessione è simile all'esempio seguente: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). È possibile usare un servizio gratuito per questo avvio rapido.
+1. Sempre nel portale, passare a Ricerca cognitiva di Azure. [Creare un nuovo servizio](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). È possibile usare un servizio gratuito per questo avvio rapido.
 
 A questo punto è possibile procedere con la procedura guidata Importa dati.
 
@@ -71,17 +67,18 @@ Nella pagina Panoramica del servizio di ricerca fare clic su **Importa dati** su
 1. In **Definisci la connessione ai dati** scegliere **Archiviazione BLOB di Azure** e selezionare l'account e il contenitore creati. 
 1. In **Nome** immettere `hotel-reviews-ds`.
 1. In **Modalità di analisi** selezionare **Testo delimitato** e quindi selezionare la casella di controllo **La prima riga contiene l'intestazione**. Verificare che in **Carattere di delimitazione**  sia impostata la virgola (,).
-1. Immettere la **stringa di connessione** del servizio di archiviazione salvata in un passaggio precedente.
-1. In **Nome contenitore** immettere `hotel-reviews`.
-1. Fare clic su **Avanti: Aggiungere l'arricchimento con intelligenza artificiale (facoltativo)** .
+1. In **Stringa di connessione** incollare la stringa di connessione copiata dalla pagina **Chiavi di accesso** in Archiviazione di Azure.
+1. In **Contenitori** immettere il nome del contenitore BLOB in cui si trovano i dati.
 
-      ![Creazione di un oggetto origine dati](media/knowledge-store-create-portal/hotel-reviews-ds.png "Creazione di un oggetto origine dati")
+    La pagina sarà simile alla schermata seguente.
+
+    ![Creazione di un oggetto origine dati](media/knowledge-store-create-portal/hotel-reviews-ds.png "Creazione di un oggetto origine dati")
 
 1. Passare alla pagina successiva.
 
 ### <a name="step-2-add-cognitive-skills"></a>Passaggio 2: Aggiungere competenze cognitive
 
-In questo passaggio della procedura guidata si creerà un set di competenze con arricchimenti delle competenze cognitive. Le competenze usate in questo esempio estraggono le frasi chiave e rilevano il linguaggio e il sentiment. In un passaggio successivo questi arricchimenti verranno "proiettati" in un archivio conoscenze come tabelle di Azure.
+In questo passaggio della procedura guidata si creerà un set di competenze con arricchimenti delle competenze cognitive. I dati di origine sono costituiti dalle recensioni dei clienti in diverse lingue. Le competenze pertinenti per questo set di dati includono l'estrazione di frasi chiave, il rilevamento del sentiment e la traduzione del testo. In un passaggio successivo questi arricchimenti verranno "proiettati" in un archivio conoscenze come tabelle di Azure.
 
 1. Espandere **Collega Servizi cognitivi**. **Gratuito (miglioramenti limitati)** è l'impostazione predefinita. È possibile usare questa risorsa perché il numero di record in HotelReviews-Free.csv è 19 e questa risorsa gratuita consente fino a 20 transazioni al giorno.
 1. Espandere **Aggiungi competenze cognitive**.
@@ -90,7 +87,7 @@ In questo passaggio della procedura guidata si creerà un set di competenze con 
 1. In **Livello di granularità dell'arricchimento** selezionare **Pagine (5000 blocchi di caratteri)** .
 1. Selezionare le competenze cognitive seguenti:
     + **Estrarre le espressioni chiave**
-    + **Rilevare la lingua**
+    + **Tradurre un testo**
     + **Rileva sentiment**
 
       ![Creare un set di competenze](media/knowledge-store-create-portal/hotel-reviews-ss.png "Creare un set di competenze")
@@ -104,6 +101,8 @@ In questo passaggio della procedura guidata si creerà un set di competenze con 
 
     ![Configurazione dell'archivio conoscenze](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurazione dell'archivio conoscenze")
 
+1. Facoltativamente, scaricare un modello di Power BI. Quando si accede al modello dalla procedura guidata, il file con estensione pbit locale viene adattato alla forma dei dati.
+
 1. Passare alla pagina successiva.
 
 ### <a name="step-3-configure-the-index"></a>Passaggio 3: Configurare l'indice
@@ -111,10 +110,7 @@ In questo passaggio della procedura guidata si creerà un set di competenze con 
 In questo passaggio della procedura guidata si configura un indice per query di ricerca full-text facoltative. La procedura guidata campiona l'origine dati per dedurre i campi e i tipi di dati. Non occorre fare altro che selezionare gli attributi per il comportamento desiderato. Ad esempio, l'attributo **Recuperabile** consentirà al servizio di ricerca di restituire un valore di campo, mentre l'attributo **Ricercabile** abiliterà la ricerca full-text nel campo.
 
 1. In **Nome indice** immettere `hotel-reviews-idx`.
-1. Per gli attributi, effettuare le selezioni seguenti:
-    + Selezionare **Recuperabile** per tutti i campi.
-    + Selezionare **Filtrabile** e **Con facet** per questi campi: *Sentiment*, *Language*, *Keyphrases*
-    + Selezionare **Ricercabile** per questi campi: *city*, *name*, *reviews_text*, *language*, *Keyphrases*
+1. Per gli attributi, accettare le selezioni predefinite: **Recuperabile** e **Ricercabile** per i nuovi campi creati dalla pipeline.
 
     L'indice dovrebbe essere simile all'immagine seguente. Poiché l'elenco è lungo, non tutti i campi sono visibili nell'immagine.
 

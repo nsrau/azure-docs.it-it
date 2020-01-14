@@ -1,21 +1,21 @@
 ---
-title: Visualizzare le anomalie con il rilevamento in batch e Power BI
+title: 'Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI'
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Rilevamento anomalie e Power BI per visualizzare eventuali anomalie nei dati delle serie temporali.
+description: Informazioni su come usare l'API Rilevamento anomalie e Power BI per visualizzare le anomalie in tutti i dati della serie temporale.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840873"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448859"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 > * Integrare Power BI Desktop con l'API Rilevamento anomalie per il rilevamento anomalie in batch
 > * Visualizzare le anomalie trovate all'interno dei dati, inclusi i valori previsti e quelli rilevati, e i limiti di rilevamento anomalie.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponibile gratuitamente.
 * Un file di Excel (con estensione xlsx) contenente i punti dati delle serie temporali. I dati di esempio per questa guida di avvio rapido sono disponibili in [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962).
@@ -143,7 +143,7 @@ Nella schermata principale di Power BI iniziare a usare le query create in prece
 
 Aggiungere i campi seguenti da **Richiamata funzione**  al campo **Valori** del grafico. Usare lo screenshot seguente come aiuto per creare il grafico.
 
-    * Valore
+    * valore
     * UpperMargins
     * LowerMargins
     * ExpectedValues

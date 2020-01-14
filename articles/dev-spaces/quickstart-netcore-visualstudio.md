@@ -3,19 +3,19 @@ title: "Eseguire il debug e l'iterazione in Kubernetes: Visual Studio e .NET Cor
 services: azure-dev-spaces
 ms.date: 11/13/2019
 ms.topic: quickstart
-description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
+description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: a151314bef14e302879f4db0f7c0094779bdcfec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: bfa798027a3905eff29bf1ce11251ce900bd7267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438237"
 ---
-# <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Guida introduttiva: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio e .NET Core - Azure Dev Spaces
+# <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio e .NET Core - Azure Dev Spaces
 
 In questa guida si apprenderà come:
 
@@ -28,7 +28,7 @@ Azure Dev Spaces consente anche di eseguire il debug e l'iterazione usando:
 - [Node.js e Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core e Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/free).
 - Visual Studio 2019 in Windows con il carico di lavoro Sviluppo di Azure installato. Si può anche usare Visual Studio 2017 in Windows con il carico di lavoro Sviluppo Web e [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools) installato. Se Visual Studio non è installato, scaricarlo [qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -44,7 +44,7 @@ Azure Dev Spaces consente anche di eseguire il debug e l'iterazione usando:
     ![Creare il servizio Azure Kubernetes nel portale di Azure](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
 1. Fare clic su *Rivedi e crea*.
-1. Fare clic su *Create*(Crea).
+1. Fare clic su *Crea*.
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes
 
@@ -60,7 +60,7 @@ Passare al cluster del servizio Azure Kubernetes nel portale di Azure e fare cli
 1. Denominare il progetto *webfrontend* e fare clic su *Crea*.
 1. Quando richiesto, scegliere *Applicazione Web (Model-View-Controller)* per il modello.
 1. Selezionare *.NET Core* e *ASP.NET Core 2.1* nella parte superiore.
-1. Fare clic su *Create*(Crea).
+1. Fare clic su *Crea*.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Connettere il progetto al proprio spazio di Dev Spaces
 

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini con l'API REST e Java - Ricerca visiva Bing"
+title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini con l'API REST e Java - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
@@ -8,31 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: eecca2372c7265d456276a966cc441b15c17272a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383595"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446623"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Java
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Java
 
 Usare questo argomento di avvio rapido per eseguire la prima chiamata all'API Ricerca visiva Bing e visualizzare i risultati. Quest'applicazione Java carica un'immagine nell'API e visualizza le informazioni restituite. Anche se l'applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. È necessario impostare il parametro `name` su "image" e il parametro `filename` su qualsiasi stringa. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
-
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java Development Kit (JDK) 7 o 8](https://aka.ms/azure-jdks)
 * [Libreria Java Gson](https://github.com/google/gson)
@@ -63,7 +52,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il percorso dell'immagine:
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il percorso dell'immagine. `endpoint` può essere l'endpoint globale seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa:
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -71,18 +60,30 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     static String imagePath = "path-to-your-image";
     ```
 
+    
+    Quando si carica un'immagine locale, i dati del modulo devono includere l'intestazione `Content-Disposition`. È necessario impostare il parametro `name` su "image" e il parametro `filename` su qualsiasi stringa. Il contenuto del modulo include i dati binari dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB.
+    
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
+    ```
+
 ## <a name="create-the-json-parser"></a>Creare il parser JSON
 
 Creare un metodo per rendere più leggibile la risposta JSON dall'API usando `JsonParser`:
 
-    ```java
-    public static String prettify(String json_text) {
-            JsonParser parser = new JsonParser();
-            JsonObject json = parser.parse(json_text).getAsJsonObject();
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            return gson.toJson(json);
-        }
-    ```
+```java
+public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+```
 
 ## <a name="construct-the-search-request-and-query"></a>Costruire la richiesta di ricerca e la query
 
@@ -120,11 +121,11 @@ Creare un metodo per rendere più leggibile la risposta JSON dall'API usando `Js
 
 2. Archiviare la stringa JSON e stampare la risposta:
 
-```java
-String json = new Scanner(stream).useDelimiter("\\A").next();
-System.out.println("\nJSON Response:\n");
-System.out.println(prettify(json));
-```
+    ```java
+    String json = new Scanner(stream).useDelimiter("\\A").next();
+    System.out.println("\nJSON Response:\n");
+    System.out.println(prettify(json));
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

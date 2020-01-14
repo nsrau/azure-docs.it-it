@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare una knowledge base in REST, Java - QnA Maker'
+title: 'Avvio rapido: creare una knowledge base in REST, Java - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva basata su Java REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
@@ -8,24 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: c5a1af0b26f30cac39a76c4480848fbe1d75477b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: bd2e12660894f51ae4606ce3b2766f6cff821f41
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447648"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Guida introduttiva: creare una knowledge base in QnA Maker con Java
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Avvio rapido: creare una knowledge base in QnA Maker con Java
 
 Questa guida introduttiva illustra come creare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API.
 
+In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
+* [Create Knowledgebase](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create) (Creare la knowledge base)
+* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) (Ottenere i dettagli dell'operazione)
+
+[Documentazione di riferimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Esempio di Java](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
+
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
-
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Go 1.10.1](https://golang.org/dl/)
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e l'endpoint (che include il nome della risorsa), selezionare **Avvio rapido** per la risorsa nel portale di Azure.
@@ -43,9 +47,14 @@ All'inizio di `CreateKB.java` inserire le righe seguenti per aggiungere le dipen
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Aggiungere le costanti obbligatorie
-Dopo le dipendenze obbligatorie precedenti, aggiungere alla classe `CreateKB` le costanti obbligatorie per accedere a QnA Maker. 
+Dopo le dipendenze obbligatorie precedenti, aggiungere alla classe `CreateKB` le costanti obbligatorie per accedere a QnA Maker.
 
-È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e il nome della risorsa, selezionare **Avvio rapido** nel portale di Azure per la risorsa QnA Maker. 
+È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e il nome della risorsa, selezionare **Avvio rapido** nel portale di Azure per la risorsa QnA Maker.
+
+Impostare i valori seguenti:
+
+* `<your-qna-maker-subscription-key>` - La **chiave** è una stringa di 32 caratteri ed è disponibile nella risorsa QnA Maker, nella pagina Avvio rapido del portale di Azure. Non è la stessa chiave dell'endpoint di previsione.
+* `<your-resource-name>` - Il **nome della risorsa** viene usato per creare l'URL dell'endpoint di creazione nel formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Non è lo stesso URL usato per eseguire query sull'endpoint di previsione.
 
 Non è necessario aggiungere la parentesi graffa finale per terminare la classe; si trova nel frammento di codice finale alla fine di questa guida introduttiva.
 

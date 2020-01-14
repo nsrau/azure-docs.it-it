@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Azure - Creare e usare una condivisione file di Azure in macchine virtuali Windows | Microsoft Docs
+title: Creare e usare una condivisione file di Azure in macchine virtuali Windows
 description: In questa guida introduttiva si configura una condivisione file di Azure nel portale di Azure e la si connette a una macchina virtuale Windows. Ci si connette alla condivisione file e si carica un file, quindi si acquisisce uno snapshot della condivisione file, si modifica il file nella condivisione file e si ripristina uno snapshot precedente della condivisione.
 author: roygara
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463902"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Guida introduttiva: Creare e gestire una condivisione file di Azure con macchine virtuali Windows
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con macchine virtuali Windows
 
 L'articolo illustra i passaggi di base per la creazione e l'uso di una condivisione file di Azure. In questa guida introduttiva, particolare attenzione è dedicata a come configurare rapidamente una condivisione file di Azure in modo da sperimentare il funzionamento del servizio. Se sono necessarie istruzioni più dettagliate per la creazione e l'uso di condivisioni file di Azure nel proprio ambiente, vedere [Usare una condivisione file di Azure con Windows](storage-how-to-use-files-windows.md).
 
@@ -85,7 +85,7 @@ A questo punto, è stata creata una nuova macchina virtuale e collegato un disco
 
    ![Connettersi a una macchina virtuale di Azure dal portale](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
-1. Nella pagina **Connettersi alla macchina virtuale** mantenere le opzioni predefinite per la connessione con **Indirizzo IP** sul **numero di porta** *3389* e selezionare **Scarica file RDP**.
+1. Nella pagina **Connetti alla macchina virtuale** mantenere le opzioni predefinite per la connessione con **Indirizzo IP** sul **numero di porta** *3389* e selezionare **Scarica file RDP**.
 1. Aprire il file RDP scaricato e selezionare **Connetti** quando richiesto.
 1. Nella finestra **Sicurezza di Windows** selezionare **Altre opzioni** e quindi **Usa un altro account**. Digitare il nome utente come *localhost\nomeutente*, dove &lt;nomeutente&gt; è il nome utente dell'amministratore VM creato per la macchina virtuale. Immettere la password creata per la macchina virtuale e quindi selezionare **OK**.
 
@@ -101,7 +101,7 @@ A questo punto, è stata creata una nuova macchina virtuale e collegato un disco
    ![Il percorso UNC dal riquadro Connetti di File di Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. Nella macchina virtuale, aprire **Esplora file** e selezionare **Questo PC** nella finestra. Questa selezione modifica i menu disponibili sulla barra multifunzione. Scegliere **Connetti unità di rete** dal menu **Computer**.
-1. Selezionare la lettera di unità e immettere il percorso UNC. Se sono stati seguiti i suggerimenti di denominazione in questa guida introduttiva, copiare  *\\qsstorageacct.file.core.windows.net\qsfileshare* dal **Blocco note**.
+1. Selezionare la lettera di unità e immettere il percorso UNC. Se sono stati seguiti i suggerimenti di denominazione in questa guida introduttiva, copiare *\\qsstorageacct.file.core.windows.net\qsfileshare* dal **Blocco note**.
 
    Assicurarsi che siano selezionate entrambe le caselle di controllo.
 

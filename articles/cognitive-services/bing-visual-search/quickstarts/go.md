@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini con l'API REST e Go - Ricerca visiva Bing"
+title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini con l'API REST e Go - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 4/02/2019
-ms.author: rosh
-ms.openlocfilehash: d1612db9b0c0f6a5ec85734d5a26ed0e25cb8c07
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: 836012c11d16810172c27fb948e1185f99f7de83
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446651"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Go
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Go
 
 In questo argomento di avvio rapido viene usato il linguaggio di programmazione Go per chiamare l'API Ricerca visiva Bing e visualizzare i risultati. Una richiesta POST carica un'immagine nell'endpoint dell'API. I risultati includono URL e informazioni descrittive su immagini simili a quella caricata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Installare i [file binari Go](https://golang.org/dl/).
 * Per visualizzare i risultati usare lo strumento go-spew per la riformattazione avanzata. È possibile installare go-spew con il comando `$ go get -u https://github.com/davecgh/go-spew`.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-libraries"></a>Progetto e librerie
 
 Creare un progetto Go nell'ambiente di sviluppo integrato o nell'editor preferito. Importare quindi `net/http` per le richieste, `ioutil` per leggere la risposta e `encoding/json` per gestire il testo JSON dei risultati. La libreria `go-spew` viene usata per analizzare i risultati JSON.
 
-```
+```go
 package main
 
 import (
@@ -54,7 +54,7 @@ import (
 
 La struttura `BingAnswer` formatta i dati restituiti nella risposta JSON, che include più livelli ed è complessa. L'implementazione seguente illustra alcuni dei concetti essenziali:
 
-```
+```go
 type BingAnswer struct {
     Type         string `json:"_type"`
     Instrumentation struct {
@@ -109,9 +109,9 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Funzione main e variabili  
 
-Il codice seguente dichiara la funzione main e assegna le variabili obbligatorie. Verificare che l'endpoint sia corretto e sostituire il valore di `token` con una chiave di sottoscrizione valida del proprio account Azure. `batchNumber` è un GUID necessario per i limiti iniziale e finale dei dati POST. La variabile `fileName` identifica il file di immagine per la richiesta POST. Le sezioni seguenti illustrano i dettagli del codice:
+Il codice seguente dichiara la funzione main e assegna le variabili obbligatorie. Verificare che l'endpoint sia corretto e sostituire il valore di `token` con una chiave di sottoscrizione valida del proprio account Azure. `batchNumber` è un GUID necessario per i limiti iniziale e finale dei dati POST. La variabile `fileName` identifica il file di immagine per la richiesta POST. `endpoint` può essere l'endpoint globale seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa:
 
-```
+```go
 func main() {
     // Verify the endpoint URI and replace the token string with a valid subscription key.se
     endpoint := "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch"
@@ -161,7 +161,7 @@ func main() {
 
 Per una richiesta POST all'endpoint di Ricerca visiva è necessario definire i limiti iniziale e finale che racchiudono i dati POST. Il limite iniziale include un numero di batch, l'identificatore del tipo di contenuto `Content-Disposition: form-data; name="image"; filename=` e il nome file dell'immagine per la richiesta POST. Il limite finale è costituito semplicemente dal numero di batch. Queste funzioni non sono incluse nel blocco `main`:
 
-```
+```go
 func BuildFormDataStart(batNum string, fileName string) string{
 
     startBoundary := "--batch_" + batNum + "\r\n"
@@ -180,7 +180,7 @@ func BuildFormDataEnd(batNum string) string{
 
 Questo segmento di codice crea la richiesta POST contenente i dati dell'immagine:
 
-```
+```go
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
     file, err := os.Open(fileName)
     if err != nil {
@@ -209,7 +209,7 @@ func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, stri
 
 Il codice seguente invia la richiesta e legge i risultati:
 
-```
+```go
 resp, err := client.Do(req)
     if err != nil {
         panic(err)
@@ -228,7 +228,7 @@ resp, err := client.Do(req)
 
 La funzione `Unmarshall` estrae le informazioni dal testo JSON restituito dall'API Ricerca visiva. Lo strumento `go-spew` per la riformattazione visualizza i risultati:
 
-```
+```go
     // Create a new answer.  
     ans := new(BingAnswer)
     err = json.Unmarshal(resbody, &ans)
@@ -251,7 +251,7 @@ La funzione `Unmarshall` estrae le informazioni dal testo JSON restituito dall'A
 
 I risultati identificano le immagini simili a quella contenuta nel corpo della richiesta POST. I campi utili sono `WebSearchUrl` e `Name`:
 
-```
+```go
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
      (struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) {
       WebSearchUrl: (string) (len=129) "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=B9E6621161769D578A9E4DD9FD742128DE65225A&simid=608046863828453626",

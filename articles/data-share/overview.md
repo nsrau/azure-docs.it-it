@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499353"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660801"
 ---
 # <a name="what-is-azure-data-share"></a>Che cos'è Condivisione dati di Azure?
 

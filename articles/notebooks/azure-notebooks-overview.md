@@ -1,22 +1,24 @@
 ---
-title: Panoramica di Azure Notebooks
-description: Eseguire i notebook di Jupyter nel cloud usando il servizio Azure Notebooks gratuito, in cui non è necessaria alcuna installazione o configurazione.
+title: Panoramica di Azure Notebooks (anteprima)
+description: Eseguire i notebook di Jupyter nel cloud usando il servizio Azure Notebooks (anteprima) gratuito, in cui non è necessaria alcuna installazione o configurazione.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: b3dfa6cec962809fad1a03f5100c55315ff6a9ad
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277673"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646331"
 ---
-# <a name="overview-of-azure-notebooks"></a>Panoramica di Azure Notebooks
+# <a name="overview-of-azure-notebooks-preview"></a>Panoramica di Azure Notebooks (anteprima)
 
 Azure Notebooks è un servizio ospitato gratuito che consente di sviluppare ed eseguire notebook di Jupyter nel cloud senza alcuna installazione. [Jupyter](https://jupyter.org/) (in precedenza noto come IPython) è un progetto open source che consente di combinare facilmente testo in formato Markdown, codice eseguibile, dati persistenti, grafica e visualizzazioni in un'unica area di disegno condivisibile, il *notebook* (immagine per gentile concessione di jupyter.org):
 
 [![Esempi di notebook di Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Grazie a questa combinazione avanzata di codice, grafica e testo esplicativo, Jupyter è molto diffuso per diversi scopi, tra cui istruzione di data science, pulizia e trasformazione dei dati, simulazione numerica, modellazione statistica e sviluppo di modelli di Machine learning.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="hassle-free-experience"></a>Esperienza senza problemi
 
@@ -63,7 +65,7 @@ Per ogni notebook, si seleziona il kernel (ovvero l'ambiente di runtime) usato p
 
 Azure Notebooks include anche pacchetti aggiuntivi oltre alle distribuzioni di base. I kernel Python, ad esempio, includono le librerie numpy, pandas, scikit-learn, matplotlib e bokeh.
 
-È anche possibile personalizzare un progetto per creare un ambiente per tutti i notebook in tale progetto. Per ulteriori informazioni, consultare [Avvio rapido: Creare un progetto con un ambiente personalizzato](quickstart-create-jupyter-notebook-project-environment.md).
+È anche possibile personalizzare un progetto per creare un ambiente per tutti i notebook in tale progetto. Per altre informazioni, vedere [Avvio rapido: Creare un progetto con un ambiente personalizzato](quickstart-create-jupyter-notebook-project-environment.md).
 
 Oltre alle distribuzioni di base, in Azure Notebooks sono preinstallati numerosi pacchetti aggiuntivi utili ai data scientist. È anche possibile installare pacchetti personalizzati usando il processo tipico per ogni linguaggio.
 

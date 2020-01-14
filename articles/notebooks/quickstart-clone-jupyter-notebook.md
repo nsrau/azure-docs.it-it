@@ -1,20 +1,22 @@
 ---
-title: Clonare un notebook di Jupyter da GitHub con Azure Notebooks
+title: Clonare un notebook di Jupyter da GitHub con Azure Notebooks (anteprima)
 description: Clonare rapidamente un notebook di Jupyter da un repository GitHub ed eseguirlo nell'account di Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 500bd3f85409bb2f5e7b73be0478694695cc9c00
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8aa88008ece170a5eed7ab491e3318aed5168923
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277515"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647102"
 ---
-# <a name="quickstart-clone-a-notebook"></a>Avvio rapido: Clonare un notebook
+# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Avvio rapido: Clonare un notebook in Azure Notebooks (anteprima)
 
 Molti data scientist e sviluppatori archiviano i notebook in [repository GitHub](https://github.com), un servizio gratuito che fornisce il controllo delle versioni e risorse di archiviazione per molti diversi tipi di progetto. GitHub viene spesso usato come strumento per collaborare ai notebook di Jupyter che vengono eseguiti in locale. In questi casi, ogni collaboratore gestisce una copia locale del repository ed esegue i notebook da tale copia.
 
 La clonazione consente invece di creare una copia di un notebook di GitHub nell'account di Azure Notebooks. Questo clone è indipendente dal relativo repository originale. Le modifiche vengono archiviate solo nell'account di Azure Notebooks e non influiscono sull'originale. Poiché il clone si trova nel cloud, è possibile condividere il progetto con altri collaboratori che non necessitano di copie locali o che dispongono addirittura di Jupyter installato ne propri computer. È anche possibile clonare un notebook semplicemente come punto di partenza per un progetto personalizzato o per ottenere file di dati.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Clonare notebook di Servizi cognitivi di Azure
 

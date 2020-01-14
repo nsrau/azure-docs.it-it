@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10fb9e8169b7f4159ccbf4a0ff36021f6033f811
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67180705"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552419"
 ---
 Per completare questa esercitazione, è necessario soddisfare i requisiti seguenti:
 
@@ -21,7 +21,7 @@ Per completare questa esercitazione, è necessario soddisfare i requisiti seguen
 
 **Docker**: questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, tra cui contenitori, immagini dei contenitori e comandi `docker` di base. Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview][docker-get-started] (Panoramica di Docker).
 
-**Motore Docker**: per completare questa esercitazione, è necessario che il motore Docker sia installato in locale. Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS][docker-mac], [Windows][docker-windows] e [Linux][docker-linux].
+**Docker**: per completare questa esercitazione, è necessario installare Docker localmente. Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS][docker-mac], [Windows][docker-windows] e [Linux][docker-linux].
 
 > [!IMPORTANT]
 > Poiché Azure Cloud Shell non include il daemon Docker, per completare questa esercitazione è *necessario* installare nel *computer locale* sia l'interfaccia della riga di comando di Azure che il motore Docker. Per questa esercitazione non è possibile usare Azure Cloud Shell.

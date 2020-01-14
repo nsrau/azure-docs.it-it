@@ -1,24 +1,27 @@
 ---
-title: 'Guida introduttiva: Riconoscere la voce, le finalità e le entità - Servizio Voce'
+title: 'Avvio rapido: Riconoscere la voce, le finalità e le entità - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 1/02/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a87ed9355a5939393fd5e20f395cc96f35e7f150
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833d39ab91cd803f066d707306a6ff648d37e8f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816012"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660512"
 ---
-In questo argomento di avvio rapido si userà [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per riconoscere in modo interattivo i dati audio acquisiti da un microfono. Dopo aver soddisfatto alcuni prerequisiti, il riconoscimento vocale da un microfono richiede solo quattro passaggi:
+In questo argomento di avvio rapido si useranno [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) e il servizio LUIS (Language Understanding) per riconoscere le finalità dai dati audio acquisiti da un microfono. In particolare, si userà Speech SDK per acquisire la voce e un dominio predefinito di LUIS per identificare le finalità per la domotica, come l'accensione e lo spegnimento di una luce. 
+
+Dopo aver soddisfatto alcuni prerequisiti, il riconoscimento vocale e l'identificazione delle finalità da un microfono richiedono solo pochi passaggi:
+
 > [!div class="checklist"]
 >
 > * Creare un oggetto ````SpeechConfig```` dalla chiave e dall'area di sottoscrizione.

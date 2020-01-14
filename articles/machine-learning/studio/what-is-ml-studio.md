@@ -11,50 +11,50 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670536"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528352"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Che cos'è Machine Learning Studio (versione classica)?
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Microsoft Machine Learning Studio (versione classica) è uno strumento di trascinamento della selezione collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati.  La versione classica di Machine Learning Studio pubblica i modelli come servizi Web che possono essere facilmente usati da applicazioni personalizzate o strumenti di Business Intelligence, ad esempio Excel.
+Microsoft Machine Learning Studio (versione classica) è uno strumento di trascinamento della selezione collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati. Azure Machine Learning Studio (versione classica) pubblica modelli e servizi Web che possono essere facilmente usati da app personalizzate o strumenti di business intelligence come Excel.
 
 Machine Learning Studio (versione classica) è il punto di incontro di scienza dei dati, analisi predittive, risorse cloud e dati.
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>Area di lavoro interattiva di Machine Learning Studio (versione classica)
 Per sviluppare un modello di analisi predittiva, in genere si usano dati provenienti da una o più origini, che vengono trasformati e analizzati tramite varie funzioni di modifica dei dati e statistiche e da cui viene generato un set di risultati. Lo sviluppo di un modello come questo è un processo iterativo. Man mano che si modificano le varie funzioni e i relativi parametri, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training.
 
-La versione classica di Azure Machine Learning Studio offre un'area di lavoro visiva e interattiva per eseguire facilmente le operazioni di compilazione, test e iterazione di un modello di analisi predittiva. È possibile trascinare la selezione di ***set di dati*** e ***moduli*** di analisi in un'area di disegno interattiva, collegandoli tra loro per ottenere un ***esperimento*** da eseguire in Machine Learning Studio (versione classica). Per eseguire l'iterazione della progettazione del modello, modificare l'esperimento, salvare eventualmente una copia e ripeterne l'esecuzione. Quando si è pronti, è possibile convertire l'***esperimento di training*** in un ***esperimento predittivo*** e quindi pubblicarlo come un ***servizio Web*** in modo che altri utenti possano accedere al modello.
+Azure Machine Learning Studio (versione classica) offre un'area di lavoro grafica e interattiva per eseguire facilmente le operazioni di compilazione, test e iterazione di un modello di analisi predittiva. È possibile trascinare la selezione di ***set di dati*** e ***moduli*** di analisi in un'area di disegno interattiva, collegandoli tra loro per ottenere un ***esperimento*** da eseguire in Machine Learning Studio (versione classica). Per eseguire l'iterazione della progettazione del modello, modificare l'esperimento, salvare eventualmente una copia e ripeterne l'esecuzione. Quando si è pronti, è possibile convertire l'***esperimento di training*** in un ***esperimento predittivo*** e quindi pubblicarlo come un ***servizio Web*** in modo che altri utenti possano accedere al modello.
 
 Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire un modello di analisi predittiva.
 
-![Diagramma di Azure Machine Learning Studio: Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
+![Diagramma di Azure Machine Learning Studio (versione classica): Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Quali sono le differenze tra Machine Learning Studio (versione classica) e Azure Machine Learning?
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) offre gli SDK **e** la finestra di progettazione di Azure Machine Learning (anteprima) per eseguire rapidamente la preparazione dei dati e il training e la distribuzione dei modelli di Machine Learning. La finestra di progettazione offre un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente ed è pienamente integrata in Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) offre gli SDK **e** la finestra di progettazione di Azure Machine Learning (anteprima) per eseguire rapidamente la preparazione dei dati e il training e la distribuzione dei modelli di Machine Learning. La finestra di progettazione offre un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente ed è pienamente integrata in Azure Machine Learning.
 
 Ecco un confronto rapido:
 
 || Machine Learning Studio (versione classica) | Azure Machine Learning |
 |---| --- | --- |
-| Interfaccia per il trascinamento della selezione | Sì | Sì - [Finestra di progettazione di Azure Machine Learning (anteprima)](../service/concept-designer.md) |
+| Interfaccia per il trascinamento della selezione | Sì | Sì - [Finestra di progettazione di Azure Machine Learning (anteprima)](../concept-designer.md) |
 | Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |
 | Moduli per l'interfaccia di trascinamento della selezione | Molti | Set iniziale di [moduli](../algorithm-module-reference/module-reference.md) più diffusi|
-|Destinazioni di calcolo del training| Destinazione di calcolo proprietaria, solo supporto di CPU| Supporta destinazioni di calcolo di Azure Machine Learning (GPU o CPU) e macchine virtuali per Notebook.<br/>([Altre destinazioni di calcolo supportate nell'SDK](../service/concept-compute-target.md#train))|
-|Destinazioni di calcolo di inferenza| Formato di servizio Web proprietario, non personalizzabile |  Servizio Azure Kubernetes e Servizi di calcolo di Azure Machine Learning <br/>([Altre destinazioni di calcolo supportate nell'SDK](../service/how-to-deploy-and-where.md)) |
-| Pipeline di Machine Learning | Non supportate | [Pipeline](../service/concept-ml-pipelines.md) supportate |
+|Destinazioni di calcolo del training| Destinazione di calcolo proprietaria, solo supporto di CPU| Supporta destinazioni di calcolo di Azure Machine Learning (GPU o CPU) e macchine virtuali per Notebook.<br/>([Altre destinazioni di calcolo supportate nell'SDK](../concept-compute-target.md#train))|
+|Destinazioni di calcolo di inferenza| Formato di servizio Web proprietario, non personalizzabile |  Servizio Azure Kubernetes e Servizi di calcolo di Azure Machine Learning <br/>([Altre destinazioni di calcolo supportate nell'SDK](../how-to-deploy-and-where.md)) |
+| Pipeline di Machine Learning | Non supportate | [Pipeline](../concept-ml-pipelines.md) supportate |
 | MLOps | Gestione e distribuzione dei modelli di base | Distribuzione configurabile - controllo delle versioni e rilevamento di modelli e pipeline |
-| Formato dei modelli | Formato proprietario, solo Studio | Formato standard a seconda del tipo di processo di training |
-|Training automatizzato dei modelli e ottimizzazione degli iperparametri | No | Non ancora presente nella finestra di progettazione <br/> ([Supportato nell'SDK e nella pagina di destinazione dell'area di lavoro](../service/concept-automated-ml.md)) | 
+| Formato dei modelli | Formato proprietario, solo Studio (versione classica) | Formato standard a seconda del tipo di processo di training |
+|Training automatizzato dei modelli e ottimizzazione degli iperparametri | No | Non ancora presente nella finestra di progettazione <br/> ([Supportato nell'SDK e nella pagina di destinazione dell'area di lavoro](../concept-automated-ml.md)) | 
 
-Provare la finestra di progettazione con [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](../service/tutorial-designer-automobile-price-train-score.md)
+Provare la finestra di progettazione con [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](../tutorial-designer-automobile-price-train-score.md)
 
 > [!NOTE]
 > I modelli creati in Studio (versione classica) non possono essere distribuiti né gestiti con Azure Machine Learning. I modelli creati e distribuiti nella finestra di progettazione del servizio possono invece essere gestiti nell'area di lavoro di Azure Machine Learning.
@@ -93,7 +93,7 @@ Quando si compila un esperimento, è possibile effettuare una selezione nell'ele
 Per un elenco dei set di dati di esempio inclusi in Machine Learning Studio (versione classica), vedere [Usare i set di dati di esempio in Azure Machine Learning Studio (versione classica)](use-sample-datasets.md).
 
 ### <a name="modules"></a>Moduli
-Un modulo è un algoritmo che è possibile applicare ai dati.  La versione classica di Machine Learning Studio include diversi moduli, da funzioni di ingresso dei dati a processi di training, valutazione e convalida. Ecco alcuni esempi di moduli inclusi:
+Un modulo è un algoritmo che è possibile applicare ai dati. Azure Machine Learning Studio (versione classica) include diversi moduli, che spaziano da funzioni di inserimento dei dati a processi di training, assegnazione di punteggi e convalida. Ecco alcuni esempi di moduli inclusi:
 
 * [Convert to ARFF][convert-to-arff] (Converti in ARFF): converte un set di dati serializzato .NET nel formato ARFF (Attribute-Relation File Format).
 * [Compute Elementary Statistics][elementary-statistics] (Calcola statistiche elementari): calcola le statistiche elementari come media, deviazione standard e così via.

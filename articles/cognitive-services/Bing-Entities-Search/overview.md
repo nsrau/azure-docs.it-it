@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
-ms.date: 02/01/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8f43401296a154ee40e7c214ad63da878129244a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 2f374e29f4dc5406956cd56d1bb0bd1466e65773
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384520"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Informazioni sull'API Ricerca entità Bing
 
 L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località. I risultati relativi alle località includono ristoranti, hotel o altre aziende locali. Bing restituisce località se la query specifica il nome dell'azienda locale o richiede un tipo di azienda (ad esempio, ristoranti nelle vicinanze). Bing restituisce entità se la query specifica persone, oggetti o località note (attrazioni, stati, paesi/aree geografiche e così via).
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |[Suggerimenti per la ricerca in tempo reale](concepts/search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | Suggerimenti per la ricerca che possono essere visualizzati come elenchi a discesa man mano che l'utente digita.       | 
 | [Disambiguazione entità](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | Ottenere più entità per le query con più significati possibili. |
@@ -41,3 +41,4 @@ L'API Ricerca entità Bing è un servizio Web RESTful, facile da chiamare da qua
 * Per iniziare rapidamente con la prima richiesta, provare una [guida introduttiva](quickstarts/csharp.md).
 * Sezione di riferimento sull'[API Ricerca entità Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
 * I [requisiti per l'uso e la visualizzazione di Bing](./use-display-requirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.
+* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).

@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di Content Moderator per .NET | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Content Moderator per .NET'
 titleSuffix: Azure Cognitive Services
-description: Introduzione alla libreria client di Content Moderator per .NET.
+description: Argomento di avvio rapido sulla libreria client di Content Moderator per .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539027"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382056"
 ---
-# <a name="quickstart-content-moderator-client-library-for-net"></a>Guida introduttiva: Libreria client di Content Moderator per .NET
+# <a name="quickstart-content-moderator-client-library-for-net"></a>Avvio rapido: Libreria client di Content Moderator per .NET
 
 Introduzione alla libreria client di Content Moderator per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti.
 
@@ -29,7 +29,7 @@ Usare la libreria client di Content Moderator per .NET per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Esempi](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -96,7 +96,7 @@ Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client 
 
 Le classi seguenti gestiscono alcune delle principali funzionalità di Content Moderator .NET SDK.
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Questa classe è necessaria per tutte le funzionalità di Content Moderator. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi.|
 |[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Questa classe fornisce la funzionalità per analizzare le immagini e individuare contenuti per adulti, informazioni personali o visi umani.|

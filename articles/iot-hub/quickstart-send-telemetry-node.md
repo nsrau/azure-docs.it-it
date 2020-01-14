@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inviare dati di telemetria ad Azure IoT (Node.js)'
+title: 'Avvio rapido: Inviare dati di telemetria ad Azure IoT (Node.js)'
 description: In questa guida introduttiva si eseguono due applicazioni Node.js di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 92d6af41e55429f1b788de68940bc9b033c51ad6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: e37ce216bf1928785ef9052115599bbd4ab2a603
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167023"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690855"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Node.js)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -29,9 +29,9 @@ La guida introduttiva usa due applicazioni Node.js già pronte, una per inviare 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario disporre di Node.js v10.x.x o versioni successive nel computer di sviluppo.
+Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario disporre di Node.js v10.x.x o versioni successive nel computer di sviluppo. Se si usa Azure Cloud Shell, non aggiornare la versione installata di Node.js. Azure Cloud Shell include già la versione più recente di Node.js.
 
 È possibile scaricare Node.js per più piattaforme da [nodejs.org](https://nodejs.org).
 
@@ -41,7 +41,7 @@ Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritt
 node --version
 ```
 
-Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -57,7 +57,7 @@ Scaricare il progetto di esempio di Node.js da https://github.com/Azure-Samples/
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
+1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
@@ -148,4 +148,4 @@ In questa guida di avvio rapido è stato configurato un hub IoT, è stato regist
 Per informazioni su come controllare il dispositivo simulato da un'applicazione back-end, continuare nella Guida introduttiva successiva.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-node.md)
+> [Avvio rapido: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-node.md)

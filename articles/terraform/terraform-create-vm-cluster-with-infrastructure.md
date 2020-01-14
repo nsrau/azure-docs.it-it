@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un cluster di macchine virtuali di Azure con Terra
 description: Usare Terraform e HCL per creare un cluster di macchine virtuali Linux con bilanciamento del carico in Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: f28cbbf13015d07c9d789ed258a9e2b0582ba1da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159262"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665367"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Esercitazione: Creare un cluster di macchine virtuali di Azure con Terraform e HCL
 
@@ -208,7 +208,7 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -260,10 +260,10 @@ Per impostazione predefinita, Terraform prova a trovare il file delle variabili 
 - File denominato `terraform.tfvars`
 - File denominato usando il modello seguente: `*.auto.tfvars`
 
-Tuttavia, il file delle variabili non deve necessariamente seguire nessuna delle due convenzioni precedenti. In tal caso, specificare il nome del file delle variabili con il parametro `-var-file`. L'esempio seguente illustra questo punto:
+Tuttavia, il file delle variabili non deve necessariamente seguire nessuna delle due convenzioni precedenti. In tal caso, specificare il nome del file delle variabili con il parametro `-var-file`, per cui tale nome non include un'estensione. L'esempio seguente illustra questo punto:
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform determina le azioni necessarie per ottenere lo stato specificato nel file di configurazione.

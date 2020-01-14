@@ -2,14 +2,14 @@
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: 485a76cb91e5146f59e6be592ffd9cbba68e585a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180264"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564794"
 ---
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
@@ -23,19 +23,19 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
 
 2. Specificare i valori seguenti per creare il registro contenitori:
 
-   | Campo | Valore |
+   | Campo | valore |
    | ----- | ----- |
    | Nome registro | Specificare un nome univoco. |
-   | Sottoscrizione | Selezionare una sottoscrizione nell'elenco a discesa. |
-   | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
-   | Località | Scegliere una località vicina. |
+   | Subscription | Selezionare una sottoscrizione nell'elenco a discesa. |
+   | Resource group | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
+   | Location | Scegliere una località vicina. |
    | Utente amministratore | Impostare su **Abilita**. |
    | SKU | Selezionare **Basic**. |
 
-5. Selezionare **Create** (Crea).
+3. Selezionare **Create** (Crea).
 
-6. Dopo aver creato il registro contenitori, passare al registro e quindi selezionare **Chiavi di accesso**.
+4. Dopo aver creato il registro contenitori, selezionarlo, quindi nel riquadro sinistro scegliere **Chiavi di accesso** dal menu disponibile in **Impostazioni**.
 
-7. Copiare i valori di **Server di accesso**, **Nome utente** e **Password** e conservarli in una posizione pratica. Questi valori verranno usati durante l'esercitazione per fornire l'accesso al registro contenitori.
+5. Copiare i valori di **Server di accesso**, **Nome utente** e **Password** e conservarli in una posizione pratica. Questi valori verranno usati durante l'esercitazione per fornire l'accesso al registro contenitori.
 
    ![Copiare nome del server, nome utente e password per il registro contenitori](./media/iot-edge-create-container-registry/registry-access-key.png)

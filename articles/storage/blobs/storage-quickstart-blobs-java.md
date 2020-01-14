@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria di Archiviazione BLOB di Azure v12 - Java'
+title: 'Avvio rapido: Libreria di Archiviazione BLOB di Azure v12 - Java'
 description: In questa guida di avvio rapido verrà illustrato come usare la libreria client di Archiviazione BLOB di Azure versione 12 per Java per creare un contenitore e un BLOB nell'archiviazione (oggetto) BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b5a59e51190fc8309d35445fba7ef4a2dd22b970
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 477f13f58d9b630519faa79424f22cb1bb34918c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351254"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Guida introduttiva: Libreria client di Archiviazione BLOB di Azure v12 per Java
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per Java
 
 Iniziare a usare la libreria client di Archiviazione BLOB di Azure v12 per Java. L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
@@ -33,7 +33,7 @@ Usare la libreria client di Archiviazione BLOB di Azure v12 per Java per:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versione 8 o successiva
 * [Apache Maven](https://maven.apache.org/download.cgi)
@@ -48,13 +48,13 @@ Questa sezione illustra come preparare un progetto da usare con la libreria clie
 
 Creare un'applicazione Java denominata *blob-quickstart-v12*.
 
-1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven *per creare una nuova app console con il nome*blob-quickstart-v12. Digitare il comando **mvn** seguente su un'unica riga per creare un semplice progetto "Hello world!" . Il comando viene visualizzato qui su più righe per migliorare la leggibilità.
+1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven *per creare una nuova app console con il nome*blob-quickstart-v12. Digitare il comando **mvn** seguente per creare un semplice progetto Java "Hello world!" .
 
    ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart
-                          -DartifactId=blob-quickstart-v12
-                          -DarchetypeArtifactId=maven-archetype-quickstart
-                          -DarchetypeVersion=1.4
+   mvn archetype:generate -DgroupId=com.blobs.quickstart \
+                          -DartifactId=blob-quickstart-v12 \
+                          -DarchetypeArtifactId=maven-archetype-quickstart \
+                          -DarchetypeVersion=1.4 \
                           -DinteractiveMode=false
    ```
 
@@ -148,7 +148,7 @@ public class App
 }
 ```
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modello a oggetti
 
@@ -192,11 +192,11 @@ System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable
 // is created after the application is launched in a console or with
 // Visual Studio, the shell or application needs to be closed and reloaded
 // to take the environment variable into account.
-String connectStr = System.getenv("CONNECT_STR");
+String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
 ### <a name="create-a-container"></a>Creare un contenitore

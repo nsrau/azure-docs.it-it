@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Libreria client di Ricerca personalizzata Bing per Java | Microsoft Docs'
-description: Iniziare a usare la libreria client di Ricerca personalizzata Bing per Java richiedendo i risultati della ricerca dall'istanza di Ricerca personalizzata Bing.
+title: 'Avvio rapido: Libreria client di Ricerca personalizzata Bing per Java'
+description: Questo argomento di avvio rapido illustra come iniziare a usare la libreria client di Ricerca personalizzata Bing per Java richiedendo i risultati della ricerca all'istanza di Ricerca personalizzata Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1060cceb9241d9c1c490f7e7f12490c734b0a78d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384554"
 ---
-# <a name="quickstart-bing-custom-search-client-library-for-java"></a>Guida introduttiva: Libreria client di Ricerca personalizzata Bing per Java
+# <a name="quickstart-bing-custom-search-client-library-for-java"></a>Avvio rapido: Libreria client di Ricerca personalizzata Bing per Java
 
 Introduzione alla libreria client di Ricerca personalizzata Bing per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca personalizzate senza annunci per specifici argomenti di interesse.
 
@@ -26,7 +26,7 @@ Usare la libreria client di Ricerca personalizzata Bing per Java per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Artefatto (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 * La versione corrente di [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).

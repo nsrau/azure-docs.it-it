@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di script di Azure PowerShell: copiare, o spostare, lo snapshot di un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa'
-description: 'Esempio di script di Azure PowerShell: copiare, o spostare, lo snapshot di un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa'
+title: Copiare uno snapshot di un disco gestito in una sottoscrizione - Esempio di PowerShell
+description: Esempio di script di Azure PowerShell - Copiare (o spostare) lo snapshot di un disco gestito nella stessa sottoscrizione o in una diversa
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: 7a99dcbe52f8efd00180726070cd269a151d57d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 65a3e39206864f10c41e79ba6b3e7a89da99dc6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463782"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Copiare lo snapshot di un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa con PowerShell
 

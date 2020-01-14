@@ -1,18 +1,20 @@
 ---
-title: Accedere ad Azure Notebooks
-description: Accedere rapidamente ad Azure Notebooks e impostare un ID utente per poter accedere ai progetti salvati e condividere notebook con altri utenti.
+title: Accedere ad Azure Notebooks (anteprima)
+description: Accedere rapidamente ad Azure Notebooks (anteprima) e impostare un ID utente per poter accedere ai progetti salvati e condividere notebook con altri utenti.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277433"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647017"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>Avvio rapido: Accedere e impostare un ID utente
+# <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Avvio rapido: Accedere e impostare un ID utente per Azure Notebooks (anteprima)
 
 Sebbene sia sempre possibile visualizzare Azure Notebooks senza eseguire l'accesso, è necessario accedere per eseguire i notebook, accedere ai notebook e ai progetti salvati e condividere i notebook con altri utenti.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="sign-in"></a>Accesso
 

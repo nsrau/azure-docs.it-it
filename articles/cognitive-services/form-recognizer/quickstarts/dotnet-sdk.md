@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Libreria client di Riconoscimento modulo per .NET | Microsoft Docs'
-description: Iniziare a usare la libreria client di Riconoscimento modulo per .NET per eseguire il training, estrarre, analizzare e generare l'output di dati strutturati.
+title: 'Avvio rapido: Libreria client di Riconoscimento modulo per .NET'
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Riconoscimento modulo per .NET per eseguire il training, estrarre, analizzare e ottenere l'output di dati strutturati.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446487"
 ---
-# <a name="quickstart-form-recognizer-client-library-for-net"></a>Guida introduttiva: Libreria client di Riconoscimento modulo per .NET
+# <a name="quickstart-form-recognizer-client-library-for-net"></a>Avvio rapido: Libreria client di Riconoscimento modulo per .NET
 
 Introduzione alla libreria client di Riconoscimento modulo per .NET. Riconoscimento modulo è un servizio cognitivo che usa la tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base.
 
@@ -28,9 +28,9 @@ Usare la libreria client di Riconoscimento modulo per .NET per:
 * [Ottenere un elenco di modelli personalizzati](#get-a-list-of-custom-models)
 * [Eliminare un modello personalizzato](#delete-a-custom-model)
 
-[Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 * Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess).
@@ -91,7 +91,7 @@ Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client 
 
 Le classi seguenti gestiscono la funzionalità principale dell'SDK Riconoscimento modulo.
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Questa classe è necessaria per tutte le funzionalità di Riconoscimento modulo. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Usare questa classe per eseguire il training di un modello di Riconoscimento modulo personalizzato usando i propri dati di input del training. |

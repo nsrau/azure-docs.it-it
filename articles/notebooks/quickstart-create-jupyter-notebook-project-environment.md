@@ -1,18 +1,20 @@
 ---
-title: Creare un progetto di Azure Notebooks con un ambiente personalizzato
-description: Creare un nuovo progetto Azure Notebooks configurato con un set specifico di pacchetti e script di avvio installati.
+title: Creare un progetto di Azure Notebooks (anteprima) con un ambiente personalizzato
+description: Creare un nuovo progetto Azure Notebooks (anteprima) configurato con un set specifico di pacchetti e script di avvio installati.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: f167d1bf6064cde535d17fa4a336ee13424baba7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277492"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647068"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Avvio rapido: Creare un progetto con un ambiente personalizzato
+# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Avvio rapido: Creare un progetto con un ambiente personalizzato in Azure Notebooks (anteprima)
 
 Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, file di dati, documentazione, immagini e così via, inclusi in un ambiente configurabile con comandi specifici. Dato che l'ambiente viene definito con il progetto, l'utente che clona il progetto nel proprio account Azure Notebooks dispone di tutti i dati necessari per ricreare l'ambiente necessario.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-project"></a>Creare un progetto
 
@@ -33,7 +35,7 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
     - **Public project** (Progetto pubblico): (disattivata)
     - **Create a README.md** (Crea un file README.md): (disattivata)
 
-1. Dopo qualche istante Azure Notebooks passa al nuovo progetto. Per aggiungere un notebook al progetto, selezionare l'elenco a discesa **+ New** (+ Nuovo) (che potrebbe essere visualizzato solo come **+** ) e quindi selezionare **Notebook**.
+1. Dopo qualche istante, Azure Notebooks passa al nuovo progetto. Per aggiungere un notebook al progetto, selezionare l'elenco a discesa **+ New** (+ Nuovo) (che potrebbe essere visualizzato solo come **+** ) e quindi selezionare **Notebook**.
 
 1. Assegnare un nome al notebook, ad esempio *Custom environment.ipynb*, selezionare **Python 3.6** per il linguaggio e quindi selezionare **New** (Nuovo).
 
@@ -49,7 +51,7 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
 
 1. Il comando **+ Add** (+ Aggiungi) crea un passaggio definito da un'operazione e un file di destinazione selezionato tra i file del progetto. Sono supportate le operazioni seguenti:
 
-    | Operazione | DESCRIZIONE |
+    | Operazione | Descrizione |
     | --- | --- |
     | Requirements.txt | I progetti Python definiscono le dipendenze in un file requirements.txt. Con questa opzione, selezionare il file appropriato dall'elenco dei file del progetto e selezionare anche la versione di Python nell'elenco a discesa aggiuntivo visualizzato. Se necessario, selezionare **Cancel** (Annulla) per tornare al progetto, caricare o creare il file, quindi tornare alla scheda **Project Settings** > **Environment** (Impostazioni progetto - Ambiente) e creare un nuovo passaggio. Quando questo passaggio è attivo, se si esegue un notebook nel progetto viene eseguito automaticamente `pip install -r <file>`. |
     | Script della shell | Usare questa opzione per indicare uno script della shell bash (in genere un file con estensione *sh*) contenente tutti i comandi da eseguire per inizializzare l'ambiente. |
@@ -67,4 +69,4 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
 > [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md) (Gestire e configurare progetti in Azure Notebooks)
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare)
+> [Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)

@@ -1,30 +1,30 @@
 ---
-title: "Guida introduttiva: Uso di Python per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di Python per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
-description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo in Servizi cognitivi di Azure.
+description: Questo argomento di avvio rapido illustra come ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 15f0cf7725dec99884497be79b63c21ef16f88b1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378552"
 ---
-# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso dell'API REST di Python per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso dell'API REST di Python per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Usare questo argomento di avvio rapido per iniziare ad analizzare la lingua con l'API REST Analisi del testo e Python. Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre le frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities).
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 3.x](https://python.org)
 
@@ -41,7 +41,7 @@ Usare questo argomento di avvio rapido per iniziare ad analizzare la lingua con 
 
 ## <a name="create-a-new-python-application"></a>Creare una nuova applicazione Python
 
-Creare una nuova applicazione Python nell'editor preferito o nell'ambiente di sviluppo integrato. Aggiungere le istruzioni import seguenti al file.
+Creare una nuova applicazione Python nell'ambiente di sviluppo integrato o nell'editor preferito. Aggiungere le istruzioni import seguenti al file.
 
 ```python
 import requests
@@ -49,20 +49,13 @@ import requests
 from pprint import pprint
 ```
 
-Creare le variabili per l'endpoint e la chiave della sottoscrizione di Azure della risorsa. Ottenere questi valori dalle variabili di ambiente TEXT_ANALYTICS_SUBSCRIPTION_KEY e TEXT_ANALYTICS_ENDPOINT. Se queste variabili di ambiente sono state create dopo aver iniziato a modificare l'applicazione, sarà necessario chiudere e riaprire l'editor, l'IDE o la shell in uso per accedervi.
+Creare le variabili per l'endpoint e la chiave della sottoscrizione di Azure della risorsa.
     
 ```python
 import os
 
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 Le sezioni successive descrivono come chiamare ciascuna delle funzionalità dell'API.

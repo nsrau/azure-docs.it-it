@@ -1,20 +1,16 @@
 ---
-title: 'Guida introduttiva: Distribuire Hello World in Azure Service Fabric Mesh | Microsoft Docs'
+title: 'Guida introduttiva: Distribuire Hello World in Azure Service Fabric Mesh'
 description: Questa guida introduttiva spiega come distribuire un'applicazione Service Fabric Mesh in Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: Non aggiungere o modificare parole chiave senza consultare l'esperto SEO.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336984"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458967"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Avvio rapido: Distribuire Hello World in mesh Service Fabric
 

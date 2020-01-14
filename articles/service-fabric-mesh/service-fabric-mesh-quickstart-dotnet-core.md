@@ -1,26 +1,17 @@
 ---
-title: "Avvio rapido: Distribuire un'app Web in Azure Service Fabric Mesh | Microsoft Docs"
+title: "Avvio rapido: Distribuire un'app Web in Azure Service Fabric Mesh"
 description: Questa guida di avvio rapido illustra come creare un sito Web ASP.NET Core e pubblicarlo in Azure Service Fabric Mesh tramite Visual Studio.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459073"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Avvio rapido: Creare e distribuire un'app Web in mesh Azure Service Fabric
 
@@ -80,7 +71,7 @@ In **Gruppo di risorse** selezionare **\<Crea nuovo gruppo di risorse**. Viene v
 
 ![Finestra di dialogo del nuovo gruppo di risorse di Service Fabric Mesh in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Nella finestra di dialogo **Pubblica applicazione di Service Fabric**, in **Registro Azure Container**, selezionare **\<Crea nuovo registro contenitori**. Nella finestra di dialogo **Crea registro contenitori** usare un nome univoco per **Nome del registro contenitori**. Impostare il campo **Località**. In questa guida introduttiva viene usata l'area **Stati Uniti orientali**. Dall'elenco a discesa selezionare il **gruppo di risorse** creato nel passaggio precedente, ad esempio **sfmeshTutorial1RG**. Impostare **SKU** su **Base** e quindi fare clic su **Crea** per tornare alla finestra di dialogo per la pubblicazione.
+Nella finestra di dialogo **Pubblica applicazione di Service Fabric**, in **Registro Azure Container**, selezionare **\<Crea nuovo registro contenitori**. Nella finestra di dialogo **Crea registro contenitori** usare un nome univoco per **Nome del registro contenitori**. Impostare il campo **Località**. In questa guida introduttiva viene usata l'area **Stati Uniti orientali**. Nell'elenco a discesa selezionare il **gruppo di risorse** creato nel passaggio precedente, ad esempio **sfmeshTutorial1RG**. Impostare **SKU** su **Base** e quindi fare clic su **Crea** per tornare alla finestra di dialogo per la pubblicazione.
 
 ![Finestra di dialogo del nuovo gruppo di risorse di Service Fabric Mesh in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

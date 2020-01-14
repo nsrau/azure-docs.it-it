@@ -1,45 +1,39 @@
 ---
-title: 'Guida introduttiva: Creare una Data Science Virtual Machine Ubuntu'
+title: 'Avvio rapido: Creare una Data Science Virtual Machine Ubuntu'
 description: Configurare e creare una Data Science Virtual Machine per Linux (Ubuntu) per attività di analisi e Machine Learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677852"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612088"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Avvio rapido: Configurare la Data Science Virtual Machine per Linux (Ubuntu)
 
-Iniziare a usare una Data Science Virtual Machine Ubuntu.
+Iniziare a usare una Data Science Virtual Machine Ubuntu 18.04.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per creare una Data Science Virtual Machine Windows, è necessaria una sottoscrizione di Azure. [Provare Azure gratuitamente](https://azure.com/free).
+Per creare una Data Science Virtual Machine Ubuntu 18.04, è necessario avere una sottoscrizione di Azure. [Provare Azure gratuitamente](https://azure.com/free).
 Si noti che gli account gratuiti di Azure non supportano gli SKU delle macchine virtuali abilitate per GPU.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creare la macchina virtuale per l'analisi scientifica dei dati per Linux
 
-Di seguito sono elencati i passaggi per la creazione di un'istanza della macchina virtuale per l'analisi scientifica dei dati per Linux:
+Di seguito sono elencati i passaggi per la creazione della Data Science Virtual Machine Ubuntu 18.04:
 
 1. Passare al [portale di Azure](https://portal.azure.com). È possibile che venga richiesto di accedere all'account Azure, se non è stato ancora eseguito l'accesso.
-1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine for Linux (Ubuntu)".
-    
-    ![Elenco: VM Ubuntu](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine - Ubuntu 18.04 (anteprima)".
 
 1. Nella finestra successiva selezionare **Crea**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Pulsante per creare un computer Ubuntu")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. Si verrà reindirizzati al pannello "Crea macchina virtuale".
    
-   ![Scheda Nozioni di base corrispondente alla macchina virtuale Ubuntu](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Immettere le informazioni seguenti per configurare ogni passaggio della procedura guidata:
 
     1. **Nozioni di base**:
@@ -49,7 +43,7 @@ Di seguito sono elencati i passaggi per la creazione di un'istanza della macchin
        * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
        * **Area**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Immagine**: Lasciare il valore predefinito.
-       * **Dimensione**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
        * **Tipo di autenticazione**: per velocizzare la configurazione, selezionare "Password". 
          
          > [!NOTE]
@@ -102,9 +96,9 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è po
      * **Host**: immettere l'indirizzo IP della VM, di cui si è preso nota in precedenza.
      * **Accesso**: immettere il nome utente nella VM Linux.
      * **Porta SSH**: lasciare il valore predefinito 22.
-     * **Session Type** (Tipo di sessione): modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
+     * **Tipo di sessione**: modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
    * **Scheda Supporti**: è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
-   * **Shared folders** (Cartelle condivise): se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
+   * **Cartelle condivise**: se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
    ![Configurazione di X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selezionare **OK**.

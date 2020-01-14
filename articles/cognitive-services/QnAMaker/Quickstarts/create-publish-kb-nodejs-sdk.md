@@ -1,29 +1,29 @@
 ---
-title: 'Guida introduttiva: Libreria client di QnA Maker per Node.js'
+title: 'Avvio rapido: Libreria client di QnA Maker per Node.js'
 titleSuffix: Azure Cognitive Services
-description: Introduzione alla libreria client di QnA Maker per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
+description: Questo argomento di avvio rapido illustra come usare la libreria client di QnA Maker per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 7650dce9a3ef494815b8d7a326eb07e1e25f2da2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a605b5145e393352e8cd6fe18ac97ea749caf4ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123101"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447599"
 ---
-# <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di QnA Maker per Node.js
+# <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Avvio rapido: Libreria client di QnA Maker per Node.js
 
-Introduzione alla libreria client di QnA Maker per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti. 
+Introduzione alla libreria client di QnA Maker per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 
 Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni:
 
-* Creare una knowledge base 
+* Creare una knowledge base
 * Gestire una knowledge base
 * Pubblicare una knowledge base
 
@@ -31,7 +31,7 @@ Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org).
@@ -40,19 +40,19 @@ Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni
 
 ### <a name="create-a-qna-maker-azure-resource"></a>Creare una risorsa di Azure per QnA Maker
 
-I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per QnA Maker usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. 
+I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per QnA Maker usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale.
 
 Dopo aver ottenuto una chiave dalla risorsa, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la risorsa, denominate `QNAMAKER_SUBSCRIPTION_KEY` e `QNAMAKER_HOST`. Usare i valori di chiave ed endpoint disponibili nelle pagine **Chiavi** e **Panoramica** della risorsa nel portale di Azure.
 
 ### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
 
-In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app. 
+In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Eseguire il comando `npm init -y` per creare un'applicazione Node con un file `package.json`. 
+Eseguire il comando `npm init -y` per creare un'applicazione Node con un file `package.json`.
 
 ```console
 npm init -y
@@ -73,11 +73,11 @@ Il file `package.json` dell'app viene aggiornato con le dipendenze.
 
 Il client di QnA Maker è un oggetto [QnAMakerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) che esegue l'autenticazione in Azure con ServiceClientCredentials, che contiene la chiave.
 
-Dopo la creazione del client, usare la proprietà [Knowledgebase](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase) per creare, gestire e pubblicare la knowledge base. 
+Dopo la creazione del client, usare la proprietà [Knowledgebase](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase) per creare, gestire e pubblicare la knowledge base.
 
-Gestire la knowledge base inviando un oggetto JSON. Per le operazioni immediate, un metodo restituisce in genere un oggetto JSON che indica lo stato. Per le operazioni a esecuzione prolungata, la risposta è l'ID operazione. Chiamare il metodo [client.Operations.getDetails](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest#getdetails-string--servicecallback-operation--) con l'ID operazione per determinare lo [stato della richiesta](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operationstatetype?view=azure-node-latest). 
+Gestire la knowledge base inviando un oggetto JSON. Per le operazioni immediate, un metodo restituisce in genere un oggetto JSON che indica lo stato. Per le operazioni a esecuzione prolungata, la risposta è l'ID operazione. Chiamare il metodo [client.Operations.getDetails](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest#getdetails-string--servicecallback-operation--) con l'ID operazione per determinare lo [stato della richiesta](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operationstatetype?view=azure-node-latest).
 
- 
+
 ## <a name="code-examples"></a>Esempi di codice
 
 Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la libreria client di QnA Maker per Node.js:
@@ -98,8 +98,8 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa. Se la var
 
 |Variabile di ambiente|Variabile Node.js|Esempio|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|GUID di 32 caratteri|
-|`QNAMAKER_HOST`|`endpoint`|`https://your-resource-name.api.cognitive.microsoft.com`: sostituire il valore `your-resource-name` del sottodominio con il valore del nome della risorsa|
+|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|La chiave è una stringa di 32 caratteri ed è disponibile nella risorsa QnA Maker, nella pagina Avvio rapido del portale di Azure. Non è la stessa chiave dell'endpoint di previsione.|
+|`QNAMAKER_HOST`|`endpoint`| L'endpoint di creazione, nel formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, include il **nome della risorsa**. Non è lo stesso URL usato per eseguire query sull'endpoint di previsione.|
 ||||
 
 [!code-javascript[Azure resource variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=resourcekeys)]
@@ -116,14 +116,14 @@ Creare quindi un oggetto ServiceClientCredentials con la chiave e usarlo con l'e
 In una knowledge base vengono archiviate le coppie di domande e risposte per l'oggetto [CreateKbDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto?view=azure-node-latest) da tre origini:
 
 * Per **contenuto editoriale**, usare l'oggetto [QnADTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnadto?view=azure-node-latest).
-* Per i **file**, usare l' oggetto [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest). 
+* Per i **file**, usare l' oggetto [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest).
 * Per gli **URL**, usare un elenco di stringhe.
 
-Chiamare il metodo [create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) e quindi passare l'ID operazione restituito al metodo [Operations.getDetails](#get-status-of-an-operation) per eseguire il polling dello stato. 
+Chiamare il metodo [create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) e quindi passare l'ID operazione restituito al metodo [Operations.getDetails](#get-status-of-an-operation) per eseguire il polling dello stato.
 
 [!code-javascript[Create a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=createkb&highlight=15)]
 
-Per creare correttamente una knowledge base, assicurarsi di includere la funzione [`wait_for_operation`](#get-status-of-an-operation), a cui si fa riferimento nel codice precedente. 
+Per creare correttamente una knowledge base, assicurarsi di includere la funzione [`wait_for_operation`](#get-status-of-an-operation), a cui si fa riferimento nel codice precedente.
 
 ## <a name="update-a-knowledge-base"></a>Aggiornare una knowledge base
 
@@ -131,25 +131,25 @@ Per creare correttamente una knowledge base, assicurarsi di includere la funzion
 
 [!code-javascript[Update a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=updatekb&highlight=19)]
 
-Per aggiornare correttamente una knowledge base, assicurarsi di includere la funzione [`wait_for_operation`](#get-status-of-an-operation), a cui si fa riferimento nel codice precedente. 
+Per aggiornare correttamente una knowledge base, assicurarsi di includere la funzione [`wait_for_operation`](#get-status-of-an-operation), a cui si fa riferimento nel codice precedente.
 
 ## <a name="publish-a-knowledge-base"></a>Pubblicare una knowledge base
 
-Pubblicare la knowledge base tramite il metodo [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-). In questo modo, il modello corrente salvato e sottoposto a training a cui fa riferimento l'ID knowledge base viene pubblicato in un endpoint. 
+Pubblicare la knowledge base tramite il metodo [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-). In questo modo, il modello corrente salvato e sottoposto a training a cui fa riferimento l'ID knowledge base viene pubblicato in un endpoint.
 
 [!code-javascript[Publish a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=publishkb&highlight=2)]
 
 ## <a name="delete-a-knowledge-base"></a>Eliminare una knowledge base
 
-Eliminare la knowledge base tramite il metodo [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) con un parametro dell'ID knowledge base. 
+Eliminare la knowledge base tramite il metodo [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) con un parametro dell'ID knowledge base.
 
 [!code-javascript[Delete a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=deletekbs&highlight=2)]
 
 ## <a name="get-status-of-an-operation"></a>Ottenere lo stato di un'operazione
 
-Alcuni metodi, ad esempio per la creazione e l'aggiornamento, possono richiedere una quantità di tempo tale che invece di attendere il completamento del processo viene restituita un'[operazione](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest). Usare il relativo [ID operazione](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest#operationid) per eseguire il polling (con logica di ripetizione dei tentativi) e determinare lo stato del metodo originale. 
+Alcuni metodi, ad esempio per la creazione e l'aggiornamento, possono richiedere una quantità di tempo tale che invece di attendere il completamento del processo viene restituita un'[operazione](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest). Usare il relativo [ID operazione](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest#operationid) per eseguire il polling (con logica di ripetizione dei tentativi) e determinare lo stato del metodo originale.
 
-La chiamata _setTimeout_ nel blocco di codice seguente viene usata per simulare il codice asincrono. Sostituire questo codice con logica di ripetizione dei tentativi. 
+La chiamata _setTimeout_ nel blocco di codice seguente viene usata per simulare il codice asincrono. Sostituire questo codice con logica di ripetizione dei tentativi.
 
 [!code-javascript[Monitor an operation](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=monitorOperation&highlight=2,17)]
 

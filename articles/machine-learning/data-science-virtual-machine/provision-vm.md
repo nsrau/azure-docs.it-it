@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare una Data Science Virtual Machine Windows'
+title: 'Avvio rapido: Creare una Data Science Virtual Machine Windows'
 description: Configurare e creare una macchina virtuale di Data Science in Azure per l'analisi dei dati e l'apprendimento automatico.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/31/2019
+ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483227"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611918"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Windows
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Avvio rapido: Configurare la Data Science Virtual Machine per Windows
 
-Iniziare a usare una Data Science Virtual Machine Windows.
+Iniziare a usare una Data Science Virtual Machine di Windows Server 2019.
 
 ## <a name="prerequisite"></a>Prerequisito
 
@@ -28,16 +28,11 @@ Si noti che gli account gratuiti di Azure non supportano gli SKU delle macchine 
 Per creare un'istanza di DSVM:
 
 1. Passare al [portale di Azure](https://portal.azure.com). È possibile che venga richiesto di accedere all'account Azure, se non è stato ancora eseguito l'accesso.
-1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine - Windows 2016".
-
-    ![Elenco: VM Windows](./media/provision-vm/search-windows.png)
+1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine - Windows 2019 (anteprima)".
 
 1. Selezionare quindi il pulsante **Crea** nella parte inferiore.
 
-    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
-
 1. Si verrà reindirizzati al pannello "Crea macchina virtuale".
-   ![Scheda Nozioni di base corrispondente alla macchina virtuale Windows](./media/provision-vm/review-create-windows.png)
 
 1. Compilare la scheda **Nozioni di base**.
       * **Sottoscrizione** Se si hanno più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
@@ -45,7 +40,7 @@ Per creare un'istanza di DSVM:
       * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
       * **Località**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Immagine**: Lasciare il valore predefinito.
-      * **Dimensione**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/windows/sizes.md).
+      * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/windows/sizes.md).
       * **Nome utente**: immettere il nome utente dell'amministratore. È il nome utente che verrà usato per accedere alla macchina virtuale e non deve necessariamente essere uguale al nome utente Azure.
       * **Password**: immettere la password che si userà per accedere alla macchina virtuale.    
 1. Selezionare **Rivedi e crea**.
@@ -72,9 +67,7 @@ Si è pronti per iniziare a usare gli strumenti installati e configurati nella V
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esplorare gli strumenti disponibili nella DSVM aprendo il menu **Start**.
-* Per informazioni su Azure Machine Learning, vedere [Informazioni su Azure Machine Learning](../service/overview-what-is-azure-ml.md) e seguire le [esercitazioni](../index.yml).
-* In Esplora File passare a C:\Programmi\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts per trovare esempi che usano la libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale. 
+* Per informazioni su Azure Machine Learning, vedere [Informazioni su Azure Machine Learning](../overview-what-is-azure-ml.md) e seguire le [esercitazioni](../index.yml).
 * Leggere l'articolo [Dieci cose da fare con una Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
-* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](../team-data-science-process/index.yml).
 * Per esempi di apprendimento automatico e di analisi dei dati che usano Azure Machine Learning e i servizi dati correlati in Azure, visitare [Azure AI Gallery](https://gallery.cortanaintelligence.com). Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.
 

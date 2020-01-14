@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Creare, pubblicare e rispondere in QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Creare una nuova knowledge base con domande e risposte frequenti basate sul Web pubblico. Salvare, eseguire il training della knowledge base e pubblicarla. Dopo la pubblicazione della knowledge base, inviare una domanda e ricevere una risposta con un comando cURL. Creare quindi un bot e testarlo con la stessa domanda.
+description: Questa esercitazione illustra come creare una nuova knowledge base con domande e risposte frequenti basate sul Web pubblico. Salvare, eseguire il training della knowledge base e pubblicarla. Dopo la pubblicazione della knowledge base, inviare una domanda e ricevere una risposta con un comando cURL. Creare quindi un bot e testarlo con la stessa domanda.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51d051fee1da1f9bb0c89ea9123748b512f84007
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5b2f2decf3d070da2fb58bebd424b4209f353316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327968"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447394"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Esercitazione: Creare una knowledge base dal portale di QnA Maker
 
 Creare una nuova knowledge base con domande e risposte frequenti basate sul Web pubblico. Salvare, eseguire il training della knowledge base e pubblicarla. Dopo la pubblicazione della knowledge base, inviare una domanda e ricevere una risposta con un comando cURL. Creare quindi un bot e testarlo con la stessa domanda. 
 
-In questa esercitazione si apprenderà come: 
+In questa esercitazione verranno illustrate le procedure per: 
 
 > [!div class="checklist"]
 > * Creare una knowledge base nel portale di QnA Maker.
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 > [!NOTE]
 > La versione programmatica di questa esercitazione è disponibile con una soluzione completa nel [repository GitHub  **Azure-Samples/cognitive-services-qnamaker-csharo**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa esercitazione richiede un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md) esistente. 
 

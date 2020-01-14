@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks'
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Rilevamento anomalie e Azure Databricks per monitorare le anomalie nei dati.
+description: Informazioni su come usare l'API Rilevamento anomalie e Azure Databricks per monitorare le anomalie nei dati.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71837760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448907"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks
 
@@ -47,7 +47,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 > [!Note]
 > Questa esercitazione non può essere completata con una chiave della versione di valutazione gratuita per l'API Rilevamento anomalie. Per usare un account gratuito per creare il cluster Azure Databricks, prima di creare il cluster, passare al profilo personale e impostare la sottoscrizione per il **pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Uno [spazio dei nomi di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) e un hub eventi.
 
@@ -74,7 +74,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il [
     |---------|---------|
     |**Nome area di lavoro**     | Specificare un nome per l'area di lavoro di Databricks        |
     |**Sottoscrizione**     | Selezionare la sottoscrizione di Azure nell'elenco a discesa.        |
-    |**Gruppo di risorse**     | Specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../../../azure-resource-manager/resource-group-overview.md). |
+    |**Gruppo di risorse**     | Specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../../../azure-resource-manager/management/overview.md). |
     |**Posizione**     | Selezionare **Stati Uniti orientali 2** o una delle altre aree disponibili. Per le aree disponibili, vedere [Servizi di Azure disponibili in base all'area](https://azure.microsoft.com/regions/services/).        |
     |**Piano tariffario**     |  Scegliere tra **Standard** e **Premium**. NON scegliere **Versione di valutazione**. Per altre informazioni su questi piani tariffari, vedere la [pagina dei prezzi di Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -92,7 +92,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il [
 
 3. Nella pagina **New Cluster** (Nuovo cluster) specificare i valori per creare un cluster.
 
-    ![Creare il cluster Databricks Spark in Azure](../media/tutorials/create-databricks-spark-cluster.png "Creare il cluster Databricks Spark in Azure")
+    ![Creare un cluster di Databricks Spark in Azure](../media/tutorials/create-databricks-spark-cluster.png "Creare un cluster di Databricks Spark in Azure")
 
     Accettare tutti gli altri valori predefiniti tranne i seguenti:
 
@@ -127,14 +127,14 @@ In questa esercitazione verranno usate le API Twitter per inviare tweet a Hub ev
 
 1. Nell'area di lavoro di Azure Databricks selezionare **Workspace** (Area di lavoro) e quindi fare clic con il pulsante destro del mouse su **Shared** (Condivisa). Nel menu di scelta rapida scegliere **Create (Crea)**  > **Library (Raccolta)** .
 
-   ![Finestra di dialogo di aggiunta della libreria](../media/tutorials/databricks-add-library-option.png "Finestra di dialogo di aggiunta della libreria")
+   ![Finestra di dialogo Aggiungi libreria](../media/tutorials/databricks-add-library-option.png "Finestra di dialogo Aggiungi libreria")
 
 2. Nella pagina New Library (Nuova libreria) selezionare **Maven**  in **Source** (Origine). Per **Coordinates** (Coordinate) immettere la coordinata del pacchetto da aggiungere. Le coordinate di Maven per le librerie usate in questa esercitazione sono le seguenti:
 
    * Connettore di Hub eventi per Spark - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API Twitter - `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Specificare le coordinate Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Specificare le coordinate Maven ")
+     ![Specifica delle coordinate di Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Specifica delle coordinate di Maven")
 
 3. Selezionare **Create** (Crea).
 
@@ -159,13 +159,13 @@ In questa esercitazione si useranno le [API Rilevamento anomalie di Servizi cogn
 
 3. In Azure Marketplace selezionare **Intelligenza artificiale e Machine Learning** > **Visualizza tutto** > **Servizi cognitivi - Altro** > **Rilevamento anomalie**. In alternativa è possibile usare [questo collegamento](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) per passare direttamente alla finestra di dialogo **Crea**.
 
-    ![Crea risorsa Rilevamento anomalie](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Crea risorsa Rilevamento anomalie")
+    ![Creare una risorsa di Rilevamento anomalie](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Creare una risorsa di Rilevamento anomalie")
 
 4. Nella finestra di dialogo **Crea** specificare i valori seguenti:
 
-    |Valore |DESCRIZIONE  |
+    |valore |Descrizione  |
     |---------|---------|
-    |NOME     | Nome per la risorsa Rilevamento anomalie.        |
+    |Nome     | Nome per la risorsa Rilevamento anomalie.        |
     |Subscription     | Sottoscrizione di Azure a cui verrà associata la risorsa.        |
     |Location     | Località di Azure.        |
     |Piano tariffario     | Piano tariffario per il servizio. Per altre informazioni sui prezzi di Rilevamento anomalie, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
@@ -180,7 +180,7 @@ In questa esercitazione si useranno le [API Rilevamento anomalie di Servizi cogn
 
 6. In **Chiavi** selezionare l'icona di copia per la chiave da usare. Salvare la chiave di accesso.
 
-    ![Copiare le chiavi di accesso](../media/tutorials/cognitive-services-copy-access-keys.png "Copiare le chiavi di accesso")
+    ![Copia delle chiavi di accesso](../media/tutorials/cognitive-services-copy-access-keys.png "Copia delle chiavi di accesso")
 
 ## <a name="create-notebooks-in-databricks"></a>Creare notebook in Databricks
 
@@ -191,11 +191,11 @@ In questa sezione vengono creati due notebook nell'area di lavoro di Databricks 
 
 1. Nell'area di lavoro di Azure Databricks selezionare **Area di lavoro** nel riquadro sinistro. Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create** (Crea) e quindi **Notebook**.
 
-    ![Creare un blocco appunti in Databricks](../media/tutorials/databricks-create-notebook.png "Creare un blocco appunti in Databricks")
+    ![Creare un notebook in Databricks](../media/tutorials/databricks-create-notebook.png "Creare un notebook in Databricks")
 
 2. Nella finestra di dialogo **Create Notebook** (Crea notebook) immettere **SendTweetsToEventHub** come nome, selezionare **Scala** come linguaggio e selezionare il cluster Spark creato in precedenza.
 
-    ![Creare un blocco appunti in Databricks](../media/tutorials/databricks-notebook-details.png "Creare un blocco appunti in Databricks")
+    ![Creare un notebook in Databricks](../media/tutorials/databricks-notebook-details.png "Creare un notebook in Databricks")
 
     Selezionare **Create** (Crea).
 
@@ -680,7 +680,7 @@ Sebbene in questa esercitazione la granularità è su base oraria, è sempre pos
 
 Dopo aver concluso l'esecuzione per l'esercitazione è possibile terminare il cluster. A questo scopo, nell'area di lavoro di Azure Databricks selezionare **Clusters** (Cluster) nel riquadro sinistro. Per il cluster che si vuole terminare, posizionare il cursore sui puntini di sospensione sotto la colonna **Actions** (Azioni) e selezionare l'icona **Terminate** (Termina), quindi selezionare **Confirm** (Conferma).
 
-![Arrestare un cluster Databricks](../media/tutorials/terminate-databricks-cluster.png "Arrestare un cluster Databricks")
+![Arrestare un cluster di Databricks](../media/tutorials/terminate-databricks-cluster.png "Arrestare un cluster di Databricks")
 
 Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di inattività) durante la creazione del cluster. In tal caso, il cluster verrà automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 
