@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java"
+title: "Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java"
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
+description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: e8cd6a4acbd1492bba1c9e88b523a7c44a44f009
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448114"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
 
 Usare questa guida di avvio rapido per iniziare a usare l'API Riconoscimento input penna su tratti input penna. Questa applicazione Java invia una richiesta API contenenti i dati del tratto input penna in formato JSON e riceve la risposta.
 
@@ -29,7 +29,7 @@ In genere è necessario chiamare l'API da un'app di input penna. Questa guida di
 
 Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) versione successiva.
 
@@ -71,7 +71,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 ## <a name="send-an-ink-recognition-request"></a>Inviare una richiesta di riconoscimento input penna
 
-Creare un metodo denominato `recognizeInk()` per riconoscere i dati dell'input penna. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON. Ottenere il risultato e visualizzarlo nella console.
+Creare un metodo denominato `recognizeInk()` per riconoscere i dati dell'input penna. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json. Ottenere il risultato e visualizzarlo nella console.
 
 [!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 

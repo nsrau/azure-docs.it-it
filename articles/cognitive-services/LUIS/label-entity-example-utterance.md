@@ -8,33 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74383711"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448080"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etichettare un'entità basata su apprendimento automatico in un'espressione di esempio
 
-L'etichettatura di un'entità in un'espressione di esempio fornisce a LUIS un esempio di ciò che l'entità rappresenta e il punto in cui l'entità può essere visualizzata nell'espressione. 
+L'etichettatura di un'entità in un'espressione di esempio fornisce a LUIS un esempio di ciò che l'entità rappresenta e il punto in cui l'entità può essere visualizzata nell'espressione.
 
 ## <a name="labeling-machine-learned-entity"></a>Assegnazione di un'etichetta a un'entità basata su apprendimento automatico
 
-Considerare la frase `hi, please I want a cheese pizza in 20 minutes`. 
+Considerare la frase `hi, please I want a cheese pizza in 20 minutes`.
 
 1. Selezionare il testo più a sinistra, quindi selezionare il testo più a destra dell'entità e infine scegliere l'entità con cui si vuole etichettare, in questo caso l'ordine completo. L'_ordine completo_ è etichettato nell'immagine seguente.
 
     > [!div class="mx-imgBorder"]
     > ![Etichettare un'entità completa basata su apprendimento automatico](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
-1. Selezionare l'entità dalla finestra popup. L'entità etichettata dell'ordine completo della pizza include tutte le parole (da sinistra a destra in inglese) etichettate. 
+1. Selezionare l'entità dalla finestra popup. L'entità etichettata dell'ordine completo della pizza include tutte le parole (da sinistra a destra in inglese) etichettate.
 
 ## <a name="review-labeled-text"></a>Esaminare il testo etichettato
 
-Dopo l'etichettatura controllare l'espressione di esempio per verificare che la sezione di testo selezionata sia stata sottolineata con l'entità scelta. La linea continua indica che il testo è stato etichettato. 
+Dopo l'etichettatura controllare l'espressione di esempio per verificare che la sezione di testo selezionata sia stata sottolineata con l'entità scelta. La linea continua indica che il testo è stato etichettato.
 
 > [!div class="mx-imgBorder"]
 > ![Entità completa basata su apprendimento automatico con etichetta](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
@@ -55,12 +55,12 @@ In alternativa, è possibile selezionare il nome dell'entità sopra il testo e q
 
 La tavolozza delle entità offre un'alternativa alla precedente esperienza di etichettatura. Consente di selezionare il testo con il pennello per etichettarlo immediatamente con un'entità.
 
-1. Aprire la tavolozza delle entità selezionando l'icona dell'evidenziatore in alto a destra della tabella delle espressioni. 
+1. Aprire la tavolozza delle entità selezionando l'icona dell'evidenziatore in alto a destra della tabella delle espressioni.
 
     > [!div class="mx-imgBorder"]
     > ![Tavolozza delle entità per un'entità con apprendimento automatico](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
-2. Selezionare il componente entità. Questa azione è indicata visivamente con un nuovo cursore. Il cursore segue il mouse durante la navigazione nel portale. 
+2. Selezionare il componente entità. Questa azione è indicata visivamente con un nuovo cursore. Il cursore segue il mouse durante la navigazione nel portale.
 
     > [!div class="mx-imgBorder"]
     > ![Tavolozza delle entità per un'entità con apprendimento automatico](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
@@ -77,11 +77,20 @@ I sottocomponenti delle entità vengono etichettati esattamente allo stesso modo
 > [!div class="mx-imgBorder"]
 > ![Tavolozza delle entità per un'entità con apprendimento automatico](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
 
-I sottocomponenti possono essere etichettati solo se anche l'elemento padre è etichettato. 
+I sottocomponenti possono essere etichettati solo se anche l'elemento padre è etichettato.
+
+## <a name="labeling-entity-roles"></a>Etichettatura dei ruoli di entità
+
+I ruoli entità vengono etichettati usando il pannello di entità.
+
+1. Nella pagina di dettagli della finalità selezionare il **pannello di entità** sulla barra degli strumenti contestuali.
+1. Una volta aperto il pannello di entità, selezionare l'entità nell'elenco.
+1. Passare a **Entity Inspector** (Controllo entità) e selezionare un ruolo esistente o crearne uno nuovo.
+1. Nel testo dell'espressione di esempio, etichettare il testo con il ruolo dell'entità. 
 
 ## <a name="unlabel-entities"></a>Rimuovere l'etichettatura delle entità
 
-Per rimuovere l'etichettatura di un'entità, selezionare il nome dell'entità sotto il testo e selezionare **Unlabel** (Rimuovi etichettatura). Se l'entità di cui si sta provando a rimuovere l'etichettatura contiene sottocomponenti etichettati, è necessario rimuovere prima l'etichettatura dei sottocomponenti. 
+Per rimuovere l'etichettatura di un'entità, selezionare il nome dell'entità sotto il testo e selezionare **Unlabel** (Rimuovi etichettatura). Se l'entità di cui si sta provando a rimuovere l'etichettatura contiene sottocomponenti etichettati, è necessario rimuovere prima l'etichettatura dei sottocomponenti.
 
 ## <a name="editing-labels-using-the-entity-palette"></a>Modifica delle etichette con la tavolozza delle entità
 
@@ -98,7 +107,6 @@ Ad esempio:
 
     > [!div class="mx-imgBorder"]
     > ![Tavolozza delle entità per un'entità con apprendimento automatico](media/label-utterances/edit-label-with-palette-2.png)
-
 
 ## <a name="labels-for-matching-text-entities"></a>Etichette per entità con testo corrispondente
 
