@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 9c79a6ba1a6b7b5582c6430c6de7a4a309bf4920
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169839"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437300"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -82,7 +82,7 @@ Ecco alcune delle principali funzionalità di Griglia di eventi di Azure:
 * **Pagamento per evento** consente di pagare solo in base all'uso di Griglia di eventi.
 * **Velocità effettiva elevata**: consente di creare carichi di lavoro con volumi elevati in Griglia di eventi con il supporto per milioni di eventi al secondo.
 * **Eventi predefiniti**: consentono di essere operativi rapidamente con gli eventi predefiniti a livello di risorse.
-* **Eventi personalizzati**: consentono di usare la route di Griglia di eventi, di filtrare e recapitare in modo affidabile gli eventi personalizzati nell'app.
+* **Eventi personalizzati**: consentono di usare la Griglia di eventi per instradare, filtrare e recapitare in modo affidabile gli eventi personalizzati nell'app.
 
 Per un confronto tra Griglia di eventi, Hub eventi e Bus di servizio, vedere [Choose between Azure services that deliver messages](compare-messaging-services.md) (Scegliere tra i servizi di Azure che recapitano i messaggi).
 

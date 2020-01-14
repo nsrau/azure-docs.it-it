@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini con l'API REST e C# - Ricerca visiva Bing"
+title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini con l'API REST e C# - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 82c1159aca51bc30839f5380a414bd2b3b488bb8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383644"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446678"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e C#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e C#
 
 Questo argomento di avvio rapido illustra come caricare un'immagine nell'API Ricerca visiva Bing e visualizzare le informazioni dettagliate che vengono restituite.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Qualsiasi edizione di [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * [Framework JSON.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
@@ -41,7 +41,7 @@ Questo argomento di avvio rapido illustra come caricare un'immagine nell'API Ric
     using System.Collections.Generic;
     ```
 
-2. Aggiungere le variabili per la chiave di sottoscrizione, l'endpoint e il percorso dell'immagine da caricare:
+2. Aggiungere le variabili per la chiave di sottoscrizione, l'endpoint e il percorso dell'immagine da caricare. `uriBase` può essere l'endpoint globale seguente o l'endpoint di [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

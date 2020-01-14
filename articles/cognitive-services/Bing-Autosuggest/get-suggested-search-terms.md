@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5b1e4cc8dfc89d6dcc5d29a368e089402b284352
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448841"
 ---
 # <a name="what-is-bing-autosuggest"></a>Informazioni sui Suggerimenti automatici Bing
 
@@ -23,7 +23,7 @@ Se l'applicazione invia query a una delle API Ricerca Bing, è possibile usare l
 
 ## <a name="bing-autosuggest-api-features"></a>Funzionalità dell'API Suggerimenti automatici Bing
 
-| Funzionalità                                                                                                                                                                                 | DESCRIZIONE                                                                                                                                                            |
+| Funzionalità                                                                                                                                                                                 | Descrizione                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggerimento dei termini di ricerca in tempo reale](concepts/get-suggestions.md) | È possibile migliorare l'esperienza dell'app con l'API Suggerimenti automatici per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
 
@@ -49,6 +49,9 @@ Per iniziare rapidamente con la prima richiesta, vedere [Effettuare la prima que
 
 Acquisire familiarità con la documentazione di riferimento sull'[API Suggerimenti automatici Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). La documentazione di riferimento contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i termini di query suggeriti e le definizioni degli oggetti della risposta.
 
-Informazioni su come effettuare ricerche sul Web con l'[API Ricerca Web Bing](../bing-web-search/search-the-web.md).
+Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).
+
+
+Informazioni su come effettuare ricerche sul Web con l'[API Ricerca Web Bing](../bing-web-search/search-the-web.md) e su come esplorare le altre [API Ricerca Bing](../bing-web-search/index.yml).
 
 Per non violare nessuna delle regole relative all'uso dei risultati della ricerca, vedere [Bing Use and Display Requirements](./useanddisplayrequirements.md) (Requisiti per l'uso e la visualizzazione di Bing).

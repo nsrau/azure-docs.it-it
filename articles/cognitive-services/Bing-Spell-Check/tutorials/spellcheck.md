@@ -1,21 +1,21 @@
 ---
 title: "Esercitazione: Ottenere i risultati del controllo ortografico usando l'API Controllo ortografico Bing"
 titleSuffix: Azure Cognitive Services
-description: In questa esercitazione verrà creata una pagina Web che consente agli utenti di eseguire query sull'API Controllo ortografico Bing e visualizzare i risultati.
+description: In questa esercitazione verrà creata una pagina Web che invia query all'API Controllo ortografico Bing e visualizza i risultati.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382797"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Esercitazione: Creare un client di controllo ortografico per una pagina Web
 
@@ -27,9 +27,9 @@ Questa esercitazione illustra come:
 > - Eseguire una semplice query sull'API Controllo ortografico Bing
 > - Visualizzare i risultati della query
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Controllo ortografico Bing. Se non si ha una sottoscrizione, [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Controllo ortografico Bing. Se non si ha una sottoscrizione, [iscriversi per una versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## <a name="create-a-new-web-page"></a>Creare una nuova pagina Web
 
@@ -76,7 +76,7 @@ getSubscriptionKey = function() {
     var COOKIE = "bing-spell-check-api-key";   // name used to store API key in key/value storage
 ```
 
-La funzione di supporto findCookie restituisce il valore del cookie specificato. Se il cookie non viene trovato, restituisce una stringa vuota.
+La funzione helper findCookie restituisce il valore del cookie specificato. Se il cookie non viene trovato, restituisce una stringa vuota.
 
 ```html
     function findCookie(name) {
@@ -118,7 +118,7 @@ La funzione di supporto getSubscriptionKeyLocalStorage tenta innanzitutto di rec
     }
 ```
 
-La funzione di supporto getSubscriptionKey accetta un parametro, **invalidate**. Se **invalidate** è **True**, la funzione getSubscriptionKey elimina il cookie contenente la chiave dell'API Controllo ortografico Bing. Se **invalidate** è **False**, la funzione getSubscriptionKey restituisce il valore della chiave dell'API Controllo ortografico Bing.
+La funzione helper getSubscriptionKey accetta un solo parametro, **invalidate**. Se **invalidate** è **True**, la funzione getSubscriptionKey elimina il cookie contenente la chiave dell'API Controllo ortografico Bing. Se **invalidate** è **False**, la funzione getSubscriptionKey restituisce il valore della chiave dell'API Controllo ortografico Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -138,7 +138,7 @@ La funzione di supporto getSubscriptionKey accetta un parametro, **invalidate**.
     }
 ```
 
-Restituire la funzione di supporto getSubscriptionKey come risultato della funzione esterna getSubscriptionKey. Chiudere la definizione della funzione esterna getSubscriptionKey.
+Restituire la funzione helper getSubscriptionKey come risultato della funzione esterna getSubscriptionKey. Chiudere la definizione della funzione esterna getSubscriptionKey.
 
 ```html
     return getSubscriptionKey;

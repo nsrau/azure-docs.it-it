@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 08/30/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446665"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Informazioni sull'API Ricerca visiva Bing
 
@@ -30,7 +30,7 @@ Se si usa l'[API Ricerca immagini Bing](../bing-image-search/overview.md) è pos
 
 Ricerca visiva Bing consente di individuare le informazioni dettagliate seguenti:
 
-| Informazioni dettagliate                              | DESCRIZIONE |
+| Informazioni dettagliate                              | Descrizione |
 |--------------------------------------|-------------|
 | Immagini visivamente simili              | Elenco di immagini visivamente simili all'immagine di input. |
 | Prodotti visivamente simili            | Prodotti simili a livello visivo al prodotto mostrato.            |
@@ -64,3 +64,5 @@ Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive: [
 * L'argomento di riferimento sulla [Ricerca visiva di immagini](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) contiene definizioni e informazioni sugli endpoint, le intestazioni, le risposte e i parametri di query che è possibile usare per richiedere i risultati della ricerca basata su immagine.
 
 * I [requisiti per l'uso e la visualizzazione dell'API di Ricerca Bing](../bing-web-search/use-display-requirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di Ricerca Bing.
+
+* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).

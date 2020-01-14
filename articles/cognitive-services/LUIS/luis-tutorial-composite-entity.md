@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Esercitazione sulle entità composite - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
+description: Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893187"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447955"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Esercitazione: Raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
@@ -28,8 +28,6 @@ L'entità composta è una buona soluzione per questo tipo di dati, perché i dat
 * Sono correlati tra loro.
 * Usano vari tipi di entità.
 * Devono essere raggruppati ed elaborati dall'applicazione client come un'unità di informazioni.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -46,9 +44,10 @@ L'entità composta è una buona soluzione per questo tipo di dati, perché i dat
 
 ## <a name="import-example-app"></a>Importare l'app di esempio
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) dall'esercitazione sull'entità List (Elenco).
+1.  Scaricare e salvare il [file JSON dell'app](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) dall'esercitazione sull'entità List (Elenco).
 
-2. Importare il file JSON in una nuova app.
+2. Importare il file JSON in una nuova app nel [portale LUIS](https://www.luis.ai).
 
 3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `composite`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 

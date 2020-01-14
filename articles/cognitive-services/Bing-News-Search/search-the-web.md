@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 577ce53b4667928d7eb5a870f57ff7180caaf6f5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448436"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Informazioni sull'API Ricerca notizie Bing
 
@@ -28,7 +28,7 @@ Tenere presente che l'API Ricerca notizie Bing fornisce solo risultati della ric
 
 Oltre a trovare e restituire principalmente le notizie pertinenti, l'API Ricerca notizie Bing offre diverse funzionalità per il recupero intelligente e mirato delle notizie sul Web.
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |[Suggerire e usare i termini di ricerca](concepts/search-for-news.md#suggest-and-use-search-terms)     | È possibile migliorare l'esperienza di ricerca con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione.         |
 |[Ottenere notizie generali](concepts/search-for-news.md#get-general-news)     | Per trovare notizie, inviare una query di ricerca all'API Ricerca notizie Bing per ricevere un elenco delle notizie pertinenti.           |
@@ -55,5 +55,5 @@ Per iniziare rapidamente con la prima richiesta API, provare un'esercitazione in
 ## <a name="see-also"></a>Vedere anche
 
 * La sezione di riferimento sull'[API Ricerca notizie Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contiene definizioni e informazioni sugli endpoint, le intestazioni, le risposte dell'API e i parametri di query che è possibile usare per richiedere i risultati della ricerca basata su immagine.
-
 * I [requisiti per l'uso e la visualizzazione di Bing](./useanddisplayrequirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.
+* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).

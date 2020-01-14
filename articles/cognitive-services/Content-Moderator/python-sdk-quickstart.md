@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di Content Moderator per Python | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Content Moderator per Python'
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare a usare la libreria client di Content Moderator dei servizi cognitivi di Azure per Python.
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Content Moderator di Servizi cognitivi Microsoft per Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 931e6e35df520f4a0ab35dfb6067654f9d08ed9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448282"
 ---
-# <a name="quickstart-content-moderator-client-library-for-python"></a>Guida introduttiva: Libreria client di Content Moderator per Python
+# <a name="quickstart-content-moderator-client-library-for-python"></a>Avvio rapido: Libreria client di Content Moderator per Python
 
 Introduzione alla libreria client di Content Moderator per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti.
 
@@ -31,7 +31,7 @@ Usare la libreria client di Content Moderator per Python per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Pacchetto (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 Le classi seguenti gestiscono alcune delle principali funzionalità di Content Moderator Python SDK.
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Questa classe è necessaria per tutte le funzionalità di Content Moderator. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi.|
 |[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Questa classe fornisce la funzionalità per analizzare le immagini e individuare contenuti per adulti, informazioni personali o visi umani.|

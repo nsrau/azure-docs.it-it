@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Creare un'app Web usando l'API Azure per MongoDB e Java SDK - Azure Cosmos DB"
-description: Illustra un esempio di codice Java che è possibile usare per la connessione e l'esecuzione di query usando l'API Azure Cosmos DB per MongoDB.
+title: "Avvio rapido: Creare un'app Web usando l'API Azure Cosmos DB per MongoDB e Java SDK"
+description: Informazioni su come creare un esempio di codice Java che è possibile usare per la connessione e l'esecuzione di query usando l'API Azure Cosmos DB per MongoDB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bfded407790d01d65feec0b6e069c23739064e97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445497"
 ---
-# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Guida introduttiva: Creare un'app console con Java e l'API MongoDB in Azure Cosmos DB
+# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Avvio rapido: Creare un'app console con Java e l'API MongoDB in Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -31,7 +31,7 @@ In questo argomento di avvio rapido si useranno l'API di Azure Cosmos DB per Mon
 
 Questo argomento di avvio rapido illustra come creare un account Cosmos con l'[API Azure Cosmos DB per MongoDB](mongodb-introduction.md). Si creerà e si distribuirà quindi un'app console basata sul [driver Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti seguenti:
 * [Installare JDK per Azure e Azure Stack JDK versione 8](https://aka.ms/azure-jdks)

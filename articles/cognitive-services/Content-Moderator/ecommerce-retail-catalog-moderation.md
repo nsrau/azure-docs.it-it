@@ -1,7 +1,7 @@
 ---
 title: "Esercitazione: Moderare immagini di prodotti per l'e-commerce - Content Moderator"
 titleSuffix: Azure Cognitive Services
-description: Configurare un'applicazione per analizzare e classificare le immagini dei prodotti con etichette specificate (tramite Visione artificiale e Visione personalizzata di Azure). Contrassegnare le immagini inappropriate per l'ulteriore analisi (tramite Azure Content Moderator).
+description: Questa esercitazione illustra come configurare un'applicazione per analizzare e classificare immagini di prodotti con etichette specificate tramite Visione artificiale e Visione personalizzata di Azure. Contrassegnare le immagini inappropriate per l'ulteriore analisi (tramite Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5ee96cd0cf8ca33cae785bc15eb824332dcb3c9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382158"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Esercitazione: Moderare immagini di prodotti per l'e-commerce con Azure Content Moderator
 
@@ -34,7 +34,7 @@ Il codice di esempio completo è disponibile nel repository [Samples eCommerce C
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una chiave di sottoscrizione di Content Moderator. Seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Content Moderator e ottenere la chiave.
 - Una chiave di sottoscrizione di Visione artificiale (seguire le istruzioni sopra).

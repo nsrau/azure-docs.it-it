@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Bot con Language Understanding in Node.js v4'
 titleSuffix: Azure Cognitive Services
-description: Usando Node.js, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza l'app Risorse umane per implementare rapidamente una soluzione di bot. Il bot viene compilato con la versione Bot Framework 4 e il bot per app Web di Azure.
+description: In questa esercitazione verrà creato un chatbot integrato con LUIS (Language Understanding) tramite Node.js. Questo bot chat utilizza l'app Risorse umane per implementare rapidamente una soluzione di bot. Il bot viene compilato con la versione Bot Framework 4 e il bot per app Web di Azure.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a38f43b24e5db6a60ff38cd0f1d9b59b9875bba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 754d9d74a5d2c74a873145eaaddaaced29aa2ca8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448005"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Esercitazione: Usare un bot app Web abilitato con Language Understanding in Node. js 
 
@@ -32,7 +32,7 @@ Usare Node.js per creare un chatbot integrato con Language Understanding (LUIS).
 > * Avviare bot ed emulatore localmente nel computer in uso
 > * Visualizzare i risultati di espressione nel bot
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Bot Emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -83,7 +83,7 @@ Il processo di creazione del servizio bot crea anche una nuova app LUIS con fina
 |Prenotazione volo|`Travel to Paris`|
 |Annulla|`bye`|
 |GetWeather|`what's the weather like?`|
-|Nessuna|Qualsiasi elemento all'esterno del dominio dell'app.|
+|nessuno|Qualsiasi elemento all'esterno del dominio dell'app.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Testare il bot nella chat Web
 

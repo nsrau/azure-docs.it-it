@@ -18,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350284"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
-Per impostazione predefinita, Azure instrada il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questa esercitazione si apprenderà come:
+Per impostazione predefinita, Azure instrada il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una tabella di route
@@ -52,13 +52,13 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. In **Crea tabella di route** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *myRouteTablePublic*. |
+    | Nome | Immettere *myRouteTablePublic*. |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare *OK*. |
     | Location | Lasciare il valore **Stati Uniti orientali** predefinito.
-    | Propagazione route BGP | Lasciare il valore predefinito, **Abilitata**. |
+    | Propagazione della route del gateway di rete virtuale | Lasciare il valore predefinito, **Abilitata**. |
 
 1. Selezionare **Create** (Crea).
 
@@ -74,7 +74,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. In **Aggiungi route** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome route | Immettere *ToPrivateSubnet*. |
     | Prefisso indirizzo | Immettere *10.0.1.0/24*. |
@@ -93,9 +93,9 @@ Prima di poter associare una tabella di route a una subnet, è necessario creare
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *myVirtualNetwork*. |
+    | Nome | Immettere *myVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.0.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare ***Seleziona esistente*** > **myResourceGroup**. |
@@ -117,18 +117,18 @@ Prima di poter associare una tabella di route a una subnet, è necessario creare
 
 1. In **Aggiungi subnet**, immettere queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *Privata*. |
+    | Nome | Immettere *Privata*. |
     | Spazio degli indirizzi | Immettere *10.0.1.0/24*. |
 
 1. Accettare tutte le impostazioni predefinite e selezionare **OK**.
 
 1. Selezionare nuovamente **+ Subnet**. Questa volta, immettere le informazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *DMZ*. |
+    | Nome | Immettere *DMZ*. |
     | Spazio degli indirizzi | Immettere *10.0.2.0/24*. |
 
 1. Come in precedenza, accettare tutte le impostazioni predefinite e selezionare **OK**.
@@ -147,11 +147,11 @@ Prima di poter associare una tabella di route a una subnet, è necessario creare
 
 Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l'ottimizzazione di routing e firewall. Se si desidera, è possibile selezionare un altro sistema operativo. Questa esercitazione presuppone che venga usato **Windows Server 2016 Datacenter**.
 
-1. In altro a sinistra nella schermata selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**.
+1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -177,9 +177,9 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
 
 1. Selezionare **Avanti: Rete**.
 
-1. In **Creare una macchina virtuale - Rete** immettere o selezionare queste informazioni:
+1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **myVirtualNetwork**. |
     | Subnet | Selezionare **DMZ (10.0.2.0/24)** . |
@@ -191,9 +191,9 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
 
 1. In **Crea account di archiviazione**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *mynvastorageaccount*. |
+    | Nome | Immettere *mynvastorageaccount*. |
     | Tipo di account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v1)** . |
     | Prestazioni | Lasciare l'impostazione predefinita **Standard**. |
     | Replica | Lasciare l'impostazione predefinita **Archiviazione con ridondanza locale**.
@@ -230,7 +230,7 @@ Creare una macchina virtuale pubblica e una macchina virtuale privata nella rete
 
 Completare i passaggi da 1 a 12 di [Creare un'appliance virtuale di rete](#create-an-nva). Lasciare invariata la maggior parte delle impostazioni e modificare invece questi valori:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ------- | ----- |
 | **MACCHINA VIRTUALE PUBBLICA** | |
 | INFORMAZIONI DI BASE |  |
@@ -265,7 +265,7 @@ Completare i passaggi da 1 a 12 di [Creare un'appliance virtuale di rete](#creat
 
 1. Selezionare **Connetti** per creare una connessione desktop remoto per la macchina virtuale *myVmPrivate*.
 
-1. In **Connetti alla macchina virtuale in corso** selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *rdp*.
+1. In **Connetti alla macchina virtuale in corso** selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
 1. Aprire il file con estensione *.rdp* scaricato.
 

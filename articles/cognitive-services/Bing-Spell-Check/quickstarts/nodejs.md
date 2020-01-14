@@ -1,27 +1,27 @@
 ---
-title: "Guida introduttiva: Controllare l'ortografia con l'API REST e Node.js - Controllo ortografico Bing"
+title: "Avvio rapido: Controllare l'ortografia con l'API REST e Node.js - Controllo ortografico Bing"
 titleSuffix: Azure Cognitive Services
-description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
+description: Questo argomento di avvio rapido illustra come usare l'API REST Controllo ortografico Bing per eseguire il controllo ortografico e grammaticale.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: aahill
-ms.openlocfilehash: ab8f1d52b5a0b9f5f2539de0acc4728277f9f7b2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/16/2019
+ms.author: aahi
+ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382856"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Node.js
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Node.js
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Node invia una richiesta all'API e restituisce un elenco di parole non riconosciute, seguite dalle correzioni suggerite. L'applicazione è scritta in Node.js, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Node.js 6](https://nodejs.org/en/download/) o versione successiva
 
@@ -30,7 +30,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. Creare un nuovo file JavaScript nell'ambiente IDE o nell'editor preferito. Impostare la severità e l'uso obbligatorio di `https`. Creare quindi variabili per l'host, il percorso e la chiave di sottoscrizione dell'endpoint API.
+1. Creare un nuovo file JavaScript nell'ambiente IDE o nell'editor preferito. Impostare la severità e l'uso obbligatorio di `https`. Creare quindi variabili per l'host, il percorso e la chiave di sottoscrizione dell'endpoint API. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```javascript
     'use strict';
@@ -96,6 +96,18 @@ let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## <a name="run-the-application"></a>Eseguire l'applicazione
+
+Compilare ed eseguire il progetto.
+
+Se si usa la riga di comando, usare i comandi seguenti per creare ed eseguire l'applicazione.
+
+```bash
+node <FILE_NAME>.js
+```
+
 
 ## <a name="example-json-response"></a>Risposta JSON di esempio
 

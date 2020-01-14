@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso di Go per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di Go per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: d833293d094837c164da855aef197ad927c60ad7
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378764"
 ---
-# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Go per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Go per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Go.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -37,9 +37,9 @@ Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sent
 
 L'API Rilevamento lingua rileva la lingua di un documento di testo usando il [metodo per il rilevamento della lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Creare le variabili di ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` per l'endpoint e la chiave della sottoscrizione di Azure della risorsa. Se queste variabili di ambiente sono state create dopo aver iniziato a modificare l'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell in uso.
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.
+1. Copiare la chiave e l'endpoint dell'API Analisi del testo nel codice.
 1. Salvare il file con estensione "go".
 1. Aprire un prompt dei comandi dalla cartella radice in un computer in cui è installato Go.
 1. Compilare il file, ad esempio: `go build detect.go`.
@@ -60,17 +60,9 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
-
+    
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     const uriPath = "/text/analytics/v2.1/languages"
 
     var uri = endpoint + uriPath
@@ -178,9 +170,9 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 L'API Analisi del sentiment rileva il sentiment di un set di record di testo usando il [metodo Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
 
-1. Creare le variabili di ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` per l'endpoint e la chiave della sottoscrizione di Azure della risorsa. Se queste variabili di ambiente sono state create dopo aver iniziato a modificare l'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell in uso.
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.
+1. Copiare la chiave e l'endpoint di Analisi del testo nel codice.
 1. Salvare il file con estensione "go".
 1. Aprire un prompt dei comandi dalla cartella radice in un computer in cui è installato Go.
 1. Compilare il file, ad esempio: `go build sentiment.go`.
@@ -201,16 +193,8 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
 
     const uriPath = "/text/analytics/v2.1/sentiment"
 
@@ -294,9 +278,9 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
 
-1. Creare le variabili di ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` per l'endpoint e la chiave della sottoscrizione di Azure della risorsa. Se queste variabili di ambiente sono state create dopo aver iniziato a modificare l'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell in uso.
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.
+1. Copiare la chiave e l'endpoint di Analisi del testo nel codice.
 1. Salvare il file con estensione "go".
 1. Aprire un prompt dei comandi in un computer in cui è installato Go.
 1. Compilare il file, ad esempio: `go build key-phrases.go`.
@@ -317,16 +301,8 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     
     const uriPath = "/text/analytics/v2.1/keyPhrases"
 
@@ -430,7 +406,6 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Le [entità](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) estraggono parole dal testo, ad esempio "United States" e quindi forniscono il tipo e/o il collegamento a Wikipedia relativo alla parola. Il tipo di "United States" è `location`, mentre il collegamento a Wikipedia è `https://en.wikipedia.org/wiki/United_States`.  L'esempio seguente identifica le entità per i documenti in inglese.
 
-1. Creare le variabili di ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` per l'endpoint e la chiave della sottoscrizione di Azure della risorsa. Se queste variabili di ambiente sono state create dopo aver iniziato a modificare l'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell in uso.
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.
 1. Salvare il file con estensione "go".
@@ -453,16 +428,9 @@ import (
 )
 
 func main() {
-    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-    if "" == os.Getenv(subscriptionKeyVar) {
-        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
-    }
-    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
-    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
-    if "" == os.Getenv(endpointVar) {
-        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
-    }
-    var endpoint string = os.Getenv(endpointVar)
+
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     
     const uriPath = "/text/analytics/v2.1/entities"
 

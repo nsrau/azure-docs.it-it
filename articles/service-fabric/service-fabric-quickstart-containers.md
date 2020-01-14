@@ -1,28 +1,18 @@
 ---
-title: Creare un’app per un contenitore Windows su Service Fabric in Azure | Microsoft Docs
+title: Creare un'app per un contenitore Windows in Service Fabric in Azure
 description: In questa guida introduttiva viene creata la prima applicazione contenitore Windows in Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466276"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Windows in Service Fabric
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Avvio rapido: Distribuire contenitori Windows in Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 
@@ -40,7 +30,7 @@ In questa guida introduttiva si apprende come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. È possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un computer di sviluppo che esegue:
@@ -51,7 +41,7 @@ In questa guida introduttiva si apprende come:
 
 L'SDK e gli strumenti di Service Fabric offrono un modello di servizio che permette di distribuire un contenitore in un cluster di Service Fabric.
 
-Avviare Visual Studio come "Amministratore".  Selezionare **File** > **Nuovo** > **Progetto**.
+Avviare Visual Studio come "Amministratore".  Selezionare **File** > **New** (Nuovo)  > **Project** (Progetto).
 
 Selezionare l'**applicazione di Service Fabric**, denominarla "MyFirstContainer" e fare clic su **Crea**.
 

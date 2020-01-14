@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Libreria client di Visione artificiale per Node.js | Microsoft Docs'
-description: Introduzione alla libreria client di Visione artificiale per Node.js...
+title: 'Avvio rapido: Libreria client di Visione artificiale per Node.js'
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Visione artificiale per Node.js
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,14 +9,14 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05bc30fb8401597695848290a3d4f6c0d10ce836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382243"
 ---
-# <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di Visione artificiale per Node.js
+# <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Avvio rapido: Libreria client di Visione artificiale per Node.js
 
 Introduzione alla libreria client di Visione artificiale per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. 
 
@@ -27,7 +27,7 @@ Usare la libreria client di Visione artificiale per Node.js per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Pacchetto (npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [Esempi](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org/)
@@ -83,7 +83,7 @@ Definire quindi una funzione `computerVision` e dichiarare una serie asincrona c
 
 Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità dell'SDK Visione artificiale per Node.js.
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Questa classe è necessaria per tutte le funzionalità di Visione artificiale. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per eseguire la maggior parte delle operazioni con le immagini.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Questa enumerazione definisce i diversi tipi di analisi delle immagini che è possibile eseguire in un'operazione di analisi standard. Specificare un set di valori di **VisualFeatureTypes** a seconda delle esigenze. |

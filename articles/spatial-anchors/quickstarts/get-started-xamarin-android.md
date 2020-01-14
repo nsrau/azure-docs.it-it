@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Xamarin Android"
+title: "Avvio rapido: Creare un'app Xamarin Android"
 description: Questo argomento di avvio rapido illustra come creare un'app Android con Xamarin usando Ancoraggi nello spazio.
 author: craigktreasure
 manager: vriveras
@@ -8,14 +8,14 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2976104c72179fede3b39816663ac8196d7539ec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465188"
 ---
-# <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android in Xamarin con Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Avvio rapido: Creare un'app Android in Xamarin con Ancoraggi nello spazio di Azure
 
 Questo argomento di avvio rapido illustra come creare un'app Android con Xamarin usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app Android in grado di salvare e richiamare un ancoraggio nello spazio.
 
@@ -28,16 +28,18 @@ Si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
 - Un computer Windows o macOS:
   - Se si usa Windows:
     - Una versione aggiornata di <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 16.2+</a>.
-    - <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>
+    - <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>.
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Se si usa macOS:
     - Una versione aggiornata di <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio per Mac 8.1+</a>.
-    - <a href="https://git-scm.com/download/mac" target="_blank">Git per macOS</a>
+    - <a href="https://git-scm.com/download/mac" target="_blank">Git per macOS</a>.
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
 - La versione più recente di Xamarin.Android installata e in esecuzione nella piattaforma preferita. Per una guida all'installazione di Xamarin.Android, vedere le guide di [installazione di Xamarin.Android](https://docs.microsoft.com/xamarin/android/get-started/installation/index).
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">abilitato per lo sviluppo</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">idoneo per ARCore</a>.
   - Potrebbero essere necessari driver di dispositivo aggiuntivi per la comunicazione del computer con il dispositivo Android. Per altre informazioni, vedere [qui](https://developer.android.com/studio/run/device.html).

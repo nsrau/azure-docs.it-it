@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di creazione di Language Understanding (LUIS) per Python'
+title: 'Avvio rapido: Libreria client di creazione di Language Understanding (LUIS) per Python'
 titleSuffix: Azure Cognitive Services
-description: Introduzione alla libreria client LUIS per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
+description: Questo argomento di avvio rapido illustra come usare la libreria client di LUIS per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 398220306fad4dc3459446fa5f77371ac669dd7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381495"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Guida introduttiva: Libreria client di creazione di Language Understanding (LUIS) per Python
+# <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Avvio rapido: Libreria client di creazione di Language Understanding (LUIS) per Python
 
 Introduzione alla libreria client di creazione di Language Understanding (LUIS) per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  Language Understanding (LUIS) consente di applicare l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni pertinenti e dettagliate. 
 
@@ -30,7 +30,7 @@ Usare la libreria client di creazione di Language Understanding (LUIS) per Pytho
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Pacchetto di creazione (PyPI)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Account del portale di Language Understanding (LUIS): [È possibile crearne uno gratuitamente](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
@@ -46,7 +46,7 @@ Ottenere la [chiave di avvio](luis-how-to-azure-subscription.md#starter-key) cre
 Usando la chiave e l'area della chiave, creare due variabili di ambiente per l'autenticazione:
 
 * `LUIS_AUTHORING_KEY`: la chiave della risorsa per l'autenticazione delle richieste.
-* `LUIS_REGION`: area associata alla chiave. Ad esempio, `westus`.
+* `LUIS_REGION`: area associata alla chiave. Ad esempio `westus`.
 
 Usare le istruzioni per il sistema operativo in uso.
 

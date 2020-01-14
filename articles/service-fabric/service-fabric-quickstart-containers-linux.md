@@ -1,28 +1,18 @@
 ---
-title: Creare un'app per un contenitore Linux su Service Fabric in Azure | Microsoft Docs
+title: Creare un'app per un contenitore Linux in Service Fabric in Azure
 description: In questa guida rapida, compilerai un'immagine Docker con l'applicazione, eseguirai il push dell'immagine in un registro contenitori e distribuirai il contenitore in un cluster di Service Fabric.
-services: service-fabric
-documentationcenter: linux
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599412"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372687"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Linux in Service Fabric
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Avvio rapido: Distribuire contenitori Linux in Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 
@@ -30,7 +20,7 @@ Questa guida introduttiva illustra come distribuire contenitori Linux in un clus
 
 ![Pagina Web dell'app Voting][quickstartpic]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva:
 

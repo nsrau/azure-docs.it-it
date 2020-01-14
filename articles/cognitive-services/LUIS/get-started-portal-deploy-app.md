@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Distribuire un'app con il portale LUIS"
+title: "Avvio rapido: Distribuire un'app con il portale LUIS"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come distribuire un'app creando una risorsa endpoint di previsione, assegnando la risorsa, eseguendo il training e quindi pubblicando l'app.
 services: cognitive-services
@@ -8,24 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448062"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Avvio rapido: Distribuire un'app nel portale LUIS
 
 Quando l'app LUIS è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot, è necessario distribuirla nell'endpoint di stima.
 
 In questo argomento di avvio rapido viene illustrato come distribuire un'applicazione. Verrà creata una risorsa endpoint di stima, tale risorsa verrà assegnata all'app e quindi verrà eseguito il training e la pubblicazione dell'app.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Ottenere una [sottoscrizione di Azure](https://azure.microsoft.com/free).
 * Completare il precedente [argomento di avvio rapido sul portale](get-started-portal-build-app.md) oppure [scaricare e importare l'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -39,9 +37,9 @@ La risorsa endpoint di stima viene creata nel portale di Azure. Dovrà essere us
 
 1. Configurare la sottoscrizione con le impostazioni seguenti:
 
-   |Impostazione|Valore|Scopo|
+   |Impostazione|valore|Scopo|
    |--|--|--|
-   |NOME|`my-luis-resource`|Il nome della risorsa di Azure. Questo nome è necessario quando si assegna la risorsa all'app nel portale LUIS.|
+   |Nome|`my-luis-resource`|Il nome della risorsa di Azure. Questo nome è necessario quando si assegna la risorsa all'app nel portale LUIS.|
    |Subscription|Sottoscrizione in uso|Selezionare una delle sottoscrizioni associate all'account.|
    |Resource group|`my-resource-group`|Creare un nuovo gruppo di risorse per tutte le risorse dei servizi cognitivi. Quando le risorse non sono più necessarie, è possibile eliminare il gruppo per pulire la sottoscrizione. |
    |Posizione di creazione|**Stati Uniti occidentali**|L'area di Azure per la creazione.|
@@ -61,7 +59,7 @@ La risorsa endpoint di stima viene creata nel portale di Azure. Dovrà essere us
 
 Ogni volta che si crea una nuova risorsa per LUIS, è necessario assegnarla all'app LUIS. Dopo l'assegnazione, non sarà più necessario eseguire questo passaggio a meno che non venga creata una nuova risorsa. Si potrebbe creare una nuova risorsa per espandere le aree dell'app oppure per supportare un numero più elevato di query di stima.
 
-1. Accedere al [portale LUIS](https://preview.luis.ai) e scegliere l'app **myEnglishApp** dall'elenco.
+1. Accedere all'[anteprima del portale LUIS](https://preview.luis.ai) e scegliere l'app **myEnglishApp** nell'elenco.
 
 1. Scegliere **Manage** (Gestisci) dal menu in alto a destra e quindi selezionare **Azure Resources** (Risorse di Azure).
 

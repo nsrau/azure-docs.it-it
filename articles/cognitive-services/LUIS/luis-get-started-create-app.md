@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Creare app - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Creare un'app LUIS che usa il dominio predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
+description: Questo argomento di avvio rapido illustra come creare un'app LUIS che usa il domino predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -9,42 +9,36 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 22a37dbd0b76710a14183aec1795639614207d16
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73613656"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448110"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Avvio rapido: Usare l'app di domotica predefinita
 
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
-
 In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
-
-## <a name="prerequisites"></a>Prerequisiti
-
-Per questo articolo è necessario un account LUIS gratuito, creato nel portale LUIS all'indirizzo [https://www.luis.ai](https://www.luis.ai). 
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
-È possibile creare e gestire le applicazioni in **My Apps** (App personali). 
+È possibile creare e gestire le applicazioni in **My Apps** (App personali).
 
 1. Nell'elenco App personali del portale LUIS selezionare **+Crea**.
 
     ![Nell'elenco App personali del portale LUIS selezionare "+Crea".](./media/create-app-in-portal.png)
 
-1. Nella finestra di dialogo, assegnare all'applicazione il nome `Home Automation` e selezionare **Operazione completata**. LUIS crea l'app. La descrizione è facoltativa e non viene usata per la creazione o la previsione. La risorsa di previsione è facoltativa quando si crea un'app LUIS. Quando si pubblica l'app in produzione, è necessario assegnare una risorsa di previsione in modo che l'app possa gestire molte richieste.  
+1. Nella finestra di dialogo, assegnare all'applicazione il nome `Home Automation` e selezionare **Operazione completata**. LUIS crea l'app. La descrizione è facoltativa e non viene usata per la creazione o la previsione. La risorsa di previsione è facoltativa quando si crea un'app LUIS. Quando si pubblica l'app in produzione, è necessario assegnare una risorsa di previsione in modo che l'app possa gestire molte richieste.
 
     ![Nella finestra di dialogo assegnare all'applicazione il nome "Home Automation".](./media/create-new-app-details.png)
 
     >[!NOTE]
-    >Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione. 
+    >Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione.
 
 ## <a name="add-prebuilt-domain"></a>Aggiungi dominio predefinito
 
@@ -61,7 +55,7 @@ Selezionare **Finalità** per esaminare le finalità del dominio HomeAutomation.
 ![Screenshot dell'elenco di finalità di HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot dell'elenco di finalità di HomeAutomation")
 
 > [!NOTE]
-> **None** (Nessuna) è una finalità fornita da tutte le app LUIS. Viene usata per gestire le espressioni che non corrispondono alle funzionalità offerte dall'app. 
+> **None** (Nessuna) è una finalità fornita da tutte le app LUIS. Viene usata per gestire le espressioni che non corrispondono alle funzionalità offerte dall'app.
 
 Selezionare la finalità **HomeAutomation.TurnOff**. È possibile vedere che la finalità contiene un elenco di espressioni con etichette di entità.
 
@@ -72,7 +66,7 @@ Selezionare la finalità **HomeAutomation.TurnOff**. È possibile vedere che la 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Test dell'app
-Dopo aver eseguito il training dell'app, è possibile eseguirne il test. Selezionare **Test**. Digitare un'espressione di test, ad esempio `Turn off the lights` nel riquadro di test interattivo e premere INVIO. 
+Dopo aver eseguito il training dell'app, è possibile eseguirne il test. Selezionare **Test**. Digitare un'espressione di test, ad esempio `Turn off the lights` nel riquadro di test interattivo e premere INVIO.
 
 ```
 Turn off the lights
@@ -88,7 +82,7 @@ Selezionare **Inspect** (Esamina) per esaminare altre informazioni sulla stima.
 
 ![Screenshot del pannello di test con le informazioni di ispezione](media/luis-quickstart-new-app/test.png)
 
-Selezionare nuovamente **Test** per comprimere il riquadro di test. 
+Selezionare nuovamente **Test** per comprimere il riquadro di test.
 
 <a name="publish-your-app"></a>
 
@@ -100,7 +94,7 @@ Selezionare nuovamente **Test** per comprimere il riquadro di test.
 
 ## <a name="query-the-v3-api-prediction-endpoint"></a>Eseguire le query sull'endpoint di stima dell'API V3
 
-[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)] 
+[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
 1. Nella barra degli indirizzi del browser, per la stringa di query, verificare che le barre nome e valore seguenti siano presenti nell'URL. Se non sono presenti nella stringa di query, aggiungerle:
 
@@ -201,7 +195,7 @@ Selezionare nuovamente **Test** per comprimere il riquadro di test.
     ```
 
     Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
-    
+
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

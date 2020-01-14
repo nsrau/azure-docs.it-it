@@ -1,27 +1,27 @@
 ---
-title: "Guida introduttiva: Controllare l'ortografia con l'API REST e Ruby - Controllo ortografico Bing"
+title: "Avvio rapido: Controllare l'ortografia con l'API REST e Ruby - Controllo ortografico Bing"
 titleSuffix: Azure Cognitive Services
-description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
+description: Questo argomento di avvio rapido illustra come usare l'API REST Controllo ortografico Bing per eseguire il controllo ortografico e grammaticale.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448423"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing con Ruby. Questa semplice applicazione invia una richiesta all'API e restituisce un elenco di parole non riconosciute, seguite dalle correzioni suggerite. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o versione successiva
 
@@ -32,13 +32,13 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
 
 1. Creare un nuovo file Ruby nell'ambiente di sviluppo integrato o nell'editor preferito e aggiungere i requisiti seguenti. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. Creare variabili per la chiave di sottoscrizione, l'URI dell'endpoint e il percorso. Creare i parametri della richiesta aggiungendo il parametro `mkt=` al proprio mercato e `&mode` alla modalità di prova `proof`.
+2. Creare variabili per la chiave di sottoscrizione, l'URI dell'endpoint e il percorso. Creare i parametri della richiesta aggiungendo il parametro `mkt=` al proprio mercato e `&mode` alla modalità di prova `proof`. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -81,6 +81,16 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## <a name="run-the-application"></a>Eseguire l'applicazione
+
+Compilare ed eseguire il progetto.
+
+Se si usa la riga di comando, usare i comandi seguenti per eseguire l'applicazione.
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## <a name="example-json-response"></a>Risposta JSON di esempio
 

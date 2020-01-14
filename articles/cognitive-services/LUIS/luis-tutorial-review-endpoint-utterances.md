@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Revisione delle espressioni di endpoint - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTP di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni.
+description: Questa esercitazione illustra come migliorare le previsioni per le app verificando o correggendo le espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447813"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Esercitazione: Correggere le stime dubbie con la revisione delle espressioni di endpoint
 Questa esercitazione illustra come migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. È consigliabile includere l'analisi delle espressioni dell'endpoint come fase regolare della manutenzione pianificata di LUIS.
@@ -28,8 +28,6 @@ Questo processo di revisione consente a LUIS di acquisire informazioni sul domin
 * Deve essere esaminato periodicamente.
 
 La revisione delle espressioni endpoint consente di verificare o correggere la finalità prevista dell'espressione.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -46,7 +44,7 @@ La revisione delle espressioni endpoint consente di verificare o correggere la f
 
 Usare la procedura seguente per importare un'app.
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 1. Nel [portale LUIS (anteprima)](https://preview.luis-ai) importare il file JSON in una nuova app.
 
@@ -86,31 +84,31 @@ In questa app sono presenti finalità ed entità, ma non è disponibile alcun ut
 
 ## <a name="review-endpoint-utterances"></a>Esaminare le espressioni endpoint
 
-Esaminare le espressioni dell'endpoint per assicurarsi che la finalità sia allineata correttamente. Anche se è presente un solo pool di espressioni da rivedere per tutte le versioni, il processo di allineamento corretto della finalità aggiunge l'espressione di esempio solo al modello _attualmente attivo_.
+Esaminare le espressioni dell'endpoint per assicurarsi che la finalità sia allineata correttamente. Anche se è presente un singolo pool di espressioni da rivedere tra tutte le versioni, il processo di allineamento corretto della finalità aggiunge l'espressione di esempio solo al _modello attivo_ corrente.
 
-1. Nella sezione **Build** (Crea) del portale selezionare **Review endpoint utterances** (Rivedi espressioni endpoint) dal riquadro di spostamento a sinistra. All'elenco viene applicato un filtro relativo alla finalità **ApplyForJob**.
+1. Nella sezione **Build** (Compila) del portale selezionare **Controlla le espressioni di endpoint** nel riquadro di spostamento sinistro. All'elenco viene applicato un filtro relativo alla finalità **ApplyForJob**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot del pulsante di revisione delle espressioni dell'endpoint nel riquadro di spostamento a sinistra](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    > ![Screenshot del pulsante Controlla le espressioni di endpoint nel riquadro di spostamento sinistro](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
     L'espressione `I'm looking for a job with Natural Language Processing` non ha la finalità corretta.
 
-1.  Per allineare questa espressione, nella riga dell'espressione selezionare **Aligned Intent** (Finalità allineata) corretta di `GetJobInformation`. Aggiungere l'espressione modificata all'app selezionando il segno di spunta.
+1.  Per allineare questa espressione, nella riga corrispondente selezionare la **Finalità allineata** corretta `GetJobInformation`. Aggiungere l'espressione cambiata all'app selezionando il segno di spunta.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot del pulsante di revisione delle espressioni dell'endpoint nel riquadro di spostamento a sinistra](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+    > ![Screenshot del pulsante Controlla le espressioni di endpoint nel riquadro di spostamento sinistro](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
-    Rivedere le espressioni rimanenti in questa finalità, correggendo la finalità allineata in base alle esigenze. Usare la tabella delle espressioni iniziale in questa esercitazione per visualizzare la finalità allineata.
+    Esaminare le espressioni rimanenti in questa finalità, correggendo la finalità allineata in base alle esigenze. Usare la tabella di espressioni iniziali di questa esercitazione per visualizzare la finalità allineata.
 
-    Nell'elenco **Review endpoint utterances** (Rivedi espressioni endpoint) non dovrebbe visualizzare più le espressioni corrette. Se vengono visualizzate altre espressioni, continuare a esaminare l'elenco, correggendo le finalità allineate fino a quando l'elenco non risulta vuoto.
+    Nell'elenco **Controlla le espressioni di endpoint** non dovrebbero essere più presenti le espressioni corrette. Se vengono visualizzate altre espressioni, continuare a esaminare l'elenco, correggendo le finalità allineate, fino a svuotarlo.
 
-    La correzione delle etichette delle entità viene eseguita dopo l'allineamento della finalità nella pagina Intent details (Dettagli finalità).
+    La correzione dell'etichettatura di entità viene eseguita dopo l'allineamento della finalità nella relativa pagina di dettagli.
 
 1. Eseguire il training dell'app e ripubblicarla.
 
 ## <a name="get-intent-prediction-from-endpoint"></a>Ottenere una stima della finalità dall'endpoint
 
-Per verificare che le espressioni di esempio correttamente allineate abbiano migliorato le prestazioni di previsione dell'app, provare un'espressione vicina all'espressione corretta.
+Per verificare che le espressioni di esempio correttamente allineate abbiano migliorato la previsione dell'app, provare a usare un'espressione simile a quella corretta.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -220,7 +218,7 @@ Per verificare che le espressioni di esempio correttamente allineate abbiano mig
     }
    ```
 
-   Ora che le espressioni incerte sono allineate correttamente, la finalità corretta è stato prevista con un **punteggio elevato**.
+   Ora che le espressioni non sicure sono allineate correttamente, la finalità corretta è stata prevista con un **punteggio elevato**.
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Possibilità di sostituire la revisione tramite l'aggiunta di altre espressioni
 È possibile che ci si domandi se non sia possibile aggiungere altre espressioni di esempio e quale sia la finalità della revisione delle espressioni endpoint. In un'app LUIS concreta le espressioni endpoint vengono generate da utenti con scelte di parole e strutture di frase non ancora usate. Se fossero state usate le stesse scelte di parole e le stesse strutture, la previsione originale avrebbe avuto una percentuale maggiore.

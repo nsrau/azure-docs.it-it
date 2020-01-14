@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Libreria client dell'API Viso per .NET | Microsoft Docs"
-description: Introduzione alla libreria client dell'API Viso per .NET.
+title: "Avvio rapido: Libreria client dell'API Viso per .NET"
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Viso per .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,14 +9,14 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 5602e26e2e1b327d65d411f8e92f264f1bf9fb91
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 269f2c9a2cf8578438971e8ad75fec1379a21c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977863"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448195"
 ---
-# <a name="quickstart-face-client-library-for-net"></a>Guida introduttiva: Libreria client dell'API Viso per .NET
+# <a name="quickstart-face-client-library-for-net"></a>Avvio rapido: Libreria client dell'API Viso per .NET
 
 Introduzione alla libreria client dell'API Viso per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio API Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -31,7 +31,7 @@ Usare la libreria client dell'API Viso per .NET per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Esempi](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -95,7 +95,7 @@ Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client 
 
 Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Face .NET SDK:
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Questa classe rappresenta l'autorizzazione per l'utilizzo del servizio Viso ed è necessaria per tutte le funzionalità del servizio. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Questa classe gestisce le attività di rilevamento e riconoscimento di base che è possibile eseguire con i visi umani. |

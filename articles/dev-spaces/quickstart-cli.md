@@ -3,23 +3,23 @@ title: Sviluppare un'applicazione in Kubernetes
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Distribuire un microservizio nel servizio Azure Kubernetes con Azure Dev Spaces
+description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e la riga di comando per sviluppare un'applicazione nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b4902930b04e880bbbdfbe7418d5e0ec86f89470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438268"
 ---
-# <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Guida introduttiva: Sviluppare un'applicazione in Kubernetes - Azure Dev Spaces
+# <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Avvio rapido: Sviluppare un'applicazione in Kubernetes - Azure Dev Spaces
 In questa guida si apprenderà come:
 
 - Configurare Azure Dev Spaces con un cluster Kubernetes gestito in Azure.
 - Sviluppare ed eseguire codice nei contenitori tramite la riga di comando.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 - [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -110,7 +110,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 Per vedere il servizio in esecuzione, aprire l'URL pubblico, visualizzato nell'output del comando `azds up`. In questo esempio l'URL pubblico è *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 > [!NOTE]
-> Quando si passa al servizio durante l'esecuzione di `azds up`, le tracce delle richieste HTTP vengono visualizzate anche nell'output del comando `azds up`. Queste tracce possono essere utili per la risoluzione dei problemi e per il debug del servizio. È possibile disabilitarle usando `--disable-http-traces` durante l'esecuzione di `azds up`.
+> Quando si passa al servizio durante l'esecuzione di `azds up`, nell'output del comando `azds up` vengono visualizzate anche le tracce delle richieste HTTP. Queste tracce possono essere utili per la risoluzione dei problemi e per il debug del servizio. È possibile disabilitarle usando `--disable-http-traces` durante l'esecuzione di `azds up`.
 
 Se si arresta il comando `azds up` premendo *CTRL+C*, il servizio continuerà a essere eseguito nel servizio Azure Kubernetes e l'URL pubblico rimarrà disponibile.
 

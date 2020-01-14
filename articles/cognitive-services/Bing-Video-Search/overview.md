@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/26/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4f3a52590a9a0c50bdc87f87792027333fc5269f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8377f0f5d586212c94bb763598b6e7a9e391073c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382719"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Che cos'è l'API Ricerca video Bing?
 
@@ -23,7 +23,7 @@ L'API Ricerca video Bing semplifica l'aggiunta di funzionalità di ricerca video
 
 ## <a name="bing-video-search-api-features"></a>Funzionalità dell'API Ricerca video Bing
 
-| Funzionalità                                                                                                                                                                                 | DESCRIZIONE                                                                                                                                                            |
+| Funzionalità                                                                                                                                                                                 | Descrizione                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggerimento dei termini di ricerca in tempo reale](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
 | [Filtro e limitazione dei video restituiti come risultato](concepts/get-videos.md#filtering-videos)                      | È possibile filtrare i video restituiti come risultato modificando i parametri della query.                                                                                                       |
@@ -53,3 +53,5 @@ Usare la [guida introduttiva](csharp.md) per eseguire rapidamente la prima richi
 * La pagina di riferimento per l'[API Ricerca video Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i risultati di ricerca.
 
 * I [requisiti per l'uso e la visualizzazione di Bing](./useanddisplayrequirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.
+
+* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM da uno snapshot
+title: Creare una VM da uno snapshot - Esempio dell'interfaccia della riga di comando
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM da uno snapshot
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 92f56ef06583bbd59509337352e1509b35b449a6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ffc1a735f743796b73c2b58353638dba7ed60985
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032590"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458461"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Creare una macchina virtuale da uno snapshot con l'interfaccia della riga di comando
 

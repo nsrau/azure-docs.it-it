@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Controllare l'ortografia con l'API REST e C# - Controllo ortografico Bing"
+title: "Avvio rapido: Controllare l'ortografia con l'API REST e C# - Controllo ortografico Bing"
 titleSuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e51c1220e120d157ea4a413b95a7beb20c950518
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382950"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e C#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e C#
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione C# invia una richiesta all'API e restituisce un elenco di correzioni suggerite. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
 * Per installare `Newtonsoft.Json` come pacchetto NuGet in Visual Studio:
@@ -46,7 +46,7 @@ Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Co
     using Newtonsoft.Json;
     ```
 
-2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il testo da sottoporre a controllo ortografico.
+2. Creare variabili per l'endpoint dell'API, la chiave di sottoscrizione e il testo da sottoporre a controllo ortografico. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     namespace SpellCheckSample
@@ -136,6 +136,10 @@ static void Main(string[] args)
     Console.ReadLine();
 }
 ```
+
+## <a name="run-the-application"></a>Eseguire l'applicazione
+
+Compilare ed eseguire il progetto. Se si usa Visual Studio, premere **F5** per eseguire il debug del file.
 
 ## <a name="example-json-response"></a>Risposta JSON di esempio
 

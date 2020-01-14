@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Connettersi al servizio Analisi del testo con Servizi connessi in Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso della funzionalità Servizio connesso di Visual Studio per il servizio Analisi del testo.
+description: Informazioni su come usare la funzionalità Servizi connessi di Visual Studio per il servizio Analisi del testo.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446153"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Esercitazione: Connettersi al servizio Analisi del testo con Servizi connessi in Visual Studio
 
@@ -23,7 +23,7 @@ Grazie al servizio Analisi del testo è possibile estrarre informazioni complete
 
 Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso della funzionalità Servizio connesso di Visual Studio per il servizio Analisi del testo. La funzionalità è disponibile in Visual Studio 2019 o versioni successive, con l'estensione Servizi cognitivi installata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2019 con il carico di lavoro Sviluppo Web installato. [Scaricarla qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

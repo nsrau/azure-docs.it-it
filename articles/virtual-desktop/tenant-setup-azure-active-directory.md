@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: a7511b8026cb3f53a23eed0f0c057632314320c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459516"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows
 
@@ -25,7 +25,9 @@ In questa esercitazione si apprenderà come:
 > * Assegnare il ruolo applicazione TenantCreator a un utente nel tenant di Azure Active Directory.
 > * Creare un tenant in Desktop virtuale Windows.
 
-Ecco i requisiti per configurare il tenant di Desktop virtuale Windows:
+## <a name="what-you-need-to-set-up-a-tenant"></a>Requisiti per la configurazione di un tenant
+
+Prima di iniziare la configurazione del tenant di Desktop virtuale Windows, assicurarsi di avere a disposizione quanto segue:
 
 * L'ID tenant di [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per gli utenti di Desktop virtuale Windows.
 * Un account di amministratore globale all'interno del tenant di Azure Active Directory.
@@ -33,6 +35,8 @@ Ecco i requisiti per configurare il tenant di Desktop virtuale Windows:
    * L'account amministratore deve provenire dal tenant di Azure Active Directory in cui si sta provando a creare il tenant di Desktop virtuale Windows. Questa procedura non supporta gli account di Azure Active Directory B2B (guest).
    * L'account amministratore deve essere un account aziendale o dell'istituto di istruzione.
 * Una sottoscrizione di Azure.
+
+Per la corretta esecuzione della procedura descritta in questa esercitazione, è necessario avere a disposizione l'ID tenant, l'account amministratore globale e la sottoscrizione.
 
 ## <a name="grant-permissions-to-windows-virtual-desktop"></a>Concedere le autorizzazioni a Desktop virtuale Windows
 
@@ -135,6 +139,12 @@ Sostituire i valori tra parentesi con i valori appropriati per l'organizzazione 
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+È consigliabile assegnare l'accesso amministrativo a un secondo utente nel caso in cui il proprio account risulti bloccato oppure se si va in ferie e serve qualcuno che agisca da amministratore del tenant in propria assenza. Per assegnare l'accesso amministrativo a un secondo utente, eseguire il cmdlet seguente sostituendo `<TenantName>` e `<Upn>` con il nome del tenant e con il nome UPN del secondo utente.
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

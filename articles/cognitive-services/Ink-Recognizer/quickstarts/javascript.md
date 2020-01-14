@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Node.js"
+title: "Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Node.js"
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
+description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 19626bd68ad82108b2ebaa823d196d0f22008e29
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a37f2b7044fcba04ca18093aa73563961e9e35de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448135"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e JavaScript
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e JavaScript
 
 Usare questa guida di avvio rapido per iniziare a usare l'API Riconoscimento input penna su tratti input penna. Questa applicazione JavaScript # invia una richiesta API contenenti i dati del tratto input penna in formato JSON e visualizza la risposta.
 
@@ -29,7 +29,7 @@ In genere è necessario chiamare l'API da un'app di input penna. Questa guida di
 
 Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un Web browser
 - I dati di esempio del tratto input penna per questo avvio rapido sono disponibili in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).

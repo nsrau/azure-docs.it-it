@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/05/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448978"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -29,7 +29,7 @@ L'uso del Rilevamento anomalie non richiede alcuna esperienza precedente in appr
 
 Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in tutti i dati di serie temporali, o appena si verificano in tempo reale. 
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |Rilevare le anomalie appena si verificano in tempo reale. | Rilevare le anomalie nei dati di streaming usando i punti dati visualizzati in precedenza per determinare se la versione più recente è un'anomalia. Questa operazione genera un modello usando i punti dati inviati dall'utente e determina se il punto di destinazione è un'anomalia. Chiamando l'API con ogni nuovo punto dati generato, è possibile monitorare i dati durante la creazione. |
 |Rilevare le anomalie nel set di dati come batch. | Usare le serie temporali per rilevare eventuali anomalie che potrebbero esistere in tutti i dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.         |
@@ -41,7 +41,7 @@ Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in
 Per comprendere il funzionamento di Rilevamento anomalie, vedere questa [dimostrazione interattiva](https://aka.ms/adDemo).
 Per eseguire la demo, è necessario creare una risorsa di Rilevamento anomalie e ottenere l'endpoint e la chiave API.
 
-## <a name="notebook"></a>Blocco appunti
+## <a name="notebook"></a>Notebook
 
 Per informazioni su come chiamare l'API Rilevamento anomalie, provare questo [notebook di Azure](https://aka.ms/adNotebook). Questo notebook Jupyter ospitato sul Web illustra come inviare una richiesta API e visualizzare il risultato.
 
@@ -72,8 +72,12 @@ Dopo aver eseguito l'iscrizione:
 
 ## <a name="algorithms"></a>Algoritmi
 
-* Fare riferimento ai blog tecnici [Introduzione all'API Rilevamento anomalie di Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) e [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) (Panoramica dell'algoritmo SR-CNN in Rilevamento anomalie di Azure) sugli algoritmi in dettaglio.
-* Per informazioni sugli algoritmi SR-CNN all'avanguardia sviluppati da Microsoft, vedere il documento accettato da KDD 2019 relativo al [servizio Microsoft per il rilevamento delle anomalie nelle serie temporali](https://arxiv.org/abs/1906.03821).
+* Per informazioni sugli algoritmi usati, vedere i blog tecnici seguenti:
+    * [Introduzione all'API Rilevamento anomalie di Azure (in inglese)](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
+    * [Panoramica dell'algoritmo SR-CNN in Rilevamento anomalie di Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+
+Per altre informazioni sugli algoritmi SR-CNN sviluppati da Microsoft, vedere il documento (accettato da KDD 2019) relativo al [servizio Microsoft per il rilevamento delle anomalie nelle serie temporali](https://arxiv.org/abs/1906.03821).
+
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
@@ -84,6 +88,6 @@ Dopo aver eseguito l'iscrizione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](quickstarts/detect-data-anomalies-csharp.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](quickstarts/detect-data-anomalies-csharp.md)
 * [Demo online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) dell'API Rilevamento anomalie
 * [Informazioni di riferimento sulle API del servizio REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) dell'API Rilevamento anomalie

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare due macchine virtuali con un gruppo di sicurezza di rete interno ed esterno
-description: Script dell'interfaccia della riga di comando Azure di esempio - Creare due macchine virtuali con NSG interno ed esterno
+title: "Esempio dell'interfaccia della riga di comando: Creare due VM con un gruppo di sicurezza di rete interno e uno esterno"
+description: Creare due macchine virtuali con un gruppo di sicurezza di rete interno e uno esterno per proteggere il traffico di rete tramite l'interfaccia della riga di comando di Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 857a2862a7ddf515567f96b2e688e54a957cd3d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3e3d1fe3bf464892934198d06b602a5b8bcafb67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458382"
 ---
-# <a name="secure-network-traffic-between-virtual-machines"></a>Proteggere il traffico di rete tra le macchine virtuali
+# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Proteggere il traffico di rete tra macchine virtuali con un gruppo di sicurezza di rete
 
 Questo script crea due macchine virtuali e protegge il traffico in ingresso su entrambe le macchine. Una macchina virtuale è accessibile su Internet e dispone di un gruppo di sicurezza di rete (NSG) configurato per consentire il traffico sulle porte 22 e 80. La seconda macchina virtuale non è accessibile su Internet e dispone di un NSG configurato per consentire solo il traffico proveniente dalla prima macchina virtuale.
 

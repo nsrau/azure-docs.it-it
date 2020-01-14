@@ -1,5 +1,5 @@
 ---
-title: Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account | Microsoft Docs
+title: Trasferire la proprietà della fatturazione di una sottoscrizione di Azure
 description: Questo articolo descrive come trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account e contiene alcune domande frequenti sul processo
 keywords: trasferire la sottoscrizione di Azure, trasferimento della sottoscrizione di Azure, spostare una sottoscrizione di Azure in un altro account, cambiare il proprietario della sottoscrizione di Azure, trasferire la sottoscrizione di Azure in un altro account, trasferire la fatturazione di Azure
 author: bandersmsft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a858ef9918135bfb660c059d80f4c7c49e1e3364
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 721c8a1381ad90a68cfeb628ad00e39aadbb1db7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388942"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -66,7 +66,7 @@ Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'o
 
    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
 
-1. Completamento della procedura La sottoscrizione è stata trasferita.
+1. Operazione riuscita. La sottoscrizione è stata trasferita.
 
 ## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>Trasferimento della sottoscrizione in un account in un altro tenant di Azure AD
 

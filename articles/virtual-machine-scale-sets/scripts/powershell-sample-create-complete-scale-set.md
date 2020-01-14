@@ -1,6 +1,6 @@
 ---
-title: Esempi di Azure PowerShell - Creare un set di scalabilità di macchine virtuali completo | Microsoft Docs
-description: Esempi di Azure PowerShell
+title: Esempi di Azure PowerShell - Creare un set di scalabilità di macchine virtuali completo
+description: Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016, in cui vengono configurate e create singole risorse.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebbc47739b2be72d0dd98c0659bfcaba512e79e9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b116a6cb4266b5ec05abd2b3210ebc772bac9868
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350930"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali completo con PowerShell
 
@@ -30,7 +30,7 @@ Questo script crea un set di scalabilità di macchine virtuali che esegue Window
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 

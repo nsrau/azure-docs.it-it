@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di Personalizza esperienze per .NET | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Personalizza esperienze per .NET'
 titleSuffix: Azure Cognitive Services
-description: Imparare a usare la libreria client di Personalizza esperienze per .NET con un ciclo di apprendimento.
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Personalizza esperienze per .NET con un ciclo di apprendimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c17bf54d89e3a98ca667eeba40f2d2b166550833
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446380"
 ---
-# <a name="quickstart-personalizer-client-library-for-net"></a>Guida introduttiva: Libreria client di Personalizza esperienze per .NET
+# <a name="quickstart-personalizer-client-library-for-net"></a>Avvio rapido: Libreria client di Personalizza esperienze per .NET
 
 Visualizzare il contenuto personalizzato in questa guida di avvio rapido di C# con il servizio Personalizza esperienze.
 
@@ -28,7 +28,7 @@ Introduzione alla libreria client di Personalizza esperienze per .NET. Seguire q
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -59,7 +59,7 @@ Nel portale di Azure i valori della chiave e dell'endpoint sono disponibili nell
 
 ## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-Nella pagina **Configurazione** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. Con questa breve durata il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+Nella pagina **Configurazione** della risorsa di personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. Con questa breve durata il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -213,4 +213,3 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 * [Informazioni su Personalizza esperienze](what-is-personalizer.md)
 * [In quali situazioni è possibile usare Personalizza esperienze?](where-can-you-use-personalizer.md)
 * [Risoluzione dei problemi](troubleshooting.md)
-

@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Riconoscimento della voce archiviata in archiviazione BLOB, Java - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento della voce archiviata in archiviazione BLOB, Java - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d4a436540460240ebd97c39d3406b2886586a6df
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e110c87835cdf517bdd54adda0ef6d9168a44d52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466601"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 
@@ -42,7 +42,7 @@ Aprire il file pom.xml e aggiungere il seguente riferimento: [!code-xml[](~/samp
 
 ## <a name="start-with-some-boilerplate-code"></a>Iniziare con un codice boilerplate
 
-Aggiungere codice che funge da scheletro del progetto.
+Aggiungere codice che funga da scheletro del progetto.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=1-13,95-105,206-207)]
 (Sarà necessario sostituire i valori di `YourSubscriptionKey`, `YourServiceRegion` e `YourFileUrl` con valori personalizzati.)
@@ -81,7 +81,7 @@ Verrà scaricato il contenuto di tale URL, deserializzato il file JSON ed esegui
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=6-160-190)]
 
 ## <a name="check-your-code"></a>Controllare il codice
-A questo punto, il codice dovrà avere questo aspetto: (Sono stati aggiunti alcuni commenti a questa versione) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java]
+A questo punto il codice dovrà avere questo aspetto: (Sono stati aggiunti alcuni commenti a questa versione) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java]
 
 ## <a name="build-and-run-your-app"></a>Compilare ed eseguire l'app
 

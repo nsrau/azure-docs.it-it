@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un esperimento di data science'
+title: 'Avvio rapido: Creare un esperimento di data science'
 titleSuffix: ML Studio (classic) - Azure
 description: Questa guida introduttiva di Machine Learning illustra un esperimento semplice di data science. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
 services: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839953"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427732"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Guida introduttiva: Creare il primo esperimento data science in Azure Machine Learning Studio (classico)
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Avvio rapido: Creare il primo esperimento data science in Azure Machine Learning Studio (classico)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -45,7 +45,7 @@ Questa guida introduttiva segue il flusso di lavoro predefinito di un esperiment
 ## <a name="get-the-data"></a>Ottenere i dati
 
 Il primo elemento necessario nell'apprendimento automatico è rappresentato dai dati.
-Nella versione classica di Studio sono disponibili numerosi set di dati di esempio da usare; in alternativa, è possibile importare dati da molte altre origini. Per questo esempio, verrà usato il set di dati di esempio **Automobile price data (Raw)** (Dati non elaborati sui prezzi delle automobili) incluso nell'area di lavoro.
+In Studio (versione classica) sono disponibili numerosi set di dati di esempio da usare oppure è possibile importare dati da molte altre origini. Per questo esempio, verrà usato il set di dati di esempio **Automobile price data (Raw)** (Dati non elaborati sui prezzi delle automobili) incluso nell'area di lavoro.
 Questo set di dati include voci per diverse automobili e include informazioni su marca, modello, specifiche tecniche e prezzo.
 
 > [!TIP]
@@ -111,7 +111,7 @@ In primo luogo si aggiunge un modulo che rimuove completamente la colonna **norm
 
      ![Fare doppio clic su un modulo per aggiungere un commento](./media/create-experiment/add-comment.png)
 
-1. Trascinare il modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) nell'area di disegno dell'esperimento e connetterlo al modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Nel riquadro delle **proprietà** selezionare **Remove entire row** (Rimuovi riga intera) in **modalità Cleaning** (Pulizia). Queste opzioni indicano al modulo [Clean Missing Data][clean-missing-data] di pulire i dati rimuovendo le righe con valori mancanti. Fare doppio clic sul modulo e digitare il commento "Rimuovi righe valori mancanti".
+1. Trascinare il modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) nell'area di disegno dell'esperimento e connetterlo al modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Nel riquadro delle **proprietà** selezionare **Remove entire row** (Rimuovi riga intera) in **modalità Cleaning** (Pulizia). Queste opzioni indicano al modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) di pulire i dati rimuovendo le righe con valori mancanti. Fare doppio clic sul modulo e digitare il commento "Rimuovi righe valori mancanti".
 
     ![Impostare la modalità di pulizia su "Remove entire row" (Rimuovi riga intera) per il modulo "Clean Missing Data"](./media/create-experiment/set-remove-entire-row.png)
 

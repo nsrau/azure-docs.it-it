@@ -3,18 +3,18 @@ title: Informazioni su Azure IoT Central | Microsoft Docs
 description: Azure IoT Central è una piattaforma applicativa che semplifica la creazione di soluzioni IoT e contribuisce a ridurre il carico di lavoro e i costi delle operazioni di gestione e dello sviluppo IoT. Questo articolo offre una panoramica delle funzionalità di Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434841"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Informazioni su Azure IoT Central (funzionalità di anteprima)
 
@@ -34,22 +34,18 @@ Per IoT Central, questo articolo descrive:
 - Procedura per la connessione di dispositivi all'applicazione.
 - Procedura per la gestione dell'applicazione.
 - Funzionalità Azure IoT Edge in IoT Central.
-- Come connettere i dispositivi Azure IoT Edge in fase di esecuzione alla propria applicazione.
+- Come connettere i dispositivi con runtime Azure IoT Edge alla propria applicazione.
 
 ## <a name="known-issues"></a>Problemi noti
 
 > [!Note]
 > Questi problemi noti si riferiscono solo all'applicazione IoT Central (anteprima).
 
-- Le regole non supportano tutte le azioni (solo la posta elettronica).
-- Per i tipi complessi, le regole, le analisi e i gruppi di dispositivi non sono supportati.
 - L'esportazione dati continua non supporta il formato Avro (incompatibilità).
-- I dispositivi simulati non supportano tutti i tipi complessi.
 - GeoJSON non è attualmente supportato.
 - La tessera mappa non è attualmente supportato.
 - I processi non supportano i tipi complessi.
 - I tipi di schema della matrice non sono supportati.
-- L'esportazione di modelli dell'applicazione e la copia di applicazioni non sono supportate.
 - Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
 - È disponibile solo nelle località Stati Uniti e Europa.
 - I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
@@ -149,7 +145,7 @@ Le quote predefinite di ogni sottoscrizione di Azure possono influire sull'ambit
 
 A questo punto, dopo aver letto la panoramica di IoT Central, vengono consigliati alcuni passaggi successivi:
 
-- Comprendere le differenze tra gli [acceleratori di soluzioni IoT Central e Azure IoT](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Conoscere le [tecnologie e i servizi di Azure disponibili per la creazione di soluzioni IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Acquisire familiarità con l'[interfaccia utente di Azure IoT Central](overview-iot-central-tour.md).
 - Iniziare a [creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md).
 - Altre informazioni su [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md)

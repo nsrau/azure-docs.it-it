@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bcc4af837cc28a18345e49cd39ddf88d24e44dd8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450850"
 ---
 1. Selezionare **Connetti siti VPN** per visualizzare la pagina **Connetti siti**.
 
@@ -22,10 +22,10 @@ ms.locfileid: "73488896"
    Completare i campi seguenti:
 
    * Immettere una chiave precondivisa. Se non si immette una chiave, Azure ne genera automaticamente una.
-   * Selezionare le impostazioni relative a protocollo e IPsec. Fare riferimento ai dettagli IPSec predefiniti/personalizzati (inserire il collegamento alla pagina)
+   * Selezionare le impostazioni relative a protocollo e IPsec. Fare riferimento a [dettagli di IPSec predefiniti/personalizzati] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
    * Selezionare l'opzione appropriata per **Propaga route predefinita**. L'opzione **Abilita** consente all'hub virtuale di propagare a questa connessione una route predefinita appresa. Questo flag consente la propagazione della route predefinita a una connessione solo se tale route è già stata appresa dall'hub della rete WAN virtuale a seguito della distribuzione di un firewall nell'hub o se per un altro sito connesso è abilitato il tunneling forzato. La route predefinita non ha origine nell'hub della rete WAN virtuale.
 
-2. Selezionare **Connessione**.
+2. Selezionare **Connetti**.
 3. Nel giro di qualche minuto il sito visualizzerà lo stato di connessione e di connettività.
 
    ![Stato](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")

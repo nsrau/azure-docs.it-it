@@ -1,21 +1,21 @@
 ---
 title: "Esercitazione: Creare un'app a pagina singola Ricerca video Bing"
 titleSuffix: Azure Cognitive Services
-description: Illustra come usare l'API Ricerca video Bing in un'applicazione Web a pagina singola.
+description: Questa esercitazione illustra come usare l'API Ricerca video Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d2cd3d37801fc1a42a9bcbd5f70a6a55e78aaf08
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500071"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382464"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Esercitazione: App a pagina singola Ricerca video
 L'API Ricerca video Bing consente di eseguire ricerche sul Web e di ottenere come risultati video pertinenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca video Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
@@ -100,7 +100,7 @@ La figura seguente mostra la casella di testo della query e le opzioni che defin
 
 Il modulo HTML include elementi con i nomi seguenti:
 
-|Elemento|DESCRIZIONE|
+|Elemento|Descrizione|
 |-|-|
 | `where` | Un menu a discesa per la selezione del mercato (località e lingua) usato per la ricerca. |
 | `query` | Il campo di testo in cui inserire i termini di ricerca. |
@@ -141,7 +141,7 @@ function bingSearchOptions(form) {
 Ad esempio, il parametro `SafeSearch` in una chiamata API effettiva può essere `strict`, `moderate` o `off` con `moderate` come valore predefinito. Il modulo, tuttavia, usa una casella di controllo che presenta solo due stati. Il codice JavaScript converte questa impostazione in `strict` o `off`; `moderate` non viene usato.
 
 ## <a name="performing-the-request"></a>Esecuzione della richiesta
-Ricevuta la query, la stringa delle opzioni e la chiave API, la funzione `BingWebSearch` usa un oggetto `XMLHttpRequest` per effettuare la richiesta all'endpoint di Ricerca Bing.
+Ricevuta la query, la stringa delle opzioni e la chiave API, la funzione `BingWebSearch` usa un oggetto `XMLHttpRequest` per effettuare la richiesta all'endpoint di Ricerca Bing. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -257,11 +257,11 @@ function handleOnLoad() {
 
 > [!IMPORTANT]
 > Se si verifica un errore nell'operazione di ricerca, l'API Ricerca notizie Bing restituisce un codice di stato HTTP non-200 e include le informazioni sull'errore nella risposta JSON. Inoltre, se la richiesta era a frequenza limitata, l'API restituisce una risposta vuota.
-Una richiesta HTTP corretta *non* necessariamente indica che la ricerca sia andata a buon fine. 
+Una richiesta HTTP corretta *non* indica necessariamente che la ricerca sia andata a buon fine. 
 
-La maggior parte del codice in entrambe le precedenti funzioni è dedicata alla gestione degli errori. Possono verificarsi errori nelle fasi seguenti:
+La maggior parte del codice in entrambe le funzioni precedenti è dedicata alla gestione degli errori. Possono verificarsi errori nelle fasi seguenti:
 
-|Fase|Errori potenziali|Gestito da|
+|Fase|Errori potenziali|Gestiti da|
 |-|-|-|
 |Compilazione dell'oggetto richiesta JavaScript|URL non valido|Blocco `try`/`catch`|
 |Invio della richiesta|Errori di rete, connessioni interrotte|Gestori degli eventi `error` e `abort`|
@@ -306,9 +306,9 @@ I risultati della ricerca vengono restituiti come oggetto di primo livello `valu
 }
 ```
 
-L'API di Ricerca notizie Bing restituisce fino a quattro tipi di risultati correlati, ognuno dei quali nel proprio oggetto di primo livello. Sono:
+L'API di Ricerca notizie Bing restituisce fino a quattro tipi di risultati correlati, ognuno dei quali nel proprio oggetto di primo livello. ovvero:
 
-|Relazione|DESCRIZIONE|
+|Relazione|Descrizione|
 |-|-|
 |`pivotSuggestions`|Query che sostituiscono una parola pivot nella ricerca originale con una parola diversa. Ad esempio, se si cerca "fiori rossi", una parola pivot potrebbe essere "rossi" e un suggerimento pivot potrebbe essere "fiori gialli".|
 |`queryExpansions`|Query che restringono la ricerca originale con l'aggiunta di nuovi termini. Ad esempio, se si cerca "Microsoft Surface", un'espansione della query potrebbe essere "Microsoft Surface Pro".|
@@ -317,7 +317,7 @@ L'API di Ricerca notizie Bing restituisce fino a quattro tipi di risultati corre
 
 Come illustrato in precedenza in `renderSearchResults()`, viene eseguito il rendering solo dei suggerimenti `relatedItems` e i collegamenti risultanti vengono inseriti nella barra laterale della pagina.
 
-## <a name="rendering-result-items"></a>Rendering degli elementi dei risultati
+## <a name="rendering-result-items"></a>Rendering degli elementi di risultati
 
 Nel codice JavaScript l'oggetto `searchItemRenderers` può contenere *renderer*: funzioni che generano HTML per ciascun tipo di risultato della ricerca. La pagina di ricerca video usa solo `videos`. Per vari tipi di renderer, vedere altre esercitazioni.
 
@@ -332,7 +332,7 @@ searchItemRenderers = {
 ```
 Una funzione renderer può accettare i parametri seguenti:
 
-|Parametro|DESCRIZIONE|
+|Parametro|Descrizione|
 |-|-|
 |`item`| L'oggetto JavaScript che contiene le proprietà dell'elemento, ad esempio l'URL e la relativa descrizione.|
 |`index`| L'indice dell'elemento di risultato all'interno della raccolta.|
@@ -391,7 +391,7 @@ I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione
 
 A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che accetta le intestazioni di risposta e le rende disponibili a JavaScript.
 
-È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
+È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Digitare quindi il comando seguente in una finestra di comando:
 
     npm install -g cors-proxy-server
 
@@ -403,7 +403,7 @@ Infine avviare il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

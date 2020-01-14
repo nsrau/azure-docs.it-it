@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di Personalizza esperienze per Python | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Personalizza esperienze per Python'
 titleSuffix: Azure Cognitive Services
-description: Introduzione alla libreria client di Personalizza esperienze per Python con un ciclo di apprendimento.
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Personalizza esperienze per Python con un ciclo di apprendimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494420"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378943"
 ---
-# <a name="quickstart-personalizer-client-library-for-python"></a>Guida introduttiva: Libreria client di Personalizza esperienze per Python
+# <a name="quickstart-personalizer-client-library-for-python"></a>Avvio rapido: Libreria client di Personalizza esperienze per Python
 
 Visualizzare contenuto personalizzato in questo argomento di avvio rapido su Python con il servizio Personalizza esperienze.
 
@@ -28,7 +28,7 @@ Introduzione alla libreria client di Personalizza esperienze per Python. Seguire
 
 [Pacchetto (PyPI)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)

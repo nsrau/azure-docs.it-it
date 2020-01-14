@@ -1,21 +1,21 @@
 ---
 title: "Esercitazione: Ricerca entità Bing in un'app Web a pagina singola"
 titleSuffix: Azure Cognitive Services
-description: Illustra come usare l'API Ricerca entità Bing in un'applicazione Web a pagina singola.
+description: Questa esercitazione illustra come usare l'API Ricerca entità Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423984"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448600"
 ---
 # <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
 
@@ -49,7 +49,7 @@ L'applicazione di esercitazione illustra come:
 > * Gestire l'ID del client Bing e le chiavi di sottoscrizione dell'API
 > * Gestire gli errori che potrebbero verificarsi
 
-La pagina dell'esercitazione è completa, non usa framework esterni, fogli di stile o file di immagine. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
+La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o file di immagine esterni. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
 
 Questa esercitazione illustra solo alcune parti del codice sorgente. Il codice sorgente completo è disponibile [in un'altra pagina](tutorial-bing-entities-search-single-page-app-source.md). Copiare e incollare il codice in un editor di testo e salvarlo come `bing.html`.
 
@@ -73,11 +73,11 @@ Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
 ```
 
-Il gestore `onsubmit` restituisce `false`, che impedisce che il modulo venga inviato a un server. Il codice JavaScript esegue le operazioni di raccolta delle informazioni necessarie dal modulo ed effettua la ricerca.
+Il gestore `onsubmit` restituisce `false`, che impedisce che il modulo venga inviato a un server. Il codice JavaScript esegue le operazioni di raccolta delle informazioni necessarie dal modulo ed esegue la ricerca.
 
 La ricerca viene eseguita in due fasi. In primo luogo, se l'utente ha immesso una restrizione a livello di località, viene eseguita una query di Bing Mappe per convertirla in coordinate. Il callback di questa query avvia la query di Ricerca entità Bing.
 
-Il codice HTML contiene anche le divisioni (tag HTML `<div>`) in cui vengono visualizzati i risultati della ricerca.
+Il codice HTML contiene anche le divisioni, ovvero tag HTML `<div>`, in cui vengono visualizzati i risultati della ricerca.
 
 ## <a name="managing-subscription-keys"></a>Gestione delle chiavi di sottoscrizione
 
@@ -86,7 +86,7 @@ Il codice HTML contiene anche le divisioni (tag HTML `<div>`) in cui vengono vis
 
 Per evitare di includere la chiave di sottoscrizione dell'API di ricerca Bing e dell'API di Bing Mappe nel codice, viene usata l'archiviazione permanente del browser per archiviare le chiavi. Se una chiave non è stata archiviata, verrà richiesto di archiviarla per un uso futuro. Se in un secondo momento la chiave viene rifiutata dall'API, viene invalidata la chiave archiviata in modo che l'utente riceverà nuovamente la richiesta alla ricerca successiva.
 
-Vengono definite le funzioni `storeValue` e `retrieveValue` che usano l'oggetto `localStorage` (se il browser lo supporta) o un cookie. La funzione `getSubscriptionKey()` usa queste funzioni per archiviare e recuperare la chiave dell'utente.
+Si definiscono le funzioni `storeValue` e `retrieveValue` che usano l'oggetto `localStorage`, se il browser lo supporta, o un cookie. La funzione `getSubscriptionKey()` usa queste funzioni per archiviare e recuperare la chiave dell'utente. È possibile usare l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
 ```javascript
 // cookie names for data we store
@@ -134,7 +134,7 @@ Il modulo HTML include i controlli seguenti:
 
 | | |
 |-|-|
-|`where`|Un menu a discesa per la selezione del mercato, ovvero località e lingua, utilizzato per la ricerca.|
+|`where`|Un menu a discesa per la selezione del mercato (località e lingua) usato per la ricerca.|
 |`query`|Il campo di testo in cui inserire i termini di ricerca.|
 |`safe`|Una casella di controllo che indica se SafeSearch è attivato (limita i risultati "per adulti")|
 |`what`|Un menu per scegliere se cercare entità, località o entrambe.|
@@ -157,7 +157,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-Ad esempio, la funzione SafeSearch può essere `strict`, `moderate` o `off`, con `moderate` come impostazione predefinita. Il modulo, tuttavia, usa una casella di controllo che presenta solo due stati. Il codice JavaScript converte questa impostazione in `strict` o `off` (`moderate` non viene usato).
+Ad esempio, la funzione SafeSearch può essere `strict`, `moderate` o `off`, con `moderate` come impostazione predefinita. Il modulo, tuttavia, usa una casella di controllo che presenta solo due stati. Il codice JavaScript converte questa impostazione in `strict` o `off`; `moderate` non viene usato.
 
 Il campo `mapquery` non è gestito in `bingSearchOptions()`, poiché viene usato per la query di località di Bing Mappe e non per Ricerca entità Bing.
 
@@ -376,7 +376,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> Una richiesta HTTP corretta *non* indica necessariamente che la ricerca stessa sia andata a buon fine. Se si verifica un errore nell'operazione di ricerca, l'API Ricerca entità Bing restituisce un codice di stato HTTP non-200 e include le informazioni sull'errore nella risposta JSON. Inoltre, se la richiesta era a frequenza limitata, l'API restituisce una risposta vuota.
+> Una richiesta HTTP corretta *non* indica necessariamente che la ricerca sia andata a buon fine. Se si verifica un errore nell'operazione di ricerca, l'API Ricerca entità Bing restituisce un codice di stato HTTP non-200 e include le informazioni sull'errore nella risposta JSON. Inoltre, se la richiesta era a frequenza limitata, l'API restituisce una risposta vuota.
 
 La maggior parte del codice in entrambe le funzioni precedenti è dedicata alla gestione degli errori. Possono verificarsi errori nelle fasi seguenti:
 
@@ -394,11 +394,11 @@ L'API Ricerca entità Bing [richiede di visualizzare i risultati in un ordine sp
 
 Viene invece usata la raccolta `rankingResponse` nei risultati della ricerca per ordinare i risultati per la visualizzazione. Questo oggetto fa riferimento a elementi nelle raccolte `Entitiess` e/o `Places`.
 
-`rankingResponse` può contenere fino a tre raccolte di risultati della ricerca, designate `pole`, `mainline` e `sidebar`. 
+`rankingResponse` può contenere fino a tre raccolte di risultati della ricerca, indicate come `pole`, `mainline` e `sidebar`. 
 
 `pole`, se presente, è il risultato della ricerca più pertinente e deve essere visualizzato in primo piano. `mainline` fa riferimento alla maggior parte dei risultati della ricerca. I risultati di tipo mainline devono essere visualizzati immediatamente dopo `pole`, o prima se `pole` non è presente. 
 
-Infine, `sidebar` si riferisce a risultati ausiliari della ricerca. Possono essere visualizzati in un'effettiva barra laterale o semplicemente dopo i risultati di tipo mainline. Per l'app di esercitazione è stato scelto il secondo caso.
+Infine, `sidebar` si riferisce a risultati della ricerca ausiliari. Possono essere visualizzati in un'effettiva barra laterale o semplicemente dopo i risultati di tipo mainline. Per l'app di esercitazione è stato scelto il secondo caso.
 
 Ogni elemento in una raccolta `rankingResponse` fa riferimento agli effettivi elementi dei risultati della ricerca in due modi diversi, ma equivalenti.
 
@@ -518,7 +518,7 @@ Le risposte dalle API di ricerca Bing potrebbero includere un'intestazione `X-MS
 
 Fornire l'intestazione `X-MSEdge-ClientID` consente alle API Bing di associare tutte le ricerche di un utente, cosa che presenta due vantaggi importanti.
 
-Innanzitutto, consente al motore di ricerca Bing di applicare contesto passato alle ricerche per trovare i risultati che meglio soddisfano l'utente. Se un utente ha cercato in precedenza termini correlati alla navigazione, ad esempio, una successiva ricerca di "moli" potrebbe restituire preferibilmente informazioni sulle località con moli per una barca a vela.
+Innanzitutto, consente al motore di ricerca Bing di applicare un contesto passato alle ricerche per trovare i risultati che meglio soddisfano l'utente. Se un utente ha cercato in precedenza termini correlati alla navigazione, ad esempio, una successiva ricerca di "moli" potrebbe restituire preferibilmente informazioni sulle località con moli per una barca a vela.
 
 In secondo luogo, Bing potrebbe selezionare utenti in modo casuale per provare nuove funzionalità prima di renderle disponibili. Fornire lo stesso ID client per tutte le richieste fa sì che gli utenti selezionati per la visualizzazione di una funzione la visualizzino sempre. Senza un ID client, l'utente potrebbe vedere una funzionalità apparire e scomparire apparentemente in modo casuale nei risultati delle ricerche.
 
@@ -529,7 +529,7 @@ I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione
 
 A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
 
-È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
+È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Digitare quindi il comando seguente in una finestra di comando:
 
     npm install -g cors-proxy-server
 
@@ -541,7 +541,7 @@ Infine avviare il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

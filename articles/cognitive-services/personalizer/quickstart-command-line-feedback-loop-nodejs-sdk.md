@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di Personalizza esperienze per Node.js | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Personalizza esperienze per Node.js'
 titleSuffix: Azure Cognitive Services
-description: Introduzione alla libreria client di Personalizza esperienze per Node.js, con ciclo di apprendimento.
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Personalizza esperienze per Node.js con un ciclo di apprendimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446378"
 ---
-# <a name="quickstart-personalizer-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di Personalizza esperienze per Node.js
+# <a name="quickstart-personalizer-client-library-for-nodejs"></a>Avvio rapido: Libreria client di Personalizza esperienze per Node.js
 
 In questa guida di avvio rapido per Node.js si visualizzerà contenuto personalizzato con il servizio Personalizza esperienze.
 
@@ -28,7 +28,7 @@ Iniziare a usare la libreria client di Personalizza esperienze per Node.js. Segu
 
 [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Pacchetto (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org) e npm.
@@ -39,7 +39,7 @@ Iniziare a usare la libreria client di Personalizza esperienze per Node.js. Segu
 Per usare questo avvio rapido, è necessario eseguire diversi passaggi:
 
 * Nel portale di Azure creare una risorsa di Personalizza esperienze
-* Nella pagina **Configurazione** della risorsa di Personalizza esperienze nel portale di Azure cambiare la frequenza di aggiornamento del modello
+* Nella pagina **Configurazione** della risorsa di personalizza esperienze nel portale di Azure modificare la frequenza di aggiornamento del modello
 * In un editor di codice creare un file di codice e modificarlo
 * Dalla riga di comando o dal terminale installare l'SDK dalla riga di comando
 * Dalla riga di comando o dal terminale eseguire il file di codice
@@ -90,7 +90,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-Nella pagina **Configurazione** della risorsa di Personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+Nella pagina **Configurazione** della risorsa di personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 

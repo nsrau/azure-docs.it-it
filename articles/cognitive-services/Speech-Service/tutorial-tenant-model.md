@@ -1,7 +1,7 @@
 ---
 title: Creare un modello di tenant (anteprima) - Servizio Voce
 titleSuffix: Azure Cognitive Services
-description: Generare automaticamente un modello di tenant (Riconoscimento vocale personalizzato con dati di Office 365) che sfrutta i dati di Office 365 per offrire un riconoscimento vocale ottimale per termini specifici dell'organizzazione, rispettando i requisiti di sicurezza e conformità.
+description: È possibile generare automaticamente un modello di tenant sicuro e conforme (Riconoscimento vocale personalizzato con dati di Office 365) che sfrutta i dati di Office 365 per offrire un riconoscimento vocale ottimale per termini specifici dell'organizzazione.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,95 +10,101 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446792"
 ---
-# <a name="create-a-tenant-model-preview"></a>Creare un modello di tenant (anteprima)
+# <a name="tutorial-create-a-tenant-model-preview"></a>Esercitazione: Creare un modello di tenant (anteprima)
 
-Il modello di tenant (Riconoscimento vocale con dati di Office 365) è un servizio basato su consenso esplicito per i clienti aziendali di Office 365 che genera automaticamente un modello di riconoscimento vocale personalizzato dai dati di Office 365 dell'organizzazione. Il modello creato è ottimizzato per termini tecnici, gergo e nomi di persone in modo sicuro e conforme.
+Il modello di tenant (Riconoscimento vocale con dati di Office 365) è un servizio basato su consenso esplicito per i clienti aziendali di Office 365 che genera automaticamente un modello di riconoscimento vocale personalizzato dai dati di Office 365 dell'organizzazione. Il modello è ottimizzato per termini tecnici, gergo e nomi di persone, in modo sicuro e conforme.
 
 > [!IMPORTANT]
-> Se l'organizzazione si registra al modello di tenant, il servizio Voce può accedere al suo modello linguistico, che viene generato da messaggi di posta elettronica e documenti di gruppi pubblici di Office 365 visibili da chiunque nell'organizzazione. L'amministratore di Office 365 dell'organizzazione può attivare o disattivare l'uso del modello linguistico a livello di organizzazione tramite il portale di amministrazione di Office 365.
+> Se l'organizzazione si registra usando il servizio del modello di tenant, il servizio Voce potrebbe accedere al suo modello linguistico. Il modello viene generato dai messaggi di posta elettronica e dai documenti dei gruppi pubblici di Office 365, che sono visibili a chiunque nell'organizzazione. L'amministratore di Office 365 dell'organizzazione può attivare o disattivare l'uso del modello linguistico a livello di organizzazione tramite il portale di amministrazione di Office 365.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Eseguire la registrazione per usare un modello di tenant nell'interfaccia di amministrazione di Microsoft 365
+> * Eseguire la registrazione nel modello di tenant tramite l'interfaccia di amministrazione di Microsoft 365
 > * Ottenere una chiave di sottoscrizione al servizio Voce
 > * Creare un modello di tenant
 > * Distribuire un modello di tenant
-> * Usare un modello di tenant con Speech SDK
+> * Usare il modello di tenant con Speech SDK
 
-## <a name="enroll-using-the-microsoft-365-admin-center"></a>Eseguire la registrazione tramite l'interfaccia di amministrazione di Microsoft 365
+## <a name="enroll-in-the-tenant-model-service"></a>Eseguire la registrazione nel servizio del modello di tenant
 
-Prima di distribuire un modello di tenant, è necessario eseguire la registrazione usando l'interfaccia di amministrazione di Microsoft 365. Questa attività può essere completata solo dall'amministratore di Microsoft 365.
+Prima di distribuire il modello di tenant, è necessario eseguire la registrazione nel relativo servizio. La registrazione viene completata nell'interfaccia di amministrazione di Microsoft 365 e può essere eseguita solo dall'amministratore di Microsoft 365.
 
-1. Accedere all'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com ).
-2. Nel pannello sinistro selezionare **Impostazioni** e quindi **App**.
+1. Accedere all'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com).
 
-   ![Registrazione al modello di tenant](media/tenant-language-model/tenant-language-model-enrollment.png)
+1. Nel riquadro sinistro selezionare **Impostazioni**, **App** e quindi **Azure Speech Services**.
 
-3. Individuare e selezionare **Azure Speech Services**.
+   ![Riquadro "Servizi e componenti aggiuntivi"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-   ![Registrazione al modello di tenant 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+1. Selezionare la casella di controllo **Consenti il modello linguistico dell'organizzazione** e quindi selezionare **Salva modifiche**. 
 
-4. Fare clic sulla casella di controllo e salvare.
+   ![Riquadro Azure Speech Services](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
-Se è necessario disattivare il modello di tenant, tornare a questa schermata, deselezionare la casella di controllo e salvare.
+Per disattivare l'istanza del modello di tenant:
+1. Ripetere i precedenti passaggi 1 e 2.
+1. Deselezionare la casella di controllo **Consenti il modello linguistico dell'organizzazione** e quindi selezionare **Salva modifiche**.
 
 ## <a name="get-a-speech-subscription-key"></a>Ottenere una chiave di sottoscrizione al servizio Voce
 
-Per usare un modello di tenant con Speech SDK, è necessario disporre di una risorsa di riconoscimento vocale e della relativa chiave di sottoscrizione associata.
+Per usare il modello di tenant con Speech SDK, è necessario avere una risorsa Voce e la chiave di sottoscrizione associata.
 
 1. Accedere al [portale di Azure](https://aka.ms/azureportal).
-2. Selezionare **Crea una risorsa**.
-3. Nella barra di ricerca digitare: **Riconoscimento vocale**.
-4. Selezionare **Riconoscimento vocale** e quindi fare clic su **Crea**.
-5. Seguire le istruzioni visualizzate per creare la risorsa. Verificare quanto segue:
+1. Selezionare **Crea una risorsa**.
+1. Nella casella **Cerca** digitare **Voce**.
+1. Nell'elenco dei risultati selezionare **Voce** e quindi **Crea**.
+1. Seguire le istruzioni visualizzate per creare la risorsa. Assicurarsi che:
    * L'opzione **Località** deve essere impostata su **eastus** o **westus**.
    * L'opzione **Piano tariffario** deve essere impostata su **S0**.
-6. Fare clic su **Create**(Crea).
-7. Dopo alcuni minuti, la risorsa viene creata. La chiave di sottoscrizione è disponibile nella sezione **Panoramica** relativa alla risorsa.
+1. Selezionare **Create** (Crea).
 
-## <a name="create-a-model"></a>Creare il modello
+   Dopo alcuni minuti, la risorsa viene creata. La chiave di sottoscrizione è disponibile nella sezione **Panoramica** relativa alla risorsa.
+
+## <a name="create-a-language-model"></a>Creare un modello linguistico
 
 Dopo che l'amministratore ha abilitato il modello di tenant per l'organizzazione, è possibile creare un modello linguistico basato sui dati di Office365.
 
 1. Accedere a [Speech Studio](https://speech.microsoft.com/).
-2. Nell'angolo in alto a destra individuare e fare clic sull'icona a forma di ingranaggio (impostazioni) e quindi selezionare **Tenant Model settings** (Impostazioni modello di tenant).
+1. Nell'angolo in alto a destra selezionare **Impostazioni** (icona dell'ingranaggio) e quindi **Tenant Model settings** (Impostazioni modello di tenant).
 
-   ![Menu Impostazioni](media/tenant-language-model/tenant-language-settings.png)
+   ![Collegamento "Tenant Model settings"](media/tenant-language-model/tenant-language-settings.png)
 
-3. A questo punto verrà visualizzato un messaggio che informa se si è qualificati per la creazione di un modello di tenant.
+   Speech Studio visualizza un messaggio che informa se si è idonei a creare un modello di tenant.
+
    > [!NOTE]
-   > I clienti di Office 365 Enterprise nell'America del Nord sono idonei per la creazione di un modello di tenant (inglese). Per i clienti di Customer Lockbox (CLB), Customer Key (CK) o Office 365 Government, questa funzionalità non è disponibile. Per determinare se si è un cliente Customer Lockbox o Customer Key, seguire queste istruzioni:
+   > I clienti aziendali di Office 365 in America del Nord sono idonei per la creazione di un modello di tenant (inglese). Per i clienti di Customer Lockbox, Customer Key o Office 365 Government, questa funzionalità non è disponibile. Per determinare se si è un cliente di Customer Lockbox o Customer Key, vedere:
    > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
-4. Selezionare quindi **Acconsenti esplicitamente** . Quando il modello di tenant è pronto, si riceve un messaggio e-mail con le istruzioni.
+1. Selezionare **Acconsenti esplicitamente** . 
 
-## <a name="deploy-your-model"></a>Distribuire il modello
+   Quando il modello di tenant è pronto, si riceverà un messaggio di posta elettronica di conferma con ulteriori istruzioni.
 
-Quando il modello di tenant è pronto, seguire questa procedura per distribuirlo:
+## <a name="deploy-your-tenant-model"></a>Distribuire il modello di tenant
 
-1. Fare clic sul pulsante **View model** (Visualizza modello) nel messaggio e-mail di conferma ricevuto oppure accedere a [Speech Studio](https://speech.microsoft.com/).
-2. Nell'angolo in alto a destra individuare e fare clic sull'icona a forma di ingranaggio (impostazioni) e quindi selezionare **Tenant Model settings** (Impostazioni modello di tenant).
+Quando l'istanza del modello di tenant è pronta, eseguire questa procedura per distribuirla:
 
-   ![Menu Impostazioni](media/tenant-language-model/tenant-language-settings.png)
+1. Nel messaggio di posta elettronica di conferma selezionare il pulsante **View model** (Visualizza modello). In alternativa, accedere a [Speech Studio](https://speech.microsoft.com/).
+1. Nell'angolo in alto a destra selezionare **Impostazioni** (icona dell'ingranaggio) e quindi **Tenant Model settings** (Impostazioni modello di tenant).
 
-3. Fare clic su **Distribuisci**.
-4. Dopo che il modello è stato distribuito, lo stato cambia in **Distribuito**.
+   ![Collegamento "Tenant Model settings"](media/tenant-language-model/tenant-language-settings.png)
 
-## <a name="use-your-model-with-the-speech-sdk"></a>Usare il modello con Speech SDK
+1. Selezionare **Distribuisci**.
 
-Ora che è stato distribuito il modello, è possibile usarlo con Speech SDK. In questa sezione verrà usato il codice di esempio fornito per chiamare il servizio Voce usando l'autenticazione di Azure AD.
+   Dopo che il modello è stato distribuito, lo stato cambia in *Distribuito*.
 
-Verrà ora esaminato il codice che verrà usato per chiamare Speech SDK in C#. In questo esempio si eseguirà il riconoscimento vocale usando un modello di tenant. Questa guida presuppone che la piattaforma sia già configurata. Per assistenza con la configurazione, vedere [Avvio rapido: Riconoscimento vocale, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+## <a name="use-your-tenant-model-with-the-speech-sdk"></a>Usare il modello di tenant con Speech SDK
+
+Ora che è stato distribuito il modello, è possibile usarlo con Speech SDK. In questa sezione viene usato un codice di esempio per chiamare il servizio Voce usando l'autenticazione di Azure Active Directory (Azure AD).
+
+Verrà ora esaminato il codice che verrà usato per chiamare Speech SDK in C#. In questo esempio si esegue il riconoscimento vocale usando il modello di tenant. Questa guida presuppone che la piattaforma sia già configurata. Se è necessaria assistenza per la configurazione, vedere [Avvio rapido: Riconoscimento vocale, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copiare questo codice nel progetto:
 
@@ -117,7 +123,7 @@ namespace PrincetonSROnly.FrontEnd.Samples
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json.Linq;
 
-    // Note: ServiceApplicationId is a fixed value.  No need to change.
+    // ServiceApplicationId is a fixed value. No need to change it.
 
     public class TenantLMSample
     {
@@ -281,18 +287,21 @@ namespace PrincetonSROnly.FrontEnd.Samples
 }
 ```
 
-Sarà quindi necessario ricompilare ed eseguire il progetto dalla riga di comando. Prima di eseguire il comando, è necessario aggiornare alcuni parametri.
+Quindi è necessario ricompilare ed eseguire il progetto dalla riga di comando. Prima di eseguire il comando, aggiornare alcuni parametri eseguendo questa procedura:
 
 1. Sostituire `<Username>` e `<Password>` con i valori di un utente tenant valido.
-2. Sostituire `<Subscription-Key>` con la chiave di sottoscrizione della risorsa di riconoscimento vocale. Questo valore è disponibile nella sezione **Panoramica** relativa alla risorsa di riconoscimento vocale nel [portale di Azure](https://aka.ms/azureportal).
-3. Sostituire `<Endpoint-Uri>` con l'endpoint riportato di seguito. Assicurarsi di sostituire `{your-region}` con l'area in cui è stata creata la risorsa di riconoscimento vocale. Sono supportate queste aree: `westus`, `westus2` e `eastus`. Queste informazioni relative all'area sono disponibili nella sezione **Panoramica** relativa alla risorsa di riconoscimento vocale nel [portale di Azure](https://aka.ms/azureportal).
+1. Sostituire `<Subscription-Key>` con la chiave di sottoscrizione della risorsa di riconoscimento vocale. Questo valore è disponibile nella sezione **Panoramica** relativa alla risorsa di riconoscimento vocale nel [portale di Azure](https://aka.ms/azureportal).
+1. Sostituire `<Endpoint-Uri>` con l'endpoint seguente. Assicurarsi di sostituire `{your region}` con l'area in cui è stata creata la risorsa di riconoscimento vocale. Sono supportate queste aree: `westus`, `westus2` e `eastus`. Le informazioni sull'area sono disponibili nella sezione **Panoramica** della risorsa Voce nel [portale di Azure](https://aka.ms/azureportal).
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
-4. Eseguire il comando:
+1. Eseguire il comando seguente:
+
    ```bash
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
+
+In questa esercitazione si è appreso come usare i dati di Office 365 per creare un modello di riconoscimento vocale personalizzato, distribuirlo e usarlo con Speech SDK.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

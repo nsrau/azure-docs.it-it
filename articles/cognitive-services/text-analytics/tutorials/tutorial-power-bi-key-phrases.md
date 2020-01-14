@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo'
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come usare Analisi del testo per estrarre frasi chiave dal testo archiviato in Power BI.
+description: Informazioni su come usare l'API Analisi del testo per estrarre frasi chiave dal testo archiviato in Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241018"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378535"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Usare l'API Frasi chiave di Analisi del testo per estrarre le frasi più importanti dal feedback dei clienti
 > * Creare una nuvola di parole dal feedback dei clienti
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Download gratuito](https://powerbi.microsoft.com/get-started/).

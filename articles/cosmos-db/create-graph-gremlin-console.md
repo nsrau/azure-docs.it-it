@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su Azure Cosmos DB: Creare, eseguire query e attraversare nella console Gremlin di Apache TinkerPop'
+title: "Eseguire query con l'API Gremlin di Azure Cosmos DB usando la console TinkerPop Gremlin: Esercitazione"
 description: Guida introduttiva ad Azure Cosmos DB per creare vertici, archi e query usando l'API Gremlin di Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815958"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665170"
 ---
-# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Guida introduttiva: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -33,13 +33,13 @@ Questo avvio rapido illustra come creare un account, un database e un grafo (con
 
 La console Gremlin è basata su Groovy/Java e può essere eseguita su Linux, Mac e Windows. È possibile scaricare la console dal [sito Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è necessaria una sottoscrizione di Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-È anche necessario installare la [console Gremlin](https://tinkerpop.apache.org/). Usare la versione 3.2.5 o successiva. Per usare la console Gremlin in Windows, è necessario installare [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).
+È anche necessario installare la [console Gremlin](https://tinkerpop.apache.org/downloads.html). La **versione consigliata è v3.4.3** o versioni precedenti. Per usare la console Gremlin in Windows, è necessario installare [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -53,9 +53,9 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Immettere le configurazioni per *host*, *port*, *username*, *password*, *connectionPool* e *serializer* in base alla tabella seguente:
 
-    Impostazione|Valore consigliato|DESCRIZIONE
+    Impostazione|Valore consigliato|Descrizione
     ---|---|---
-    hosts|[*nome-account*.**gremlin**.cosmos.azure.com]|Vedere lo screenshot seguente. Si tratta del valore **URI Gremlin** disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/. Note: Assicurarsi di usare il valore Gremlin e **non** l'URI che termina con [*nome-account*.documents.azure.com] perché potrebbe comportare un'eccezione del tipo "L'host non risponde nel tempo previsto" durante il tentativo di eseguire le query Gremlin in un secondo momento. 
+    hosts|[*nome-account*.**gremlin**.cosmos.azure.com]|Vedere lo screenshot seguente. Si tratta del valore **URI Gremlin** disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/. Nota: Assicurarsi di usare il valore Gremlin e **non** l'URI che termina con [*nome-account*.documents.azure.com] perché potrebbe comportare un'eccezione del tipo "L'host non risponde nel tempo previsto" durante il tentativo di eseguire le query Gremlin in un secondo momento. 
     port|443|Impostare su 443.
     username|*Nome utente*|Risorsa nel formato `/dbs/<db>/colls/<coll>`, dove `<db>` è il nome del database e `<coll>` è il nome della raccolta.
     password|*Chiave primaria*| Vedere il secondo screenshot di seguito. Si tratta della chiave primaria, che può essere recuperata dalla pagina Chiavi del portale di Azure nella casella Chiave primaria. Per copiare il valore, usare il pulsante di copia a sinistra della casella.

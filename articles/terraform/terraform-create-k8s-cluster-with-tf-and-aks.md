@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un cluster Kubernetes con il servizio Azure Kubern
 description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cea9d93ed418a4f2e90fa3f2dfd3441f4b296316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159308"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374965"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Esercitazione: Creare un cluster Kubernetes con il servizio Azure Kubernetes usando Terraform
 
@@ -21,7 +21,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Usare Terraform e servizio Azure Kubernetes per creare un cluster Kubernetes
 > * Usare lo strumento kubectl per verificare la disponibilità di un cluster Kubernetes
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
@@ -138,7 +138,7 @@ Creare il file di configurazione Terraform che dichiara le risorse per il cluste
             }
         }
 
-        agent_pool_profile {
+        default_node_pool {
             name            = "agentpool"
             count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
@@ -168,7 +168,7 @@ Creare il file di configurazione Terraform che dichiara le risorse per il cluste
 
     Il record `linux_profile` permette di configurare le impostazioni che consentono di accedere ai nodi di lavoro con SSH.
 
-    Con servizio Azure Kubernetes si pagano solo i nodi di lavoro. Il record `agent_pool_profile` configura i dettagli di questi nodi di lavoro. Il record `agent_pool_profile record` include il numero e il tipo di nodi di lavoro da creare. Se in futuro sarà necessario aumentare o ridurre il cluster, modificare il valore `count` di questo record.
+    Con servizio Azure Kubernetes si pagano solo i nodi di lavoro. Il record `default_node_pool` configura i dettagli di questi nodi di lavoro. Il record `default_node_pool record` include il numero e il tipo di nodi di lavoro da creare. Se in futuro sarà necessario aumentare o ridurre il cluster, modificare il valore `count` di questo record.
 
 1. Salvare il file ( **&lt;CTRL+S**) e uscire dall'editor ( **&lt;CTRL+Q**).
 
@@ -289,7 +289,7 @@ In questa sezione viene illustrato come eseguite le attività seguenti:
 
     ![Menu dell'account di archiviazione](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
-1. Prendere nota del valore **chiave** **key1**. Selezionando l'icona a destra della chiave, il valore verrà copiato negli Appunti.
+1. Prendere nota del valore della **chiave** **key1**. Selezionando l'icona a destra della chiave, il valore verrà copiato negli Appunti.
 
     ![Chiavi di accesso dell'account di archiviazione](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 

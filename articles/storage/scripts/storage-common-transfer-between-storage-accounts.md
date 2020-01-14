@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Eseguire la migrazione di oggetti BLOB tra account di archiviazione tramite AzCopy in Windows | Microsoft Docs
-description: Tramite AzCopy copia il contenuto degli oggetti BLOB da un account di Archiviazione di Azure a un altro.
+title: Eseguire la migrazione di BLOB tra account di archiviazione tramite AzCopy in Windows
+description: Esempio di script di Azure PowerShell - Uso di AzCopy per copiare il contenuto dei BLOB da un account di archiviazione di Azure a un altro.
 services: storage
 documentationcenter: na
 author: normesta
@@ -12,12 +12,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: normesta
-ms.openlocfilehash: 0af945177289760ca0d2a97133a300d9978ce702
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 559b8b2875b789034ae07901f668f241505073b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260636"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465055"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Eseguire la migrazione di oggetti BLOB tra account di archiviazione tramite AzCopy in Windows
 

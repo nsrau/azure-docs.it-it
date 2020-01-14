@@ -3,17 +3,17 @@ title: Sviluppo in team in Kubernetes
 services: azure-dev-spaces
 ms.date: 04/25/2019
 ms.topic: quickstart
-description: Sviluppo in team in Kubernetes con contenitori e microservizi in Azure
+description: Questa guida di avvio rapido illustra come eseguire lo sviluppo in team in Kubernetes con contenitori e microservizi con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2f3ed0f2a9635488aea509e7816fbe84e1589d14
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 396358be63f93fde2ba5ec5f00545708dbfa19d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484038"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438204"
 ---
-# <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Guida introduttiva: Sviluppo in team in Kubernetes - Azure Dev Spaces
+# <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Avvio rapido: Sviluppo in team in Kubernetes - Azure Dev Spaces
 
 In questa guida si apprenderà come:
 
@@ -23,7 +23,7 @@ In questa guida si apprenderà come:
 
 ![Sviluppo in team con Azure Dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 - [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).

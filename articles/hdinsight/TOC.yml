@@ -73,8 +73,6 @@
               href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
             - name: Creare cluster con l'API REST
               href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
-            - name: Creare cluster con .NET
-              href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
             - name: Errori di creazione del cluster
               href: ./create-cluster-error-dictionary.md
               title: null
@@ -102,8 +100,6 @@
               href: hdinsight-hadoop-script-actions-linux.md
             - name: Aggiungere librerie Apache Hive
               href: hdinsight-hadoop-add-hive-libraries.md
-            - name: Usare Apache Giraph
-              href: hdinsight-hadoop-giraph-install-linux.md
             - name: Usare Hue
               href: hdinsight-hadoop-hue-linux.md
             - name: Sviluppare applicazioni HDInsight
@@ -330,8 +326,6 @@
                   href: ./spark/apache-spark-machine-learning-mllib-ipython.md
                 - name: Analizzare i log dei siti Web
                   href: ./spark/apache-spark-custom-library-website-log-analysis.md
-                - name: Usare Caffe per l'apprendimento avanzato
-                  href: ./spark/apache-spark-deep-learning-caffe.md
                 - name: Uso con Microsoft Cognitive Toolkit
                   href: ./spark/apache-spark-microsoft-cognitive-toolkit.md
                 - name: Creare una pipeline di apprendimento automatico di Apache Spark

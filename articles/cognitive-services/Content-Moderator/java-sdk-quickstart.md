@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Libreria client di Content Moderator per Java'
+title: 'Avvio rapido: Libreria client di Content Moderator per Java'
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come iniziare a usare la libreria client di Content Moderator dei servizi cognitivi di Azure per Java.
+description: Questo argomento di avvio rapido illustra come iniziare a usare la libreria client di Content Moderator di Servizi cognitivi Microsoft per Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 53ac5c10672c433cb16d9ad326d936affe82a8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381937"
 ---
-# <a name="quickstart-content-moderator-client-library-for-java"></a>Guida introduttiva: Libreria client di Content Moderator per Java
+# <a name="quickstart-content-moderator-client-library-for-java"></a>Avvio rapido: Libreria client di Content Moderator per Java
 
 Introduzione alla libreria client di Content Moderator per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti.
 
@@ -27,7 +27,7 @@ Usare la libreria client di Content Moderator per Java per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artefatto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Esempi](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * La versione più recente di [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -95,7 +95,7 @@ Quindi, creare un file denominato *ContentModeratorQuickstart.java* nella nuova 
 
 Le classi seguenti gestiscono alcune delle principali funzionalità di Content Moderator Java SDK.
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable)|Questa classe è necessaria per tutte le funzionalità di Content Moderator. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per produrre istanze di altre classi.|
 |[ImageModeration](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations?view=azure-java-stable)|Questa classe fornisce la funzionalità per analizzare le immagini e individuare contenuti per adulti, informazioni personali o visi umani.|

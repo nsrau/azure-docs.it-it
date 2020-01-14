@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: ba131002df64f972aa921a0f002a6d26c58f21ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cb9968d3bcc30fe8e0f0023bcf7101cde5e4a196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453904"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creare un'applicazione Azure IoT Central
 
@@ -36,13 +36,11 @@ Per creare una nuova applicazione Azure IoT Central:
 
 1. Azure IoT Central suggerisce automaticamente il nome di un'applicazione in base al modello di applicazione selezionato. È possibile accettare questo no oppure immettere un nome descrittivo per l'applicazione, ad esempio **Contoso IoT**. Azure IoT Central genera automaticamente anche un URL univoco in base al nome dell'applicazione. È possibile modificare questo prefisso URL in modo da renderlo più facile da ricordare.
 
-1. Selezionare un modello di applicazione che non usi funzionalità in anteprima. Un modello di applicazione può contenere elementi predefiniti, ad esempio modelli di dispositivi e dashboard che facilitano le cose.
+1. Selezionare il modello di **applicazione legacy** che non usa funzionalità di anteprima.
 
-    | Modello di applicazione | DESCRIZIONE |
+    | Modello di applicazione | Descrizione |
     | -------------------- | ----------- |
-    | Esempio Contoso       | Crea un'applicazione che include un modello di dispositivo già creato per un distributore automatico refrigerato. Usare questo modello per iniziare a esplorare Azure IoT Central. |
-    | Esempio Devkits       | Crea un'applicazione con modelli di dispositivo pronti per la connessione a un dispositivo MXChip o Raspberry Pi. Si consiglia di usare questo modello agli sviluppatori di dispositivi che vogliono fare pratica con questi tipi di dispositivi. |
-    | Applicazione personalizzata   | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
+    | Applicazione legacy   | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
 
 1. Scegliere un piano di pagamento:
    - Le applicazioni di tipo **Versione di valutazione gratuita valida 7 giorni** sono gratuite per sette giorni e poi scadono. Possono essere convertite in applicazioni **con pagamento in base al consumo** in qualsiasi momento prima della scadenza. Se si crea un'applicazione di tipo **Versione di valutazione**, è necessario immettere le informazioni sul contatto e scegliere se ricevere informazioni e suggerimenti da Microsoft.

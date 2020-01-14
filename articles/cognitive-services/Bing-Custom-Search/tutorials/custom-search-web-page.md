@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Creare una pagina Web di ricerca personalizzata | Ricerca personalizzata Bing'
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come configurare un'istanza di Ricerca personalizzata Bing e integrarla in una pagina Web.
+description: Questa esercitazione illustra come configurare un'istanza di Ricerca personalizzata Bing e integrarla in una pagina Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448781"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
@@ -32,10 +32,10 @@ Sono descritte queste attività:
 > - Aggiungere voci fissate in alto
 > - Integrare la ricerca personalizzata in una pagina Web
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Ricerca personalizzata Bing.  Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se Visual Studio 2017 o versioni successive non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
+- Se Visual Studio 2017 o versione successiva non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Creare un'istanza di Ricerca personalizzata
 

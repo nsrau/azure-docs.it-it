@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un database Azure Cosmos DB dal portale di Azure'
+title: 'Avvio rapido: Creare risorse di Azure Cosmos DB dal portale di Azure'
 description: Questa guida di avvio rapido mostra come creare un database, un contenitore ed elementi di Azure Cosmos con il portale di Azure.
 author: SnehaGunda
 ms.author: sngun
@@ -8,17 +8,17 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 9b563f7546710b0cb07573d32b2f3939d8e64085
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 58fa891503342ac0ec9d41e9c458a71d18e58161
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445611"
 ---
-# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Guida introduttiva: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
+# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Avvio rapido: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](create-cosmosdb-resources-portal.md)
+> * [Azure portal](create-cosmosdb-resources-portal.md)
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
@@ -30,7 +30,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un account [API SQL](sql-api-introduction.md) di Azure Cosmos DB, creare un database e un contenitore di documenti e aggiungere dati al contenitore. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Una sottoscrizione di Azure o un account di prova gratuito di Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -55,7 +55,7 @@ Una sottoscrizione di Azure o un account di prova gratuito di Azure Cosmos DB
     
 1.  Nel riquadro **Aggiungi contenitore** immettere le impostazioni per il nuovo contenitore.
     
-    |Impostazione|Valore consigliato|DESCRIZIONE
+    |Impostazione|Valore consigliato|Descrizione
     |---|---|---|
     |**ID database**|ToDoList|Immettere *ToDoList* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/, \\, #, ?` o spazi finali. Selezionare l'opzione **Provision database throughput** (Provisioning delle unità di elaborazione del database) che consente di condividere le unità di elaborazione del database con tra tutti i contenitori al suo interno. Questa opzione permette anche di risparmiare sui costi. |
     |**Velocità effettiva**|400|Lasciare la velocità effettiva a 400 unità di richiesta al secondo (UR/s). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.| 

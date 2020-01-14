@@ -1,6 +1,6 @@
 ---
-title: "Esempio di script dell'interfaccia della riga di comando di Azure: copiare, o spostare, i dischi gestiti nella stessa sottoscrizione o in una sottoscrizione diversa"
-description: "Esempio di script dell'interfaccia della riga di comando di Azure: copiare, o spostare, i dischi gestiti nella stessa sottoscrizione o in una sottoscrizione diversa"
+title: Copiare i dischi gestiti nella sottoscrizione - Esempio dell'interfaccia della riga di comando
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Copiare (o spostare) i dischi gestiti nella stessa sottoscrizione o in un'altra
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5f3859d632b14f1ec22ecd37ee0f10b01cbc7cd5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7ccdec703781a4e48870d5b4c27ec9d23de71dd0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458570"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copiare i dischi gestiti nella stessa sottoscrizione o in una sottoscrizione diversa con l'interfaccia della riga di comando
 

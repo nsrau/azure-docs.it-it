@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
+title: 'Avvio rapido: Creare una prima istanza di Ricerca personalizzata Bing'
 titleSuffix: Azure Cognitive Services
-description: Usare questo articolo per creare un'istanza di Bing personalizzata che può eseguire ricerche in domini e pagine Web definiti dall'utente.
+description: Questo argomento di avvio rapido illustra come creare un'istanza personalizzata di Bing per eseguire ricerche in domini e pagine Web definiti dall'utente.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 2c98395e2671c245d9349a72ed6a964b2ebd28ca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 45478c8e4f5003ff41eb8b486d67caa452739cd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384747"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Guida introduttiva: Creare la prima istanza di Ricerca personalizzata Bing
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing
 
 Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca personalizzata che definisce la visualizzazione o sezione del Web. L'istanza contiene i domini pubblici, i siti Web e le pagine Web in cui eseguire la ricerca e le eventuali modifiche di classificazione desiderate. 
 
@@ -25,7 +25,7 @@ Per creare l'istanza, usare il [portale di Ricerca personalizzata Bing](https://
 
 ![Immagine del portale di Ricerca personalizzata Bing](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
@@ -52,4 +52,4 @@ Per creare un'istanza di Ricerca personalizzata Bing:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing](./call-endpoint-csharp.md)
+> [Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing](./call-endpoint-csharp.md)

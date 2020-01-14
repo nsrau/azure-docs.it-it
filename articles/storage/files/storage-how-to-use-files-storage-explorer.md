@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva per la gestione di condivisioni file di Azure con Azure Storage Explorer
+title: Gestione delle condivisioni file di Azure con Azure Storage Explorer
 description: Questa guida introduttiva illustra come usare Azure Storage Explorer per gestire File di Azure.
 author: roygara
 ms.service: storage
@@ -7,21 +7,21 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431830"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con Azure Storage Explorer
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Avvio rapido: Creare e gestire condivisioni file di Azure con Azure Storage Explorer
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con Azure Storage Explorer. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
 Azure Storage Explorer è un popolare strumento client disponibile per Windows, macOS e Linux. È possibile usare Storage Explorer per gestire condivisioni file di Azure e altre risorse di archiviazione.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Questa guida introduttiva richiede l'installazione di Storage Explorer. Per il download e l'installazione, visitare la pagina [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione

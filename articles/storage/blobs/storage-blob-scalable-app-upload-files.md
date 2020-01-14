@@ -1,5 +1,5 @@
 ---
-title: Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure | Microsoft Docs
+title: Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 description: Informazioni su come usare la libreria client di Archiviazione di Azure per caricare grandi quantità di dati casuali in parallelo in un account di archiviazione di Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371939"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 
@@ -26,11 +26,11 @@ Nella seconda parte della serie si apprenderà come:
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 
-L'archivio BLOB di Azure offre un servizio scalabile per l'archiviazione dei dati. Per garantire le migliori prestazioni possibili dell'applicazione, è consigliabile comprendere il funzionamento dell'archivio BLOB. È importante conoscere i limiti dei BLOB di Azure. Per altre informazioni su tali limiti, vedere gli [obiettivi di scalabilità di Archiviazione BLOB](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+L'archivio BLOB di Azure offre un servizio scalabile per l'archiviazione dei dati. Per garantire le migliori prestazioni possibili dell'applicazione, è consigliabile comprendere il funzionamento dell'archivio BLOB. È importante conoscere i limiti dei BLOB di Azure. Per altre informazioni, vedere: [Obiettivi di scalabilità e prestazioni per Archiviazione BLOB](../blobs/scalability-targets.md)
 
 Un altro fattore potenzialmente importante nella progettazione di un'applicazione ad alte prestazioni che usa BLOB è la [denominazione delle partizioni](../blobs/storage-performance-checklist.md#partitioning). Per dimensioni dei blocchi maggiori o uguali a 4 MiB, vengono usati [BLOB in blocchi con velocità effettiva elevata](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) e la denominazione delle partizioni non influirà sulle prestazioni. Per dimensioni dei blocchi inferiori a 4 MiB, Archiviazione di Azure usa uno schema di partizionamento basato su intervalli per la scalabilità e il bilanciamento del carico. Con questa configurazione, i file con prefissi o convenzioni di denominazione simili vengono inseriti nella stessa partizione. Questa logica include il nome del contenitore in cui i file vengono caricati. In questa esercitazione si usano file con nomi costituiti da GUID e contenuto generato in modo casuale, che vengono quindi caricati in cinque diversi contenitori con nomi casuali.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione è necessario aver completato l'esercitazione di archiviazione precedente: [Creare una macchina virtuale e un account di archiviazione per un'applicazione scalabile][previous-tutorial].
 
@@ -44,7 +44,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Configurare la stringa di connessione
 
-Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Accedere alla macchina virtuale creata nell'esercitazione precedente. Aprire il **prompt dei comandi** come amministratore ed eseguire il comando `setx` con l'opzione `/m`. Questo comando salva una variabile di ambiente di impostazione del computer. La variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi**. Sostituire **\<storageConnectionString\>** nell'esempio seguente:
+Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Accedere alla macchina virtuale creata nell'esercitazione precedente. Aprire il **prompt dei comandi** come amministratore ed eseguire il comando `setx` con l'opzione `/m`. Questo comando salva una variabile di ambiente di impostazione del computer. La variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi**. Sostituire **\<stringaconnessione\>** nell'esempio seguente:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
@@ -66,12 +66,12 @@ L'applicazione crea cinque contenitori con nome casuale e inizia a caricare i fi
 
 Oltre alle impostazioni relative ai limiti per connessioni e threading, viene configurata la classe [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) per il metodo [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) in modo da usare il parallelismo e disabilitare la convalida dell'hash MD5. I file vengono caricati in blocchi di 100 MB. Questa configurazione offre prestazioni superiori, ma può risultare costosa se si usa una rete con prestazioni scarse perché in caso di errore viene eseguito un nuovo tentativo per l'intero blocco di 100 MB.
 
-|Proprietà|Valore|DESCRIZIONE|
+|Proprietà|valore|Descrizione|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| Questa impostazione suddivide il BLOB in blocchi durante il caricamento. Per prestazioni ottimali, questo valore deve essere pari a otto volte il numero di core. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Questa proprietà disabilita la verifica dell'hash MD5 del contenuto caricato. La disabilitazione della convalida MD5 produce un trasferimento più veloce. Non viene tuttavia confermata la validità o l'integrità dei file trasferiti.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Questa proprietà determina se un hash MD5 verrà calcolato e archiviato con il file.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Backoff di 2 secondi con un massimo di 10 nuovi tentativi |Determina i criteri di ripetizione delle richieste. In caso di errori di connessione vengono eseguiti nuovi tentativi. In questo esempio viene configurato un criterio [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) con un backoff di 2 secondi e un numero massimo di nuovi tentativi pari a 10. Questa impostazione è importante quando l'applicazione sta per raggiungere gli [obiettivi di scalabilità di Archiviazione BLOB](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Backoff di 2 secondi con un massimo di 10 nuovi tentativi |Determina i criteri di ripetizione delle richieste. In caso di errori di connessione vengono eseguiti nuovi tentativi. In questo esempio viene configurato un criterio [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) con un backoff di 2 secondi e un numero massimo di nuovi tentativi pari a 10. Questa impostazione è importante quando l'applicazione sta per raggiungere gli obiettivi di scalabilità di Archiviazione BLOB. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione BLOB](../blobs/scalability-targets.md).  |
 
 L'attività `UploadFilesAsync` viene visualizzata nell'esempio seguente:
 

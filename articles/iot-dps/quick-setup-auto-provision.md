@@ -8,16 +8,23 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 32199623c6b3198f37854986745872aafa6747eb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e2b2f13c3570683b575d13b5aadb3e03ec549cab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434590"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Avvio rapido: Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
 
-Questa procedura illustra come configurare le risorse cloud di Azure nel portale per il provisioning dei dispositivi. Questo articolo include i passaggi per la creazione dell'hub IoT e di una nuova istanza del servizio Device Provisioning in hub IoT, oltre al collegamento dei due servizi. 
+Il servizio Device Provisioning in hub IoT può essere usato con l'hub IoT per consentire il provisioning JIT automatico nell'hub IoT desiderato senza alcun intervento dell'utente, permettendo ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Il servizio Device provisioning in hub IoT di Azure supporta dispositivi IoT con TPM, chiavi simmetriche e autenticazioni di certificati X.509. Per altre informazioni, vedere [Panoramica del servizio Device Provisioning in hub IoT](./about-iot-dps.md)
+
+In questa guida di avvio rapido si apprenderà come configurare il servizio Device provisioning in hub IoT nel portale di Azure per eseguire il provisioning dei dispositivi con la procedura seguente:
+> [!div class="checklist"]
+> * Usare il portale di Azure per creare un hub IoT
+> * Usare il portale di Azure per creare un servizio Device Provisioning in hub IoT e ottenere l'ambito ID
+> * Collegare l'hub IoT al servizio Device Provisioning
+
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -27,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 
-## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Creare una nuova istanza del servizio Device Provisioning in hub IoT
+## <a name="create-a-new-iot-hub-device-provisioning-service"></a>Creare una nuova istanza del servizio Device Provisioning in hub IoT
 
 1. Selezionare di nuovo il pulsante **+ Crea una risorsa**.
 
@@ -37,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
     * **Nome:** specificare un nome univoco per la nuova istanza del servizio Device Provisioning. Se il nome immesso è disponibile, viene visualizzato un segno di spunta verde.
     * **Sottoscrizione:** scegliere la sottoscrizione da usare per creare l'istanza del servizio Device Provisioning.
-    * **Gruppo di risorse:** questo campo consente di creare un nuovo gruppo di risorse o sceglierne uno esistente per contenere la nuova istanza. Scegliere lo stesso gruppo di risorse che contiene l'hub Iot creato in precedenza, ad esempio, **TestResources**. Inserendo tutte le risorse correlate in un gruppo è possibile gestirle insieme. Ad esempio, con l'eliminazione del gruppo di risorse vengono eliminate tutte le risorse contenute in quel gruppo. Per altre informazioni, vedere [Manage Azure Resource Manager resource groups](../azure-resource-manager/manage-resource-groups-portal.md) (Gestire gruppi di risorse di Azure Resource Manager).
+    * **Gruppo di risorse:** questo campo consente di creare un nuovo gruppo di risorse o sceglierne uno esistente per contenere la nuova istanza. Scegliere lo stesso gruppo di risorse che contiene l'hub Iot creato in precedenza, ad esempio, **TestResources**. Inserendo tutte le risorse correlate in un gruppo è possibile gestirle insieme. Ad esempio, con l'eliminazione del gruppo di risorse vengono eliminate tutte le risorse contenute in quel gruppo. Per altre informazioni, vedere l'articolo su come [gestire gruppi di risorse di Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md).
     * **Località:** selezionare la località più vicina ai dispositivi.
 
       ![Immettere le informazioni di base sull'istanza del servizio Device Provisioning nel pannello del portale](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
@@ -70,11 +77,11 @@ In questa sezione verrà aggiunta una configurazione all'istanza del servizio De
 Altre guide di avvio rapido di questa raccolta si basano sulla presente guida di avvio rapido. Se si prevede di continuare a usare le guide di avvio rapido successive o le esercitazioni, non pulire le risorse create in questa guida di avvio rapido. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa guida di avvio rapido nel portale di Azure.
 
 1. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi selezionare il servizio Device Provisioning. Nella parte superiore del riquadro dei dettagli del dispositivo selezionare **Elimina**.  
-2. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi l'hub IoT. Nella parte superiore del riquadro dei dettagli dell'hub selezionare **Elimina**.  
+2. Nel menu a sinistra nel portale di Azure selezionare **Tutte le risorse** e quindi selezionare l'hub IoT. Nella parte superiore del riquadro dei dettagli dell'hub selezionare **Elimina**.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo argomento di avvio rapido sono stati distribuiti un hub IoT e un'istanza del servizio Device Provisioning e le due risorse sono state collegate. Per informazioni su come usare questa configurazione per eseguire il provisioning di un dispositivo simulato, proseguire con l'argomento di avvio rapido per la creazione di un dispositivo simulato.
 
 > [!div class="nextstepaction"]
-> [Avvio rapido per la creazione di un dispositivo simulato](./quick-create-simulated-device.md)
+> [Avvio rapido per la creazione di un dispositivo simulato](./quick-create-simulated-device-symm-key.md)

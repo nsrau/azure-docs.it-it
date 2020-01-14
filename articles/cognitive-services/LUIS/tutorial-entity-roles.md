@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447930"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Esercitazione: Estrarre dati con una relazione di tipo contestuale da un'espressione
 
 Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, una posizione di origine e una di destinazione per il trasferimento da una città a un'altra. Potrebbero essere necessari entrambi i dati, che sono correlati tra loro.
 
 Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **In questa esercitazione si imparerà come:**
 
@@ -51,7 +49,11 @@ Un ruolo deve essere usato quando i dati dell'entità da estrarre:
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+1. Accedere al portale di anteprima LUIS con l'URL [https://preview.luis.ai](https://preview.luis.ai).
+
+1. Selezionare **Crea nuova app**, immettere il nome `HumanResources` e mantenere le impostazioni cultura predefinite, **Inglese**. Lasciare vuota la descrizione.
+
+1. Selezionare **Operazione completata**.
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>Creare una finalità per spostare i dipendenti tra città
 
@@ -61,7 +63,8 @@ Un ruolo deve essere usato quando i dati dell'entità da estrarre:
 
 1. Immettere `MoveEmployeeToCity` nella finestra di dialogo popup, quindi selezionare **Done** (Fine).
 
-    ![Screenshot della finestra di dialogo di creazione di una nuova finalità](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della finestra di dialogo di creazione di una nuova finalità](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
 1. Aggiungere espressioni di esempio alla finalità.
 
@@ -77,7 +80,8 @@ Un ruolo deve essere usato quando i dati dell'entità da estrarre:
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [![Screenshot di LUIS con nuove espressioni nella finalità MoveEmployee](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot di LUIS con nuove espressioni nella finalità MoveEmployee](./media/tutorial-entity-roles/hr-enter-utterances.png)
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Aggiungere l'entità predefinita geographyV2
 
@@ -87,16 +91,30 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
 
 1. Selezionare **Add prebuilt entity** (Aggiungi entità predefinita), quindi selezionare `geo` nella barra di ricerca per filtrare le entità predefinite.
 
-    ![Aggiungere l'entità predefinita geographyV2 all'app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Aggiungere l'entità predefinita geographyV2 all'app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+
 1. Selezionare la casella di controllo e selezionare **Done** (Fine).
 1. Nell'elenco **Entities** (Entità) selezionare **geographyV2** per aprire la nuova entità.
 1. Aggiungere i due ruoli `Origin` e `Destination`.
 
-    ![Aggiungere i ruoli all'entità predefinita](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Si noti che i nomi delle città sono etichettati con l'entità predefinita **geographyV2**.
-1. Nella prima espressione dell'elenco selezionare la posizione di origine. Viene visualizzato un menu a discesa. Selezionare **geographyV2** nell'elenco, quindi seguire il menu per selezionare **Origin** (Origine).
-1. Usare il metodo del passaggio precedente per contrassegnare tutti i ruoli delle posizioni in tutte le espressioni.
+    > [!div class="mx-imgBorder"]
+    > ![Aggiungere i ruoli all'entità predefinita](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Si noti che i nomi delle città sono etichettati con l'entità predefinita **geographyV2**.
+1. Sulla barra degli strumenti contestuale selezionare il **pannello di entità**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Selezionare il pannello di entità sulla barra degli strumenti contestuale](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
+
+1. Selezionare l'entità predefinita, **geographyV2**, quindi selezionare **Entity Inspector** (Controllo entità).
+1. In **Entity Inspector** (Controllo entità) selezionare un ruolo, **Destination** (Destinazione). Il cursore del mouse cambia. Usare il cursore per etichettare il testo in tutte le espressioni nella posizione di destinazione.
+
+    > [!div class="mx-imgBorder"]
+    > ![Selezione un ruolo nel pannello di entità](media/tutorial-entity-roles/entity-palette-select-entity-role.png)
+
+
+1. Tornare in **Entity Inspector** (Controllo entità) e cambiare il ruolo in **Origin** (Origine). Usare il cursore per etichettare il testo in tutte le espressioni nella posizione di origine.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna)
 

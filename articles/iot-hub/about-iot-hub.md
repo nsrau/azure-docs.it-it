@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950454"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647408"
 ---
 # <a name="what-is-azure-iot-hub"></a>Che cos'è l'hub IoT di Azure?
 
@@ -111,7 +111,7 @@ Se la soluzione dell'utente non può usare uno dei protocolli supportati, è pos
 
 Ogni sottoscrizione di Azure ha limiti di quota predefiniti per prevenire l'abuso del servizio, e questi limiti possono influire sull'ambito della soluzione IoT del cliente. Il limite corrente per ogni sottoscrizione è di 50 hub IoT per sottoscrizione. È possibile richiedere degli aumenti della quota contattando il supporto. Per altre informazioni, vedere [Quote e limitazioni dell'hub IoT](iot-hub-devguide-quotas-throttling.md). Per altre informazioni sui limiti di quota, vedere uno degli articoli seguenti:
 
-* [Limiti del servizio di sottoscrizione di Azure](../azure-subscription-service-limits.md)
+* [Limiti del servizio di sottoscrizione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [Limitazione delle richieste di hub IoT e l'utente](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -119,4 +119,8 @@ Ogni sottoscrizione di Azure ha limiti di quota predefiniti per prevenire l'abus
 
 Per provare una soluzione IoT end-to-end, consultare la Guida introduttiva di IoT Hub:
 
-* [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md)
+* [Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md)
+
+Per altre informazioni su come creare e distribuire soluzioni IoT con Azure, vedere:
+
+* [Nozioni fondamentali: Tecnologie e soluzioni di Azure IoT](../iot-fundamentals/iot-services-and-technologies.md).

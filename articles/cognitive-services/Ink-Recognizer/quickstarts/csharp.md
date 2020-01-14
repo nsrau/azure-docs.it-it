@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#"
+title: "Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#"
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
+description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 6ef58d1444eb0ec7b2b8891f944b428a613edf3a
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: c5379452449188f17b75036eb09c3ca15bae0c2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448170"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
 
 Usare questo avvio rapido per iniziare a inviare tratti input penna all'API Riconoscimento input penna. Questa applicazione C# invia una richiesta API contenenti i dati del tratto input penna in formato JSON e riceve la risposta.
 
@@ -29,7 +29,7 @@ In genere è necessario chiamare l'API da un'app di input penna. Questa guida di
 
 Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Qualsiasi edizione di [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)

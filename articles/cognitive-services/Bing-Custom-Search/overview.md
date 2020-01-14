@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4b0b0d91af15912e1c64761351ba33acfd3e2725
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448730"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Informazioni sull'API Ricerca personalizzata Bing
 
@@ -23,7 +23,7 @@ L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca perso
 
 ## <a name="features"></a>Funzionalità
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |[Suggerimenti per la ricerca in tempo reale personalizzati](define-custom-suggestions.md)     | Suggerimenti per la ricerca che possono essere visualizzati come elenchi a discesa man mano che l'utente digita.       | 
 |[Esperienze di ricerca di immagini personalizzate](get-images-from-instance.md)     | Permettono agli utenti di cercare immagini dai domini e dai siti Web specificati nell'istanza di ricerca personalizzata.        |        
@@ -36,7 +36,7 @@ L'API Ricerca personalizzata Bing permette di creare esperienze di ricerca perso
 
 Dopo aver creato l'istanza di ricerca, è possibile integrarla (insieme, facoltativamente, a un'interfaccia utente) nel sito Web o nell'applicazione chiamando l'API Ricerca personalizzata Bing:
 
-![Immagine che mostra che è possibile connettersi a Ricerca personalizzata Bing tramite l'API](media/BCS-Overview.png "Funzionamento di Ricerca personalizzata Bing")
+![Immagine che mostra che è possibile connettersi a Ricerca personalizzata Bing tramite l'API](media/BCS-Overview.png "Come funziona Ricerca personalizzata Bing.")
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -46,6 +46,8 @@ Per iniziare rapidamente, vedere [Create your first Bing Custom Search instance]
 Per informazioni dettagliate sulla personalizzazione dell'istanza di ricerca, vedere [Definire un'istanza di ricerca personalizzata](define-your-custom-view.md).
 
 Per informazioni sull'uso dei risultati delle ricerche nei servizi e nelle applicazioni, vedere [Requisiti per l'uso e la visualizzazione di Bing](./use-and-display-requirements.md).
+
+Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).
 
 È consigliabile acquisire familiarità con il contenuto di riferimento per ognuno degli endpoint di ricerca personalizzata. La documentazione di riferimento contiene gli endpoint, le intestazioni e i parametri di query da usare per richiedere risultati della ricerca. Include anche le definizioni degli oggetti della risposta.
 

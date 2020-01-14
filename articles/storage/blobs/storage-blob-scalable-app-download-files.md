@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372092"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Scaricare grandi quantità di dati casuali da Archiviazione di Azure
 
@@ -25,7 +25,7 @@ Nella terza parte della serie si apprenderà come:
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione è necessario aver completato l'esercitazione di archiviazione precedente: [Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure][previous-tutorial].
 
@@ -98,7 +98,7 @@ dotnet run
 L'applicazione legge i contenitori nell'account di archiviazione specificato in **storageconnectionstring**. L'applicazione esegue quindi l'iterazione di 10 BLOB alla volta usando il metodo [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) nei contenitori e li scarica nel computer locale tramite il metodo [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
 La tabella seguente mostra le proprietà [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) definite per ogni BLOB dopo il download.
 
-|Proprietà|Valore|DESCRIZIONE|
+|Proprietà|valore|Descrizione|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Questa proprietà disabilita la verifica dell'hash MD5 del contenuto caricato. La disabilitazione della convalida MD5 produce un trasferimento più veloce. Non viene tuttavia confermata la validità o l'integrità dei file trasferiti. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Questa proprietà determina se un hash MD5 viene calcolato e archiviato.   |

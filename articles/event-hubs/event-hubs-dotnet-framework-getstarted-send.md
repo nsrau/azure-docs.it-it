@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Inviare e ricevere eventi tramite .NET Framework - Hub eventi di Azure'
-description: "Guida introduttiva: Questo articolo offre una procedura dettagliata per la creazione di un'applicazione .NET Framework che invia eventi a Hub eventi di Azure."
+title: Hub eventi di Azure - Inviare e ricevere eventi tramite .NET Framework
+description: "Avvio rapido: Questo articolo offre una procedura dettagliata per la creazione di un'applicazione .NET Framework che invia eventi a Hub eventi di Azure."
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: shvija
-ms.openlocfilehash: 89419e9a3ef364d4095800a617a84ff2f63c09a0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 385430d993afe8b7a0ad57991d3c93eebd46ddcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437275"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Guida introduttiva: Inviare o ricevere eventi da Hub eventi di Azure tramite .NET Framework
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Avvio rapido: Inviare o ricevere eventi da Hub eventi di Azure tramite .NET Framework
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
 Questa esercitazione illustra come creare applicazioni console .NET Framework in C# per inviare o ricevere eventi da un hub eventi. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com).

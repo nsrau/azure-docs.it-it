@@ -1,113 +1,93 @@
 ---
 title: Tecnologie e soluzioni per Internet delle cose (IoT) di Azure
-description: Viene presentata la raccolta di tecnologie e soluzioni PaaS/SaaS disponibili per la creazione di una soluzione IoT di Azure.
+description: Descrive la raccolta di tecnologie e servizi che è possibile usare per creare una soluzione Azure IoT.
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: cf707a0ddc3d5b46c7be7944a911ee03f00fc064
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457184"
 ---
-# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Tecnologie e soluzioni per Internet delle cose (IoT) PaaS e SaaS
+# <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Tecnologie e servizi di Azure per la creazione di soluzioni IoT
 
-Microsoft ha creato un portfolio che supporta le esigenze di tutti i clienti, consentendo a tutti gli utenti di accedere ai vantaggi della trasformazione digitale. Il portfolio di prodotti di Azure IoT offre una panoramica delle tecnologie e delle soluzioni PaaS/SaaS disponibili. Presenta i due percorsi disponibili per la creazione di una soluzione personalizzata:
+Le tecnologie e i servizi di Azure IoT offrono opzioni per la creazione di una vasta gamma di soluzioni IoT che consentono la trasformazione digitale dell'organizzazione. Ad esempio, è possibile:
 
-- PaaS (Platform as a Service, piattaforma distribuita come servizio): consente di compilare l'applicazione usando uno qualsiasi dei servizi seguenti.
-    - [Acceleratori di soluzioni di Azure IoT](https://www.azureiotsolutions.com/), una raccolta di soluzioni preconfigurate di livello aziendale che consentono di accelerare lo sviluppo di soluzioni IoT personalizzate. 
-    - Servizio [Gemelli digitali di Azure](https://azure.microsoft.com/services/digital-twins/), che consente di modellare l'ambiente fisico per creare soluzioni IoT dotate di funzioni di riconoscimento del contesto tramite un grafico di intelligenza spaziale e modelli a oggetti specifici di dominio.
+- Usare [Azure IoT Central](https://apps.azureiotcentral.com), una piattaforma applicativa IoT gestita, per creare e distribuire una soluzione IoT di livello aziendale sicura. IoT Central include una raccolta di modelli di applicazione specifici del settore, ad esempio per la vendita al dettaglio e la sanità, per accelerare il processo di sviluppo della soluzione.
+- Estendere la codebase open source per un [acceleratore di soluzioni](https://www.azureiotsolutions.com) di Azure IoT per implementare uno scenario IoT comune come il monitoraggio remoto o la manutenzione predittiva.
+- Usare i servizi della piattaforma Azure IoT, come [hub IoT di Azure](../iot-hub/about-iot-hub.md) e [Azure IoT SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md), per la creazione di una soluzione IoT personalizzata da zero.
 
-- Software come un servizio, ovvero SaaS: è una guida introduttiva rapida ad [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), la nuova soluzione SaaS per sviluppare applicazioni IoT senza dover affrontare la complessità delle soluzioni IoT. Se l'organizzazione non dispone di risorse per creare la propria soluzione IoT, Azure IoT Central è una soluzione IoT senza codice che consente di creare modelli di dispositivo, dashboard e regole in pochi minuti.
+![Tecnologi, servizi e soluzioni di Azure IoT](./media/iot-services-and-technologies/iot-technologies-services.png)
 
-![Tecnologi e soluzioni di Azure IoT](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
+## <a name="azure-iot-central"></a>Azure IoT Central
 
-## <a name="solutions"></a>Soluzioni
+La [piattaforma applicativa IoT Central](https://apps.azureiotcentral.com) riduce il carico di attività e i costi di sviluppo, gestione e manutenzione di soluzioni IoT di livello aziendale. L'interfaccia utente Web personalizzabile di IoT Central consente di monitorare le condizioni dei dispositivi, di creare regole e di gestire milioni di dispositivi e i relativi dati durante il ciclo di vita. La superficie dell'API all'interno di IoT Central consente l'accesso a livello di codice per configurare e interagire con la soluzione IoT.
 
-Velocizzare l'implementazione con acceleratori delle soluzioni e offerte SaaS. È possibile scegliere tra soluzioni preconfigurate che consentono di esplorare scenari IoT comuni, come il monitoraggio remoto, la manutenzione predittiva e la factory connessa, per creare un soluzione completamente personalizzabile. È anche possibile usare Azure IoT Central, una soluzione end-to-end completamente gestita che permette di ottenere scenari IoT avanzati senza che siano necessarie competenze specifiche per le soluzioni cloud.
+Azure IoT Central è una piattaforma applicativa completamente gestita che è possibile usare per creare soluzioni IoT personalizzate. IoT Central usa i modelli di applicazione per creare soluzioni. Sono disponibili modelli per soluzioni generiche e per settori specifici, ad esempio fonti energetiche, sanità, pubblica amministrazione e vendita al dettaglio. I modelli di applicazione di IoT Central consentono di distribuire un'applicazione di IoT Central in pochi minuti, che è quindi possibile personalizzare con temi, dashboard e visualizzazioni.
 
-### <a name="azure-iot-solution-accelerators-paas"></a>Acceleratori di soluzioni di Azure IoT (PaaS)
+Scegliere i dispositivi dal [catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsolutions.com) per connettersi rapidamente alla soluzione. Usare l'interfaccia utente Web di IoT Central per monitorare e gestire i dispositivi in modo da mantenerli integri e connessi. Usare i connettori e le API per integrare l'applicazione di IoT Central con altre applicazioni aziendali.
 
-Gli acceleratori di soluzioni di Azure IoT Suite sono soluzioni PaaS personalizzabili che offrono un elevato livello di controllo sulla soluzione IoT. Se l'azienda sta implementando IoT per le operazioni connesse o ha requisiti di personalizzazione specifici per i prodotti connessi, gli acceleratori di soluzioni di Azure IoT offrono il controllo necessario. 
+Come piattaforma applicativa completamente gestita, IoT Central dispone di un modello tariffario semplice e prevedibile.
 
-Le organizzazioni con un numero elevato di dispositivi o di modelli di dispositivo e i produttori in cerca di soluzioni factory connesse, sono esempi di società che possono trarre vantaggio dagli acceleratori di soluzioni di Azure IoT. Creando soluzioni altamente personalizzabili, fatte su misura per esigenze complesse, gli acceleratori di soluzioni di IoT offrono: 
+## <a name="azure-iot-solution-accelerators"></a>Solution Accelerator di Azure IoT
 
-- Soluzioni predefinite
-    - Monitoraggio remoto
-    - Connected factory
-    - Manutenzione predittiva
-    - Simulazione dei dispositivi
-- Capacità di distribuzione in pochi minuti
-- Time-to-value velocizzato
-- Soluzioni che offrono massimo controllo 
- 
-### <a name="azure-iot-central-saas"></a>Azure IoT Central (SaaS)
+Gli [acceleratori di soluzioni di Azure IoT](https://www.azureiotsolutions.com) sono una raccolta di soluzioni personalizzabili di livello aziendale. È possibile distribuire queste soluzioni così come sono o sviluppare una soluzione IoT personalizzata usando il codice sorgente Java o .NET open source.
 
-Azure IoT Central è una soluzione SaaS completamente gestita che consente di iniziare rapidamente un'esperienza IoT minima. Se l'azienda richiede velocità più che personalizzazione, i modelli SaaS potrebbero essere la soluzione perfetta per le esigenze di implementazione IoT. 
+Gli acceleratori di soluzioni di Azure IoT offrono un elevato livello di controllo sulla soluzione IoT. Gli acceleratori di soluzioni includono soluzioni predefinite per scenari IoT comuni che è possibile distribuire nella sottoscrizione di Azure in pochi minuti. Tali scenari includono:
 
-Le organizzazioni con un numero inferiore di modelli di dispositivi, scenari più prevedibili e capacità IoT/informatiche limitate possono ora godere dei vantaggi di IoT tramite un approccio SaaS. Le aziende che prima non avevano tempo, denaro e competenze per sviluppare i prodotti connessi, possono ora iniziare a farlo rapidamente con Azure IoT Central. Microsoft è leader nel campo della creazione di soluzioni SaaS avanzate che soddisfano i requisiti di implementazione IoT comuni. 
+  - Monitoraggio remoto
+  - Connected factory
+  - Manutenzione predittiva
+  - Simulazione dei dispositivi
 
-- SaaS IoT completamente gestito
-- Nessuna competenza di sviluppo di soluzioni cloud necessaria
-- Configurabile in base alle esigenze
-- Ideale per soddisfare le esigenze IoT
+La codebase open source per tutti gli acceleratori di soluzioni è disponibile in GitHub. Scaricare il codice per personalizzare un acceleratore di soluzioni per soddisfare requisiti IoT specifici.
 
-### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Confrontare gli acceleratori di soluzioni Azure IoT e Azure IoT Central
+Gli acceleratori di soluzioni usano i servizi di Azure, ad esempio l'hub IoT di Azure e Archiviazione di Azure, che è necessario gestire nella sottoscrizione di Azure.
 
-Per implementare una tipica [architettura della soluzione IoT](/azure/iot-fundamentals/iot-introduction), Azure IoT offre diverse opzioni, [acceleratori di soluzioni di Azure IoT](/azure/iot-suite) e [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), ognuna adeguata ai diversi requisiti dei clienti.
+## <a name="custom-solutions"></a>Soluzioni personalizzate
 
-[Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) è la piattaforma PaaS principale di Azure usata sia da Azure IoT Central che dagli acceleratori di soluzioni Azure IoT. L'hub IoT supporta comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e una soluzione cloud. L'hub IoT consente di risolvere problematiche associate all'implementazione IoT come le seguenti:
+Per creare una soluzione IoT da zero o per estendere una soluzione creata usando IoT Central o un acceleratore di soluzioni, usare uno o più dei servizi e delle tecnologie di Azure IoT seguenti:
+
+### <a name="devices"></a>Dispositivi
+
+Sviluppare i dispositivi IoT usando uno degli [starter Kit di Azure IoT](https://catalog.azureiotsolutions.com/kits) o scegliere un dispositivo da usare dal [catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsolutions.com). Implementare il codice incorporato usando gli [SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md) open source. Gli SDK per dispositivi supportano più sistemi operativi, ad esempio Linux, Windows e sistemi operativi in tempo reale. Sono disponibili SDK per più linguaggi di programmazione, ad esempio [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) e [Python](https://github.com/Azure/azure-iot-sdk-python).
+
+È possibile semplificare ulteriormente il modo in cui si crea il codice incorporato per i dispositivi usando il servizio [Plug and Play IoT (anteprima)](../iot-pnp/overview-iot-plug-and-play.md). Plug and Play IoT consente agli sviluppatori di soluzioni di integrare nei dispositivi le proprie soluzioni senza scrivere codice incorporato. La parte centrale di Plug and Play IoT è costituita da uno schema del _modello di funzionalità di dispositivo_ che descrive le funzionalità dei dispositivi. Usare il modello di funzionalità del dispositivo per generare il codice del dispositivo incorporato e configurare una soluzione basata sul cloud, ad esempio un'applicazione di IoT Central.
+
+[Azure IoT Edge](../iot-edge/about-iot-edge.md) consente di scaricare parti del carico di lavoro IoT dai servizi cloud di Azure sui dispositivi. IoT Edge può ridurre la latenza nella soluzione, ridurre la quantità di dati che i dispositivi scambiano con il cloud e consentire scenari offline. È possibile gestire i dispositivi IoT Edge da IoT Central e da alcuni acceleratori di soluzioni.
+
+[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) è una piattaforma applicativa protetta e di alto livello con funzionalità di comunicazione e di protezione integrate per i dispositivi connessi a Internet. Include un'unità microcontroller protetta, un sistema operativo personalizzato basato su Linux e un servizio di sicurezza basato sul cloud che garantisce una sicurezza continua e rinnovabile.
+
+### <a name="cloud-connectivity"></a>Connettività cloud
+
+Il servizio [hub IoT di Azure](../iot-hub/about-iot-hub.md) consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e una soluzione basata sul cloud. Il [servizio Device Provisioning in hub IoT di Azure](../iot-dps/about-iot-dps.md) è un servizio di supporto per l'hub IoT. Il servizio fornisce il provisioning JIT automatizzato di dispositivi nell'hub IoT corretto senza alcun intervento dell'utente. Queste funzionalità consentono ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
+
+L'hub IoT è un componente fondamentale degli acceleratori di soluzioni ed è possibile usarlo per risolvere problematiche associate all'implementazione IoT come le seguenti:
 
 * Connettività e gestione di volumi elevati di dispositivi.
 * Inserimento di volumi elevati di dati di telemetria.
 * Comando e controllo dei dispositivi.
 * Applicazione della sicurezza dei dispositivi.
 
-La scelta del prodotto Azure IoT è una parte essenziale della pianificazione della soluzione IoT. L'hub IoT è un singolo servizio di Azure che non offre, da solo, una soluzione IoT end-to-end, ma può essere usato come punto di partenza per qualsiasi soluzione IoT. Non è necessario usare gli acceleratori di soluzioni Azure IoT o Azure IoT Central per usare l'hub IoT. Sia gli acceleratori di soluzioni Azure IoT che Azure IoT Central usano l'hub IoT insieme ad altri servizi di Azure. La tabella seguente offre un riepilogo delle differenze principali tra gli acceleratori di soluzioni Azure IoT e Azure IoT Central per consentire la scelta dell'opzione corretta per i propri requisiti:
+### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Colmare il divario tra il mondo fisico e quello digitale
 
-|                        | Solution Accelerator di Azure IoT | Azure IoT Central |
-| ---------------------- | --------- | ----------- |
-| Utilizzo primario | Velocizzare lo sviluppo di una soluzione IoT personalizzata che necessita della massima flessibilità. | Accelerare il time-to-market per soluzioni IoT semplici che non richiedono una personalizzazione approfondita dei servizi. |
-| Accesso ai servizi PaaS sottostanti          | L'utente ha accesso ai servizi di Azure sottostanti per gestirli o, se necessario, sostituirli. | SaaS. Soluzione completamente gestita. I servizi sottostanti non sono esposti. |
-| Flessibilità            | Elevata. Il codice per i microservizi è open source e può essere modificato come si preferisce. È anche possibile personalizzare l'infrastruttura di distribuzione.| Media. È possibile usare l'esperienza utente basata su browser predefinita per personalizzare il modello di soluzione e aspetti dell'interfaccia utente. L'infrastruttura non è personalizzabile perché i diversi componenti non sono esposti.|
-| Livello di competenze                 | Medio-alto. Sono necessarie competenze in Java o .NET per personalizzare il back-end della soluzione e competenze in JavaScript per personalizzare la visualizzazione. | Bassa. Sono necessarie competenze di modellazione per personalizzare la soluzione. Non sono richieste competenze nella creazione di codice. |
-| Esperienza iniziale | Gli acceleratori di soluzioni implementano scenari IoT comuni, distribuibili in pochi minuti. | I modelli di applicazione e i modelli di dispositivo forniscono modelli predefiniti distribuibili in pochi minuti. |
-| Prezzi                | È possibile ottimizzare i servizi per controllare i costi. | Struttura di prezzi semplice e prevedibile. |
+[Gemelli digitali di Azure](../digital-twins/about-digital-twins.md) è un servizio IoT che consente di modellare un ambiente fisico usando un grafico di intelligenza spaziale con cui modellare le relazioni tra persone, spazi e dispositivi. Tramite la correlazione dei dati attraverso il mondo digitale e fisico, è possibile creare soluzioni dotate di funzioni di riconoscimento del contesto.
 
-La scelta del prodotto da usare per creare la propria soluzione IoT è determinata in definitiva da:
-
-* Requisiti aziendali.
-* Tipo di soluzione che si vuole creare.
-* Set di competenze dell'organizzazione per la creazione e la gestione della soluzione a lungo termine.
-
-## <a name="technologies-paas"></a>Tecnologie (PaaS)
-
-Con il portfolio IoT di servizi per la piattaforma più completo, le tecnologie della piattaforma distribuita come servizio, ovvero PaaS, che comprendono la piattaforma di Azure consentono di creare, personalizzare e controllare facilmente tutti gli aspetti della soluzione IoT. Stabilire comunicazioni bidirezionali con miliardi di dispositivi IoT e gestire i dispositivi IoT su larga scala. Quindi integrare i dati del dispositivo IoT con altri servizi della piattaforma, ad esempio Azure Cosmos DB e Azure Time Series Insights, per migliorare le informazioni dettagliate nella soluzione. 
-
-### <a name="device-support"></a>Supporto dei dispositivi
-
-Avviare il proprio progetto IoT in tutta tranquillità, sfruttando gli [starter kit di Azure IoT](https://catalog.azureiotsolutions.com/kits) o scegliendo tra centinaia di dispositivi Certified per IoT disponibili nel nostro [catalogo di dispositivi](https://catalog.azureiotsolutions.com/). Tutti i dispositivi sono indipendenti dalla piattaforma e testati per garantire una facile connessione all'hub IoT.
-Connettere tutti i dispositivi ad Azure IoT usando gli [SDK per dispositivi](/azure/iot-hub/iot-hub-devguide-sdks) open source. Gli SDK supportano diversi sistemi operativi, come Linux, Windows e i sistemi operativi in tempo reale, oltre che diversi linguaggi di programmazione, come [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) e [Python](https://github.com/Azure/azure-iot-sdk-python).
-
-### <a name="iot"></a>IoT 
-L'[hub IoT](https://azure.microsoft.com/services/iot-hub/) di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un backend della soluzione. Device Provisioning in hub IoT di Azure è un servizio di assistenza per l'hub IoT che consente il provisioning JIT automatico nell'hub IoT corretto senza richiedere l'intervento umano, permettendo ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
-
-### <a name="edge"></a>Microsoft Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) è un servizio IoT. Il servizio è destinato a clienti che vogliono analizzare i dati nei dispositivi, ovvero "nella rete perimetrale". Spostando le parti del carico di lavoro nella rete perimetrale, si riscontrerà una riduzione della latenza e si avrà la possibilità di scegliere gli scenari non in linea.
-
-### <a name="spatial-intelligence"></a>Intelligenza spaziale
-[Gemelli digitali di Azure](https://azure.microsoft.com/services/digital-twins/) è un servizio IoT che consente di creare il modello di un ambiente fisico e offre un grafico di intelligenza spaziale con cui modellare le relazioni tra persone, spazi e dispositivi. Tramite la correlazione dei dati attraverso il mondo digitale e fisico, è possibile creare soluzioni dotate di funzioni di riconoscimento del contesto.  
+IoT Central usa i gemelli digitali per sincronizzare i dispositivi e i dati nel mondo reale con i modelli digitali che consentono agli utenti di monitorare e gestire i dispositivi connessi.
 
 ### <a name="data-and-analytics"></a>Dati e analisi
-Sfruttare i vantaggi di una matrice di dati di Azure e le offerte PaaS di analisi nella soluzione IoT, come portare l'intelligence del cloud nella rete perimetrale con Azure Machine Learning, archiviare i dati del dispositivo IoT in modo conveniente con Azure Data Lake, visualizzare una grande quantità di dati dai dispositivi IoT con [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
 
-### <a name="visualization-and-integration"></a>Visualizzazione e interazione
-Microsoft Azure offre una soluzione cloud completa che combina una raccolta in continua crescita di servizi cloud integrati con l'impegno, leader nel settore, verso la protezione e la privacy dei dati. Altre informazioni su [Microsoft Azure](https://azure.microsoft.com/).
+I dispositivi IoT in genere generano grandi quantità di dati di serie temporali come ad esempio le letture delle temperature dai sensori. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) può connettersi a un hub IoT, leggere il flusso di dati di telemetria dai dispositivi, archiviare i dati e consentire di eseguire query e visualizzarle.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consultare la [sezione introduttiva della documentazione dell'hub IoT](/azure/iot-hub/iot-hub-get-started) per usare le funzionalità IoT in modo semplice e rapido. Oppure, per un'esperienza pratica più approfondita, provare a seguire una delle [esercitazioni di IoT Edge](/azure/iot-edge/tutorial-simulate-device-windows).
+Per un'esperienza pratica, provare a eseguire una delle guide di avvio rapido:
+
+- [Creare un'applicazione di Azure IoT Central](../iot-central/core/quick-deploy-iot-central.md)
+- [Send telemetry from a device to an IoT hub](../iot-hub/quickstart-send-telemetry-cli.md) (Inviare dati di telemetria da un dispositivo a un hub IoT)
+- [Provare una soluzione di monitoraggio remoto basata sul cloud](../iot-accelerators/quickstart-remote-monitoring-deploy.md)

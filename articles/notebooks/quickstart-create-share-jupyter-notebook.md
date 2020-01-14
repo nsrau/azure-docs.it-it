@@ -1,18 +1,24 @@
 ---
-title: Creare e condividere un notebook di Jupyter in Azure
-description: Creare rapidamente ed eseguire un notebook di Jupyter in Azure Notebooks e quindi condividerlo con altri utenti.
+title: Creare e condividere un notebook di Jupyter in Azure Notebooks (anteprima)
+description: Creare rapidamente ed eseguire un notebook di Jupyter in Azure Notebooks (anteprima) e quindi condividerlo con altri utenti.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277514"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647085"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>Avvio rapido: Creare e condividere un notebook
+# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Avvio rapido: Creare e condividere un notebook in Azure Notebooks (anteprima)
 
-1. Passare ad [Azure Notebooks](https://notebooks.azure.com) ed eseguire l'accesso. Per informazioni dettagliate, vedere [Avvio rapido: Accedere ad Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
+Questa guida di avvio rapido illustra come creare ed eseguire rapidamente un notebook di Jupyter in Azure Notebooks e quindi condividerlo con altri utenti.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+## <a name="create-a-new-project-and-notebook"></a>Creare un nuovo progetto e un nuovo notebook
+
+1. Passare al [sito di Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) ed eseguire l'accesso. Per informazioni dettagliate, vedere [Avvio rapido: Accedere ad Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
 1. Dalla pagina del profilo pubblico selezionare **My Projects** (Progetti personali) nella parte superiore:
 
@@ -24,7 +30,7 @@ ms.locfileid: "74277514"
 
 1. Nella finestra popup **Create New Project** (Crea nuovo progetto) visualizzata immettere o impostare i dettagli seguenti e quindi selezionare **Create** (Crea):
 
-   - **Nome progetto**: Hello World in Python
+   - **Project name** (Nome progetto): Hello World in Python
    - **ID progetto**: hello-world-python
    - **Public project** (Progetto pubblico): (disattivata)
    - **Create a README.md** (Crea un file README.md): (disattivata)

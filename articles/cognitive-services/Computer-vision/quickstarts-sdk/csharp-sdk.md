@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Libreria client di Visione artificiale per .NET | Microsoft Docs'
-description: Introduzione alla libreria client di Visione artificiale per .NET.
+title: 'Avvio rapido: Libreria client di Visione artificiale per .NET'
+description: Questo argomento di avvio rapido illustra come usare la libreria client di Visione artificiale per .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,14 +9,14 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 72c66241965db1264cb508ed1f8f4c76a07883be
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa162fb47eab84ff26af2256f8fe0ba9896b7cf0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974990"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448293"
 ---
-# <a name="quickstart-computer-vision-client-library-for-net"></a>Guida introduttiva: Libreria client di Visione artificiale per .NET
+# <a name="quickstart-computer-vision-client-library-for-net"></a>Avvio rapido: Libreria client di Visione artificiale per .NET
 
 Introduzione alla libreria client di Visione artificiale per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Visione artificiale consente di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione di informazioni.
 
@@ -27,7 +27,7 @@ Usare la libreria client di Visione artificiale per .NET per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Esempi](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -91,7 +91,7 @@ Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client 
 
 Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità dell'SDK Visione artificiale per .NET.
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | Questa classe è necessaria per tutte le funzionalità di Visione artificiale. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per eseguire la maggior parte delle operazioni con le immagini.|
 |[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Questa classe contiene metodi aggiuntivi per **ComputerVisionClient.**|
@@ -141,7 +141,7 @@ Definire il nuovo metodo per l'analisi delle immagini. Aggiungere il codice segu
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_visualfeatures)]
 
-### <a name="analyze"></a>Analizzare
+### <a name="analyze"></a>Analisi
 
 Il metodo **AnalyzeImageAsync** restituisce un oggetto **ImageAnalysis** che contiene tutte le informazioni estratte.
 

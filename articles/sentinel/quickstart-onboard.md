@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Caricare dati in Azure Sentinel'
+title: 'Avvio rapido: Caricare dati in Azure Sentinel'
 description: Questa Guida introduttiva illustra come raccogliere dati in Azure Sentinel.
 services: sentinel
 author: rkarlin
@@ -9,14 +9,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: e8625b1d81db5b3ec90a177f426d05bd84bd10dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426966"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Guida introduttiva: Caricare dati in Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
 
 Questa Guida introduttiva illustra come caricare dati in Azure Sentinel. 
 
@@ -41,12 +41,14 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
  
 ## Abilitare Azure Sentinel <a name="enable"></a>
 
-1. Accedere al portale di Azure.
-2. Verificare che la sottoscrizione in cui è stato creato Azure Sentinel sia selezionata. 
-3. Cercare Azure Sentinel. 
-   ![search](./media/quickstart-onboard/search-product.png)
+1. Accedere al portale di Azure. Assicurarsi che la sottoscrizione in cui è stato creato Azure Sentinel sia selezionata.
 
-1. Fare clic su **+Aggiungi**.
+1. Cercare e selezionare **Azure Sentinel**.
+
+   ![ricerca](./media/quickstart-onboard/search-product.png)
+
+1. Selezionare **Aggiungi**.
+
 1. Selezionare l'area di lavoro da usare o crearne una nuova. È possibile eseguire Azure Sentinel in più di un'area di lavoro, ma i dati sono isolati in una singola area di lavoro.
 
    ![ricerca](./media/quickstart-onboard/choose-workspace.png)
@@ -55,7 +57,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
    > - Le aree di lavoro predefinite create in Centro sicurezza di Azure non vengono visualizzate nell'elenco e non è possibile installare Azure Sentinel in tali aree.
    > - Azure Sentinel può essere eseguito in aree di lavoro in qualsiasi [area di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina, Germania e Azure per enti pubblici. I dati generati da Azure Sentinel (ad esempio eventi imprevisti, segnalibri e regole di avviso, che possono contenere dati del cliente originati da tali aree di lavoro), vengono salvati in Europa occidentale (per aree di lavoro situate in Europa) o negli Stati Uniti orientali (per tutte le aree di lavoro con base negli Stati Uniti e per qualsiasi altra area ad eccezione dell'Europa).
 
-6. Fare clic su **Aggiungi Azure Sentinel**.
+1. Selezionare **Aggiungi Azure Sentinel**.
   
 
 ## <a name="connect-data-sources"></a>Connettere le origini dati

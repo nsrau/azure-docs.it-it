@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Riconoscimento della voce archiviata in archiviazione BLOB, C++ - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento della voce archiviata in archiviazione BLOB, C++ - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 54c6f920b581a0bbd00910a3b3ddeebecdbb595f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b7ce80baa090ed87722397384b8e75c134eb26da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466438"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 
@@ -50,7 +50,7 @@ vcpkg install nlohmann-json
 
 ## <a name="start-with-some-boilerplate-code"></a>Iniziare con un codice boilerplate
 
-Aggiungere codice che funge da scheletro del progetto.
+Aggiungere codice che funga da scheletro del progetto.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-32,187-190,300-309)]
 (Sarà necessario sostituire i valori di `YourSubscriptionKey`, `YourServiceRegion` e `YourFileUrl` con valori personalizzati.)
@@ -96,7 +96,7 @@ Verrà scaricato il contenuto di tale URL, deserializzato il file JSON ed esegui
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=246-284)]
 
 ## <a name="check-your-code"></a>Controllare il codice
-A questo punto il codice dovrà avere questo aspetto: (sono stati aggiunti alcuni commenti a questa versione)
+A questo punto il codice dovrà avere questo aspetto: In questa versione sono stati aggiunti alcuni commenti
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
 

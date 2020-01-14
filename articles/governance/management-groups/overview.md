@@ -2,14 +2,14 @@
 title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.date: 04/22/2019
+ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 7e121ed256e04332ca7fd33c9fc48cd2bc7bae03
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 72e37c3ef96f8068d9d9958910a6d75bbebd37fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436499"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -23,7 +23,7 @@ Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano 
 
 ![Esempio di un albero gerarchico dei gruppi di gestione](./media/tree.png)
 
-È possibile creare una gerarchia che applica un criterio, ad esempio che limita le posizioni delle VM all'area Stati Uniti occidentali nel gruppo denominato "Produzione". Questo criterio erediterà da entrambe le sottoscrizioni EA all'interno del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
+È possibile creare una gerarchia che applica un criterio, ad esempio che limita le posizioni delle VM all'area Stati Uniti occidentali nel gruppo denominato "Produzione". Questo criterio erediterà da tutte le sottoscrizioni EA discendenti del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
 
 Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare un'assegnazione di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel gruppo di gestione, con ereditarietà di tale accesso in tutte le sottoscrizioni.
 Una sola assegnazione nel gruppo di gestione può consentire agli utenti di accedere a tutte le risorse necessarie invece di eseguire script di controllo degli accessi in base al ruolo per diverse sottoscrizioni.
@@ -45,7 +45,7 @@ Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondu
 ### <a name="important-facts-about-the-root-management-group"></a>Informazioni importanti sul gruppo di gestione radice
 
 - Per impostazione predefinita, il nome visualizzato del gruppo di gestione radice è **Gruppo radice tenant**. L'ID corrisponde all'ID di Azure Active Directory.
-- Per cambiare il nome visualizzato, all'account deve essere assegnato il ruolo Proprietario o Collaboratore per il gruppo di gestione radice. Per la procedura, vedere [Modificare il nome di un gruppo di gestione](manage.md#change-the-name-of-a-management-group).
+- Per cambiare il nome visualizzato, all'account deve essere assegnato il ruolo Proprietario o Collaboratore per il gruppo di gestione radice. Vedere [Modificare il nome di un gruppo di gestione](manage.md#change-the-name-of-a-management-group) per aggiornare il nome del gruppo di gestione.
 - A differenza degli altri gruppi di gestione, il gruppo di gestione radice non può essere spostato o eliminato.  
 - Tutte le sottoscrizioni e i gruppi di gestione sono ricondotti all'unico gruppo di gestione radice all'interno della directory.
   - Tutte le risorse nella directory sono ricondotte al gruppo di gestione radice ai fini della gestione globale.
@@ -82,7 +82,7 @@ Per eventuali domande su questo processo di backfill, contattare managementgroup
 ## <a name="management-group-access"></a>Accesso ai gruppi di gestione
 
 I gruppi di gestione di Azure supportano il [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) per tutte le definizioni di ruoli e gli accessi alle risorse.
-Queste autorizzazioni vengono ereditate dalle risorse figlio presenti nella gerarchia. È possibile assegnare qualsiasi ruolo predefinito Controllo degli accessi in base al ruolo a un gruppo di gestione che verrà ereditato fino alle risorse.
+Queste autorizzazioni vengono ereditate dalle risorse figlio presenti nella gerarchia. È possibile assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo a un gruppo di gestione che verrà ereditato fino alle risorse.
 Ad esempio, il ruolo Controllo degli accessi in base al ruolo Collaboratore Macchina virtuale può essere assegnato a un gruppo di gestione. Questo ruolo non dispone di alcuna azione sul gruppo di gestione, ma verrà ereditato da tutte le macchine virtuali in tale gruppo.
 
 Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gruppi di gestione.
@@ -100,9 +100,86 @@ Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gr
 *: i ruoli Collaboratore gruppo di gestione e Lettore gruppo di gestione consentono agli utenti di eseguire le azioni solo nell'ambito del gruppo di gestione.  
 **: per spostare una sottoscrizione o un gruppo di gestione all'interno o all'esterno di un gruppo di gestione radice, non sono necessarie assegnazioni di ruolo.  Per informazioni su come spostare elementi all'interno della gerarchia, vedere [Gestire le risorse con i gruppi di gestione](manage.md).
 
-### <a name="custom-rbac-role-definition-and-assignment"></a>Definizione e assegnazione di un ruolo personalizzato Controllo degli accessi in base al ruolo
+## <a name="custom-rbac-role-definition-and-assignment"></a>Definizione e assegnazione del ruolo Controllo degli accessi in base al ruolo personalizzato
 
-Attualmente i ruoli personalizzati Controllo degli accessi in base al ruolo non sono supportati per i gruppi di gestione. Per visualizzare lo stato di questo elemento, vedere il [forum dei commenti sui gruppi di gestione](https://aka.ms/mgfeedback).
+Il supporto del ruolo Controllo degli accessi in base al ruolo personalizzato per i gruppi di gestione è attualmente supportato con alcune [limitazioni](#limitations).  È possibile definire l'ambito del gruppo di gestione nell'ambito assegnabile della definizione del ruolo.  Il ruolo Controllo degli accessi in base al ruolo personalizzato sarà quindi disponibile per l'assegnazione in tale gruppo di gestione e in qualsiasi gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa in esso contenuti. Questo ruolo personalizzato erediterà la gerarchia in modo analogo a qualsiasi ruolo predefinito.    
+
+### <a name="example-definition"></a>Definizione di esempio
+La [definizione e la creazione di un ruolo personalizzato](../../role-based-access-control/custom-roles.md) non cambiano con l'inclusione di gruppi di gestione. Usare il percorso completo per definire il gruppo di gestione **/providers/Microsoft.Management/managementgroups/{groupId}** . 
+
+Usare l'ID del gruppo di gestione e non il nome visualizzato del gruppo di gestione. Questo errore comune si verifica poiché entrambi sono campi definiti personalizzati quando si crea un gruppo di gestione. 
+
+```json
+...
+{
+  "Name": "MG Test Custom Role",
+  "Id": "id", 
+  "IsCustom": true,
+  "Description": "This role provides members understand custom roles.",
+  "Actions": [
+    "Microsoft.Management/managementgroups/delete",
+    "Microsoft.Management/managementgroups/read",
+    "Microsoft.Management/managementgroup/write",
+    "Microsoft.Management/managementgroup/subscriptions/delete",
+    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.resources/subscriptions/read",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyDefinitions/*",
+    "Microsoft.Authorization/policySetDefinitions/*",
+    "Microsoft.PolicyInsights/*",
+    "Microsoft.Authorization/roleAssignments/*",
+    "Microsoft.Authorization/roledefinitions/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+        "/providers/microsoft.management/managementGroups/ContosoCorporate"
+  ]
+}
+...
+```
+
+### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problemi di interruzione della definizione del ruolo e del percorso della gerarchia di assegnazione
+Le definizioni del ruolo sono con ambito assegnabile in qualsiasi punto all'interno della gerarchia del gruppo di gestione. È possibile definire una definizione del ruolo in un gruppo di gestione padre mentre l'assegnazione di ruolo effettiva è presente nella sottoscrizione figlio. Poiché esiste una relazione tra i due elementi, viene visualizzato un errore durante il tentativo di separare l'assegnazione dalla relativa definizione. 
+
+Ad esempio: esaminiamo una piccola sezione di una gerarchia per un oggetto visivo. 
+
+![sottoalbero](./media/subtree.png)
+
+Supponiamo che nel gruppo di gestione Marketing sia definito un ruolo personalizzato. Il ruolo personalizzato viene quindi assegnato alle due sottoscrizioni di valutazione gratuite.  
+
+Se proviamo a spostare una di queste sottoscrizioni in modo da diventare un elemento figlio del gruppo di gestione Production, questo spostamento interrompe il percorso dall'assegnazione del ruolo di sottoscrizione alla definizione del ruolo del gruppo di gestione Marketing. In questo scenario verrà visualizzato un errore che informa che lo spostamento non è consentito poiché interrompe questa relazione.  
+
+Sono disponibili alcune opzioni diverse per correggere questo scenario:
+- Rimuovere l'assegnazione di ruolo dalla sottoscrizione prima di spostare la sottoscrizione in un nuovo gruppo di gestione padre.
+- Aggiungere la sottoscrizione all'ambito assegnabile della definizione del ruolo.
+- Modificare l'ambito assegnabile all'interno della definizione del ruolo. Nell'esempio precedente, è possibile aggiornare gli ambiti assegnabili da Marketing a Root Management Group in modo che la definizione possa essere raggiunta da entrambi i rami della gerarchia.   
+- Creare un ruolo personalizzato aggiuntivo che verrà definito nell'altro ramo.  Per questo nuovo ruolo sarà necessario modificare anche l'assegnazione di ruolo nella sottoscrizione.  
+
+### <a name="limitations"></a>Limitazioni  
+Esistono alcune limitazioni quando si usano i ruoli personalizzati nei gruppi di gestione. 
+
+ - È possibile definire un solo gruppo di gestione negli ambiti assegnabili di un nuovo ruolo.  Questa limitazione è prevista per ridurre il numero di situazioni in cui le definizioni del ruolo e le assegnazioni di ruolo sono disconnesse.  Ciò si verifica quando una sottoscrizione o un gruppo di gestione con un'assegnazione di ruolo viene spostato in un elemento padre diverso che non contiene la definizione del ruolo.   
+ - Le azioni del piano dati di Controllo degli accessi in base al ruolo non possono essere definite nei ruoli personalizzati del gruppo di gestione.  Questa restrizione è prevista perché si verifica un problema di latenza con le azioni di Controllo degli accessi in base al ruolo che aggiornano i provider di risorse del piano dati. Questo problema di latenza è in fase di analisi e queste azioni verranno disabilitate dalla definizione del ruolo per ridurre eventuali rischi.
+ - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo.  Se è presente un errore di digitazione o un ID gruppo di gestione non corretto, la definizione del ruolo verrà comunque creata.   
+
+## <a name="moving-management-groups-and-subscriptions"></a>Spostamento di gruppi di gestione e sottoscrizioni 
+
+Affinché un gruppo di gestione o una sottoscrizione possa essere un elemento figlio di un altro gruppo di gestione, è necessario che siano soddisfatte tre regole.
+
+Per eseguire l'azione di spostamento, è necessario avere: 
+
+-  Autorizzazioni di scrittura per il gruppo di gestione e l'assegnazione di ruolo nel gruppo di gestione o nella sottoscrizione figlio.
+   - Esempio di ruolo predefinito: **Proprietario**
+- Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre di destinazione.
+   - Esempio di ruolo predefinito: **Proprietario**, **Collaboratore**, **Collaboratore gruppo di gestione**
+- Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre esistente.
+   - Esempio di ruolo predefinito: **Proprietario**, **Collaboratore**, **Collaboratore gruppo di gestione**
+
+**Eccezione**: se il gruppo di gestione padre di destinazione o esistente è il gruppo di gestione radice, i requisiti delle autorizzazioni non sono applicabili. Poiché il gruppo di gestione radice è il punto di destinazione predefinito per tutti i nuovi gruppi di gestione e le sottoscrizioni, non è necessario avere le autorizzazioni per spostare un elemento.
+
+Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si ha il ruolo Proprietario. Non è possibile spostarla in un gruppo di gestione in cui si ha il ruolo Collaboratore perché si perderebbe la proprietà della sottoscrizione. Se il ruolo Proprietario per la sottoscrizione è stato assegnato direttamente (non ereditato dal gruppo di gestione), è possibile eseguire lo spostamento in qualsiasi gruppo di gestione in cui si ha il ruolo Collaboratore. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Controllare i gruppi di gestione con i log attività
 

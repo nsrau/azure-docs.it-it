@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Usare le code del bus di servizio di Azure in Node.js'
-description: "Guida introduttiva: Informazioni su come usare le code del bus di servizio in Azure da un'app Node.js."
+title: Usare le code del bus di servizio di Azure in Node.js con il pacchetto azure-sb
+description: "Avvio rapido: Informazioni su come usare le code del bus di servizio in Azure da un'app Node.js."
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462178"
 ---
-# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Guida introduttiva: Usare le code del bus di servizio in Azure con Node.js e il pacchetto azure-sb
+# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Avvio rapido: Usare le code del bus di servizio in Azure con Node.js e il pacchetto azure-sb
 
 > [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
@@ -32,9 +32,9 @@ Questa esercitazione illustra come creare applicazioni Node.js per inviare e ric
 
 Il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). L'esperienza può risultare più rapida usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) che impiega il [protocollo AMQP 1.0](service-bus-amqp-overview.md) più veloce. Per altre informazioni sul nuovo pacchetto, vedere [Come usare le code del bus di servizio con Node.js e il pacchetto @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), in caso contrario continuare a leggere questo articolo per sapere come usare il pacchetto [azure](https://www.npmjs.com/package/azure).
 
-## <a name="prerequisites"></a>Prerequisiti
-- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per creare una coda.
+## <a name="prerequisites"></a>Prerequisites
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
     1. Leggere la breve **panoramica** delle **code** del bus di servizio. 
     2. Creare uno **spazio dei nomi** del bus di servizio. 
     3. Ottenere la **stringa di connessione**. 
@@ -44,7 +44,7 @@ Il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usa le [API di r
  
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure][Create and deploy a Node.js application to an Azure Website] [Servizio cloud Node.js][Node.js Cloud Service] usando Windows PowerShell.
+Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure][Create and deploy a Node.js application to an Azure Website][Servizio cloud Node.js][Node.js Cloud Service] usando Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node.js che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
@@ -161,7 +161,7 @@ Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambit
 
 Se il parametro `isPeekLock` è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo `deleteMessage` e specificando il messaggio da eliminare come parametro. Il metodo `deleteMessage` contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
-L'esempio seguente illustra come ricevere ed elaborare messaggi usando `receiveQueueMessage`. L'esempio prima di tutto riceve ed elimina un messaggio, quindi riceve un messaggio con `isPeekLock` impostato su **true** e infine elimina il messaggio con `deleteMessage`:
+Nell'esempio seguente viene illustrato come ricevere ed elaborare i messaggi tramite `receiveQueueMessage`. L'esempio prima di tutto riceve ed elimina un messaggio, quindi riceve un messaggio con `isPeekLock` impostato su **true** e infine elimina il messaggio con `deleteMessage`:
 
 ```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){

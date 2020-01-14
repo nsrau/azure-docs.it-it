@@ -1,5 +1,5 @@
 ---
-title: 'Esempio di interfaccia della riga di comando di Azure: copiare un disco gestito su un account di archiviazione'
+title: Copiare un disco gestito in un account di archiviazione - Esempio dell'interfaccia della riga di comando
 description: 'Esempio di interfaccia della riga di comando di Azure: esportare o copiare un disco gestito su un account di archiviazione.'
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: d6009a723297d03dc854d06529315b22b2f4de16
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 92c752c56c37b854bc793d897c664337cf8bfccd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463631"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Esportare/copiare un disco gestito su un account di archiviazione usando l'interfaccia della riga di comando di Azure
 
