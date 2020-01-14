@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925191"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933330"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
@@ -30,11 +30,11 @@ Questo articolo illustra come usare il trigger di riscaldamento in funzioni di A
 
 ## <a name="trigger"></a>Trigger
 
-Il trigger di riscaldamento consente di definire una funzione che verrà eseguita in un'istanza di quando viene aggiunta all'app in esecuzione. È possibile usare una funzione di riscaldamento per aprire le connessioni, caricare le dipendenze o eseguire qualsiasi altra logica personalizzata prima che l'app inizi a ricevere il traffico. 
+Il trigger riscaldamento consente di definire una funzione che verrà eseguita in una nuova istanza quando viene aggiunta all'app in esecuzione. È possibile usare una funzione di riscaldamento per aprire le connessioni, caricare le dipendenze o eseguire qualsiasi altra logica personalizzata prima che l'app inizi a ricevere il traffico. 
 
 Il trigger riscaldamento è progettato per creare dipendenze condivise che verranno usate da altre funzioni nell'app. [Vedere esempi di dipendenze condivise qui](./manage-connections.md#client-code-examples).
 
-Si noti che il trigger di riscaldamento viene chiamato solo durante le operazioni di scalabilità verticale, non durante i riavvii o altre startup senza scalabilità. È necessario assicurarsi che la logica possa caricare tutte le dipendenze necessarie senza usare il trigger di riscaldamento. Il caricamento lazy è un modello valido per ottenere questo risultato.
+Si noti che il trigger di riscaldamento viene chiamato solo durante le operazioni di scalabilità orizzontale, non durante i riavvii o altre startup senza scalabilità. È necessario assicurarsi che la logica possa caricare tutte le dipendenze necessarie senza usare il trigger di riscaldamento. Il caricamento lazy è un modello valido per ottenere questo risultato.
 
 ## <a name="trigger---example"></a>Trigger - esempio
 

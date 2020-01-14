@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/05/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422759"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932653"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Cosa sono le verifiche di accesso di Azure AD?
 
@@ -97,27 +97,34 @@ Se si è pronti per distribuire le verifiche di accesso nell'organizzazione, seg
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-### <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
+### <a name="how-many-licenses-must-you-have"></a>Quante licenze è necessario avere?
 
-Ogni utente che interagisce con le verifiche di accesso deve disporre di una licenza a pagamento Azure AD Premium P2. Ad esempio:
+Assicurarsi che la directory includa almeno il numero di licenze Azure AD Premium P2 disponibili per i dipendenti che eseguiranno le attività seguenti:
 
-- Amministratori che creano una verifica di accesso
+- Utenti guest e membro assegnati come revisori
+- Utenti guest e membri che eseguono una verifica automatica
 - Proprietari del gruppo che eseguono una verifica di accesso
-- Utenti assegnati come revisori
-- Utenti che eseguono una verifica automatica
+- Proprietari di applicazioni che eseguono una verifica di accesso
 
-È anche possibile chiedere agli utenti guest di verificare il proprio accesso. Per ogni licenza Azure AD Premium P2 a pagamento assegnata a uno degli utenti dell'organizzazione, è possibile usare Azure AD business-to-business (B2B) per invitare fino a cinque utenti Guest sotto la franchigia utente esterna. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Azure ad Guida alle licenze di collaborazione B2B](../b2b/licensing-guidance.md).
+Le licenze Azure AD Premium P2 **non** sono necessarie per le attività seguenti:
 
-Di seguito sono riportati alcuni scenari di esempio che consentono di determinare il numero di licenze che è necessario avere.
+- Non sono necessarie licenze per gli utenti con i ruoli amministratore globale o Amministratore utenti che configurano le verifiche di accesso, configurano le impostazioni o applicano le decisioni dalle revisioni.
 
-| Scenario | Calcolo | Numero necessario di licenze |
+Per ogni licenza Azure AD Premium P2 a pagamento assegnata a uno degli utenti dell'organizzazione, è possibile usare Azure AD business-to-business (B2B) per invitare fino a cinque utenti Guest sotto la franchigia utente esterna. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Azure ad Guida alle licenze di collaborazione B2B](../b2b/licensing-guidance.md).
+
+Per altre informazioni sulle licenze, vedere [assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Scenari di licenza di esempio
+
+Di seguito sono riportati alcuni scenari di licenza di esempio che consentono di determinare il numero di licenze che è necessario avere.
+
+| Scenario | Calcolo | Numero di licenze |
 | --- | --- | --- |
-| Un amministratore crea una verifica di accesso del gruppo A con 500 utenti. Assegna 3 proprietari del gruppo come revisori. | 1 licenza per l'amministratore + 3 licenze per ogni proprietario del gruppo come revisori. | 4 |
-| Un amministratore crea una verifica di accesso del gruppo A con 500 utenti. Consente di riesaminare autonomamente. | 1 licenza per l'amministratore + 500 licenze per ogni utente come revisori. | 501 |
-| Un amministratore crea una verifica di accesso del gruppo B con 5 utenti e 25 utenti guest. Consente di riesaminare autonomamente. | 1 licenza per l'amministratore + 5 licenze per ogni utente come revisori.<br/>(gli utenti Guest sono coperti dal rapporto 1:5 richiesto) | 6 |
-| Un amministratore crea una verifica di accesso del gruppo C con 5 utenti e 108 utenti guest. Consente di riesaminare autonomamente. | 1 licenza per l'amministratore + 5 licenze per ogni utente come revisori autonomi + 16 licenze aggiuntive per coprire tutti gli utenti guest di 108 nel rapporto 1:5 richiesto.<br/>1 + 5 = 6 licenze, che coprono 5\*6 = 30 utenti guest. Per gli altri (108-5\*6) = 78 utenti guest, 78/5 = 16 licenze aggiuntive sono obbligatorie. Quindi, in totale, sono necessarie 6 + 16 = 22 licenze. | 22 |
-
-Per informazioni su come assegnare licenze agli utenti, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
+| Un amministratore crea una verifica di accesso del gruppo A con 75 utenti e 1 proprietario del gruppo e assegna il proprietario del gruppo come revisore. | 1 licenza per il proprietario del gruppo come revisore | 1 |
+| Un amministratore crea una verifica di accesso del gruppo B con 500 utenti e 3 proprietari del gruppo e assegna i 3 proprietari del gruppo come revisori. | 3 licenze per ogni proprietario del gruppo come revisori | 3 |
+| Un amministratore crea una verifica di accesso del gruppo B con 500 utenti. Consente di riesaminare autonomamente. | 500 licenze per ogni utente come revisori automatico | 500 |
+| Un amministratore crea una verifica di accesso del gruppo C con utenti membro 50 e 25 utenti guest. Consente di riesaminare autonomamente. | 50 licenze per ogni utente come revisori automatico.<br/>(gli utenti Guest sono coperti dal rapporto 1:5 richiesto) | 50 |
+| Un amministratore crea una verifica di accesso del gruppo D con 6 utenti membro e 108 utenti guest. Consente di riesaminare autonomamente. | 6 licenze per ogni utente come revisori autonomi + 16 licenze aggiuntive per coprire tutti gli utenti guest di 108 nel rapporto 1:5 richiesto. 6 licenze, che coprono 6\*5 = 30 utenti guest. Per gli altri (108-6\*5) = 78 utenti guest, 78/5 = 16 licenze aggiuntive sono obbligatorie. Quindi, in totale, sono necessarie 6 + 16 = 22 licenze. | 22 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

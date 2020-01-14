@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692758"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933471"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Set di impostazioni sperimentale per la codifica compatibile con il contenuto
 
@@ -29,7 +29,9 @@ L'interesse per lo superamento di un approccio con un set di impostazioni-tutti 
 
 Nei primi 2017, Microsoft ha rilasciato il set di impostazioni di [streaming adattivo](autogen-bitrate-ladder.md) per risolvere il problema della variabilità nella qualità e nella risoluzione dei video di origine. I nostri clienti hanno una diversa combinazione di contenuto, alcuni a 1080p, altri a 720p e alcuni a SD e risoluzioni ridotte. Inoltre, non tutto il contenuto di origine era un mezzanino di alta qualità dei film o degli studi TV. Il set di impostazioni di streaming adattivo risolve questi problemi garantendo che la scala in bit non superi mai la risoluzione o la velocità in bit media del mezzanino di input.
 
-Il set di impostazioni sperimentale di codifica compatibile con il contenuto estende tale meccanismo, incorporando logica personalizzata che consente al codificatore di cercare il valore di velocità in bit ottimale per una determinata risoluzione, ma senza richiedere un'analisi computazionale completa. Il risultato finale è che il nuovo set di impostazioni genera un output con velocità in bit inferiore rispetto al set di impostazioni di streaming adattivo, ma con una qualità superiore. Vedere i grafici di esempio seguenti che mostrano il confronto usando metriche di qualità come [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). L'origine è stata creata tramite la concatenazione di brevi clip di foto ad alta complessità da film e programmi TELEVISIVi, destinati a sottolineare il codificatore. Per definizione, questo set di impostazioni genera risultati che variano dal contenuto al contenuto. significa anche che, per alcuni contenuti, potrebbe non esserci una riduzione significativa della velocità in bit o miglioramento della qualità.
+Il nuovo set di impostazioni di codifica compatibile con il contenuto estende tale meccanismo, incorporando logica personalizzata che consente al codificatore di cercare il valore di velocità in bit ottimale per una determinata risoluzione, ma senza richiedere un'analisi computazionale completa. Questo set di impostazioni genera un set di MP4s allineati a GOP. Dato un contenuto di input, il servizio esegue un'analisi leggera iniziale del contenuto di input e usa i risultati per determinare il numero ottimale di livelli, le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Questo set di impostazioni è particolarmente efficace per i video con complessità bassa e media, in cui i file di output saranno a velocità in bit inferiori rispetto al set di impostazioni di streaming adattivo, ma con una qualità che offre comunque una valida esperienza ai visualizzatori. L'output conterrà file MP4 con interfoliazione video e audio
+
+Vedere i grafici di esempio seguenti che mostrano il confronto usando metriche di qualità come [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). L'origine è stata creata tramite la concatenazione di brevi clip di foto ad alta complessità da film e programmi TELEVISIVi, destinati a sottolineare il codificatore. Per definizione, questo set di impostazioni genera risultati che variano dal contenuto al contenuto. significa anche che, per alcuni contenuti, potrebbe non esserci una riduzione significativa della velocità in bit o miglioramento della qualità.
 
 ![Curva di distorsione della velocità (RD) con PSNR](media/cae-experimental/msrv1.png)
 
@@ -39,7 +41,7 @@ Il set di impostazioni sperimentale di codifica compatibile con il contenuto est
 
 **Figura 2: curva della velocità di distorsione (RD) con la metrica VMAF per un'origine di complessità elevata**
 
-Il set di impostazioni è attualmente ottimizzato per la complessità elevata, video di origine di alta qualità (filmati, programmi TV). Il lavoro è in corso per adattarsi a contenuti con complessità bassa (ad esempio, presentazioni di PowerPoint), oltre a video di qualità più poveri. Questo set di impostazioni usa anche lo stesso set di risoluzioni del set di impostazioni flusso adattivo. Microsoft sta lavorando ai metodi per selezionare il set minimo di risoluzioni basato sul contenuto. Di seguito sono riportati i risultati di un'altra categoria di contenuto di origine, in cui il codificatore è stato in grado di determinare che l'input è di scarsa qualità (molti artefatti di compressione a causa della velocità in bit ridotta). Si noti che con il set di impostazioni sperimentale, il codificatore ha deciso di produrre un solo livello di output, a una velocità in bit abbastanza bassa, in modo che la maggior parte dei client sia in grado di riprodurre il flusso senza bloccarsi.
+Di seguito sono riportati i risultati per un'altra categoria di contenuto di origine, in cui il codificatore è stato in grado di determinare che l'input era di scarsa qualità (molti artefatti di compressione a causa della velocità in bit ridotta). Si noti che con il set di impostazioni compatibile con il contenuto, il codificatore ha deciso di produrre un solo livello di output, a una velocità in bit abbastanza bassa, in modo che la maggior parte dei client sarebbe in grado di riprodurre il flusso senza bloccarsi.
 
 ![Curva RD con PSNR](media/cae-experimental/msrv3.png)
 
@@ -62,16 +64,16 @@ TransformOutput[] output = new TransformOutput[]
       // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
       Preset = new BuiltInStandardEncoderPreset()
       {
-         // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
+         // This sample uses the new preset for content-aware encoding
+         PresetName = EncoderNamedPreset.ContentAwareEncoding
       }
    }
 };
 ```
 
 > [!NOTE]
-> Il prefisso "experimental" viene usato per segnalare che gli algoritmi sottostanti sono in continua evoluzione. Nel tempo è possibile apportare modifiche alla logica usata per generare scale a bitrate, con l'obiettivo di convergere su un algoritmo affidabile e adattabile a un'ampia gamma di condizioni di input. I processi di codifica che usano questo set di impostazioni verranno comunque fatturati in base ai minuti di output e l'asset di output può essere recapitato dagli endpoint di streaming in protocolli quali DASH e HLS.
+> Gli algoritmi sottostanti sono soggetti ad ulteriori miglioramenti. Nel tempo è possibile apportare modifiche alla logica usata per generare scale a bitrate, con l'obiettivo di fornire un algoritmo affidabile e adattabile a un'ampia gamma di condizioni di input. I processi di codifica che usano questo set di impostazioni verranno comunque fatturati in base ai minuti di output e l'asset di output può essere recapitato dagli endpoint di streaming in protocolli quali DASH e HLS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come questa nuova opzione di ottimizzazione dei video, è possibile provarla. È possibile inviare commenti e suggerimenti usando i collegamenti alla fine di questo articolo o partecipare più direttamente all'<amsved@microsoft.com>.
+Ora che si è appreso come questa nuova opzione di ottimizzazione dei video, è possibile provarla. È possibile inviare commenti e suggerimenti usando i collegamenti alla fine di questo articolo.

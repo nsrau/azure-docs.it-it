@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: d052226470042d374544de0b7e1ced4ca0f48a14
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564153"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934321"
 ---
 # <a name="security-control-network-security"></a>Controllo di sicurezza: sicurezza di rete
 
@@ -27,9 +27,11 @@ I consigli sulla sicurezza di rete sono incentrati sulla specifica di quali prot
 
 Verificare che tutte le distribuzioni di subnet della rete virtuale dispongano di un gruppo di sicurezza di rete applicato con controlli di accesso alla rete specifici delle porte e delle origini attendibili dell'applicazione. Usare i servizi di Azure con collegamento privato abilitato, distribuire il servizio all'interno della VNET o connettersi privatamente usando endpoint privati. Per i requisiti specifici del servizio, fare riferimento alle raccomandazioni sulla sicurezza per il servizio specifico.
 
-In alternativa, se si ha un caso d'uso specifico, i requisiti possono essere soddisfatti implementando il firewall di Azure.
+In alternativa, se si ha un caso d'uso specifico, è possibile soddisfare i requisiti implementando il firewall di Azure.
 
-Informazioni generali sul collegamento privato: https://docs.microsoft.com/azure/private-link/private-link-overview
+Informazioni generali sul collegamento privato:
+
+https://docs.microsoft.com/azure/private-link/private-link-overview
 
 Come creare una rete virtuale:
 
@@ -97,11 +99,11 @@ Informazioni sull'Intelligence per le minacce integrata nel centro sicurezza di 
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Informazioni sul centro sicurezza di Azure Adaptive Network hardening
+Informazioni sulla protezione avanzata della rete adattiva del Centro sicurezza di Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Informazioni sul controllo di accesso di rete just-in-Time del Centro sicurezza di Azure
+Informazioni sul controllo di accesso di rete just-in-Time del Centro sicurezza di Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -113,9 +115,13 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 Registrare i log dei flussi di NSG in un account di archiviazione per generare record di flusso. Se necessario per l'analisi dell'attività anomala, abilitare Network Watcher acquisizione pacchetti.
 
-Come abilitare i log di flusso NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Come abilitare i log dei flussi di NSG:
 
-Come abilitare Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+
+Come abilitare Network Watcher:
+
+https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: distribuire sistemi di rilevamento intrusioni/intrusioni basati su rete (IDS/IP)
 
@@ -137,11 +143,17 @@ Come configurare gli avvisi con il firewall di Azure: https://docs.microsoft.com
 
 Distribuire applicazione Azure gateway per le applicazioni Web con HTTPS/SSL abilitato per i certificati attendibili.
 
-Come distribuire il gateway applicazione: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
+Come distribuire il gateway applicazione:
 
-Come configurare il gateway applicazione per l'uso di HTTPS: https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
-Informazioni sul bilanciamento del carico di livello 7 con i gateway applicazione Web di Azure: https://docs.microsoft.com/azure/application-gateway/overview
+Come configurare il gateway applicazione per l'uso di HTTPS:
+
+https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+
+Informazioni sul bilanciamento del carico di livello 7 con i gateway applicazione Web di Azure:
+
+https://docs.microsoft.com/azure/application-gateway/overview
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: ridurre la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
@@ -149,9 +161,11 @@ Informazioni sul bilanciamento del carico di livello 7 con i gateway applicazion
 |--|--|--|
 | 1.8 | 1.5 | Customer |
 
-Usare i tag del servizio rete virtuale &nbsp;per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi.
+Usare i tag del servizio rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi.
 
-Informazioni e uso di tag di servizio: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Comprendere e usare i tag di servizio:
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: mantenere le configurazioni di sicurezza standard per i dispositivi di rete
 
@@ -161,7 +175,7 @@ Informazioni e uso di tag di servizio: https://docs.microsoft.com/azure/virtual-
 
 Definire e implementare configurazioni di sicurezza standard per le risorse di rete con criteri di Azure.
 
-È anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio Azure Resource Manager modelli, controlli RBAC e criteri, in una singola definizione di progetto. È possibile applicare il progetto a nuove sottoscrizioni e ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
+È anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio Azure Resource Manager modelli, controlli RBAC e criteri, in una singola definizione di progetto. È possibile applicare il progetto a nuove sottoscrizioni e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
 Come configurare e gestire i criteri di Azure:
 

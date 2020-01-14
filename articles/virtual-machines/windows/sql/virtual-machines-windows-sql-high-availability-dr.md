@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357994"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933953"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Disponibilità elevata e ripristino di emergenza per SQL Server in Macchine virtuali di Azure
 
@@ -77,7 +77,7 @@ Le tecnologie HADR di SQL Server supportate in Azure includono:
 
 ## <a name="free-dr-replica-in-azure"></a>Replica di ripristino di emergenza gratuita in Azure
 
-Se si dispone di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), è possibile implementare piani di ripristino di emergenza ibrido con SQL Server utilizzando gruppi di disponibilità always on o istanze del cluster di failover senza sostenere costi di licenza aggiuntivi per l'istanza di ripristino di emergenza passiva.
+Se si dispone di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), è possibile implementare piani di ripristino di emergenza ibrido con SQL Server senza sostenere costi di licenza aggiuntivi per l'istanza di ripristino di emergenza passiva.
 
 Nell'immagine seguente il programma di installazione usa SQL Server in esecuzione in una macchina virtuale di Azure che usa 12 core come replica di ripristino di emergenza per una distribuzione di SQL Server locale con 12 core. In passato, è necessario concedere in licenza 12 core di SQL Server per la distribuzione in locale e la macchina virtuale di Azure. Il nuovo vantaggio offre vantaggi della replica passiva in esecuzione in una macchina virtuale di Azure. A questo punto, è necessario concedere in licenza solo 12 core di SQL Server eseguiti in locale, purché vengano soddisfatti i criteri di ripristino di emergenza per la replica passiva in una macchina virtuale di Azure.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644954"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934547"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -254,11 +254,7 @@ HDInsight è un servizio gestito. Se Azure rileva un problema con il cluster, è
 * Installare e configurare un servizio o un sito Web.
 * Installare o configurare un componente che richiede modifiche di configurazione in più nodi del cluster,
 
-Le azioni script sono script Bash. Gli script vengono eseguiti durante la creazione del cluster e possono essere usati per installare e configurare componenti aggiuntivi. Sono disponibili script di esempio per installare i componenti seguenti:
-
-* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-
-Per informazioni su come sviluppare azioni script personalizzate, vedere [Sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Le azioni script sono script Bash. Gli script vengono eseguiti durante la creazione del cluster e possono essere usati per installare e configurare componenti aggiuntivi. Per informazioni su come sviluppare azioni script personalizzate, vedere [Sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ### <a name="jar-files"></a>File con estensione jar
 

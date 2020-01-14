@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1949aca26f68f12dfb133da8ef45662294140c25
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4788dc700324637d69ffbcb4308df3a323b9590c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922556"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934082"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Sicurezza e privacy dei dati in Azure ricerca cognitiva
 
@@ -43,7 +43,7 @@ La crittografia si estende nell'intera pipeline di indicizzazione: dalle conness
 |----------------|-------------|
 | Crittografia in transito <br>(HTTPS/SSL/TLS) | Azure ricerca cognitiva è in ascolto sulla porta HTTPS 443. In tutta la piattaforma le connessioni ai servizi di Azure vengono crittografate. <br/><br/>Tutte le interazioni ricerca cognitiva di Azure da client a servizio sono compatibili con SSL/TLS 1,2.  Assicurarsi di usare TLSv1.2 per le connessioni SSL al servizio.|
 | Crittografia di dati inattivi <br>Chiavi gestite da Microsoft | La crittografia è completamente incorporata nel processo di indicizzazione, senza impatti significativi sul tempo necessario per il completamento dell'indicizzazione o sulle dimensioni dell'indice. Viene applicata automaticamente a tutta l'indicizzazione, inclusi gli aggiornamenti incrementali di un indice non completamente crittografato (creato prima di gennaio 2018).<br><br>Internamente la crittografia si basa su [Crittografia del servizio di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit.<br><br> La crittografia è interna all'ricerca cognitiva di Azure, con certificati e chiavi di crittografia gestite internamente da Microsoft e applicati universalmente. Non è possibile attivare o disattivare la crittografia, gestire o sostituire le proprie chiavi oppure visualizzare le impostazioni di crittografia nel portale o a livello di codice.<br><br>La crittografia dei servizi inattivi è stata annunciata il 24 gennaio 2018 e si applica a tutti i livelli di servizio, incluso il livello gratuito, in tutte le aree. Per la crittografia completa, gli indici creati prima di tale data devono essere eliminati e ricompilati per poter applicare la crittografia. In caso contrario, vengono crittografati solo i nuovi dati aggiunti dopo il 24 gennaio.|
-| Crittografia di dati inattivi <br>Chiavi gestite dal cliente | La crittografia con chiavi gestite dal cliente è ora disponibile a livello generale.<br><br>Gli indici di ricerca cognitiva e le mappe sinonimi di Azure possono ora essere crittografati a riposo con chiavi gestite da chiavi personalizzate in Azure Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).<br>Questa funzionalità non sostituisce la crittografia predefinita inattiva, ma è invece applicata in aggiunta.<br>L'abilitazione di questa funzionalità aumenterà le dimensioni degli indici e diminuirà le prestazioni delle query. In base alle osservazioni date, è possibile prevedere un aumento del 30%-60% nei tempi di esecuzione delle query, anche se le prestazioni effettive variano a seconda della definizione dell'indice e dei tipi di query. A causa di questo effetto sulle prestazioni, si consiglia di abilitare questa funzionalità solo negli indici che lo richiedono effettivamente.
+| Crittografia di dati inattivi <br>Chiavi gestite dal cliente | La crittografia con chiavi gestite dal cliente è ora disponibile a livello generale per i servizi di ricerca creati il 2019 gennaio o dopo il.<br><br>Gli indici di ricerca cognitiva e le mappe sinonimi di Azure possono ora essere crittografati a riposo con chiavi gestite da chiavi personalizzate in Azure Key Vault. Per altre informazioni, vedere [gestire le chiavi di crittografia in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).<br><br>Questa funzionalità non sostituisce la crittografia predefinita inattiva, ma è invece applicata in aggiunta.<br><br>L'abilitazione di questa funzionalità aumenterà le dimensioni degli indici e diminuirà le prestazioni delle query. In base alle osservazioni date, è possibile prevedere un aumento del 30%-60% nei tempi di esecuzione delle query, anche se le prestazioni effettive variano a seconda della definizione dell'indice e dei tipi di query. A causa di questo effetto sulle prestazioni, si consiglia di abilitare questa funzionalità solo negli indici che lo richiedono effettivamente.
 
 ## <a name="azure-wide-user-access-controls"></a>Controlli di accesso utente a livello di Azure
 

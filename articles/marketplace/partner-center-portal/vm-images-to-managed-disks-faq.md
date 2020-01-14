@@ -1,19 +1,19 @@
 ---
 title: Le immagini di macchine virtuali (VM) vengono trasportate nell'archiviazione su disco gestito in Azure Marketplace
 description: Per offrire un supporto più rapido e affidabile per nuove funzionalità e funzionalità del Marketplace, stiamo trascinando le immagini di VM del Marketplace nell'archiviazione su disco gestito.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 81503b08c5c45a671ac7996905f0772dccaf2f5a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5eeb223601a3990ef899d7eea96378a8b2a28eee
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456690"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933522"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Le immagini di macchine virtuali (VM) in Azure Marketplace vengono trasportate nell'archiviazione su disco gestito
 

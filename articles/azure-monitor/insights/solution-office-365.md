@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: c3251cb26f5ab6dc211c61bc0a6d02b283de6ae5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770340"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932966"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -30,7 +30,7 @@ ms.locfileid: "75770340"
 > La raccolta di Azure AD log è soggetta ai prezzi di monitoraggio di Azure.  Per ulteriori informazioni, vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) .
 >
 > Per usare la soluzione Office 365 di Azure Sentinel:
-> 1. L'uso di questo connettore influiscono sui prezzi dell'area di lavoro. Per altre informazioni, vedere [prezzi di Sentinel di Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> 1. L'uso del connettore Office 365 in Sentinel di Azure influiscono sui prezzi per l'area di lavoro. Per altre informazioni, vedere [prezzi di Sentinel di Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 > 2. Se si usa già la soluzione Office 365 di monitoraggio di Azure, è necessario prima disinstallarla usando lo script nella [sezione Uninstall riportata di seguito](#uninstall).
 > 3. [Abilitare la soluzione sentinel di Azure](../../sentinel/quickstart-onboard.md) nell'area di lavoro.
 > 4. Passare alla pagina **connettori dati** in Sentinel di Azure e abilitare il connettore **Office 365** .

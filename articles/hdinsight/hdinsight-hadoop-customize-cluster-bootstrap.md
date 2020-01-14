@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: baef54fc5c8fd03ea190da2023dcba2e96abb982
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406287"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931407"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -21,7 +21,7 @@ Gli script bootstrap consentono di installare e configurare i componenti in Azur
 
 Sono disponibili tre approcci per impostare le impostazioni del file di configurazione durante la creazione del cluster HDInsight:
 
-* Uso di Azure PowerShell
+* Usare Azure PowerShell
 * Usare .NET SDK
 * Usare un modello di Azure Resource Manager
 
@@ -46,11 +46,11 @@ Usando questi metodi programmatici, ad esempio, è possibile configurare le opzi
 
 Per informazioni sull'installazione di componenti aggiuntivi nel cluster HDInsight durante la fase di creazione, vedere [personalizzare i cluster HDInsight mediante l'azione script (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="use-azure-powershell"></a>Uso di Azure PowerShell
+## <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
 Il codice PowerShell seguente personalizza una configurazione [Apache Hive](https://hive.apache.org/):
 
@@ -108,7 +108,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>Usare .NET SDK
 
-Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
+Vedere [Azure HDINSIGHT SDK per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
 
 ## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 
@@ -126,10 +126,10 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 
 ![Hadoop Personalizza il modello di Azure Resource Manager bootstrap del cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Creare cluster Apache Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornisce istruzioni su come creare un cluster HDInsight usando altre opzioni personalizzate.
-* [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Sviluppare script di Azione di script per HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Installare e usare Apache Spark nei cluster HDInsight](spark/apache-spark-jupyter-spark-sql-use-portal.md)
 * [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install.md)
 

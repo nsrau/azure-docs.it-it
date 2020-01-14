@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d1efd44614cc2384043b32da20f38c91f006459c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 5f646b4cef782b569910bdf881208c9984194589
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863105"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931113"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Risoluzione dei problemi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -30,7 +30,7 @@ Gli indicizzatori possono rientrare in una serie di problemi durante l'indicizza
 >
 > È possibile trovare l'indirizzo IP del servizio di ricerca eseguendo il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net`).
 >
-> È possibile trovare l'intervallo di indirizzi IP di `AzureCognitiveSearch` [tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) per l'area geografica in cui è presente il servizio ricerca cognitiva di Azure usando [file JSON scaricabili](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) o tramite l' [API di individuazione dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). L'intervallo di indirizzi IP viene aggiornato settimanalmente.
+> È possibile trovare l'intervallo di indirizzi IP di `AzureCognitiveSearch` [tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) usando [file JSON scaricabili](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) o tramite l' [API di individuazione dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). L'intervallo di indirizzi IP viene aggiornato settimanalmente.
 
 ### <a name="configure-firewall-rules"></a>Configurare le regole del firewall
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1cd3e39fd504b5095a83192a4a6314c71d3ca980
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c585ebd903d4070f6247456e06efffbc6ec45270
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564296"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934500"
 ---
 # <a name="security-control-data-recovery"></a>Controllo di sicurezza: ripristino dei dati
 
@@ -27,7 +27,9 @@ Assicurarsi che tutti i dati di sistema, le configurazioni e i segreti vengano a
 
 Abilitare backup di Azure e configurare l'origine di backup (VM di Azure, SQL Server o condivisioni file), nonché la frequenza e il periodo di memorizzazione desiderati.
 
-Come abilitare backup di Azure: https://docs.microsoft.com/azure/backup/
+Come abilitare backup di Azure:
+
+https://docs.microsoft.com/azure/backup/
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: eseguire backup completi del sistema ed eseguire il backup di tutte le chiavi gestite dal cliente
 
@@ -37,9 +39,13 @@ Come abilitare backup di Azure: https://docs.microsoft.com/azure/backup/
 
 Abilitare backup di Azure e VM di destinazione, nonché i periodi di conservazione e frequenza desiderati. Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
-Come abilitare backup di Azure: https://docs.microsoft.com/azure/backup/
+Come abilitare backup di Azure:
 
-Come eseguire il backup delle chiavi di Key Vault in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/azure/backup/
+
+Come eseguire il backup delle chiavi di Key Vault in Azure:
+
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: convalidare tutti i backup, incluse le chiavi gestite dal cliente
 

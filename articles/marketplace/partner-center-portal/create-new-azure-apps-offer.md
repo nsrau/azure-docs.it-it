@@ -1,19 +1,19 @@
 ---
 title: Creare una nuova offerta di app di Azure nel Marketplace commerciale
 description: Come creare una nuova offerta di app di Azure per l'inserzione o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) usando il portale di Marketplace commerciale nel centro per i partner Microsoft.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281272"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930700"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -57,7 +57,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 * [Comprendere modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 * Argomenti di avvio rapido:
 
-    * [Modelli di Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/)
+    * [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/)
     * [Modelli di avvio rapido di Azure in GitHub](https://github.com/azure/azure-quickstart-templates)
     * [Pubblicare una definizione di applicazione](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
     * [Distribuire un'app del catalogo di servizi](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
@@ -183,7 +183,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
-### <a name="summary"></a>summary
+### <a name="summary"></a>Riepilogo
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri), che può essere usata nei risultati della ricerca nel Marketplace.
 
@@ -191,7 +191,7 @@ Fornire una breve descrizione dell'offerta (fino a 100 caratteri), che può esse
 
 Fornire una descrizione più lunga dell'offerta (fino a 256 caratteri). La descrizione può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>DESCRIZIONE
+### <a name="description"></a>Description
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie. 
 
@@ -206,7 +206,7 @@ Alcuni suggerimenti per scrivere la descrizione:
 - Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti. 
 - Prendere in considerazione l'uso di tag HTML per formattare la descrizione e renderla più accattivante.
 
-### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
+### <a name="search-keywords"></a>Parole chiave di ricerca
 
 Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per aiutare i clienti a trovare l'offerta nel Marketplace. Per ottenere risultati ottimali, provare a usare queste parole chiave anche nella descrizione.
 
@@ -214,7 +214,7 @@ Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per
 
 Questa sezione consente di fornire i collegamenti per aiutare i clienti a comprendere meglio l'offerta.
 
-#### <a name="privacy-policy-url"></a>URL informativa sulla privacy
+#### <a name="privacy-policy-url"></a>URL Informativa sulla privacy
 
 Immettere l'URL dell'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida.
 
@@ -323,17 +323,17 @@ La scheda **elenco piani** Visualizza le informazioni di visualizzazione specifi
 
 Pre-popolato in base al nome assegnato al piano al momento della creazione.  Questo nome verrà visualizzato come titolo di questo "piano software" visualizzato nel Marketplace.  Può contenere un massimo di 100 caratteri.
 
-### <a name="summary"></a>summary
+### <a name="summary"></a>Riepilogo
 
 Fornire un breve riepilogo del piano software.  Può contenere un massimo di 100 caratteri.
 
-### <a name="description"></a>DESCRIZIONE
+### <a name="description"></a>Description
 
 Questa descrizione è un'opportunità per spiegare cosa rende univoco questo piano software e qualsiasi differenza rispetto ad altri piani software all'interno dell'offerta. Può contenere un massimo di 2.000 caratteri.
 
 Selezionare **Salva** dopo aver completato questi campi.
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilità
 
 La scheda **disponibilità** è visibile solo ai piani di modelli di soluzione.  Il piano può essere reso visibile a tutti, solo a specifici clienti (destinatari privati) e se rendere il piano nascosto per l'uso da parte di un altro modello di soluzione o di applicazioni gestite.
 
@@ -461,7 +461,7 @@ Per ogni entità, selezionare uno dei Azure AD ruoli predefiniti dall'elenco (pr
 
 Applicare i [criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview) all'applicazione gestita per specificare i requisiti di conformità per la soluzione distribuita.  Per le definizioni dei criteri e il formato dei valori dei parametri, vedere [Esempi di criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/index).  È possibile configurare un massimo di cinque criteri e una sola istanza di ogni opzione di criteri.  Alcuni criteri richiedono parametri aggiuntivi.  Lo SKU Standard è necessario per i criteri di controllo.  Il nome del criterio è limitato a 50 caratteri.
 
-## <a name="co-sell"></a>Co-selling
+## <a name="co-sell"></a>Co-Sell
 
 Fornire informazioni sulla scheda Cosell è interamente facoltativo per la pubblicazione dell'offerta. È necessario per ottenere lo stato pronto per la co-selling e per il co-selling IP. Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione dell'idoneità alle esigenze dei clienti. Non è disponibile direttamente per i clienti.
 
@@ -501,14 +501,14 @@ L'opzione per gli **elenchi di test drive** disponibile nella scheda **test driv
 
 - **Manuale dell'utente** (obbligatorio): una procedura dettagliata approfondita dell'esperienza test drive. Il manuale dell'utente dovrebbe coprire esattamente ciò che si vuole che il cliente possa ottenere dall'esperienza del test drive e fungere da riferimento per eventuali domande. Il file deve essere in formato PDF ed essere denominato (255 caratteri al massimo) dopo il caricamento.
 
-- **Video: aggiungere video** (facoltativo): è possibile caricare video in YouTube o Vimeo e farvi riferimento con un collegamento e un'immagine di anteprima (533 x 324 pixel), in modo che un cliente possa visualizzare una procedura dettagliata per comprendere meglio le test drive, tra cui come usare correttamente le funzionalità dell'offerta e comprendere gli scenari in cui vengono evidenziati i vantaggi.
+- **Video: aggiungere video** (facoltativo): è possibile caricare video in YouTube o Vimeo e farvi riferimento con un collegamento e un'immagine di anteprima (533 x 324 pixel), in modo che un cliente possa visualizzare una panoramica delle informazioni che consentono di comprendere meglio le test drive, tra cui come usare correttamente le funzionalità dell'offerta e comprendere gli scenari in cui vengono evidenziati i vantaggi.
   - **Nome** (obbligatorio)
   - **URL (solo YouTube o Vimeo)** (obbligatorio)
   - **Anteprima (533 x 324 px)** : il file di immagine deve essere in formato png.
 
 Selezionare **Salva** dopo aver completato questi campi.
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a>Pubblica
 
 ### <a name="submit-offer-to-preview"></a>Invia l'offerta all'anteprima
 

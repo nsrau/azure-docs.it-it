@@ -2,18 +2,18 @@
 title: Risolvere i problemi di replica in corso delle macchine virtuali Azrue con Azure Site Recovery
 description: Risoluzione dei problemi e degli errori che si verificano quando si esegue la replica di macchine virtuali di Azure per il ripristino di emergenza
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: asgang
-ms.openlocfilehash: 7b9da202704b20e5770343f857c044ea19ae696a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620895"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930750"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Risolvere i problemi di replica delle macchine virtuali da Azure ad Azure
 
@@ -88,7 +88,7 @@ Di seguito sono elencati alcuni dei problemi più comuni.
 #### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Causa 1: problema noto in SQL Server 2008/2008 R2 
 **Come risolvere** : si è verificato un problema noto con SQL Server 2008/2008 R2. [Per un server che ospita SQL Server 2008 R2, fare riferimento a questo articolo della knowledge Azure Site Recovery dell'agente o di un altro backup VSS non componente.](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Motivo 2: i processi di Azure Site Recovery hanno esito negativo nei server che ospitano qualsiasi versione di SQL Server istanze con database AUTO_CLOSE 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Motivo 2: i processi Azure Site Recovery hanno esito negativo nei server che ospitano qualsiasi versione di SQL Server istanze con AUTO_CLOSE database 
 **Come correggere** : vedere l' [articolo](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) della Knowledge Knowledge 
 
 
@@ -122,21 +122,21 @@ Vedere l' [articolo per la risoluzione dei problemi di installazione VSS Writer]
 
 - Se il servizio Copia Shadow del volume è disabilitato,
     - Verificare che il tipo di avvio del servizio provider VSS sia impostato su **automatico**.
-    - Riavviare i servizi seguenti:
+    - Riavviare i seguenti servizi:
         - Servizio VSS
         - Provider VSS di Azure Site Recovery
         - Servizio VDS
 
-####  <a name="vss-provider-not_registered---error-2147754756"></a>PROVIDER VSS NOT_REGISTERED-errore 2147754756
+####  <a name="vss-provider-not_registered---error-2147754756"></a>NOT_REGISTERED del PROVIDER VSS-errore 2147754756
 
 **Procedura**: per generare un tag di coerenza dell'applicazione, Azure Site Recovery utilizza il servizio Copia Shadow del volume (VSS) di Microsoft. Controllare se il servizio provider di Azure Site Recovery VSS è installato o meno. </br>
 
 - Riprovare l'installazione del provider utilizzando i comandi seguenti:
-- Disinstalla provider esistente: C:\Programmi (x86) \Microsoft Azure site Recovery\agent\InMageVSSProvider_Uninstall.cmd
-- Reinstallare: C:\Programmi (x86) \Microsoft Azure site Recovery\agent\InMageVSSProvider_Install.cmd
+- Disinstalla provider esistente: C:\Programmi (x86) \Microsoft Azure site Recovery\agent\ InMageVSSProvider_Uninstall. cmd
+- Reinstallare: C:\Programmi (x86) \Microsoft Azure site Recovery\agent\ InMageVSSProvider_Install. cmd
  
 Verificare che il tipo di avvio del servizio provider VSS sia impostato su **automatico**.
-    - Riavviare i servizi seguenti:
+    - Riavviare i seguenti servizi:
         - Servizio VSS
         - Provider VSS di Azure Site Recovery
         - Servizio VDS

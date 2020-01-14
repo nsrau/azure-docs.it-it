@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0266c08052cd3db7d9081d6b617da94703b9ab77
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896312"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931940"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -88,7 +88,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 5. **Nuovo** -sono ora disponibili più opzioni per la configurazione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, in un'area di lavoro Log Analytics per l'uso da log di monitoraggio di Azure o nell'hub eventi per l'uso con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
   
   > [!NOTE]
-   >Il cliente che desidera configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database deve seguire le [istruzioni fornite da archiviazione di Azure] (https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+   >Il cliente che desidera configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database deve seguire le [istruzioni fornite da archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
   
   > [!WARNING]
    > L'abilitazione del controllo per Log Analytics comporterà costi in base ai tassi di inserimento. Per conoscere i costi associati, usare questa [opzione](https://azure.microsoft.com/pricing/details/monitor/)oppure prendere in considerazione l'archiviazione dei log di controllo in un account di archiviazione di Azure.

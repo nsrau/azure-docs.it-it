@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814845"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934118"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -79,7 +79,7 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 **D: come viene addebitato l'audio a doppio canale?**
 
-**R**: se si invia ogni canale separatamente (ogni canale nel relativo file), verrà addebitato il costo per ogni durata del file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file.
+**R**: se si invia ogni canale separatamente (ogni canale nel relativo file), verrà addebitato il costo per la durata di ogni file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file. Per informazioni dettagliate sui prezzi, vedere la [pagina dei prezzi dei servizi cognitivi di Azure](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
@@ -197,5 +197,5 @@ Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [risoluzione dei problemi](troubleshooting.md)
+- [Risoluzione dei problemi](troubleshooting.md)
 - [Note sulla versione](releasenotes.md)

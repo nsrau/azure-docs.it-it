@@ -16,14 +16,14 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290769"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932399"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: Domande frequenti
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
 Questo articolo risponde alle domande frequenti sull'autenticazione pass-through di Azure Active Directory (Azure AD). Visitare questa pagina regolarmente per eventuali aggiornamenti.
 
@@ -44,7 +44,7 @@ No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a
 Sì. Tutte le funzionalità di accesso condizionale, tra cui Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
-Per un extent limitato, l'autenticazione pass-through supporta l'ID alternativo come nome utente quando viene configurato in Azure AD Connect. Come prerequisito, Azure AD Connect richiede per la sincronizzazione dell'attributo `UserPrincipalName` di Active Directory locale ad Azure AD. `UserPrincipalName` In questo modo, in ad locale e Azure ad diventano identici. Se si vuole usare un altro attributo per eseguire la sincronizzazione da AD locale come UPN per Azure AD, sarà necessario usare la sincronizzazione dell'hash delle password o la AD FS. Per altre informazioni, vedere [Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento all'informativa sul supporto contenuta nella documentazione dell'applicazione specifica.
+Per un extent limitato, l'autenticazione pass-through supporta l'ID alternativo come nome utente quando viene configurato in Azure AD Connect. Come prerequisito, Azure AD Connect richiede per la sincronizzazione dell'attributo `UserPrincipalName` di Active Directory locale ad Azure AD. In questo modo il `UserPrincipalName` nell'istanza locale di AD e Azure AD diventeranno identici. Se si vuole usare un altro attributo per eseguire la sincronizzazione da AD locale come UPN per Azure AD, sarà necessario usare la sincronizzazione dell'hash delle password o la AD FS. Per altre informazioni, vedere [Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento all'informativa sul supporto contenuta nella documentazione dell'applicazione specifica.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 
@@ -168,20 +168,20 @@ R: Nelle circostanze seguenti le modifiche UPN locali potrebbero non venire sinc
 
 Ciò avviene perché il comportamento predefinito del tenant creati prima del 15 giugno 2015 prevedeva il blocco delle modifiche UPN.  Se è necessario annullare le modifiche UPN eseguire il cmdlet di PowerShell seguente:  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 I tenant creati dopo il 15 giugno 2015 prevedono come comportamento predefinito la sincronizzazione delle modifiche UPN.   
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Limitazioni correnti](how-to-connect-pta-current-limitations.md): Informazioni su quali scenari sono supportati e quali non lo sono.
-- [Avvio rapido](how-to-connect-pta-quick-start.md): come iniziare a usare l'autenticazione pass-through di Azure AD.
+- [Limitazioni correnti](how-to-connect-pta-current-limitations.md): apprendere quali sono gli scenari supportati.
+- [Avvio rapido](how-to-connect-pta-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
 - [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
-- [Blocco intelligente](../authentication/howto-password-smart-lockout.md): informazioni su come configurare la funzionalità di blocco intelligente nel tenant per proteggere gli account utente.
-- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): informazioni sul funzionamento dell'autenticazione pass-through.
-- [Risolvere i problemi](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
-- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): informazioni tecniche approfondite sulla funzionalità Autenticazione pass-through.
-- [Seamless SSO di Azure AD](how-to-connect-sso.md): altre informazioni su questa funzionalità complementare.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): come usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
+- [Blocco smart](../authentication/howto-password-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.
+- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
+- [Risoluzione dei problemi](tshoot-connect-pass-through-authentication.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
+- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): ottenere informazioni tecniche approfondite sulla funzionalità di autenticazione pass-through.
+- [Accesso Single Sign-On facile di Azure AD](how-to-connect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
 

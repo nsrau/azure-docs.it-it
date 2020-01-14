@@ -3,7 +3,7 @@ title: Amministrazione di StorSimple Snapshot Manager | Microsoft Docs
 description: Viene fornita una panoramica e dei collegamenti a ulteriori informazioni sulle attività di amministrazione della soluzione Snapshot StorSimple Manager e sui flussi di lavoro.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
-ms.author: v-sharos
-ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: twooley
+ms.openlocfilehash: b8fe87a2df633af310bc661308813a60987e77d6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630020"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933268"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Gestione Snapshot StorSimple è uno snap-in Microsoft Management Console (MMC) che semplifica la protezione dei dati e la gestione dei backup in un ambiente di Microsoft Azure StorSimple. Con Gestione snapshot StorSimple è possibile gestire i dati di Microsoft Azure StorSimple nel datacenter e nel cloud come una singola soluzione di archiviazione integrata, in modo da semplificare i processi di backup e di ridurre i costi.
 
 La console di gestione centrale di gestione Snapshot StorSimple che consente di creare copie di backup coerenti, in un momento di variabile locale e i dati nella cloud. Ad esempio, è possibile utilizzare la console per:
@@ -51,10 +51,10 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 | Ulteriori informazioni su StorSimple Snapshot Manager |[Che cos’è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Installare Gestione Snapshot StorSimple<br>Reinstallare StorSimple Snapshot Manager<br>rimuovere Gestione Snapshot StorSimple |[Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md) |
 | Usare Gestione Snapshot StorSimple menu e funzionalità:<ul><li>Barra dei menu</li><li>Barra degli strumenti</li><li>Riquadro Ambito</li><li>Riquadro Risultati</li><li>Riquadro Azioni</li><li>Navigazione da tastiera e tasti di scelta rapida</li></ul> |[Interfaccia utente di gestione Snapshot StorSimple](storsimple-use-snapshot-manager.md) |
-| Utilizzare le funzionalità comuni di MMC incluse in Gestione Snapshot StorSimple:<ul><li>View</li><li>Nuova finestra da qui</li><li>Aggiorna</li><li>Esporta elenco</li><li>Help</li></ul> |[Utilizzare le azioni del menu MMC di gestione Snapshot StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
+| Utilizzare le funzionalità comuni di MMC incluse in Gestione Snapshot StorSimple:<ul><li>Visualizza</li><li>Nuova finestra da qui</li><li>Aggiorna</li><li>Esporta elenco</li><li>Supporto</li></ul> |[Utilizzare le azioni del menu MMC di gestione Snapshot StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
 | Aggiunta o sostituzione di un dispositivo<br>Collegare un dispositivo<br>Verificare i gruppi di volumi importati<br>Aggiornamento dei dispositivi connessi<br>Autenticazione di un dispositivo<br>Visualizzazione dei dettagli del dispositivo<br>Eliminazione della configurazione di un dispositivo<br>Modifica della password di un dispositivo<br>Sostituzione di un dispositivo guasto<br> |[Utilizzare Gestione Snapshot StorSimple per connettersi e gestire i dispositivi StorSimple](storsimple-snapshot-manager-manage-devices.md) |
 | Montare i volumi<br>Visualizzare informazioni sui volumi<br>Eliminare un volume<br>Ripetere la scansione dei volumi<br>Configurare ed eseguire il backup di un volume di base<br>Configura e backup di un volume con mirroring dinamico |[Utilizzare Gestione Snapshot StorSimple per visualizzare e gestire i volumi](storsimple-snapshot-manager-manage-volumes.md) |
-| Visualizzazione dei gruppi di volumi<br>Creare un gruppo di volumi<br>Eseguire il backup di un gruppo di volumi<br>Modificare un gruppo di volumi<br>Eliminare un gruppo di volumi |[Utilizzare Gestione Snapshot StorSimple per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md) |
+| Visualizzare i gruppi di volumi<br>Creare un gruppo di volumi<br>Eseguire il backup di un gruppo di volumi<br>Modificare un gruppo di volumi<br>Eliminare un gruppo di volumi |[Utilizzare Gestione Snapshot StorSimple per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md) |
 | Creare un criterio di backup <br>Modifica di un criterio di backup<br>Eliminare un criterio di backup |[Utilizzare Gestione Snapshot StorSimple per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md) |
 | Visualizzare e gestire processi di backup pianificati<br>Visualizzare e gestire processi di backup recenti<br>visualizzazione e gestire processi di backup attualmente in esecuzione |[Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md) |
 | Ripristino di un volume<br>Clonazione di un volume o di un gruppo di volumi<br>Eliminazione di un backup<br>Recupero di un file<br>Ripristino del database di StorSimple Snapshot Manager |[Uso di Gestione Snapshot StorSimple per gestire il catalogo di backup](storsimple-snapshot-manager-manage-backup-catalog.md) |

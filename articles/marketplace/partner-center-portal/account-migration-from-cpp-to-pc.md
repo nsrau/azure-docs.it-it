@@ -1,19 +1,19 @@
 ---
 title: Migrazione degli account da portale Cloud Partner al centro per i partner-Marketplace commerciale per Azure
 description: Come eseguire la migrazione dell'account da CPP al centro per i partner. -Marketplace commerciale per Azure
-author: ChJenk
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: f8644a2aa989b7013cbbd64e8a8194bc08f40251
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 076250444989d4edb3ec86039ab25887ff1e206b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813110"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931326"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migrazione degli account da portale Cloud Partner al centro per i partner
 

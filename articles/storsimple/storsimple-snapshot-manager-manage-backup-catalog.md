@@ -3,7 +3,7 @@ title: Catalogo di backup di StorSimple Snapshot Manager | Microsoft Docs
 description: Descrive come utilizzare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire il catalogo di backup.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127195"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931714"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso di StorSimple Snapshot Manager per gestire il catalogo di backup
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 La funzione principale di StorSimple Snapshot Manager è quella di consentire la creazione di copie di backup coerenti con l'applicazione dei volumi StorSimple sotto forma di snapshot. Gli snapshot vengono quindi elencati in un file XML denominato *catalogo di backup*. Il catalogo di backup consente di organizzare gli snapshot per gruppo di volumi e quindi per snapshot locali o cloud.
 
 In questa esercitazione viene descritto come utilizzare il nodo del **catalogo di backup** per completare le attività seguenti:
@@ -93,7 +93,7 @@ Utilizzare la procedura seguente per creare un duplicato (clone) di un volume o 
    1. Nella casella di testo **Nome** , digitare un nome per il volume clonato. Questo nome verrà visualizzato nel nodo **Volumi** . 
    2. (Facoltativo) Selezionare **Unità**, quindi selezionare la lettera di un’unità dall'elenco a discesa.
    3. (Facoltativo) Selezionare **Cartella (NTFS)** , quindi digitare il percorso di una cartella o fare clic su Sfoglia e selezionare un percorso per la cartella. 
-   4. Fare clic su **Create**(Crea).
+   4. Fare clic su **Crea**.
 5. Al termine del processo di clonazione, è necessario inizializzare il volume clonato. Avviare Server Manager, quindi avviare Gestione disco. Per istruzioni dettagliate, vedere [Montaggio volumi](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Al termine dell'inizializzazione, il volume verrà elencato sotto il nodo **Volumi** nel riquadro **Ambito**. Se non viene visualizzato il volume elencato, aggiornare l'elenco dei volumi (fare clic con il pulsante destro del mouse sul nodo **Volumi**, quindi fare clic su **Aggiorna**).
 
 ## <a name="delete-a-backup"></a>Eliminazione di un backup
@@ -126,7 +126,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
    1. Nella casella di testo **Nome** , digitare un nome per il volume clonato. Questo nome verrà visualizzato nel nodo **Volumi** . 
    2. (Facoltativo) Selezionare **Unità**, quindi selezionare la lettera di un’unità dall'elenco a discesa. 
    3. (Facoltativo) Selezionare **Cartella (NTFS)** , quindi digitare il percorso di una cartella o fare clic su **Sfoglia** e selezionare un percorso per la cartella. 
-   4. Fare clic su **Create**(Crea). 
+   4. Fare clic su **Crea**. 
 5. Al termine del processo di clonazione, è necessario inizializzare il volume clonato. Avviare Server Manager, quindi avviare Gestione disco. Per istruzioni dettagliate, vedere [Montaggio volumi](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Al termine dell'inizializzazione, il volume verrà elencato sotto il nodo **Volumi** nel riquadro **Ambito**. 
    
     Se non viene visualizzato il volume elencato, aggiornare l'elenco dei volumi (fare clic con il pulsante destro del mouse sul nodo **Volumi**, quindi fare clic su **Aggiorna**).
@@ -137,7 +137,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 È consigliabile eseguire regolarmente il backup del database di StorSimple Snapshot Manager sul computer host. Se si verifica un'emergenza o viene riscontrato un errore nel computer host per qualsiasi motivo, è possibile ripristinarlo dal backup. La creazione del backup del database è un processo manuale.
 
 #### <a name="to-back-up-and-restore-the-database"></a>Per eseguire il backup e il ripristino del database
-1. Arrestare il servizio di gestione di Microsoft StorSimple:
+1. Arrestare il servizio di gestione Microsoft StorSimple:
    
    1. Avviare Server Manager.
    2. Nel dashboard di Server Manager, selezionare **Servizi** dal menu **Strumenti**.

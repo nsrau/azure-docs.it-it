@@ -1,32 +1,32 @@
 ---
 title: Domande comuni sul ripristino di emergenza delle macchine virtuali di Azure con Azure Site Recovery
 description: Questo articolo risponde a domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando Azure Site Recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621076"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929909"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande comuni: ripristino di emergenza da Azure ad Azure
 
 Questo articolo fornisce le risposte alle domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando [Site Recovery](site-recovery-overview.md). 
 
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="how-is-site-recovery-priced"></a>Come viene stabilito il prezzo di Site Recovery?
 Vedere [Dettagli relativi ai prezzi di Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Come funziona il livello gratuito di Azure Site Recovery?
-Ogni istanza protetta con Azure Site Recovery è gratuita per i primi 31 giorni di protezione. Dal trentaduesimo giorno in avanti, per la protezione dell'istanza vengono addebitati i costi sopra indicati.
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, sono previsti altri addebiti per Azure?
-Sì, anche se Azure Site Recovery è gratuito durante i primi 31 giorni di un'istanza protetta, è possibile che vengano addebitati i costi per Archiviazione di Azure, transazioni di archiviazione e trasferimento dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure. Informazioni dettagliate sui prezzi sono disponibili [qui](https://azure.microsoft.com/pricing/details/site-recovery)
+Ogni istanza protetta con Azure Site Recovery è gratuita per i primi 31 giorni. Dal trentaduesimo giorno in avanti, per la protezione dell'istanza vengono addebitati i costi indicati sopra.
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, vengono addebitati altri costi per Azure?
+Sì, anche se Azure Site Recovery è gratuito durante i primi 31 giorni di un'istanza protetta, possono venire addebitati i costi per Archiviazione di Azure, transazioni di archiviazione e trasferimento dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure. Informazioni dettagliate sui prezzi sono disponibili [qui](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Dove è possibile trovare le procedure consigliate per il ripristino di emergenza delle macchine virtuali di Azure? 
 1. [Informazioni sull'architettura da Azure ad Azure](azure-to-azure-architecture.md)
@@ -45,7 +45,7 @@ Il team di Site Recovery collabora con il team di gestione della capacità di Az
 Sì, Site Recovery supporta il ripristino di emergenza di macchine virtuali con crittografia dischi di Azure (ADE) abilitata. Quando si Abilita la replica, tutte le chiavi e i segreti di crittografia del disco necessari vengono copiati dall'area di origine all'area di destinazione nel contesto utente. Se non si dispone delle autorizzazioni appropriate, è possibile passare uno script pronto all'uso all'amministratore della sicurezza per copiare le chiavi e i segreti.
 
 - Site Recovery supporta ADE per le macchine virtuali di Azure che eseguono Windows.
-- Site Recovery supporta ADE versione 0,1, con uno schema che usa Azure Active Directory (AAD) e la versione 1,1, senza AAD. [Altre informazioni](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site Recovery supporta ADE versione 0,1, con uno schema che usa Azure Active Directory (AAD) e la versione 1,1, senza AAD. [Altre informazioni](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)
 - ADE versione 1,1, le macchine virtuali Windows devono essere usate dischi gestiti.
 - [Altre](azure-to-azure-how-to-enable-replication-ade-vms.md) informazioni sull'abilitazione della replica per le macchine virtuali crittografate.
 
@@ -97,7 +97,7 @@ Site Recovery definisce le impostazioni per la cronologia della conservazione de
 * 24 ore per la cronologia della conservazione dei punti di recupero.
 * 60 minuti per la frequenza degli snapshot coerenti con l'app.
 
-[Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings)
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Che cos'è il punto di recupero coerente con l'arresto anomalo del sistema?
 Il punto di recupero coerente con l'arresto anomalo del sistema rappresenta i dati su disco come quando la macchina virtuale si arresta in modo anomalo o il cavo di alimentazione viene estratto dal server al momento della creazione dello snapshot temporizzato. Non include tutto ciò che era contenuto in memoria quando è stato creato lo snapshot.
@@ -225,7 +225,7 @@ Nell'esempio seguente, il processo denominato SAPTestRecoveryPlan ha richiesto 8
 ![Elenco dei processi di Site Recovery](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
 
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>È possibile aggiungere runbook di Automazione al piano di ripristino?
-Sì, è possibile integrare i runbook di Automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md).
+Sì, è possibile integrare i runbook di Automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md)
 
 ## <a name="reprotection-and-failback"></a>Riprotezione e failback
 

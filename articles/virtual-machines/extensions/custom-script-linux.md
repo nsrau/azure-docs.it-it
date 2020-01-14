@@ -3,7 +3,7 @@ title: Eseguire script personalizzati nelle macchine virtuali Linux in Azure
 description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione per script personalizzati v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: akjosh
-ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: mimckitt
+ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073237"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931024"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -49,7 +49,7 @@ Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archi
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
-### <a name="tips-and-tricks"></a>Suggerimenti e consigli
+### <a name="tips-and-tricks"></a>suggerimenti e consigli
 * La percentuale di errori più elevata per questa estensione è dovuta a errori di sintassi nello script. Verificare che lo script venga eseguito senza errori e inserire nello script altre opzioni di registrazione, per trovare più facilmente i punti che causano errori.
 * Scrivere script idempotenti in modo che, se per errore vengono eseguiti più di una volta, non siano apportate modifiche al sistema.
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
@@ -61,7 +61,7 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
 * L'estensione per script personalizzati non supporta in modo nativo i server proxy, ma è possibile usare uno strumento di trasferimento file che supporti i server proxy all'interno dello script, ad esempio *Curl*. 
 * Tenere presenti gli eventuali percorsi di directory non predefiniti usati dagli script o dai comandi e includere la logica necessaria per gestirli.
-
+*  Quando si distribuisce uno script personalizzato nelle istanze di VMSS di produzione, è consigliabile eseguire la distribuzione tramite il modello JSON e archiviare l'account di archiviazione di script in cui si ha il controllo sul token SAS. 
 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
@@ -70,7 +70,7 @@ La configurazione dell'estensione script personalizzata specifica informazioni c
 
 I dati sensibili possono essere archiviati in una configurazione protetta, che viene crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password.
 
-Questi elementi devono essere trattati come dati sensibili ed essere specificati nella configurazione protetta dell'estensione. I dati della configurazione protetta dell'estensione macchina virtuale di Azure sono crittografati e vengono decrittografati solo nella macchina virtuale di destinazione.
+Questi elementi devono essere trattati come dati sensibili ed essere specificati nella configurazione protetta dell'estensione. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione.
 
 ```json
 {
@@ -108,19 +108,20 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 | Nome | Valore/Esempio | Tipo di dati | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
-| publisher | Microsoft.Compute.Extensions | stringa |
-| type | CustomScript | stringa |
+| apiVersion | 2019-03-01 | Data |
+| publisher | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (es.) | MyPythonScript.py Python \<> param1 | stringa |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | stringa |
+| commandToExecute (es.) | MyPythonScript.py Python \<> param1 | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (esempio) | false | boolean |
-| timestamp  (esempio) | 123456789 | valore integer a 32 bit |
-| storageAccountName (es.) | examplestorageacct | stringa |
-| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
+| timestamp  (esempio) | 123456789 | Intero a 32 bit |
+| storageAccountName (es.) | examplestorageacct | string |
+| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
+* `apiVersion`: la apiVersion più aggiornata è reperibile con [Esplora inventario risorse](https://resources.azure.com/) o dall'interfaccia della riga di comando di Azure usando il comando seguente `az provider list -o json`
 * `skipDos2Unix`: (facoltativo, booleano) ignorare la conversione dos2unix dello script o degli URL di file basati su script.
 * `timestamp` (facoltativo, valore integer a 32 bit) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.  Qualsiasi valore intero è accettabile, purché sia diverso dal valore precedente.
   * `commandToExecute`: (**obbligatorio** se lo script non è impostato, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password.

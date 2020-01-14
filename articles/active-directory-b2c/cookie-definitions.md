@@ -1,6 +1,6 @@
 ---
-title: Definizioni di cookie - Azure Active Directory B2C | Microsoft Docs
-description: Fornisce le definizioni per i cookie usati in Azure Active Directory B2C.
+title: Definizioni dei cookie-Azure Active Directory B2C | Microsoft Docs
+description: Fornisce le definizioni per i cookie utilizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,27 +10,26 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: af3244a32e9d02a1ba5053da85547bf614053127
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 66de4559ed006735f53ff993cce29370428b9998
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67587403"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930903"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Definizioni dei cookie per Azure Active Directory B2C
 
-La tabella seguente elenca i cookie usati in Azure Active Directory B2C.
+Nella tabella seguente sono elencati i cookie utilizzati in Azure Active Directory B2C.
 
-| Name | Domain | Scadenza | Scopo |
+| Nome | Dominio | Scadenza | Finalità |
 | ----------- | ------ | -------------------------- | --------- |
-| x-ms-cpim-admin | main.b2cadmin.ext.azure.com | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Contiene i dati di appartenenza utente tra i tenant. I tenant di un utente è membro di e a livello di appartenenza (amministratore o utente). |
-| x-ms-cpim-slice | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Usato per indirizzare le richieste all'istanza di produzione appropriati. |
-| x-ms-cpim-trans | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Usato per tenere traccia della transazione corrente e le transazioni (numero di richieste di autenticazione per Azure AD B2C). |
-| x-ms-cpim-sso:{Id} | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Usato per la gestione della sessione SSO. |
-| x-ms-cpim-cache:{id}_n | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine della [sessione del browser](active-directory-b2c-token-session-sso.md), autenticazione riuscita | Utilizzato per gestire lo stato della richiesta. |
-| x-ms-cpim-csrf | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Token per la protezione CRSF Cross-Site Request Forgery. |
-| x-ms-cpim-dc | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Utilizzato per il routing di rete di Azure AD B2C. |
-| x-ms-cpim-ctx | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Contesto |
-| x-ms-cpim-rp | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Usato per archiviare dati di appartenenza per il tenant del provider di risorse. |
-| x-ms-cpim-rc | Login.microsoftonline.com, b2clogin.com, dominio personalizzato | Fine di [sessione del browser](active-directory-b2c-token-session-sso.md) | Usato per archiviare i cookie di inoltro. |
-
+| x-ms-cpim-admin | main.b2cadmin.ext.azure.com | Fine della [sessione del browser](session-behavior.md) | Include i dati di appartenenza degli utenti tra i tenant. I tenant di cui un utente è membro e il livello di appartenenza (amministratore o utente). |
+| x-ms-cpim-slice | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Utilizzato per indirizzare le richieste all'istanza di produzione appropriata. |
+| x-ms-CPIM-Trans | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Utilizzato per tenere traccia delle transazioni (numero di richieste di autenticazione a Azure AD B2C) e della transazione corrente. |
+| x-ms-cpim-sso:{Id} | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Utilizzato per la gestione della sessione SSO. |
+| x-ms-cpim-cache:{id}_n | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md), autenticazione riuscita | Utilizzato per mantenere lo stato della richiesta. |
+| x-ms-cpim-csrf | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Richiesta tra siti: token di falsificazione usato per la protezione tipo. |
+| x-ms-cpim-dc | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Usato per Azure AD B2C il routing di rete. |
+| x-ms-cpim-ctx | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Context |
+| x-ms-cpim-rp | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Usato per archiviare i dati di appartenenza per il tenant del provider di risorse. |
+| x-ms-cpim-rc | login.microsoftonline.com, b2clogin.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Utilizzato per archiviare il cookie di inoltro. |

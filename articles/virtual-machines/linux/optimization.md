@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare la VM Linux su Azure
+title: Ottimizzare la macchina virtuale Linux su Azure
 description: Suggerimenti sull'ottimizzazione per assicurare di configurare la VM Linux per prestazioni ottimali su Azure
 keywords: linux macchina virtuale,macchina virtuale linux,macchina virtuale ubuntu
 services: virtual-machines-linux
@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea0d284b8220e4f8bc7bc1b91684654b32da7065
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a042e768ef6693d2ced6d679947a6fe321d259bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035384"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934713"
 ---
-# <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
+# <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la macchina virtuale Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questo argomento presuppone che sia disponibile una sottoscrizione di Azure attiva ([registrazione alla versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e che sia già stato eseguito il provisioning di una macchina virtuale nella sottoscrizione di Azure. Assicurarsi che sia installata la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e che sia stato effettuato l'accesso alla sottoscrizione di Azure con [az login](/cli/azure/reference-index) prima di [creare una macchina virtuale](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco del sistema operativo di Azure
 Dopo la creazione, alla macchina virtuale Linux in Azure sono associati due dischi. **/dev/sda** è il disco del sistema operativo mentre **/dev/sdb** è il disco temporaneo.  Usare il disco principale del sistema operativo ( **/dev/sda**) esclusivamente per il sistema operativo, perché è ottimizzato per tempi di avvio della macchina virtuale ridotti e non offre prestazioni ideali per i carichi di lavoro. È consigliabile collegare uno o più dischi alla VM per ottenere l'archiviazione persistente e ottimizzata per i dati. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Aggiunta di dischi per risultati a livello di dimensioni e prestazioni
-In base alle dimensioni della VM, è possibile collegare fino a 16 dischi aggiuntivi su una macchina virtuale di Serie A, 32 dischi su una di Serie D e 64 dischi su una di Serie G, fino a un massimo di 1 TB di dimensioni per ogni VM. Aggiungere altri dischi in base alle necessità specificate dai requisiti per spazio e IOps. Ogni disco ha un obiettivo a livello di prestazioni pari a 500 IOps per l'Archiviazione Standard e 5000 IOps per disco per l'Archiviazione Premium.
+In base alle dimensioni della macchina virtuale, è possibile aggiungere fino a 16 dischi aggiuntivi in una serie A, 32 dischi in una serie D e 64 dischi in un computer di serie G, ognuno fino a 32 TB. Aggiungere altri dischi in base alle necessità specificate dai requisiti per spazio e IOps. Ogni disco ha un obiettivo di prestazioni pari a 500 IOps per l'archiviazione standard e fino a 20.000 IOps per disco per archiviazione Premium.
 
 Per ottenere i valori IOps più elevati nei dischi di Archiviazione Premium in cui le impostazioni della cache sono state impostate su **ReadOnly** o **None**, è necessario disabilitare le **barriere** durante il montaggio del file system in Linux. Non sono necessarie barriere perché le scritture relative ai dischi supportati da Archiviazione Premium assicurano la durabilità per queste impostazioni della cache.
 
@@ -80,7 +80,7 @@ Swap:       524284          0     524284
 Con il kernel Linux 2.6.18, l'algoritmo di pianificazione I/O predefinito è stato modificato da algoritmo Deadline a CFQ (Completely Fair Queuing). Per modelli I/O ad accesso casuale, la differenza tra le prestazioni per CFQ e Deadline è minima.  Per i dischi basati su SSD in cui il modello I/O del disco è prevalentemente sequenziale, il ritorno all'algoritmo NOOP o Deadline può consentire di ottenere prestazioni migliori per I/O.
 
 ### <a name="view-the-current-io-scheduler"></a>Visualizzare l'utilità di pianificazione di I/O corrente
-Usare il seguente comando:  
+Usare il comando seguente:  
 
 ```bash
 cat /sys/block/sda/queue/scheduler
@@ -103,7 +103,7 @@ root@myVM:~# update-grub
 ```
 
 > [!NOTE]
-> Applicare questa impostazione esclusivamente a **/dev/sda** non serve. È necessario che sia impostata su tutti i dischi dati in cui la modalità I/O sequenziale domina il modello I/O.  
+> Applicare questa impostazione esclusivamente a **/dev/sda** non serve a niente. È necessario che sia impostata su tutti i dischi dati in cui la modalità I/O sequenziale domina il modello I/O.  
 
 Si dovrebbe visualizzare l'output seguente, che indica che **grub.cfg** è stato ricompilato correttamente e che l'utilità di pianificazione predefinita è stata aggiornata a NOOP.  
 
@@ -129,7 +129,7 @@ Se i carichi di lavoro richiedono un valore di IOps superiore a quello consentit
 
 In alternativa a una configurazione RAID tradizionale, è anche possibile scegliere di installare Logical Volume Manager (LVM) per configurare un numero di dischi fisici in un unico volume di archiviazione logica con striping. In questa configurazione le letture e le scritture vengono distribuite in più dischi contenuti nel gruppo di volumi (simile a RAID0). Per motivi di prestazioni, è probabile che sia necessario eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.  Per altri dettagli sulla configurazione di un volume logico con striping nella VM Linux in Azure, vedere il documento **[configurare LVM in una macchina virtuale Linux in Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire test prima e dopo ogni modifica per misurare l'impatto della modifica stessa.  L'ottimizzazione è un processo graduale che potrà avere risultati diversi in diversi computer nell'ambiente.  Le impostazioni ottimali per una configurazione potrebbero non essere appropriate per altre.
 
 Ecco alcuni collegamenti utili a risorse aggiuntive:

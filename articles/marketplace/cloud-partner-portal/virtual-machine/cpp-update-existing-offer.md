@@ -2,18 +2,18 @@
 title: Aggiornare un'offerta di VM esistente in Azure Marketplace
 description: Spiega come aggiornare un'offerta di macchina virtuale esistente in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: ansud
-ms.openlocfilehash: 5cbee909b4bd6353ad8fbe9fcbc126dc4a245012
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: 1ba2abb3fbeb1d08ed780669fb94a2ef83cbfb1b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823979"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934237"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Aggiornare un'offerta di macchina virtuale esistente in Azure Marketplace
 
@@ -57,7 +57,7 @@ Le caratteristiche di un'offerta di macchina virtuale che è possibile modificar
 
 3.  Nella scheda **SKU** fare clic sullo SKU associato all'immagine della macchina virtuale da aggiornare.
 
-4.  In **Versione disco**, fare clic su **+Nuova versione disco** per aggiungere una nuova immagine di macchina virtuale.
+4.  In **Disk version** (Versione disco) fare clic su **+New Disk Version** (+Nuova versione disco) per aggiungere una nuova immagine di macchina virtuale.
 
 5.  Specificare la **versione del disco** delle immagini di macchina virtuale. La versione del disco deve seguire il formato della [versione semantica](https://semver.org/). Le versioni devono essere nel formato X.Y.Z, dove X, Y e Z sono numeri interi. Verificare che la nuova versione specificata sia successiva a tutte le versioni precedenti. In caso contrario, dopo la nuova pubblicazione la nuova versione non verrà visualizzata né nel portale né in Azure Marketplace.
 
@@ -125,29 +125,29 @@ Dopo la pubblicazione di un'offerta con pagamento in base al consumo, non è pos
 
 2.  In **Tutte le offerte** individuare l'offerta da aggiornare.
 
-3.  Fare clic sullo SKU per il quale si desidera ridurre il prezzo.
+3.  Fare clic sullo SKU per il quale si vuole ridurre il prezzo.
 
-4.  Se sono stati impostati i prezzi in GUI 1x1, è possibile modificare il prezzo direttamente nell'interfaccia utente. Se i prezzi vengono impostati tramite un foglio di calcolo di importazione/esportazione, è possibile diminuire i prezzi solo tramite la funzionalità di importazione/esportazione.
+4.  Se i prezzi sono stati impostati nell'interfaccia utente grafica 1x1, è possibile modificare il prezzo direttamente nell'interfaccia utente. Se i prezzi vengono impostati tramite un foglio di calcolo di importazione/esportazione, è possibile diminuire i prezzi solo tramite la funzionalità di importazione/esportazione.
 
-3.  Fare clic su **Save**.
+3.  Fare clic su **Salva**.
 
 4.  Fare clic su **Pubblica** per avviare il flusso di lavoro di pubblicazione delle modifiche.
 
 I nuovi prezzi diminuiti saranno visibili per i nuovi clienti dopo la pubblicazione nel sito Web.  Il nuovo prezzo interesserà i clienti nei modi seguenti:
 
 - La nuova tariffa verrà addebitata ai nuovi clienti. 
-- Per i clienti esistenti, la riduzione dei prezzi rispecchierà retroattivamente l'inizio del ciclo di fatturazione durante il quale la riduzione dei prezzi diventa effettiva.
+- Per i clienti esistenti, la riduzione dei prezzi si rifletterà retroattivamente all'inizio del ciclo di fatturazione durante il quale la riduzione dei prezzi diventa effettiva.
 Se hanno già ricevuto fatture per il ciclo durante il quale si è verificata una riduzione di prezzo, i clienti riceveranno un rimborso a copertura della riduzione del prezzo al momento del ciclo di fatturazione successivo.
 
 
 <!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
-### <a name="simplified-currency-pricing"></a>Prezzi di valuta semplificata
+### <a name="simplified-currency-pricing"></a>Prezzi in valuta semplificati
 
-A partire dal 1° settembre 2018, nel portale verrà aggiunta una nuova sezione denominata **Simplified Currency Pricing** (Prezzi in valuta semplificati). Microsoft sta semplificando il business di Azure Marketplace, consentendo prezzi più prevedibili e raccolte di clienti internazionali. Questa semplificazione si otterrà riducendo il numero delle valute in cui emettere le fatture ai clienti.
+A partire dal 1° settembre 2018, nel portale verrà aggiunta una nuova sezione denominata **Simplified Currency Pricing** (Prezzi in valuta semplificati). Microsoft sta semplificando il business di Azure Marketplace, consentendo prezzi più prevedibili e modalità di riscossione più semplici dai clienti internazionali. Questa semplificazione prevede anche la riduzione del numero delle valute in cui verranno emesse le fatture ai clienti.
 
 La nuova sezione avrà i prezzi espressi nelle nuove valute. Una volta che tutti i clienti sono stati migrati a queste nuove valute di regolamento, la sezione relativa ai prezzi originale verrà ritirata e verrà mantenuta solo la sezione relativa ai prezzi di valuta semplificata.
 
-È possibile impostare nuovi prezzi per le aree in cui sta avvenendo la modifica della valuta di pagamento fino al 1 novembre 2018. Non sarà possibile aumentare il prezzo per le aree in cui non è prevista la modifica della valuta di pagamento.
+Per le aree in cui è in corso la modifica della valuta di pagamento sarà possibile impostare nuovi prezzi fino al 1 novembre 2018. Non sarà possibile aumentare il prezzo per le aree in cui non è prevista la modifica della valuta di pagamento.
 
 > [!NOTE] 
 > Se si usano API per pubblicare l'offerta, è possibile visualizzare una nuova sezione all'interno del JSON dell'offerta, contrassegnata da `virtualMachinePricingV2` o `monthlyPricingV2`, in base al tipo di offerta. 
@@ -169,6 +169,6 @@ Quando si apportano modifiche a un'offerta già pubblicata, è possibile control
 
 ## <a name="history-of-publishing-actions"></a>Cronologia delle azioni di pubblicazione
 
-Per visualizzare la cronologia di eventuali attività di pubblicazione precedenti, fare clic sulla voce **Cronologia** sulla barra dei menu di spostamento a sinistra del portale Cloud Partner. Qui sarà possibile visualizzare le azioni con timestamp che sono state eseguite durante il ciclo di vita delle offerte del Marketplace di Azure.  
+Per visualizzare la cronologia di eventuali attività di pubblicazione precedenti, fare clic sulla voce **Cronologia** sulla barra dei menu di spostamento a sinistra del portale Cloud Partner. Qui sarà possibile visualizzare le azioni con timestamp che sono state eseguite durante il ciclo di vita delle offerte in Azure Marketplace.  
 <!-- TD: Add after section authored: For more information, see [History page](../portal-tour/cpp-history-page.md). -->
 

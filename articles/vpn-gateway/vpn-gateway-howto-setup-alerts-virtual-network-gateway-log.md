@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: e2d0227f7481f75c1b0a4e3fe9d0fa3134a7261c
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 732f4b460a3a97f84dd79a37715aff972e8482ed
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778601"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934539"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configurare gli avvisi per gli eventi del log di diagnostica dal gateway VPN
 
@@ -56,6 +56,10 @@ Nei passaggi di esempio seguenti viene creato un avviso per un evento di disconn
 6. Inserire i dettagli e assicurarsi che sia selezionata l'opzione **Invia a log Analytics** e **TunnelDiagnosticLog** . Scegliere l'area di lavoro Log Analytics creata nel passaggio 3.
 
    ![Caselle di controllo selezionate](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Seleziona")
+   
+> [!NOTE]
+> La visualizzazione iniziale dei dati potrebbe richiedere alcune ore.
+>
 
 7. Passare alla panoramica della risorsa gateway di rete virtuale e selezionare **avvisi** dalla scheda **monitoraggio** . Creare quindi una nuova regola di avviso o modificare una regola di avviso esistente.
 

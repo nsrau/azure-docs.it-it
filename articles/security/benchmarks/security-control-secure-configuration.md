@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 08458777d8a8c5c74ac20a63245135ffaf0a5c04
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564114"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934302"
 ---
 # <a name="security-control-secure-configuration"></a>Controllo di sicurezza: configurazione sicura
 
@@ -27,7 +27,9 @@ Consente di stabilire, implementare e gestire attivamente (rilevare, segnalare, 
 
 Usare i criteri di Azure o il Centro sicurezza di Azure per gestire le configurazioni di sicurezza per tutte le risorse di Azure.
 
-Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Come configurare e gestire i criteri di Azure:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## <a name="72-establish-secure-operating-system-configurations"></a>7,2: stabilire configurazioni del sistema operativo sicure
 
@@ -57,7 +59,7 @@ Come configurare e gestire i criteri di Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Informazioni sugli effetti dei criteri di Azure:
+Comprendere gli effetti dei criteri di Azure:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -171,11 +173,17 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 Usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione dei segreti per le applicazioni cloud.
 
-Come eseguire l'integrazione con le identità gestite di Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Come eseguire l'integrazione con le identità gestite di Azure:
 
-Come creare un Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Come fornire Key Vault autenticazione con un'identità gestita: https://docs.microsoft.com/azure/key-vault/managed-identity
+Come creare un Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/quick-create-portal
+
+Come fornire Key Vault autenticazione con un'identità gestita:
+
+https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7,12: gestire le identità in modo sicuro e automatico
 
@@ -185,7 +193,9 @@ Come fornire Key Vault autenticazione con un'identità gestita: https://docs.mic
 
 Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure AD. Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Key Vault, senza credenziali nel codice.
 
-Come configurare le identità gestite: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Come configurare le identità gestite:
+
+https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminare l'esposizione delle credenziali non intenzionali
 
@@ -195,7 +205,9 @@ Come configurare le identità gestite: https://docs.microsoft.com/azure/active-d
 
 Implementare Credential scanner per identificare le credenziali all'interno del codice. Credential scanner incoraggerà inoltre lo stato di trasferimento delle credenziali individuate a posizioni più sicure, ad esempio Azure Key Vault. 
 
-Come configurare Credential scanner: https://secdevtools.azurewebsites.net/helpcredscan.html
+Come configurare Credential scanner:
+
+https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>Passaggi successivi
 

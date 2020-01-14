@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 320611f05190d755c85a94a8e8eb9a1c04b3310e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 76eb3a135f7a32a30cfa62546a644bc77cf39998
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508829"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934576"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight
 
@@ -83,7 +83,7 @@ Per informazioni su altri modi per eseguire MapReduce, Apache Hive e Apache Pig 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrazione di Azure PowerShell ad Azure Resource Manager
 Le informazioni generali su Azure PowerShell in modalità Azure Resource Manager sono disponibili in [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-I cmdlet di Azure Resource Manager per Azure PowerShell possono essere installati insieme ai cmdlet di ASM. È possibile distinguere i cmdlet delle due modalità in base ai nomi.  La modalità di Resource Manager dispone *AzHDInsight* nomi dei cmdlet al *AzureHDInsight* in modalità ASM.  Ad esempio, *New-AzHDInsightCluster* Visual Studio. *New-AzureHDInsightCluster*. I parametri e le opzioni possono avere nomi nuovi e sono disponibili molti nuovi parametri quando si usa Gestione risorse.  Ad esempio, alcuni cmdlet richiedono una nuova opzione denominata *- ResourceGroupName*. 
+I cmdlet di Azure Resource Manager per Azure PowerShell possono essere installati insieme ai cmdlet di ASM. È possibile distinguere i cmdlet delle due modalità in base ai nomi.  La modalità Gestione risorse ha *AzHDInsight* nei nomi dei cmdlet che si confrontano con *AZUREHDINSIGHT* in modalità ASM.  Ad esempio, *New-AzHDInsightCluster* e *New-AzureHDInsightCluster*. I parametri e le opzioni possono avere nomi nuovi e sono disponibili molti nuovi parametri quando si usa Gestione risorse.  Ad esempio, alcuni cmdlet richiedono una nuova opzione denominata *- ResourceGroupName*. 
 
 Prima di poter usare i cmdlet di HDInsight, è necessario connettersi con il proprio account Azure e creare un nuovo gruppo di risorse:
 
@@ -132,17 +132,17 @@ Ecco i nuovi cmdlet disponibili solo in modalità Gestione risorse.
 
 **Cmdlet correlati all'azione script:**
 
-* **Get-AzHDInsightPersistedScriptAction**: ottiene le azioni script persistenti per un cluster e le elenca in ordine cronologico oppure ottiene i dettagli per un'azione script persistente specificata. 
-* **Get-AzHDInsightScriptActionHistory**: ottiene la cronologia delle azioni script per un cluster e le elenca in ordine cronologico inverso oppure ottiene i dettagli di un'azione script eseguita in precedenza. 
-* **Remove-AzHDInsightPersistedScriptAction**: Rimuove un'azione script persistente da un cluster HDInsight.
-* **Set-AzHDInsightPersistedScriptAction**: imposta un'azione script eseguita in precedenza come un'azione script persistente.
-* **Submit-AzHDInsightScriptAction**: invia una nuova azione script a un cluster HDInsight di Azure. 
+* **Get-AzHDInsightPersistedScriptAction**: ottiene le azioni script permanente per un cluster e le elenca in ordine cronologico oppure ottiene i dettagli per un'azione script permanente specificata. 
+* **Get-AzHDInsightScriptActionHistory**: ottiene la cronologia delle azioni script per un cluster e le elenca in ordine cronologico inverso o ottiene i dettagli di un'azione script eseguita in precedenza. 
+* **Remove-AzHDInsightPersistedScriptAction**: rimuove un'azione script permanente da un cluster HDInsight.
+* **Set-AzHDInsightPersistedScriptAction**: imposta un'azione script eseguita in precedenza come un'azione script permanente.
+* **Submit-AzHDInsightScriptAction**: Invia una nuova azione script a un cluster Azure HDInsight. 
 
 Per altre informazioni sull'utilizzo, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Cmdlet correlati all'identità del cluster:**
 
-* **Add-AzHDInsightClusterIdentity**: aggiunge un'identità del cluster a un oggetto di configurazione del cluster per consentire al cluster HDInsight di accedere ad Azure Data Lake Storage. Vedere [Creare un cluster HDInsight con Data Lake Storage tramite Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzHDInsightClusterIdentity**: aggiunge un'identità del cluster a un oggetto di configurazione del cluster in modo che il cluster HDInsight possa accedere a Azure Data Lake storage. Vedere [Creare un cluster HDInsight con Data Lake Storage tramite Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Esempi
 **Creare cluster**
@@ -225,8 +225,7 @@ Questa sezione include puntatori ad altre informazioni relative all'esecuzione d
 
 | Procedura sull'uso di HDInsight SDK basato su Gestione risorse | Collegamenti |
 | --- | --- |
-| Creare cluster HDInsight con .NET SDK |Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
-| Personalizzare un cluster tramite un'azione script con .NET SDK |Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
+| Azure HDInsight SDK per .NET|Vedere [Azure HDINSIGHT SDK per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) |
 | Autenticare le applicazioni in modo interattivo tramite Azure Active Directory con .NET SDK |Vedere [Eseguire query Apache Hive con .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Il frammento di codice in questo articolo usa l'approccio di autenticazione interattiva. |
 | Autenticare le applicazioni in modo non interattivo tramite Azure Active Directory con .NET SDK |Vedere [Creare applicazioni .NET HDInsight di autenticazione non interattiva](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Inviare un processo Apache Hive con .NET SDK |Vedere [Inviare i processi Apache Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |

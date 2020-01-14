@@ -2,18 +2,18 @@
 title: 'Servizi go-to-Market: vantaggi del Marketplace commerciale | Azure'
 description: "Servizi per l'immissione sul mercato: in questa sezione vengono descritte le risorse Microsoft che gli autori possono usare."
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: v-qiwe
-ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818638"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933913"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale
 
@@ -88,7 +88,7 @@ Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offe
 
 Tutte le attività descritte in questa pagina sono coperte dal contratto per la [pubblicazione nel Marketplace](https://docs.microsoft.com/legal/marketplace/terms) e sono conformi all'addendum del programma Commercial benefits.
 
-### <a name="cancellation-policy"></a>Politica di annullamento
+### <a name="cancellation-policy"></a>Criteri per l'annullamento
 
 Gli editori di [elenchi e di prova](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) possono acconsentire esplicitamente o rifiutare esplicitamente le attività per ogni pubblicazione dell'offerta. I partner possono rifiutare esplicitamente il coinvolgimento in qualsiasi momento. 
 
@@ -103,7 +103,7 @@ Microsoft si riserva il diritto di revocare e terminare i vantaggi dei premi del
 
 Questa offerta viene eseguita in inglese per tutti i partner con un'offerta Live in Azure Marketplace o in Microsoft AppSource.
 
-Le transazioni dimostrate come fraudolente non vengono conteggiate per il [livello del programma vendite fatturato](https://aka.ms/marketplacepublisherrewards)di un editore, come indicato nella sezione relativa a [elenco, versione di valutazione, consulenza](#list-trial-and-consulting-benefits) , [vantaggi di Transact partner](#marketplace-rewards-for-transact-partners) e il [mazzo dettagliato di programmi ](https://aka.ms/marketplacepublisherrewards). Microsoft assegnerà i partner ai livelli di idoneità in base alle vendite effettive fatturate, dopo che la frode è stata rimossa. 
+Le transazioni dimostrate come fraudolente non vengono conteggiate per il [livello del programma di vendita fatturato](https://aka.ms/marketplacepublisherrewards)di un editore, come indicato nella sezione relativa a [elenco, versione di valutazione, consulenza](#list-trial-and-consulting-benefits) , [vantaggi di Transact partner](#marketplace-rewards-for-transact-partners) e il [mazzo dettagliato del programma](https://aka.ms/marketplacepublisherrewards). Microsoft assegnerà i partner ai livelli di idoneità in base alle vendite effettive fatturate, dopo che la frode è stata rimossa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

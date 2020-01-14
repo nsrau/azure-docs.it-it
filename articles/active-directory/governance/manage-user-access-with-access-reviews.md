@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57956573dfe913828fb20db08397fac52528403d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c307b349144974a4d38f937feeebb98f369d047
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422441"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932406"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestire l'accesso utente con le verifiche di accesso di Azure AD
 
@@ -34,7 +34,7 @@ Con Azure Active Directory (Azure AD), è possibile verificare facilmente che gl
 
 - Azure AD Premium P2
 
-Per altre informazioni, vedere [quali utenti devono avere licenze?](access-reviews-overview.md#which-users-must-have-licenses).
+Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-overview.md#license-requirements).
 
 ## <a name="create-and-perform-an-access-review"></a>Creare ed eseguire una verifica di accesso
 

@@ -12,19 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e20edcb5e2406c216711a2e0f696ef06e19fe21e
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a9841e2a8a8ec0aede94f849b7818c86f9862df
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710399"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934088"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Elencare le assegnazioni di ruolo usando RBAC di Azure e l'API REST
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] questo articolo descrive come elencare le assegnazioni di ruolo usando l'API REST.
+
+> [!NOTE]
+> Se l'organizzazione dispone di funzioni di gestione esternalizzate a un provider di servizi che usa la [gestione delle risorse delegate di Azure](../lighthouse/concepts/azure-delegated-resource-management.md), le assegnazioni di ruolo autorizzate dal provider di servizi non verranno visualizzate qui.
 
 ## <a name="list-role-assignments"></a>Elencare le assegnazioni di ruolo
 
@@ -38,7 +41,7 @@ Per visualizzare le informazioni sull'accesso nel controllo degli accessi in bas
 
 1. All'intero dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di ruolo.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     | `subscriptions/{subscriptionId1}` | Sottoscrizione |

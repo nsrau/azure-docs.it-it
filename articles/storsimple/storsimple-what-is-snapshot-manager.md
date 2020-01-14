@@ -3,7 +3,7 @@ title: Che cos’è Gestione snapshot StorSimple? | Microsoft Docs
 description: Vengono descritti la Gestione snapshot StorSimple, la sua architettura e le sue funzionalità.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
-ms.author: v-sharos
+ms.author: twooley
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f7436bb63f52c9c2b697c8e7031922ce89d786b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789615"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933624"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Introduzione a StorSimple Snapshot Manager
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Gestione Snapshot StorSimple è uno snap-in Microsoft Management Console (MMC) che semplifica la protezione dei dati e la gestione dei backup in un ambiente di Microsoft Azure StorSimple. Con Gestione snapshot StorSimple è possibile gestire i dati di Microsoft Azure StorSimple nel datacenter e nel cloud come una singola soluzione di archiviazione integrata, in modo da semplificare i processi di backup e di ridurre i costi.
 
 Questa panoramica introduce Gestione snapshot StorSimple, ne descrive le funzionalità e ne illustra il ruolo in Microsoft Azure StorSimple. 
@@ -47,7 +47,7 @@ Gestione snapshot StorSimple fornisce una console di gestione centrale che conse
 
 Snapshot Manager di StorSimple recupera l'elenco delle applicazioni registrate con il provider VSS nell'host. Per creare backup coerenti con l'applicazione, controlla quindi i volumi usati da un'applicazione e suggerisce i gruppi di volumi da configurare. Gestione snapshot StorSimple utilizza questi gruppi di volumi per generare copie di backup coerenti con l'applicazione. (La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale dell'applicazione in un momento specifico). 
 
-I backup di Gestione snapshot StorSimple assumono la forma di snapshot incrementali, che acquisiscono solo le modifiche apportate dall'ultimo backup. Di conseguenza, i backup richiedono meno spazio di archiviazione e possono essere creati e ripristinati rapidamente. Gestione snapshot StorSimple utilizza il servizio Copia Shadow del volume di Windows per garantire che gli snapshot acquisiscano dati coerenti con l'applicazione. (Per ulteriori informazioni, andare alla sezione Integrazione con il servizio Copia Shadow del volume di Windows.) Con Gestione snapshot StorSimple, è possibile creare pianificazioni di backup o eseguire backup immediati in base alle esigenze. Se è necessario ripristinare i dati da un backup, Gestione snapshot StorSimple consente di effettuare una selezione da un catalogo di snapshot locali o cloud. Azure StorSimple consente di ripristinare solo i dati necessari quando sono necessari, evitando ritardi nella disponibilità dei dati durante le operazioni di ripristino.)
+I backup di Gestione snapshot StorSimple assumono la forma di snapshot incrementali, che acquisiscono solo le modifiche apportate dall'ultimo backup. Di conseguenza, i backup richiedono meno spazio di archiviazione e possono essere creati e ripristinati rapidamente. Gestione snapshot StorSimple utilizza il servizio Copia Shadow del volume di Windows per garantire che gli snapshot acquisiscano dati coerenti con l'applicazione. Per ulteriori informazioni, vedere la sezione integrazione con Windows Servizio Copia Shadow del volume. Con StorSimple Snapshot Manager è possibile creare pianificazioni di backup o eseguire backup immediati in base alle esigenze. Se è necessario ripristinare i dati da un backup, Gestione snapshot StorSimple consente di effettuare una selezione da un catalogo di snapshot locali o cloud. Azure StorSimple consente di ripristinare solo i dati necessari quando sono necessari, evitando ritardi nella disponibilità dei dati durante le operazioni di ripristino.)
 
 ![Architettura di Gestione snapshot StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
@@ -57,7 +57,7 @@ I backup di Gestione snapshot StorSimple assumono la forma di snapshot increment
 È possibile utilizzare Gestione snapshot StorSimple, per configurare ed eseguire il backup dei tipi di volumi seguenti: 
 
 * **Volumi di base** : un volume di base è una singola partizione su un disco di base. 
-* **Volumi semplici** : un volume semplice è un volume dinamico contenente lo spazio su disco da un singolo disco dinamico. Un volume semplice è costituito da una singola area su un disco o da più aree collegate insieme sullo stesso disco. (È possibile creare volumi semplici solo sui dischi dinamici). I volumi semplici non sono a tolleranza di errore.
+* **Volumi semplici** : un volume semplice è un volume dinamico contenente lo spazio su disco da un singolo disco dinamico. Un volume semplice è costituito da una singola area su un disco o da più aree collegate insieme sullo stesso disco. È possibile creare volumi semplici solo sui dischi dinamici. I volumi semplici non sono a tolleranza d'errore.
 * **Volumi dinamici** : un volume dinamico è un volume creato su un disco dinamico. I dischi dinamici utilizzano un database per tenere traccia delle informazioni sui volumi contenuti nei dischi dinamici di un computer. 
 * **Volumi dinamici con mirroring** : i volumi dinamici con mirroring si basano sull'architettura RAID 1. Con RAID 1 i dati identici vengono scritti su due o più dischi, creando un set con mirroring. Una richiesta di lettura può quindi essere gestita da qualsiasi disco contenente i dati richiesti.
 * **Volumi condivisi cluster** : con i volumi condivisi cluster (CSV) più nodi in un cluster di failover possono leggere o scrivere contemporaneamente sullo stesso disco. Il failover da un nodo a un altro nodo può verificarsi rapidamente, senza necessità di modificare la proprietà dell'unità o di montare, smontare e rimuovere un volume. 
@@ -138,6 +138,6 @@ Per informazioni sulla configurazione dei criteri di backup, andare a [Utilizzo 
 Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Ulteriori informazioni sull' [utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+* Ulteriori informazioni sull’ [utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 * Scaricare [Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 

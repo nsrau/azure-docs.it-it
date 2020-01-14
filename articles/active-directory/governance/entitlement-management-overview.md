@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422566"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932483"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -134,17 +134,32 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 
 Cloud specializzati, ad esempio Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet, non sono attualmente disponibili per l'uso.
 
-### <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
+### <a name="how-many-licenses-must-you-have"></a>Quante licenze è necessario avere?
 
-Il tenant deve avere almeno il numero di licenze Azure AD Premium P2, perché gli utenti membri sono attivi nella gestione dei diritti. Gli utenti membri attivi nella gestione dei diritti includono:
+Assicurarsi che la directory includa almeno il numero di licenze Azure AD Premium P2 disponibili per i dipendenti che eseguiranno le attività seguenti:
 
-- Utente che avvia o approva una richiesta di un pacchetto di accesso.
-- Utente a cui è stato assegnato un pacchetto di accesso.
-- Utente che gestisce i pacchetti di accesso.
+- Utenti membri che **possono** richiedere un pacchetto di accesso.
+- Utenti guest e membri che richiedono un pacchetto di accesso.
+- Utenti guest e membro che approvano le richieste per un pacchetto di accesso.
 
-Come parte delle licenze per gli utenti membri, è anche possibile consentire a diversi utenti guest di interagire con la gestione dei diritti. Per informazioni su come calcolare il numero di utenti guest che è possibile includere, vedere [Azure Active Directory linee guida sulle licenze di collaborazione B2B](../b2b/licensing-guidance.md).
+Le licenze Azure AD Premium P2 **non** sono necessarie per le attività seguenti:
 
-Per informazioni su come assegnare le licenze agli utenti, vedere [assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md). Si noti che la gestione dei diritti non impone attualmente l'assegnazione delle licenze per gli utenti.
+- Non sono necessarie licenze per gli utenti con il ruolo di amministratore globale che ha configurato i cataloghi iniziali, i pacchetti di accesso e i criteri e delegare le attività amministrative ad altri utenti.
+- Non sono necessarie licenze per gli utenti a cui sono state delegate attività amministrative, ad esempio autore del catalogo, proprietario del catalogo e gestione pacchetti di accesso.
+- Non sono necessarie licenze per i guest che **possono** richiedere pacchetti di accesso, ma **non** richiedono un pacchetto di accesso.
+
+Per ogni licenza Azure AD Premium P2 a pagamento acquistata per gli utenti membri (dipendenti), è possibile usare Azure AD B2B per invitare fino a 5 utenti guest. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Azure ad Guida alle licenze di collaborazione B2B](../b2b/licensing-guidance.md).
+
+Per altre informazioni sulle licenze, vedere [assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Scenari di licenza di esempio
+
+Di seguito sono riportati alcuni scenari di licenza di esempio che consentono di determinare il numero di licenze che è necessario avere.
+
+| Scenario | Calcolo | Numero di licenze |
+| --- | --- | --- |
+| Un amministratore globale presso la Woodgrove Bank crea cataloghi iniziali e delega le attività amministrative a altri 6 utenti. Uno dei criteri specifica che **tutti i dipendenti** (2.000 dipendenti) possono richiedere un set specifico di pacchetti di accesso. 150 i dipendenti richiedono i pacchetti di accesso. | 2\.000 dipendenti che **possono** richiedere i pacchetti di accesso | 2\.000 |
+| Un amministratore globale presso la Woodgrove Bank crea cataloghi iniziali e delega le attività amministrative a altri 6 utenti. Uno dei criteri specifica che **tutti i dipendenti** (2.000 dipendenti) possono richiedere un set specifico di pacchetti di accesso. Un altro criterio specifica che alcuni utenti degli **utenti del partner Contoso** (Guest) possono richiedere gli stessi pacchetti di accesso soggetti all'approvazione. Contoso ha 30.000 utenti. 150 i dipendenti richiedono i pacchetti di accesso e gli utenti 10.500 da Contoso Request Access. | 2\.000 dipendenti + 500 utenti guest di Contoso che superano la 1:5 ratio (10.500-(2.000 * 5)) | 2\.500 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

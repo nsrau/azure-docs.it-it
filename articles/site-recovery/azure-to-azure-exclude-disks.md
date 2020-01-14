@@ -1,18 +1,18 @@
 ---
 title: Escludere i dischi delle macchine virtuali di Azure dalla replica con Azure Site Recovery e Azure PowerShell
 description: Informazioni su come escludere dischi di macchine virtuali di Azure durante Azure Site Recovery usando Azure PowerShell.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: asgang
-ms.openlocfilehash: beb4ee6fcf6413634d7d728e3f070294e8ce3787
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: carmonm
+ms.openlocfilehash: ead46368db68cf11facfe437b3ea0ef77171d548
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084981"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929799"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Escludere dischi dalla replica di PowerShell di macchine virtuali di Azure
 
@@ -21,12 +21,12 @@ Questo articolo descrive come escludere dischi quando si esegue la replica di VM
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
 
 - Assicurarsi di aver compreso i [componenti e l'architettura di ripristino di emergenza](azure-to-azure-architecture.md).
-- Esaminare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
+- Verificare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
 - Assicurarsi di avere il modulo AzureRm di PowerShell "AZ". Per installare o aggiornare PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Assicurarsi di aver creato almeno una volta un insieme di credenziali di servizi di ripristino e le macchine virtuali protette. Se non sono state eseguite queste operazioni, seguire la procedura in [configurare il ripristino di emergenza per macchine virtuali di Azure con Azure PowerShell](azure-to-azure-powershell.md).
 - Per informazioni sull'aggiunta di dischi a una macchina virtuale di Azure abilitata per la replica, [vedere questo articolo](azure-to-azure-enable-replication-added-disk.md).

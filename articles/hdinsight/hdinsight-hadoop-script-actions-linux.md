@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687734"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931688"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -161,13 +161,13 @@ HDInsight registra l'output dello script scritto in STDOUT e STDERR. È possibil
 > [!NOTE]  
 > Apache Ambari è disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
 
-Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. ad esempio:
+Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. ad esempio:
+Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -304,7 +304,7 @@ L'archiviazione dei file in un account di Archiviazione di Azure o in Azure Data
 
 Di seguito sono indicati i passaggi effettuati durante la preparazione della distribuzione degli script:
 
-* Inserire i file che contengono gli script personalizzati in un percorso accessibile per i nodi del cluster durante la distribuzione. ad esempio la risorsa di archiviazione predefinita per il cluster. I file possono essere archiviati anche in servizi di hosting leggibili pubblicamente.
+* Inserire i file che contengono gli script personalizzati in un percorso accessibile per i nodi del cluster durante la distribuzione, ad esempio la risorsa di archiviazione predefinita per il cluster. I file possono essere archiviati anche in servizi di hosting leggibili pubblicamente.
 * Verificare che lo script sia idempotente. in modo che possa essere eseguito più volte nello stesso nodo.
 * Usare una directory di file temporanei /tmp per conservare i file scaricati usati dagli script e quindi eliminarli dopo aver eseguito gli script.
 * Nel caso in cui vengano modificate le impostazioni a livello di sistema operativo o i file di configurazione del servizio Hadoop, può essere opportuno riavviare i servizi HDInsight.
@@ -322,12 +322,9 @@ Per altre informazioni sull'utilizzo di ogni metodo, vedere [Come usare azioni s
 
 ## <a name="sampleScripts"></a>Esempi di script personalizzati
 
-Microsoft fornisce script di esempio per installare i componenti in un cluster HDInsight. Vedere i collegamenti seguenti per altre azioni di script di esempio.
+Microsoft fornisce script di esempio per installare i componenti in un cluster HDInsight. Vedere [installare e usare Hue nei cluster HDInsight](hdinsight-hadoop-hue-linux.md) come un'azione script di esempio.
 
-* [Installare e usare Hue nei cluster HDInsight.](hdinsight-hadoop-hue-linux.md)
-* [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install-linux.md)
-
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Di seguito sono riportati gli errori che possono verificarsi durante l'uso di script sviluppati:
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444782"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929591"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clausola ORDER BY in Azure Cosmos DB
 
@@ -52,7 +52,7 @@ ORDER BY <sort_specification>
    Per la clausola ORDER BY è necessario che i criteri di indicizzazione includano un indice per i campi da ordinare. Il runtime di query di Azure Cosmos DB supporta l'ordinamento in base a un nome di proprietà e non alle proprietà calcolate. Azure Cosmos DB supporta più proprietà ORDER BY. Per eseguire una query con più proprietà ORDER BY, è necessario definire un [indice composto](index-policy.md#composite-indexes) sui campi da ordinare.
    
 > [!Note] 
-> Quando si usa .NET SDK 3.4.0 o versione successiva, se le proprietà ordinate in base a potrebbero non essere definite per alcuni documenti, è necessario creare un indice in modo esplicito per tali proprietà. I criteri di indicizzazione predefiniti non consentiranno il recupero dei documenti in cui la proprietà di ordinamento non è definita.
+> Se le proprietà ordinate in base a potrebbero non essere definite per alcuni documenti e si desidera recuperarle in una query ORDER BY, è necessario creare un indice in modo esplicito su tali proprietà. I criteri di indicizzazione predefiniti non consentiranno il recupero dei documenti in cui la proprietà di ordinamento non è definita.
 
 ## <a name="examples"></a>Esempi
 

@@ -5,21 +5,20 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 0a1e811787a43be76f94b13a6ec9886510c47d1d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866964"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930006"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
 
-Questa guida illustra come aggiungere archiviazione di Azure al servizio app in Linux. I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
-
-
-> [!IMPORTANT]
-> Archiviazione di Azure nel servizio app in Linux è una funzionalità di **Anteprima** . Questa funzionalità **non è supportata per gli scenari di produzione**.
+> [!NOTE]
+> Questo articolo si applica ai contenitori Linux. Per eseguire la distribuzione in contenitori Windows personalizzati, vedere [configurare file di Azure in un contenitore di Windows nel servizio app](../configure-connect-to-azure-storage.md). Archiviazione di Azure nel servizio app in Linux è una funzionalità di **Anteprima** . Questa funzionalità **non è supportata per gli scenari di produzione**.
 >
+
+Questa guida illustra come aggiungere archiviazione di Azure al servizio app in Linux. I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

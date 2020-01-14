@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ae29a068ef29898c3fa27d3620d1e6be0be4bf3b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950239"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931194"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 
@@ -122,7 +122,7 @@ Il modello HTML5 personalizzato si basa sul modello HTML5 integrato di Azure AD 
 
 ### <a name="step-23-change-the-background-image"></a>Passaggio 2.3: Modificare l'immagine di sfondo
 
-Individuare l'elemento `<img>` contenente il valore `ID` *background_background_image* e quindi sostituire il valore `src` con **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** o qualsiasi altra immagine di sfondo da usare.
+Individuare l'elemento `<img>` contenente il valore `ID`*background_background_image* e quindi sostituire il valore `src` con **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** o qualsiasi altra immagine di sfondo da usare.
 
 ![elemento IMG con valore src background_background_image personalizzato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
@@ -217,17 +217,19 @@ Per configurare `ContentDefinition`, eseguire questa procedura:
     ![Esempio di frammento XML con elemento elemento loaduri evidenziato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Passaggio 6: Caricare i criteri nel tenant
-1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant del Azure ad B2C.
 
-2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
+1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
 
-3. Selezionare **Tutti i criteri**.
+1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 
-4. Selezionare **Carica criteri**.
+1. Selezionare **Tutti i criteri**.
 
-5. Selezionare la casella di controllo **Sovrascrivi il criterio se esistente**.
+1. Selezionare **Carica criteri**.
 
-6. Caricare il file *TrustFrameworkExtensions.xml* e assicurarsi che superi la convalida.
+1. Selezionare la casella di controllo **Sovrascrivi il criterio se esistente**.
+
+1. Caricare il file *TrustFrameworkExtensions.xml* e assicurarsi che superi la convalida.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Passaggio 7: Testare i criteri personalizzati tramite Esegui adesso
 1. Selezionare **Impostazioni di Azure AD B2C** e quindi **Framework dell'esperienza di gestione delle identità**.
@@ -235,7 +237,7 @@ Per configurare `ContentDefinition`, eseguire questa procedura:
     >[!NOTE]
     >Il comando Esegui adesso richiede che nel tenant sia preregistrata almeno un'applicazione. Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
 
-2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza, quindi selezionare **Esegui adesso**.
+2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.
     Dovrebbe essere possibile vedere il codice HTML5 personalizzato con lo sfondo creato in precedenza.
 
     ![Criteri di iscrizione o di accesso](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
@@ -344,8 +346,4 @@ Se si seleziona il collegamento **Iscriviti ora** nella pagina di accesso, il br
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare il codice e i file dei criteri completi
 * Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-* È possibile scaricare il codice completo dalla [soluzione di Visual Studio di esempio di riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-
-
-
-
+* È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization) (Soluzione di Visual Studio di esempio per riferimento).

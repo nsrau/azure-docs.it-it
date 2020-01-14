@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 32897994e4ef22845b1d19d6e0eb3e6b2c968c01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931492"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930721"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modello di fatturazione per Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ Di seguito viene illustrato come passare alla fatturazione di MAU per una risors
 
 La misurazione basata su MAU è abilitata non appena il proprietario della sottoscrizione o della risorsa conferma la modifica. La fattura mensile rifletterà le unità di autenticazione fatturate fino alla modifica e le nuove unità di MAU che iniziano con la modifica.
 
-Gli utenti non sono conteggiati a doppio durante il mese di transizione. Per gli utenti attivi univoci che eseguono l'autenticazione prima della modifica viene addebitata una tariffa per autenticazione in un mese di calendario. Gli stessi utenti non sono inclusi nel calcolo MAU per il resto del ciclo di fatturazione della sottoscrizione. ad esempio:
+Gli utenti non sono conteggiati a doppio durante il mese di transizione. Per gli utenti attivi univoci che eseguono l'autenticazione prima della modifica viene addebitata una tariffa per autenticazione in un mese di calendario. Gli stessi utenti non sono inclusi nel calcolo MAU per il resto del ciclo di fatturazione della sottoscrizione. Ad esempio:
 
 * Il tenant di Contoso B2C ha 1.000 utenti. 250 gli utenti sono attivi in un determinato mese. L'amministratore della sottoscrizione passa da per autenticazione a utenti attivi mensili (MAU) il 10 del mese.
 * La fatturazione per il 1 ° decimo viene fatturata usando il modello di autenticazione.
@@ -134,7 +134,7 @@ La gestione di Azure AD B2C tramite il controllo degli accessi in base al ruolo 
 
 Azure AD B2C tenant possono essere spostati in un'altra sottoscrizione se le sottoscrizioni di origine e di destinazione sono presenti nello stesso tenant di Azure Active Directory.
 
-Per informazioni su come spostare risorse di Azure come il tenant di Azure AD B2C in un'altra sottoscrizione, vedere [spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md).
+Per informazioni su come spostare risorse di Azure come il tenant di Azure AD B2C in un'altra sottoscrizione, vedere [spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Prima di iniziare lo spostamento, assicurarsi di leggere l'intero articolo per comprendere completamente le limitazioni e i requisiti per tale spostamento. Oltre alle istruzioni per lo spostamento delle risorse, include informazioni critiche come un elenco di controllo di pre-spostamento e come convalidare l'operazione di spostamento.
 

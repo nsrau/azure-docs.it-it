@@ -3,18 +3,18 @@ Description: Il tempo stimato per il trasferimento dei pagamenti, le soglie di p
 title: Soglie di pagamento, metodi e frame temporali nel Marketplace commerciale | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 8854d5e336dd5aa539bb810f55a45281362500bd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb05513d59870b7fa0d997eb31510494a9938e0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980296"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931886"
 ---
-# <a name="payment-thresholds-methods-and-time-frames"></a>Soglie di pagamento, metodi e time frame
+# <a name="payment-thresholds-methods-and-time-frames"></a>Soglie, metodi e intervalli di pagamento
 
 Il tempo stimato per il trasferimento dei pagamenti e i Marketplace Microsoft dai quali è possibile ricevere i pagamenti possono variare a seconda del paese/area geografica e del tipo di account di pagamento. Questo argomento descrive i metodi di pagamento supportati in ogni paese/area geografica.
 
@@ -42,155 +42,155 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 
 | Paese                          | Azure Marketplace | Store, Advertising, mixer e Minecraft | Ufficio | Pagamenti PayPal |
 |----------------------------------|-------------------|------------------------------------------|--------|-----------------|
-| Afghanistan                      | SÌ               | SÌ                                      | No     | No              |
-| Albania                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Algeria                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Andorra                          | No                | No                                       | SÌ    | SÌ             |
-| Angola                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Antigua e Barbuda              | SÌ               | SÌ                                      | No     | SÌ             |
-| Argentina                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Armenia                          | SÌ               | SÌ                                      | No     | No              |
-| Australia                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Austria                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Azerbaigian                       | SÌ               | SÌ                                      | SÌ    | No              |
-| Bahrain                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Bangladesh                       | SÌ               | SÌ                                      | SÌ    | No              |
-| Bielorussia                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Belgio                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Benin                            | SÌ               | SÌ                                      | SÌ    | No              |
-| Bolivia                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Bosnia ed Erzegovina           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Botswana                         | SÌ               | SÌ                                      | No     | SÌ             |
-| Brasile                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Bulgaria                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Burkina Faso                     | SÌ               | SÌ                                      | SÌ    | No              |
-| Burundi                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Cambogia                         | SÌ               | SÌ                                      | SÌ    | No              |
-| Camerun                         | SÌ               | SÌ                                      | SÌ    | No              |
-| Canada                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Repubblica Centrafricana         | SÌ               | SÌ                                      | SÌ    | No              |
-| Chad                             | SÌ               | SÌ                                      | SÌ    | No              |
-| Cile                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Cina                            | No                | SÌ                                      | SÌ    | SÌ             |
-| Colombia                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Comore                          | SÌ               | SÌ                                      | No     | No              |
-| Repubblica democratica del Congo                      | SÌ               | SÌ                                      | SÌ    | No              |
-| Congo, Repubblica di               | SÌ               | SÌ                                      | SÌ    | No              |
-| Costa Rica                       | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Costa d'Avorio                    | SÌ               | SÌ                                      | SÌ    | No              |
-| Croazia                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Cipro                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Repubblica Ceca                   | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Danimarca                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Dominica                         | SÌ               | SÌ                                      | No     | SÌ             |
-| Repubblica Domenicana               | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Ecuador                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Egitto                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| El Salvador                      | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Eritrea                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Estonia                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Etiopia                         | SÌ               | SÌ                                      | SÌ    | No              |
-| Isole Figi                     | SÌ               | SÌ                                      | No     | No              |
-| Finlandia                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Francia                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Georgia                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Germania                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Ghana                            | SÌ               | SÌ                                      | SÌ    | No              |
-| Grecia                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Guatemala                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Guinea                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Haiti                            | SÌ               | SÌ                                      | SÌ    | No              |
-| Honduras                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Hong Kong - R.A.S.                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Ungheria                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Islanda                          | SÌ               | SÌ                                      | SÌ    | No              |
-| India                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Indonesia                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Iraq                             | SÌ               | SÌ                                      | No     | No              |
-| Irlanda                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Israele                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Italia                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Giamaica                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Giappone                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Giordania                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Kazakhstan                       | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Kenya                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Corea (Sud)                    | SÌ               | SÌ                                      | SÌ    | No              |
-| Kuwait                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Kirghizistan                       | No                | No                                       | SÌ    | No              |
-| Laos                             | SÌ               | SÌ                                      | SÌ    | No              |
-| Lettonia                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Libano                          | SÌ               | SÌ                                      | No     | No              |
-| Liberia                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Liechtenstein                    | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Lituania                        | SÌ               | SÌ                                      | SÌ    | No              |
-| Lussemburgo                       | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Macedonia del Nord                        | No                | SÌ                                      | SÌ    | No              |
-| Madagascar                       | SÌ               | SÌ                                      | SÌ    | No              |
-| Malawi                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Malaysia                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Mali                             | SÌ               | SÌ                                      | SÌ    | No              |
-| Malta                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Mauritius                        | SÌ               | SÌ                                      | No     | SÌ             |
-| Messico                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Monaco                           | SÌ               | SÌ                                      | No     | No              |
-| Mongolia                         | SÌ               | SÌ                                      | SÌ    | No              |
-| Montenegro                       | SÌ               | SÌ                                      | SÌ    | No              |
-| Marocco                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Mozambico                       | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Nepal                            | SÌ               | SÌ                                      | SÌ    | No              |
-| Paesi Bassi                 | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Nuova Zelanda                      | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Nicaragua                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Niger                            | SÌ               | SÌ                                      | SÌ    | No              |
-| Nigeria                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Norvegia                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Oman                             | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Pakistan                         | SÌ               | SÌ                                      | SÌ    | No              |
-| Panama                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Paraguay                         | SÌ               | SÌ                                      | SÌ    | No              |
-| Perù                             | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Filippine                      | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Polonia                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Portogallo                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Portorico                      | No                | No                                       | SÌ    | No              |
-| Qatar                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Romania                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Russia                           | SÌ               | SÌ                                      | No     | SÌ             |
-| Ruanda                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Saint Vincent e Grenadine | No                | SÌ                                      | No     | No              |
-| Arabia Saudita                     | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Senegal                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Serbia                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Sierra Leone                     | SÌ               | SÌ                                      | SÌ    | No              |
-| Singapore                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Slovacchia                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Slovenia                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Somalia                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Sudafrica                     | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Spagna                            | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Sri Lanka                        | SÌ               | SÌ                                      | SÌ    | No              |
-| Svezia                           | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Svizzera                      | SÌ               | SÌ                                      | SÌ    | No              |
-| Taiwan                           | No                | SÌ                                      | SÌ    | SÌ             |
-| Tagikistan                       | SÌ               | SÌ                                      | No     | No              |
-| Tanzania                         | SÌ               | SÌ                                      | SÌ    | No              |
-| Tailandia                         | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Timor Est                      | SÌ               | SÌ                                      | SÌ    | No              |
-| Togo                             | SÌ               | SÌ                                      | SÌ    | No              |
-| Tonga                            | SÌ               | SÌ                                      | No     | No              |
-| Trinidad e Tobago              | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Tunisia                          | SÌ               | SÌ                                      | SÌ    | No              |
-| Turchia                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Turkmenistan                     | SÌ               | SÌ                                      | No     | No              |
-| Uganda                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Ucraina                          | SÌ               | SÌ                                      | No     | No              |
-| Emirati Arabi Uniti             | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Regno Unito                   | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Stati Uniti                    | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Uruguay                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Uzbekistan                       | SÌ               | SÌ                                      | No     | No              |
-| Venezuela                        | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Vietnam                          | SÌ               | SÌ                                      | SÌ    | SÌ             |
-| Zambia                           | SÌ               | SÌ                                      | SÌ    | No              |
-| Zimbabwe                         | SÌ               | SÌ                                      | SÌ    | No              |
+| Afghanistan                      | Sì               | Sì                                      | No     | No              |
+| Albania                          | Sì               | Sì                                      | Sì    | Sì             |
+| Algeria                          | Sì               | Sì                                      | Sì    | Sì             |
+| Andorra                          | No                | No                                       | Sì    | Sì             |
+| Angola                           | Sì               | Sì                                      | Sì    | No              |
+| Antigua e Barbuda              | Sì               | Sì                                      | No     | Sì             |
+| Argentina                        | Sì               | Sì                                      | Sì    | Sì             |
+| Armenia                          | Sì               | Sì                                      | No     | No              |
+| Australia                        | Sì               | Sì                                      | Sì    | Sì             |
+| Austria                          | Sì               | Sì                                      | Sì    | Sì             |
+| Azerbaigian                       | Sì               | Sì                                      | Sì    | No              |
+| Bahrain                          | Sì               | Sì                                      | Sì    | Sì             |
+| Bangladesh                       | Sì               | Sì                                      | Sì    | No              |
+| Bielorussia                          | Sì               | Sì                                      | Sì    | No              |
+| Belgio                          | Sì               | Sì                                      | Sì    | Sì             |
+| Benin                            | Sì               | Sì                                      | Sì    | No              |
+| Bolivia                          | Sì               | Sì                                      | Sì    | No              |
+| Bosnia ed Erzegovina           | Sì               | Sì                                      | Sì    | Sì             |
+| Botswana                         | Sì               | Sì                                      | No     | Sì             |
+| Brasile                           | Sì               | Sì                                      | Sì    | Sì             |
+| Bulgaria                         | Sì               | Sì                                      | Sì    | Sì             |
+| Burkina Faso                     | Sì               | Sì                                      | Sì    | No              |
+| Burundi                          | Sì               | Sì                                      | Sì    | No              |
+| Cambogia                         | Sì               | Sì                                      | Sì    | No              |
+| Camerun                         | Sì               | Sì                                      | Sì    | No              |
+| Canada                           | Sì               | Sì                                      | Sì    | Sì             |
+| Repubblica Centrafricana         | Sì               | Sì                                      | Sì    | No              |
+| Chad                             | Sì               | Sì                                      | Sì    | No              |
+| Cile                            | Sì               | Sì                                      | Sì    | Sì             |
+| Cina                            | No                | Sì                                      | Sì    | Sì             |
+| Colombia                         | Sì               | Sì                                      | Sì    | Sì             |
+| Comore                          | Sì               | Sì                                      | No     | No              |
+| Repubblica democratica del Congo                      | Sì               | Sì                                      | Sì    | No              |
+| Congo, Repubblica di               | Sì               | Sì                                      | Sì    | No              |
+| Costa Rica                       | Sì               | Sì                                      | Sì    | Sì             |
+| Costa d'Avorio                    | Sì               | Sì                                      | Sì    | No              |
+| Croazia                          | Sì               | Sì                                      | Sì    | No              |
+| Cipro                           | Sì               | Sì                                      | Sì    | Sì             |
+| Repubblica Ceca                   | Sì               | Sì                                      | Sì    | Sì             |
+| Danimarca                          | Sì               | Sì                                      | Sì    | Sì             |
+| Dominica                         | Sì               | Sì                                      | No     | Sì             |
+| Repubblica Domenicana               | Sì               | Sì                                      | Sì    | Sì             |
+| Ecuador                          | Sì               | Sì                                      | Sì    | Sì             |
+| Egitto                            | Sì               | Sì                                      | Sì    | Sì             |
+| El Salvador                      | Sì               | Sì                                      | Sì    | Sì             |
+| Eritrea                          | Sì               | Sì                                      | Sì    | No              |
+| Estonia                          | Sì               | Sì                                      | Sì    | Sì             |
+| Etiopia                         | Sì               | Sì                                      | Sì    | No              |
+| Isole Figi                     | Sì               | Sì                                      | No     | No              |
+| Finlandia                          | Sì               | Sì                                      | Sì    | Sì             |
+| Francia                           | Sì               | Sì                                      | Sì    | Sì             |
+| Georgia                          | Sì               | Sì                                      | Sì    | Sì             |
+| Germania                          | Sì               | Sì                                      | Sì    | Sì             |
+| Ghana                            | Sì               | Sì                                      | Sì    | No              |
+| Grecia                           | Sì               | Sì                                      | Sì    | Sì             |
+| Guatemala                        | Sì               | Sì                                      | Sì    | Sì             |
+| Guinea                           | Sì               | Sì                                      | Sì    | No              |
+| Haiti                            | Sì               | Sì                                      | Sì    | No              |
+| Honduras                         | Sì               | Sì                                      | Sì    | Sì             |
+| Hong Kong - R.A.S.                        | Sì               | Sì                                      | Sì    | Sì             |
+| Ungheria                          | Sì               | Sì                                      | Sì    | Sì             |
+| Islanda                          | Sì               | Sì                                      | Sì    | No              |
+| India                            | Sì               | Sì                                      | Sì    | Sì             |
+| Indonesia                        | Sì               | Sì                                      | Sì    | Sì             |
+| Iraq                             | Sì               | Sì                                      | No     | No              |
+| Irlanda                          | Sì               | Sì                                      | Sì    | Sì             |
+| Israele                           | Sì               | Sì                                      | Sì    | Sì             |
+| Italia                            | Sì               | Sì                                      | Sì    | Sì             |
+| Giamaica                          | Sì               | Sì                                      | Sì    | Sì             |
+| Giappone                            | Sì               | Sì                                      | Sì    | Sì             |
+| Giordania                           | Sì               | Sì                                      | Sì    | Sì             |
+| Kazakhstan                       | Sì               | Sì                                      | Sì    | Sì             |
+| Kenya                            | Sì               | Sì                                      | Sì    | Sì             |
+| Corea (Sud)                    | Sì               | Sì                                      | Sì    | No              |
+| Kuwait                           | Sì               | Sì                                      | Sì    | Sì             |
+| Kirghizistan                       | No                | No                                       | Sì    | No              |
+| Laos                             | Sì               | Sì                                      | Sì    | No              |
+| Lettonia                           | Sì               | Sì                                      | Sì    | No              |
+| Libano                          | Sì               | Sì                                      | No     | No              |
+| Liberia                          | Sì               | Sì                                      | Sì    | No              |
+| Liechtenstein                    | Sì               | Sì                                      | Sì    | Sì             |
+| Lituania                        | Sì               | Sì                                      | Sì    | No              |
+| Lussemburgo                       | Sì               | Sì                                      | Sì    | Sì             |
+| Macedonia                        | No                | Sì                                      | Sì    | No              |
+| Madagascar                       | Sì               | Sì                                      | Sì    | No              |
+| Malawi                           | Sì               | Sì                                      | Sì    | Sì             |
+| Malaysia                         | Sì               | Sì                                      | Sì    | Sì             |
+| Mali                             | Sì               | Sì                                      | Sì    | No              |
+| Malta                            | Sì               | Sì                                      | Sì    | Sì             |
+| Mauritius                        | Sì               | Sì                                      | No     | Sì             |
+| Messico                           | Sì               | Sì                                      | Sì    | Sì             |
+| Monaco                           | Sì               | Sì                                      | No     | No              |
+| Mongolia                         | Sì               | Sì                                      | Sì    | No              |
+| Montenegro                       | Sì               | Sì                                      | Sì    | No              |
+| Marocco                          | Sì               | Sì                                      | Sì    | No              |
+| Mozambico                       | Sì               | Sì                                      | Sì    | Sì             |
+| Nepal                            | Sì               | Sì                                      | Sì    | No              |
+| Paesi Bassi                 | Sì               | Sì                                      | Sì    | Sì             |
+| Nuova Zelanda                      | Sì               | Sì                                      | Sì    | Sì             |
+| Nicaragua                        | Sì               | Sì                                      | Sì    | Sì             |
+| Niger                            | Sì               | Sì                                      | Sì    | No              |
+| Nigeria                          | Sì               | Sì                                      | Sì    | No              |
+| Norvegia                           | Sì               | Sì                                      | Sì    | Sì             |
+| Oman                             | Sì               | Sì                                      | Sì    | Sì             |
+| Pakistan                         | Sì               | Sì                                      | Sì    | No              |
+| Panama                           | Sì               | Sì                                      | Sì    | Sì             |
+| Paraguay                         | Sì               | Sì                                      | Sì    | No              |
+| Perù                             | Sì               | Sì                                      | Sì    | Sì             |
+| Filippine                      | Sì               | Sì                                      | Sì    | Sì             |
+| Polonia                           | Sì               | Sì                                      | Sì    | Sì             |
+| Portogallo                         | Sì               | Sì                                      | Sì    | Sì             |
+| Portorico                      | No                | No                                       | Sì    | No              |
+| Qatar                            | Sì               | Sì                                      | Sì    | Sì             |
+| Romania                          | Sì               | Sì                                      | Sì    | No              |
+| Russia                           | Sì               | Sì                                      | No     | Sì             |
+| Ruanda                           | Sì               | Sì                                      | Sì    | No              |
+| Saint Vincent e Grenadine | No                | Sì                                      | No     | No              |
+| Arabia Saudita                     | Sì               | Sì                                      | Sì    | Sì             |
+| Senegal                          | Sì               | Sì                                      | Sì    | No              |
+| Serbia                           | Sì               | Sì                                      | Sì    | No              |
+| Sierra Leone                     | Sì               | Sì                                      | Sì    | No              |
+| Singapore                        | Sì               | Sì                                      | Sì    | Sì             |
+| Slovacchia                         | Sì               | Sì                                      | Sì    | Sì             |
+| Slovenia                         | Sì               | Sì                                      | Sì    | Sì             |
+| Somalia                          | Sì               | Sì                                      | Sì    | No              |
+| Sudafrica                     | Sì               | Sì                                      | Sì    | Sì             |
+| Spagna                            | Sì               | Sì                                      | Sì    | Sì             |
+| Sri Lanka                        | Sì               | Sì                                      | Sì    | No              |
+| Svezia                           | Sì               | Sì                                      | Sì    | Sì             |
+| Svizzera                      | Sì               | Sì                                      | Sì    | No              |
+| Taiwan                           | No                | Sì                                      | Sì    | Sì             |
+| Tagikistan                       | Sì               | Sì                                      | No     | No              |
+| Tanzania                         | Sì               | Sì                                      | Sì    | No              |
+| Tailandia                         | Sì               | Sì                                      | Sì    | Sì             |
+| Timor Est                      | Sì               | Sì                                      | Sì    | No              |
+| Togo                             | Sì               | Sì                                      | Sì    | No              |
+| Tonga                            | Sì               | Sì                                      | No     | No              |
+| Trinidad e Tobago              | Sì               | Sì                                      | Sì    | Sì             |
+| Tunisia                          | Sì               | Sì                                      | Sì    | No              |
+| Turchia                           | Sì               | Sì                                      | Sì    | No              |
+| Turkmenistan                     | Sì               | Sì                                      | No     | No              |
+| Uganda                           | Sì               | Sì                                      | Sì    | No              |
+| Ucraina                          | Sì               | Sì                                      | No     | No              |
+| Emirati Arabi Uniti             | Sì               | Sì                                      | Sì    | Sì             |
+| Regno Unito                   | Sì               | Sì                                      | Sì    | Sì             |
+| Stati Uniti                    | Sì               | Sì                                      | Sì    | Sì             |
+| Uruguay                          | Sì               | Sì                                      | Sì    | Sì             |
+| Uzbekistan                       | Sì               | Sì                                      | No     | No              |
+| Venezuela                        | Sì               | Sì                                      | Sì    | Sì             |
+| Vietnam                          | Sì               | Sì                                      | Sì    | Sì             |
+| Zambia                           | Sì               | Sì                                      | Sì    | No              |
+| Zimbabwe                         | Sì               | Sì                                      | Sì    | No              |

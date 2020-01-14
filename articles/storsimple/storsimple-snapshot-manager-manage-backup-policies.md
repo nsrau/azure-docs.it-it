@@ -3,7 +3,7 @@ title: Criteri di backup di StorSimple Snapshot Manager | Microsoft Docs
 description: Viene descritto come utilizzare lo snap-in MMC di Gestione snapshot StorSimple per creare e gestire i criteri di backup che consentono di controllare i backup pianificati.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687271"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933368"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
-## <a name="overview"></a>Panoramica
-Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. (È possibile conservare un massimo di 64 snapshot). Per altre informazioni sui criteri di backup, vedere [Tipi di backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) nell'articolo relativo a [StorSimple serie 8000: una soluzione cloud ibrida](storsimple-overview.md).
+## <a name="overview"></a>Overview
+Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. È possibile conservare un massimo di 64 snapshot. Per altre informazioni sui criteri di backup, vedere [tipi di backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) nella [serie StorSimple 8000: una soluzione cloud ibrida](storsimple-overview.md).
 
 In questa esercitazione viene illustrato come:
 
@@ -67,7 +67,7 @@ Dopo aver creato un criterio di backup, nel riquadro **Risultati** vengono visua
 * **Gruppo di volumi** : il gruppo di volumi associato al criterio.
 * **Conservazione** : il numero di snapshot conservati (il massimo è 64).
 * **Creato** : la data in cui è stato creato questo criterio.
-* **Abilitato** : indica se il criterio è attualmente attivo: **True** indica che è in vigore. **False** indica che non è attiva.
+* **Abilitato**: se il criterio è attualmente attivo (**True** indica che è attivo, **False** indica che non è attivo).
 
 ## <a name="edit-a-backup-policy"></a>Modifica di un criterio di backup
 Utilizzare la procedura seguente per modificare un criterio di backup esistente.
@@ -92,5 +92,5 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
     ![Eliminazione della conferma dei criteri di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+* Informazioni su come [usare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 * Informazioni su come [utilizzare Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).

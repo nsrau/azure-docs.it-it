@@ -1,18 +1,18 @@
 ---
 title: Riepilogo pagamenti del Marketplace commerciale | Azure Marketplace
 description: Il riepilogo dei pagamenti Mostra i dettagli relativi ai soldi ottenuti con l'offerta. Sono visualizzate anche indicazioni su quando riceverai i pagamenti e sulle modalità di pagamento.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427152"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931809"
 ---
 # <a name="payout-reporting"></a>Report sui proventi
 
@@ -74,11 +74,11 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 |Fine periodo (mese)   | 30 agosto 2019 | | |
 |Data di fatturazione | 1 settembre 2019 | | |
 |Data pagamento cliente | 1 settembre 2019 | | |
-|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019-30 settembre, 2019 | | **Ordini degli attributi di correlazione:** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Non elaborati |
+|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019-30 settembre, 2019 | | **Ordini degli attributi di correlazione:** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Non elaborati |
 |Inizio periodo riscossione | 1 settembre 2019 | | |
 |Fine periodo riscossione (massimo 30 giorni) | 30 settembre, 2019 | | |
-|Data calcolo proventi (il giorno 15 di ogni mese) | 1 ° ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li>Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Imminente |
-|Payout Date | 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Pagamento inviato |
+|Data calcolo proventi (il giorno 15 di ogni mese) | 1 ° ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li>Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Imminente |
+|Payout Date | 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Pagamento inviato |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contratto Enterprise Agreement (clienti trimestrali/mensili)
 
@@ -93,7 +93,7 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 |Fine periodo riscossione (massimo 90 giorni) | 15 gennaio 2020 | | |
 |Data pagamento cliente | 30 dicembre 2019 | | |
 |Calcolo pagamenti | 15 gennaio 2020 | | |
-|Payout Date | 15 febbraio 2020 | | **Per i clienti basati su trimestre** <br> <br> **Report ordini** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** inviato |
+|Payout Date | 15 febbraio 2020 | | **Per i clienti basati su trimestre** <br> <br> **Report ordini** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** inviato |
 
 ## <a name="transaction-history-download-export"></a>Esportazione Download cronologia transazioni
 

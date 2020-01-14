@@ -1,19 +1,19 @@
 ---
 title: Elenco di controllo per la creazione di offerte SaaS-Marketplace commerciale per Azure
 description: I dettagli che è possibile fornire nel processo di creazione dell'offerta SaaS. -Marketplace commerciale per Azure
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824637"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930293"
 ---
 # <a name="saas-offer-creation-checklist"></a>Elenco di controllo per la creazione di offerte SaaS
 
@@ -52,12 +52,12 @@ Nella pagina installazione offerta è possibile scegliere tra diversi canali e v
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
-| Si vuole vendere tramite Microsoft?  | Obbligatorio. Impostazione predefinita: Sì |
+| Si vuole vendere tramite Microsoft?  | Obbligatorio. Valore predefinito: Sì |
 | In che modo si desidera che i potenziali clienti interagiscano con l'elenco delle offerte? (Chiamata all'azione)  | Obbligatorio se non si vendono tramite Microsoft. Impostazione predefinita: versione di valutazione gratuita, opzioni: "Ottieni ora", "versione di valutazione gratuita", "contattami". |
 | URL della versione di valutazione  | Obbligatorio se è selezionata l'opzione "versione di valutazione gratuita", come il modo in cui i clienti devono interagire con l'elenco delle offerte. |
 | URL offerta  | Obbligatorio se è selezionata l'opzione "Ottieni ora", poiché il modo in cui i clienti devono interagire con l'elenco delle offerte |
-| Canali  | facoltativo. Impostazione predefinita: non è stato scelto il canale CSP (Reseller).  |
-| Test drive | facoltativo. Impostazione predefinita: nessuna test drive abilitata.  |
+| Canali  | Facoltativa. Impostazione predefinita: non è stato scelto il canale CSP (Reseller).  |
+| Test drive | Facoltativa. Impostazione predefinita: nessuna test drive abilitata.  |
 | Type of Test Drive (Tipo di test drive) | Obbligatorio se è abilitato un test drive. Impostazione predefinita: nessuna selezione. Opzioni: Azure Resource Manager, Dynamics 365 for business Central, Dynamics 365 per Customer Engagement, Dynamics 365 per Operations, app per la logica, Power BI.  |
 | Gestione dei lead: connettersi a un sistema CRM | Obbligatorio se si vendono tramite Microsoft o se le offerte sono elencate come "Contattatemi". Impostazione predefinita: non è connesso alcun sistema CRM. Opzioni CRM: tabella di Azure, BLOB di Azure, Dynamics CRM Online, HTTPs ' endpoint, Marketo, Salesforce  |
 
@@ -68,9 +68,9 @@ La pagina delle proprietà consente di definire le categorie e i settori usati p
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
 | Categoria e sottocategoria | Obbligatorio 1 e max 3. Impostazione predefinita: nessuna selezione. |
-| Settori e sottosettori | facoltativo. Max 2 industrie L1 e max 2 sottosettori in ogni settore L1, valore predefinito: nessuna selezione |
-| Versione dell'app  | facoltativo. Impostazione predefinita: None. |
-| USA contratto standard  | facoltativo. Impostazione predefinita: non selezionata.  | |
+| Settori e sottosettori | Facoltativa. Max 2 industrie L1 e max 2 sottosettori in ogni settore L1, valore predefinito: nessuna selezione |
+| Versione dell'app  | Facoltativa. Impostazione predefinita: None. |
+| USA contratto standard  | Facoltativa. Impostazione predefinita: non selezionata.  | |
 | Condizioni per l'utilizzo  | Obbligatorio se il contratto standard non è selezionato.  |
 
 ## <a name="offer-listing-page"></a>Pagina di inserzione dell'offerta
@@ -79,15 +79,15 @@ Nella pagina di presentazione viene fornito il testo e le immagini che i clienti
 
 | **Nome campo**    | **Note**   |
 | :---------------- | :-----------| 
-| Name  | Obbligatorio, massimo 50 caratteri. |
+| Nome  | Obbligatorio, massimo 50 caratteri. |
 | Riepilogo  | Obbligatorio, massimo 100 caratteri. | 
-| Descrizione  | Obbligatorio, massimo 3000 caratteri. |
+| Description  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
-| Search Keywords (Parole chiave di ricerca)  | Parole chiave facoltative, consigliate e max 3. |
-| URL informativa sulla privacy  | Obbligatorio. |
-| URL dei materiali di marketing del programma CSP  | facoltativo. |
-| Titolo dei collegamenti utili + URL  | facoltativo. |
+| Parole chiave di ricerca  | Parole chiave facoltative, consigliate e max 3. |
+| URL Informativa sulla privacy  | Obbligatorio. |
+| URL dei materiali di marketing del programma CSP  | Facoltativa. |
+| Titolo dei collegamenti utili + URL  | Facoltativa. |
 | Titolo e file di supporto per documenti  | Obbligatorio, minimo 1 e massimo 3. Deve essere un formato di file PDF. |
 | Screenshots (Schermate)  | Obbligatorio, minimo 1 screenshot e max 5; quattro o più consigliati. Deve essere 1280 X 720 in formato PNG. |
 | Logo dello Store (Small, medium, large, Wide, Hero)  | Small (48 X 48) e Large (216 X 216) obbligatorio; altre dimensioni facoltative ma consigliate: media (90 x 90), Wide (255 x 115), Hero (815 x 290). Deve essere in formato PNG. |
@@ -95,7 +95,7 @@ Nella pagina di presentazione viene fornito il testo e le immagini che i clienti
 | Contatti (programma CSP, progettazione, supporto)  | È necessario un contatto tecnico e di supporto (nome, indirizzo di posta elettronica e numero di telefono); Il contatto del programma CSP è facoltativo ma consigliato. |
 | URL del supporto  | Obbligatorio. |
 
-## <a name="preview-page"></a>Pagina anteprima
+## <a name="preview-page"></a>Pagina Anteprima
 
 La pagina di anteprima consente di specificare i destinatari per accedere all'anteprima dell'offerta, per verificare che l'offerta soddisfi tutti i requisiti prima che diventi disponibile. 
 
@@ -138,11 +138,11 @@ Nella pagina piano prezzi e disponibilità è possibile definire le caratteristi
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
 | Disponibilità del mercato  | Obbligatorio, minimo 1 e massimo 141. |
-| Modello di prezzi  | Obbligatorio. Impostazione predefinita: frequenza fissa. Opzioni: frequenza fissa, per utente. |
+| Modello tariffario  | Obbligatorio. Impostazione predefinita: frequenza fissa. Opzioni: frequenza fissa, per utente. |
 | Numero minimo e massimo di postazioni  | Facoltativo, disponibile solo se è selezionato il modello di determinazione prezzi basato sul posto. |
 | Termine fatturazione  | Obbligatorio. Impostazione predefinita: mensile. Opzioni: mensile, annuale. |
 | Prezzo  | USD necessari al mese, se è stato selezionato un termine di fatturazione mensile; o USD all'anno se è stato selezionato un termine di fatturazione annuale. |
-| Pianificare i destinatari  | facoltativo. Impostazione predefinita: piano pubblico. Opzioni: pubblico, privato in base all'ID tenant |
+| Pianificare i destinatari  | Facoltativa. Impostazione predefinita: piano pubblico. Opzioni: pubblico, privato in base all'ID tenant |
 | Destinatari del piano limitato (ID tenant + Descrizione)  | Obbligatorio se è stato selezionato un piano privato. Min 1 e Max 10 ID tenant se immessi manualmente. Max 20000 se importazione file CSV. |
 
 ## <a name="test-drive-listing-page"></a>Pagina di elenco di test drive
@@ -151,7 +151,7 @@ Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire 
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
-| Descrizione  | Obbligatorio. |
+| Description  | Obbligatorio. |
 | Nome manuale utente + file  | Obbligatorio, massimo 1 doc. deve essere in formato PDF. |
 | Nome del video, URL + anteprima  | Facoltativo, consigliato. L'anteprima deve essere 533 x 324 in formato JPGP o PNG. Il video deve essere ospitato in YouTube o Vimeo. |
 
@@ -159,7 +159,7 @@ Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire 
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
-| Note per la certificazione  | facoltativo. |
+| Note per la certificazione  | Facoltativa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

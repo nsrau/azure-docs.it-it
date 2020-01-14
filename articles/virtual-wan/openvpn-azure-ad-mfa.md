@@ -1,18 +1,18 @@
 ---
 title: "Abilitare l'autenticazione a più fattori per gli utenti VPN: autenticazione Azure AD"
 description: Abilitare la funzionalità di autenticazione a più fattori per gli utenti VPN
-services: vpn-gateway
+services: virtual-wan
 author: anzaman
-ms.service: vpn-gateway
+ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: alzam
-ms.openlocfilehash: 3700014752233e29d157f1695906babe4fa35c74
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9329ac33a771c829b8d67670bc07d9a353c58ff1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74822773"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930586"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Abilitare Azure Multi-Factor Authentication (multi-factor authentication) per gli utenti VPN
 
@@ -28,7 +28,7 @@ Il prerequisito per questa configurazione è un tenant di Azure AD configurato u
 2. Passare a **Azure Active Directory-> tutti gli utenti**.
 3. Selezionare **multi-factor authentication** per aprire la pagina autenticazione a più fattori.
 
-   ![Accesso](./media/openvpn-azure-ad-mfa/mfa1.jpg)
+   ![Accedi](./media/openvpn-azure-ad-mfa/mfa1.jpg)
 
 ## <a name="users"></a>Seleziona utenti
 
@@ -52,7 +52,7 @@ Nella pagina **VPN di Azure-Proprietà** configurare le impostazioni di accesso.
 2. Impostare **assegnazione utente obbligatoria?** su **Sì** se si vuole limitare l'accesso solo agli utenti che dispongono delle autorizzazioni per la VPN di Azure.
 3. Salvare le modifiche.
 
-   ![autorizzazioni](./media/openvpn-azure-ad-mfa/user2.jpg)
+   ![Autorizzazioni](./media/openvpn-azure-ad-mfa/user2.jpg)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

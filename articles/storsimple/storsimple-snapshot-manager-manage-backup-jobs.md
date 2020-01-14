@@ -3,7 +3,7 @@ title: Operazioni di backup di StorSimple Snapshot Manager | Microsoft Docs
 description: Viene descritto come usare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire i processi di backup pianificati, attualmente in esecuzione e completati.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: c34ff487f03d90b16b6660fbad77c3a16699e165
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 094b996cd3227903995c7a74ef14ed8c0561f59d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719882"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933346"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usare StorSimple Snapshot Manager per visualizzare e gestire i processi di backup
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Nel nodo **Processi** del riquadro **Ambito** vengono mostrate le attività di backup **pianificate**, delle **ultime 24 ore** e **in esecuzione** avviate in modo interattivo o da un criterio configurato. 
 
-In questa esercitazione viene illustrato come usare il nodo **Processi** per visualizzare le informazioni sui processi di backup pianificati, recenti e attualmente in esecuzione. L'elenco dei processi e le informazioni corrispondenti vengono visualizzati nel riquadro **Risultati**. Inoltre, è possibile fare clic con il pulsante destro del mouse su un processo elencato e visualizzare un menu di scelta rapida in cui sono elencate le azioni disponibili.
+In questa esercitazione viene illustrato come usare il nodo **Processi** per visualizzare le informazioni sui processi di backup pianificati, recenti e attualmente in esecuzione. L'elenco dei processi e le informazioni corrispondenti vengono visualizzati nel riquadro **risultati** . È inoltre possibile fare clic con il pulsante destro del mouse su un processo elencato e visualizzare un menu di scelta rapida in cui sono elencate le azioni disponibili.
 
 ## <a name="view-scheduled-jobs"></a>Visualizzazione dei processi pianificati
 Utilizzare la procedura seguente per visualizzare i processi di backup pianificati.

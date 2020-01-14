@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/5/2019
+ms.date: 1/13/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397348"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932892"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso sulle metriche con un modello di Resource Manager
 
@@ -555,7 +555,12 @@ az group deployment create \
 
 Gli avvisi delle metriche più recenti supportano la creazione di avvisi in base a metriche multidimensionali e la specifica di più criteri. È possibile usare il modello seguente per creare una regola di avviso metrica più avanzata sulle metriche dimensionali e specificare più criteri.
 
-Si noti che quando la regola di avviso contiene più criteri, l'utilizzo delle dimensioni è limitato a un valore per dimensione all'interno di ogni criterio.
+Si notino i vincoli seguenti quando si usano le dimensioni in una regola di avviso che contiene più criteri:
+- È possibile selezionare un solo valore per dimensione all'interno di ogni criterio.
+- Non è possibile utilizzare "\*" come valore della dimensione.
+- Quando le metriche configurate in criteri diversi supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nei criteri pertinenti).
+    - Nell'esempio seguente, poiché le metriche **Transactions** e **SuccessE2ELatency** hanno una dimensione **nome API** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **nome API** , *Criterion2* deve anche impostare un valore *"GetBlob"* per la dimensione **nome API** .
+
 
 Salvare il codice JSON seguente come advancedstaticmetricalert.json ai fini di questa procedura dettagliata.
 
@@ -784,9 +789,6 @@ az group deployment create \
     --parameters @advancedstaticmetricalert.parameters.json
 ```
 
->[!NOTE]
->
-> Quando una regola di avviso contiene più criteri, l'utilizzo delle dimensioni è limitato a un valore per dimensione all'interno di ogni criterio.
 
 ## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Modello per un avviso di metrica statica che monitora più dimensioni
 

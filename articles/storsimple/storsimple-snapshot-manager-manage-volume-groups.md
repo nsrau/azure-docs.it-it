@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager gruppi di volume | Microsoft Docs
 description: Viene descritto come utilizzare lo snap-in MMC StorSimple Snapshot Manager per creare e gestire i gruppi di volumi.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699703"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931483"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 È possibile usare il nodo **Gruppi di volumi** nel riquadro **Ambito** per assegnare i volumi a gruppi di volumi, visualizzare le informazioni relative a un gruppo di volumi, pianificare i backup e modificare i gruppi di volumi.
 
 I gruppi di volumi sono pool di volumi correlati utilizzati per garantire che i backup siano coerenti con l'applicazione. Per altre informazioni, vedere [Volumi e gruppi di volumi](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) e [Integrazione con il servizio Copia Shadow del volume di Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
@@ -33,7 +33,7 @@ I gruppi di volumi sono pool di volumi correlati utilizzati per garantire che i 
 
 ![Nodo Gruppi di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figura 1: Nodo gruppi di volumi di StorSimple Snapshot Manager** 
+**Figura 1: Nodo Gruppi di volumi di StorSimple Snapshot Manager** 
 
 Questa esercitazione illustra come usare StorSimple Snapshot Manager per:
 
@@ -45,13 +45,13 @@ Questa esercitazione illustra come usare StorSimple Snapshot Manager per:
 
 Tutte queste azioni sono disponibili anche nel riquadro **Azioni** .
 
-## <a name="view-volume-groups"></a>Visualizzazione dei gruppi di volumi
+## <a name="view-volume-groups"></a>Visualizzare i gruppi di volumi
 Se si fa clic sul nodo **Gruppi di volumi**, nel riquadro **Risultati** vengono mostrate le informazioni seguenti su ciascun gruppo di volumi, a seconda delle colonne selezionate. Le colonne nel riquadro **Risultati** sono configurabili. Fare clic con il pulsante destro del mouse sul nodo **Volumi**, selezionare **Visualizza**, quindi scegliere **Aggiungi/Rimuovi colonne**.
 
-| Colonna risultati | Descrizione |
+| Colonna risultati | Description |
 |:--- |:--- |
-| NOME |La colonna **Nome** contiene il nome del gruppo di volumi. |
-| Applicazione |La colonna **Applicazioni** mostra il numero di writer del Servizio snapshot del volume attualmente installati e in esecuzione sull'host Windows. |
+| Nome |La colonna **Nome** contiene il nome del gruppo di volumi. |
+| Richiesta |La colonna **Applicazioni** mostra il numero di writer del Servizio snapshot del volume attualmente installati e in esecuzione sull'host Windows. |
 | Selezionato |La colonna **Selezionati** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
 | Importati |La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure e non è stato creato in StorSimple Snapshot Manager. |
 
@@ -77,12 +77,12 @@ Utilizzare la procedura seguente per creare un gruppo di volumi.
    1. Nella casella **Nome** digitare un nome univoco per il nuovo gruppo di volumi.
    2. Nella casella **Applicazioni** selezionare le applicazioni associate ai volumi che verranno aggiunte al gruppo di volumi.
       
-       Nella casella **Applicazioni** vengono elencate solo le applicazioni che usano volumi StorSimple e per le quali è abilitato il componente VSS writer. VSS writer è abilitato solo se tutti i volumi di cui è a conoscenza sono volumi StorSimple. Se la casella Applicazioni è vuota, non è stata installata alcuna applicazione che utilizza volumi StorSimple di Azure e che dispone di writer del Servizio snapshot del volume. (Attualmente, Azure StorSimple supporta Microsoft Exchange e SQL Server). Per altre informazioni sui writer del Servizio snapshot del volume, vedere [Integrazione con il servizio Copia Shadow del volume di Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+       Nella casella **Applicazioni** vengono elencate solo le applicazioni che usano volumi StorSimple e per le quali è abilitato il componente VSS writer. VSS writer è abilitato solo se tutti i volumi di cui è a conoscenza sono volumi StorSimple. Se la casella Applicazioni è vuota, non è stata installata alcuna applicazione che utilizza volumi StorSimple di Azure e che dispone di writer del Servizio snapshot del volume. Attualmente, Azure StorSimple supporta Microsoft Exchange e SQL Server. Per ulteriori informazioni sui writer VSS, vedere [integrazione con Windows servizio Copia Shadow del volume](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
       
        Se si seleziona un'applicazione, vengono selezionati automaticamente tutti i volumi associati ad essa. Viceversa, se si selezionano i volumi associati a un'applicazione specifica, l'applicazione viene automaticamente selezionata nella casella **Applicazioni** . 
    3. Nella casella **Volumi** selezionare i volumi StorSimple da aggiungere al gruppo di volumi. 
       
-      * È possibile includere volumi con una o più partizioni. (I volumi con più partizioni possono essere dischi dinamici o dischi di base con più partizioni.) Un volume che contiene più partizioni viene considerato come una singola unità. Di conseguenza, se si aggiunge solo una delle partizioni a un gruppo di volumi, tutte le altre partizioni vengono automaticamente aggiunte a tale gruppo contemporaneamente. Dopo aver aggiunto un volume con più partizioni a un gruppo di volumi, il volume con più partizioni continua a essere considerato come una singola unità.
+      * È possibile includere volumi con una o più partizioni. (Più volumi di partizione possono essere dischi dinamici o dischi di base con più partizioni). Un volume che contiene più partizioni viene considerato come una singola unità. Di conseguenza, se si aggiunge solo una delle partizioni a un gruppo di volumi, tutte le altre partizioni vengono automaticamente aggiunte a tale gruppo contemporaneamente. Dopo aver aggiunto un volume con più partizioni a un gruppo di volumi, il volume con più partizioni continua a essere considerato come una singola unità.
       * È possibile creare gruppi di volumi vuoti non assegnando alcun volume a essi. 
       * Non combinare volumi condivisi cluster (CSV) e volumi non condivisi cluster nello stesso gruppo di volumi. StorSimple Snapshot Manager non supporta una combinazione di volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot.
 4. Fare clic su **OK** per salvare il gruppo di volumi.
@@ -108,7 +108,7 @@ Utilizzare la procedura seguente per modificare un gruppo di volumi.
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 2. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**, fare clic con il pulsante destro del mouse sul nome di un gruppo di volumi, quindi fare clic su **Modifica**.
 3. Viene visualizzata la finestra di dialogo Crea un gruppo di volumi. È possibile modificare le voci **Nome**, **Applicazioni** e **Volumi**.
-4. Fare clic su **OK** per salvare le modifiche.
+4. Scegliere **OK** per salvare le modifiche.
 
 ## <a name="delete-a-volume-group"></a>Eliminare un gruppo di volumi
 Utilizzare la procedura seguente per eliminare un gruppo di volumi. 

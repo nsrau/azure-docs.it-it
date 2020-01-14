@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508112"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934744"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestire i cluster Apache Hadoop in HDInsight con .NET SDK
 
@@ -108,11 +108,8 @@ namespace HDInsightManagement
 
 Quando si esegue questo programma verrà visualizzato un prompt dei comandi.  Per non visualizzare il prompt dei comandi, vedere [Creare applicazioni .NET HDInsight di autenticazione non interattive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## <a name="create-clusters"></a>Creare i cluster
 
-Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-
-## <a name="list-clusters"></a>Elencare cluster
+## <a name="list-clusters"></a>Elencare i cluster
 
 Il frammento di codice seguente elenca i cluster e alcune proprietà:
 
@@ -135,7 +132,7 @@ _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
 _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
 ```
 
-## <a name="scale-clusters"></a>Ridimensionare i cluster
+## <a name="scale-clusters"></a>Scalare i cluster
 
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster in esecuzione in Azure HDInsight senza dover ricreare il cluster.
 
@@ -229,7 +226,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
-Questa operazione può essere eseguita anche tramite il portale. Visualizzare [gestire Apache cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md).
+Questa operazione può essere eseguita anche tramite il portale. Vedere [gestire i cluster Apache Hadoop in HDInsight usando il portale di Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Aggiornare le credenziali utente HTTP
 
@@ -267,7 +264,7 @@ Vedere [Usare Apache Oozie con Hadoop per definire ed eseguire un flusso di lavo
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
 
-Visualizzare [caricare i dati in HDInsight][hdinsight-upload-data].
+Vedere [caricare dati in HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Vedere anche
 

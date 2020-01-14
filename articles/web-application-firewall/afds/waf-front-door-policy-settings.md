@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f763ad9afd2238ebe63bf878882011eb3745df5c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517111"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932607"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Impostazioni dei criteri per il Web Application Firewall in Azure front door
 
@@ -26,11 +26,11 @@ Un criterio WAF per lo sportello anteriore può trovarsi in uno dei due stati se
 
 ## <a name="waf-mode"></a>Modalità WAF
 
-Il criterio WAF può essere configurato per l'esecuzione nelle due modalità seguenti:
+I criteri di WAF possono essere configurati per l'esecuzione nelle due modalità seguenti:
 
 - **Modalità di rilevamento** Quando viene eseguita in modalità di rilevamento, WAF non esegue alcuna azione diversa da monitoraggio e registrazione della richiesta e della relativa regola WAF corrispondente ai log di WAF. Abilitare la registrazione della diagnostica per lo sportello anteriore (quando si usa il portale, per ottenere questo risultato, passare alla sezione **diagnostica** nella portale di Azure).
 
-- **Modalità di prevenzione** Se configurato per l'esecuzione in modalità di prevenzione, WAF esegue l'azione specificata se una richiesta corrisponde a una regola. Tutte le richieste corrispondenti vengono registrate anche nei registri WAF.
+- **Modalità di prevenzione** Se configurato per l'esecuzione in modalità di prevenzione, WAF esegue l'azione specificata se una richiesta corrisponde a una regola. Tutte le richieste corrispondenti vengono anche registrate nei log di WAF.
 
 ## <a name="waf-response-for-blocked-requests"></a>Risposta WAF per le richieste bloccate
 
@@ -38,7 +38,7 @@ Per impostazione predefinita, quando WAF blocca una richiesta a causa di una reg
 
 È possibile definire un codice di stato della risposta personalizzato e un messaggio di risposta quando una richiesta viene bloccata da WAF. Sono supportati i codici di stato personalizzati seguenti:
 
-- 200 OK
+- 200    OK
 - 403 non consentito
 - 405 metodo non consentito
 - 406 non accettabile

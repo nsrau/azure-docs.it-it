@@ -1,19 +1,19 @@
 ---
 title: Come acquistare il software in AppSource | Azure Marketplace
 description: Passaggi per l'acquisto di un software in AppSource | Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827743"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933489"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Come acquistare il software in Microsoft AppSource
 
@@ -23,7 +23,7 @@ Microsoft [AppSource](https://appsource.microsoft.com/) consente ora ai clienti 
 
 Per acquistare offerte SaaS, è necessario:
 
-- Un account aziendale o dell'Istituto di istruzione.
+- Un account aziendale o dell'istituto di istruzione.
 
     > [!Note]
     > Se non si dispone di un account aziendale o dell'Istituto di istruzione, è necessario creare un Azure Active Directory tenant a cui è possibile aggiungere un account aziendale o dell'Istituto di istruzione. Per altre informazioni, vedere [Guida introduttiva: creare un nuovo tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
@@ -41,7 +41,7 @@ Per acquistare offerte SaaS, è necessario:
     > [!Note]
     > AppSource offre una selezione di app tra cui scegliere, incluse le sottoscrizioni gratuite, le versioni di valutazione e a pagamento. Questo articolo descrive il modo in cui è possibile acquistare le sottoscrizioni a pagamento tramite AppSource.
 
-1. Selezionare **Get it Now (Ottieni ora**).
+1. Selezionare **Scarica adesso**.
 1. Scegliere il piano:
 
     1. Imposta il numero di postazioni

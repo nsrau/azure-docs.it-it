@@ -2,18 +2,18 @@
 title: Connessione di MapReduce e SSH con Apache Hadoop-Azure HDInsight
 description: Informazioni su come usare SSH per eseguire processi MapReduce con Apache Hadoop in HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/10/2018
-ms.author: hrasheed
-ms.openlocfilehash: b4075de1a184896d598c11d09ae2b2bda5e257ed
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 01/10/2020
+ms.openlocfilehash: 543bc29adc85bd767de9479607d067fadf7b0078
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044517"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934708"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Usare MapReduce con Apache Hadoop in HDInsight con SSH
 
@@ -24,31 +24,17 @@ Informazioni su come inviare processi MapReduce da una connessione Secure Shell 
 > [!NOTE]
 > Se si ha già familiarità con l'uso di server Apache Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md).
 
-## <a id="prereq"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster HDInsight (Hadoop in HDInsight) basato su Linux.
+Un cluster Apache Hadoop in HDInsight. Vedere [creare cluster Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Un client SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+## <a name="use-hadoop-commands"></a>Usare i comandi Hadoop
 
-## <a id="ssh"></a>Connettersi con SSH
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
 
-Connettersi al cluster tramite SSH. Il comando seguente, ad esempio, stabilisce la connessione a un cluster denominato **myhdinsight** con l'account **sshuser**:
-
-```bash
-ssh sshuser@myhdinsight-ssh.azurehdinsight.net
-```
-
-**Se si usa una chiave del certificato per l'autenticazione SSH**, è possibile che sia necessario specificare il percorso della chiave privata nel sistema client, ad esempio:
-
-```bash
-ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
-```
-
-**Se si usa una password per l'autenticazione SSH**, è necessario fornire la password quando viene richiesta.
-
-Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-## <a id="hadoop"></a>Usare i comandi Hadoop
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
 1. Dopo essersi connessi al cluster HDInsight, usare il comando seguente per avviare un processo MapReduce:
 
@@ -61,14 +47,16 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
     > [!NOTE]
     > Per altre informazioni su questo processo MapReduce e per i dati di esempio, vedere [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md).
 
-2. Il processo genera dettagli durante l'elaborazione e, al termine, restituisce informazioni simili alle seguenti:
+    Il processo genera dettagli durante l'elaborazione e, al termine, restituisce informazioni simili alle seguenti:
 
-        File Input Format Counters
-        Bytes Read=1395666
-        File Output Format Counters
-        Bytes Written=337623
+    ```output
+    File Input Format Counters
+    Bytes Read=1395666
+    File Output Format Counters
+    Bytes Written=337623
+    ```
 
-3. Al termine del processo, usare il comando seguente per elencare i file di output:
+1. Al termine del processo, usare il comando seguente per elencare i file di output:
 
     ```bash
     hdfs dfs -ls /example/data/WordCountOutput
@@ -79,33 +67,27 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
     > [!NOTE]  
     > Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####** . In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
 
-4. Per visualizzare l'output, usare il seguente comando:
+1. Per visualizzare l'output, usare il seguente comando:
 
     ```bash
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Viene visualizzato un elenco di parole contenute nel file **wasb://example/data/gutenberg/davinci.txt** e il numero di occorrenze di ogni parola. Di seguito è riportato un esempio dei dati contenuti nel file:
+    Viene visualizzato un elenco di parole contenute nel file **wasbs://example/data/gutenberg/davinci.txt** e il numero di occorrenze di ogni parola. Di seguito è riportato un esempio dei dati contenuti nel file:
 
-        wreathed        3
-        wreathing       1
-        wreaths         1
-        wrecked         3
-        wrenching       1
-        wretched        6
-        wriggling       1
+    ```output
+    wreathed        3
+    wreathing       1
+    wreaths         1
+    wrecked         3
+    wrenching       1
+    wretched        6
+    wriggling       1
+    ```
 
-## <a id="summary"></a>Riepilogo
+## <a name="next-steps"></a>Passaggi successivi
 
-Come è possibile notare, i comandi Hadoop forniscono un modo semplice per eseguire processi MapReduce in un cluster HDInsight e visualizzare l'output del processo.
-
-## <a id="nextsteps"></a>Passaggi successivi
-
-Per informazioni generali sui processi MapReduce in HDInsight:
+Come è possibile notare, i comandi Hadoop forniscono un modo semplice per eseguire processi MapReduce in un cluster HDInsight e visualizzare l'output del processo. Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce in HDInsight Hadoop](hdinsight-use-mapreduce.md)
-
-Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
-
 * [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
-* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)

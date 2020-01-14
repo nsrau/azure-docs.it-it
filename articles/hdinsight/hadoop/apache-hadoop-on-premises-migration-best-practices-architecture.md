@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951531"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934681"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
 
@@ -30,7 +30,7 @@ I cluster Azure HDInsight sono progettati per un tipo specifico di utilizzo dell
 |Elaborazione batch (ETL / ELT)|Hadoop, Spark|
 |Data warehouse|Hadoop, Spark, Interactive Query|
 |IoT / Streaming|Kafka, Storm, Spark|
-|Elaborazione transazionale NoSQL|hbase|
+|Elaborazione transazionale NoSQL|HBase|
 |Query interattive e più veloci con la memorizzazione nella cache in memoria|Query interattiva|
 |Data science|ML Services, Spark|
 
@@ -39,13 +39,13 @@ La tabella seguente illustra i diversi metodi che possono essere usati per crear
 |Strumento|Basato su browser|Riga di comando|API REST|SDK|
 |---|---|---|---|---|
 |[Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
-|[Data Factory di Azure](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
+|[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Interfaccia della riga di comando di Azure versione 1.0](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
+|[.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
 |[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[SDK per Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Modelli di Gestione risorse di Azure](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 Per altre informazioni, vedere l'articolo [Tipi di cluster in HDInsight](../hadoop/apache-hadoop-introduction.md).
@@ -103,7 +103,7 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 - Eseguire periodicamente il backup del metastore personalizzato.
 - Mantenere il metastore e il cluster HDInsight nella stessa area.
 - Monitora il Metastore per le prestazioni e la disponibilità usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio portale di Azure o i log di monitoraggio di Azure.
-- Eseguire il comando `ANALYZE TABLE` come richiesto per generare statistiche per tabelle e colonne. Ad esempio `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Eseguire il comando `ANALYZE TABLE` come richiesto per generare statistiche per tabelle e colonne. Ad esempio: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 

@@ -1,19 +1,19 @@
 ---
 title: Fatturazione a consumo con il servizio di misurazione del Marketplace | Azure Marketplace
 description: Questa documentazione è una guida per gli ISV che pubblicano offerte SaaS con modelli di fatturazione flessibili.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f1b60831e08383ee455cd3afbfbc21ed27445ffc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827920"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934178"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Fatturazione a consumo con il servizio di misurazione del Marketplace
 
@@ -71,13 +71,13 @@ Le dimensioni di fatturazione vengono utilizzate per comunicare con il cliente i
 
 Le dimensioni di fatturazione vengono condivise tra tutti i piani per un'offerta.  Alcuni attributi si applicano alla dimensione in tutti i piani e altri attributi sono specifici del piano.
 
-Gli attributi che definiscono la dimensione sono condivisi tra tutti i piani per un'offerta.  Prima di pubblicare l'offerta, una modifica apportata a questi attributi dal contesto di qualsiasi piano influirà sulla definizione della dimensione in tutti i piani.  Dopo la pubblicazione dell'offerta, questi attributi non saranno più modificabili.  Questi attributi sono:
+Gli attributi che definiscono la dimensione sono condivisi tra tutti i piani per un'offerta.  Prima di pubblicare l'offerta, una modifica apportata a questi attributi dal contesto di qualsiasi piano influirà sulla definizione della dimensione in tutti i piani.  Dopo la pubblicazione dell'offerta, questi attributi non saranno più modificabili.  Gli attributi sono:
 
 * Identificatore
-* Name
+* Nome
 * Unità di misura
 
-Gli altri attributi di una dimensione sono specifici di ogni piano e possono avere valori diversi dal piano al piano.  Prima di pubblicare il piano è possibile modificare questi valori e solo questo piano sarà interessato.  Una volta pubblicato il piano, questi attributi non saranno più modificabili.  Questi attributi sono:
+Gli altri attributi di una dimensione sono specifici di ogni piano e possono avere valori diversi dal piano al piano.  Prima di pubblicare il piano è possibile modificare questi valori e solo questo piano sarà interessato.  Una volta pubblicato il piano, questi attributi non saranno più modificabili.  Gli attributi sono:
 
 * Prezzo per unità
 * Quantità inclusa per i clienti mensili 
@@ -104,7 +104,7 @@ Poiché una dimensione utilizzata con il servizio di misurazione del Marketplace
 Una volta pubblicata un'offerta con una dimensione, non è più possibile modificare i dettagli a livello di offerta per tale dimensione:
 
 * Identificatore
-* Name
+* Nome
 * Unità di misura
 
 Una volta pubblicato un piano, non è più possibile modificare i dettagli a livello di piano:
@@ -118,7 +118,7 @@ Una volta pubblicato un piano, non è più possibile modificare i dettagli a liv
 
 Il numero massimo di dimensioni che possono essere configurate per una singola offerta è 18 dimensioni univoche.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 Se si dispone di uno dei seguenti elementi, è possibile aprire un ticket di supporto.
 

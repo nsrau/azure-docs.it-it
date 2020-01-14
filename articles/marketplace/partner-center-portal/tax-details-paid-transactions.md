@@ -3,16 +3,16 @@ Description: Per capire le considerazioni fiscali per la scelta del prezzo, le i
 title: Dettagli imposta | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 7a358e2c284fa42bb09e8d4f93909e1310712967
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a5d11216b43a1361e4f8d108ce6d289e67e31e0a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980244"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933571"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Dettagli delle imposte per gli editori del Marketplace commerciale
 
@@ -34,7 +34,7 @@ Per comprendere le considerazioni fiscali per la selezione dei prezzi e la respo
 | Afghanistan                      | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |
 | Albania                          | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |
 | Algeria                          | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |
-| Isole Samoa americane                   | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |
+| Samoa americane                   | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |
 | Andorra                          | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |
 | Anguilla                         | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |
 | Angola                           | Il prezzo che hai selezionato è il prezzo di vendita finale e include le imposte previste.                                                                   | Prezzo-tariffa di archiviazione                 | Editore          |

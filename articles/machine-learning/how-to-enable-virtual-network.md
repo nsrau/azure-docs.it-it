@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/03/2020
-ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/13/2020
+ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894005"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934377"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
    - Archiviazione di Azure, usando un __tag di servizio__ di __archiviazione. Region_Name__ (ad esempio, storage. eastus)
    - Azure Container Registry, usando il __tag di servizio__ di __AzureContainerRegistry. Region_Name__ (ad esempio, AzureContainerRegistry. eastus)
    - Azure Machine Learning, usando il __tag di servizio__ di __AzureMachineLearning__
-   - Nel caso di un'istanza di calcolo, Azure cloud, usando il __tag di servizio__ di __AzureCloud. Region_Name__ (ad esempio, AzureCloud. NorthCentralUS)
+   - Nel caso di un'istanza di calcolo, Azure cloud, usando il __tag di servizio__ di __AzureResourceManager__
 
 La configurazione della regola NSG nel portale di Azure è illustrata nell'immagine seguente:
 
