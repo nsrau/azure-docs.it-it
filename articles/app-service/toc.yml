@@ -117,6 +117,8 @@
       items:
         - name: Distribuire l'app
           items:
+            - name: Eseguire dal pacchetto
+              href: deploy-run-package.md
             - name: Distribuire un file ZIP o WAR
               href: deploy-zip.md
             - name: Eseguire la distribuzione tramite FTP
