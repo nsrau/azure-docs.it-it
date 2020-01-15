@@ -57,7 +57,7 @@
     - name: Contenitori di Azure
       href: ../container-instances/container-instances-managed-identity.md
     - name: Modello di Azure Resource Manager
-      href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
+      href: ../azure-resource-manager/templates/key-vault-parameter.md
     - name: Configurare il controllo e la rotazione delle chiavi
       href: key-vault-key-rotation-log-monitoring.md
 - name: Esempi

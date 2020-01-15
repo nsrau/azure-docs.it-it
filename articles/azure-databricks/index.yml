@@ -11,12 +11,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/11/2019
-  ms.openlocfilehash: 3d82583617ac5ee2efc7f19bd937a01d557eb5ba
-  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+  ms.openlocfilehash: 94fa7495feff5199c3b64903ad94feceb20d55bc
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/05/2019
-  ms.locfileid: "73606052"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75971401"
 landingContent:
 - title: Informazioni su Azure Databricks
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
     links:
     - text: Introduzione ad Azure Databricks
       url: https://docs.microsoft.com/learn/modules/intro-to-azure-databricks
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:
@@ -83,7 +83,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Distribuire Azure Databricks nella rete virtuale
-      url: vnet-injection.md
+      url: https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
   - linkListType: tutorial
     links:
     - text: Eseguire query in un contenitore Docker di SQL Server Linux in una rete virtuale da un notebook di Azure Databricks
