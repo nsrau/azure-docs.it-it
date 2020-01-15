@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bd15e406cdbee57112ff8ecba158d503e908b73f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cab9d309d052acca493e112965c8477a325d8c88
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178024"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944745"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -30,7 +30,7 @@ Prima di creare un processo di importazione per trasferire dati in Archiviazione
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks). 
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems). 
 - Abilitare BitLocker nel sistema Windows. Vedere [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Come abilitare BitLocker).
-- [Scaricare WAImportExport versione 1](https://www.microsoft.com/download/details.aspx?id=42659) nel sistema Windows. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio `C:\WaImportExportV1`.
+- [Scaricare WAImportExport versione 1](https://www.microsoft.com/download/details.aspx?id=42659) nel sistema Windows. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
 - Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'`adbops@microsoft.com`.  
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
@@ -70,9 +70,9 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |/id:     |ID sessione. Usare un numero di sessione univoco per ogni istanza del comando.      |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
     |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di `manage-bde -protectors -get D:`      |
-    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio `D:\`.         |
+    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
-    |/BlobType     |Questa opzione specifica il tipo di BLOB in cui si vogliono importare i dati. Per i BLOB in blocchi, questo è `BlockBlob` e per i BLOB di pagine è `PagaBlob`.         |
+    |/blobtype:     |Questa opzione specifica il tipo di BLOB in cui si vogliono importare i dati. Per i BLOB in blocchi, questo è `BlockBlob` e per i BLOB di pagine è `PageBlob`.         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
     |/enablecontentmd5:     |Se abilitata, l'opzione garantisce che MD5 venga calcolato e impostato come `Content-md5` proprietà in ogni BLOB. Usare questa opzione solo se si vuole usare il campo `Content-md5` dopo che i dati sono stati caricati in Azure. <br> Questa opzione non influisce sul controllo di integrità dei dati (che si verifica per impostazione predefinita). L'impostazione aumenta il tempo impiegato per caricare i dati nel cloud.          |
 7. Ripetere il passaggio precedente per ogni disco che deve essere spedito. Viene creato un file journal con il nome specificato per ogni esecuzione della riga di comando.

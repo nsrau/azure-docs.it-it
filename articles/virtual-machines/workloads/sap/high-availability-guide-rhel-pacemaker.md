@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: ee67c811835d99bf2f4c00dc59b43e29f63c81d6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 9ccbd67348a8dae7391471ccd1dcc1ba9b135ea2
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533822"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941834"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -88,7 +88,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Si noti che se si connette un pool a un'immagine RHEL di Azure Marketplace PAYG, l'uso di RHEL verrà fatturato in modo efficace: una volta per l'immagine PAYG e una volta per il diritto RHEL nel pool collegato. Per attenuare questo problema, Azure offre ora immagini RHEL BYOS. Altre informazioni sono disponibili [qui](https://aka.ms/rhel-byos).
+   Si noti che se si connette un pool a un'immagine RHEL di Azure Marketplace PAYG, l'uso di RHEL verrà fatturato in modo efficace: una volta per l'immagine PAYG e una volta per il diritto RHEL nel pool collegato. Per attenuare questo problema, Azure offre ora immagini RHEL BYOS. Altre informazioni sono disponibili [qui](../redhat/byos.md).
 
 1. **[A]** Abilitare RHEL per i repository SAP
 
@@ -250,7 +250,7 @@ Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" 
 1. Fare clic su Aggiungi assegnazione ruolo
 1. Selezionare il ruolo "Linux Fence Agent Role".
 1. Immettere il nome dell'applicazione creata in precedenza
-1. Fare clic su Salva.
+1. Fai clic su Salva.
 
 Ripetere la procedura precedente per il secondo nodo del cluster.
 

@@ -1,18 +1,16 @@
 ---
 title: Domande comuni sul ripristino di emergenza delle macchine virtuali di Azure con Azure Site Recovery
-description: Questo articolo risponde a domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando Azure Site Recovery
-author: carmonmills
+description: Questo articolo risponde a domande comuni sul ripristino di emergenza delle macchine virtuali di Azure con Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: carmonm
-ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8ed5df15b8ae8e9836c5b8ac8e7d6ad0111f63e1
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929909"
+ms.locfileid: "75941887"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande comuni: ripristino di emergenza da Azure ad Azure
 

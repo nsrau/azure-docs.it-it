@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: ef3d56b4ec7e4dbe5f6f4097fdd5d8d125b074dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 73ac1a6ffd5fc2b2d52f169e1e0332044638f9f7
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932297"
+ms.locfileid: "75942086"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di pre-migrazione per la migrazione dei dati da MongoDB all'API di Azure Cosmos DB per MongoDB
 
@@ -24,15 +24,19 @@ Prima di eseguire la migrazione dei dati da MongoDB (in locale o nel cloud) a Az
 4. [Scegliere una chiave di partizione ottimale per i dati](#partitioning)
 5. [Informazioni sui criteri di indicizzazione che è possibile impostare sui dati](#indexing)
 
-Se sono già stati completati i prerequisiti precedenti per la migrazione, è possibile [eseguire la migrazione dei dati di MongoDB all'API di Azure Cosmos DB per MongoDB usando il servizio migrazione del database di Azure](../dms/tutorial-mongodb-cosmos-db.md). Inoltre, se non è stato creato un account, è possibile esplorare tutte le [guide introduttive](create-mongodb-dotnet.md).
+Se sono già stati completati i prerequisiti precedenti per la migrazione, è possibile [eseguire la migrazione dei dati di MongoDB all'API di Azure Cosmos DB per MongoDB usando il servizio migrazione del database di Azure](../dms/tutorial-mongodb-cosmos-db.md). Inoltre, se non è stato creato un account, è possibile esplorare tutte le [guide introduttive](create-mongodb-dotnet.md) che illustrano i passaggi per la creazione di un account.
 
-## <a id="considerations"></a>Considerazioni principali sull'uso dell'API di Azure Cosmos DB per MongoDB
+## <a id="considerations"></a>Considerazioni sull'uso dell'API di Azure Cosmos DB per MongoDB
 
 Di seguito sono riportate alcune caratteristiche specifiche sull'API Azure Cosmos DB per MongoDB:
+
 - **Modello di capacità**: la capacità del Database in Azure Cosmos DB si basa su un modello basato sulla velocità effettiva. Questo modello è basato su [unità richiesta al secondo](request-units.md), ovvero un'unità che rappresenta il numero di operazioni di database che possono essere eseguite su una raccolta in base al secondo. Questa capacità può essere allocata a [livello di database o di raccolta](set-throughput.md)ed è possibile eseguirne il provisioning in un modello di allocazione o utilizzando il [modello Autopilot](provision-throughput-autopilot.md).
-- **Unità richiesta**: a ogni operazione di database è associato un costo delle unità richiesta (UR) in Azure Cosmos DB. Quando viene eseguito, questo viene sottratto dal livello delle unità richiesta disponibili su un determinato secondo. Se per una richiesta sono richieste più unità richiesta rispetto a quelle attualmente allocate, le due opzioni aumentano la quantità di ur o attendono fino al successivo avvio, quindi riprovare a eseguire l'operazione.
+
+- **Unità richiesta**: a ogni operazione di database è associato un costo delle unità richiesta (UR) in Azure Cosmos DB. Quando viene eseguito, questo viene sottratto dal livello delle unità richiesta disponibili su un determinato secondo. Se per una richiesta sono necessarie più ur rispetto alle UR/sec attualmente allocate, sono disponibili due opzioni per risolvere il problema, aumentare la quantità di ur o attendere il successivo avvio del secondo, quindi ripetere l'operazione.
+
 - **Capacità elastica**: la capacità di una raccolta o di un database specifico può cambiare in qualsiasi momento. Ciò consente al database di adattarsi in modo elastico ai requisiti di velocità effettiva del carico di lavoro.
-- Partizionamento **orizzontale automatico**: Azure Cosmos DB fornisce un sistema di partizionamento automatico che richiede solo una chiave di partizione (o partizionamento). Il [meccanismo di partizionamento automatico](partition-data.md) è condiviso tra tutte le API Azure Cosmos DB e consente di eseguire facilmente i dati e la scalabilità tramite la distribuzione orizzontale.
+
+- Partizionamento **orizzontale automatico**: Azure Cosmos DB fornisce un sistema di partizionamento automatico che richiede solo una partizione o una chiave di partizione. Il [meccanismo di partizionamento automatico](partition-data.md) è condiviso tra tutte le API Azure Cosmos DB e consente di eseguire facilmente i dati e la scalabilità tramite la distribuzione orizzontale.
 
 ## <a id="options"></a>Opzioni di migrazione per l'API di Azure Cosmos DB per MongoDB
 
@@ -54,7 +58,9 @@ In Azure Cosmos DB, il provisioning della velocità effettiva viene eseguito in 
 
 Di seguito sono riportati i fattori chiave che influiscono sul numero di ur richieste:
 - **Dimensioni del documento**: con l'aumentare delle dimensioni di un elemento o di un documento, aumenta anche il numero di ur utilizzate per la lettura o la scrittura dell'elemento o del documento.
+
 - **Conteggio proprietà documento**: il numero di ur utilizzate per creare o aggiornare un documento è correlato al numero, alla complessità e alla lunghezza delle relative proprietà. È possibile ridurre il consumo delle unità richiesta per le operazioni di scrittura [limitando il numero di proprietà indicizzate](mongodb-indexing.md).
+
 - **Modelli di query**: la complessità di una query influiscono sul numero di unità richiesta utilizzate dalla query. 
 
 Il modo migliore per comprendere il costo delle query consiste nell'usare i dati di esempio in Azure Cosmos DB [ed eseguire query di esempio dalla shell di MongoDB](connect-mongodb-account.md) usando il comando `getLastRequestStastistics` per ottenere l'addebito della richiesta, che restituirà il numero di ur utilizzate:

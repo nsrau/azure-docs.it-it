@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 01/13/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: cf79911c24998c3d00937937cce5c68bbb564f1e
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 97ee10e0b286f1b007f2e807351301f2037d1754
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751571"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942731"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete: Azure Resource Manager si applicano i limiti seguenti solo per le risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -65,12 +65,11 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Servizi di bilanciamento del carico                          | 1\.000                         |
 | Regole per risorsa                      | 1\.500                         |
 | Regole per NIC (in tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                           |
-| Configurazioni IP front-end             | 600                           |
-| Dimensioni del pool back-end                          | 1\.000 istanze, rete virtuale singola |
-| Risorse back-end per ogni servizio di bilanciamento del carico<sup>1<sup>   | 150                 |
-| Porte a disponibilità elevata                 | 1 per front-end interno      |
+| Configurazioni IP front-end              | 600                           |
+| Dimensioni del pool back-end                       | 1\.000 configurazioni IP, rete virtuale singola |
+| Porte a disponibilità elevata                 | 1 per front-end interno       |
+| Regole in uscita per Load Balancer         | 20                            |
 
-<sup>1</sup> Il limite è fino a 150 risorse, in qualsiasi combinazione di risorse autonome della macchina virtuale, risorse dei set di disponibilità e risorse del set di scalabilità di macchine virtuali.
 
 **Load Balancer di base**
 
@@ -79,8 +78,9 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Servizi di bilanciamento del carico                          | 1\.000                        |
 | Regole per risorsa                      | 250                          |
 | Regole per NIC (in tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                          |
-| Configurazioni IP front-end             | 200                          |
-| Dimensioni del pool back-end                           | 100 istanze, set di disponibilità singolo |
+| Configurazioni IP front-end              | 200                          |
+| Dimensioni del pool back-end                       | 300 configurazioni IP, set di disponibilità singolo |
+| Set di disponibilità per ogni Load Balancer     | 150                          |
 
 #### <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo alle risorse di rete gestite tramite il modello di distribuzione **classica** per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 

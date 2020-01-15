@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895330"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945442"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura
 
@@ -99,7 +99,7 @@ Esistono molti modi per gestire le richieste di aggiornamento durante l'esecuzio
 
 ## <a name="handling-retries"></a>Gestione dei tentativi
 
-La libreria client di archiviazione di Azure consente di determinare quali errori possono essere ripetuti. Ad esempio, è possibile ritentare un errore 404 (risorsa non trovata) perché non è probabile che venga eseguito un nuovo tentativo. D'altra parte, non è possibile ritentare un errore 500 perché si tratta di un errore del server e potrebbe essere semplicemente un problema temporaneo. Per altri dettagli, vedere il [codice open source per la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) nella libreria client di archiviazione .NET. Cercare il metodo ShouldRetry.
+La libreria client di archiviazione di Azure consente di determinare quali errori possono essere ripetuti. Un errore 404 (risorsa non trovata), ad esempio, non verrebbe ritentato perché non è probabile che venga eseguito un nuovo tentativo. D'altra parte, è possibile ritentare un errore 500 perché si tratta di un errore del server e il problema potrebbe essere semplicemente un problema temporaneo. Per altri dettagli, vedere il [codice open source per la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) nella libreria client di archiviazione .NET. Cercare il metodo ShouldRetry.
 
 ### <a name="read-requests"></a>Richieste di lettura
 
@@ -149,7 +149,7 @@ La soglia degli errori usata per determinare quando passare alla modalità di so
 
 Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativi nell'area primaria per determinare quando passare all'area secondaria e attivare la modalità di sola lettura per l'applicazione.
 
-* Aggiungere un gestore per l'evento [**Retrying** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
+* Aggiungere un gestore per l'evento [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) nell'oggetto [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -200,12 +200,12 @@ L'archiviazione con ridondanza geografica funziona replicando le transazioni dal
 
 Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi quando si aggiornano i dettagli di un dipendente per impostarli come membri del ruolo di *amministratore* . Ai fini di questo esempio è necessario aggiornare l'entità **employee** e aggiornare un'entità **administrator role** con un conteggio del numero totale di amministratori. Si noti il modo in cui gli aggiornamenti vengono applicati in un ordine diverso nell'area secondaria.
 
-| **Ora** | **Transazione**                                            | **Replica**                       | **Ora ultima sincronizzazione** | **Risultato** |
+| **Time** | **Transazione**                                            | **Replica**                       | **Ora ultima sincronizzazione** | **Risultato** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
-| T2       | Transazione B:<br>Aggiornare<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
-| T3       | Transazione C:<br> Aggiornare <br>administrator<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
+| T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
+| T3       | Transazione C:<br> Aggiornamento <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
 | *T6*     |                                                      | Transazione B<br> replicata<br> nell'area secondaria | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |

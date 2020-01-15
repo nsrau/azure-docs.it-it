@@ -8,22 +8,26 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: cfa8db0d00f351f5ab2bda96744305ca83cccb19
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 2664b1abd4131cf1dca186c7b044e338bf1efa84
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922464"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945831"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search-preview"></a>Creare un endpoint privato per una connessione sicura al ricerca cognitiva di Azure (anteprima)
 
-Gli [endpoint privati](../private-link/private-endpoint-overview.md) per Azure ricerca cognitiva consentono a un client in una rete virtuale di accedere in modo sicuro ai dati in un indice di ricerca tramite un [collegamento privato](../private-link/private-link-overview.md). L'endpoint privato usa un indirizzo IP dello [spazio di indirizzi della rete virtuale](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) per il servizio di ricerca. Il traffico di rete tra il client e il servizio di ricerca attraversa la rete virtuale e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Per un elenco di altri servizi PaaS che supportano il collegamento privato, vedere la sezione relativa alla [disponibilità](../private-link/private-link-overview.md#availability) nella documentazione del prodotto.
+In questo articolo viene usato il portale per creare una nuova istanza del servizio ricerca cognitiva di Azure a cui non è possibile accedere tramite un indirizzo IP pubblico. Configurare quindi una macchina virtuale di Azure nella stessa rete virtuale e usarla per accedere al servizio di ricerca tramite un endpoint privato.
 
 > [!Important]
-> Il supporto per gli endpoint privati per ricerca cognitiva di Azure è disponibile come anteprima con accesso limitato e non è attualmente progettato per l'uso in produzione. Per accedere all'anteprima, compilare e inviare il [modulo di richiesta di accesso](https://aka.ms/SearchPrivateLinkRequestAccess) . Il modulo richiede le informazioni relative all'utente, alla propria azienda e all'architettura generale dell'applicazione. Una volta esaminata la richiesta, si riceverà un messaggio di posta elettronica di conferma con istruzioni aggiuntive.
+> Il supporto per endpoint privati per Azure ricerca cognitiva è disponibile [su richiesta](https://aka.ms/SearchPrivateLinkRequestAccess) come anteprima con accesso limitato. Le funzionalità di anteprima vengono fornite senza un contratto di servizio e non sono consigliate per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 >
-> Una volta ottenuto l'accesso all'anteprima, sarà possibile configurare endpoint privati per il servizio usando l'API REST e la portale di Azure versione [2019-10-06-Preview](search-api-preview.md).
+> Una volta ottenuto l'accesso all'anteprima, sarà possibile configurare endpoint privati per il servizio usando il portale di Azure o l' [API REST di gestione versione 2019-10-06-Preview](https://docs.microsoft.com/rest/api/searchmanagement/).
 >   
+
+## <a name="why-use-private-endpoint-for-secure-access"></a>Perché usare endpoint privato per l'accesso sicuro?
+
+Gli [endpoint privati](../private-link/private-endpoint-overview.md) per Azure ricerca cognitiva consentono a un client in una rete virtuale di accedere in modo sicuro ai dati in un indice di ricerca tramite un [collegamento privato](../private-link/private-link-overview.md). L'endpoint privato usa un indirizzo IP dello [spazio di indirizzi della rete virtuale](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) per il servizio di ricerca. Il traffico di rete tra il client e il servizio di ricerca attraversa la rete virtuale e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Per un elenco di altri servizi PaaS che supportano il collegamento privato, vedere la sezione relativa alla [disponibilità](../private-link/private-link-overview.md#availability) nella documentazione del prodotto.
 
 Gli endpoint privati per il servizio di ricerca consentono di:
 
@@ -36,16 +40,18 @@ Gli endpoint privati per il servizio di ricerca consentono di:
 > * Disponibile solo per i servizi di ricerca per il livello **Basic** . 
 > * Disponibile nelle aree Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti centro-meridionali, Australia orientale e Australia sudorientale.
 > * Quando l'endpoint del servizio è privato, alcune funzionalità del portale sono disabilitate. Sarà possibile visualizzare e gestire le informazioni sul livello di servizio, ma l'accesso al portale per i dati di indicizzazione e i vari componenti del servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza.
-> * Quando l'endpoint del servizio è privato, è necessario usare l'API di ricerca per caricare i documenti nell'indice.
+> * Quando l'endpoint del servizio è privato, è necessario usare l' [API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/) per caricare i documenti nell'indice.
 > * È necessario usare il collegamento seguente per visualizzare l'opzione di supporto dell'endpoint privato nella portale di Azure: https://portal.azure.com/?feature.enablePrivateEndpoints=true
 
-In questo articolo si apprenderà come usare il portale per creare una nuova istanza del servizio ricerca cognitiva di Azure a cui non è possibile accedere tramite un indirizzo IP pubblico, configurare una macchina virtuale di Azure nella stessa rete virtuale e usarla per accedere al servizio di ricerca tramite una privata endpoint.
 
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="request-access"></a>Richiedere l'accesso 
+
+Fare clic su [Richiedi accesso](https://aka.ms/SearchPrivateLinkRequestAccess) per iscriversi a questa funzionalità in anteprima. Il modulo richiede le informazioni relative all'utente, alla società e alla topologia di rete generale. Una volta esaminata la richiesta, si riceverà un messaggio di posta elettronica di conferma con istruzioni aggiuntive.
+
+## <a name="create-the-virtual-network"></a>Creare la rete virtuale
+
 In questa sezione si creeranno una rete virtuale e una subnet per ospitare la macchina virtuale che verrà usata per accedere all'endpoint privato del servizio di ricerca.
-
-### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
 1. Nella scheda Home portale di Azure selezionare **Crea una risorsa** ** > rete** **rete virtuale** > .
 
@@ -65,7 +71,7 @@ In questa sezione si creeranno una rete virtuale e una subnet per ospitare la ma
 1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 
-## <a name="create-your-search-service-with-a-private-endpoint"></a>Creare il servizio di ricerca con un endpoint privato
+## <a name="create-a-search-service-with-a-private-endpoint"></a>Creare un servizio di ricerca con un endpoint privato
 
 In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un endpoint privato. 
 
@@ -119,9 +125,9 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 
 1. Selezionare **chiavi** dal menu contenuto a sinistra.
 
-1. Copiare la **chiave di amministrazione primaria** per un momento successivo.
+1. Copiare la **chiave di amministrazione primaria** per un momento successivo, quando ci si connette al servizio.
 
-### <a name="create-a-virtual-machine"></a>Crea una macchina virtuale
+## <a name="create-a-virtual-machine"></a>Crea una macchina virtuale
 
 1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**.
 
@@ -170,9 +176,9 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
 
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
+## <a name="connect-to-the-vm"></a>Connettersi alla VM
 
-Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
+Scaricare e connettersi alla macchina virtuale *myVm* come segue:
 
 1. Nella barra di ricerca del portale immettere *myVm*.
 
@@ -196,9 +202,11 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
 
-## <a name="access-the-search-service-privately-from-the-vm"></a>Accedere al servizio di ricerca privatamente dalla macchina virtuale
+## <a name="test-connections"></a>Testare le connessioni
 
 In questa sezione si verificherà l'accesso alla rete privata al servizio di ricerca e si effettuerà la connessione privata a usando l'endpoint privato.
+
+Tenere presente che tutte le interazioni con il servizio di ricerca richiedono l' [API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/). Il portale e .NET SDK non sono supportati in questa versione di anteprima.
 
 1. Nel desktop remoto di  *myVM* aprire PowerShell.
 
@@ -213,14 +221,14 @@ In questa sezione si verificherà l'accesso alla rete privata al servizio di ric
     Address:  10.0.0.5
     Aliases:  [search service name].search.windows.net
     ```
-1. Seguire questa [Guida introduttiva](search-get-started-postman.md) dalla macchina virtuale per creare un nuovo indice di ricerca nel servizio in un post usando l'API REST.  Usare la chiave copiata in un passaggio precedente per autenticare il servizio.
 
-1. Provare diverse richieste in Posting nella workstation locale.
+1. Dalla macchina virtuale connettersi al servizio di ricerca e creare un indice. È possibile seguire questa [Guida introduttiva](search-get-started-postman.md) per creare un nuovo indice di ricerca nel servizio in un post con l'API REST. Per la configurazione delle richieste da posting è necessario l'endpoint del servizio di ricerca (https://[nome del servizio di ricerca]. search. Windows. NET) e la chiave API di amministrazione copiata in un passaggio precedente.
 
-1. Se è possibile completare la Guida introduttiva dalla VM, ma viene visualizzato un errore che segnala che il server remoto non esiste nella workstation locale, è stato configurato correttamente un endpoint privato per il servizio di ricerca.
+1. Per completare la Guida introduttiva dalla macchina virtuale, è consigliabile confermare che il servizio è completamente operativo.
 
 1. Chiudere la connessione Desktop remoto a *myVM*. 
 
+1. Per verificare che il servizio non sia accessibile in un endpoint pubblico, aprire il post nella workstation locale e provare le prime attività nella Guida introduttiva. Se viene visualizzato un errore che segnala che il server remoto non esiste, è stato configurato correttamente un endpoint privato per il servizio di ricerca.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, il servizio di ricerca e la macchina virtuale:

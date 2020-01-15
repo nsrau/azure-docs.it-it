@@ -5,14 +5,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 01/13/2018
 ms.author: charwen
-ms.openlocfilehash: b14b8a9a2bc43c33095bf07e7fb7ebcc2d6c1ffa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9f32eb439872de9e4687d046745c03bafd86b2fa
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769524"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941746"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Reimpostare i peering del circuito ExpressRoute
 
@@ -20,7 +20,7 @@ Questo articolo descrive come abilitare e disabilitare i peering di un circuito 
 
 La reimpostazione dei peering ExpressRoute può essere utile in un paio di scenari.
 * Esecuzione di test della progettazione e dell'implementazione del ripristino di emergenza. Ad esempio, sono presenti due circuiti ExpressRoute. È possibile disabilitare i peering di un circuito e forzare il failover del traffico di rete nell'altro circuito.
-* Abilitazione del rilevamento dell'inoltro bidirezionale nel peering privato di Azure del circuito ExpressRoute. Il rilevamento dell'inoltro bidirezionale è abilitato per impostazione predefinita se il circuito ExpressRoute è stato creato dopo il 1° agosto 2018. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. Tenere presente che il rilevamento dell'inoltro bidirezionale è supportato solo nel peering privato di Azure.
+* Abilitare il rilevamento di inoltri bidirezionali (BFD) nel peering privato di Azure o nel peering Microsoft del circuito ExpressRoute. BFD è abilitato per impostazione predefinita nel peering privato di Azure se il circuito ExpressRoute viene creato dopo il 1 2018 agosto e nel peering Microsoft se il circuito ExpressRoute è stato creato dopo il gennaio 10 2020. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. 
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 

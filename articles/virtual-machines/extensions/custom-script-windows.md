@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9fe0875f34745b0b5b8b1b7e8b352116b6cbf997
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073830"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941915"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -23,7 +23,7 @@ L'estensione script personalizzata scarica ed esegue script sulle macchine virtu
 
 Questo documento descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 > [!NOTE]  
 > Non usare l'estensione script personalizzata per eseguire Update-AzVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
@@ -42,7 +42,7 @@ Se è necessario scaricare uno script esternamente, ad esempio da GitHub o da ar
 
 Se lo script si trova in un server locale, potrebbe essere necessario aprire altre porte del gruppo di sicurezza di rete e del firewall.
 
-### <a name="tips-and-tricks"></a>Suggerimenti e consigli
+### <a name="tips-and-tricks"></a>suggerimenti e consigli
 
 * Il tasso di errore più elevato per questa estensione è dovuto a errori di sintassi nello script, testare l'esecuzione dello script senza errori e anche inserire altre attività di accesso nello script per semplificare la ricerca della posizione in cui si è verificato l'errore.
 * Scrivere script idempotente. In questo modo si garantisce che, in caso di esecuzione accidentale, non provocherà modifiche al sistema.
@@ -63,7 +63,7 @@ La configurazione dell'estensione script personalizzata specifica informazioni c
 
 I dati sensibili possono essere archiviati in una configurazione protetta, che viene crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password.
 
-Questi elementi devono essere trattati come dati sensibili ed essere specificati nella configurazione protetta dell'estensione. I dati della configurazione protetta dell'estensione macchina virtuale di Azure sono crittografati e vengono decrittografati solo nella macchina virtuale di destinazione.
+Questi elementi devono essere trattati come dati sensibili ed essere specificati nella configurazione protetta dell'estensione. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione.
 
 ```json
 {
@@ -81,7 +81,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -92,11 +92,15 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
+
+> [!NOTE]
+> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
 
 > [!NOTE]
 > È possibile installare una sola versione di un'estensione in una macchina virtuale in un momento specifico. la specifica di uno script personalizzato due volte nello stesso modello di Gestione risorse per la stessa macchina virtuale avrà esito negativo.
@@ -108,15 +112,16 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 | Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | stringa |
-| type | CustomScriptExtension | stringa |
-| typeHandlerVersion | 1.9 | int |
+| apiVersion | 2015-06-15 | Data |
+| publisher | Microsoft.Compute | string |
+| type | CustomScriptExtension | string |
+| typeHandlerVersion | 1,10 | int |
 | fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
-| timestamp  (esempio) | 123456789 | valore integer a 32 bit |
-| commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | stringa |
-| storageAccountName (es.) | examplestorageacct | stringa |
-| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
+| timestamp  (esempio) | 123456789 | Intero a 32 bit |
+| commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| storageAccountName (es.) | examplestorageacct | string |
+| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| managedIdentity (ad esempio) | {} o {"ClientID": "31b403aa-C364-4240-a7ff-d85fb6cd7232"} o {"objectId": "12dd289c-0583-46e5-B9B4-115d5c19ef4b"} | JSON (oggetto) |
 
 >[!NOTE]
 >Questi nomi di proprietà fanno distinzione tra maiuscole e minuscole. Per evitare problemi nella distribuzione, usare i nomi come indicato di seguito.
@@ -128,6 +133,9 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 * `timestamp` (facoltativo, valore integer a 32 bit) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.  Qualsiasi valore intero è accettabile, purché sia diverso dal valore precedente.
 * `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di `fileUris` devono essere URL relativi a BLOB di Azure.
 * `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
+* `managedIdentity`: (facoltativo, oggetto JSON) [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file
+  * `clientId`: (facoltativo, stringa) ID client dell'identità gestita
+  * `objectId`: (facoltativo, stringa) ID oggetto dell'identità gestita
 
 I valori seguenti possono essere configurati in impostazioni pubbliche o protette. L'estensione rifiuterà qualsiasi configurazione in cui i valori riportati di seguito sono specificati sia nelle impostazioni pubbliche che in quelle protette.
 
@@ -136,6 +144,46 @@ I valori seguenti possono essere configurati in impostazioni pubbliche o protett
 L'uso delle impostazioni pubbliche può risultare utile per il debug, ma è consigliabile usare le impostazioni protette.
 
 Le impostazioni pubbliche vengono inviate in testo non crittografato alla macchina virtuale in cui verrà eseguito lo script.  Le impostazioni protette vengono crittografate usando una chiave nota solo alla macchina virtuale e ad Azure. Le impostazioni vengono salvate nella macchina virtuale così come sono state inviate, ovvero se le impostazioni sono state crittografate, vengono salvate crittografate nella macchina virtuale. Il certificato usato per decrittografare i valori crittografati è archiviato nella macchina virtuale e viene usato per decrittografare le impostazioni (se necessario) in fase di esecuzione.
+
+####  <a name="property-managedidentity"></a>Proprietà: managedIdentity
+
+CustomScript (versione 1.10.4) supporta il controllo degli accessi in base al ruolo basato su [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB/contenitori privati di archiviazione di Azure senza che l'utente debba passare segreti come i token SAS o le chiavi dell'account di archiviazione.
+
+Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+Per usare l'identità assegnata dal sistema nella macchina virtuale di destinazione/VMSS, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
+
+> Esempio:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+Per usare l'identità assegnata dall'utente nella macchina virtuale/VMSS di destinazione, configurare il campo "managedidentity" con l'ID client o l'ID oggetto dell'identità gestita.
+
+> Esempi:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -181,7 +229,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -199,7 +247,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```
@@ -225,7 +273,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 Per distribuire l'estensione di script personalizzati nelle VM classiche, è possibile usare i cmdlet di portale di Azure o i Azure PowerShell classici.
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 Passare alla risorsa della macchina virtuale classica. Selezionare **estensioni** in **Impostazioni**.
 
@@ -296,4 +344,4 @@ Le informazioni sul percorso dopo il primo segmento URI vengono mantenute per i 
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). È anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). È anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
