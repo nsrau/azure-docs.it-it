@@ -255,9 +255,6 @@
     - name: Utente di Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: Facilità di supporto
-      tocHref: /azure/azure-portal/supportability/
-      topicHref: /azure/azure-portal/supportability/
     - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
@@ -627,7 +624,7 @@
     - name: Rete
       tocHref: /azure/networking/
       topicHref: /azure/networking/networking-overview
-    - name: Notebooks
+    - name: Notebook
       tocHref: /azure/notebooks/
       topicHref: /azure/notebooks/azure-notebooks-overview
     - name: Hub di notifica

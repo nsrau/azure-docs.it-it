@@ -630,8 +630,6 @@
           href: sql-database-advisor-portal.md
         - name: Creare avvisi
           href: sql-database-insights-alerts-portal.md
-        - name: Risolvere i problemi di connettività
-          href: sql-database-troubleshoot-common-connection-issues.md
         - name: Gestire lo spazio file
           href: sql-database-file-space-management.md
         - name: Usare Integrità risorse per i problemi di connettività
@@ -799,7 +797,7 @@
           href: sql-database-resource-manager-samples.md?tabs=managed-instance
         - name: Esempi di codice
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/sql
