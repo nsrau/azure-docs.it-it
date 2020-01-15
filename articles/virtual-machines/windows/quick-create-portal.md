@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 1. Digitare **macchine virtuali** nella casella di ricerca.
 1. In **Servizi** selezionare **Macchine virtuali**.

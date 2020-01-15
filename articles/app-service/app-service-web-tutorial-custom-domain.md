@@ -192,7 +192,7 @@ Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla t
 
 | Tipo di record | Host | Valore |
 | - | - | - |
-| Una | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
+| A | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
@@ -200,7 +200,7 @@ Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla t
 >
 > | Tipo di record | Host | Valore |
 > | - | - | - |
-> | Una | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
+> | A | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 
