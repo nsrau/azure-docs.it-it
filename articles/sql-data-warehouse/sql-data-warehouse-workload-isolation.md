@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/27/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cd1d57643f9a1eb7c50d0de06d42fbbcec085f34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 85987ca1ff7d2dd204d0a501367efffc8277f138
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458775"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939922"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolamento del gruppo di carico di lavoro SQL Data Warehouse (anteprima)
 
@@ -90,3 +90,4 @@ L'accesso alle risorse nel pool condiviso viene allocato in base alla [priorità
 - [Guida introduttiva: configurare l'isolamento del carico di lavoro](quickstart-configure-workload-isolation-tsql.md)
 - [CREA GRUPPO DI CARICO DI LAVORO](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Convertire le classi di risorse in gruppi del carico di lavoro](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
+- [Monitoraggio del carico di lavoro portale di gestione](sql-data-warehouse-workload-management-portal-monitor.md).  

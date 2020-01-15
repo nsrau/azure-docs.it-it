@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768716"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941001"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -321,7 +321,12 @@ I suggerimenti seguenti sono utili per usare la regola in modo appropriato.
 La regola "tutti gli utenti" viene costruita usando un'espressione singola usando l'operatore-ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+Se si vuole che il gruppo escluda gli utenti guest e includa solo i membri del tenant, è possibile usare la sintassi seguente:
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Creare una regola "tutti i dispositivi"
@@ -331,7 +336,7 @@ user.objectid -ne null
 La regola "tutti i dispositivi" viene costruita usando un'espressione singola usando l'operatore-ne e il valore null:
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate

@@ -1,19 +1,16 @@
 ---
 title: Risolvere i problemi di connettività per il ripristino di emergenza da Azure ad Azure con Azure Site Recovery
-description: Risolvere gli errori e i problemi relativi alla replica di macchine virtuali di Azure per il ripristino di emergenza
-services: site-recovery
-author: carmonmills
+description: Risolvere i problemi di connettività nel ripristino di emergenza delle macchine virtuali di Azure
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/05/2019
-ms.author: carmonm
-ms.openlocfilehash: 41b5203c328243c9ef7cc74e6b9771c677a54c7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d55f06669a538c2f26f3a1d2da0d96a73529f76e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933416"
+ms.locfileid: "75941477"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 

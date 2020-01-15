@@ -1,18 +1,16 @@
 ---
 title: Escludere i dischi delle macchine virtuali di Azure dalla replica con Azure Site Recovery e Azure PowerShell
 description: Informazioni su come escludere dischi di macchine virtuali di Azure durante Azure Site Recovery usando Azure PowerShell.
-author: carmonmills
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/18/2019
-ms.author: carmonm
-ms.openlocfilehash: ead46368db68cf11facfe437b3ea0ef77171d548
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 222e8f014741f5d672dd50df68228efdb6c24bf3
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929799"
+ms.locfileid: "75942292"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Escludere dischi dalla replica di PowerShell di macchine virtuali di Azure
 

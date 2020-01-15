@@ -1,21 +1,18 @@
 ---
-title: Risolvere i problemi di replica in corso delle macchine virtuali Azrue con Azure Site Recovery
-description: Risoluzione dei problemi e degli errori che si verificano quando si esegue la replica di macchine virtuali di Azure per il ripristino di emergenza
-services: site-recovery
-author: carmonmills
+title: Risolvere i problemi di replica delle VM di Azure con Azure Site Recovery
+description: Risolvere i problemi di replica nel ripristino di emergenza delle macchine virtuali di Azure con Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: carmonm
-ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930750"
+ms.locfileid: "75941573"
 ---
-# <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Risolvere i problemi di replica delle macchine virtuali da Azure ad Azure
+# <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Risolvere i problemi di replica in Azure VM Recovery
 
 L'articolo descrive i problemi comuni di Azure Site Recovery, quando si esegue la replica e il ripristino delle macchine virtuali di Azure da un'area a un'altra area. Si spiega inoltre come risolverli. Per altre informazioni sulle configurazioni supportate, vedere la [matrice di supporto per la replica delle VM di Azure](site-recovery-support-matrix-azure-to-azure.md).
 
@@ -67,7 +64,7 @@ Se il picco proviene da un burst di dati occasionale e la frequenza di modifica 
     - Passare al pannello dischi del computer replicato interessato e copiare il nome del disco di replica
     - Passa a questo disco gestito di replica
     - Nel pannello panoramica potrebbe essere visualizzato un banner che informa che è stato generato un URL di firma di accesso condiviso. Fare clic su questo banner e annullare l'esportazione. Ignorare questo passaggio se il banner non viene visualizzato.
-    - Non appena viene revocato l'URL di firma di accesso condiviso, passare al pannello configurazione del disco gestito e aumentare le dimensioni in modo che ASR supporti la varianza osservata sul disco di origine
+    - Non appena viene revocato l'URL di firma di accesso condiviso, passare al pannello configurazione del disco gestito e aumentare le dimensioni in modo che Site Recovery supporti la varianza osservata sul disco di origine
 
 ## <a name="Network-connectivity-problem"></a>Problemi di connettività di rete
 

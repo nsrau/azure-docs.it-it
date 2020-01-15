@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997055"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940915"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -71,6 +71,7 @@ Insieme a questa proprietà, i mapping degli attributi supportano anche gli attr
 
 - **Attributo di origine**: attributo utente nel sistema di origine, ad esempio Azure Active Directory.
 - **Attributo di destinazione**: attributo utente nel sistema di destinazione, ad esempio ServiceNow.
+- **Valore predefinito se null (facoltativo)** : valore che verrà passato al sistema di destinazione se l'attributo di origine è null. Il provisioning di questo valore verrà eseguito solo quando viene creato un utente. Il provisioning di "valore predefinito quando è null" non verrà eseguito quando si aggiorna un utente esistente. Se, ad esempio, si desidera eseguire il provisioning di tutti gli utenti esistenti nel sistema di destinazione con un titolo di processo specifico (quando è null nel sistema di origine), è possibile utilizzare l' [espressione](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)seguente: switch (JobTitle), "DefaultValue", "true", [JobTitle]). Assicurarsi di sostituire il "valore predefinito" con quello di cui si vuole eseguire il provisioning quando null nel sistema di origine. 
 - Trova la **corrispondenza con gli oggetti che usano questo attributo** : indica se questo mapping deve essere usato per identificare in modo univoco gli utenti tra i sistemi di origine e di destinazione. Viene in genere impostato sull'attributo userPrincipalName o mail in Azure AD, che in genere viene mappato a un campo username in un'applicazione di destinazione.
 - **Precedenza abbinamento**: è possibile impostare più attributi corrispondenti. Quando sono presenti più, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
 - **Applica questo mapping**

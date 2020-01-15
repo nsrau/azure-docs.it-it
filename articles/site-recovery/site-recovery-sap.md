@@ -1,18 +1,16 @@
 ---
 title: Configurare il ripristino di emergenza di SAP NetWeaver con Azure Site Recovery
-description: Questo articolo descrive come configurare il ripristino di emergenza per le distribuzioni di applicazioni SAP NetWeaver con Azure Site Recovery.
-author: carmonmills
+description: Informazioni su come configurare il ripristino di emergenza per SAP NetWeaver con Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 3ae9a92a27da1b736bf9db6dff88660f7d40143b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934456"
+ms.locfileid: "75940676"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
 
@@ -62,28 +60,28 @@ Questa architettura di riferimento mostra l'esecuzione di SAP NetWeaver in un am
 Per il ripristino di emergenza, è necessario essere in grado di eseguire il failover in un'area secondaria. Ogni livello usa una strategia diversa per fornire una protezione con ripristino di emergenza.
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Macchine virtuali che eseguono pool di componenti SAP Web Dispatcher 
-Il componente Web Dispatcher viene usato come servizio di bilanciamento del carico per il traffico SAP tra i server applicazioni SAP. Per ottenere la disponibilità elevata per il componente Web Dispatcher, viene usato Azure Load Balancer per implementare la configurazione di Web Dispatcher parallela in una configurazione round robin per la distribuzione del traffico HTTP(S) tra i componenti Web Dispatcher disponibili nel pool di bilanciamento del carico. Questo verrà replicato tramite Azure Site Recovery(ASR) e gli script di automazione consentiranno di configurare il bilanciamento del carico nell'area del ripristino di emergenza. 
+Il componente Web Dispatcher viene usato come servizio di bilanciamento del carico per il traffico SAP tra i server applicazioni SAP. Per ottenere la disponibilità elevata per il componente Web Dispatcher, viene usato Azure Load Balancer per implementare la configurazione di Web Dispatcher parallela in una configurazione round robin per la distribuzione del traffico HTTP(S) tra i componenti Web Dispatcher disponibili nel pool di bilanciamento del carico. Questa operazione verrà replicata usando Site Recovery e gli script di automazione verranno usati per configurare il servizio di bilanciamento del carico nell'area di ripristino di emergenza. 
 
 #### <a name="vms-running-application-servers-pool"></a>Macchina virtuale che esegue il pool di server applicazioni
-Per gestire i gruppi di accesso per i server applicazioni ABAP, viene usata la transazione SMLG. Questa usa la funzione di bilanciamento del carico nel server messaggi di Central Services per distribuire il carico di lavoro nel pool di server applicazioni SAP per le interfacce utente grafiche di SAP e il traffico RFC. Questo verrà replicato tramite Azure Site Recovery 
+Per gestire i gruppi di accesso per i server applicazioni ABAP, viene usata la transazione SMLG. Questa usa la funzione di bilanciamento del carico nel server messaggi di Central Services per distribuire il carico di lavoro nel pool di server applicazioni SAP per le interfacce utente grafiche di SAP e il traffico RFC. Questa operazione verrà replicata utilizzando Site Recovery.
 
 #### <a name="vms-running-sap-central-services-cluster"></a>Macchina virtuale che esegue Cluster SAP Central Services
 Questa architettura di riferimento esegue Central Services in macchine virtuali nel livello applicazione. Central Services è un singolo punto di errore potenziale se distribuito in un'unica macchina virtuale, che è la distribuzione tipica quando la disponibilità elevata non è un requisito.<br>
 
 Per implementare una soluzione a disponibilità elevata, può essere usato un cluster di dischi condiviso o un cluster di condivisione file. Per configurare le macchine virtuali per un cluster di dischi condivisi, usare il Cluster di Failover di Windows Server. Cloud Witness è consigliato come quorum di controllo. 
  > [!NOTE]
- > Azure Site Recovery non replica il server di controllo cloud pertanto si consiglia di distribuire il server di controllo cloud nell'area di ripristino di emergenza.
+ > Site Recovery non replica il cloud di controllo, pertanto è consigliabile distribuire il server di controllo del cloud nell'area di ripristino di emergenza.
 
 Per supportare l'ambiente cluster di failover, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) svolge la funzione di volume condiviso del cluster replicando i dischi indipendenti di proprietà dei nodi del cluster. Azure non supporta in modo nativo i dischi condivisi e di conseguenza richiede soluzioni fornite da SIOS. 
 
 Un altro modo di gestire il clustering consiste nell'implementare un cluster di condivisioni file. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha di recente modificato il modello di distribuzione di Central Services in modo da permettere l'accesso alle directory globali /sapmnt tramite un percorso UNC. È comunque consigliabile assicurarsi che la condivisione UNC/sapmnt abbia disponibilità elevata. A questo scopo, nell'istanza di Central Services usare Windows Server Failover Cluster con File server di scalabilità orizzontale e la funzionalità Storage Spaces Direct in Windows Server 2016. 
  > [!NOTE]
- > Attualmente Azure Site Recovery supporta solo la replica dei punti coerenti con l'arresto anomalo delle macchine virtuali usando spazi di archiviazione diretta e il nodo passivo di datakeeper
+ > Attualmente Site Recovery supporta solo la replica dei punti coerenti con l'arresto anomalo delle macchine virtuali usando spazi di archiviazione diretta e il nodo passivo di datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Considerazioni sul ripristino di emergenza
 
-È possibile usare Azure Site Recovery per orchestrare il failover della distribuzione completa di SAP nelle aree di Azure.
+È possibile usare Site Recovery per orchestrare il failover della distribuzione SAP completa tra le aree di Azure.
 Di seguito è riportata la procedura per la configurazione del ripristino di emergenza 
 
 1. Replicare le macchine virtuali 
@@ -133,7 +131,7 @@ Un piano di ripristino supporta la sequenziazione di vari livelli in un'applicaz
 Per far sì che le applicazioni funzionino correttamente, potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o durante un failover di test. È possibile automatizzare alcune operazioni successive al failover. È ad esempio possibile aggiornare la voce DNS e modificare associazioni e connessioni aggiungendo gli script corrispondenti al piano di ripristino.
 
 
-È possibile distribuire gli script di Azure Site Recovery usate più comunemente nell'account di Automazione facendo clic sul pulsante "Distribuisci in Azure" di seguito. Quando si usa uno script pubblicato, assicurarsi di seguire le istruzioni nello script.
+È possibile distribuire gli script di Site Recovery usati più di frequente nell'account di automazione facendo clic sul pulsante "Distribuisci in Azure" di seguito. Quando si usa uno script pubblicato, assicurarsi di seguire le istruzioni nello script.
 
 [![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -164,5 +162,5 @@ Per altre informazioni, vedere [Failover di test in Azure in Site Recovery](site
 Per altre informazioni, vedere [Failover in Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni SAP NetWeaver con Site Recovery, vedere il white paper scaricabile [SAP NetWeaver - Creazione di una soluzione di ripristino di emergenza con Azure Site Recovery](https://aka.ms/asr_sap). Il white paper include consigli per diverse architetture SAP, elenca le applicazioni e i tipi di VM supportati per SAP in Azure e descrive le opzioni dei piani di test per la soluzione di ripristino di emergenza.
+* Per altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni di SAP NetWeaver con Site Recovery, vedere la pagina relativa white paper alla [creazione di una soluzione di ripristino di emergenza con Site Recovery](https://aka.ms/asr_sap). Il white paper include consigli per diverse architetture SAP, elenca le applicazioni e i tipi di VM supportati per SAP in Azure e descrive le opzioni dei piani di test per la soluzione di ripristino di emergenza.
 * Sono disponibili altre informazioni sulla [replica di altri carichi di lavoro](site-recovery-workload.md) con Site Recovery.

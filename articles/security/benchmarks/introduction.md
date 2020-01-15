@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 3169959250eb45346456c64e606f25efb0ea44f0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934219"
+ms.locfileid: "75945326"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduzione al benchmark di sicurezza di Azure
 
@@ -27,7 +27,7 @@ Il benchmark di sicurezza di Azure include una raccolta di consigli sulla sicure
 
 La documentazione di benchmark di sicurezza di Azure specifica i controlli di sicurezza e le raccomandazioni dei servizi.
 
-- **Controlli di sicurezza**: le raccomandazioni del benchmark di sicurezza di Azure sono classificate in base ai controlli di sicurezza. I controlli di sicurezza rappresentano requisiti di sicurezza indipendenti dal fornitore, ad esempio la sicurezza della rete e la protezione dei dati. Ogni controllo di sicurezza include un set di raccomandazioni e istruzioni per la sicurezza che consentono di implementarere tali raccomandazioni. 
+- **Controlli di sicurezza**: le raccomandazioni del benchmark di sicurezza di Azure sono classificate in base ai controlli di sicurezza. I controlli di sicurezza rappresentano requisiti di sicurezza indipendenti dal fornitore, ad esempio la sicurezza della rete e la protezione dei dati. Ogni controllo di sicurezza include un set di raccomandazioni e istruzioni per la sicurezza che consentono di implementare tali raccomandazioni. 
 - **Raccomandazioni del servizio**: se disponibili, le raccomandazioni per i benchmark per i servizi di Azure includeranno raccomandazioni di benchmark di sicurezza di Azure personalizzate in modo specifico per tale servizio. 
 
 I termini "Control", "benchmark" e "baseline" vengono usati spesso nella documentazione di benchmark di sicurezza di Azure ed è importante comprendere come Azure usa tali termini. 

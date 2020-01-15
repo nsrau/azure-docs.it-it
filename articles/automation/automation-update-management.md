@@ -3,14 +3,14 @@ title: Soluzione Gestione aggiornamenti in Azure
 description: Questo articolo descrive come usare la soluzione Gestione aggiornamenti di Azure per gestire gli aggiornamenti per i computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420347"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945132"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -237,7 +237,9 @@ Per Linux, Gestione aggiornamenti possibile distinguere tra gli aggiornamenti cr
 sudo yum -q --security check-update
 ```
 
-Attualmente non è disponibile alcun metodo supportato per abilitare la classificazione nativa: disponibilità dei dati in CentOS. A questo punto, viene fornito solo il supporto per il massimo sforzo ai clienti che potrebbero avere abilitato questa funzionalità autonomamente.
+Attualmente non è disponibile alcun metodo supportato per abilitare la classificazione nativa: disponibilità dei dati in CentOS. A questo punto, viene fornito solo il supporto per il massimo sforzo ai clienti che potrebbero avere abilitato questa funzionalità autonomamente. 
+
+Per classificare gli aggiornamenti in Red Hat Enterprise versione 6, è necessario installare il plug-in yum-Security. In Red Hat Enterprise Linux 7 il plug-in fa già parte di yum, non è necessario installare nulla. Per ulteriori informazioni, vedere l' [articolo della Knowledge](https://access.redhat.com/solutions/10021)base di Red Hat.
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrazione con System Center Configuration Manager
 
@@ -251,7 +253,7 @@ Gestione aggiornamenti si basa sul repository di aggiornamenti configurato local
 
 ## <a name="patch-linux-machines"></a>Applicazione di patch ai computer Linux
 
-Le sezioni seguenti illustrano i potenziali problemi relativi all'applicazione di patch a computer Linux.
+Le sezioni seguenti illustrano i potenziali problemi con l'applicazione di patch alle distribuzioni Linux.
 
 ### <a name="unexpected-os-level-upgrades"></a>Aggiornamenti imprevisti a livello di sistema operativo
 

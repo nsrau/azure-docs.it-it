@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: b19ccad5254418092446aaf781d49fa7edf0e4f4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 34a2742c752259fec5859af1681da2429276ea41
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034313"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941857"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure per VM Red Hat Enterprise Linux su richiesta in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) consente ai provider di servizi cloud (come Azure) di eseguire il mirroring del contenuto dei repository ospitati in Red Hat, creare repository personalizzati con contenuto specifico di Azure e garantirne la disponibilità per le VM degli utenti finali.
@@ -32,7 +32,7 @@ Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL so
 ## <a name="important-information-about-azure-rhui"></a>Informazioni importanti su Azure RHUI
 
 * Azure RHUI è l'infrastruttura di aggiornamento che supporta tutte le VM PAYG RHEL create in Azure. Questa operazione non impedisce la registrazione delle macchine virtuali PAYG RHEL con Gestione sottoscrizioni o satellite o un'altra origine di aggiornamenti, ma con una macchina virtuale PAYG verrà generata una doppia fatturazione indiretta. Per informazioni dettagliate, vedere il punto seguente.
-* L'accesso al servizio RHUI ospitato in Azure è incluso nel prezzo dell'immagine di RHEL con pagamento in base al consumo. Annullando la registrazione di una VM RHEL con pagamento in base al consumo nell'istanza di RHUI ospitata in Azure, la macchina virtuale non viene convertita in una VM di tipo BYOL (Bring Your Own License). Se si registra la stessa VM in un'altra origine di aggiornamenti, potrebbero essere applicati addebiti doppi _indiretti_: un primo addebito per la tariffa del software RHEL di Azure e un secondo per le sottoscrizioni di Red Hat acquistate in precedenza. Se è necessario usare un'infrastruttura di aggiornamento diversa da quella di RHUI ospitata in Azure, prendere in considerazione la registrazione per usare le [Immagini RHEL BYOS](https://aka.ms/rhel-byos).
+* L'accesso al servizio RHUI ospitato in Azure è incluso nel prezzo dell'immagine di RHEL con pagamento in base al consumo. Annullando la registrazione di una VM RHEL con pagamento in base al consumo nell'istanza di RHUI ospitata in Azure, la macchina virtuale non viene convertita in una VM di tipo BYOL (Bring Your Own License). Se si registra la stessa VM in un'altra origine di aggiornamenti, potrebbero essere applicati addebiti doppi _indiretti_: un primo addebito per la tariffa del software RHEL di Azure e un secondo per le sottoscrizioni di Red Hat acquistate in precedenza. Se è necessario usare un'infrastruttura di aggiornamento diversa da quella di RHUI ospitata in Azure, prendere in considerazione la registrazione per usare le [Immagini RHEL BYOS](../workloads/redhat/byos.md).
 
 * Immagini RHEL SAP con pagamento in base al consumo (RHEL for SAP, RHEL for SAP HANA e RHEL for SAP Business Applications) sono connesse a canali RHUI dedicati che vengono mantenuti nella versione secondaria di RHEL specificata come richiesto per la certificazione SAP.
 
@@ -186,7 +186,7 @@ Se si verificano problemi di connessione all'infrastruttura RHUI di Azure da una
 
 1. Individuare nella configurazione della VM un endpoint dell'infrastruttura RHUI di Azure:
 
-    1. Controllare se la sezione `/etc/yum.repos.d/rh-cloud.repo` del file `rhui-[1-3].microsoft.com` contiene un riferimento a `baseurl` in `[rhui-microsoft-azure-rhel*]`. In questo caso si sta usando la nuova infrastruttura RHUI di Azure.
+    1. Controllare se la sezione `[rhui-microsoft-azure-rhel*]` del file `/etc/yum.repos.d/rh-cloud.repo` contiene un riferimento a `rhui-[1-3].microsoft.com` in `baseurl`. In questo caso si sta usando la nuova infrastruttura RHUI di Azure.
 
     1. Se punta a un percorso con il modello `mirrorlist.*cds[1-4].cloudapp.net`, è necessario un aggiornamento della configurazione. Se si sta usando uno snapshot di VM precedente, è necessario aggiornarlo in modo che punti alla nuova infrastruttura RHUI di Azure.
 

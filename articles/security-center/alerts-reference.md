@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 696bba195ac3902a3a90a82bcc7665591eba643f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4ef2987ee72348fb4353ba735d6da76fb218f01e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922331"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942147"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Avvisi di sicurezza-Guida di riferimento
 
@@ -97,6 +97,7 @@ Sotto la tabella avvisi è riportata una tabella che descrive la catena di Kill 
 |**Quantità insolita di dati estratti da un account di archiviazione**|Indica che è stata estratta una quantità insolitamente elevata di dati rispetto alle attività recenti sul contenitore di archiviazione. Una possibile provocazione è che un utente malintenzionato ha estratto una grande quantità di dati da un contenitore che contiene l'archiviazione BLOB.|Esfiltrazione|
 |**Eliminazione insolita in un account di archiviazione**|Indica che una o più operazioni di eliminazione impreviste si sono verificate in un account di archiviazione, rispetto alle attività recenti di questo account. Una causa potenziale è che un utente malintenzionato ha eliminato i dati dall'account di archiviazione.|Esfiltrazione|
 |**Caricamento insolito di. cspkg in un account di archiviazione**|Indica che un pacchetto di servizi cloud di Azure (file con estensione cspkg) è stato caricato in un account di archiviazione in modo insolito, rispetto alle attività recenti di questo account. Una possibile causa è che un utente malintenzionato sta preparando la distribuzione di codice dannoso dall'account di archiviazione a un servizio cloud di Azure.|LateralMovement/esecuzione|
+|**Caricamento insolito di exe in un account di archiviazione**|Indica che un file con estensione exe è stato caricato in un account di archiviazione in modo insolito, rispetto alle attività recenti di questo account. Una causa potenziale è che un utente malintenzionato ha caricato un file eseguibile dannoso nell'account di archiviazione o che un utente legittimo ha caricato un file eseguibile.|LateralMovement/esecuzione|
 |**Modifica insolita delle autorizzazioni di accesso in un account di archiviazione**|Indica che le autorizzazioni di accesso di questo contenitore di archiviazione sono state modificate in modo insolito. È possibile che un utente malintenzionato abbia modificato le autorizzazioni del contenitore per indebolirne il comportamento di sicurezza o per ottenere la persistenza.|Persistenza|
 |**Ispezione di accesso insolita in un account di archiviazione**|Indica che le autorizzazioni di accesso di un account di archiviazione sono state ispezionate in modo insolito, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|Raccolta|
 |**Esplorazione insolita dei dati in un account di archiviazione**|Indica che i BLOB o i contenitori in un account di archiviazione sono stati enumerati in modo anomalo, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|Raccolta|

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 14e33bf77144e4cd5728ec85d3012dc0ba717ece
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195772"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945646"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -29,7 +29,7 @@ Per questo articolo vengono create tre reti virtuali:
 
 ![Firewall in una rete ibrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Dichiarare le variabili
@@ -47,13 +47,13 @@ Se invece si vuole usare portale di Azure per completare questa esercitazione, v
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo è necessario eseguire PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
+Per questo articolo è necessario eseguire PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
 
 Per il corretto funzionamento di questo scenario devono essere soddisfatti tre requisiti principali:
 
-- Una route definita dall'utente nella subnet spoke che punti all'indirizzo IP di Firewall di Azure come gateway predefinito. La propagazione della route BGP deve essere impostata su **Disabilitata** in questa tabella di route.
+- Una route definita dall'utente nella subnet spoke che punti all'indirizzo IP di Firewall di Azure come gateway predefinito. La propagazione della route del gateway di rete virtuale deve essere **disabilitata** in questa tabella di route.
 - Una route definita dall'utente nella subnet del gateway dell'hub deve puntare all'indirizzo IP del firewall come hop successivo per le reti spoke.
 
    Non è richiesta alcuna route definita dall'utente nella subnet di Firewall di Azure, dal momento che le route vengono apprese dal protocollo BGP.
@@ -355,7 +355,7 @@ Set-AzVirtualNetwork
 
 #Now create the default route
 
-#Create a table, with BGP route propagation disabled
+#Create a table, with BGP route propagation disabled. The property is now called "Virtual network gateway route propagation," but the API still refers to the parameter as "DisableBgpRoutePropagation."
 $routeTableSpokeDG = New-AzRouteTable `
   -Name 'UDR-DG' `
   -ResourceGroupName $RG1 `

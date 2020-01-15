@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 01/14/2020
 ms.author: ramkris
-ms.openlocfilehash: 2d573d329ad27a4801c091d0dcfb10c5f530169f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b5d4f490f7710824b8382091a1e814f6847766fa
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707261"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945549"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Libreria dell'executor bulk .NET: informazioni sul download 
 
@@ -37,7 +37,7 @@ ms.locfileid: "74707261"
 |**Download dell'SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Libreria Executor in blocco in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentazione sull'API**|[Documentazione di riferimento API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Attività iniziali**|[Introduzione a .NET SDK per la libreria dell'executor bulk](bulk-executor-dot-net.md)|
+|**Operazioni preliminari**|[Introduzione a .NET SDK per la libreria dell'executor bulk](bulk-executor-dot-net.md)|
 | **Framework attualmente supportato**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 |
 
 > [!NOTE]
@@ -53,15 +53,15 @@ ms.locfileid: "74707261"
 
 * La dipendenza dell'SDK è stata modificata in > = 2.5.1
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-Preview2
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
 * Aggiunta del supporto per l'esecutore bulk del grafo per accettare la durata (TTL) in vertici e bordi
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-Preview2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
 * È stato risolto un problema che causava eccezioni durante il ridimensionamento elastico di Azure Cosmos DB durante l'esecuzione in modalità gateway. Questa correzione lo rende equivalente dal punto di vista funzionale alla versione 1.4.1.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-Preview2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
 * Aggiunto il supporto BulkDelete per gli account API SQL per accettare la chiave di partizione e le tuple ID documento da eliminare. Questa modifica lo rende equivalente dal punto di vista funzionale alla versione 1.4.0.
 
@@ -72,6 +72,10 @@ ms.locfileid: "74707261"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Aggiunta di .NET Standard 2,0 come uno dei framework di destinazione supportati per far funzionare la libreria dell'executor bulk con le applicazioni .NET Core.
+
+### <a name="a-name187187"></a><a name="1.8.7"/>1.8.7
+
+* Correzione di un problema relativo a BulkDeleteAsync quando la raccolta contiene percorsi di chiavi di partizione nidificati.
 
 ### <a name="a-name186186"></a><a name="1.8.6"/>1.8.6
 

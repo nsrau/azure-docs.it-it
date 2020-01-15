@@ -1,0 +1,193 @@
+---
+title: Red Hat Enterprise Linux immagini di Azure Bring your own Subscription | Microsoft Docs
+description: Informazioni sulle immagini Bring your own Subscription per Red Hat Enterprise Linux in Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: asinn826
+manager: BorisB2015
+editor: ''
+ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 1/14/2020
+ms.author: alsin
+ms.openlocfilehash: e9cbd98afd5f9ed5561cba2236d85da331db7895
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944694"
+---
+# <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux le immagini Gold Bring your own Subscription in Azure
+Le immagini Red Hat Enterprise Linux (RHEL) sono disponibili in Azure tramite un modello con pagamento in base al consumo (PAYG) o bring your own Subscription (Red Hat Gold Image). Questo documento fornisce una panoramica delle immagini Red Hat Gold in Azure.
+
+## <a name="important-points-to-consider"></a>Punti importanti da considerare
+
+- Le immagini Red Hat Gold fornite in questo programma sono immagini RHEL pronte per l'ambiente di produzione simili alle immagini RHEL PAYG nella raccolta/Marketplace di Azure.
+
+- Le immagini seguono i criteri correnti descritti in [Red Hat Enterprise Linux immagini in Azure](./redhat-images.md)
+
+- I criteri di supporto standard si applicano alle macchine virtuali create da queste immagini
+
+- Le macchine virtuali di cui è stato effettuato il provisioning da immagini Red Hat Gold non contengono tariffe RHEL associate alle immagini RHEL PAYG
+
+- Le immagini non sono autorizzate, quindi è necessario usare Subscription-Manager per registrare e sottoscrivere le VM per ottenere gli aggiornamenti direttamente da Red Hat
+
+- Attualmente non è possibile passare dinamicamente tra i modelli di fatturazione BYOS e PAYG per le immagini Linux. Per cambiare il modello di fatturazione, è necessaria la ridistribuzione della macchina virtuale dalla rispettiva immagine
+
+## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Requisiti e condizioni per accedere alle immagini Red Hat Gold
+
+1. Acquisire familiarità con le condizioni del [programma Red Hat cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e abilitare le sottoscrizioni di Red Hat per l'accesso al cloud presso [Red Hat Subscription Manager](https://access.redhat.com/management/cloud). Sarà necessario avere a disposizione le sottoscrizioni di Azure che verranno registrate per l'accesso al cloud.
+
+1. Se sono state abilitate le sottoscrizioni di Red Hat per l'accesso al cloud che soddisfano i requisiti di idoneità appropriati, le sottoscrizioni di Azure verranno abilitate automaticamente per l'accesso alle immagini Gold.
+
+### <a name="expected-time-for-image-access"></a>Tempo previsto per l'accesso alle immagini
+
+Al termine della procedura di abilitazione dell'accesso al cloud, Red Hat convaliderà l'idoneità per le immagini Red Hat Gold. Se la convalida ha esito positivo, si riceverà l'accesso alle immagini Gold entro tre ore.
+
+## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Usare le immagini Red Hat Gold dal portale di Azure
+
+1. Dopo che la sottoscrizione di Azure ha ricevuto l'accesso alle immagini Red Hat Gold, è possibile individuarle nel [portale di Azure](https://portal.azure.com) passando a **Crea una risorsa** e quindi **Visualizza tutto**.
+
+1. Nella parte superiore della pagina si noterà che si dispone di offerte private.
+
+    ![Offerte private del Marketplace](./media/rhel-byos-privateoffers.png)
+
+1. È possibile fare clic sul collegamento viola o scorrere fino alla fine della pagina per visualizzare le offerte private.
+
+1. Il resto del provisioning nell'interfaccia utente non sarà diverso da quello di altre immagini Red Hat esistenti. Scegliere la versione RHEL e seguire le istruzioni per eseguire il provisioning della macchina virtuale. Questo processo consentirà anche di accettare le condizioni dell'immagine nel passaggio finale.
+
+>[!NOTE]
+>Questa procedura fino a questo punto non consentirà di abilitare l'immagine dell'immagine Red Hat Gold per la distribuzione a livello di codice. sarà necessario eseguire un passaggio aggiuntivo, come descritto nella sezione "informazioni aggiuntive" riportata di seguito.
+
+Il resto di questo documento è incentrato sul metodo dell'interfaccia della riga di comando per il provisioning e l'accettazione di termini nell'immagine. L'interfaccia della riga di comando e l'interfaccia della riga di comando sono completamente intercambiabili per quanto riguarda il risultato finale, ovvero una macchina virtuale di immagini RHEL Gold con provisioning.
+
+## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Usare le immagini Red Hat Gold dall'interfaccia della riga di comando di Azure
+Il set di istruzioni seguente descrive il processo di distribuzione iniziale per una VM RHEL usando l'interfaccia della riga di comando di Azure. Queste istruzioni presuppongono che sia [installata l'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
+
+>[!IMPORTANT]
+>Assicurarsi di usare tutte le lettere minuscole nei riferimenti al server di pubblicazione, all'offerta, al piano e all'immagine per tutti i comandi seguenti
+
+1. Verificare di essere nella sottoscrizione desiderata:
+    ```azurecli
+    az account show -o=json
+    ```
+
+1. Creare un gruppo di risorse per la macchina virtuale di Red Hat Gold Image:
+    ```azurecli
+    az group create --name <name> --location <location>
+    ```
+
+1. Accetta le condizioni per l'immagine:
+    ```azurecli
+    az vm image terms accept --publisher redhat --offer rhel-byos --plan <SKU value here> -o=jsonc
+
+    # Example:
+    az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm75 -o=jsonc
+
+    OR
+
+    az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
+    ```
+    >[!NOTE]
+    >Questi termini devono essere accettati *una sola volta per ogni sottoscrizione di Azure, per ogni SKU di immagine*.
+
+1. Opzionale Convalidare la distribuzione della macchina virtuale con il comando seguente:
+    ```azurecli
+    az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
+
+    # Example:
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
+    ```
+
+1. Eseguire il provisioning della macchina virtuale eseguendo lo stesso comando precedente senza l'argomento `--validate`:
+    ```azurecli
+    az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
+    ```
+
+1. Connettersi tramite SSH alla macchina virtuale e verificare di disporre di un'immagine non autorizzata. A tale scopo, eseguire `sudo yum repolist` (per RHEL 8 usare `sudo dnf repolist`). L'output richiederà di usare Subscription-Manager per registrare la macchina virtuale con Red Hat.
+
+>[!NOTE]
+>In RHEL 8 `dnf` e `yum` sono intercambiabili, altre informazioni sono disponibili nella Guida dell' [amministratore di RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings).
+
+
+## <a name="use-the-red-hat-gold-images-from-powershell"></a>Usare le immagini Red Hat Gold da PowerShell
+Di seguito viene fornito uno script di esempio. È necessario sostituire il gruppo di risorse, la posizione, il nome della macchina virtuale, le informazioni di accesso e altre variabili con la configurazione scelta. Le informazioni sul server di pubblicazione e sul piano devono essere minuscole.
+
+```powershell-interactive
+    # Variables for common values
+    $resourceGroup = "testbyos"
+    $location = "canadaeast"
+    $vmName = "test01"
+
+    # Define user name and blank password
+    $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
+    $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
+    Get-AzureRmMarketplaceTerms -Publisher RedHat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
+
+    # Create a resource group
+    New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+    # Create a subnet configuration
+    $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+
+    # Create a virtual network
+    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location
+    $location `-Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+
+    # Create a public IP address and specify a DNS name
+    $pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location
+    $location `-Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+
+    # Create an inbound network security group rule for port 22
+    $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name
+    myNetworkSecurityGroupRuleSSH -Protocol Tcp `
+    -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -
+    DestinationAddressPrefix * `-DestinationPortRange 22 -Access Allow
+
+    # Create a network security group
+    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location
+    $location `-Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
+
+    # Create a virtual network card and associate with public IP address and NSG
+    $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -
+    Location $location `-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+    # Create a virtual machine configuration
+    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D3_v2 |
+    Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred |
+    Set-AzureRmVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm75 -Version latest | Add-     AzureRmVMNetworkInterface -Id $nic.Id
+    Set-AzureRmVMPlan -VM $vmConfig -Publisher redhat -Product rhel-byos -Name "rhel-lvm75"
+
+    # Configure SSH Keys
+    $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+    Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+
+    # Create a virtual machine
+    New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+## <a name="additional-information"></a>Informazioni aggiuntive
+- Se si tenta di effettuare il provisioning di una macchina virtuale in una sottoscrizione non abilitata per questa offerta, si riceverà l'errore seguente ed è necessario contattare Microsoft o Red Hat per abilitare la sottoscrizione.
+    ```
+    "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
+    ```
+
+- Se si crea uno snapshot dall'immagine RHEL BYOS e si pubblica l'immagine nella [raccolta immagini condivise](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), sarà necessario specificare le informazioni sul piano corrispondenti all'origine dello snapshot. Ad esempio, il comando potrebbe essere simile a (si notino i parametri del piano nella riga finale):
+    ```azurecli
+    az vm create –image \
+    "/subscriptions/GUID/resourceGroups/GroupName/providers/Microsoft.Compute/galleries/GalleryName/images/ImageName/versions/1.0.0" \
+    -g AnotherGroupName --location EastUS2 -n VMName \
+    --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
+    ```
+
+- Se si usa l'automazione per eseguire il provisioning di macchine virtuali dalle immagini RHEL BYOS, sarà necessario specificare parametri di piano simili a quelli illustrati in precedenza. Se, ad esempio, si utilizza la bonifica, è necessario fornire le informazioni sul piano in un [blocco di piano](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
+
+## <a name="next-steps"></a>Passaggi successivi
+* Le guide dettagliate e i dettagli del programma per l'accesso al cloud sono disponibili nella [documentazione relativa a Red Hat cloud Access.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
+* Altre informazioni sull' [infrastruttura di Azure Red Hat Update](./redhat-rhui.md).
+* Per altre informazioni sulle immagini di Red Hat in Azure, vedere la [pagina della documentazione](./redhat-images.md).
+* Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle (Ciclo di vita di Red Hat Enterprise Linux)](https://access.redhat.com/support/policy/updates/errata).

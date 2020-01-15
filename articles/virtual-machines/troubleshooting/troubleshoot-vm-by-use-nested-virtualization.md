@@ -13,24 +13,22 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185517"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942191"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi relativi a una macchina virtuale di Azure usando la virtualizzazione annidata in Azure
 
 Questo articolo illustra come creare un ambiente di virtualizzazione annidata in Microsoft Azure in modo da poter montare il disco di una macchina virtuale con problemi nell'host Hyper-V (macchina virtuale di ripristino) per procedere alla risoluzione dei problemi.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per montare la macchina virtuale con problemi, la macchina virtuale di ripristino deve soddisfare i prerequisiti seguenti:
 
 -   Deve trovarsi nella stessa posizione della macchina virtuale con problemi.
-
--   Deve trovarsi nello stesso gruppo di risorse della macchina virtuale con problemi.
 
 -   Deve usare lo stesso tipo di account di archiviazione (Standard o Premium) della macchina virtuale con problemi.
 

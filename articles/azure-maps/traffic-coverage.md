@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 544cae7f33bfb1077bfdf7f215fb313974334216
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9e9a3d13eeb0c8704e2faac1037d51e5bd322dc4
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910390"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945106"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
@@ -46,6 +46,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |RAS di Hong Kong     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
+|Kazakhstan    |✓         |✓         |
 |RAS di Macao     |✓         |✓         |
 |Malaysia     |✓         |✓         |
 |Nuova Zelanda     |✓         |✓         |

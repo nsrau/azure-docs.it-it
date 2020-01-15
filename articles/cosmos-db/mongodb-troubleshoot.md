@@ -1,18 +1,18 @@
 ---
 title: Risolvere gli errori comuni nell'API di Azure Cosmos DB per il database Mongo
 description: Questo documento illustra i modi per risolvere i problemi comuni riscontrati nell'API di Azure Cosmos DB per MongoDB.
-author: roaror
+author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 06/05/2019
-ms.author: roaror
-ms.openlocfilehash: 41d667f4e90114052a17c5707989634bbb5fc421
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.author: lbosq
+ms.openlocfilehash: d9a4e336f582e866fd057f6c281f892ce07b34fc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719835"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941835"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Risolvere i problemi comuni nell'API Azure Cosmos DB per MongoDB
 

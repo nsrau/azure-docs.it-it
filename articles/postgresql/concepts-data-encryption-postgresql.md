@@ -1,17 +1,17 @@
 ---
 title: Crittografia dei dati a server singolo del database di Azure per PostgreSQL con chiave gestita dal cliente
-description: Crittografia dei dati a server singolo del database di Azure per PostgreSQL con chiave gestita dal cliente
+description: La crittografia dei dati a server singolo di database di Azure per PostgreSQL con chiave gestita dal cliente consente di Bring Your Own Key (BYOK) per la protezione dei dati inattivi e consente alle organizzazioni di implementare la separazione dei compiti nella gestione di chiavi e dati.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: df2504b7e65a0087c9a8e20d94c596a19494069c
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/13/2020
+ms.openlocfilehash: f9e60b2f1685e03a9daa7a4801f43799a21eb411
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903938"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940532"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-customer-managed-key"></a>Crittografia dei dati a server singolo del database di Azure per PostgreSQL con chiave gestita dal cliente
 
@@ -20,7 +20,7 @@ ms.locfileid: "75903938"
 
 La crittografia dei dati a server singolo di database di Azure per PostgreSQL con chiave gestita dal cliente consente di Bring Your Own Key (BYOK) per la protezione dei dati inattivi e consente alle organizzazioni di implementare la separazione dei compiti nella gestione di chiavi e dati. Con la crittografia gestita dal cliente, l'utente è responsabile di e in un controllo completo del ciclo di vita di una chiave (creazione, caricamento, rotazione, eliminazione), autorizzazioni di utilizzo della chiave e controllo delle operazioni sulle chiavi.
 
-Per il server singolo database di Azure per PostgreSQL, la crittografia dei dati viene impostata a livello di server. Con questa forma di crittografia dei dati, la chiave viene usata per la crittografia della chiave di crittografia del database, ovvero una chiave asimmetrica gestita dal cliente archiviata in un Azure Key Vault di proprietà del cliente e gestito dal cliente [(AKV)](https://docs.microsoft.com/azure/key-Vault/key-Vault-secure-your-key-Vault), un sistema di gestione delle chiavi esterne basato sul cloud. AKV è a disponibilità elevata e fornisce un'archiviazione sicura scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware convalidati FIPS 140-2 Level 2 (HSM). Non consente l'accesso diretto a una chiave archiviata, ma fornisce servizi di crittografia/decrittografia usando la chiave per le entità autorizzate. La chiave può essere generata dal Key Vault, importato o [trasferito al Key Vault da un dispositivo HSM](https://docs.microsoft.com/azure/key-Vault/key-Vault-hsm-protected-keys)locale.
+Per il server singolo database di Azure per PostgreSQL, la crittografia dei dati viene impostata a livello di server. Con questa forma di crittografia dei dati, la chiave viene usata per la crittografia della chiave di crittografia del database, ovvero una chiave asimmetrica gestita dal cliente archiviata in un Azure Key Vault di proprietà del cliente e gestito dal cliente [(AKV)](../key-vault/key-Vault-secure-your-key-Vault.md), un sistema di gestione delle chiavi esterne basato sul cloud. AKV è a disponibilità elevata e fornisce un'archiviazione sicura scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware convalidati FIPS 140-2 Level 2 (HSM). Non consente l'accesso diretto a una chiave archiviata, ma fornisce servizi di crittografia/decrittografia usando la chiave per le entità autorizzate. La chiave può essere generata dal Key Vault, importato o [trasferito al Key Vault da un dispositivo HSM](../key-vault/key-Vault-hsm-protected-keys.md)locale.
 
 > [!NOTE]
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui il server singolo database di Azure per PostgreSQL supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
@@ -28,6 +28,7 @@ Per il server singolo database di Azure per PostgreSQL, la crittografia dei dati
 ## <a name="benefits"></a>Vantaggi
 
 La crittografia dei dati per il server singolo di database di Azure per PostgreSQL offre i vantaggi seguenti:
+
 * Maggiore trasparenza e controllo granulare e gestione per la chiave di crittografia 
 * Gestione centralizzata e organizzazione delle chiavi ospitate in Azure Key Vault. 
 * Possibilità di implementare la separazione dei compiti nella gestione delle chiavi e dei dati all'interno dell'organizzazione
@@ -36,22 +37,23 @@ La crittografia dei dati per il server singolo di database di Azure per PostgreS
 
 ## <a name="terminology-and-description"></a>Terminologia e descrizione
 
-**Chiave DEK (Data Encryption Key)** : una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave DEK viene sostituita con una nuova chiave, devono essere nuovamente crittografati con la nuova chiave solo i dati nel blocco associato.
+**Chiave DEK (Data Encryption Key)** : una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave di crittografia viene sostituita con una nuova chiave, solo i dati nel blocco associato devono essere crittografati nuovamente con la nuova chiave.
 
 Chiave di **crittografia della chiave (KEK)** : chiave di crittografia usata per crittografare le chiavi di crittografia dei dati. L'uso di una chiave di crittografia della chiave che non lascia mai Key Vault consente di crittografare e controllare le chiavi di crittografia dei dati. L'entità che ha accesso alla chiave KEK può essere diversa dall'entità che richiede la chiave DEK. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
 
-Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia della chiave vengono archiviate separatamente e solo un'entità con accesso alla chiave di crittografia della chiave può decrittografare queste chiavi di crittografia dei dati. Per informazioni dettagliate, vedere [sicurezza in crittografia](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)dei dati inattivi.
+Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia della chiave vengono archiviate separatamente e solo un'entità con accesso alla chiave di crittografia della chiave può decrittografare queste chiavi di crittografia dei dati. Per altre informazioni, vedere [sicurezza in crittografia](../security/fundamentals/encryption-atrest.md)dati inattivi.
 
 ## <a name="how-data-encryption-with-customer-managed-key-works"></a>Funzionamento della crittografia dei dati con la chiave gestita dal cliente
 
 ![Panoramica di Bring your own key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
 
 Per consentire a un server PostgreSQL di usare le chiavi gestite dal cliente archiviate in AKV per la crittografia della chiave di crittografia, un amministratore Key Vault deve concedere al server i seguenti diritti di accesso usando l'identità univoca:
+
 * **Get** : per il recupero della parte pubblica e delle proprietà della chiave nella Key Vault
 * **wrapKey** -per poter proteggere (crittografare) la chiave di crittografia
 * **unwrapKey** -per poter rimuovere la protezione (decrittografia)
 
-Key Vault amministratore può anche [abilitare la registrazione degli eventi di controllo Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-Vault), in modo che possano essere controllati in un secondo momento.
+Key Vault amministratore può anche [abilitare la registrazione degli eventi di controllo Key Vault](../azure-monitor/insights/azure-key-vault.md), in modo che possano essere controllati in un secondo momento.
 
 Quando il server è configurato per l'utilizzo della chiave gestita dal cliente archiviata nel Key Vault, il server invia la chiave di crittografia al Key Vault per la crittografia. Key Vault restituisce la chiave di crittografia crittografata, archiviata nel database utente. Analogamente, quando necessario, il server invia la chiave di crittografia protetta al Key Vault per la decrittografia. Se la registrazione è abilitata, i revisori possono usare monitoraggio di Azure per esaminare Key Vault registri AuditEvent.
 
@@ -66,10 +68,10 @@ Quando il server è configurato per l'utilizzo della chiave gestita dal cliente 
 * Quando si usa il firewall con AKV, è necessario abilitare *l'opzione Consenti ai servizi Microsoft attendibili di ignorare il firewall*.
 
 ### <a name="requirements-for-configuring-customer-managed-key"></a>Requisiti per la configurazione della chiave gestita dal cliente
+
 * La chiave gestita dal cliente da utilizzare per la crittografia della chiave di crittografia può essere solo asimmetrica, RSA 2028.
 * La data di attivazione della chiave (se impostata) deve essere una data e un'ora nel passato. La data di scadenza (se impostata) deve essere una data e un'ora future.
 * La chiave deve essere nello stato *abilitato* .
-
 * Se si sta importando una chiave esistente nella Key Vault, assicurarsi di specificarla nei formati di file supportati (`.pfx`, `.byok``.backup`).
 
 ## <a name="recommendations-when-using-data-encryption-using-customer-managed-key"></a>Suggerimenti per l'uso della crittografia dei dati tramite la chiave gestita dal cliente
@@ -79,13 +81,13 @@ Quando il server è configurato per l'utilizzo della chiave gestita dal cliente 
 * Impostare un blocco di risorsa sulla Key Vault per controllare gli utenti che possono eliminare questa risorsa critica e impedire l'eliminazione accidentale o non autorizzata. Altre informazioni sui blocchi di risorse.
 * Abilitare il controllo e la creazione di report per tutte le chiavi di crittografia: Key Vault fornisce log facili da inserire in altri strumenti di gestione degli eventi e delle informazioni di sicurezza. Il Log Analytics di monitoraggio di Azure è un esempio di servizio già integrato.
 
-* Verificare che il Key Vault e il server singolo del database di Azure per PostgreSQL si trovino nella stessa area per garantire un accesso più rapido per le operazioni di wrapping/Unwrap di decrittografia. 
+* Verificare che il Key Vault e il server singolo del database di Azure per PostgreSQL si trovino nella stessa area per garantire un accesso più rapido per le operazioni di wrapping/Unwrap di decrittografia.
 
 ### <a name="recommendation-for-configuring-customer-managed-key"></a>Raccomandazione per la configurazione della chiave gestita dal cliente
 
 * Conservazione di una copia della chiave gestita dal cliente (KEK) in una posizione sicura o di deposito al servizio di deposito vincolato.
 
-* Se la chiave viene generata nella Key Vault, creare un backup della chiave prima di usare la chiave in AKV per la prima volta. Il backup può essere ripristinato solo in un Azure Key Vault. Altre informazioni sul comando [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) . 
+* Se la chiave viene generata nella Key Vault, creare un backup della chiave prima di usare la chiave in AKV per la prima volta. Il backup può essere ripristinato solo in un Azure Key Vault. Altre informazioni sul comando [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey) .
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Condizione della chiave gestita dal cliente non accessibile
 
@@ -94,6 +96,7 @@ Quando la crittografia dei dati viene configurata con la chiave gestita dal clie
 ### <a name="accidental-key-access-revocation-from-the-azure-key-vault-akv"></a>Revoca accidentale dell'accesso alla chiave dal Azure Key Vault (AKV)
 
 Potrebbe verificarsi che un utente con diritti di accesso sufficienti per il Key Vault Disabilita accidentalmente l'accesso al server alla chiave da:
+
 * revoca delle autorizzazioni Get, wrapKey, unwrapKey del Key Vault dal server
 * eliminazione della chiave
 * eliminazione del Key Vault
@@ -112,16 +115,16 @@ Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'
 
 ## <a name="restore-and-replica-with-customers-managed-key-in-the-key-vault"></a>Ripristinare e replica con la chiave gestita del cliente nel Key Vault
 
-Quando un server singolo di database di Azure per PostgreSQL viene crittografato con la chiave gestita del cliente archiviata nel Key Vault, qualsiasi copia appena creata del server, anche se l'operazione di ripristino locale o geografico o tramite le repliche di lettura viene crittografata con gli stessi clienti chiave gestita. Tuttavia, possono essere modificati per riflettere la chiave gestita del nuovo cliente per la crittografia. Quando la chiave gestita dal cliente viene modificata, i backup obsoleti del server inizieranno a usare la chiave più recente.
+Una volta che un server singolo di database di Azure per PostgreSQL è crittografato con la chiave gestita del cliente archiviata nel Key Vault, qualsiasi copia appena creata del server (anche se l'operazione locale o di ripristino geografico o tramite le repliche di lettura) viene crittografata con la stessa chiave gestita del cliente. Tuttavia, possono essere modificati per riflettere la chiave gestita del nuovo cliente per la crittografia. Quando la chiave gestita dal cliente viene modificata, i backup obsoleti del server inizieranno a usare la chiave più recente.
 
-Per evitare problemi durante la definizione della configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica di lettura, è importante attenersi alla procedura seguente nel server master e nei ripristini/replica:
+Per evitare problemi durante la configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica di lettura, è importante attenersi alla procedura seguente nel server master e nei ripristini/replica:
 
 * Avviare il processo di creazione della replica di ripristino o di lettura dal database master di Azure per il server singolo PostgreSQL.
 * Il server appena creato (ripristinato/replica) viene mantenuto uno stato inaccessibile perché per l'identità univoca non sono state ancora concesse le autorizzazioni per la Azure Key Vault (AKV)
-* Nel server ripristinato/replica, riconvalidare la chiave gestita dal cliente nelle impostazioni di crittografia dei dati per assicurarsi che al server appena creato siano assegnate le autorizzazioni di wrapping/Unwrap alla chiave archiviata in AKV.
+* Nel server ripristinato/di replica, rivalidare la chiave gestita dal cliente nelle impostazioni di crittografia dei dati per assicurarsi che al server appena creato siano assegnate le autorizzazioni a capo/annullamento del wrapping per la chiave archiviata in AKV.
 
 * Per assicurarsi che la crittografia dei dati venga mantenuta nel database master e nel server di replica ripristinato, è necessario eseguire entrambe le operazioni descritte in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come configurare la crittografia dei dati con la chiave gestita dal cliente per il server singolo del database di Azure per PostgreSQL usando [portale di Azure](howto-data-encryption-portal.md).
+Informazioni su come [configurare la crittografia dei dati con la chiave gestita dal cliente per il server singolo del database di Azure per PostgreSQL usando il portale di Azure](howto-data-encryption-portal.md).

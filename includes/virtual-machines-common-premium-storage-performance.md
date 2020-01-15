@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564719"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942779"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -126,7 +126,7 @@ Per altre informazioni sulle dimensioni delle macchine virtuali e le operazioni 
 | **Dimensioni I/O** |Dimensioni I/O ridotte producono valori superiori per IOPS. |Dimensioni I/O maggiori producono una velocità effettiva superiore. | &nbsp;|
 | **Dimensioni macchina virtuale** |Usare una dimensione di VM che offre IOPS superiori ai requisiti dell'applicazione. |Usare una dimensione di VM con un limite di velocità effettiva superiore ai requisiti dell'applicazione. |Usare una dimensione di VM che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. |
 | **Dimensioni disco** |Usare una dimensione di disco che offre IOPS superiori ai requisiti dell'applicazione. |Usare una dimensione di disco con un limite di velocità effettiva superiore ai requisiti dell'applicazione. |Usare una dimensione di disco che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. |
-| **Limiti relativi al ridimensionamento di VM e dischi** |Il limite di IOPS della dimensione di VM scelta deve essere superiore al totale di IOPS basato sul disco di Archiviazione Premium collegato alla VM. |Il limite di velocità effettiva della dimensione di VM scelta deve essere superiore al totale di velocità effettiva basato sul disco di Archiviazione Premium collegato alla VM. |I limiti di ridimensionamento della dimensione di VM scelta devono essere superiori al totale dei limiti di ridimensionamento dei dischi di Archiviazione Premium collegati. |
+| **Limiti relativi al ridimensionamento di VM e dischi** |Il limite di IOPS della dimensione della VM scelta deve essere superiore al numero totale di IOPS determinato dai dischi di archiviazione collegati. |Il limite di velocità effettiva della dimensione di VM scelta deve essere superiore al totale di velocità effettiva basato sul disco di Archiviazione Premium collegato alla VM. |I limiti di ridimensionamento della dimensione di VM scelta devono essere superiori al totale dei limiti di ridimensionamento dei dischi di Archiviazione Premium collegati. |
 | **Memorizzazione nella cache del disco** |Abilitare la cache ReadOnly nei dischi di Archiviazione Premium con operazioni con numero elevato di letture per ottenere un valore di IOPS di lettura più elevato. | &nbsp; |Abilitare la cache ReadOnly nei dischi di Archiviazione Premium con operazioni con numero elevato di letture per ottenere un valore molto basso per le latenze di lettura. |
 | **Striping del disco** |Usare più dischi ed eseguirne lo striping per ottenere un limite combinato più elevato per IOPS e velocità effettiva. Il limite combinato per macchina virtuale deve essere superiore ai limiti combinati dei dischi Premium collegati. | &nbsp; | &nbsp; |
 | **Dimensioni di striping** |Dimensioni di striping ridotte per modelli di I/O casuali presenti in applicazioni OLTP. Usare, ad esempio, le dimensioni di striping di 64 KB per SQL Server applicazione OLTP. |Dimensioni di striping superiori per modelli di I/O sequenziali di grandi dimensioni presenti in applicazioni di tipo data warehouse. Ad esempio, usare dimensioni di striping di 256 KB per SQL Server applicazione data warehouse. | &nbsp; |

@@ -7,12 +7,12 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0a9015e33f5456efeac7f7c887995ac4a69f0259
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227897"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941816"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archivio BLOB da C++
 
@@ -33,7 +33,7 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
 * **Linux:** Seguire le istruzioni fornite nella pagina della [libreria client di archiviazione C++ di Azure per il file Leggimi: introduzione in Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) .
-* **Windows:** In Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire la [Guida](https://github.com/microsoft/vcpkg#quick-start) introduttiva per inizializzare vcpkg. Usare quindi il comando seguente per installare la libreria:
+* **Windows:** In Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire l'argomento di [avvio rapido](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
@@ -125,7 +125,7 @@ I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Procedura: caricare un BLOB in un contenitore
 In Archivio BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.  
 
-Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo **upload_from_stream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore, presupponendo che il contenitore sia già stato creato.  
+Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo **upload_from_stream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore e si presuppone che il contenitore sia già stato creato.  
 
 ```cpp
 // Retrieve storage account from connection string.

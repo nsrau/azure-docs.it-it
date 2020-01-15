@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfe51558cf96e77288186c2ed2b4a2773cbc5cf2
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: ee241c9b4d26377931e828df60db1c50a9c86b84
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829868"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940882"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
 
@@ -153,8 +153,11 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
   - [Aggiornare l'utente [proprietà multivalore]](#update-user-multi-valued-properties) ([richiesta](#request-4) /  [risposta](#response-4))
   - [Aggiornare l'utente [proprietà a valore singolo]](#update-user-single-valued-properties) ([richiesta](#request-5)
 / [risposta](#response-5)) 
+  - [Disabilitare l'utente](#disable-user) ([richiesta](#request-14) / 
+[risposta](#response-14))
   - [Elimina utente](#delete-user) ([richiesta](#request-6) / 
 [risposta](#response-6))
+
 
 [Operazioni sui gruppi](#group-operations)
   - [Crea gruppo](#create-group) ( [richiesta](#request-7) / [risposta](#response-7))
@@ -435,6 +438,60 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 }
 ```
 
+### <a name="disable-user"></a>Disabilita utente
+
+##### <a name="request-14"></a>Richiesta
+
+*PATCH/Users/5171a35d82074e068ce2 HTTP/1.1*
+```json
+{
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "active",
+            "value": false
+        }
+    ],
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ]
+}
+```
+
+##### <a name="response-14"></a>Risposta
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+    ],
+    "id": "CEC50F275D83C4530A495FCF@834d0e1e5d8235f90a495fda",
+    "userName": "deanruiz@testuser.com",
+    "name": {
+        "familyName": "Harris",
+        "givenName": "Larry"
+    },
+    "active": false,
+    "emails": [
+        {
+            "value": "gloversuzanne@testuser.com",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "addresses": [
+        {
+            "country": "ML",
+            "type": "work",
+            "primary": true
+        }
+    ],
+    "meta": {
+        "resourceType": "Users",
+        "location": "/scim/5171a35d82074e068ce2/Users/CEC50F265D83B4530B495FCF@5171a35d82074e068ce2"
+    }
+}
+```
 #### <a name="delete-user"></a>Eliminazione di un utente.
 
 ##### <a name="request-6"></a>Richiesta

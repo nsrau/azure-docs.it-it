@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 21f11b9175566fc020ad21e1983a9bef64ebbae3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a3180593eaf8c01c772fd761d88b5f5b9f7657ee
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327849"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941496"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiare dati da Amazon S3 ad archiviazione di Azure usando AzCopy
 
@@ -56,12 +56,17 @@ AzCopy usa il [blocco put dall'API URL](https://docs.microsoft.com/rest/api/stor
 > [!TIP]
 > Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
+ Questi esempi funzionano anche con gli account che hanno uno spazio dei nomi gerarchico. L'accesso a più [protocolli su data Lake storage](../blobs/data-lake-storage-multi-protocol-access.md) consente di usare la stessa sintassi URL (`blob.core.windows.net`) per tali account. 
+
 ### <a name="copy-an-object"></a>Copia di un oggetto
+
+Utilizzare la stessa sintassi URL (`blob.core.windows.net`) per gli account che dispongono di uno spazio dei nomi gerarchico.
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Esempio** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
+| **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
 > [!NOTE]
 > Gli esempi in questo articolo usano URL di tipo Path per i bucket di AWS S3, ad esempio `http://s3.amazonaws.com/<bucket-name>`. 
@@ -72,31 +77,43 @@ AzCopy usa il [blocco put dall'API URL](https://docs.microsoft.com/rest/api/stor
 
 ### <a name="copy-a-directory"></a>Copiare una directory
 
+Utilizzare la stessa sintassi URL (`blob.core.windows.net`) per gli account che dispongono di uno spazio dei nomi gerarchico.
+
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Esempio** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Copiare un bucket
+
+Utilizzare la stessa sintassi URL (`blob.core.windows.net`) per gli account che dispongono di uno spazio dei nomi gerarchico.
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Esempio** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
+| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-all-regions"></a>Copia tutti i bucket in tutte le aree
+
+Utilizzare la stessa sintassi URL (`blob.core.windows.net`) per gli account che dispongono di uno spazio dei nomi gerarchico.
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Esempio** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Copia tutti i bucket in una specifica area S3
+
+Utilizzare la stessa sintassi URL (`blob.core.windows.net`) per gli account che dispongono di uno spazio dei nomi gerarchico.
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Esempio** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Gestire le differenze nelle regole di denominazione degli oggetti
 
@@ -112,7 +129,7 @@ AWS S3 e Azure consentono diversi set di caratteri nei nomi delle chiavi degli o
 
 Come parte di un comando AzCopy `copy`, è possibile specificare un valore per il flag `s2s-invalid-metadata-handle` facoltativo che specifica come si desidera gestire i file in cui i metadati del file contengono nomi di chiave incompatibili. Nella tabella seguente viene descritto ogni valore di flag.
 
-| Valore del flag | DESCRIZIONE  |
+| Valore del flag | Description  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (Opzione predefinita) I metadati non sono inclusi nell'oggetto trasferito. AzCopy registra un avviso. |
 | **FailIfInvalid** | Gli oggetti non vengono copiati. AzCopy registra un errore e include tale errore nel conteggio non riuscito visualizzato nel riepilogo del trasferimento.  |

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 8c694cbd8d9386401b8ad26cf5ce6ce31e6b9bd9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614921"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940799"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -251,6 +251,7 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | Copia del database | Non è ancora possibile usare la copia del database per creare un nuovo database in Azure SQL iperscalabile. |
 | Integrazione di Transparent Data Encryption/AKV | La crittografia Transparent database con Azure Key Vault (in genere denominata Bring-your-own-key o BYOK) non è ancora supportata per l'iperscalabilità del database SQL di Azure, ma Transparent Data Encryption con chiavi gestite dal servizio è completamente supportato. |
 |Funzionalità di database intelligenti | Ad eccezione dell'opzione "forza piano", tutte le altre opzioni di ottimizzazione automatica non sono ancora supportate in iperscalabilità: le opzioni potrebbero sembrare abilitate, ma non verranno eseguite raccomandazioni o azioni. |
+|Analisi delle prestazioni della query | Le informazioni dettagliate sulle prestazioni delle query non sono attualmente supportate per i database con iperscalabilità. |
 | Compatta database | DBCC SHRINKDATABASE o DBCC SHRINKFILE non è attualmente supportato per i database con iperscalabilità. |
 | Verifica dell'integrità del database | DBCC CHECKDB non è attualmente supportato per i database con iperscalabilità. Per informazioni dettagliate sulla gestione dell'integrità dei dati nel database SQL di Azure, vedere [integrità dei dati nel database SQL di Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
 

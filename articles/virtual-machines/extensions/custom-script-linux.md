@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: dcc9e63eba605e87a14ba4f09c61a00e9629bd23
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931024"
+ms.locfileid: "75941218"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -56,7 +56,7 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * Il tempo massimo consentito per l'esecuzione dello script è pari a 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
 * Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
 * Se si dispone di uno script che determinerà un riavvio, installare le applicazioni ed eseguire gli script e così via. È necessario pianificare il riavvio usando un processo cron o usando strumenti come DSC o chef, estensioni Puppet.
-* L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio Systemd.
+* L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio systemd.
 * Se si vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un processo Cron. 
 * Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
 * L'estensione per script personalizzati non supporta in modo nativo i server proxy, ma è possibile usare uno strumento di trasferimento file che supporti i server proxy all'interno dello script, ad esempio *Curl*. 
@@ -87,7 +87,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
@@ -98,11 +98,15 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
        "script": "<base64-script-to-execute>",
        "storageAccountName": "<storage-account-name>",
        "storageAccountKey": "<storage-account-key>",
-       "fileUris": ["https://.."]  
+       "fileUris": ["https://.."],
+        "managedIdentity" : "<managed-identity-identifier>"
     }
   }
 }
 ```
+
+>[!NOTE]
+> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
 
 ### <a name="property-values"></a>Valori delle proprietà
 
@@ -111,7 +115,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | apiVersion | 2019-03-01 | Data |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
-| typeHandlerVersion | 2.0 | int |
+| typeHandlerVersion | 2.1 | int |
 | fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (es.) | MyPythonScript.py Python \<> param1 | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
@@ -119,6 +123,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
 | storageAccountName (es.) | examplestorageacct | string |
 | storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| managedIdentity (ad esempio) | {} o {"ClientID": "31b403aa-C364-4240-a7ff-d85fb6cd7232"} o {"objectId": "12dd289c-0583-46e5-B9B4-115d5c19ef4b"} | JSON (oggetto) |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 * `apiVersion`: la apiVersion più aggiornata è reperibile con [Esplora inventario risorse](https://resources.azure.com/) o dall'interfaccia della riga di comando di Azure usando il comando seguente `az provider list -o json`
@@ -129,6 +134,9 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 * `fileUris`: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
 * `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di `fileUris` devono essere URL relativi a BLOB di Azure.
 * `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
+* `managedIdentity`: (facoltativo, oggetto JSON) [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file
+  * `clientId`: (facoltativo, stringa) ID client dell'identità gestita
+  * `objectId`: (facoltativo, stringa) ID oggetto dell'identità gestita
 
 
 I valori seguenti possono essere configurati in impostazioni pubbliche o protette. L'estensione rifiuterà qualsiasi configurazione in cui i valori riportati di seguito sono specificati sia nelle impostazioni pubbliche che in quelle protette.
@@ -200,6 +208,45 @@ CustomScript usa l'agoritmo seguente per eseguire uno script.
  1. Scrivere il valore decodificato (e facoltativamente decompresso) su disco (/var/lib/waagent/custom-script/#/script.sh)
  1. Eseguire lo script usando _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
+####  <a name="property-managedidentity"></a>Proprietà: managedIdentity
+
+CustomScript (versione 2.1.2 in poi) supporta il controllo degli accessi in base al ruolo basato su [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB/contenitori privati di archiviazione di Azure senza che l'utente debba passare segreti come i token SAS o le chiavi dell'account di archiviazione.
+
+Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+Per usare l'identità assegnata dal sistema nella macchina virtuale di destinazione/VMSS, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
+
+> Esempio:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : {}
+> }
+> ```
+
+Per usare l'identità assegnata dall'utente nella macchina virtuale/VMSS di destinazione, configurare il campo "managedidentity" con l'ID client o l'ID oggetto dell'identità gestita.
+
+> Esempi:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione di script personalizzata durante la distribuzione di un modello di Azure Resource Manager. Un modello di esempio che include l'estensione script personalizzata è disponibile su [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -220,7 +267,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       },

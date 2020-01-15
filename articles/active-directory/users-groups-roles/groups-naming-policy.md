@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3a9300148f4ac2adf6b95ef0afb500af5bc9284
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027043"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941068"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Office 365 in Azure Active Directory
 
@@ -65,7 +65,12 @@ Regole dell'elenco di parole bloccate:
 - Non sono previste limitazioni di carattere nelle parole bloccate.
 - È previsto un limite massimo di 5000 frasi che possono essere configurate nell'elenco di parole bloccate. 
 
-### <a name="administrator-override"></a>Esenzione dell'amministratore
+### <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
+
+Per configurare i criteri di denominazione, è necessario uno dei ruoli folowing:
+- Amministratore globale
+- Amministratore del gruppo
+- Amministratore utenti
 
 Alcuni amministratori possono essere esentati da questi criteri, in tutti i carichi di lavoro di gruppo e gli endpoint, per permettere loro di creare gruppi utilizzando le parole bloccate e convenzioni di denominazione personalizzate. Di seguito è riportato l'elenco dei ruoli di amministratore esentati dai criteri di denominazione dei gruppi.
 
@@ -77,7 +82,7 @@ Alcuni amministratori possono essere esentati da questi criteri, in tutti i cari
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configurare i criteri di denominazione in portale di Azure
 
-1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore globale.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore di gruppo.
 1. Selezionare **Gruppi** e quindi **Criteri di denominazione** per visualizzare la pagina corrispondente.
 
     ![aprire la pagina Criteri di denominazione nell'interfaccia di amministrazione](./media/groups-naming-policy/policy.png)
@@ -167,7 +172,7 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-È tutto. Sono stati impostati criteri di denominazione e sono state aggiunte le parole bloccate.
+Ecco fatto. Sono stati impostati criteri di denominazione e sono state aggiunte le parole bloccate.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Esportare o importare parole bloccate personalizzate
 
@@ -229,7 +234,7 @@ Dopo aver impostato criteri di denominazione dei gruppi in Azure AD, quando un u
 - Un'anteprima del nome conforme ai criteri di denominazione (con prefissi e suffissi) non appena l'utente digita il nome del gruppo
 - Se l'utente immette parole bloccate, viene visualizzato un messaggio di errore che ne consente la rimozione.
 
-Carico di lavoro | Conformità
+Carico di lavoro | Adeguamento
 ----------- | -------------------------------
 Portali di Azure Active Directory | Il portale di Azure AD e il portale Riquadro di accesso mostrano il nome imposto dai criteri di denominazione quando l'utente digita il nome del gruppo durante la creazione o la modifica di un gruppo. Se un utente immette una parola bloccata personalizzata, viene visualizzato un messaggio di errore contenente la parola bloccata che ne consente la rimozione.
 Outlook Web Access (OWA) | Outlook Web Access mostra il nome imposto dai criteri di denominazione quando l'utente digita un nome o un alias del gruppo. Se un utente immette una parola bloccata personalizzata, nell'interfaccia utente viene visualizzato un messaggio di errore contenente la parola bloccata che ne consente la rimozione.

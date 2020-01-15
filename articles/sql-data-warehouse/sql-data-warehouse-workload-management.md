@@ -1,5 +1,5 @@
 ---
-title: Gestione del carico di lavoro
+title: Gestione dei carichi di lavoro
 description: Linee guida per l'implementazione della gestione del carico di lavoro in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2563ea4ab498c11c846cfe79f0e668f7d491c2e7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692349"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940587"
 ---
 # <a name="what-is-workload-management"></a>Definizione di gestione del carico di lavoro
 
@@ -54,3 +54,4 @@ L'isolamento del carico di lavoro riserva risorse per un gruppo di carico di lav
 - Per ulteriori informazioni sulla classificazione del carico di lavoro, vedere [classificazione dei carichi di lavoro](sql-data-warehouse-workload-classification.md).  
 - Per ulteriori informazioni sull'isolamento dei carichi di lavoro, vedere [isolamento del carico di lavoro](sql-data-warehouse-workload-isolation.md).  
 - Per ulteriori informazioni sull'importanza del carico di lavoro, vedere [priorità del carico di lavoro](sql-data-warehouse-workload-importance.md).  
+- Per ulteriori informazioni sul monitoraggio della gestione del carico di lavoro, vedere [monitoraggio del carico di lavoro portale di gestione](sql-data-warehouse-workload-management-portal-monitor.md).  

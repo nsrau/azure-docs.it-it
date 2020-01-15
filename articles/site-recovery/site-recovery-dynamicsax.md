@@ -1,18 +1,16 @@
 ---
-title: Ripristino di emergenza per una distribuzione di Dynamics AX multilivello con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come configurare il ripristino di emergenza per Dynamics AX con Azure Site Recovery
-author: carmonmills
+title: Ripristino di emergenza di Dynamics AX con Azure Site Recovery
+description: Informazioni su come configurare il ripristino di emergenza per Dynamics AX con Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930178"
+ms.locfileid: "75941580"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurare il ripristino di emergenza per un'applicazione Dynamics AX multilivello   
 
@@ -39,7 +37,7 @@ Per l'implementazione del ripristino di emergenza per l'applicazione Dynamics AX
 
 ## <a name="site-recovery-support"></a>Supporto di Site Recovery
 
-Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamics AX 2012 R3 in Windows Server 2012 R2 Enterprise. Dato che la replica di Site Recovery è indipendente dall'applicazione, si prevede che i consigli inclusi in questo articolo siano validi per gli scenari seguenti.
+Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamics AX 2012 R3 in Windows Server 2012 R2 Enterprise. Poiché Site Recovery replica è indipendente dall'applicazione, si prevede che le raccomandazioni fornite qui siano disponibili per gli scenari seguenti.
 
 ### <a name="source-and-target"></a>Origine e destinazione
 
