@@ -22,7 +22,7 @@
       href: release-notes-10-0-10106-0.md
     - name: Pianificazione dell'aggiornamento all'area Gen2
       href: gen2-migration-schedule.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare e connettere
@@ -45,7 +45,7 @@
           href: quickstart-scale-compute-powershell.md
         - name: T-SQL
           href: quickstart-scale-compute-tsql.md
-    - name: Gestione del carico di lavoro
+    - name: Gestione dei carichi di lavoro
       items:
         - name: Creare un classificatore del carico di lavoro
           items:
@@ -99,7 +99,7 @@
               href: column-level-security.md
             - name: Sicurezza a livello di riga
               href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: Protezione dati
+        - name: Protezione dei dati
           items:
             - name: Maschera dati dinamica
               href: ../sql-database/sql-database-dynamic-data-masking-get-started.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
@@ -115,7 +115,7 @@
           href: guidance-for-loading-data.md
         - name: Compressione columnstore
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: Sviluppo.
+    - name: Sviluppo
       items:
         - name: Panoramica
           href: sql-data-warehouse-overview-develop.md
@@ -183,13 +183,13 @@
               href: sql-data-warehouse-tables-index.md
             - name: Identità
               href: sql-data-warehouse-tables-identity.md
-            - name: Partitions
+            - name: Partizioni
               href: sql-data-warehouse-tables-partition.md
             - name: Tabelle replicate
               href: design-guidance-for-replicated-tables.md
             - name: Statistiche
               href: sql-data-warehouse-tables-statistics.md
-            - name: Temporanee
+            - name: Temporanea
               href: sql-data-warehouse-tables-temporary.md
         - name: Elementi del linguaggio T-SQL
           items:
@@ -205,17 +205,17 @@
               href: sql-data-warehouse-develop-user-defined-schemas.md
             - name: Assegnazione di variabili
               href: sql-data-warehouse-develop-variable-assignment.md
-            - name: Visualizzazioni
+            - name: Viste
               href: sql-data-warehouse-develop-views.md
     - name: Query
       items:
-        - name: SQL dinamico
+        - name: SQL dinamica
           href: sql-data-warehouse-develop-dynamic-sql.md
         - name: Opzioni di raggruppamento
           href: sql-data-warehouse-develop-group-by-options.md
         - name: Etichette
           href: sql-data-warehouse-develop-label.md
-    - name: Gestione del carico di lavoro
+    - name: Gestione dei carichi di lavoro
       items:
         - name: Panoramica
           href: sql-data-warehouse-workload-management.md
@@ -225,6 +225,8 @@
           href: sql-data-warehouse-workload-importance.md
         - name: Isolamento dei carichi di lavoro
           href: sql-data-warehouse-workload-isolation.md
+        - name: Monitoraggio della gestione dei carichi di lavoro
+          href: sql-data-warehouse-workload-management-portal-monitor.md
         - name: Limiti di concorrenza e memoria
           href: memory-concurrency-limits.md
         - name: Classi di risorse
@@ -237,7 +239,7 @@
           href: sql-data-warehouse-manage-compute-overview.md
         - name: Utilizzo delle risorse e attività di query
           href: sql-data-warehouse-concept-resource-utilization-query-activity.md
-        - name: Protezione dati
+        - name: Protezione dei dati
           href: backup-and-restore.md
         - name: Consigli
           href: sql-data-warehouse-concept-recommendations.md
@@ -249,9 +251,9 @@
       items:
         - name: Panoramica
           href: sql-data-warehouse-overview-integrate.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
-    - name: Proteggere
+    - name: Sicurezza
       items:
         - name: Configurare l'autorizzazione di Azure AD
           href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
@@ -263,7 +265,7 @@
           href: sql-data-warehouse-encryption-tde.md
         - name: Abilitare la crittografia - T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-    - name: Caricare i dati
+    - name: Caricare dati
       items:
         - name: Da Azure Data Lake Storage (ADLS)
           href: sql-data-warehouse-load-from-azure-data-lake-store.md
@@ -303,7 +305,7 @@
               href: sql-data-warehouse-query-ssms.md
             - name: sqlcmd
               href: sql-data-warehouse-get-started-connect-sqlcmd.md
-    - name: Gestione del carico di lavoro
+    - name: Gestione dei carichi di lavoro
       items:
         - name: Analizzare il carico di lavoro
           href: analyze-your-workload.md
@@ -355,7 +357,7 @@
       items:
         - name: Connettività
           href: sql-data-warehouse-troubleshoot-connectivity.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Tipi di regole di confronto del database
       href: sql-data-warehouse-reference-collation-types.md

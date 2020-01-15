@@ -7,7 +7,7 @@
       href: overview.md
     - name: Supporto di lingua e area geografica
       href: language-support.md
-      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code'
+      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice'
 - name: Riconoscimento vocale
   expanded: false
   items:
@@ -27,6 +27,8 @@
       items:
         - name: Cambiare la lingua di origine del riconoscimento vocale
           href: how-to-specify-source-language.md
+        - name: Scegliere la modalità di riconoscimento vocale
+          href: how-to-choose-recognition-mode.md
         - name: Migliorare l'accuratezza con Riconoscimento vocale personalizzato
           href: how-to-custom-speech.md
         - name: Migliorare l'accuratezza con l'elenco frasi
@@ -102,6 +104,7 @@
           href: speech-synthesis-markup.md
         - name: Migliorare l'output con voci personalizzate
           href: how-to-custom-voice.md
+          displayName: custom voice
         - name: Sintetizzare la voce con l'API di audio lungo
           href: long-audio-api.md
         - name: Usare la sintesi vocale con contenitori Docker
@@ -363,6 +366,7 @@
           items:
             - name: Introduzione a Voce personalizzata
               href: how-to-custom-voice.md
+              displayName: 'custom voice, neural voice'
             - name: Preparazione dei dati
               href: how-to-custom-voice-prepare-data.md
             - name: Creare e usare modelli di Voce personalizzata

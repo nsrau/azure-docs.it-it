@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni su Azure Databricks
+    - name: Che cos'è Azure Databricks?
       href: what-is-azure-databricks.md
 - name: Avvi rapidi
   expanded: true
@@ -23,7 +23,7 @@
       href: service-endpoint-cosmosdb.md
     - name: Eseguire operazioni ETL
       href: databricks-extract-load-sql-data-warehouse.md
-    - name: Trasmettere dati con Hub eventi
+    - name: Trasmettere dati in streaming con Hub eventi
       href: databricks-stream-from-eventhubs.md
     - name: Analisi del sentiment con Servizi cognitivi
       href: databricks-sentiment-analysis-cognitive-services.md
@@ -60,7 +60,7 @@
             - name: Set di dati
               href: /azure/databricks/getting-started/spark/datasets
               maintainContext: true
-            - name: Machine learning
+            - name: Machine Learning
               href: /azure/databricks/getting-started/spark/machine-learning
               maintainContext: true
             - name: Structured Streaming
@@ -155,7 +155,7 @@
             - name: Usare un pool
               href: /azure/databricks/clusters/instance-pools/cluster-instance-pool
               maintainContext: true
-    - name: Notebooks
+    - name: Notebook
       items:
         - name: Panoramica dei notebook
           href: /azure/databricks/notebooks/index
@@ -209,7 +209,7 @@
         - name: Dashboard
           href: /azure/databricks/notebooks/dashboards
           maintainContext: true
-        - name: Widgets (Widget)
+        - name: Widget
           href: /azure/databricks/notebooks/widgets
           maintainContext: true
         - name: Flussi di lavoro dei notebook
@@ -224,7 +224,7 @@
     - name: Librerie
       href: /azure/databricks/libraries
       maintainContext: true
-    - name: data
+    - name: Data
       items:
         - name: Database e tabelle
           href: /azure/databricks/data/tables
@@ -242,13 +242,13 @@
             - name: Database SQL con il connettore Apache Spark
               href: /azure/databricks/data/data-sources/sql-databases-azure
               maintainContext: true
-            - name: Archivio BLOB di Azure
+            - name: Archiviazione BLOB di Azure
               href: /azure/databricks/data/data-sources/azure/azure-storage
               maintainContext: true
             - name: Azure Data Lake Storage Gen2
               href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
               maintainContext: true
-            - name: Archiviazione di Azure Data Lake
+            - name: Azure Data Lake Storage
               href: /azure/databricks/data/data-sources/azure/azure-datalake
               maintainContext: true
             - name: Passthrough di credenziali di Azure Data Lake Storage
@@ -272,7 +272,7 @@
             - name: ElasticSearch
               href: /azure/databricks/data/data-sources/elasticsearch
               maintainContext: true
-            - name: Image
+            - name: Immagine
               href: /azure/databricks/data/data-sources/image
               maintainContext: true
             - name: Tabelle Hive
@@ -345,7 +345,7 @@
         - name: Introduzione a Delta Lake
           href: /azure/databricks/delta/delta-intro
           maintainContext: true
-        - name: Introduzione a Delta Lake
+        - name: Attività iniziali di Delta Lake
           href: /azure/databricks/delta/quick-start
           maintainContext: true
         - name: Notebook introduttivi
@@ -448,7 +448,7 @@
           maintainContext: true
     - name: Structured Streaming
       items:
-        - name: Panoramica dello streaming strutturato
+        - name: Panoramica di Structured Streaming
           href: /azure/databricks/spark/latest/structured-streaming/index
           maintainContext: true
         - name: Notebook introduttivi
@@ -468,7 +468,7 @@
             - name: Tabelle di Delta Lake
               href: /azure/databricks/spark/latest/structured-streaming/delta
               maintainContext: true
-            - name: Leggere e scrivere dati Avro di streaming con dataframe
+            - name: Leggere e scrivere dati Avro in streaming con dataframe
               href: /azure/databricks/spark/latest/structured-streaming/avro-dataframe
               maintainContext: true
             - name: Scrivere in sink di dati arbitrari
@@ -525,13 +525,13 @@
             - name: Convert To Delta (Delta Lake in Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/convert-to-delta
               maintainContext: true
-            - name: Creare un database
+            - name: Create Database
               href: /azure/databricks/spark/latest/spark-sql/language-manual/create-database
               maintainContext: true
             - name: Create Function
               href: /azure/databricks/spark/latest/spark-sql/language-manual/create-function
               maintainContext: true
-            - name: Creazione di tabella
+            - name: Create Table
               href: /azure/databricks/spark/latest/spark-sql/language-manual/create-table
               maintainContext: true
             - name: Create View
@@ -567,10 +567,13 @@
             - name: Funzioni
               href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
               maintainContext: true
-            - name: Inserimento
+            - name: Generate
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/generate
+              maintainContext: true
+            - name: Insert
               href: /azure/databricks/spark/latest/spark-sql/language-manual/insert
               maintainContext: true
-            - name: Caricare dati
+            - name: Load Data
               href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
               maintainContext: true
             - name: Merge Into (Delta Lake in Azure Databricks)
@@ -582,13 +585,13 @@
             - name: Refresh Table
               href: /azure/databricks/spark/latest/spark-sql/language-manual/refresh-table
               maintainContext: true
-            - name: Reimpostazione
+            - name: Reset
               href: /azure/databricks/spark/latest/spark-sql/language-manual/reset
               maintainContext: true
             - name: Select
               href: /azure/databricks/spark/latest/spark-sql/language-manual/select
               maintainContext: true
-            - name: Configurazione
+            - name: Set
               href: /azure/databricks/spark/latest/spark-sql/language-manual/set
               maintainContext: true
             - name: Show Columns
@@ -695,7 +698,7 @@
         - name: RStudio in Azure Databricks
           href: /azure/databricks/spark/latest/sparkr/rstudio
           maintainContext: true
-    - name: Machine learning
+    - name: Machine Learning
       items:
         - name: Panoramica di Machine Learning
           href: /azure/databricks/applications/machine-learning/index
@@ -730,6 +733,9 @@
                 - name: Hyperopt con HorovodRunner
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-distributed-ml
                   maintainContext: true
+                - name: Procedure consigliate su Hyperopt
+                  href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-best-practices
+                  maintainContext: true
                 - name: Ricerca di modelli con Hyperopt distribuito
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
                   maintainContext: true
@@ -747,9 +753,9 @@
         - name: Integrazione di Machine Learning di terze parti
           href: /azure/databricks/applications/machine-learning/third-party/index
           maintainContext: true
-    - name: Apprendimento avanzato
+    - name: Deep Learning
       items:
-        - name: Panoramica su Deep Learning
+        - name: Panoramica di Deep Learning
           href: /azure/databricks/applications/deep-learning/index
           maintainContext: true
         - name: Preparazione dei dati
@@ -870,7 +876,7 @@
             - name: Eseguire il training di un modello di scikit-learn
               href: /azure/databricks/applications/mlflow/tracking-ex-scikit
               maintainContext: true
-            - name: Eseguire il training del modello di PyTorch
+            - name: Eseguire il training di un modello di PyTorch
               href: /azure/databricks/applications/mlflow/tracking-ex-pytorch
               maintainContext: true
             - name: Eseguire il training di un modello di PySpark e salvarlo in formati MLeap
@@ -900,7 +906,7 @@
           maintainContext: true
         - name: GraphFrames
           items:
-            - name: Analisi di grafi - esercitazione con GraphFrames
+            - name: Esercitazione sull'analisi di grafi con GraphFrames
               href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
               maintainContext: true
             - name: GraphFrames - Python
@@ -993,6 +999,12 @@
             - name: Esempio di flusso di lavoro dei segreti
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
+        - name: Crittografare il traffico tra i nodi di lavoro del cluster
+          href: /azure/databricks/security/encrypt-otw
+        - name: Abilitare le chiavi gestite dal cliente per i notebook
+          href: /azure/databricks/security/customer-managed-key-notebook
+        - name: Abilitare le chiavi gestite dal cliente per DBFS
+          href: /azure/databricks/security/customer-managed-keys-dbfs
     - name: Amministrazione
       items:
         - name: Panoramica dell'amministrazione
@@ -1057,7 +1069,7 @@
                 - name: Impostare le autorizzazioni per un oggetto dati
                   href: /azure/databricks/administration-guide/access-control/table-acls/object-permissions
                   maintainContext: true
-            - name: Controllo di accesso dell'area di lavoro
+            - name: Controllo di accesso ad aree di lavoro
               href: /azure/databricks/administration-guide/access-control/workspace-acl
               maintainContext: true
             - name: Abilitare l'autenticazione basata su token
@@ -1091,7 +1103,7 @@
             - name: Eseguire il peering delle reti virtuali
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
               maintainContext: true
-            - name: Aggiornare l'area di lavoro di anteprima alla versione di disponibilità a livello generale
+            - name: Aggiornare l'area di lavoro di anteprima alla versione di disponibilità generale
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject-upgrade
               maintainContext: true
             - name: Distribuire Azure Databricks nella rete virtuale
@@ -1103,7 +1115,7 @@
             - name: Impostazioni di route definite dall'utente
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       items:
         - name: Domande frequenti
           href: /azure/azure-databricks/frequently-asked-questions-databricks
@@ -1327,7 +1339,7 @@
             - name: Aggiornare una libreria Maven
               href: /azure/databricks/kb/libraries/maven-library-version-mgmt
               maintainContext: true
-        - name: Machine learning
+        - name: Machine Learning
           items:
             - name: Estrarre informazioni sulle funzionalità per i modelli di pipeline SparkML basati su albero
               href: /azure/databricks/kb/machine-learning/extract-feature-info
@@ -1372,7 +1384,7 @@
             - name: Usare le metriche di Apache Spark
               href: /azure/databricks/kb/metrics/spark-metrics
               maintainContext: true
-        - name: Notebooks
+        - name: Notebook
           items:
             - name: Verificare se è possibile modificare una proprietà di Spark
               href: /azure/databricks/kb/notebooks/check-spark-property-modifiable
@@ -1483,7 +1495,7 @@
         - name: Gestire le dipendenze nelle pipeline di dati
           href: /azure/databricks/dev-tools/data-pipelines
           maintainContext: true
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API REST di Databricks
       items:
@@ -1663,6 +1675,12 @@
               items:
                 - name: Versioni runtime supportate
                   href: /azure/databricks/release-notes/runtime/supported
+                  maintainContext: true
+                - name: Databricks Runtime 6.3
+                  href: /azure/databricks/release-notes/runtime/6.3
+                  maintainContext: true
+                - name: Databricks Runtime 6.3 ML
+                  href: /azure/databricks/release-notes/runtime/6.3ml
                   maintainContext: true
                 - name: Databricks Runtime 6.2
                   href: /azure/databricks/release-notes/runtime/6.2

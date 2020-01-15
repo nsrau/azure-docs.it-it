@@ -869,6 +869,9 @@
         - name: Trovare l'addebito dell'unità richiesta
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
+        - name: Scalare usando il timer di Funzioni di Azure
+          displayName: 'request units, RUs, RU, timer'
+          href: scale-on-schedule.md
     - name: Usare contenitori ed elementi
       items:
         - name: Usare i dati di Cosmos DB
