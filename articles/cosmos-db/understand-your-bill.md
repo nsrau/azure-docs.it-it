@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2edb7674a82a0388a0e028bee1b222e0e55004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754721"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046138"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -22,7 +22,8 @@ Con Azure Cosmos DB i costi vengono addebitati su base oraria a seconda della ve
 
 Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli della fattura mensile. I numeri visualizzati negli esempi possono essere diversi se per i contenitori di Azure Cosmos in uso è stato effettuato il provisioning di una quantità diversa di velocità effettiva, se i contenitori si estendono su più aree o vengono eseguiti per un periodo diverso nel corso di un mese.
 
->! Nota: la fatturazione è per qualsiasi parte di un'ora di clock, non una durata di 60 minuti.
+> [!NOTE]
+> La fatturazione è per qualsiasi parte di un'ora di clock, non una durata di 60 minuti.
 
 ## <a name="billing-examples"></a>Esempi di fatturazione
 
@@ -238,7 +239,7 @@ La fattura totale (senza capacità riservata) è (presupponendo 30 giorni o 720 
 
 |**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**|**Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
-|Stati Uniti Orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
+|Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
 |Totale|||$ 8,50|$ 6.120 |
 
@@ -252,7 +253,7 @@ Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per
 
 |**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**| **Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
-|Stati Uniti Orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
+|Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
 |||Pagamento a consumo|$ 8,50|$ 6120|
 |Capacità riservata acquistata|$ 0,0064 (20% di sconto) |100 UR/sec o $ 8 di capacità preacquistata |-$ 8|-$ 5.760 |
@@ -263,9 +264,9 @@ Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per
 È ora possibile passare alle informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
 * Altre informazioni su [come il modello di determinazione dei prezzi di Cosmos DB sia conveniente per i clienti](total-cost-ownership.md)
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
-* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
-* Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
-* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
+* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)

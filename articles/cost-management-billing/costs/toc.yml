@@ -1,0 +1,130 @@
+- name: Documentazione di Gestione dei costi di Azure
+  href: index.yml
+  items:
+    - name: Panoramica
+      items:
+        - name: Che cos'è Gestione dei costi e fatturazione?
+          href: ../cost-management-billing-overview.md
+    - name: Avvi rapidi
+      expanded: true
+      items:
+        - name: Avviare l'analisi dei costi
+          href: quick-acm-cost-analysis.md
+    - name: Esercitazioni
+      items:
+        - name: Creare e gestire i budget
+          href: tutorial-acm-create-budgets.md
+        - name: Esportazione dei dati
+          href: tutorial-export-acm-data.md
+        - name: Implementare i consigli
+          href: tutorial-acm-opt-recommendations.md
+    - name: Concetti
+      items:
+        - name: Procedure consigliate per Gestione costi di Azure
+          href: cost-mgt-best-practices.md
+        - name: Informazioni sui dati di Gestione costi
+          href: understand-cost-mgt-data.md
+        - name: Informazioni e utilizzo degli ambiti
+          href: understand-work-scopes.md
+        - name: Eseguire la migrazione da API EA ad API MCA
+          href: migrate-cost-management-api.md
+    - name: Guide pratiche
+      items:
+        - name: Assegnare l'accesso ai dati
+          href: assign-access-acm-data.md
+        - name: Usare l'analisi dei costi per attività comuni
+          href: cost-analysis-common-uses.md
+        - name: Usare gli avvisi per i costi
+          href: cost-mgt-alerts-monitor-usage-spending.md
+        - name: Impostazione e configurazione dell'integrazione di AWS
+          href: aws-integration-set-up-configure.md
+        - name: Gestire costo e utilizzo di AWS
+          href: aws-integration-manage.md
+        - name: Gestione costi per i partner
+          href: get-started-partners.md
+        - name: Connettersi con Power BI Desktop
+          href: /power-bi/desktop-connect-azure-cost-management
+    - name: Riferimento
+      items:
+        - name: API REST di Gestione costi di Azure
+          href: 'https://docs.microsoft.com/rest/api/cost-management'
+        - name: API REST per l'utilizzo di Azure
+          href: 'https://docs.microsoft.com/rest/api/consumption'
+        - name: Modello di Resource Manager
+          href: /azure/templates/microsoft.consumption/budgets
+        - name: Esempi di API REST di Gestione costi
+          href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
+    - name: Risorse
+      items:
+        - name: Sviluppare le proprie competenze con Microsoft Learn
+          href: /learn/browse/?products=azure-cost-management
+        - name: Forum di commenti su Gestione costi
+          href: 'https://feedback.azure.com/forums/906772-cost-management'
+        - name: Roadmap per Azure
+          href: 'https://azure.microsoft.com/roadmap/'
+        - name: Prezzi
+          href: 'https://azure.microsoft.com/pricing/details/cost-management'
+        - name: Disponibilità a livello di area
+          href: 'https://azure.microsoft.com/regions/services/'
+    - name: Cloudyn
+      items:
+        - name: Panoramica
+          items:
+            - name: Che cos'è Cloudyn?
+              href: ../cloudyn/overview.md
+        - name: Avvi rapidi
+          items:
+            - name: Visualizzare i dati di costo
+              href: ../cloudyn/quick-register-azure-sub.md
+            - name: Visualizzare i dati di costo - EA
+              href: ../cloudyn/quick-register-ea.md
+            - name: Visualizzare i dati di costo - CSP
+              href: ../cloudyn/quick-register-csp.md
+        - name: Esercitazioni
+          items:
+            - name: Esaminare l'utilizzo e i costi
+              href: ../cloudyn/tutorial-review-usage.md
+            - name: Prevedere la spesa
+              href: ../cloudyn/tutorial-forecast-spending.md
+            - name: Gestire i costi
+              href: ../cloudyn/tutorial-manage-costs.md
+            - name: Ottimizzare le istanze riservate
+              href: ../cloudyn/tutorial-optimize-reserved-instances.md
+            - name: Controllare l'accesso ai dati
+              href: ../cloudyn/tutorial-user-access.md
+        - name: Concetti
+          items:
+            - name: Informazioni sui report dei costi
+              href: ../cloudyn/understanding-cost-reports.md
+        - name: Guide pratiche
+          items:
+            - name: Attivare sottoscrizioni e account di Azure
+              href: ../cloudyn/activate-subs-accounts.md
+            - name: Aggiungere metriche estese per le macchine virtuali
+              href: ../cloudyn/azure-vm-extended-metrics.md
+            - name: Collegare un account Google
+              href: ../cloudyn/connect-google-account.md
+            - name: Collegare un account AWS
+              href: ../cloudyn/connect-aws-account.md
+            - name: Configurare gli account di archiviazione
+              href: ../cloudyn/storage-accounts.md
+            - name: Usare i report di Cloudyn
+              href: ../cloudyn/use-reports.md
+            - name: Usare i dashboard
+              href: ../cloudyn/dashboards.md
+            - name: Gestire i budget
+              href: ../cloudyn/manage-budgets.md
+        - name: Risorse
+          items:
+            - name: Video su Cloudyn
+              href: ../cloudyn/ref-videos.md
+            - name: Roadmap per Azure
+              href: 'https://azure.microsoft.com/roadmap/'
+            - name: Prezzi per Cloudyn
+              href: 'https://azure.microsoft.com/pricing/details/cost-management'
+            - name: Disponibilità di Cloudyn a livello di area
+              href: 'https://azure.microsoft.com/regions/services/'
+            - name: Domande frequenti su Cloudyn
+              href: ../cloudyn/cost-mgt-faq.md
+            - name: Contattare il supporto di Cloudyn
+              href: open-support-request.md

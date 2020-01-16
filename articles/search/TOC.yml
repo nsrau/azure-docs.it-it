@@ -85,6 +85,8 @@
   items:
     - name: Ricerca full-text
       href: search-lucene-query-architecture.md
+    - name: Indicizzatori
+      href: search-indexer-overview.md
     - name: Arricchimento con intelligenza artificiale
       href: cognitive-search-concept-intro.md
     - name: Set di competenze
@@ -147,7 +149,7 @@
               href: search-dotnet-mgmt-sdk-migration.md
         - name: Aggiornare l'API REST
           href: search-api-migration.md
-    - name: Creare indici
+    - name: Creazione di indici
       items:
         - name: Creare un indice di base
           href: search-what-is-an-index.md
@@ -179,7 +181,7 @@
           href: search-howto-complex-data-types.md
         - name: Modellare dati relazionali
           href: index-sql-relational-data.md
-    - name: Indicizzazione di tutti i dati
+    - name: Importazione (indicizzazione)
       items:
         - name: Panoramica dell'importazione dei dati
           href: search-what-is-data-import.md
@@ -273,12 +275,16 @@
           href: search-query-lucene-examples.md
         - name: Usare Esplora ricerche (portale)
           href: search-explorer.md
-        - name: Sintassi di query semplice
-          href: query-simple-syntax.md
-        - name: Sintassi completa della query Lucene
-          href: query-lucene-syntax.md
-        - name: Parametro di query moreLikeThis
-          href: search-more-like-this.md
+        - name: Caratteri speciali e termini parziali
+          href: search-query-partial-matching.md
+        - name: Informazioni di riferimento sulla sintassi
+          items:
+            - name: Sintassi di query semplice
+              href: query-simple-syntax.md
+            - name: Sintassi completa della query Lucene
+              href: query-lucene-syntax.md
+            - name: moreLikeThis (anteprima)
+              href: search-more-like-this.md
     - name: Applicare filtri
       items:
         - name: Panoramica dei filtri

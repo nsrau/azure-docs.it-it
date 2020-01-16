@@ -1,0 +1,76 @@
+- name: Documentazione di Prenotazioni di Azure
+  href: index.yml
+  items:
+    - name: Panoramica
+      expanded: true
+      items:
+        - name: Informazioni sulle prenotazioni di Azure
+          href: save-compute-costs-reservations.md
+    - name: Guide pratiche
+      items:
+        - name: Acquistare una prenotazione di SQL Data Warehouse
+          href: prepay-sql-data-warehouse-charges.md
+        - name: Acquistare una prenotazione di macchina virtuale
+          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Acquistare una prenotazione di Archiviazione di Azure
+          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acquistare una prenotazione di Cosmos DB
+          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acquistare una prenotazione di Database SQL
+          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acquistare una prenotazione di Esplora dati di Azure
+          href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acquistare una prenotazione di Azure Databricks
+          href: prepay-databricks-reserved-capacity.md
+        - name: Acquistare una prenotazione del servizio app
+          href: prepay-app-service-isolated-stamp.md
+        - name: Acquistare prenotazioni del piano software di Azure
+          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+        - name: Acquistare una prenotazione con pagamenti mensili
+          href: monthly-payments-reservations.md
+        - name: Esaminare le prenotazioni
+          href: reservation-renew.md
+        - name: Scambio e rimborso di prenotazioni
+          href: exchange-and-refund-azure-reservations.md
+        - name: Gestire le prenotazioni
+          href: manage-reserved-vm-instance.md
+        - name: Visualizzare le prenotazioni
+          href: view-reservations.md
+    - name: Concetti
+      items:
+        - name: Sconti per le istanze di VM riservate
+          href: ../manage/understand-vm-reservation-charges.md
+        - name: Sconti per la capacità riservata di Archiviazione di Azure
+          href: understand-storage-charges.md
+        - name: Sconti per la capacità riservata di Cosmos DB
+          href: understand-cosmosdb-reservation-charges.md
+        - name: Sconti per la capacità riservata di Database SQL
+          href: understand-reservation-charges.md
+        - name: Sconti per SQL Data Warehouse
+          href: reservation-discount-azure-sql-dw.md
+        - name: Sconti per Esplora dati di Azure
+          href: understand-azure-data-explorer-reservation-charges.md
+        - name: Sconti per Azure Databricks
+          href: reservation-discount-databricks.md
+        - name: Sconti per Database di Azure per MySQL
+          href: understand-reservation-charges-mysql.md
+        - name: Sconti per Database di Azure per PostgreSQL
+          href: understand-reservation-charges-postgresql.md
+        - name: Sconti per Red Hat Linux Enterprise
+          href: understand-rhel-reservation-charges.md
+        - name: Sconti per Database di Azure per MariaDB
+          href: understand-reservation-charges-mariadb.md
+        - name: Sconti per il servizio app
+          href: reservation-discount-app-service-isolated-stamp.md
+        - name: Sconti per i piani software di Azure
+          href: understand-suse-reservation-charges.md
+        - name: Costi di Windows e SQL non inclusi
+          href: reserved-instance-windows-software-costs.md
+        - name: Dati sull'utilizzo per singole sottoscrizioni
+          href: understand-reserved-instance-usage.md
+        - name: Dati sull'utilizzo per clienti Enterprise
+          href: understand-reserved-instance-usage-ea.md
+    - name: Riferimento
+      items:
+        - name: API Prenotazioni di Azure
+          href: reservation-apis.md

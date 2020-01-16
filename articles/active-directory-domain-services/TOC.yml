@@ -29,6 +29,8 @@
   items:
     - name: Creare un dominio gestito con Azure PowerShell
       href: powershell-create-instance.md
+    - name: Creare un dominio gestito con un modello
+      href: template-create-instance.md
 - name: Concetti
   items:
     - name: Nozioni fondamentali sull'amministrazione

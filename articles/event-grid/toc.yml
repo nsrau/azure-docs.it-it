@@ -8,7 +8,7 @@
       href: overview.md
     - name: Confrontare i servizi di messaggistica
       href: compare-messaging-services.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eventi di archiviazione
@@ -19,6 +19,9 @@
           href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Portale
           href: blob-event-quickstart-portal.md
+        - name: Modello
+          displayName: 'arm, resource manager template'
+          href: blob-event-quickstart-template.md
     - name: Eventi personalizzati
       items:
         - name: Interfaccia della riga di comando di Azure
@@ -107,7 +110,7 @@
       href: event-handlers.md
     - name: Ripristino di emergenza geografico
       href: geo-disaster-recovery.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Inserire post sull'argomento personalizzato
       href: post-to-custom-topic.md
@@ -135,7 +138,7 @@
       href: custom-disaster-recovery.md
     - name: Risolvere gli errori
       href: troubleshoot-errors.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/eventgrid

@@ -6,7 +6,7 @@
       href: cdn-overview.md
     - name: Confrontare le funzionalità del prodotto
       href: cdn-features.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Creare un profilo e un endpoint
       href: cdn-create-new-endpoint.md
@@ -40,13 +40,13 @@
       href: cdn-china-delivery.md
     - name: Supporto HTTP/2
       href: cdn-http2.md
-    - name: Recuperare un elenco di POP Verizon
+    - name: Recuperare gli IP POP
       href: cdn-pop-list-api.md
     - name: Eseguire la migrazione da Standard Verizon a Premium Verizon
       href: cdn-migrate.md
     - name: Protezione DDoS
       href: cdn-ddos.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Ottimizzare il contenuto
       href: cdn-optimization-overview.md
@@ -57,7 +57,7 @@
           href: cdn-media-streaming-optimization.md
         - name: Accelerazione sito dinamico
           href: cdn-dynamic-site-acceleration.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Creare un endpoint
           href: cdn-create-endpoint-how-to.md
@@ -99,7 +99,7 @@
           href: cdn-verizon-premium-rules-engine.md
         - name: Usare Gestione traffico
           href: cdn-traffic-manager.md
-    - name: Analizzare
+    - name: Analisi
       href: cdn-log-analysis.md
       items:
         - name: Log di diagnostica di Azure
@@ -134,7 +134,7 @@
           href: cdn-troubleshoot-compression.md
         - name: Autorità di certificazione consentite
           href: cdn-troubleshoot-allowed-ca.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Informazioni di riferimento sul motore regole standard
       href: cdn-standard-rules-engine-reference.md

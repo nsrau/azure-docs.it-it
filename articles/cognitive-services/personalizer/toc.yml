@@ -11,15 +11,8 @@
       displayName: 'release notes, service updates, videos'
 - name: Avvi rapidi
   items:
-    - name: 'Uso di C#'
-      href: csharp-quickstart-commandline-feedback-loop.md
-      displayName: 'code, sample, quickstart, c#'
-    - name: Uso di Node.js
-      href: quickstart-command-line-feedback-loop-nodejs-sdk.md
-      displayName: 'code, sample, quickstart, node, npm, sdk'
-    - name: Uso di Python
-      href: python-quickstart-commandline-feedback-loop.md
-      displayName: 'code, sample, quickstart, python'
+    - name: Uso dell'SDK
+      href: sdk-learning-loop.md
 - name: Esercitazioni
   items:
     - name: Usare Azure Notebooks
@@ -72,7 +65,7 @@
       items:
         - name: Valutazione offline
           href: how-to-offline-evaluation.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi
       href: 'https://go.microsoft.com/fwlink/?linkid=2092083'
@@ -82,7 +75,7 @@
       items:
         - name: .NET
           items:
-            - name: Riferimento
+            - name: Informazioni di riferimento
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet'
             - name: Pacchetto NuGet
               href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
@@ -92,21 +85,21 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
         - name: Node.js
           items:
-            - name: Riferimento
+            - name: Informazioni di riferimento
               href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest'
             - name: NPM
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
-            - name: Riferimento
+            - name: Informazioni di riferimento
               href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
             - name: Pacchetto Pypi
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Risorse
   items:
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       href: troubleshooting.md
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -1,0 +1,53 @@
+- name: Introduzione alla documentazione sulla fatturazione di Azure
+  href: index.yml
+  items:
+    - name: Esercitazioni
+      items:
+        - name: Esaminare singoli estratti conto
+          href: review-individual-bill.md
+        - name: Esaminare la fattura del Contratto del cliente Microsoft
+          href: review-customer-agreement-bill.md
+        - name: Esaminare la fattura del Contratto Microsoft Partner
+          href: review-partner-agreement-bill.md
+    - name: Concetti
+      items:
+        - name: Condizioni per l'utilizzo di singole sottoscrizioni
+          href: understand-usage.md
+        - name: Condizioni della fattura di singole sottoscrizioni
+          href: understand-invoice.md
+        - name: Condizioni per l'utilizzo del Contratto del cliente Microsoft
+          href: mca-understand-your-usage.md
+        - name: Condizioni della fattura del Contratto del cliente Microsoft
+          href: mca-understand-your-invoice.md
+        - name: Condizioni dell'Elenco prezzi del Contratto del cliente Microsoft
+          href: ../manage/mca-understand-pricesheet.md
+        - name: Account di fatturazione del contratto del cliente Microsoft
+          href: mca-overview.md
+        - name: Condizioni della fattura del Contratto Microsoft Partner
+          href: mpa-invoice-terms.md
+        - name: Account di fatturazione del Contratto Microsoft Partner
+          href: mpa-overview.md
+    - name: Guide pratiche
+      items:
+        - name: Evitare i costi imprevisti
+          href: ../manage/getting-started.md
+        - name: Visualizzare e scaricare la fattura di Azure
+          href: download-azure-invoice.md
+        - name: Visualizzare e scaricare il file dei dati di utilizzo e addebiti di Azure
+          href: download-azure-daily-usage.md
+        - name: Scaricare la fattura e i dati di utilizzo giornalieri
+          href: ../manage/download-azure-invoice-daily-usage-date.md
+        - name: Visualizzare e scaricare i documenti fiscali
+          href: mca-download-tax-document.md
+        - name: Visualizzare gli addebiti per servizi di Azure
+          href: understand-azure-marketplace-charges.md
+        - name: Pagare la fattura
+          href: pay-bill.md
+        - name: Visualizzare e scaricare i prezzi dell'organizzazione
+          href: ../manage/ea-pricing.md
+        - name: Tenere traccia dei crediti per il contratto del cliente Microsoft
+          href: ../manage/mca-check-azure-credits-balance.md
+        - name: Calcolare i prezzi
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Informazioni sul limite di spesa
+          href: ../manage/spending-limit.md

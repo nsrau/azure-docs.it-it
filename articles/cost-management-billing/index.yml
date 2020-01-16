@@ -1,0 +1,150 @@
+### YamlMime:Hub
+title: Documentazione di Gestione dei costi e fatturazione di Azure
+summary: Il servizio Gestione dei costi e fatturazione consente di capire la fattura di Azure, gestire account e sottoscrizioni, monitorare e controllare i costi di Azure e ottimizzare l'uso delle risorse. Informazioni su come analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare le raccomandazioni.
+metadata:
+  ms.service: cost-management-billing
+  description: Il servizio Gestione dei costi e fatturazione consente di capire la fattura di Azure, gestire account e sottoscrizioni, monitorare e controllare i costi di Azure e ottimizzare l'uso delle risorse. Informazioni su come analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare le raccomandazioni.
+  ms.topic: hub-page
+  author: bandersmsft
+  ms.author: banders
+  manager: dougeby
+  ms.date: 12/17/2019
+  ms.openlocfilehash: 83e05501b256848f5fd7d4f42723a64b3fc3b1fb
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983359"
+highlightedContent:
+  items:
+  - title: Che cos'è Gestione dei costi e fatturazione?
+    itemType: overview
+    url: cost-management-billing-overview.md
+  - title: Analizzare i costi e creare budget
+    itemType: learn
+    url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/
+  - title: Procedure consigliate per Gestione dei costi
+    itemType: concept
+    url: ./costs/cost-mgt-best-practices.md
+conceptualContent:
+  items:
+  - title: Introduzione alla fatturazione di Azure
+    links:
+    - url: ./understand/review-individual-bill.md
+      itemType: tutorial
+      text: Esaminare singole fatture
+    - url: ./understand/review-customer-agreement-bill.md
+      itemType: tutorial
+      text: Esaminare la fattura del Contratto del cliente Microsoft
+    - url: ./understand/review-partner-agreement-bill.md
+      itemType: tutorial
+      text: Esaminare la fattura del Contratto Microsoft Partner
+    - url: ./understand/review-enterprise-agreement-bill.md
+      itemType: tutorial
+      text: Esaminare la fattura del Contratto Enterprise
+    footerLink:
+      text: Altre informazioni
+      url: ./understand/index.yml
+  - title: Account gratuito
+    links:
+    - url: ./manage/create-free-services.md
+      itemType: concept
+      text: Creare servizi gratuiti
+    - url: ./manage/avoid-charges-free-account.md
+      itemType: concept
+      text: Evitare gli addebiti
+    - url: ./manage/check-free-service-usage.md
+      itemType: concept
+      text: Controllare l'utilizzo
+    - url: ./manage/upgrade-azure-subscription.md
+      itemType: concept
+      text: Aggiornare la sottoscrizione
+  - title: Gestire i costi e l'utilizzo di Azure
+    links:
+    - url: ./costs/quick-acm-cost-analysis.md
+      itemType: quickstart
+      text: Avviare l'analisi dei costi
+    - url: ./costs/tutorial-acm-create-budgets.md
+      itemType: tutorial
+      text: Creare e gestire i budget
+    - url: ./costs/tutorial-export-acm-data.md
+      itemType: tutorial
+      text: Esportare i dati su costi e utilizzo
+    - url: ./costs/tutorial-acm-opt-recommendations.md
+      itemType: tutorial
+      text: Implementare le raccomandazioni per il risparmio dei costi
+    - url: ./costs/cost-analysis-common-uses.md
+      itemType: how-to-guide
+      text: Usare l'analisi dei costi per attività comuni
+    footerLink:
+      text: Altre informazioni
+      url: ./costs/index.yml
+  - title: Gestire gli account e le sottoscrizioni di Azure
+    links:
+    - url: ./manage/manage-billing-access.md
+      itemType: how-to-guide
+      text: Concedere l'accesso alla fatturazione
+    - url: ./manage/change-azure-account-profile.md
+      itemType: how-to-guide
+      text: Modificare il profilo
+    - url: ./manage/resolve-past-due-balance.md
+      itemType: how-to-guide
+      text: Risolvere i problemi relativi al saldo scaduto
+    - url: ./manage/subscription-disabled.md
+      itemType: how-to-guide
+      text: Riattivare la sottoscrizione
+    - url: ./manage/billing-subscription-transfer.md
+      itemType: how-to-guide
+      text: Trasferire la proprietà
+    - url: ./manage/cancel-azure-subscription.md
+      itemType: how-to-guide
+      text: Annullare la sottoscrizione
+    - url: ./manage/change-credit-card.md
+      itemType: how-to-guide
+      text: Cambiare la carta di credito
+    - url: ./manage/add-change-subscription-administrator.md
+      itemType: how-to-guide
+      text: Cambiare l'amministratore
+    - url: ./manage/create-subscription.md
+      itemType: how-to-guide
+      text: Creare sottoscrizioni aggiuntive
+    footerLink:
+      text: Altre informazioni
+      url: ./manage/index.yml
+  - title: Risparmiare con le prenotazioni di Azure
+    links:
+    - url: ./reservations/save-compute-costs-reservations.md
+      itemType: concept
+      text: Cosa sono le prenotazioni di Azure?
+    - url: ./reservations/manage-reserved-vm-instance.md
+      itemType: how-to-guide
+      text: Gestire le prenotazioni di Azure
+    - url: ./reservations/monthly-payments-reservations.md
+      itemType: how-to-guide
+      text: Acquistare una prenotazione con pagamenti mensili
+    - url: ./reservations/reservation-renew.md
+      itemType: how-to-guide
+      text: Esaminare le prenotazioni
+    - url: ./reservations/exchange-and-refund-azure-reservations.md
+      itemType: how-to-guide
+      text: Cambi e rimborsi per le prenotazioni
+    footerLink:
+      text: Altre informazioni
+      url: ./reservations/index.yml
+  - title: Interagire
+    links:
+    - url: https://feedback.azure.com/forums/906772-cost-management
+      itemType: how-to-guide
+      text: Richiedere una funzionalità del servizio Gestione dei costi
+    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
+      itemType: how-to-guide
+      text: Community tecnica di Gestione dei costi di Azure
+    - url: https://feedback.azure.com/forums/170030-signup-and-billing
+      itemType: how-to-guide
+      text: Richiedere una funzionalità del servizio di fatturazione
+    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
+      itemType: how-to-guide
+      text: Community tecnica per la fatturazione di Azure
+    - url: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureCostManagement&filter=alltypes&sort=relevancedesc&searchTerm=Azure%20Cost%20Management
+      itemType: how-to-guide
+      text: Porre una domanda nel forum di Gestione dei costi e fatturazione

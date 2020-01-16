@@ -54,9 +54,13 @@
                   href: supportability/classic-deployment-model-quota-increase-requests.md
             - name: Aumentare i limiti di rete
               href: supportability/networking-quota-requests.md
+    - name: Risolvere i problemi del portale di Azure
+      items:
         - name: Rivolvere i problemi delle sottoscrizioni a livello di area o di SKU
           href: supportability/sku-series-unavailable.md
-- name: Riferimento
+        - name: Acquisire una traccia del browser per la risoluzione dei problemi
+          href: capture-browser-trace.md
+- name: Informazioni di riferimento
   items:
     - name: Tasti di scelta rapida
       href: azure-portal-keyboard-shortcuts.md
@@ -72,7 +76,7 @@
       href: /learn/browse/?products=azure-portal
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
