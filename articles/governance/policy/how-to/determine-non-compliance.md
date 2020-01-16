@@ -3,12 +3,12 @@ title: Determinare le cause di non conformità
 description: Quando una risorsa non è conforme, esistono molti motivi possibili. Scopri cosa ha causato la mancata conformità.
 ms.date: 04/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 213797a1eafda10d5e97fbc60fc143de975fe221
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873132"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972832"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -90,7 +90,7 @@ Nella matrice seguente viene eseguito il mapping di ogni _motivo_ possibile alla
 |Il valore corrente deve essere maggiore o uguale al valore di destinazione. |greaterOrEquals o **meno** |
 |Il valore corrente deve essere maggiore del valore di destinazione. |maggiore o **non** lessOrEquals |
 |Il valore corrente deve essere minore o uguale al valore di destinazione. |lessOrEquals o **non** superiore |
-|Il valore corrente deve esistere. |exists |
+|Il valore corrente deve esistere. |esiste |
 |Il valore corrente deve essere nel valore di destinazione. |in o **non** notIn |
 |Il valore corrente deve essere simile al valore di destinazione. |like o **not** notLike |
 |Il valore corrente deve corrispondere al valore di destinazione con distinzione tra maiuscole e minuscole. |corrisponde o **non** notMatch |
@@ -190,7 +190,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>cronologia modifiche (anteprima)
 
-Come parte di una nuova versione di **anteprima pubblica**, gli ultimi 14 giorni di cronologia delle modifiche sono disponibili per tutte le risorse di Azure che supportano l' [eliminazione in modalità completa](../../../azure-resource-manager/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Gestione risorse.
+Come parte di una nuova versione di **anteprima pubblica**, gli ultimi 14 giorni di cronologia delle modifiche sono disponibili per tutte le risorse di Azure che supportano l' [eliminazione in modalità completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Gestione risorse.
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 

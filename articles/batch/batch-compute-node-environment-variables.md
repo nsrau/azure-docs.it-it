@@ -2,7 +2,7 @@
 title: Variabili di ambiente di runtime delle attività-Azure Batch | Microsoft Docs
 description: Guida alle variabili di ambiente di runtime delle attività e riferimento per Azure Batch Analytics.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
-ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.author: jushiman
+ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177145"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027180"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabili di ambiente di runtime Azure Batch
 
@@ -48,7 +48,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nome dell'account Batch a cui appartiene l'attività.                  | Tutte le attività.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL dell'account Batch. | Tutte le attività. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Prefisso di tutte le variabili di ambiente del pacchetto dell'app. Se, ad esempio, l'applicazione "FOO" versione "1" viene installata in un pool, la variabile di ambiente è AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 punta al percorso in cui è stato scaricato il pacchetto (cartella). Quando si usa la versione predefinita del pacchetto dell'app, usare la variabile di ambiente AZ_BATCH_APP_PACKAGE senza i numeri di versione. | Qualsiasi attività è cui è associato un pacchetto dell'app. Disponibile anche per tutte le attività se il nodo stesso dispone di pacchetti dell'applicazione. | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | Prefisso di tutte le variabili di ambiente del pacchetto dell'app. Se, ad esempio, l'applicazione "FOO" versione "1" viene installata in un pool, la variabile di ambiente viene AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 punta alla posizione in cui è stato scaricato il pacchetto (cartella). Quando si usa la versione predefinita del pacchetto dell'app, usare la variabile di ambiente AZ_BATCH_APP_PACKAGE senza i numeri di versione. | Qualsiasi attività è cui è associato un pacchetto dell'app. Disponibile anche per tutte le attività se il nodo stesso dispone di pacchetti dell'applicazione. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Token di autenticazione che concede l'accesso a un set limitato di operazioni del servizio Batch. Questa variabile di ambiente è presente solo se la definizione [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) è impostata quando l'[attività viene aggiunta](/rest/api/batchservice/task/add#request-body). Il valore del token viene usato nelle API Batch come credenziale per creare un client Batch, ad esempio nell'[API .NET BatchClient.Open()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Tutte le attività. | Token di accesso OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Una directory nella [directory di lavoro delle attività][files_dirs] in cui vengono archiviati i certificati per i nodi di calcolo Linux. Questa variabile di ambiente non si applica ai nodi di calcolo di Windows.                                                  | Tutte le attività.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | Elenco di nodi allocati a un'attività a [istanze diverse][multi_instance] nel formato `nodeIP,nodeIP`. | Principale multi-istanza e sottoattività. | `10.0.0.4,10.0.0.5` |

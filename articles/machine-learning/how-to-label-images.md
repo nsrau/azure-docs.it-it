@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7ff3651d082f1649326e1b41b13fa177069c40d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532344"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772449"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura
 
-Dopo che l'amministratore del progetto ha [creato un progetto di etichettatura](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
+Dopo che l'amministratore del progetto ha [creato un progetto di etichettatura](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
 
 > [!div class="checklist"]
 > * Come accedere ai progetti di etichettatura
@@ -114,5 +114,5 @@ Al termine dell'etichettatura, selezionare il proprio nome nell'angolo in alto a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [eseguire il training di modelli di classificazione delle immagini in Azure](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+* Informazioni su come [eseguire il training di modelli di classificazione delle immagini in Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
 * Informazioni sul [rilevamento di oggetti con Azure e la tecnica "Faster R-CNN"](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/)

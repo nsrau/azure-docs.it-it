@@ -2,18 +2,17 @@
 title: Elaborare eventi da Hub eventi con Storm - Azure HDInsight
 description: Informazioni su come elaborare i dati degli Hub eventi di Azure con una topologia Storm C# creata in Visual Studio tramite HDInsight Tools per Visual Studio.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/27/2017
-ms.author: hrasheed
-ROBOTS: NOINDEX
-ms.openlocfilehash: 62d65a4f004494ac4ce4ecd3df0f091460028d8f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.date: 01/14/2020
+ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800065"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981631"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)
 
@@ -26,19 +25,11 @@ Informazioni su come usare Hub eventi di Azure da [Apache Storm](https://storm.a
 
 Nella procedura in questo documento viene usato SCP.NET, un pacchetto NuGet che semplifica la creazione di topologie e componenti C# per l'uso con Storm in HDInsight.
 
-> [!IMPORTANT]  
-> Anche se i passaggi illustrati in questo documento si basano su un ambiente di sviluppo Windows con Visual Studio, il progetto compilato può essere inviato a Storm in un cluster HDInsight che usa Linux. Solo i cluster basati su Linux creati dopo il 28 ottobre 2016 supportano le topologie SCP.NET.
-
 HDInsight versione 3.4 o successiva usano Mono per eseguire le topologie C#. L'esempio in questo documento funziona con HDInsight 3.6. Se si prevede di creare soluzioni .NET personalizzate per HDInsight, leggere il documento [Mono Compatibility](https://www.mono-project.com/docs/about-mono/compatibility/) (Compatibilità di Mono) per individuare potenziali incompatibilità.
 
 ### <a name="cluster-versioning"></a>Controllo delle versioni del cluster
 
 Il pacchetto NuGet Microsoft.SCP.Net.SDK usato per il progetto deve corrispondere alla versione principale di Storm installata in HDInsight. HDInsight versioni 3.5 e 3.6 usa Storm versione 1.x, pertanto è necessario usare SCP.NET versione 1.0.x.x con questi cluster.
-
-> [!IMPORTANT]  
-> L'esempio in questo documento presuppone un cluster HDInsight 3.5 o 3.6.
->
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. 
 
 Le topologie C# devono inoltre puntare a .NET 4.5.
 
@@ -109,9 +100,6 @@ topologyBuilder.SetJavaBolt(
 
 * Un cluster Apache Storm in HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Storm** per **Tipo di cluster**.
 
-    > [!WARNING]  
-    > Per l'esempio usato in questo documento è necessario Storm in HDInsight versione 3.5 o 3.6. Questo approccio non funzionerà con le versioni precedenti di HDInsight a causa di modifiche importanti apportate al nome della classe. Per una versione di questo esempio funziona con i cluster precedenti, vedere [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
-
 * Un [Hub eventi di Azure](../../event-hubs/event-hubs-create.md).
 
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/).
@@ -125,7 +113,7 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-event-hubs-components"></a>Scaricare i componenti di Hub eventi
 
-Scaricare il componente spout and bolt di Hub eventi da [ https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar ](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Scaricare il componente spout and bolt di Hub eventi da [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
 Creare una directory denominata `eventhubspout` e salvare il file in tale directory.
 
@@ -133,9 +121,9 @@ Creare una directory denominata `eventhubspout` e salvare il file in tale direct
 
 L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenute nella sezione "Creare un hub eventi" di [Introduzione all'Hub eventi](../../event-hubs/event-hubs-create.md).
 
-1. Dopo avere creato l'hub eventi, visualizzare le impostazioni di **Hub eventi** nel portale di Azure e selezionare **Criteri di accesso condivisi**. Selezionare **+ Aggiungi** per aggiungere i criteri seguenti:
+1. Dopo avere creato l'hub eventi, visualizzare le impostazioni di **Hub eventi** nel portale di Azure e selezionare **Criteri di accesso condivisi**. Selezionare **+ Aggiungi** per creare i criteri seguenti:
 
-   | name | autorizzazioni |
+   | Nome | Autorizzazioni |
    | --- | --- |
    | writer |Invia |
    | reader |Attesa |
@@ -146,13 +134,13 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 ## <a name="configure-the-eventhubwriter"></a>Configurare EventHubWriter
 
-1. Se la versione più recente di HDInsight Tools per Visual Studio non è ancora installata, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+1. Se non è già stata installata la versione più recente di HDInsight Tools per Visual Studio, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 2. Scaricare la soluzione da [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. Nel progetto **EventHubWriter** aprire il file **App.config**. Usare le informazioni dell'hub eventi configurato prima per inserire il valore per le chiavi seguenti:
+3. Aprire **EventHubExample. sln**. Nel progetto **EventHubWriter** aprire il file **App.config**. Usare le informazioni dell'hub eventi configurato prima per inserire il valore per le chiavi seguenti:
 
-   | Chiave | Value |
+   | Chiave | Valore |
    | --- | --- |
    | EventHubPolicyName |writer (se è stato usato un altro nome per il criterio con l'autorizzazione *Send*, usare l'altro nome) |
    | EventHubPolicyKey |Chiave per il criterio writer. |
@@ -168,7 +156,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 2. Aprire il file **App.config** per **EventHubReader**. Usare le informazioni dell'hub eventi configurato prima per inserire il valore per le chiavi seguenti:
 
-   | Chiave | Value |
+   | Chiave | Valore |
    | --- | --- |
    | EventHubPolicyName |reader (se è stato usato un altro nome per il criterio con l'autorizzazione *listen*, usare l'altro nome) |
    | EventHubPolicyKey |Chiave per il criterio reader. |
@@ -204,9 +192,11 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 9. Nella sezione **Executors** (Esecutori) selezionare uno dei collegamenti nella colonna **Porta**. Verranno visualizzate le informazioni registrate dal componente. Le informazioni registrate sono simili al testo seguente:
 
-        2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
-        2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
-        2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
+    ```output
+    2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
+    2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
+    2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
+    ```
 
 ## <a name="stop-the-topologies"></a>Arrestare le topologie
 
@@ -220,7 +210,7 @@ Per arrestare le topologie, selezionarle singolarmente in **Storm Topology Viewe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo documento si è appreso come usare lo spout e il bolt degli Hub eventi Java da una topologia C# per utilizzare i dati nell'hub eventi di Azure. Per altre informazioni sulla creazione di topologie C#, vedere gli articoli seguenti:
+In questo documento si è appreso come usare il beccuccio e il Bolt dell'hub eventi Java C# da una topologia per lavorare con i dati negli hub eventi di Azure. Per altre informazioni sulla creazione di topologie C#, vedere gli articoli seguenti:
 
 * [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [Guida alla programmazione SCP](apache-storm-scp-programming-guide.md)

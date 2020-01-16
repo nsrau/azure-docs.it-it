@@ -3,12 +3,12 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni di criteri di Azure hanno diversi effetti che determinano la modalità di gestione e di segnalazione della conformità.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436356"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972802"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -367,7 +367,7 @@ La proprietà **Details** dell'effetto DeployIfNotExists include tutte le sottop
   - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (facoltativo)
   - I valori consentiti sono _Subscription_ e _ResourceGroup_.
-  - Imposta il tipo di distribuzione da attivare. _Subscription_ indica una [distribuzione a livello di sottoscrizione](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una distribuzione a un gruppo di risorse.
+  - Imposta il tipo di distribuzione da attivare. _Subscription_ indica una [distribuzione a livello di sottoscrizione](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ indica una distribuzione a un gruppo di risorse.
   - Una proprietà _location_ deve essere specificata in _Deployment_ quando si usano distribuzioni a livello di sottoscrizione.
   - L'impostazione predefinita è _ResourceGroup_.
 - **Deployment** [obbligatorio]

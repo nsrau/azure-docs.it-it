@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978118"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972717"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
 
@@ -68,7 +68,7 @@ Quando viene chiamato **Delete Blob** su un BLOB di base (qualsiasi BLOB che non
 > [!NOTE]  
 > Quando un BLOB eliminato temporaneamente viene sovrascritto, viene generato automaticamente uno snapshot eliminato temporaneamente dello stato del BLOB prima dell'operazione di scrittura. Il nuovo BLOB eredita il livello del BLOB sovrascritto.
 
-L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitori o account, né quando vengono sovrascritti i metadati e le proprietà del BLOB. Per proteggere un account di archiviazione in caso di errata eliminazione, è possibile configurare un blocco tramite Azure Resource Manager. Vedere l'articolo su Azure Resource Manager [Bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/resource-group-lock-resources.md) per altre informazioni.
+L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitori o account, né quando vengono sovrascritti i metadati e le proprietà del BLOB. Per proteggere un account di archiviazione in caso di errata eliminazione, è possibile configurare un blocco tramite Azure Resource Manager. Vedere l'articolo su Azure Resource Manager [Bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md) per altre informazioni.
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 
@@ -150,7 +150,7 @@ Quando si abilita inizialmente l'eliminazione temporanea, è consigliabile usare
 
 La procedura seguente illustra come iniziare a usare l'eliminazione temporanea.
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 Abilitare l'eliminazione temporanea per i BLOB nell'account di archiviazione usando portale di Azure:
 
@@ -227,7 +227,7 @@ Per trovare i criteri di conservazione dell'eliminazione temporanea corrente, us
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-# <a name="clitabazure-cli"></a>[Interfaccia della riga di comando](#tab/azure-CLI)
+# <a name="clitabazure-cli"></a>[CLI](#tab/azure-CLI)
 
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
@@ -335,7 +335,7 @@ Sì, l'eliminazione temporanea può essere configurata sia per gli account di ar
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se si elimina un intero account o contenitore con l'eliminazione temporanea attivata, tutti i BLOB associati verranno salvati?
 
-No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per altre informazioni sulla protezione di un account di archiviazione da eliminazioni accidentali, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/resource-group-lock-resources.md).
+No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per altre informazioni sulla protezione di un account di archiviazione da eliminazioni accidentali, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>È possibile visualizzare le metriche relative alla capacità per i dati eliminati?
 

@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748252"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973372"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -51,7 +51,7 @@ Quando i dati vengono scritti in un account di archiviazione con GZRS o RA-GZRS 
 > [!IMPORTANT]
 > La replica asincrona comporta un ritardo tra il momento in cui i dati vengono scritti nell'area primaria e quando viene replicata nell'area secondaria. Nel caso in cui si verifichi un'emergenza a livello di area, è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
 
-Quando si crea un account di archiviazione, si specifica la modalità di replica dei dati in tale account e si specifica anche l'area primaria per tale account. L'area secondaria abbinata per un account con replica geografica viene determinata in base all'area primaria e non può essere modificata. Per informazioni aggiornate sulle aree supportate da Azure, vedere [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Per informazioni sulla creazione di un account di archiviazione con GZRS o RA-GZRS, vedere [creare un account di archiviazione](storage-quickstart-create-account.md).
+Quando si crea un account di archiviazione, si specifica la modalità di replica dei dati in tale account e si specifica anche l'area primaria per tale account. L'area secondaria abbinata per un account con replica geografica viene determinata in base all'area primaria e non può essere modificata. Per informazioni aggiornate sulle aree supportate da Azure, vedere [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Per informazioni sulla creazione di un account di archiviazione con GZRS o RA-GZRS, vedere [creare un account di archiviazione](storage-account-create.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Usare RA-GZRS per la disponibilità elevata
 

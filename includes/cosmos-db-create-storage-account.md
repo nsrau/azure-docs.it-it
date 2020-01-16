@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: mimig
 ms.custom: include file
-ms.openlocfilehash: 1d7821014dc950f2bbb0b96f83536268e90c695a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 35db353c17bb30b149c6af8aa483b234d7390d2d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818668"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972911"
 ---
-Il modo più semplice per creare un account di archiviazione di Azure consiste nell'usare il [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Creare un account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md).
+Il modo più semplice per creare un account di archiviazione di Azure consiste nell'usare il [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Creare un account di archiviazione](../articles/storage/common/storage-account-create.md).
 
 È possibile anche creare un account di archiviazione di Azure usando [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md) o l'[interfaccia della riga di comando di Azure](../articles/storage/common/storage-azure-cli.md).
 

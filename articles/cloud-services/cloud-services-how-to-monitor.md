@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
-ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386069"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972951"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
 
@@ -52,7 +52,7 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 
 ## <a name="setup-diagnostics-extension"></a>Configurare l'estensione di Diagnostica
 
-In primo luogo, se non si ha già un account di archiviazione **classico**, [crearne uno](../storage/common/storage-quickstart-create-account.md). Verificare che l'account di archiviazione sia creato con il **modello di distribuzione classica** specificato.
+In primo luogo, se non si ha già un account di archiviazione **classico**, [crearne uno](../storage/common/storage-account-create.md). Verificare che l'account di archiviazione sia creato con il **modello di distribuzione classica** specificato.
 
 Quindi passare alla risorsa **Account di archiviazione (classico)** . Selezionare **Impostazioni** > **Chiavi di accesso** e copiare il valore **Stringa di connessione primaria**. Questo valore è necessario per il servizio cloud. 
 

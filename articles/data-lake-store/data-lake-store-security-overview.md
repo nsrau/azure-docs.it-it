@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4e640aa1cb02174c935c0f7c1d61ab2fca5ea046
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195294"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974585"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sicurezza in Azure Data Lake Storage Gen1
 Molte aziende sfruttano l'analisi di Big Data per una visione completa dell'attività e per prendere decisioni appropriate. Un'organizzazione potrebbe presentare un ambiente complesso e regolamentato, con un numero crescente di utenti diversi. Per un'azienda è essenziale assicurarsi che i dati critici vengano archiviati in modo più sicuro e con un corretto livello di accesso concesso ai singoli utenti. Azure Data Lake Storage Gen1 è progettato per contribuire a soddisfare questi requisiti di sicurezza. Questo articolo fornisce informazioni sulle funzionalità di sicurezza di Data Lake Storage Gen1, tra cui:
 
-* Authentication
-* Authorization
+* Autenticazione
+* Autorizzazione
 * Isolamento rete
-* Protezione dati
+* Protezione dei dati
 * Controllo
 
 ## <a name="authentication-and-identity-management"></a>Autenticazione e gestione delle identità
@@ -47,14 +47,14 @@ Dopo che Azure Active Directory ha autenticato un utente in modo che possa acced
 ### <a name="rbac-for-account-management"></a>Controllo degli accessi in base al ruolo per la gestione degli account
 Quattro ruoli di base vengono definiti per Data Lake Storage Gen1 per impostazione predefinita. I ruoli permettono di eseguire diverse operazioni su un account Data Lake Storage Gen1 tramite il portale di Azure, i cmdlet di PowerShell e le API REST. I ruoli Proprietario e Collaboratore possono eseguire un'ampia gamma di funzioni di amministrazione sull'account. È possibile assegnare il ruolo Lettore agli utenti limitati alla sola visualizzazione dei dati di gestione degli account.
 
-![Ruoli Controllo degli accessi in base al ruolo](./media/data-lake-store-security-overview/rbac-roles.png "Ruoli Controllo degli accessi in base al ruolo")
+![Ruoli RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Ruoli Controllo degli accessi in base al ruolo")
 
 Si noti che anche se per la gestione degli account vengono assegnati i ruoli, alcuni ruoli incidono sull'accesso ai dati. È necessario usare gli elenchi di controllo di accesso (ACL) alle operazioni che un utente può eseguire nel file system. La tabella seguente mostra un riepilogo dei diritti di gestione e dei diritti di accesso ai dati per questi ruoli predefiniti.
 
 | Ruoli | Diritti di gestione | Diritti di accesso ai dati | Spiegazione |
 | --- | --- | --- | --- |
-| Nessun ruolo assegnato |Nessuna |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
-| Proprietario |Tutti |Tutti |Il ruolo di Proprietario è un utente avanzato. Questo ruolo può gestire tutto e ha l'accesso completo ai dati. |
+| Nessun ruolo assegnato |Nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
+| Proprietario |Tutto |Tutto |Il ruolo di Proprietario è un utente avanzato. Questo ruolo può gestire tutto e ha l'accesso completo ai dati. |
 | Reader |Sola lettura |Regolato da ACL |Il ruolo Lettore può visualizzare tutti gli elementi riguardanti la gestione degli account, ad esempio l'utente assegnato a un determinato ruolo, ma non prevede la possibilità di apportare modifiche. |
 | Collaboratore |Tutti tranne quelli di aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Collaboratore può gestire alcuni aspetti di un account, ad esempio le distribuzioni e la creazione e la gestione di avvisi, ma non prevede la possibilità di aggiungere o rimuovere ruoli. |
 | Amministratore accessi utente |Aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Amministratore accessi utente può gestire l'accesso degli utenti agli account. |
@@ -73,7 +73,7 @@ Usare Data Lake Storage Gen1 per aiutare a controllare l'accesso all'archivio da
 
 ![Impostazioni del firewall e accesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Impostazioni del firewall e indirizzo IP")
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 Data Lake Storage Gen1 protegge i dati durante l'intero ciclo di vita. Per i dati in transito, Data Lake Storage Gen1 usa il protocollo standard TLS 1.2 (Transport Layer Security) per proteggere i dati trasmessi in rete.
 
 ![Crittografia in Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "Crittografia in Data Lake Storage Gen1")
@@ -95,10 +95,10 @@ Per gli audit trail di gestione account, visualizzare e scegliere le colonne che
 
 ![Log attività](./media/data-lake-store-security-overview/activity-logs.png "Log attività")
 
-Per altre informazioni sull'utilizzo dei log attività, vedere [Visualizzare i log attività per controllare le azioni sulle risorse](../azure-resource-manager/resource-group-audit.md).
+Per altre informazioni sull'utilizzo dei log attività, vedere [Visualizzare i log attività per controllare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="diagnostics-logs"></a>Log di diagnostica
-È possibile abilitare il controllo di accesso ai dati e la registrazione diagnostica nel portale di Azure e inviare i log a un account di archiviazione Blob di Azure, un hub eventi o log di monitoraggio di Azure.
+È possibile abilitare il controllo di accesso ai dati e la registrazione diagnostica nella portale di Azure e inviare i log a un account di archiviazione BLOB di Azure, a un hub eventi o ai log di monitoraggio di Azure.
 
 ![Log di diagnostica](./media/data-lake-store-security-overview/diagnostic-logs.png "Log di diagnostica")
 
@@ -109,8 +109,7 @@ I clienti aziendali richiedono una piattaforma cloud di analisi dei dati protett
 
 Per vedere nuove funzionalità in Data Lake Storage Gen1, inviare commenti e suggerimenti al [forum UserVoice di Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Iniziare a usare Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
-

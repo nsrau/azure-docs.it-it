@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 50054379a3032a368a10932e15396373a3817cff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059001"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978921"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creare una rete virtuale (classica) con più subnet
 
 > [!IMPORTANT]
-> Azure offre due [diversi modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Gestione risorse e classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di creare la maggior parte di nuove reti virtuali tramite il modello di distribuzione [Resource Manager](quick-create-portal.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di creare la maggior parte di nuove reti virtuali tramite il modello di distribuzione [Resource Manager](quick-create-portal.md).
 
 Questa esercitazione spiega come creare una rete virtuale (classica) di Azure di base con subnet pubblica e privata separate. È possibile creare risorse di Azure, ad esempio macchine virtuali e servizi cloud in una subnet. Le risorse create nelle reti virtuali (classica) possono comunicare tra loro e con le risorse di altre reti connesse a una rete virtuale.
 
 Altre informazioni su tutte le impostazioni relative alla [rete virtuale](manage-virtual-network.md) e alla [subnet](virtual-network-manage-subnet.md).
 
 > [!WARNING]
-> Le reti virtuali (classica) vengono eliminate immediatamente da Azure quando una [sottoscrizione viene disabilitata](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Le reti virtuali (classica) vengono eliminate indipendentemente dall'esistenza di risorse nella rete virtuale. Se si abilita di nuovo la sottoscrizione in un secondo momento, è necessario ricreare le risorse che erano presenti nella rete virtuale.
+> Le reti virtuali (classica) vengono eliminate immediatamente da Azure quando una [sottoscrizione viene disabilitata](../cost-management-billing/manage/subscription-disabled.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Le reti virtuali (classica) vengono eliminate indipendentemente dall'esistenza di risorse nella rete virtuale. Se si abilita di nuovo la sottoscrizione in un secondo momento, è necessario ricreare le risorse che erano presenti nella rete virtuale.
 
 Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[interfaccia della riga di comando di Azure 1.0 ](#azure-cli) o [Azure PowerShell](#powershell).
 
@@ -47,9 +47,9 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVnet|
+    |Nome|myVnet|
     |Spazio degli indirizzi|10.0.0.0/16|
-    |Nome della subnet|Public|
+    |Nome della subnet|Pubblico|
     |Intervallo di indirizzi subnet|10.0.0.0/24|
     |Gruppo di risorse|Lasciare selezionata l'opzione **Crea nuovo** e quindi immettere **myResourceGroup**.|
     |Sottoscrizione e località|Selezionare la sottoscrizione e la posizione.
@@ -60,7 +60,7 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 6. Fare clic su **+ Aggiungi** nel riquadro **myVnet - subnet** visualizzato.
 7. Immettere **Privata** per **Nome** nel riquadro **Aggiungi subnet**. Immettere **10.0.1.0/24** per **Intervallo indirizzi**.  Fare clic su **OK**.
 8. Nel riquadro **myVnet - subnet** è possibile visualizzare le subnet **pubblica** e **privata** create.
-9. **Facoltativo**: Al termine di questa esercitazione, potrebbe essere necessario eliminare le risorse create, in modo da non incorrere in costi di utilizzo:
+9. **Facoltativo**: al termine di questa esercitazione è possibile eliminare le risorse create per non incorrere in costi di utilizzo:
     - Fare clic su **Panoramica** nel riquadro **myVnet**.
     - Fare clic sull'icona **Elimina** nel riquadro **myVnet**.
     - Per confermare l'eliminazione, nella casella **Elimina rete virtuale** fare clic su **Sì**.
@@ -98,7 +98,7 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
     azure network vnet show --vnet myVnet
     ```
 
-7. **Facoltativo**: Potrebbe essere necessario eliminare le risorse create al termine di questa esercitazione, in modo da non incorrere in costi di utilizzo:
+7. **Facoltativo**: al termine di questa esercitazione è possibile eliminare le risorse create per non incorrere in costi di utilizzo:
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **Facoltativo**: Potrebbe essere necessario eliminare le risorse create al termine di questa esercitazione, in modo da non incorrere in costi di utilizzo. Per eliminare la rete virtuale, completare i passaggi 4-6, questa volta rimuovendo l'elemento **VirtualNetworkSite** nel passaggio 5.
+8. **Facoltativo**: al termine di questa esercitazione è possibile eliminare le risorse create per non incorrere in costi di utilizzo. Per eliminare la rete virtuale, completare i passaggi 4-6, questa volta rimuovendo l'elemento **VirtualNetworkSite** nel passaggio 5.
  
 > [!NOTE]
 > Anche se non è possibile specificare un gruppo di risorse per creare una rete virtuale (classica) usando PowerShell, Azure crea la rete virtuale in un gruppo di risorse denominato *Default-Networking*.
@@ -164,5 +164,5 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 
 - Per informazioni sulle impostazioni delle reti virtuali e delle subnet, vedere [Gestire le reti virtuali](manage-virtual-network.md) e [Gestire le subnet di rete virtuali](virtual-network-manage-subnet.md). In un ambiente di produzione sono disponibili varie opzioni per l'uso di reti virtuali e subnet per soddisfare requisiti diversi.
 - Creare una macchina virtuale [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e quindi connetterla a una rete virtuale esistente.
-- Per connettere due reti virtuali nella stessa località di Azure, creare un [peering reti virtuali](create-peering-different-deployment-models.md) tra due reti virtuali. È possibile connettere una rete virtuale (Gestione risorse) a una rete virtuale (classica), ma non è possibile creare un peering tra due reti virtuali (classica).
+- Per connettere due reti virtuali nella stessa località di Azure, creare un [peering reti virtuali](create-peering-different-deployment-models.md) tra le reti virtuali. È possibile connettere una rete virtuale (Gestione risorse) a una rete virtuale (classica), ma non è possibile creare un peering tra due reti virtuali (classica).
 - Connettere la rete virtuale a una rete locale tramite un [Gateway VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un circuito [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

@@ -3,12 +3,12 @@ title: Configurare i report di Power BI
 description: Configurare report di Power BI per Backup di Azure usando un insieme di credenziali di Servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f8a2dd927f996ea09e40c7db2e43b46c17f6258
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450118"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978364"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -30,7 +30,7 @@ Scaricare l'app più recente (versione 1.8) per evitare questo problema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Creare un [account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
+- Creare un [account di archiviazione di Azure](../storage/common/storage-account-create.md) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
 - [Creare un account di Power BI](https://powerbi.microsoft.com/landing/signin/) per visualizzare, personalizzare e creare report personalizzati usando il portale di Power BI.
 - Registrare il provider di risorse **Microsoft.Insights**, se non è già registrato. Usare le sottoscrizioni per l'account di archiviazione e l'insieme di credenziali di Servizi di ripristino in modo da consentire il flusso dei dati dei report nell'account di archiviazione. A tale scopo, passare al portale di Azure, selezionare **Sottoscrizione** > **Provider di risorse** e scegliere questo provider per registrarlo.
 

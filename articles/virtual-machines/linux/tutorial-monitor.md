@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b06342d5034b820be4e6fd49436546a5aa7b7e02
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112000"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749787"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare una macchina virtuale Linux in Azure
 
 Monitoraggio di Azure usa gli agenti per raccogliere dati di avvio e sulle prestazioni dalle macchine virtuali di Azure, archiviare tali dati in Archiviazione di Azure e renderli accessibili tramite il portale, il modulo Azure PowerShell e l'interfaccia della riga di comando di Azure. Monitoraggio di Azure per le macchine virtuali include anche il monitoraggio avanzato, con la raccolta delle metriche delle prestazioni e l'individuazione dei componenti delle applicazioni installati nella macchina virtuale e comprende i grafici delle prestazioni e la mappa delle dipendenze.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Abilitare la diagnostica di avvio in una macchina virtuale
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -174,7 +174,7 @@ L'esempio seguente crea un avviso per l'uso medio della CPU.
 
 5. Facoltativamente, è possibile selezionare la casella per *Invia messaggio di posta elettronica a proprietari, collaboratori e lettori* per inviare una notifica tramite posta elettronica. L'azione predefinita è di presentare una notifica nel portale.
 
-6. Fare clic sul pulsante **OK**.
+6. Fare clic sul pulsante **OK** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i con
 description: Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare i cluster Kubernetes ospitati in Azure Stack o in un altro ambiente.
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: c791477aeb27609cccda11b901eccaa2805be581
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6218550f4b5a3a59b4addc69b19ff11e282d45a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404832"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977746"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori
 
@@ -37,21 +37,21 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
     |*.ods.opinsights.azure.com |Porta 443 |  
     |*.oms.opinsights.azure.com |Porta 443 |  
     |*.blob.core.windows.net |Porta 443 |  
-    |*. dc.services.visualstudio.com |Porta 443 | 
+    |*. dc.services.visualstudio.com |Porta 443 |
 
 * Per raccogliere le metriche delle prestazioni, l'agente in contenitori richiede l'apertura di `cAdvisor port: 10255` in tutti i nodi del cluster.
 
-* Per poter comunicare con il servizio API Kubernetes all'interno del cluster per raccogliere dati di inventario, `KUBERNETES_SERVICE_HOST` e `KUBERNETES_PORT_443_TCP_PORT`, l'agente in contenitori richiede che nel contenitore siano specificate le variabili di ambiente seguenti. 
+* Per poter comunicare con il servizio API Kubernetes all'interno del cluster per raccogliere dati di inventario, `KUBERNETES_SERVICE_HOST` e `KUBERNETES_PORT_443_TCP_PORT`, l'agente in contenitori richiede che nel contenitore siano specificate le variabili di ambiente seguenti.
 
 >[!IMPORTANT]
->La versione minima dell'agente supportata per il monitoraggio dei cluster Kubernetes ibridi è ciprod10182019 o successiva. 
+>La versione minima dell'agente supportata per il monitoraggio dei cluster Kubernetes ibridi è ciprod10182019 o successiva.
 
 ## <a name="supported-configurations"></a>Configurazioni supportate
 
 Il codice seguente è ufficialmente supportato con monitoraggio di Azure per i contenitori.
 
 - Ambienti: Kubernetes locale, motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Le versioni di Kubernetes e i criteri di supporto corrispondono alle versioni di [AKS supportate](../../aks/supported-kubernetes-versions.md). 
+- Le versioni di Kubernetes e i criteri di supporto corrispondono alle versioni di [AKS supportate](../../aks/supported-kubernetes-versions.md).
 - Runtime del contenitore: Docker e Moby
 - Versione del sistema operativo Linux per i nodi master e lavoro: Ubuntu (18,04 LTS e 16,04 LTS)
 - Controllo di accesso supportato: Kubernetes RBAC e non RBAC
@@ -70,11 +70,11 @@ L'abilitazione di monitoraggio di Azure per i contenitori per il cluster Kuberne
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
 
-* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
-* [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Questo metodo include due modelli JSON. Un modello JSON specifica la configurazione per abilitare il monitoraggio e l'altro contiene i valori dei parametri da configurare per specificare quanto segue:
 
@@ -105,7 +105,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log An
     az account set -s <subscriptionId of the workspace>
     ```
 
-3. Nell'esempio seguente viene visualizzato l'elenco delle aree di lavoro nelle sottoscrizioni nel formato JSON predefinito. 
+3. Nell'esempio seguente viene visualizzato l'elenco delle aree di lavoro nelle sottoscrizioni nel formato JSON predefinito.
 
     ```
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
@@ -195,7 +195,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log An
 
 8. Salvare il file come containerSolutionParams. JSON in una cartella locale.
 
-9. A questo punto è possibile distribuire il modello. 
+9. A questo punto è possibile distribuire il modello.
 
    * Per eseguire la distribuzione con Azure PowerShell, usare i comandi seguenti nella cartella che contiene il modello:
 
@@ -208,12 +208,12 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log An
        # set the context of the subscription of Log Analytics workspace
        Set-AzureRmContext -SubscriptionId <subscription Id of log analytics workspace>
        ```
-       
+
        ```powershell
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <resource group of log analytics workspace> -TemplateFile .\containerSolution.json -TemplateParameterFile .\containerSolutionParams.json
        ```
-       
+
        Il completamento della modifica della configurazione può richiedere alcuni minuti. Al termine dell'operazione, viene visualizzato un messaggio simile al seguente in cui è incluso il risultato:
 
        ```powershell
@@ -221,7 +221,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log An
        ```
 
    * Per la distribuzione con l'interfaccia della riga di comando di Azure, eseguire i comandi seguenti:
-    
+
        ```azurecli
        az login
        az account set --name <AzureCloud | AzureChinaCloud | AzureUSGovernment>
@@ -236,8 +236,8 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro Log An
        ```azurecli
        provisioningState       : Succeeded
        ```
-     
-       Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster. 
+
+       Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster.
 
 ## <a name="install-the-chart"></a>Installare il grafico
 
@@ -260,7 +260,7 @@ Per abilitare il grafico HELM, procedere come segue:
 
     ```
     $ helm install --name myrelease-1 \
-     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers 
+     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
     Se l'area di lavoro Log Analytics si trova nel governo degli Stati Uniti di Azure, eseguire il comando seguente:
@@ -272,22 +272,22 @@ Per abilitare il grafico HELM, procedere come segue:
 
 ## <a name="configure-agent-data-collection"></a>Configurare la raccolta dati agente
 
-Con il grafico versione 1.0.0, le impostazioni di raccolta dei dati dell'agente vengono controllate dal ConfigMap. Vedere la documentazione sulle impostazioni di raccolta dati di Agent [qui](container-insights-agent-config.md). 
+Con il grafico versione 1.0.0, le impostazioni di raccolta dei dati dell'agente vengono controllate dal ConfigMap. Vedere la documentazione sulle impostazioni di raccolta dati di Agent [qui](container-insights-agent-config.md).
 
 Dopo aver distribuito correttamente il grafico, è possibile esaminare i dati per il cluster Kubernetes ibrido in monitoraggio di Azure per i contenitori dalla portale di Azure.  
 
 >[!NOTE]
->La latenza di inserimento è circa tra cinque e dieci minuti dall'agente per eseguire il commit nell'area di lavoro di Azure Log Analytics. Lo stato del cluster Mostra il valore **Nessun dato** o **sconosciuto** fino a quando non sono disponibili tutti i dati di monitoraggio necessari in monitoraggio di Azure. 
+>La latenza di inserimento è circa tra cinque e dieci minuti dall'agente per eseguire il commit nell'area di lavoro di Azure Log Analytics. Lo stato del cluster Mostra il valore **Nessun dato** o **sconosciuto** fino a quando non sono disponibili tutti i dati di monitoraggio necessari in monitoraggio di Azure.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verifica un errore durante il tentativo di abilitare il monitoraggio per il cluster Kubernetes ibrido, copiare lo script di PowerShell [TroubleshootError_nonAzureK8s. ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) e salvarlo in una cartella nel computer. Questo script viene fornito per facilitare il rilevamento e la risoluzione dei problemi rilevati. Di seguito sono riportati i problemi che è stato progettato per rilevare e tentare la correzione:
 
-* L'area di lavoro Log Analytics specificata è valida 
+* L'area di lavoro Log Analytics specificata è valida
 * L'area di lavoro Log Analytics è configurata con la soluzione monitoraggio di Azure per contenitori. In caso contrario, configurare l'area di lavoro.
 * Il Pod REPLICASET OmsAgent è in esecuzione
 * Il Pod daemonset OmsAgent è in esecuzione
-* Il servizio integrità OmsAgent è in esecuzione 
+* Il servizio integrità OmsAgent è in esecuzione
 * Il Log Analytics ID e la chiave dell'area di lavoro configurati nell'agente in contenitori corrispondono all'area di lavoro con cui è configurata l'analisi.
 * Verificare che tutti i nodi di lavoro Linux abbiano `kubernetes.io/role=agent` etichetta per pianificare il Pod RS. Se non esiste, aggiungerlo.
 * Validate `cAdvisor port: 10255` viene aperto in tutti i nodi del cluster.

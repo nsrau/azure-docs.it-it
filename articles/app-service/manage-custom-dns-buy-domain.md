@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6bc6f1ca29343e027730cbbd99d210f911fcb492
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672390"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967306"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -23,7 +23,7 @@ Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign 
 Per completare questa esercitazione:
 
 * [Creare un'app del servizio app](/azure/app-service/) oppure usare un'app creata per un'altra esercitazione.
-* [Rimuovere il limite di spesa per la sottoscrizione](../billing/billing-spending-limit.md#remove). Non è possibile acquistare domini del servizio app con crediti della sottoscrizione gratuiti.
+* [Rimuovere il limite di spesa per la sottoscrizione](../cost-management-billing/manage/spending-limit.md#remove). Non è possibile acquistare domini del servizio app con crediti della sottoscrizione gratuiti.
 
 ## <a name="prepare-the-app"></a>Preparare l'app
 
@@ -51,7 +51,7 @@ Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla 
 
 Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'app non sia inclusa nel livello **F1**. Il DNS personalizzato non è supportato nel livello **F1**. 
 
-![Controllo del piano tariffario](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Se il piano di servizio app non è **F1**, chiudere la pagina **Aumenta** e passare a [Acquista il dominio](#buy-the-domain).
 
@@ -61,7 +61,7 @@ Selezionare uno dei livelli non gratuiti (**D1**, **B1**, **B2**, **B3** o uno q
 
 Fare clic su **Apply**.
 
-![Controllo del piano tariffario](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
 La visualizzazione della notifica seguente indica che l'operazione di passaggio al livello superiore è stata completata.
 
@@ -168,7 +168,7 @@ Verificare che il dominio acquistato sia presente nella sezione **domini del ser
 Selezionare **Aggiungi il nome host**.
 
 ### <a name="configure-hostname"></a>Configurare il nome host
-Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. ad esempio:
+Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Ad esempio:
 
 - kontoso.net
 - www\.kontoso.net

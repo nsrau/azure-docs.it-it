@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214806"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732324"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -52,11 +52,11 @@ Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando s
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLBAZ* nella casella di testo.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
     | SKU           | Selezionare **Standard**.                          |
@@ -131,8 +131,8 @@ Creare macchine virtuali in zone diverse (area 1, 2 e 3) per l'area che può fun
 3. Selezionare **DS1_V2** come dimensioni per la macchina virtuale e fare clic su **Seleziona**.
 4. Immettere i valori seguenti per le impostazioni della macchina virtuale:
     - *Zona 1* per la zona in cui posizionare la macchina virtuale.
-    -  *myVNet*: assicurarsi che sia stata fatta la selezione come rete virtuale.
-    - *myBackendSubnet*: assicurarsi che sia stata fatta la selezione come subnet.
+    -  *myVNet*: assicurarsi che sia selezionato come rete virtuale.
+    - *myBackendSubnet*: assicurarsi che sia selezionato come subnet.
     - *myNetworkSecurityGroup* come nome del gruppo di sicurezza di rete (firewall).
 5. Fare clic su **Disabilitato** per disabilitare la diagnostica di avvio.
 6. Fare clic su **OK**, verificare le impostazioni nella pagina di riepilogo e quindi fare clic su **Crea**.
@@ -179,7 +179,7 @@ Per distribuire il traffico alle macchine virtuali, è necessario che un pool di
     - Per **Macchina virtuale** nel menu a discesa fare clic su **myVM1**.
     - Per **Indirizzo IP** nel menu a discesa fare clic sull'indirizzo IP di myVM1.
 4. Fare clic su **Aggiungi nuova risorsa back-end** per aggiungere ogni macchina virtuale (*myVM2* e *myVM3*) al pool back-end del servizio di bilanciamento del carico.
-5. Fare clic su **Aggiungi**.
+5. Scegliere **Aggiungi**.
 
     ![Aggiunta al pool di indirizzi back-end](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
@@ -215,6 +215,7 @@ Una regola di bilanciamento del carico consente di definire come il traffico ver
     - *myBackendPool* come nome del pool back-end.
     - *myHealthProbe* come nome del probe di integrità.
 4. Fare clic su **OK**.
+    
     
     ![Aggiunta di una regola di bilanciamento del carico](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

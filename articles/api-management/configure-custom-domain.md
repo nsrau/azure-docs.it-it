@@ -10,21 +10,24 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442554"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967355"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
-Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a un sottodominio di azure-api.net, ad esempio `apim-service-name.azure-api.net`. Tuttavia, è possibile esporre gli endpoint di gestione API usando il nome di dominio personalizzato, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di gestione API.
+Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a un sottodominio di `azure-api.net`, ad esempio `apim-service-name.azure-api.net`. Tuttavia, è possibile esporre gli endpoint di gestione API usando il nome di dominio personalizzato, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di gestione API.
+
+> [!IMPORTANT]
+> Gestione API accetta solo le richieste con valori di [intestazione host](https://tools.ietf.org/html/rfc2616#section-14.23) che corrispondono al nome di dominio predefinito o a uno dei nomi di dominio personalizzati configurati.
 
 > [!WARNING]
-> I clienti che vogliono usare l'associazione del certificato per migliorare la sicurezza delle applicazioni devono usare un nome di dominio personalizzato e il certificato che gestiscono, non il certificato predefinito. I clienti che usano invece il certificato predefinito dipenderanno in modo sostanziale dalle proprietà di un certificato che non controllano, adottando così una procedura non consigliata.
+> I clienti che vogliono usare l'associazione del certificato per migliorare la sicurezza delle applicazioni devono usare un nome di dominio personalizzato e il certificato che gestiscono, non il certificato predefinito. I clienti che aggiungono il certificato predefinito avranno una dipendenza rigida dalle proprietà del certificato che non controllano, che non è una procedura consigliata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

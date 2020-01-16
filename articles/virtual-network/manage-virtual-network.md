@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 87cdd3d18fe0e6a3655c8bbc940cdc00fa211e74
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750586"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982239"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -79,7 +79,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
      ![Panoramica dell'interfaccia di rete](./media/manage-virtual-network/vnet-overview.png)
 
-     È possibile spostare una rete virtuale in una sottoscrizione o in un gruppo di risorse diverso selezionando **Modifica** accanto a **Gruppo di risorse** o **Nome sottoscrizione**. Per informazioni su come spostare una rete virtuale, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json). L'articolo elenca i prerequisiti e descrive come spostare le risorse tramite il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure. Tutte le risorse connesse alla rete virtuale devono essere spostate con la rete virtuale stessa.
+     È possibile spostare una rete virtuale in una sottoscrizione o in un gruppo di risorse diverso selezionando **Modifica** accanto a **Gruppo di risorse** o **Nome sottoscrizione**. Per informazioni su come spostare una rete virtuale, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json). L'articolo elenca i prerequisiti e descrive come spostare le risorse tramite il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure. Tutte le risorse connesse alla rete virtuale devono essere spostate con la rete virtuale stessa.
    - **Spazio indirizzi**: elenca gli spazi indirizzi assegnati alla rete virtuale. Per informazioni su come aggiungere e rimuovere un intervallo di indirizzi nello spazio indirizzi, completare la procedura descritta in [Aggiungere o rimuovere uno spazio indirizzi](#add-or-remove-an-address-range).
    - **Dispositivi connessi**: elenca tutte le risorse connesse alla rete virtuale. Nello screenshot precedente, alla rete virtuale sono connessi tre interfacce di rete e un bilanciamento del carico. Nell'elenco sono presenti tutte le nuove risorse create e connesse alla rete virtuale. Se si elimina una risorsa connessa alla rete virtuale, la risorsa non compare più nell'elenco.
    - **Subnet**: presenta l'elenco delle subnet esistenti all'interno della rete virtuale. Per informazioni su come aggiungere e rimuovere una subnet, vedere [Aggiungere, modificare o eliminare le subnet di rete virtuale](virtual-network-manage-subnet.md).
@@ -90,8 +90,8 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
    - **Impostazioni comuni di Azure**: per altre informazioni sulle impostazioni comuni di Azure, vedere le informazioni seguenti:
      - [Log attività](../azure-monitor/platform/platform-logs-overview.md)
      - [Controllo di accesso (IAM)](../role-based-access-control/overview.md)
-     - [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Tag](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Script di automazione](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Comandi**

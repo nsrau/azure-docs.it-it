@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de64385e21604188a5c9002f2e007dad86b2674c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420444"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978025"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usare il report delle attività dell'applicazione AD FS (anteprima) per eseguire la migrazione delle applicazioni ai Azure AD
 
@@ -32,7 +32,7 @@ Il AD FS report attività applicazione (anteprima) nel portale di Azure consente
 
 I dati dell'attività AD FS applicazione sono disponibili per gli utenti a cui è stato assegnato uno di questi ruoli di amministratore: amministratore globale, lettore report, lettore sicurezza, amministratore dell'applicazione o amministratore di applicazioni cloud.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * L'organizzazione deve attualmente usare AD FS per accedere alle applicazioni.
 * Azure AD Connect Health deve essere abilitato nel tenant del Azure AD.
@@ -63,7 +63,7 @@ Il report attività dell'applicazione AD FS è disponibile nella portale di Azur
 
 1. Nell'elenco attività dell'applicazione AD FS fare clic sullo stato nella colonna **stato migrazione** per aprire i dettagli della migrazione. Verrà visualizzato un riepilogo dei test di configurazione passati, insieme a eventuali problemi di migrazione potenziali.
 
-   ![Dettagli della migrazione](media/migrate-adfs-application-activity/migration-details.png)
+   ![Dettagli sulla migrazione](media/migrate-adfs-application-activity/migration-details.png)
 
 2. Fare clic su un messaggio per aprire i dettagli aggiuntivi della regola di migrazione. Per un elenco completo delle proprietà sottoposte a test, vedere la tabella dei [test di configurazione dell'applicazione ad FS](#ad-fs-application-configuration-tests) riportata di seguito.
 
@@ -73,7 +73,7 @@ Il report attività dell'applicazione AD FS è disponibile nella portale di Azur
 
 Nella tabella seguente sono elencati tutti i test di configurazione eseguiti su AD FS applicazioni.
 
-|Risultato  |Superato/avviso/esito negativo  |DESCRIZIONE  |
+|Risultato  |Superato/avviso/esito negativo  |Description  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> È stata rilevata almeno una regola non migrazione nei per AdditionalAuthentication.       | Pass/avviso          | Il relying party dispone di regole per richiedere l'autenticazione a più fattori (multi-factor authentication). Per spostarsi in Azure AD, tradurre tali regole in criteri di accesso condizionale. Se si usa un'autenticazione a più fattori locale, si consiglia di passare ad autenticazione a più fattori di Azure. [Altre informazioni sull'accesso condizionale](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> Il valore di AdditionalWSFedEndpoint del componente è impostato su true.       | Esito positivo o negativo          | Il relying party in AD FS consente più endpoint di asserzione WS-Fed. Attualmente Azure AD ne supporta solo uno. Se si dispone di uno scenario in cui il risultato è il blocco della migrazione, segnalare il [problema.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |
@@ -109,7 +109,7 @@ Se è stata configurata una regola attestazioni per l'applicazione in AD FS, l'e
 
 Nella tabella seguente sono elencati tutti i test delle regole attestazioni eseguiti su AD FS applicazioni.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Description  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | L'istruzione Condition usa espressioni regolari per valutare se l'attestazione corrisponde a un determinato modello.  Per ottenere una funzionalità simile in Azure AD, è possibile usare tra gli altri la trasformazione predefinita, ad esempio IfEmpty (), cominciamo (), Contains (). Per altre informazioni, vedere [personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
 |UNSUPPORTED_CONDITION_CLASS      | L'istruzione Condition presenta più condizioni che devono essere valutate prima di eseguire l'istruzione di rilascio. Azure AD possibile supportare questa funzionalità con le funzioni di trasformazione dell'attestazione in cui è possibile valutare più valori di attestazione.  Per altre informazioni, vedere [personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
@@ -124,6 +124,7 @@ Nella tabella seguente sono elencati tutti i test delle regole attestazioni eseg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Video: come usare il report attività di AD FS per eseguire la migrazione di un'applicazione](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Gestione di applicazioni con Azure Active Directory](what-is-application-management.md)
 - [Manage access to apps](what-is-access-management.md) (Gestire l'accesso alle app)
 - [Azure AD Connect e federazione](../hybrid/how-to-connect-fed-whatis.md)

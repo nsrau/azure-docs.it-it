@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815e1a811d16e4c630e455e9c684c2b6b094a5d5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183398"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971924"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure 
 
@@ -37,7 +37,7 @@ Questa esercitazione mostra come usare un'identità gestita assegnata dal sistem
 > [!NOTE]
 > L'autenticazione di Azure Active Directory per l'Archiviazione di Azure è disponibile come anteprima pubblica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -55,7 +55,7 @@ In questa sezione, si crea un account di archiviazione.
 3. In **Nome**, immettere il nome dell'account di archiviazione.  
 4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su **Gestione di risorse** e **Archiviazione (utilizzo generico v1)** . 
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
-6. Fare clic su **Create**(Crea).
+6. Fare clic su **Crea**.
 
     ![Creare un nuovo account di archiviazione](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -89,7 +89,7 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su **Tutti i gruppi di risorse**.  
 7. In **Seleziona**, scegliere la macchina virtuale e quindi fare clic su **Salva**.
 
-    ![Assegnare autorizzazioni](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
+    ![Assegnare le autorizzazioni](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
 ## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Ottenere un token di accesso e usarlo per chiamare l'archiviazione di Azure
 

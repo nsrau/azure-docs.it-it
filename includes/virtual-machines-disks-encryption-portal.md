@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a799339f2780c2bc372c39120a6e20b34d907326
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912765"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973402"
 ---
 ### <a name="portal"></a>Portale
 
@@ -88,3 +88,27 @@ Il processo di distribuzione delle VM è simile al processo di distribuzione sta
 1. Eseguire le selezioni rimanenti desiderate.
 
     ![SSE-create-VM-Select-CMK-Encryption-set. png](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+
+#### <a name="enable-on-an-existing-disk"></a>Abilita su un disco esistente
+
+Per gestire e configurare la crittografia del disco nei dischi esistenti, è necessario usare il collegamento seguente: https://aka.ms/diskencryptionsets. L'abilitazione delle chiavi gestite dal cliente sui dischi esistenti non è ancora disponibile nel portale di Azure globale.
+
+> [!CAUTION]
+> Per abilitare la crittografia dei dischi in qualsiasi disco collegato a una macchina virtuale, sarà necessario arrestare la macchina virtuale.
+
+1. Passare a una macchina virtuale che si trova nella stessa area di uno dei set di crittografia del disco.
+1. Aprire la macchina virtuale e selezionare **Arresta**.
+
+    ![sse-stop-VM-to-encrypt-disk. png](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+
+1. Al termine dell'arresto della macchina virtuale, selezionare **dischi** e quindi selezionare il disco che si desidera crittografare.
+
+    ![SSE-Existing-Disk-Select. png](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+
+1. Selezionare **crittografia** e selezionare crittografia inattiva **con una chiave gestita dal cliente** , quindi selezionare la crittografia del disco impostata nell'elenco a discesa.
+1. Selezionare **Salva**.
+
+    ![SSE-Encrypt-Existing-Disk-Customer-Managed-Key. png](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
+
+1. Ripetere questo processo per tutti gli altri dischi collegati alla macchina virtuale che si vuole crittografare.
+1. Al termine del trasferimento dei dischi alle chiavi gestite dal cliente, se non sono presenti altri dischi collegati che si vuole crittografare, è possibile avviare la macchina virtuale.

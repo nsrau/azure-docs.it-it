@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 820ed0c3de49105bb0365213e5179c474652e5f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5540697e8e64586d73e34d253fb95e549fc0301
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429968"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972140"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite dei modelli
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.
 
 Questo articolo illustra, tramite il modello di distribuzione di Azure Resource Manager, come eseguire queste identità gestite per le operazioni delle risorse di Azure su una macchina virtuale di Azure:
 
@@ -44,7 +44,7 @@ Analogamente al portale di Azure e all'esecuzione dello script, i modelli di ges
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](../../azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
    - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) di Visual Studio per creare e distribuire un modello.  
 
-Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. L'abilitazione di un'identità gestita assegnata dal sistema o dall'utente in una macchina virtuale nuova o esistente viene eseguita allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](../../azure-resource-manager/deployment-modes.md) per le distribuzioni.
+Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. L'abilitazione di un'identità gestita assegnata dal sistema o dall'utente in una macchina virtuale nuova o esistente viene eseguita allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](../../azure-resource-manager/templates/deployment-modes.md) per le distribuzioni.
 
 ## <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
 
@@ -59,7 +59,7 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
 2. Per abilitare l'identità gestita assegnata dal sistema, caricare il modello in un editor, individuare la risorsa interessata `Microsoft.Compute/virtualMachines` nella sezione `resources` e aggiungere la proprietà `"identity"` allo stesso livello della proprietà `"type": "Microsoft.Compute/virtualMachines"`. Usare la sintassi seguente:
 
    ```JSON
-   "identity": { 
+   "identity": {
        "type": "SystemAssigned"
    },
    ```
@@ -80,7 +80,7 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
                 "type": "SystemAssigned",
                 },
             },
-        
+
             //The following appears only if you provisioned the optional VM extension (to be deprecated)
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -110,9 +110,9 @@ Dopo avere abilitato l'identità gestita assegnata dal sistema sulla macchina vi
 Per assegnare un ruolo all'identità assegnata dal sistema della macchina virtuale, all'account deve essere assegnato il ruolo [Amministratore Accesso utenti](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
 1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM.
- 
+
 2. Caricare il modello in un' [editor](#azure-resource-manager-templates) e aggiungere le informazioni seguenti per assegnare alla macchina virtuale l'accesso come **Lettore** al gruppo di risorse in cui è stato creata.  La struttura del modello può variare a seconda dell'editor e del modello di distribuzione scelto.
-   
+
    Sotto la sezione `parameters` aggiungere quanto segue:
 
     ```JSON
@@ -156,15 +156,15 @@ Per rimuovere l'identità gestita assegnata dal sistema da una macchina virtuale
 1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM.
 
 2. Caricare il modello in un [editor](#azure-resource-manager-templates) e individuare `Microsoft.Compute/virtualMachines`la risorsa interessata`resources` all'interno della sezione. Se si dispone di una macchina virtuale con solo un'identità gestita assegnata dal sistema, è possibile disabilitarla modificando il tipo di identità e impostandolo su `None`.  
-   
+
    **Microsoft.Compute/virtualMachines versione API 2018-06-01**
 
    Se la macchina virtuale ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme ai valori dizionario `userAssignedIdentities`.
 
    **Microsoft.Compute/virtualMachines versione API 2018-06-01**
-   
+
    Se `apiVersion` è `2017-12-01` e la macchina virtuale ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità gestite assegnate dall'utente.  
-   
+
 L'esempio seguente illustra come si rimuove un'identità gestita assegnata dal sistema da una macchina virtuale senza identità gestite assegnate dall'utente:
 
  ```JSON
@@ -173,7 +173,7 @@ L'esempio seguente illustra come si rimuove un'identità gestita assegnata dal s
      "type": "Microsoft.Compute/virtualMachines",
      "name": "[parameters('vmName')]",
      "location": "[resourceGroup().location]",
-     "identity": { 
+     "identity": {
          "type": "None"
      }
  }
@@ -210,11 +210,11 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
         }
     }
    ```
-   
+
    **Microsoft.Compute/virtualMachines versione API 2017-12-01**
-    
+
    Se `apiVersion` è `2017-12-01`, le identità gestite assegnate dall'utente vengono archiviate nella matrice `identityIds` e il valore `<USERASSIGNEDIDENTITYNAME>` deve essere archiviato in una variabile definita nella sezione `variables` del modello.
-    
+
    ```JSON
    {
        "apiVersion": "2017-12-01",
@@ -229,9 +229,9 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
        }
    }
    ```
-       
+
 3. Al termine, le sezioni seguenti dovrebbero essere aggiunte alla sezione `resource` del modello e dovrebbero avere un aspetto simile a questo:
-   
+
    **Microsoft.Compute/virtualMachines versione API 2018-06-01**    
 
    ```JSON
@@ -271,7 +271,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
     ]   
    ```
    **Microsoft.Compute/virtualMachines versione API 2017-12-01**
-   
+
    ```JSON
    "resources": [
         {
@@ -287,7 +287,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
                 ]
             }
         },
-                 
+
         //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -317,33 +317,33 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM.
 
 2. Caricare il modello in un [editor](#azure-resource-manager-templates) e individuare `Microsoft.Compute/virtualMachines`la risorsa interessata`resources` all'interno della sezione. Se si dispone di una macchina virtuale con solo un'identità gestita assegnata dall'utente, è possibile disabilitarla modificando il tipo di identità e impostandolo su `None`.
- 
+
    L'esempio seguente illustra come rimuovere tutte le identità gestite assegnate dall'utente da una macchina virtuale senza identità gestite assegnate dal sistema:
-   
+
    ```json
     {
       "apiVersion": "2018-06-01",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
-      "identity": { 
+      "identity": {
           "type": "None"
           },
     }
    ```
-   
+
    **Microsoft.Compute/virtualMachines versione API 2018-06-01**
-    
+
    Per rimuovere da una macchina virtuale una singola identità gestita assegnata dall'utente, rimuoverla dal dizionario `useraAssignedIdentities`.
 
    Se si dispone di un'identità gestita assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
- 
+
    **Microsoft.Compute/virtualMachines versione API 2017-12-01**
 
    Per rimuovere una singola identità gestita assegnata dall'utente da una macchina virtuale, rimuoverla dalla matrice `identityIds`.
 
    Se si dispone di un'identità gestita assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
-   
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica delle identità gestite per le risorse di Azure](overview.md).

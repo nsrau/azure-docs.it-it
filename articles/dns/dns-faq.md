@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: allensu
-ms.openlocfilehash: c194d47842c927d3f8049a424dc08a34424a8a31
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 743715da51f2e8c77b81faba1bd8d6979e4f2aab
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212022"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974541"
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
 
 ## <a name="about-azure-dns"></a>DNS di Azure
 
-### <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
+### <a name="what-is-azure-dns"></a>Che cos'è il servizio DNS di Azure?
 
 Il sistema DNS (Domain Name System) esegue la conversione (o risoluzione) del nome di un sito Web o di un servizio nel relativo indirizzo IP. DNS di Azure è un servizio di hosting per i domini DNS che esegue la risoluzione dei nomi tramite l'infrastruttura di Microsoft Azure. L'hosting dei domini in Azure consente di gestire i record DNS usando gli stessi strumenti, credenziali, API e fatturazione usati per altri servizi Azure.
 
@@ -32,7 +32,7 @@ Il modello di fatturazione di DNS di Azure si basa sul numero di zone DNS ospita
 
 Per altre informazioni, vedere la pagina relativa ai [prezzi di DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
 
-### <a name="what-is-the-sla-for-azure-dns"></a>Qual è il contratto di servizio per DNS di Azure?
+### <a name="what-is-the-sla-for-azure-dns"></a>Che cos'è il Contratto di servizio per DNS di Azure?
 
 Azure garantisce che le richieste DNS valide ricevano una risposta da almeno uno dei server dei nomi DNS di Azure il 100% delle volte.
 
@@ -42,7 +42,7 @@ Per altre informazioni, vedere la pagina relativa al [contratto di Servizio per 
 
 Un dominio è un nome univoco nel Domain Name System, ad esempio contoso.com.
 
-Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per un server di posta elettronica e www\.contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
+Una zona DNS viene usata per ospitare i record DNS per un dominio specifico. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per un server di posta elettronica e www\.contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
 
 Un nome di dominio è *solo un nome*, mentre una zona DNS è una risorsa di dati contenente i record DNS per un nome di dominio. È possibile usare DNS di Azure per ospitare una zona DNS e gestire i record DNS per un dominio in Azure. Offre anche server dei nomi DNS per rispondere alle query DNS da Internet.
 
@@ -50,7 +50,7 @@ Un nome di dominio è *solo un nome*, mentre una zona DNS è una risorsa di dati
 
 Non necessariamente.
 
-Non è necessario acquistare un dominio per ospitare una zona DNS in DNS di Azure. È possibile creare una zona DNS in qualsiasi momento senza essere il proprietario del nome di dominio. Le query DNS per la zona vengono risolte solo se sono indirizzate ai server dei nomi DNS di Azure assegnati alla zona.
+Non è necessario acquistare un dominio per ospitare una zona DNS in DNS di Azure. Puoi creare una zona DNS in qualsiasi momento senza essere il proprietario del nome di dominio. Le query DNS per la zona vengono risolte solo se sono indirizzate ai server dei nomi DNS di Azure assegnati alla zona.
 
 Il nome di dominio deve essere acquistato se si vuole collegare la zona DNS alla gerarchia DNS globale. Questo collegamento consente alle query DNS eseguite da qualsiasi parte del mondo di trovare la zona DNS e di ottenere risposte con i record DNS.
 
@@ -119,7 +119,7 @@ I set di record alias sono supportati per i tipi di record seguenti in una zona 
 - **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias impostato per puntare a una risorsa IP pubblica.
 - **Puntare a un profilo di Gestione traffico da un set di record DNS A/AAAA/CNAME**. È possibile puntare al CNAME di un profilo di Gestione traffico da un set di record CNAME DNS, ad esempio contoso.trafficmanager.net. A questo punto è anche possibile puntare a un profilo di Gestione traffico con endpoint esterni da un set di record A/AAAA nella zona DNS in uso.
 - **Puntare a un endpoint della rete per la distribuzione di contenuti (CDN) di Azure**. Questa operazione è utile quando si creano siti web statici usando archiviazione di Azure e la rete CDN di Azure.
-- **Puntare a un altro set di record DNS all'interno della stessa zona**. I record di alias possono fare riferimento ad altri set di record dello stesso tipo. È ad esempio possibile avere un set di record CNAME DNS come alias per un altro set di record CNAME dello stesso tipo. Questo approccio è utile se si vuole che solo alcuni set di record siano alias.
+- **Puntare a un altro set di record DNS all'interno della stessa zona**. I record alias possono fare riferimento ad altri set di record dello stesso tipo. È ad esempio possibile avere un set di record CNAME DNS come alias per un altro set di record CNAME dello stesso tipo. Questo approccio è utile se si vuole che solo alcuni set di record siano alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>È possibile creare e aggiornare i record alias dal portale di Azure?
 
@@ -167,7 +167,7 @@ Sì. Le zone DNS possono essere spostate tra gruppi di risorse o tra sottoscrizi
 
 Lo spostamento di una zona DNS non influenza le query DNS. I server dei nomi assegnati alla zona rimangono invariati e le query DNS vengono elaborate come di consueto.
 
-Per altre informazioni e istruzioni su come spostare le zone DNS, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md).
+Per altre informazioni e istruzioni su come spostare le zone DNS, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>Quanto tempo occorre per rendere effettive le modifiche DNS?
 

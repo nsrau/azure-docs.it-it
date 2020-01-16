@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b938de0fec099b3f964eae60dc94d059e05a1c6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517096"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973498"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -37,7 +37,7 @@ Per completare il processo di installazione e configurazione sono necessari priv
 
 Le informazioni pubblicate in questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure e nel cloud di Microsoft Azure per enti pubblici.
 
-### <a name="get-started"></a>Attività iniziali
+### <a name="get-started"></a>Inizia oggi stesso
 Il flusso di lavoro di distribuzione consiste nella preparazione del portale, nel provisioning di un array virtuale nell'ambiente virtualizzato e nel completamento dell'installazione. Per iniziare la distribuzione dell'array virtuale StorSimple come file server o server iSCSI, è necessario fare riferimento alle seguenti risorse catalogate.
 
 #### <a name="deployment-articles"></a>Articoli sulla distribuzione
@@ -144,11 +144,11 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
    * VMDK per VMWare ESXi 5.0, 5.5, 6.0 o 6.5
 5. Scaricare e decomprimere il file in un'unità locale, prendendo nota della posizione del file decompresso.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Passaggio facoltativo: Configurare un nuovo account di archiviazione per il servizio
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Passaggio facoltativo: configurare un nuovo account di archiviazione per il servizio
 
 Si tratta di un passaggio facoltativo che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio.
 
-Se è necessario creare un account di archiviazione di Azure in un'area diversa, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per istruzioni dettagliate.
+Se è necessario creare un account di archiviazione di Azure in un'area diversa, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) per istruzioni dettagliate.
 
 Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/), nella pagina del servizio Gestione dispositivi StorSimple, per aggiungere un account di archiviazione di Microsoft Azure esistente.
 
@@ -156,7 +156,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
 
 1. Passare al servizio Gestione dispositivi, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. Nel pannello **Aggiungi un account di archiviazione** eseguire le operazioni seguenti:
    
    1. Per **Sottoscrizione** selezionare **Corrente**.
@@ -165,7 +165,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
    
    3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
    
-   4. Fare clic su **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
+   4. Scegliere **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
    
       ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
@@ -173,6 +173,6 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
 
 Il passaggio successivo riguarda il provisioning di una macchina virtuale per l'array virtuale StorSimple. A seconda del sistema operativo host, vedere le istruzioni dettagliate in:
 
-* [Eseguire il provisioning di un array virtuale StorSimple in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
-* [Eseguire il provisioning di un array virtuale StorSimple in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
+* [Eseguire il provisioning di StorSimple Virtual Array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
+* [Eseguire il provisioning di StorSimple Virtual Array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 

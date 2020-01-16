@@ -5,16 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8ed5df15b8ae8e9836c5b8ac8e7d6ad0111f63e1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 051e8b0add7cf7ab2c4cb2f02ed4e33ea9a23c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941887"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973817"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande comuni: ripristino di emergenza da Azure ad Azure
 
-Questo articolo fornisce le risposte alle domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando [Site Recovery](site-recovery-overview.md). 
+Questo articolo fornisce le risposte alle domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando [Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="general"></a>Informazioni di carattere generale
@@ -26,7 +26,7 @@ Ogni istanza protetta con Azure Site Recovery è gratuita per i primi 31 giorni.
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, vengono addebitati altri costi per Azure?
 Sì, anche se Azure Site Recovery è gratuito durante i primi 31 giorni di un'istanza protetta, possono venire addebitati i costi per Archiviazione di Azure, transazioni di archiviazione e trasferimento dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure. Informazioni dettagliate sui prezzi sono disponibili [qui](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Dove è possibile trovare le procedure consigliate per il ripristino di emergenza delle macchine virtuali di Azure? 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Dove è possibile trovare le procedure consigliate per il ripristino di emergenza delle macchine virtuali di Azure?
 1. [Informazioni sull'architettura da Azure ad Azure](azure-to-azure-architecture.md)
 2. [Esaminare le configurazioni supportate e non supportate](azure-to-azure-support-matrix.md)
 3. [Configurare il ripristino di emergenza per le macchine virtuali di Azure](azure-to-azure-how-to-enable-replication.md)

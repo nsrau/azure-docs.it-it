@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fb13bb7ec2de2633796aecb5216ae8b9e2574a57
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304768"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971200"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
 
@@ -27,9 +27,9 @@ L'archiviazione in questo percorso consente di accedere alle stesse azioni dispo
 
 Il processo illustrato in questo articolo funziona solo per i contatori delle prestazioni nei Servizi cloud di Azure, mentre non funziona per altre metriche personalizzate. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](~/articles/billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
+- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -45,7 +45,7 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
    ![Chiavi dell'account di archiviazione](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
-## <a name="create-a-service-principal"></a>Creare un’entità servizio 
+## <a name="create-a-service-principal"></a>Creare un'entità servizio 
 
 Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni riportate in [Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenere presente quanto segue durante questo processo: 
 

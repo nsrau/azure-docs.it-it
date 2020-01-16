@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 533c91bdc02425cabf5eeae93f37811144b32149
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669391"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976333"
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever
+# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
@@ -66,7 +66,7 @@ In questa esercitazione verrà illustrato come eseguire l'importazione in blocco
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md)
+1. [Creare un account di archiviazione](../../storage/common/storage-account-create.md)
 2. [Creare un'area di lavoro di Machine Learning di Azure](../studio/create-workspace.md)
 3. [Eseguire il provisioning di una macchina virtuale Data Science](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), che fornirà SQL Server e un server IPython Notebook.
    
@@ -96,7 +96,7 @@ Per copiare i dati usando AzCopy:
 4. Decomprimere i file scaricati. Prendere nota della cartella in cui si trovano i dati non compressi. Il riferimento di questa cartella sarà <percorso\_a\_file\_dati\>.
 
 ## <a name="dbload"></a>Importazione in blocco dei dati nel database SQL Server
-È possibile migliorare le prestazioni relative al caricamento/trasferimento di grandi quantità di dati in un database SQL e le successive query utilizzando *Partitioned Tables and Views*. In questa sezione, verranno seguite le istruzioni fornite in [Importazione in blocco dei dati in parallelo tramite le tabelle delle partizioni di SQL](parallel-load-sql-partitioned-tables.md) per creare un nuovo database e caricare i dati nelle tabelle partizionate in parallelo.
+È possibile migliorare le prestazioni relative al caricamento/trasferimento di grandi quantità di dati in un database SQL e le successive query usando *Tabelle e viste partizionate*. In questa sezione, verranno seguite le istruzioni fornite in [Importazione in blocco dei dati in parallelo tramite le tabelle delle partizioni di SQL](parallel-load-sql-partitioned-tables.md) per creare un nuovo database e caricare i dati nelle tabelle partizionate in parallelo.
 
 1. Dopo aver effettuato l'accesso alla VM, avviare **SQL Server Management Studio**.
 2. Effettuare la connessione mediante Autenticazione di Windows.
@@ -216,7 +216,7 @@ In questo esempio viene calcolata la distribuzione degli intervalli delle mance 
     GROUP BY tip_class
 
 #### <a name="exploration-compute-and-compare-trip-distance"></a>Esplorazione: calcolo e confronto della distanza delle corse
-In questo esempio, la longitudine e la latitudine del prelievo e dello scarico vengono convertite in punti geografici SQL, viene calcolata la distanza della corsa mediante la differenza dei punti geografici di SQL e viene restituito un campione casuale dei risultati per il confronto. Nell'esempio i risultati vengono limitati unicamente alle coordinate valide tramite la query per la valutazione della qualità dei dati illustrata in precedenza.
+In questo esempio, la longitudine e la latitudine del prelievo e dello scarico vengono convertite in punti geografici SQL, viene calcolata la distanza della corsa tramite la differenza dei punti geografici di SQL e viene restituito un campione casuale dei risultati per il confronto. Nell'esempio i risultati vengono limitati unicamente alle coordinate valide tramite la query per la valutazione della qualità dei dati illustrata in precedenza.
 
     SELECT
     pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
@@ -376,7 +376,7 @@ Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **tr
 ![Grafico n. 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sottocampionamento dei dati in SQL
-Quando si preparano i dati per la compilazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo permanente i dati progettati e campionati in una nuova tabella, che è possibile usare nell' [importazione Modulo dati][import-data] con una semplice **SELECT * FROM <\_nuova tabella\_\_nome >** .
+Quando si preparano i dati per la compilazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo permanente i dati progettati e campionati in una nuova tabella, che è possibile usare nel modulo [Import Data][import-data] con una semplice **SELECT * FROM < il\_nuovo\_Table\_nome >** .
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore) .
 
@@ -612,7 +612,7 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 
 Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, è comune escludere tutti i campi di input e includere solo le **etichette con punteggio** e le **probabilità con punteggio** nell'output usando il modulo [Select Columns in DataSet][select-columns] .
 
-Nella figura di seguito viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
+Nella figura seguente viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
 ![Pubblicazione di Azure Machine Learning][11]
 

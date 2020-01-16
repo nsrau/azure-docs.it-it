@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 0e0adef2728ef75dc67f02fdf38b6638965df62f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756865"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977532"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB 
 
@@ -43,7 +43,7 @@ Come illustrato nella tabella precedente, la velocità effettiva minima in Azure
 
 Azure Cosmos DB offre diverse opzioni gratuite per gli sviluppatori. Tali opzioni includono:
 
-* **Account Azure gratuito**: Azure offre un [livello gratuito](https://azure.microsoft.com/free/) che ti offre $200 di crediti di Azure per i primi 30 giorni e una quantità limitata di servizi gratuiti per 12 mesi. Per altre informazioni, vedere [Account gratuito di Azure](../billing/billing-avoid-charges-free-account.md). Azure Cosmos DB è incluso nell'account Azure gratuito. Per Azure Cosmos DB in particolare, l'account gratuito offre 5 GB di archiviazione e 400 UR di velocità effettiva sottoposta a provisioning per l'intero anno. 
+* **Account Azure gratuito**: Azure offre un [livello gratuito](https://azure.microsoft.com/free/) che ti offre $200 di crediti di Azure per i primi 30 giorni e una quantità limitata di servizi gratuiti per 12 mesi. Per altre informazioni, vedere [Account gratuito di Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB è incluso nell'account Azure gratuito. Per Azure Cosmos DB in particolare, l'account gratuito offre 5 GB di archiviazione e 400 UR di velocità effettiva sottoposta a provisioning per l'intero anno. 
 
 * **Prova gratuitamente Azure Cosmos DB**: Azure Cosmos DB offre un'esperienza limitata al tempo usando try Azure Cosmos DB per gli account gratuiti. È possibile creare un account Azure Cosmos DB, creare database e raccolte ed eseguire un'applicazione di esempio usando le opzioni di avvio rapido e le esercitazioni offerte. È possibile eseguire l'applicazione di esempio senza sottoscrivere alcun account di Azure né usare la carta di credito. L'opzione [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) consente di usare Azure Cosmos DB per un mese, con la possibilità di rinnovare l'account un numero illimitato di volte.
 
@@ -61,8 +61,8 @@ Altre informazioni su come ottimizzare i costi per le risorse di Azure Cosmos DB
 
 * Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
-* Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
+* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
 * Altre informazioni sull'[ottimizzazione dei costi degli account Cosmos multi-area](optimize-cost-regions.md)

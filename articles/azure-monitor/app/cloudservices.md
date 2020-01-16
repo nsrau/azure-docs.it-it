@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887548"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979843"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] possibile monitorare le [app del servizio cloud di Azure](https://azure.microsoft.com/services/cloud-services/) per disponibilità, prestazioni, errori e utilizzo combinando i dati di Application Insights SDK con [diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) i dati dei servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -26,7 +26,7 @@ Prima di iniziare, è necessario disporre di quanto segue:
 * Strumenti di Microsoft Azure 2.9 o versione successiva.
 * Developer Analytics Tools 7.10 o versione successiva.
 
-## <a name="get-started-quickly"></a>Operatività immediata
+## <a name="get-started-quickly"></a>Inizia rapidamente
 Il modo più rapido e semplice per monitorare il servizio cloud con Application Insights è scegliere questa opzione quando si pubblica il servizio in Azure.
 
 ![Pagina Impostazioni di diagnostica di esempio](./media/cloudservices/azure-cloud-application-insights.png)
@@ -52,7 +52,7 @@ Nella sezione successiva viene illustrato come adattare nello stesso modo il pro
 ## <a name="plan-resources-and-resource-groups"></a>Pianificare le risorse e i gruppi di risorse
 I dati di telemetria provenienti dall'app vengono archiviati, analizzati e visualizzati in una risorsa di Azure di tipo Application Insights. 
 
-Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usati per gestire i costi, concedere l'accesso ai membri di un team e distribuire gli aggiornamenti in una singola transazione coordinata. Ad esempio, è possibile [creare uno script per distribuire](../../azure-resource-manager/resource-group-template-deploy.md) un servizio cloud di Azure e le risorse per il monitoraggio con Application Insights in un'unica operazione.
+Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usati per gestire i costi, concedere l'accesso ai membri di un team e distribuire gli aggiornamenti in una singola transazione coordinata. Ad esempio, è possibile [creare uno script per distribuire](../../azure-resource-manager/templates/deploy-powershell.md) un servizio cloud di Azure e le risorse per il monitoraggio con Application Insights in un'unica operazione.
 
 ### <a name="resources-for-components"></a>Risorse per i componenti
 È consigliabile creare una risorsa separata per ogni componente dell'app, ovvero per ogni ruolo Web e ruolo di lavoro. È possibile analizzare ogni componente separatamente, ma anche creare un [dashboard](../../azure-monitor/app/overview-dashboard.md) che riunisca i grafici chiave per tutti i componenti, per poterli confrontare e monitorare tutti insieme in un'unica visualizzazione. 
@@ -237,7 +237,7 @@ Per i ruoli Web vengono raccolti anche i contatori seguenti:
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-È possibile specificare altri contatori delle prestazioni personalizzati o di Windows modificando*ApplicationInsights.config* [come illustrato in questo esempio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
+È possibile specificare altri contatori delle prestazioni personalizzati o di Windows modificando *ApplicationInsights. config* [, come illustrato in questo esempio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
   ![Contatori delle prestazioni](./media/cloudservices/002-servers.png)
 

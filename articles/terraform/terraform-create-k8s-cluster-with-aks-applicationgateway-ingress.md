@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un controller del traffico in ingresso del gateway
 description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes con il gateway applicazione come controller di ingresso
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159103"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867409"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Esercitazione: Creare un controller di ingresso del gateway applicazione nel servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Usare Terraform e il servizio Azure Kubernetes per creare un cluster Kubernetes.
 > * Usare lo strumento kubectl per verificare la disponibilità di un cluster Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
@@ -261,7 +261,7 @@ Creare il file di configurazione Terraform che crea tutte le risorse.
       name = var.resource_group_name
     }
 
-    # User Assigned Idntities 
+    # User Assigned Identities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = data.azurerm_resource_group.rg.name
       location            = data.azurerm_resource_group.rg.location
@@ -543,7 +543,7 @@ Terraform tiene traccia dello stato localmente tramite il file `terraform.tfstat
 
     ![Menu dell'account di archiviazione](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
-1. Prendere nota del valore **chiave** **key1**. Selezionando l'icona a destra della chiave, il valore verrà copiato negli Appunti.
+1. Prendere nota del valore della **chiave** **key1**. Selezionando l'icona a destra della chiave, il valore verrà copiato negli Appunti.
 
     ![Chiavi di accesso dell'account di archiviazione](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
