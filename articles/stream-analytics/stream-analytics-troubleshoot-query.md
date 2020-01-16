@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 22e542715afa8c87ffb742bec6c22f758cd16587
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5534a46ba99d1536d331b5852ef47588f03d73a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354271"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980267"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Risolvere i problemi delle query di Analisi di flusso di Azure
 
 Questo articolo descrive problemi comuni di sviluppo delle query di Analisi di flusso di Azure e la risoluzione di questi.
 
-## <a name="query-is-not-producing-expected-output"></a>La query non genera l'output previsto 
+## <a name="query-is-not-producing-expected-output"></a>La query non genera l'output previsto
 1.  Esaminare gli errori eseguendo un test locale:
     - Nella scheda **Query** selezionare **Test**. [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
     - È anche possibile [testare la query direttamente con input in tempo reale](stream-analytics-live-data-local-testing.md) usando gli strumenti di Analisi di flusso di Azure per Visual Studio.
@@ -32,10 +32,10 @@ Questo articolo descrive problemi comuni di sviluppo delle query di Analisi di f
     - Quando si usano le funzioni finestra, attendere la durata dell'intera finestra per vedere l'output dalla query.
     - Il timestamp per gli eventi precede l'ora di inizio del processo, perciò gli eventi vengono eliminati.
 
-4.  Assicurarsi che i criteri di ordinamento degli eventi siano configurati come previsto. Passare a **Impostazioni** e selezionare [**Ordinamento eventi**](stream-analytics-out-of-order-and-late-events.md). Il criterio *non* viene applicato quando si usa il pulsante **Test** per testare la query. Questo aspetto rappresenta una differenza tra il test nel browser e l'esecuzione del processo in produzione. 
+4.  Assicurarsi che i criteri di ordinamento degli eventi siano configurati come previsto. Passare a **Impostazioni** e selezionare [**Ordinamento eventi**](stream-analytics-out-of-order-and-late-events.md). Il criterio *non* viene applicato quando si usa il pulsante **Test** per testare la query. Questo aspetto rappresenta una differenza tra il test nel browser e l'esecuzione del processo in produzione.
 
 5. Eseguire il debug usando i log di controllo e diagnostica:
-    - Usare i [log di controllo](../azure-resource-manager/resource-group-audit.md) e filtrare per identificare gli errori ed eseguirne il debug.
+    - Usare i [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e filtrare per identificare gli errori ed eseguirne il debug.
     - Usare i [log di diagnostica del processo](stream-analytics-job-diagnostic-logs.md) per identificare gli errori ed eseguirne il debug.
 
 ## <a name="job-is-consuming-too-many-streaming-units"></a>Il processo consuma troppe unità di streaming
@@ -52,7 +52,7 @@ La seguente query di esempio in un processo di Analisi di flusso di Azure ha un 
 Si noti che il processo è in esecuzione ma non vengono generati eventi nell'output. Nel riquadro **Monitoraggio**, illustrato di seguito, è possibile vedere che l'input produce dati, ma non sa quale passaggio del **JOIN** ha causato l'eliminazione di tutti gli eventi.
 
 ![Riquadro Monitoraggio di Analisi di flusso](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
- 
+
 In questa situazione è possibile aggiungere alcune istruzioni SELECT INTO aggiuntive per "registrare" i risultati intermedi di JOIN e i dati che vengono letti dall'input.
 
 In questo esempio sono stati aggiunti due nuovi "output temporanei". Può trattarsi di qualsiasi sink desiderato. Qui si usa Archiviazione di Azure come esempio:

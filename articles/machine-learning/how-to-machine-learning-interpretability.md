@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 7101cef6acd7c7b321fbd31c614063a1fa8fe17a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 339ab811969a3de6ce87d529e1bf77f325be4071
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771871"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968493"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretazione del modello in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Questo pacchetto usa le tecniche di interpretazione sviluppate in [interpreta-co
 * **Mimatore mimico**: lo spiegatore MIME si basa sul concetto di training dei [modelli surrogati globali](https://christophm.github.io/interpretable-ml-book/global.html) per simulare i modelli blackbox. Un modello di surrogato globale è un modello interpretabile in modo intrinseco che viene sottoposto a training per approssimare le stime di un modello di black box nel modo più accurato possibile. I data scientist possono interpretare il modello surrogato per trarre conclusioni sul modello di black box. È possibile usare uno dei modelli interpretabili seguenti come modello di surrogato: LightGBM (LGBMExplainableModel), regressione lineare (LinearExplainableModel), modello a discesa a gradienti stocastici (SGDExplainableModel) e albero delle decisioni ( DecisionTreeExplainableModel).
 
 
-* **Spiegazione dell'importanza della funzionalità di permutazione**: l'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando la metrica di prestazioni modificata. Maggiore è la modifica, maggiore è l'importanza della funzionalità.
+* **Spiegazione dell'importanza della funzionalità di permutazione**: l'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando la metrica di prestazioni modificata. Maggiore è la modifica, maggiore è l'importanza della funzionalità.
 
 * **Lime Explainer** (`contrib`): basato su [lime](https://github.com/marcotcr/lime), lime Explainer usa l'algoritmo di calce (limetta) interpretabile locale all'avanguardia per creare modelli surrogati locali. A differenza dei modelli surrogati globali, LIME è incentrato sul training di modelli surrogati locali per spiegare singole stime.
 * **Spiegatore del testo Han** (`contrib`): il Explainer del testo Han usa una rete gerarchica di attenzione per ottenere spiegazioni del modello dai dati di testo per un determinato modello di Black Box testo. Il modello di surrogato HAN viene sottoposto a training su uno specifico output stimato del modello black box. Dopo il training a livello globale nel corpus di testo, viene aggiunto un passaggio preciso per un documento specifico, in modo da migliorare l'accuratezza delle spiegazioni. HAN usa un RNN bidirezionale con due livelli di attenzione, per la frase e la parola attenzione. Dopo aver eseguito il training del DNN sul modello di black box e aver completato l'ottimizzazione in un documento specifico, l'utente può estrarre le parole importanti dai livelli di attenzione. HAN viene mostrato come più accurato di LIME o SHAP per i dati di testo, ma anche in termini di tempo di training. Sono stati apportati miglioramenti per offrire agli utenti la possibilità di inizializzare la rete con gli incorporamenti di Word GloVe per ridurre i tempi di training. Il tempo di training può essere migliorato significativamente eseguendo HAN in una VM GPU di Azure remota. L'implementazione di HAN è descritta in ["reti gerarchiche di attenzione per la classificazione dei documenti (Yang et al., 2016)"](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).

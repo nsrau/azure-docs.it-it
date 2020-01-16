@@ -12,25 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058063"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981355"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Visualizzazione dell'errore "CRITICAL SERVICE FAILED" su schermata blu all'avvio di una macchina virtuale di Azure
 Questo articolo descrive l'errore "CRITICAL SERVICE FAILED", dovuto alla mancata esecuzione di un servizio critico, che può verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Illustra inoltre i passaggi da seguire per risolvere i problemi. 
 
 > [!NOTE] 
-> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra il modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra il modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica.
 
 ## <a name="symptom"></a>Sintomo 
 
 La macchina virtuale Windows non si avvia. Quando si controllano gli screenshot di avvio in [Diagnostica di avvio](./boot-diagnostics.md), viene visualizzato un messaggio di errore simile ai seguenti su una schermata blu:
 
 - "Si è verificato un problema ed è necessario riavviare il PC. È possibile riavviare. Per altre informazioni su questo problema e sulle possibili correzioni, visitare https://windows.com/stopcode. Se si chiama un addetto del supporto tecnico, fornire queste informazioni: Codice di arresto: CRITICAL SERVICE FAILED" 
-- "Si è verificato un problema ed è necessario riavviare il PC. È in corso la raccolta di alcune informazioni sull'errore, quindi il riavvio verrà eseguito automaticamente. Per saperne di più, è possibile cercare online informazioni su questo errore in un secondo momento: CRITICAL_SERVICE_FAILED"
+- "Si è verificato un problema ed è necessario riavviare il PC. È in corso la raccolta di alcune informazioni sull'errore, quindi il riavvio verrà eseguito automaticamente. Per saperne di più, è possibile cercare online informazioni questo errore in un secondo momento: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa
 
@@ -56,7 +56,7 @@ Il log di dump e la [console seriale](./serial-console-windows.md) sono utili pe
 Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (Esegui come amministratore).
-2. Eseguire lo script seguente:
+2. Eseguire lo script riportato di seguito:
 
     In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 
@@ -108,7 +108,7 @@ Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 Per analizzare i log di dump manualmente, attenersi alla procedura seguente:
 
 1. Collegare il disco del sistema operativo alla macchina virtuale di ripristino.
-2. Nel disco del sistema operativo collegato passare alla cartella **\windows\system32\config**. Copiare tutti i file come backup, nel caso risulti necessario un ripristino dello stato precedente.
+2. Nel disco del sistema operativo collegato passare a **\Windows\System32\Config**. Copiare tutti i file come backup nel caso in cui sia necessario eseguire il rollback.
 3. Avviare **Editor del Registro di sistema** (regedit.exe).
 4. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Scegliere **File** > **Carica hive** dal menu.
 5. Passare alla cartella **\windows\system32\config\SYSTEM** nel disco del sistema operativo collegato. Immettere il nome di hive **BROKENSYSTEM**. Il nuovo hive del Registro di sistema viene visualizzato per la chiave **HKEY_LOCAL_MACHINE**.

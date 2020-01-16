@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 13fbab52c16fcde72da8073b429fe6fb4665c21b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763879"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981922"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Panoramica della continuità aziendale con database di Azure per PostgreSQL-server singolo
 
@@ -23,13 +23,13 @@ Database di Azure per PostgreSQL offre funzionalità di continuità aziendale ch
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Funzionalità** | **Basic** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Funzionalità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
 | Ripristino geografico dai backup con replica geografica | Supporto non disponibile | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
 
 > [!IMPORTANT]
-> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Usare [blocco risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md) per evitare l'eliminazione accidentale del server.
+> **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Usare [blocco risorse di Azure](../azure-resource-manager/management/lock-resources.md) per evitare l'eliminazione accidentale del server.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Ripristinare un server in seguito a errore di un'applicazione o di un utente
 

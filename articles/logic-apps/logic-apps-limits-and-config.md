@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: fe38e74d30f7eb4f0c025f14268f7d6ac7b7d88a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d34a0905973a8080ee53eeac878432db0c51128
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428680"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979064"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -62,13 +62,13 @@ Per modificare il limite predefinito per la durata dell'esecuzione e la conserva
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Nella casella di ricerca del portale trovare e selezionare **app**per la logica.
 
-1. Selezionare e quindi aprire l'app per la logica nella finestra di progettazione dell'app per la logica. 
+1. Selezionare e quindi aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
 1. Nel menu dell'app per la logica selezionare **Impostazioni flusso di lavoro**.
 
 1. In **Opzioni di runtime**selezionare **personalizzato**dall'elenco **conservazione cronologia di esecuzione in giorni** .
 
-1. Immettere o trascinare il dispositivo di scorrimento per il numero di giorni desiderato. 
+1. Immettere o trascinare il dispositivo di scorrimento per il numero di giorni desiderato.
 
    > [!NOTE]
    > Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È possibile ridurre solo questo valore.
@@ -84,7 +84,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | ---- | ----- | ----- |
 | Concorrenza di trigger | * Senza limiti quando il controllo della concorrenza è disattivato <p><p>* 25 è il limite predefinito quando il controllo della concorrenza è attivato e non può essere annullato dopo l'attivazione del controllo. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite di SplitOn viene ridotto a 100 elementi per la suddivisione in [batch delle matrici](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | Quando il controllo della concorrenza è attivato, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (trigger di concorrenza). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Elementi della matrice foreach | 100.000 | Questo limite descrive il numero più alto di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](../connectors/connectors-native-query.md). |
+| Elementi della matrice foreach | 100.000 | Questo limite descrive il numero più alto di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](logic-apps-perform-data-operations.md#filter-array-action). |
 | Concorrenza foreach | 20 è il limite predefinito quando il controllo della concorrenza è disattivato. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite indica il numero più alto di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire i cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | Elementi SplitOn | * 100.000 senza concorrenza trigger <p><p>* 100 con concorrenza di trigger | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. <p><p>**Nota**: quando la concorrenza è attivata, il limite di SplitOn viene ridotto a 100 elementi. |
 | Iterazioni Until | 5\.000 | |
@@ -122,7 +122,8 @@ Di seguito sono riportati i limiti di velocità effettiva per lo SKU Premium:
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
 > [!NOTE]
-> Lo [SKU Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) non ha limiti pubblicati perché questo SKU non dispone di alcun contratto di servizio o funzionalità per la scalabilità verticale. Utilizzare questo SKU solo per la sperimentazione, lo sviluppo e il test, non per la produzione o il test delle prestazioni.
+> Lo [SKU Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) non ha limiti pubblicati perché questo SKU non dispone di alcun contratto di servizio o funzionalità per la scalabilità verticale.
+> Utilizzare questo SKU solo per la sperimentazione, lo sviluppo e il test, non per la produzione o il test delle prestazioni.
 
 <a name="gateway-limits"></a>
 
@@ -209,7 +210,8 @@ Ulteriori costi si applicano agli account di integrazione aggiunti oltre gli acc
 
 ### <a name="artifact-limits-per-integration-account"></a>Limite di elementi per account di integrazione
 
-Ecco i limiti per il numero di elementi per ogni livello dell'account di integrazione. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica. Per informazioni sul funzionamento dei prezzi e della fatturazione per gli account di integrazione, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#integration-accounts)per la logica.
+Ecco i limiti per il numero di elementi per ogni livello dell'account di integrazione.
+Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica. Per informazioni sul funzionamento dei prezzi e della fatturazione per gli account di integrazione, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#integration-accounts)per la logica.
 
 > [!NOTE]
 > Usare il livello gratuito solo per gli scenari di esplorazione, non per gli scenari di produzione. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).
@@ -261,9 +263,12 @@ Di seguito sono riportati i limiti delle dimensioni dei messaggi applicabili ai 
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Disabilitazione o eliminazione di app per la logica
 
-Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso continuano fino al completamento dell'operazione, il che potrebbe richiedere del tempo.
+Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione.
+Tutte le esecuzioni in corso e in sospeso continuano fino al completamento dell'operazione, il che potrebbe richiedere del tempo.
 
-Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo.
+Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione.
+Tutte le esecuzioni in corso e in sospeso vengono annullate.
+Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo.
 
 <a name="configuration"></a>
 
@@ -276,7 +281,7 @@ Gli indirizzi IP usati da app per la logica di Azure per le chiamate in ingresso
 
 * Per supportare le chiamate effettuate direttamente dalle app per la logica con [http](../connectors/connectors-native-http.md), [http + spavalderia](../connectors/connectors-native-http-swagger.md)e altre richieste HTTP, configurare il firewall con *tutti* gli indirizzi IP in [ingresso](#inbound) *e* [in uscita usati](#outbound) dal servizio app per la logica, in base alle aree in cui si trovano le app per la logica. Questi indirizzi vengono visualizzati sotto le intestazioni **In ingresso** e **In uscita** in questa sezione e vengono ordinati in base all'area.
 
-* Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area. 
+* Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area.
 
 * Per abilitare la comunicazione per le app per la logica eseguite in un ambiente Integration Services (ISE), assicurarsi di [aprire queste porte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 

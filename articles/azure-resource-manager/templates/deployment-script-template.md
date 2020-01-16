@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jgao
-ms.openlocfilehash: 4dc28b8254c312836b2767c2efef52137e101777
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 6308f7832a898d97c455dc90265adea345aeb0cc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75839439"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981204"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -57,7 +57,7 @@ I vantaggi dello script di distribuzione:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell versione 2.7.0, 2.8.0 o 3.0.0**. Queste versioni non sono necessarie per la distribuzione dei modelli. Queste versioni sono tuttavia necessarie per testare localmente gli script di distribuzione. Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps.md). È possibile usare un'immagine Docker preconfigurata.  Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
+- **Azure PowerShell versione 2.7.0, 2.8.0 o 3.0.0**. Queste versioni non sono necessarie per la distribuzione dei modelli. Queste versioni sono tuttavia necessarie per testare localmente gli script di distribuzione. Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). È possibile usare un'immagine Docker preconfigurata.  Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
 
 ## <a name="resource-schema"></a>Schema delle risorse
 
@@ -233,7 +233,7 @@ Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra 
 
 ## <a name="clean-up-deployment-script-resources"></a>Pulisci risorse script di distribuzione
 
-Lo script di distribuzione crea un account di archiviazione e un'istanza del contenitore usati per l'esecuzione degli script di distribuzione e l'archiviazione delle informazioni di debug. Queste due risorse vengono create nello stesso gruppo di risorse delle risorse di cui è stato effettuato il provisioning e verranno eliminate dal servizio script al termine dello script. È possibile controllare il ciclo di vita di queste risorse.  Fino a quando non vengono eliminati, verranno addebitate entrambe le risorse. Per informazioni sui prezzi, vedere prezzi delle [istanze di contenitore](/pricing/details/container-instances/) e prezzi di [archiviazione di Azure](/pricing/details/storage/).
+Lo script di distribuzione crea un account di archiviazione e un'istanza del contenitore usati per l'esecuzione degli script di distribuzione e l'archiviazione delle informazioni di debug. Queste due risorse vengono create nello stesso gruppo di risorse delle risorse di cui è stato effettuato il provisioning e verranno eliminate dal servizio script al termine dello script. È possibile controllare il ciclo di vita di queste risorse.  Fino a quando non vengono eliminati, verranno addebitate entrambe le risorse. Per informazioni sui prezzi, vedere prezzi delle [istanze di contenitore](https://azure.microsoft.com/pricing/details/container-instances/) e prezzi di [archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Il ciclo di vita di queste risorse è controllato dalle seguenti proprietà nel modello:
 

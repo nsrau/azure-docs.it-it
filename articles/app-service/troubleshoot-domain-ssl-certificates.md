@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688351"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966985"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
 
@@ -318,6 +318,6 @@ Sì. Quando si accede al pannello domini personalizzati e SSL nella portale di A
 
 **È possibile spostare un'app Web con un dominio personalizzato in un'altra sottoscrizione o da ambiente del servizio app V1 a V2?**
 
-Sì, è possibile spostare l'app Web tra le sottoscrizioni. Seguire le istruzioni in [come spostare le risorse in Azure](../azure-resource-manager/resource-group-move-resources.md). Ci sono alcune limitazioni quando si trasferisce l'app Web. Per altre informazioni, vedere [limitazioni per lo stato di trasferimento delle risorse del servizio app](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Sì, è possibile spostare l'app Web tra le sottoscrizioni. Seguire le istruzioni in [come spostare le risorse in Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Ci sono alcune limitazioni quando si trasferisce l'app Web. Per altre informazioni, vedere [limitazioni per lo stato di trasferimento delle risorse del servizio app](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 Dopo aver spostato l'app Web, le associazioni del nome host dei domini all'interno dell'impostazione domini personalizzati devono rimanere invariate. Non sono necessari passaggi aggiuntivi per configurare le associazioni dei nomi host.

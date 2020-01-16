@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073257"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980158"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale dipendenza monitoraggio di Azure per Windows
 
@@ -82,7 +82,7 @@ Il codice JSON seguente mostra lo schema dell'estensione dell'agente di dipenden
 
 È possibile distribuire le estensioni di VM di Azure con i modelli Azure Resource Manager. È possibile usare lo schema JSON descritto in dettaglio nella sezione precedente di un modello di Azure Resource Manager per eseguire l'estensione dell'agente di dipendenza delle macchine virtuali di Azure durante una distribuzione del modello di Azure Resource Manager.
 
-Il codice JSON per un'estensione della macchina virtuale può essere annidato all'interno della risorsa della macchina virtuale. In alternativa, è possibile posizionarlo alla radice o al livello superiore di un modello di Gestione risorse JSON. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/child-resource-name-type.md) (Impostare il nome e il tipo per le risorse figlio).
+Il codice JSON per un'estensione della macchina virtuale può essere annidato all'interno della risorsa della macchina virtuale. In alternativa, è possibile posizionarlo alla radice o al livello superiore di un modello di Gestione risorse JSON. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md) (Impostare il nome e il tipo per le risorse figlio).
 
 Nell'esempio seguente si presuppone che l'estensione dell'agente di dipendenza sia annidata all'interno della risorsa della macchina virtuale. Quando si nidifica la risorsa di estensione, il file JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 

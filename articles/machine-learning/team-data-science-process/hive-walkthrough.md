@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303902"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982016"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: Usare cluster Hadoop di Azure HDInsight
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
 
 Per una procedura dettagliata che mostra come gestire set di dati di dimensioni più grandi, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB](hive-criteo-walkthrough.md).
@@ -50,18 +50,18 @@ La chiave univoca per creare un join di trip\_data e trip\_fare è costituita da
 ## <a name="mltasks"></a>Esempi di attività di stima
 Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati. In questo modo, si otterrà maggiore chiarezza sulle attività che è necessario includere nel processo. Ecco tre esempi di problemi relativi alle stime che possono essere risolti tramite questa procedura dettagliata. Gli esempi sono basati su *tip\_amount*:
 
-- **Classificazione binaria**: stimare se per un viaggio è stata lasciata o meno una mancia. Se *tip\_amount* è maggiore di $ 0, si tratta di un esempio positivo, mentre se *tip\_amount* è uguale a $ 0, si tratta di un esempio negativo.
+- **Classificazione binaria**: permette di stimare se per la corsa è stata lasciata o meno una mancia. Se *tip\_amount* è maggiore di $ 0, si tratta di un esempio positivo, mentre se *tip\_amount* è uguale a $ 0, si tratta di un esempio negativo.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Classificazione multiclasse**: stimare l'intervallo di importi delle mance lasciate per la corsa. Il valore di *tip\_amount* viene diviso in cinque classi:
+- **Classificazione multiclasse**: permette di stimare l'intervallo di importi delle mance lasciate per la corsa. Il valore di *tip\_amount* viene diviso in cinque classi:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Attività di regressione**: stimare l'importo della mancia lasciata per una corsa.  
+- **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.  
 
 ## <a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi avanzata
 > [!NOTE]
@@ -71,12 +71,12 @@ Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati.
 
 Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDInsight è necessario seguire questa procedura composta da tre passaggi:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md): questo account di archiviazione viene usato per archiviare i dati nell'archiviazione BLOB di Azure. Anche i dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+1. [Creare un account di archiviazione](../../storage/common/storage-account-create.md): questo account di archiviazione viene usato per archiviare i dati nell'archiviazione BLOB di Azure. Anche i dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 2. [Personalizzare i cluster Hadoop di Azure HDInsight per Advanced Analytics Process and Technology](customize-hadoop-cluster.md). Questo passaggio crea un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza un cluster HDInsight, è importante non dimenticare due passaggi importanti.
    
    * Ricordare di collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione accede ai dati elaborati all'interno del cluster.
    * Dopo aver creato il cluster, abilitare l'accesso remoto al nodo head del cluster. Passare alla scheda **Configurazione** e selezionare **Abilita modalità remota**. Questo passaggio consente di specificare le credenziali utente da usare per l'accesso remoto.
-3. [Creare un'area di lavoro di Azure Machine Learning](../studio/create-workspace.md): usare questa area di lavoro per compilare modelli di machine learning. Questa attività viene eseguita dopo aver completato un'esplorazione iniziale e un sottocampionamento dei dati usando il cluster HDInsight.
+3. [Creare un'area di lavoro di Azure Machine Learning](../studio/create-workspace.md): usare questa area di lavoro per creare modelli di apprendimento automatico. Questa attività viene eseguita dopo aver completato un'esplorazione iniziale e un sottocampionamento dei dati usando il cluster HDInsight.
 
 ## <a name="getdata"></a>Acquisire i dati da un'origine pubblica
 > [!NOTE]
@@ -88,11 +88,11 @@ Per copiare il set di dati delle [corse dei taxi di New York](https://www.andres
 
 Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. Per scaricare e installare AzCopy, seguire le istruzioni incluse in [Introduzione all'utilità della riga di comando AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. Da una finestra del prompt dei comandi, eseguire i comandi AzCopy seguenti, sostituendo  *\<path_to_data_folder >* con la destinazione desiderata:
+1. Da una finestra del prompt dei comandi eseguire i comandi AzCopy seguenti, sostituendo *\<path_to_data_folder >* con la destinazione desiderata:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Al termine dell'operazione di copia, nella cartella dati scelta sarà presente un totale di 24 file compressi. Decomprimere i file scaricati nella stessa directory del computer locale. Prendere nota della cartella in cui si trovano i dati non compressi. Questa cartella è detto il *\<percorso\_al\_unzipped_data\_file\>* in seguito.
+1. Al termine dell'operazione di copia, nella cartella dati scelta sarà presente un totale di 24 file compressi. Decomprimere i file scaricati nella stessa directory del computer locale. Prendere nota della cartella in cui si trovano i dati non compressi. Questa cartella viene definita *\<percorso\_per\_unzipped_data\_file*\>in quanto segue.
 
 ## <a name="upload"></a>Caricare i dati nel contenitore predefinito del cluster Hadoop di HDInsight
 > [!NOTE]
@@ -102,10 +102,10 @@ Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. P
 
 Nei seguenti comandi AzCopy, sostituire i parametri seguenti con i valori effettivi specificati durante la creazione del cluster Hadoop e decomprimere i file di dati.
 
-* ***\<path_to_data_folder >*** la directory (insieme al percorso) nel computer che contiene i file di dati non compressi.  
-* ***\<nome account di archiviazione del cluster Hadoop >*** l'account di archiviazione associato al cluster HDInsight.
-* ***\<contenitore predefinito del cluster Hadoop >*** il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito corrisponde in genere al nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
-* ***\<chiave dell'account di archiviazione >*** la chiave dell'account di archiviazione usato dal cluster.
+* ***\<path_to_data_folder >*** La directory (insieme al percorso) nel computer che contiene i file di dati decompressi.  
+* ***nome dell'account di archiviazione\<del cluster Hadoop >*** L'account di archiviazione associato al cluster HDInsight.
+* ***\<contenitore predefinito del cluster Hadoop >*** Il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito corrisponde in genere al nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
+* ***chiave dell'account di archiviazione\<*** Chiave per l'account di archiviazione usato dal cluster.
 
 Da un prompt dei comandi o una finestra di Windows PowerShell eseguire i due comandi AzCopy seguenti.
 
@@ -410,7 +410,7 @@ Dal prompt della directory Hive eseguire il comando seguente:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack license
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
 > [!NOTE]
 > Questa attività viene in genere svolta da un data scientist.
 > 
@@ -435,7 +435,7 @@ Al prompt della directory Hive eseguire:
 
 I risultati della query vengono scritti nel file locale **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Esplorazione: valutazione della qualità dei dati mediante il controllo dei record di longitudine o latitudine non validi
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Esplorazione: valutazione della qualità dei dati mediante il controllo dei record di longitudine/latitudine non validi
 > [!NOTE]
 > Questa attività viene in genere svolta da un data scientist.
 > 
@@ -563,7 +563,7 @@ Per visualizzare il contenuto di un file specifico, ad esempio **000000\_0**, us
 > 
 > 
 
-Uno dei vantaggi principali del fatto che i dati si trovano in un BLOB di Azure è la possibilità di esplorarli in Machine Learning, usando il modulo [Import Data][import-data] (Importa dati).
+Un vantaggio fondamentale della presenza di questi dati in un BLOB di Azure consiste nel fatto che è possibile esplorare i dati all'interno Machine Learning usando il modulo [Import Data][import-data] .
 
 ## <a name="#downsample"></a>Sottocampionare i dati e creare modelli in Machine Learning
 > [!NOTE]
@@ -571,12 +571,12 @@ Uno dei vantaggi principali del fatto che i dati si trovano in un BLOB di Azure 
 > 
 > 
 
-Dopo la fase di analisi esplorativa dei dati, è ora possibile sottocampionare i dati per la creazione di modelli in Machine Learning. In questa sezione viene mostrato come usare una query Hive per sottocampionare i dati. Machine Learning accede quindi ai dati dal modulo [Import Data][import-data] (Importa dati).
+Dopo la fase di analisi esplorativa dei dati, è ora possibile sottocampionare i dati per la creazione di modelli in Machine Learning. In questa sezione viene mostrato come usare una query Hive per sottocampionare i dati. Machine Learning quindi accede al modulo [Import Data][import-data] .
 
 ### <a name="down-sampling-the-data"></a>Sottocampionamento dei dati
 Questa procedura si articola in due passaggi. Prima di tutto, è necessario creare un join delle tabelle**nyctaxidb.trip** e **nyctaxidb.fare** con tre chiavi presenti in tutti i record: **medallion**, **hack\_license** e **pickup\_datetime**. Vengono quindi generate un'etichetta di classificazione binaria chiamata **tipped** e un'etichetta di classificazione multiclasse chiamata **tip\_class**.
 
-Per poter usare i dati sottocampionati dal modulo [Import Data][import-data] (Importa dati) in Machine Learning, è necessario archiviare i risultati della query precedente in una tabella Hive interna. Nella sezione seguente verrà creata una tabella Hive interna, in cui verranno immessi i dati sottoposti a join e sottocampionati.
+Per poter usare i dati sottocampionati direttamente dal modulo [Import Data (Importa dati][import-data] ) in Machine Learning, è necessario archiviare i risultati della query precedente in una tabella hive interna. Nella sezione seguente verrà creata una tabella Hive interna, in cui verranno immessi i dati sottoposti a join e sottocampionati.
 
 La query applica direttamente funzioni standard di Hive per generare le informazioni seguenti dal campo **pickup\_datetime**:
 - Ora del giorno
@@ -714,27 +714,27 @@ Per eseguire questa query, dal prompt della directory Hive eseguire il comando s
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-È ora disponibile la tabella interna **nyctaxidb.nyctaxi_downsampled_dataset**, alla quale è possibile accedere tramite il modulo [Import Data][import-data] (Importa dati) da Machine Learning. Inoltre, è possibile usare questo set di dati per la creazione di modelli di Machine Learning.  
+È ora disponibile una tabella interna, **nyctaxidb. nyctaxi_downsampled_dataset**, a cui è possibile accedere usando il modulo [Import Data][import-data] da Machine Learning. Inoltre, è possibile usare questo set di dati per la creazione di modelli di Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Usare il modulo Import Data (Importa dati) in Machine Learning per accedere ai dati sottocampionati
-Per inviare query Hive nel modulo [Import Data][import-data] (Importa dati) di Machine Learning, è necessario accedere a un'area di lavoro di Machine Learning. È anche necessario accedere alle credenziali del cluster e all'account di archiviazione associato.
+Per eseguire query hive nel modulo [Import Data][import-data] di Machine Learning, è necessario accedere a un'area di lavoro di machine learning. È anche necessario accedere alle credenziali del cluster e all'account di archiviazione associato.
 
-Ecco alcuni dettagli sul modulo [Import Data][import-data] (Importa dati) e sui parametri da immettere:
+Di seguito sono riportati alcuni dettagli sul modulo [Import Data][import-data] e sui parametri di input:
 
-**HCatalog server URI**: se il nome del cluster è **abc123**, è semplicemente: https://abc123.azurehdinsight.net.
+**URI del server HCatalog**: se il nome del cluster è **abc123**, è semplicemente https://abc123.azurehdinsight.net.
 
-**Hadoop user account name**: (Nome dell'account utente Hadoop): nome utente scelto per il cluster (non il nome utente di accesso remoto).
+**Hadoop user account name** (Nome dell'account utente Hadoop): nome utente scelto per il cluster (non il nome utente di accesso remoto).
 
-**Hadoop user account password**: la password scelta per il cluster (non la password di accesso remoto).
+**Hadoop user account password** (Password dell'account utente di Hadoop): password scelta per il cluster (non la password di accesso remoto).
 
-**Location of output data**: scegliere Azure.
+**Percorso dei dati di output**: ossia Azure.
 
 **Nome dell'account di archiviazione di Azure**: nome dell'account di archiviazione predefinito associato al cluster.
 
 **Nome del contenitore di Azure**: nome del contenitore predefinito per il cluster, in genere corrisponde al nome del cluster. Per un cluster denominato **abc123**, il nome sarà semplicemente abc123.
 
 > [!IMPORTANT]
-> Qualsiasi tabella su cui si desidera eseguire una query tramite il modulo [Import Data][import-data] (Importa dati) di Machine Learning deve essere una tabella interna.
+> Qualsiasi tabella su cui si desidera eseguire una query tramite il modulo [Import Data (Importa dati][import-data] ) in Machine Learning deve essere una tabella interna.
 > 
 > 
 
@@ -746,7 +746,7 @@ Se la tabella è una tabella interna e viene popolata, il relativo contenuto dev
 
 Un altro modo per determinare se una tabella è una tabella interna consiste nell'usare Azure Storage Explorer. Questo strumento consente di passare al nome del contenitore del cluster predefinito e quindi filtrare in base al nome della tabella. Se la tabella e il relativo contenuto vengono visualizzati, allora si tratta di una tabella interna.
 
-Ecco uno screenshot della query Hive e del modulo [Import Data][import-data] (Importa dati):
+Di seguito è riportata una schermata della query hive e del modulo [Import Data][import-data] :
 
 ![Screenshot di una query Hive per il modulo Import Data (Importa dati)](./media/hive-walkthrough/1eTYf52.png)
 
@@ -757,11 +757,11 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 ### <a name="mlmodel"></a>Creare modelli in Machine Learning
 È ora possibile procedere alla creazione e alla distribuzione di modelli in [Machine Learning](https://studio.azureml.net). I dati sono pronti per essere usati per la risoluzione dei problemi relativi alle stime identificati in una delle sezioni precedenti:
 
-- **Classificazione binaria**: permette di stimare se per un viaggio è stata lasciata o meno una mancia.
+- **Classificazione binaria**: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
 
   **Strumento di apprendimento usato:** regressione logistica a due classi
 
-  a. Per questo problema, l'etichetta (o classe) di destinazione è **tipped**. Il set di dati sottocampionato originale contiene alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare, **tip\_class**, **tip\_amount** e **total\_amount** rivelano informazioni sull'etichetta di destinazione che non sono disponibili in fase di test. È possibile rimuovere queste colonne dalla valutazione tramite il modulo [Seleziona colonne in set di dati][select-columns].
+  a. Per questo problema, l'etichetta (o classe) di destinazione è **tipped**. Il set di dati sottocampionato originale contiene alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare, **tip\_class**, **tip\_amount** e **total\_amount** rivelano informazioni sull'etichetta di destinazione che non sono disponibili in fase di test. Queste colonne vengono rimosse dalla considerazione usando il modulo [Select Columns in DataSet][select-columns] .
 
   Il diagramma seguente mostra l'esperimento per stimare se per una corsa specifica è stata o meno lasciata una mancia:
 
@@ -781,7 +781,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   **Strumento di apprendimento usato:** regressione logistica multiclasse
 
-  a. Per questo problema, l'etichetta (o classe) di destinazione è **tip\_class**, che può accettare cinque valori diversi (0, 1, 2, 3, 4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare, **tipped**, **tip\_amount** e **total\_amount** rivelano informazioni sull'etichetta di destinazione che non sono disponibili in fase di test. È possibile rimuovere queste colonne tramite il modulo [Seleziona colonne in set di dati][select-columns].
+  a. Per questo problema, l'etichetta (o classe) di destinazione è **tip\_class**, che può accettare cinque valori diversi (0, 1, 2, 3, 4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare, **tipped**, **tip\_amount** e **total\_amount** rivelano informazioni sull'etichetta di destinazione che non sono disponibili in fase di test. Queste colonne vengono rimosse usando il modulo [Select Columns in DataSet][select-columns] .
 
   Il diagramma seguente mostra l'esperimento per stimare in quale bin è probabilmente inclusa una mancia. I bin sono: classe 0: tip = $ 0, classe 1: tip > $ 0 e tip <= $ 5, classe 2: tip > $ 5 e tip <= $ 10, classe 3: tip > $ 10 e tip <= $ 20 e classe 4: tip > $ 20.
 
@@ -797,11 +797,11 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   Si noti che mentre l'accuratezza delle classi è abbastanza soddisfacente per le classi prevalenti, il modello non è altrettanto efficace per l'"apprendimento" delle classi più rare.
 
-- **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.
+- **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.
 
-  **Strumento di apprendimento usato:** albero delle decisioni con boosting scalabile
+  **Strumento di apprendimento usato:** albero delle decisioni con boosting
 
-  a. Per questo problema, l'etichetta (o classe) di destinazione è **tip\_amount**. In questo caso, le perdite di destinazione sono: **tipped**, **tip\_class** e **total\_amount**. Tutte queste variabili rivelano informazioni sull'importo delle mance che in genere non sono disponibili in fase di test. È possibile rimuovere queste colonne tramite il modulo [Seleziona colonne in set di dati][select-columns].
+  a. Per questo problema, l'etichetta (o classe) di destinazione è **tip\_amount**. In questo caso, le perdite di destinazione sono: **tipped**, **tip\_class** e **total\_amount**. Tutte queste variabili rivelano informazioni sull'importo delle mance che in genere non sono disponibili in fase di test. Queste colonne vengono rimosse usando il modulo [Select Columns in DataSet][select-columns] .
 
   Il diagramma seguente mostra l'esperimento per la stima dell'importo della mancia lasciata:
 

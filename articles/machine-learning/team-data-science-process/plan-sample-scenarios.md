@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: de02e94014fa2a28e364c4f85bcb31a1a4827b8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495054"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981128"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenari per l'analisi avanzata in Azure Machine Learning
 Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il [Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Il TDSP offre un approccio sistematico per consentire ai team di collaborare sulla compilazione di applicazioni intelligenti. Gli scenari presentati illustrano le opzioni disponibili nel flusso di lavoro dell'elaborazione dei dati basato su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
@@ -29,7 +29,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 > **Per tutti gli scenari seguenti, è necessario:**
 > <br/>
 > 
-> * [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md)
+> * [Creare un account di archiviazione](../../storage/common/storage-account-create.md)
 >   <br/>
 > * [Creare un'area di lavoro di Machine Learning di Azure](../studio/create-workspace.md)
 > 
@@ -186,7 +186,7 @@ Per replicare l'intero database SQL Server nella macchina virtuale di SQL Server
 
 1. Scollegare il database nel percorso di origine. Per altre informazioni, vedere [Scollegamento di un database](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
 1. In Esplora risorse o nella finestra del prompt dei comandi di Windows  copiare il file o i file del database scollegato nel percorso di destinazione della macchina virtuale di SQL Server in Azure.
-1. Collegare i file copiati all'istanza di SQL Server di destinazione. Per altre informazioni, vedere [Collegare un database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
+1. Collegare i file copiati all'istanza di SQL Server di destinazione. Per altre informazioni, vedere [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
 [Spostamento di un database tramite la funzionalità di scollegamento e collegamento (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 

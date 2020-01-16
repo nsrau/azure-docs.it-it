@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: d574c5eef15c21d3d490bcfe682b87bae2856f1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2aa175d97787d82aae062a95ed519f35ff65816b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353711"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982268"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informazioni sull'utilizzo della macchina virtuale di Azure
-Attraverso l'analisi dei dati di utilizzo di Azure, è possibile ottenere informazioni dettagliate sul consumo che assicurano una migliore gestione e allocazione dei costi in tutta l'organizzazione. Questo documento offre un approfondimento sui dettagli relativi al consumo di Calcolo di Azure. Per altre informazioni sull'utilizzo generale di Azure, vedere [Comprendere la fattura](../../billing/billing-understand-your-bill.md).
+Attraverso l'analisi dei dati di utilizzo di Azure, è possibile ottenere informazioni dettagliate sul consumo che assicurano una migliore gestione e allocazione dei costi in tutta l'organizzazione. Questo documento offre un approfondimento sui dettagli relativi al consumo di Calcolo di Azure. Per altre informazioni sull'utilizzo generale di Azure, vedere [Comprendere la fattura](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Scaricare i dettagli di utilizzo
-Per iniziare, [scaricare i dettagli di utilizzo](../../billing/billing-download-azure-invoice-daily-usage-date.md). La tabella seguente fornisce la definizione e i valori di esempio relativi all'utilizzo per le macchine virtuali distribuite tramite Azure Resource Manager. Questo documento non contiene informazioni dettagliate per le macchine virtuali distribuite tramite il modello classico.
+Per iniziare, [scaricare i dettagli di utilizzo](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). La tabella seguente fornisce la definizione e i valori di esempio relativi all'utilizzo per le macchine virtuali distribuite tramite Azure Resource Manager. Questo documento non contiene informazioni dettagliate per le macchine virtuali distribuite tramite il modello classico.
 
 
 | Campi             | Significato                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Valori di esempio                                                                                                                                                                                                                                                                                                                                                   |
@@ -132,7 +132,7 @@ ComputeHR indica le ore di calcolo e rappresenta l'evento di utilizzo per i cost
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Come si può verificare se è stato effettuato un addebito per il software Premium?
 Quando si valuta quale immagine di macchina virtuale è più appropriata alle specifiche esigenze, assicurarsi di verificare su [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). L'immagine include il piano tariffario del software. Se viene visualizzato "Free" in corrispondenza della tariffa, non è previsto alcun costo aggiuntivo per il software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Qual è la differenza tra Microsoft.ClassicCompute e Microsoft.Compute nel Servizio utilizzato?
-Microsoft.ClassicCompute rappresenta le risorse classiche distribuite tramite Azure Service Manager. Se si esegue la distribuzione tramite Gestione risorse, Microsoft.Compute viene popolato nel servizio utilizzato. Sono disponibili altre informazioni sui [modelli di distribuzione di Azure](../../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft.ClassicCompute rappresenta le risorse classiche distribuite tramite Azure Service Manager. Se si esegue la distribuzione tramite Gestione risorse, Microsoft.Compute viene popolato nel servizio utilizzato. Sono disponibili altre informazioni sui [modelli di distribuzione di Azure](../../azure-resource-manager/management/deployment-models.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Perché il campo InstanceID è vuoto per l'utilizzo della macchina virtuale?
 Se si esegue la distribuzione tramite il modello di distribuzione classica, la stringa InstanceID non è disponibile.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Perché nei dettagli di utilizzo non pervengono i tag per le macchine virtuali?
@@ -143,5 +143,5 @@ Nel modello classico la fatturazione per le risorse è aggregata a livello del s
 Per le macchine virtuali con archiviazione Premium è prevista la stessa tariffa di quelle che non dispongono di funzionalità di archiviazione Premium. Solo i costi di archiviazione sono differenti. Visitare la [pagina dei prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) per altre informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui dettagli di utilizzo, vedere [Comprendere la fattura per Microsoft Azure](../../billing/billing-understand-your-bill.md).
+Per altre informazioni sui dettagli di utilizzo, vedere [Comprendere la fattura per Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md).
 

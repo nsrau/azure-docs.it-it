@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646745"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980113"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -34,7 +34,7 @@ Il peering reti virtuali, locale o globale, include i vantaggi seguenti:
 * Possibilità per le risorse in una rete virtuale di comunicare con le risorse in una rete virtuale diversa.
 * La possibilità di trasferire dati tra reti virtuali tra sottoscrizioni di Azure, Azure Active Directory tenant, modelli di distribuzione e aree di Azure.
 * Possibilità di eseguire il peering di reti virtuali create tramite il Azure Resource Manager.
-* La possibilità di eseguire il peering di una rete virtuale creata tramite Gestione risorse a un'unica creazione tramite il modello di distribuzione classica. Per altre informazioni in proposito, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* La possibilità di eseguire il peering di una rete virtuale creata tramite Gestione risorse a un'unica creazione tramite il modello di distribuzione classica. Per altre informazioni in proposito, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Tempo di inattività nullo per le risorse nelle due reti virtuali durante o dopo la creazione del peering.
 
 Il traffico di rete tra reti virtuali di cui è stato eseguito il peering è privato. Il traffico tra le reti virtuali viene mantenuto nella rete backbone Microsoft. Nella comunicazione tra le reti virtuali non sono necessari gateway, una rete Internet pubblica o la crittografia.

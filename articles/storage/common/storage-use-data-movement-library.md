@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 22dae518a45d5c4af20044d5f3eb88e764e92c8b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895122"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978383"
 ---
-# <a name="transfer-data-with-the-data-movement-library"></a>Trasferire dati con la libreria per lo spostamento dei dati
+# <a name="transfer-data-with-the-data-movement-library"></a>Trasferire dati con la libreria di Spostamento dati
 
 La libreria per lo spostamento dei dati di archiviazione di Azure è una libreria open source multipiattaforma progettata per prestazioni elevate di caricamento, download e copia di BLOB e file. Questa libreria è il principale framework di spostamento dei dati alla base di [AzCopy](../storage-use-azcopy.md). La libreria per lo spostamento dei dati fornisce metodi pratici che non sono disponibili nella libreria client di archiviazione di Azure per .NET. Questi metodi offrono la possibilità di impostare il numero di operazioni parallele, tenere traccia dello stato del trasferimento, riprendere facilmente un trasferimento annullato e molto altro ancora.
 
@@ -35,7 +35,7 @@ In questo documento viene spiegato come creare un'applicazione console di .NET C
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- Un [account di archiviazione di Azure](storage-quickstart-create-account.md)
+- Un [account di archiviazione di Azure](storage-account-create.md)
 
 ## <a name="setup"></a>Configurazione
 

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5e410dc4e7f47223430497825dc2a26e41c6af67
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647765"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979559"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
 
 > [!IMPORTANT]
-> Azure offre due [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Resource Manager e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. È consigliabile usare il modello di distribuzione di Resource Manager per le distribuzioni più recenti. 
+> Azure offre due [modelli di distribuzione](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Resource Manager e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. È consigliabile usare il modello di distribuzione di Resource Manager per le distribuzioni più recenti. 
 
 Un elenco di controllo di accesso (ACL) agli endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta. È consigliabile usare i gruppi di sicurezza di rete invece degli elenchi di controllo di accesso, laddove possibile. Quando si usano gruppi di sicurezza di rete, l'elenco di controllo di accesso degli endpoint viene sostituito e non più applicato. Per altre informazioni sui gruppi di accesso di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md).
 

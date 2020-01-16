@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401753"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977733"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -23,7 +23,7 @@ ms.locfileid: "75401753"
 > [!NOTE]
 > Questo è un documento preliminare che illustra come creare soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.
 
-Le [soluzioni di gestione](solutions.md) includeranno in genere [ricerche salvate](../../azure-monitor/log-query/log-query-overview.md) di Log Analytics per l'analisi dei dati raccolti dalla soluzione. Potranno anche definire [avvisi](../../azure-monitor/platform/alerts-overview.md) per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico. Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un [modello di Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) in modo da consentirne l'inclusione nelle [soluzioni di gestione](solutions-creating.md).
+Le [soluzioni di gestione](solutions.md) includeranno in genere [ricerche salvate](../../azure-monitor/log-query/log-query-overview.md) di Log Analytics per l'analisi dei dati raccolti dalla soluzione. Potranno anche definire [avvisi](../../azure-monitor/platform/alerts-overview.md) per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico. Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un [modello di Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) in modo da consentirne l'inclusione nelle [soluzioni di gestione](solutions-creating.md).
 
 > [!NOTE]
 > Gli esempi in questo articolo usano parametri e variabili che sono obbligatori o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure](solutions-creating.md).

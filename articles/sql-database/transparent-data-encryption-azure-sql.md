@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381dfb4fca7476d5805bff92d58ecbbf49679346
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354907"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979962"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption per il database SQL e Data Warehouse
 
-Transparent Data Encryption (Transparent Data Encryption) consente di proteggere il database SQL di Azure, Azure SQL Istanza gestita e Azure data warehouse contro la minaccia di attività offline dannose mediante la crittografia dei dati inattivi. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione. Per impostazione predefinita, la tecnologia TDE è abilitata per tutti i database SQL di Azure appena distribuiti. Transparent Data Encryption non può essere usata per crittografare il database **master** logico nel database SQL.  Il database **master** contiene gli oggetti necessari a eseguire le operazioni di Transparent Data Encryption nei database utente.
+Transparent data encryption (TDE) helps protect Azure SQL Database, Azure SQL Managed Instance, and Azure Data Warehouse against the threat of malicious offline activity by encrypting data at rest. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione. Per impostazione predefinita, la tecnologia TDE è abilitata per tutti i database SQL di Azure appena distribuiti. Transparent Data Encryption non può essere usata per crittografare il database **master** logico nel database SQL.  Il database **master** contiene gli oggetti necessari a eseguire le operazioni di Transparent Data Encryption nei database utente.
 
-È necessario abilitare manualmente Transparent Data Encryption per i database precedenti del database SQL di Azure, di Azure SQL Istanza gestita o Azure SQL Data Warehouse.
-Istanza gestita database creati tramite il ripristino ereditano lo stato di crittografia dal database di origine.
+TDE needs to be manually enabled for older databases of Azure SQL Database, Azure SQL Managed Instance, or Azure SQL Data Warehouse.
+Managed Instance databases created through restore inherit encryption status from the source database.
 
 Transparent Data Encryption esegue la crittografia dell'archiviazione di un intero database usando una chiave simmetrica denominata "chiave di crittografia del database". Questa chiave di crittografia del database è protetta dalla protezione TDE. La protezione è un certificato gestito dal servizio (TDE gestita dal servizio) o una chiave asimmetrica archiviata in Azure Key Vault (Bring Your Own Key). È possibile impostare la protezione di Transparent Data Encryption a livello di server per Database SQL di Azure e Data Warehouse e a livello di istanza per Istanza gestita di database SQL di Azure. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
 
@@ -34,12 +34,12 @@ SQL Server eseguito in una macchina virtuale di Azure può anche usare una chiav
 
 ## <a name="service-managed-transparent-data-encryption"></a>Transparent Data Encryption gestita dal servizio
 
-In Azure, l'impostazione predefinita per TDE prevede che la chiave di crittografia del database sia protetta da un certificato server integrato. Il certificato server predefinito è univoco per ogni server e l'algoritmo di crittografia usato è AES 256. Se un database è in una relazione di replica geografica, il database primario e la replica geografica secondaria sono protetti dalla chiave primaria del server padre del database. Se due database sono connessi allo stesso server, condividono anche lo stesso certificato predefinito.  Microsoft ruota automaticamente questi certificati in conformità con i criteri di sicurezza interni e la chiave radice è protetta da un archivio segreti interno di Microsoft.  I clienti possono verificare la conformità del database SQL ai criteri di sicurezza interni nei report di controllo di terze parti indipendenti disponibili nel [Centro protezione Microsoft](https://servicetrust.microsoft.com/).
+In Azure, l'impostazione predefinita per TDE prevede che la chiave di crittografia del database sia protetta da un certificato server integrato. The built-in server certificate is unique for each server and the encryption algorithm used is AES 256. Se un database è in una relazione di replica geografica, il database primario e la replica geografica secondaria sono protetti dalla chiave primaria del server padre del database. Se due database sono connessi allo stesso server, condividono anche lo stesso certificato predefinito.  Microsoft ruota automaticamente questi certificati in conformità con i criteri di sicurezza interni e la chiave radice è protetta da un archivio segreti interno di Microsoft.  Customers can verify SQL Database compliance with internal security policies in independent third-party audit reports available on the [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 Microsoft inoltre sposta e gestisce le chiavi senza problemi in base alle esigenze per la replica geografica e ne esegue il ripristino.
 
 > [!IMPORTANT]
-> Tutti i database SQL appena creati e i database di Istanza gestita vengono crittografati per impostazione predefinita tramite Transparent Data Encryption gestito dal servizio. Per impostazione predefinita, i database SQL esistenti creati prima del 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia del database non sono crittografati. I database di Istanza gestita esistenti creati prima del 2019 febbraio non vengono crittografati per impostazione predefinita. Istanza gestita database creati tramite il ripristino ereditano lo stato di crittografia dall'origine.
+> All newly created SQL databases and Managed Instance databases are encrypted by default by using service-managed transparent data encryption. Per impostazione predefinita, i database SQL esistenti creati prima del 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia del database non sono crittografati. I database di Istanza gestita esistenti creati prima del 2019 febbraio non vengono crittografati per impostazione predefinita. Istanza gestita database creati tramite il ripristino ereditano lo stato di crittografia dall'origine.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Transparent Data Encryption gestita dal cliente: Bring Your Own Key
 
@@ -79,7 +79,7 @@ Per configurare TDE usando il portale di Azure, è necessario essere connessi co
 
 Attivare e disattivare TDE a livello di database. Per abilitare TDE in un database, andare al [portale di Azure](https://portal.azure.com) e accedere con l'account amministratore o di collaboratore di Azure. Trovare le impostazioni di TDE nel database utente. Per impostazione predefinita, viene usata TDE gestita dal servizio. Un certificato TDE viene generato automaticamente per il server che contiene il database. Per Istanza gestita di database SQL di Azure, usare T-SQL per attivare e disattivare TDE in un database.
 
-![Transparent Data Encryption gestita dal servizio](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
+![Transparent Data Encryption gestita dal servizio](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)
 
 Impostare la chiave master di TDE, nota anche come protezione TDE, a livello di server. Per usare TDE con supporto Bring Your Own Key e proteggere i database con una chiave dall’insieme di credenziali delle chiavi, aprire le impostazioni di TDE nel server.
 

@@ -5,27 +5,28 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 97ee10e0b286f1b007f2e807351301f2037d1754
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942731"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020820"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete: Azure Resource Manager si applicano i limiti seguenti solo per le risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Sono stati aumentati di recente tutti i limiti predefiniti fino al rispettivo massimo. Se non è presente alcuna colonna limite massimo, la risorsa non ha limiti regolabili. Se questi limiti sono aumentati in base al supporto in passato e non vengono visualizzati limiti aggiornati nelle tabelle seguenti, [aprire una richiesta di assistenza clienti online senza alcun addebito](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Sono stati aumentati di recente tutti i limiti predefiniti fino al rispettivo massimo. Se non è presente alcuna colonna limite massimo, la risorsa non ha limiti regolabili. Se questi limiti sono aumentati in base al supporto in passato e non vengono visualizzati limiti aggiornati nelle tabelle seguenti, [aprire una richiesta di assistenza clienti online senza alcun addebito](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
 | Gruppi | Limite predefinito/massimo | 
 | --- | --- |
 | Reti virtuali |1\.000 |
 | Subnet per rete virtuale |3\.000 |
 | Peering di rete virtuale per ogni rete virtuale |500 |
-| [Gateway di rete virtuale (gateway VPN) per rete virtuale](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [Gateway di rete virtuale (gateway VPN) per rete virtuale](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Gateway di rete virtuale (gateway ExpressRoute) per rete virtuale](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | Server DNS per ogni rete virtuale |20 |
 | Indirizzi IP privati per ogni rete virtuale |65,536 |
 | Indirizzi IP privati per interfaccia di rete |256 |

@@ -7,22 +7,22 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
-ms.openlocfilehash: 0fda04bbfa632f429539ddc0ad90941cb645226b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a483f143b70a4969114c078b3b0a6f960c4b6b41
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934632"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976070"
 ---
-# <a name="commercial-marketplace-billing"></a>Fatturazione del Marketplace commerciale 
+# <a name="commercial-marketplace-billing"></a>Fatturazione del Marketplace commerciale
 
 Questo articolo descrive gli argomenti correlati al commercio per il Marketplace commerciale:
 
-- [Opzioni di pubblicazione del Marketplace](#marketplace-publishing-options) 
+- [Opzioni di pubblicazione del Marketplace](#marketplace-publishing-options)
 - [Panoramica di Transact General](#transact-general-overview)
 - [Modelli di fatturazione Transact](#transact-billing-models)
 
-## <a name="marketplace-publishing-options"></a>Opzioni di pubblicazione nel marketplace 
+## <a name="marketplace-publishing-options"></a>Opzioni di pubblicazione nel marketplace
 
 Marketplace commerciale offre diverse opzioni di pubblicazione per gli editori.
 
@@ -36,9 +36,9 @@ Oltre alle opzioni di pubblicazione dell'elenco e della versione di valutazione,
 
 ## <a name="transact-general-overview"></a>Panoramica generale sulle transazioni
 
-Quando si usa l'opzione di pubblicazione Transact, Microsoft consente la vendita di software di terze parti e la distribuzione di alcuni tipi di offerta alla sottoscrizione di Azure del cliente. Quando si seleziona un modello di fatturazione e un tipo di offerta, l'autore deve considerare la fatturazione dei costi dell'infrastruttura e i costi di licenza software dell'editore. 
+Quando si usa l'opzione di pubblicazione Transact, Microsoft consente la vendita di software di terze parti e la distribuzione di alcuni tipi di offerta alla sottoscrizione di Azure del cliente. Quando si seleziona un modello di fatturazione e un tipo di offerta, l'autore deve considerare la fatturazione dei costi dell'infrastruttura e i costi di licenza software dell'editore.
 
-L'opzione di pubblicazione Transact è attualmente supportata per i tipi di offerta seguenti: macchine virtuali, applicazioni Azure e applicazioni SaaS. 
+L'opzione di pubblicazione Transact è attualmente supportata per i tipi di offerta seguenti: macchine virtuali, applicazioni Azure e applicazioni SaaS.
 
 ![Transazioni in Azure Marketplace](./media/transact-amp.png)
 

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083521"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981144"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creare un circuito ExpressRoute usando Azure Resource Manager modello
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 > * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
@@ -44,7 +44,7 @@ Per visualizzare altri modelli correlati, fare clic [qui](https://azure.microsof
 
 Per creare un circuito ExpressRoute distribuendo un modello:
 
-1. Selezionare **prova** dal blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure cloud Shell.
+1. Selezionare **Prova** nel blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -74,15 +74,15 @@ Per creare un circuito ExpressRoute distribuendo un modello:
     Il nome del gruppo di risorse è il nome dello spazio dei nomi del bus di servizio con l'aggiunta di **RG** .
 
 2. Selezionare **Copia** per copiare lo script di PowerShell.
-3. Fare clic con il pulsante destro del mouse sulla console della shell, quindi scegliere **Incolla**.
+3. Fare clic con il pulsante destro del mouse sulla console della shell e quindi scegliere **Incolla**.
 
-Sono necessari alcuni minuti per creare un hub eventi.
+La creazione di un hub eventi richiede pochi minuti.
 
 Azure PowerShell viene usato per distribuire il modello in questa esercitazione. Per altri metodi di distribuzione dei modelli, vedere:
 
-* [Utilizzando il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Usando l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Usando l'API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Utilizzando il portale di Azure](../azure-resource-manager/templates/deploy-portal.md).
+* [Usando l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md).
+* [Usando l'API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="delete"></a>Deprovisioning ed eliminazione di un circuito ExpressRoute
 

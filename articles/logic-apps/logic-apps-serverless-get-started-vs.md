@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: a3fcff9f895fba3574bbce976087295018ab51c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428751"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981156"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creare la prima app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
 
@@ -56,7 +56,7 @@ Per creare un'app senza server in Visual Studio, è necessario:
 
 ## <a name="create-a-resource-group-project"></a>Creare un progetto gruppo di risorse
 
-Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) per l'app senza server. In Azure è possibile creare risorse all'interno di un *gruppo di risorse*, ovvero una raccolta logica da usare per organizzare, gestire e distribuire le risorse per un'intera app come singolo asset. Per un'app senza server in Azure, il gruppo di risorse include risorse sia per App per la logica di Azure sia per Funzioni di Azure. È possibile accedere ad altre informazioni sui [gruppi di risorse e le risorse di Azure](../azure-resource-manager/management/overview.md).
+Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) per l'app senza server. In Azure è possibile creare risorse all'interno di un *gruppo di risorse*, ovvero una raccolta logica da usare per organizzare, gestire e distribuire le risorse per un'intera app come singolo asset. Per un'app senza server in Azure, il gruppo di risorse include risorse sia per App per la logica di Azure sia per Funzioni di Azure. È possibile accedere ad altre informazioni sui [gruppi di risorse e le risorse di Azure](../azure-resource-manager/management/overview.md).
 
 1. Avviare Visual Studio e accedere usando l'account Azure.
 

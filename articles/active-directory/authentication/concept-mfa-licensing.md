@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a2afad33aea7fa2a21135dca0995ad862a2258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1528bffc613d2e8ab2c0150095d90791b649198a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848664"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979490"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 
@@ -32,7 +32,7 @@ La tabella seguente descrive le differenze tra le versioni di autenticazione a p
 
 | Versione | Description |
 | --- | --- |
-| Opzione gratuita | I clienti che utilizzano i vantaggi gratuiti di Azure AD possono utilizzare le [impostazioni predefinite di sicurezza](../conditional-access/concept-conditional-access-security-defaults.md) per abilitare l'autenticazione a più fattori nel proprio ambiente. |
+| Opzione gratuita | I clienti che utilizzano i vantaggi gratuiti di Azure AD possono utilizzare le [impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md) per abilitare l'autenticazione a più fattori nel proprio ambiente. |
 | Autenticazione a più fattori per Office 365 | Questa versione è gestita dal portale di Office 365 o Microsoft 365. Gli amministratori possono [proteggere le risorse di Office 365 con la verifica in due passaggi](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Questa versione è inclusa in una sottoscrizione di Office 365. |
 | Multi-Factor Authentication per amministratori di Azure Active Directory | Gli utenti a cui è assegnato il ruolo di amministratori globali di tenant di Azure AD possono abilitare la verifica in due passaggi senza costi aggiuntivi. |
 | Azure Multi-Factor Authentication | Azure Multi-Factor Authentication, definito spesso la versione "completa", offre la più ampia gamma di funzionalità. Offre opzioni di configurazione aggiuntive tramite il [portale di Azure](https://portal.azure.com), segnalazione avanzata e il supporto per una gamma di applicazioni locali e cloud. Azure Multi-Factor Authentication è una funzionalità di [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e [Microsoft 365 business](https://www.microsoft.com/microsoft-365/business). |
@@ -48,7 +48,7 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 > Questa tabella di confronto descrive le funzionalità incluse in ogni versione di Multi-Factor Authentication. Se si ha il servizio Azure Multi-Factor Authentication completo, alcune funzionalità potrebbero non essere disponibili a seconda che si usi [MFA nel cloud o MFA in locale](concept-mfa-whichversion.md).
 >
 
-| Funzionalità | Autenticazione a più fattori per Office 365 | Multi-Factor Authentication per amministratori di Azure Active Directory | Azure Multi-Factor Authentication | Impostazioni predefinite di sicurezza | 
+| Funzionalità | Autenticazione a più fattori per Office 365 | Multi-Factor Authentication per amministratori di Azure Active Directory | Azure Multi-Factor Authentication | Impostazioni predefinite di sicurezza |
 | --- |:---:|:---:|:---:|:---:|
 | Protezione degli account amministratore di Azure Active Directory con MFA |● |● (solo per l'account amministratore globale di Azure Active Directory) |● |● |
 | App per dispositivi mobili come secondo fattore |● |● |● |● |
@@ -63,7 +63,7 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 | Bypass monouso | | |● |   |
 | Messaggi di saluto personalizzati per le telefonate | | |● |   |
 | ID chiamante personalizzato per le telefonate | | |● |   |
-| IP attendibili | | |● |   |
+| Indirizzi IP attendibili | | |● |   |
 | Memorizzazione di MFA per dispositivi attendibili |● |● |● |   |
 | MFA per applicazioni locali | | |● |   |
 

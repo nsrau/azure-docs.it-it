@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659560"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978767"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -31,7 +31,7 @@ Il glossario di Microsoft Azure è un breve dizionario di terminologia cloud per
 
 ## <a name="account"></a>account
 Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso definito account Azure anche se un account può essere un account Microsoft aziendale, dell'istituto di istruzione o personale esistente oppure un nome utente e una password di Office 365. È anche possibile creare un account per gestire una sottoscrizione di Azure quando ci si iscrive alla [versione di valutazione gratuita](https://azure.microsoft.com).  
-Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>App per le API
 Nome alternativo per [app del servizio app](#app-service-app).
@@ -96,11 +96,11 @@ Vedere [Aree di Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
 Elemento incluso nella soluzione Azure. Ogni servizio di Azure consente di distribuire diversi tipi di risorse, ad esempio database o macchine virtuali.   
-Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="resource-group"></a>gruppo di risorse
 Contenitore in Resource Manager che include le risorse correlate di un'applicazione. Il gruppo di risorse può includere tutte le risorse di un'applicazione o solo le risorse raggruppate logicamente. È possibile decidere come si desidera allocare le risorse a gruppi di risorse nel modo appropriato per l'organizzazione.  
-Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>modello di Resource Manager
 File JSON che definisce in modo dichiarativo una o più risorse di Azure e che definisce le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto.  
@@ -108,7 +108,7 @@ Vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring
 
 ## <a name="resource-provider"></a>provider di risorse
 Servizio che fornisce le risorse da distribuire e gestire tramite Resource Manager. Ogni provider di risorse offre operazioni per l'uso delle risorse distribuite. È possibile accedere ai provider di risorse tramite il portale di Azure, Azure PowerShell e diversi SDK di programmazione.  
-Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="role"></a>ruolo
 Mezzo per il controllo dell'accesso che può essere assegnato a utenti, gruppi e servizi. I ruoli sono in grado di eseguire azioni, ad esempio la creazione, la gestione e la lettura nelle risorse di Azure.  

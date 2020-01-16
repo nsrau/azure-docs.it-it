@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ec391db0e18128ad85d3bacb79fa51770aa70ea1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c49df689ae859c93046c19af043aa2001dbb5481
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298889"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979637"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione all'archiviazione tabelle di Azure e a Servizi connessi di Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 L’archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md)
+* [Account di archiviazione di Azure](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -115,7 +115,7 @@ I passaggi seguenti illustrano come creare una tabella:
     }
     ```
 
-1. Nel metodo **CreateTable** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **CreateTable** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -204,7 +204,7 @@ La classe di entità *deve* dichiarare un costruttore pubblico senza parametri.
     }
     ```
 
-1. Nel metodo **AddEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **AddEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -299,7 +299,7 @@ Oltre ad [aggiungere entità a una tabella una alla volta](#add-an-entity-to-a-t
     }
     ```
 
-1. Nel metodo **AddEntities** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **AddEntities** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -419,7 +419,7 @@ Questa sezione illustra come ottenere una singola entità da una tabella usando 
     }
     ```
 
-1. Nel metodo **ListBlobs** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **ListBlobs** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -519,7 +519,7 @@ Come accennato nella sezione [Aggiungere un'entità a una tabella](#add-an-entit
     }
     ```
 
-1. Nel metodo **GetPartition** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **GetPartition** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -629,7 +629,7 @@ Questa sezione illustra come eliminare un'entità da una tabella.
     }
     ```
 
-1. Nel metodo **DeleteEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **DeleteEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

@@ -1,5 +1,5 @@
 ---
-title: Caso di utilizzo - Profilo clienti
+title: Caso di utilizzo - Profilatura dei clienti
 description: Informazioni su come utilizzare Data Factory di Azure per creare un flusso di lavoro basato sui dati (pipeline) per analizzare il profilo dei clienti di società di giochi.
 services: data-factory
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 866a7fdabaf51738333d8583bea5d0fa9fabf6f2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139848"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969281"
 ---
-# <a name="use-case---customer-profiling"></a>Caso di utilizzo - Profilo clienti
+# <a name="use-case---customer-profiling"></a>Caso di utilizzo - Profilatura dei clienti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per ulteriori informazioni su Cortana Intelligence, vedere [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In questo documento viene descritto un caso di semplice utilizzo che consente di iniziare a capire come Data Factory di Azure può risolvere problemi comuni di analisi.
 
 ## <a name="scenario"></a>Scenario
@@ -29,7 +29,7 @@ L'obiettivo di Contoso consiste nell'identificare opportunità di up-selling o c
 In questa soluzione Contoso desidera valutare l'efficacia di una campagna di marketing lanciata di recente. I log di gioco, inizialmente non elaborati, vengono successivamente elaborati con dati di georilevazione e di riferimento pubblicitario e infine vengono copiati in un database SQL di Azure per analizzare l'impatto della campagna.
 
 ## <a name="deploy-solution"></a>Distribuire la soluzione
-Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](../../storage/common/storage-quickstart-create-account.md) e di una [database SQL di Azure](../../sql-database/sql-database-get-started.md). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.
+Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](../../storage/common/storage-account-create.md) e di una [database SQL di Azure](../../sql-database/sql-database-get-started.md). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.
 
 1. Creare una data factory o aprire una data factory esistente. Per la procedura di creazione di una data factory, vedere [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio**.

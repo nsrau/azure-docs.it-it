@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166992"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974514"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "74166992"
 
 Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati ai [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati nei log di Monitoraggio di Azure o con strumenti diversi come ad esempio Excel e Power BI.
 
-Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rendendoli utili per gli avvisi e il rilevamento rapido dei problemi. 
+Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rendendoli utili per gli avvisi e il rilevamento rapido dei problemi.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
@@ -33,7 +33,7 @@ Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rend
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -56,7 +56,7 @@ Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rend
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -83,9 +83,9 @@ Sono disponibili tre opzioni di archiviazione dei log:
 
    Le voci dei log attività vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure.
 
-   È possibile usare i [log attività di Azure](../azure-resource-manager/resource-group-audit.md) (precedentemente noti come log operativi e log di controllo) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
+   È possibile usare i [log attività di Azure](../azure-resource-manager/management/view-activity-logs.md) (precedentemente noti come log operativi e log di controllo) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
 
-## <a name="metrics"></a>Metrica
+## <a name="metrics"></a>Metriche
 
 Le metriche in monitoraggio di Azure sono valori numerici che descrivono alcuni aspetti di un sistema in un determinato momento. Le metriche vengono raccolte ogni minuto e sono utili per gli avvisi perché possono essere campionate spesso. Un avviso può essere generato rapidamente con una logica relativamente semplice.
 

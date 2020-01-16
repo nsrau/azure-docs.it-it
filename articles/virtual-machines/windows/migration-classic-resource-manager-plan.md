@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: bebfcedcd2944e2c6b05c3203e67df7658dd751a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d5245f73520a77648fc590520185a2cf66bffd02
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460062"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980894"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione.
@@ -130,8 +130,8 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
   - Tabelle di route
 
     È possibile controllare le quote correnti di Azure Resource Manager usando i comandi seguenti con la versione più recente di Azure PowerShell.
-    
-     
+
+
 
     **Calcolo** *(core, set di disponibilità)*
 
@@ -203,9 +203,9 @@ Ecco alcuni aspetti da considerare:
 Decidere quali servizi si desidera abilitare ora in Azure Resource Manager.  Molti clienti ritengono efficace quanto segue per i propri ambienti Azure:
 
 - [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
-- [Modelli di Azure Resource Manager per una distribuzione più semplice e controllata](../../azure-resource-manager/template-deployment-overview.md).
-- [Tag](../../azure-resource-manager/resource-group-using-tags.md).
-- [Controllo di attività](../../azure-resource-manager/resource-group-audit.md)
+- [Modelli di Azure Resource Manager per una distribuzione più semplice e controllata](../../azure-resource-manager/templates/overview.md).
+- [Tag](../../azure-resource-manager/management/tag-resources.md).
+- [Controllo di attività](../../azure-resource-manager/management/view-activity-logs.md)
 - [Criteri di Azure](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>Errori da evitare

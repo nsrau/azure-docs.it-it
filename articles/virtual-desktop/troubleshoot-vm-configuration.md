@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: c357e460e49ffee669f3978be7678353acfcd249
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459421"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980226"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
@@ -209,11 +209,11 @@ Esaminare le voci del registro di sistema elencate di seguito e verificare che i
 
 1. Usare Remote Desktop Protocol (RDP) per accedere direttamente alla macchina virtuale host sessione come amministratore locale.
 2. Scaricare e importare [il modulo PowerShell per desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto, quindi eseguire questo cmdlet per accedere al proprio account:
-    
+
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
-    
+
 3. Installare lo stack affiancato usando [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Come correggere lo stack side-by-side di un desktop virtuale di Windows che funziona correttamente
@@ -298,52 +298,52 @@ Se il sistema operativo è Microsoft Windows 10, continuare con le istruzioni se
 
 ## <a name="remote-desktop-licensing-mode-isnt-configured"></a>La modalità di gestione licenze Desktop remoto non è configurata
 
-Se si accede a una multisessione Enterprise di Windows 10 con un account amministrativo, è possibile che venga visualizzata una notifica che indica che la modalità di gestione licenze Desktop remoto non è configurata, Servizi Desktop remoto smetterà di funzionare tra X giorni. Nel server Gestore connessione usare Server Manager per specificare la modalità di gestione licenze Desktop remoto ".
+If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
 
-Se il limite di tempo scade, verrà visualizzato un messaggio di errore che indica che la sessione remota è stata disconnessa perché non sono disponibili Desktop remoto licenze di accesso client per questo computer.
+If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-Se viene visualizzato uno di questi messaggi, significa che nell'immagine non sono installati gli aggiornamenti di Windows più recenti o che si sta impostando la modalità di gestione licenze Desktop remoto tramite criteri di gruppo. Seguire i passaggi nelle sezioni successive per verificare l'impostazione di criteri di gruppo, identificare la versione di Windows 10 Enterprise Multisession e installare l'aggiornamento corrispondente.  
-
->[!NOTE]
->Desktop virtuale Windows richiede solo una licenza CAL (Client Access License) RDS quando il pool host contiene host sessione Windows Server. Per informazioni su come configurare una licenza CAL Servizi Desktop remoto, vedere [concedere in licenza la distribuzione di Servizi Desktop remoto con licenze di accesso client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
-
-### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disabilitare l'impostazione di criteri di gruppo Desktop remoto modalità di gestione licenze
-
-Controllare l'impostazione di criteri di gruppo aprendo l'Editor Criteri di gruppo nella macchina virtuale e passando a **Modelli amministrativi** > **componenti di Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto > ** **licenze** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.  
 
 >[!NOTE]
->Se si impostano i criteri di gruppo tramite il dominio, disabilitare questa impostazione nei criteri destinati a queste VM multisessione Enterprise di Windows 10.
+>Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
-### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identificare la versione di Windows 10 Enterprise multisessione in uso
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disable the Remote Desktop licensing mode group policy setting
 
-Per verificare la versione di Windows 10 Enterprise con più sessioni:
+Check the group policy setting by opening the Group Policy Editor in the VM and navigating to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing** > **Set the Remote Desktop licensing mode**. If the group policy setting is **Enabled**, change it to **Disabled**. If it's already disabled, then leave it as-is.
 
-1. Accedere con l'account amministratore.
-2. Immettere "about" nella barra di ricerca accanto al menu Start.
-3. Selezionare **informazioni sul computer**.
-4. Controllare il numero accanto a "Version". Il numero deve essere "1809" o "1903", come illustrato nella figura seguente.
-   
-    ![Screenshot della finestra delle specifiche di Windows. Il numero di versione è evidenziato in blu.](media/windows-specifications.png)
+>[!NOTE]
+>If you set group policy through your domain, disable this setting on policies that target these Windows 10 Enterprise multi-session VMs.
 
-Ora che si conosce il numero di versione, passare alla sezione pertinente.
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identify which version of Windows 10 Enterprise multi-session you're using
 
-### <a name="version-1809"></a>Versione 1809
+To check which version of Windows 10 Enterprise multi-session you have:
 
-Se il numero di versione indica "1809", installare [l'aggiornamento di KB4516077](https://support.microsoft.com/help/4516077).
+1. Sign in with your admin account.
+2. Enter "About" into the search bar next to the Start menu.
+3. Select **About your PC**.
+4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
 
-### <a name="version-1903"></a>Versione 1903
+    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](media/windows-specifications.png)
 
-Ridistribuire il sistema operativo host con la versione più recente dell'immagine di Windows 10, versione 1903 dalla raccolta di Azure.
+Now that you know your version number, skip ahead to the relevant section.
+
+### <a name="version-1809"></a>Version 1809
+
+If your version number says "1809," install [the KB4516077 update](https://support.microsoft.com/help/4516077).
+
+### <a name="version-1903"></a>Version 1903
+
+Redeploy the host operating system with the latest version of the Windows 10, version 1903 image from the Azure Gallery.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
-- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues.md).
-- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
-- Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
-- Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)
-- Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
-- Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](environment-setup.md).
-- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
-- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](../azure-resource-manager/resource-group-audit.md).
-- Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../azure-resource-manager/resource-manager-deployment-operations.md).
+- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../azure-resource-manager/templates/deployment-history.md).

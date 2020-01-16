@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103495"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981397"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -35,7 +35,7 @@ Per altri problemi e domande sulla distribuzione delle VM, vedere [Risolvere i p
 ## <a name="collect-activity-logs"></a>Raccogliere i log di attività
 Per avviare la risoluzione dei problemi, raccogliere i log delle attività per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
 
-[Visualizzare le operazioni di distribuzione](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Visualizzare le operazioni di distribuzione](../../azure-resource-manager/templates/deployment-history.md)
 
 [Visualizzare i log attività per gestire le risorse di Azure](../../resource-group-audit.md)
 
@@ -47,9 +47,9 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 **Errori di caricamento:**
 
-**N<sup>1</sup>:** se il sistema operativo è Windows generalizzato e viene caricato come specializzato, si verificherà un errore di timeout del provisioning con la macchina virtuale bloccata nella schermata di Configurazione guidata.
+**N<sup>1</sup>:** se il sistema operativo è Windows generalizzato e viene caricato come specializzato, si verificherà un errore di timeout del provisioning con la VM bloccata nella schermata di Configurazione guidata.
 
-**N<sup>2</sup>:** se il sistema operativo è Windows specializzato e viene caricato come generalizzato, si verificherà un errore di provisioning con la macchina virtuale bloccata nella schermata di Configurazione guidata perché la nuova macchina virtuale è in esecuzione con nome computer, nome utente e password originali.
+**N<sup>2</sup>:** se il sistema operativo è Windows specializzato e viene caricato come generalizzato, si verificherà un errore di provisioning con la VM bloccata nella schermata di Configurazione guidata perché la nuova VM è in esecuzione con nome computer, nome utente e password originali.
 
 **Risoluzione**
 
@@ -57,9 +57,9 @@ Per risolvere entrambi gli errori, usare [Add-AzVhd per caricare il disco rigido
 
 **Errori di acquisizione:**
 
-**N<sup>3</sup>:** se il sistema operativo è Windows generalizzato e viene acquisito come specializzato, si verificherà un errore di timeout del provisioning perché la macchina virtuale originale non può essere usata in quanto contrassegnata come generalizzata.
+**N<sup>3</sup>:** se il sistema operativo è Windows generalizzato e viene acquisito come specializzato, si verificherà un errore di timeout del provisioning perché la VM originale non può essere usata essendo contrassegnata come generalizzata.
 
-**N<sup>4</sup>:** se il sistema operativo è Windows specializzato e viene acquisito come generalizzato, si verificherà un errore di provisioning perché la nuova macchina virtuale è in esecuzione con nome computer, nome utente e password originali. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
+**N<sup>4</sup>:** se il sistema operativo è Windows specializzato e viene acquisito come generalizzato, si verificherà un errore di provisioning perché la nuova VM è in esecuzione con nome computer, nome utente e password originali. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
 
 **Risoluzione**
 
@@ -68,9 +68,9 @@ Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale 
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace; errore di allocazione
 Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene aggiunta a un cluster che non può supportare le dimensioni della VM richieste oppure non ha spazio disponibile sufficiente per soddisfare la richiesta.
 
-**Causa 1:** Il cluster non supporta le dimensioni della macchina virtuale richieste.
+**Causa 1:** il cluster non supporta le dimensioni della VM richieste.
 
-**Risoluzione 1:**
+**Soluzione 1:**
 
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:
@@ -79,9 +79,9 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
   * Dopo l'arresto di tutte le VM, creare la nuova VM con le dimensioni desiderate.
   * Avviare prima di tutto la nuova VM e quindi selezionare le VM arrestate e fare clic su **Avvia**.
 
-**Causa 2:** Il cluster non ha risorse disponibili.
+**Causa 2:** il cluster non ha risorse disponibili.
 
-**Risoluzione 2:**
+**Soluzione 2:**
 
 * Ripetere la richiesta in un secondo momento.
 * Se la nuova VM può far parte di un set di disponibilità diverso

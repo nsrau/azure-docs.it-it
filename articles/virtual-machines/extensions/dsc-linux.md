@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359154"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969940"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -371,7 +371,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 Login-AzAccount
 ```
 
-Per altre informazioni su come usare Azure PowerShell con Azure Resource Manager, vedere [gestire le risorse di Azure usando Azure PowerShell](../../azure-resource-manager/manage-resources-powershell.md).
+Per altre informazioni su come usare Azure PowerShell con Azure Resource Manager, vedere [gestire le risorse di Azure usando Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md).
 
 È possibile distribuire l'estensione DSCForLinux eseguendo:
 

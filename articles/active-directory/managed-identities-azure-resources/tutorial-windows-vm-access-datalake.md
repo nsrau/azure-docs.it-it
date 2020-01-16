@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3909e80ea36ed7aab638d717ecf8404d80beb59
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181891"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977871"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
@@ -32,11 +32,19 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 > * Concedere alla VM l'accesso a un'istanza di Azure Data Lake Store
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per accedere a un'istanza di Azure Data Lake Store
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concedere alla VM l'accesso ad Azure Data Lake Store
+
+
+## <a name="enable"></a>Abilitare
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Concedere l'accesso
 
 È ora possibile concedere alla VM l'accesso a file e cartelle in un'istanza di Azure Data Lake Store.  Per questo passaggio, è possibile usare un'istanza di Data Lake Store esistente o crearne una nuova.  Per creare una nuova istanza di Data Lake Store usando il portale di Azure, seguire questa [guida introduttiva ad Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Nella [documentazione di Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) sono disponibili anche guide introduttive che usano l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
@@ -46,7 +54,7 @@ Nell'istanza di Data Lake Store creare una nuova cartella e concedere all'identi
 2. Fare clic sull'istanza di Data Lake Store che si vuole usare per questa esercitazione.
 3. Fare clic su **Esplora dati** sulla barra dei comandi.
 4. Viene selezionata la cartella radice dell'istanza di Data Lake Store.  Fare clic su **Accedi** sulla barra dei comandi.
-5. Fare clic su **Aggiungi**.  Nel campo **Seleziona** immettere il nome della VM, ad esempio **DevTestVM**.  Fare clic per selezionare la VM nei risultati della ricerca, quindi fare clic su **Seleziona**.
+5. Scegliere **Aggiungi**.  Nel campo **Seleziona** immettere il nome della VM, ad esempio **DevTestVM**.  Fare clic per selezionare la VM nei risultati della ricerca, quindi fare clic su **Seleziona**.
 6. Fare clic su **Selezionare le autorizzazioni**.  Selezionare **Lettura** ed **Esecuzione**, aggiungere a **Questa cartella** e aggiungere come **An access permission only** (Solo autorizzazione di accesso).  Fare clic su **OK**.  L'autorizzazione verrà aggiunta correttamente.
 7. Chiudere il pannello **Accesso**.
 8. Per questa esercitazione creare una nuova cartella.  Fare clic su **Nuova cartella** sulla barra dei comandi e assegnare un nome alla nuova cartella, ad esempio **TestFolder**.  Fare clic su **OK**.
@@ -56,7 +64,7 @@ Nell'istanza di Data Lake Store creare una nuova cartella e concedere all'identi
 
 L'identità gestita assegnata dal sistema della macchina virtuale può ora eseguire tutte le operazioni sui file nella cartella creata.  Per altre informazioni sulla gestione dell'accesso a Data Lake Store, vedere [Controllo di accesso in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Ottenere un token di accesso usando l'identità gestita assegnata dal sistema della macchina virtuale e usarlo per chiamare il file system di Azure Data Lake Store
+## <a name="access-data"></a>Accedere ai dati
 
 Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando identità gestite per le risorse di Azure.  Per eseguire l'autenticazione al file system di Data Lake Store, inviare un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store, in un'intestazione dell'autorizzazione con il formato "Bearer <ACCESS_TOKEN_VALUE>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
@@ -173,6 +181,12 @@ In questa esercitazione si esegue l'autenticazione all'API REST del file system 
    ```
 
 Usando altre API del file system di Data Lake Store, è possibile accodare ai file, scaricare i file ed eseguire altre operazioni.
+
+
+## <a name="disable"></a>Disabilitazione
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

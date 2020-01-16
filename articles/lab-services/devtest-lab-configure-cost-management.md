@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 247327d001342fd0e2943ae7cf010e648761cdaa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318172"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976350"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Tenere traccia dei costi associati a un Lab in Azure DevTest Labs
 Questo articolo fornisce informazioni su come tenere traccia dei costi del Lab. Viene illustrato come visualizzare il costo stimato Trent per il mese di calendario corrente per il Lab. Questo articolo illustra anche come visualizzare i costi mensili per ogni risorsa nel Lab.
@@ -49,7 +49,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
      I costi seguenti *non* sono inclusi nel calcolo dei costi:
 
-   * Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto, per calcolare il costo del lab, Azure DevTest Labs usa le [API di fatturazione di Azure](../billing/billing-usage-rate-card-overview.md) , che non supportano le sottoscrizioni CSP o Dreamspark.
+   * Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto, per calcolare il costo del lab, Azure DevTest Labs usa le [API di fatturazione di Azure](../cost-management-billing/manage/usage-rate-card-overview.md) , che non supportano le sottoscrizioni CSP o Dreamspark.
    * Le tariffe della propria offerta. Al momento non è possibile includere le tariffe (indicate nella sottoscrizione) negoziate con Microsoft o i partner Microsoft. Vengono usate solo tariffe a consumo.
    * Le imposte
    * Gli sconti
@@ -58,7 +58,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 ### <a name="managing-cost-targets-for-your-lab"></a>Gestione degli obiettivi di costo per il lab
 DevTest Labs consente di migliorare la gestione dei costi nel lab impostando un obiettivo di spesa che è possibile visualizzare nel grafico Tendenza mensile costo stimato. DevTest Labs può anche inviare una notifica quando viene raggiunta la soglia o l'obiettivo di spesa specificato. 
 
-1. Nella pagina **tendenza costo** selezionare Gestisci **destinazione**.
+1. Nella pagina **tendenza costo** selezionare **Gestisci destinazione**.
 
     ![Pulsate Gestisci target](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
 2. Nella pagina **Gestisci destinazione** specificare un target di spesa e le soglie. È possibile anche specificare se ogni soglia selezionata deve essere riportata nel grafico della tendenza dei costi o segnalata tramite una notifica webhook.
@@ -70,8 +70,8 @@ DevTest Labs consente di migliorare la gestione dei costi nel lab impostando un 
       - **Corretto**: gli obiettivi di costo vengono monitorati per l'intervallo di date specificato nelle date di inizio e di fine. In genere, questi valori rappresentano il tempo pianificato per l'esecuzione del progetto.
    - Specificare un **Costo target**. Ad esempio, quanto si prevede di spendere in questo Lab nel periodo di tempo definito.
    - Selezionare questa opzione per abilitare o disabilitare qualsiasi soglia che si vuole venga segnalata, in incrementi del 25%, fino al 125% del **Costo target** specificato.
-      - **Notifica**: Quando questa soglia viene soddisfatta, viene inviata una notifica tramite un URL del webhook specificato.
-      - **Traccia nel grafico**: Quando viene soddisfatta questa soglia, i risultati vengono tracciati sul grafico della tendenza dei costi che è possibile visualizzare, come descritto in visualizzazione del grafico della tendenza dei costi mensili stimati.
+      - **Invia notifica**: quando questa soglia viene raggiunta, viene inviata una notifica da un URL webhook specificato.
+      - **Tracciato nel grafico**: quando viene soddisfatta questa soglia, i risultati vengono tracciati sul grafico della tendenza dei costi che è possibile visualizzare, come descritto in visualizzazione del grafico della tendenza dei costi mensili stimati.
    - Se si sceglie l'opzione **Invia notifica** quando viene raggiunta la soglia, è necessario specificare un URL webhook. Nell'area Integrazioni dei costi selezionare **Fare clic qui per aggiungere un'integrazione**. Immettere un **URL webhook** nel riquadro Configura notifica e quindi fare clic su **OK**.
 
        ![Riquadro Configura notifica](./media/devtest-lab-configure-cost-management/configure-notification.png)

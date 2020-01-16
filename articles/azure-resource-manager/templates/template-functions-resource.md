@@ -3,12 +3,12 @@ title: Funzioni modello-risorse
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 2dd55be9f9daa25662903fbb1bd0c2c6666974b3
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 85e421d4d4e53d275613ff8848abd405fdf175c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708566"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979434"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -233,7 +233,7 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | microsoft.web/apimanagementaccounts/apis/connections | listsecrets |
 | Microsoft. Web/siti/backup | [list](/rest/api/appservice/webapps/listbackups) |
 | Microsoft. Web/sites/config | [list](/rest/api/appservice/webapps/listconfigurations) |
-| microsoft.web/sites/functions | [listkeys]()
+| microsoft.web/sites/functions | [listkeys](/rest/api/appservice/webapps/listfunctionkeys)
 | microsoft.web/sites/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
 | microsoft.web/sites/hybridconnectionnamespaces/relays | [listkeys](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
 | microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |

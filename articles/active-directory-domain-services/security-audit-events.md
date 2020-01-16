@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d8e96ffc3e2b4756a4184a9a023133f14b326ed3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425380"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979935"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -126,7 +126,7 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando Azure Powe
 
 1. Creare la risorsa di destinazione per gli eventi di controllo di sicurezza.
 
-    * **Archiviazione di Azure** - [creare un account di archiviazione usando Azure PowerShell](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    * **Archiviazione di Azure** - [creare un account di archiviazione usando Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
     * **Hub eventi di Azure** - [creare un hub eventi usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Potrebbe anche essere necessario usare il cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) per creare una regola di autorizzazione che conceda le autorizzazioni di Azure AD DS allo *spazio dei nomi*dell'hub eventi. La regola di autorizzazione deve includere i diritti di **gestione**, **ascolto**e **trasmissione** .
 
         > [!IMPORTANT]

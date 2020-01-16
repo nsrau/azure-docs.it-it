@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d47f6f5b983c0f785c76d1b2cede815dda699a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492351"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968724"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
 Questa procedura dettagliata descrive come usare in uno scenario end-to-end il Processo di analisi scientifica dei dati per i team con un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare un modello di classificazione binaria in questi dati. Viene illustrato anche come pubblicare uno di questi modelli come servizio Web.
 
-Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento relativo alla [procedura dettagliata Criteo con una connessione Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
+Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procedura dettagliata su Criteo con una connessione Hive ODBC).
 
 ## <a name="dataset"></a>Descrizione del set di dati Criteo
 I dati Criteo sono un set di dati di stima dei clic raccolti in file TSV compressi nel formato gzip con dimensioni di circa 370 GB (circa 1,3 TB non compressi) e includono più di 4,3 miliardi di record. I valori sono ottenuti da 24 giorni di dati sui clic resi disponibili da [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Per semplificare il lavoro dei data scientist, i dati disponibili per eseguire gli esperimenti sono stati decompressi.
@@ -44,7 +44,7 @@ Di seguito è riportato un estratto delle prime 20 colonne di due osservazioni (
 
 Il set di dati presenta valori mancanti sia nelle colonne numeriche sia in quelle categoriche. Di seguito viene descritto un metodo semplice per la gestione dei valori mancanti. Sono illustrati anche altri dettagli sui dati quando vengono archiviati nelle tabelle Hive.
 
-**Definizione:** *percentuale di click-through (CTR, Clickthrough Rate):* indica la percentuale di clic nei dati. In questo set di dati Criteo, il valore corrisponde circa al 3,3% o 0,033.
+**Definizione:** *velocità in clic (CTR):* questa è la percentuale di clic nei dati. In questo set di dati Criteo, il valore corrisponde circa al 3,3% o 0,033.
 
 ## <a name="mltasks"></a>Esempi di attività di stima
 Questa procedura dettagliata illustra due problemi di stima di esempio:
@@ -60,7 +60,7 @@ Questa procedura dettagliata illustra due problemi di stima di esempio:
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creazione di soluzioni di analisi predittiva con i cluster HDInsight, sono necessari tre passaggi:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+1. [Creare un account di archiviazione](../../storage/common/storage-account-create.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 2. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
 
    * È necessario collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.
@@ -544,7 +544,7 @@ Per prima cosa, è necessario scegliere uno strumento di apprendimento. In quest
 
 Ai fini dell'esperimento, scegliere i valori predefiniti. In genere, i valori predefiniti sono significativi e consentono di ottenere previsioni rapide sulle prestazioni. È possibile migliorare le prestazioni con lo sweep dei parametri, una volta che si dispone di una previsione.
 
-#### <a name="train-the-model"></a>Eseguire il training del modello
+#### <a name="train-the-model"></a>Training del modello
 Per il training, è sufficiente richiamare un modulo **Train Model**. I due input sono lo strumento di apprendimento Two-Class Boosted Decision Tree e il set di dati di training, come illustrato qui:
 
 ![Modulo Train Model](./media/hive-criteo-walkthrough/2bZDZTy.png)

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453422"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979426"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creare e gestire gli account di integrazione per B2B Enterprise Integrations in app per la logica di Azure
 
@@ -77,7 +77,7 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
 
 ## <a name="link-to-logic-app"></a>Collegare all'app per la logica
 
-Per consentire alle app per la logica di accedere a un account di integrazione che contiene gli artefatti B2B, è innanzitutto necessario collegare l'account di integrazione all'app per la logica. L'account di integrazione e l'app per la logica devono esistere nella stessa area. Per completare questa attività, è possibile utilizzare il portale di Azure. Se si usa Visual Studio e l'app per la logica si trova in un [progetto di gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), è possibile [collegare l'app per la logica a un account di integrazione usando Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
+Per consentire alle app per la logica di accedere a un account di integrazione che contiene gli artefatti B2B, è innanzitutto necessario collegare l'account di integrazione all'app per la logica. L'account di integrazione e l'app per la logica devono esistere nella stessa area. Per completare questa attività, è possibile utilizzare il portale di Azure. Se si usa Visual Studio e l'app per la logica si trova in un [progetto di gruppo di risorse di Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), è possibile [collegare l'app per la logica a un account di integrazione usando Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. Nel portale di Azure trovare e aprire l'app per la logica.
 

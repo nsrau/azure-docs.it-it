@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/26/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 340717242d642475217bbe87fd96be66ec9b2e2d
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554232"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979346"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
-Microsoft consiglia di gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo. Tuttavia, se si usa ancora il modello di distribuzione classica, è necessario usare un ruolo di amministratore della sottoscrizione classico, ovvero amministratore del servizio e coamministratore. Per altre informazioni, vedere [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft consiglia di gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo. Tuttavia, se si usa ancora il modello di distribuzione classica, è necessario usare un ruolo di amministratore della sottoscrizione classico, ovvero amministratore del servizio e coamministratore. Per altre informazioni, vedere [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/management/deployment-models.md).
 
 Questo articolo descrive come aggiungere o modificare i ruoli di coamministratore o amministratore del servizio di Azure e come visualizzare l'amministratore dell'account.
 
@@ -89,7 +89,7 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 1. Aggiungere un segno di spunta accanto al coamministratore che si desidera rimuovere.
 
-1. Fare clic su **Rimuovi**.
+1. Scegliere **Rimuovi**.
 
 1. Nella finestra di messaggio visualizzata fare clic su **Sì**.
 
@@ -109,7 +109,7 @@ Esistono due modi per modificare l'amministratore del servizio. È possibile mod
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **Proprietà**.
+1. Scegliere **Proprietà**.
 
     ![Screenshot che mostra l'amministratore dell'account](./media/classic-administrators/account-admin.png)
 
@@ -143,8 +143,8 @@ Può essere presente un solo amministratore del servizio per ogni sottoscrizione
 
 | Account amministratore account | È possibile modificare l'amministratore del servizio in un account Microsoft diverso? | È possibile modificare l'amministratore del servizio in un account Azure AD nella stessa directory? | È possibile modificare l'amministratore del servizio in un account Azure AD in una directory diversa? |
 | --- | --- | --- | --- |
-| Account Microsoft | SÌ | No | No |
-| Account Azure AD | SÌ | SÌ | No |
+| Account Microsoft | Sì | No | No |
+| Account Azure AD | Sì | Sì | No |
 
 Se l'amministratore dell'account è un account di Azure AD, è possibile modificare l'amministratore del servizio in un account di Azure AD nella stessa directory, ma non in una directory diversa. Ad esempio, abby@contoso.com possibile modificare l'amministratore del servizio per bob@contoso.com, ma non può modificare l'amministratore del servizio in john@notcontoso.com a meno che john@notcontoso.com non abbia una presenza nella directory contoso.com
 
@@ -152,7 +152,7 @@ Per ulteriori informazioni sugli account Microsoft e Azure AD, vedere [che cos'�
 
 ## <a name="view-the-account-administrator"></a>Visualizzare l'amministratore dell'account
 
-L'amministratore dell'account è l'utente che inizialmente ha effettuato la sottoscrizione ad Azure ed è il responsabile della fatturazione della sottoscrizione. Per modificare l'amministratore account di una sottoscrizione, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md).
+L'amministratore dell'account è l'utente che inizialmente ha effettuato la sottoscrizione ad Azure ed è il responsabile della fatturazione della sottoscrizione. Per modificare l'amministratore account di una sottoscrizione, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../cost-management-billing/manage/billing-subscription-transfer.md).
 
 Seguire questi passaggi per visualizzare l'amministratore account.
 
@@ -160,7 +160,7 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **Proprietà**.
+1. Scegliere **Proprietà**.
 
     L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account**.
 
@@ -170,4 +170,4 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 * [Comprendere i diversi ruoli in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md)
-* [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md)
+* [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750984"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977575"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>Raccolta del log attività di Azure con le impostazioni legacy
 Il [log attività di Azure](platform-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Fino a poco tempo fa, è stato creato un profilo di log per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione e viene usato un connettore per raccoglierle in un' [area di lavoro log Analytics](activity-log-collect.md). Questo articolo descrive la differenza tra i metodi, come usare le impostazioni legacy esistenti e come cancellare le impostazioni legacy in preparazione per le impostazioni di diagnostica.
@@ -28,7 +28,7 @@ L'uso delle impostazioni di diagnostica presenta i vantaggi seguenti rispetto ai
 - Filtra raccolta per raccogliere solo i log per determinate categorie.
 - Raccoglie tutte le categorie del log attività. Alcune categorie non vengono raccolte utilizzando il metodo legacy.
 - Latenza più veloce per l'inserimento dei log. Il metodo precedente presenta una latenza di circa 15 minuti mentre le impostazioni di diagnostica aggiungono solo circa 1 minuto.
-  
+
 ### <a name="considerations"></a>Considerazioni
 Prima di abilitare questa funzionalità, prendere in considerazione i dettagli seguenti della raccolta di log attività usando le impostazioni di diagnostica.
 
@@ -44,7 +44,7 @@ Sono state rimosse le proprietà seguenti:
 - ActivityStatus
 - ActivitySubstatus
 - OperationName
-- ResourceProvider 
+- ResourceProvider
 
 Sono state aggiunte le proprietà seguenti:
 
@@ -57,10 +57,10 @@ Le impostazioni legacy per la raccolta del log attività continueranno a funzion
 
 1. Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **log attività**.
 3. Fare clic su **Impostazioni di diagnostica**.
-   
+
    ![Impostazioni di diagnostica](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. Fare clic sul banner viola per l'esperienza legacy. 
+
+4. Fare clic sul banner viola per l'esperienza legacy.
 
     ![Esperienza legacy](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -84,7 +84,7 @@ Per informazioni dettagliate sull'uso dei metodi di raccolta legacy, vedere gli 
 ### <a name="disable-log-profile"></a>Disabilitare il profilo di log
 
 1. Usare la procedura descritta in [lavorare con le impostazioni legacy](#work-with-legacy-settings) per aprire le impostazioni legacy.
-2. Disabilitare qualsiasi raccolta corrente nell'archivio o hub eventi. 
+2. Disabilitare qualsiasi raccolta corrente nell'archivio o hub eventi.
 
 
 
@@ -93,5 +93,5 @@ La soluzione di monitoraggio di Azure Log Analytics include più query e visuali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni sul log attività](../../azure-resource-manager/resource-group-audit.md)
+* [Altre informazioni sul log attività](../../azure-resource-manager/management/view-activity-logs.md)
 * [Altre informazioni sulle impostazioni di diagnostica](diagnostic-settings.md)

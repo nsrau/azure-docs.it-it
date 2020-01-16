@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5217c4c7b68c487d7285ec03700266ad2768606d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 325c68e5e4531e5519596bea00c370c26460a8ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571531"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981903"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Correggere le raccomandazioni nel centro sicurezza di Azure
 
-Le raccomandazioni forniscono suggerimenti su come proteggere meglio le risorse. Per implementare una raccomandazione, seguire la procedura di correzione fornita nella raccomandazione. 
+Le raccomandazioni forniscono suggerimenti su come proteggere meglio le risorse. Per implementare una raccomandazione, seguire la procedura di correzione fornita nella raccomandazione.
 
 ## Procedura di correzione<a name="remediation-steps"></a>
 
@@ -46,12 +46,12 @@ Per implementare il monitoraggio e l'aggiornamento della correzione rapida:
 
     [![selezionare correzione rapida.](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
-1. Dalla scheda **risorse non integre** selezionare le risorse su cui si desidera implementare l'indicazione e **quindi fare clic su Correggi**. 
+1. Dalla scheda **risorse non integre** selezionare le risorse su cui si desidera implementare l'indicazione e **quindi fare clic su Correggi**.
 
     > [!NOTE]
     > Alcune delle risorse elencate potrebbero essere disabilitate, perché non si dispone delle autorizzazioni appropriate per modificarle.
 
-1. Nella casella Conferma leggere i dettagli e le implicazioni per la correzione. 
+1. Nella casella Conferma leggere i dettagli e le implicazioni per la correzione.
 
     ![Correzione rapida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
@@ -67,20 +67,20 @@ Per implementare il monitoraggio e l'aggiornamento della correzione rapida:
 
 ## Registrazione correzione rapida nel log attività<a name="activity-log"></a>
 
-Per applicare la configurazione nella risorsa, l'operazione di monitoraggio e aggiornamento usa una chiamata API per la distribuzione di modelli o una PATCH REST. Queste operazioni vengono registrate nel [log attività di Azure](../azure-resource-manager/resource-group-audit.md).
+Per applicare la configurazione nella risorsa, l'operazione di monitoraggio e aggiornamento usa una chiamata API per la distribuzione di modelli o una PATCH REST. Queste operazioni vengono registrate nel [log attività di Azure](../azure-resource-manager/management/view-activity-logs.md).
 
 
 ## <a name="recommendations-with-quick-fix-remediation"></a>Raccomandazioni con correzione rapida
 
-|Raccomandazione|Modo implicito|
+|Recommendation|Modo implicito|
 |---|---|
 |Il controllo sui server SQL deve essere abilitato|Questa azione consentirà il controllo SQL su questi server e i relativi database. <br>**Nota**: <ul><li>Per ogni area dei server SQL selezionati, un account di archiviazione per il salvataggio dei log di controllo verrà creato e condiviso da tutti i server in tale area.</li><li>Per garantire un controllo appropriato, non eliminare o rinominare il gruppo di risorse o gli account di archiviazione.</li></ul>|
 |La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL|Questa azione Abilita SQL Advanced Data Security (ADS) per le istanze gestite di SQL selezionate. <br>**Nota**: <ul><li>Per ogni area e gruppo di risorse delle istanze di SQL gestite selezionate, un account di archiviazione per il salvataggio dei risultati dell'analisi verrà creato e condiviso da tutte le istanze di tale area.</li><li> ADS viene addebitato a $15 per istanza gestita di SQL.</li></ul>|
-|È necessario abilitare la valutazione della vulnerabilità nelle istanze gestite di SQL|Questa azione consentirà la valutazione della vulnerabilità SQL nelle istanze di SQL gestite selezionate. <br>**Nota**:<ul><li>La valutazione della vulnerabilità SQL fa parte del pacchetto SQL Advanced Data Security (ADS). Se ADS non è già abilitato, verrà abilitato automaticamente nell'istanza gestita.</li><li>Per ogni area e gruppo di risorse delle istanze di SQL gestite selezionate, viene creato un account di archiviazione per archiviare i risultati dell'analisi che verranno condivisi da tutte le istanze di tale area.</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
+|La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL|Questa azione consentirà la valutazione della vulnerabilità SQL nelle istanze di SQL gestite selezionate. <br>**Nota**:<ul><li>La valutazione della vulnerabilità SQL fa parte del pacchetto SQL Advanced Data Security (ADS). Se ADS non è già abilitato, verrà abilitato automaticamente nell'istanza gestita.</li><li>Per ogni area e gruppo di risorse delle istanze di SQL gestite selezionate, viene creato un account di archiviazione per archiviare i risultati dell'analisi che verranno condivisi da tutte le istanze di tale area.</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
 |È necessario abilitare la sicurezza dei dati avanzata in SQL Server|Questa azione Abilita la sicurezza avanzata dei dati (ADS) sui server selezionati e i relativi database. <br>**Nota**:<ul><li>Per ogni area e gruppo di risorse dei server SQL selezionati, un account di archiviazione per archiviare i risultati dell'analisi verrà creato e condiviso da tutti i server in tale area. <</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
 |È necessario abilitare la valutazione della vulnerabilità in SQL Server|Questa azione consentirà la valutazione della vulnerabilità SQL su questi server selezionati e i relativi database. <br>**Nota**:<ul><li>La valutazione della vulnerabilità SQL fa parte del pacchetto SQL Advanced Data Security (ADS). Se ADS non è già abilitato, verrà abilitato automaticamente in SQL Server.</li><li>Per ogni area e gruppo di risorse dei server SQL selezionati, un account di archiviazione per archiviare i risultati dell'analisi verrà creato e condiviso da tutte le istanze di tale area.</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
-|È necessario abilitare la funzionalità Transparent Data Encryption nei database SQL|Questa azione Abilita il database SQL Transparent Data Encryption (Transparent Data Encryption) sui database selezionati. <br>**Nota**: per impostazione predefinita, verranno usate le chiavi di crittografia di crittografia gestite dal servizio. 
-|Il trasferimento sicuro negli account di archiviazione deve essere abilitato|Questa azione Aggiorna la sicurezza dell'account di archiviazione in modo da consentire solo le richieste tramite connessioni sicure. (HTTPS). <br>**Nota**:<ul><li>Tutte le richieste che usano HTTP verranno rifiutate.</li><li>Quando si usa il servizio file di Azure, la connessione senza crittografia avrà esito negativo, inclusi gli scenari che usano SMB 2,1, SMB 3,0 senza crittografia e alcune versioni del client SMB Linux. Altre informazioni.</li></ul>|
+|È necessario abilitare la funzionalità Transparent Data Encryption nei database SQL|Questa azione Abilita il database SQL Transparent Data Encryption (Transparent Data Encryption) sui database selezionati. <br>**Nota**: per impostazione predefinita, verranno usate le chiavi di crittografia di crittografia gestite dal servizio.
+|Il trasferimento sicuro negli account di archiviazione deve essere abilitato|Questa azione Aggiorna la sicurezza dell'account di archiviazione in modo da consentire solo le richieste tramite connessioni sicure. (HTTPS). <br>**Nota**:<ul><li>Tutte le richieste che usano HTTP verranno rifiutate.</li><li>Quando si usa il servizio file di Azure, la connessione senza crittografia avrà esito negativo, inclusi gli scenari che usano SMB 2,1, SMB 3,0 senza crittografia e alcune versioni del client SMB Linux. Scopri di più.</li></ul>|
 |L'applicazione Web deve essere accessibile solo tramite HTTPS|Questa azione consente di reindirizzare tutto il traffico da HTTP a HTTPS, sulle risorse selezionate. <br>**Nota**:<ul><li>Un endpoint HTTPS che non dispone di un certificato SSL verrà visualizzato nel browser con un "errore di privacy". Gli utenti che hanno un dominio personalizzato devono quindi verificare di aver configurato un certificato SSL.</li><li>Verificare che i pacchetti e i firewall applicazione Web proteggano il servizio app, consentono l'invio di sessioni HTTPS.</li></ul>|
 |L'app per le funzioni deve essere accessibile solo tramite HTTPS|Questa azione consente di reindirizzare tutto il traffico da HTTP a HTTPS, sulle risorse selezionate. <br>**Nota**:<ul><li>Un endpoint HTTPS che non dispone di un certificato SSL verrà visualizzato nel browser con un "errore di privacy". Gli utenti che hanno un dominio personalizzato devono quindi verificare di aver configurato un certificato SSL.</li><li>Verificare che i pacchetti e i firewall applicazione Web proteggano il servizio app, consentono l'invio di sessioni HTTPS.</li></ul>|
 |L'app per le API deve essere accessibile solo tramite HTTPS|Questa azione consente di reindirizzare tutto il traffico da HTTP a HTTPS, sulle risorse selezionate. <br>**Nota**:<ul><li>Un endpoint HTTPS che non dispone di un certificato SSL verrà visualizzato nel browser con un "errore di privacy". Gli utenti che hanno un dominio personalizzato devono quindi verificare di aver configurato un certificato SSL.</li><li>Verificare che i pacchetti e i firewall applicazione Web proteggano il servizio app, consentono l'invio di sessioni HTTPS.</li></ul>|

@@ -1,6 +1,6 @@
 ---
-title: Distribuire annidati gli ambienti di modello di Resource Manager in Azure DevTest Labs | Microsoft Docs
-description: Informazioni su come distribuire i modelli annidati di Azure Resource Manager per offrire ambienti con Azure DevTest Labs.
+title: Distribuire ambienti modello di Gestione risorse annidati in Azure DevTest Labs | Microsoft Docs
+description: Informazioni su come distribuire modelli di Azure Resource Manager annidati per fornire ambienti con Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: spelluru
-ms.openlocfilehash: eec0cde4a36449f85998bfb04d16f1d52c68bb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835286"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976544"
 ---
-# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Distribuire modelli di Azure Resource Manager nidificati per ambienti di test
-Una distribuzione nidificata consente di eseguire altri modelli di Azure Resource Manager all'interno di un modello di Resource Manager principale. Consente di scomporre la distribuzione in un set di modelli di destinazione e scopi specifici. Offre vantaggi in termini di testing, riuso e leggibilità. L'articolo [uso di modelli collegati durante la distribuzione di risorse di Azure](../azure-resource-manager/resource-group-linked-templates.md) fornisce una valida panoramica di questa soluzione con diversi esempi di codice. Questo articolo fornisce un esempio specifico in Azure DevTest Labs. 
+# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Distribuire modelli di Azure Resource Manager annidati per ambienti di testing
+Una distribuzione annidata consente di eseguire altri modelli di Azure Resource Manager dall'interno di un modello Gestione risorse principale. Consente di scomporre la distribuzione in un set di modelli mirati e specifici dello scopo. Fornisce vantaggi in termini di test, riutilizzo e leggibilità. L'articolo [utilizzo di modelli collegati quando si distribuiscono risorse di Azure](../azure-resource-manager/templates/linked-templates.md) fornisce una panoramica di questa soluzione con diversi esempi di codice. Questo articolo fornisce un esempio specifico per Azure DevTest Labs. 
 
-## <a name="key-parameters"></a>Parametri delle chiavi
-Sebbene sia possibile creare il proprio modello di Resource Manager da zero, è consigliabile usare la [progetto gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) in Visual Studio, che rendono più facile sviluppare ed eseguire il debug di modelli. Quando si aggiunge una risorsa di distribuzione annidata di azuredeploy. JSON, Visual Studio aggiunge diversi elementi per rendere il modello più flessibile. Questi elementi includono la sottocartella con il file di modello e i parametri secondario, i nomi delle variabili all'interno del file di modello principale e due parametri per il percorso di archiviazione per i nuovi file. Il **artifactslocation** e **artifactslocationsastoken** sono parametri della chiave che usa DevTest Labs. 
+## <a name="key-parameters"></a>Parametri chiave
+Sebbene sia possibile creare un modello di Gestione risorse personalizzato da zero, è consigliabile usare il [progetto gruppo di risorse di Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) in Visual Studio, che semplifica lo sviluppo e il debug di modelli. Quando si aggiunge una risorsa di distribuzione annidata a file azuredeploy. JSON, Visual Studio aggiunge diversi elementi per rendere il modello più flessibile. Questi elementi includono la sottocartella con il modello e il file dei parametri secondari, i nomi delle variabili all'interno del file di modello principale e due parametri per il percorso di archiviazione per i nuovi file. I **_artifactsLocation** e **_artifactsLocationSasToken** sono i parametri chiave usati da DevTest Labs. 
 
-Se non si ha familiarità con il funzionamento con gli ambienti DevTest Labs, vedere [creare ambienti con più macchine Virtuali e risorse PaaS con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md). I modelli vengono archiviati nel repository di cui è collegato al laboratorio in DevTest Labs. Quando si crea un nuovo ambiente con tali modelli, i file vengono spostati in un contenitore di archiviazione di Azure nell'ambiente di laboratorio. Per essere in grado di identificare e copiare i file annidati, DevTest Labs identifica i parametri artifactslocation e artifactslocationsastoken e copia le sottocartelle fino al contenitore di archiviazione. Quindi, inserisce automaticamente il percorso e un token di firma di accesso condiviso (SaS) in parametri. 
+Se non si ha familiarità con il funzionamento di DevTest Labs con gli ambienti, vedere [creare ambienti con più macchine virtuali e risorse PaaS con Azure Resource Manager modelli](devtest-lab-create-environment-from-arm.md). I modelli vengono archiviati nel repository collegato al Lab in DevTest Labs. Quando si crea un nuovo ambiente con questi modelli, i file vengono spostati in un contenitore di archiviazione di Azure nel Lab. Per poter identificare e copiare i file annidati, DevTest Labs identifica i parametri _artifactsLocation e _artifactsLocationSasToken e copia le sottocartelle fino al contenitore di archiviazione. Quindi inserisce automaticamente il percorso e il token di firma di accesso condiviso (SaS) nei parametri. 
 
 ## <a name="nested-deployment-example"></a>Esempio di distribuzione annidata
-Ecco un esempio semplice di una distribuzione nidificata:
+Di seguito è riportato un esempio semplice di una distribuzione annidata:
 
 ```json
 
@@ -66,17 +66,17 @@ Ecco un esempio semplice di una distribuzione nidificata:
 "outputs": {}
 ```
 
-La cartella del repository che contiene questo modello contiene una sottocartella `nestedtemplates` con i file **NestOne.json** e **NestOne.parameters.json**. Nel **azuredeploy. JSON**, URI per il modello viene compilato usando il percorso degli elementi, la cartella di modello annidato, nome del file modello annidato. Analogamente, URI per i parametri viene compilata usando il percorso degli elementi, cartella modelli annidati e file di parametri per il modello annidato. 
+La cartella nel repository contenente questo modello include una sottocartella `nestedtemplates` con i file **NestOne. JSON** e **NestOne. Parameters. JSON**. In **file azuredeploy. JSON**, l'URI del modello viene compilato usando il percorso degli elementi, la cartella dei modelli annidati, il nome del file modello annidato. Analogamente, l'URI per i parametri viene compilato utilizzando il percorso degli elementi, la cartella dei modelli annidati e il file di parametri per il modello annidato. 
 
-Ecco l'immagine della stessa struttura di progetto in Visual Studio: 
+Di seguito è illustrata l'immagine della stessa struttura di progetto in Visual Studio: 
 
 ![Struttura del progetto in Visual Studio](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
 
-È possibile aggiungere altre cartelle nella cartella principale, ma non tutti più profondo rispetto a un solo livello. 
+È possibile aggiungere altre cartelle nella cartella primaria, ma non più di un singolo livello. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti per informazioni dettagliate sugli ambienti: 
+Per informazioni dettagliate sugli ambienti, vedere gli articoli seguenti: 
 
 - [Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
-- [Configurare e usare gli ambienti pubblici in Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
-- [Connettere un ambiente di rete virtuale del lab in Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Configurare e usare ambienti pubblici in Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
+- [Connettere un ambiente alla rete virtuale del Lab in Azure DevTest Labs](connect-environment-lab-virtual-network.md)

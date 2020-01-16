@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0d12f50b059bf74cc1bbc55913d4ce49b77f81fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 203bff23b2ae1a5e5e19b4abc323c3ffeb31f367
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486716"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975923"
 ---
 # <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
@@ -260,7 +260,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-In alternativa, è possibile eliminare il gruppo di risorse, che elimina l'account di archiviazione e tutte le altre risorse nel gruppo di risorse. Per altre informazioni sull'eliminazione di un gruppo di risorse, vedere eliminare il gruppo di risorse [e le risorse](../../azure-resource-manager/resource-group-delete.md).
+In alternativa, è possibile eliminare il gruppo di risorse, che elimina l'account di archiviazione e tutte le altre risorse nel gruppo di risorse. Per altre informazioni sull'eliminazione di un gruppo di risorse, vedere eliminare il gruppo di risorse [e le risorse](../../azure-resource-manager/management/delete-resource-group.md).
 
 > [!WARNING]
 > Non è possibile ripristinare un account di archiviazione eliminato, né recuperare gli elementi che conteneva prima dell'eliminazione. Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Lo stesso vale per tutte le risorse nell'account: dopo aver eliminato un BLOB, una tabella, una coda o un file, non è più possibile recuperarlo.

@@ -3,12 +3,12 @@ title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione, all'assegnazione e alla rimozione di progetti quali violazioni dei criteri e funzioni di parametri del progetto.
 ms.date: 11/22/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406601"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982481"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
@@ -59,7 +59,7 @@ Il passaggio di un parametro del progetto che usa una funzione, ad esempio `[res
 
 #### <a name="resolution"></a>Risoluzione
 
-Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
+Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039b514fe70da0e300e74bbc98a3a0f4e9ea342c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848596"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979465"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service
 
@@ -43,9 +43,9 @@ Per gli utenti con reimpostazione della password self-service è disponibile un 
 
 Questo contatto di posta elettronica viene inviato ai destinatari seguenti nell'ordine seguente:
 
-1. Se viene assegnato il ruolo **Amministratore password**, agli amministratori con questo ruolo viene inviata una notifica.
-2. Se non è stato assegnato nessun amministratore password, la notifica verrà inviata agli amministratori che hanno il ruolo **Amministratore utenti**.
-3. Se nessuno dei ruoli precedenti è assegnato, la notifica verrà inviata agli **Amministratori globali**.
+1. Se viene assegnato il ruolo di **amministratore del supporto tecnico** o la **password** , agli amministratori con questi ruoli viene inviata una notifica.
+1. Se non è stato assegnato alcun amministratore del supporto tecnico o amministratore delle password, viene inviata una notifica agli amministratori con il ruolo di **amministratore utente** .
+1. Se nessuno dei ruoli precedenti viene assegnato, viene inviata una notifica agli **amministratori globali** .
 
 In tutti i casi, viene inviata una notifica a un massimo di 100 destinatari totali.
 

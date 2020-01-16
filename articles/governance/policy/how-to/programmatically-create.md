@@ -3,12 +3,12 @@ title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione e la gestione dei criteri a livello di codice per criteri di Azure con l'interfaccia della riga di comando di Azure, Azure PowerShell e l'API REST.
 ms.date: 01/31/2019
 ms.topic: how-to
-ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873064"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982476"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -30,7 +30,7 @@ Prima di iniziare, verificare che i prerequisiti seguenti siano soddisfatti:
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Per maggiori dettagli sulla registrazione e la visualizzazione di provider di risorse, vedere [Provider e tipi di risorse](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Per maggiori dettagli sulla registrazione e la visualizzazione di provider di risorse, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. Installare l'interfaccia della riga di comando di Azure, se non è già installata. È possibile ottenere la versione più recente in [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows).
 

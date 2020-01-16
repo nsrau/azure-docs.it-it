@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 40aa35e9f9d40a8a021797a0a2a4af9216d90618
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898170"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982377"
 ---
 # <a name="private-link-for-azure-database-for-mariadb-preview"></a>Collegamento privato per database di Azure per MariaDB (anteprima)
 
@@ -28,7 +28,7 @@ Il filtraggio dei dati nel database di Azure per MariaDB si verifica quando un u
 
 Si consideri uno scenario con un utente che esegue MariaDB Workbench in una macchina virtuale di Azure che si connette a un'istanza di database di Azure per MariaDB. Questa istanza di MariaDB è nell'data center Stati Uniti occidentali. L'esempio seguente mostra come limitare l'accesso con gli endpoint pubblici nel database di Azure per MariaDB usando i controlli di accesso alla rete.
 
-* Disabilitare tutto il traffico del servizio di Azure nel database di Azure per MariaDB tramite l'endpoint pubblico impostando Consenti i servizi di Azure su disattivato. Assicurarsi che non siano consentiti indirizzi IP o intervalli per accedere al server tramite [le regole del firewall](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) o gli [endpoint di servizio della rete virtuale](https://docs.microsoft.com/azure/mariadb/concepts-data-access-and-security-vnet).
+* Disabilitare tutto il traffico del servizio di Azure nel database di Azure per MariaDB tramite l'endpoint pubblico impostando Consenti i servizi di Azure su disattivato. Assicurarsi che non siano consentiti indirizzi IP o intervalli per accedere al server tramite [le regole del firewall](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) o gli [endpoint di servizio della rete virtuale](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * Consentire il traffico al database di Azure per MariaDB solo usando l'indirizzo IP privato della macchina virtuale. Per altre informazioni, vedere gli articoli sull'[endpoint servizio](concepts-data-access-security-vnet.md) e le [regole del firewall della rete virtuale](howto-manage-vnet-portal.md).
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: ed48082c52a5b4f79fd2030303dbe2bb7bedafe6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456594"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982544"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -90,13 +90,13 @@ In Visual Studio è possibile aprire app per la logica create in precedenza e di
 
    ![Aprire l'app per la logica distribuita dal portale di Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Dopo l'apertura dell'app per la logica nella finestra di progettazione di app per la logica, nella parte inferiore della finestra di progettazione è possibile selezionare **visualizzazione codice** per poter esaminare la struttura della definizione di app per la logica sottostante. Se non si vuole creare un modello di distribuzione per l'app per la logica, scoprire come [scaricare un modello di Azure Resource Manager](#download-logic-app) per tale app per la logica. Altre informazioni sui [modelli di Resource Manager](../azure-resource-manager/template-deployment-overview.md).
+   Dopo l'apertura dell'app per la logica nella finestra di progettazione di app per la logica, nella parte inferiore della finestra di progettazione è possibile selezionare **visualizzazione codice** per poter esaminare la struttura della definizione di app per la logica sottostante. Se non si vuole creare un modello di distribuzione per l'app per la logica, scoprire come [scaricare un modello di Azure Resource Manager](#download-logic-app) per tale app per la logica. Altre informazioni sui [modelli di Resource Manager](../azure-resource-manager/templates/overview.md).
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>Scaricare da Azure
 
-È possibile scaricare le app per la logica dal [portale di Azure](https://portal.azure.com) e salvarle come modelli di [Azure Resource Manager](../azure-resource-manager/management/overview.md). È quindi possibile modificare i modelli in locale con Visual Studio e personalizzare le app per la logica per ambienti di distribuzione differenti.  Il download di app per la logica ne *parametrizza* automaticamente le definizioni all'interno dei [modelli di Resource Manager](../azure-resource-manager/template-deployment-overview.md), che usano anche JavaScript Object Notation (JSON).
+È possibile scaricare le app per la logica dal [portale di Azure](https://portal.azure.com) e salvarle come modelli di [Azure Resource Manager](../azure-resource-manager/management/overview.md). È quindi possibile modificare i modelli in locale con Visual Studio e personalizzare le app per la logica per ambienti di distribuzione differenti.  Il download di app per la logica ne *parametrizza* automaticamente le definizioni all'interno dei [modelli di Resource Manager](../azure-resource-manager/templates/overview.md), che usano anche JavaScript Object Notation (JSON).
 
 1. In Visual Studio aprire Cloud Explorer. Trovare e selezionare l'app per la logica che si vuole scaricare da Azure.
 
@@ -113,13 +113,13 @@ In Visual Studio è possibile aprire app per la logica create in precedenza e di
 
 1. Quando viene chiesto di immettere un percorso, selezionare quello desiderato e salvare il modello di Resource Manager per la definizione dell'app per la logica nel formato file JSON (con estensione json).
 
-   La definizione dell'app per la logica viene visualizzata nella sottosezione `resources` all'interno del modello di Resource Manager. È ora possibile modificare la definizione dell'app per la logica e il modello di Resource Manager con Visual Studio. È anche possibile aggiungere il modello come [progetto del gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) a una soluzione di Visual Studio. Informazioni sui [progetti gruppo di risorse di Azure per app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   La definizione dell'app per la logica viene visualizzata nella sottosezione `resources` all'interno del modello di Resource Manager. È ora possibile modificare la definizione dell'app per la logica e il modello di Resource Manager con Visual Studio. È anche possibile aggiungere il modello come [progetto del gruppo di risorse di Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) a una soluzione di Visual Studio. Informazioni sui [progetti gruppo di risorse di Azure per app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="link-integration-account"></a>
 
 ## <a name="link-to-integration-account"></a>Collegamento all'account di integrazione
 
-Per creare app per la logica per scenari di integrazione aziendale B2B (business to business), è possibile collegare l'app per la logica a un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) creato in precedenza esistente nella stessa area dell'app per la logica. Un account di integrazione contiene elementi B2B, quali partner commerciali, contratti, schemi e mappe, e consente all'app per la logica di usare i connettori B2B per la convalida XML e la codifica o la decodifica dei file flat. Sebbene sia possibile [creare questo collegamento usando il portale di Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), è anche possibile usare Visual Studio dopo aver soddisfatto i [prerequisiti](#requirements)e l'app per la logica esiste come file JSON (. Json) all'interno di un [progetto di gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Informazioni sui [progetti gruppo di risorse di Azure per app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+Per creare app per la logica per scenari di integrazione aziendale B2B (business to business), è possibile collegare l'app per la logica a un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) creato in precedenza esistente nella stessa area dell'app per la logica. Un account di integrazione contiene elementi B2B, quali partner commerciali, contratti, schemi e mappe, e consente all'app per la logica di usare i connettori B2B per la convalida XML e la codifica o la decodifica dei file flat. Sebbene sia possibile [creare questo collegamento usando il portale di Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), è anche possibile usare Visual Studio dopo aver soddisfatto i [prerequisiti](#requirements)e l'app per la logica esiste come file JSON (. Json) all'interno di un [progetto di gruppo di risorse di Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Informazioni sui [progetti gruppo di risorse di Azure per app per la logica in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
 
 1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
 
@@ -149,7 +149,7 @@ Quando si imposta la proprietà dell' **account di integrazione** in Visual Stud
 
 ## <a name="change-deployment-location"></a>Modificare il percorso di distribuzione
 
-In Visual Studio, se l'app per la logica esiste come file JSON (JSON) in un [progetto di gruppo di risorse di Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) usato per automatizzare la distribuzione, l'app per la logica è impostata su un tipo di percorso e una posizione specifica. Questo percorso è un'area di Azure o un [ambiente del servizio di integrazione esistente (ISE)](connect-virtual-network-vnet-isolated-environment.md).
+In Visual Studio, se l'app per la logica esiste come file JSON (JSON) in un [progetto di gruppo di risorse di Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) usato per automatizzare la distribuzione, l'app per la logica è impostata su un tipo di percorso e una posizione specifica. Questo percorso è un'area di Azure o un [ambiente del servizio di integrazione esistente (ISE)](connect-virtual-network-vnet-isolated-environment.md).
 
 Per modificare il tipo o il percorso dell'app per la logica, è necessario aprire il file di definizione del flusso di lavoro dell'app per la logica (con estensione JSON) da Esplora soluzioni usando la finestra di progettazione dell'app per la logica. Non è possibile modificare queste proprietà utilizzando Cloud Explorer.
 

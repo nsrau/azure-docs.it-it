@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: e0ff9bc66c7d185f8fe07b4b4574833fcd7e2604
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582088"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982166"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Usare più cache per il ripristino del failover a livello di area
 
@@ -37,7 +37,7 @@ Per configurare una cache preparata per il failover possibile, attenersi alla pr
    1. Comando di montaggio per l'uso da parte dei client della cache
 
    > [!NOTE]
-   > È possibile creare la cache HPC di Azure a livello di codice, tramite un [modello di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) o accedendo direttamente alla relativa API. Per informazioni dettagliate, contattare il team di cache HPC di Azure.
+   > È possibile creare la cache HPC di Azure a livello di codice, tramite un [modello di Azure Resource Manager](../azure-resource-manager/templates/overview.md) o accedendo direttamente alla relativa API. Per informazioni dettagliate, contattare il team di cache HPC di Azure.
 
 ## <a name="failover-example"></a>Esempio di failover
 
@@ -55,7 +55,7 @@ Se i client originali sono interessati, creare nuovi client nell'area Stati Unit
 
 Tutti i client dovranno montare la nuova cache anche se i client non sono stati interessati dall'interruzione dell'area. La nuova cache ha indirizzi di montaggio diversi da quelli precedenti.
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="learn-more"></a>Altre informazioni.
 
 La Guida all'architettura delle applicazioni di Azure include ulteriori informazioni su come eseguire il [ripristino da un'interferenza dei servizi a livello di area](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
 <!-- this should be an internal link instead of a URL but I can't find the tree  -->
