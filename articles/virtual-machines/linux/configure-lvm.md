@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 38e460138fde1de6d8fd57dcab5a88238f0981fe
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4fdb3af0433cc32aa7cdbee3c8ca9bdb85031135
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751038"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045352"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurare LVM in una macchina virtuale Linux in Azure
 Questo documento illustra come configurare il gestore dei volumi logici (Logical Volume Manager, LVM) nella macchina virtuale di Azure. È possibile usare LVM nel disco del sistema operativo o in dischi dati in macchine virtuali di Azure, ma per impostazione predefinita LVM non è configurato nel disco del sistema operativo nella maggior parte delle immagini cloud. La procedura seguente è incentrata sulla configurazione di LVM per i dischi dati.
@@ -172,7 +172,7 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
     # sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **RHEL, CentOS e Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

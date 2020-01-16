@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe7e617ae2263f1388feef3754f6cd16130ed436
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 684b212ca771af6c336cf6239e18ea367f2da5ce
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059702"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045104"
 ---
 Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet è possibile usare Azure Cloud Shell, un ambiente di shell interattiva ospitato in Azure e usato tramite il browser. In Azure Cloud Shell sono preinstallati i cmdlet di Azure PowerShell.
 
@@ -29,4 +29,6 @@ Per eseguire il codice contenuto in questo articolo in Azure Cloud Shell, aprire
 
 **Esecuzione di PowerShell in locale**
 
-È anche possibile installare ed eseguire i cmdlet di Azure PowerShell localmente nel computer. I cmdlet di PowerShell vengono aggiornati di frequente. Se non si esegue la versione più recente, i valori specificati nelle istruzioni potrebbero avere esito negativo. Per trovare le versioni di Azure PowerShell installate nel computer, usare il `Get-Module -ListAvailable Az` cmdlet. Per eseguire l'installazione o l'aggiornamento, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+È anche possibile installare ed eseguire i cmdlet di Azure PowerShell localmente nel computer. I cmdlet di PowerShell vengono aggiornati di frequente. Se non si esegue la versione più recente, i valori specificati nelle istruzioni potrebbero avere esito negativo. Per trovare le versioni di Azure PowerShell installate nel computer, usare il cmdlet `Get-Module -ListAvailable Az`. Per eseguire l'installazione o l'aggiornamento, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+
+Se si esegue PowerShell localmente, assicurarsi di eseguire ' Connect-AzAccount ' per creare la connessione ad Azure.

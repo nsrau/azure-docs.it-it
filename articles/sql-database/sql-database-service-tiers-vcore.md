@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c01e5c508644214c078dfc42ae8c77964933a277
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896004"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045196"
 ---
 # <a name="vcore-model-overview"></a>Panoramica del modello vCore
 
@@ -142,6 +142,16 @@ Nella scheda **nozioni di base** selezionare il collegamento **Configura databas
   
 **Per modificare la generazione di hardware di un'istanza gestita esistente**
 
+# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+
+Nella pagina istanza gestita selezionare il collegamento piano **tariffario** nella sezione Impostazioni
+
+![modifica hardware istanza gestita](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+Nella pagina piano **tariffario** sarà possibile modificare la generazione dell'hardware come descritto nei passaggi precedenti.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Usare lo script di PowerShell seguente:
 
 ```powershell-interactive
@@ -178,6 +188,8 @@ Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType
 
 Assicurarsi di immettere l'ID sottoscrizione, il nome e il gruppo di risorse dell'istanza gestita.
 
+---
+
 ### <a name="hardware-availability"></a>Disponibilità hardware
 
 #### <a name="gen4gen5-1"></a>Gen4/quinta generazione
@@ -213,9 +225,9 @@ Nella pagina **nozioni di base** , specificare quanto segue:
 
 Nella pagina **Dettagli** specificare quanto segue:
 
-5. Nella sezione **Dettagli problema** selezionare il collegamento **specificare i dettagli** . 
-6. Per **tipo di quota del database SQL** selezionare **serie M**.
-7. Per **Region (area**) selezionare l'area per abilitare la serie M.
+1. Nella sezione **Dettagli problema** selezionare il collegamento **specificare i dettagli** . 
+2. Per **tipo di quota del database SQL** selezionare **serie M**.
+3. Per **Region (area**) selezionare l'area per abilitare la serie M.
     Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series).
 
 Le richieste di supporto approvate vengono in genere soddisfatte entro 5 giorni lavorativi.

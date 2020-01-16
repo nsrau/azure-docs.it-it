@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Inviare eventi personalizzati a una funzione di Azure - Griglia di eventi'
-description: "Guida introduttiva: usare Griglia di eventi di Azure e l'interfaccia della riga di comando o il portale di Azure per pubblicare un argomento e sottoscrivere l'evento. Come endpoint viene usata una funzione di Azure."
+title: 'Avvio rapido: Inviare eventi personalizzati a una funzione di Azure - Griglia di eventi'
+description: "Avvio rapido: usare Griglia di eventi di Azure e l'interfaccia della riga di comando o il portale di Azure per pubblicare un argomento e sottoscrivere l'evento. Come endpoint viene usata una funzione di Azure."
 services: event-grid
 keywords: ''
 author: banisadr
@@ -8,14 +8,14 @@ ms.author: babanisa
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5c4ba510360475e1365d4901136c94181e8c3da3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a9281ba1e2bf68da2318c32ab7037515697f92a5
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174868"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708847"
 ---
-# <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Guida introduttiva: Indirizzare eventi personalizzati a una funzione di Azure con Griglia di eventi
+# <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Avvio rapido: Indirizzare eventi personalizzati a una funzione di Azure con Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Funzioni di Azure è uno dei gestori eventi supportati. In questo articolo viene usato il portale di Azure per creare un argomento personalizzato, sottoscriverlo e attivare l'evento per visualizzare il risultato. Gli eventi vengono inviati a una funzione di Azure.
 
@@ -184,13 +184,12 @@ Se si intende continuare a usare questo evento, non è necessario pulire le riso
     ![Gruppi di risorse](./media/custom-event-to-function/delete-resource-groups.png)
 
     L'altro gruppo di risorse visualizzato nella pagina è stato creato e usato dalla finestra Cloud Shell. Eliminarlo se non si prevede di usare la finestra Cloud Shell in seguito. 
-```
 
-## Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
+Ora che si è appreso come creare argomenti e sottoscrizioni di eventi, è possibile approfondire le operazioni possibili con la griglia di eventi:
 
-- [About Event Grid](overview.md)
-- [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Informazioni sulla griglia di eventi](overview.md)
+- [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato (anteprima)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Monitorare le modifiche alla macchina virtuale con la griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md)

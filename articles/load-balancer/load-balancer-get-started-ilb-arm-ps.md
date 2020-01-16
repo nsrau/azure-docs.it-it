@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754241"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045482"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creare un servizio di bilanciamento del carico interno usando il modulo Azure PowerShell
 
@@ -48,7 +48,7 @@ Per distribuire un servizio di bilanciamento del carico, è necessario creare gl
 * Configurazione del probe: probe dello stato di integrità per le macchine virtuali.
 * Regole NAT in ingresso: regole delle porte per l'accesso diretto alle macchine virtuali.
 
-Per ulteriori informazioni sui componenti del servizio di bilanciamento del carico, vedere [Azure Load Balancer Components](load-balancer-overview.md#load-balancer-components).
+Per ulteriori informazioni sui componenti del servizio di bilanciamento del carico, vedere [Azure Load Balancer Components](concepts-limitations.md#load-balancer-components).
 
 La procedura seguente illustra come configurare un servizio di bilanciamento del carico tra due macchine virtuali.
 

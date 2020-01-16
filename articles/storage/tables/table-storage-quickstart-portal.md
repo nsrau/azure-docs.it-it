@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.date: 12/02/2019
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 4cfb44964b06c811d6d587f2a406cdcfb8048a42
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 63495206ffffc57a895a9ec1efc88410a02ea097
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793330"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979956"
 ---
-# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Guida introduttiva: Creare una tabella di archiviazione di Azure nel portale di Azure 
+# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Avvio rapido: Creare una tabella di archiviazione di Azure nel portale di Azure 
 
 Questa guida introduttiva mostra come creare tabelle ed entità nel portale di Azure basato sul Web. Questa guida introduttiva illustra anche come creare un account di archiviazione di Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa guida introduttiva, per prima cosa creare un account di archiviazione di Azure nel [portale di Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Per informazioni sulla creazione dell'account, vedere [Creare un account di archiviazione](../common/storage-quickstart-create-account.md).
+Per completare questa guida introduttiva, per prima cosa creare un account di archiviazione di Azure nel [portale di Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Per informazioni sulla creazione dell'account, vedere [Creare un account di archiviazione](../common/storage-account-create.md).
 
 ## <a name="add-a-table"></a>Aggiungere una tabella
 

@@ -10,20 +10,20 @@ keywords: automazione di Azure, DSC, powershell, configurazione dello stato desi
 ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 2ae7c8545286baebc83077276e356cd2e41f0dc3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26c79db956b2703bf037fc6f7790d4ee13874410
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668672"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834256"
 ---
-# <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>Guida introduttiva: Connettere i computer ad Azure con Azure Arc per server - Portale
+# <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>Avvio rapido: Connettere i computer ad Azure con Azure Arc per server - Portale
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Esaminare i client supportati e la configurazione di rete necessaria nella [Panoramica di Azure Arc per server](overview.md).
+Esaminare i client supportati e la configurazione di rete necessaria in [Panoramica di Azure Arc per server](overview.md).
 
 ## <a name="generate-the-agent-install-script-using-the-azure-portal"></a>Generare lo script di installazione dell'agente con il portale di Azure
 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: a808387c891b4078092c5cac1bf95df8472ff0f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529551"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974144"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Differenze tra Azure Machine Learning e Machine Learning Studio (versione classica)
 
@@ -29,7 +29,7 @@ Questo articolo confronta le caratteristiche, le funzionalità e l'interfaccia d
 La finestra di progettazione di Azure Machine Learning fornisce un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente, è scalabile ed è pienamente integrata in Azure Machine Learning.  
 
 > [!TIP]
-> I clienti che attualmente usano o valutano Machine Learning Studio (versione classica) sono invitati a provare la [finestra di progettazione di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/ui-concept-visual-interface) (anteprima), che fornisce moduli di ML di trascinamento della selezione __più__ scalabilità, controllo della versione e sicurezza aziendale.
+> I clienti che attualmente usano o valutano Machine Learning Studio (versione classica) sono invitati a provare la [finestra di progettazione di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) (anteprima), che fornisce moduli di ML di trascinamento della selezione __più__ scalabilità, controllo della versione e sicurezza aziendale.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Confronto: Azure Machine Learning e Machine Learning Studio (versione classica)
 

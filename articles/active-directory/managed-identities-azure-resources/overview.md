@@ -15,18 +15,18 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee30962db230417bf3e20a354614a5ebb8f35a0
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a6c4363d6124a7cec075003f7b54a2825c3f489a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561903"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977978"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Una difficoltà comune durante la creazione di applicazioni cloud è rappresentata dalla gestione delle credenziali presenti nel codice per l'autenticazione ai servizi cloud. Proteggere le credenziali è un'attività importante. In teoria, le credenziali non sono mai presenti nelle workstation di sviluppo e non vengono verificate nel controllo del codice sorgente. Azure Key Vault consente di archiviare in modo sicuro le credenziali, i segreti e altre chiavi, ma è necessario autenticare il codice in Key Vault per recuperarle. 
+Una difficoltà comune durante la creazione di applicazioni cloud è rappresentata dalla gestione delle credenziali presenti nel codice per l'autenticazione ai servizi cloud. Proteggere le credenziali è un'attività importante. In teoria, le credenziali non sono mai presenti nelle workstation di sviluppo e non vengono verificate nel controllo del codice sorgente. Azure Key Vault consente di archiviare in modo sicuro le credenziali, i segreti e altre chiavi, ma è necessario autenticare il codice in Key Vault per recuperarle.
 
 La funzionalità delle identità gestite per le risorse di Azure in Azure Active Directory (Azure AD) consente di risolvere questo problema. La funzionalità offre ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare l'identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
 
@@ -50,9 +50,9 @@ Sono disponibili due tipi di identità gestite:
 - Un'**identità gestita assegnata dal sistema** viene abilitata direttamente in un'istanza del servizio di Azure. In caso di abilitazione dell'identità, Azure crea un'identità per l'istanza nel tenant di Azure AD considerato attendibile dalla sottoscrizione dell'istanza. Dopo la creazione dell'identità, viene effettuato il provisioning delle credenziali nell'istanza. Il ciclo di vita di un'identità assegnata dal sistema viene direttamente associato all'istanza del servizio di Azure in cui l'identità è abilitata. Se l'istanza viene eliminata, Azure pulisce automaticamente le credenziali e l'identità in Azure AD.
 - Un'**identità gestita assegnata dall'utente** viene creata come risorsa di Azure autonoma. Tramite un processo di creazione, Azure crea un'identità nel tenant di Azure AD considerato attendibile dalla sottoscrizione in uso. Dopo la creazione, l'identità può essere assegnata a una o più istanze del servizio di Azure. Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita delle istanze del servizio di Azure a cui l'identità è assegnata.
 
-Internamente, le identità gestite sono entità servizio di un tipo speciale, bloccate per essere usate solo con le risorse di Azure. Quando l'identità gestita viene eliminata, l'entità servizio corrispondente viene automaticamente rimossa. 
+Internamente, le identità gestite sono entità servizio di un tipo speciale, bloccate per essere usate solo con le risorse di Azure. Quando l'identità gestita viene eliminata, l'entità servizio corrispondente viene automaticamente rimossa.
 
-Il codice può usare un'identità gestita per richiedere token di accesso per i servizi che supportano l'autenticazione di Azure AD. Azure gestisce le credenziali usate dall'istanza del servizio in sequenza. 
+Il codice può usare un'identità gestita per richiedere token di accesso per i servizi che supportano l'autenticazione di Azure AD. Azure gestisce le credenziali usate dall'istanza del servizio in sequenza.
 
 Il diagramma seguente illustra il funzionamento delle identità del servizio gestite con macchine virtuali di Azure:
 
@@ -63,7 +63,7 @@ Il diagramma seguente illustra il funzionamento delle identità del servizio ges
 | Creazione |  Creata come parte di una risorsa di Azure (ad esempio, una macchina virtuale di Azure o servizio App di Azure) | Creata come risorsa di Azure autonoma |
 | Ciclo di vita | Ciclo di vita condiviso con la risorsa di Azure con cui viene creata l'identità gestita. <br/> Quando viene eliminata la risorsa padre, viene eliminata anche l'identità gestita. | Ciclo di vita indipendente. <br/> Dev'essere eliminato in modo esplicito. |
 | Condivisione tra risorse di Azure | Non può essere condivisa. <br/> Può essere associata solo a una singola risorsa di Azure. | Può essere condivisa <br/> La stessa identità gestita assegnata dall'utente può essere associata a più risorse di Azure. |
-| Casi d'uso comuni | Carichi di lavoro che sono contenuti all'interno di una singola risorsa di Azure <br/> Carichi di lavoro per cui sono necessarie identità indipendenti. <br/> Ad esempio, un'applicazione che viene eseguita in una singola macchina virtuale | Carichi di lavoro che vengono eseguiti in più risorse e che possono condividere una singola identità. <br/> Carichi di lavoro che richiedono l'autorizzazione preliminare per una risorsa protetta come parte di un flusso di provisioning. <br/> Carichi di lavoro in cui le risorse vengono riciclate frequentemente, ma le autorizzazioni devono rimanere coerenti. <br/> Ad esempio, un carico di lavoro in cui più macchine virtuali devono accedere alla stessa risorsa | 
+| Casi d'uso comuni | Carichi di lavoro che sono contenuti all'interno di una singola risorsa di Azure <br/> Carichi di lavoro per cui sono necessarie identità indipendenti. <br/> Ad esempio, un'applicazione che viene eseguita in una singola macchina virtuale | Carichi di lavoro che vengono eseguiti in più risorse e che possono condividere una singola identità. <br/> Carichi di lavoro che richiedono l'autorizzazione preliminare per una risorsa protetta come parte di un flusso di provisioning. <br/> Carichi di lavoro in cui le risorse vengono riciclate frequentemente, ma le autorizzazioni devono rimanere coerenti. <br/> Ad esempio, un carico di lavoro in cui più macchine virtuali devono accedere alla stessa risorsa |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Funzionamento di un'identità gestita assegnata dal sistema con una macchina virtuale di Azure
 
@@ -116,7 +116,7 @@ Informazioni sull'uso di un'identità gestita con una VM Windows:
 * [Accedere ad Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
 * [Accedere ad Azure Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Accedere ad Azure SQL](tutorial-windows-vm-access-sql.md)
-* [Accedere ad Archiviazione di Azure con una chiave di accesso](tutorial-windows-vm-access-storage.md)
+* [Accedere ad Archiviazione di Azure con una chiave di accesso](tutorial-vm-windows-access-storage.md)
 * [Accedere ad Archiviazione di Azure con firme di accesso condiviso](tutorial-windows-vm-access-storage-sas.md)
 * [Accedere a risorse non di Azure AD con Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
 

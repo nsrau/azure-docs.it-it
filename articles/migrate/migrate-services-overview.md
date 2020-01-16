@@ -4,12 +4,12 @@ description: Informazioni sul servizio Azure Migrate.
 ms.topic: overview
 ms.date: 12/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 983ba420067bf2e4b6416287d8898943142c90c0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c336b2f95a17896edcc7eaad2b2586c6859804f9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563565"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772194"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -39,7 +39,7 @@ L'hub di Azure Migrate offre gli strumenti seguenti.
 **Servizio Migrazione del database** | Consente di eseguire la migrazione di database locali a macchine virtuali di Azure che eseguono SQL, il database SQL di Azure e Istanze gestite di database SQL di Azure. | [Altre informazioni](https://docs.microsoft.com/azure/dms/dms-overview) su Servizio Migrazione del database.
 **Movere** | Valutazione server | [Altre informazioni](#movere) su Movere.
 **Web App Migration Assistant** | Consente di valutare ed eseguire la migrazione di app Web locali ad Azure. |  Usare Migration Assistant per Servizio app di Azure per valutare i siti Web locali per la migrazione a Servizio app di Azure.<br/><br/> eseguire la migrazione di app Web .NET e PHP in Azure, usando Migration Assistant di Servizio app di Azure. [Altre informazioni](https://appmigration.microsoft.com/) su Migration Assistant.
-**Azure Data Box** | Migrazione dei dati offline. | Usare i prodotti Azure Data Box per spostare grandi quantità di dati offline in Azure. [Altre informazioni](https:/docs.microsoft.com/azure/databox/)
+**Azure Data Box** | Migrazione dei dati offline. | Usare i prodotti Azure Data Box per spostare grandi quantità di dati offline in Azure. [Altre informazioni](https://docs.microsoft.com/azure/databox/)
 
 ## <a name="isv-integration"></a>Integrazione di strumenti ISV
 
@@ -59,7 +59,7 @@ Azure Migrate si integra con diverse offerte ISV.
 
 ## <a name="azure-migrate-server-assessment-tool"></a>Azure Migrate: Valutazione server
 
-Lo strumento Azure Migrate: Valutazione server consente di individuare e valutare le macchine virtuali VMware, le macchine virtuali Hyper-V e i server fisici per la migrazione ad Azure. Consente di valutare gli aspetti seguenti:
+Lo strumento Azure Migrate: Lo strumento Valutazione server consente di individuare e valutare le macchine virtuali VMware, le macchine virtuali Hyper-V e i server fisici per la migrazione ad Azure. Consente di valutare gli aspetti seguenti:
 
 - **Idoneità per Azure:** valutare se i computer locali sono pronti per la migrazione ad Azure.
 - **Definizione delle dimensioni per Azure:** dimensioni stimate delle macchine virtuali di Azure dopo la migrazione.
@@ -76,7 +76,7 @@ Valutazione server usa un'appliance leggera distribuita in locale e registrata p
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate: Strumento Migrazione server
 
-Lo strumento Azure Migrate: Migrazione server consente di eseguire la migrazione ad Azure di macchine virtuali VMware locali, macchine virtuali Hyper-V, server fisici, altre macchine virtualizzate e macchine virtuali del cloud pubblico. È possibile eseguire la migrazione dei computer dopo averli valutati o senza una valutazione.
+Lo strumento Azure Migrate: lo strumento Migrazione server consente di eseguire la migrazione ad Azure di macchine virtuali VMware locali, macchine virtuali Hyper-V, server fisici, altre macchine virtualizzate e macchine virtuali del cloud pubblico. È possibile eseguire la migrazione dei computer dopo averli valutati o senza una valutazione.
 
 
 ## <a name="select-a-tool"></a>Selezionare uno strumento

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9c47685253e2a70c7b5e947debaac6f5f3264b2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498962"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888295"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Esercitazione: Aggiungere risultati LUIS ad Application Insights da un bot in C#
 
@@ -24,13 +24,13 @@ Questa esercitazione aggiunge le informazioni relative a bot e Language Understa
 
 [!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Acquisire dati di bot e Language Understanding in Application Insights
 > * Eseguire query su Application Insights per trovare dati di Language Understanding
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un bot del servizio Azure Bot, creato con Application Insights abilitato.
 * Codice del bot scaricato dalla precedente **[esercitazione](luis-csharp-tutorial-bf-v4.md)** . 
@@ -162,7 +162,7 @@ Per aggiungere dati in Application Insights, è necessaria la chiave di strument
 1. In Visual Studio creare ed eseguire il bot. 
 1. Avviare l'emulatore di bot e aprire il bot. Questo [passaggio](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) viene descritto nell'esercitazione precedente.
 
-1. Porre una domanda al bot. Questo [passaggio](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) viene descritto nell'esercitazione precedente.
+1. Porre una domanda al bot. Questo [passaggio](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) viene descritto nell'esercitazione precedente.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Visualizzare le voci LUIS in Application Insights
 
@@ -186,7 +186,7 @@ Application Insights consente di eseguire query sui dati con il linguaggio [Kust
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-1. Eseguire la query. Saranno disponibili le nuove colonne relative a finalità principale, punteggio ed espressione. Selezionare la colonna topIntent da ordinare.
+1. Consente di eseguire la query. Saranno disponibili le nuove colonne relative a finalità principale, punteggio ed espressione. Selezionare la colonna topIntent da ordinare.
 
 Leggere altre informazioni sul [linguaggio di query Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) o su come [esportare i dati in Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 

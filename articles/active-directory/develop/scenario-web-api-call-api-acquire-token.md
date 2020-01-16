@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc92fb7bc5ddf451279e6c157f9e93aa7fe9a12a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cf660cbf981079ca20111e34fcd34504d8dcbfb
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423629"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044127"
 ---
-# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>API Web che chiama le API Web: acquisisce un token per l'app
+# <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>API Web che chiama le API Web: acquisire un token per l'app
 
 Dopo aver compilato un oggetto applicazione client, usarlo per acquisire un token che è possibile usare per chiamare un'API Web.
 
 ## <a name="code-in-the-controller"></a>Codice nel controller
 
-Di seguito è riportato un esempio di codice che verrà chiamato nelle azioni dei controller API, chiamando un'API downstream (denominata todo).
+Di seguito è riportato un esempio di codice chiamato nelle azioni dei controller API. Chiama un'API downstream denominata *todo*.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -50,9 +50,9 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` è simile a quanto illustrato nell'articolo [API Web che chiama API Web-configurazione dell'app](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea un'istanza `IConfidentialClientApplication` con una cache che contiene solo informazioni per un account. L'account viene fornito dal metodo `GetAccountIdentifier`.
+`BuildConfidentialClient()` è simile allo scenario in [un'API Web che chiama API Web: configurazione dell'app](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea un'istanza `IConfidentialClientApplication` con una cache che contiene informazioni per un solo account. L'account viene fornito dal metodo `GetAccountIdentifier`.
 
-Il metodo `GetAccountIdentifier` usa le attestazioni associate all'identità dell'utente per cui l'API Web ha ricevuto il JWT:
+Il metodo `GetAccountIdentifier` usa le attestazioni associate all'identità dell'utente per cui l'API Web ha ricevuto il token Web JSON (JWT):
 
 ```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -73,4 +73,4 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Chiamata di un'API Web](scenario-web-api-call-api-call-api.md)
+> [API Web che chiama API Web: chiamare un'API](scenario-web-api-call-api-call-api.md)

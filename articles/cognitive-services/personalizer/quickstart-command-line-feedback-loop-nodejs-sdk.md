@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bec68cbb88a9acacbc1a9a081ce3d8612b709d18
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446378"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860232"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Avvio rapido: Libreria client di Personalizza esperienze per Node.js
 
@@ -26,7 +26,7 @@ Iniziare a usare la libreria client di Personalizza esperienze per Node.js. Segu
  * Classificare un elenco di azioni per la personalizzazione.
  * Segnalare il punteggio di ricompensa che indica l'esito positivo dell'azione nella posizione più alta in classifica.
 
-[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Pacchetto (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Pacchetto (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Esempi](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -49,7 +49,7 @@ Per usare questo avvio rapido, è necessario eseguire diversi passaggi:
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Personalizza esperienze usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
 
-* Ottenere un [codice della versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services), valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Ottenere un [codice della versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services), valido per 7 giorni. Dopo aver eseguito l'iscrizione, sarà disponibile sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/).
 
 Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, creare due [variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
@@ -62,13 +62,13 @@ Nel portale di Azure i valori della chiave e dell'endpoint sono disponibili nell
 
 ## <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
 
-In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app. 
+In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Eseguire il comando `npm init -y` per creare un file `package.json`. 
+Eseguire il comando `npm init -y` per creare un file `package.json`.
 
 ```console
 npm init -y
@@ -100,11 +100,11 @@ Quando viene creata per la prima volta un'istanza di un ciclo di Personalizza es
 
 Il client di Personalizza esperienze è un oggetto PersonalizerClient che esegue l'autenticazione in Azure con Microsoft.Rest.ServiceClientCredentials, che contiene la chiave.
 
-Per chiedere una classificazione del contenuto, creare un oggetto RankRequest e quindi passarlo al metodo client.Rank. Il metodo Rank restituisce un oggetto RankResponse che contiene il contenuto classificato. 
+Per chiedere una classificazione del contenuto, creare un oggetto RankRequest e quindi passarlo al metodo client.Rank. Il metodo Rank restituisce un oggetto RankResponse che contiene il contenuto classificato.
 
-Per inviare una ricompensa a Personalizza esperienze, creare un oggetto RewardRequest e quindi passarlo al metodo client.Reward. 
+Per inviare una ricompensa a Personalizza esperienze, creare un oggetto RewardRequest e quindi passarlo al metodo client.Reward.
 
-In questo argomento di avvio rapido, determinare la ricompensa è un'operazione banale. In un sistema di produzione invece, stabilire cosa influisce sul [punteggio di ricompensa](concept-rewards.md) e in quale misura può essere un processo complesso, che si può decidere di cambiare nel tempo. Questa dovrebbe essere una delle principali decisioni di progettazione da prendere nell'architettura di Personalizza esperienze. 
+In questo argomento di avvio rapido, determinare la ricompensa è un'operazione banale. In un sistema di produzione invece, stabilire cosa influisce sul [punteggio di ricompensa](concept-rewards.md) e in quale misura può essere un processo complesso, che si può decidere di cambiare nel tempo. Questa dovrebbe essere una delle principali decisioni di progettazione da prendere nell'architettura di Personalizza esperienze.
 
 ## <a name="code-examples"></a>Esempi di codice
 
@@ -116,7 +116,7 @@ Questi frammenti di codice mostrano come effettuare le operazioni seguenti con l
 
 ## <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
 
-Creare una nuova applicazione Node.js denominata `sample.js` nell'IDE o nell'editor preferito. 
+Creare una nuova applicazione Node.js denominata `sample.js` nell'IDE o nell'editor preferito.
 
 ## <a name="add-the-dependencies"></a>Aggiungere le dipendenze
 
@@ -146,7 +146,7 @@ Le azioni rappresentano le scelte di contenuto che si vuole classificare con Per
 
 ## <a name="create-the-learning-loop"></a>Creare il ciclo di apprendimento
 
-Il ciclo di apprendimento di Personalizza esperienze è un ciclo di chiamate [rank](#request-a-rank) e [reward](#send-a-reward). In questa guida di avvio rapido ogni chiamata di classificazione, per personalizzare il contenuto, è seguita da una chiamata di ricompensa, per indicare a Personalizza esperienze come il servizio ha classificato il contenuto. 
+Il ciclo di apprendimento di Personalizza esperienze è un ciclo di chiamate [rank](#request-a-rank) e [reward](#send-a-reward). In questa guida di avvio rapido ogni chiamata di classificazione, per personalizzare il contenuto, è seguita da una chiamata di ricompensa, per indicare a Personalizza esperienze come il servizio ha classificato il contenuto.
 
 Il codice di ciclo riportato di seguito esegue un ciclo in cui chiede all'utente di indicare le proprie preferenze alla riga di comando, invia tali informazioni a Personalizza esperienze per la classificazione, presenta all'utente una selezione in forma di classifica da cui scegliere e quindi invia una ricompensa a Personalizza esperienze per segnalare l'accuratezza del servizio nella classificazione della selezione.
 
@@ -161,9 +161,9 @@ Aggiungere i metodi seguenti, che [ottengono le scelte di contenuto](#get-conten
 
 ## <a name="request-a-rank"></a>Richiedere una classificazione
 
-Per completare la richiesta di classificazione, il programma chiede le preferenze dell'utente per creare scelte di contenuto. Il processo può creare contenuto da escludere dalla classificazione, indicato come `excludeActions`. Per ricevere la risposta classificata, la richiesta di classificazione deve includere le [azioni](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions e un ID evento di classificazione univoco (come GUID). 
+Per completare la richiesta di classificazione, il programma chiede le preferenze dell'utente per creare scelte di contenuto. Il processo può creare contenuto da escludere dalla classificazione, indicato come `excludeActions`. Per ricevere la risposta classificata, la richiesta di classificazione deve includere le [azioni](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions e un ID evento di classificazione univoco (come GUID).
 
-In questo argomento di avvio rapido sono state usate funzionalità di contesto semplici come l'ora del giorno e le preferenze alimentari dell'utente. Nei sistemi di produzione, determinare e [valutare](concept-feature-evaluation.md) [azioni e funzionalità](concepts-features.md) può non essere altrettanto semplice.  
+In questo argomento di avvio rapido sono state usate funzionalità di contesto semplici come l'ora del giorno e le preferenze alimentari dell'utente. Nei sistemi di produzione, determinare e [valutare](concept-feature-evaluation.md) [azioni e funzionalità](concepts-features.md) può non essere altrettanto semplice.
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
@@ -171,7 +171,7 @@ In questo argomento di avvio rapido sono state usate funzionalità di contesto s
 
 Per completare la richiesta di ricompensa, il programma ottiene la selezione dell'utente dalla riga di comando, assegna un valore numerico a ogni selezione, quindi invia l'ID evento di classificazione univoco e il valore numerico al metodo reward.
 
-Questo argomento di avvio rapido assegna un numero semplice come ricompensa, ovvero zero o 1. Nei sistemi di produzione, determinare quando e cosa inviare alla chiamata [reward](concept-rewards.md) può essere un'operazione non banale, a seconda delle esigenze specifiche. 
+Questo argomento di avvio rapido assegna un numero semplice come ricompensa, ovvero zero o 1. Nei sistemi di produzione, determinare quando e cosa inviare alla chiamata [reward](concept-rewards.md) può essere un'operazione non banale, a seconda delle esigenze specifiche.
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 

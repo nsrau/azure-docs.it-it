@@ -2,18 +2,20 @@
 title: Scenari e progettazione di applicazioni
 description: Panoramica delle categorie di applicazioni cloud nell'infrastruttura di servizi. Illustra la progettazione di applicazioni con servizi con e senza stato.
 ms.topic: conceptual
-ms.date: 4/24/2019
-ms.openlocfilehash: bdbbf81186463e1f645738b370662de9c13f5c17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.custom: sfrev
+ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464903"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024733"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
-Azure Service Fabric offre una piattaforma affidabile e flessibile in cui è possibile scrivere ed eseguire molti tipi di applicazioni e servizi aziendali. Queste applicazioni e microservizi possono essere con o senza stato e sono sottoposte a bilanciamento delle risorse tra macchine virtuali per ottimizzare l'efficienza. 
 
-La particolare architettura di Service Fabric consente di eseguire operazioni di analisi dei dati e di calcolo in memoria, transazioni parallele ed elaborazione degli eventi quasi in tempo reale nelle applicazioni. È possibile aumentare o ridurre facilmente il numero di applicazioni a seconda dei requisiti di risorse.
+Azure Service Fabric offre una piattaforma affidabile e flessibile in cui è possibile scrivere ed eseguire molti tipi di applicazioni e servizi aziendali. Queste applicazioni e microservizi possono essere con o senza stato e sono sottoposte a bilanciamento delle risorse tra macchine virtuali per ottimizzare l'efficienza.
+
+La particolare architettura di Service Fabric consente di eseguire operazioni di analisi dei dati e di calcolo in memoria, transazioni parallele ed elaborazione degli eventi quasi in tempo reale nelle applicazioni. È possibile ridimensionare le applicazioni in modo semplice e in base ai requisiti di risorse mutevoli.
 
 Per indicazioni sulla progettazione per la creazione di applicazioni, vedere [architettura di microservizi in Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) e [procedure consigliate per la progettazione di applicazioni con Service Fabric](service-fabric-best-practices-applications.md).
 
@@ -33,8 +35,8 @@ Provare a usare la piattaforma Service Fabric per i tipi di applicazioni seguent
 
 * **Calcolo sui dati**: Service Fabric consente di compilare applicazioni con stato che eseguono un calcolo intensivo dei dati. Service Fabric consente la condivisione del percorso di elaborazione (calcolo) e dei dati nelle applicazioni. 
 
-   In genere, quando l'applicazione richiede l'accesso ai dati, la latenza di rete associata a una cache di dati esterna o a un livello di archiviazione limita il tempo di calcolo. I servizi di Service Fabric con stato eliminano tale latenza, abilitando letture e scritture più ottimizzate. 
-   
+   In genere, quando l'applicazione richiede l'accesso ai dati, la latenza di rete associata a una cache di dati esterna o a un livello di archiviazione limita il tempo di calcolo. I servizi di Service Fabric con stato eliminano tale latenza, abilitando letture e scritture più ottimizzate.
+
    Si consideri, ad esempio, un'applicazione che esegue selezioni di raccomandazioni quasi in tempo reale per i clienti, con un requisito di tempo di round trip inferiore a 100 millisecondi. Le caratteristiche di latenza e prestazioni dei servizi Service Fabric offrono un'esperienza di risposta all'utente, rispetto al modello di implementazione standard di che deve recuperare i dati necessari dall'archiviazione remota. Il sistema è più reattivo perché il calcolo della selezione delle raccomandazioni si trova con i dati e le regole.
 
     I clienti che hanno compilato servizi di calcolo includono [Solidsoft Reply](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) e [Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura).
@@ -44,16 +46,18 @@ Provare a usare la piattaforma Service Fabric per i tipi di applicazioni seguent
 * **Servizi scalabili**: è possibile partizionare singoli servizi implementando la scalabilità orizzontale dello stato nel cluster. I singoli servizi possono essere creati e rimossi in tempo reale. È possibile scalare in orizzontale i servizi da alcune istanze di alcuni nodi a migliaia di istanze in molti nodi, quindi ridimensionarli nuovamente in base alle esigenze. È possibile utilizzare Service Fabric per compilare questi servizi e gestirne i cicli di vita completi.
 
 ## <a name="application-design-case-studies"></a>Case study sulla progettazione delle applicazioni
-I case study che illustrano come viene usato Service Fabric per progettare le applicazioni sono pubblicati nelle [storie](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=0&so=story_publish_date%20desc/) e [nei microservizi dei clienti in siti di Azure](https://azure.microsoft.com/solutions/microservice-applications/) .
+
+I case study che illustrano come viene usato Service Fabric per progettare le applicazioni sono pubblicati nelle [storie](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) e [nei microservizi dei clienti in siti di Azure](https://azure.microsoft.com/solutions/microservice-applications/) .
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Progettazione di applicazioni costituite da microservizi con e senza stato
-La compilazione di applicazioni con i ruoli di lavoro di servizi cloud di Azure è un esempio di servizio senza stato. Al contrario, i microservizi con stato mantengono lo stato autorevole oltre alla richiesta e alla relativa risposta. Questa funzionalità offre disponibilità elevata e coerenza dello stato tramite semplici API che forniscono garanzie transazionali supportate dalla replica. 
+
+La compilazione di applicazioni con i ruoli di lavoro di servizi cloud di Azure è un esempio di servizio senza stato. Al contrario, i microservizi con stato mantengono lo stato autorevole oltre alla richiesta e alla relativa risposta. Questa funzionalità offre disponibilità elevata e coerenza dello stato tramite semplici API che forniscono garanzie transazionali supportate dalla replica.
 
 I servizi con stato in Service Fabric di garantire la disponibilità elevata a tutti i tipi di applicazioni, non solo ai database e ad altri archivi dati. Si tratta di un progresso naturale. Le applicazioni sono già passate dall'uso di database puramente relazionali per la disponibilità elevata a database NoSQL. Ora le applicazioni stesse possono avere un proprio stato "attivo" e i dati possono essere gestiti al loro interno per migliorare ancora le prestazioni senza compromettere l'affidabilità, la coerenza o la disponibilità.
 
 Quando si compilano applicazioni costituite da microservizi, in genere si ha una combinazione di app Web senza stato, ad esempio ASP.NET e node. js, che eseguono chiamate a servizi di livello intermedio business con e senza stato. Le app e i servizi vengono tutti distribuiti nello stesso cluster di Service Fabric tramite i comandi di distribuzione di Service Fabric. Ognuno di questi servizi è indipendente rispetto a scalabilità, affidabilità e utilizzo delle risorse. Questa indipendenza migliora l'agilità e la flessibilità di sviluppo e gestione del ciclo di vita.
 
-I microservizi con stato semplificano la progettazione delle applicazioni perché eliminano la necessità di usare code e cache aggiuntive, che invece erano necessarie in passato per soddisfare i requisiti di disponibilità e latenza di applicazioni interamente senza stato. Poiché i servizi con stato hanno disponibilità elevata e bassa latenza, sono disponibili meno dettagli da gestire nell'applicazione. 
+I microservizi con stato semplificano la progettazione delle applicazioni perché eliminano la necessità di usare code e cache aggiuntive, che invece erano necessarie in passato per soddisfare i requisiti di disponibilità e latenza di applicazioni interamente senza stato. Poiché i servizi con stato hanno disponibilità elevata e bassa latenza, sono disponibili meno dettagli da gestire nell'applicazione.
 
 I diagrammi seguenti illustrano le differenze tra la progettazione di un'applicazione senza stato e una con stato. Sfruttando i modelli di programmazione [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md), i servizi con stato riducono la complessità delle applicazioni e allo stesso tempo garantiscono un'elevata velocità effettiva e una bassa latenza.
 
@@ -63,18 +67,16 @@ Di seguito è riportato un esempio di applicazione che usa i servizi con stato: 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su [modelli e scenari](service-fabric-patterns-and-scenarios.md).
-
 * Inizia a creare servizi con e senza stato con i modelli di programmazione Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) e [Reliable Actors](service-fabric-reliable-actors-get-started.md) .
 * Per istruzioni sulla [creazione di microservizi in Azure](https://docs.microsoft.com/azure/architecture/microservices/), vedere la centro architetture di Azure.
 * Passare ad [Azure Service Fabric procedure](service-fabric-best-practices-overview.md) consigliate per le applicazioni e i cluster per le linee guida di progettazione delle applicazioni.
 
-* Vedere anche gli argomenti seguenti:
+* Vedere anche la pagina relativa alla
   * [Informazioni sui microservizi](service-fabric-overview-microservices.md)
   * [Definire e gestire lo stato del servizio](service-fabric-concepts-state.md)
-  * [Disponibilità dei servizi di Service Fabric](service-fabric-availability-services.md)
-  * [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
-  * [Partizionare i servizi di Service Fabric](service-fabric-concepts-partitioning.md)
+  * [Disponibilità dei servizi](service-fabric-availability-services.md)
+  * [Ridimensionare i servizi](service-fabric-concepts-scalability.md)
+  * [Servizi di partizione](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png

@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 4ef268367d1c4c8808cbda3814c863940bcdc32b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 19b7fbe5541bda5e6e2c265681e292f452cd57c0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771905"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044278"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>Interpretazione dei modelli per le esecuzioni locali e remote
 
@@ -333,10 +333,10 @@ I tracciati seguenti forniscono una visualizzazione globale del modello sottopos
     jupyter labextension install microsoft-mli-widget
     ```
 
-Per caricare il dashboard di visualizzazione, usare il codice seguente:
+Per caricare il dashboard di visualizzazione, usare il codice seguente.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
+from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 8301dc779799ff67a348403e661fc7e66b9e721f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750122"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045874"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Overview
@@ -69,7 +69,7 @@ La [soluzione Sicurezza e controllo](../../security-center/security-center-intro
 È anche possibile configurare Sicurezza e conformità per [eseguire automaticamente azioni specifiche](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando viene rilevato un determinato evento.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un [modello di Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) che può essere usato per diversi ambienti, ad esempio di testing, di staging e di produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione.
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un [modello di Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) che può essere usato per diversi ambienti, ad esempio di testing, di staging e di produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione.
 
 Le distribuzioni basate su un modello di Azure Resource Manager consentono di migliorare la sicurezza delle soluzioni distribuite in Azure perché le impostazioni sono controllate dalla sicurezza standard, che può essere integrata in distribuzioni basate su modelli standardizzate. In questo modo si riduce il rischio di errori di configurazione della sicurezza che potrebbero verificarsi in caso di distribuzioni manuali.
 
@@ -142,16 +142,16 @@ In Diagnostica applicazioni è possibile visualizzare gli eventi raggruppandoli 
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle risorse di archiviazione di Azure e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [necessità](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello [Azure Resource Manager](../../storage/common/storage-security-guide.md) può essere controllato tramite il controllo degli accessi in base al ruolo.
+È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [necessità](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello [Azure Resource Manager](../../storage/blobs/security-recommendations.md) può essere controllato tramite il controllo degli accessi in base al ruolo.
 
 ### <a name="shared-access-signature"></a>Firma di accesso condiviso
 Una [firma di accesso condiviso (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) fornisce accesso delegato alle risorse nell'account di archiviazione. La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account.
 
 ### <a name="encryption-in-transit"></a>Crittografia in transito
 La crittografia in transito è un meccanismo di protezione dei dati durante la trasmissione tra le reti. Con Archiviazione di Azure è possibile proteggere i dati con:
--   [Crittografia a livello di trasporto](../../storage/common/storage-security-guide.md), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
+-   [Crittografia a livello di trasporto](../../storage/blobs/security-recommendations.md), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
 
--   [Crittografia di rete](../../storage/common/storage-security-guide.md), ad esempio la [crittografia SMB 3.0](../../storage/common/storage-security-guide.md) per le [condivisioni file di Azure](../../storage/files/storage-dotnet-how-to-use-files.md).
+-   [Crittografia di rete](../../storage/blobs/security-recommendations.md), ad esempio la [crittografia SMB 3.0](../../storage/blobs/security-recommendations.md) per le [condivisioni file di Azure](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   Crittografia lato client, per crittografare i dati prima che vengano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento da tale risorsa.
 
@@ -266,9 +266,9 @@ Gestione traffico offre diversi metodi di routing del traffico per soddisfare le
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni. Si tratta di un servizio di bilanciamento del carico di livello 4 (TCP, UDP) che distribuisce il traffico in ingresso tra istanze integre di servizi definiti in un set con carico bilanciato. Azure Load Balancer può essere configurato per:
 
--   Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. Questa configurazione è nota come [bilanciamento del carico Internet tra più macchine virtuali o servizi](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-   Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. Questa configurazione è nota come [bilanciamento del carico Internet tra più macchine virtuali o servizi](../../load-balancer/concepts-limitations.md#publicloadbalancer).
 
--   Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Questa configurazione è nota come [bilanciamento del carico interno](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
+-   Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Questa configurazione è nota come [bilanciamento del carico interno](../../load-balancer/concepts-limitations.md#internalloadbalancer).
 
 - Inoltrare il traffico esterno a una macchina virtuale specifica
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b026ef7dbbe850f0d2d1cb67ec8ca93b14ef879a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932966"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044901"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -106,7 +106,7 @@ ms.locfileid: "75932966"
 > 
 > ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>D: cosa avverrà il 30 marzo? È necessario offboard in anticipo?
 > 
-> - Non sarà possibile ricevere i dati dalla soluzione **Office365** e verranno rimossi da tutte le aree di lavoro in cui è installato. La soluzione non sarà più disponibile nel Marketplace
+> - Non sarà possibile ricevere i dati dalla soluzione **Office365** . La soluzione non sarà più disponibile nel Marketplace
 > - Per i clienti di Azure Sentinel, la soluzione per l'area di lavoro Log Analytics **Office365** verrà inclusa nella soluzione **SecurityInsights** di Sentinel di Azure.
 > - Se non si offboard la soluzione manualmente, i dati verranno disconnessi automaticamente il 30 marzo.
 > 

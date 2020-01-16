@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231368"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895960"
 ---
 ::: zone target="docs"
 
@@ -35,18 +35,18 @@ Dopo che i dischi sono stati connessi e sbloccati, è possibile copiare i dati d
 
 Questa esercitazione descrive come copiare dati dal computer host e quindi generare i checksum per la verifica dell'integrità.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Copiare i dati sul Data Box Disk.
 > * Verificare i dati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 - Aver completato l'esercitazione descritta in [Esercitazione: Installare e configurare Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - I dischi vengono sbloccati e connessi a un computer client.
-- Il computer client usato per copiare i dati nei dischi deve eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Il computer client usato per copiare i dati nei dischi deve eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Il tipo di archiviazione scelto per i dati corrisponda a uno dei [tipi di archiviazione supportati](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Esaminare i limiti dei dischi gestiti in [Limiti delle dimensioni degli oggetti di Azure](data-box-disk-limits.md#azure-object-size-limits).
 
@@ -101,7 +101,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     I parametri e le opzioni del comando sono riportati nella tabella seguente:
     
-    |Parametri/opzioni  |DESCRIZIONE |
+    |Parametri/opzioni  |Descrizione |
     |--------------------|------------|
     |Source (Sorgente)            | Specifica il percorso della directory di origine.        |
     |Destination       | Specifica il percorso della directory di destinazione.        |
@@ -232,7 +232,7 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
 
      ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. Per convalidare il formato di file, passare a `JSONlint`. Salvare il file con il nome `ConfigFile.json`. 
+6. Per convalidare il formato di file, passare a `JSONlint`. Salvare il file come `ConfigFile.json`. 
 
      ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  

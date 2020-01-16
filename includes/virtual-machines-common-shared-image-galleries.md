@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663039"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020955"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
@@ -65,7 +65,7 @@ Di seguito sono riportati altri parametri che è possibile impostare nella defin
 * EULA-può essere usato per puntare a un contratto di licenza con l'utente finale specifico per la definizione dell'immagine.
 * Informativa sulla privacy e note sulla versione: archivia le note sulla versione e le informative sulla privacy in archiviazione di Azure e fornisce un URI per accedervi come parte della definizione dell'immagine.
 * Data di fine della vita: consente di aggiungere una data di fine vita alla definizione dell'immagine per poter usare l'automazione per eliminare le definizioni di immagini obsolete.
-* Tag: è possibile aggiungere tag quando si crea la definizione dell'immagine. Per altre informazioni sui tag, vedere [uso dei tag per organizzare le risorse](../articles/azure-resource-manager/resource-group-using-tags.md)
+* Tag: è possibile aggiungere tag quando si crea la definizione dell'immagine. Per altre informazioni sui tag, vedere [uso dei tag per organizzare le risorse](../articles/azure-resource-manager/management/tag-resources.md)
 * Raccomandazioni vCPU e Memory minime e massime: se l'immagine presenta vCPU e consigli per la memoria, è possibile alleghi tali informazioni alla definizione dell'immagine.
 * Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per i dischi HDD standard, è necessario aggiungerli all'elenco non consentiti.
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 4162775153a48dc8ea28e06f7c99f9927b9c602a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8280bb057edea5697b8fa3248ddf755376f62c49
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444762"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978259"
 ---
-# <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del Bus di servizio usando un modello Azure Resource Manager
+# <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio usando un modello di Azure Resource Manager
 
-Informazioni su come distribuire un modello di Azure Resource Manager per creare uno spazio dei nomi del Bus di servizio. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per altre informazioni sulla creazione di modelli, vedere [documentazione di Azure Resource Manager](/azure/azure-resource-manager/).
+Informazioni su come distribuire un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per ulteriori informazioni sulla creazione di modelli, vedere [Azure Resource Manager documentazione](/azure/azure-resource-manager/).
 
-Sono disponibili per la creazione di spazi dei nomi del Bus di servizio anche i modelli seguenti:
+Per la creazione di spazi dei nomi del bus di servizio sono disponibili anche i modelli seguenti:
 
 * [Creare uno spazio dei nomi del bus di servizio con coda](./service-bus-resource-manager-namespace-queue.md)
 * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](./service-bus-resource-manager-namespace-topic.md)
@@ -38,15 +38,15 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
 
-In questa Guida introduttiva Usa un' [modello di Resource Manager esistenti](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) dalla [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/):
+In questa Guida introduttiva si userà un [modello di gestione risorse esistente](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/):
 
 [!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
 
-Per trovare ulteriori esempi di modelli, vedere [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
+Per altri esempi di modello, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
 Per creare uno spazio dei nomi del bus di servizio distribuendo un modello:
 
-1. Selezionare **Provalo** dal blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure Cloud shell.
+1. Selezionare **Prova** nel blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
@@ -60,16 +60,16 @@ Per creare uno spazio dei nomi del bus di servizio distribuendo un modello:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-    Il nome del gruppo di risorse è il nome dello spazio dei nomi del bus di servizio con **rg** aggiunto.
+    Il nome del gruppo di risorse è il nome dello spazio dei nomi del bus di servizio con l'aggiunta di **RG** .
 
 2. Selezionare **Copia** per copiare lo script di PowerShell.
-3. La console di shell e quindi scegliere **Incolla**.
+3. Fare clic con il pulsante destro del mouse sulla console della shell e quindi scegliere **Incolla**.
 
-Sono necessari alcuni minuti per creare un hub eventi.
+La creazione di un hub eventi richiede pochi minuti.
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 
-Per visualizzare lo spazio dei nomi del bus di servizio distribuito, è possibile aprire il gruppo di risorse dal portale di Azure oppure usare il seguente script PowerShell di Azure. Se Cloud shell è ancora aperta, non devi copia/eseguire prima e seconda riga dello script seguente.
+Per visualizzare lo spazio dei nomi del bus di servizio distribuito, è possibile aprire il gruppo di risorse dalla portale di Azure o usare lo script di Azure PowerShell seguente. Se cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima e la seconda riga dello script seguente.
 
 ```azurepowershell-interactive
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
@@ -80,15 +80,15 @@ Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBu
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Azure PowerShell viene usato per distribuire il modello in questa esercitazione. Per altri metodi di distribuzione del modello, vedere:
+Azure PowerShell viene usato per distribuire il modello in questa esercitazione. Per altri metodi di distribuzione dei modelli, vedere:
 
-* [Tramite il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Usando Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Tramite l'API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Utilizzando il portale di Azure](../azure-resource-manager/templates/deploy-portal.md).
+* [Usando l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md).
+* [Usando l'API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse. Se Cloud shell è ancora aperta, non devi copia/eseguire prima e seconda riga dello script seguente.
+Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse. Se cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima e la seconda riga dello script seguente.
 
 ```azurepowershell-interactive
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"

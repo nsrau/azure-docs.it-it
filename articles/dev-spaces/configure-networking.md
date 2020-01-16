@@ -5,12 +5,12 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 description: Descrive i requisiti di rete per l'esecuzione di Azure Dev Spaces nei servizi Kubernetes di Azure
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, CNI, kubenet, SDN, rete
-ms.openlocfilehash: 51604e2862a4d2ff575906fa2ba480ddd10504ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897923"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044984"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurare la rete per Azure Dev Spaces in topologie di rete diverse
 
@@ -18,7 +18,7 @@ Azure Dev Spaces viene eseguito nei cluster di Azure Kubernetes Service (AKS) co
 
 ![Configurazione della rete virtuale](media/configure-networking/virtual-network-clusters.svg)
 
-## <a name="aks-clusters-with-different-virtual-network-or-subnet-configurations"></a>Cluster AKS con diverse configurazioni di rete virtuale o subnet
+## <a name="virtual-network-or-subnet-configurations"></a>Configurazioni della rete virtuale o della subnet
 
 Il cluster AKS può avere una configurazione di rete virtuale o subnet diversa per limitare il traffico in ingresso o in uscita per il cluster AKS. Ad esempio, il cluster potrebbe trovarsi dietro un firewall, ad esempio un firewall di Azure, oppure è possibile usare gruppi di sicurezza di rete o ruoli personalizzati per limitare il traffico di rete.
 
@@ -53,19 +53,19 @@ Azure Dev Spaces consente di comunicare direttamente con un pod in uno spazio di
 
 Azure Dev Spaces fornisce il routing tra i pod tra gli spazi dei nomi. Ad esempio, gli spazi dei nomi con Azure Dev Spaces abilitato possono avere una relazione padre/figlio, che consente il routing del traffico di rete tra i pod tra gli spazi dei nomi padre e figlio. Per il corretto funzionamento di questa funzionalità, aggiungere un criterio di rete che consenta il traffico tra gli spazi dei nomi in cui viene indirizzato il traffico di rete, ad esempio gli spazi dei nomi padre/figlio. Inoltre, se il controller di ingresso viene distribuito nello spazio dei nomi *azds* , il controller di ingresso deve comunicare con i pod instrumentati dallo spazio di sviluppo di Azure in uno spazio dei nomi diverso. Affinché il controller di ingresso funzioni correttamente, il traffico di rete deve essere consentito dallo spazio dei nomi *azds* allo spazio dei nomi in cui sono in esecuzione i pod instrumentati.
 
-## <a name="using-azure-container-networking-with-azure-dev-spaces"></a>Uso della rete di contenitori di Azure con Azure Dev Spaces
+## <a name="using-azure-cni"></a>Uso di Azure CNI
 
 Per impostazione predefinita, i cluster AKS sono configurati per l'uso di [kubenet][aks-kubenet] per la rete, che funziona con Azure Dev Spaces. È anche possibile configurare il cluster AKS per l'uso dell' [interfaccia di rete di contenitori di Azure (CNI)][aks-cni]. Per usare Azure Dev Spaces con Azure CNI nel cluster AKS, consentire agli spazi degli indirizzi della rete virtuale e della subnet fino a 10 indirizzi IP privati per i pod distribuiti da Azure Dev Spaces. Altre informazioni su come consentire gli indirizzi IP privati sono disponibili nella [documentazione di Azure CNI di AKS][aks-cni-ip-planning].
 
-## <a name="using-api-server-authorized-ip-ranges-with-azure-dev-spaces"></a>Uso degli intervalli IP autorizzati del server API con Azure Dev Spaces
+## <a name="using-api-server-authorized-ip-ranges"></a>Uso degli intervalli IP autorizzati del server API
 
 I cluster AKS consentono di configurare una sicurezza aggiuntiva che limita quale indirizzo IP può interagire con i cluster, ad esempio usando reti virtuali personalizzate o [proteggendo l'accesso al server API usando intervalli di indirizzi IP autorizzati][aks-ip-auth-ranges]. Per usare Azure Dev Spaces quando si usa questa sicurezza aggiuntiva durante la [creazione][aks-ip-auth-range-create] del cluster, è necessario [consentire intervalli aggiuntivi in base all'area geografica][dev-spaces-ip-auth-range-regions]. È anche possibile [aggiornare][aks-ip-auth-range-update] un cluster esistente per consentire tali intervalli aggiuntivi. È anche necessario consentire l'indirizzo IP di tutti i computer di sviluppo che si connettono al cluster AKS per eseguire il debug per la connessione al server API.
 
-## <a name="using-aks-private-clusters-with-azure-dev-spaces"></a>Uso di cluster privati AKS con Azure Dev Spaces
+## <a name="using-aks-private-clusters"></a>Uso di cluster privati AKS
 
 A questo punto, Azure Dev Spaces non è supportato con i [cluster privati AKS][aks-private-clusters].
 
-## <a name="azure-dev-spaces-client-requirements"></a>Requisiti del client Azure Dev Spaces
+## <a name="client-requirements"></a>Requisiti per i client
 
 Azure Dev Spaces usa gli strumenti lato client, ad esempio l'estensione dell'interfaccia della riga di comando Azure Dev Spaces, l'estensione Visual Studio Code e l'estensione di Visual Studio per comunicare con il cluster AKS per il debug. Per usare gli strumenti Azure Dev Spaces lato client, consentire il traffico dai computer di sviluppo al dominio *azds-\*. azds.io* . Vedere *dataplaneFqdn* in `USERPROFILE\.azds\settings.json` per il nome FQDN esatto. Se si usano gli [intervalli IP autorizzati del server API][auth-range-section], è anche necessario consentire l'indirizzo IP di tutti i computer di sviluppo che si connettono al cluster AKS per eseguire il debug per la connessione al server API.
 
@@ -85,7 +85,7 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 [aks-ip-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
 [aks-network-policies]: ../aks/use-network-policies.md
 [aks-private-clusters]: ../aks/private-clusters.md
-[auth-range-section]: #using-api-server-authorized-ip-ranges-with-azure-dev-spaces
+[auth-range-section]: #using-api-server-authorized-ip-ranges
 [dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md

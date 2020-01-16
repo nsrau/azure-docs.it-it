@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 71f768506d7cec575c6bd765447397d8d0406859
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0314dceb23f02b723854dfc406e9440bbc14ccf6
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446003"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044292"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
 
@@ -25,7 +25,7 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 
 È possibile usare i trigger per ottenere risposte dal server FTP e rendere l'output disponibile per altre azioni. È possibile usare azioni di esecuzione nelle app per la logica per gestire i file sul server FTP. Si può anche fare in modo che altre azioni usino l'output delle azioni FTP. Ad esempio, se si ottengono regolarmente file dal server FTP, è possibile inviare messaggi di posta elettronica riguardanti tali file e il relativo contenuto usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
-## <a name="limits"></a>Limiti
+## <a name="limitations"></a>Limitazioni
 
 * Il connettore FTP supporta solo FTP su SSL (FTPS) e non è compatibile con FTPS impliciti.
 
@@ -36,6 +36,8 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
   * Usare un trigger FTP che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
   * Seguire il trigger con l'azione FTP **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi.
+
+* Se si dispone di un server FTP locale, è consigliabile creare un [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) o usare le [connessioni ibride del servizio app Azure](../app-service/app-service-hybrid-connections.md), che consentono di accedere alle origini dati locali senza usare un gateway dati locale.
 
 ## <a name="how-ftp-triggers-work"></a>Funzionamento del trigger FTP
 

@@ -4,15 +4,15 @@ description: Informazioni sugli aspetti da considerare quando si pianifica una d
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665270"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046088"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -347,13 +347,13 @@ Nella tabella seguente sono state fornite sia la dimensione dello spazio dei nom
 | Dimensioni spazio dei nomi-file & Directory (milioni)  | Capacità tipica (TiB)  | Core CPU  | Memoria consigliata (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (sincronizzazione iniziale)/2 (varianza tipica)      |
-| 5        | 2.3     | 2        | 16 (sincronizzazione iniziale)/4 (varianza tipica)    |
-| 10       | 4.7     | 4        | 32 (sincronizzazione iniziale)/8 (varianza tipica)   |
-| 30       | 14,0    | 8        | 48 (sincronizzazione iniziale)/16 (varianza tipica)   |
-| 50       | 23,3    | 16       | 64 (sincronizzazione iniziale)/32 (varianza tipica)  |
-| 100*     | 46,6    | 32       | 128 (sincronizzazione iniziale)/32 (varianza tipica)  |
+| 5        | 2.4     | 2        | 16 (sincronizzazione iniziale)/4 (varianza tipica)    |
+| 10       | 4.8     | 4        | 32 (sincronizzazione iniziale)/8 (varianza tipica)   |
+| 30       | 14,3    | 8        | 48 (sincronizzazione iniziale)/16 (varianza tipica)   |
+| 50       | 23,8    | 16       | 64 (sincronizzazione iniziale)/32 (varianza tipica)  |
+| 100*     | 47,7   | 32       | 128 (sincronizzazione iniziale)/32 (varianza tipica)  |
 
-al momento \*più di 100 milioni file & Directory non sono supportati. Si tratta di un limite flessibile.
+\*più di 100 milioni file & Directory non sono stati testati. Si tratta di un limite flessibile.
 
 > [!TIP]
 > La sincronizzazione iniziale di uno spazio dei nomi è un'operazione complessa ed è consigliabile allocare ulteriore memoria fino al completamento della sincronizzazione iniziale. Questa operazione non è obbligatoria, ma può velocizzare la sincronizzazione iniziale. 

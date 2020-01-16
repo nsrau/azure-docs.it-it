@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: cd118def8b9caf97f26aaa5ad5dc1f6fb015316d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7da9f795f1865d635a26cd3acf3866dff3565716
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469284"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020897"
 ---
-1. Scegliere **Crea una risorsa** dal menu del portale di Azure.
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
 
     ![Aggiungere una risorsa tramite il menu portale di Azure](./media/functions-create-function-app-portal/create-function-app-resource.png)
 
@@ -25,10 +25,10 @@ ms.locfileid: "73469284"
 
     ![Nozioni di base](./media/functions-create-function-app-portal/function-app-create-basics.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE |
+    | Impostazione      | Valore consigliato  | Descrizione |
     | ------------ | ---------------- | ----------- |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. |
-    | **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** |  *myResourceGroup* | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
+    | **[Gruppo di risorse](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
     | **Nome dell'app per le funzioni** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z` (senza distinzione tra maiuscole e minuscole), `0-9` e `-`.  |
     |**Pubblica**| Codice | Opzione per la pubblicazione di file di codice o di un contenitore Docker. |
     | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. |
@@ -40,9 +40,9 @@ ms.locfileid: "73469284"
 
     ![Hosting](./media/functions-create-function-app-portal/function-app-create-hosting.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE |
+    | Impostazione      | Valore consigliato  | Descrizione |
     | ------------ | ---------------- | ----------- |
-    | **[Account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Account di archiviazione](../articles/storage/common/storage-account-create.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     |**Sistema operativo**| Sistema operativo preferito | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. |
     | **[Piano](../articles/azure-functions/functions-scale.md)** | Piano a consumo | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel **piano a consumo** predefinito le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni. In questo hosting [senza server](https://azure.microsoft.com/overview/serverless-computing/) si paga solo per il periodo in cui le funzioni sono in esecuzione. In caso di esecuzione in un piano di servizio app, è necessario gestire il [ridimensionamento dell'app per le funzioni](../articles/azure-functions/functions-scale.md).  |
 
@@ -52,7 +52,7 @@ ms.locfileid: "73469284"
 
     ![Monitoraggio](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE |
+    | Impostazione      | Valore consigliato  | Descrizione |
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Predefinito | Crea una risorsa di Application Insights con lo stesso *nome di app* nell'area più vicina supportata. Espandendo questa impostazione, è possibile cambiare il **Nome nuova risorsa** oppure scegliere una **Località** in un'[area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vogliono archiviare i dati. |
 

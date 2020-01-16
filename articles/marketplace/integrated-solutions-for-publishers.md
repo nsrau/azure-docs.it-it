@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: evansma
-ms.openlocfilehash: 22d1f2d39a1ef3825d7d6c7eb0724e108b9b78e6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 6f09df7c4ccdfa8a339b9d7f2655128c7ead5184
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933774"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978635"
 ---
 # <a name="publish-an-integrated-solution"></a>Pubblicare una soluzione integrata
 
@@ -28,13 +28,13 @@ Per una panoramica del programma soluzioni integrate, Guarda [questo video](http
 * I clienti possono trovare soluzioni in pacchetto che consentono di risolvere le esigenze aziendali end-to-end tramite il Marketplace. Il tempo necessario per ottenere un valore accelerato è che la tecnologia è integrata in primo piano. I clienti evitano di dover interagire separatamente con più app distribuite in modo frammentato.
 * L'IP è incluso in un pacchetto insieme ad altre soluzioni e servizi che migliorano il valore della tecnologia fornita dai partner di esperti.
 * I partner dei servizi creano soluzioni predefinite e preintegrate grazie alla tecnologia ottimale per la scalabilità, la coltivazione e l'espansione in più account cliente.
-* Microsoft può usare queste soluzioni preintegrate e allineate al settore per una maggiore facilità di co-selling ai clienti. I prezzi e le condizioni sono ordinati in anticipo. 
+* Microsoft può usare queste soluzioni preintegrate e allineate al settore per una maggiore facilità di co-selling ai clienti. I prezzi e le condizioni sono ordinati in anticipo.
 
 ## <a name="eligibility-criteria"></a>Criteri di idoneità
 
 * I partner partecipanti devono avere un ID MPN.
 * I provider di servizi partecipanti devono essere pronti per il co-selling.
-* I fornitori di software partecipanti devono essere pronti per il co-selling IP. 
+* I fornitori di software partecipanti devono essere pronti per il co-selling IP.
 * Almeno un partner partecipante deve avere una competenza Gold in una delle aree seguenti:
 
     * Sviluppo applicazioni
@@ -53,13 +53,13 @@ Per una panoramica del programma soluzioni integrate, Guarda [questo video](http
 
 ## <a name="submit-a-nomination"></a>Invia una candidatura
 
-I partner che vogliono partecipare al programma devono identificare gli altri partner che vogliono usare. Devono completare il [modulo di candidatura per le soluzioni integrate](https://aka.ms/AA5qicu). Il team del programma soluzioni integrate esamina la candidatura e segue entro 10 giorni lavorativi. Il team fornisce l'approvazione e i passaggi successivi. 
+I partner che vogliono partecipare al programma devono identificare gli altri partner che vogliono usare. Devono completare il [modulo di candidatura per le soluzioni integrate](https://aka.ms/AA5qicu). Il team del programma soluzioni integrate esamina la candidatura e segue entro 10 giorni lavorativi. Il team fornisce l'approvazione e i passaggi successivi.
 
-## <a name="develop-an-integrated-solution"></a>Sviluppare una soluzione integrata 
+## <a name="develop-an-integrated-solution"></a>Sviluppare una soluzione integrata
 
-Dopo che la candidatura è stata approvata, usare le risorse del programma collegato per sviluppare la soluzione integrata. A tale scopo, seguire questa procedura: 
+Dopo che la candidatura è stata approvata, usare le risorse del programma collegato per sviluppare la soluzione integrata. A tale scopo, seguire questa procedura:
 
-1. Completa le discussioni tecniche e aziendali in un formato di workshop per definire la soluzione e l'approccio di integrazione. 
+1. Completa le discussioni tecniche e aziendali in un formato di workshop per definire la soluzione e l'approccio di integrazione.
 
     La discussione sulla soluzione deve includere i punti seguenti:
     * Ambito
@@ -73,7 +73,7 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
     * Processo di vendita
     * Attività
 
-    La discussione sull'approccio di integrazione dovrebbe prevedere i punti seguenti: 
+    La discussione sull'approccio di integrazione dovrebbe prevedere i punti seguenti:
     * Punti di integrazione
     * Architettura della soluzione
     * Autenticazione
@@ -101,15 +101,15 @@ Dopo che la candidatura è stata approvata, usare le risorse del programma colle
     * Descrizione della soluzione integrata. Seguire le procedure consigliate per l' [elenco delle offerte](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
     * Passo da una pagina ai clienti. Usare il [modello a un cercapersone](https://aka.ms/AA5s08a).
     * Presentazione del cliente. Usare il [modello di presentazione](https://aka.ms/AA5s7ql).
-    * Un logo per la soluzione combinata. 
+    * Un logo per la soluzione combinata.
 
-## <a name="publish-your-integrated-solution"></a>Pubblicare la soluzione integrata 
+## <a name="publish-your-integrated-solution"></a>Pubblicare la soluzione integrata
 
 Al termine dell'integrazione tecnica e del materiale di marketing, fare riferimento alla guida dell'editore per i [servizi di consulenza per Microsoft AppSource e Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Usare questa risorsa per determinare se la soluzione verrà pubblicata in Microsoft AppSource o in Azure Marketplace. Usare anche la guida per preparare gli elementi di pubblicazione e completare il processo di pubblicazione.
 
 Sebbene cinque tipi di servizio siano disponibili per le offerte di consulenza, una soluzione integrata deve essere un modello di prova o un'implementazione completa.
 
-## <a name="go-to-market-with-your-integrated-solution"></a>Vai al mercato con la tua soluzione integrata 
+## <a name="go-to-market-with-your-integrated-solution"></a>Vai al mercato con la tua soluzione integrata
 
 Quando la soluzione è disponibile in Microsoft AppSource o in Azure Marketplace, è opportuno promuovere la sensibilizzazione e la richiesta tramite attività di marketing. Esaminare le attività elencate nel [piano del progetto e nella sequenza temporale](https://aka.ms/AA5qiuc). Questa risorsa include le attività che i partner possono guidare all'interno dei propri team e l'una con l'altra. È quindi possibile accedere ai [vantaggi offerti dal mercato](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) per i partner che pubblicano nel Marketplace. Tutte le offerte di soluzioni integrate sono idonee per i vantaggi a livello di versione di valutazione.
 

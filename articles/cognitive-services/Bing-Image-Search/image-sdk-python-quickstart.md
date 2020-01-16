@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Cercare immagini - SDK di Ricerca immagini Bing per Python'
+title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per Python'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Python invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 85aa1bda395240d0f11b0654ee48b9f1a0401eaa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 561162767a48a060763510310de77767f37d4eb4
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930601"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770187"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Guida introduttiva: Cercare immagini con l’SDK di Ricerca immagini Bing per Python
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Python
 
 Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Python invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.7 o 3.4](https://www.python.org/) e versioni successive.
 
@@ -38,7 +38,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 1. Creare un nuovo script Python nell'ambiente di sviluppo integrato o nell'editor preferito ed eseguire le importazioni seguenti:
 
     ```python
-    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from azure.cognitiveservices.search.imagesearch import ImageSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
@@ -46,6 +46,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 
     ```python
     subscription_key = "Enter your key here"
+    subscription_endpoint = "Enter your endpoint here"
     search_term = "canadian rockies"
     ```
 
@@ -54,7 +55,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 1. Creare un'istanza di `CognitiveServicesCredentials` e usarla per creare un'istanza del client:
 
     ```python
-    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 1. Inviare una query di ricerca all'API Ricerca immagini Bing:
     ```python

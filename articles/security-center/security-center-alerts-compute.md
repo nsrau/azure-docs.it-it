@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: f2fda893ad84aaf9d11d26d761f5395c7f5650d2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a85ec565077ac229cd24bb7b9cf753015aa56ebf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666373"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024867"
 ---
 # <a name="threat-detection-for-cloud-native-computing-in-azure-security-center"></a>Rilevamento delle minacce per il cloud native Computing nel centro sicurezza di Azure
 
@@ -36,7 +36,7 @@ Il Centro sicurezza usa la scalabilità del cloud per identificare gli attacchi 
 
 Grazie alla visibilità di Azure come provider di servizi cloud, il Centro sicurezza analizza i log interni del servizio app per identificare la metodologia di attacco in più destinazioni. La metodologia, ad esempio, include analisi generalizzate e attacchi distribuiti. Questo tipo di attacco in genere deriva da un piccolo subset di indirizzi IP e Mostra i modelli di ricerca per indicizzazione in endpoint simili su più host. Gli attacchi stanno cercando una pagina o un plug-in vulnerabile e non possono essere identificati dal punto di vista di un singolo host.
 
-Il Centro sicurezza ha anche accesso ai sandbox e alle VM sottostanti. Insieme alle analisi della memoria, l'infrastruttura può raccontare la storia, da un nuovo attacco che circola in natura a compromessi nei computer dei clienti. Pertanto, anche se il Centro sicurezza viene distribuito dopo che un'app Web è stata sfruttata, potrebbe essere in grado di rilevare attacchi continui.
+Se si sta eseguendo un piano di servizio App basato su Windows, il Centro sicurezza ha anche accesso alle macchine virtuali e alle VM sottostanti. Insieme ai dati di log indicati in precedenza, l'infrastruttura può raccontare la storia, da un nuovo attacco che circola in modo naturale a compromessi nei computer dei clienti. Pertanto, anche se il Centro sicurezza viene distribuito dopo che un'app Web è stata sfruttata, potrebbe essere in grado di rilevare attacchi continui.
 
 Per un elenco degli avvisi del servizio app Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureappserv).
 
@@ -64,3 +64,7 @@ Le minacce vengono rilevate a livelli diversi:
     Per un elenco degli avvisi a livello di cluster AKS, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-akscluster).
 
 Inoltre, il team globale dei ricercatori di sicurezza monitora costantemente il panorama delle minacce. Aggiungono avvisi e vulnerabilità specifici del contenitore Man mano che vengono individuati.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Per altre informazioni sui piani di servizio app, vedere [piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).

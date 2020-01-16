@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 2abbf06fee8189bc6ca678e546c8e88504409a51
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660393"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770289"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -33,9 +33,11 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 
 Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Docker. Per configurare il contenitore Docker, seguire questa procedura. Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
 1. Installare prima di tutto Docker in un computer host. Il computer host può essere il computer locale ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/) o [Linux](https://docs.docker.com/install/)). In alternativa, è possibile usare un servizio di hosting Docker in Azure, ad esempio il [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/index), [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/index) oppure un cluster Kubernetes [distribuito in Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). Il computer host deve soddisfare i requisiti hardware seguenti:
+
     | Contenitore | Minima | Consigliato|
     |:--|:--|:--|
-    |Strumento di etichettatura campioni|2 core, 4 GB di memoria|4 core, 8 GB di memoria
+    |Strumento di etichettatura campioni|2 core, 4 GB di memoria|4 core, 8 GB di memoria|
+    
 1. È inoltre necessario avere l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Installarla nel computer se non è già stato fatto.
 1. Immettere quindi il comando seguente al prompt dei comandi. I valori di `<username>` e `<password>` sono indicati nel messaggio di posta elettronica di benvenuto in Riconoscimento modulo.
     ```
@@ -49,7 +51,8 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
     ```
     docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
-    Questo comando rende disponibile lo strumento di etichettatura campioni tramite un Web browser. Passare a [http://localhost:3000](http://localhost:3000).
+
+   Questo comando rende disponibile lo strumento di etichettatura campioni tramite un Web browser. Passare a [http://localhost:3000](http://localhost:3000).
 
 > [!NOTE]
 > È anche possibile etichettare i documenti ed eseguire il training dei modelli usando l'API REST Riconoscimento modulo. Per eseguire il training e l'analisi con l'API REST, vedere [Eseguire il training con le etichette usando l'API REST e Python](./python-labeled-data.md).

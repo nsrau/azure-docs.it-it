@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 5c4eb5241cc5e50c11c05cac6909e37557ba106d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037504"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045816"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Esercitazione: configurare manualmente il gruppo di disponibilità in Azure SQL Server VM
 
@@ -28,17 +28,17 @@ Questa esercitazione illustra come creare un gruppo di disponibilità SQL Server
 
 **Tempo stimato**: per completare l'esercitazione, sono necessari circa 30 minuti dopo avere soddisfatto i prerequisiti.
 
-La figura illustra ciò che è stato compilato nell'esercitazione.
+Il diagramma illustra le operazioni di compilazione nell'esercitazione.
 
 ![Gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibilità AlwaysOn di SQL Server. Se sono necessarie altre informazioni, vedere [Panoramica di Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibilità di SQL Server AlwaysOn. Se sono necessarie altre informazioni, vedere [Panoramica di Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 La tabella seguente elenca i prerequisiti da completare prima di iniziare l'esercitazione:
 
-|  |Requisito |DESCRIZIONE |
+|  |Requisito |Description |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Due istanze di SQL Server | - In un set di disponibilità di Azure <br/> - In un dominio singolo <br/> - Con la funzionalità Clustering di failover installata |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
@@ -72,7 +72,7 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
    ![Creare un cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. Nella Creazione guidata Cluster creare un cluster a un nodo procedendo nelle pagine con le impostazioni della tabella seguente:
 
-   | Page | Settings |
+   | Pagina | Impostazioni |
    | --- | --- |
    | Prima di iniziare |Valori predefiniti |
    | Selezione dei server |Digitare il nome della prima istanza di SQL Server in **Immettere il nome del server** e fare clic su **Aggiungi**. |
@@ -114,9 +114,9 @@ Aggiungere l'altra istanza di SQL Server al cluster.
     >[!WARNING]
    >Se si usa Spazi di archiviazione e non si deseleziona **Aggiungi tutte le risorse di archiviazione idonee al cluster**, Windows rende non visibili i dischi virtuali durante il processo di clustering. Di conseguenza, tali dischi non vengono visualizzati in Gestione disco o in Esplora risorse fino a quando gli spazi di archiviazione non vengono rimossi dal cluster e ricollegati usando PowerShell. Spazi di archiviazione consente di raggruppare più dischi in pool di archiviazione. Per altre informazioni, vedere [Spazi di archiviazione](https://technet.microsoft.com/library/hh831739).
 
-1. Fare clic su **Next** (Avanti).
+1. Fare clic su **Avanti**.
 
-1. Fare clic su **Finish**(Fine).
+1. Fare clic su **Fine**.
 
    A questo punto, Gestione cluster di failover visualizza il cluster con un nuovo nodo elencato nel contenitore **Nodi**.
 
@@ -138,9 +138,9 @@ In questo esempio il cluster Windows usa una condivisione file per creare un quo
 
    Usare **Creazione guidata cartella condivisa** per creare una condivisione.
 
-1. In **Percorso cartella** fare clic su **Sfoglia** e individuare o creare un percorso per la cartella condivisa. Fare clic su **Next** (Avanti).
+1. In **Percorso cartella** fare clic su **Sfoglia** e individuare o creare un percorso per la cartella condivisa. Fare clic su **Avanti**.
 
-1. In **Nome, descrizione e impostazioni** verificare il nome e il percorso della condivisione. Fare clic su **Next** (Avanti).
+1. In **Nome, descrizione e impostazioni** verificare il nome e il percorso della condivisione. Fare clic su **Avanti**.
 
 1. In **Autorizzazioni cartella condivisa** impostare **Personalizza autorizzazioni**. Fare clic su **Personalizza**.
 
@@ -175,11 +175,11 @@ Impostare ora il quorum del cluster.
    >[!TIP]
    >Windows Server 2016 supporta un cloud di controllo. Se si sceglie questo tipo di controllo, non è necessario un controllo di condivisione file. Per altre informazioni, vedere [Distribuire un cloud di controllo per un cluster di failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Questa esercitazione usa un controllo di condivisione file, supportato dai sistemi operativi precedenti.
 
-1. In **Configurazione condivisione file di controllo** digitare il percorso per la condivisione creata. Fare clic su **Next** (Avanti).
+1. In **Configurazione condivisione file di controllo** digitare il percorso per la condivisione creata. Fare clic su **Avanti**.
 
-1. Verificare le impostazioni in **Conferma**. Fare clic su **Next** (Avanti).
+1. Verificare le impostazioni in **Conferma**. Fare clic su **Avanti**.
 
-1. Fare clic su **Finish**(Fine).
+1. Fare clic su **Fine**.
 
 Le risorse principali del cluster vengono configurate con un controllo di condivisione file.
 
@@ -197,7 +197,7 @@ Abilitare ora la funzionalità **Gruppi di disponibilità AlwaysOn**. Eseguire q
 
 5. Riavviare il servizio SQL Server.
 
-Ripetere questi passaggi nell'altra istanza di SQL Server.
+Ripetere questi passaggi per l'altra istanza di SQL Server.
 
 <!-----------------
 ## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
@@ -240,9 +240,9 @@ Repeat these steps on the second SQL Server.
 
    Usare **Creazione guidata cartella condivisa** per creare una condivisione.
 
-1. In **Percorso cartella** fare clic su **Sfoglia** e individuare o creare un percorso per la cartella condivisa del backup del database. Fare clic su **Next** (Avanti).
+1. In **Percorso cartella** fare clic su **Sfoglia** e individuare o creare un percorso per la cartella condivisa del backup del database. Fare clic su **Avanti**.
 
-1. In **Nome, descrizione e impostazioni** verificare il nome e il percorso della condivisione. Fare clic su **Next** (Avanti).
+1. In **Nome, descrizione e impostazioni** verificare il nome e il percorso della condivisione. Fare clic su **Avanti**.
 
 1. In **Autorizzazioni cartella condivisa** impostare **Personalizza autorizzazioni**. Fare clic su **Personalizza**.
 
@@ -278,7 +278,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
     ![Avviare la creazione guidata nuovo gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. Nella pagina **Introduzione** fare clic su **Avanti**. Nella pagina **Specifica nome del gruppo di disponibilità** digitare un nome per il gruppo di disponibilità, ad esempio **AG1**, in **Nome gruppo di disponibilità**. Fare clic su **Next** (Avanti).
+2. Nella pagina **Introduzione** fare clic su **Avanti**. Nella pagina **Specifica nome del gruppo di disponibilità** digitare un nome per il gruppo di disponibilità, ad esempio **AG1**, in **Nome gruppo di disponibilità**. Fare clic su **Avanti**.
 
     ![Creazione guidata nuovo gruppo di disponibilità: specificare il nome di gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -291,7 +291,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 4. Nella pagina **Specifica repliche** fare clic su **Aggiungi replica**.
 
    ![Creazione guidata nuovo gruppo di disponibilità: specificare le repliche](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
-5. Viene visualizzata la finestra di dialogo **Connetti al server** . Digitare il nome del secondo server in **Nome server**. Fare clic su **Connect**.
+5. Viene visualizzata la finestra di dialogo **Connetti al server** . Digitare il nome del secondo server in **Nome server**. Fare clic su **Connetti**.
 
    Nella pagina **Specifica repliche** verrà ora visualizzato il secondo server elencato in **Repliche di disponibilità**. Configurare le repliche come segue.
 
@@ -301,7 +301,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
     ![Creazione guidata nuovo gruppo di disponibilità: selezionare la sincronizzazione dati iniziale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\\** . Fare clic su **Next** (Avanti).
+8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\\** . Fare clic su **Avanti**.
 
    >[!NOTE]
    >La sincronizzazione completa acquisisce un backup completo del database nella prima istanza di SQL Server e lo ripristina nella seconda istanza. Per i database di grandi dimensioni, la sincronizzazione completa non è consigliabile perché può richiedere diverso tempo. È possibile ridurre manualmente il tempo necessario acquisendo un backup del database e ripristinandolo con `NO RECOVERY`. Se il database è già stato ripristinato con `NO RECOVERY` nella seconda istanza di SQL Server prima di configurare il gruppo di disponibilità, scegliere **Solo join**. Per acquisire il backup dopo la configurazione del gruppo di disponibilità, scegliere **Ignora sincronizzazione dei dati iniziale**.
@@ -318,7 +318,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 10. Nella pagina **Riepilogo** fare clic su **Fine**, quindi attendere il completamento della configurazione del nuovo gruppo di disponibilità tramite la procedura guidata. Per visualizzare lo stato dettagliato è possibile fare clic su **Altri dettagli** nella pagina **Stato**. Al termine della procedura guidata, controllare la pagina **Risultati** per verificare che il gruppo di disponibilità sia stato creato correttamente.
 
      ![Creazione guidata nuovo gruppo di disponibilità: risultati](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
-11. Fare clic su **Chiudi** per uscire dalla procedura guidata.
+11. Per uscire dalla procedura guidata, fare clic su **Chiudi**.
 
 ### <a name="check-the-availability-group"></a>Controllare il gruppo di disponibilità
 
@@ -348,14 +348,14 @@ A questo punto, è presente un gruppo di disponibilità con repliche in due ista
 
 Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico contiene gli indirizzi IP per i listener del gruppo di disponibilità e per il cluster di failover di Windows Server. Questa sezione è un riepilogo della creazione del servizio di bilanciamento del carico nel portale di Azure.
 
-Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load Balancer Basic. Il Load Balancer Standard ha più funzionalità rispetto al Load Balancer Basic. Per un gruppo di disponibilità, il Load Balancer Standard è obbligatorio se si usa una zona di disponibilità (invece di un Set di disponibilità). Per altre informazioni sulla differenza tra i tipi di bilanciamento del carico, vedere [Confronto tra gli SKU di Load Balancer](../../../load-balancer/load-balancer-overview.md#skus).
+Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load Balancer Basic. Il Load Balancer Standard ha più funzionalità rispetto al Load Balancer Basic. Per un gruppo di disponibilità, il Load Balancer Standard è obbligatorio se si usa una zona di disponibilità (invece di un Set di disponibilità). Per altre informazioni sulla differenza tra i tipi di bilanciamento del carico, vedere [Confronto tra gli SKU di Load Balancer](../../../load-balancer/concepts-limitations.md#skus).
 
 1. Nel portale di Azure andare al gruppo di risorse in cui si trovano le istanze di SQL Server e fare clic su **+ Aggiungi**.
 1. Cercare **Servizio di bilanciamento del carico**. Scegliere il servizio di bilanciamento del carico pubblicato da Microsoft.
 
    ![Gruppo di disponibilità in Gestione cluster di failover](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 1. Configurare i parametri seguenti per il servizio di bilanciamento del carico.
 
    | Impostazione | Campo |
@@ -364,10 +364,10 @@ Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load 
    | **Tipo** |Interno |
    | **Rete virtuale** |Usare il nome della rete virtuale di Azure. |
    | **Subnet** |Usare il nome della subnet in cui si trova la macchina virtuale.  |
-   | **Assegnazione indirizzi IP** |Static |
+   | **Assegnazione indirizzi IP** |Statica |
    | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Usare questo indirizzo per il listener del gruppo di disponibilità. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster.  |
    | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
-   | **Località** |Usare la stessa posizione della macchina virtuale. |
+   | **Posizione** |Usare la stessa posizione della macchina virtuale. |
 
    Il pannello del portale di Azure dovrebbe essere simile al seguente:
 
@@ -402,9 +402,9 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare il probe di integrità del listener nel modo seguente:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Description | Esempio
    | --- | --- |---
-   | **Nome** | Text | SQLAlwaysOnEndPointProbe |
+   | **Nome** | Testo | SQLAlwaysOnEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
    | **Porta** | Qualsiasi porta non usata | 59999 |
    | **Interval**  | Intervallo di tempo tra i tentativi del probe, in secondi |5 |
@@ -418,9 +418,9 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare le regole di bilanciamento del carico del listener come segue.
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Description | Esempio
    | --- | --- |---
-   | **Nome** | Text | SQLAlwaysOnEndPointListener |
+   | **Nome** | Testo | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
    | **Protocollo** | Scegliere TCP |TCP |
    | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1433 |
@@ -428,7 +428,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Enabled |
+   | **IP mobile (Direct Server Return)** | |Attivato |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.
@@ -445,9 +445,9 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare il probe di integrità dell'indirizzo IP principale del cluster WSFC come segue:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Description | Esempio
    | --- | --- |---
-   | **Nome** | Text | WSFCEndPointProbe |
+   | **Nome** | Testo | WSFCEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
    | **Porta** | Qualsiasi porta non usata | 58888 |
    | **Interval**  | Intervallo di tempo tra i tentativi del probe, in secondi |5 |
@@ -459,9 +459,9 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Description | Esempio
    | --- | --- |---
-   | **Nome** | Text | WSFCEndPoint |
+   | **Nome** | Testo | WSFCEndPoint |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
    | **Protocollo** | Scegliere TCP |TCP |
    | **Porta** | Usare la porta per l'indirizzo IP del cluster. Si tratta di una porta disponibile che non viene usata per la porta probe del listener. | 58888 |
@@ -469,7 +469,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
    | **Probe** |Il nome specificato per il probe | WSFCEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Enabled |
+   | **IP mobile (Direct Server Return)** | |Attivato |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.

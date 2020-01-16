@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: billing
 author: rothja
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: eb2d663a56084fc625c95f1f1a6236385880180d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 2c5312c2e0a7121237c4d11197d90a2a5638557c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796105"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021215"
 ---
 | Gruppi | Limite predefinito | Limite massimo |
 | --- | --- | --- |
@@ -21,16 +21,16 @@ ms.locfileid: "74796105"
 | Numero totale di core della VM per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area. | Contattare il supporto tecnico. |
 | Totale core VM Azure spot per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area. | Contattare il supporto tecnico. |
 | VM per serie, ad esempio dv2 e F, Core per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area. | Contattare il supporto tecnico. |
-| [Coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per sottoscrizione |Senza limiti. |Senza limiti. |
-| [Account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md) per area per sottoscrizione |250 |250 |
-| [Gruppi di risorse](../articles/azure-resource-manager/resource-group-overview.md) per sottoscrizione |980 |980 |
+| [Coamministratori](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per sottoscrizione |Senza limiti. |Senza limiti. |
+| [Account di archiviazione](../articles/storage/common/storage-account-create.md) per area per sottoscrizione |250 |250 |
+| [Gruppi di risorse](../articles/azure-resource-manager/management/overview.md) per sottoscrizione |980 |980 |
 | [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2\.000 per area. |2\.000 per area. |
 | Dimensioni richieste API Azure Resource Manager |4\.194.304 byte. |4\.194.304 byte. |
 | Tag per sottoscrizione<sup>2</sup> |Senza limiti. |Senza limiti. |
 | Calcoli di tag univoci per sottoscrizione<sup>2</sup> | 10,000 | 10,000 |
 | [Servizi cloud](../articles/cloud-services/cloud-services-choose-me.md) per sottoscrizione |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |N/A<sup>3</sup> |N/A<sup>3</sup> |
-| [Distribuzioni a livello di sottoscrizione](../articles/azure-resource-manager/deploy-to-subscription.md) per località | 800<sup>4</sup> | 800 |
+| [Distribuzioni a livello di sottoscrizione](../articles/azure-resource-manager/templates/deploy-to-subscription.md) per località | 800<sup>4</sup> | 800 |
 
 <sup>1</sup> I limiti predefiniti variano in base al tipo di categoria di offerta, ad esempio versione di valutazione gratuita e pagamento in base al consumo, e per serie, ad esempio dv2, F e G. Ad esempio, il valore predefinito per le sottoscrizioni Enterprise Agreement è 350.
 

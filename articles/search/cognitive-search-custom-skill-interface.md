@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466782"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045030"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Come aggiungere un'abilità personalizzata a una pipeline di arricchimento ricerca cognitiva di Azure
 
@@ -122,7 +122,7 @@ Come illustrato nell'esempio precedente, si possono restituire messaggi di error
 
 ## <a name="consuming-custom-skills-from-skillset"></a>Uso di competenze personalizzate dal set di competenze
 
-Quando si crea un enricher API Web, è possibile descrivere intestazioni HTTP e parametri come parte della richiesta. Il frammento di codice seguente mostra come si possono descrivere parametri della richiesta e intestazioni HTTP come parte della definizione del set di competenze.
+Quando si crea un enricher API Web, è possibile descrivere intestazioni HTTP e parametri come parte della richiesta. Il frammento di codice seguente mostra come i parametri della richiesta e le intestazioni HTTP *facoltative* possono essere descritte come parte della definizione del insieme di competenze. Le intestazioni HTTP non sono un requisito, ma consentono di aggiungere altre funzionalità di configurazione alle proprie competenze e di impostarle dalla definizione del set di competenze.
 
 ```json
 {
@@ -158,6 +158,6 @@ Questo articolo ha trattato i requisiti di interfaccia necessari per l'integrazi
 
 + [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 66c100ecd40e9f0899f7686397339ab849315c3e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843241"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021058"
 ---
 ## <a name="publish-the-project-to-azure"></a>Pubblicare il progetto in Azure
 
@@ -37,8 +37,8 @@ In questa sezione si presuppone che venga creata una nuova app per le funzioni i
 
     Quando si preme INVIO, nella sottoscrizione vengono create le risorse di Azure seguenti:
 
-    * **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** : contiene tutte le risorse di Azure create. Il nome si basa sul nome dell'app per le funzioni.
-    * **[Account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md)** : viene creato un account di archiviazione standard con un nome univoco basato sul nome dell'app per le funzioni.
+    * **[Gruppo di risorse](../articles/azure-resource-manager/management/overview.md)** : contiene tutte le risorse di Azure create. Il nome si basa sul nome dell'app per le funzioni.
+    * **[Account di archiviazione](../articles/storage/common/storage-account-create.md)** : viene creato un account di archiviazione standard con un nome univoco basato sul nome dell'app per le funzioni.
     * **[Piano di hosting](../articles/azure-functions/functions-scale.md)** : nell'area Stati Uniti occidentali viene creato un piano a consumo per l'hosting dell'app per le funzioni.
     * **App per le funzioni**: il progetto viene distribuito ed eseguito nella nuova app per le funzioni.
 

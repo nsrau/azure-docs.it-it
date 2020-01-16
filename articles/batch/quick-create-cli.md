@@ -2,22 +2,22 @@
 title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Interfaccia della riga di comando'
 description: Imparare rapidamente a eseguire un processo Batch con l'interfaccia della riga di comando di Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322499"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029486"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Guida introduttiva: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Avvio rapido: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* nel pool. Ogni attività di esempio esegue un comando di base in uno dei nodi del pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
@@ -105,7 +105,7 @@ az batch job create \
     --pool-id mypool
 ```
 
-## <a name="create-tasks"></a>Creare le attività
+## <a name="create-tasks"></a>Creare attività
 
 Usare ora il comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) per creare alcune attività da eseguire nel processo. In questo esempio vengono create quattro attività identiche. Ogni attività esegue una `command-line` per visualizzare le variabili di ambiente Batch in un nodo di calcolo e quindi attende 90 secondi. Quando si usa Batch, in questa riga di comando si specifica l'app o lo script. Batch offre una serie di modi per distribuire app e script nei nodi di calcolo.
 

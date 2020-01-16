@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658020"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045179"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di monitoraggio di Azure
 
@@ -43,6 +43,8 @@ Il piano tariffario predefinito per Log Analytics è un modello con **pagamento 
   
 Oltre al modello con pagamento in base al consumo, Log Analytics dispone di livelli di **prenotazione di capacità** che consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. I prezzi per la prenotazione della capacità ti permettono di acquistare una prenotazione a partire da 100 GB/giorno. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. I livelli di prenotazione della capacità hanno un periodo di impegno di 31 giorni. Durante il periodo di impegno, è possibile passare a un livello di prenotazione di capacità superiore, che riavvierà il periodo di impegno di 31 giorni, ma non sarà possibile tornare a un livello di prenotazione con pagamento in base al consumo o a un livello di prenotazione di capacità inferiore fino al termine del periodo di impegno termine. 
 [Scopri di più](https://azure.microsoft.com/pricing/details/monitor/) su log Analytics prezzi con pagamento in base al consumo e sulla prenotazione della capacità. 
+
+In tutti i piani tariffari, il volume di dati viene calcolato da una rappresentazione di stringa dei dati perché è pronto per essere archiviato. Diverse [Proprietà comuni a tutti i tipi di dati](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) non sono incluse nel calcolo delle dimensioni dell'evento, tra cui `_ResourceId`, `_ItemId`, `_IsBillable` e `_BilledSize`.
 
 Si noti anche che alcune soluzioni, ad esempio il [Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/) e [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), hanno un proprio modello di determinazione dei prezzi. 
 
@@ -164,6 +166,9 @@ Quando viene raggiunto il limite giornaliero, la raccolta di tipi di dati fattur
 
 > [!NOTE]
 > Il limite giornaliero non interrompe la raccolta di dati dal centro sicurezza di Azure, ad eccezione delle aree di lavoro in cui il Centro sicurezza di Azure è stato installato prima del 19 giugno 2017. 
+
+> [!NOTE]
+> La latenza inerente all'applicazione del limite giornaliero può indicare che il limite non viene applicato esattamente come il livello di limite giornaliero specificato. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire
 

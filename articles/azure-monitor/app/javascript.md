@@ -1,18 +1,18 @@
 ---
-title: Azure Application Insights per app Web JavaScript | Microsoft Docs
-description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript.
+title: applicazione Azure Insights per app Web JavaScript
+description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati dei client Web, le applicazioni a pagina singola (SPA) e i modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706603"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045843"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -97,28 +97,28 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configurazione
 La maggior parte dei campi di configurazione è denominata in modo che sia possibile impostarla su false. Tutti i campi sono facoltativi tranne `instrumentationKey`.
 
-| name | Predefinito | Description |
+| Nome | Predefinito | Description |
 |------|---------|-------------|
 | instrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
 | accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
-| sessionRenewalMs | 1,8 milioni | Una sessione viene registrata se l'utente è inattivo per questo periodo di tempo in millisecondi. Il valore predefinito è 30 minuti |
+| sessionRenewalMs | 1,8 milioni | Una sessione viene registrata se l'utente è inattivo per questo periodo di tempo in millisecondi. Il valore predefinito è 30 minuti. |
 | sessionExpirationMs | 86,4 milioni | Una sessione viene registrata se continua per questo periodo di tempo in millisecondi. Il valore predefinito è 24 ore |
 | maxBatchSizeInBytes | 10000 | Dimensioni massime del batch di telemetria. Se un batch supera questo limite, viene immediatamente inviato e viene avviato un nuovo batch |
 | maxBatchInterval | 15000 | Durata della telemetria batch per prima dell'invio (millisecondi) |
-| disableExceptionTracking | false | Se true, le eccezioni non sono autocollected. Il valore predefinito è false. |
-| disableTelemetry | false | Se true, i dati di telemetria non vengono raccolti o inviati. Il valore predefinito è false. |
-| enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. Il valore predefinito è false. <br>***Nota:*** Se si abilita questa impostazione, la telemetria verrà eliminata ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug, provare a usare `consoleLoggingLevel` o `telemetryLoggingLevel` invece di `enableDebug`. |
+| disableExceptionTracking | false | Se true, le eccezioni non sono autocollected. L'impostazione predefinita è false. |
+| disableTelemetry | false | Se true, i dati di telemetria non vengono raccolti o inviati. L'impostazione predefinita è false. |
+| enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. L'impostazione predefinita è false. <br>***Nota:*** Se si abilita questa impostazione, la telemetria verrà eliminata ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug, provare a usare `consoleLoggingLevel` o `telemetryLoggingLevel` invece di `enableDebug`. |
 | loggingLevelConsole | 0 | Registra gli errori **interni** di Application Insights alla console. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
 | loggingLevelTelemetry | 1 | Invia errori **interni** di Application Insights come dati di telemetria. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
 | diagnosticLogInterval | 10000 | interno Intervallo di polling (in MS) per la coda di registrazione interna |
 | samplingPercentage | 100 | Percentuale di eventi che verranno inviati. Il valore predefinito è 100, ovvero tutti gli eventi vengono inviati. Impostare questa impostazione se si desidera mantenere il limite di dati per le applicazioni su larga scala. |
-| autoTrackPageVisitTime | false | Se true, in una pagina di visualizzazione, il tempo di visualizzazione della pagina instrumentata precedente viene rilevato e inviato come dati di telemetria e viene avviato un nuovo timer per la visualizzazione corrente. Il valore predefinito è false. |
-| disableAjaxTracking | false | Se il valore è true, le chiamate AJAX non vengono raccolte. Il valore predefinito è false. |
-| disableFetchTracking | true | Se il valore è true, le richieste di recupero non vengono raccolte. Il valore predefinito è true |
-| overridePageViewDuration | false | Se true, il comportamento predefinito di trackPageView viene modificato per registrare la fine dell'intervallo di durata della visualizzazione pagina quando viene chiamato trackPageView. Se false e non viene fornita alcuna durata personalizzata a trackPageView, le prestazioni della visualizzazione pagina vengono calcolate usando l'API di intervallo di navigazione. Il valore predefinito è false. |
+| autoTrackPageVisitTime | false | Se true, in una pagina di visualizzazione, il tempo di visualizzazione della pagina instrumentata precedente viene rilevato e inviato come dati di telemetria e viene avviato un nuovo timer per la visualizzazione corrente. L'impostazione predefinita è false. |
+| disableAjaxTracking | false | Se il valore è true, le chiamate AJAX non vengono raccolte. L'impostazione predefinita è false. |
+| disableFetchTracking | true | Se il valore è true, le richieste di recupero non vengono raccolte. Il valore predefinito è true. |
+| overridePageViewDuration | false | Se true, il comportamento predefinito di trackPageView viene modificato per registrare la fine dell'intervallo di durata della visualizzazione pagina quando viene chiamato trackPageView. Se false e non viene fornita alcuna durata personalizzata a trackPageView, le prestazioni della visualizzazione pagina vengono calcolate usando l'API di intervallo di navigazione. L'impostazione predefinita è false. |
 | maxAjaxCallsPerView | 500 | Default 500-controlla il numero di chiamate AJAX che verranno monitorate per ogni visualizzazione pagina. Impostare su-1 per monitorare tutte le chiamate AJAX (illimitate) nella pagina. |
 | disableDataLossAnalysis | true | Se false, i buffer dei mittenti di telemetria interni verranno controllati all'avvio per gli elementi non ancora inviati. |
-| disableCorrelationHeaders | false | Se false, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste di dipendenza per metterle in correlazione con richieste corrispondenti sul lato server. Il valore predefinito è false. |
+| disableCorrelationHeaders | false | Se false, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste di dipendenza per metterle in correlazione con richieste corrispondenti sul lato server. L'impostazione predefinita è false. |
 | correlationHeaderExcludedDomains |  | Disabilitare le intestazioni di correlazione per domini specifici |
 | correlationHeaderDomains |  | Abilitare le intestazioni di correlazione per domini specifici |
 | disableFlushOnBeforeUnload | false | Valore predefinito false. Se true, il metodo Flush non verrà chiamato quando viene attivato l'evento onBeforeUnload |
@@ -126,14 +126,14 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | isCookieUseDisabled | false | Valore predefinito false. Se true, l'SDK non archivia né legge i dati dai cookie.|
 | cookieDomain | Null | Dominio cookie personalizzato. Questa operazione è utile se si desidera condividere Application Insights cookie tra sottodomini. |
 | isRetryDisabled | false | Valore predefinito false. Se false, riprovare su 206 (operazione parzialmente riuscita), 408 (timeout), 429 (troppe richieste), 500 (errore interno del server), 503 (servizio non disponibile) e 0 (offline, solo se rilevato) |
-| isStorageUseDisabled | false | Se true, l'SDK non archivia né legge i dati dall'archiviazione locale e della sessione. Il valore predefinito è false. |
+| isStorageUseDisabled | false | Se true, l'SDK non archivia né legge i dati dall'archiviazione locale e della sessione. L'impostazione predefinita è false. |
 | isBeaconApiDisabled | true | Se false, l'SDK invierà tutti i dati di telemetria usando l' [API Beacon](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Valore predefinito false. Quando la scheda è chiusa, l'SDK invierà tutti i dati di telemetria rimanenti usando l' [API Beacon](https://www.w3.org/TR/beacon) |
 | sdkExtension | Null | Imposta il nome dell'estensione SDK. Sono consentiti solo caratteri alfabetici. Il nome dell'estensione viene aggiunto come prefisso al tag ' ai. Internal. sdkVersion ' (ad esempio,' ext_javascript: 2.0.0'). Il valore predefinito è Null. |
-| isBrowserLinkTrackingEnabled | false | Il valore predefinito è false. Se true, l'SDK tiene traccia di tutte le richieste di [browser link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
+| isBrowserLinkTrackingEnabled | false | L'impostazione predefinita è false. Se true, l'SDK tiene traccia di tutte le richieste di [browser link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
 | appId | Null | AppId viene utilizzato per la correlazione tra le dipendenze AJAX che si verificano sul lato client con le richieste lato server. Quando l'API Beacon è abilitata, non può essere usata automaticamente, ma può essere impostata manualmente nella configurazione. Il valore predefinito è null |
-| enableCorsCorrelation | false | Se true, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste CORS per correlare le dipendenze AJAX in uscita con le richieste corrispondenti sul lato server. Il valore predefinito è false |
-| namePrefix | non definito | Valore facoltativo che verrà usato come nome suffisso per localStorage e il nome del cookie.
+| enableCorsCorrelation | false | Se true, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste CORS per correlare le dipendenze AJAX in uscita con le richieste corrispondenti sul lato server. Il valore predefinito è false. |
+| namePrefix | Non definito | Valore facoltativo che verrà usato come nome suffisso per localStorage e il nome del cookie.
 | enableAutoRouteTracking | false | Rilevare automaticamente le modifiche del route nelle applicazioni a pagina singola (SPA). Se true, ogni modifica della route invierà una nuova visualizzazione a Application Insights. Anche le modifiche della route hash (`example.com/foo#bar`) vengono registrate come nuove visualizzazioni di pagina.
 | enableRequestHeaderTracking | false | Se true, vengono rilevate le intestazioni della richiesta di recupero & AJAX, il valore predefinito è false.
 | enableResponseHeaderTracking | false | Se true, vengono rilevate le intestazioni di risposta della richiesta di recupero & AJAX, il valore predefinito è false.
@@ -168,11 +168,11 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics 
+### <a name="analytics"></a>Analisi 
 
 Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Con l'aggiunta di un `where` dichiarazione di `client_Type == "Browser"`, verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
  
@@ -206,7 +206,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 Questa versione include il numero minimo di caratteristiche e funzionalità e si basa su di esso per compilarlo nel modo appropriato. Ad esempio, non esegue alcuna raccolta (eccezioni non rilevate, AJAX e così via). Le API per inviare determinati tipi di dati di telemetria, ad esempio `trackTrace`, `trackException`e così via, non sono incluse in questa versione, quindi è necessario fornire il proprio wrapper. L'unica API disponibile è `track`. Un [esempio](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) è disponibile qui.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Per esempi eseguibili, vedere [esempi di Application Insights JavaScript SDK](https://github.com/topics/applicationinsights-js-demo)
 

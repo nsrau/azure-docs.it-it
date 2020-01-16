@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: e6f074dd6748f58a86a6ac8166ca0ee858926975
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 544ca198b846ca5032bdf400b300ac076d729d88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379794"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834154"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
@@ -90,7 +90,7 @@ Dopo aver eseguito l'accesso con l'account Microsoft, sarà possibile accedere a
 
 Tutte le API prevedono un piano di valutazione gratuito con limiti di utilizzo e velocità effettiva.  È possibile aumentare questi limiti usando un'offerta a pagamento e selezionando l'opzione del piano tariffario appropriata quando si distribuisce il servizio nel portale di Azure. [Altre informazioni sulle offerte e i prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/ "Offerte e prezzi"). Sarà necessario configurare un account sottoscrittore di Azure con una carta di credito e un numero di telefono. Se si hanno particolari requisiti o si vuole semplicemente comunicare con gli addetti alle vendite, fare clic sul pulsante "Contattaci" nella parte superiore della pagina dei prezzi.
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
 Le API nei Servizi cognitivi sono ospitate in una rete in espansione di centri dati gestiti da Microsoft. È possibile trovare la disponibilità a livello di area per ogni API nell'[elenco delle aree di Azure](https://azure.microsoft.com/regions).
 
@@ -114,7 +114,7 @@ I Servizi cognitivi hanno ricevuto certificazioni come CSA STAR, FedRAMP moderat
 
 È possibile [scaricare](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) le certificazioni per eseguire controlli e verifiche della sicurezza.
 
-Per informazioni sulla gestione di privacy e dati, accedere al [Centro protezione](https://servicetrust.microsoft.com/).
+Per informazioni sulla privacy e la gestione dei dati, accedere al [Centro protezione](https://servicetrust.microsoft.com/).
 
 ## <a name="support"></a>Supporto
 

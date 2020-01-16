@@ -10,19 +10,19 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c8501f3b859127bd1a4067bd0ffbda3d761d760
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d421de69f856790b89c866a6c8b7221e9214aef4
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660513"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772860"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
-* Se si tratta del primo progetto C++, usare questa guida per <a href="../quickstarts/create-project.md?tabs=windows" target="_blank">creare un progetto di esempio vuoto</a>.
-* <a href="../quickstarts/setup-platform.md?tabs=windows" target="_blank">Installare Speech SDK per l'ambiente di sviluppo</a>.
+* Se si tratta del primo progetto C++, usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">creare un progetto di esempio vuoto</a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Installare Speech SDK per l'ambiente di sviluppo</a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creare un'app LUIS per il riconoscimento delle finalità
 
