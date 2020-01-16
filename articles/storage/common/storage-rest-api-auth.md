@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895167"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965713"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chiamare le operazioni dell'API REST con l'autorizzazione della chiave condivisa
 
@@ -23,13 +23,13 @@ Questo articolo illustra come chiamare le API REST di archiviazione di Azure, in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'applicazione di esempio elenca i contenitori BLOB per un account di archiviazione. Per provare il codice di questo articolo, è necessario quanto segue: 
+L'applicazione di esempio elenca i contenitori BLOB per un account di archiviazione. Per provare il codice di questo articolo, è necessario quanto segue:
 
-- Installare [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con il carico di lavoro **sviluppo di Azure** .
+- Installare [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con il carico di lavoro **Sviluppo di Azure**.
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Un account di archiviazione di uso generico. Se non si ha un account di archiviazione, vedere [Create a storage account](storage-quickstart-create-account.md) (Creare un account di archiviazione).
+- Un account di archiviazione di uso generico. Se non si ha un account di archiviazione, vedere [Create a storage account](storage-account-create.md) (Creare un account di archiviazione).
 
 - L'esempio riportato in questo articolo illustra come elencare i contenitori di un account di archiviazione. Per visualizzare l'output, aggiungere alcuni contenitori alla risorsa di archiviazione BLOB nell'account di archiviazione prima di iniziare.
 
@@ -43,7 +43,7 @@ Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Questo comando consente di duplicare il repository nella cartella locale git. Per aprire la soluzione di Visual Studio, cercare la cartella storage-dotnet-rest-api-with-auth, aprirla e fare doppio clic su StorageRestApiAuth.sln. 
+Questo comando consente di duplicare il repository nella cartella locale git. Per aprire la soluzione di Visual Studio, cercare la cartella storage-dotnet-rest-api-with-auth, aprirla e fare doppio clic su StorageRestApiAuth.sln.
 
 ## <a name="about-rest"></a>Informazioni su REST
 
@@ -93,16 +93,16 @@ Per la sicurezza durante l'esecuzione nell'ambiente di produzione, usare sempre 
 
 Nel progetto di esempio, il codice per la creazione dell'intestazione di autorizzazione si trova in una classe separata. L'idea è che è possibile adottare l'intera classe e aggiungerla alla soluzione personalizzata e usarla "così com'è". Il codice dell'intestazione dell'autorizzazione è utilizzabile per la maggior parte delle chiamate all'API REST in Archiviazione di Azure.
 
-Per creare la richiesta, che è un oggetto HttpRequestMessage, passare a ListContainersAsyncREST in Program.cs e seguire questa procedura: 
+Per creare la richiesta, che è un oggetto HttpRequestMessage, passare a ListContainersAsyncREST in Program.cs e seguire questa procedura:
 
-- Creare l'URI da usare per la chiamata al servizio. 
+- Creare l'URI da usare per la chiamata al servizio.
 - Creare l'oggetto HttpRequestMessage e impostare il payload. Per ListContainersAsyncREST il payload è null perché non viene passato alcun elemento.
 - Aggiungere le intestazioni x-ms-date e x-ms-version della richiesta.
 - Ottenere l'intestazione dell'autorizzazione e aggiungerla.
 
-Alcune informazioni di base che è necessario conoscere: 
+Alcune informazioni di base che è necessario conoscere:
 
-- Per ListContainers, il **metodo** è `GET`. Questo valore viene impostato quando si crea l'istanza della richiesta. 
+- Per ListContainers, il **metodo** è `GET`. Questo valore viene impostato quando si crea l'istanza della richiesta.
 - La **risorsa** è la parte di query dell'URI che indica quale API viene chiamata. Il valore della risorsa è pertanto `/?comp=list`. Come indicato in precedenza, la risorsa è riportata nella pagina della documentazione di riferimento che contiene le informazioni relative all'[API ListContainers](/rest/api/storageservices/List-Containers2).
 - L'URI viene creato definendo l'endpoint del servizio BLOB per l'account di archiviazione e concatenando la risorsa. Il valore dell'**URI della richiesta** è quindi `http://contosorest.blob.core.windows.net/?comp=list`.
 - Per ListContainers, **requestBody** è null e non vi sono altre **intestazioni**.
@@ -160,7 +160,7 @@ Ora che è stata creata la richiesta, è possibile chiamare il metodo SendAsync 
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
     {
-        // If successful (status code = 200), 
+        // If successful (status code = 200),
         //   parse the XML response for the container names.
         if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
@@ -209,7 +209,7 @@ Content-Length: 1511
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
   ServiceEndpoint="http://contosorest.blob.core.windows.net/">
   <Containers>
     <Container>
@@ -308,7 +308,7 @@ Si esamineranno ora i due campi in forma canonica che sono necessari per creare 
 
 ### <a name="canonicalized-headers"></a>Intestazioni canoniche
 
-Per creare questo valore, recuperare le intestazioni che iniziano con "x-ms-", ordinarle e quindi formattarle in una singola stringa di istanze `[key:value\n]` concatenate. Per questo esempio, le intestazioni in forma canonica hanno l'aspetto seguente: 
+Per creare questo valore, recuperare le intestazioni che iniziano con "x-ms-", ordinarle e quindi formattarle in una singola stringa di istanze `[key:value\n]` concatenate. Per questo esempio, le intestazioni in forma canonica hanno l'aspetto seguente:
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -316,7 +316,7 @@ x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 
 Ecco il codice usato per creare tale output:
 
-```csharp 
+```csharp
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
@@ -444,7 +444,7 @@ https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 In ListContainersAsyncREST modificare il codice che imposta l'URI sull'API per ListBlobs. Il nome del contenitore è **container-1**.
 
 ```csharp
-String uri = 
+String uri =
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
 
@@ -516,7 +516,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Corpo della risposta (XML):** questa risposta XML mostra l'elenco di BLOB e le relative proprietà. 
+**Corpo della risposta (XML):** questa risposta XML mostra l'elenco di BLOB e le relative proprietà.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -563,7 +563,7 @@ Content-Length: 1135
 </EnumerationResults>
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si è appreso come effettuare una richiesta all'API REST di archiviazione BLOB. Con la richiesta è possibile recuperare un elenco di contenitori o un elenco di BLOB in un contenitore. Si è appreso come creare la firma di autorizzazione per la chiamata all'API REST e come usarla nella richiesta REST. Infine, si è appreso come esaminare la risposta.
 

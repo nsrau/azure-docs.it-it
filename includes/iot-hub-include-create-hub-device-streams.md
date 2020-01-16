@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 46f8e59713896cd94b96de62d982072119c32513
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 700dd305cf5365a604a5613bd5b48dbd2ac8f840
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050161"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021251"
 ---
 Questa sezione illustra come creare un hub IoT usando il [portale di Azure](https://portal.azure.com).
 
@@ -27,7 +27,7 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
 
    - **Sottoscrizione** Selezionare la sottoscrizione da usare per l'hub.
 
-   - **Gruppo di risorse**: selezionare un gruppo di risorse o crearne uno nuovo. Per crearne uno nuovo, fare clic su **Crea nuovo** e specificare il nome da usare. Per usare un gruppo di risorse esistente, selezionarlo. Per altre informazioni, vedere l'articolo su come [gestire gruppi di risorse di Azure Resource Manager](../articles/azure-resource-manager/manage-resource-groups-portal.md).
+   - **Gruppo di risorse**: selezionare un gruppo di risorse o crearne uno nuovo. Per crearne uno nuovo, fare clic su **Crea nuovo** e specificare il nome da usare. Per usare un gruppo di risorse esistente, selezionarlo. Per altre informazioni, vedere l'articolo su come [gestire gruppi di risorse di Azure Resource Manager](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
    - **Area**: scegliere l'area in cui si vuole collocare l'hub. Selezionare un'area che supporta l'anteprima dei flussi del dispositivo per l'hub IoT, ossia **Stati Uniti centrali** o **Stati Uniti centrali EUAP**.
 

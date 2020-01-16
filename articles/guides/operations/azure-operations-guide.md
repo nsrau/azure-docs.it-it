@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693444"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970851"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -178,7 +178,7 @@ Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della
 
 ## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 
-Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Per informazioni sugli amministratori delle sottoscrizione classiche, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md).
+Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Per informazioni sugli amministratori delle sottoscrizione classiche, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selezionare e abilitare una sottoscrizione di Azure
 
@@ -206,7 +206,7 @@ Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli acce
 
 Un aspetto importante dell'uso di Azure è la possibilità di visualizzare le informazioni di fatturazione. Il Portale di Azure fornisce una visualizzazione dettagliata delle informazioni di fatturazione di Azure.
 
-Per altre informazioni, vedere [Come scaricare la fattura e i dati di utilizzo giornalieri di Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+Per altre informazioni, vedere [Come scaricare la fattura e i dati di utilizzo giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Ottenere le informazioni di fatturazione dalle API di fatturazione
 
@@ -216,7 +216,7 @@ Oltre a visualizzare la fatturazione nel portale, è possibile accedere alle inf
 
 - L'API tariffario pubblicitario di Azure può essere usata per visualizzare l'elenco di tutte le risorse disponibili, insieme ai metadati e alle informazioni sui prezzi di ognuna di tali risorse.
 
-Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../../billing/billing-usage-rate-card-overview.md).
+Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prevedere i costi con il calcolatore dei prezzi
 
@@ -328,19 +328,19 @@ Poiché le macchine virtuali di Azure consentono il controllo completo della con
 
 Per la distribuzione di una macchina virtuale tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile selezionare molte immagini di sistemi operativi diversi con configurazioni diverse. Tutti i requisiti di archiviazione e di rete vengono configurati durante la distribuzione. Per altre informazioni, vedere "Creare una macchina virtuale nel Portale di Azure" per [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-Oltre alle macchine virtuali, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Oltre alle macchine virtuali, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 La distribuzione di macchine virtuali di Azure tramite PowerShell consente di automatizzare completamente la distribuzione di tutte le risorse correlate, incluse le risorse di archiviazione e di rete. Per altre informazioni, vedere [Creare una macchina virtuale Windows con PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-Oltre a distribuire singole risorse di calcolo di Azure, è possibile usare il modulo Azure PowerShell per distribuire un modello di Azure Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Oltre a distribuire singole risorse di calcolo di Azure, è possibile usare il modulo Azure PowerShell per distribuire un modello di Azure Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interfaccia della riga di comando (CLI)
 
 Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. Quando si usa il comando **vm quick-create** dell'interfaccia della riga di comando di Azure, vengono distribuite, oltre alla macchina virtuale stessa, tutte le risorse correlate, incluse le risorse di archiviazione e di rete. Per altre informazioni, vedere [Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/quick-create-cli.md).
 
-Analogamente, è possibile usare l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+Analogamente, è possibile usare l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-virtual-machines"></a>Accesso e sicurezza delle macchine virtuali
 
@@ -408,15 +408,15 @@ Per la distribuzione di un account di archiviazione sono disponibili diverse opz
 
 #### <a name="portal"></a>Portale
 
-Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md).
+Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-account-create.md).
 
-Oltre agli account di archiviazione, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello, compresi eventuali account di archiviazione. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Oltre agli account di archiviazione, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello, compresi eventuali account di archiviazione. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 La distribuzione di un account di archiviazione di Azure tramite PowerShell consente di automatizzare completamente la distribuzione dell'account stesso. Per altre informazioni, vedere [Uso di Azure PowerShell con Archiviazione di Azure](../../storage/common/storage-powershell-guide-full.md).
 
-Oltre a distribuire singole risorse di Azure, è possibile usare il modulo Azure PowerShell per distribuire un modello di Azure Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Oltre a distribuire singole risorse di Azure, è possibile usare il modulo Azure PowerShell per distribuire un modello di Azure Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interfaccia della riga di comando (CLI)
 
@@ -474,7 +474,7 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 - Modelli di Azure Resource Manager
 
 > **Uso consigliato**: ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
-> 
+>
 > **Come iniziare**: Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accesso e sicurezza delle reti virtuali

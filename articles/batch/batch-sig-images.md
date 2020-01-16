@@ -2,18 +2,18 @@
 title: Usare la raccolta di immagini condivise per creare un pool personalizzato-Azure Batch | Microsoft Docs
 description: Creare un pool di batch con la raccolta di immagini condivise per eseguire il provisioning di immagini personalizzate nei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: lahugh
-ms.openlocfilehash: fa232fb48e80e3ae3751920e4215c4b4d3ded19a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827925"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029661"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Usare la raccolta di immagini condivise per creare un pool personalizzato
 
@@ -79,7 +79,7 @@ Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. 
 
 Per creare un'immagine gestita da uno snapshot, usare gli strumenti da riga di comando di Azure, ad esempio il comando [az image create](/cli/azure/image). Creare un'immagine specificando uno snapshot del disco del sistema operativo e, facoltativamente, uno o più snapshot del disco dati.
 
-### <a name="create-a-shared-image-gallery"></a>Creare una raccolta di immagini condivise
+### <a name="create-a-shared-image-gallery"></a>Creare una Raccolta immagini condivise
 
 Dopo aver creato l'immagine gestita, è necessario creare una raccolta di immagini condivise per rendere disponibile l'immagine personalizzata. Per informazioni su come creare una raccolta di immagini condivise per le immagini, vedere [creare una raccolta di immagini condivise con l'interfaccia](../virtual-machines/linux/shared-images.md) della riga di comando di Azure o [creare una raccolta di immagini condivise usando il portale di Azure](../virtual-machines/linux/shared-images-portal.md).
 
@@ -138,7 +138,7 @@ Usare la procedura seguente per creare un pool da un'immagine condivisa nel port
 1. Selezionare **pool** e quindi **Aggiungi** per creare un nuovo pool.
 1. Nella sezione **tipo di immagine** selezionare **raccolta immagini condivise**.
 1. Completare le sezioni rimanenti con le informazioni sull'immagine gestita.
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
 ![Creare un pool con da un'immagine condivisa con il portale.](media/batch-sig-images/create-custom-pool.png)
 

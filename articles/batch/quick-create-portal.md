@@ -2,21 +2,21 @@
 title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Portale'
 description: Imparare rapidamente a eseguire un processo Batch con il portale di Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094130"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029421"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo batch con il portale di Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Avvio rapido: Eseguire il primo processo batch con il portale di Azure
 
 Questa guida introduttiva illustra come usare il portale di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* di base nel pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
@@ -56,7 +56,7 @@ Ora che è disponibile un account Batch, creare un pool di esempio di nodi di ca
 
 3. In **Sistema operativo** selezionare le impostazioni seguenti (è possibile esplorare altre opzioni).
   
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
    |**Tipo di immagine**|Marketplace (Linux/Windows)|
    |**Autore**     |MicrosoftWindowsServer|
@@ -67,7 +67,7 @@ Ora che è disponibile un account Batch, creare un pool di esempio di nodi di ca
 
 4. Scorrere verso il basso per immettere le impostazioni di **Dimensioni nodo** e **Piano**. Le dimensioni consigliate per i nodi offrono un buon compromesso in termini di costi/prestazioni per questo esempio rapido.
   
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
    |**Piano tariffario del nodo**     |Standard_A1|
    |**Nodi dedicati target**     |2|
@@ -94,7 +94,7 @@ Dopo aver creato un pool, creare un processo da eseguire nel pool stesso. Un pro
 
 Dopo aver creato il processo si aprirà la pagina **Attività**.
 
-## <a name="create-tasks"></a>Creare le attività
+## <a name="create-tasks"></a>Creare attività
 
 Creare ora attività di esempio da eseguire del processo. Si creano in genere più attività che Batch accoda e distribuisce per l'esecuzione nei nodi di calcolo. In questo esempio si creano due attività identiche. Ogni attività esegue una riga di comando per visualizzare le variabili di ambiente Batch in un nodo di calcolo e quindi attende 90 secondi. 
 

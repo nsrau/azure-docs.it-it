@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/13/2020
+ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: bfa5d240ba4905f79274941568933daf1425bf8b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932892"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969421"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso sulle metriche con un modello di Resource Manager
 
@@ -29,7 +29,7 @@ I passaggi di base sono i seguenti:
 1. Usare uno dei modelli di seguito come file JSON che descrive come creare l'avviso.
 2. Modificare e usare il file di parametri corrispondente come JSON per personalizzare l'avviso.
 3. Per il parametro `metricName`, vedere le metriche disponibili in [monitoraggio di Azure metriche supportate](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-4. Distribuire il modello usando un [metodo di distribuzione qualsiasi](../../azure-resource-manager/resource-group-template-deploy.md).
+4. Distribuire il modello usando un [metodo di distribuzione qualsiasi](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Modello per un semplice avviso delle metriche con soglia statica
 
@@ -378,6 +378,13 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.json ai fini di qu
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
+    "ignoreDataBefore": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format, e.g. '2019-12-31T22:00:00Z')."
+            }
+        },
         "timeAggregation": {
             "type": "string",
             "defaultValue": "Average",
@@ -455,6 +462,7 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.json ai fini di qu
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
+                "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -511,6 +519,9 @@ Salvare il codice JSON seguente come simpledynamicmetricalert.parameters.json e 
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
+    "ignoreDataBefore": {
+            "value": ""
+        },
         "timeAggregation": {
             "value": "Average"
         },
@@ -559,7 +570,7 @@ Si notino i vincoli seguenti quando si usano le dimensioni in una regola di avvi
 - È possibile selezionare un solo valore per dimensione all'interno di ogni criterio.
 - Non è possibile utilizzare "\*" come valore della dimensione.
 - Quando le metriche configurate in criteri diversi supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nei criteri pertinenti).
-    - Nell'esempio seguente, poiché le metriche **Transactions** e **SuccessE2ELatency** hanno una dimensione **nome API** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **nome API** , *Criterion2* deve anche impostare un valore *"GetBlob"* per la dimensione **nome API** .
+    - Nell'esempio seguente, poiché le metriche **Transactions** e **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName** , *Criterion2* deve impostare anche un valore *"GetBlob"* per la dimensione **ApiName** .
 
 
 Salvare il codice JSON seguente come advancedstaticmetricalert.json ai fini di questa procedura dettagliata.
