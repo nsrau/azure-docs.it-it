@@ -4,15 +4,15 @@ description: Viene descritto come usare l'API REST di Azure Analysis Services pe
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573385"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029870"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
@@ -30,7 +30,7 @@ L'URL di base presenta questo formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Si consideri ad esempio un modello denominato AdventureWorks in un server denominato myserver che si trova nell'area di Azure Stati Uniti occidentali. Il nome del server è:
+Si consideri ad esempio un modello denominato AdventureWorks in un server denominato `myserver`, che si trova nell'area di Azure Stati Uniti occidentali. Il nome del server è:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -97,12 +97,12 @@ Il corpo dovrebbe essere simile al seguente:
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| Nome             | Type  | Descrizione  |Default  |
+| Nome             | Tipo  | Description  |Predefinito  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
-| `MaxParallelism` | int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
-| `RetryCount`     | int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
+| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
+| `RetryCount`     | Int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
 | `Objects`        | Array | Una matrice di oggetti da elaborare. Ogni oggetto include: "table" quando viene elaborata un'intera tabella oppure "table" e "partition" quando viene elaborata una partizione. Se non viene specificato alcun oggetto, viene aggiornato l'intero modello. |   Elaborare l'intero modello      |
 
 CommitMode equivale a partialBatch. Viene usato quando si esegue un caricamento iniziale di set di dati di grandi dimensioni che potrebbe richiedere ore. Se l'operazione di aggiornamento non riesce dopo l'avvenuto commit di uno o più batch, i batch il cui commit è riuscito rimarranno nello stato di commit (non sarà eseguito il rollback dei batch il cui commit è riuscito).
@@ -110,9 +110,20 @@ CommitMode equivale a partialBatch. Viene usato quando si esegue un caricamento 
 > [!NOTE]
 > Al momento della stesura del presente testo, la dimensione del batch è il valore MaxParallelism, ma questo valore potrebbe cambiare.
 
+### <a name="status-values"></a>Valori di stato
+
+|Valore di stato  |Description  |
+|---------|---------|
+|`notStarted`    |   Operazione non ancora avviata.      |
+|`inProgress`     |   Operazione in corso.      |
+|`timedOut`     |    Timeout dell'operazione in base al timeout specificato dall'utente.     |
+|`cancelled`     |   Operazione annullata dall'utente o dal sistema.      |
+|`failed`     |   Operazione non riuscita.      |
+|`succeeded`      |   Operazione riuscita.      |
+
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Per controllare lo stato di un'operazione di aggiornamento, usare il verbo GET sull'ID aggiornamento. Ecco un esempio del corpo della risposta. Se l'operazione è in corso, nello stato viene restituito **inProgress**.
+Per controllare lo stato di un'operazione di aggiornamento, usare il verbo GET sull'ID aggiornamento. Ecco un esempio del corpo della risposta. Se l'operazione è in corso, `inProgress` viene restituito nello stato.
 
 ```
 {
@@ -211,9 +222,9 @@ Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/devel
 3.  Eseguire l'esempio.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Esempi](analysis-services-samples.md)   
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

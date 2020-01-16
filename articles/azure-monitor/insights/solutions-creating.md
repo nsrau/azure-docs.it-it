@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402054"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969690"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Progettare e creare una soluzione di gestione in Azure (anteprima)
 > [!NOTE]
@@ -23,7 +23,7 @@ Le [soluzioni di gestione]( solutions.md) includono scenari di gestione in pacch
 
 ## <a name="what-is-a-management-solution"></a>Che cos'è una soluzione di gestione?
 
-Le soluzioni di gestione contengono risorse Azure che interagiscono per raggiungere un determinato scenario di gestione.  Vengono implementate come [modelli di gestione delle risorse](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) conteneneti informazioni dettagliate su come installare e configurare le risorse contenute quando si installa la soluzione.
+Le soluzioni di gestione contengono risorse Azure che interagiscono per raggiungere un determinato scenario di gestione.  Vengono implementate come [modelli di gestione delle risorse](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) conteneneti informazioni dettagliate su come installare e configurare le risorse contenute quando si installa la soluzione.
 
 La strategia di base consiste nell'avviare la soluzione di gestione compilando i singoli componenti nell'ambiente Azure.  Dopo che la funzionalità opera correttamente, è possibile avviare la creazione del pacchetto in un [file di soluzione di gestione]( solutions-solution-file.md). 
 
@@ -64,7 +64,7 @@ Dopo avere configurato e testato i componenti che faranno parte della soluzione,
 
 
 ## <a name="test-your-solution"></a>Testare la soluzione personalizzata
-Durante lo sviluppo della soluzione, è necessario installarla e testarla nell'area di lavoro.  È possibile farlo usando uno dei metodi disponibili per [testare e installare i modelli di Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
+Durante lo sviluppo della soluzione, è necessario installarla e testarla nell'area di lavoro.  È possibile farlo usando uno dei metodi disponibili per [testare e installare i modelli di Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="publish-your-solution"></a>Pubblicare la soluzione
 Dopo avere completato e testato la soluzione, è possibile renderla disponibile ai clienti tramite le seguenti origini.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311531"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976443"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Pubblicare un annuncio per un lab in Azure DevTest Labs
 
@@ -160,10 +160,10 @@ Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, to
 
 È possibile distribuire un modello di Azure Resource Manager tramite uno dei modi seguenti:
 
-- [Portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+- [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md)
+- [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si modificano o impostano i criteri per un lab, è possibile pubblicare un annuncio per informare gli utenti. [Configurare criteri e pianificazioni](devtest-lab-set-lab-policy.md) contiene informazioni sull'applicazione di restrizioni e convenzioni nella sottoscrizione usando criteri personalizzati.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91e95dcf7cfc46073e2fd752a0e7e5ae6fce4ee8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ff221a32ff6c995d019b13f20ca2c3f9e2027f63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300068"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980742"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET Core)
 
@@ -69,7 +69,7 @@ Questa sezione illustra dettagliatamente come configurare l'ambiente di sviluppo
 1. Nella finestra di dialogo **Archiviazione di Azure** selezionare l'account di archiviazione di Azure da usare per questa esercitazione. Per creare un nuovo account di archiviazione di Azure, selezionare **Crea un nuovo Account di archiviazione** e completare il modulo. Dopo aver selezionato un account di archiviazione esistente o averne creato uno nuovo, selezionare **Aggiungi**. Visual Studio installa il pacchetto NuGet per Archiviazione di Azure e inserisce una stringa di connessione di archiviazione in **appsettings.json**.
 
 > [!TIP]
-> Per informazioni su come creare un account di archiviazione con il [portale di Azure](https://portal.azure.com), vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+> Per informazioni su come creare un account di archiviazione con il [portale di Azure](https://portal.azure.com), vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 >
 > Si può creare un account di archiviazione anche tramite [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](../storage/common/storage-azure-cli.md) o [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -325,7 +325,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
 
     return View(blobs);
     ```
-    Di seguito viene mostrato il metodo `ListBlobs` completato:
+    Di seguito viene illustrato il metodo `ListBlobs` completato:
 
     ```csharp
     public ActionResult ListBlobs()

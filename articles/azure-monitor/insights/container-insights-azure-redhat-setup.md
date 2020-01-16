@@ -3,12 +3,12 @@ title: Configurare i cluster OpenShift di Azure Red Hat con monitoraggio di Azur
 description: Questo articolo descrive come configurare il monitoraggio di un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: cb68d08f86efa395f9d4567a00e74632a293ea3f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0d5ed362d6eb76e2fa04b88e9e45c890118a53eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930370"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979780"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurare i cluster OpenShift di Azure Red Hat con monitoraggio di Azure per i contenitori
 
@@ -21,7 +21,7 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avan
 È possibile abilitare il monitoraggio di Azure per i contenitori per le distribuzioni nuove o di una o più distribuzioni esistenti di Azure Red Hat OpenShift usando i metodi supportati seguenti:
 
 - Per un cluster esistente dal portale di Azure o utilizzando Azure Resource Manager modello
-- Per un nuovo cluster che usa il modello di Azure Resource Manager 
+- Per un nuovo cluster che usa il modello di Azure Resource Manager
 
 ## <a name="supported-and-unsupported-features"></a>Funzionalità supportate e non supportate
 
@@ -42,7 +42,7 @@ Eseguire la procedura seguente per distribuire un cluster Azure Red Hat OpenShif
 
 Questo metodo include due modelli JSON. Un modello specifica la configurazione per distribuire il cluster con il monitoraggio abilitato e l'altro contiene i valori dei parametri configurati per specificare gli elementi seguenti:
 
-- ID della risorsa cluster OpenShift di Azure Red Hat. 
+- ID della risorsa cluster OpenShift di Azure Red Hat.
 
 - Il gruppo di risorse in cui è distribuito il cluster.
 
@@ -60,15 +60,15 @@ Questo metodo include due modelli JSON. Un modello specifica la configurazione p
 
 - Numero di nodi di calcolo nel profilo del pool di agenti.
 
-- Il numero di nodi dell'infrastruttura nel profilo del pool di agenti. 
+- Il numero di nodi dell'infrastruttura nel profilo del pool di agenti.
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
 
-- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
-- [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario creare l'area di lavoro Log Analytics. Per creare l'area di lavoro, è possibile configurarla tramite [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
@@ -76,20 +76,20 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json` 
+    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
 
-2. Accedere a Azure 
+2. Accedere a Azure
 
     ```azurecli
     az login    
     ```
-    
+
     Se si ha accesso a più sottoscrizioni, eseguire `az account set -s {subscription ID}` sostituendo `{subscription ID}` con la sottoscrizione che si vuole usare.
- 
-3. Creare un gruppo di risorse per il cluster, se non ne è già presente uno. Per un elenco delle aree di Azure che supportano OpenShift in Azure, vedere [aree supportate](../../openshift/supported-resources.md#azure-regions). 
+
+3. Creare un gruppo di risorse per il cluster, se non ne è già presente uno. Per un elenco delle aree di Azure che supportano OpenShift in Azure, vedere [aree supportate](../../openshift/supported-resources.md#azure-regions).
 
     ```azurecli
-    az group create -g <clusterResourceGroup> -l <location> 
+    az group create -g <clusterResourceGroup> -l <location>
     ```
 
 4. Modificare il file di parametri JSON **newClusterWithMonitoringParam. JSON** e aggiornare i valori seguenti:
@@ -98,19 +98,19 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
     - *NomeCluster*
     - *aadTenantId*
     - *aadClientId*
-    - *aadClientSecret* 
-    - *aadCustomerAdminGroupId* 
+    - *aadClientSecret*
+    - *aadCustomerAdminGroupId*
     - *workspaceResourceId*
     - *masterNodeCount*
     - *computeNodeCount*
     - *infraNodeCount*
 
-5. Il passaggio seguente consente di distribuire il cluster con monitoraggio abilitato mediante l'interfaccia della riga di comando di Azure. 
+5. Il passaggio seguente consente di distribuire il cluster con monitoraggio abilitato mediante l'interfaccia della riga di comando di Azure.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json 
+    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
- 
+
     L'output sarà simile al seguente:
 
     ```azurecli
@@ -122,30 +122,30 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 Eseguire la procedura seguente per abilitare il monitoraggio di un cluster OpenShift di Azure Red Hat distribuito in Azure. È possibile eseguire questa operazione dalla portale di Azure o utilizzando i modelli forniti.
 
 ### <a name="from-the-azure-portal"></a>Dal portale di Azure
- 
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Dal menu portale di Azure o dalla Home page selezionare **monitoraggio di Azure**. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**. 
+2. Dal menu portale di Azure o dalla Home page selezionare **monitoraggio di Azure**. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**.
 
 3. Nella pagina **Monitoraggio - Contenitori** selezionare **Cluster non monitorati**.
 
 4. Dall'elenco dei cluster non monitorati trovare il cluster nell'elenco e fare clic su **Abilita**. È possibile identificare i risultati nell'elenco cercando il valore **Aro** sotto il **tipo di cluster**di colonne.
 
 5. Se nella pagina **Onboarding di Monitoraggio di Azure per i contenitori** è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione del cluster, selezionarla nell'elenco a discesa.  
-    L'elenco preseleziona l'area di lavoro predefinita e la posizione in cui è distribuito il cluster nella sottoscrizione. 
+    L'elenco preseleziona l'area di lavoro predefinita e la posizione in cui è distribuito il cluster nella sottoscrizione.
 
     ![Abilitare il monitoraggio per i cluster non monitorati](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Se si vuole creare una nuova area di lavoro Log Analytics per archiviare i dati di monitoraggio dal cluster, seguire le istruzioni in [Creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Assicurarsi di creare l'area di lavoro nella stessa sottoscrizione in cui è distribuito il cluster RedHat OpenShift. 
- 
-Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster. 
+    >Se si vuole creare una nuova area di lavoro Log Analytics per archiviare i dati di monitoraggio dal cluster, seguire le istruzioni in [Creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Assicurarsi di creare l'area di lavoro nella stessa sottoscrizione in cui è distribuito il cluster RedHat OpenShift.
+
+Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster.
 
 ### <a name="enable-using-an-azure-resource-manager-template"></a>Abilitare l'uso di un modello di Azure Resource Manager
 
 Questo metodo include due modelli JSON. Un modello JSON specifica la configurazione per abilitare il monitoraggio e l'altro contiene i valori dei parametri da configurare per specificare quanto segue:
 
-- ID risorsa cluster OpenShift di Azure RedHat. 
+- ID risorsa cluster OpenShift di Azure RedHat.
 
 - Il gruppo di risorse in cui è distribuito il cluster.
 
@@ -153,11 +153,11 @@ Questo metodo include due modelli JSON. Un modello JSON specifica la configurazi
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
 
-- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
-- [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario creare l'area di lavoro Log Analytics. Per creare l'area di lavoro, è possibile configurarla tramite [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
@@ -165,9 +165,9 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json` 
+    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
 
-2. Accedere a Azure 
+2. Accedere a Azure
 
     ```azurecli
     az login    
@@ -184,15 +184,15 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 4. Eseguire il comando seguente per identificare la posizione del cluster e l'ID risorsa:
 
     ```azurecli
-    az openshift show -g <clusterResourceGroup> -n <clusterName> 
+    az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. Modificare il file di parametri JSON **existingClusterParam. JSON** e aggiornare i valori *araResourceId* e *araResoruceLocation*. Il valore per **workspaceResourceId** è l'ID risorsa completo dell'area di lavoro Log Analytics, che include il nome dell'area di lavoro. 
+5. Modificare il file di parametri JSON **existingClusterParam. JSON** e aggiornare i valori *araResourceId* e *araResoruceLocation*. Il valore per **workspaceResourceId** è l'ID risorsa completo dell'area di lavoro Log Analytics, che include il nome dell'area di lavoro.
 
-6. Per la distribuzione con l'interfaccia della riga di comando di Azure, eseguire i comandi seguenti: 
+6. Per la distribuzione con l'interfaccia della riga di comando di Azure, eseguire i comandi seguenti:
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json 
+    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     L'output sarà simile al seguente:

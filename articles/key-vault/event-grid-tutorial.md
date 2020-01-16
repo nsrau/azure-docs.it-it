@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133328"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981604"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure (anteprima)
 
@@ -22,7 +22,7 @@ L'integrazione di Azure Key Vault con Griglia di eventi di Azure, attualmente in
 
 Questa guida illustra come ricevere notifiche di Key Vault tramite Griglia di eventi e come rispondere alle modifiche dello stato tramite Automazione di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Un insieme di credenziali delle chiavi nella sottoscrizione di Azure. È possibile creare rapidamente un nuovo insieme di credenziali delle chiavi seguendo la procedura descritta in [Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure](quick-create-cli.md).
@@ -180,11 +180,11 @@ Verificare che la sottoscrizione di Griglia di eventi sia configurata correttame
 
 1. Selezionare il processo recente ed esaminare la richiesta POST inviata da Griglia di eventi al webhook. Esaminare il JSON e verificare che i parametri dell'insieme di credenziali delle chiavi e del tipo di evento siano corretti. Se il parametro del "tipo di evento" nell'oggetto JSON corrisponde all'evento che si è verificato nell'insieme di credenziali delle chiavi (in questo esempio Microsoft.KeyVault.SecretNearExpiry), il test è riuscito.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="you-cant-create-an-event-subscription"></a>Non è possibile creare una sottoscrizione di evento
 
-Registrare di nuovo il provider dell'insieme di credenziali delle chiavi e Griglia di eventi nei provider di risorse della sottoscrizione di Azure. Vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/resource-manager-supported-services.md).
+Registrare di nuovo il provider dell'insieme di credenziali delle chiavi e Griglia di eventi nei provider di risorse della sottoscrizione di Azure. Vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -195,7 +195,7 @@ Se si usa un sistema basato su polling per cercare le modifiche dello stato dei 
 Altre informazioni:
 
 
-- Panoramica [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md)
+- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md)
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](event-grid-logicapps.md)
 - [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../event-grid/event-schema-key-vault.md)
 - [Panoramica di Azure Key Vault](key-vault-overview.md)

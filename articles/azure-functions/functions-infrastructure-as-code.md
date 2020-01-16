@@ -4,12 +4,12 @@ description: Informazioni su come creare un modello di Azure Resource Manager pe
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 6d5b7b33bfb2645128a545bb371c70188a724c40
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920628"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978797"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -372,7 +372,7 @@ Un'app per le funzioni in un piano Premium deve avere la proprietà `serverFarmI
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## <a name="deploy-on-app-service-plan"></a>Distribuisci nel piano di servizio app
 
@@ -419,7 +419,7 @@ Per eseguire l'app in Linux, è necessario impostare anche il `kind` su `Linux`:
 }
 ```
 
-### <a name="create-a-function-app"></a>Creare un'app per le funzioni 
+### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
 Un'app per le funzioni in un piano di servizio app deve avere la proprietà `serverFarmId` impostata sull'ID risorsa del piano creato in precedenza.
 
@@ -637,10 +637,10 @@ Un'app per le funzioni contiene numerose risorse figlio che possono essere usate
 
 Il modello può essere distribuito in uno dei modi seguenti:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure
 

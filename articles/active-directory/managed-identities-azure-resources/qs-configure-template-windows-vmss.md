@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f006832fd1f1386adaf89b0045272a70db2df3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9854027bbdfaf22c650ae9e2e0aa1eec457f89dd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429957"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977954"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurare le identità gestite per le risorse di Azure in una scala di macchine virtuali di Azure usando un modello
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.
 
 Questo articolo illustra come eseguire le seguenti operazioni di identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali di Azure mediante il modello di distribuzione Azure Resource Manager:
 - Abilitare e disabilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure
@@ -54,7 +54,7 @@ Analogamente al portale di Azure e all'esecuzione dello script, i modelli di ges
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](../../azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
    - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) di Visual Studio per creare e distribuire un modello.  
 
-Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. L'abilitazione delle identità gestite per le risorse di Azure in una macchina virtuale nuova o esistente viene eseguita allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](../../azure-resource-manager/deployment-modes.md) per le distribuzioni.
+Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. L'abilitazione delle identità gestite per le risorse di Azure in una macchina virtuale nuova o esistente viene eseguita allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](../../azure-resource-manager/templates/deployment-modes.md) per le distribuzioni.
 
 ## <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
 
@@ -66,7 +66,7 @@ In questa sezione si abiliterà e disabiliterà l'identità gestita assegnata da
 2. Per abilitare l'identità gestita assegnata dal sistema, caricare il modello in un editor, individuare la risorsa `Microsoft.Compute/virtualMachinesScaleSets` interessata nella sezione risorse e aggiungere la proprietà `identity` allo stesso livello della proprietà `"type": "Microsoft.Compute/virtualMachinesScaleSets"`. Usare la sintassi seguente:
 
    ```JSON
-   "identity": { 
+   "identity": {
        "type": "SystemAssigned"
    }
    ```
@@ -106,14 +106,14 @@ In questa sezione si abiliterà e disabiliterà l'identità gestita assegnata da
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
             }
         }
     ]
-   ``` 
+   ```
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Disabilitare un'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali di Azure
 
@@ -129,12 +129,12 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
 
    **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
 
-   Se la versione API è `2017-12-01` e il set di scalabilità di macchine virtuali ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità gestite assegnate dall'utente. 
-   
-    
+   Se la versione API è `2017-12-01` e il set di scalabilità di macchine virtuali ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità gestite assegnate dall'utente.
+
+
 
    L'esempio seguente illustra come rimuovere un'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali senza identità gestite assegnate dall'utente:
-   
+
    ```json
    {
        "name": "[variables('vmssName')]",
@@ -157,7 +157,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
 ### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Associare l'identità gestita assegnata dall'utente a un set di scalabilità di macchine virtuali
 
 1. Nell'elemento `resources` aggiungere la voce seguente per associare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali.  Assicurarsi di sostituire `<USERASSIGNEDIDENTITY>` con il nome dell'identità gestita assegnata dall'utente che è stata creata.
-   
+
    **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
 
    Se la versione API è `2018-06-01`, le identità gestite assegnate dall'utente vengono archiviate nel formato dizionario `userAssignedIdentities` e il valore `<USERASSIGNEDIDENTITYNAME>` deve essere archiviato in una variabile definita nella sezione `variables` del modello.
@@ -173,12 +173,12 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
            }
        }
-    
+
    }
    ```   
 
    **Microsoft.Compute/virtualMachineScaleSets versione API 2017-12-01**
-    
+
    Se `apiVersion` è `2017-12-01` o una versione precedente, le identità gestite assegnate dall'utente vengono archiviate nella matrice `identityIds` e il valore `<USERASSIGNEDIDENTITYNAME>` deve essere archiviato in una variabile definita nella sezione variabili del modello.
 
    ```json
@@ -194,12 +194,12 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
        }
 
    }
-   ``` 
+   ```
 > [!NOTE]
 > Se lo si desidera, è possibile eseguire il provisioning delle identità gestite per le risorse di Azure estensione del set di scalabilità di macchine virtuali specificando tale estensione nell'elemento `extensionProfile` del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [eseguire la migrazione dall'estensione della macchina virtuale ad Azure IMDS per l'autenticazione](howto-migrate-vm-extension.md).
 
 3. Al termine il modello dovrebbe essere simile al seguente:
-   
+
    **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**   
 
    ```json
@@ -234,7 +234,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -277,7 +277,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -305,9 +305,9 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
         }
    }
    ```
-   
+
    **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
-    
+
    Per rimuovere una singola identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali, rimuoverla dal dizionario `userAssignedIdentities`.
 
    Se si dispone di un'identità assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
@@ -317,8 +317,7 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
    Per rimuovere una singola identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali, rimuoverla dalla matrice `identityIds`.
 
    Se si dispone di un'identità gestita assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
-   
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica delle identità gestite per le risorse di Azure](overview.md).
-

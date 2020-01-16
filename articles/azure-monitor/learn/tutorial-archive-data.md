@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893349"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979823"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiviare dati di metrica e log di Azure con Archiviazione di Azure
 
-I diversi livelli dell'ambiente Azure producono dati di metrica e log che possono essere archiviati in un account di archiviazione di Azure. È consigliabile eseguire questa operazione per mantenere una cronologia dei dati di monitoraggio nel tempo in un archivio non ricercabile e poco costoso alla fine del periodo di conservazione dei dati. 
+I diversi livelli dell'ambiente Azure producono dati di metrica e log che possono essere archiviati in un account di archiviazione di Azure. È consigliabile eseguire questa operazione per mantenere una cronologia dei dati di monitoraggio nel tempo in un archivio non ricercabile e poco costoso alla fine del periodo di conservazione dei dati.
 
-- Le metriche della piattaforma di Monitoraggio di Azure vengono conservate per 93 giorni. 
-- I log di diagnostica delle risorse vengono visualizzati solo se inoltrati a Log Analytics, in cui hanno un periodo di conservazione configurabile con un minimo di 30 giorni. 
+- Le metriche della piattaforma di Monitoraggio di Azure vengono conservate per 93 giorni.
+- I log di diagnostica delle risorse vengono visualizzati solo se inoltrati a Log Analytics, in cui hanno un periodo di conservazione configurabile con un minimo di 30 giorni.
 - Le voci di log attività vengono conservate per 90 giorni.  
 
 Questa esercitazione illustra il processo di configurazione dell'ambiente di Azure al fine di archiviare i dati in un account di archiviazione.
@@ -42,11 +42,11 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-È necessario innanzitutto configurare un account di archiviazione in cui verranno archiviati i dati di monitoraggio. A questo scopo, [eseguire la procedura seguente](../../storage/common/storage-quickstart-create-account.md).
+È necessario innanzitutto configurare un account di archiviazione in cui verranno archiviati i dati di monitoraggio. A questo scopo, [eseguire la procedura seguente](../../storage/common/storage-account-create.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Indirizzare i log della sottoscrizione all'account di archiviazione
 
-A questo punto si è pronti per iniziare a configurare l'ambiente di Azure per indirizzare i dati di monitoraggio verso un account di archiviazione. È innanzitutto necessario configurare i dati a livello di sottoscrizione, ovvero quelli contenuti nel log attività di Azure, affinché vengano instradati all'account di archiviazione. Il [**log attività di Azure**](../../azure-monitor/platform/activity-logs-overview.md) contiene una cronologia degli eventi a livello di sottoscrizione in Azure. È possibile visualizzarlo nel portale di Azure per determinare *chi* ha creato, aggiornato o eliminato *quali* risorse e *quando* è stato fatto.
+A questo punto si è pronti per iniziare a configurare l'ambiente di Azure per indirizzare i dati di monitoraggio verso un account di archiviazione. È innanzitutto necessario configurare i dati a livello di sottoscrizione, ovvero quelli contenuti nel log attività di Azure, affinché vengano instradati all'account di archiviazione. Il [**log attività di Azure**](../../azure-monitor/platform/platform-logs-overview.md) contiene una cronologia degli eventi a livello di sottoscrizione in Azure. È possibile visualizzarlo nel portale di Azure per determinare *chi* ha creato, aggiornato o eliminato *quali* risorse e *quando* è stato fatto.
 
 1. Fare clic sul pulsante **Monitoraggio** nell'elenco di navigazione a sinistra, quindi su **Log attività**.
 
@@ -96,7 +96,7 @@ Ora vengono configurati i dati a livello di risorsa, ovvero le metriche e i log 
 
 6. Impostare il dispositivo di scorrimento **Retention (days)** (Conservazione (giorni)) su 30. Questo dispositivo di scorrimento consente di impostare un numero di giorni per conservare i dati di monitoraggio nell'account di archiviazione. Monitoraggio di Azure elimina automaticamente i dati precedenti al numero di giorni specificato. Se il valore di conservazione è zero giorni, i dati vengono conservati all'infinito.
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di archiviazione.
 
@@ -137,16 +137,16 @@ Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di arc
 
 9. Nella sezione visualizzata scegliere l'account di archiviazione creato nel passaggio precedente **Creare un account di archiviazione**.
 
-10. Fare clic su **Save**.
+10. Fare clic su **Salva**.
 
 Il monitoraggio dei dati nella macchina virtuale viene quindi trasmesso all'account di archiviazione.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visualizzare i dati di monitoraggio nell'account di archiviazione
 
 > [!WARNING]
-> Il formato dei dati di log nell'account di archiviazione verrà modificato in JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> Il formato dei dati di log nell'account di archiviazione verrà modificato in JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Se è stata seguita la procedura precedente, il processo di trasmissione dei dati all'account di archiviazione è iniziato.
 
@@ -199,4 +199,3 @@ Per sfruttare al meglio i dati e derivare informazioni aggiuntive, inviare i dat
 
 > [!div class="nextstepaction"]
 > [Introduzione a Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
-

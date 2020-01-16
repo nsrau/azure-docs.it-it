@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460623"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975698"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
 Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
 
-Per informazioni su come creare un account di archiviazione di Azure, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
+Per informazioni su come creare un account di archiviazione di Azure, vedere [Creare un account di archiviazione](storage-account-create.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipi di account di archiviazione
 
@@ -72,7 +72,7 @@ Gli account BlockBlobStorage non supportano attualmente la suddivisione in livel
 
 ### <a name="filestorage-accounts"></a>Account filestorage
 
-Un account filestorage è un account di archiviazione specializzato usato per archiviare e creare condivisioni file Premium. Questo tipo di account di archiviazione supporta i file ma non i BLOB in blocchi, i BLOB di Accodamento, i BLOB di pagine, le tabelle o le code. 
+Un account filestorage è un account di archiviazione specializzato usato per archiviare e creare condivisioni file Premium. Questo tipo di account di archiviazione supporta i file ma non i BLOB in blocchi, i BLOB di Accodamento, i BLOB di pagine, le tabelle o le code.
 
 Gli account filestorage offrono caratteristiche esclusive dedicate alle prestazioni, ad esempio il picchi di IOPS. Per ulteriori informazioni su queste caratteristiche, vedere la sezione [livelli di prestazioni della condivisione file](../files/storage-files-planning.md#file-share-performance-tiers) della Guida alla pianificazione dei file.
 
@@ -150,15 +150,15 @@ Ogni richiesta effettuata all'account di archiviazione deve essere autorizzata. 
 - **Firma di accesso condiviso:** Usare una firma di accesso condiviso per delegare l'accesso alle risorse nell'account di archiviazione, se non si usa Azure AD autorizzazione. Una firma di accesso condiviso è un token che incapsula nell'URL tutte le informazioni necessarie per autorizzare una richiesta ad Archiviazione di Azure. È possibile specificare la risorsa di archiviazione, le autorizzazioni concesse e l'intervallo per cui sono valide le autorizzazioni come parte della firma di accesso condiviso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
 > [!NOTE]
-> L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. 
+> L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa.
 >
 > Microsoft consiglia di usare Azure AD autorizzazione per le applicazioni di Accodamento e BLOB di archiviazione di Azure, quando possibile.
 
 ## <a name="copying-data-into-a-storage-account"></a>Copia dei dati in un account di archiviazione
 
-Microsoft fornisce utilità e librerie per l'importazione dei dati da dispositivi di archiviazione locali o provider di archiviazione cloud di terze parti. La soluzione da usare dipende dalla quantità di dati che si sta trasferendo. 
+Microsoft fornisce utilità e librerie per l'importazione dei dati da dispositivi di archiviazione locali o provider di archiviazione cloud di terze parti. La soluzione da usare dipende dalla quantità di dati che si sta trasferendo.
 
-Quando effettua l'aggiornamento a un account per utilizzo generico v2 da un account per utilizzo generico v1 o un account di archiviazione BLOB, la migrazione dei dati viene eseguita automaticamente. Microsoft consiglia questo percorso per l'aggiornamento dell'account. Tuttavia, se si decide di spostare i dati da un account per utilizzo generico V1 a un account di archiviazione BLOB, i dati verranno migrati manualmente, usando gli strumenti e le librerie descritti di seguito. 
+Quando effettua l'aggiornamento a un account per utilizzo generico v2 da un account per utilizzo generico v1 o un account di archiviazione BLOB, la migrazione dei dati viene eseguita automaticamente. Microsoft consiglia questo percorso per l'aggiornamento dell'account. Tuttavia, se si decide di spostare i dati da un account per utilizzo generico V1 a un account di archiviazione BLOB, i dati verranno migrati manualmente, usando gli strumenti e le librerie descritti di seguito.
 
 ### <a name="azcopy"></a>AzCopy
 
@@ -183,5 +183,5 @@ Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un account di archiviazione](storage-quickstart-create-account.md)
+- [Creare un account di archiviazione](storage-account-create.md)
 - [Creare un account di archiviazione BLOB in blocchi](../blobs/storage-blob-create-account-block-blob.md)

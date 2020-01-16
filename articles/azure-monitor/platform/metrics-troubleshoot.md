@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243232"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974861"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi relativi ai grafici delle metriche
 
@@ -29,7 +29,7 @@ Quando si fa clic sul pulsante **Selezionare una risorsa**, la risorsa non viene
 
 1. Assicurarsi di aver selezionato il gruppo di risorse corretto.
     > [!WARNING]
-    > Per prestazioni ottimali, quando si apre Esplora metriche, l'elenco a discesa **Gruppo di risorse** non dispone di nessun gruppo di risorse pre-selezionate. È necessario selezionare almeno un gruppo prima di poter visualizzare tutte le risorse.
+    > Per ottenere prestazioni ottimali, quando si apre per la prima volta Esplora metriche, l'elenco a discesa del **gruppo di risorse** non contiene gruppi di risorse preselezionati. È necessario selezionare almeno un gruppo prima di poter visualizzare tutte le risorse.
 
 ## <a name="chart-shows-no-data"></a>Il grafico non Mostra dati
 
@@ -37,7 +37,7 @@ A volte i grafici potrebbero non mostrare dati dopo aver selezionato le metriche
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>Il provider di risorse Microsoft. Insights non è registrato per la sottoscrizione
 
-Per l'esplorazione delle metriche è necessario che nella sottoscrizione sia registrato il provider di risorse *Microsoft.Insights*. In molti casi è registrato automaticamente (vale a dire, dopo aver configurato una regola di avviso, personalizzare le impostazioni di diagnostica per qualsiasi risorsa o configurare una regola di scalabilità automatica). Se il provider di risorse Microsoft. Insights non è registrato, è necessario registrarlo manualmente attenendosi alla procedura descritta in [tipi e provider di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+Per l'esplorazione delle metriche è necessario che nella sottoscrizione sia registrato il provider di risorse *Microsoft.Insights*. In molti casi è registrato automaticamente (vale a dire, dopo aver configurato una regola di avviso, personalizzare le impostazioni di diagnostica per qualsiasi risorsa o configurare una regola di scalabilità automatica). Se il provider di risorse Microsoft. Insights non è registrato, è necessario registrarlo manualmente attenendosi alla procedura descritta in [tipi e provider di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 **Soluzione:** Aprire **sottoscrizioni**, scheda **provider di risorse** e verificare che *Microsoft. Insights* sia registrato per la sottoscrizione.
 

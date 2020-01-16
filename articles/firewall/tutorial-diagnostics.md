@@ -7,22 +7,22 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60193183"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974520"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Esercitazione: Monitorare i log e le metriche di Firewall di Azure
 
-È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure. Usando le metriche, è possibile visualizzare i contatori delle prestazioni nel portale. 
+È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure. Usando le metriche, è possibile visualizzare i contatori delle prestazioni nel portale.
 
 Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati ai [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati nei log di Monitoraggio di Azure o con strumenti diversi come ad esempio Excel e Power BI.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Abilitare la registrazione tramite il portale di Azure
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, è consigliabile leggere [Azure Firewall logs and metrics](logs-and-metrics.md) (Log e metriche di Firewall di Azure) per una panoramica dei log di diagnostica e delle metriche disponibili per Firewall di Azure.
 
@@ -52,7 +52,7 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
    * AzureFirewallNetworkRule
 
 3. Fare clic su **Abilita diagnostica** per avviare la raccolta dei dati.
-4. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica. 
+4. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica.
 5. In questo esempio i log di Monitoraggio di Azure archiviano i log, quindi digitare **Firewall log analytics** come nome.
 6. Fare clic su **Invia a Log Analytics** per configurare l'area di lavoro. Per salvare i log di diagnostica è possibile anche usare l'hub eventi e un account di archiviazione.
 7. In **Log Analytics** fare clic su **Configura**.
@@ -63,7 +63,7 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
    ![Avvio del processo di configurazione][1] Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
 12. In **Log** fare clic su **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule** per raccogliere i log per le regole di applicazione e di rete.
    ![Salvare le impostazioni di diagnostica][2]
-13. Fare clic su **Save**.
+13. Fare clic su **Salva**.
 
 ## <a name="enable-logging-with-powershell"></a>Abilitare la registrazione con PowerShell
 
@@ -86,15 +86,15 @@ Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >I log di diagnostica non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione degli accessi e delle prestazioni è previsto un addebito.
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visualizzare e analizzare Log attività
 
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
-* **Strumenti di Azure**: consente di recuperare informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Strumenti di Azure**: consente di recuperare informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 * **Power BI**: se non esiste ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visualizzare e analizzare i log delle regole di rete e di applicazione

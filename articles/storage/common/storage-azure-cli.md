@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b80c29788bd2f8d5172795aa2c92a80e460ff81f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460466"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978517"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
@@ -23,7 +23,7 @@ L'interfaccia della riga di comando di Azure, open-source e multipiattaforma, of
 
 Questa guida illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando.
 
-Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la procedura dovrebbe funzionare in modo simile anche nelle altre piattaforme. 
+Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la procedura dovrebbe funzionare in modo simile anche nelle altre piattaforme.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -34,7 +34,7 @@ Questa guida si presuppone che si conoscano i concetti di base dell'archiviazion
 
 ### <a name="accounts"></a>Account
 * **Account Azure**: se non si ha già una sottoscrizione di Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/).
-* **Account di archiviazione**: vedere [Creare un account di archiviazione](storage-quickstart-create-account.md) in [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
+* **Account di archiviazione**: vedere [Creare un account di archiviazione](storage-account-create.md) in [Informazioni sugli account di archiviazione di Azure](storage-account-overview.md).
 
 ### <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
 
@@ -335,7 +335,7 @@ Il tipo di contenuto, chiamato anche tipo MIME, identifica il formato dei dati n
 
 ```azurecli
 az storage blob update
-    --container-name <container_name> 
+    --container-name <container_name>
     --name <blob_name>
     --content-type <content_type>
 ```
@@ -390,7 +390,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 
 ### <a name="copy-files"></a>Copiare i file      
 È possibile copiare un file in un altro file, un file in un BLOB o un BLOB in un file. Ad esempio, per copiare un file in una directory di un'altra condivisione:        
-        
+
 ```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
@@ -524,7 +524,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 È possibile eliminare uno snapshot di condivisione tramite il comando `az storage share delete` fornendo il parametro `--snapshot` con il timestamp dello snapshot di condivisione:
 
 ```cli
-az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z'
 ```
 
 Output di esempio
@@ -535,7 +535,7 @@ Output di esempio
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Di seguito sono segnalate altre risorse relative all'utilizzo dell'interfaccia della riga di comando di Azure. 
+Di seguito sono segnalate altre risorse relative all'utilizzo dell'interfaccia della riga di comando di Azure.
 
 * [Introduzione all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Riferimento all'interfaccia della riga di comando di Azure](/cli/azure)

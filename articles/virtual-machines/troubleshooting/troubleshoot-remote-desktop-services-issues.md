@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168944"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981796"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
 Questo articolo descrive come risolvere i problemi quando ci si connette a una macchina virtuale di Azure e Servizi Desktop remoto, o TermService, non si avvia o restituisce un errore di avvio.
 
 > [!NOTE]  
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse, ovvero [Azure Resource Manager e la distribuzione classica](../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -36,14 +36,14 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
 
 - Si visualizzano in modalità remota i log eventi nella macchina virtuale usando il Visualizzatore eventi. Si nota che Servizi Desktop remoto, o TermService, non si avvia o restituisce un errore di avvio. Di seguito è riportato un log di esempio:
 
-    **Nome del log**:      Sistema </br>
-    **Origine**:        Gestione controllo servizi </br>
-    **Data**:          16/12/2017 11:19:36</br>
+    **Nome log**:      System </br>
+    **Origine**:        Service Control Manager </br>
+    **Data**:          12/16/2017 11:19:36 AM</br>
     **ID evento**:      7022</br>
     **Categoria attività**: Nessuna</br>
     **Livello**:         Errore</br>
-    **Parole chiave**:      Classico</br>
-    **Utente**:          N/D</br>
+    **Parole chiave**:      Classic</br>
+    **Utente**:          N/A</br>
     **Computer**:      vm.contoso.com</br>
     **Descrizione**: Servizi Desktop remoto non si avvia. 
 
@@ -145,7 +145,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
     1. [Collegare un disco dati alla macchina virtuale](../windows/attach-managed-disk-portal.md
 ).
-    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato.
+    2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio: `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato.
     3. Scollegare l'unità dati e collegarla a una macchina virtuale funzionante in cui è installato lo strumento di monitoraggio del processo.
 
 6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale funzionante. Il filtro in base al **risultato è accesso negato**, come illustrato nello screenshot seguente:
@@ -205,7 +205,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino. Verificare che il disco collegato sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
-3. Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Si presume che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituirla con il valore appropriato nella macchina virtuale. 
+3. Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituirlo con il valore appropriato nella macchina virtuale. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -221,6 +221,6 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md). Controllare quindi se il problema è stato risolto.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), per ottenere la risoluzione del problema.

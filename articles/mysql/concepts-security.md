@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: fb0a71a650a8c36d4da962adaf3f1f314c30d4c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764968"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980000"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Sicurezza in Database di Azure per MySQL
 
@@ -37,8 +37,10 @@ Le regole del firewall IP concedono l'accesso ai server in base all'indirizzo IP
 ### <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
 Gli endpoint di servizio della rete virtuale estendono la connettività della rete virtuale tramite la backbone di Azure. Uso delle regole della rete virtuale è possibile abilitare il database di Azure per il server MySQL per consentire le connessioni da subnet selezionate in una rete virtuale. Per ulteriori informazioni, vedere [Panoramica dell'endpoint del servizio rete virtuale](concepts-data-access-and-security-vnet.md).
 
+### <a name="private-ip"></a>IP privato
+Collegamento privato consente di connettersi al database di Azure per MySQL in Azure tramite un endpoint privato. Il collegamento privato di Azure porta essenzialmente i servizi di Azure all'interno della rete virtuale privata (VNet). È possibile accedere alle risorse PaaS usando l'indirizzo IP privato come qualsiasi altra risorsa in VNet. Per ulteriori informazioni, vedere la [Panoramica del collegamento privato](concepts-data-access-security-private-link.md) .
 
-## <a name="access-management"></a>gestione degli accessi
+## <a name="access-management"></a>Gestione degli accessi
 
 Quando si crea il database di Azure per il server MySQL, si forniscono le credenziali per un utente amministratore. Questo amministratore può essere usato per creare altri utenti di MySQL.
 

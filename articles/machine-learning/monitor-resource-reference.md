@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 8d2dccc1543512ead4b0ff6475ace20045bb1b8c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bbc62aa153e6ecb5d9ae65c37392c2697b9beaa2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762774"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979713"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Azure Machine Learning
 
@@ -194,5 +194,5 @@ I valori validi per la dimensione RunType sono i seguenti:
 
 ## <a name="see-also"></a>Vedere anche
 
-- Per una descrizione del monitoraggio Azure Machine Learning, vedere [Azure Machine Learning di monitoraggio](service/monitor-azure-machine-learning.md) .
+- Per una descrizione del monitoraggio Azure Machine Learning, vedere [Azure Machine Learning di monitoraggio](monitor-azure-machine-learning.md) .
 - Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [monitoraggio delle risorse di Azure con](/azure/azure-monitor/insights/monitor-azure-resource) monitoraggio di Azure.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286155"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977630"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database di metriche di monitoraggio di Azure per una macchina virtuale Windows (classico)
 
@@ -27,9 +27,9 @@ L'archiviazione in questo percorso consente di accedere alle stesse azioni esegu
 
 Il processo illustrato in questo articolo funziona solo sulle macchine virtuali classiche con il sistema operativo Windows.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](../../billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
+- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -47,7 +47,7 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 1. Nel portale di Azure passare al pannello della risorsa **Account di archiviazione**. Scegliere **Chiavi** e annotare il nome dell'account di archiviazione e della chiave dell'account di archiviazione. Queste informazioni sono necessarie nei passaggi successivi.
    ![Chiavi di accesso alle risorse di archiviazione](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
-## <a name="create-a-service-principal"></a>Creare un’entità servizio
+## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [Creare un'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md). Tenere presente quanto segue durante questo processo: 
 - Creare un nuovo segreto client per l'app.

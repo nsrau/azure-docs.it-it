@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a80a54f3dc760d80f713db9857cbef0c580e66d6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621376"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976242"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Usare i servizi PaaS (Platform-as-a-Service) in Azure DevTest Labs
 PaaS è supportato in DevTest Labs tramite la funzionalità degli ambienti. Gli ambienti in DevTest Labs sono supportati dai modelli di Azure Resource Manager preconfigurati in un repository git. Gli ambienti possono contenere sia risorse PaaS che IaaS. Consentono di creare sistemi complessi che possono includere risorse di Azure, ad esempio macchine virtuali, database, reti virtuali e app Web, che sono personalizzate per collaborare. Questi modelli consentono una distribuzione coerente e una gestione migliorata degli ambienti con il controllo del codice sorgente. 
@@ -53,11 +53,11 @@ Sono disponibili alcune informazioni sul Lab personalizzate all'esterno del grup
 Negli [ambienti di connessione all'](connect-environment-lab-virtual-network.md) articolo relativo alla rete virtuale del Lab viene descritto come modificare il modello di gestione risorse per l'uso del token di `$(LabSubnetId)`. Quando viene creato un ambiente, il token `$(LabSubnetId)` viene sostituito dal primo contrassegno di subnet in cui l'opzione **USA nella creazione della macchina virtuale** è impostata su **true**. Consente all'ambiente di usare le reti create in precedenza. Se si desidera utilizzare gli stessi modelli di Gestione risorse negli ambienti di test come gestione temporanea e produzione, utilizzare `$(LabSubnetId)` come valore predefinito in un parametro di modello di Gestione risorse. 
 
 #### <a name="environment-storage-account"></a>Account di archiviazione dell'ambiente
-DevTest Labs supporta l'uso di [modelli di gestione risorse annidati](../azure-resource-manager/resource-group-linked-templates.md). L'articolo [[distribuire modelli annidati di Azure Resource Manager per ambienti di testing](deploy-nested-template-environments.md) illustra come usare i token `_artifactsLocation` e `_artifactsLocationSasToken` per creare un URI per un modello di gestione risorse nella stessa cartella di o in una cartella nidificata del modello principale. Per ulteriori informazioni su questi due token, vedere la sezione relativa agli **artefatti di distribuzione** di [Azure Resource Manager-Guida alle procedure consigliate](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs supporta l'uso di [modelli di gestione risorse annidati](../azure-resource-manager/templates/linked-templates.md). L'articolo [[distribuire modelli annidati di Azure Resource Manager per ambienti di testing](deploy-nested-template-environments.md) illustra come usare i token `_artifactsLocation` e `_artifactsLocationSasToken` per creare un URI per un modello di gestione risorse nella stessa cartella di o in una cartella nidificata del modello principale. Per ulteriori informazioni su questi due token, vedere la sezione relativa agli **artefatti di distribuzione** di [Azure Resource Manager-Guida alle procedure consigliate](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Esperienza utente
 
-## <a name="developer"></a>Developer
+## <a name="developer"></a>Sviluppatore
 Gli sviluppatori usano lo stesso flusso di lavoro per creare una macchina virtuale per creare un ambiente specifico. Selezionano l'ambiente e l'immagine del computer e immettono le informazioni necessarie necessarie per il modello. Ogni sviluppatore con un ambiente consente la distribuzione delle modifiche e il debug del ciclo interno migliorato. L'ambiente può essere creato in qualsiasi momento usando il modello più recente.  Questa funzionalità consente di eliminare e ricreare gli ambienti per ridurre il tempo di inattività dovuto alla creazione manuale del sistema o al ripristino dal test degli errori.  
 
 ### <a name="testing"></a>Test

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 68b91566a3737cf44abe0c446b71d6845ecc299d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d473cf2a79fb86028797205ee7885b51169b10bf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452331"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978227"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creare risorse del bus di servizio usando i modelli di Azure Resource Manager
 
@@ -207,7 +207,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path t
 
 ### <a name="create-the-deployment"></a>Creare la distribuzione
 
-Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/deployment-modes.md).
+Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
 
 Il comando seguente richiede tre parametri nella finestra di PowerShell:
 
@@ -227,7 +227,7 @@ New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG
 New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Per eseguire una distribuzione [completa](../azure-resource-manager/deployment-modes.md), impostare il parametro **Mode** su **Complete**:
+Per eseguire una distribuzione [completa](../azure-resource-manager/templates/deployment-modes.md), impostare il parametro **Mode** su **Complete**:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -261,5 +261,5 @@ Finora sono stati illustrati il flusso di lavoro di base e i comandi per la dist
 * [Tipi di risorsa Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
-[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
+[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/templates/deploy-powershell.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

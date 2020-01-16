@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531004"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977561"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creare un'impostazione di diagnostica in Azure usando un modello di Gestione risorse
-[Le impostazioni di diagnostica](diagnostic-settings.md) in monitoraggio di Azure specificano dove inviare i [log della piattaforma](platform-logs-overview.md) raccolti dalle risorse di Azure e dalla piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni ed esempi per l'uso di un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare le impostazioni di diagnostica per raccogliere i log della piattaforma in destinazioni diverse. 
+[Le impostazioni di diagnostica](diagnostic-settings.md) in monitoraggio di Azure specificano dove inviare i [log della piattaforma](platform-logs-overview.md) raccolti dalle risorse di Azure e dalla piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni ed esempi per l'uso di un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare le impostazioni di diagnostica per raccogliere i log della piattaforma in destinazioni diverse.
 
 > [!NOTE]
 > Poiché non è possibile [creare un'impostazione di diagnostica](diagnostic-settings.md) per il log attività di Azure usando PowerShell o l'interfaccia della riga di comando come impostazioni di diagnostica per altre risorse di Azure, creare un modello di gestione risorse per il log attività usando le informazioni contenute in questo articolo e distribuire il modello usando PowerShell o l'interfaccia della riga di comando.
 
 ## <a name="deployment-methods"></a>Metodi di distribuzione
-È possibile distribuire Gestione risorse modelli usando un metodo valido, tra cui PowerShell e l'interfaccia della riga di comando. Le impostazioni di diagnostica per log attività devono essere distribuite in una sottoscrizione usando `az deployment create` per l'interfaccia della riga di comando o `New-AzDeployment` per PowerShell. Le impostazioni di diagnostica per i log delle risorse devono essere distribuite in un gruppo di risorse usando `az group deployment create` per CLI o `New-AzResourceGroupDeployment` per PowerShell. 
+È possibile distribuire Gestione risorse modelli usando un metodo valido, tra cui PowerShell e l'interfaccia della riga di comando. Le impostazioni di diagnostica per log attività devono essere distribuite in una sottoscrizione usando `az deployment create` per l'interfaccia della riga di comando o `New-AzDeployment` per PowerShell. Le impostazioni di diagnostica per i log delle risorse devono essere distribuite in un gruppo di risorse usando `az group deployment create` per CLI o `New-AzResourceGroupDeployment` per PowerShell.
 
-Per informazioni dettagliate, vedere [distribuire risorse con modelli di gestione risorse e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) e [distribuire risorse con modelli di gestione risorse e l'interfaccia](../../azure-resource-manager/resource-group-template-deploy-cli.md) della riga di comando di Azure. 
+Per informazioni dettagliate, vedere [distribuire risorse con modelli di gestione risorse e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) e [distribuire risorse con modelli di gestione risorse e l'interfaccia](../../azure-resource-manager/templates/deploy-cli.md) della riga di comando di Azure. 
 
 
 
@@ -33,7 +33,7 @@ Per informazioni dettagliate, vedere [distribuire risorse con modelli di gestion
 ## <a name="resource-logs"></a>Log risorse
 Per i log delle risorse, aggiungere una risorsa di tipo `<resource namespace>/providers/diagnosticSettings` al modello. La sezione properties segue il formato descritto in [impostazioni di diagnostica-crea o aggiorna](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Fornire un `category` nella sezione `logs` per ognuna delle categorie valide per la risorsa che si desidera raccogliere. Aggiungere la proprietà `metrics` per raccogliere le metriche delle risorse nelle stesse destinazioni se la [risorsa supporta le metriche](metrics-supported.md).
 
-Di seguito è riportato un modello che raccoglie una categoria di log delle risorse per una determinata risorsa in un'area di lavoro Log Analytics, un account di archiviazione e un hub eventi. 
+Di seguito è riportato un modello che raccoglie una categoria di log delle risorse per una determinata risorsa in un'area di lavoro Log Analytics, un account di archiviazione e un hub eventi.
 
 ```json
 "resources": [
@@ -50,7 +50,7 @@ Di seguito è riportato un modello che raccoglie una categoria di log delle riso
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

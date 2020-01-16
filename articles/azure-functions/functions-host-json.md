@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d33b63e2eb733e2cea360d3c5f6096fca3521736
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769167"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978806"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>informazioni di riferimento su host. JSON per funzioni di Azure 2. x e versioni successive 
 
@@ -179,7 +179,7 @@ Per la struttura JSON completa, vedere il [file host. JSON di esempio](#sample-h
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
-Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sulle eccezioni nelle app .NET](/azure-monitor/app/snapshot-debugger) e [risolvere i problemi di abilitazione Application Insights snapshot debugger o la visualizzazione di snapshot](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sulle eccezioni nelle app .NET](/azure/azure-monitor/app/snapshot-debugger) e [risolvere i problemi di abilitazione Application Insights snapshot debugger o la visualizzazione di snapshot](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
 |Proprietà | Predefinito | Description |
 | --------- | --------- | --------- | 

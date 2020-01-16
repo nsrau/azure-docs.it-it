@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: be563e39ed1bfa405830999a96d8630b6f8254bb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057964"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981342"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Desktop remoto non si avvia in una macchina virtuale di Azure
 
 Questo articolo illustra come risolvere i problemi relatici alle disconnessioni frequenti da una macchina virtuale (VM) di Azure tramite Remote Desktop Protocol (RDP).
 
 > [!NOTE] 
-> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
 
 ## <a name="symptom"></a>Sintomo
 
@@ -90,7 +90,7 @@ Per risolvere questo problema, usare i controllo seriale o [riparare la macchina
 ### <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
 
 1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
-2. Dopo aver collegato il disco del sistema operativo alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Si noti la lettera di unità assegnata al disco del sistema operativo collegato.
+2. Dopo aver collegato il disco del sistema operativo alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3. Nel disco del sistema operativo collegato passare alla cartella **\windows\system32\config**. Copiare tutti i file in questa cartella come backup, nel caso risulti necessario un ripristino dello stato precedente.
 4. Avviare Editor del Registro di sistema (regedit.exe).
 5. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Scegliere **File** > **Carica hive** dal menu:
@@ -151,7 +151,7 @@ Per risolvere questo problema, usare i controllo seriale o [riparare la macchina
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
-16. Impostare il controllo Tempo di inattività della sessione RDP:     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
+16. Impostare il controllo del tempo di inattività della sessione RDP:     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
 
@@ -165,7 +165,7 @@ Per risolvere questo problema, usare i controllo seriale o [riparare la macchina
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxInstanceCount' /t REG_DWORD /d ffffffff /f
 18. Riavviare la macchina virtuale e riprovare per eseguire la connessione tramite RDP.
 
-## <a name="need-help"></a>Richiesta di assistenza 
+## <a name="need-help"></a>Opzioni per 
 Contattare il supporto tecnico. Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 

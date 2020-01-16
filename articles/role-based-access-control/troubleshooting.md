@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707771"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980995"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure
 
@@ -41,13 +41,13 @@ Questo articolo contiene le risposte alle domande comuni sul controllo degli acc
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Ripristinare il Controllo degli accessi in base al ruolo quando le sottoscrizioni vengono spostate tra i tenant
 
-- Per istruzioni su come trasferire una sottoscrizione a un tenant di Azure AD diverso, vedere trasferire la [proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md).
+- Per istruzioni su come trasferire una sottoscrizione a un tenant di Azure AD diverso, vedere trasferire la [proprietà di una sottoscrizione di Azure a un altro account](../cost-management-billing/manage/billing-subscription-transfer.md).
 - Quando si trasferisce una sottoscrizione a un altro tenant di Azure Active Directory, tutte le assegnazioni di ruolo vengono eliminate definitivamente dal tenant di Azure Active Directory di origine e non ne viene eseguita la migrazione al tenant di Azure Active Directory di destinazione. È necessario creare nuovamente le assegnazioni di ruolo nel tenant di destinazione. È anche necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi alle identità gestite](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se si è Azure AD amministratore globale e non si ha accesso a una sottoscrizione dopo che è stato spostato tra i tenant, usare l'interruttore **gestione accessi per le risorse di Azure** per [elevare](elevate-access-global-admin.md) temporaneamente l'accesso per ottenere l'accesso alla sottoscrizione.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemi con gli amministratori del servizio o i coamministratori
 
-- Se si verificano problemi con l'amministratore del servizio o con i coamministratori, vedere [aggiungere o modificare gli amministratori della sottoscrizione di Azure](../billing/billing-add-change-azure-subscription-administrator.md) e i [ruoli di amministratore della sottoscrizione classica, i ruoli RBAC di Azure e i ruoli di amministratore Azure ad](rbac-and-directory-admin-roles.md).
+- Se si verificano problemi con l'amministratore del servizio o con i coamministratori, vedere [aggiungere o modificare gli amministratori della sottoscrizione di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e i [ruoli di amministratore della sottoscrizione classica, i ruoli RBAC di Azure e i ruoli di amministratore Azure ad](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Errori di accesso negato o autorizzazione
 
@@ -56,7 +56,7 @@ Questo articolo contiene le risposte alle domande comuni sul controllo degli acc
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Assegnazioni di ruolo con entità di sicurezza sconosciuta
 
-Se si assegna un ruolo a un'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) e successivamente si elimina tale entità di sicurezza senza rimuovere l'assegnazione di ruolo, il tipo di entità di sicurezza per l'assegnazione di ruolo verrà elencato come **sconosciuto**. Lo screenshot seguente mostra un esempio nell'portale di Azure. Il nome dell'entità di sicurezza è elencato come **identità eliminata** e l' **identità non esiste più**. 
+Se si assegna un ruolo a un'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) e successivamente si elimina tale entità di sicurezza senza rimuovere l'assegnazione di ruolo, il tipo di entità di sicurezza per l'assegnazione di ruolo verrà elencato come **sconosciuto**. Lo screenshot seguente illustra un esempio nel portale di Azure. Il nome dell'entità di sicurezza è elencato come **identità eliminata** e l' **identità non esiste più**. 
 
 ![Gruppo di risorse per app Web](./media/troubleshooting/unknown-security-principal.png)
 

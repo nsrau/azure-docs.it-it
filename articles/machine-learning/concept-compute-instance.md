@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 02655a3697139ae3a9c4c36b423b874b6e5d34f9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541868"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974099"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Questi strumenti e ambienti sono installati nell'istanza di calcolo:
 |Libreria Intel MPI||
 |Interfaccia della riga di comando di Azure ||
 |Esempi di Azure Machine Learning ||
-|Motore EDAT Azure Machine Learning ||            
+|Motore EDAT Azure Machine Learning ||
 |Docker||
 |Nginx||
 |NCCL 2,0 ||
@@ -76,11 +76,26 @@ Questi strumenti e ambienti sono installati nell'istanza di calcolo:
 |Altri pacchetti PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacchetti conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacchetti per Deep Learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
-|Pacchetti ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|Pacchetti ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Esempi di Azure Machine Learning Python & R SDK||
+
+Tutti i pacchetti Python sono installati nell'ambiente **python 3,6-AzureML** .  
 
 Le istanze di calcolo vengono in genere usate come ambienti di sviluppo.  Possono anche essere usati come destinazione di calcolo per il training e l'inferenza per lo sviluppo e il test.  Per le attività di grandi dimensioni, un [cluster di calcolo Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.
 
+### <a name="installing-packages"></a>Installazione di pacchetti
+
+È possibile installare i pacchetti direttamente in un notebook di Jupyter o rstudio:
+
+* RStudio usare la scheda **pacchetti** in basso a destra o la scheda **console** in alto a sinistra.  
+* Python: aggiungere il codice di installazione ed eseguire in una cella Jupyter notebook.
+
+In alternativa, è possibile accedere a una finestra del terminale in uno dei modi seguenti:
+
+* RStudio: selezionare la scheda **terminale** in alto a sinistra.
+* Jupyter Lab: selezionare il riquadro **terminale** sotto l' **altra** intestazione nella scheda utilità di avvio.
+* Jupyter: selezionare **nuovo > terminale** in alto a destra nella scheda file.
+* Eseguire SSH nel computer.  Installare quindi i pacchetti Python nell'ambiente **python 3,6-AzureML** .  Installare i pacchetti R nell'ambiente **r** .
 
 ## <a name="accessing-files"></a>Accesso ai file
 

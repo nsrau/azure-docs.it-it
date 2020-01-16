@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 45b7b419277d338d70cf285838103f97d4eb5c3a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749675"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978607"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gestire i dati degli utenti nel Centro sicurezza di Azure
 Questo articolo fornisce informazioni su come è possibile gestire i dati degli utenti nel Centro sicurezza di Azure. La gestione dei dati degli utenti include la possibilità di accedere ai dati, eliminarli o esportarli.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Un utente del Centro sicurezza a cui è assegnato il ruolo Lettore, Proprietario, Collaboratore o Amministratore dell'account può accedere ai dati dei clienti direttamente dallo strumento. Per altre informazioni sul ruolo di amministratore account, vedere [ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md) per altre informazioni sui ruoli lettore, proprietario e collaboratore. Vedere [amministratori della sottoscrizione di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Un utente del Centro sicurezza a cui è assegnato il ruolo Lettore, Proprietario, Collaboratore o Amministratore dell'account può accedere ai dati dei clienti direttamente dallo strumento. Per altre informazioni sul ruolo di amministratore account, vedere [ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md) per altre informazioni sui ruoli lettore, proprietario e collaboratore. Vedere [amministratori della sottoscrizione di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Ricerca e identificazione dei dati personali
 Un utente del Centro sicurezza può visualizzare i dati personali tramite il portale di Azure. Centro sicurezza archivia solo i dettagli del contatto di sicurezza, ad esempio i numeri di telefono e gli indirizzi di posta elettronica. Per altre informazioni, vedere [specificare i dettagli dei contatti di sicurezza nel centro sicurezza di Azure](security-center-provide-security-contact-details.md).

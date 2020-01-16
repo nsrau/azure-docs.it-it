@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f4612232acfe6099c56d365e482cbc82c8436dee
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745619"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977664"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
 
 > [!WARNING]
-> È ora possibile raccogliere il log attività in un'area di lavoro Log Analytics usando un'impostazione di diagnostica simile a come si raccolgono i log delle risorse. Vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](diagnostic-settings-subscription.md).
+> È ora possibile raccogliere il log attività in un'area di lavoro Log Analytics usando un'impostazione di diagnostica simile a come si raccolgono i log delle risorse. Vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](diagnostic-settings-legacy.md).
 
 Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure. Questo articolo descrive come raccogliere il log attività in un'area di lavoro Log Analytics e come usare la [soluzione di monitoraggio](../insights/solutions.md)analisi log attività, che fornisce le query e le visualizzazioni di log per l'analisi di questi dati. 
 
@@ -32,7 +32,7 @@ La connessione del log attività a un'area di lavoro di Log Analytics offre i va
 Una singola area di lavoro può essere connessa al log attività per più sottoscrizioni nello stesso tenant di Azure. Per la raccolta tra più tenant, vedere [raccogliere i log attività di Azure in un'area di lavoro log Analytics tra sottoscrizioni in Azure Active Directory tenant diversi](activity-log-collect-tenants.md).
 
 > [!IMPORTANT]
-> È possibile che venga visualizzato un errore con la seguente procedura se i provider di risorse Microsoft. OperationalInsights e Microsoft. OperationsManagement non sono registrati per la sottoscrizione. Per registrare questi provider, vedere [provider e tipi di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md) .
+> È possibile che venga visualizzato un errore con la seguente procedura se i provider di risorse Microsoft. OperationalInsights e Microsoft. OperationsManagement non sono registrati per la sottoscrizione. Per registrare questi provider, vedere [provider e tipi di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md) .
 
 Usare la procedura seguente per connettere il log attività all'area di lavoro Log Analytics:
 

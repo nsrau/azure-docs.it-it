@@ -3,12 +3,12 @@ title: Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift | Micr
 description: Questo articolo descrive come arrestare il monitoraggio del cluster Azure Red Hat OpenShift con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: e726d2d8254598869f1c6305421c674c870e3d31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97ca333f724dc4914dabda2912c4512a40520253
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404286"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977780"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift con monitoraggio di Azure per i contenitori
 
@@ -16,13 +16,13 @@ Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift, è poss
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-Sono disponibili due modelli di Azure Resource Manager per poter rimuovere le risorse della soluzione in modo coerente e ripetuto nel gruppo di risorse. Uno è un modello JSON che specifica la configurazione per arrestare il monitoraggio e l'altro contiene i valori dei parametri configurati per specificare l'ID risorsa cluster OpenShift e l'area di Azure in cui è distribuito il cluster. 
+Sono disponibili due modelli di Azure Resource Manager per poter rimuovere le risorse della soluzione in modo coerente e ripetuto nel gruppo di risorse. Uno è un modello JSON che specifica la configurazione per arrestare il monitoraggio e l'altro contiene i valori dei parametri configurati per specificare l'ID risorsa cluster OpenShift e l'area di Azure in cui è distribuito il cluster.
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
-* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Creare il modello
 
@@ -90,7 +90,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 
 5. Salvare il file con il nome **OptOutParam.json** in una cartella locale.
 
-6. A questo punto è possibile distribuire il modello. 
+6. A questo punto è possibile distribuire il modello.
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Rimuovere la soluzione tramite l'interfaccia della riga di comando di Azure
 
@@ -98,7 +98,7 @@ Eseguire il comando seguente con l'interfaccia della riga di comando di Azure in
 
 ```azurecli
 az login   
-az account set --subscription "Subscription Name" 
+az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
@@ -128,4 +128,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md). 
+Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).

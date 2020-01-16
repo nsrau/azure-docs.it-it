@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 31ae3483ca7cefbb65726f976244d582f1587aaf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ba921656d0dad059b1d15f443bcefeff03ade50
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439449"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977392"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -44,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Account di archiviazione di Azure. Come archivio dati di origine si usa un archivio BLOB. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* Account di archiviazione di Azure. Come archivio dati di origine si usa un archivio BLOB. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 * Azure Storage Explorer Per installare lo strumento, vedere [Azure Storage Explorer](https://storageexplorer.com/).
 * Database SQL di Azure. Il database viene usato come archivio dati sink. Se non si ha un database SQL di Azure, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
 * Visual Studio. Questo articolo usa Visual Studio 2019.
@@ -117,7 +117,7 @@ Creare un'applicazione console .NET in C#:
    // Specify the source Azure Blob information
    static string storageAccount = "<Azure Storage account name>";
    static string storageKey = "<Azure Storage account key>";
-   // confirm that you have the input.txt file placed in th input folder of the adfv2branch container. 
+   // confirm that you have the input.txt file placed in th input folder of the adfv2branch container.
    static string inputBlobPath = "adfv2branch/input";
    static string inputBlobName = "input.txt";
    static string outputBlobPath = "adfv2branch/output";
@@ -218,7 +218,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 {
     Console.WriteLine("Creating dataset " + blobSourceDatasetName + "...");
     AzureBlobDataset blobDataset = new AzureBlobDataset
-    { 
+    {
         FolderPath = new Expression { Value = "@pipeline().parameters.sourceBlobContainer" },
         FileName = inputBlobName,
         LinkedServiceName = new LinkedServiceReference
@@ -510,7 +510,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
- 
+
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
@@ -577,8 +577,8 @@ Compilare ed eseguire il programma per attivare un'esecuzione della pipeline.
     Console.WriteLine("Checking copy activity run details...");
 
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
- 
+    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList();
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(activityRuns.First().Output);

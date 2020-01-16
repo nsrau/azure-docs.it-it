@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921228"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981832"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -156,7 +156,7 @@ L'operazione di eliminazione del contenitore avrà esito negativo se almeno un B
 
 **Che cosa accade se si tenta di eliminare un account di archiviazione con un contenitore con un criterio di conservazione basato sul tempo o una tenuta legale?**
 
-L'eliminazione dell'account di archiviazione avrà esito negativo se è presente almeno un contenitore con un set di supporti validi o un criterio basato sul tempo **bloccato** . Un contenitore con criteri basati sul tempo sbloccati non protegge dall'eliminazione dell'account di archiviazione. Prima di poter eliminare l'account di archiviazione, è necessario rimuovere tutte le esenzioni legali ed eliminare tutti i contenitori **bloccati** . Per informazioni sull'eliminazione di contenitori, vedere la domanda precedente. È anche possibile applicare ulteriori protezioni di eliminazione per l'account di archiviazione con [blocchi Azure Resource Manager](../../azure-resource-manager/resource-group-lock-resources.md).
+L'eliminazione dell'account di archiviazione avrà esito negativo se è presente almeno un contenitore con un set di supporti validi o un criterio basato sul tempo **bloccato** . Un contenitore con criteri basati sul tempo sbloccati non protegge dall'eliminazione dell'account di archiviazione. Prima di poter eliminare l'account di archiviazione, è necessario rimuovere tutte le esenzioni legali ed eliminare tutti i contenitori **bloccati** . Per informazioni sull'eliminazione di contenitori, vedere la domanda precedente. È anche possibile applicare ulteriori protezioni di eliminazione per l'account di archiviazione con [blocchi Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).
 
 **È possibile spostare i dati tra livelli BLOB diversi (accesso frequente, accesso sporadico o Archivio) quando il BLOB si trova nello stato non modificabile?**
 
@@ -179,4 +179,4 @@ Sì, se i requisiti di conformità consentono l'abilitazione dell'eliminazione t
 - [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](storage-blob-immutability-policies-manage.md)
 - [Impostare regole per eseguire automaticamente il livello ed eliminare i dati BLOB con la gestione del ciclo di vita](storage-lifecycle-management-concepts.md)
 - [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../blobs/storage-blob-soft-delete.md)
-- [Proteggere sottoscrizioni, gruppi di risorse e risorse con Azure Resource Manager blocchi](../../azure-resource-manager/resource-group-lock-resources.md).
+- [Proteggere sottoscrizioni, gruppi di risorse e risorse con Azure Resource Manager blocchi](../../azure-resource-manager/management/lock-resources.md).

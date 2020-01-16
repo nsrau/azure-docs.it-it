@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896079"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981113"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
-Il termine codifica in servizi multimediali si applica al processo di conversione di file contenenti video digitali e/o audio da un formato standard a un altro, con lo scopo di (a) di ridurre le dimensioni dei file e/o (b) produrre un formato compatibile con un ampia gamma di dispositivi e app. Questo processo è noto anche come compressione video o transcodifica. Per ulteriori informazioni sui concetti, vedere [compressione dei dati](https://en.wikipedia.org/wiki/Data_compression) e informazioni su [codifica e transcodifica](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) .
+Il termine codifica in servizi multimediali si applica al processo di conversione di file contenenti video digitali e/o audio da un formato standard a un altro, con lo scopo di (a) di ridurre le dimensioni dei file e/o (b) produrre un formato compatibile con un'ampia gamma di dispositivi e app. Questo processo è noto anche come compressione video o transcodifica. Per ulteriori informazioni sui concetti, vedere [compressione dei dati](https://en.wikipedia.org/wiki/Data_compression) e informazioni su [codifica e transcodifica](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) .
 
 I video vengono in genere recapitati a dispositivi e app tramite [download progressivo](https://en.wikipedia.org/wiki/Progressive_download) o [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
 
@@ -52,7 +52,7 @@ A partire da gennaio 2019, durante la codifica con Media Encoder Standard per pr
 
 Quando si inviano processi per elaborare i video, è necessario indicare a servizi multimediali dove trovare il video di input. Una delle opzioni consiste nel specificare un URL HTTPS come input del processo. Attualmente, servizi multimediali V3 non supporta la codifica di trasferimento Chunked sugli URL HTTPS.
 
-#### <a name="examples"></a>esempi
+#### <a name="examples"></a>Esempi
 
 * [Codificare da un URL HTTPS con .NET](stream-files-dotnet-quickstart.md)
 * [Codificare da un URL HTTPS con REST](stream-files-tutorial-with-rest.md)
@@ -63,7 +63,7 @@ Quando si inviano processi per elaborare i video, è necessario indicare a servi
 
 È possibile archiviare il video di input come asset di Servizi multimediali, nel qual caso si crea un asset di input basato su un file archiviato in locale o nel servizio di Archiviazione BLOB di Azure.
 
-#### <a name="examples"></a>esempi
+#### <a name="examples"></a>Esempi
 
 [Codificare un file locale usando i set di impostazioni predefiniti](job-input-from-local-file-how-to.md)
 
@@ -76,7 +76,7 @@ Quando si codifica un video, è possibile specificare di tagliare o ritagliare a
 > [!TIP]
 > Se si vuole eseguire lo streaming di un sublip del video senza ricodificare il video, è consigliabile usare i [manifesti di pre-filtro con Dynamic Packager](filters-dynamic-manifest-overview.md).
 
-#### <a name="examples"></a>esempi
+#### <a name="examples"></a>Esempi
 
 Vedere gli esempi:
 
@@ -95,7 +95,7 @@ Attualmente sono supportati i set di impostazioni seguenti:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: produce un singolo file MP4 contenente solo audio stereo codificato a 192 kbps.
 - **EncoderNamedPreset. AdaptiveStreaming** (scelta consigliata): per altre informazioni, vedere [generazione automatica di una scala a bitrate](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**: espone un set di impostazioni sperimentale per la codifica compatibile con il contenuto. Dato qualsiasi contenuto di input, il servizio tenta di determinare automaticamente il numero ottimale di livelli e le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Gli algoritmi sottostanti continueranno a evolversi nel tempo. L'output conterrà file MP4 con interfoliazione video e audio. Per ulteriori informazioni, vedere [set di impostazioni sperimentale per la codifica compatibile con il contenuto](cae-experimental.md).
+- **EncoderNamedPreset. ContentAwareEncodingExperimental**: espone un set di impostazioni sperimentale per la codifica compatibile con il contenuto. Dato qualsiasi contenuto di input, il servizio tenta di determinare automaticamente il numero ottimale di livelli e le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Gli algoritmi sottostanti continueranno a evolversi nel tempo. L'output conterrà file MP4 con interfoliazione video e audio. Per ulteriori informazioni, vedere [set di impostazioni sperimentale per la codifica compatibile con il contenuto](content-aware-encoding.md).
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: genera un set di otto file MP4 allineati al GOP, con velocità compresa tra 6000 e 400 kbps e audio AAC stereo. La risoluzione parte da 1080p e può scendere fino a 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: genera un set di sei file MP4 allineati al GOP, con velocità compresa tra 3400 e 400 kbps e audio AAC stereo. La risoluzione parte da 720p e può scendere fino a 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: genera un set di cinque file MP4 allineati al GOP, con velocità compresa tra 1600 e 400 kbps e audio AAC stereo. La risoluzione parte da 480p e può scendere fino a 360p.
@@ -122,7 +122,7 @@ Quando si creano set di impostazioni personalizzati, si applicano le considerazi
 
 Servizi multimediali supporta in modo completo la personalizzazione di tutti i valori nei set di impostazioni per soddisfare le esigenze e i requisiti di codifica specifici. Per esempi che illustrano come personalizzare i set di impostazioni del codificatore, vedere l'elenco seguente:
 
-#### <a name="examples"></a>esempi
+#### <a name="examples"></a>Esempi
 
 - [Personalizzare i set di impostazioni con .NET](customize-encoder-presets-how-to.md)
 - [Personalizzare le impostazioni predefinite con l'interfaccia della riga di comando](custom-preset-cli-howto.md)
@@ -136,7 +136,7 @@ In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizza
 
 Per ridimensionare l'elaborazione di contenuti multimediali, vedere [ridimensionare con CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

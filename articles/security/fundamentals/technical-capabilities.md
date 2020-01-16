@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 41289110049a7f907b76c8f9a8b2d9dc850f201c
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a8dd859b05c3e95a1c584a7947334dad25813122
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707204"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970660"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
@@ -499,7 +499,7 @@ Gestione risorse offre numerosi vantaggi:
 - È possibile ottenere informazioni dettagliate sulla fatturazione per l'organizzazione visualizzando i costi di un gruppo di risorse che condividono lo stesso tag.
 
 > [!Note]
-> Gestione risorse offre un nuovo modo per distribuire e gestire le soluzioni. Per informazioni sulle modifiche introdotte rispetto al modello di distribuzione precedente, vedere l'articolo contenente le [informazioni su distribuzione classica e Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md).
+> Gestione risorse offre un nuovo modo per distribuire e gestire le soluzioni. Per informazioni sulle modifiche introdotte rispetto al modello di distribuzione precedente, vedere l'articolo contenente le [informazioni su distribuzione classica e Resource Manager](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
