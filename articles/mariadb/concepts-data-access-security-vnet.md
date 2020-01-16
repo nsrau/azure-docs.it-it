@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 72d8e58d1f4ca2955ed2469d061277949751d8b3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17c957dbd9c43b3cc66af39195a73bad8e006814
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772699"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982356"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MariaDB
 
@@ -89,7 +89,7 @@ Ogni regola di rete virtuale si applica all'intero server di Database di Azure p
 I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio di rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
 - **Amministratore di rete:** &nbsp; attivare l'endpoint.
-- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di Database di Azure per MariaDB.
+- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al database di Azure per il server MariaDB.
 
 *Alternativa del controllo degli accessi in base al ruolo:*
 
@@ -148,7 +148,7 @@ Per articoli relativi alla creazione di regole di rete virtuale, vedere:
 -->
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[resource-manager-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -162,4 +162,4 @@ Per articoli relativi alla creazione di regole di rete virtuale, vedere:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

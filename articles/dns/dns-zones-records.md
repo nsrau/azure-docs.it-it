@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211014"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980537"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
@@ -115,7 +115,7 @@ Le stringhe multiple in un record DNS non devono essere confuse con i record TXT
 
 ### <a name="tags"></a>Tag
 
-I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per etichettare le risorse.  Azure Resource Manager usa i tag per abilitare visualizzazioni filtrate della fattura di Azure e permette anche di impostare criteri sui tag necessari. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../azure-resource-manager/resource-group-using-tags.md).
+I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per etichettare le risorse.  Azure Resource Manager usa i tag per abilitare visualizzazioni filtrate della fattura di Azure e permette anche di impostare criteri sui tag necessari. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md).
 
 DNS di Azure supporta l'uso di tag di Azure Resource Manager in risorse di zona DNS.  Non supporta i tag nei set di record DNS, anche se in alternativa sono supportati i "metadati", come illustrato di seguito.
 
@@ -135,13 +135,13 @@ A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le 
 
 | Intestazione | Comportamento |
 | --- | --- |
-| nessuno |PUT riesce sempre (nessun controllo di Etag) |
+| Nessuno |PUT riesce sempre (nessun controllo di Etag) |
 | If-Match \<ETag > |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |
 
 
-## <a name="limits"></a>limiti
+## <a name="limits"></a>Limiti
 
 Quando si usa DNS di Azure, si applicano i limiti predefiniti seguenti:
 

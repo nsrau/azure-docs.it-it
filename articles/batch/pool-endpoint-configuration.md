@@ -2,18 +2,18 @@
 title: Configurare gli endpoint del nodo nel pool di Azure Batch | Microsoft Docs
 description: Come configurare o disabilitare l'accesso alle porte SSH o RDP nei nodi di calcolo in un pool di Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: lahugh
-ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: 1ac4c7647125cd6164235e98a4a828f6b072cbee
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322464"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029472"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurare o disabilitare l'accesso remoto ai nodi di calcolo in un pool di Azure Batch
 
@@ -22,7 +22,7 @@ Per impostazione predefinita, Batch consente a un [utente del nodo](/rest/api/ba
 Nell'ambiente in uso potrebbe essere necessario limitare o disabilitare queste impostazioni di accesso esterno predefinite. È possibile modificarle usando le API di Batch per impostare la proprietà [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration). 
 
 ## <a name="about-the-pool-endpoint-configuration"></a>Informazioni sulla configurazione dell'endpoint del pool
-La configurazione dell'endpoint è costituita da uno o più [pool Network Address Translation](/rest/api/batchservice/pool/add#inboundnatpool) delle porte front-end. Non confondere un pool NAT con il pool di Batch dei nodi di calcolo. Impostare ciascun pool NAT affinché sostituisca le impostazioni di connessione predefinite nei nodi di calcolo del pool. 
+La configurazione dell'endpoint è costituita da uno o più [pool Network Address Translation](/rest/api/batchservice/pool/add#inboundnatpool) delle porte front-end. Non confondere un pool NAT con il pool di batch di nodi di calcolo. Configurare ogni pool NAT per sostituire le impostazioni di connessione predefinite nei nodi di calcolo del pool. 
 
 Ogni configurazione del pool NAT include una o più [regole del gruppo di sicurezza di rete](/rest/api/batchservice/pool/add#networksecuritygrouprule). Ogni regola del gruppo di sicurezza di rete consente o rifiuta un determinato traffico di rete all'endpoint. È possibile scegliere di consentire o rifiutare tutto il traffico, il traffico identificato da un [tag del servizio](../virtual-network/security-overview.md#service-tags), ad esempio "Internet", o il traffico proveniente da specifici indirizzi IP o subnet.
 

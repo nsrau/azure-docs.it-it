@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 5b2ab103c2384b53f384c45945b387585fdbb4b4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224548"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021300"
 ---
-| Risorsa | Limite predefinito | Limite massimo |
+| Gruppi | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| vCPU per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10.000 |
-| [Coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per sottoscrizione |200 |200 |
+| vCPU per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10,000 |
+| [Coamministratori](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per sottoscrizione |200 |200 |
 | [Account di archiviazione](../articles/storage/common/storage-create-storage-account.md) per ogni sottoscrizione<sup>2</sup> |100 |100 |
 | [Servizi cloud](../articles/cloud-services/cloud-services-choose-me.md) per sottoscrizione |20 |200 |
 | [Reti locali](/previous-versions/azure/reference/jj157100(v=azure.100)) per sottoscrizione |10 |500 |
