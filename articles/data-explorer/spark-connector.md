@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 4/29/2019
-ms.openlocfilehash: 6a95cbad161906bd12a608880ac694d6bdf1ed27
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.date: 1/14/2020
+ms.openlocfilehash: 868e9e068244af91e218d906bee115b58906152f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383059"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027958"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Connettore Azure Esplora dati per Apache Spark (anteprima)
 
@@ -33,7 +33,7 @@ Il connettore Azure Esplora dati Spark è un [progetto open source](https://gith
 * Installare la libreria di Azure Esplora dati Connector e le librerie elencate in [dipendenze](https://github.com/Azure/azure-kusto-spark#dependencies) , incluse le librerie [Java SDK kusto](/azure/kusto/api/java/kusto-java-client-library) seguenti:
     * [Client di dati kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Client di inserimento kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
-* Librerie predefinite per [Spark 2,4, Scala 2,11](https://github.com/Azure/azure-kusto-spark/releases)
+* Librerie predefinite per il repository [Spark 2,4, Scala 2,11](https://github.com/Azure/azure-kusto-spark/releases) e [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
 
 ## <a name="how-to-build-the-spark-connector"></a>Come compilare il connettore Spark
 
@@ -82,34 +82,27 @@ Per altre informazioni, vedere [utilizzo del connettore](https://github.com/Azur
 > [!NOTE]
 > Si consiglia di usare la versione più recente di Azure Esplora dati Spark Connector quando si eseguono i passaggi seguenti:
 
-1. Impostare le impostazioni del cluster Spark seguenti, basate su Azure Databricks cluster con Spark 2,4 e scala 2,11: 
+1. Impostare le impostazioni del cluster Spark seguenti, basate su Azure Databricks cluster con Spark 2.4.4 e scala 2,11: 
 
     ![Impostazioni del cluster databricks](media/spark-connector/databricks-cluster.png)
-
-1. Importare la libreria di Azure Esplora dati Connector:
+    
+1. Installare la versione più recente della libreria Spark-kusto-Connector da Maven:
 
     ![Importa la libreria Esplora dati di Azure](media/spark-connector/db-create-library.png)
-
-1. Aggiungere altre dipendenze (non necessarie se usate da Maven):
-
-    ![Aggiungere le dipendenze](media/spark-connector/db-dependencies.png)
-
-    > [!TIP]
-    > La versione di rilascio Java corretta per ogni versione Spark è disponibile [qui](https://github.com/Azure/azure-kusto-spark#dependencies).
 
 1. Verificare che tutte le librerie richieste siano installate:
 
     ![Verificare le librerie installate](media/spark-connector/db-libraries-view.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
-Il connettore Azure Esplora dati Spark consente di eseguire l'autenticazione con Azure Active Directory (Azure AD) usando un' [applicazione Azure ad](#azure-ad-application-authentication), [Azure ad token di accesso](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [l'autenticazione del dispositivo](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (per gli scenari non di produzione) o la chiave di [Azure ](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault)Insieme di credenziali. L'utente deve installare il pacchetto dell'insieme di credenziali delle risorse di Azure e fornire le credenziali dell'applicazione per accedere alla risorsa Key Vault.
+Il connettore Azure Esplora dati Spark consente di eseguire l'autenticazione con Azure Active Directory (Azure AD) usando un' [applicazione Azure ad](#azure-ad-application-authentication), [Azure ad token di accesso](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [l'autenticazione del dispositivo](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (per gli scenari non di produzione) o [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). L'utente deve installare il pacchetto dell'insieme di credenziali delle risorse di Azure e fornire le credenziali dell'applicazione per accedere alla risorsa Key Vault.
 
 ### <a name="azure-ad-application-authentication"></a>Autenticazione dell'applicazione Azure AD
 
 Metodo di autenticazione più semplice e comune. Questo metodo è consigliato per l'utilizzo del connettore Spark per Azure Esplora dati.
 
-|Properties  |Descrizione  |
+|Proprietà  |Description  |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Identificatore Azure AD applicazione (client).      |
 |**KUSTO_AAD_AUTHORITY_ID**     |  Autorità di autenticazione Azure AD. ID Azure AD directory (tenant).        |
@@ -124,7 +117,7 @@ Per un cluster di Azure Esplora dati è necessario concedere i privilegi seguent
  
 Per altre informazioni sui ruoli principali di Azure Esplora dati, vedere [autorizzazione basata sui ruoli](/azure/kusto/management/access-control/role-based-authorization). Per la gestione dei ruoli di sicurezza, vedere [gestione dei ruoli di sicurezza](/azure/kusto/management/security-roles).
 
-## <a name="spark-sink-writing-to-azure-data-explorer"></a>Sink Spark: Scrittura in Esplora dati di Azure
+## <a name="spark-sink-writing-to-azure-data-explorer"></a>Sink Spark: scrittura in Azure Esplora dati
 
 1. Configurare i parametri del sink:
 
@@ -144,19 +137,19 @@ Per altre informazioni sui ruoli principali di Azure Esplora dati, vedere [autor
 
     ```scala
     import com.microsoft.kusto.spark.datasink.KustoSinkOptions
-    val conf = Map(
-            KustoSinkOptions.KUSTO_CLUSTER -> cluster,
-            KustoSinkOptions.KUSTO_TABLE -> table,
-            KustoSinkOptions.KUSTO_DATABASE -> database,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_ID -> appId,
-            KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey,
-            KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID -> authorityId)
-    
+    import org.apache.spark.sql.{SaveMode, SparkSession}
+
     df.write
       .format("com.microsoft.kusto.spark.datasource")
-      .options(conf)
-      .save()
-      
+      .option(KustoSinkOptions.KUSTO_CLUSTER, cluster)
+      .option(KustoSinkOptions.KUSTO_DATABASE, database)
+      .option(KustoSinkOptions.KUSTO_TABLE, "Demo3_spark")
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_ID, appId)
+      .option(KustoSinkOptions.KUSTO_AAD_CLIENT_PASSWORD, appKey)
+      .option(KustoSinkOptions.KUSTO_AAD_AUTHORITY_ID, authorityId)
+      .option(KustoSinkOptions.KUSTO_TABLE_CREATE_OPTIONS, "CreateIfNotExist")
+      .mode(SaveMode.Append)
+      .save()  
     ```
     
    In alternativa, usare la sintassi semplificata:
@@ -189,10 +182,9 @@ Per altre informazioni sui ruoli principali di Azure Esplora dati, vedere [autor
           .option(KustoSinkOptions.KUSTO_WRITE_ENABLE_ASYNC, "true") // Optional, better for streaming, harder to handle errors
           .trigger(Trigger.ProcessingTime(TimeUnit.SECONDS.toMillis(10))) // Sync this with the ingestionBatching policy of the database
           .start()
-    
     ```
 
-## <a name="spark-source-reading-from-azure-data-explorer"></a>Origine Spark: Lettura da Azure Esplora dati
+## <a name="spark-source-reading-from-azure-data-explorer"></a>Origine Spark: lettura da Azure Esplora dati
 
 1. Quando si leggono piccole quantità di dati, definire la query di dati:
 
@@ -252,3 +244,9 @@ Per altre informazioni sui ruoli principali di Azure Esplora dati, vedere [autor
     
     display(dfFiltered)
     ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Scopri di più sul [connettore Azure Esplora dati Spark](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
+* [Codice di esempio](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
+

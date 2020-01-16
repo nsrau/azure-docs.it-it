@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379328"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029864"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: pianificare l'implementazione ibrida di Azure Active Directory join
 
@@ -30,7 +30,7 @@ Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività d
 
 Se si dispone di un ambiente di Active Directory (AD) locale e si desidera aggiungere i computer aggiunti a un dominio ad Azure AD, è possibile eseguire questa operazione eseguendo il join di Azure AD ibrido. Questo articolo fornisce i passaggi correlati per implementare un'aggiunta ad Azure AD ibrido nell'ambiente. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
@@ -55,7 +55,7 @@ L'aggiunta ad Azure AD ibrido supporta un'ampia gamma di dispositivi Windows. Po
 
 ### <a name="windows-current-devices"></a>Dispositivi Windows correnti
 
-- Windows 10
+- Windows 10
 - Windows Server 2016
 - Windows Server 2019
 
@@ -77,7 +77,7 @@ Azure AD ibrido join non è attualmente supportato se l'ambiente è costituito d
 
 Se l'ambiente USA Virtual Desktop Infrastructure (VDI), vedere la pagina relativa [a identità del dispositivo e virtualizzazione desktop](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-Azure AD ibrido join è supportato per il TPM 2,0 conforme a FIPS e non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. A partire dalla versione di WIndows 10 1903, TPMs 1,2 non vengono usati per i join Azure AD ibridi e i dispositivi con tali TPMs verranno considerati come se non avessero un TPM.
+Azure AD ibrido join è supportato per il TPM 2,0 conforme a FIPS e non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. A partire dalla versione di Windows 10 1903, TPMs 1,2 non vengono usati per i join Azure AD ibridi e i dispositivi con tali TPMs verranno considerati come se non avessero un TPM.
 
 Azure AD ibrido join non è supportato per Windows Server che esegue il ruolo controller di dominio (DC).
 
@@ -130,7 +130,7 @@ Un ambiente federato deve includere un provider di identità che supporta i requ
 > [!NOTE]
 > Azure AD non supporta certificati o smart card nei domini gestiti.
 
-A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido, che semplifica enormemente il processo di configurazione. Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](hybrid-azuread-join-manual.md). 
+A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido che semplifica in modo significativo il processo di configurazione. Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](hybrid-azuread-join-manual.md). 
 
 In base allo scenario che corrisponde all'infrastruttura di identità, vedere:
 
@@ -146,12 +146,12 @@ I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli
 
 La tabella seguente contiene informazioni sul supporto per questi nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido di Windows 10
 
-| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | DESCRIZIONE |
+| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | Description |
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
-| Instradabile | Gestito | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestito | Non supportato | |
+| Instradabile | Managed Disks | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
+| Non instradabile | Managed Disks | Supporto non disponibile | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

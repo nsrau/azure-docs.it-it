@@ -2,20 +2,20 @@
 title: Carichi di lavoro del contenitore in Azure Batch | Microsoft Docs
 description: Informazioni su come eseguire le applicazioni dalle immagini del contenitore in Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090744"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029716"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -36,9 +36,9 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
     * Java SDK di Batch, versione 3.0
     * Node.js SDK di Batch, versione 3.0
 
-* **Account**: nella sottoscrizione di Azure è necessario creare un account Batch e, facoltativamente, un account di archiviazione di Azure.
+* **Account**: nell'abbonamento di Azure è necessario creare un account Batch e, facoltativamente, un account di Archiviazione di Azure.
 
-* **Un'immagine di macchina virtuale supportata**: i contenitori sono supportati solo nei pool creati con Configurazione macchina virtuale, dalle immagini illustrate in dettaglio nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md). 
+* **Un'immagine VM supportata**I contenitori sono supportati solo in pool creati con la configurazione macchina virtuale di immagini dettagliate nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -227,7 +227,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Per eseguire un'attività contenitore in un pool abilitato per il contenitore, specificare le impostazioni specifiche per il contenitore. Le impostazioni includono l'immagine da usare, il registro e le opzioni di esecuzione del contenitore.
 
-* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che `--rm` l'opzione contenitore non richiede un' `--runtime` opzione aggiuntiva perché viene gestita da batch. 
+* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che l'opzione del contenitore `--rm` non richiede un'opzione di `--runtime` aggiuntiva perché viene eseguita in base al batch. 
 
 * Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 

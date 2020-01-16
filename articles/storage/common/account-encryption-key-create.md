@@ -10,12 +10,12 @@ ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 39568d65978592b360512db2e556cfa6b59760b6
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8cf1f8ecb68e31f93c19d93d6ebc4f8ef37724e7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921211"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028443"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creazione di un account che supporta chiavi gestite dal cliente per tabelle e code
 
@@ -149,7 +149,7 @@ Dopo aver creato un account che si basa sulla chiave di crittografia dell'accoun
 
 ## <a name="verify-the-account-encryption-key"></a>Verificare la chiave di crittografia dell'account
 
-Per verificare che il nuovo account di archiviazione usi la chiave di crittografia dell'account, chiamare l'interfaccia della riga di comando di Azure [AZ storage account](/cli/azure/storage/account#az-storage-account-show) Command. Questo comando restituisce un elenco di proprietà dell'account di archiviazione e dei relativi valori. Cercare la proprietà `keyType` e verificare che sia impostata su `Account`.
+Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare l'interfaccia della riga di comando di Azure [AZ storage account](/cli/azure/storage/account#az-storage-account-show) Command. Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il campo `keyType` per ogni servizio nella proprietà crittografia e verificare che sia impostato su `Account`.
 
 ```azurecli
 az storage account show /

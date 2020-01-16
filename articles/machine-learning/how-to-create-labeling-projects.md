@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 019c75e67534198494d7591602bd5f9023704a1d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533104"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75765070"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -49,7 +49,7 @@ In questo articolo si apprenderà come:
 
 I progetti di etichettatura vengono amministrati da Azure Machine Learning. La pagina **Progetti di etichettatura** consente di gestire i progetti, i team e le persone. A un progetto sono assegnati uno o più team e a un team sono assegnati uno o più utenti.
 
-Se i dati si trovano già nell'archiviazione BLOB di Azure, è necessario renderli disponibili come archivio dati prima di creare il progetto di etichettatura. Per altre informazioni, vedere [Creare e registrare gli archivi dati](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
+Se i dati si trovano già nell'archiviazione BLOB di Azure, è necessario renderli disponibili come archivio dati prima di creare il progetto di etichettatura. Per altre informazioni, vedere [Creare e registrare gli archivi dati](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
 
 Per creare un progetto, scegliere **Aggiungi il progetto**. Assegnare al progetto un nome appropriato e selezionare **Tipo di attività di etichettatura**.
 

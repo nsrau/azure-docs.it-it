@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034375"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780301"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Esercitazione: gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
@@ -47,7 +47,7 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 ## <a name="azure-data-disks"></a>Dischi dati di Azure
 
-Per installare applicazioni e archiviare dati è possibile aggiungere altri dischi dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale. Per ogni vCPU della macchina virtuale, è possibile collegare quattro dischi dati.
+Per installare applicazioni e archiviare dati è possibile aggiungere altri dischi dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale.
 
 ## <a name="vm-disk-types"></a>Tipi di dischi per la VM
 
@@ -182,7 +182,7 @@ exit
 
 Quando si crea uno snapshot del disco, Azure crea una copia temporizzata di sola lettura del disco. Gli snapshot della macchina virtuale di Azure sono utili per salvare rapidamente lo stato di una macchina virtuale prima di apportare modifiche alla configurazione. In caso di problemi o errori, è possibile ripristinare la macchina virtuale usando uno snapshot. Quando una macchina virtuale dispone di più dischi, viene acquisito uno snapshot per ciascun disco separatamente dagli altri dischi. Per eseguire backup coerenti con l'applicazione, prendere in considerazione l'arresto della macchina virtuale prima di eseguire gli snapshot dei dischi. In alternativa, usare il [Servizio Backup di Microsoft Azure](/azure/backup/), che consente di eseguire backup automatici, mentre la macchina virtuale è in esecuzione.
 
-### <a name="create-snapshot"></a>Creare uno snapshot
+### <a name="create-snapshot"></a>Creare snapshot
 
 Prima di creare uno snapshot del disco della macchina virtuale, è necessario conoscere l'ID o il nome del disco. Usare il comando [az vm show](/cli/azure/vm#az-vm-show) per ottenere l'ID del disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
 

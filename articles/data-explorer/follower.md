@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440973"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030057"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usare il database di seguito per alleghi i database in Azure Esplora dati
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Connessione di un database tramite un modello di Azure Resource Manager
 
-In questa sezione viene illustrato come aggiungere un database usando un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+In questa sezione si apprenderà come creare un cluster di seguito e come collegarvi un database usando un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Se si dispone già di un cluster, rimuovere la risorsa `Microsoft.Kusto/clusters` dall'elenco di risorse riportato di seguito.
 
 ```json
 {
@@ -159,7 +159,7 @@ In questa sezione viene illustrato come aggiungere un database usando un [modell
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the leader cluster to create."
+                "description": "The resource ID of the leader cluster."
             }
         },
         "defaultPrincipalsModificationKind": {
@@ -217,7 +217,7 @@ In questa sezione viene illustrato come aggiungere un database usando un [modell
 
 |**Impostazione**  |**Descrizione**  |
 |---------|---------|
-|Nome del cluster di seguito     |  Nome del cluster di seguito       |
+|Nome del cluster di seguito     |  Nome del cluster di follower. Se il nome del cluster esiste, rimuovere la risorsa `Microsoft.Kusto/clusters` dall'elenco di risorse nel modello ARM. In caso contrario, verrà creato un nuovo cluster.     |
 |Nome delle configurazioni del database associato    |    Nome dell'oggetto configurazioni del database associato. Il nome deve essere univoco a livello di cluster.     |
 |Nome database     |      Nome del database da seguire. Se si desidera seguire tutti i database del leader, utilizzare "*".   |
 |ID risorsa cluster leader    |   ID risorsa del cluster leader.      |

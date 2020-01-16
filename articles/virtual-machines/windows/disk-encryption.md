@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 84bb33f724622ba994c81b1d09c99b6399fd36ac
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 38459e76cc8f9df8bfb7c15750e138cfd55c453c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913112"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028467"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
 
@@ -54,29 +54,24 @@ L'elenco seguente illustra il diagramma in modo ancora più dettagliato:
 
 Per revocare l'accesso alle chiavi gestite dal cliente, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca efficacemente l'accesso a tutti i dati nell'account di archiviazione, in quanto la chiave di crittografia non è accessibile da parte di archiviazione di Azure.
 
-### <a name="supported-scenarios-and-restrictions"></a>Scenari e restrizioni supportati
+### <a name="supported-regions"></a>Aree supportate
 
-Per il momento, sono supportati solo gli scenari seguenti:
+Attualmente sono supportate solo le aree seguenti:
 
-- Creare una macchina virtuale (VM) da un'immagine di Azure Marketplace e crittografare il disco del sistema operativo con la crittografia lato server usando chiavi gestite dal cliente.
-- Creare un'immagine personalizzata crittografata con la crittografia lato server e le chiavi gestite dal cliente.
-- Creare una macchina virtuale da un'immagine personalizzata e crittografare il disco del sistema operativo usando la crittografia lato server e le chiavi gestite dal cliente.
-- Creare dischi dati crittografati usando la crittografia lato server e le chiavi gestite dal cliente.
-- (Solo CLI/PowerShell) Creare snapshot crittografati tramite la crittografia lato server e le chiavi gestite dal cliente.
-- Creare set di scalabilità di macchine virtuali crittografati con la crittografia lato server e le chiavi gestite dal cliente.
-- Sono supportate le [chiavi RSA "soft" e "hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) di dimensione 2080.
+- Disponibile come offerta GA nelle aree Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
+- Disponibile come anteprima pubblica nelle aree Stati Uniti centro-occidentali, Stati Uniti orientali 2, Canada centrale ed Europa settentrionale.
 
-Per il momento, sono disponibili anche le restrizioni seguenti:
+### <a name="restrictions"></a>Restrizioni
 
-- Disponibile come offerta GA negli Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
-- Disponibile come anteprima pubblica negli Stati Uniti centro-occidentali, Stati Uniti orientali 2, Canada centrale ed Europa settentrionale.
+Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti:
+
+- Sono supportate solo le [chiavi RSA "soft" e "hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) di dimensioni 2080, senza altre chiavi o dimensioni.
 - I dischi creati da immagini personalizzate crittografate con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
 - Le immagini personalizzate crittografate usando la crittografia lato server e le chiavi gestite dal cliente non possono essere usate nella raccolta di immagini condivise.
 - Tutte le risorse correlate alle chiavi gestite dal cliente (insiemi di credenziali delle chiavi di Azure, set di crittografia del disco, VM, dischi e snapshot) devono trovarsi nella stessa area e nella stessa sottoscrizione.
 - I dischi, gli snapshot e le immagini crittografati con chiavi gestite dal cliente non possono passare a un'altra sottoscrizione.
 - Se si usa il portale di Azure per creare il set di crittografia del disco, non è possibile usare gli snapshot per il momento.
-- Sono supportate solo le [chiavi RSA "soft" e "hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) di dimensioni 2080, senza altre chiavi o dimensioni.
 
 ### <a name="powershell"></a>PowerShell
 

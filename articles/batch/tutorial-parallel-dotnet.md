@@ -2,21 +2,21 @@
 title: Eseguire un carico di lavoro parallelo - .NET in Azure Batch
 description: Esercitazione - Transcodificare file multimediali in parallelo con ffmpeg in Azure Batch usando la libreria client .NET di Batch
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 103d09da3fedf9c31d4e5255456e63cab34bc0ee
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6f12f54e510cb07fcf522d2fd5e2e83fce4dfa96
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258591"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029255"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API .NET
 
@@ -35,7 +35,7 @@ In questa esercitazione file multimediali MP4 vengono convertiti in parallelo in
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs) oppure [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows.
 
@@ -244,7 +244,7 @@ job.PoolInformation = new PoolInformation { PoolId = PoolId };
 await job.CommitAsync();
 ```
 
-### <a name="create-tasks"></a>Creare le attività
+### <a name="create-tasks"></a>Creare attività
 
 L'esempio crea le attività del processo con una chiamata al metodo `AddTasksAsync`, che crea un elenco di oggetti [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Ogni oggetto `CloudTask` esegue ffmpeg per elaborare un oggetto `ResourceFile` di input usando una proprietà [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Lo strumento ffmpeg è stato installato in precedenza in ogni nodo al momento della creazione del pool. In questo caso, la riga di comando esegue ffmpeg per convertire ogni file (video) MP4 di input in un file (audio) MP3.
 

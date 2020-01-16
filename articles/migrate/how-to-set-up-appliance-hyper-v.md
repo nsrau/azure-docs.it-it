@@ -1,17 +1,14 @@
 ---
 title: Configurare un'appliance Azure Migrate per Hyper-V
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali Hyper-V.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0704adda314b94736b01fe114c3643ef8bd83753
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534500"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029096"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
 
@@ -29,8 +26,8 @@ L'appliance di macchine virtuali Hyper-V è un dispositivo leggero usato dalla v
 
 Per configurare l'appliance occorre:
 - Scaricare un disco rigido virtuale Hyper-V compresso dal portale di Azure.
-- Creare l'appliance e verificare che riesca a connettersi allo strumento di valutazione server di Azure Migrate.
-- Configurare l'appliance per la prima volta e registrarla con il progetto di Azure Migrate.
+- Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
+- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate.
 
 ## <a name="download-the-vhd"></a>Scaricare il disco rigido virtuale
 
@@ -73,8 +70,8 @@ Importare il file scaricato e creare la VM.
 3. In **Individua cartella**specificare la cartella contenente il disco rigido virtuale estratto. Quindi fare clic su **Next**.
 1. In **Selezione macchina virtuale** fare clic su **Avanti**.
 2. In **Scegliere il tipo di importazione** fare clic su **Copia macchina virtuale (crea nuovo ID univoco)** . Quindi fare clic su **Next**.
-3. In **Selezione destinazione** lasciare l'impostazione predefinita. Fare clic su **Next** (Avanti).
-4. In **Cartelle di archiviazione** lasciare l'impostazione predefinita. Fare clic su **Next** (Avanti).
+3. In **Selezione destinazione** lasciare l'impostazione predefinita. Fare clic su **Avanti**.
+4. In **Cartelle di archiviazione** lasciare l'impostazione predefinita. Fare clic su **Avanti**.
 5. In **Scegli la rete**  specificare il commutatore virtuale che verrà usato dalla VM. È necessario che il commutatore abbia connettività Internet per inviare dati ad Azure.
 6. In **Riepilogo** rivedere le impostazioni. Fare clic su **Fine**.
 7. Nella console di gestione di Hyper-V selezionare **Macchine virtuali** e avviare la VM.
@@ -82,7 +79,7 @@ Importare il file scaricato e creare la VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](migrate-appliance.md#url-access).
 
 ## <a name="configure-the-appliance"></a>Configurare l'appliance
 
@@ -106,7 +103,7 @@ Configurare l'appliance per la prima volta.
 
 1. Fare clic su **Log in** (Accedi). Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
 2. Nella nuova scheda accedere con le credenziali di Azure.
-    - Accedere con il proprio nome utente e la password.
+    - Accedere con il nome utente e la password.
     - L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web.
 4. Selezionare la sottoscrizione in cui è stato creato il progetto di Azure Migrate. Quindi selezionare il progetto.
