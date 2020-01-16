@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbb2108967353b851a0fa0ee610ec30380e3fc50
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769099"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969276"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Pagamento anticipato per le unità di markup Esplora dati di Azure con la capacità riservata Esplora dati di Azure
 
@@ -27,8 +27,8 @@ Con l'acquisto di una prenotazione, il pagamento anticipato per i costi di marku
 * Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o gli agenti di vendita possono acquistare la capacità riservata di Azure Esplora dati.
 
 Per informazioni dettagliate sul modo in cui i clienti aziendali e i clienti con pagamento in base al consumo vengono addebitati sugli acquisti di prenotazione, vedere:
-* [Informazioni sull'utilizzo della prenotazione di Azure per la registrazione Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md) 
-* [Informazioni sull'utilizzo delle prenotazioni di Azure per la sottoscrizione con pagamento in base al consumo](../billing/billing-understand-reserved-instance-usage.md).
+* [Informazioni sull'utilizzo della prenotazione di Azure per la registrazione Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 
+* [Informazioni sull'utilizzo delle prenotazioni di Azure per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-markup-usage-before-purchase"></a>Determinare l'utilizzo del markup corretto prima dell'acquisto
 
@@ -54,7 +54,7 @@ Se è necessario annullare la prenotazione di capacità riservata di Azure Esplo
 
 Se è necessario modificare la prenotazione di capacità riservata di Azure Esplora dati a un altro termine, è possibile scambiarla per un'altra prenotazione con un valore uguale o superiore. Come data di inizio del periodo della nuova prenotazione non viene conservata quella della prenotazione scambiata. Il periodo di uno o tre anni inizia dal momento della creazione della nuova prenotazione. Per richiedere uno scambio, passare alla prenotazione nel portale di Azure e selezionare **Scambio** per creare una richiesta di supporto.
 
-Per ulteriori informazioni su come scambiare o rimborsare le prenotazioni, vedere la pagina relativa agli [scambi di prenotazione e](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)ai rimborsi.
+Per ulteriori informazioni su come scambiare o rimborsare le prenotazioni, vedere la pagina relativa agli [scambi di prenotazione e](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)ai rimborsi.
 
 ## <a name="manage-your-reserved-capacity-reservation"></a>Gestire la prenotazione di capacità riservata
 
@@ -63,17 +63,17 @@ Lo sconto di prenotazione unità di markup di Azure Esplora dati viene applicato
 
 > [!NOTE]
 > * È possibile aggiornare l'ambito della prenotazione di capacità riservata di Azure Esplora dati tramite il [portale di Azure](https://portal.azure.com), PowerShell, l'interfaccia della riga di comando o tramite l'API.
-> * Per informazioni su come gestire la prenotazione di capacità riservata di Azure Esplora dati, vedere [gestire la capacità riservata di azure Esplora dati](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md).
+> * Per informazioni su come gestire la prenotazione di capacità riservata di Azure Esplora dati, vedere [gestire la capacità riservata di azure Esplora dati](../cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-* [Informazioni sulle prenotazioni di Azure](../billing/billing-save-compute-costs-reservations.md)
-* [Gestire le prenotazioni di Azure](../billing/billing-manage-reserved-vm-instance.md)
-* [Comprendere lo sconto sulle prenotazioni di Azure](../billing/billing-understand-reservation-charges.md)
-* [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../billing/billing-understand-reserved-instance-usage.md)
-* [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [Informazioni sulle prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Gestire le prenotazioni di Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Comprendere lo sconto sulle prenotazioni di Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+* [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 * [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Opzioni per Contattaci

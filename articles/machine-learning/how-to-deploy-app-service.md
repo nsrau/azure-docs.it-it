@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: a8a5b8df4307d9a73477944351c2889a86bdb2b4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540334"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968536"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Per altre informazioni sulle funzionalità fornite dal servizio app Azure, veder
     > * `model`: il modello registrato che verrà distribuito.
     > * `inference_config`: la configurazione dell'inferenza per il modello.
     >
-    > Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+    > Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 
@@ -67,7 +67,7 @@ Prima di distribuire, è necessario definire gli elementi necessari per eseguire
     >
     > Un'altra alternativa che può funzionare per lo scenario è la [stima in batch](how-to-run-batch-predictions.md), che fornisce l'accesso agli archivi dati quando si esegue il punteggio.
 
-    Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+    Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
@@ -93,7 +93,7 @@ Queste entità sono incapsulate in una __configurazione di inferenza__. La confi
 
 Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
 
-Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > Quando si esegue la distribuzione nel servizio app Azure, non è necessario creare una __configurazione di distribuzione__.
@@ -103,7 +103,7 @@ Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribu
 Per creare l'immagine Docker distribuita nel servizio app Azure, usare [Model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). Il frammento di codice seguente illustra come compilare una nuova immagine dalla configurazione del modello e dell'inferenza:
 
 > [!NOTE]
-> Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -121,7 +121,7 @@ Quando `show_output=True`, viene visualizzato l'output del processo di compilazi
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuire un'immagine come app Web
 
-1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<acrinstance>` con il valore e restituito in precedenza da `package.location`: 
+1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<acrinstance>` con il valore e restituito in precedenza da `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -168,7 +168,7 @@ Quando `show_output=True`, viene visualizzato l'output del processo di compilazi
     Questo comando restituisce informazioni simili al documento JSON seguente:
 
     ```json
-    { 
+    {
     "adminSiteName": null,
     "appServicePlanName": "myplanname",
     "geoRegion": "West Europe",

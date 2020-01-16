@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: dd429c7e8478bb0576605bcffe3c72bde35ae41e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0b48fea308b385fd8c66bf87d708b1c51f7f495
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437260"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977359"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -38,7 +38,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario Maven.
 * [Git](https://www.git-scm.com/)
-* Un **account di archiviazione di Azure**. Se non è disponibile, [crearne uno](../storage/common/storage-quickstart-create-account.md) prima di procedere. Il processo di Analisi di flusso in questa procedura archivia i dati di output in un archivio BLOB di Azure. 
+* Un **account di archiviazione di Azure**. Se non è disponibile, [crearne uno](../storage/common/storage-account-create.md) prima di procedere. Il processo di Analisi di flusso in questa procedura archivia i dati di output in un archivio BLOB di Azure. 
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi con supporto per Kafka
@@ -114,7 +114,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
     ![Hub eventi - messaggi](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## <a name="process-event-data-using-a-stream-analytics-job"></a>Elaborare i dati dell'evento tramite un processo di Analisi di flusso di Azure
-In questa sezione si crea un processo di Analisi di flusso di Azure. Il client Kafka invia eventi all'hub eventi. Si crea un processo di Analisi di flusso di Azure che accetta i dati degli eventi come input e li invia a un archivio BLOB di Azure. Se non si dispone di un **account di archiviazione di Azure**, [crearne uno](../storage/common/storage-quickstart-create-account.md).
+In questa sezione si crea un processo di Analisi di flusso di Azure. Il client Kafka invia eventi all'hub eventi. Si crea un processo di Analisi di flusso di Azure che accetta i dati degli eventi come input e li invia a un archivio BLOB di Azure. Se non si dispone di un **account di archiviazione di Azure**, [crearne uno](../storage/common/storage-account-create.md).
 
 La query nel processo di Analisi di flusso di Azure attraversa i dati senza eseguire alcuna analisi. È possibile creare una query che trasforma i dati di input per produrre dati di output in un formato diverso o con informazioni approfondite ottenute.  
 

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997327"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978581"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -41,12 +41,12 @@ Le [regole di rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md
 > [!NOTE]
 > Il controllo dell'accesso con regole del firewall *non* si applica a **un'istanza gestita**. Per altre informazioni sulla configurazione di rete necessaria, vedere l'articolo sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md).
 
-## <a name="access-management"></a>gestione degli accessi
+## <a name="access-management"></a>Gestione degli accessi
 
 > [!IMPORTANT]
 > La gestione dei database e dei server di database in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Il database SQL di Azure supporta due tipi di autenticazione:
 
@@ -65,7 +65,7 @@ L'autenticazione è il processo atto a dimostrare che l'utente sia effettivament
 > [!IMPORTANT]
 > La gestione dei database e dei server in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md). Il controllo dell'accesso con regole del firewall *non* si applica a **un'istanza gestita**. Vedere l'articolo seguente sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) per altre informazioni sulla configurazione di rete necessaria.
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorizzazione
 
 L'autorizzazione fa riferimento alle autorizzazioni assegnate a un utente all'interno di un database SQL di Azure e determina le operazioni che l'utente è autorizzato a eseguire. Le autorizzazioni vengono controllate aggiungendo account utente ai [ruoli del database](/sql/relational-databases/security/authentication-access/database-level-roles) e assegnando autorizzazioni a livello di database a tali ruoli o concedendo all'utente determinate [autorizzazioni a livello di oggetto](/sql/relational-databases/security/permissions-database-engine). Per altre informazioni, vedere [Accessi e utenti](sql-database-manage-logins.md)
 
@@ -73,7 +73,7 @@ Come procedura consigliata, creare ruoli personalizzati quando necessario. Aggiu
 
 ### <a name="row-level-security"></a>Sicurezza a livello di riga
 
-La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query, ad esempio l'appartenenza a un gruppo o il contesto di esecuzione. La sicurezza a livello di riga può essere usata anche per implementare concetti di sicurezza personalizzati basati su etichetta. Per altre informazioni, vedere [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
+La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella del database in base alle caratteristiche dell'utente che esegue una query (ad esempio l'appartenenza al gruppo o il contesto di esecuzione). La sicurezza a livello di riga può essere usata anche per implementare concetti di sicurezza personalizzati basati su etichetta. Per altre informazioni, vedere [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
@@ -104,7 +104,7 @@ Come procedura consigliata, nella stringa di connessione dell'applicazione è co
 Ad esempio, quando si usa il driver ADO.NET, questa operazione viene eseguita tramite **Encrypt = True** e **TrustServerCertificate = false**. Se si ottiene la stringa di connessione dal portale di Azure, le impostazioni saranno corrette.
 
 > [!IMPORTANT]
-> Si noti che alcuni driver non Microsoft non possono usare TLS per impostazione predefinita o si basano su una versione precedente di TLS (< 1.2) per funzionare. In questo caso SQL Server ancora possibile connettersi al database. Tuttavia, si consiglia di valutare i rischi per la sicurezza che consentono a tali driver e applicazioni di connettersi al database SQL, soprattutto se si archiviano dati sensibili. 
+> Si noti che alcuni driver non Microsoft non possono usare TLS per impostazione predefinita o si basano su una versione precedente di TLS (< 1.2) per funzionare. In questo caso SQL Server ancora possibile connettersi al database. Tuttavia, si consiglia di valutare i rischi per la sicurezza che consentono a tali driver e applicazioni di connettersi al database SQL, soprattutto se si archiviano dati sensibili.
 >
 > Per ulteriori informazioni su TLS e sulla connettività, vedere [considerazioni su TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -138,7 +138,7 @@ La funzione Maschera dati dinamica del database SQL limita l'esposizione dei dat
 
 ### <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'individuazione, la classificazione e la protezione dei dati sensibili presenti nei database, nonché per l'aggiunta di etichette a tali dati. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'individuazione, la classificazione e la protezione dei dati sensibili presenti nei database, nonché per l'aggiunta di etichette a tali dati. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Possono costituire l'infrastruttura per:
 
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza.

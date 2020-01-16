@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613874"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972359"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione
 
@@ -72,7 +72,7 @@ Per esempi di codice che illustrano come autorizzare e chiamare le operazioni di
 
 I modelli di distribuzione classica e Resource Manager rappresentano due diversi modi di distribuire e gestire le soluzioni Azure. Microsoft consiglia di usare il modello di distribuzione Azure Resource Manager quando si crea un nuovo account di archiviazione. Se possibile, Microsoft consiglia di ricreare gli account di archiviazione classici esistenti con il modello di Gestione risorse. Sebbene sia possibile creare un account di archiviazione usando il modello di distribuzione classica, il modello di distribuzione classica è meno flessibile e alla fine verrà deprecato.
 
-Per ulteriori informazioni sui modelli di distribuzione di Azure, vedere [Gestione risorse e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md).
+Per ulteriori informazioni sui modelli di distribuzione di Azure, vedere [Gestione risorse e distribuzione classica](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

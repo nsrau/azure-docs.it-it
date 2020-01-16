@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b9a5e388ce6749023cff223de2376d1360ca7574
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895689"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973465"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -224,7 +224,7 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
 
     > [!TIP]
     > Per aggiungere una regola per una subnet in una VNet che appartiene a un altro tenant Azure AD, usare un ID di subnet completo nel formato "/subscriptions/\<Subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<VNet-Name\>/Subnets/\<nome-subnet\>".
-    > 
+    >
     > È possibile usare il parametro **Subscription** per recuperare l'ID subnet per un VNet che appartiene a un altro tenant Azure ad.
 
 1. Rimuovere una regola di rete per una rete virtuale e una subnet.
@@ -391,7 +391,7 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | Attività di Registro Azure Container | Microsoft.ContainerRegistry/registries | Le attività ACR possono accedere agli account di archiviazione durante la compilazione di immagini del contenitore. |
 | Data factory di Azure             | Microsoft.DataFactory/factories        | Consente l'accesso agli account di archiviazione tramite il runtime di ADF. |
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
-| Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate Azure Machine Learning scrivono l'output dell'esperimento, i modelli e i log nell'archivio BLOB. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
+| Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate Azure Machine Learning scrivono l'output dell'esperimento, i modelli e i log nell'archivio BLOB. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) |
 | SQL Data Warehouse di Azure       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da istanze specifiche del database SQL tramite la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura di dati da un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Altre informazioni](/azure/stream-analytics/blob-output-managed-identity) |
 | Azure Synapse Analytics        | Microsoft. sinapsi/aree di lavoro          | Consente l'accesso ai dati in archiviazione di Azure da sinapsi Analytics. |
@@ -471,4 +471,4 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
 
 Vedere altre informazioni sugli endpoint del servizio Rete di Azure in [Endpoint di servizio](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-Approfondire gli argomenti relativi alla sicurezza di Archiviazione di Azure in [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
+Approfondire gli argomenti relativi alla sicurezza di Archiviazione di Azure in [Guida alla sicurezza di Archiviazione di Azure](../blobs/security-recommendations.md).

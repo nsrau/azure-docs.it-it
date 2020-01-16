@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: e68ce5a198165c4187cbad9e86ce61f67694a82d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ff44409180d61828c25980704c71b72965f6bd5d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961595"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967432"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -124,7 +124,7 @@ In un contratto di servizio (SLA), il provider accetta di rimborsare il costo de
 
 In AKS è possibile impostare il valore `maxPods` quando si crea il cluster usando l'interfaccia della riga di comando di Azure e i modelli di Azure Resource Manager. Tuttavia, sia Kubenet che Azure CNI richiedono un *valore minimo* (convalidato al momento della creazione):
 
-| Rete | Minima | Massima |
+| Rete | Minima | Massimo |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
@@ -204,7 +204,7 @@ Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è s
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
-[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md

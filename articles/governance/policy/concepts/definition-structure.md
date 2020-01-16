@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: c067a5a603c1adcafe6827b3118ecff20ae23238
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770935"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972841"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -76,7 +76,7 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
-`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto dei tag per le risorse di Azure](../../../azure-resource-manager/tag-support.md).
+`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto dei tag per le risorse di Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a>modalità del provider di risorse <a name="resource-provider-modes" />(anteprima)
 
@@ -552,7 +552,7 @@ Per informazioni complete su ogni effetto, ordine di valutazione, proprietà ed 
 
 ### <a name="policy-functions"></a>Funzioni dei criteri
 
-Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manager/resource-group-template-functions.md) sono disponibili per l'uso in una regola dei criteri, eccetto le funzioni e le funzioni definite dall'utente seguenti:
+Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manager/templates/template-functions.md) sono disponibili per l'uso in una regola dei criteri, eccetto le funzioni e le funzioni definite dall'utente seguenti:
 
 - copyIndex()
 - deployment()

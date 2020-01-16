@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 3f9a04d767ffeb5112e2b06ed319a3c28f3b7f57
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 82b406d6f2d9f9dc4464472108c8136c7b65c67a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406525"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977826"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gestire Application Insights risorse con PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "75406525"
 
 L'articolo descrive come automatizzare la creazione e l'aggiornamento di risorse di [Application Insights](../../azure-monitor/app/app-insights-overview.md) usando Azure Resource Manager. Questo procedimento potrebbe, ad esempio, essere utilizzato come parte di un processo di compilazione. Insieme alla risorsa di base di Application Insights, è possibile creare [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md), configurare [avvisi](../../azure-monitor/app/alerts.md), impostare lo [schema dei prezzi](pricing.md) e creare altre risorse di Azure.
 
-La chiave per la creazione di queste risorse è rappresentata dai modelli JSON per [Gestione risorse di Azure](../../azure-resource-manager/manage-resources-powershell.md). La procedura di base è: scaricare le definizioni JSON delle risorse esistenti; parametrizzare determinati valori, ad esempio i nomi; quindi eseguire il modello ogni volta che si vuole creare una nuova risorsa. È possibile raggruppare diverse risorse per crearle tutte in un’unica volta - ad esempio, un monitoraggio app con test di disponibilità, avvisi e risorsa di archiviazione per l'esportazione continua. Esistono alcune sottigliezze di alcuni parametri, che verranno illustrate di seguito.
+La chiave per la creazione di queste risorse è rappresentata dai modelli JSON per [Gestione risorse di Azure](../../azure-resource-manager/management/manage-resources-powershell.md). La procedura di base è: scaricare le definizioni JSON delle risorse esistenti; parametrizzare determinati valori, ad esempio i nomi; quindi eseguire il modello ogni volta che si vuole creare una nuova risorsa. È possibile raggruppare diverse risorse per crearle tutte in un’unica volta - ad esempio, un monitoraggio app con test di disponibilità, avvisi e risorsa di archiviazione per l'esportazione continua. Esistono alcune sottigliezze di alcuni parametri, che verranno illustrate di seguito.
 
 ## <a name="one-time-setup"></a>Installazione singola
 Se non si è mai usato PowerShell con la sottoscrizione di Azure:
@@ -394,7 +394,7 @@ Per automatizzare la creazione di altre risorse di qualsiasi tipo, creare un ese
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>Impostazione dei parametri per il modello
-È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](../../azure-resource-manager/templates/template-syntax.md), si scrivono espressioni mediante un [set di funzioni di supporto](../../azure-resource-manager/resource-group-template-functions.md). 
+È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](../../azure-resource-manager/templates/template-syntax.md), si scrivono espressioni mediante un [set di funzioni di supporto](../../azure-resource-manager/templates/template-functions.md). 
 
 È Impossibile impostare i parametri per una sola parte di una stringa, quindi utilizzare `concat()` per compilare stringhe.
 

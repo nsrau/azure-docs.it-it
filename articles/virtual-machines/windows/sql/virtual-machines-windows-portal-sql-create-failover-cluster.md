@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792187"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965425"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server in macchine virtuali di Azure
 
@@ -78,7 +78,7 @@ Una cosa da tenere presente è che in un cluster di failover di macchine virtual
 È inoltre necessario conoscere le tecnologie seguenti:
 
 - [Soluzioni iperconvergenti che usano Spazi di archiviazione diretta in Windows Server 2016](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Gruppi di risorse di Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Gruppi di risorse di Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la [modalità di gestione semplice](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Per passare dalla modalità di estensione completa a quella Lightweight, eliminare la risorsa della **macchina virtuale SQL** per le macchine virtuali corrispondenti e quindi registrarla con il provider di risorse VM SQL in modalità lightweight. Quando si elimina la risorsa della **macchina virtuale SQL** utilizzando la portale di Azure, **deselezionare la casella di controllo accanto alla macchina virtuale corretta**. L'estensione completa supporta funzionalità quali il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL dopo che l'agente è stato reinstallato in modalità di gestione leggera.
@@ -166,7 +166,7 @@ Con questi prerequisiti, è possibile iniziare a compilare il cluster di failove
    1. Selezionare l'istanza predefinita.
    1. Rimuovere tutte le funzionalità in **Servizi motore di database**. Non rimuovere le **funzionalità condivise**. Verrà visualizzata una schermata simile alla seguente:
 
-      ![Selezione funzionalità](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+      ![Seleziona caratteristiche](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Selezionare **Avanti**, quindi selezionare **Rimuovi**.
 

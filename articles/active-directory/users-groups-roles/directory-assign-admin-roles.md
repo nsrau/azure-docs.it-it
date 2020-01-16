@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b6d9a394971e59abaeb48e058b05cd52da69626
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 84296631e35de759fbb971f5de2d918afa5d17f0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529729"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967565"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -425,12 +425,6 @@ gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsof
 > [!NOTE]
 > In Microsoft Graph API, Azure AD API Graph e Azure AD PowerShell, questo ruolo è identificato come "amministratore del servizio Lync". È l'"Amministratore di Skype for Business" nel [portale di Azure](https://portal.azure.com/).
 
-### <a name="teams-administratorteams-service-administrator-permissions"></a>[Amministratore Teams](#teams-service-administrator-permissions)
-
-gli utenti in questo ruolo possono gestire tutti gli aspetti del carico di lavoro Microsoft Teams tramite l'interfaccia di amministrazione di Microsoft Teams e Skype for Business e i rispettivi moduli di PowerShell. Sono inclusi, tra le altre aree, tutti gli strumenti di gestione correlati a telefonia, messaggistica, riunioni e i team stessi. Il ruolo concede anche la possibilità di creare e gestire tutti i gruppi di Office 365, gestire i ticket di supporto e monitorare l'integrità del servizio.
-> [!NOTE]
-> Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Teams". È l'"Amministratore di Teams" nel [portale di Azure](https://portal.azure.com).
-
 ### <a name="teams-communications-administratorteams-communications-administrator-permissions"></a>[Amministratore comunicazioni team](#teams-communications-administrator-permissions)
 
 gli utenti con questo ruolo possono gestire gli aspetti del carico di lavoro Microsoft Teams correlati a voce e telefonia. Sono inclusi gli strumenti di gestione per l'assegnazione di numeri di telefono, i criteri per chiamate vocali e riunioni, nonché l'accesso completo al set di strumenti di analisi delle chiamate.
@@ -442,6 +436,10 @@ gli utenti con questo ruolo possono risolvere i problemi di comunicazione all'in
 ### <a name="teams-communications-support-specialistteams-communications-support-specialist-permissions"></a>[Specialista supporto comunicazioni team](#teams-communications-support-specialist-permissions)
 
 gli utenti con questo ruolo possono risolvere i problemi di comunicazione all'interno di Microsoft Teams e Skype for Business tramite gli strumenti di risoluzione dei problemi relativi alle chiamate utente nell'interfaccia di amministrazione di Microsoft Teams e Skype for Business. Gli utenti con questo ruolo possono visualizzare i dettagli dell'utente nella chiamata per l'utente specifico cercato. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
+
+### <a name="teams-service-administratorteams-service-administrator-permissions"></a>[Amministratore del servizio Teams](#teams-service-administrator-permissions)
+
+gli utenti in questo ruolo possono gestire tutti gli aspetti del carico di lavoro Microsoft Teams tramite l'interfaccia di amministrazione di Microsoft Teams e Skype for Business e i rispettivi moduli di PowerShell. Sono inclusi, tra le altre aree, tutti gli strumenti di gestione correlati a telefonia, messaggistica, riunioni e i team stessi. Il ruolo concede anche la possibilità di creare e gestire tutti i gruppi di Office 365, gestire i ticket di supporto e monitorare l'integrità del servizio.
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[Amministratore utenti](#user-administrator-permissions)
 

@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 612da322e0d248f9b0000c8f0006893b87b74e44
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084650"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970201"
 ---
-# <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
+# <a name="introduction-to-azure-storage"></a>Introduzione al servizio di archiviazione Azure
 
 Archiviazione di Azure è la soluzione di archiviazione cloud Microsoft per i moderni scenari di archiviazione dati. Archiviazione di Azure offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica per messaggistica affidabile e un archivio NoSQL. Archiviazione di Azure presenta le caratteristiche seguenti:
 
 - **Durabilità e disponibilità elevata.** La ridondanza garantisce che i dati siano al sicuro in caso di errori hardware temporanei. Si può anche scegliere di replicare i dati tra data center o aree geografiche per una protezione aggiuntiva da catastrofi locali o calamità naturali. Con questo tipo di replica, i dati mantengono disponibilità elevata in caso di interruzioni impreviste.
 - **Sicurezza.** Tutti i dati scritti in Archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
-- **Scalabilità.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni. 
+- **Scalabilità.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni.
 - **Soluzione gestita.** Microsoft Azure gestisce automaticamente le attività di manutenzione dell'hardware, gli aggiornamenti e i problemi critici.
 - **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft fornisce librerie client per archiviazione di Azure in un'ampia gamma di linguaggi, tra cui .NET, Java, node. js, Python, PHP, Ruby, go e altri ancora, oltre a un'API REST matura. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
 
@@ -31,14 +31,14 @@ Archiviazione di Azure include i servizi dati seguenti.
 
 - [BLOB di Azure](../blobs/storage-blobs-introduction.md): archivio oggetti a scalabilità elevata per dati di testo e binari.
 - [File di Azure](../files/storage-files-introduction.md): condivisioni file gestite per distribuzioni cloud o locali.
-- [Code di Azure](../queues/storage-queues-introduction.md): archivio di messaggistica per una messaggistica affidabile tra i componenti delle applicazioni. 
+- [Code di Azure](../queues/storage-queues-introduction.md): archivio di messaggistica per una messaggistica affidabile tra i componenti delle applicazioni.
 - [Tabelle di Azure](../tables/table-storage-overview.md): archivio NoSQL per l'archiviazione senza schema di dati strutturati.
 
-Ogni servizio è accessibile tramite un account di archiviazione. Per iniziare, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
+Ogni servizio è accessibile tramite un account di archiviazione. Per iniziare, vedere [Creare un account di archiviazione](storage-account-create.md).
 
-## <a name="blob-storage"></a>Archivio BLOB
+## <a name="blob-storage"></a>Archiviazione BLOB
 
-L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archivio BLOB è ottimizzato per l'archiviazione di enormi quantità di dati non strutturati, come dati di testo o binari. 
+L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archivio BLOB è ottimizzato per l'archiviazione di enormi quantità di dati non strutturati, come dati di testo o binari.
 
 L'archivio BLOB è ideale per le operazioni seguenti:
 
@@ -108,13 +108,13 @@ Ogni richiesta ad archiviazione di Azure deve essere autorizzata. Archiviazione 
 
 ## <a name="encryption"></a>Crittografia
 
-Sono disponibili due tipi di crittografia di base per i servizi di archiviazione. Per altre informazioni sulla sicurezza e sulla crittografia, vedere [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
+Sono disponibili due tipi di crittografia di base per i servizi di archiviazione. Per altre informazioni sulla sicurezza e sulla crittografia, vedere [Guida alla sicurezza di Archiviazione di Azure](../blobs/security-recommendations.md).
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
 La crittografia di archiviazione di Azure protegge e salvaguarda i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Archiviazione di Azure crittografa automaticamente tutti i dati prima di renderli permanente nell'account di archiviazione e li decrittografa prima del recupero. I processi di crittografia, decrittografia e gestione delle chiavi sono completamente trasparenti per gli utenti. I clienti possono anche scegliere di gestire le proprie chiavi usando Azure Key Vault. Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](storage-service-encryption.md)inattivi.
 
-### <a name="client-side-encryption"></a>Crittografia lato client
+### <a name="client-side-encryption"></a>crittografia lato client
 
 Le librerie client di archiviazione di Azure forniscono metodi per la crittografia dei dati dalla libreria client prima dell'invio in rete e la decrittografia della risposta. I dati crittografati tramite la crittografia lato client vengono anche crittografati a riposo da archiviazione di Azure. Per altre informazioni sulla crittografia lato client, vedere [crittografia lato client con .NET per archiviazione di Azure](storage-client-side-encryption.md).
 
@@ -171,4 +171,4 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare Archiviazione di Azure, vedere [Create a storage account](storage-quickstart-create-account.md) (Creare un account di archiviazione).
+Per iniziare a usare Archiviazione di Azure, vedere [Create a storage account](storage-account-create.md) (Creare un account di archiviazione).

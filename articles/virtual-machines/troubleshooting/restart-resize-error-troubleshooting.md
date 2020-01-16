@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd05f9f7db0db22759c5e19dbfb59cc377e63f4d
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155462"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965618"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione con il riavvio o il ridimensionamento di una VM Windows esistente in Azure
 Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.
@@ -28,11 +28,11 @@ Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne
 ## <a name="collect-activity-logs"></a>Raccogliere i log di attività
 Per avviare la risoluzione dei problemi, raccogliere i log delle attività per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo:
 
-[Visualizzare le operazioni di distribuzione](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Visualizzare le operazioni di distribuzione](../../azure-resource-manager/templates/deployment-history.md)
 
 [Visualizzare i log attività per gestire le risorse di Azure](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Errore durante l'avvio di una macchina virtuale arrestata
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Errore durante l'avvio di una VM arrestata
 Si prova ad avviare una VM arrestata ma viene visualizzato un errore di allocazione.
 
 ### <a name="cause"></a>Causa
@@ -45,7 +45,7 @@ La richiesta di avvio della VM arrestata deve essere eseguita nel cluster origin
   2. Dopo l'arresto di tutte le VM, selezionare le VM arrestate e fare clic su Avvia.
 * Ripetere la richiesta di riavvio in un secondo momento.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: Errore durante il ridimensionamento di una macchina virtuale esistente
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: Errore durante il ridimensionamento di una VM esistente
 Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di allocazione.
 
 ### <a name="cause"></a>Causa

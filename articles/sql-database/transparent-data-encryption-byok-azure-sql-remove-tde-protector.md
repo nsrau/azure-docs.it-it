@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: d4c9b926afe93f52946c5f1adf40835f72812f2a
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ba591872f4f8af93e5f7e13e0fb69d0679fd1a0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995823"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965761"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 
@@ -33,13 +33,13 @@ ms.locfileid: "74995823"
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per l'installazione, vedere [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * * *
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Questa guida pratica descrive come gestire una protezione TDE potenzialmente compromessa per un database SQL di Azure o un data warehouse che usa TDE con chiavi gestite dal cliente in Azure Key Vault e supporto Bring Your Own Key (BYOK). Per altre informazioni sul supporto BYOK per TDE, vedere la [pagina di panoramica](transparent-data-encryption-byok-azure-sql.md).
 
@@ -53,10 +53,10 @@ Nei passaggi seguenti viene descritto come controllare le identificazioni person
 È possibile trovare l'identificazione personale della protezione Transparent Data Encryption del database e l'ID del database eseguendo:
 
 ```sql
-SELECT [database_id], 
-       [encryption_state], 
-       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/ 
-       [encryptor_thumbprint], 
+SELECT [database_id],
+       [encryption_state],
+       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/
+       [encryptor_thumbprint],
  FROM [sys].[dm_database_encryption_keys]
 ```
 
@@ -70,7 +70,7 @@ SELECT * FROM sys.dm_db_log_info (database_id)
 
 Il comando di PowerShell **Get-AzureRmSqlServerKeyVaultKey** fornisce l'identificazione personale della protezione Transparent Data Encryption utilizzata nella query, in modo da poter visualizzare le chiavi da mantenere e le chiavi da eliminare in AKV. Solo le chiavi non più utilizzate dal database possono essere eliminate in modo sicuro dal Azure Key Vault.
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Il comando di PowerShell **AZ SQL Server Key show** fornisce l'identificazione personale della protezione Transparent Data Encryption usata nella query, in modo da poter vedere quali chiavi mantenere e quali chiavi eliminare in AKV. Solo le chiavi non più utilizzate dal database possono essere eliminate in modo sicuro dal Azure Key Vault.
 
@@ -126,7 +126,7 @@ Questa guida pratica descrive due approcci che si distinguono in base al risulta
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per informazioni di riferimento sui comandi, vedere l'insieme di credenziali delle credenziali di [Azure](/cli/azure/keyvault/key).
 

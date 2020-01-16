@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464986"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965350"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server con una condivisione file Premium in macchine virtuali di Azure
 
@@ -42,7 +42,7 @@ Una cosa da tenere presente è che in un cluster di failover di macchine virtual
 È inoltre necessario conoscere le tecnologie seguenti:
 
 - [Condivisione file Premium di Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Gruppi di risorse di Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Gruppi di risorse di Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la [modalità di gestione semplice](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Per passare dalla modalità di estensione completa a quella Lightweight, eliminare la risorsa della **macchina virtuale SQL** per le macchine virtuali corrispondenti e quindi registrarla con il provider di risorse VM SQL in modalità lightweight. Quando si elimina la risorsa della **macchina virtuale SQL** utilizzando la portale di Azure, **deselezionare la casella di controllo accanto alla macchina virtuale corretta**. L'estensione completa supporta funzionalità quali il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL dopo che l'agente è stato reinstallato in modalità di gestione leggera.

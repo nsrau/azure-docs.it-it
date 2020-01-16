@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto Carico di lavoro dell'ambiente del servizio app/SQL ISO 27001
 description: Procedura per la distribuzione dell'esempio di progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 3cf3c062b1e8b69a6a0b9eb585b30ce2d5c4acfb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6b8f3b753f1dd8cfbc247a77f2004e3c4d3423bb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546759"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922568"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Distribuire l'esempio di progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 
@@ -72,7 +72,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
+     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
        Cambiarlo, se necessario, o lasciarlo inalterato.
      - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
@@ -92,7 +92,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      - **Nome organizzazione**: immettere un nome breve per l'organizzazione. Questa proprietà viene usata prevalentemente per l'assegnazione di nomi alle risorse.
      - **ID sottoscrizione servizi condivisi**: l'ID della sottoscrizione in cui è assegnato l'esempio di progetto [Servizi condivisi ISO 27001](../iso27001-shared/index.md).
-     - **Prefisso dell'indirizzo della subnet predefinito**: la notazione CIDR per la subnet predefinita della rete virtuale.
+     - **Prefisso dell'indirizzo della subnet predefinito**: La notazione CIDR per la subnet predefinita della rete virtuale.
        Il valore predefinito è _10.1.0.0/16_.
      - **Località del carico di lavoro**: determina in quale località vengono distribuiti gli artefatti. Non tutti i servizi sono disponibili in tutte le località. Gli artefatti che distribuiscono tali servizi forniscono un'opzione di parametro per la località in cui eseguire la distribuzione.
 
@@ -109,14 +109,14 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-|Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
+|Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|Gruppo di risorse Log Analytics|Resource group|NOME|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-log-rg` per rendere univoco il gruppo di risorse.|
+|Gruppo di risorse Log Analytics|Resource group|Nome|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-log-rg` per rendere univoco il gruppo di risorse.|
 |Gruppo di risorse Log Analytics|Resource group|Location|**Bloccato**: usa il parametro del progetto.|
 |Modello Log Analytics|Modello di Resource Manager|Livello di servizio|Imposta il livello dell'area di lavoro di Log Analytics. Il valore predefinito è _PerNode_.|
 |Modello Log Analytics|Modello di Resource Manager|Conservazione log in giorni|Il periodo di conservazione dei dati in giorni. Il valore predefinito è _365_.|
 |Modello Log Analytics|Modello di Resource Manager|Location|L'area usata per la creazione dell'area di lavoro di Log Analytics. Il valore predefinito è _Stati Uniti occidentali 2_.|
-|Gruppo di risorse di rete|Resource group|NOME|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-net-rg` per rendere univoco il gruppo di risorse.|
+|Gruppo di risorse di rete|Resource group|Nome|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-net-rg` per rendere univoco il gruppo di risorse.|
 |Gruppo di risorse di rete|Resource group|Location|**Bloccato**: usa il parametro del progetto.|
 |Modello Gruppi di sicurezza di rete|Modello di Resource Manager|Conservazione log in giorni|Il periodo di conservazione dei dati in giorni. Il valore predefinito è _365_.|
 |Modello Rete virtuale e tabella di route|Modello di Resource Manager|Indirizzo IP privato di Firewall di Azure|Configura l'indirizzo IP privato di [Firewall di Azure](../../../../firewall/overview.md). Deve far parte della notazione CIDR definita nel parametro dell'artefatto di _ISO 27001: Servizi condivisi_ denominato **Prefisso dell'indirizzo della subnet di Firewall di Azure**. Il valore predefinito è _10.0.4.4_.|
@@ -124,13 +124,13 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Modello Rete virtuale e tabella di route|Modello di Resource Manager|Prefisso dell'indirizzo della rete virtuale|La notazione CIDR per rete virtuale. Il valore predefinito è _10.1.0.0/16_.|
 |Modello Rete virtuale e tabella di route|Modello di Resource Manager|Prefisso dell'indirizzo della subnet predefinito|La notazione CIDR per la subnet predefinita della rete virtuale. Il valore predefinito è _10.1.0.0/16_.|
 |Modello Rete virtuale e tabella di route|Modello di Resource Manager|Indirizzo IP Active Directory Domain Services|Indirizzo IP della prima VM di Active Directory Domain Services. Questo valore viene usato come DNS di rete virtuale personalizzato.|
-|Gruppo di risorse dell'insieme di credenziali delle chiavi|Resource group|NOME|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-kv-rg` per rendere univoco il gruppo di risorse.|
+|Gruppo di risorse dell'insieme di credenziali delle chiavi|Resource group|Nome|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-kv-rg` per rendere univoco il gruppo di risorse.|
 |Gruppo di risorse dell'insieme di credenziali delle chiavi|Resource group|Location|**Bloccato**: usa il parametro del progetto.|
 |Modello Key Vault|Modello di Resource Manager|ID oggetto AAD|L'identificatore dell'oggetto AAD dell'account che richiede l'accesso all'istanza di Key Vault. Non prevede valori predefiniti e non può essere lasciato vuoto. Per individuare questo valore nel portale di Azure, cercare e selezionare "Utenti" in _Servizi_. Usare la casella _Nome_ per filtrare per il nome dell'account, quindi selezionarlo. Nella pagina _Profilo utente_ selezionare l'icona "Fare clic per copiare" accanto a _ID oggetto_.|
 |Modello Key Vault|Modello di Resource Manager|Conservazione log in giorni|Il periodo di conservazione dei dati in giorni. Il valore predefinito è _365_.|
 |Modello Key Vault|Modello di Resource Manager|SKU Key Vault|Specifica lo SKU dell'istanza di Key Vault creata. Il valore predefinito è _Premium_.|
 |Modello Key Vault|Modello di Resource Manager|Nome utente amministratore del server SQL di Azure|Il nome utente usato per accedere al server SQL di Azure. Devo corrispondere allo stesso valore della proprietà nel **Modello Database SQL di Azure**. Il valore predefinito è _sql-admin-user_.|
-|Gruppo di risorse Database SQL di Azure|Resource group|NOME|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-azsql-rg` per rendere univoco il gruppo di risorse.|
+|Gruppo di risorse Database SQL di Azure|Resource group|Nome|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-azsql-rg` per rendere univoco il gruppo di risorse.|
 |Gruppo di risorse Database SQL di Azure|Resource group|Location|**Bloccato**: usa il parametro del progetto.|
 |Modello Database SQL di Azure|Modello di Resource Manager|Nome utente amministratore del server SQL di Azure|Il nome utente per il server SQL di Azure. Deve corrispondere allo stesso valore della proprietà nel **modello Key Vault**. Il valore predefinito è _sql-admin-user_.|
 |Modello Database SQL di Azure|Modello di Resource Manager|Password amministratore del server SQL di Azure (ID risorsa Key Vault)|L'ID risorsa di Key Vault. Usare "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e sostituire `{subscriptionId}` con l'ID sottoscrizione e `{orgName}` con il parametro del progetto **Nome organizzazione**.|
@@ -138,7 +138,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Modello Database SQL di Azure|Modello di Resource Manager|Conservazione log in giorni|Il periodo di conservazione dei dati in giorni. Il valore predefinito è _365_.|
 |Modello Database SQL di Azure|Modello di Resource Manager|ID oggetto amministratore AAD|L'ID oggetto AAD dell'utente che verrà assegnato come amministratore di Active Directory. Non prevede valori predefiniti e non può essere lasciato vuoto. Per individuare questo valore nel portale di Azure, cercare e selezionare "Utenti" in _Servizi_. Usare la casella _Nome_ per filtrare per il nome dell'account, quindi selezionarlo. Nella pagina _Profilo utente_ selezionare l'icona "Fare clic per copiare" accanto a _ID oggetto_.|
 |Modello Database SQL di Azure|Modello di Resource Manager|Account di accesso amministratore AAD|Attualmente gli account Microsoft, come live.com o outlook.com, non possono essere impostati come amministratore. Solo gli utenti e i gruppi di sicurezza all'interno dell'organizzazione possono essere impostati come amministratore. Non prevede valori predefiniti e non può essere lasciato vuoto. Per individuare questo valore nel portale di Azure, cercare e selezionare "Utenti" in _Servizi_. Usare la casella _Nome_ per filtrare per il nome dell'account, quindi selezionarlo. Nella pagina _Profilo utente_ copiare il valore di _Nome utente_.|
-|Gruppo di risorse Ambiente del servizio app|Resource group|NOME|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-ase-rg` per rendere univoco il gruppo di risorse.|
+|Gruppo di risorse Ambiente del servizio app|Resource group|Nome|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-ase-rg` per rendere univoco il gruppo di risorse.|
 |Gruppo di risorse Ambiente del servizio app|Resource group|Location|**Bloccato**: usa il parametro del progetto.|
 |Modello Ambiente del servizio app|Modello di Resource Manager|Nome di dominio|Il nome dell'istanza di Active Directory creata dall'esempio. Il valore predefinito è _contoso.com_.|
 |Modello Ambiente del servizio app|Modello di Resource Manager|Località dell'ambiente del servizio app|La località dell'ambiente del servizio app. Il valore predefinito è _Stati Uniti occidentali 2_.|

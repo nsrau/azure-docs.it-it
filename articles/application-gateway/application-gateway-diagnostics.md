@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: bfae540af1c501c09ec026b97ac11e8a14b177a9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326540"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966933"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
@@ -29,7 +29,7 @@ ms.locfileid: "74326540"
 
 ## <a name="back-end-health"></a>Integrità back-end
 
-Il gateway applicazione consente di monitorare l'integrità dei singoli membri dei pool back-end tramite il portale, PowerShell e l'interfaccia della riga di comando (CLI). Le informazioni di riepilogo dell'integrità dei pool back-end sono disponibili anche tramite i log di diagnostica delle prestazioni. 
+Il gateway applicazione consente di monitorare l'integrità dei singoli membri dei pool back-end tramite il portale, PowerShell e l'interfaccia della riga di comando (CLI). Le informazioni di riepilogo dell'integrità dei pool back-end sono disponibili anche tramite i log di diagnostica delle prestazioni.
 
 Il report sull'integrità back-end riflette l'output del probe di integrità del gateway applicazione nelle istanze back-end. Quando l'esecuzione del probe ha esito positivo e il back-end può ricevere il traffico, il membro è considerato integro. In caso contrario, viene considerato non integro.
 
@@ -39,7 +39,7 @@ Il report sull'integrità back-end riflette l'output del probe di integrità del
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visualizzare l'integrità back-end tramite il portale
 
-Nel portale l'integrità back-end viene visualizzata automaticamente. In un gateway applicazione esistente selezionare **Monitoraggio** > **Integrità back-end**. 
+Nel portale l'integrità back-end viene visualizzata automaticamente. In un gateway applicazione esistente selezionare **Monitoraggio** > **Integrità back-end**.
 
 Ogni membro del pool back-end è elencato in questa pagina, indipendentemente dal fatto che si tratti di schede di interfaccia di rete, IP o FQDN. Vengono visualizzati il nome del pool back-end, la porta, il nome delle impostazioni HTTP back-end e lo stato di integrità. I valori validi per lo stato di integrità sono **Integro**, **Danneggiato** e **Sconosciuto**.
 
@@ -101,7 +101,7 @@ In Azure è possibile usare diversi tipi di log per gestire e risolvere i proble
 * **Log del firewall**: è possibile usare questo log per visualizzare le richieste registrate tramite la modalità di rilevamento o prevenzione di un gateway applicazione configurato con il web application firewall.
 
 > [!NOTE]
-> I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Azure Resource Manager. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sulla distribuzione di Resource Manager e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
+> I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Azure Resource Manager. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sulla distribuzione di Resource Manager e la distribuzione classica](../azure-resource-manager/management/deployment-models.md).
 
 Sono disponibili tre opzioni di archiviazione dei log:
 
@@ -126,8 +126,8 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >I log attività non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione degli accessi e delle prestazioni è previsto un addebito.
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Abilitare la registrazione tramite il portale di Azure
@@ -158,7 +158,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
 
-|Valore  |DESCRIZIONE  |
+|Valore  |Description  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -202,7 +202,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 ```
 Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 
-|Valore  |DESCRIZIONE  |
+|Valore  |Description  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -256,7 +256,7 @@ Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. È disponibile solo per lo SKU V1. Per lo SKU V2, usare le [metriche](application-gateway-metrics.md) per i dati sulle prestazioni. Vengono registrati i dati seguenti:
 
 
-|Valore  |DESCRIZIONE  |
+|Valore  |Description  |
 |---------|---------|
 |instanceId     |  Istanza del gateway applicazione per cui vengono generati i dati delle prestazioni. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.        |
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
@@ -293,7 +293,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 Il log del firewall viene generato solo se è stato abilitato in ogni gateway applicazione, come descritto nei passaggi precedenti. Questo log richiede anche che il web application firewall sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
 
-|Valore  |DESCRIZIONE  |
+|Valore  |Description  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione per cui vengono generati i dati del firewall. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.         |
 |clientIp     |   IP di origine della richiesta.      |
@@ -305,7 +305,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
 |action     |  Azione eseguita sulla richiesta. I valori disponibili vengono abbinati e bloccati.      |
 |site     | Sito per cui è stato generato il log. Attualmente viene visualizzato solo Global poiché le regole sono globali.|
-|informazioni dettagliate     | Dettagli dell'evento di attivazione.        |
+|dettagli     | Dettagli dell'evento di attivazione.        |
 |details.message     | Descrizione della regola.        |
 |details.data     | Dati specifici individuati nella richiesta corrispondente alla regola.         |
 |details.file     | File di configurazione che conteneva la regola.        |
@@ -336,10 +336,10 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
-    "hostname": "40.90.218.100", 
+    "hostname": "40.90.218.100",
     "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
-} 
+}
 
 ```
 
@@ -347,7 +347,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
-* **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 * **Power BI**: se non si ha ancora un account [Power BI](https://powerbi.microsoft.com/pricing) , è possibile crearne uno di prova gratuitamente. Usando le [app modello di Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview), è possibile analizzare i dati.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualizzare e analizzare i log di accesso, delle prestazioni e del firewall
@@ -358,12 +358,12 @@ I [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-anal
 
 > [!TIP]
 > Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare i [convertitori di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in GitHub.
-> 
-> 
+>
+>
 
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analisi dei log di accesso con GoAccess
 
-È stato pubblicato un modello di Resource Manager che installa ed esegue il diffuso analizzatore di log [GoAccess](https://goaccess.io/) per i log di accesso del gateway applicazione. GoAccess offre utili statistiche sul traffico HTTP, come ad esempio visitatori univoci, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file Readme nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
+È stato pubblicato un modello di Resource Manager che installa ed esegue il diffuso analizzatore di log [GoAccess](https://goaccess.io/) per i log di accesso del gateway applicazione. GoAccess offre statistiche utili sul traffico HTTP, ad esempio il numero di visitatori unici, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file Readme nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

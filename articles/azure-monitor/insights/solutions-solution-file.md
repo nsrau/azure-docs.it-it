@@ -8,26 +8,26 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401594"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977685"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
 > Questa è una documentazione preliminare per la creazione di soluzioni di gestione in Azure attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.  
 
-Le soluzioni di gestione in Azure vengono implementate come [modelli di gestione delle risorse](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  L'attività principale della creazione di soluzioni di gestione consiste nel [creare un modello](../../azure-resource-manager/templates/template-syntax.md).  Questo articolo fornisce informazioni dettagliate sui modelli usati per le soluzioni e illustra come configurare le risorse tipiche di una soluzione.
+Le soluzioni di gestione in Azure vengono implementate come [modelli di gestione delle risorse](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).  L'attività principale della creazione di soluzioni di gestione consiste nel [creare un modello](../../azure-resource-manager/templates/template-syntax.md).  Questo articolo fornisce informazioni dettagliate sui modelli usati per le soluzioni e illustra come configurare le risorse tipiche di una soluzione.
 
 
 ## <a name="tools"></a>Strumenti
 
 È possibile usare qualsiasi editor di testo per interagire con i file della soluzione, ma si consiglia di avvalersi delle funzionalità disponibili in Visual Studio o Visual Studio Code, come descritto negli articoli seguenti.
 
-- [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Utilizzo dei modelli di Azure Resource Manager nel codice di Visual Studio](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [Utilizzo dei modelli di Azure Resource Manager nel codice di Visual Studio](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -159,7 +159,7 @@ Le [risorse](../../azure-resource-manager/templates/template-syntax.md#resources
 
 
 ### <a name="dependencies"></a>Dependencies
-L'elemento **dependsOn** specifica una [dipendenza](../../azure-resource-manager/resource-group-define-dependencies.md) da un'altra risorsa.  Quando si installa la soluzione, una risorsa viene creata solo dopo che sono state create tutte le relative dipendenze.  La soluzione potrebbe ad esempio [avviare un runbook](solutions-resources-automation.md#runbooks) quando viene installata usando una [risorsa processo](solutions-resources-automation.md#automation-jobs).  La risorsa processo dipenderà dalla risorsa runbook, per assicurarsi che il runbook venga creato prima del processo.
+L'elemento **dependsOn** specifica una [dipendenza](../../azure-resource-manager/templates/define-resource-dependency.md) da un'altra risorsa.  Quando si installa la soluzione, una risorsa viene creata solo dopo che sono state create tutte le relative dipendenze.  La soluzione potrebbe ad esempio [avviare un runbook](solutions-resources-automation.md#runbooks) quando viene installata usando una [risorsa processo](solutions-resources-automation.md#automation-jobs).  La risorsa processo dipenderà dalla risorsa runbook, per assicurarsi che il runbook venga creato prima del processo.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>area di lavoro Log Analytics e account di Automazione
 Le soluzioni di gestione richiedono un'[area di lavoro Log Analytics](../../azure-monitor/platform/manage-access.md) per contenere le viste e un [account di Automazione](../../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le risorse correlate.  Questi elementi devono essere disponibili prima della creazione delle risorse nella soluzione e non devono essere definiti nella soluzione stessa.  L'utente [specificherà un'area di lavoro e un account](solutions.md#log-analytics-workspace-and-automation-account) quando distribuisce la soluzione, ma l'autore della soluzione deve tenere presente quanto segue.
@@ -200,7 +200,7 @@ Per ogni soluzione è necessario specificare una risorsa nell'elemento **resourc
 
 
 ### <a name="dependencies"></a>Dependencies
-La risorsa soluzione deve avere una [dipendenza](../../azure-resource-manager/resource-group-define-dependencies.md) da ogni altra risorsa nella soluzione, perché ogni risorsa deve esistere affinché la soluzione possa essere creata.  A tale scopo, aggiungere una voce per ogni risorsa nell'elemento **dependsOn**.
+La risorsa soluzione deve avere una [dipendenza](../../azure-resource-manager/templates/define-resource-dependency.md) da ogni altra risorsa nella soluzione, perché ogni risorsa deve esistere affinché la soluzione possa essere creata.  A tale scopo, aggiungere una voce per ogni risorsa nell'elemento **dependsOn**.
 
 ### <a name="properties"></a>Proprietà
 La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  Sono incluse le risorse cui viene fatto riferimento dalla soluzione e incluse nella soluzione che definisce come viene gestita la risorsa dopo l'installazione della soluzione.  Ogni risorsa nella soluzione deve essere presente nella proprietà **referencedResources** o **containedResources**.

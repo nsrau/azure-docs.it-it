@@ -10,22 +10,22 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: d34182e09bf453dbec1e9592f131cb9b3b78a086
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0506527808892bf1ee531d892e2773d095e18560
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086481"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965636"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Come usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali in Azure
 
-Una macchina virtuale può entrare in uno stato non di avvio per diversi motivi. Per risolvere i problemi relativi alle macchine virtuali create con il modello di distribuzione di Resource Manager, è possibile usare le funzionalità di debug seguenti: l'output della console e il supporto dello screenshot delle macchine virtuali di Azure. 
+Una macchina virtuale può entrare in uno stato non di avvio per diversi motivi. Per risolvere i problemi relativi alle macchine virtuali create con Gestione risorse modello di distribuzione, è possibile usare le funzionalità di debug seguenti: output della console e supporto dello screenshot per le macchine virtuali di Azure. 
 
 Per le macchine virtuali Linux è possibile visualizzare l'output del log della console dal portale. Per le macchine virtuali Windows e Linux, Azure consente di visualizzare uno screenshot della macchina virtuale dall'hypervisor. Entrambe le funzionalità sono supportate per le macchine virtuali di Azure in tutte le aree. Si noti che la visualizzazione degli screenshot e dell'output nell'account di archiviazione può richiedere fino a 10 minuti.
 
 È possibile selezionare l'opzione **Diagnostica di avvio** per visualizzare il log e lo screenshot.
 
-![Gestione risorse](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![Azure Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Errori di avvio comuni
 
@@ -49,7 +49,7 @@ La procedura seguente si riferisce a una macchina virtuale creata usando il mode
 
 Nella scheda **Gestione**, nella sezione **Monitoraggio**, verificare che l'opzione **Diagnostica di avvio** sia attivata. Nell'elenco a discesa **Account di archiviazione di diagnostica** selezionare un account di archiviazione in cui inserire i file di diagnostica.
  
-![Crea macchina virtuale](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
+![Creare una macchina virtuale](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
 > La funzionalità di diagnostica di avvio non supporta gli account di archiviazione premium. Se si usa l'account di archiviazione premium per la diagnostica di avvio, può verificarsi l'errore StorageAccountTypeNotSupported quando si avvia la macchina virtuale.
@@ -79,7 +79,7 @@ Il profilo di diagnostica consente di selezionare l'account di archiviazione in 
 }
 ```
 
-Per altre informazioni sulla distribuzione di risorse tramite modelli, vedere [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+Per altre informazioni sulla distribuzione di risorse usando i modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager usando il portale di Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Abilitare la diagnostica di avvio in una macchina virtuale esistente 
 

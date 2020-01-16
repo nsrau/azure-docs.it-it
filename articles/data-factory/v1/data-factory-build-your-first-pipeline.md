@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: bb77182489e08795e5eb482740eed6c67d2f1627
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438940"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966084"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
@@ -37,31 +37,31 @@ Questo articolo fornisce una panoramica e i prerequisiti per l'esercitazione. Do
 ## <a name="tutorial-overview"></a>Panoramica dell'esercitazione
 In questa esercitazione si segue questa procedura:
 
-1. Creare una **data factory**. Una data factory può contenere una o più pipeline di dati che spostano e trasformano i dati. 
+1. Creare una **data factory**. Una data factory può contenere una o più pipeline di dati che spostano e trasformano i dati.
 
-    In questa esercitazione si creerà una pipeline nella data factory. 
+    In questa esercitazione si creerà una pipeline nella data factory.
 2. Creare una **pipeline**. Una pipeline può comprendere una o più attività (esempi: attività di copia, attività Hive HDInsight). In questo esempio viene usata un'attività Hive di HDInsight che esegue uno script Hive in un cluster Hadoop di HDInsight. Lo script crea prima di tutto una tabella che fa riferimento ai dati di blog non elaborati contenuti nell'archivio BLOB di Azure e quindi esegue il partizionamento dei dati non elaborati per anno e per mese.
 
-    In questa esercitazione, la pipeline usa l'attività Hive per trasformare i dati eseguendo una query Hive in un cluster Hadoop di HDInsight di Azure. 
+    In questa esercitazione, la pipeline usa l'attività Hive per trasformare i dati eseguendo una query Hive in un cluster Hadoop di HDInsight di Azure.
 3. Creare **servizi collegati**. Creare un servizio collegato per collegare un archivio dati o un servizio di calcolo alla data factory. Un archivio dati come Archiviazione di Azure contiene i dati di input/output delle attività nella pipeline. Un servizio di calcolo come un cluster Hadoop di HDInsight elabora/trasforma i dati.
 
-    In questa esercitazione guidata si creano due servizi collegati : **Archiviazione di Azure** e **Azure HDInsight**. Il servizio collegato Archiviazione di Azure collega un account di archiviazione di Azure contenente i dati di input/output alla data factory. Il servizio collegato Azure HDInsight collega un cluster HDInsight di Azure usato per trasformare i dati alla data factory. 
+    In questa esercitazione guidata si creano due servizi collegati : **Archiviazione di Azure** e **Azure HDInsight**. Il servizio collegato Archiviazione di Azure collega un account di archiviazione di Azure contenente i dati di input/output alla data factory. Il servizio collegato Azure HDInsight collega un cluster HDInsight di Azure usato per trasformare i dati alla data factory.
 3. Creare **set di dati**di input e di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività.
 
-    In questa esercitazione i set di dati di input e output specificano i percorsi dei dati di input e output nell'Archiviazione BLOB di Azure. Il servizio collegato Archiviazione di Azure specifica l'account di archiviazione di Azure che viene usato. Un set di dati di input specifica la posizione in cui si trovano i file di input e un set di dati di output specifica la posizione in cui verranno inseriti i file di output. 
+    In questa esercitazione i set di dati di input e output specificano i percorsi dei dati di input e output nell'Archiviazione BLOB di Azure. Il servizio collegato Archiviazione di Azure specifica l'account di archiviazione di Azure che viene usato. Un set di dati di input specifica la posizione in cui si trovano i file di input e un set di dati di output specifica la posizione in cui verranno inseriti i file di output.
 
 
 Per una panoramica dettagliata di Azure Data Factory, vedere l'articolo [Introduzione al servizio Azure Data Factory](data-factory-introduction.md) .
-  
-Di seguito è riportata la **vista diagramma** della data factory di esempio creata in questa esercitazione. **MyFirstPipeline** ha un'attività di tipo Hive che usa i set di dati **AzureBlobInput** come input e produce set di dati **AzureBlobOutput** come output. 
+
+Di seguito è riportata la **vista diagramma** della data factory di esempio creata in questa esercitazione. **MyFirstPipeline** ha un'attività di tipo Hive che usa i set di dati **AzureBlobInput** come input e produce set di dati **AzureBlobOutput** come output.
 
 ![Vista diagramma nell'esercitazione su Data Factory](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
-In questa esercitazione la cartella **inputdata** del contenitore BLOB di Azure **adfgetstarted** contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2016. Ecco le righe di esempio per ogni mese nel file di input. 
+In questa esercitazione la cartella **inputdata** del contenitore BLOB di Azure **adfgetstarted** contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2016. Ecco le righe di esempio per ogni mese nel file di input.
 
 ```
-2016-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
+2016-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871
 2016-02-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
 2016-03-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
 ```
@@ -80,14 +80,14 @@ Delle righe di esempio riportate sopra, la prima (con 2016-01-01) viene scritta 
 Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 1. **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
-2. **Archiviazione di Azure** : in questa esercitazione si usa un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) . Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Per informazioni su come recuperare le chiavi di accesso all'account di archiviazione, vedere [gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
-3. Scaricare ed esaminare il file di query Hive (**HQL**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output. 
+2. **Archiviazione di Azure** : in questa esercitazione si usa un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) . Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Per informazioni su come recuperare le chiavi di accesso all'account di archiviazione, vedere [gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
+3. Scaricare ed esaminare il file di query Hive (**HQL**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output.
 4. Scaricare ed esaminare il file di input di esempio (**input.log**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
-5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure. 
-6. Caricare il file **partitionweblogs.hql** nella cartella **script** nel contenitore **adfgetstarted**. Usare strumenti come [Esplora archivi di Microsoft Azure](https://storageexplorer.com/). 
-7. Caricare il file**input.log** nella cartella **inputdata** nel contenitore **adfgetstarted**. 
+5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure.
+6. Caricare il file **partitionweblogs.hql** nella cartella **script** nel contenitore **adfgetstarted**. Usare strumenti come [Esplora archivi di Microsoft Azure](https://storageexplorer.com/).
+7. Caricare il file**input.log** nella cartella **inputdata** nel contenitore **adfgetstarted**.
 
-Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK per eseguire l'esercitazione: 
+Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK per eseguire l'esercitazione:
 
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -98,11 +98,5 @@ Visual Studio offre un'interfaccia utente grafica per la creazione di data facto
 
 > [!NOTE]
 > La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
-> È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
-
-
-
-
-
-  
+>
+> È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md).

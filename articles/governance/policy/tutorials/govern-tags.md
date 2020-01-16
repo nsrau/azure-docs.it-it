@@ -3,16 +3,16 @@ title: 'Esercitazione: Gestire la governance dei tag'
 description: In questa esercitazione si usa l'effetto Modify di Criteri di Azure per creare e applicare un modello di governance dei tag alle risorse nuove ed esistenti.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482254"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965992"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Esercitazione: Gestire la governance dei tag con Criteri di Azure
 
-I [tag](../../../azure-resource-manager/resource-group-using-tags.md) sono una parte cruciale dell'organizzazione delle risorse di Azure in una tassonomia. Quando si seguono le [procedure consigliate per la gestione dei tag](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), questi possono costituire la base per l'applicazione dei criteri aziendali con Criteri di Azure o con il [monitoraggio dei costi con Gestione costi](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+I [tag](../../../azure-resource-manager/management/tag-resources.md) sono una parte cruciale dell'organizzazione delle risorse di Azure in una tassonomia. Quando si seguono le [procedure consigliate per la gestione dei tag](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), questi possono costituire la base per l'applicazione dei criteri aziendali con Criteri di Azure o con il [monitoraggio dei costi con Gestione costi](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Indipendentemente da come o perché si usano i tag, è importante che sia possibile aggiungere, modificare e rimuovere rapidamente questi tag nelle risorse di Azure.
 
 L'effetto [Modify](../concepts/effects.md#modify) di Criteri di Azure è progettato per semplificare la governance dei tag, indipendentemente dalla fase di governance delle risorse in cui ci si trova. **Modify** è utile quando:
@@ -28,7 +28,7 @@ In questa esercitazione verranno completate le attività seguenti:
 > - Abbinare ogni requisito a una definizione dei criteri
 > - Raggruppare i criteri di tag in un'iniziativa
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -204,7 +204,7 @@ Se le risorse di questa esercitazione non sono più necessarie, usare i passaggi
 
 1. Fare clic con il pulsante destro del mouse sulla riga o selezionare i puntini di sospensione alla fine della definizione (o assegnazione) e quindi **Elimina definizione** o **Elimina assegnazione**.
 
-## <a name="review"></a>Revisione
+## <a name="review"></a>Verifica
 
 In questa esercitazione sono stati presentate le attività seguenti:
 

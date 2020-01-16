@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073676"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967449"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="contact-us"></a>Contatti
+## <a name="contact-us"></a>Contattaci
 * [Come si rivolge una domanda al team di Gestione API di Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
@@ -59,7 +59,7 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 Quando una funzionalità è in anteprima, significa che si stanno raccogliendo attivamente commenti e suggerimenti dagli utenti sulla funzionalità. Una funzionalità in anteprima è completa dal punto di vista funzionale, ma è possibile che venga apportata una modifica di rilievo in risposta ai commenti e suggerimenti dei clienti. È consigliabile non far dipendere l'ambiente di produzione da una funzionalità in anteprima. Per inviare commenti e suggerimenti sulle funzionalità in anteprima, usare una delle opzioni di contatto elencate in [Come si rivolge una domanda al team di Gestione API di Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Come si protegge la connessione tra il gateway di Gestione API e i servizi back-end?
-Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. È possibile:
+Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. Puoi:
 
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Importare e pubblicare la prima API](import-and-publish.md).
 * Usare l'autenticazione reciproca SSL come descritto in [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure](api-management-howto-mutual-certificates.md).
@@ -67,13 +67,13 @@ Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestion
 * Connettere l'istanza di Gestione API a una rete virtuale di Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?
-Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. È possibile:
+Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. Puoi:
 
 * Usare la funzione di backup e ripristino di Gestione API. Per altre informazioni, vedere [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](api-management-howto-disaster-recovery-backup-restore.md).
 * Creare una propria funzionalità di backup e ripristino usando l'[API REST di Gestione API](/rest/api/apimanagement/). Usare l'API REST per salvare e ripristinare le entità dall'istanza del servizio desiderata.
 * Scaricare la configurazione del servizio usando Git e quindi caricarla in una nuova istanza. Per altre informazioni, vedere [Come salvare e configurare la configurazione del servizio Gestione API tramite Git](api-management-configuration-repository-git.md).
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>È possibile gestire l'istanza di Gestione API a livello di codice?
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Posso gestire l'istanza di Gestione API a livello di codice?
 Sì, è possibile gestire Gestione API a livello di codice usando:
 
 * L'[API REST di Gestione API](/rest/api/apimanagement/).
@@ -85,7 +85,7 @@ Ecco come è possibile aggiungere un utente al gruppo di amministratori:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al gruppo di risorse con l'istanza di Gestione API che si vuole aggiornare.
-3. In gestione API assegnare il ruolo di collaboratore del **servizio gestione API** all'utente.
+3. In gestione API assegnare il ruolo di **collaboratore del servizio gestione API** all'utente.
 
 Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://docs.microsoft.com/powershell/azure/overview) di Azure PowerShell. Ecco come accedere come amministratore:
 
@@ -98,12 +98,12 @@ Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://docs.microsoft
 Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](/azure/api-management/api-management-policies) (Criteri di Gestione API).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Come si configurano più ambienti in una sola API?
-Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. È possibile:
+Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. Puoi:
 
 * Ospitare API diverse nello stesso tenant.
 * Ospitare le stesse API in tenant diversi.
 
-### <a name="can-i-use-soap-with-api-management"></a>È possibile usare SOAP con Gestione API?
+### <a name="can-i-use-soap-with-api-management"></a>Posso usare SOAP con Gestione API?
 Ora è disponibile il supporto per il [pass-through SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/). Gli amministratori possono importare il file WSDL del servizio SOAP e Gestione API di Azure creerà un front-end SOAP. Per i servizi SOAP sono disponibili la documentazione del portale per sviluppatori, la console di test, i criteri e l'analisi.
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>È possibile configurare un server di autorizzazione OAuth 2.0 con la sicurezza AD FS?
@@ -119,7 +119,7 @@ Sì. Vedere i modelli di avvio rapido del [servizio gestione API di Azure](https
 Sì. Questa operazione può essere eseguita tramite PowerShell o eseguendo direttamente l'invio all'API. La convalida della catena di certificati verrà quindi disabilitata e si consentirà l'utilizzo di certificati autofirmati o firmati privatamente per le comunicazioni da Gestione API ai servizi back-end.
 
 #### <a name="powershell-method"></a>Metodo PowerShell ####
-Usare i cmdlet PowerShell[`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (per il nuovo back-end) o [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (per il back-end esistente) e impostare il parametro `-SkipCertificateChainValidation` su `True`. 
+Usare i cmdlet PowerShell[`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (per il nuovo back-end) o [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (per il back-end esistente) e impostare il parametro `-SkipCertificateChainValidation` su `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -139,13 +139,13 @@ Sì. Gestione API funziona con ExpressRoute.
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Perché è necessaria una subnet dedicata nelle reti virtuali di Resource Manager quando Gestione API viene distribuita in tali reti?
 Il requisito di una subnet dedicata per Gestione API deriva dal fatto che è costruita su un modello di distribuzione classico (livello PAAS V1). Anche se è possibile eseguire la distribuzione in una rete virtuale (livello V2) di Resource Manager, è necessario considerare le conseguenze. Il modello di distribuzione classica in Azure non è strettamente associato con il modello di Resource Manager e quindi se si crea una risorsa nel livello V2, il livello V1 non è a conoscenza del livello V2 e questo può causare problemi, ad esempio la Gestione API prova a usare un indirizzo IP già assegnato a una scheda di rete (nel livello V2).
-Per altre informazioni sulla differenza tra modelli classici e quelli di Resource Manager in Azure, vedere la [differenza nei modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md).
+Per altre informazioni sulla differenza tra modelli classici e quelli di Resource Manager in Azure, vedere la [differenza nei modelli di distribuzione](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Qual è la dimensione minima necessaria della subnet quando si distribuisce Gestione API in una rete virtuale?
 La dimensione minima della subnet necessaria per distribuire Gestione API è [/29](../virtual-network/virtual-networks-faq.md#configuration), ovvero la dimensione minima della subnet supportata da Azure.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?
-Sì. Per informazioni, vedere [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione).
+Sì. Per informazioni, vedere [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md) (Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione).
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Esistono restrizioni o problemi noti relativi all'importazione di questa API?
 [Problemi noti e limitazioni](api-management-api-import-restrictions.md) per i formati Open API (Swagger), WSDL e WADL.

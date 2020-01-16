@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 3e510cc4073a4b0075cdaeb80091657dbee93fcb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792493"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979415"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
 
@@ -38,7 +38,7 @@ Per i limiti relativi agli account di integrazione e agli elementi come le mappe
 
     | Elemento | Description |
     |------|-------------|
-    | [Account di archiviazione di Azure](../storage/common/storage-account-overview.md) | In questo account creare un contenitore BLOB di Azure per l'assembly. Altre informazioni su come [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md). |
+    | [Account di archiviazione di Azure](../storage/common/storage-account-overview.md) | In questo account creare un contenitore BLOB di Azure per l'assembly. Altre informazioni su come [creare un account di archiviazione](../storage/common/storage-account-create.md). |
     | Contenitore BLOB | In questo contenitore è possibile caricare l'assembly. È necessaria anche la posizione di questo contenitore quando si aggiunge l'assembly all'account di integrazione. Informazioni su come [creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Questo strumento consente di gestire più facilmente gli account di archiviazione e i contenitori BLOB. Per usare Storage Explorer, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Per altre informazioni, vedere [Guida introduttiva: creare un BLOB nell'archivio oggetti con Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>In alternativa, nel portale di Azure trovare e selezionare l'account di archiviazione. Dal menu dell'account di archiviazione selezionare **Storage Explorer**. |
     |||

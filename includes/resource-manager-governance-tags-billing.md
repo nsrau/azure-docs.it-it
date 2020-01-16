@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: e7fcb72cecbfad2de80b844ed5281267d5e4c0c3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 226079b1970508004c55c54cd3de6d2e9475aa08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180079"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970147"
 ---
-Dopo l'applicazione dei tag alle risorse è possibile visualizzare i costi per le risorse con i tag specificati. La visualizzazione dell'utilizzo più recente nell'analisi dei costi richiede tempo, quindi è possibile che i costi non siano ancora visualizzati. Quando i costi sono disponibili, è possibile visualizzare i costi per le risorse nei gruppi di risorse della sottoscrizione. Per visualizzare i costi, gli utenti devono avere l'[accesso a livello di sottoscrizione alle informazioni di fatturazione](../articles/billing/billing-manage-access.md).
+Dopo l'applicazione dei tag alle risorse è possibile visualizzare i costi per le risorse con i tag specificati. La visualizzazione dell'utilizzo più recente nell'analisi dei costi richiede tempo, quindi è possibile che i costi non siano ancora visualizzati. Quando i costi sono disponibili, è possibile visualizzare i costi per le risorse nei gruppi di risorse della sottoscrizione. Per visualizzare i costi, gli utenti devono avere l'[accesso a livello di sottoscrizione alle informazioni di fatturazione](../articles/cost-management-billing/manage/manage-billing-access.md).
 
 Per visualizzare i costi in base al tag nel portale, selezionare la sottoscrizione e quindi **Analisi dei costi**.
 
@@ -25,4 +25,4 @@ Filtrare quindi in base al valore del tag e selezionare **Applica**.
 
 ![Visualizzare il costo in base al tag](./media/resource-manager-governance-tags-billing/view-costs-by-tag.png)
 
-È anche possibile usare le [API di fatturazione di Azure](../articles/billing/billing-usage-rate-card-overview.md) per visualizzare i costi a livello di programmazione.
+È anche possibile usare le [API di fatturazione di Azure](../articles/cost-management-billing/manage/usage-rate-card-overview.md) per visualizzare i costi a livello di programmazione.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439416"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977327"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con lo strumento Copia dati
 
@@ -39,7 +39,7 @@ In questa esercitazione si segue questa procedura:
 ## <a name="prerequisites"></a>Prerequisites
 
 * **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: Usare un archivio BLOB come archivio dati di _origine_. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+* **Account di archiviazione di Azure**: Usare un archivio BLOB come archivio dati di _origine_. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 * **Database SQL di Azure**: Usare un database SQL come archivio dati _sink_. Se non si ha un database SQL, vedere le istruzioni in [Creare un database SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creare un BLOB e una tabella SQL
@@ -78,18 +78,18 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**:
-    
+
     ![Creazione di una nuova data factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**.
 
     Il nome della data factory deve essere _univoco a livello globale_. Potrebbe essere visualizzato il messaggio di errore seguente:
-    
+
     ![Messaggio di errore per nuova data factory](./media/doc-common-process/name-not-available-error.png)
 
     Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
 1. Selezionare la **sottoscrizione** di Azure in cui creare la nuova data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
-    
+
     a. Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
 
     b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.
@@ -101,7 +101,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
 1. Selezionare **Create** (Crea).
 
 1. Al termine della creazione verrà visualizzata la home page **Data factory**.
-    
+
     ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
 1. Per avviare l'interfaccia utente di Azure Data Factory in una scheda separata, selezionare il riquadro **Crea e monitora**.
 
@@ -125,7 +125,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
     ![Selezionare il servizio collegato di origine](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) completare questa procedura:
-    
+
     a. Fare clic su **Sfoglia** per passare alla cartella **adfv2tutorial/input**, selezionare il file **inputEmp.txt** e quindi fare clic su **Scegli**.
 
     b. Fare clic su **Avanti** per andare al passaggio successivo.

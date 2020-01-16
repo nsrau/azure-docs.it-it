@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422123"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967386"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell. 
@@ -252,10 +252,10 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 ## <a name="more-resources"></a>Altre risorse
 * [Linguaggio del modello di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-functions.md)
-* [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md)
+* [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/templates/template-functions.md)
+* [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/templates/deploy-powershell.md)
 * [Uso di Azure PowerShell con Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

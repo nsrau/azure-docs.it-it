@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0e426dcead5d1f315717fbc19cf7f7bdac62d563
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839138"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970177"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continua Jenkins
 
@@ -49,7 +49,7 @@ Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare
      
       Sebbene sia necessario configurare una tipica soluzione di Integrazione continuata Jenkins per eseguirla come servizio, ai fini di questa esercitazione sarà sufficiente eseguire il file WAR di Jenkins nella riga di comando.
 * Un account Azure. È possibile registrarsi per un account Azure all'indirizzo <https://www.azure.com>.
-* Un account di archiviazione di Azure. Se non si dispone di un account di archiviazione, è possibile crearne uno attenendosi ai passaggi illustrati in [Creare un account di archiviazione](../common/storage-quickstart-create-account.md).
+* Un account di archiviazione di Azure. Se non si dispone di un account di archiviazione, è possibile crearne uno attenendosi ai passaggi illustrati in [Creare un account di archiviazione](../common/storage-account-create.md).
 * La conoscenza della soluzione di Integrazione continuata Jenkins è consigliata ma non richiesta, poiché nel contenuto seguente verrà usato un esempio semplice per illustrare i passaggi da seguire nell'uso del servizio BLOB come archivio per elementi di compilazione dell'Integrazione continuata Jenkins.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Come usare il servizio BLOB con l'Integrazione continuata Jenkins
@@ -129,8 +129,8 @@ Dopo avere eseguito una build, è possibile verificare l'output della cronologia
 Questa sezione offre una panoramica delle componenti del servizio BLOB.
 
 * **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Un account di archiviazione è il livello più alto dello spazio dei nomi per accedere ai BLOB. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 100 TB.
-* **Contenitore:** un contenitore fornisce un raggruppamento di un set di BLOB. Tutti i BLOB devono trovarsi in un contenitore. In un account può esistere un numero illimitato di contenitori. In un contenitore può essere archiviato un numero illimitato di BLOB.
-* **BLOB:** un file di qualsiasi tipo e dimensione. Vi sono due tipi di BLOB che possono essere archiviati in Archiviazione di Azure: BLOB di pagine e BLOB in blocchi. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Contenitore:** un contenitore fornisce un raggruppamento di un set di BLOB. Tutti i BLOB devono essere inclusi in un contenitore. Un account può contenere un numero illimitato di contenitori. In un contenitore è possibile archiviare un numero illimitato di BLOB.
+* **BLOB:** un file di qualsiasi tipo e dimensione. Esistono due tipi di oggetti BLOB che è possibile archiviare in Archiviazione di Azure: BLOB in blocchi e BLOB di pagine. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato dell'URL:** è possibile fare riferimento ai BLOB usando il formato di URL seguente:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`

@@ -6,18 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666925"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979383"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni del flusso di lavoro delle app per la logica in app per la logica
 
-Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice. Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/management/overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
+Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice.
+Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/management/overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md).
+Per creare, gestire e distribuire app per la logica, è quindi possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md) o le [API REST di App per la logica di Azure](https://docs.microsoft.com/rest/api/logic/).
 
-Per usare le definizioni di app per la logica in JSON, aprire l'editor della visualizzazione Codice quando si lavora nel portale di Azure o in Visual Studio oppure copiare la definizione nell'editor che si preferisce. Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Per usare le definizioni di app per la logica in JSON, aprire l'editor della visualizzazione Codice quando si lavora nel portale di Azure o in Visual Studio oppure copiare la definizione nell'editor che si preferisce.
+Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
 > Alcune funzionalità di App per la logica di Azure, ad esempio la definizione di parametri e di più trigger nelle definizioni di app per la logica, sono disponibili solo in JSON e non in Progettazione app per la logica.
@@ -27,7 +30,8 @@ Per usare le definizioni di app per la logica in JSON, aprire l'editor della vis
 
 1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a>.
 
-2. Dal menu a sinistra scegliere **Tutti i servizi**. Nella casella di ricerca cercare "app per la logica" e quindi selezionare l'app per la logica desiderata nei risultati.
+2. Dal menu a sinistra scegliere **Tutti i servizi**.
+Nella casella di ricerca cercare "app per la logica" e quindi selezionare l'app per la logica desiderata nei risultati.
 
 3. Nel menu dell'app per la logica, in **Strumenti di sviluppo** selezionare **Visualizzazione codice app per la logica**.
 
@@ -35,22 +39,25 @@ Per usare le definizioni di app per la logica in JSON, aprire l'editor della vis
 
 ## <a name="edit-json---visual-studio"></a>Modificare JSON - Visual Studio
 
-Prima di usare la definizione dell'app per logica in Visual Studio, assicurarsi di avere [installato gli strumenti richiesti](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Per creare un'app per la logica con Visual Studio, vedere [Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) (Guida introduttiva: Automatizzare attività e processi con App per la logica di Azure - Visual Studio).
+Prima di usare la definizione dell'app per logica in Visual Studio, assicurarsi di avere [installato gli strumenti richiesti](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
+Per creare un'app per la logica con Visual Studio, vedere [Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) (Guida introduttiva: Automatizzare attività e processi con App per la logica di Azure - Visual Studio).
 
 In Visual Studio è possibile aprire le app per la logica che sono state create e distribuite direttamente dal portale di Azure o come progetti di Azure Resource Manager da Visual Studio.
 
 1. Aprire la soluzione di Visual Studio o il progetto del [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) contenente l'app per la logica.
 
-2. Individuare e aprire la definizione dell'app per la logica, che per impostazione predefinita viene visualizzata in un [modello di Resource Manager](../azure-resource-manager/template-deployment-overview.md), denominato **LogicApp.json**. È possibile usare e personalizzare questo modello per la distribuzione in ambienti diversi.
+2. Individuare e aprire la definizione dell'app per la logica, che per impostazione predefinita viene visualizzata in un [modello di Resource Manager](../azure-resource-manager/templates/overview.md), denominato **LogicApp.json**.
+È possibile usare e personalizzare questo modello per la distribuzione in ambienti diversi.
 
-3. Aprire il menu di scelta rapida per la definizione e il modello dell'app per la logica. Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica)
+3. Aprire il menu di scelta rapida per la definizione e il modello dell'app per la logica.
+Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica)
 
    ![Aprire un'app per la logica in una soluzione di Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
    > [!TIP]
    > Se non si dispone di questo comando in Visual Studio 2019, verificare di aver installato gli aggiornamenti più recenti per Visual Studio.
 
-4. Nella parte inferiore della finestra di progettazione scegliere **Visualizzazione Codice**. 
+4. Nella parte inferiore della finestra di progettazione scegliere **Visualizzazione Codice**.
 
    L'editor della visualizzazione Codice si apre e mostra la definizione dell'app per la logica in formato JSON.
 
@@ -58,7 +65,7 @@ In Visual Studio è possibile aprire le app per la logica che sono state create 
 
 ## <a name="parameters"></a>Parametri
 
-Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare la distribuzione delle app per la logica. 
+Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare la distribuzione delle app per la logica.
 
 Attenersi alla procedura generale per *parametrizzare*o definire e utilizzare i parametri per tali valori. È quindi possibile fornire i valori in un file di parametri separato che passa tali valori al modello. In questo modo, è possibile modificare i valori più facilmente senza dover aggiornare e ridistribuire l'app per la logica. Per informazioni dettagliate, vedere [Panoramica: automatizzare la distribuzione per le app per la logica con i modelli Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -76,7 +83,10 @@ Attenersi alla procedura generale per *parametrizzare*o definire e utilizzare i 
 
 ## <a name="process-strings-with-functions"></a>Elaborare le stringhe con le funzioni
 
-App per la logica ha diverse funzioni per l'uso delle stringhe. Si supponga, ad esempio, di voler passare un nome di società da un ordine a un altro sistema. Tuttavia, non si è certi di come gestire correttamente la codifica dei caratteri. Si potrebbe eseguire la codifica Base 64 su questa stringa, ma, per evitare caratteri di escape nell'URL, è invece possibile sostituire alcuni caratteri. È inoltre necessario ottenere solo una sottostringa del nome della società, perché i primi cinque caratteri non vengono usati.
+App per la logica ha diverse funzioni per l'uso delle stringhe.
+Si supponga, ad esempio, di voler passare un nome di società da un ordine a un altro sistema.
+Tuttavia, non si è certi di come gestire correttamente la codifica dei caratteri.
+Si potrebbe eseguire la codifica Base 64 su questa stringa, ma, per evitare caratteri di escape nell'URL, è invece possibile sostituire alcuni caratteri. È inoltre necessario ottenere solo una sottostringa del nome della società, perché i primi cinque caratteri non vengono usati.
 
 ``` json
 {
@@ -121,7 +131,8 @@ I passaggi seguenti descrivono come questa stringa viene elaborata nell'esempio,
 
 2. Per ottenere una stringa più breve, sottrarre `5`.
 
-3. Ottenere ora [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md). Iniziare dall'indice `5` e procedere alla parte rimanente della stringa.
+3. Ottenere ora [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
+Iniziare dall'indice `5` e procedere alla parte rimanente della stringa.
 
 4. Convertire la sottostringa in una stringa [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md).
 
@@ -133,7 +144,8 @@ I passaggi seguenti descrivono come questa stringa viene elaborata nell'esempio,
 
 Per ottenere risultati diversi in base al valore di una proprietà, è possibile creare una mappa che associa ogni valore della proprietà a un risultato, quindi usare tale mappa come parametro.
 
-Questo flusso di lavoro, ad esempio, definisce alcune categorie come parametri e una mappa che associa tali categorie a un URL specifico. Il flusso di lavoro ottiene prima di tutto un elenco degli articoli, quindi usa la mappa per trovare l'URL corrispondente alla categoria per ogni articolo.
+Questo flusso di lavoro, ad esempio, definisce alcune categorie come parametri e una mappa che associa tali categorie a un URL specifico.
+Il flusso di lavoro ottiene prima di tutto un elenco degli articoli, quindi usa la mappa per trovare l'URL corrispondente alla categoria per ogni articolo.
 
 *   La funzione [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) controlla se la categoria corrisponde a una categorie nota definita.
 
@@ -209,7 +221,8 @@ Questo flusso di lavoro, ad esempio, definisce alcune categorie come parametri e
 
 ## <a name="get-data-with-date-functions"></a>Ottenere i dati con le funzioni di data
 
-Per ottenere i dati da un'origine dati che non supporta i *trigger* in modo nativo, è possibile usare le funzioni di data per lavorare invece con ore e date. Questa espressione, ad esempio, trova quanto tempo richiedono i passaggi di questo flusso di lavoro, procedendo dall'interno verso l'esterno:
+Per ottenere i dati da un'origine dati che non supporta i *trigger* in modo nativo, è possibile usare le funzioni di data per lavorare invece con ore e date.
+Questa espressione, ad esempio, trova quanto tempo richiedono i passaggi di questo flusso di lavoro, procedendo dall'interno verso l'esterno:
 
 ``` json
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
@@ -219,15 +232,16 @@ Per ottenere i dati da un'origine dati che non supporta i *trigger* in modo nati
 2. Ottenere l'ora corrente con `utcNow()`.
 3. Sottrarre un secondo:
 
-   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
+   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md)
 
    È possibile usare altre unità di tempo, ad esempio `minutes` o `hours`.
 
-3. È ora possibile confrontare questi due valori. 
+3. È ora possibile confrontare questi due valori.
 
    Se il primo valore è minore del secondo valore, è trascorso più di un secondo dal momento in cui è stato inserito l'ordine.
 
-Per formattare le date, è possibile usare formattatori di stringa. Per ottenere la specifica RFC1123, ad esempio, usare [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md). Altre informazioni sulla [formattazione delle date](../logic-apps/logic-apps-workflow-definition-language.md).
+Per formattare le date, è possibile usare formattatori di stringa. Per ottenere la specifica RFC1123, ad esempio, usare [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+Altre informazioni sulla [formattazione delle date](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json
 {

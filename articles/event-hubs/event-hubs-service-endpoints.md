@@ -11,16 +11,16 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 9b8b3600acc33e177e65002ba69dcf98a20c2253
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 2ac89444bde4e2efc918aced9d76c099eb792557
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555336"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966004"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure
 
-L'integrazione degli endpoint di servizio di hub eventi con [rete virtuale (VNet)][vnet-sep] consente di accedere in modo sicuro alle funzionalità di messaggistica da carichi di lavoro, ad esempio macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambi finisce.
+L'integrazione degli endpoint di servizio di hub eventi con [rete virtuale (VNet)][vnet-sep] consente di accedere in modo sicuro alle funzionalità di messaggistica da carichi di lavoro come le macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambe le estremità.
 
 Una volta configurata per l'associazione ad almeno un endpoint del servizio subnet della rete virtuale, il rispettivo spazio dei nomi di hub eventi non accetta più il traffico da tutte le subnet autorizzate nelle reti virtuali. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi di Hub eventi a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica. 
 
@@ -30,7 +30,7 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 >[!WARNING]
 > L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con l'Hub eventi di Azure.
 >
-> I servizi Microsoft attendibili non sono supportati quando sono implementate le reti virtuali.
+> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
 >
 > Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
 > - Integrazione con monitoraggio di Azure. Non è possibile trasmettere i log di diagnostica da **altri** servizi di Azure in hub eventi. Tuttavia, è possibile abilitare i log di diagnostica di Azure nell'hub eventi stesso. Si tratta dello stesso caso in cui è abilitato il firewall (filtro IP).
@@ -76,7 +76,7 @@ Parametri del modello:
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
-> from
+> da
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -194,5 +194,5 @@ Per altre informazioni sulle reti virtuali, vedere i collegamenti seguenti:
 - [Filtro IP di hub eventi di Azure][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [ip-filtering]: event-hubs-ip-filtering.md

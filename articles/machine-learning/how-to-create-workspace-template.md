@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 275eb545b431085627658eb5d8ac0a065d0cb00e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6cd450ac18007e31d9d8144fdb0e8554dd31c363
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867022"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968652"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -92,7 +92,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e Azure PowerShell](../azure-resource-manager/secure-template-with-sas-token.md).
+Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
@@ -107,7 +107,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure](../azure-resource-manager/secure-template-with-sas-token.md).
+Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -124,7 +124,7 @@ La maggior parte delle operazioni di creazione di risorse tramite i modelli è i
 Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 * Non distribuire il modello più di una volta per gli stessi parametri. In alternativa, eliminare le risorse esistenti prima di usare il modello per ricrearle.
-  
+
 * Esaminare i criteri di accesso Key Vault e quindi usare questi criteri per impostare la proprietà `accessPolicies` del modello. Per visualizzare i criteri di accesso, usare il comando dell'interfaccia della riga di comando di Azure seguente:
 
     ```azurecli-interactive
@@ -165,7 +165,7 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
           }
         },
         ```
-    
+
     * **Rimuovere** la riga di `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` dalla sezione `dependsOn` dell'area di lavoro. **Modificare** anche la voce `keyVault` nella sezione `properties` dell'area di lavoro per fare riferimento al parametro `keyVaultId`:
 
         ```json
@@ -193,7 +193,7 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
           }
         }
         ```
-      
+
     Dopo queste modifiche, è possibile specificare l'ID della risorsa Key Vault esistente durante l'esecuzione del modello. Il modello utilizzerà quindi il Key Vault impostando la proprietà `keyVault` dell'area di lavoro sul relativo ID.
 
     Per ottenere l'ID del Key Vault, è possibile fare riferimento all'output del modello originale o usare l'interfaccia della riga di comando di Azure. Il comando seguente è un esempio di uso dell'interfaccia della riga di comando di Azure per ottenere l'ID risorsa Key Vault:
@@ -210,5 +210,5 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuire le risorse con i modelli Resource Manager e l'API REST di Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md).
-* [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* [Distribuire le risorse con i modelli Resource Manager e l'API REST di Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
+* [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

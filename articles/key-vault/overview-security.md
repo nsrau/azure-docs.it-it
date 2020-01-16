@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884780"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981561"
 ---
 # <a name="azure-key-vault-security"></a>Sicurezza Azure Key Vault
 
 È necessario proteggere le chiavi di crittografia e i segreti, ad esempio certificati, stringhe di connessione e password nel cloud, in modo da usare Azure Key Vault. Poiché si archiviano dati sensibili e aziendali critici, è necessario eseguire le operazioni necessarie per ottimizzare la sicurezza degli insiemi di credenziali e i dati archiviati in essi. In questo articolo verranno illustrati alcuni dei concetti che è opportuno considerare quando si progetta la sicurezza del Azure Key Vault.
 
-## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
+## <a name="identity-and-access-management"></a>Gestione degli accessi e delle identità
 
 Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Chiunque tenti di gestire o recuperare il contenuto da un insieme di credenziali deve essere autenticato da Azure AD.
 
@@ -47,11 +47,11 @@ Il modello con un singolo meccanismo di autenticazione per entrambi i piani pres
 
 Quando si crea un insieme di credenziali delle chiavi in un gruppo di risorse, è possibile gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un livello di ambito specifico assegnando i ruoli RBAC appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. A un ruolo Controllo degli accessi in base al ruolo è possibile assegnare i livelli di ambiti seguenti:
 
-- **Sottoscrizione** Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e a tutte le risorse in tale sottoscrizione.
-- **Gruppo di risorse**: Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di gruppo di risorse si applica a tutte le risorse di tale gruppo.
-- **Risorsa specifica**: Un ruolo Controllo degli accessi in base al ruolo assegnato per una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
+- **Sottoscrizione**: un ruolo RBAC assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e alle risorse all'interno della sottoscrizione.
+- **Gruppo di risorse**: un ruolo RBAC assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
+- **Risorsa specifica**: un ruolo controllo degli accessi in base al ruolo assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
 
-Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md).
+Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per ulteriori informazioni, vedere [RBAC: ruoli predefiniti](../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Se un utente ha le autorizzazioni `Contributor` per un piano di gestione di un insieme di credenziali delle chiavi, l'utente può concedere a se stesso l'accesso al piano dati impostando criteri di accesso dell'insieme di credenziali delle chiavi. È necessario controllare attentamente chi ha accesso al ruolo `Contributor` per gli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti autorizzati possano accedere e gestire gli insiemi di credenziali delle chiavi, le chiavi, i segreti e i certificati.
@@ -76,7 +76,7 @@ Dopo aver applicato le regole del firewall, gli utenti possono leggere i dati so
 
 Per ulteriori informazioni sugli [endpoint del servizio rete virtuale](key-vault-overview-vnet-service-endpoints.md) Azure Key Vault verifica indirizzo di rete per Azure Key Vault
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 Key Vault registrazione salva le informazioni sulle attività eseguite nell'insieme di credenziali. Log Key Vault:
 
@@ -87,12 +87,12 @@ Key Vault registrazione salva le informazioni sulle attività eseguite nell'insi
     - Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
 - Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
 
-È possibile accedere alle informazioni di registrazione entro 10 minuti dall'operazione di Key Vault. È responsabilità dell'utente gestire i log nell'account di archiviazione. 
+È possibile accedere alle informazioni di registrazione entro 10 minuti dall'operazione di Key Vault. È responsabilità dell'utente gestire i log nell'account di archiviazione.
 
 - Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
 - Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
-Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Guida alla sicurezza di archiviazione di Azure](../storage/common/storage-security-guide.md)
+Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Guida alla sicurezza di archiviazione di Azure](../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>Fasi successive
 

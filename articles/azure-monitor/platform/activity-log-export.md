@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b71f5590f120e15bd4ea027bcf6132795dac3cb6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750563"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969667"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o in hub eventi di Azure
 
 > [!WARNING]
-> È ora possibile raccogliere il log attività in un'area di lavoro Log Analytics usando un'impostazione di diagnostica simile a come si raccolgono i log delle risorse. Vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](diagnostic-settings-subscription.md).
+> È ora possibile raccogliere il log attività in un'area di lavoro Log Analytics usando un'impostazione di diagnostica simile a come si raccolgono i log delle risorse. Vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](diagnostic-settings-legacy.md).
 
 Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure. Oltre a visualizzare il log attività nel portale di Azure o copiarlo in un'area di lavoro Log Analytics in cui può essere analizzato con altri dati raccolti da monitoraggio di Azure, è possibile creare un profilo di log per archiviare il log attività in un account di archiviazione di Azure o inviarlo a un  Hub eventi.
 
@@ -28,12 +28,12 @@ L'archiviazione del log attività in un account di archiviazione è utile se si 
 ## <a name="stream-activity-log-to-event-hub"></a>Trasmettere il log attività a hub eventi
 [Hub eventi di Azure](/azure/event-hubs/) è una piattaforma di streaming di dati e un servizio di inserimento di eventi in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. È possibile usare la funzionalità di streaming per il log attività in due modi:
 * **Trasmettere a sistemi di telemetria e registrazione di terze parti** : in futuro, la funzionalità di trasmissione di Hub eventi di Azure diventerà il meccanismo di invio del log attività a soluzioni di analisi dei log e SIEM di terze parti.
-* **Creare una piattaforma di telemetria e registrazione personalizzata** : se si ha già una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi consentono di inserire il log attività con la massima flessibilità. 
+* **Creare una piattaforma di telemetria e registrazione personalizzata** : se si ha già una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi consentono di inserire il log attività con la massima flessibilità.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="storage-account"></a>Account di archiviazione
-Se si sta archiviando il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md) , se non ne è già presente uno. Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche log e metriche in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
+Se si sta archiviando il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-account-create.md) , se non ne è già presente uno. Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche log e metriche in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
 
 L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
 > [!NOTE]
@@ -65,7 +65,7 @@ Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un
 
 
 > [!IMPORTANT]
-> Se il provider di risorse Microsoft. Insights non è registrato, è possibile che venga visualizzato un errore durante la creazione di un profilo di log. Per registrare questo provider [, vedere provider e tipi di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md) .
+> Se il provider di risorse Microsoft. Insights non è registrato, è possibile che venga visualizzato un errore durante la creazione di un profilo di log. Per registrare questo provider [, vedere provider e tipi di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md) .
 
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Creare un profilo di log usando il portale di Azure
@@ -77,7 +77,7 @@ Creare o modificare un profilo di log con l'opzione **Esporta in hub eventi** ne
     ![Pulsante Esporta nel portale](media/activity-log-export/portal-export.png)
 
 3. Nel pannello che viene visualizzato specificare quanto segue:
-   * Aree con gli eventi da esportare. È necessario selezionare tutte le aree per assicurarsi di non perdere gli eventi chiave perché il log attività è un log globale (non regionale), quindi la maggior parte degli eventi non dispone di un'area associata. 
+   * Aree con gli eventi da esportare. È necessario selezionare tutte le aree per assicurarsi di non perdere gli eventi chiave perché il log attività è un log globale (non regionale), quindi la maggior parte degli eventi non dispone di un'area associata.
    * Se si vuole scrivere nell'account di archiviazione:
        * L'account di archiviazione in cui si desidera salvare gli eventi.
        * Il numero di giorni per cui si vogliono conservare questi eventi nell'archivio. (se si impostano 0 giorni, i log vengono conservati all'infinito)
@@ -167,5 +167,5 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni sul log attività](../../azure-resource-manager/resource-group-audit.md)
+* [Altre informazioni sul log attività](../../azure-resource-manager/management/view-activity-logs.md)
 * [Raccogliere log attività nei log di monitoraggio di Azure](activity-log-collect.md)

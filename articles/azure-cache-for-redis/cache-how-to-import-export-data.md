@@ -6,15 +6,15 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e4265cf3f9c211a19fe05bc18cf47a273165c3c3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: df8b65fcb4dd2b9622716052be2df59cbfa5424a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122770"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971800"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importare ed esportare dati in Cache Redis di Azure
-L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati nella Cache Redis di Azure importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB in un account di archiviazione di Azure. 
+L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati nella Cache Redis di Azure importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB in un account di archiviazione di Azure.
 
 - **Esportare**: è possibile esportare gli snapshot RDB di Cache Redis di Azure in un BLOB di pagine.
 - **Importare**: è possibile importare gli snapshot RDB di Cache Redis da un BLOB di pagine o da un BLOB in blocchi.
@@ -28,11 +28,11 @@ Questo articolo è una guida all'importazione e all'esportazione dei dati con Ca
 >
 >
 
-## <a name="import"></a>Importazione
+## <a name="import"></a>Importa
 L'importazione può essere usata per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione su qualsiasi cloud o ambiente, compresi i server Redis in esecuzione su Linux, Windows o su altri provider di servizi cloud come Amazon Web Services e altri. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
 
 > [!NOTE]
-> Prima di avviare l'operazione di importazione, assicurarsi che il file o i file di database Redis (RDB) siano caricati nei BLOB di pagine o nei BLOB in blocchi in Archiviazione di Azure, nella stessa area e nella stessa sottoscrizione dell'istanza di Cache Redis di Azure. Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Se il file RDB è stato esportato con la funzionalità [Esportazione di Cache Redis di Azure](#export), è già archiviato in un BLOB di pagine ed è pronto per l'importazione.
+> Prima di avviare l'operazione di importazione, assicurarsi che il file o i file di database Redis (RDB) siano caricati nei BLOB di pagine o nei BLOB in blocchi in Archiviazione di Azure, nella stessa area e nella stessa sottoscrizione dell'istanza di Cache Redis di Azure. Per altre informazioni, vedere [Introduzione all'archivio BLOB di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Se il file RDB è stato esportato con la funzionalità [Esportazione di Cache Redis di Azure](#export), è già archiviato in un BLOB di pagine ed è pronto per l'importazione.
 >
 >
 
@@ -41,7 +41,7 @@ L'importazione può essere usata per spostare i file RDB compatibili con Redis d
     ![Importa dati](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. Fare clic su **Scegliere i BLOB** e selezionare l'account di archiviazione che contiene i dati da importare.
 
-    ![Scelta dell'account di archiviazione](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
+    ![Scegliere l'account di archiviazione](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
 3. Fare clic sul contenitore che contiene i dati da importare.
 
     ![Scegliere il contenitore](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
@@ -55,13 +55,13 @@ L'importazione può essere usata per spostare i file RDB compatibili con Redis d
    >
    >
 
-    ![Importazione](./media/cache-how-to-import-export-data/cache-import-blobs.png)
+    ![Importa](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
-    È possibile controllare lo stato dell'operazione di importazione tramite le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/resource-group-audit.md).
+    È possibile controllare lo stato dell'operazione di importazione tramite le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/management/view-activity-logs.md).
 
     ![Stato dell'importazione](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
-## <a name="export"></a>Export
+## <a name="export"></a>Esporta
 L'esportazione consente di esportare i dati archiviati in Cache Redis in file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella macchina virtuale che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
 
 1. Per esportare il contenuto corrente della cache nell'archiviazione, [passare alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel portale di Azure e fare clic su **Esporta dati** dal **menu della risorsa**.
@@ -79,9 +79,9 @@ L'esportazione consente di esportare i dati archiviati in Cache Redis in file RD
     ![Scegliere il contenitore di archiviazione](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Digitare un valore in **Prefisso nome BLOB** e fare clic su **Esporta** per avviare il processo di esportazione. Il prefisso del nome BLOB viene usato per i nomi dei file generati da questa operazione di esportazione.
 
-    ![Export](./media/cache-how-to-import-export-data/cache-export-data.png)
+    ![Esporta](./media/cache-how-to-import-export-data/cache-export-data.png)
 
-    È possibile controllare lo stato dell'operazione di esportazione seguendo le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/resource-group-audit.md).
+    È possibile controllare lo stato dell'operazione di esportazione seguendo le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/management/view-activity-logs.md).
 
     ![Esportazione dei dati completa](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 
@@ -109,8 +109,8 @@ Sì. Oltre a importare i dati esportati da istanze di Cache Redis di Azure, è p
 
 > [!IMPORTANT]
 > Per importare i dati esportati da server Redis diversi da Cache Redis di Azure quando si usa un BLOB di pagine, la dimensione del BLOB di pagine deve essere allineata a un limite di 512 byte. Per un codice di esempio che esegua il riempimento di byte richiesto, vedere [SamplePageBlobUpload](https://github.com/JimRoberts-MS/SamplePageBlobUpload) (Caricamento di BLOB di pagine di esempio).
-> 
-> 
+>
+>
 
 ### <a name="what-rdb-versions-can-i-import"></a>Quali versioni RDB è possibile importare?
 

@@ -10,12 +10,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0678d437a5c24b8193e7440a62445fb30ec97759
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460520"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965826"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code usando Azure Active Directory
 
@@ -83,7 +83,7 @@ Il portale di Azure indica quale schema di autorizzazione è in uso quando si pa
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Accesso ai dati da PowerShell o dall'interfaccia della riga di comando
 
-L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con le credenziali Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o della coda](storage-auth-aad-script.md).
+L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con le credenziali Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o della coda](authorize-active-directory-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

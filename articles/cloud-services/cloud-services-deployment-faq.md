@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660597"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980637"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di distribuzione per Servizi cloud di Azure: domande frequenti
 
@@ -56,7 +56,7 @@ La distribuzione di un servizio cloud potrebbe non riuscire se le risorse che de
 
 È anche possibile tenere traccia dell'utilizzo o della quota correnti per la sottoscrizione nel portale: Portale di Azure = > Sottoscrizioni = > \< sottoscrizione appropriata> = > "Utilizzo e quote".
 
-Le informazioni relative all'utilizzo e al consumo di risorse possono anche essere recuperate tramite le API di fatturazione di Azure. Vedere [API di utilizzo delle risorse di Azure (anteprima)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Le informazioni relative all'utilizzo e al consumo di risorse possono anche essere recuperate tramite le API di fatturazione di Azure. Vedere [API di utilizzo delle risorse di Azure (anteprima)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Come è possibile modificare le dimensioni di una VM di un servizio cloud distribuito senza eseguire di nuovo la distribuzione?
 Non è possibile modificare le dimensioni di una VM di un servizio cloud distribuito senza eseguire di nuovo la distribuzione. Le dimensioni della VM sono integrate nel file CSDEF, che può essere aggiornato solo eseguendo di nuovo la distribuzione.
@@ -66,17 +66,17 @@ Per altre informazioni, vedere [Come aggiornare un servizio cloud](cloud-service
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Perché non riesco a distribuire i Servizi Cloud tramite le API Gestione dei servizi o PowerShell quando uso l'account di archiviazione di Azure Resource Manager? 
 
 Poiché il servizio cloud è una risorsa classica non direttamente compatibile con il modello di Azure Resource Manager, non è possibile associarla ai Azure Resource Manager account di archiviazione. Di seguito sono riportate alcune opzioni: 
- 
+
 - Distribuzione tramite l'API REST.
 
     Quando si esegue la distribuzione tramite l'API REST di Gestione dei servizi, è possibile risolvere la limitazione specificando un URL SAS nell'archiviazione BLOB che funziona con l'account classico e con l'account di archiviazione di Azure Resource Manager. Altre informazioni sulla proprietà 'PackageUrl' sono reperibili [qui](/previous-versions/azure/reference/ee460813(v=azure.100)).
-  
+
 - Distribuzione tramite il [portale di Azure](https://portal.azure.com).
 
     Questa operazione funzionerà dal [portale di Azure](https://portal.azure.com) perché la chiamata passa attraverso un proxy/shim che consente la comunicazione tra Azure Resource Manager e le risorse classiche. 
- 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Perché il portale di Azure richiede di specificare un account di archiviazione per la distribuzione? 
 
-Nel portale classico il pacchetto viene caricato direttamente nel livello API di gestione, pertanto il livello API deve inserire temporaneamente il pacchetto in un account di archiviazione interna.  Questo processo causa problemi di prestazioni e scalabilità perché il livello API non è stato progettato come servizio di caricamento file.  Nel portale di Azure (modello di distribuzione Resource Manager), il passaggio intermedio di caricamento nel livello API è stato tralasciato, per distribuzioni più veloci e affidabili. 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Perché il portale di Azure richiede di specificare un account di archiviazione per la distribuzione?
 
-Per quanto riguarda i costi, sono molto limitati ed è possibile usare nuovamente lo stesso account di archiviazione in tutte le distribuzioni. È possibile usare il [calcolatore dei costi di archiviazione](https://azure.microsoft.com/pricing/calculator/#storage1) per determinare i costi relativi al caricamento del pacchetto del servizio (CSPKG), al download del CSPKG e quindi all'eliminazione del CSPKG. 
+Nel portale classico il pacchetto viene caricato direttamente nel livello API di gestione, pertanto il livello API deve inserire temporaneamente il pacchetto in un account di archiviazione interna.  Questo processo causa problemi di prestazioni e scalabilità perché il livello API non è stato progettato come servizio di caricamento file.  Nel portale di Azure (modello di distribuzione Resource Manager), il passaggio intermedio di caricamento nel livello API è stato tralasciato, per distribuzioni più veloci e affidabili.
+
+Per quanto riguarda i costi, sono molto limitati ed è possibile usare nuovamente lo stesso account di archiviazione in tutte le distribuzioni. È possibile usare il [calcolatore dei costi di archiviazione](https://azure.microsoft.com/pricing/calculator/#storage1) per determinare i costi relativi al caricamento del pacchetto del servizio (CSPKG), al download del CSPKG e quindi all'eliminazione del CSPKG.

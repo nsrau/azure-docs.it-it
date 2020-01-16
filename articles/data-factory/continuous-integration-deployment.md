@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 737cd9d306f01fa77dafa3d1a9a71495ff0a572e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940780"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977514"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -145,7 +145,7 @@ Se si dispone di segreti per passare un modello di Azure Resource Manager, è co
 
 Esistono due modi per gestire i segreti:
 
--  Aggiungere i segreti al file dei parametri. Per altre informazioni, vedere [usare Azure Key Vault per passare un valore di parametro sicuro durante la distribuzione](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Aggiungere i segreti al file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](../azure-resource-manager/templates/key-vault-parameter.md).
 
     Creare una copia del file dei parametri caricato nel ramo di pubblicazione. Impostare i valori dei parametri che si desidera ottenere da Key Vault utilizzando il formato seguente:
 

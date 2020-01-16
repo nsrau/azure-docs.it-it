@@ -9,19 +9,19 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 3cc15d173ad735d77505f636bd230e0876371271
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300940"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979294"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Livelli elevati di disponibilità e affidabilità per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
 > [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 
-L'Utilità di pianificazione di Azure offre livelli elevati di [disponibilità](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) e di affidabilità per i processi. Per altre informazioni, vedere il [contratto di servizio per l'Utilità di pianificazione](https://azure.microsoft.com/support/legal/sla/scheduler).
+L'Utilità di pianificazione di Azure offre livelli elevati di [disponibilità](https://docs.microsoft.com/azure/architecture/framework/#resiliency) e di affidabilità per i processi. Per altre informazioni, vedere il [contratto di servizio per l'Utilità di pianificazione](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## <a name="high-availability"></a>Disponibilità elevata
 
@@ -70,7 +70,7 @@ Il tipo di azione per l'azione alternativa può essere diverso dall'azione origi
 
 Per informazioni su come configurare un endpoint alternativo, vedere [errorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)

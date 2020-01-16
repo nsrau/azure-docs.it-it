@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366431"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966731"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Esempio di utilizzo: distribuzione continua in Macchine virtuali di Microsoft Azure tramite Automation DSC e Chocolatey
 
@@ -40,7 +40,7 @@ Automation DSC per Azure estende questa funzionalità di automazione includendo 
 Una risorsa DSC è un modulo di codice con funzionalità specifiche, ad esempio per la gestione della rete, di Active Directory o SQL Server. La risorsa DSC di Chocolatey riconosce in che modo accedere, tra gli altri, a un server NuGet, scaricare pacchetti, installare pacchetti e così via. In [PowerShell Gallery](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)sono disponibili numerose altre risorse DSC.
 Questi moduli vengono installati dall'utente nel server di pull di Automation DSC per Azure, per poter essere usati nelle configurazioni personalizzate.
 
-I modelli di Resource Manager offrono un modo dichiarativo per la generazione dell'infrastruttura, ad esempio reti, subnet, routing e sicurezza di rete, servizi di bilanciamento del carico, NIC, VM e così via. Ecco un [articolo](../azure-resource-manager/resource-manager-deployment-model.md) che confronta il modello di distribuzione (dichiarativo) di Resource Manager con il modello di distribuzione ASM o classica (imperativo) e illustra i principali provider di risorse, calcolo, archiviazione e rete.
+I modelli di Resource Manager offrono un modo dichiarativo per la generazione dell'infrastruttura, ad esempio reti, subnet, routing e sicurezza di rete, servizi di bilanciamento del carico, NIC, VM e così via. Ecco un [articolo](../azure-resource-manager/management/deployment-models.md) che confronta il modello di distribuzione (dichiarativo) di Resource Manager con il modello di distribuzione ASM o classica (imperativo) e illustra i principali provider di risorse, calcolo, archiviazione e rete.
 
 Una funzionalità chiave di un modello di Resource Manager è la capacità di installare un'estensione VM nella macchina virtuale durante il provisioning. Un'estensione VM include funzionalità specifiche, come l'esecuzione di uno script personalizzato, l'installazione di software antivirus o l'esecuzione di uno script di configurazione DSC. Sono disponibili molti altri tipi di estensioni VM.
 
