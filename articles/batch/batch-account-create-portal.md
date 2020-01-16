@@ -3,7 +3,7 @@ title: Creare un account nel portale di Azure - Azure Batch | Microsoft Docs
 description: Informazioni su come creare un account Azure Batch nel portale di Azure per eseguire carichi di lavoro paralleli su larga scala nel cloud
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4eb6b0c64fc40dec48dc9103c67e8e4a0730d7e2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095724"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029799"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
@@ -27,7 +27,7 @@ Informazioni su come creare un account Azure Batch nel [portale di Azure][azure_
 
 Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della funzionalità](batch-api-basics.md).
 
-## <a name="create-a-batch-account"></a>Creare un account Batch
+## <a name="create-a-batch-account"></a>Crea un account Batch
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
@@ -39,21 +39,21 @@ Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della 
 
 1. Immettere le impostazioni di **Nuovo account Batch**. Vedere i dettagli seguenti.
 
-    ![Creare un account Batch][account_portal]
+    ![Crea un account Batch][account_portal]
 
-    a. **Sottoscrizione** sottoscrizione in cui creare l'account Batch. Se è presente solo una sottoscrizione, è selezionata per impostazione predefinita.
+    a. **Sottoscrizione**: sottoscrizione in cui creare l'account Batch. Se è presente solo una sottoscrizione, è selezionata per impostazione predefinita.
 
     b. **Gruppo di risorse**: selezionare un gruppo di risorse esistente per il nuovo account Batch. È possibile crearne facoltativamente uno nuovo.
 
-    c. **Account name** (Nome dell'account): il nome scelto deve essere univoco all'interno dell'area di Azure in cui viene creato l'account. Vedere **Località** di seguito. Il nome dell'account può contenere solo caratteri minuscoli o numeri e deve avere una lunghezza di 3-24 caratteri.
+    c. **Nome account**: il nome scelto deve essere univoco all'interno dell'area di Azure in cui viene creato l'account. Vedere **Località** di seguito. Il nome dell'account può contenere solo caratteri minuscoli o numeri e deve avere una lunghezza di 3-24 caratteri.
 
     d. **Località**: area di Azure in cui creare l'account Batch. Solo le aree supportate dalla sottoscrizione e dal gruppo di risorse vengono visualizzate come opzioni.
 
-    e. **Account di archiviazione**: un account di Archiviazione di Azure facoltativo da associare all'account Batch. Per prestazioni ottimali, è consigliabile configurare un account di archiviazione per utilizzo generico v2. Per tutte le opzioni dell'account di archiviazione in Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#azure-storage-account). Nel portale selezionare un account di archiviazione esistente o crearne uno nuovo.
+    e. **Account di archiviazione**: un account di archiviazione di Azure facoltativo associato all'account batch. Per prestazioni ottimali, è consigliabile configurare un account di archiviazione per utilizzo generico v2. Per tutte le opzioni dell'account di archiviazione in Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#azure-storage-account). Nel portale selezionare un account di archiviazione esistente o crearne uno nuovo.
 
       ![Creare un account di archiviazione][storage_account]
 
-    f. **Modalità di allocazione del pool**: Nella scheda di impostazioni **Avanzate** è possibile specificare la modalità di allocazione del pool come **Servizio Batch** o come **Sottoscrizione utente**. per la maggior parte degli scenari accettare il valore predefinito **Servizio Batch**.
+    f. **Modalità di allocazione pool**: nella scheda Impostazioni **Avanzate** è possibile specificare la modalità di allocazione pool come **servizio batch** o **sottoscrizione utente**. Per la maggior parte degli scenari, accettare il **servizio batch**predefinito.
 
       ![Modalità di allocazione del pool][pool_allocation]
 
@@ -108,7 +108,7 @@ Quando si crea il primo account Batch in modalità Sottoscrizione utente, è nec
 
 In modalità di sottoscrizione utente, è necessario un insieme di credenziali delle chiavi di Azure che appartiene allo stesso gruppo di risorse come l'account Batch da creare. Assicurarsi che il gruppo di risorse sia in un'area in cui Batch è [disponibile](https://azure.microsoft.com/regions/services/) e che supporta la sottoscrizione.
 
-1. Nella [portale di Azure][azure_portal]selezionare **nuovo** > **Key Vault** **sicurezza** > .
+1. Nella [portale di Azure][azure_portal]selezionare **nuovo** > **sicurezza** > **Key Vault**.
 
 1. Nella pagina **Crea insieme di credenziali delle chiavi** immettere un nome per l'insieme di credenziali delle chiavi e creare un gruppo di risorse nell'area desiderata per l'account Batch. Lasciare i valori predefiniti per le impostazioni rimanenti, quindi selezionare **Crea**.
 

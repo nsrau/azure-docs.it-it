@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 85eeaaa052604c3198ca2ab8988f9e7a77e2a63d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3680473209b3d65d616879dfbb9080dfbb9c80f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430656"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967407"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Come proteggere le API usando l'autenticazione con certificati client in Gestione API
 
@@ -27,7 +27,12 @@ Gestione API offre la possibilità di proteggere l'accesso alle API (ovvero dal 
 Per informazioni sulla protezione dell'accesso al servizio back-end di un'API usando i certificati client (ad esempio, gestione API nel back-end), vedere [come proteggere i servizi back-end usando l'autenticazione con certificati client](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) .
 
 > [!IMPORTANT]
-> Per ricevere e verificare i certificati client nel livello di consumo, è necessario innanzitutto attivare l'impostazione "Richiedi certificato client" nel pannello "domini personalizzati", come illustrato di seguito.
+> Per ricevere e verificare i certificati client su HTTP/2 nei livelli Developer, Basic, standard o Premium, è necessario attivare l'impostazione "Negotiate client certificate" nel pannello "Custom Domains" come illustrato di seguito.
+
+![Negozia certificato client](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
+
+> [!IMPORTANT]
+> Per ricevere e verificare i certificati client nel livello di consumo, è necessario attivare l'impostazione "Richiedi certificato client" nel pannello "domini personalizzati", come illustrato di seguito.
 
 ![Richiedi certificato client](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

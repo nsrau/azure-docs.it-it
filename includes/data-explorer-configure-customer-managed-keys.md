@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 5c51a32c9dd82f2efe469d7a8844ed518b8f4d59
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5443ee6912c30b89cee6fdb43f84f3bc1fbcfe68
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725715"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020890"
 ---
 Azure Esplora dati crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente da usare per la crittografia dei dati. Le chiavi gestite dal cliente devono essere archiviate in un [Azure Key Vault](/azure/key-vault/key-vault-overview). È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure è possibile usare un'API Azure Key Vault per generare chiavi. Il cluster Esplora dati di Azure e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse. Per una spiegazione dettagliata delle chiavi gestite dal cliente, vedere [chiavi gestite dal cliente con Azure Key Vault](/azure/storage/common/storage-service-encryption). Questo articolo illustra come configurare le chiavi gestite dal cliente.
 
@@ -22,7 +22,7 @@ Per abilitare le chiavi gestite dal cliente per il cluster, assegnare innanzitut
 
 ## <a name="create-a-new-key-vault"></a>Creare un nuovo insieme di credenziali delle chiavi
 
-Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell, chiamare [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault.md). L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia Esplora dati di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la **ripulitura**. Sostituire i valori segnaposto tra parentesi quadre con valori personalizzati nell'esempio riportato di seguito.
+Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell, chiamare [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia Esplora dati di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la **ripulitura**. Sostituire i valori segnaposto tra parentesi quadre con valori personalizzati nell'esempio riportato di seguito.
 
 ```azurepowershell-interactive
 $keyVault = New-AzKeyVault -Name <key-vault> `
@@ -34,7 +34,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi
 
-Configurare quindi i criteri di accesso per l'insieme di credenziali delle chiavi in modo che il cluster disponga delle autorizzazioni di accesso. In questo passaggio si userà l'identità gestita assegnata dal sistema precedentemente assegnata al cluster. Per impostare i criteri di accesso per l'insieme di credenziali delle chiavi, chiamare [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy.md). Sostituire i valori segnaposto tra parentesi quadre con i propri valori e usare le variabili definite negli esempi precedenti.
+Configurare quindi i criteri di accesso per l'insieme di credenziali delle chiavi in modo che il cluster disponga delle autorizzazioni di accesso. In questo passaggio si userà l'identità gestita assegnata dal sistema precedentemente assegnata al cluster. Per impostare i criteri di accesso per l'insieme di credenziali delle chiavi, chiamare [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Sostituire i valori segnaposto tra parentesi quadre con i propri valori e usare le variabili definite negli esempi precedenti.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy `
@@ -45,7 +45,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ## <a name="create-a-new-key"></a>Creare una nuova chiave
 
-Successivamente, creare una nuova chiave nell'insieme di credenziali delle chiavi. Per creare una nuova chiave, chiamare [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey.md). Sostituire i valori segnaposto tra parentesi quadre con i propri valori e usare le variabili definite negli esempi precedenti.
+Successivamente, creare una nuova chiave nell'insieme di credenziali delle chiavi. Per creare una nuova chiave, chiamare [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Sostituire i valori segnaposto tra parentesi quadre con i propri valori e usare le variabili definite negli esempi precedenti.
 
 ```azurepowershell-interactive
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'

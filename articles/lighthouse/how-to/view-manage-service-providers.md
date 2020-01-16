@@ -1,14 +1,14 @@
 ---
 title: Visualizzare e gestire i provider di servizi
 description: I clienti possono usare la pagina Provider di servizi nel portale di Azure per visualizzare informazioni sui provider di servizi, sulle offerte di provider di servizi e sulle risorse delegate.
-ms.date: 11/15/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 453f5d3ba4ed5c49b5e71c7530298bc0a03c73ee
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ff3c37c02c580a833008a65315009d1e42e49043
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463806"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046134"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
@@ -60,6 +60,9 @@ Una volta controllate le modifiche, il cliente può scegliere di eseguire l'aggi
 Le deleghe rappresentano le assegnazioni di ruolo che concedono al provider di servizi le autorizzazioni per le risorse delegate da un cliente. Per visualizzare queste informazioni, selezionare **Deleghe** sul lato sinistro della pagina **Provider di servizi**.
 
 I filtri nella parte superiore della pagina consentono di ordinare e raggruppare le informazioni sulle deleghe o filtrare in base a clienti, offerte o parole chiave specifiche.
+
+> [!NOTE]
+> I clienti non visualizzeranno queste assegnazioni di ruolo o tutti gli utenti del tenant del provider di servizi a cui sono stati concessi questi ruoli, quando [visualizzano le informazioni sull'assegnazione di ruolo per l'ambito delegato nell'portale di Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) o tramite le API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

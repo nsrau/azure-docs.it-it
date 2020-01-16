@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278801"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980093"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
-Questo articolo illustra i passaggi per spostare Log Analytics area di lavoro in un altro gruppo di risorse o sottoscrizione nella stessa area. Per altre informazioni sullo scorrimento delle risorse di Azure, è possibile usare la portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. in [spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](../../azure-resource-manager/resource-group-move-resources.md). 
+Questo articolo illustra i passaggi per spostare Log Analytics area di lavoro in un altro gruppo di risorse o sottoscrizione nella stessa area. Per altre informazioni sullo scorrimento delle risorse di Azure, è possibile usare la portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. in [spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > Non è possibile spostare un'area di lavoro in un'area diversa.
@@ -46,7 +46,7 @@ Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azur
 2. Selezionare le soluzioni da rimuovere.
 3. Fare clic su **Elimina risorse** e confermare le risorse da rimuovere facendo clic su **Elimina**.
 
-![Elimina soluzioni](media/move-workspace/delete-solutions.png)
+![Eliminare soluzioni](media/move-workspace/delete-solutions.png)
 
 ### <a name="delete-using-powershell"></a>Eliminare con PowerShell
 
@@ -82,7 +82,7 @@ Usare la procedura seguente per scollegare l'account di automazione dall'area di
 
 ## <a name="move-your-workspace"></a>Spostare l'area di lavoro
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 Usare la procedura seguente per spostare l'area di lavoro usando il portale di Azure:
 
 1. Aprire il menu **aree di lavoro log Analytics** , quindi selezionare l'area di lavoro.
@@ -91,7 +91,7 @@ Usare la procedura seguente per spostare l'area di lavoro usando il portale di A
 4. Selezionare una **sottoscrizione** di destinazione e un **gruppo di risorse**. Se si sta migrando l'area di lavoro a un altro gruppo di risorse nella stessa sottoscrizione, non verrà visualizzata l'opzione di **sottoscrizione** .
 5. Fare clic su **OK** per spostare l'area di lavoro e le risorse selezionate.
 
-    ![di Microsoft Azure](media/move-workspace/portal.png)
+    ![Portale](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Per spostare l'area di lavoro usando PowerShell, usare il comando [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) come nell'esempio seguente:
@@ -107,4 +107,4 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per un elenco delle risorse che supportano lo spostamento, vedere [spostare il supporto delle operazioni per le risorse](../../azure-resource-manager/move-support-resources.md).
+- Per un elenco delle risorse che supportano lo spostamento, vedere [spostare il supporto delle operazioni per le risorse](../../azure-resource-manager/management/move-support-resources.md).

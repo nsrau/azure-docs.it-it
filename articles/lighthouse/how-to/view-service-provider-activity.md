@@ -1,14 +1,14 @@
 ---
 title: Visualizzare l'attività dei provider di servizi
 description: I clienti possono visualizzare le attività registrate per visualizzare le azioni eseguite dai provider di servizi tramite la gestione delle risorse delegate di Azure.
-ms.date: 12/6/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31a9e7ff80623cc59b0a2db5951dff95d3088b05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: de149bddb6917a63d91b1890c0430f64465cb40c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749170"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046104"
 ---
 # <a name="view-service-provider-activity"></a>Visualizzare l'attività dei provider di servizi
 
@@ -24,6 +24,9 @@ I clienti che hanno sottoscrizioni delegate per la gestione delle risorse delega
 Nel log attività verranno visualizzati il nome dell'operazione e il relativo stato, insieme alla data e all'ora in cui è stato eseguito. L' **evento avviato da** colonna indica l'utente che ha eseguito l'operazione, indipendentemente dal fatto che sia un utente del tenant di un provider di servizi che agisce attraverso la gestione delle risorse delegata di Azure o un utente nel tenant del cliente. Si noti che viene visualizzato il nome dell'utente, anziché il tenant o il ruolo assegnato dall'utente per la sottoscrizione.
 
 L'attività registrata è disponibile nel portale di Azure per gli ultimi 90 giorni. Per informazioni su come archiviare i dati per più di 90 giorni, vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](../../azure-monitor/platform/activity-log-collect.md)
+
+> [!NOTE]
+> Gli utenti del provider di servizi vengono visualizzati nel log attività, ma questi utenti e le relative assegnazioni di ruolo non vengono visualizzati nel **controllo di accesso (IAM)** o durante il recupero delle informazioni sull'assegnazione di ruolo tramite le API.
 
 ## <a name="set-alerts-for-critical-operations"></a>Impostare gli avvisi per le operazioni critiche
 

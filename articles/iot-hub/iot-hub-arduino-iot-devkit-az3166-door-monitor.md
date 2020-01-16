@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954744"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977307"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitoraggio sportello: con funzioni di Azure e SendGrid, inviare un messaggio di posta elettronica quando viene aperta una porta           
 
@@ -65,7 +65,7 @@ Verrà visualizzato il modulo di iscrizione di SendGrid.
 
 Completare il modulo di iscrizione:
 
-   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Nome**: nome del servizio SendGrid. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
 
@@ -105,7 +105,7 @@ Viene visualizzato il modulo di iscrizione.
 
 Compilare i campi nel modulo di iscrizione.
 
-   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Nome hub IoT**: nome dell'hub IoT. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
 

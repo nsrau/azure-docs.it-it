@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9bb324c3863a13e1f47e1b31f7656ab8c77a6f1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763148"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043522"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -177,7 +178,7 @@ Ora che il tenant può emettere asserzioni SAML, è necessario creare i criteri 
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Aggiungere il frammento di codice XML seguente immediatamente prima dell'elemento `<RelyingParty>`. Il codice XML sovrascrive il passaggio di orchestrazione numero 7 del percorso utente _SignUpOrSignIn_ . Se il percorso utente è stato personalizzato aggiungendo o rimuovendo passaggi di orchestrazione, verificare che il numero (nell'elemento `order`) sia allineato con quello specificato nel percorso utente per il passaggio dell'emittente del token.
+1. Aggiungere il frammento di codice XML seguente immediatamente prima dell'elemento `<RelyingParty>`. Il codice XML sovrascrive il passaggio di orchestrazione numero 7 del percorso utente _SignUpOrSignIn_ . Se è stato avviato da una cartella diversa nello Starter Pack oppure è stato personalizzato il percorso utente aggiungendo o rimuovendo passaggi di orchestrazione, verificare che il numero (nell'elemento `order`) sia allineato con quello specificato nel percorso utente per il passaggio dell'emittente del token (ad esempio, nelle altre cartelle dello Starter Pack è il passaggio 4 per `LocalAccounts`, 6 per `SocialAccounts` e 9 per `SocialAndLocalAccountsWithMfa`).
 
     ```XML
     <UserJourneys>

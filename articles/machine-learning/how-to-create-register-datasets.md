@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 775c6016acbcd0f87f368852a68eaea706c79898
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945698"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045608"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -196,16 +196,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 Per creare set di impostazioni con Azure Open DataSets dall'SDK, verificare che il pacchetto sia stato installato con `pip install azureml-opendatasets`. Ogni set di dati discreto è rappresentato dalla propria classe nell'SDK e alcune classi sono disponibili come `TabularDataset`, `FileDataset`o entrambi. Per un elenco completo delle classi, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) .
 
-La maggior parte delle classi ereditano da e restituiscono un'istanza di `TabularDataset`. Esempi di queste classi sono `PublicHolidays`, `BostonSafety`e `UsPopulationZip`. Per creare un `TabularDataset` da questi tipi di classi, usare il costruttore senza argomenti. Quando si registra un set di dati creato da set di dati aperti, non vengono scaricati immediatamente dati, ma i dati saranno accessibili in un secondo momento, quando richiesto (durante il training, ad esempio) da una posizione di archiviazione centrale. 
-
-```python
-from azureml.opendatasets import UsPopulationZip
-
-tabular_dataset = UsPopulationZip()
-tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
-```
-
-È possibile recuperare determinate classi come un `TabularDataset` o `FileDataset`, che consente di modificare e/o scaricare direttamente i file. Altre classi possono ottenere un set di dati solo usando le funzioni `get_tabular_dataset()` o `get_file_dataset()`. Nell'esempio di codice seguente vengono illustrati alcuni esempi di questi tipi di classi:
+È possibile recuperare determinate classi come un `TabularDataset` o `FileDataset`, che consente di modificare e/o scaricare direttamente i file. Altre classi possono ottenere un set di dati **solo** usando una delle funzioni `get_tabular_dataset()` o `get_file_dataset()`. Nell'esempio di codice riportato di seguito vengono illustrati alcuni esempi di questi tipi di classi.
 
 ```python
 from azureml.opendatasets import MNIST
@@ -219,6 +210,8 @@ from azureml.opendatasets import Diabetes
 # Diabetes class can return ONLY return TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
+
+Quando si registra un set di dati creato da set di dati aperti, non vengono scaricati immediatamente dati, ma i dati saranno accessibili in un secondo momento, quando richiesto (durante il training, ad esempio) da una posizione di archiviazione centrale.
 
 ### <a name="use-the-ui"></a>Usare l'interfaccia utente
 

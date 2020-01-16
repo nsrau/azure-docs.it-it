@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: ebc1d449cdb8702a984304e92697d4b7c778daaa
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792896"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980434"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
 
@@ -104,7 +104,7 @@ Per visualizzare le cronologie di esecuzione precedenti in Visual Studio o nel p
 
 ## <a name="create-automated-deployment-templates"></a>Creare modelli di distribuzione automatizzati
 
-Dopo avere creato una soluzione di app per la logica, è possibile acquisire e distribuire l'app come [modello di Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) in qualsiasi area di Azure nel mondo. È possibile usare questa funzionalità sia per modificare i parametri per la creazione di diverse versioni dell'app che per integrare la soluzione in Azure Pipelines. È anche possibile includere Funzioni di Azure nel modello di distribuzione in modo da gestire l'intera soluzione con tutte le dipendenze come un singolo modello. Informazioni su come [automatizzare la distribuzione delle app](logic-apps-azure-resource-manager-templates-overview.md)per la logica.
+Dopo avere creato una soluzione di app per la logica, è possibile acquisire e distribuire l'app come [modello di Azure Resource Manager](../azure-resource-manager/templates/overview.md) in qualsiasi area di Azure nel mondo. È possibile usare questa funzionalità sia per modificare i parametri per la creazione di diverse versioni dell'app che per integrare la soluzione in Azure Pipelines. È anche possibile includere Funzioni di Azure nel modello di distribuzione in modo da gestire l'intera soluzione con tutte le dipendenze come un singolo modello. Informazioni su come [automatizzare la distribuzione delle app](logic-apps-azure-resource-manager-templates-overview.md)per la logica.
 
 Per un esempio di modello di distribuzione con una funzione di Azure, fare riferimento al [repository di modelli di guide introduttive di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

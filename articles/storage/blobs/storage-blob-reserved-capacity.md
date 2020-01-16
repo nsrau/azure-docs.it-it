@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cb21291d4beb9fbba27a56089f13bd0363604eab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686710"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981824"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Ottimizzare i costi per l'archiviazione BLOB con capacità riservata
 
@@ -21,7 +21,7 @@ ms.locfileid: "73686710"
 
 La capacità riservata di archiviazione di Azure può ridurre significativamente i costi di capacità per i BLOB in blocchi e i dati Azure Data Lake Storage Gen2. I risparmi ottenuti dipendono dalla durata della prenotazione, dalla capacità totale che si sceglie di riservare e dal livello di accesso e dal tipo di ridondanza scelti per l'account di archiviazione. La capacità riservata fornisce uno sconto per la fatturazione e non influisce sullo stato delle risorse di archiviazione di Azure.
 
-Per informazioni sui prezzi di prenotazione per archiviazione di Azure, vedere prezzi dei [BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/) e [prezzi Azure Data Lake storage generazione 2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+Per informazioni sui prezzi di prenotazione per Archiviazione di Azure, vedere [Prezzi per i BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/) e [Prezzi di Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## <a name="reservation-terms-for-azure-storage"></a>Condizioni di prenotazione per archiviazione di Azure
 
@@ -66,7 +66,7 @@ Sono attualmente disponibili prenotazioni per 100 TB o 1 blocchi PB, con sconti 
 
 È possibile acquistare la capacità riservata di archiviazione di Azure tramite la [portale di Azure](https://portal.azure.com). Pagare per la prenotazione prima o con pagamenti mensili. Per altre informazioni sull'acquisto con pagamenti mensili, vedere [acquistare prenotazioni di Azure con pagamenti anticipati o mensili](/azure/billing/billing-monthly-payments-reservations).
 
-Per informazioni sull'identificazione dei termini di prenotazione appropriati per il proprio scenario, vedere [informazioni sullo sconto sulla capacità riservata di archiviazione di Azure](../../billing/billing-understand-storage-charges.md).
+Per informazioni sull'identificazione dei termini di prenotazione appropriati per il proprio scenario, vedere [informazioni sullo sconto sulla capacità riservata di archiviazione di Azure](../../cost-management-billing/reservations/understand-storage-charges.md).
 
 Per acquistare la capacità riservata, seguire questa procedura:
 
@@ -76,7 +76,7 @@ Per acquistare la capacità riservata, seguire questa procedura:
 
     ![Screenshot che illustra come acquistare la capacità riservata](media/storage-blob-reserved-capacity/select-reserved-capacity.png)
 
-   |Campo  |Descrizione  |
+   |Campo  |Description  |
    |---------|---------|
    |**Ambito**   |  Indica il numero di sottoscrizioni che possono utilizzare il vantaggio di fatturazione associato alla prenotazione. Controlla anche il modo in cui la prenotazione viene applicata alle sottoscrizioni specifiche. <br/><br/> Se si seleziona **condiviso**, lo sconto relativo alla prenotazione viene applicato alla capacità di archiviazione di Azure in qualsiasi sottoscrizione all'interno del contesto di fatturazione. Il contesto di fatturazione si basa sul modo in cui è stata effettuata l'iscrizione ad Azure. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso include tutte le singole sottoscrizioni con tariffe con pagamento in base al consumo create dall'amministratore account.  <br/><br/>  Se si seleziona una **singola sottoscrizione**, lo sconto per la prenotazione viene applicato alla capacità di archiviazione di Azure nella sottoscrizione selezionata. <br/><br/> Se si seleziona **gruppo di risorse singolo**, lo sconto per la prenotazione viene applicato alla capacità di archiviazione di Azure nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione. <br/><br/> È possibile modificare l'ambito di prenotazione dopo aver acquistato la prenotazione.  |
    |**Sottoscrizione**  | Sottoscrizione usata per pagare la prenotazione di archiviazione di Azure. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi: <br/><br/>  Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P): per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo dell'impegno monetario di registrazione o addebitato come eccedenza. <br/><br/> Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P): per una sottoscrizione singola con tariffe con pagamento in base al consumo, i costi vengono addebitati sul metodo di pagamento con carta di credito o fatturazione per la sottoscrizione.    |
@@ -101,7 +101,7 @@ Dopo l'acquisto di una prenotazione, questa viene applicata automaticamente a qu
 
 Per scambiare o rimborsare una prenotazione, accedere ai dettagli della prenotazione nella portale di Azure. Selezionare **scambio** o **rimborso**e seguire le istruzioni per inviare una richiesta di supporto. Quando la richiesta è stata elaborata, Microsoft invierà un messaggio di posta elettronica per confermare il completamento della richiesta.
 
-Per altre informazioni sui criteri di prenotazione di Azure, vedere la pagina relativa agli [scambi self-service e ai rimborsi per le prenotazioni di Azure](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Per altre informazioni sui criteri di prenotazione di Azure, vedere la pagina relativa agli [scambi self-service e ai rimborsi per le prenotazioni di Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ### <a name="exchange-a-reservation"></a>Scambiare una prenotazione
 
@@ -121,11 +121,11 @@ Al termine di una prenotazione, le capacità di archiviazione di Azure in uso in
 
 Si riceverà una notifica tramite posta elettronica 30 giorni prima della scadenza della prenotazione e nuovamente alla data di scadenza. Per continuare a sfruttare i vantaggi offerti dalla prenotazione, rinnovarla non più tardi rispetto alla data di scadenza.
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+## <a name="need-help-contact-us"></a>Opzioni per Contattaci
 
-In caso di domande, creare una [Richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458) per assistenza.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sulle prenotazioni di Azure](../../billing/billing-save-compute-costs-reservations.md)
-- [Informazioni su come viene applicato lo sconto di prenotazione ad archiviazione di Azure](../../billing/billing-understand-storage-charges.md)
+- [Informazioni sulle prenotazioni di Azure](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Informazioni su come viene applicato lo sconto di prenotazione ad archiviazione di Azure](../../cost-management-billing/reservations/understand-storage-charges.md)

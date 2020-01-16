@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 7f9ae32b95d629ef79f085ed590d9057b0414911
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: a9d28a12f5f1fa32d2bc3bcf590134930503f2ac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941532"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970393"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi dell'estensione VM di Azure
 
@@ -105,8 +105,6 @@ Per disinstallare l'estensione:
 4. Selezionare **Estensione Site Recovery**.
 5. Selezionare **Disinstalla**.
 
-Per le macchine virtuali Linux, se l'estensione VMSnapshot non è visualizzata nel portale di Azure, [aggiornare l'agente Linux di Azure](../virtual-machines/linux/update-agent.md) e quindi eseguire il processo di protezione. 
+Per le macchine virtuali Linux, se l'estensione VMSnapshot non è visualizzata nel portale di Azure, [aggiornare l'agente Linux di Azure](../virtual-machines/linux/update-agent.md) e quindi eseguire il processo di protezione.
 
 Con il completamento di questa procedura, l'estensione viene reinstallata durante il processo di protezione.
-
-

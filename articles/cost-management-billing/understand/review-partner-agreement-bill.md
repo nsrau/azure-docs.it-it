@@ -1,0 +1,140 @@
+---
+title: Esaminare la fattura del contratto partner Microsoft-Azure
+description: Informazioni su come esaminare l'utilizzo della fattura e delle risorse e per verificare gli addebiti per la fattura del contratto partner Microsoft.
+author: jureid
+manager: jureid
+tags: billing
+ms.service: cost-management-billing
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/22/2019
+ms.author: banders
+ms.openlocfilehash: e3823a9eb2e0713f7f42e4e02808ef957efc5944
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75990840"
+---
+# <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Esercitazione: esaminare la fattura del contratto partner Microsoft
+
+ Nell'account di fatturazione per un Contratto Microsoft Partner, ogni mese viene generata una fattura per ogni profilo di fatturazione. La fattura include tutti gli addebiti dei clienti del mese precedente. Per capire a cosa si riferiscono gli addebiti riportati nella fattura, è possibile analizzare le singole transazioni nel portale di Azure. È anche possibile visualizzare le fatture nel portale di Azure e confrontare le tariffe con il file dei dettagli di utilizzo.
+
+Per altre informazioni, vedere [Come scaricare le fatture dal portale di Azure](download-azure-invoice.md).
+
+Questa esercitazione si applica solo ai partner di Azure con un contratto per i partner Microsoft.
+
+In questa esercitazione verranno illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Esaminare le transazioni fatturate nel portale di Azure
+> * Esaminare gli addebiti in sospeso per stimare la fattura successiva
+> * Analizzare gli addebiti per l'utilizzo di Azure
+
+## <a name="prerequisites"></a>Prerequisiti
+
+È necessario avere accesso a un account di fatturazione per un contratto partner Microsoft.
+
+Deve essere superiore a 30 giorni dal giorno in cui hai effettuato la sottoscrizione ad Azure. Azure fattura alla fine del periodo di fatturazione.
+
+## <a name="sign-in-to-azure"></a>Accedere a Azure
+
+- Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
+
+Verificare il tipo di contratto per determinare se si dispone dell'accesso a un account di fatturazione per un Contratto Microsoft Partner.
+
+Nella casella di ricerca del portale di Azure digitare *Gestione costi e fatturazione* , quindi selezionare **Gestione costi e fatturazione**.
+
+![Screenshot che mostra una ricerca nel portale di Azure](./media/review-partner-agreement-bill/billing-search-cost-management-billing.png)
+
+Se si ha accesso a un solo ambito di fatturazione, selezionare **Proprietà** sul lato sinistro. Si ha accesso a un account di fatturazione per un Contratto Microsoft Partner se il tipo di account di fatturazione è **Contratto Microsoft Partner**.
+
+![Screenshot che mostra l'accordo tra partner Microsoft nella pagina proprietà](./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png)
+
+Se si ha accesso a più ambiti di fatturazione, controllare il tipo nella colonna dell'account di fatturazione. Si ha accesso a un account di fatturazione per un Contratto Microsoft Partner se il tipo di account di fatturazione per uno degli ambiti è **Contratto Microsoft Partner**.
+
+![Screenshot che mostra l'accordo tra partner Microsoft nella pagina dell'elenco di account di fatturazione](./media/review-partner-agreement-bill/mpa-in-the-list.png)
+
+## <a name="review-invoiced-transactions-in-the-azure-portal"></a>Esaminare le transazioni fatturate nel portale di Azure
+
+In gestione costi e fatturazione selezionare **tutte le transazioni** dal lato sinistro della pagina. A seconda dell'accesso, può essere necessario selezionare un account di fatturazione, un profilo di fatturazione o un cliente, quindi selezionare **Tutte le transazioni**.
+
+Nella pagina Tutte le transazioni vengono visualizzate le informazioni seguenti:
+
+![Screenshot che mostra l'elenco delle transazioni fatturate](./media/review-partner-agreement-bill/all-transactions.png)
+
+|Colonna  |Definizione  |
+|---------|---------|
+|Data     | La data della transazione  |
+|ID fattura     | L'identificatore della fattura in cui viene fatturata la transazione. Se si invia una richiesta di supporto, condividere l'ID con il supporto tecnico di Azure per velocizzarne la gestione |
+|Tipo di transazione     |  Il tipo di transazione, ad esempio acquisto, annullamento e addebiti per l'utilizzo  |
+|Famiglia di prodotti     | La categoria del prodotto, ad esempio calcolo per le macchine virtuali o database per il database SQL di Azure|
+|SDKU prodotto     | Un codice univoco che identifica l'istanza del prodotto |
+|Importo     |  L'importo della transazione      |
+|Profilo di fatturazione     | La transazione viene visualizzata nella fattura di questo profilo di fatturazione |
+
+Cercare un ID fattura per filtrare le transazioni per la fattura.
+
+## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>Esaminare gli addebiti in sospeso per stimare la fattura successiva
+
+Gli addebiti vengono stimati e considerati in sospeso fino a quando non vengono fatturati. È possibile visualizzare gli addebiti in sospeso per il profilo di fatturazione del Contratto Microsoft Partner nel portale di Azure per stimare la fattura successiva. Gli addebiti in sospeso sono stime e non includono le imposte. Gli addebiti effettivi riportati nella fattura successiva variano a seconda degli addebiti in sospeso.
+
+### <a name="view-pending-transactions"></a>Visualizzare le transazioni in sospeso
+
+Una volta identificati gli addebiti in sospeso, è possibile analizzare le singole transazioni che li hanno generati. A questo punto, gli addebiti per l'utilizzo in sospeso non vengono visualizzati nella pagina Tutte le transazioni. È possibile visualizzarli nella pagina di sottoscrizioni di Azure.
+
+In gestione costi e fatturazione selezionare un profilo di fatturazione. A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione. Nell'account di fatturazione selezionare **Profili di fatturazione** e quindi un profilo di fatturazione.
+
+Selezionare **Tutte le transazioni** sul lato sinistro della pagina.
+
+Cercare *In sospeso*. Usare il filtro **Intervallo di tempo** per visualizzare gli addebiti in sospeso per il mese corrente e per quello scorso.
+
+<!-- ![Screenshot that shows the pending transactions list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-pending-transactions.png) -->
+
+### <a name="view-pending-charges-by-customer"></a>Visualizzare gli addebiti in sospeso per cliente
+
+In gestione costi e fatturazione selezionare un profilo di fatturazione. A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione. Nell'account di fatturazione selezionare **Profili di fatturazione** e quindi un profilo di fatturazione.
+
+Selezionare **Clienti** nella parte sinistra della pagina.
+
+<!-- ![screenshot of billing profile customers list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-customers.png) -->
+
+La pagina Clienti visualizza gli addebiti del mese corrente e di quello precedente per ogni cliente associato al profilo di fatturazione. Gli addebiti da inizio mese sono quelli in sospeso per il mese corrente e vengono fatturati quando viene generata la fattura per il mese. Se la fattura relativa al mese scorso non è stata ancora generata, anche i relativi addebiti sono in sospeso.
+
+### <a name="view-pending-usage-charges"></a>Visualizzare gli addebiti per l'utilizzo in sospeso
+
+In gestione costi e fatturazione selezionare un profilo di fatturazione. A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione. Nell'account di fatturazione selezionare **Profili di fatturazione** e quindi un profilo di fatturazione.
+
+Selezionare **Sottoscrizioni di Azure** nella parte sinistra della pagina. La pagina Sottoscrizioni di Azure visualizza gli addebiti del mese corrente e di quello scorso per ogni sottoscrizione del profilo di fatturazione. Gli addebiti da inizio mese sono quelli in sospeso per il mese corrente e vengono fatturati quando viene generata la fattura per il mese. Se la fattura relativa al mese scorso non è stata ancora generata, anche i relativi addebiti sono in sospeso.
+
+<!--     ![Screenshot that shows the Azure subscriptions list for MPA billing profile](./media/billing-mpa-understand-your-bill/mpa-billing-profile-subscriptions-list.png) -->
+
+## <a name="analyze-your-azure-usage-charges"></a>Analizzare gli addebiti per l'utilizzo di Azure
+
+Usare il file CSV dei dati di utilizzo e addebiti di Azure per analizzare gli addebiti basati sull'utilizzo. È possibile filtrare il file relativo a utilizzo e addebiti di Azure per riconciliare gli addebiti per l'utilizzo per ogni prodotto elencato nel file PDF della fattura. Per visualizzare gli addebiti dettagliati per l'utilizzo per un prodotto specifico, filtrare in base alla colonna **product** nel file CSV relativo a utilizzo e addebiti di Azure in modo da includere solo il nome del prodotto desiderato.
+
+È anche possibile filtrare in base alla colonna **customerName** nel file CSV relativo a utilizzo e addebiti di Azure per visualizzare gli addebiti per l'utilizzo giornaliero per ogni cliente. Per visualizzare gli addebiti per l'utilizzo giornaliero in base alla sottoscrizione di Azure, filtrare in base alla colonna **subscriptionName**.
+
+## <a name="pay-your-bill"></a>Pagare la fattura
+
+Nella parte inferiore della fattura sono riportate le istruzioni per il relativo pagamento. È possibile pagare tramite bonifico o assegno entro 60 giorni dalla data della fattura.
+
+Se la fattura è già stata saldata, è possibile verificare lo stato del pagamento nella pagina Fatture del portale di Azure.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione sono state illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Esaminare le transazioni fatturate nel portale di Azure
+> * Esaminare gli addebiti in sospeso per stimare la fattura successiva
+> * Analizzare gli addebiti per l'utilizzo di Azure
+
+Informazioni sull'uso di gestione costi di Azure per i partner.
+
+> [!div class="nextstepaction"]
+> [Introduzione a gestione costi di Azure per i partner](../costs/get-started-partners.md)

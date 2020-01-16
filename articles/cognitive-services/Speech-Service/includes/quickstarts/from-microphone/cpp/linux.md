@@ -1,23 +1,22 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, C++ (Linux) - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, C++ (Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C++ in Linux con Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 42f4b093ddec763bddb651e2ff24d51b613d5009
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b2b59eb4c81f28a0bb74aca11d925405256c16a5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818898"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927766"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
@@ -63,7 +62,7 @@ Prima di iniziare:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
   ```
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 1. Configurare il percorso di libreria del caricatore in modo da puntare alla libreria Speech SDK.
 

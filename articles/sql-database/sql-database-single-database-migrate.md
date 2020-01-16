@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: df1ef21da43bc74809bd9fd71b5dde3906cdb343
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820966"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980764"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
 
@@ -56,7 +56,7 @@ L'elenco seguente contiene indicazioni che permettono di ottimizzare le prestazi
 - Scegliere il livello di servizio e le dimensioni di calcolo più elevati consentiti dal budget per ottimizzare le prestazioni di trasferimento. Per risparmiare, è possibile ridurre le prestazioni al termine della migrazione.
 - Ridurre al minimo la distanza tra il file BACPAC e il data center di destinazione.
 - Disabilitare le statistiche automatiche durante la migrazione.
-- Partizionare tabelle e indici.
+- Partizionare tabelle e indici
 - Eliminare le viste indicizzate e ricrearle al termine della migrazione.
 - Rimuovere i dati cronologici raramente sottoposti a query in un altro database ed eseguire la migrazione di tali dati in un database SQL di Azure separato. Sarà quindi possibile eseguire query sui dati cronologici usando [query elastiche](sql-database-elastic-query-overview.md).
 
@@ -84,14 +84,14 @@ Con la replica transazionale, tutte le modifiche ai dati o allo schema vengono v
 
 1. Configurare la distribuzione
    - [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
-   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+   - [Utilizzo di Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
 
 2. Creare la pubblicazione
    - [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
-3. Creare la sottoscrizione
+   - [Utilizzo di Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Creazione di sottoscrizioni
    - [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+   - [Utilizzo di Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
 Suggerimenti e differenze per la migrazione al database SQL
 
@@ -107,9 +107,9 @@ Suggerimenti e differenze per la migrazione al database SQL
 Esiste una vasta gamma di problemi di compatibilità che possono verificarsi, a seconda della versione del server SQL del database di origine e della complessità del database verso cui si esegue la migrazione. Le versioni precedenti di SQL Server presentano più problemi di compatibilità. Oltre a una ricerca mirata su Internet tramite i propri motori di ricerca preferiti, si consiglia di usare le risorse seguenti:
 
 - [Funzionalità del database di SQL Server non supportate nel database SQL di Azure](sql-database-transact-sql-information.md)
-- [Funzionalità del motore di database sospese in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [Funzionalità del motore di database sospese in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [Funzionalità del motore di database sospese in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+- [Funzionalità del motore di database non più usate in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
+- [Funzionalità del Motore di database non più utilizzate in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+- [Funzionalità del Motore di database non più utilizzate in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
 - [Funzionalità del motore di database sospese in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Funzionalità del motore di database sospese in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
@@ -121,7 +121,7 @@ Oltre a ricerche su Internet e all'uso di queste risorse, usare il [forum della 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Usare lo script nel blog degli ingegneri di Azure SQL EMEA per [monitorare l'utilizzo di tempdb durante la migrazione](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
-- Usare lo script nel blog degli ingegneri di Azure SQL EMEA per [monitorare lo spazio del log delle transazioni del database durante la migrazione](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+- Usare lo script nel blog degli ingegneri di Azure SQL EMEA per [monitorare lo spazio del log delle transazioni del database durante la migrazione](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).
 - Per informazioni sull'uso di file BACPAC per la migrazione, vedere l'articolo [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrazione da SQL Server al database SQL di Azure con file BACPAC) del blog del Customer Advisory Team di SQL Server.
 - Per informazioni sull'uso dell'ora UTC dopo la migrazione, vedere [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (Sostituire il fuso orario predefinito con il fuso orario locale).
 - Per informazioni su come modificare la lingua predefinita di un database dopo la migrazione, vedere [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (Come modificare la lingua predefinita del database SQL di Azure).

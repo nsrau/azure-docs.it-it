@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: f92011a6955398ef85e44fae1ce8f782cc9cc12c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: eb9703a1944a650f41d76c05d79764f8bdf8cd52
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075994"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045441"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
 
@@ -29,8 +29,8 @@ ms.locfileid: "74075994"
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
 
->[! Nota: modificare la procedura consigliata per IPv6] in questo articolo viene descritta una funzionalità IPv6 introduttiva per consentire ai bilanciamenti del carico di base di fornire connettività IPv4 e IPv6.  Connettività IPv6 più completa è ora disponibile con [IPv6 per Azure reti virtuali](../virtual-network/ipv6-overview.md) , che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave quali le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il bilanciamento del carico di base e standard IPv6 e altro ancora.  IPv6 per Azure reti virtuali è la procedura consigliata per le applicazioni IPv6 in Azure. 
->Vedere [IPv6 per la distribuzione del modello VNET di Azure](../virtual-network/ipv6-configure-standard-load-balancer-template-json.md)
+>[!NOTE] 
+>Questo articolo descrive una funzionalità IPv6 introduttiva per consentire ai bilanciamenti del carico di base di fornire connettività IPv4 e IPv6. Connettività IPv6 completa è ora disponibile con [IPv6 per reti virtuali di Azure](../virtual-network/ipv6-overview.md) , che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave quali le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il bilanciamento del carico di base e standard IPv6 e altro ancora.  IPv6 per Azure reti virtuali è lo standard consigliato per le applicazioni IPv6 in Azure. Vedere [IPv6 per la distribuzione di Azure VNET PowerShell](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  
 
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
@@ -111,7 +111,7 @@ Un modello di Azure Resource Manager contiene più variabili e parametri che è 
 
 Il modello di esempio usato in questo articolo include le variabili e i parametri seguenti:
 
-| Parametro / variabile | note |
+| Parametro / variabile | Note |
 | --- | --- |
 | adminUsername |Specificare il nome dell'account amministratore usato per accedere alle macchine virtuali. |
 | adminPassword |Specificare la password dell'account amministratore usato per accedere alle macchine virtuali. |

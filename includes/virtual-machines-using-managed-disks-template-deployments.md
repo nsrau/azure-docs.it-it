@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: ba49fc72fe07378d702b8c12fcdf77d5cebee9bb
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013096"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037708"
 ---
 Questo documento descrive le differenze tra dischi gestiti e non gestiti quando si usano i modelli di Azure Resource Manager per eseguire il provisioning di macchine virtuali. Gli esempi sono utili per aggiornare i modelli esistenti con dischi non gestiti per l'uso dei dischi gestiti. A titolo di riferimento, come guida viene usato il modello [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows). Per un eventuale confronto diretto, è possibile visualizzare sia il modello per l'uso di [dischi gestiti](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json), sia una versione precedente per [dischi non gestiti](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json).
 
@@ -94,7 +94,16 @@ Con Azure Managed Disks, il disco diventa una risorsa di primo livello e non ric
 
 ### <a name="default-managed-disk-settings"></a>Impostazioni predefinite per i dischi gestiti
 
-Per creare una macchina virtuale con dischi gestiti, non è più necessario creare la risorsa account di archiviazione ed è possibile aggiornare la risorsa macchina virtuale come indicato di seguito. Si noti in particolare che `apiVersion` corrisponde a `2017-03-30` e che `osDisk` e `dataDisks` non fanno più riferimento a uno specifico URI per il disco rigido virtuale. Quando si distribuisce senza specificare proprietà aggiuntive, il disco userà il tipo di archiviazione in base alle dimensioni della macchina virtuale. Se, ad esempio, si usa una dimensione della macchina virtuale compatibile con l'archiviazione Premium (dimensioni con "s" nel nome, ad esempio Standard_D2s_v3), il sistema userà l'archiviazione con ridondanza locale Premium. Usare l'impostazione SKU del disco per specificare un tipo di archiviazione. Se non si specifica un nome, assume il formato `<VMName>_OsDisk_1_<randomstring>` per il disco del sistema operativo e `<VMName>_disk<#>_<randomstring>` per ogni disco dati. Per impostazione predefinita, la crittografia dischi di Azure è disattivata; la memorizzazione nella cache è impostata su lettura/scrittura per il disco del sistema operativo e disattivata per i dischi dati. Nell'esempio seguente si può osservare che è ancora presente una dipendenza dall'account di archiviazione, ma è solo per l'archiviazione della diagnostica e non è necessaria per l'archiviazione su disco.
+Per creare una macchina virtuale con Managed disks, non è più necessario creare la risorsa dell'account di archiviazione. Facendo riferimento all'esempio di modello riportato di seguito, esistono alcune differenze rispetto agli esempi di dischi non modificati precedenti da considerare:
+
+- Il `apiVersion` è una versione che supporta i dischi gestiti.
+- `osDisk` e `dataDisks` non fanno più riferimento a un URI specifico per il disco rigido virtuale.
+- Quando si esegue la distribuzione senza specificare proprietà aggiuntive, il disco utilizzerà un tipo di archiviazione in base alle dimensioni della macchina virtuale. Ad esempio, se si usa una macchina virtuale di dimensioni che supporta archiviazione Premium (dimensioni con "s" nel nome, ad esempio Standard_D2s_v3), i dischi Premium verranno configurati per impostazione predefinita. È possibile modificare questa impostazione usando l'impostazione SKU del disco per specificare un tipo di archiviazione.
+- Se non viene specificato alcun nome per il disco, viene preso il formato `<VMName>_OsDisk_1_<randomstring>` per il disco del sistema operativo e `<VMName>_disk<#>_<randomstring>` per ogni disco dati.
+  - Se una macchina virtuale viene creata da un'immagine personalizzata, le impostazioni predefinite per il tipo di account di archiviazione e il nome del disco vengono recuperate dalle proprietà del disco definite nella risorsa immagine personalizzata. È possibile eseguirne l'override specificando i relativi valori nel modello.
+- Per impostazione predefinita, crittografia dischi di Azure è disabilitata.
+- Per impostazione predefinita, la memorizzazione nella cache del disco è in lettura/scrittura per il disco del sistema operativo e nessuna per i dischi dati.
+- Nell'esempio seguente esiste ancora una dipendenza dell'account di archiviazione, anche se questa è solo per l'archiviazione della diagnostica e non è necessaria per l'archiviazione su disco.
 
 ```json
 {

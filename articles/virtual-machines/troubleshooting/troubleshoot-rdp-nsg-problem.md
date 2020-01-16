@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 5f95b42fd17aec4e3ec6b7b8fac1965772fefa67
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162603"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981797"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Non è possibile connettersi in remoto a una macchina virtuale perché la porta RDP non è abilitata in NSG
 
@@ -25,7 +25,7 @@ Questo articolo spiega come risolvere il problema di non riuscire a connettersi 
 
 
 > [!NOTE] 
-> Azure offre due modelli di distribuzione per creare e utilizzare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Per le nuove distribuzioni si consiglia di usare il modello di distribuzione di Resource Manager anziché quello classico. 
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../../azure-resource-manager/management/deployment-models.md). Per le nuove distribuzioni si consiglia di usare il modello di distribuzione di Resource Manager anziché quello classico. 
 
 ## <a name="symptom"></a>Sintomo
 
@@ -45,9 +45,9 @@ Per abilitare la porta RDP in un gruppo di sicurezza di rete, seguire questa pro
     **Nome**: Port_3389 </br>
     **Porta (destinazione)** : 3389 </br>
     **Protocollo**: TCP </br>
-    **Origine**: Any </br>
-    **Destinazioni**: Any </br>
-    **Azione**: Allow </br>
+    **Origine**: Qualsiasi </br>
+    **Destinazioni**: Qualsiasi </br>
+    **Azione**: Consenti </br>
 
 Se si specifica l'indirizzo IP di origine, questa impostazione consente solo al traffico proveniente da un indirizzo IP o da un intervallo di indirizzi IP specifico di connettersi alla macchina virtuale. Assicurarsi che il computer utilizzato per avviare la sessione RDP sia compreso nell'intervallo.
 

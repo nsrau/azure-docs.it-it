@@ -3,12 +3,12 @@ title: Funzionalità di sicurezza per proteggere i carichi di lavoro cloud
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829630"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028216"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
@@ -251,7 +251,7 @@ Quando si esegue il backup di macchine virtuali di Azure, è anche possibile cri
 
 ### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Backup di macchine virtuali con dischi gestiti crittografate con chiavi gestite dal cliente
 
-Backup di Azure consente di eseguire il backup di macchine virtuali di Azure contenenti dischi crittografati usando chiavi gestite dal cliente. Per informazioni dettagliate, vedere [crittografia dei dischi gestiti con chiavi gestite dal cliente](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview).
+Backup di Azure consente di eseguire il backup di macchine virtuali di Azure contenenti dischi crittografati usando chiavi gestite dal cliente. Per informazioni dettagliate, vedere [crittografia dei dischi gestiti con chiavi gestite dal cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
 
 ### <a name="backup-of-encrypted-vms"></a>Backup di macchine virtuali crittografate
 

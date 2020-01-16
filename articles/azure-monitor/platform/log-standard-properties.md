@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932203"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979753"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Proprietà standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](../log-query/logs-structure.md), ognuno con un particolare tipo di dati che dispone di un set univoco di proprietà. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.
@@ -25,7 +25,7 @@ Le proprietà **TimeGenerated** (area di lavoro log Analytics) e **timestamp** (
 
 **TimeGenerated** e **timestamp** forniscono una proprietà comune da usare per il filtro o il riepilogo in base al tempo. Quando si seleziona un intervallo di tempo per una vista o un dashboard nella portale di Azure, viene usato TimeGenerated o timestamp per filtrare i risultati. 
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 La query seguente restituisce il numero di eventi di errore creati per ogni giorno della settimana precedente.
 
@@ -63,7 +63,7 @@ Event
 ## <a name="type-and-itemtype"></a>Digitare e itemType
 Il **tipo** (area di lavoro log Analytics) e le proprietà **ItemType** (Application Insights applicazione) contengono il nome della tabella da cui il record è stato recuperato, che può anche essere considerato come tipo di record. Questa proprietà è utile nelle query che consentono di combinare record da più tabelle, ad esempio quelle che usano l'operatore `search`, per distinguere tra record di diverso tipo. **$table** può essere usato al posto di **Type** in alcune posizioni.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 La query seguente restituisce il numero di record in base al tipo raccolti nell'ultima ora.
 
 ```Kusto
@@ -79,12 +79,12 @@ Il **\_proprietà ItemId** include un identificatore univoco per il record.
 ## <a name="_resourceid"></a>\_ResourceId
 La proprietà **\_ResourceId** contiene un identificatore univoco per la risorsa a cui è associato il record. Si ottiene così una proprietà standard da utilizzare per definire l'ambito della query solo ai record di una determinata risorsa oppure per unire i dati correlati tra più tabelle.
 
-Per le risorse di Azure, il valore di **_ResourceId** è l'[URL dell'ID risorsa di Azure](../../azure-resource-manager/resource-group-template-functions-resource.md). La proprietà è attualmente limitata alle risorse di Azure, ma verrà estesa alle risorse esterne ad Azure, ad esempio i computer locali.
+Per le risorse di Azure, il valore di **_ResourceId** è l'[URL dell'ID risorsa di Azure](../../azure-resource-manager/templates/template-functions-resource.md). La proprietà è attualmente limitata alle risorse di Azure, ma verrà estesa alle risorse esterne ad Azure, ad esempio i computer locali.
 
 > [!NOTE]
 > Alcuni tipi di dati dispongono già di campi che contengono l'ID risorsa di Azure o almeno una parte di esso, ad esempio l'ID sottoscrizione. Mentre questi campi vengono mantenuti per motivi di compatibilità con le versioni precedenti, è consigliabile usare _ResourceId per eseguire la correlazione incrociata dal momento che sarà più coerente.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 La query seguente crea un join dei dati delle prestazioni e degli eventi per ogni computer. Mostra tutti gli eventi con ID _101_ e un utilizzo del processore del 50%.
 
 ```Kusto
@@ -125,7 +125,7 @@ Usare queste query `union withsource = tt *` solo se necessario, poiché le anal
 ## <a name="_isbillable"></a>\_IsBillable
 La proprietà **\_IsBillable** specifica se i dati inseriti sono fatturabili. I dati con **\_IsBillable** uguali a _false_ vengono raccolti gratuitamente e non fatturati nell'account Azure.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 Per ottenere un elenco di computer che inviano i tipi di dati fatturati, usare la query seguente:
 
 > [!NOTE]
@@ -153,7 +153,7 @@ union withsource = tt *
 La proprietà **\_BilledSize** specifica la dimensione in byte dei dati che verranno fatturati all'Azure se la proprietà **\_IsBillable** è true.
 
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 Per vedere le dimensioni degli eventi fatturabili inseriti per computer, usare la proprietà `_BilledSize` che fornisce la dimensione in byte:
 
 ```Kusto

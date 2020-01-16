@@ -1,26 +1,25 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, C# (Unity) - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, C# (Unity) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 149ec84732171cd57b3f8a9590d5340107536eac
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818878"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928152"
 ---
 > [!NOTE]
 > Speech SDK per Unity supporta Windows Desktop (x86 e x64) o la piattaforma UWP (Universal Windows Platform) (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulatore x64, ARM32 e ARM64).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
@@ -34,7 +33,7 @@ Se queste operazioni sono già state eseguite, procedere come segue.
 
 ## <a name="create-a-unity-project"></a>Creare un progetto Unity
 
-1. Aprire Unity. Se si usa Unity per la prima volta, viene visualizzata la finestra **Unity Hub** (Hub Unity) *<version number>* . È anche possibile aprire Unity Hub direttamente per accedere a questa finestra.
+1. Aprire Unity. Se si usa Unity per la prima volta, viene visualizzata la finestra **Unity Hub** *<version number>* . È anche possibile aprire Unity Hub direttamente per accedere a questa finestra.
 
    [![Finestra Unity Hub](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png#lightbox)
 1. Selezionare **Nuovo**. Viene visualizzata la finestra **Create a new project with Unity** (Crea un nuovo progetto con Unity) *<version number>* .

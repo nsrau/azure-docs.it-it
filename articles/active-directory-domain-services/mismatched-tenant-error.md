@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704537"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979505"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 
@@ -56,7 +56,7 @@ In questo scenario di distribuzione di esempio, il dominio gestito contoso Azure
 Le due opzioni seguenti risolvono l'errore di directory non corrispondente:
 
 * [Eliminare il dominio gestito Azure AD DS](delete-aadds.md) dalla directory Azure ad esistente. [Creare una sostituzione Azure ad dominio gestito DS](tutorial-create-instance.md) nella stessa directory Azure ad della rete virtuale che si vuole usare. Quando si è pronti, aggiungere tutti i computer aggiunti in precedenza al dominio eliminato al dominio gestito ricreato.
-* [Spostare la sottoscrizione di Azure](../billing/billing-subscription-transfer.md) contenente la rete virtuale nella stessa directory Azure ad del dominio gestito di Azure AD DS.
+* [Spostare la sottoscrizione di Azure](../cost-management-billing/manage/billing-subscription-transfer.md) contenente la rete virtuale nella stessa directory Azure ad del dominio gestito di Azure AD DS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

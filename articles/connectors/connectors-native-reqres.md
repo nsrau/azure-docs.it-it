@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786996"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030153"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure
 
@@ -23,7 +23,16 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'az
 * Ricevere e rispondere a una chiamata HTTPS da un'altra app per la logica.
 
 > [!NOTE]
-> Il trigger request supporta *solo* Transport Layer Security (TLS) 1,2 per le chiamate in ingresso. Le chiamate in uscita continuano a supportare TLS 1,0, 1,1 e 1,2. Se vengono visualizzati errori di handshake SSL, assicurarsi di usare TLS 1,2.
+> Il trigger request supporta *solo* Transport Layer Security (TLS) 1,2 per le chiamate in ingresso. Le chiamate in uscita continuano a supportare TLS 1,0, 1,1 e 1,2. Se vengono visualizzati errori di handshake SSL, assicurarsi di usare TLS 1,2. Per le chiamate in ingresso, di seguito sono riportati i pacchetti di crittografia supportati:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,9 +56,9 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Description |
    |---------------|--------------------|----------|-------------|
-   | **URL POST HTTP** | {none} | SÌ | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
+   | **URL POST HTTP** | {none} | Sì | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Schema JSON del corpo della richiesta** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
    |||||
 
@@ -146,7 +155,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 1. Per specificare altre proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Description |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che la richiesta in ingresso deve usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo del parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -220,9 +229,9 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto.
 
    Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Description |
    |---------------|--------------------|----------|-------------|
-   | **Codice di stato** | `statusCode` | SÌ | Codice di stato da restituire nella risposta |
+   | **Codice di stato** | `statusCode` | Sì | Codice di stato da restituire nella risposta |
    | **Intestazioni** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |
    | **Corpo** | `body` | No | Il corpo della risposta |
    |||||

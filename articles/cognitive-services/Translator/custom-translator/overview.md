@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: e002a5fbe38596d6507eec81ba3dd2a05c25153a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975806"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982696"
 ---
 # <a name="what-is-custom-translator"></a>Informazioni su Custom Translator
 
 [Custom Translator](https://portal.customtranslator.azure.ai) è una funzionalità del servizio Microsoft Translator, che consente alle agenzie di traduzione, agli sviluppatori di app e ai provider di servizi linguistici di creare sistemi di traduzione automatica neurale (NMT). I sistemi di traduzione personalizzata si integrano senza problemi nelle applicazioni, nei flussi di lavoro e nei siti Web esistenti. [Custom Translator](https://portal.customtranslator.azure.ai/) offre funzionalità simili a quelle offerte da [Microsoft Translator Hub](https://hub.microsofttranslator.com/) per la traduzione automatica statistica (SMT, Statistical Machine Translation), ma in esclusiva per i sistemi di traduzione automatica neurale (NMT, Neural Machine Translation).
 
-I sistemi di traduzione basati su [Custom Translator](https://portal.customtranslator.azure.ai) sono disponibili tramite la stessa, [sicura](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) [API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) di Microsoft Translator basata sul cloud e a prestazioni e scalabilità elevate che supporta miliardi di traduzioni ogni giorno.
+I sistemi di traduzione basati su [Custom Translator](https://portal.customtranslator.azure.ai) sono disponibili tramite la stessa, [sicura](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality)[API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) di Microsoft Translator basata sul cloud e a prestazioni e scalabilità elevate che supporta miliardi di traduzioni ogni giorno.
 
 Custom Translator supporta più di tre dozzine di lingue ed include il mapping diretto alle lingue disponibili per NMT. Per un elenco completo, vedere [Lingue di Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
@@ -28,9 +28,9 @@ Custom Translator supporta più di tre dozzine di lingue ed include il mapping d
 
 Custom Translator fornisce diverse funzionalità per la creazione di sistemi di traduzione personalizzati e per il successivo accesso.
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
-|[Sfruttamento dei vantaggi della tecnologia di traduzione automatica neurale](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  È possibile migliorare la traduzione sfruttando la traduzione automatica neurale offerta da Custom Translator.       |
+|[Sfruttamento dei vantaggi della tecnologia di traduzione automatica neurale](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  È possibile migliorare la traduzione sfruttando la traduzione automatica neurale offerta da Custom Translator.       |
 |[Creazione di sistemi in grado di riconoscere la terminologia aziendale](what-are-parallel-documents.md)     |  È possibile personalizzare e creare sistemi di traduzione con documenti paralleli, in grado di comprendere le terminologie usate in un'azienda e un settore specifico.       |
 |[Uso di un dizionario per la creazione di modelli](what-is-dictionary.md)     |   Se non è disponibile alcun training set, è possibile eseguire il training di un modello usando solo i dati di un dizionario.       |
 |[Collaborazione con altri utenti](how-to-manage-settings.md#share-your-workspace)     |   È possibile collaborare con il proprio team condividendo il proprio lavoro con diverse persone.     |
@@ -38,7 +38,7 @@ Custom Translator fornisce diverse funzionalità per la creazione di sistemi di 
 
 ## <a name="get-better-translations"></a>Traduzioni migliori
 
-Microsoft Translator ha rilasciato [Traduzione automatica neurale (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) nel 2016. NMT ha offerto progressi significativi a livello di qualità della traduzione rispetto alla tecnologia di [traduzione automatica statistica (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) standard di settore. Poiché NMT acquisisce meglio il contesto delle frasi complete prima di tradurle, offre traduzioni di qualità superiore, più vicine al linguaggio naturale e più scorrevoli. [Custom Translator](https://portal.customtranslator.azure.ai) offre NMT per i modelli personalizzati, per consentire di ottenere traduzioni di qualità migliore.
+Microsoft Translator ha rilasciato [Traduzione automatica neurale (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) nel 2016. NMT ha offerto progressi significativi a livello di qualità della traduzione rispetto alla tecnologia di [traduzione automatica statistica (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) standard di settore. Poiché NMT acquisisce meglio il contesto delle frasi complete prima di tradurle, offre traduzioni di qualità superiore, più vicine al linguaggio naturale e più scorrevoli. [Custom Translator](https://portal.customtranslator.azure.ai) offre NMT per i modelli personalizzati, per consentire di ottenere traduzioni di qualità migliore.
 
 È possibile usare documenti tradotti in precedenza per creare un sistema di traduzione. Questi documenti includono terminologia e stile specifici del dominio, migliori rispetto a un sistema di traduzione standard. Gli utenti possono caricare documenti ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX e XLSX.
 

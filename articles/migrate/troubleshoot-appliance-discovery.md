@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1dbbe04818e75e41944a1c0fe54f53849cf71983
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 854d98a4f2a1b2500bc301d2305c0dd1f27aaaa4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725858"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980824"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -75,7 +75,7 @@ Se viene ricevuto questo errore di connessione, potrebbe non essere possibile co
 
 - Errore 60052, "l'appliance potrebbe non essere stata registrata correttamente nel progetto Azure Migrate" si verifica se l'account Azure usato per registrare l'appliance non dispone di autorizzazioni sufficienti.
     - Assicurarsi che l'account utente di Azure usato per registrare il dispositivo disponga almeno delle autorizzazioni di collaboratore per la sottoscrizione.
-    - [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
+    - [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
 - Errore 60039: "è possibile che l'appliance non sia stata registrata correttamente nel progetto Azure Migrate" se la registrazione non riesce perché il progetto Azure Migrate usato per registrare l'appliance non è stato trovato.
     - Nel portale di Azure e verificare se il progetto esiste nel gruppo di risorse.
     - Se il progetto non esiste, creare un nuovo progetto di Azure Migrate nel gruppo di risorse e registrare di nuovo l'appliance. [Informazioni su come](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) creare un nuovo progetto.
@@ -86,7 +86,7 @@ Se viene visualizzato l'errore 60030 o 60031, "un'operazione di gestione Azure K
 - Assicurarsi che l'account utente di Azure usato per registrare il dispositivo disponga almeno delle autorizzazioni di collaboratore per la sottoscrizione.
 - Verificare che l'account abbia accesso all'insieme di credenziali delle chiavi specificato nel messaggio di errore, quindi ripetere l'operazione.
 - Se il problema persiste, contattare il supporto tecnico Microsoft.
-- [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
+- [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Errore 60028: non è stato possibile avviare l'individuazione
 
@@ -101,7 +101,7 @@ Errore 60025: "un'operazione Azure AD non è riuscita. L'errore si è verificato
 - Assicurarsi che l'account utente che avvia l'individuazione sia uguale a quello usato per registrare l'appliance.
 - Fornire Azure Active Directory le autorizzazioni di accesso alle applicazioni per l'account utente per il quale l'operazione di individuazione ha esito negativo.
 - Eliminare il gruppo di risorse creato in precedenza per il progetto Azure Migrate. Creare un altro gruppo di risorse per riavviarlo.
-- [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sulle autorizzazioni per l'applicazione Azure Active Directory.
+- [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) informazioni sulle autorizzazioni per l'applicazione Azure Active Directory.
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Errore 50004: non è possibile connettersi all'host o al cluster

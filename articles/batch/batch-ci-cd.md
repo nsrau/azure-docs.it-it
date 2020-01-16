@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449808"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982705"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare Azure Pipelines per compilare e distribuire soluzioni HPC
 
@@ -192,7 +192,7 @@ Il modello successivo mostra un esempio di creazione di un pool di Azure Batch (
 
 Infine, abbiamo un modello che funziona in modo simile a un agente di orchestrazione. Questo modello è responsabile della distribuzione dei modelli di funzionalità.
 
-È anche possibile trovare altre informazioni sulla [creazione di modelli di Azure Resource Manager collegati](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md) in un articolo separato.
+È anche possibile trovare altre informazioni sulla [creazione di modelli di Azure Resource Manager collegati](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) in un articolo separato.
 
 ```json
 {
@@ -368,7 +368,7 @@ Azure Pipelines anche usato per distribuire l'applicazione e l'infrastruttura so
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Distribuzione dell'applicazione e dell'infrastruttura sottostante
 
-Per la distribuzione dell'infrastruttura sono necessari alcuni passaggi. Poiché sono stati usati [modelli collegati](../azure-resource-manager/resource-group-linked-templates.md), questi modelli dovranno essere accessibili da un endpoint pubblico (http o HTTPS). Potrebbe trattarsi di un repository in GitHub o di un account di archiviazione BLOB di Azure o di un altro percorso di archiviazione. Gli elementi del modello caricati possono rimanere protetti, perché possono essere mantenuti in modalità privata, ma a cui si accede tramite un token di firma di accesso condiviso (SAS). L'esempio seguente illustra come distribuire un'infrastruttura con i modelli da un BLOB di archiviazione di Azure.
+Per la distribuzione dell'infrastruttura sono necessari alcuni passaggi. Poiché sono stati usati [modelli collegati](../azure-resource-manager/templates/linked-templates.md), questi modelli dovranno essere accessibili da un endpoint pubblico (http o HTTPS). Potrebbe trattarsi di un repository in GitHub o di un account di archiviazione BLOB di Azure o di un altro percorso di archiviazione. Gli elementi del modello caricati possono rimanere protetti, perché possono essere mantenuti in modalità privata, ma a cui si accede tramite un token di firma di accesso condiviso (SAS). L'esempio seguente illustra come distribuire un'infrastruttura con i modelli da un BLOB di archiviazione di Azure.
 
 1. Creare una **nuova definizione di versione**e selezionare una definizione vuota. È quindi necessario rinominare l'ambiente appena creato in un elemento pertinente per la pipeline.
 

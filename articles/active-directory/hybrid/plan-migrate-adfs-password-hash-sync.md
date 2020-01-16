@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818898"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028403"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure Active Directory
 
 Questo articolo descrive come spostare i domini dell'organizzazione da Active Directory Federation Services (AD FS) alla sincronizzazione dell'hash delle password.
 
-È possibile [scaricare questo articolo](https://aka.ms/ADFSTOPHSDPDownload).
+> [!NOTE]
+> Per modificare il metodo di autenticazione è necessario pianificare, testare e potenzialmente inattività. L'implementazione di gestione [temporanea](how-to-connect-staged-rollout.md) fornisce un modo alternativo per testare e migrare gradualmente dalla Federazione all'autenticazione cloud usando la sincronizzazione dell'hash delle password.
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>Prerequisiti per la migrazione alla sincronizzazione dell'hash delle password
 
@@ -135,7 +136,7 @@ Questa sezione include considerazioni sulla distribuzione e dettagli sull'uso di
 
 Prima di poter procedere alla conversione dell'identità da federata a gestita, è consigliabile esaminare con attenzione il modo in cui si usa attualmente AD FS per Azure AD, Office 365 e altre applicazioni (trust di relying party). In particolare, considerare gli scenari descritti nella tabella seguente:
 
-| Se | Allora |
+| Se | Risultato |
 |-|-|
 | Si prevede di continuare a usare AD FS con altre applicazioni (diverse da Azure AD e Office 365). | Dopo la conversione dei domini, si useranno sia AD FS che Azure AD. Considerare l'esperienza utente. È possibile che in alcuni scenari gli utenti debbano eseguire due volte l'autenticazione: una per accedere ad Azure AD (dove un utente ottiene l'accesso Single Sign-On ad altre applicazioni, come Office 365) e l'altra per le applicazioni ancora associate ad AD FS come trust della relying party. |
 | L'istanza di AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js, ad esempio se si è modificata l'esperienza di accesso per consentire agli utenti di usare il proprio nome solo nel formato **SamAccountName**, invece di un nome di entità utente (UPN), o se l'organizzazione visualizza informazioni personalizzate distintive dell'azienda. Il file onload.js non può essere duplicato in Azure AD. | Prima di continuare, è necessario verificare che Azure AD possa soddisfare i requisiti di personalizzazione corrente. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
@@ -328,7 +329,7 @@ Proseguire con la sezione [Test e passaggi successivi](#testing-and-next-steps).
 
 #### <a name="option-b-switch-from-federation-to-password-hash-synchronization-using-azure-ad-connect-and-powershell"></a>Opzione B: passare dalla Federazione alla sincronizzazione dell'hash delle password con Azure AD Connect e PowerShell
 
-Usare questa opzione se non si sono inizialmente configurati i domini federati tramite Azure AD Connect. Durante questo processo, si abilita l'accesso Single Sign-On facile e si convertono i domini da federati a gestiti.
+Usare questa opzione se non si sono inizialmente configurati i domini federati usando Azure AD Connect. Durante questo processo, si abilita l'accesso Single Sign-On facile e si convertono i domini da federati a gestiti.
 
 1. Nel server di Azure AD Connect avviare la procedura guidata di Azure AD Connect.
 2. Selezionare **Cambia l'accesso utente** e quindi fare clic su **Avanti**.
@@ -437,7 +438,7 @@ Dopo aver verificato che tutti gli utenti e i client eseguano correttamente l'au
 
 Se non si usa AD FS per altri scopi, ovvero per altri trust di relying party, a questo punto si possono rimuovere senza problemi le autorizzazioni di AD FS.
 
-### <a name="rollback"></a>Rollback
+### <a name="rollback"></a>Ripristino dello stato precedente
 
 Se si riscontra un problema importante che non può essere risolto rapidamente, può essere opportuno eseguire il ripristino della soluzione alla federazione.
 

@@ -7,12 +7,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: d02ea18422e20aa2fede4f25cdffa985607e7b5c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 58dd53d9380448f177da48659b4f48c261bcfc14
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597333"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745430"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -55,14 +55,14 @@ Monitoraggio di Azure può raccogliere dati da diverse origini. Il monitoraggio 
 - **Dati di monitoraggio della sottoscrizione di Azure**: dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. 
 - **Dati di monitoraggio del tenant di Azure**: dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory.
 
-Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](platform/activity-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](platform/data-platform.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
+Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](platform/platform-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](platform/data-platform.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
 
-Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la diagnostica](platform/resource-logs-overview.md) e [aggiungere un agente](platform/agent-windows.md) per calcolare le risorse. In questo modo vengono raccolti i dati di telemetria per il funzionamento interno della risorsa ed è possibile configurare diverse [origini dati](platform/agent-data-sources.md) per raccogliere log e metriche dal sistema operativo guest Windows o Linux. 
+Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la diagnostica](platform/platform-logs-overview.md) e [aggiungere un agente](platform/agent-windows.md) per calcolare le risorse. In questo modo vengono raccolti i dati di telemetria per il funzionamento interno della risorsa ed è possibile configurare diverse [origini dati](platform/agent-data-sources.md) per raccogliere log e metriche dal sistema operativo guest Windows o Linux. 
 
 Abilitare il monitoraggio per l'[applicazione dei servizi app](app/azure-web-apps.md) o l'[applicazione del set di scalabilità di macchine virtuali](app/azure-vm-vmss-apps.md) per consentire ad Application Insights di raccogliere informazioni dettagliate sull'applicazione, incluse visualizzazioni pagina, richieste di applicazioni ed eccezioni. Verificare ulteriormente la disponibilità dell'applicazione configurando un [test di disponibilità](app/monitor-web-app-availability.md) per simulare il traffico utente.
 
 ### <a name="custom-sources"></a>Origini personalizzate
-Monitoraggio di Azure può raccogliere dati di log da qualsiasi client REST usando l'[API dell'agente di raccolta dati](platform/data-collector-api.md). In questo modo è possibile creare scenari di monitoraggio personalizzati ed estendere il monitoraggio alle risorse che non espongono dati di telemetria tramite altre origini.
+Monitoraggio di Azure può raccogliere dati di log da qualsiasi client REST tramite l'[API dell'agente di raccolta dati](platform/data-collector-api.md). In questo modo è possibile creare scenari di monitoraggio personalizzati ed estendere il monitoraggio alle risorse che non espongono dati di telemetria tramite altre origini.
 
 
 
@@ -112,9 +112,9 @@ Le [visualizzazioni](visualizations.md), ad esempio tabelle e grafici, sono stru
 ### <a name="dashboards"></a>Dashboard
 I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) consentono di combinare tipi diversi di dati, tra cui metriche e log, in un unico riquadro del [portale di Azure](https://portal.azure.com). È possibile condividere il dashboard con altri utenti di Azure. È possibile aggiungere gli elementi di Monitoraggio di Azure a un dashboard di Azure oltre all'output di un grafico di metrica o query di log. È ad esempio possibile creare un dashboard che combina i riquadri che visualizzano un grafico delle metriche, una tabella di log attività, un diagramma utilizzo da Application Insights e l'output di una query di log.
 
-![dashboard](media/overview/dashboard.png)
+![Dashboard](media/overview/dashboard.png)
 
-### <a name="views"></a>Visualizzazioni
+### <a name="views"></a>Viste
 Le [visualizzazioni](../log-analytics/log-analytics-view-designer.md) presentano visivamente i dati di log in Monitoraggio di Azure.  Ogni visualizzazione include un riquadro singolo che esegue il drill-down a una combinazione di visualizzazioni quali grafici a barre o a linee, oltre ad elenchi di riepilogo dei dati critici.  Le soluzioni di monitoraggio includono visualizzazioni di riepilogo dei dati per un'applicazione specifica ed è possibile creare visualizzazioni personalizzate per presentare i dati da qualsiasi query di log. Come altri elementi di Monitoraggio di Azure, è possibile aggiungere le viste ai dashboard di Azure.
 
 ![Visualizza](media/overview/view.png)

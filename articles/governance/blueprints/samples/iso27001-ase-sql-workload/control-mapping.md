@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Carico di lavoro dell'ambiente del servizio app/SQL ISO 27001 - Mapping dei controlli
 description: Mapping dei controlli del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 in Criteri di Azure e RBAC.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5c5b83669a477255f0cdce45993a5871b5a9c6f8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bc370170374654bf8bc9ae9ed3f1b545f4db8cba
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546768"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920710"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapping dei controlli del progetto di esempio Carico di lavoro dell'ambiente del servizio app/SQL ISO 27001
 

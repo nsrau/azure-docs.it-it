@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c16ec978a0689059c60903182337936960c7a4b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707839"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981052"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e Azure PowerShell
 
@@ -47,7 +47,7 @@ Get-AzADUser -StartsWith <string_in_quotes>
 (Get-AzADUser -DisplayName <name_in_quotes>).id
 ```
 
-### <a name="group"></a>Group
+### <a name="group"></a>Gruppo
 
 Per ottenere l'ID oggetto per un gruppo di Azure AD, è possibile usare [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
@@ -232,4 +232,4 @@ Se viene visualizzato il messaggio di errore: "le informazioni fornite non sono 
 - [Elencare le assegnazioni di ruolo usando RBAC di Azure e Azure PowerShell](role-assignments-list-powershell.md)
 - [Esercitazione: concedere a un gruppo l'accesso alle risorse di Azure usando RBAC e Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Esercitazione: creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Gestire le risorse con Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)
+- [Gestire le risorse con Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

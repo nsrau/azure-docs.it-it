@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 188306ca02cee05f17514826ae6d973a17e6bb97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421867"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979481"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
@@ -41,7 +41,7 @@ L'elenco di macchine virtuali viene filtrato per visualizzare solo le macchine v
 
 ### <a name="resource-group-limit"></a> Limitazioni dell'onboarding
 
-Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Gestione risorse le distribuzioni, da non confondere con le distribuzioni degli aggiornamenti, sono limitate a 5 gruppi di risorse per ogni distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione. Questo limite si applica solo al caricamento simultaneo, non al numero di gruppi di risorse che possono essere gestiti da una soluzione di automazione.
+Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/templates/cross-resource-group-deployment.md). Gestione risorse le distribuzioni, da non confondere con le distribuzioni degli aggiornamenti, sono limitate a 5 gruppi di risorse per ogni distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione. Questo limite si applica solo al caricamento simultaneo, non al numero di gruppi di risorse che possono essere gestiti da una soluzione di automazione.
 
 È anche possibile usare un Runbook per l'onboarding. per altre informazioni, vedere [caricare le soluzioni di aggiornamento e rilevamento delle modifiche in automazione di Azure](automation-onboard-solutions.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708128"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980290"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
 
@@ -45,7 +45,7 @@ Nel diagramma precedente più file server, denominati membri, partecipano attiva
 
     * È possibile usare questo approccio se le macchine virtuali hanno configurazioni non supportate da Site Recovery. Un esempio è un disco del cluster condiviso, a volte usato comunemente negli ambienti dei file server. La replica DFS funziona correttamente anche negli ambienti con larghezza di banda ridotta con varianza media. È necessario prendere in considerazione il costo aggiuntivo della presenza di una macchina virtuale di Azure sempre in esecuzione. 
 
-* **Usare Sincronizzazione file di Azure per replicare i file**: se si prevede di usare il cloud o si usa già una macchina virtuale di Azure, è possibile usare Sincronizzazione file di Azure. Sincronizzazione file di Azure supporta la sincronizzazione di condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard del settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. 
+* **Usare sincronizzazione file di Azure per replicare i file**: se si prevede di usare il cloud o si usa già una macchina virtuale di Azure, è possibile usare sincronizzazione file di Azure. Sincronizzazione file di Azure offre la sincronizzazione di condivisioni file completamente gestite nel cloud accessibili tramite il protocollo SMB ( [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) standard del settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. 
 
 Il diagramma seguente consente di determinare la strategia da usare per l'ambiente di file server.
 
@@ -64,12 +64,12 @@ Il diagramma seguente consente di determinare la strategia da usare per l'ambien
 ### <a name="site-recovery-support"></a>Supporto di Site Recovery
 Dato che la replica di Site Recovery è indipendente dall'applicazione, queste raccomandazioni saranno valide anche per gli scenari seguenti.
 
-| Source    |In un sito secondario    |In Azure
+| Origine    |In un sito secondario    |In Azure
 |---------|---------|---------|
 |Azure| -|Sì|
 |Hyper-V|   Sì |Sì
-|VMware |Yes|   Yes
-|Server fisico|   Sì |Yes
+|VMware |Sì|   Sì
+|Server fisico|   Sì |Sì
  
 
 > [!IMPORTANT]
@@ -77,7 +77,7 @@ Dato che la replica di Site Recovery è indipendente dall'applicazione, queste r
 
 
 
-**Connettività da sito a sito**: è necessario stabilire la connessione diretta tra il sito locale e la rete di Azure per consentire la comunicazione tra i server. Usare una connessione VPN da sito a sito sicura per una rete virtuale di Azure che viene usata come sito di ripristino di emergenza. Per altre informazioni, vedere [Creare una connessione da sito a sito nel portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
+**Connettività da sito a sito**: è necessario stabilire una connessione diretta tra il sito locale e la rete di Azure per consentire la comunicazione tra i server. Usare una connessione VPN da sito a sito sicura per una rete virtuale di Azure che viene usata come sito di ripristino di emergenza. Per altre informazioni, vedere [Creare una connessione da sito a sito nel portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
 **Active Directory**: la replica DFS dipende da Active Directory. Ciò significa che la foresta Active Directory con i controller di dominio locali viene estesa al sito di ripristino di emergenza in Azure. Anche se non si usa la replica DFS, questi passaggi sono necessari se occorre concedere l'accesso agli utenti interessati o è richiesta la loro verifica per l'accesso. Per altre informazioni, vedere [Usare Azure Site Recovery per proteggere Active Directory e DNS](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
@@ -132,7 +132,7 @@ I passaggi seguenti descrivono la replica per una macchina virtuale VMware. Per 
 2. Estendere Active Directory locale.
 3. [Creare ed eseguire il provisioning di una macchina virtuale per il file server](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) nella rete virtuale di Azure.
 Verificare che la macchina virtuale sia stata aggiunta alla stessa rete virtuale di Azure, con connettività all'ambiente locale. 
-4. Installare e [configurare la replica DFS](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) in Windows Server.
+4. Installare e [configurare la replica DFS](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877) in Windows Server.
 5. [Implementare uno spazio dei nomi DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6. Con lo spazio dei nomi DFS implementato, è possibile eseguire il failover delle cartelle condivise dalla produzione ai siti di ripristino di emergenza aggiornando le destinazioni di cartelle dello spazio dei nomi DFS. Dopo che queste modifiche dello spazio dei nomi DFS sono state replicate tramite Active Directory, gli utenti vengono connessi alle destinazioni di cartelle appropriate in modo trasparente.
 

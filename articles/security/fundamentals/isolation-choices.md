@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459153"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979265"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
@@ -190,7 +190,7 @@ L'**accesso ai dati di Archiviazione di Azure, incluse le tabelle**, può essere
 La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per oggetti nell'account di archiviazione per un periodo di tempo specificato e con un set di autorizzazioni. È possibile concedere queste autorizzazioni limitate senza dover condividere le chiavi di accesso all'account.
 
 ### <a name="ip-level-storage-isolation"></a>Isolamento dell'archiviazione a livello IP
-È possibile stabilire firewall e definire un intervallo di indirizzi IP per i client attendibili. Con un intervallo di indirizzi IP, solo i client con indirizzo IP compreso nell'intervallo definito possono connettersi ad [Archiviazione di Azure](../../storage/common/storage-security-guide.md).
+È possibile stabilire firewall e definire un intervallo di indirizzi IP per i client attendibili. Con un intervallo di indirizzi IP, solo i client con indirizzo IP compreso nell'intervallo definito possono connettersi ad [Archiviazione di Azure](../../storage/blobs/security-recommendations.md).
 
 I dati di archiviazione IP possono essere protetti da utenti non autorizzati tramite un meccanismo di rete che viene usato per allocare un tunnel di traffico dedicato per l'archiviazione IP.
 
@@ -203,18 +203,18 @@ Azure offre i tipi di crittografia seguenti per proteggere i dati:
 #### <a name="encryption-in-transit"></a>Crittografia in transito
 La crittografia in transito è un meccanismo di protezione dei dati durante la trasmissione tra le reti. Con Archiviazione di Azure è possibile proteggere i dati con:
 
--   [Crittografia a livello di trasporto](../../storage/common/storage-security-guide.md), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
+-   [Crittografia a livello di trasporto](../../storage/blobs/security-recommendations.md), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
 
--   [Crittografia di rete](../../storage/common/storage-security-guide.md), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.
+-   [Crittografia di rete](../../storage/blobs/security-recommendations.md), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.
 
--   [Crittografia lato client](../../storage/common/storage-security-guide.md), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
+-   [Crittografia lato client](../../storage/blobs/security-recommendations.md), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
 
 #### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 Per molte organizzazioni, [la crittografia dei dati inattivi](isolation-choices.md) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
 
--   [Crittografia del servizio di archiviazione](../../storage/common/storage-security-guide.md) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
+-   [Crittografia del servizio di archiviazione](../../storage/blobs/security-recommendations.md) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
 
--   [Client-side Encryption](../../storage/common/storage-security-guide.md) offre anche la funzionalità di crittografia dei dati inattivi.
+-   [Client-side Encryption](../../storage/blobs/security-recommendations.md) offre anche la funzionalità di crittografia dei dati inattivi.
 
 -   [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 

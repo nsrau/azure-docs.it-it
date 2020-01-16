@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 64a5892226b90019f175308b5984dc0a0108e226
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162247"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976502"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Aggiungere una VM in un lab in Azure DevTest Labs
 Se è già stata [creata la prima VM](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), l'operazione è stata eseguita con un'[immagine di marketplace](devtest-lab-configure-marketplace-images.md) precaricata. Se ora si vuole aggiungere le macchine virtuali successive al lab, è anche possibile scegliere una *base* che sia un'[immagine personalizzata](devtest-lab-create-template.md) o una [formula](devtest-lab-manage-formulas.md). Questa esercitazione illustra l'uso del portale di Azure per aggiungere una VM in un lab in DevTest Labs.
@@ -39,14 +39,14 @@ Questo articolo descrive anche come gestire gli elementi per una VM nel lab.
 1. Nella scheda **Impostazioni di base** della pagina **Macchina virtuale** eseguire queste operazioni:
     1. Nella casella di testo **Nome macchina virtuale** immettere un nome per la macchina virtuale. La casella di testo viene precompilata con un nome univoco generato automaticamente, costituito dal nome utente incluso nell'indirizzo di posta elettronica seguito da un numero univoco a tre cifre. Ciò consente di evitare di perdere tempo a definire un nome per la macchina virtuale e digitarlo ogni volta che se ne crea una. Se si vuole, è possibile sostituire il nome compilato automaticamente con un nome di propria scelta. Per eseguire questa operazione, immettere un nome nella casella di testo **Nome macchina virtuale**.
     2. Immettere un **Nome utente** a cui vengono concessi privilegi di amministratore nella macchina virtuale. Il **nome utente** per la macchina viene precompilato con un nome univoco generato automaticamente, costituito dal nome utente incluso nell'indirizzo di posta elettronica. Ciò consente di evitare di perdere tempo a definire un nome utente ogni volta che si crea una nuova macchina. Anche in questo caso, se si vuole, è possibile sostituire il nome utente compilato automaticamente con un nome di propria scelta. Per eseguire questa operazione, immettere un valore nella casella di testo **Nome utente**. A questo utente vengono concessi i privilegi di **amministratore** sulla macchina virtuale.
-    3. Se si sta creando la prima macchina virtuale nel lab, immettere una **password** per l'utente. Per salvare questa password come predefinita nell'insieme di credenziali delle chiavi di Azure associato al lab, selezionare **Salva come password predefinita**. La password predefinita viene salvata nell'insieme di credenziali delle chiavi con il nome: **VmPassword**. Quando si prova a creare altre macchine virtuali nel lab, **VmPassword** viene selezionata automaticamente come **password**. Per sostituire il valore, deselezionare la casella di controllo **Usa un segreto salvato** e immettere una password.
+    3. Se si sta creando la prima macchina virtuale nel lab, immettere una **password** per l'utente. Per salvare questa password come predefinita nell'insieme di credenziali delle chiavi di Azure associato al lab, selezionare **Salva come password predefinita**. La password predefinita viene salvata nell'insieme di credenziali delle chiavi con il nome **VmPassword**. Quando si prova a creare altre macchine virtuali nel lab, **VmPassword** viene selezionata automaticamente come **password**. Per sostituire il valore, deselezionare la casella di controllo **Usa un segreto salvato** e immettere una password.
 
         ![Scegli una base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 
         È anche possibile salvare prima un segreto nell'insieme di credenziali delle chiavi e quindi usarlo per creare una macchina virtuale nel lab. Per altre informazioni, vedere [Archiviare segreti in un insieme di credenziali delle chiavi](devtest-lab-store-secrets-in-key-vault.md). Per usare la password archiviata nell'insieme di credenziali delle chiavi, selezionare **Usa un segreto salvato** e specificare un valore di chiave corrispondente al segreto (password).
     4. Nella sezione **Altre opzioni** selezionare **Modifica dimensioni**. Selezionare uno degli elementi predefiniti che specificano i core del processore, la dimensione della RAM e le dimensioni dell'unità disco rigido della macchina virtuale da creare.
     5. Selezionare **Aggiungi o rimuovi artefatti**. Selezionare e configurare gli artefatti da aggiungere all'immagine di base.
-    **Nota:** Se non si ha familiarità con DevTest Labs o con la configurazione di elementi, vedere la sezione [Aggiungere un elemento esistente in una macchina virtuale](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e tornare qui al termine dell'operazione.
+    **Nota:** se non si ha familiarità con DevTest Labs o con la configurazione di elementi, vedere la sezione [Aggiungere un elemento esistente in una macchina virtuale](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e tornare qui al termine dell'operazione.
 2. Passare alla scheda **Impostazioni avanzate** nella parte superiore della pagina ed eseguire le operazioni seguenti:
     1. Per cambiare la rete virtuale in cui si trova la macchina virtuale, selezionare **Cambia rete virtuale**.
     2. Per cambiare la subnet, selezionare **Cambia subnet**.
@@ -91,7 +91,7 @@ La procedura seguente descrive come modificare l'ordine in cui vengono eseguiti 
 1. Nella parte superiore del riquadro **Applica artefatti** selezionare il collegamento che indica il numero di artefatti aggiunti alla macchina virtuale.
 
     ![Numero di elementi aggiunti alla macchina virtuale](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Nel riquadro **Artefatti selezionati** trascinare e rilasciare gli artefatti nell'ordine desiderato. **Nota:** se si verificano problemi di trascinamento dell'artefatto, assicurarsi di trascinare dal lato sinistro dell'artefatto.
+1. Nel riquadro **Artefatti selezionati** trascinare e rilasciare gli artefatti nell'ordine desiderato. **Nota:** se si verificano problemi di trascinamento dell'elemento, assicurarsi di trascinare dal lato sinistro dell'elemento.
 1. Selezionare **OK** al termine dell'operazione.
 
 ## <a name="view-or-modify-an-artifact"></a>visualizzare o modificare un elemento
@@ -107,7 +107,7 @@ I passaggi seguenti illustrano come visualizzare o modificare i parametri di un 
 ## <a name="save-azure-resource-manager-template"></a>Save Azure Resource Manager template
 Un modello di Azure Resource Manager permette di definire una distribuzione ripetibile in modo dichiarativo.
 I passaggi seguenti illustrano come salvare il modello di Azure Resource Manager per la VM da creare.
-Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per [distribuire nuove macchine virtuali con Azure PowerShell](../azure-resource-manager/template-deployment-overview.md).
+Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per [distribuire nuove macchine virtuali con Azure PowerShell](../azure-resource-manager/templates/overview.md).
 
 1. Nel riquadro **Macchina virtuale** selezionare **Visualizza il modello di Azure Resource Manager**.
 2. Nel riquadro **Visualizza il modello di Azure Resource Manager** selezionare il testo del modello.

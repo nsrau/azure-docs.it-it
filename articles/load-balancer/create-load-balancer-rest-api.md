@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b52c554617bdcbe88b65639473044eb9c5eb7fa8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077084"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045437"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creare Azure Load Balancer Basic con API REST
 
-Azure Load Balancer del carico distribuisce i nuovi flussi in ingresso che arrivano sul front-end di bilanciamento del carico nelle istanze del pool back-end in base alle regole e ai probe di integrità. Per Load Balancer sono disponibili due SKU: Basic e Standard. Per comprendere la differenza tra le due versioni, SKU, vedere [Confronto tra gli SKU di Load Balancer](load-balancer-overview.md#skus).
+Azure Load Balancer del carico distribuisce i nuovi flussi in ingresso che arrivano sul front-end di bilanciamento del carico nelle istanze del pool back-end in base alle regole e ai probe di integrità. Per Load Balancer sono disponibili due SKU: Basic e Standard. Per comprendere la differenza tra le due versioni, SKU, vedere [Confronto tra gli SKU di Load Balancer](concepts-limitations.md#skus).
  
 Questa sezione illustra come creare Azure Load Balancer Basic usando [API REST di Azure](/rest/api/azure/) per consentire la richiesta in ingresso di bilanciamento del carico tra più macchine virtuali all'interno di una rete virtuale di Azure. La documentazione di riferimento completa e altri esempi relativi sono disponibili nelle [informazioni di riferimento REST di Azure Load Balancer](/rest/api/load-balancer/).
  
@@ -33,12 +33,12 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
   ```
 ### <a name="uri-parameters"></a>Parametri URI
 
-|Nome  |In  |obbligatori |digitare |DESCRIZIONE |
+|Nome  |In ingresso  |Obbligatorio |Tipo |Description |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  true       |   stringa      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
-|resourceGroupName     |     path    | true        |  stringa       |   Nome del gruppo di risorse.     |
-|loadBalancerName     |  path       |      true   |    stringa     |    Nome del bilanciamento del carico.    |
-|api-version    |   query     |  true       |     stringa    |  Versione API client.      |
+|subscriptionId   |  path       |  Vero       |   string      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
+|resourceGroupName     |     path    | Vero        |  string       |   Nome del gruppo di risorse.     |
+|loadBalancerName     |  path       |      Vero   |    string     |    Nome del bilanciamento del carico.    |
+|api-version    |   query     |  Vero       |     string    |  Versione API client.      |
 
 
 
@@ -46,9 +46,9 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
 
 L'unico parametro obbligatorio è `location`. Se non si definisce la versione *SKU*, per impostazione predefinita viene creato Load Balancer Basic.  Usare [parametri facoltativi](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) per personalizzare il servizio di bilanciamento del carico.
 
-| Nome | digitare | DESCRIZIONE |
+| Nome | Tipo | Description |
 | :--- | :--- | :---------- |
-| location | stringa | Percorso della risorsa. Ottenere un elenco aggiornato delle località usando l'operazione [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
+| posizione | string | Percorso della risorsa. Ottenere un elenco aggiornato delle località usando l'operazione [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>Esempio: creare e aggiornare Load Balancer Basic

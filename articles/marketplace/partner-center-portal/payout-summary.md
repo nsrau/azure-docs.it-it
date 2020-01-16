@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931809"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979690"
 ---
 # <a name="payout-reporting"></a>Report sui proventi
 
@@ -52,7 +52,7 @@ Se si vendono offerte in Azure Marketplace, verranno visualizzate anche le infor
 | Transazione non pronta per il pagamento | Fatturazione in corso | Successivo pagamento stimato: lo stato del pagamento è nello stato non elaborato.  |
 | Stato del pagamento |  | Non elaborati <br> Il guadagno è idoneo per il pagamento. Rimane in questo stato per un periodo di raffreddamento come definito nella guida del programma per il programma incentive. <br> <br> Imminente <br> Ordine di pagamento-verifiche interne in sospeso generate prima dell'elaborazione del pagamento. <br> <br> Inviato: <br> Il pagamento è stato inviato alla banca. |
 
-## <a name="customer-types"></a>Tipi di cliente 
+## <a name="customer-types"></a>Tipi di cliente
 
 ### <a name="enterprise-agreement"></a>Contratto Enterprise Agreement
 
@@ -66,7 +66,7 @@ I clienti possono anche pagare con una carta di credito e una fattura mensile. I
 
 Ad esempio, se il cliente acquista utilizzando una carta di credito.
 
-## <a name="corelation-between-payout-and-usage"></a>Corelazione tra pagamenti e utilizzo 
+## <a name="corelation-between-payout-and-usage"></a>Corelazione tra pagamenti e utilizzo
 
 |Description    |    Data  | Ordini/utilizzo  | Pagamento |
 |----------|----------|-----------|-------------|
@@ -74,11 +74,11 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 |Fine periodo (mese)   | 30 agosto 2019 | | |
 |Data di fatturazione | 1 settembre 2019 | | |
 |Data pagamento cliente | 1 settembre 2019 | | |
-|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019-30 settembre, 2019 | | **Ordini degli attributi di correlazione:** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Non elaborati |
+|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019-30 settembre, 2019 | | **Ordini degli attributi di correlazione:** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Non elaborati |
 |Inizio periodo riscossione | 1 settembre 2019 | | |
 |Fine periodo riscossione (massimo 30 giorni) | 30 settembre, 2019 | | |
-|Data calcolo proventi (il giorno 15 di ogni mese) | 1 ° ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li>Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Imminente |
-|Payout Date | 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Pagamento inviato |
+|Data calcolo proventi (il giorno 15 di ogni mese) | 1 ° ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li>Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Imminente |
+|Payout Date | 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Pagamento inviato |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contratto Enterprise Agreement (clienti trimestrali/mensili)
 
@@ -93,37 +93,37 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 |Fine periodo riscossione (massimo 90 giorni) | 15 gennaio 2020 | | |
 |Data pagamento cliente | 30 dicembre 2019 | | |
 |Calcolo pagamenti | 15 gennaio 2020 | | |
-|Payout Date | 15 febbraio 2020 | | **Per i clienti basati su trimestre** <br> <br> **Report ordini** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** inviato |
+|Payout Date | 15 febbraio 2020 | | **Per i clienti basati su trimestre** <br> <br> **Report ordini** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** inviato |
 
 ## <a name="transaction-history-download-export"></a>Esportazione Download cronologia transazioni
 
-Questa opzione consente di scaricare ogni elemento della riga di acquisizione visualizzato nella pagina Cronologia transazioni, il tipo di dati, la data, il numero di transazioni associato, il cliente, il prodotto e altri dettagli transazionali applicabili al programma incentives. 
+Questa opzione consente di scaricare ogni elemento della riga di acquisizione visualizzato nella pagina Cronologia transazioni, il tipo di dati, la data, il numero di transazioni associato, il cliente, il prodotto e altri dettagli transazionali applicabili al programma incentives.
 
-| Nome colonna     | Description    | 
+| Nome colonna     | Description    |
 |-------------|-------------------------------|
 | earningId                      | Identificatore univoco per ogni guadagno                                                                                                       |
-| participantId                  | L'identità principale del partner che si guadagna sotto il programma                                                                            | 
-| participantIdType              | Per la maggior parte dell'ID programma per incentivare programmi e venditori se per i programmi di Store e Azure Marketplace                                          | 
-| operatore partecipante                | Nome del partner di guadagno                                                                                                              | 
+| participantId                  | L'identità principale del partner che si guadagna sotto il programma                                                                            |
+| participantIdType              | Per la maggior parte dell'ID programma per incentivare programmi e venditori se per i programmi di Store e Azure Marketplace                                          |
+| operatore partecipante                | Nome del partner di guadagno                                                                                                              |
 | partnerCountryCode             | Località/paese del partner di guadagno                                                                                                  |
-| Nomeprogramma                    | Nome programma incentive/Store                                                                                                             | 
-| transactionId                  | Identificatore univoco per la transazione                                                                                                    | 
-| Transazione            | Valuta in cui si è verificata la transazione del cliente originale (non si tratta della valuta della località del partner)                                     | 
-| transactionDate                | Data della transazione. Utile per i programmi in cui molte transazioni contribuiscono a un guadagno                                           | 
-| transactionExchangeRate        | Tasso di cambio utilizzato per visualizzare l'importo di transazione USD corrispondente                                                                 | 
-| transactionAmount              | Importo della transazione nella valuta di transazione originale in base al quale viene generato il guadagno                                              | 
-| transactionAmountUSD           | Importo transazione in USD                                                                                                                | 
-| leva                          | Indica la regola business per il guadagno                                                                                                  | 
-| earningRate                    | Frequenza di incentivazione applicata alla quantità di transazioni per generare un guadagno                                                                      | 
-| quantity                       | Varia in base al programma. Indica la quantità fatturata per i programmi transazionali                                                            | 
+| Nomeprogramma                    | Nome programma incentive/Store                                                                                                             |
+| transactionId                  | Identificatore univoco per la transazione                                                                                                    |
+| Transazione            | Valuta in cui si è verificata la transazione del cliente originale (non si tratta della valuta della località del partner)                                     |
+| transactionDate                | Data della transazione. Utile per i programmi in cui molte transazioni contribuiscono a un guadagno                                           |
+| transactionExchangeRate        | Tasso di cambio utilizzato per visualizzare l'importo di transazione USD corrispondente                                                                 |
+| transactionAmount              | Importo della transazione nella valuta di transazione originale in base al quale viene generato il guadagno                                              |
+| transactionAmountUSD           | Importo transazione in USD                                                                                                                |
+| leva                          | Indica la regola business per il guadagno                                                                                                  |
+| earningRate                    | Frequenza di incentivazione applicata alla quantità di transazioni per generare un guadagno                                                                      |
+| quantity                       | Varia in base al programma. Indica la quantità fatturata per i programmi transazionali                                                            |
 | quantityType                   | Indica il tipo di quantità, ad esempio: importo fatturato, MAU                                                                                     |
-| earningType                    | Indica se è Fee, rebate, Coop, sell e così via.                                                                                          | 
+| earningType                    | Indica se è Fee, rebate, Coop, sell e così via.                                                                                          |
 | earningAmount                  | Accumulo di quantità nella valuta di transazione originale                                                                                      |
 | earningAmountUSD               | Guadagnare importo in USD                                                                                                                    |
 | earningDate                    | Data del guadagno                                                                                                                      |
 | calculationDate                | Data di calcolo del guadagno nel sistema                                                                                            |
 | earningExchangeRate            | Tasso di cambio usato per visualizzare l'importo USD corrispondente                                                                                  |
-| exchangeRateDate               | Data del tasso di cambio usato per calcolare EarningAmount USD                                                                                   | 
+| exchangeRateDate               | Data del tasso di cambio usato per calcolare EarningAmount USD                                                                                   |
 | paymentAmountWOTax             | Guadagnare quantità (senza tassa) in pagamento alla valuta per i soli pagamenti "inviati"                                                                 |
 | paymentCurrency                | Paga in valuta scelta dal partner nel profilo di pagamento. Visualizzato solo per i pagamenti inviati                                                   |
 | paymentExchangeRate            | Tasso di cambio usato per calcolare paymentAmountWOTax in valuta pagamento con ExchangeRateDate                                            |

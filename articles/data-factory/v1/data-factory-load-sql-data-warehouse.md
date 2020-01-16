@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b5fec342cf9f228edce80e3f0e8fb5243196973d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 68afc782e13f967bc1b455434c3ae952baff81b9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924161"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980929"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
 > [!NOTE]
@@ -45,7 +45,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Archivio BLOB di Azure: questo esperimento usa l'archivio BLOB di Azure (GRS) per l'archiviazione di set di dati di test TPC-H.  Se non si ha un account di archiviazione di Azure, vedere l'articolo relativo alla [creazione di un account di archiviazione](../../storage/common/storage-quickstart-create-account.md).
+* Archivio BLOB di Azure: questo esperimento usa l'archivio BLOB di Azure (GRS) per l'archiviazione di set di dati di test TPC-H.  Se non si ha un account di archiviazione di Azure, vedere l'articolo relativo alla [creazione di un account di archiviazione](../../storage/common/storage-account-create.md).
 * Dati [TPC-H](http://www.tpc.org/tpch/): si userà TPC-H come set di dati di test.  A tale scopo, è necessario usare `dbgen` dal toolkit TPC-H, che consente di generare il set di dati.  È possibile scaricare il codice sorgente per `dbgen` dagli [strumenti TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilarlo autonomamente oppure scaricare il file binario compilato da [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Eseguire dbgen.exe con i comandi seguenti per generare un file flat da 1 TB per la tabella `lineitem` distribuito tra 10 file:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -123,7 +123,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
       2. Selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
    4. Selezionare una **località** per la data factory.
    5. Selezionare la casella di controllo **Aggiungi al dashboard** nella parte inferiore del pannello.  
-   6. Fare clic su **Create**(Crea).
+   6. Fare clic su **Crea**.
 4. Al termine della creazione verrà visualizzato il pannello **Data factory**, come illustrato nell'immagine seguente:
 
    ![Home page di Data factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
@@ -141,7 +141,7 @@ Nella pagina **Proprietà** :
 
 1. Immettere **CopyFromBlobToAzureSqlDataWarehouse** per **Nome attività**
 2. Selezionare l'opzione **Esegui una volta**.   
-3. Fare clic su **Next** (Avanti).  
+3. Fare clic su **Avanti**.  
 
     ![Copia guidata: pagina delle proprietà](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -183,7 +183,7 @@ Questa sezione illustra come configurare la destinazione: tabella `lineitem` nel
 
 ## <a name="step-4-performance-settings"></a>Passaggio 4: Impostazioni relative alle prestazioni
 
-L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione predefinita.  Fare clic su **Next** (Avanti).
+L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione predefinita.  Fare clic su **Avanti**.
 
 ![Copia guidata: pagina del mapping dello schema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

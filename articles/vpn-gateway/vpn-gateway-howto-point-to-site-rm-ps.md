@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: b67c77f25b14263abe7207359c00660df635df13
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 49fbdf4a4090350cc0a6a5a1b938621b3cb08632
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863792"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045102"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato di Azure nativo: PowerShell
 
@@ -32,13 +32,15 @@ Le connessioni con autenticazione tramite certificato da punto a sito di Azure u
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
+
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-Nella maggior parte dei passaggi in questo articolo è possibile usare Cloud Shell. Tuttavia, per caricare la chiave pubblica del certificato radice, è necessario usare PowerShell in locale o il portale di Azure.
+>[!NOTE]
+> La maggior parte dei passaggi descritti in questo articolo può utilizzare Azure Cloud Shell. Tuttavia, per caricare la chiave pubblica del certificato radice, è necessario usare PowerShell in locale o il portale di Azure.
+>
 
 ### <a name="example"></a>Valori di esempio
 
@@ -170,7 +172,9 @@ Se usati, i certificati autofirmati devono essere creati con parametri specifici
 
 Verificare che la creazione del gateway VPN sia stata completata. In tal caso sarà possibile caricare il file CER, contenente le informazioni sulla chiave pubblica, per un certificato radice attendibile in Azure. Al termine del caricamento di un file CER, Azure lo può usare per autenticare i client che hanno installato un certificato client generato dal certificato radice attendibile. È possibile caricare fino a 20 file di certificato radice attendibile aggiuntivi in un secondo momento, se necessario.
 
-Non è possibile caricare queste informazioni usando Azure Cloud Shell. È possibile usare PowerShell in locale nel computer o seguire la [procedura nel portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+>[!NOTE]
+> Non è possibile caricare il file con estensione cer usando Azure Cloud Shell. È possibile usare PowerShell localmente nel computer oppure è possibile usare la [procedura portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+>
 
 1. Dichiarare la variabile per il nome del certificato, sostituendo il valore con il proprio.
 
@@ -185,7 +189,7 @@ Non è possibile caricare queste informazioni usando Azure Cloud Shell. È possi
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. Caricare le informazioni sulla chiave pubblica in Azure. Dopo aver caricato le informazioni sul certificato, Azure lo considera un certificato radice attendibile.
+3. Caricare le informazioni sulla chiave pubblica in Azure. Dopo aver caricato le informazioni sul certificato, Azure lo considera un certificato radice attendibile. Quando si carica, assicurarsi di eseguire PowerShell localmente nel computer, oppure è possibile usare la [procedura portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Non è possibile caricare usando Azure Cloud Shell.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64

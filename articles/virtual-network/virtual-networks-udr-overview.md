@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 4132dacbb628051e674952806cb6b606ee915525
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644615"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973025"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -69,7 +69,7 @@ Azure aggiunge route di sistema predefinite per diverse funzionalità di Azure, 
 * **VirtualNetworkServiceEndpoint**: Azure aggiunge gli indirizzi IP pubblici per alcuni servizi alla tabella di route quando si abilita un endpoint di servizio per il servizio. Gli endpoint di servizio vengono abilitati per singole subnet all'interno di una rete virtuale, quindi la route viene aggiunta solo alla tabella di route di una subnet per la quale è abilitato un endpoint di servizio. Gli indirizzi IP pubblici dei servizi di Azure cambiano periodicamente. Azure gestisce automaticamente gli indirizzi nella tabella di route quando gli indirizzi cambiano. Vedere altre informazioni sugli [endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md) e sui servizi per i quali è possibile creare endpoint di servizio.<br>
 
     > [!NOTE]
-    > I tipi di hop successivi **Peering di rete virtuale** e **VirtualNetworkServiceEndpoint** vengono aggiunti solo alle tabelle di route delle subnet che si trovano nelle reti virtuali create tramite il modello di distribuzione Azure Resource Manager. I tipi di hop successivi non vengono aggiunti alle tabelle di route associate a subnet di reti virtuali create tramite il modello di distribuzione classica. Vedere altre informazioni sui [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.
+    > I tipi di hop successivi **Peering di rete virtuale** e **VirtualNetworkServiceEndpoint** vengono aggiunti solo alle tabelle di route delle subnet che si trovano nelle reti virtuali create tramite il modello di distribuzione Azure Resource Manager. I tipi di hop successivi non vengono aggiunti alle tabelle di route associate a subnet di reti virtuali create tramite il modello di distribuzione classica. Vedere altre informazioni sui [modelli di distribuzione](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.
 
 ## <a name="custom-routes"></a>Route personalizzate
 
@@ -101,7 +101,7 @@ Non è possibile specificare **Peering di rete virtuale** o **VirtualNetworkServ
 
 ## <a name="next-hop-types-across-azure-tools"></a>Tipi di hop successivi tra gli strumenti di Azure
 
-Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è diverso tra il portale di Azure e gli strumenti da riga di comando e tra i modelli di distribuzione Azure Resource Manager e classica. La tabella seguente elenca i nomi usati per fare riferimento a ogni tipo di hop successivo nei diversi strumenti e [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
+Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è diverso tra il portale di Azure e gli strumenti da riga di comando e tra i modelli di distribuzione Azure Resource Manager e classica. La tabella seguente elenca i nomi usati per fare riferimento a ogni tipo di hop successivo nei diversi strumenti e [modelli di distribuzione](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
 |Tipo hop successivo                   |Interfaccia della riga di comando di Azure e PowerShell (Resource Manager) |Interfaccia della riga di comando classica di Azure e PowerShell (classica)|
 |-------------                   |---------                                       |-----|

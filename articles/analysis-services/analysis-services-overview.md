@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572820"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749681"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -40,7 +40,7 @@ Azure Analysis Services è disponibile nei livelli **Developer**, **Basic** e **
 
 Questo livello è consigliato per gli scenari di valutazione, sviluppo e test. Un singolo piano include le stesse funzionalità del livello Standard, ma con limitazioni per potenza di elaborazione, QPU e dimensioni della memoria. L'aumento del numero di istanze delle repliche delle query *non è disponibile* per questo livello. Questo livello non offre alcun Contratto di servizio.
 
-|Pianificazione  |QPU  |Memoria (GB)  |
+|Piano  |QPU  |Memoria (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -49,7 +49,7 @@ Questo livello è consigliato per gli scenari di valutazione, sviluppo e test. U
 
 Il livello è consigliato per soluzioni di produzione con modelli tabulari di dimensioni più ridotte, concorrenza limitata tra utenti e requisiti semplici per l'aggiornamento dei dati. L'aumento del numero di istanze delle repliche delle query *non è disponibile* per questo livello. Prospettive, partizioni multiple e funzionalità del modello tabulare DirectQuery *non sono supportate* in questo livello.  
 
-|Pianificazione  |QPU  |Memoria (GB)  |
+|Piano  |QPU  |Memoria (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
@@ -58,7 +58,7 @@ Il livello è consigliato per soluzioni di produzione con modelli tabulari di di
 
 Questo livello è ottimale per applicazioni di produzione cruciali, che necessitano di concorrenza elastica tra utenti e hanno modelli di dati in rapida crescita. Supporta l'aggiornamento di dati avanzato per aggiornamenti del modello di dati in tempo quasi reale e supporta tutte le funzionalità di modellazione tabulare.
 
-|Pianificazione  |QPU  |Memoria (GB)  |
+|Piano  |QPU  |Memoria (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -224,7 +224,7 @@ Gli strumenti moderni per l'esplorazione e la visualizzazione dei dati come Powe
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 
-Azure Analysis Services, essendo integrato con le metriche di Azure, fornisce un numero elevato di metriche specifiche delle risorse, che consentono di monitorare le prestazioni e l'integrità dei server. Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-services-monitor.md). Registrare le metriche con i [log di diagnostica di risorse di Azure](../azure-monitor/platform/resource-logs-overview.md). Monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/), che è un servizio di [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Per altre informazioni, vedere [Configurare la registrazione diagnostica](analysis-services-logging.md).
+Azure Analysis Services, essendo integrato con le metriche di Azure, fornisce un numero elevato di metriche specifiche delle risorse, che consentono di monitorare le prestazioni e l'integrità dei server. Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-services-monitor.md). Registrare le metriche con i [log di diagnostica di risorse di Azure](../azure-monitor/platform/platform-logs-overview.md). Monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/), che è un servizio di [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Per altre informazioni, vedere [Configurare la registrazione diagnostica](analysis-services-logging.md).
 
 Azure Analysis Services supporta anche l'uso delle viste [DMV](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Le viste DMV, basate sulla sintassi SQL, interfacciano i set di righe dello schema che restituiscono metadati e informazioni di monitoraggio sull'istanza del server.
 

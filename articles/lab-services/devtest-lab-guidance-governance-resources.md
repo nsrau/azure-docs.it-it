@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dc65d368eb4c1beb57099cb6c16fb33bbe5c1f79
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644869"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981498"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governance dell'infrastruttura di Azure DevTest Labs - Risorse
 Questo articolo descrive l'allineamento e la gestione delle risorse di DevTest Labs all'interno dell'organizzazione. 
@@ -36,7 +36,7 @@ Prima che un'organizzazione inizi a usare Azure per lo sviluppo generico di appl
 - È necessaria la segmentazione per separare gli ambienti di sviluppo e produzione? 
 - Quali controlli vengono introdotti per semplificare a lungo termine la gestione, la stabilità e la crescita?
 
-La **prima procedura consigliata** consiste nell'esaminare la tassonomia Azure delle organizzazioni, in cui vengono definite le divisioni tra le sottoscrizioni di sviluppo e produzione. Nel diagramma seguente la tassonomia consigliata consente una separazione logica degli ambienti di sviluppo/test e produzione. Con questo approccio, un'organizzazione può introdurre codici di fatturazione per tenere traccia dei costi associati a ogni ambiente separatamente. Per altre informazioni, vedere [Governance prescrittiva per le sottoscrizioni](/azure/architecture/cloud-adoption/appendix/azure-scaffold). È anche possibile usare [tag di Azure](../azure-resource-manager/resource-group-using-tags.md) per organizzare le risorse ai fini di monitoraggio e fatturazione.
+La **prima procedura consigliata** consiste nell'esaminare la tassonomia Azure delle organizzazioni, in cui vengono definite le divisioni tra le sottoscrizioni di sviluppo e produzione. Nel diagramma seguente la tassonomia consigliata consente una separazione logica degli ambienti di sviluppo/test e produzione. Con questo approccio, un'organizzazione può introdurre codici di fatturazione per tenere traccia dei costi associati a ogni ambiente separatamente. Per altre informazioni, vedere [Governance prescrittiva per le sottoscrizioni](/azure/architecture/cloud-adoption/appendix/azure-scaffold). È anche possibile usare [tag di Azure](../azure-resource-manager/management/tag-resources.md) per organizzare le risorse ai fini di monitoraggio e fatturazione.
 
 La **seconda procedura consigliata** consiste nell'abilitare la sottoscrizione di DevTest nel portale di Azure Enterprise. Consente a un'organizzazione di eseguire i sistemi operativi client che non sono in genere disponibili in una sottoscrizione di Azure Enterprise. Usare quindi il software aziendale, con pagamento per le sole risorse di calcolo, senza preoccuparsi delle licenze. In questo modo la fatturazione per i servizi designati, incluse le immagini delle raccolte in IaaS, ad esempio Microsoft SQL Server, è basata esclusivamente sulle risorse consumate. Sono disponibili informazioni dettagliate sulla sottoscrizione di Azure DevTest [qui](https://azure.microsoft.com/offers/ms-azr-0148p/) per i clienti Enterprise Agreement (EA) e [qui](https://azure.microsoft.com/offers/ms-azr-0023p/) per i clienti con pagamento in base al consumo.
 

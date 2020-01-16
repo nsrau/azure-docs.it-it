@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799040"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980539"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Esercitazione: Gestire i dispositivi connessi in blocco
 
@@ -39,13 +39,13 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita dell'acceleratore della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
 
 Se l'acceleratore della soluzione di monitoraggio remoto non è stato ancora distribuito, completare la guida introduttiva [Distribuire la soluzione di monitoraggio remoto basata su cloud](quickstart-remote-monitoring-deploy.md).
 
-Per archiviare i file del firmware è necessario un account di archiviazione di Azure. È possibile usare un account di archiviazione esistente oppure [creare un nuovo account di archiviazione](../storage/common/storage-quickstart-create-account.md) nella sottoscrizione.
+Per archiviare i file del firmware è necessario un account di archiviazione di Azure. È possibile usare un account di archiviazione esistente oppure [creare un nuovo account di archiviazione](../storage/common/storage-account-create.md) nella sottoscrizione.
 
 L'esercitazione usa un dispositivo [IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) come dispositivo di esempio.
 
@@ -226,9 +226,9 @@ In questa sezione si crea e si esegue una distribuzione che applica la configura
 
 1. Nel pannello **Nuova distribuzione** creare una distribuzione con le impostazioni seguenti:
 
-    |Opzione|Valore|
+    |Opzione|valore|
     |---|---|
-    |NOME|Distribuzione aggiornamento firmware|
+    |Nome|Distribuzione aggiornamento firmware|
     |Tipo di pacchetto|Configurazione del dispositivo|
     |Tipo configurazione|Firmware|
     |Pacchetto|firmware-update.json|

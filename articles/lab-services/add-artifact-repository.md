@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: ff410d3767e90f92a946b72354b39f87e4f37b9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28ab6ca9b87bb00cbb7b5e329b7ff08972ba370a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429021"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979143"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Aggiungere un repository di artefatti al Lab in DevTest Labs
-DevTest Labs consente di specificare un elemento da aggiungere a una macchina virtuale al momento della creazione della macchina virtuale o dopo la creazione della macchina virtuale. Questo artefatto potrebbe essere uno strumento o un'applicazione che si vuole installare nella macchina virtuale. Gli artefatti vengono definiti in un file JSON caricato da un repository di GitHub o Azure DevOps git. 
+DevTest Labs consente di specificare un elemento da aggiungere a una macchina virtuale al momento della creazione della macchina virtuale o dopo la creazione della macchina virtuale. Questo artefatto potrebbe essere uno strumento o un'applicazione che si vuole installare nella macchina virtuale. Gli artefatti vengono definiti in un file JSON caricato da un repository di GitHub o Azure DevOps git.
 
 Il [repository di artefatti pubblici](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), gestito da DevTest Labs, fornisce molti strumenti comuni per Windows e Linux. Un collegamento a questo repository viene aggiunto automaticamente al Lab. È possibile creare un repository di artefatti personalizzato con strumenti specifici che non sono disponibili nel repository di artefatti pubblici. Per informazioni sulla creazione di elementi personalizzati, vedere [creare artefatti personalizzati](devtest-lab-artifact-author.md).
 
-Questo articolo fornisce informazioni su come aggiungere il repository di artefatti personalizzato usando portale di Azure, i modelli di gestione risorse di Azure e Azure PowerShell. È possibile automatizzare l'aggiunta di un repository di artefatti a un Lab scrivendo script di PowerShell o dell'interfaccia della riga di comando. 
+Questo articolo fornisce informazioni su come aggiungere il repository di artefatti personalizzato usando portale di Azure, i modelli di gestione risorse di Azure e Azure PowerShell. È possibile automatizzare l'aggiunta di un repository di artefatti a un Lab scrivendo script di PowerShell o dell'interfaccia della riga di comando.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,11 +63,11 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 10. Passare alla sezione connettere il Lab al repository.
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
-Questa sezione illustra la procedura per aggiungere un repository di artefatti a un Lab nel portale di Azure. 
+Questa sezione illustra la procedura per aggiungere un repository di artefatti a un Lab nel portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Altri servizi** e quindi **DevTest Labs** nell'elenco di servizi.
-3. Nell'elenco di lab selezionare il proprio lab. 
+3. Nell'elenco di lab selezionare il proprio lab.
 4. Selezionare **configurazione e criteri** dal menu a sinistra.
 5. Selezionare **repository** nella sezione **risorse esterne** nel menu a sinistra.
 6. Selezionare **+ Aggiungi** sulla barra degli strumenti.
@@ -86,10 +86,10 @@ Questa sezione illustra la procedura per aggiungere un repository di artefatti a
 ## <a name="use-azure-resource-manager-template"></a>Usare un modello di Azure Resource Manager
 I modelli di gestione risorse di Azure (Azure Resource Manager) sono file JSON che descrivono le risorse in Azure che si vuole creare. Per ulteriori informazioni su questi modelli, vedere [creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
-Questa sezione illustra la procedura per aggiungere un repository di artefatti a un Lab usando un modello di Azure Resource Manager.  Il modello crea il Lab se non esiste già. 
+Questa sezione illustra la procedura per aggiungere un repository di artefatti a un Lab usando un modello di Azure Resource Manager.  Il modello crea il Lab se non esiste già.
 
 ### <a name="template"></a>Modello
-Il modello di esempio usato in questo articolo raccoglie le informazioni seguenti tramite i parametri. Per la maggior parte dei parametri sono disponibili impostazioni predefinite intelligenti, ma è necessario specificare alcuni valori. È necessario specificare il nome del Lab, l'URI per il repository di artefatti e il token di sicurezza per il repository. 
+Il modello di esempio usato in questo articolo raccoglie le informazioni seguenti tramite i parametri. Per la maggior parte dei parametri sono disponibili impostazioni predefinite intelligenti, ma è necessario specificare alcuni valori. È necessario specificare il nome del Lab, l'URI per il repository di artefatti e il token di sicurezza per il repository.
 
 - Nome del Lab.
 - Nome visualizzato per il repository di artefatti nell'interfaccia utente di DevTest Labs. Il valore predefinito è: `Team Repository`.
@@ -97,11 +97,11 @@ Il modello di esempio usato in questo articolo raccoglie le informazioni seguent
 - Ramo nel repository che contiene gli elementi. Il valore predefinito è: `master`.
 - Nome della cartella che contiene gli elementi. Il valore predefinito è: `/Artifacts`.
 - Tipo del repository. I valori consentiti sono `VsoGit` o `GitHub`.
-- Token di accesso per il repository. 
+- Token di accesso per il repository.
 
     ```json
     {
-    
+
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -167,10 +167,10 @@ Il modello di esempio usato in questo articolo raccoglie le informazioni seguent
 ### <a name="deploy-the-template"></a>Distribuire il modello
 Esistono diversi modi per distribuire il modello in Azure e fare in modo che la risorsa venga creata, se non esiste, o aggiornata, se esiste. Per informazioni dettagliate, vedere gli articoli seguenti:
 
-- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [Distribuire le risorse con i modelli e l'API REST di Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md)
+- [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../azure-resource-manager/templates/deploy-portal.md)
+- [Distribuire le risorse con i modelli e l'API REST di Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
 
 Vediamo come distribuire il modello in PowerShell. I cmdlet usati per distribuire il modello sono specifici del contesto, quindi vengono usati il tenant corrente e la sottoscrizione corrente. Usare [set-AzContext](/powershell/module/az.accounts/set-azcontext) prima di distribuire il modello, se necessario, per modificare il contesto.
 
@@ -191,8 +191,8 @@ New-AzResourceGroupDeployment `
 ```
 
 Dopo la corretta esecuzione di New-AzResourceGroupDeployment, il comando restituisce informazioni importanti come lo stato di provisioning (dovrebbe essere Succeeded) ed eventuali output per il modello.
- 
-## <a name="use-azure-powershell"></a>Usare Azure PowerShell 
+
+## <a name="use-azure-powershell"></a>Usare Azure PowerShell
 Questa sezione fornisce uno script di PowerShell di esempio che può essere usato per aggiungere un repository di artefatti a un Lab. Se non si ha Azure PowerShell, vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) per istruzioni dettagliate per l'installazione.
 
 ### <a name="full-script"></a>Script completo
@@ -211,7 +211,7 @@ This script creates a new custom repository and adds it to an existing DevTest L
 The name of the lab.
 
 .PARAMETER LabResourceGroupName
-The name of the resource group that contains the lab. 
+The name of the resource group that contains the lab.
 
 .PARAMETER ArtifactRepositoryName
 Name for the new artifact repository.
@@ -246,7 +246,7 @@ Script uses the current Az context. To set the context, use the Set-AzContext cm
 
 #>
 
- 
+
 [CmdletBinding()]
 Param(
 
@@ -262,10 +262,10 @@ Param(
     $RepositoryUri,
     $RepositoryBranch = 'master',
     $FolderPath = '/Artifacts',
-    
+
     [Parameter(Mandatory=$true)]
     $PersonalAccessToken ,
-    
+
     [Parameter(Mandatory=$true)]
     [ValidateSet('VsoGit', 'GitHub')]
     $SourceType
@@ -310,7 +310,7 @@ $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
 Write-Verbose "Az ResourceType: $resourcetype"
 Write-Verbose "Az ResourceName: $resourceName"
- 
+
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
 $result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
@@ -336,7 +336,7 @@ return $result
 ```
 
 ### <a name="run-the-powershell-script"></a>Eseguire lo script di PowerShell
-Nell'esempio seguente viene illustrato come eseguire lo script: 
+Nell'esempio seguente viene illustrato come eseguire lo script:
 
 ```powershell
 Set-AzContext -SubscriptionId <Your Azure subscription ID>
@@ -348,13 +348,13 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>Parametri
 Lo script di PowerShell di esempio in questo articolo accetta i parametri seguenti:
 
-| Parametro | Description | 
-| --------- | ----------- | 
+| Parametro | Description |
+| --------- | ----------- |
 | LabName | Nome del Lab. |
 | ArtifactRepositoryName | Nome del nuovo repository di artefatti. Se non è specificato, lo script crea un nome casuale per repository. |
 | ArtifactRepositoryDisplayName | Nome visualizzato per il repository di artefatti. Si tratta del nome che viene visualizzato nella portale di Azure (https://portal.azure.com) quando si visualizzano tutti i repository di artefatto per un Lab. |
-| RepositoryUri | URI del repository. Esempi: `https://github.com/<myteam>/<nameofrepo>.git` o `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.| 
-| RepositoryBranch | Ramo in cui è possibile trovare i file di artefatto. Il valore predefinito è' Master '. | 
+| RepositoryUri | URI del repository. Esempi: `https://github.com/<myteam>/<nameofrepo>.git` o `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.|
+| RepositoryBranch | Ramo in cui è possibile trovare i file di artefatto. Il valore predefinito è' Master '. |
 | FolderPath | Cartella in cui è possibile trovare gli artefatti. Il valore predefinito è'/Artifacts ' |
 | PersonalAccessToken | Token di sicurezza per accedere al repository GitHub o VSOGit. Per istruzioni su come ottenere un token di accesso personale, vedere la sezione prerequisiti. |
 | SourceType | Indica se l'artefatto è VSOGit o un repository GitHub. |
@@ -377,13 +377,13 @@ if ($ArtifactRepositoryName -eq $null){
 
 Lo script aggiunge una nuova risorsa alla sottoscrizione corrente. Usare [Get-AzContext](/powershell/module/az.accounts/get-azcontext) per visualizzare queste informazioni. Usare [set-AzContext](/powershell/module/az.accounts/set-azcontext) per impostare il tenant e la sottoscrizione correnti.
 
-Il modo migliore per individuare il nome della risorsa e le informazioni sul tipo di risorsa consiste nell'usare il sito Web delle [API REST di Azure di test drive](https://azure.github.io/projects/apis/) . Consultare il provider [DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis) per visualizzare le API REST disponibili per il provider DevTest Labs. Il seguente ID risorsa viene utilizzato dallo script. 
+Il modo migliore per individuare il nome della risorsa e le informazioni sul tipo di risorsa consiste nell'usare il sito Web delle [API REST di Azure di test drive](https://azure.github.io/projects/apis/) . Consultare il provider [DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis) per visualizzare le API REST disponibili per il provider DevTest Labs. Il seguente ID risorsa viene utilizzato dallo script.
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
 ```
- 
-Il tipo di risorsa è tutto ciò che viene elencato dopo ' providers ' nell'URI, ad eccezione degli elementi elencati nelle parentesi graffe. Il nome della risorsa è tutto ciò che viene visualizzato nelle parentesi graffe. Se è previsto più di un elemento per il nome della risorsa, separare ogni elemento con una barra come è stato fatto. 
+
+Il tipo di risorsa è tutto ciò che viene elencato dopo ' providers ' nell'URI, ad eccezione degli elementi elencati nelle parentesi graffe. Il nome della risorsa è tutto ciò che viene visualizzato nelle parentesi graffe. Se è previsto più di un elemento per il nome della risorsa, separare ogni elemento con una barra come è stato fatto.
 
 ```powershell
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
@@ -395,4 +395,3 @@ $resourceName = $LabName + '/' + $ArtifactRepositoryName
 - [Specificare gli artefatti obbligatori per il Lab in Azure DevTest Labs](devtest-lab-mandatory-artifacts.md)
 - [Creare elementi personalizzati per la macchina virtuale DevTest Labs](devtest-lab-artifact-author.md)
 - [Diagnosticare gli errori degli elementi nel Lab](devtest-lab-troubleshoot-artifact-failure.md)
-

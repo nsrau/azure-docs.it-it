@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446468"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981253"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Esercitazione: Usare Riconoscimento modulo con App per la logica di Azure per analizzare le fatture
 
@@ -52,7 +52,7 @@ Questa esercitazione illustra come estrarre le informazioni da tali tabelle in u
 
 Questo contenitore viene usato per caricare i dati di esempio necessari per eseguire il training del modello.
 
-1. Seguire le istruzioni riportate in [Creare un account di Archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md) per creare un account di archiviazione. Usare **formrecostorage** come nome dell'account di archiviazione.
+1. Seguire le istruzioni riportate in [Creare un account di Archiviazione di Azure](../../storage/common/storage-account-create.md) per creare un account di archiviazione. Usare **formrecostorage** come nome dell'account di archiviazione.
 1. Seguire le istruzioni riportate in [Creare un contenitore BLOB di Azure](../../storage/blobs/storage-quickstart-blobs-portal.md) per creare un contenitore all'interno dell'account di Archiviazione di Azure. Usare **formrecocontainer** come nome del contenitore. Assicurarsi di impostare il livello di accesso pubblico su **Contenitore (accesso in lettura anonimo per contenitori e BLOB)** .
 
     > [!div class="mx-imgBorder"]

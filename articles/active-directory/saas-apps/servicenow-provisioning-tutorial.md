@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: da733eef4dcfc15db10bb5bf303086ae601189ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 04fb34ff9c0ba9822e9760bcd3989bd0b5675506
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443198"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044730"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Esercitazione: configurare ServiceNow per il provisioning utenti automatico
 
@@ -142,6 +142,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * **EntryJoiningPropertyValueIsMissing:** Esaminare i [mapping degli attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) per identificare l'attributo corrispondente. Questo valore deve essere presente nell'utente o gruppo di cui si sta tentando di effettuare il provisioning. 
 * Esaminare l' [API SOAP ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) per comprendere eventuali requisiti o limitazioni (ad esempio, formattare per specificare il codice paese per un utente)
 * Per alcune distribuzioni di ServiceNow è necessario consentire gli intervalli IP per il servizio di provisioning Azure AD. Gli intervalli IP riservati per il servizio di provisioning Azure AD sono disponibili [qui](https://www.microsoft.com/download/details.aspx?id=56519) in "AzureActiveDirectoryDomainServices".
+* Il provisioning degli utenti nel cloud per enti pubblici ServiceNow non è attualmente supportato.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

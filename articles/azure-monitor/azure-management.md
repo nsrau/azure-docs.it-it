@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
-ms.openlocfilehash: f68838e271e51c37985f55b40b140e279c1df2a4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 337b340df10eb406fef3148b1d8bfde66b3b8ff6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862544"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979828"
 ---
 # <a name="azure-management---monitoring"></a>Gestione di Azure - Monitoraggio
 
@@ -36,7 +36,7 @@ Il monitoraggio comporta la raccolta e l'analisi dei dati per determinare le pre
 Per configurazione si intendono la distribuzione e la configurazione iniziali di applicazioni e risorse e la rispettiva manutenzione continuativa con patch e aggiornamenti.  L'automazione di queste attività tramite script e criteri consente di eliminare la ridondanza, riducendo al minimo il tempo e il lavoro richiesti e aumentando la precisione e l'efficienza.  [Automazione di Azure](../automation/automation-intro.md) fornisce la maggior parte dei servizi per l'automazione delle attività di configurazione.  Oltre ai runbook per l'automazione dei processi, fornisce la gestione della configurazione e degli aggiornamenti, che consente di gestire la configurazione tramite criteri e di identificare e distribuire gli aggiornamenti.
 
 ## <a name="govern"></a>Governance
-La governance offre meccanismi e processi per mantenere il controllo delle applicazioni e delle risorse in Azure.  Include la pianificazione delle iniziative e la definizione delle priorità strategiche.  La governance in Azure viene implementata principalmente tramite due servizi.  [Criteri di Azure](../governance/policy/overview.md) consente di creare, assegnare e gestire definizioni di criteri che applicano diverse regole e azioni in relazione alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'azienda. [Gestione costi di Azure](../cost-management/overview-cost-mgt.md) consente di tenere traccia dell'utilizzo del cloud e delle spese per le risorse di Azure e altri provider di servizi cloud, tra cui AWS e Google.
+La governance offre meccanismi e processi per mantenere il controllo delle applicazioni e delle risorse in Azure.  Include la pianificazione delle iniziative e la definizione delle priorità strategiche.  La governance in Azure viene implementata principalmente tramite due servizi.  [Criteri di Azure](../governance/policy/overview.md) consente di creare, assegnare e gestire definizioni di criteri che applicano diverse regole e azioni in relazione alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'azienda. [Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md) consente di tenere traccia dell'utilizzo del cloud e delle spese per le risorse di Azure e altri provider di servizi cloud, tra cui AWS e Google.
 
 ## <a name="secure"></a>Sicuro
 La gestione della sicurezza delle applicazioni, delle risorse e dei dati richiede una combinazione di valutazione delle minacce, raccolta e analisi dei dati sulla sicurezza e verifica della sicurezza della progettazione e della configurazione delle applicazioni e delle risorse.  Il monitoraggio della sicurezza e l'analisi delle minacce vengono forniti dal [Centro sicurezza di Azure](../security-center/security-center-intro.md) che include la gestione unificata della sicurezza e la protezione avanzata dalle minacce in carichi di lavoro cloud ibridi.  Per informazioni complete sulla sicurezza in Azure e indicazioni sulla configurazione sicura delle risorse di Azure, vedere anche [Introduzione alla sicurezza in Azure](../security/fundamentals/overview.md).

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456534"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965881"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Spostare le risorse dell'app per la logica in altre sottoscrizioni, gruppi di risorse o aree di Azure
 
@@ -33,7 +33,7 @@ Per spostare l'app per la logica o le risorse correlate in un'altra sottoscrizio
 
 ## <a name="move-resources-between-subscriptions"></a>Spostare le risorse tra sottoscrizioni
 
-Per spostare una risorsa, ad esempio un'app per la logica o un account di integrazione, in un'altra sottoscrizione di Azure, è possibile usare l'portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questi passaggi illustrano la portale di Azure, che è possibile usare quando l'area della risorsa rimane invariata. Per altri passaggi e preparazione generale, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/resource-group-move-resources.md).
+Per spostare una risorsa, ad esempio un'app per la logica o un account di integrazione, in un'altra sottoscrizione di Azure, è possibile usare l'portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questi passaggi illustrano la portale di Azure, che è possibile usare quando l'area della risorsa rimane invariata. Per altri passaggi e preparazione generale, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare la risorsa dell'app per la logica che si desidera spostare.
 
@@ -51,7 +51,7 @@ Per spostare una risorsa, ad esempio un'app per la logica o un account di integr
 
 ## <a name="move-resources-between-resource-groups"></a>Spostare le risorse tra gruppi di risorse
 
-Per spostare una risorsa, ad esempio un'app per la logica o un account di integrazione, in un altro gruppo di risorse di Azure, è possibile usare l'portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questi passaggi illustrano la portale di Azure, che è possibile usare quando l'area della risorsa rimane invariata. Per altri passaggi e preparazione generale, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/resource-group-move-resources.md).
+Per spostare una risorsa, ad esempio un'app per la logica o un account di integrazione, in un altro gruppo di risorse di Azure, è possibile usare l'portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questi passaggi illustrano la portale di Azure, che è possibile usare quando l'area della risorsa rimane invariata. Per altri passaggi e preparazione generale, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Prima di spostare effettivamente le risorse tra i gruppi, è possibile verificare se è possibile spostare correttamente la risorsa in un altro gruppo. Per altre informazioni, vedere [convalidare lo spostamento](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
@@ -106,4 +106,4 @@ Il modello ottenuto da Visual Studio include solo le definizioni delle risorse p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Spostare le risorse di Azure in nuovi gruppi di risorse o sottoscrizioni](../azure-resource-manager/resource-group-move-resources.md)
+[Spostare le risorse di Azure in nuovi gruppi di risorse o sottoscrizioni](../azure-resource-manager/management/move-resource-group-and-subscription.md)

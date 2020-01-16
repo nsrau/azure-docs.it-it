@@ -3,7 +3,7 @@ title: Esempi di interfaccia della riga di comando di Azure - Batch
 description: Esempi di interfaccia della riga di comando di Azure per il servizio Azure Batch. Informazioni su come creare un account Batch e aggiungere un'applicazione.
 services: batch
 documentationcenter: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 ms.date: 01/29/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: ae16fc3dc8c273b201d7266f5afc252da3676ce3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9ee364c4256c88738e02a9f3dd47a5e531a958b2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390276"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026175"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Esempi di interfaccia della riga di comando di Azure per Azure Batch
 

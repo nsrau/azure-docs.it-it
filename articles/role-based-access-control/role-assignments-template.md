@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ad6c63ee15bc97ddd0ca6432f0b0f7b25a859804
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aeb4bfbc40196575e2cb812738a9ab5de991d2aa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462203"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981027"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo usando i modelli RBAC e Azure Resource Manager di Azure
 
@@ -361,7 +361,7 @@ Di seguito viene illustrato un esempio di assegnazione di ruolo Collaboratore a 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-- [Creare gruppi di risorse e risorse a livello di sottoscrizione](../azure-resource-manager/deploy-to-subscription.md)
+- [Creare gruppi di risorse e risorse a livello di sottoscrizione](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

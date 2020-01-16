@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901692"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969347"
 ---
 # <a name="authoring-and-runtime-keys"></a>Chiavi di creazione e runtime
 
@@ -44,7 +44,7 @@ Quando si avvia per la prima volta l'uso di LUIS, viene creata automaticamente u
 
 LUIS consente tre tipi di risorse di Azure: 
  
-|Chiave|Scopo|`kind` di servizi cognitivi|`type` di servizi cognitivi|
+|Chiave|Finalità|`kind` di servizi cognitivi|`type` di servizi cognitivi|
 |--|--|--|--|
 |[Chiave di creazione](#programmatic-key)|Accesso e gestione dei dati dell'applicazione con la creazione, il training, la pubblicazione e il test. Creare una chiave LUIS authoring se si prevede di creare a livello di codice le app LUIS.<br><br>Lo scopo della chiave `LUIS.Authoring` è consentire di:<br>* gestione a livello di codice di app e modelli di Language Understanding, tra cui formazione e pubblicazione<br> * controllare le autorizzazioni per la risorsa di creazione assegnando gli utenti al [ruolo Collaboratore](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
 |[Chiave di stima](#prediction-endpoint-runtime-key)| Richieste endpoint di stima query. Creare una chiave di stima LUIS prima che l'app client richieda stime oltre le richieste 1.000 fornite dalla risorsa iniziale. |`LUIS`|`Cognitive Services`|
@@ -95,10 +95,10 @@ Un'app è definita dalle risorse di Azure, che è determinata dalla sottoscrizio
 È possibile spostare l'app LUIS. Usare le risorse di documentazione seguenti nell'portale di Azure o nell'interfaccia della riga di comando di Azure:
 
 * [Spostare l'app tra le risorse di authoring LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-* [Spostare una risorsa in un nuovo gruppo di risorse o sottoscrizione](../../azure-resource-manager/resource-group-move-resources.md)
-* [Spostare una risorsa all'interno della stessa sottoscrizione o tra sottoscrizioni](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Spostare una risorsa in un nuovo gruppo di risorse o sottoscrizione](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Spostare una risorsa all'interno della stessa sottoscrizione o tra sottoscrizioni](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-Per trasferire la [Proprietà](../../billing/billing-subscription-transfer.md) della sottoscrizione: 
+Per trasferire la [Proprietà](../../cost-management-billing/manage/billing-subscription-transfer.md) della sottoscrizione: 
 
 **Per gli utenti che hanno eseguito la migrazione delle app [migrate](luis-migration-authoring.md) per la creazione di risorse**: come proprietario della risorsa, è possibile aggiungere un `contributor`.
 
@@ -115,7 +115,7 @@ L'accesso all'app dal portale [Luis](luis-reference-regions.md#luis-website) o d
 
 Il proprietario e tutti i collaboratori possono accedere per creare l'app. 
 
-|L'accesso in creazione include|note|
+|L'accesso in creazione include|Note|
 |--|--|
 |Aggiungere o rimuovere chiavi endpoint||
 |Esportare una versione||
@@ -123,9 +123,9 @@ Il proprietario e tutti i collaboratori possono accedere per creare l'app.
 |Importare una versione||
 |Rendere pubblica un'app|Quando un'app è pubblica, chiunque disponga di una chiave di creazione o endpoint può eseguire una query nell'app.|
 |Modificare il modello|
-|Publish|
+|Pubblica|
 |Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md)|
-|Eseguire il training|
+|Fai il training|
 
 <a name="prediction-endpoint-runtime-key"></a>
 

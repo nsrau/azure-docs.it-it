@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: diberry
-ms.openlocfilehash: 7683a73fd1f403847089dc722e5f6382acd948cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2df32c20bebf4243f383a0cccd8f037721533602
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447702"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890379"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Esercitazione:  Aggiungere l'analisi del sentiment come impostazione di pubblicazione
 
@@ -128,7 +128,7 @@ Poiché si tratta di un'impostazione di pubblicazione, non è etichettata nelle 
 
 ## <a name="related-information"></a>Informazioni correlate
 
-* L'analisi del sentiment è fornita dal servizio cognitivo [Analisi del testo](../Text-Analytics/index.yml). La funzionalità è limitata alle [lingue supportate](luis-language-support.md##languages-supported) da Analisi del testo.
+* L'analisi del sentiment è fornita dal servizio cognitivo [Analisi del testo](../Text-Analytics/index.yml). La funzionalità è limitata alle [lingue supportate](luis-language-support.md#languages-supported) da Analisi del testo.
 * [Come eseguire il training](luis-how-to-train.md)
 * [Come eseguire la pubblicazione](luis-how-to-publish-app.md)
 * [Come testare nel portale LUIS](luis-interactive-test.md)

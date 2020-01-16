@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: d45cf8d951eb542e248a3ff4fe714b4d2af90cc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428722"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972640"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creare modelli di Azure Resource Manager per automatizzare la distribuzione per le app per la logica di Azure
 
@@ -26,7 +26,7 @@ Per ulteriori informazioni sui modelli di Azure Resource Manager, vedere gli arg
 
 * [Struttura e sintassi del modello di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
-* [Sviluppare i modelli di Azure Resource Manager per la coerenza cloud](../azure-resource-manager/templates-cloud-consistency.md)
+* [Sviluppare i modelli di Azure Resource Manager per la coerenza cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
 

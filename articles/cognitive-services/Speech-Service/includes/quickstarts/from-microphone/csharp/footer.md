@@ -1,21 +1,20 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, C# - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, C# - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: f33a68aab1d947e0612f88d8db114ab3921cbd42
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 74327bd3798179ef99d3e97c714b5d79e366402a
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818792"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927859"
 ---
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/speech/github-csharp)

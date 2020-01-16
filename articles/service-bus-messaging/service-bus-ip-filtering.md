@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9887d5448eabd272ab2528e4fc758265f2ada977
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462401"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980345"
 ---
 # <a name="azure-service-bus---use-firewall-rules"></a>Bus di servizio di Azure: usare le regole del firewall
 
@@ -151,6 +151,6 @@ Per limitare l'accesso al bus di servizio dalle reti virtuali di Azure, vedere i
 
 <!-- Links -->
 
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: service-bus-service-endpoints.md
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services

@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707092"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980856"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell
 
@@ -54,7 +54,7 @@ Per completare questa guida, è innanzitutto necessario eseguire le operazioni s
 
 - [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Creare un insieme di credenziali delle chiavi](quick-create-powershell.md)
-- [Creare un account di Archiviazione di Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). Il nome dell'account di archiviazione deve usare solo lettere minuscole e numeri. La lunghezza del nome deve essere compresa tra 3 e 24 caratteri.
+- [Creare un account di Archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-powershell). Il nome dell'account di archiviazione deve usare solo lettere minuscole e numeri. La lunghezza del nome deve essere compresa tra 3 e 24 caratteri.
       
 
 ## <a name="manage-storage-account-keys"></a>Gestire le chiavi dell'account di archiviazione

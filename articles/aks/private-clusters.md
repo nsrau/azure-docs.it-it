@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: d7b1d82f88afd8ac3d94cbdd2d117834c12d0b96
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867142"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045603"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creare un cluster privato del servizio Kubernetes di Azure (anteprima)
 
@@ -131,7 +131,7 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è ne
 
 ## <a name="limitations"></a>Limitazioni 
 * Le [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano a cluster privati, endpoint privati di Azure e endpoint di servizio della rete virtuale, che non sono attualmente supportati nella stessa rete virtuale.
-* Nessun supporto per i nodi virtuali in un cluster privato per la rotazione delle istanze ACI (Cisco Application centric Infrastructure) private in una rete virtuale privata di Azure.
+* Nessun supporto per i nodi virtuali in un cluster privato per l'attivazione di istanze di Cisco ACI (Cisco Application centric Infrastructure) private in una rete virtuale di Azure privata.
 * Nessun supporto per l'integrazione di Azure DevOps con i cluster privati.
 * Per i clienti che devono consentire a Azure Container Registry di lavorare con il servizio contenitore di Azure privato, è necessario eseguire il peering della rete virtuale Container Registry con la rete virtuale del cluster di agenti.
 * Nessun supporto corrente per Azure Dev Spaces.

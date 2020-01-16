@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 77e23467551df8d72fd999049c490600eff11825
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a62e970e27d689eb639a62938376f73410c270
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763641"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024918"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -156,27 +156,35 @@ Quando `show_output=True`, viene visualizzato l'output del processo di compilazi
     > [!IMPORTANT]
     > Le immagini create da Azure Machine Learning usano Linux, quindi è necessario usare il parametro `--is-linux`.
 
-1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si desidera utilizzare. Sostituire `<acrinstance>` e `<imagename>` con i valori restituiti `package.location` precedente:
-
-    ```azurecli-interactive
-    az storage account create --name 
-    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
-    ```
-
-    > [!IMPORTANT]
-    > A questo punto è stata creata l'app per le funzioni. Tuttavia, poiché non è stata specificata la stringa di connessione per il trigger o le credenziali del BLOB al Container Registry di Azure che contiene l'immagine, l'app per le funzioni non è attiva. Nei passaggi successivi vengono fornite la stringa di connessione e le informazioni di autenticazione per il registro contenitori. 
-
-1. Creare l'account di archiviazione da usare come trigger e ottenere la stringa di connessione.
+1. Creare l'account di archiviazione da usare per l'archiviazione dei processi Web e ottenere la stringa di connessione. Sostituire `<webjobStorage>` con il nome che si desidera utilizzare.
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
-    az storage account show-connection-string --resource-group myresourcegroup --name triggerStorage --query connectionString --output tsv
+    az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
+    ```
+
+1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si desidera utilizzare. Sostituire `<acrinstance>` e `<imagename>` con i valori restituiti `package.location` precedente. Sostituire Sostituisci `<webjobStorage>` con il nome dell'account di archiviazione nel passaggio precedente:
+
+    ```azurecli-interactive
+    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
+    ```
+
+    > [!IMPORTANT]
+    > A questo punto è stata creata l'app per le funzioni. Tuttavia, poiché non è stata specificata la stringa di connessione per il trigger o le credenziali del BLOB al Container Registry di Azure che contiene l'immagine, l'app per le funzioni non è attiva. Nei passaggi successivi vengono fornite la stringa di connessione e le informazioni di autenticazione per il registro contenitori. 
+
+1. Creare l'account di archiviazione da usare per l'archiviazione del trigger BLOB e ottenere la stringa di connessione. Sostituire `<triggerStorage>` con il nome che si desidera utilizzare.
+
+    ```azurecli-interactive
+    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    ```
+    ```azurecli-interactive
+    az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Registrare la stringa di connessione da fornire all'app per le funzioni. Verrà usato in un secondo momento per richiedere `<triggerConnectionString>`
 
-1. Creare i contenitori per l'input e l'output nell'account di archiviazione. 
+1. Creare i contenitori per l'input e l'output nell'account di archiviazione. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -185,12 +193,17 @@ Quando `show_output=True`, viene visualizzato l'output del processo di compilazi
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. È necessario recuperare il tag associato al contenitore creato usando il comando seguente:
+1. Per associare la stringa di connessione del trigger all'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome dell'app per le funzioni. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
+    ```
+1. È necessario recuperare il tag associato al contenitore creato usando il comando seguente. Sostituire `<username>` con il nome utente restituito in precedenza dal registro contenitori:
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    Il tag più recente illustrato sarà `imagetag` riportato di seguito.
+    Salvare il valore restituito, che verrà usato come `imagetag` nel passaggio successivo.
 
 1. Per fornire all'app per le funzioni le credenziali necessarie per accedere al registro contenitori, usare il comando seguente. Sostituire `<app-name>` con il nome che si desidera utilizzare. Sostituire `<acrinstance>` e `<imagetag>` con i valori della chiamata AZ CLI nel passaggio precedente. Sostituire `<username>` e `<password>` con le informazioni di accesso di ACR recuperate in precedenza:
 

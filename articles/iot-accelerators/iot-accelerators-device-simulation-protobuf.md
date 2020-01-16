@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447982"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982151"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
 
@@ -41,7 +41,7 @@ Per seguire la procedura illustrata in questa guida pratica, sono necessari:
 * Postman. È possibile scaricare [Postman per Mac, Windows o Linux](https://www.getpostman.com/apps).
 * Un [hub IoT distribuito nella sottoscrizione di Azure in uso](../iot-hub/iot-hub-create-through-portal.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'hub IoT. È possibile ottenere la stringa di connessione nel portale di Azure.
 * Un [database Cosmos DB distribuito nella sottoscrizione di Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) che usi l'API SQL e che sia configurato per [coerenza assoluta](../cosmos-db/manage-account.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione del database Cosmos DB. È possibile ottenere la stringa di connessione nel portale di Azure.
-* Un [account di archiviazione di Azure distribuito nella sottoscrizione di Azure](../storage/common/storage-quickstart-create-account.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'account di archiviazione. È possibile ottenere la stringa di connessione nel portale di Azure.
+* Un [account di archiviazione di Azure distribuito nella sottoscrizione di Azure](../storage/common/storage-account-create.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'account di archiviazione. È possibile ottenere la stringa di connessione nel portale di Azure.
 
 ## <a name="prepare-your-development-environment"></a>Preparare l'ambiente di sviluppo
 
@@ -70,7 +70,7 @@ Aprire il file **.vscode/launch.json** e assegnare la stringa di connessione di 
 
 Per eseguire il microservizio di adattatore di archiviazione in locale, fare clic su **Debug \> Avvia debug**.
 
-Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output del microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: <http://127.0.0.1:9022/v1/status>. Quando si passa a questo indirizzo, lo stato deve essere "OK: Attivo e".
+Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output del microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: <http://127.0.0.1:9022/v1/status>. Quando si passa a questo indirizzo, lo stato deve essere "OK: Alive and well" (OK: Attivo e in esecuzione).
 
 Lasciare il microservizio di adattatore di archiviazione in esecuzione nell'istanza corrente di Visual Studio Code fino al completamento dei passaggi successivi.
 

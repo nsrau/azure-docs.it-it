@@ -7,19 +7,19 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8473bff3b6e7d2079bb202befc23e1ada3791eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465106"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970263"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per JavaScript
 
 Iniziare a usare la libreria client di Archiviazione BLOB di Azure v12 per JavaScript. L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
 > [!NOTE]
-> Per iniziare a usare la versione precedente dell'SDK, vedere [Avvio rapido: Libreria client di Archiviazione BLOB di Azure per JavaScript](storage-quickstart-blobs-nodejs-v10.md).
+> Per iniziare a usare la versione precedente dell'SDK, vedere [Avvio rapido: Libreria client di Archiviazione BLOB di Azure per JavaScript](storage-quickstart-blobs-nodejs-legacy.md).
 
 Libreria client di Archiviazione BLOB di Azure v12 per JavaScript:
 

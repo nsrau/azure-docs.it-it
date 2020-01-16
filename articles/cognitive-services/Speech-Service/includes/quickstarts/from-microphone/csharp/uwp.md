@@ -1,23 +1,22 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un microfono, C# (UWP) - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un microfono, C# (UWP) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f83f249228c96021979edc14c092eded03b96e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e6934e908111773cef3f7ddcfc2a971d8e1706bf
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818717"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928035"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
@@ -35,7 +34,7 @@ Il primo passaggio consiste nel verificare che il progetto sia aperto in Visual 
 
 ## <a name="start-with-some-boilerplate-code"></a>Iniziare con un codice boilerplate
 
-Aggiungere stringhe di codice che svolgano la funzione di scheletro del progetto.
+Aggiungere codice che funga da scheletro del progetto.
 
 1. In **Esplora soluzioni** aprire `MainPage.xaml`.
 
@@ -56,7 +55,7 @@ Prima di inizializzare un oggetto `SpeechRecognizer`, è necessario creare una c
 > [!NOTE]
 > Questo esempio usa il metodo `FromSubscription()` per creare `SpeechConfig`. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
 
-## <a name="initialize-a-speechrecognizer"></a>Inizializzare uno SpeechRecognizer
+## <a name="initialize-a-speechrecognizer"></a>Inizializzare SpeechRecognizer
 
 Creare ora un oggetto `SpeechRecognizer`. Questo oggetto viene creato all'interno di un'istruzione using per garantire il corretto rilascio delle risorse non gestite. Inserire questo codice nel metodo `RecognizeSpeechAsync()`, immediatamente sotto la configurazione di Voce.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
@@ -69,7 +68,7 @@ All'interno dell'istruzione using aggiungere questo codice: [!code-csharp[](~/sa
 
 ## <a name="display-the-recognition-results-or-errors"></a>Visualizzare i risultati (o gli errori) del riconoscimento
 
-Quando il servizio Voce restituisce il risultato del riconoscimento, si vorrà usarlo per qualche scopo. Per semplicità, in questo caso il risultato verrà stampato sul pannello di stato.
+Quando il servizio Voce restituisce il risultato del riconoscimento, in genere lo si usa per qualche scopo. Per semplicità, in questo caso il risultato verrà stampato sul pannello di stato.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=68-93)]
 

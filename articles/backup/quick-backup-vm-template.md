@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 7218b496a3cd94362d27b1883fa5055b819768c3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 721213dcdd4751de936968b7e67a4b5d31b8d9ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171941"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980646"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Eseguire il backup di una macchina virtuale in Azure usando un modello di Azure Resource Manager
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-In questo argomento di avvio rapido, per la distribuzione del modello di Resource Manager viene usato Azure PowerShell. Per distribuire i modelli è anche possibile usare il [portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e l'[API Rest](../azure-resource-manager/resource-group-template-deploy-rest.md).
+In questo argomento di avvio rapido, per la distribuzione del modello di Resource Manager viene usato Azure PowerShell. Per distribuire i modelli è anche possibile usare il [portale di Azure](../azure-resource-manager/templates/deploy-portal.md), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md) e l'[API Rest](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="start-a-backup-job"></a>Avviare un processo di backup
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cbd452fcf4056c1bcf4d5b8d6debb9d8f4a6f11c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610608"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976113"
 ---
 # <a name="connect-data-sources"></a>Connettere le origini dati
 
@@ -97,7 +97,7 @@ In alternativa, è possibile distribuire l'agente manualmente in una macchina vi
 | **Tipo di dati** | **Modalità di connessione** | **Connettore dati?** | **Commenti** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Connettere AWS](connect-aws.md) | V | |
-| AzureActivity | [Connettere il log attività di Azure](connect-azure-activity.md) e [Panoramica del log attività di Azure](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AzureActivity | [Connettere il log attività di Azure](connect-azure-activity.md) e [Panoramica del log attività di Azure](../azure-monitor/platform/platform-logs-overview.md)| V | |
 | AuditLogs | [Connettere Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Connettere Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Diagnostica di Azure](../firewall/tutorial-diagnostics.md) | V | |
@@ -105,7 +105,7 @@ In alternativa, è possibile distribuire l'agente manualmente in una macchina vi
 | AzureNetworkAnalytics_CL  | [Schema di analisi del traffico](../network-watcher/traffic-analytics.md) [Analisi del traffico](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connettere CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Connettere Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Connettere gli eventi di sicurezza di Windows](connect-windows-security-events.md)  | V | Per le cartelle di lavoro dei protocolli non sicuri, vedere la pagina relativa alla [configurazione di cartelle di lavoro di protocolli non sicuri](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/).  |
+| SecurityEvents | [Connettere gli eventi di sicurezza di Windows](connect-windows-security-events.md)  | V | Per le cartelle di lavoro dei protocolli non sicuri, vedere la pagina relativa alla [configurazione di cartelle di lavoro di protocolli non sicuri](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks).  |
 | syslog | [Connettere Syslog](connect-syslog.md) | V | |
 | Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connettere Microsoft web application firewall](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Connettere Symantec](connect-symantec.md) | V | |

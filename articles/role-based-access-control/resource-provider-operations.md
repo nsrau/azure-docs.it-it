@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9d4b4134fa26fd2cb904a862ac16544873bf8bcb
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e2655a03fe315feb58668fcda0d19578a5df1a78
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934473"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981098"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
-Questo articolo elenca le operazioni disponibili per ogni provider di risorse di Azure Resource Manager. Tali operazioni possono essere usate nei [ruoli personalizzati](custom-roles.md) per offrire un [controllo degli accessi in base al ruolo](overview.md) granulare per le risorse in Azure. Le stringhe di operazione hanno il formato seguente: `{Company}.{ProviderName}/{resourceType}/{action}`. Per un elenco delle modalità di mapping tra gli spazi dei nomi del provider di risorse e i servizi di Azure, vedere [associare il provider di risorse al servizio](../azure-resource-manager/azure-services-resource-providers.md).
+Questo articolo elenca le operazioni disponibili per ogni provider di risorse di Azure Resource Manager. Tali operazioni possono essere usate nei [ruoli personalizzati](custom-roles.md) per offrire un [controllo degli accessi in base al ruolo](overview.md) granulare per le risorse in Azure. Le stringhe di operazione hanno il formato seguente: `{Company}.{ProviderName}/{resourceType}/{action}`. Per un elenco delle modalità di mapping tra gli spazi dei nomi del provider di risorse e i servizi di Azure, vedere [associare il provider di risorse al servizio](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 Le operazioni dei provider di risorse sono costantemente in evoluzione. Per ottenere le operazioni più recenti, usare [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) oppure [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -6708,6 +6708,6 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Associare il provider di risorse al servizio](../azure-resource-manager/azure-services-resource-providers.md)
+- [Associare il provider di risorse al servizio](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
 - [Ruoli predefiniti per le risorse di Azure](built-in-roles.md)

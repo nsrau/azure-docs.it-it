@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428782"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969116"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
@@ -52,7 +52,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 È possibile salvare i messaggi di posta elettronica in arrivo e gli allegati come BLOB in un [contenitore di archiviazione di Azure](../storage/common/storage-introduction.md).
 
-1. Prima di creare un contenitore di archiviazione, [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) con queste impostazioni nella scheda **Generale** nel portale di Azure:
+1. Prima di creare un contenitore di archiviazione, [creare un account di archiviazione](../storage/common/storage-account-create.md) con queste impostazioni nella scheda **Generale** nel portale di Azure:
 
    | Impostazione | valore | Descrizione |
    |---------|-------|-------------|
@@ -159,7 +159,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
 
    ![App per le funzioni creata](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Per creare un'app per le funzioni è anche possibile usare l'[interfaccia della riga di comando di Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) oppure [PowerShell e i modelli di Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+   Per creare un'app per le funzioni è anche possibile usare l'[interfaccia della riga di comando di Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) oppure [PowerShell e i modelli di Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. Nell'elenco **App per le funzioni** espandere la funzione se non è già espansa. Nell'app per le funzioni selezionare **Funzioni**. Sulla barra degli strumenti delle funzioni selezionare **Nuova funzione**.
 
@@ -282,7 +282,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
       | **Interval** | 1 | Numero di intervalli di attesa tra i controlli |
       | **Frequenza** | Minuto | Unità di tempo per ogni intervallo tra i controlli |
       ||||
-  
+
    1. Nell'elenco **Aggiungi nuovo parametro** selezionare **Filtro oggetto**.
 
    1. Quando viene visualizzata la casella **Filtro oggetto** specificare l'oggetto come elencato qui:
@@ -377,7 +377,8 @@ Verificare ora se la condizione funziona correttamente:
 Definire quindi le azioni da eseguire per il ramo **È true**. Per salvare il messaggio di posta elettronica insieme a eventuali allegati, rimuovere il codice HTML dal corpo del messaggio e quindi creare BLOB nel contenitore di archiviazione per il messaggio di posta elettronica e gli allegati.
 
 > [!NOTE]
-> L'app per la logica non deve eseguire alcuna azione per il ramo **È false** quando un messaggio di posta elettronica non ha allegati. Come esercizio aggiuntivo dopo aver completato questa esercitazione, è possibile aggiungere un'azione appropriata da eseguire per il ramo **È false**.
+> L'app per la logica non deve eseguire alcuna azione per il ramo **È false** quando un messaggio di posta elettronica non ha allegati.
+> Come esercizio aggiuntivo dopo aver completato questa esercitazione, è possibile aggiungere un'azione appropriata da eseguire per il ramo **È false**.
 
 ## <a name="call-removehtmlfunction"></a>Chiamare la funzione RemoveHTMLFunction
 
@@ -605,7 +606,9 @@ Aggiungere quindi un'azione in modo che l'app per la logica invii un messaggio d
    ||||
 
    > [!NOTE]
-   > Se si seleziona un campo contenente una matrice, ad esempio il campo **Contenuto** che è una matrice contenente allegati, la finestra di progettazione aggiunge automaticamente un ciclo "For each" intorno all'azione che fa riferimento a tale campo. In questo modo, l'app per la logica può eseguire l'azione su ogni elemento della matrice. Per rimuovere il ciclo, rimuovere il campo per la matrice, spostare l'azione di riferimento fuori dal ciclo, fare clic sui puntini di sospensione ( **...** ) sulla barra del titolo del ciclo e quindi **Elimina**.
+   > Se si seleziona un campo contenente una matrice, ad esempio il campo **Contenuto** che è una matrice contenente allegati, la finestra di progettazione aggiunge automaticamente un ciclo "For each" intorno all'azione che fa riferimento a tale campo.
+   > In questo modo, l'app per la logica può eseguire l'azione su ogni elemento della matrice.
+   > Per rimuovere il ciclo, rimuovere il campo per la matrice, spostare l'azione di riferimento fuori dal ciclo, fare clic sui puntini di sospensione ( **...** ) sulla barra del titolo del ciclo e quindi **Elimina**.
 
 1. Salvare l'app per la logica.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: alsin
-ms.openlocfilehash: e9cbd98afd5f9ed5561cba2236d85da331db7895
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 911d86dd7cb03479d9bde49d8fce0f7861e32e27
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944694"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980133"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux le immagini Gold Bring your own Subscription in Azure
 Le immagini Red Hat Enterprise Linux (RHEL) sono disponibili in Azure tramite un modello con pagamento in base al consumo (PAYG) o bring your own Subscription (Red Hat Gold Image). Questo documento fornisce una panoramica delle immagini Red Hat Gold in Azure.
@@ -189,5 +189,6 @@ Di seguito viene fornito uno script di esempio. È necessario sostituire il grup
 ## <a name="next-steps"></a>Passaggi successivi
 * Le guide dettagliate e i dettagli del programma per l'accesso al cloud sono disponibili nella [documentazione relativa a Red Hat cloud Access.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
 * Altre informazioni sull' [infrastruttura di Azure Red Hat Update](./redhat-rhui.md).
-* Per altre informazioni sulle immagini di Red Hat in Azure, vedere la [pagina della documentazione](./redhat-images.md).
+* Per ulteriori informazioni su tutte le immagini Red Hat in Azure, visitare la [pagina della documentazione](./redhat-images.md).
 * Informazioni sui criteri di supporto di Red Hat per tutte le versioni di RHEL sono reperibili alla pagina [Red Hat Enterprise Linux Life Cycle (Ciclo di vita di Red Hat Enterprise Linux)](https://access.redhat.com/support/policy/updates/errata).
+* Documentazione aggiuntiva sulle immagini RHEL Gold sono disponibili nella documentazione di [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).

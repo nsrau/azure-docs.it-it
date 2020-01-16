@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
-ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721134"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968206"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Esercitazione: Usare le code di archiviazione di Azure
 
 L'archiviazione code di Azure implementa le code basate sul cloud per consentire la comunicazione tra i componenti di un'applicazione distribuita. Ogni coda gestisce un elenco di messaggi che possono essere aggiunti da un componente mittente ed elaborati da un componente destinatario. Con una coda, l'applicazione può essere ridimensionata immediatamente per soddisfare la richiesta. Questo articolo illustra i passaggi di base per usare una coda di archiviazione di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 >
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > - Cercare gli argomenti della riga di comando
 > - Compilare ed eseguire l'app
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Ottenere la copia gratuita dell'editor [Visual Studio Code](https://code.visualstudio.com/download) multipiattaforma.
 - Scaricare e installare [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-Prima di tutto, creare un account di archiviazione di Azure. Per una guida dettagliata alla creazione di un account di archiviazione, vedere l'argomento di avvio rapido [Creare un account di archiviazione](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
+Prima di tutto, creare un account di archiviazione di Azure. Per una guida dettagliata alla creazione di un account di archiviazione, vedere l'argomento di avvio rapido [Creare un account di archiviazione](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
 
 ## <a name="create-the-app"></a>Creare l'app
 
@@ -505,7 +505,7 @@ Dovrebbe venire visualizzato questo output:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 1. Creare una coda
 2. Aggiungere e rimuovere messaggi da una coda

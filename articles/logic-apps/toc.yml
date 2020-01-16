@@ -181,6 +181,8 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: Archiviazione BLOB di Azure
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Istanze di Azure Container
+          href: ../connectors/connectors-create-api-container-instances.md
         - name: Hub eventi di Azure
           href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Funzioni di Azure
@@ -351,7 +353,7 @@
           href: logic-apps-scenario-error-and-exception-handling.md
         - name: Elaborazione B2B
           href: logic-apps-enterprise-integration-b2b.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Modelli di architettura
       items:

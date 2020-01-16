@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863806"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045498"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -167,7 +167,7 @@ Selezionare **Salva** dopo aver completato questi campi.
 
 ### <a name="category"></a>Categoria
 
-Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Per scoprire come l'offerta supporta queste categorie nella descrizione dell'offerta. 
+Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Come l'offerta supporta queste categorie nella descrizione dell'offerta.
 
 ### <a name="industry"></a>Settore
 
@@ -175,7 +175,7 @@ Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per ragg
 
 ### <a name="app-version"></a>Versione dell'app
 
-Si tratta di un campo facoltativo usato in AppSource Marketplace per identificare il numero di versione dell'offerta.
+Questo campo è facoltativo e viene usato in AppSource Marketplace per identificare il numero di versione dell'offerta.
 
 ### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contratto standard per Microsoft Commercial Marketplace
 
@@ -204,12 +204,12 @@ Per gli editori di Marketplace commerciali sono disponibili due tipi di modifich
 >[!NOTE]
 > Questi due tipi di modifiche si impilano tra loro. I clienti destinati a modifiche personalizzate riceveranno anche la modifica universale del contratto standard durante l'acquisto.
 
-**Termini dell'emendamento universale per il contratto standard per il Marketplace commerciale di Microsoft**: immettere le condizioni per la modifica universale in questa casella. È possibile specificare una singola modifica universale per ogni offerta. In questa casella è possibile immettere un numero illimitato di caratteri. Questi vengono visualizzati ai clienti in AppSource, Azure Marketplace e/o portale di Azure durante il flusso di individuazione e di acquisto.
+**Termini dell'emendamento universale per il contratto standard per il Marketplace commerciale di Microsoft**: immettere le condizioni per la modifica universale in questa casella. È possibile specificare una singola modifica universale per ogni offerta. In questa casella è possibile immettere un numero illimitato di caratteri. Questi termini vengono visualizzati per i clienti in AppSource, Azure Marketplace e/o portale di Azure durante l'individuazione e il flusso di acquisto.
 
 **Condizioni di modifica personalizzate per il contratto standard per il Marketplace commerciale di Microsoft**: iniziare selezionando **Aggiungi condizioni di modifica personalizzate**. È possibile specificare fino a 10 termini di modifica personalizzati per ogni offerta.
 
 - **Condizioni di modifica personalizzate**: immettere le condizioni di modifica personalizzate nella casella condizioni di modifica personalizzate. In questa casella è possibile immettere un numero illimitato di caratteri. Solo i clienti degli ID tenant specificati per questi termini personalizzati verranno presentati con le condizioni di modifica personalizzate nel flusso di acquisto dell'offerta nel portale di Azure.  
-- **ID tenant** (obbligatorio): ogni modifica personalizzata può essere destinata a un massimo di 20 ID tenant. Se si aggiunge una rettifica personalizzata, è necessario specificare almeno un ID tenant. L'ID tenant identifica il cliente in Azure. È possibile chiedere al cliente questo ID e trovarlo passando a portal.azure.com > Azure Active Directory > Proprietà. Il valore di ID directory è l'ID tenant, ad esempio 50c464d3-4930-494c-963C-1e951d15360e. È anche possibile cercare l'ID tenant dell'organizzazione del cliente usando l'URL del nome di dominio in cui [si trova il Microsoft Azure e l'ID tenant di Office 365?](https://www.whatismytenantid.com).
+- **ID tenant** (obbligatorio): ogni modifica personalizzata può essere destinata a un massimo di 20 ID tenant. Se si aggiunge una rettifica personalizzata, è necessario specificare almeno un ID tenant. L'ID tenant identifica il cliente in Azure. È possibile chiedere al cliente questo ID e trovarlo passando a portal.azure.com > Azure Active Directory > Proprietà. Il valore di ID directory è l'ID tenant (ad esempio, 50c464d3-4930-494c-963C-1e951d15360e). È anche possibile cercare l'ID tenant dell'organizzazione del cliente usando l'URL del nome di dominio in cui [si trova il Microsoft Azure e l'ID tenant di Office 365?](https://www.whatismytenantid.com).
 - **Descrizione** (facoltativo): specificare facoltativamente una descrizione per l'ID tenant che consente di identificare il cliente di destinazione con la modifica.
 
 #### <a name="terms-and-conditions"></a>Condizioni
@@ -231,7 +231,7 @@ Nella scheda elenco offerte vengono visualizzate le lingue (e i mercati) in cui 
 
 Fornire i dettagli da visualizzare nel Marketplace, incluse le descrizioni dell'offerta e le risorse di marketing.
 
-- **Nome** (obbligatorio): il nome definito qui verrà visualizzato come titolo dell'inserzione dell'offerta nei Marketplace scelti. Il nome viene prepopolato in base alla **nuova** voce dell'offerta precedente.  Questo può essere registrato.  Questa operazione non deve contenere Emoji (a meno che non siano il marchio e i simboli di copyright) e deve avere un limite di 50 caratteri.
+- **Nome** (obbligatorio): il nome definito qui verrà visualizzato come titolo dell'inserzione dell'offerta nei Marketplace scelti. Il nome viene prepopolato in base alla **nuova** voce dell'offerta precedente. Il nome può essere marchiato. Non può contenere Emoji (a meno che non siano il marchio e i simboli di copyright) e deve essere limitato a 50 caratteri.
 - **Riepilogo** (obbligatorio): fornire una breve descrizione dell'offerta da usare nei risultati della ricerca nell'elenco dei Marketplace. In questo campo è possibile immettere fino a 100 caratteri di testo.
 - **Descrizione** (obbligatoria): fornire una descrizione dell'offerta da visualizzare nella panoramica degli annunci del Marketplace. Si consiglia di includere una proposta di valore, i vantaggi principali, le associazioni di categoria o di settore, le opportunità di acquisto in-app, le divulgazioni richieste e un collegamento per ottenere ulteriori informazioni.
 In questo campo è possibile immettere fino a 3.000 caratteri di testo. Per altri suggerimenti, vedere l'articolo [scrivere un'ottima descrizione dell'app](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -240,7 +240,7 @@ In questo campo è possibile immettere fino a 3.000 caratteri di testo. Per altr
 
 #### <a name="description"></a>**Descrizione**
 
-Questo campo è obbligatorio. Elementi da includere nella descrizione:
+Questo campo è obbligatorio. Elementi da includere nella **Descrizione**:
 
 * Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione.  
 * Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca.  
@@ -253,76 +253,28 @@ I componenti fondamentali di una proposta di valore devono includere le informaz
 * Tipo di utente che ottiene vantaggi dal prodotto.
 * Esigenze del cliente o dolore che il prodotto indirizzi.
 
-Per rendere più accattivante la descrizione dell'offerta, è possibile usare i tag HTML per formattare la descrizione.
+Per rendere più accattivante la **Descrizione** dell'offerta, usare l'editor di testo RTF per formattare la descrizione.
 
-1. Se si desidera creare paragrafi, aggiungere `<p>` al momento dell'accattonaggio del testo e aggiungere `</p>` alla fine.
+![Uso dell'editor di testo RTF](./media/text-editor2.png)
 
-    **Esempio**:
+Utilizzare le istruzioni seguenti per utilizzare l'editor di testo RTF:
 
-    `<p>` questo è il primo paragrafo. `</p>` <br>
-    `<p>` questo è il secondo paragrafo. `</p>` <br>
+- Per modificare il formato del contenuto, evidenziare il testo che si desidera formattare e selezionare uno stile di testo, come illustrato di seguito:
 
-    Il precedente avrà un aspetto simile al seguente:
+     ![Utilizzo dell'editor di testo RTF per modificare il formato del testo](./media/text-editor3.png)
 
-    <p> Questo è il primo paragrafo. </p>
-    <p> Questo è il secondo paragrafo. </p>
+- Per aggiungere un elenco puntato o numerato al testo, usare le opzioni seguenti:
 
-1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere la `<ul></ul>`.
+     ![Uso dell'editor di testo RTF per aggiungere elenchi](./media/text-editor4.png)
 
-    **Esempio**:
+- Per aggiungere o rimuovere il rientro nel testo, usare le opzioni seguenti:
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    Il precedente avrà un aspetto simile al seguente:
-    <ul> 
-        <li>aggiungere qui il testo</li>
-        <li> aggiungere qui il testo </li>
-        <li> aggiungere qui il testo </li>
-    </ul> 
-
-1. Per il contenuto in **grassetto** , aggiungere `<b>` all'inizio del testo che si desidera grassetto e aggiungere `</b>` alla fine del testo che si desidera grassetto.
-
-    **Esempio**: `<b>` versione di valutazione gratuita `</b>`
-    
-    Il precedente comporterebbe il grassetto della versione di valutazione gratuita nella descrizione dell'offerta nello storefront.
-
-    **VERSIONE DI VALUTAZIONE GRATUITA**
-
-1. Per aggiungere **interruzioni di riga** tra il contenuto, aggiungere `<br>` prima del contenuto che si desidera avviare in una nuova riga. Se si desidera lasciare uno spazio e verificare che il contenuto venga avviato in una nuova riga, aggiungere `<br><br>` prima del contenuto.
-
-    **Esempio**:
-
-    Si tratta di una riga di testo. `<br>` si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>` si tratta di una linea che avvierà due righe sotto.
-
-    Il precedente avrà un aspetto simile al seguente:
-
-    Si tratta di una riga di testo. <br> Si tratta di una riga di testo che verrà avviata in una nuova riga. <br><br> Si tratta di una linea che avvierà due righe sotto.
-
-1. Se si desidera **aumentare le dimensioni del testo**, è necessario innanzitutto scegliere la dimensione desiderata per il testo. Usare gli esempi seguenti. Dopo aver selezionato le dimensioni del testo, aggiungere i tag `<H*></H*>` corrispondenti all'inizio e alla fine del testo.
-
-    **Esempio**:
-
-    `<h1>`è l'intestazione 1`</h1>` <br>
-    `<h2>`questo è l'intestazione 2`</h2>` <br>
-    `<h3>`questo è l'intestazione 3`</h3>` <br>
-    `<h4>`questo è l'intestazione 4`</h4>` <br>
-    `<h5>`si tratta del titolo 5`</h5>` <br>
-    `<h6>`questo è l'intestazione 6`</h6>` 
-
-    Il precedente avrà un aspetto simile al seguente:
-
-    ![Intestazioni di esempio](./media/heading.png)
+     ![Utilizzo dell'editor di testo RTF per rientrare](./media/text-editor5.png)
 
 #### <a name="links"></a>Collegamenti
 
 - **Informativa sulla privacy** (obbligatorio): collegamento all'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida
-- **Materiali di marketing del programma CSP** (facoltativo): è necessario fornire un collegamento ai materiali di marketing se si sceglie di estendere l'offerta al programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP estende l'offerta a una gamma più ampia di clienti qualificati, permettendo ai partner CSP di aggregare, commercializzare e rivendere l'offerta. Questi rivenditori dovranno avere accesso ai materiali per il marketing dell'offerta. Per ulteriori informazioni, vedere la pagina relativa ai [Servizi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
+- **Materiali di marketing del programma CSP** (facoltativo): fornire un collegamento ai materiali di marketing se si sceglie di estendere l'offerta al programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP estende l'offerta a una gamma più ampia di clienti qualificati, permettendo ai partner CSP di aggregare, commercializzare e rivendere l'offerta. Questi rivenditori dovranno avere accesso ai materiali per il marketing dell'offerta. Per ulteriori informazioni, vedere la pagina relativa ai [Servizi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
 - **Collegamenti utili** (facoltativo): documenti online supplementari facoltativi sull'app o sui servizi correlati elencati fornendo un **titolo** e un **URL**. Aggiungere altri collegamenti utili facendo clic su **+ Aggiungi URL**.
 
 #### <a name="contact-information"></a>Informazioni di contatto
@@ -353,7 +305,7 @@ Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 La scheda **Anteprima** consente di definire un pubblico di **Anteprima** limitato per il rilascio dell'offerta prima di pubblicare l'offerta in tempo reale per i destinatari più ampi del Marketplace.
 
 > [!IMPORTANT]
-> È necessario selezionare **Go Live** prima che l'offerta venga pubblicata in tempo reale per il pubblico del Marketplace dopo aver verificato l'offerta in anteprima.
+> Dopo aver controllato l'offerta in anteprima, selezionare **Go Live** in modo che l'offerta possa essere pubblicata in diretta per i destinatari pubblici del Marketplace.
 
 - **Definire un gruppo di destinatari di anteprima: aggiungere un singolo account AAD/MSA e-mail per riga, insieme a una descrizione facoltativa.**
 
@@ -370,9 +322,9 @@ La scheda **configurazione tecnica** definisce i dettagli tecnici (percorso URL,
 
 - **Webhook di connessione** (obbligatorio): per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio: la sottoscrizione SaaS non è più valida), è necessario fornire un webhook di connessione. Se non si dispone già di un sistema di Webhook, la configurazione più semplice consiste nel disporre di un'app per la logica endpoint HTTP che resterà in ascolto di tutti gli eventi da inviare e quindi di gestirli in modo appropriato, ad esempio https:\//prod-1westus.logic.azure.com:443/work. Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure ad ID tenant** (obbligatorio): all'interno portale di Azure, è necessario [creare un'app Azure Active Directory (ad)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) in modo che sia possibile convalidare la connessione tra i due servizi sia dietro una comunicazione autenticata. Per trovare l' [ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e).
+- **Azure ad ID tenant** (obbligatorio): all'interno portale di Azure, è necessario [creare un'app Azure Active Directory (ad)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) in modo che sia possibile convalidare la connessione tra i due servizi sia dietro una comunicazione autenticata. Per trovare l' [ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero **ID directory** elencato (ad esempio, 50c464d3-4930-494c-963C-1e951d15360e).
 
-- **Azure ad ID app** (obbligatorio): sono necessari anche l' [ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) e una chiave di autenticazione. Per ottenere tali valori, passare alla Azure Active Directory e selezionare **registrazioni app**, quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e). Per trovare la chiave di autenticazione, passare a **Impostazioni** e selezionare **chiavi**. Sarà necessario fornire una descrizione e una durata, quindi verrà fornito un valore numerico.
+- **Azure ad ID app** (obbligatorio): sono necessari anche l' [ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) e una chiave di autenticazione. Per ottenere tali valori, passare alla Azure Active Directory e selezionare **registrazioni app**, quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio, 50c464d3-4930-494c-963C-1e951d15360e). Per trovare la chiave di autenticazione, passare a **Impostazioni** e selezionare **chiavi**. Sarà necessario fornire una descrizione e una durata, quindi verrà fornito un valore numerico.
 
 >[!Note]
 >L'ID applicazione di Azure è associato all'ID editore, quindi assicurarsi che lo stesso ID applicazione venga usato in tutte le offerte.
@@ -390,8 +342,8 @@ Le **azioni** disponibili nella **Panoramica del piano** variano a seconda dello
 
 **Crea nuovo piano** (almeno un piano per coloro che scelgono di vendere tramite Microsoft)
 
-- **ID piano:** Creare un ID piano univoco per ogni piano di questa offerta. Questo ID sarà visibile ai clienti nell'URL del prodotto e Azure Resource Manager modelli (se applicabile). Usare solo caratteri minuscoli, alfanumerici, trattini o caratteri di sottolineatura. Per questo ID piano sono consentiti al massimo 50 caratteri. Si noti che l'ID non può essere modificato dopo aver selezionato Crea.
-- **Nome del piano:** Il nome verrà visualizzato dai clienti quando si decide quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono far parte della stessa offerta, ad esempio Nome offerta: Windows Server; piani: Windows Server 2016, Windows Server 2019).
+- **ID piano:** Creare un ID piano univoco per ogni piano di questa offerta. Questo ID sarà visibile ai clienti nell'URL del prodotto e Azure Resource Manager modelli (se applicabile). Usare solo lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. Per questo ID piano sono consentiti al massimo 50 caratteri. Non è possibile modificare l'ID dopo aver selezionato Crea.
+- **Nome del piano:** Il nome verrà visualizzato dai clienti quando si decide quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono far parte della stessa offerta (ad esempio, il nome dell'offerta: Windows Server; piani: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Elenco di piani
 
@@ -424,7 +376,7 @@ La possibilità di configurare una versione di valutazione gratuita è disponibi
 >[!Note]
 >Una volta pubblicata l'offerta transazionale con una versione di valutazione gratuita, non è possibile disabilitarla per quel piano. Verificare che questa impostazione sia corretta per la prima pubblicazione, in modo da evitare di dover ricreare il piano.
 
-Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente partecipano a una versione di valutazione gratuita, usare la nuova proprietà API `isFreeTrial`, che verrà contrassegnata come true o false. Per ulteriori informazioni, vedere l' [API di sottoscrizione Saas Get](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
+Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente partecipano a una versione di valutazione gratuita, usare la nuova proprietà API `isFreeTrial`, che verrà contrassegnata come true o false. Per altre informazioni, vedere l' [API di sottoscrizione Saas Get](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!Note]
 >Le versioni di valutazione gratuite non sono supportate per i piani che sfruttano il servizio di misurazione del Marketplace.

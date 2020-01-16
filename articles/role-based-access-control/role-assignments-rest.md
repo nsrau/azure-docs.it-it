@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707838"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981043"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'API REST
 
@@ -57,7 +57,7 @@ In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo. Per aggi
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     | `subscriptions/{subscriptionId1}` | Sottoscrizione |
@@ -68,7 +68,7 @@ In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo. Per aggi
 
 1. Nel corpo della richiesta sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     | `subscriptions/{subscriptionId1}` | Sottoscrizione |
@@ -93,7 +93,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
 
-    | Scope | Type |
+    | Ambito | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     | `subscriptions/{subscriptionId1}` | Sottoscrizione |
@@ -105,6 +105,6 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Elencare le assegnazioni di ruolo usando RBAC di Azure e l'API REST](role-assignments-list-rest.md)
-- [Distribuire le risorse con i modelli e l'API REST di Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Distribuire le risorse con i modelli e l'API REST di Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
 - [Informazioni di riferimento sulle API REST](/rest/api/azure/)
 - [Creare ruoli personalizzati per le risorse di Azure tramite l'API REST](custom-roles-rest.md)

@@ -1,20 +1,19 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un file audio, C# - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un file audio, C# - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Da definire
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: bd015024f34eb3f908a1581bc9f3caf21a887493
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5111bbaebd53d6ab28149c9e0770e1c5fd07ac93
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819261"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927832"
 ---
 Se si preferisce iniziare subito, visualizzare o scaricare tutti gli <a href="https://aka.ms/speech/github-csharp">esempi di C# di Speech SDK</a> su GitHub. In caso contrario, ecco come procedere.

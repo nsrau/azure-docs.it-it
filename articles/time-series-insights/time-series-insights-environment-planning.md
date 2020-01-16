@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863377"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046197"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Pianificare l'ambiente Azure Time Series Insights GA
 
@@ -24,7 +24,7 @@ Questo articolo descrive come pianificare l'ambiente di Azure Time Series Insigh
 
 ## <a name="video"></a>Video
 
-**Guarda questo video per scoprire di più sulla conservazione dei dati in Azure Time Series Insights e su come pianificarlo**:<br /><br />
+**Guarda questo video per scoprire di più sulla conservazione dei dati in Azure Time Series Insights e su come pianificarlo**:<br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -53,7 +53,7 @@ Per impostazione predefinita, Time Series Insights mantiene i dati in base alla 
 Azure Time Series Insights dispone di due modalità:
 
 * Una modalità ottimizza i dati più aggiornati. Impone un criterio per **eliminare i dati obsoleti** lasciando disponibili i dati recenti con l'istanza. Questa modalità è abilitata per impostazione predefinita. 
-* L'altro ottimizza i dati in modo che rimangano al di sotto dei limiti di conservazione configurati. **Sospendere** il traffico in ingresso impedisce che i nuovi dati vengano immessi quando viene selezionato perché il **limite di archiviazione ha superato il comportamento**. 
+* L'altro ottimizza i dati in modo che rimangano al di sotto dei limiti di conservazione configurati. **Sospendere** il traffico in ingresso impedisce che i nuovi dati vengano immessi quando viene selezionato perché il **limite di archiviazione ha superato il comportamento**.
 
 È possibile modificare la conservazione e passare tra le due modalità nella pagina di configurazione dell'ambiente nel portale di Azure.
 

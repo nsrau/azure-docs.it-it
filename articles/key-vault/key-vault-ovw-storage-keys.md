@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176758"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980470"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 
@@ -43,17 +43,17 @@ Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azur
 
 | Tenant | Cloud | ID applicazione |
 | --- | --- | --- |
-| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azure per enti pubblici | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Pubblico di Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Altre  | Qualsiasi | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Altro  | Qualsiasi | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida, è innanzitutto necessario eseguire le operazioni seguenti:
 
 - [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 - [Creare un insieme di credenziali delle chiavi](quick-create-cli.md)
-- [Creare un account di Archiviazione di Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli). Il nome dell'account di archiviazione deve usare solo lettere minuscole e numeri. La lunghezza del nome deve essere compresa tra 3 e 24 caratteri.
+- [Creare un account di Archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-cli). Il nome dell'account di archiviazione deve usare solo lettere minuscole e numeri. La lunghezza del nome deve essere compresa tra 3 e 24 caratteri.
       
 ## <a name="manage-storage-account-keys"></a>Gestire le chiavi dell'account di archiviazione
 

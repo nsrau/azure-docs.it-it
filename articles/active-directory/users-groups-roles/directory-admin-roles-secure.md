@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12391df7e3b8540b775d8c56b5d5c4e648722faf
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c5f36e82c2ff95800a058f56f9cc6b80ddf02dbf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889611"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967702"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -362,7 +362,7 @@ Per un continuo miglioramento del piano, Microsoft consiglia di convalidarne reg
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Passaggi aggiuntivi per le organizzazioni che gestiscono l'accesso ad Azure 
 
-Determinare se è necessario [trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../billing/billing-subscription-transfer.md).
+Determinare se è necessario [trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../cost-management-billing/manage/billing-subscription-transfer.md).
 ‎
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"Rompere il vetro": cosa fare in caso di emergenza

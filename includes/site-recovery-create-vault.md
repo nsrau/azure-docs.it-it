@@ -4,17 +4,17 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fd1a7f133c5719873133554fc2292e94e6fe26a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180558"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980315"
 ---
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
 2. Fare clic su **Crea una risorsa** > **Monitoraggio e gestione** > **Backup e Site Recovery**.
 3. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
-4. [Creare un gruppo di risorse](../articles/azure-resource-manager/resource-group-template-deploy-portal.md)o selezionarne uno esistente. Specificare un'area di Azure. 
+4. [Creare un gruppo di risorse](../articles/azure-resource-manager/templates/deploy-portal.md)o selezionarne uno esistente. Specificare un'area di Azure. 
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** > **Crea**.
 
    ![Nuovo insieme di credenziali](./media/site-recovery-create-vault/new-vault-settings.png)
