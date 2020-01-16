@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34dd15ee638335048c983fbb752bd812291456ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1761eebe51c5ccb4d30b93ad4122dfc185d216e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418047"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028251"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -20,19 +20,19 @@ Quando si crea un account RunAs, viene creato un nuovo utente dell'entità servi
 
 Esistono due tipi di account RunAs:
 
-* **Account RunAs di Azure** : questo account viene usato per gestire gestione risorse risorse del [modello di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) .
+* **Account RunAs di Azure** : questo account viene usato per gestire gestione risorse risorse del [modello di distribuzione](../azure-resource-manager/management/deployment-models.md) .
   * Crea un'applicazione Azure AD da esportare con un certificato autofirmato, crea un account dell'entità servizio per l'applicazione in Azure AD e assegna il ruolo Collaboratore per l'account nella sottoscrizione corrente. È possibile cambiare l'impostazione in Proprietario o in qualsiasi altro ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
   * Crea un asset di certificato di Automazione denominato *AzureRunAsCertificate* nell'account di Automazione specificato. L'asset di certificato contiene la chiave privata del certificato usata dall'applicazione Azure AD.
   * Crea un asset di connessione di Automazione denominato *AzureRunAsConnection* nell'account di Automazione specificato. L'asset di connessione contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.
 
-* **Account RunAs classico di Azure** : questo account viene usato per gestire le risorse del [modello di distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md) .
+* **Account RunAs classico di Azure** : questo account viene usato per gestire le risorse del [modello di distribuzione classica](../azure-resource-manager/management/deployment-models.md) .
   * Crea un certificato di gestione nella sottoscrizione
   * Crea un asset di certificato di Automazione denominato *AzureClassicRunAsCertificate* nell'account di Automazione specificato. L'asset di certificato contiene la chiave privata del certificato usata dal certificato di gestione.
   * Crea un asset di connessione di Automazione denominato *AzureClassicRunAsConnection* nell'account di Automazione specificato. L'asset di connessione contiene il nome della sottoscrizione, l'ID sottoscrizione e il nome dell'asset di certificato.
   * Deve essere un coamministratore nella sottoscrizione per creare o rinnovare
 
   > [!NOTE]
-  > Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, l'Account RunAs di Azure non verrà creato. L'Account RunAs di Azure viene comunque creato. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+  > Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, l'Account RunAs di Azure non verrà creato. L'Account RunAs di Azure viene comunque creato. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
   > [!NOTE]
   > L'entità servizio per un account RunAs non dispone delle autorizzazioni per leggere Azure Active Directory per impostazione predefinita. Se si vuole aggiungere autorizzazioni per la lettura o la gestione di Azure Active Directory, è necessario concedere tale autorizzazione nell'entità servizio in **autorizzazioni API**. Per altre informazioni, vedere [aggiungere autorizzazioni per accedere alle API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).

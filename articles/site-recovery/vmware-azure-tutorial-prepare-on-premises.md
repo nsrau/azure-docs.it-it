@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953753"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893626"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
@@ -22,7 +22,7 @@ Questo articolo descrive come preparare i server VMware locali per il ripristino
 Questa è la seconda esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nella prima esercitazione sono stati [configurati i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza di VMware.
 
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Preparare un account nel server vCenter o nell'host ESXi vSphere per rendere automatica l'individuazione delle macchine virtuali.
@@ -31,7 +31,7 @@ In questo articolo viene spiegato come:
 > * Preparare la connessione alle macchine virtuali di Azure dopo il failover.
 
 > [!NOTE]
-> Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione delle procedure del sommario di Site Recovery.
+> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione delle procedure del sommario di Site Recovery.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -108,7 +108,7 @@ Per connettersi alle macchine virtuali Linux tramite SSH dopo il failover, esegu
 
 
 ## <a name="failback-requirements"></a>Requisiti di failback
-Se si prevede di eseguire il failback nel proprio sito locale, esistono alcuni [prerequisiti](vmware-azure-reprotect.md##before-you-begin) di cui tener conto. Questi prerequisiti possono essere soddisfatti ora, ma non è indispensabile. È possibile soddisfare questi prerequisiti dopo aver eseguito il failover in Azure.
+Se si prevede di eseguire il failback nel proprio sito locale, esistono alcuni [prerequisiti](vmware-azure-reprotect.md#before-you-begin) di cui tener conto. Questi prerequisiti possono essere soddisfatti ora, ma non è indispensabile. È possibile soddisfare questi prerequisiti dopo aver eseguito il failover in Azure.
 
 
 

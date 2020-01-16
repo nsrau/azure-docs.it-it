@@ -3,7 +3,7 @@ title: 'Usare attività a istanze multiple per eseguire applicazioni MPI: Azure 
 description: Informazioni su come eseguire applicazioni MPI (Message Passing Interface) usando il tipo di attività a istanze multiple in Azure Batch.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
@@ -11,14 +11,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f54f5d5265508bb3716ff4ffd4d1d741d3bfa2e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fd58a18b4926d911df8493670ccd7da97708e075
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094980"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029674"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -39,8 +39,8 @@ Quando si invia a un processo un'attività con impostazioni per istanze multiple
 1. Il servizio Batch crea un'attività **primaria** e diverse **sottoattività** in base alle impostazioni multi-istanza. Il numero totale di attività, ovvero quella primaria e tutte le sottoattività, corrisponde al numero di **istanze** (nodi di calcolo) specificato nelle impostazioni per istanze multiple.
 2. Il servizio Batch definisce uno dei nodi di calcolo come **master** e pianifica l'attività primaria da eseguire sul master. Pianifica le sottoattività da eseguire sugli altri nodi di calcolo allocati all'attività a istanze multiple, una sottoattività per ogni nodo.
 3. L'attività primaria e tutte le sottoattività scaricano gli eventuali **file di risorse comuni** specificati nelle impostazioni per istanze multiple.
-4. Dopo aver scaricato i file di risorse comuni, l'attività primaria e le sottoattività eseguono il **comando di coordinamento** specificato nelle impostazioni per istanze multiple. Il comando di coordinamento viene usato in genere per preparare i nodi per l'esecuzione dell'attività. Ciò può includere l'avvio di servizi in background, ad esempio `smpd.exe` [Microsoft MPI][msmpi_msdn], e la verifica che i nodi siano pronti per elaborare i messaggi tra i nodi.
-5. L'attività primaria esegue il **comando applicazione** sul nodo master *dopo* il completamento del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività. Il comando applicazione, vale a dire la riga di comando dell'attività a istanze multiple stessa, viene eseguito solo dall'attività primaria. In una soluzione basata su [MS-MPI][msmpi_msdn], questo è il punto in cui si esegue l'applicazione abilitata per MPI usando `mpiexec.exe`.
+4. Dopo aver scaricato i file di risorse comuni, l'attività primaria e le sottoattività eseguono il **comando di coordinamento** specificato nelle impostazioni per istanze multiple. Il comando di coordinamento viene usato in genere per preparare i nodi per l'esecuzione dell'attività. Ciò può includere l'avvio di servizi in background, ad esempio il `smpd.exe`di [Microsoft MPI][msmpi_msdn], e la verifica che i nodi siano pronti per elaborare i messaggi tra i nodi.
+5. L'attività primaria esegue il **comando applicazione** sul nodo master *dopo* il completamento del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività. Il comando applicazione, vale a dire la riga di comando dell'attività a istanze multiple stessa, viene eseguito solo dall'attività primaria. In una soluzione basata su [MS-MPI][msmpi_msdn], questo è il punto in cui si esegue l'applicazione abilitata per mpi usando `mpiexec.exe`.
 
 > [!NOTE]
 > Anche se è distinto dal punto di vista funzionale, l'attività a istanze diverse non è un tipo di attività univoco, ad esempio [StartTask][net_starttask] o [JobPreparationTask][net_jobprep]. L'attività a istanze diverse è semplicemente un'attività batch standard ([CloudTask][net_task] in batch .NET) le cui impostazioni a istanze diverse sono state configurate. In questo articolo viene definita **attività a istanze multiple**.
@@ -267,7 +267,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 ## <a name="code-sample"></a>Esempio di codice
 L'esempio di codice [MultiInstanceTasks][github_mpi] su GitHub illustra come usare un'attività a istanze diverse per eseguire un'applicazione [MS-MPI][msmpi_msdn] nei nodi di calcolo di batch. Seguire i passaggi in [Preparazione](#preparation) e [esecuzione](#execution) per eseguire l'esempio.
 
-### <a name="preparation"></a>Operazioni preliminari
+### <a name="preparation"></a>Preparazione
 1. Seguire i primi due passaggi in [come compilare ed eseguire un semplice programma MS-MPI][msmpi_howto]. In tal modo sono soddisfatti i prerequisiti per il passaggio seguente.
 2. Compilare una versione di *rilascio* del programma MPI di esempio [MPIHelloWorld][helloworld_proj] . Questo è il programma che verrà eseguito sui nodi di calcolo dall'attività a più istanze.
 3. Creare un file zip contenente `MPIHelloWorld.exe` (compilato per il passaggio 2) e `MSMpiSetup.exe` (scaricato al passaggio 1). Il file zip verrà caricato come un pacchetto dell'applicazione nel passaggio successivo.
@@ -285,7 +285,7 @@ L'esempio di codice [MultiInstanceTasks][github_mpi] su GitHub illustra come usa
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Immettere le credenziali dell'account di archiviazione e Batch in `AccountSettings.settings` nel progetto **Microsoft.Azure.Batch.Samples.Common**.
 4. **Compilare ed eseguire** la soluzione MultiInstanceTasks per eseguire l'applicazione di esempio MPI sui nodi di calcolo in un pool di Batch.
-5. *Facoltativo*: Usare il [portale di Azure][portal] o [Batch Explorer][batch_labs] per esaminare il pool di esempio, il processo e l'attività ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") prima di eliminare le risorse.
+5. *Facoltativo*: usare il [portale di Azure][portal] o [Batch Explorer][batch_labs] per esaminare il pool di esempio, il processo e l'attività ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") prima di eliminare le risorse.
 
 > [!TIP]
 > È possibile scaricare gratuitamente [Visual Studio Community][visual_studio] se non si dispone di Visual Studio.

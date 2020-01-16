@@ -2,19 +2,19 @@
 title: Eseguire il rendering di una scena nel cloud - Azure Batch
 description: Esercitazione - Come eseguire il rendering di una scena Autodesk 3ds Max con Arnold usando il servizio Rendering di Batch e l'interfaccia della riga di comando di Azure
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272326"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029187"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
 
@@ -29,7 +29,7 @@ Azure Batch offre funzionalità di rendering su scala cloud con pagamento in bas
 
 In questa esercitazione si eseguirà il rendering di una scena 3ds Max usando il renderer di ray tracing [Arnold](https://www.autodesk.com/products/arnold/overview). Il pool di Batch usa un'immagine del Marketplace con immagini e applicazioni di rendering pre-installate che offrono licenze con pagamento in base al consumo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. **Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che offre un credito monetario.**
 

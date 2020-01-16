@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: f0dd7160ae41ac004564ea21300945e135d31689
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945531"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027768"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
@@ -34,10 +34,10 @@ Questa versione è valida per HDInsight 3,6 e 4,0. La versione HDInsight viene r
 ### <a name="tls-12-enforcement"></a>Imposizione di TLS 1.2
 Transport Layer Security (TLS) e Secure Sockets Layer (SSL) sono protocolli di crittografia che consentono di proteggere le comunicazioni su una rete di computer. Altre informazioni su [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight usa TLS 1,2 sugli endpoint HTTPs pubblici ma TLS 1,1 è ancora supportato per la compatibilità con le versioni precedenti. 
 
-Con questa versione, i clienti possono scegliere TLS 1,2 solo per tutte le connessioni tramite l'endpoint del cluster pubblico. Per supportare questa operazione, viene introdotta la nuova proprietà **minSupportedTlsVersion** che può essere specificata durante la creazione del cluster. Se la proprietà non è impostata, il cluster supporta ancora TLS 1,0, 1,1 e 1,2, che corrisponde al comportamento odierno. I clienti possono impostare il valore di questa proprietà su "1,2", il che significa che il cluster supporta solo TLS 1,2 e versioni successive. 
+Con questa versione, i clienti possono scegliere TLS 1,2 solo per tutte le connessioni tramite l'endpoint del cluster pubblico. Per supportare questa operazione, viene introdotta la nuova proprietà **minSupportedTlsVersion** che può essere specificata durante la creazione del cluster. Se la proprietà non è impostata, il cluster supporta ancora TLS 1,0, 1,1 e 1,2, che corrisponde al comportamento odierno. I clienti possono impostare il valore di questa proprietà su "1,2", il che significa che il cluster supporta solo TLS 1,2 e versioni successive. Per altre informazioni, vedere [pianificare una rete virtuale-Transport Layer Security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
 
 ### <a name="bring-your-own-key-for-disk-encryption"></a>Bring your own key per la crittografia del disco
-Tutti i dischi gestiti in HDInsight sono protetti con Crittografia del servizio di archiviazione di Azure. Per impostazione predefinita, i dati di tali dischi vengono crittografati da chiavi gestite da Microsoft. A partire da questa versione, è possibile Bring Your Own Key (BYOK) per la crittografia del disco e gestirla con Azure Key Vault. La crittografia BYOK è una configurazione in un unico passaggio durante la creazione del cluster senza costi aggiuntivi. È sufficiente registrare HDInsight come identità gestita con Azure Key Vault e aggiungere la chiave di crittografia durante la creazione del cluster. 
+Tutti i dischi gestiti in HDInsight sono protetti con Crittografia del servizio di archiviazione di Azure. Per impostazione predefinita, i dati di tali dischi vengono crittografati da chiavi gestite da Microsoft. A partire da questa versione, è possibile Bring Your Own Key (BYOK) per la crittografia del disco e gestirla con Azure Key Vault. La crittografia BYOK è una configurazione in un unico passaggio durante la creazione del cluster senza costi aggiuntivi. È sufficiente registrare HDInsight come identità gestita con Azure Key Vault e aggiungere la chiave di crittografia durante la creazione del cluster. Per ulteriori informazioni, vedere [crittografia del disco della chiave gestita dal cliente](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
 
 ## <a name="deprecation"></a>Deprecazione
 Nessuna deprecazione per questa versione. Per prepararsi a deprecazioni future, vedere [modifiche imminenti](#upcoming-changes).

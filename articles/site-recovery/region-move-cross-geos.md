@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961420"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970491"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche 
 
@@ -20,7 +20,7 @@ ms.locfileid: "73961420"
 
 Oltre a usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e di macchine virtuali di Azure ai fini della continuità aziendale e del ripristino di emergenza (BCDR), è anche possibile usare Site Recovery per gestire lo spostamento di macchine virtuali di Azure in un'area secondaria.       
 
-Questa esercitazione illustra come spostare VM di Azure tra aree per enti pubblici e aree pubbliche con Azure Site Recovery. La stessa procedura può essere utilizzata per spostare VM tra coppie di aree non presenti nello stesso cluster geografico. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come spostare VM di Azure tra aree per enti pubblici e aree pubbliche con Azure Site Recovery. La stessa procedura può essere utilizzata per spostare VM tra coppie di aree non presenti nello stesso cluster geografico. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Verificare i prerequisiti
@@ -65,7 +65,7 @@ Configurare una [Rete Azure](../virtual-network/quick-create-portal.md) di desti
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 
-Configurare un [account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md).
+Configurare un [account di archiviazione di Azure](../storage/common/storage-account-create.md).
 
 - Site Recovery replica le macchine locali in Archiviazione di Azure. Le VM di Azure vengono create dalla risorsa di archiviazione dopo il failover.
 - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
@@ -197,8 +197,8 @@ I criteri vengono automaticamente associati al server di configurazione. Per imp
    > [!WARNING]
    > È necessario immettere l'indirizzo IP della VM di Azure che si intende spostare
 
-10. In **Proprietà** > **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
-11. In **Impostazioni della replica** > **Configura impostazioni di replica** verificare che siano selezionati i criteri di replica corretti. 
+10. In **Proprietà** > **Configura proprietà** selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
+11. In **Impostazioni della replica** > **Configurare le impostazioni di replica** verificare che siano stati selezionati i criteri di replica corretti. 
 12. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 
@@ -212,7 +212,7 @@ Per monitorare i server aggiunti, è possibile controllare l'ora dell'ultima ind
 
    - **Elaborato più recente**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato dal servizio Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene impiegato alcun tempo di elaborazione dati e viene quindi fornito un valore RTO (Recovery Time Objective) basso.
    - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali al più recente punto di recupero coerente con l'app. Viene visualizzato il timestamp.
-   - **Personalizzato**: selezionare qualsiasi punto di recupero.
+   - **Custom**: selezionare qualsiasi punto di recupero.
 
 3. Selezionare la rete virtuale di Azure di destinazione in cui si vogliono spostare le VM di Azure per testare la configurazione. 
 

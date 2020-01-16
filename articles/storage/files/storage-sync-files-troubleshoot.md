@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f60d9714db71325bd9c67cae6e2f82d54f8e5eb3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753920"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027788"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -182,8 +182,6 @@ Nel server che viene visualizzato come "non in linea" nel portale, esaminare l'I
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**Lo stato di integrità dell'endpoint server è "Nessuna attività" e lo stato del server nel pannello dei server registrati è "Risulta offline"**  
 
 Se lo stato di integrità dell'endpoint server è impostato su "Nessuna attività" significa che, nelle ultime due ore, nell'endpoint server non sono state registrate attività di sincronizzazione.
@@ -393,6 +391,22 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 3. [Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione.](#troubleshoot-rbac)
 4. [Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente (se abilitate)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134351804"></a>**Sincronizzazione non riuscita perché la richiesta non è autorizzata a eseguire questa operazione.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (decimale)** | -2134351804 |
+| **Stringa di errore** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **Rimedio necessario** | Sì |
+
+Questo errore si verifica perché l'agente di Sincronizzazione file di Azure non è autorizzato ad accedere alla condivisione file di Azure. È possibile risolvere questo errore eseguendo questa procedura:
+
+1. [Verificare l'esistenza dell'account di archiviazione.](#troubleshoot-storage-account)
+2. [Garantire l'esistenza della condivisione file di Azure.](#troubleshoot-azure-file-share)
+3. [Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente (se abilitate)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione.](#troubleshoot-rbac)
+
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**Non è stato possibile risolvere il nome dell'account di archiviazione usato.**  
 
 | | |
@@ -495,7 +509,7 @@ Se la condivisione file di Azure è stata eliminata, creare una nuova condivisio
 | **Stringa di errore** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **Rimedio necessario** | Sì |
 
-Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La sincronizzazione verrà riabilitata quando verrà ripristinata la sottoscrizione di Azure. Per altre informazioni, vedere [Perché la sottoscrizione di Azure è disabilitata e cosa occorre fare per riattivarla?](../../billing/billing-subscription-become-disable.md)
+Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La sincronizzazione verrà riabilitata quando verrà ripristinata la sottoscrizione di Azure. Per altre informazioni, vedere [Perché la sottoscrizione di Azure è disabilitata e cosa occorre fare per riattivarla?](../../cost-management-billing/manage/subscription-disabled.md)
 
 <a id="-2134364052"></a>**Per l'account di archiviazione sono configurati un firewall o reti virtuali.**  
 

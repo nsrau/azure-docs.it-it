@@ -2,7 +2,7 @@
 title: Evento di completamento eliminazione pool di Azure Batch | Microsoft Docs
 description: Riferimento per l’evento di completamento eliminazione del pool di batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 9bf50bd19ca3f4316c4c2ddbcdd3333745ebefd7
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: bcbfe009e2880c0155a067305cc28317678cbfa6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258553"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026700"
 ---
 # <a name="pool-delete-complete-event"></a>Evento di completamento eliminazione pool
 
@@ -34,9 +34,9 @@ ms.locfileid: "70258553"
 
 |Elemento|Tipo|Note|
 |-------------|----------|-----------|
-|`id`|String|ID del pool.|
-|`startTime`|DateTime|Data e ora in cui è stata avviata l'eliminazione del pool.|
-|`endTime`|DateTime|Data e ora in cui è stata completata l'eliminazione del pool.|
+|`id`|string|ID del pool.|
+|`startTime`|Data e ora|Data e ora in cui è stata avviata l'eliminazione del pool.|
+|`endTime`|Data e ora|Data e ora in cui è stata completata l'eliminazione del pool.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 Per altre informazioni sugli stati e sui codici di errore per l'operazione di ridimensionamento pool, vedere [Delete a pool from an account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account) (Eliminare un pool da un account).

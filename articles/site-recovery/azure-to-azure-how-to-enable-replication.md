@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942326"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973699"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicare le VM di Azure in un'altra area di Azure
 
@@ -62,7 +62,7 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
      >[!NOTE]
      >Dopo avere abilitato la replica non è possibile modificare il tipo di disponibilità, ovvero l'istanza singola, il set di disponibilità o la zona di disponibilità. Per modificare il tipo di disponibilità, è necessario disabilitare e abilitare la replica.
      >
-    
+
    - **Criteri di replica:** definisce le impostazioni per la cronologia della conservazione del punto di ripristino e per la frequenza snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery crea un nuovo criterio di replica con impostazioni predefinite di "24 ore" per la conservazione del punto di ripristino e di "4 ore" per la frequenza di snapshot coerenti con l'app.
 
      ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -74,7 +74,7 @@ Se si aggiungono dischi a una macchina virtuale di Azure per cui è abilitata la
 -   Se si Abilita la protezione per i dischi aggiunti, l'avviso scomparirà dopo la replica iniziale del disco.
 -   Se si sceglie di non abilitare la replica per il disco, è possibile scegliere di ignorare l'avviso.
 
-    
+
     ![Nuovo disco aggiunto](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 Per abilitare la replica per un disco aggiunto, procedere come segue:
@@ -88,7 +88,7 @@ Per abilitare la replica per un disco aggiunto, procedere come segue:
 Dopo l'esecuzione del processo di abilitazione della replica e il completamento della replica iniziale, viene rimosso l'avviso di integrità della replica per il problema del disco.
 
 
-  
+
 ## <a name="customize-target-resources"></a>Personalizzare le risorse di destinazione
 
 È possibile modificare le impostazioni di destinazione predefinite usate da Site Recovery.
@@ -112,7 +112,7 @@ Dopo l'esecuzione del processo di abilitazione della replica e il completamento 
     - Assicurarsi che non sia presente alcun dispositivo firewall che blocca la comunicazione interna tra le macchine virtuali sulla porta 20004.
     - Se si vuole che le macchine virtuali Linux facciano parte di un gruppo di replica, assicurarsi che il traffico in uscita sulla porta 20004 venga aperto manualmente in base alle linee guida per la versione specifica di Linux.
 ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. Fare clic su **Crea risorsa di destinazione** > **Abilitazione della replica**.
 6. Una volta abilitate le macchine virtuali per la replica è possibile controllare lo stato di integrità della macchina virtuale in **Elementi replicati**
 

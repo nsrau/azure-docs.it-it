@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888125"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030071"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
 
@@ -36,7 +36,16 @@ Un'azione webhook HTTP è inoltre basata su eventi e *sottoscrive* un servizio o
 Ad esempio, l'azione [**Invia messaggio di posta elettronica di approvazione**](connectors-create-api-office365-outlook.md) di Office 365 Outlook Connector è un esempio di azione webhook che segue questo modello. È possibile estendere questo modello in qualsiasi servizio usando l'azione webhook.
 
 > [!NOTE]
-> App per la logica impone Transport Layer Security (TLS) 1,2 quando riceve la chiamata al trigger o all'azione del webhook HTTP. Se vengono visualizzati errori di handshake SSL, assicurarsi di usare TLS 1,2.
+> App per la logica impone Transport Layer Security (TLS) 1,2 quando riceve la chiamata al trigger o all'azione del webhook HTTP. Se vengono visualizzati errori di handshake SSL, assicurarsi di usare TLS 1,2. Per le chiamate in ingresso, di seguito sono riportati i pacchetti di crittografia supportati:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 Per altre informazioni, vedere gli argomenti seguenti:
 

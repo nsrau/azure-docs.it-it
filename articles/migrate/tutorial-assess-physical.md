@@ -1,18 +1,14 @@
 ---
 title: Valutare i server fisici per la migrazione ad Azure con Valutazione server di Azure Migrate
 description: Questo articolo descrive come valutare i server fisici locali per la migrazione ad Azure usando Valutazione server di Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280557"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028996"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Valutare i server fisici con Azure Migrate: Server Assessment
 
@@ -20,7 +16,7 @@ Questo articolo descrive come valutare i server fisici locali con lo strumento A
 
 [Azure Migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti.
 
-Questa esercitazione è la seconda di una serie che illustra come valutare i server fisici ed eseguirne la migrazione ad Azure. In questa esercitazione si apprenderà come:
+Questa esercitazione è la seconda di una serie che illustra come valutare i server fisici ed eseguirne la migrazione ad Azure. In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Configurare un progetto di Azure Migrate.
 > * Configurare un'appliance Azure Migrate da eseguire in locale per valutare i server fisici.
@@ -34,7 +30,7 @@ Questa esercitazione è la seconda di una serie che illustra come valutare i ser
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Completare](tutorial-prepare-physical.md) la prima esercitazione di questa serie. In caso contrario, le istruzioni di questa esercitazione non funzioneranno.
 - Ecco le operazioni che dovrebbero essere state completate nella prima esercitazione:
@@ -141,7 +137,7 @@ In caso di problemi, è possibile accedere ai log degli script in C:\ProgramData
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che l'appliance sia in grado di connettersi agli [URL di Azure](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Assicurarsi che l'appliance sia in grado di connettersi agli [URL di Azure](migrate-appliance.md#url-access).
 
 
 ### <a name="configure-the-appliance"></a>Configurare l'appliance

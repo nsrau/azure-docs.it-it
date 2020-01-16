@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931940"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028536"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -246,6 +246,14 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 - Quando si usa l'autenticazione di AAD, i record degli accessi non riusciti *non* vengono visualizzati nel log di controllo di SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
 
 - Il controllo del database SQL di Azure è ottimizzato per le prestazioni & disponibilità. Durante un'attività molto elevata, il database SQL di Azure consente di continuare le operazioni e non può registrare alcuni eventi controllati.
+
+- Per la configurazione del controllo non modificabile nell'account di archiviazione, vedere [Allow protected Append Blobs writes](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Si noti che il nome del contenitore per il controllo è **sqldbauditlogs**.
+
+> [!IMPORTANT] 
+>  L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile e visibile solo nelle aree seguenti:
+> - Stati Uniti orientali
+> - Stati Uniti centro-meridionali
+> - Stati Uniti occidentali 2
 
 
 ## <a id="subheading-7"></a>Gestire SQL Server di Azure e il controllo del database usando Azure PowerShell

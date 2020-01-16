@@ -3,12 +3,12 @@ title: Domande comuni sull'appliance Azure Migrate
 description: Risposte alle domande comuni sull'appliance Azure Migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 29cb390f509a2a4ebf44c1f9aacef99b507aebb8
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720328"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029119"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -40,9 +40,9 @@ Quando si crea la macchina virtuale dell'appliance usando il modello scaricato, 
 ## <a name="what-network-connectivity-is-needed"></a>Quale connettività di rete è necessaria?
 
 Eseguire i controlli seguenti:
-- Appliance VMware assessment: requisiti di accesso a [URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) e [porta](migrate-support-matrix-vmware.md#assessment-port-requirements) .
-- Migrazione di VMware senza agente Appliance: requisiti di accesso a [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) e [porta](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) .
-- Valutazione di Hyper-V del dispositivo: requisiti di accesso a [URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) e [porta](migrate-support-matrix-hyper-v.md#assessment-port-requirements) .
+- Valutazione VMware con il dispositivo Azure Migrate: requisiti di accesso a [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-vmware.md#port-access) .
+- Migrazione senza agenti VMware tramite il dispositivo Azure Migrate: requisiti di accesso a [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-vmware-migration.md#agentless-ports) .
+- Valutazione di Hyper-V con il dispositivo Azure Migrate: requisiti di accesso a [URL](migrate-appliance.md#url-access) e [porta](migrate-support-matrix-hyper-v.md#port-access) .
 
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quali dati vengono raccolti dal dispositivo?

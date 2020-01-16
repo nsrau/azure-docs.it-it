@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 630eeb8ec5582f2dc968a10e7cf1b5750683cf66
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 21ad0c38b8901c1e33e05ab162552cb074a392a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830545"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969603"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da monitoraggio di Azure?
 Questo articolo descrive i diversi servizi e applicazioni monitorati da monitoraggio di Azure. 
@@ -177,7 +177,7 @@ I servizi e le soluzioni nella tabella seguente archiviano i dati in un'area di 
 |:---|:---|
 | [Automazione di Azure](/azure/automation/) | Gestire gli aggiornamenti del sistema operativo e tenere traccia delle modifiche nei computer Windows e Linux. Vedere [rilevamento modifiche](../automation/change-tracking.md) e [Gestione aggiornamenti](../automation/automation-update-management.md). |
 | [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) | Classificare ed eventualmente proteggere documenti e messaggi di posta elettronica. [Per Azure Information Protection, vedere Central Reporting](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
-| [Centro sicurezza di Azure](/azure/security-center/) | Raccogliere e analizzare gli eventi di sicurezza ed eseguire l'analisi delle minacce. Vedere [raccolta dati nel centro sicurezza di Azure](/security-center/security-center-enable-data-collection.md) |
+| [Centro sicurezza di Azure](/azure/security-center/) | Raccogliere e analizzare gli eventi di sicurezza ed eseguire l'analisi delle minacce. Vedere [raccolta dati nel centro sicurezza di Azure](/azure/security-center/security-center-enable-data-collection) |
 | [Azure Sentinel](/azure/sentinel/) | Si connette a diverse origini, tra cui Office 365 e Amazon Web Services cloud Trail. Vedere [Connect Data Sources](/azure/sentinel/connect-data-sources). |
 | [Analisi dell'insieme di credenziali delle chiavi](insights/azure-key-vault.md) | Analizzare Azure Key Vault registri AuditEvent. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Creare un'impostazione di diagnostica per inviare i log a monitoraggio di Azure. Vedere [inviare dati di log ad archiviazione, Hub eventi o log Analytics in Intune (anteprima)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |

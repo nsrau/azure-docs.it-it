@@ -3,7 +3,7 @@ title: 'Progettare query di tipo elenco efficienti: Azure Batch | Documentazione
 description: Migliorare le prestazioni filtrando le query quando si chiedono informazioni su risorse di Batch, ad esempio pool, processi, attività e nodi di calcolo.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 37d34267220cbb7ceabfc823f6facd651969fbd4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d853302ebb0961f9e5fda9f5ecc41f3a26351170
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095153"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027111"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creare query per elencare le risorse di Batch in modo efficiente
 
@@ -34,7 +34,7 @@ Quasi tutte le applicazioni Batch devono eseguire un tipo di monitoraggio o un'a
 ## <a name="meet-the-detaillevel"></a>Definire livelli di dettaglio
 In un'applicazione Batch di produzione, le entità da elaborare, ad esempio processi, attività e nodi di calcolo, possono essere migliaia. Quando si richiedono informazioni su queste risorse, una grande quantità di dati deve "transitare" dal servizio Batch all'applicazione in ogni query. Limitando il numero di elementi e il tipo di informazioni restituiti da una query, è possibile aumentarne la velocità e quindi migliorare le prestazioni dell'applicazione.
 
-Questo frammento di codice dell'API [batch .NET][api_net] elenca tutte le attività associate a un processo, insieme a *tutte* le proprietà di ogni attività:
+Questo frammento di codice dell'API [batch .NET][api_net] elenca tutte le attività associate a un processo, insieme a *tutte* le proprietà di *ogni attività:*
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -66,20 +66,20 @@ Se in questo scenario di esempio il processo include migliaia di attività, il r
 ## <a name="filter-select-and-expand"></a>Filtro, selezione ed espansione
 Le API [batch .NET][api_net] e [batch Rest][api_rest] offrono la possibilità di ridurre il numero di elementi restituiti in un elenco, nonché la quantità di informazioni restituite per ogni oggetto. A questo scopo, specificare stringhe di **filtro**, **selezione** ed **espansione** quando si eseguono query di tipo elenco.
 
-### <a name="filter"></a>Filtro
+### <a name="filter"></a>Filtra
 La stringa di filtro è un'espressione che riduce il numero di elementi restituiti. Ad esempio, elencare solo le attività in esecuzione per un processo o solo i nodi di calcolo pronti per eseguire attività.
 
 * Una stringa di filtro è costituita da una o più espressioni, ciascuna delle quali è composta da un nome di proprietà, un operatore e un valore. Le proprietà che è possibile immettere sono specifiche di ogni tipo di entità su cui viene eseguita la query, come lo sono gli operatori supportati per ogni proprietà.
 * È possibile combinare più espressioni usando gli operatori logici `and` e `or`.
 * Questo esempio di stringa di filtro indica solo le attività di "rendering" in esecuzione: `(state eq 'running') and startswith(id, 'renderTask')`.
 
-### <a name="select"></a>Select
+### <a name="select"></a>Seleziona
 La stringa di selezione limita i valori della proprietà restituiti per ogni elemento. Si specifica un elenco di nomi di proprietà e vengono restituiti solo i valori di quelle proprietà per gli elementi nei risultati della query.
 
 * La stringa di selezione è costituita da un elenco con valori delimitati da virgole di nomi di proprietà. È possibile specificare qualsiasi proprietà per il tipo di entità su cui si esegue la query.
 * Questa stringa di selezione di esempio specifica che dovranno essere restituiti solo i valori di tre proprietà per ogni attività: `id, state, stateTransitionTime`.
 
-### <a name="expand"></a>Espandere
+### <a name="expand"></a>Espandi
 La stringa di espansione riduce il numero di chiamate API richieste per ottenere determinate informazioni. Quando si usa una stringa di espansione, si possono ottenere altre informazioni su ogni elemento con una singola chiamata API. Invece di ottenere prima l'elenco delle entità e quindi richiedere informazioni per ogni elemento nell'elenco, usare una stringa di espansione per ottenere le stesse informazioni in una singola chiamata API. Meno chiamate API significano prestazioni migliori.
 
 * Analogamente alla stringa di selezione, la stringa di espansione controlla se determinati dati sono inclusi nei risultati di una query di tipo elenco.
@@ -106,8 +106,8 @@ La stringa di espansione riduce il numero di chiamate API richieste per ottenere
 All'interno dell'API [batch .NET][api_net] , viene usata la classe [ODATADetailLevel][odata] per specificare le stringhe di filtro, Select ed Expand per elencare le operazioni. La classe ODataDetailLevel presenta tre proprietà pubbliche di tipo stringa che possono essere specificate nel costruttore o impostate direttamente: Passare quindi l'oggetto ODataDetailLevel come parametro alle diverse operazioni di elenco, ad esempio [ListPools][net_list_pools], [ListJobs][net_list_jobs]e [ListTasks][net_list_tasks].
 
 * [ODATADetailLevel][odata]. [FilterClause][odata_filter]: limita il numero di elementi restituiti.
-* [ODATADetailLevel][odata]. [SelectClause][odata_select]: specifica i valori della proprietà restituiti con ogni elemento.
-* [ODATADetailLevel][odata]. [ExpandClause][odata_expand]: recupera i dati per tutti gli elementi in una singola chiamata all'API anziché con chiamate separate per ogni elemento.
+* [ODATADetailLevel][odata]. [SelectClause][odata_select]: specificare i valori delle proprietà restituiti con ogni elemento.
+* [ODATADetailLevel][odata]. [ExpandClause][odata_expand]: recupera i dati per tutti gli elementi in una singola chiamata API invece di chiamate separate per ogni elemento.
 
 Il frammento di codice seguente usa l'API Batch .NET per eseguire query efficienti sul servizio Batch per ottenere le statistiche di un set di pool specificato. In questo scenario l'utente Batch ha pool di test e di produzione. Gli ID del pool di test sono preceduti da "test", mentre quelli del pool di produzione sono preceduti da "prod". Nel frammento di codice *myBatchClient* è un'istanza della classe [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) inizializzata correttamente.
 
@@ -146,8 +146,8 @@ List<CloudPool> testPools =
 I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione *devono* riflettere le rispettive controparti dell'API REST, sia a livello di nome che di lettere maiuscole/minuscole. Le tabelle seguenti forniscono i mapping tra l'API .NET e le relative controparti dell'API REST.
 
 ### <a name="mappings-for-filter-strings"></a>Mapping per le stringhe di filtro
-* **Metodi list .NET**: Ognuno dei metodi dell'API .NET in questa colonna accetta un oggetto [ODATADetailLevel][odata] come parametro.
-* **Richieste list REST**: ogni pagina dell'API REST collegata in questa colonna contiene una tabella che specifica le proprietà e le operazioni consentite nelle stringhe di *filtro*. Questi nomi di proprietà e operazioni vengono usati quando si costruisce una stringa [ODATADetailLevel. FilterClause][odata_filter] .
+* **Metodi elenco .NET**: ognuno dei metodi dell'API .NET in questa colonna accetta un oggetto [ODATADetailLevel][odata] come parametro.
+* **Richieste list REST**: ogni pagina dell'API REST collegata in questa colonna contiene una tabella che specifica le proprietà e le operazioni consentite nelle stringhe di *filtro* . Questi nomi di proprietà e operazioni vengono usati quando si costruisce una stringa [ODATADetailLevel. FilterClause][odata_filter] .
 
 | Metodi list .NET | Richieste list REST |
 | --- | --- |
@@ -163,7 +163,7 @@ I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione *devon
 | [PoolOperations. ListPools][net_list_pools] |[Elencare i pool in un account][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Mapping per le stringhe di selezione
-* **Tipi di Batch .NET**: Tipi di API Batch .NET.
+* **Tipi di Batch .NET**: tipi di API Batch .NET.
 * **Entità di API REST**: ogni pagina di questa colonna contiene una o più tabelle che indicano i nomi delle proprietà dell'API REST per il tipo. Questi nomi di proprietà vengono usati per la costruzione di stringhe di *selezione* . Questi stessi nomi di proprietà vengono usati quando si costruisce una stringa [ODATADetailLevel. SelectClause][odata_select] .
 
 | Tipi di Batch .NET | Entità di API REST |
@@ -178,7 +178,7 @@ I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione *devon
 ## <a name="example-construct-a-filter-string"></a>Esempio: costruire una stringa di filtro
 Quando si crea una stringa di filtro per [ODATADetailLevel. FilterClause][odata_filter], consultare la tabella precedente in "mapping per le stringhe di filtro" per trovare la pagina della documentazione dell'API REST corrispondente all'operazione di elenco che si desidera eseguire. Le proprietà filtrabili e gli operatori supportati sono disponibili nella prima tabella con più righe in quella pagina. Se si desidera recuperare tutte le attività il cui codice di uscita è diverso da zero, ad esempio, questa riga nell' [elenco delle attività associate a un processo][rest_list_tasks] specifica la stringa di proprietà applicabile e gli operatori consentiti:
 
-| Proprietà | Operazioni consentite | Type |
+| Proprietà | Operazioni consentite | Tipo |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -189,7 +189,7 @@ La stringa di filtro per elencare tutte le attività con un codice di uscita non
 ## <a name="example-construct-a-select-string"></a>Esempio: costruire una stringa di selezione
 Per costruire [ODATADetailLevel. SelectClause][odata_select], consultare la tabella precedente in "mapping per le stringhe di selezione" e passare alla pagina dell'API REST corrispondente al tipo di entità di cui si sta eseguendo l'elenco. Le proprietà selezionabili e gli operatori supportati sono disponibili nella prima tabella con più righe in quella pagina. Se si desidera recuperare solo l'ID e la riga di comando per ogni attività in un elenco, ad esempio, è possibile trovare le righe nella tabella applicabile in [ottenere informazioni su un'attività][rest_get_task]:
 
-| Proprietà | Type | Note |
+| Proprietà | Tipo | Note |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

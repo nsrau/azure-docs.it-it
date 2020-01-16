@@ -2,21 +2,21 @@
 title: Simulazione in parallelo in R con Azure Batch
 description: Esercitazione - Istruzioni dettagliate per eseguire una simulazione finanziaria Monte Carlo in Azure Batch usando il pacchetto R doAzureParallel
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321913"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029219"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Esercitazione: Eseguire una simulazione in parallelo in R con Azure Batch 
 
@@ -30,7 +30,7 @@ Questa esercitazione mostra come distribuire un pool di Batch ed eseguire un pro
 > * Creare un pool di Batch come back-end parallelo per la sessione R
 > * Eseguire una simulazione di esempio in parallelo nel pool
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una distribuzione [R](https://www.r-project.org/) installata, ad esempio [Microsoft R Open](https://mran.microsoft.com/open). Usare R versione 3.3.1 o successive.
 
@@ -110,7 +110,7 @@ Per questa esercitazione, modificare la configurazione in questo modo:
 * Aumentare `maxTasksPerNode` a *2* per trarre vantaggio da entrambi i core in ogni nodo.
 * Impostare `dedicatedNodes` su *0* per provare le VM con priorità bassa per Batch. Impostare `min` per `lowPriorityNodes` su *5*. Impostare `max` su *10* oppure scegliere numeri minori se necessario. 
 
-Mantenere i valori predefiniti per le altre impostazioni e salvare il file. Dovrebbe essere simile a quello riportato di seguito:
+Mantenere i valori predefiniti per le altre impostazioni e salvare il file. Dovrebbe essere simile a quanto riportato di seguito:
 
 ```json
 {

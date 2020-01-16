@@ -7,12 +7,12 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269465"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029931"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usare l'emulatore di azzurrite per lo sviluppo e il testing di archiviazione di Azure locale (anteprima)
 
@@ -282,6 +282,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### <a name="loose-mode"></a>Modalità Loose
+
+**Facoltativo** Per impostazione predefinita, azzurrite applica la modalità Strict per bloccare le intestazioni di richiesta e i parametri non supportati. Disabilitare la modalità Strict utilizzando l'opzione **--Loose** .
+
+```console
+azurite --loose
+```
+
+Annotare il tasto di scelta rapida "L" maiuscolo:
+
+```console
+azurite -L
+```
+
 ## <a name="authorization-for-tools-and-sdks"></a>Autorizzazione per strumenti e SDK
 
 Connettersi a azzurrite da SDK o strumenti di archiviazione di Azure, ad esempio [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), usando qualsiasi strategia di autenticazione. L'autenticazione è obbligatoria. Azzurrite supporta l'autorizzazione con la chiave condivisa e le firme di accesso condiviso (SAS). Azzurrite supporta anche l'accesso anonimo ai contenitori pubblici.
@@ -307,6 +321,33 @@ Il modo più semplice per connettersi a azzurrite dall'applicazione consiste nel
 ```
 
 Per altre informazioni, vedere [Configurare le stringhe di connessione di Archiviazione di Azure](storage-configure-connection-string.md).
+
+### <a name="custom-storage-accounts-and-keys"></a>Chiavi e account di archiviazione personalizzati
+
+Azzurrite supporta i nomi e le chiavi degli account di archiviazione personalizzati impostando la variabile di ambiente `AZURITE_ACCOUNTS` nel formato seguente: `account1:key1[:key2];account2:key1[:key2];...`.
+
+Ad esempio, usare un account di archiviazione personalizzato con una chiave:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+In alternativa, usare più account di archiviazione con 2 chiavi ciascuno:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+Azzurrite aggiorna i nomi e le chiavi degli account personalizzati dalla variabile di ambiente ogni minuto per impostazione predefinita. Con questa funzionalità è possibile ruotare dinamicamente la chiave dell'account o aggiungere nuovi account di archiviazione senza riavviare azzurrite.
+
+> [!NOTE]
+> L'account di archiviazione predefinito `devstoreaccount1` è disabilitato quando si impostano gli account di archiviazione personalizzati.
+
+> [!NOTE]
+> Aggiornare la stringa di connessione di conseguenza quando si utilizzano nomi di account e chiavi personalizzati.
+
+> [!NOTE]
+> Usare la parola chiave `export` per impostare le variabili di ambiente in un ambiente Linux, usare `set` in Windows.
 
 ### <a name="storage-explorer"></a>Storage Explorer
 

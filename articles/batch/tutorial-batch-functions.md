@@ -2,7 +2,7 @@
 title: Attivare un processo di Batch usando Funzioni di Azure
 description: Esercitazione - Applicare il metodo OCR ai documenti digitalizzati quando vengono aggiunti a un BLOB di archiviazione
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: d5a5197227ff62ca0c610e2c4e269480690d3faf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343103"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029230"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Esercitazione: Attivare un processo di Batch usando Funzioni di Azure
 
 Questa esercitazione spiega come attivare un processo di Batch usando Funzioni di Azure. Verrà illustrato un esempio in cui ai documenti aggiunti a un contenitore BLOB del servizio di archiviazione di Azure viene applicato il riconoscimento ottico dei caratteri (OCR) tramite Azure Batch. Per semplificare l'elaborazione OCR, verrà configurata una funzione di Azure che esegue un processo OCR di Batch ogni volta che viene aggiunto un file nel contenitore BLOB.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Un account Azure Batch e un account di archiviazione di Azure collegato. Per altre informazioni su come creare e collegare account, vedere [Creare un account Batch](quick-create-portal.md#create-a-batch-account).
@@ -92,8 +92,8 @@ Caricare i file digitalizzati dalla directory [`input_files`](https://github.com
 2019-05-29T19:45:25.846 [Information] Creating job...
 2019-05-29T19:45:25.847 [Information] Accessing input container <inputContainer>...
 2019-05-29T19:45:25.847 [Information] Adding <fileName> as a resource file...
-2019-06-21T20:02:35.129 [Information] Name of output text file: <outputTxtFile>
-2019-06-21T20:02:35.130 [Information] Name of output PDF file: <outputPdfFile>
+2019-05-29T19:45:25.848 [Information] Name of output text file: <outputTxtFile>
+2019-05-29T19:45:25.848 [Information] Name of output PDF file: <outputPdfFile>
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 

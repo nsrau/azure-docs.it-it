@@ -2,19 +2,19 @@
 title: Conteggiare attività e nodi in base allo stato - Azure Batch | Microsoft Docs
 description: Conteggiare le attività e i nodi di calcolo di Azure Batch in base allo stato per gestire e monitorare le soluzioni Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 7b41be8c325cd238592f33369499348885de1778
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5e90045b7863968e8c61c3cbc382434bc8be415a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323535"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029712"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorare le soluzioni Batch conteggiando attività e nodi in base allo stato
 
@@ -35,9 +35,9 @@ Se si usa una versione del servizio che non supporta le operazioni di conteggio 
 L'operazione di recupero dei conteggi delle attività conta le attività in base agli stati seguenti:
 
 - **Attiva**: l'attività è accodata e può essere eseguita, ma non è attualmente assegnata a un nodo di calcolo. Un'attività è `active` anche se [dipende da un'attività padre](batch-task-dependencies.md) non ancora completata. 
-- **In esecuzione**: l'attività è stata assegnata a un nodo di calcolo, ma non è ancora completata. Un'attività viene conteggiata `running` come quando lo stato `preparing` è o `running`, come indicato dall'operazione [ottenere informazioni su un'attività][rest_get_task] .
+- **In esecuzione**: l'attività è stata assegnata a un nodo di calcolo, ma non è ancora completata. Un'attività viene conteggiata come `running` quando il suo stato è `preparing` o `running`, come indicato dall'operazione [ottenere informazioni su un'attività][rest_get_task] .
 - **Completata**: l'attività non è più idonea per l'esecuzione, perché è stata completata correttamente o è terminata con esito negativo e ha anche superato il limite di tentativi. 
-- **Riuscita**: un'attività il cui risultato dell'esecuzione è `success`. Batch determina se un'attività ha avuto esito positivo o negativo `TaskExecutionResult` controllando la proprietà della proprietà [executionInfo][rest_get_exec_info] .
+- **Riuscita**: un'attività il cui risultato dell'esecuzione è `success`. Batch determina se un'attività ha avuto esito positivo o negativo controllando la proprietà `TaskExecutionResult` della proprietà [executionInfo][rest_get_exec_info] .
 - **Non riuscita**: un'attività il cui risultato dell'esecuzione è `failure`.
 
 L'esempio di codice .NET seguente mostra come recuperare i conteggi delle attività in base allo stato: 
@@ -71,7 +71,7 @@ L'operazione di conteggio dei nodi del pool conta i nodi di calcolo di ogni pool
 - **Reimaging**: un nodo in cui viene reinstallato il sistema operativo.
 - **Running**: nodo che esegue una o più attività (diversa dall'attività di avvio).
 - **Starting**: nodo in cui viene avviato il servizio Batch. 
-- **StartTaskFailed** : nodo in cui l' [attività di avvio][rest_start_task] ha avuto esito negativo ed esaurito tutti `waitForSuccess` i tentativi e su cui è impostato l'attività di avvio. Il nodo non può essere usato per l'esecuzione di attività.
+- **StartTaskFailed** : nodo in cui l' [attività di avvio][rest_start_task] ha avuto esito negativo ed esaurito tutti i tentativi e in cui `waitForSuccess` è impostato sull'attività di avvio. Il nodo non può essere usato per l'esecuzione di attività.
 - **Unknown**: nodo che ha perso il contatto con il servizio Batch e il cui stato non è noto.
 - **Unusable**: nodo che non può essere usato per l'esecuzione di attività a causa di errori.
 - **WaitingForStartTask**: nodo in cui l'attività ha iniziato l'esecuzione, ma è impostato `waitForSuccess` e l'attività di avvio non è stata completata.

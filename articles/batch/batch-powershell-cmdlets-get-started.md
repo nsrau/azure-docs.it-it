@@ -3,7 +3,7 @@ title: Introduzione a PowerShell - Azure Batch | Microsoft Docs
 description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 21930d5240225540159fa425d9d9fa518a1b19d5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 48b728d0e5b710f3adaa576f012bdbd19effc20a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323087"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026586"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
 
@@ -48,7 +48,7 @@ Questo articolo si basa sui cmdlet del modulo Azure Batch versione 1.0.0. È con
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gestire gli account e le chiavi Batch
 
-### <a name="create-a-batch-account"></a>Creare un account Batch
+### <a name="create-a-batch-account"></a>Crea un account Batch
 
 **New-AzBatchAccount** crea un account Batch in un gruppo di risorse specificato. Se non si ha già un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Specificare una delle aree di Azure nel parametro **location**, ad esempio "Stati Uniti centrali". Ad esempio:
 

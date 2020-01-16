@@ -1,18 +1,18 @@
 ---
 title: Procedure consigliate-Azure Batch
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo della soluzione Azure Batch.
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 19c5b6acaeddb915af49cf62a884da0678075f15
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535665"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026154"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate Azure Batch
 
@@ -109,7 +109,7 @@ Le attività sono singole unità di lavoro che comprendono un processo. Le attiv
 - **Inviare un numero elevato di attività in una raccolta.**  
     Le attività possono essere inviate in base a singole o raccolte. Invia le attività in [raccolte](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) fino a 100 alla volta durante l'invio in blocco delle attività per ridurre il sovraccarico e il tempo di invio.
 
-### <a name="task-execution"></a>Esecuzione di attività
+### <a name="task-execution"></a>Esecuzione delle attività
 
 - **Scelta delle attività massime per nodo**  
     Batch supporta l'oversubscriptioning delle attività nei nodi (esecuzione di più attività rispetto a quelle di un nodo con Core). È compito dell'utente verificare che le attività siano adatte ai nodi del pool. È ad esempio possibile che si verifichi una riduzione delle prestazioni se si tenta di pianificare otto attività, ognuna delle quali utilizza il 25% di utilizzo della CPU su un nodo (in un pool con `maxTasksPerNode = 8`).

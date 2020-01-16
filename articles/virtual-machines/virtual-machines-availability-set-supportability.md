@@ -1,6 +1,6 @@
 ---
 title: Supporto dell'aggiunta di macchine virtuali di Azure a un set di disponibilità esistente | Microsoft Docs
-description: Supporto dell'aggiunta di macchine virtuali di Azure a un set di disponibilità esistente.
+description: Questo articolo fornisce una matrice di supporto per la serie di macchine virtuali che è possibile combinare nello stesso set di disponibilità
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3954df389516aa7199022d713dc63d62dda961ae
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: cb0034f2b353284e94d6f1508541b31040a5b076
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155449"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028415"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Supporto dell'aggiunta di macchine virtuali di Azure a un set di disponibilità esistente
 
@@ -30,7 +30,7 @@ Di seguito si riporta la matrice di supporto per combinare diversi tipi di macch
 Serie e set di disponibilità|Seconda macchina virtuale|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |Prima macchina virtuale|||||||
-|Una||OK|OK|OK|OK|OK|
+|A||OK|OK|OK|OK|OK|
 |Av2||OK|OK|OK|OK|OK|
 |D||OK|OK|OK|OK|OK|
 |Dv2||OK|OK|OK|OK|OK|

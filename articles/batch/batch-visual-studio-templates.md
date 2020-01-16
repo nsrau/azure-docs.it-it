@@ -3,7 +3,7 @@ title: Creare soluzioni con modelli di Visual Studio - Azure Batch | Microsoft D
 description: Informazioni su come questi modelli di progetto di Visual Studio consentono di implementare ed eseguire carichi di lavoro a elevato utilizzo di calcolo in Azure Batch.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 60662e723a55c969fdd4b70e732303c90bbf9e8b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a8cbc630be684371d8dc7917870d581c9a072db5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094348"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029593"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
 
@@ -30,7 +30,7 @@ I modelli di Visual Studio **Gestore di processi** e **Task Processor** (Elabora
 > 
 > 
 
-## <a name="high-level-overview"></a>Panoramica generale
+## <a name="high-level-overview"></a>Panoramica di alto livello
 I modelli Job Manager (Gestore di processi) e Task Processor (Elaboratore di attività) possono essere usati per creare due utili componenti:
 
 * Un'attività del gestore di processi che implementa un componente di suddivisione dei processi per suddividere un processo in più attività eseguibili in modo indipendente e parallelo.
@@ -61,10 +61,10 @@ Per usare i modelli di Batch, sarà necessario quanto segue:
     
     * Azure Batch Job Manager with Job Splitter (Gestore di processi di Azure Batch con componente di suddivisione dei processi)
     * Azure Batch Task Processor (Elaboratore di attività di Azure Batch)
-  * Scaricare i modelli dalla raccolta online per Visual Studio: [Modelli di progetto Microsoft Azure Batch][vs_gallery_templates]
+  * Scaricare i modelli dalla raccolta online per Visual Studio: [modelli di progetto Microsoft Azure batch][vs_gallery_templates]
 * Se si prevede di usare la funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) per distribuire il gestore di processi e l'elaboratore di attività nei nodi di calcolo di Batch, è necessario collegare un account di archiviazione all'account Batch.
 
-## <a name="preparation"></a>Operazioni preliminari
+## <a name="preparation"></a>Preparazione
 Si consiglia di creare una soluzione che possa contenere il gestore di processi oltre all'elaboratore di attività, perché può semplificare la condivisione del codice tra i programmi del gestore di processi e dell'elaboratore di attività. Per creare la soluzione, seguire questi passaggi:
 
 1. Aprire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
@@ -97,7 +97,7 @@ Per aggiungere un gestore di processi alla soluzione creata prima, seguire quest
 Quando si crea un progetto usando il modello Job Manager (Gestore di processi), questo genera tre gruppi di file di codice:
 
 * Il file di programma principale (Program.cs), che contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello. In genere non è necessario modificarlo.
-* La directory Framework, che contiene i file responsabili delle operazioni del "boilerplate" eseguite dal programma del gestore di processi, ad esempio decompressione dei parametri, aggiunta di attività al processo batch e così via. In genere non è necessario modificare questi file.
+* La directory Framework, In genere non è necessario modificare questi file.
 * Il file del componente di suddivisione dei processi (JobSplitter.cs), in cui si inserirà la logica specifica dell'applicazione per suddividere un processo in attività.
 
 Ovviamente è possibile aggiungere altri file, se necessari per supportare il codice del componente di suddivisione dei processi, in base alla complessità della logica di suddivisione dei processi.
@@ -123,7 +123,7 @@ La parte restante di questa sezione illustra i diversi file e la struttura del c
 **File di progetto della riga di comando .NET standard**
 
 * `App.config`: file di configurazione dell'applicazione .NET standard.
-* `Packages.config`: file delle dipendenze del pacchetto NuGet standard.
+* `Packages.config`: file di dipendenza del pacchetto NuGet standard.
 * `Program.cs`: contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello.
 
 ### <a name="implementing-the-job-splitter"></a>Implementazione del componente di suddivisione dei processi
@@ -190,7 +190,7 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività del gestore di processi implementata con il modello Job Manager (Gestore di processi) può restituire tre possibili codici di uscita:
 
-| Codice | Descrizione |
+| Codice | Description |
 | --- | --- |
 | 0 |Il gestore di processi è stato completato. Il codice del componente di suddivisione dei processi è stato eseguito fino al completamento e tutte le attività sono state aggiunte al processo. |
 | 1 |L'attività del gestore di processi non è riuscita con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in JobManagerException con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |
@@ -266,7 +266,7 @@ Per aggiungere un elaboratore di attività alla soluzione creata prima, seguire 
 Quando si crea un progetto usando il modello di elaboratore di attività, questo genera tre gruppi di file di codice:
 
 * Il file di programma principale (Program.cs), che contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello. In genere non è necessario modificarlo.
-* La directory Framework, che contiene i file responsabili delle operazioni del "boilerplate" eseguite dal programma del gestore di processi, ad esempio decompressione dei parametri, aggiunta di attività al processo batch e così via. In genere non è necessario modificare questi file.
+* La directory Framework, In genere non è necessario modificare questi file.
 * Il file dell'elaboratore di attività (TaskProcessor.cs), in cui si inserirà la logica specifica dell'applicazione per l'esecuzione di un'attività, in genere chiamando un eseguibile esistente. Anche il codice di pre-elaborazione e post-elaborazione, ad esempio per il download di dati aggiuntivi o il caricamento dei file dei risultati, viene inserito qui.
 
 Ovviamente è possibile aggiungere altri file, se necessari per supportare il codice dell'elaboratore di attività, in base alla complessità della logica di suddivisione dei processi.
@@ -297,7 +297,7 @@ La parte restante di questa sezione illustra i diversi file e la struttura del c
 **File di progetto della riga di comando .NET standard**
 
 * `App.config`: file di configurazione dell'applicazione .NET standard.
-* `Packages.config`: file delle dipendenze del pacchetto NuGet standard.
+* `Packages.config`: file di dipendenza del pacchetto NuGet standard.
 * `Program.cs`: contiene il punto di ingresso del programma e la gestione delle eccezioni di primo livello.
 
 ## <a name="implementing-the-task-processor"></a>Implementazione dell'elaboratore di attività
@@ -368,7 +368,7 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività dell'elaboratore di attività implementata con il modello Task Processor (Elaboratore di attività) può restituire tre possibili codici di uscita:
 
-| Codice | DESCRIZIONE |
+| Codice | Description |
 | --- | --- |
 | [Process. ExitCode][process_exitcode] |L'elaboratore di attività è stato eseguito fino al completamento. Si noti che questo non significa che il programma richiamato ha avuto esito positivo, ma solo che l'elaboratore di attività lo ha richiamato correttamente e ha eseguito le operazioni di post-elaborazione senza eccezioni. Il significato del codice di uscita dipende dal programma richiamato: in genere il codice di uscita 0 indica che il programma ha avuto esito positivo, mentre gli altri codici di uscita indicano che il programma ha avuto esito negativo. |
 | 1 |L'elaboratore di attività non è riuscito con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in `TaskProcessorException` con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |
@@ -409,7 +409,7 @@ Un client può passare informazioni all'attività del gestore di processi sotto 
 * URL dell'account Batch
 * Chiave dell'account Batch
 
-Il servizio batch ha un semplice meccanismo per passare le impostazioni di ambiente a un'attività del gestore di `EnvironmentSettings` processi usando la proprietà in [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
+Il servizio batch ha un semplice meccanismo per passare le impostazioni di ambiente a un'attività del gestore di processi usando la proprietà `EnvironmentSettings` in [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
 
 Ad esempio, per ottenere l'istanza di `BatchClient` per un account Batch, è possibile passare come variabili di ambiente dal codice client l'URL e le credenziali con chiave condivisa per l'account Batch. Analogamente, per accedere all'account di archiviazione collegato all'account Batch, è possibile passare il nome dell'account di archiviazione e la chiave dell'account di archiviazione come variabili di ambiente.
 

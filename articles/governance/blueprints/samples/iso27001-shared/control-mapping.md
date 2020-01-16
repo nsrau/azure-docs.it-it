@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Servizi condivisi ISO 27001
 description: Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: b484bdc2fdaa346e5137b31e3225dc913f43ed0c
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6c03da7d5d4caada9ef47a828163a79a003bea93
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546720"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922530"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001
 

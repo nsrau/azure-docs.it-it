@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrare da Federazione a PTA per Azure AD'
+title: 'Azure AD Connect: eseguire la migrazione dalla Federazione a PTA per Azure AD'
 description: Questo articolo include informazioni sulla migrazione di un ambiente ibrido di gestione delle identità dalla federazione all'autenticazione pass-through.
 services: active-directory
 author: billmath
@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 21ceacf27f92781b40a856b0c0a4d627d41a0738
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779911"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028573"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione all'autenticazione pass-through per Azure Active Directory
 
 Questo articolo descrive come spostare i domini dell'organizzazione da Active Directory Federation Services (AD FS) all'autenticazione pass-through.
 
-È possibile [scaricare questo articolo](https://aka.ms/ADFSTOPTADPDownload).
+> [!NOTE]
+> Per modificare il metodo di autenticazione è necessario pianificare, testare e potenzialmente inattività. L'implementazione di gestione [temporanea](how-to-connect-staged-rollout.md) fornisce un modo alternativo per testare e migrare gradualmente dalla Federazione all'autenticazione cloud usando l'autenticazione pass-through.
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Prerequisiti per la migrazione all'autenticazione pass-through
 
@@ -36,13 +37,13 @@ Per completare i passaggi necessari per eseguire la migrazione all'uso dell'aute
 > [!IMPORTANT]
 > In documenti, strumenti e blog non aggiornati potrebbe essere indicato che la conversione degli utenti è obbligatoria quando si convertono i domini dall'identità federata all'identità gestita. La *conversione degli utenti* non è più obbligatoria. Microsoft sta aggiornando la documentazione e gli strumenti in base a questa modifica.
 
-Per aggiornare Azure AD Connect, completare i passaggi elencati in [Azure AD Connect: Eseguire l'aggiornamento alla versione più recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+Per aggiornare Azure AD Connect, completare i passaggi descritti in [Azure ad Connect: eseguire l'aggiornamento alla versione più recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
 ### <a name="plan-authentication-agent-number-and-placement"></a>Pianificare il numero e il posizionamento degli agenti di autenticazione
 
 L'autenticazione pass-through richiede la distribuzione di agenti leggeri nel server di Azure AD Connect e nel computer locale che esegue Windows Server. Per ridurre la latenza, installare gli agenti il più vicino possibile ai controller di dominio di Active Directory.
 
-Per la maggior parte dei clienti, due o tre agenti di autenticazione sono sufficienti per fornire disponibilità elevata e la capacità necessaria. Un tenant può avere un massimo di 12 agenti registrati. Il primo agente viene installato sempre nel server di Azure AD Connect. Per informazioni sulle limitazioni e sulle opzioni di distribuzione degli agenti, vedere [Autenticazione pass-through di Azure AD: Limitazioni correnti](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations).
+Per la maggior parte dei clienti, due o tre agenti di autenticazione sono sufficienti per fornire disponibilità elevata e la capacità necessaria. Un tenant può avere un massimo di 12 agenti registrati. Il primo agente viene installato sempre nel server di Azure AD Connect. Per informazioni sulle limitazioni degli agenti e sulle opzioni di distribuzione degli agenti, vedere [Azure ad autenticazione pass-through: limitazioni correnti](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations).
 
 ### <a name="plan-the-migration-method"></a>Pianificare il metodo di migrazione
 
@@ -77,8 +78,8 @@ Per comprendere quale metodo è preferibile usare, completare i passaggi nelle s
    ![Screenshot dell'opzione Visualizza la configurazione corrente selezionata nella pagina Attività aggiuntive](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. Nella pagina **Verifica della soluzione** scorrere fino a visualizzare **Active Directory Federation Services (AD FS)** .<br />
 
-   * Se in questa sezione viene visualizzata la configurazione di AD FS, si può presupporre con sicurezza che AD FS sia stato originariamente configurato usando Azure AD Connect. È possibile convertire i domini dall'identità federata all'identità gestita usando l'opzione **Cambia l'accesso utente** di Azure AD Connect. Per ulteriori informazioni sul processo, vedere la sezione **Option A: Configurare l'autenticazione pass-through con Azure AD Connect**.
-   * Se AD FS non è elencato nelle impostazioni correnti, è necessario convertire manualmente i domini dall'identità federata all'identità gestita usando PowerShell. Per altre informazioni su questo processo, vedere la sezione **Opzione B: Passare dalla federazione all'autenticazione pass-through con Azure AD Connect e PowerShell**.
+   * Se in questa sezione viene visualizzata la configurazione di AD FS, si può presupporre con sicurezza che AD FS sia stato originariamente configurato usando Azure AD Connect. È possibile convertire i domini dall'identità federata all'identità gestita usando l'opzione **Cambia l'accesso utente** di Azure AD Connect. Per ulteriori informazioni sul processo, vedere la sezione **opzione A: configurare l'autenticazione pass-through utilizzando Azure ad Connect**.
+   * Se AD FS non è elencato nelle impostazioni correnti, è necessario convertire manualmente i domini dall'identità federata all'identità gestita usando PowerShell. Per altre informazioni su questo processo, vedere la sezione **opzione B: passare dalla Federazione all'autenticazione pass-through usando Azure ad Connect e PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Documentare le impostazioni di federazione correnti
 
@@ -124,13 +125,13 @@ Questa sezione include considerazioni sulla distribuzione e dettagli sull'uso di
 
 Prima di poter procedere alla conversione dell'identità da federata a gestita, è consigliabile esaminare con attenzione il modo in cui si usa attualmente AD FS per Azure AD, Office 365 e altre applicazioni (trust di relying party). In particolare, considerare gli scenari descritti nella tabella seguente:
 
-| Se | Allora |
+| Se | Risultato |
 |-|-|
 | Si prevede di continuare a usare AD FS con altre applicazioni (diverse da Azure AD e Office 365). | Dopo la conversione dei domini, si useranno sia AD FS che Azure AD. Considerare l'esperienza utente. È possibile che in alcuni scenari gli utenti debbano eseguire due volte l'autenticazione: una per accedere ad Azure AD (dove un utente ottiene l'accesso Single Sign-On ad altre applicazioni, come Office 365) e l'altra per le applicazioni ancora associate ad AD FS come trust della relying party. |
 | L'istanza di AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js, ad esempio se si è modificata l'esperienza di accesso per consentire agli utenti di usare il proprio nome solo nel formato **SamAccountName**, invece di un nome di entità utente (UPN), o se l'organizzazione visualizza informazioni personalizzate distintive dell'azienda. Il file onload.js non può essere duplicato in Azure AD. | Prima di continuare, è necessario verificare che Azure AD possa soddisfare i requisiti di personalizzazione corrente. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
 | Si usa AD FS per bloccare le versioni precedenti dei client di autenticazione.| Provare a sostituire AD FS controlli che bloccano le versioni precedenti dei client di autenticazione usando una combinazione di [controlli di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regole di accesso client di Exchange Online](https://aka.ms/EXOCAR). |
 | Si richiede agli utenti di eseguire l'autenticazione a più fattori in una soluzione server di autenticazione a più fattori locale quando gli utenti eseguono l'autenticazione ad AD FS.| In un dominio con identità gestite, non è possibile inserire una richiesta di autenticazione a più fattori tramite la soluzione di autenticazione a più fattori locale nel flusso di autenticazione. È tuttavia possibile usare il servizio Azure Multi-Factor Authentication per l'autenticazione a più fattori dopo aver convertito il dominio.<br /><br /> Se gli utenti attualmente non usano Azure Multi-Factor Authentication, è necessario un unico passaggio di registrazione utente. È necessario eseguire le opportune operazioni preliminari e comunicare agli utenti la registrazione pianificata. |
-| Per controllare l'accesso a Office 365, si usano attualmente i criteri di controllo di accesso (regole AuthZ) in AD FS.| Prendere in considerazione la sostituzione dei criteri con i [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) Azure ad equivalenti e le regole di [accesso client di Exchange Online](https://aka.ms/EXOCAR).|
+| Per controllare l'accesso a Office 365, si usano attualmente i criteri di controllo di accesso (regole AuthZ) in AD FS.| Prendere in considerazione la sostituzione dei criteri con i [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) Azure ad equivalenti e le [regole di accesso client di Exchange Online](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizzazioni di AD FS comuni
 
@@ -218,7 +219,7 @@ Ora che la soluzione è stata pianificata, è possibile implementarla. L'impleme
 * Esecuzione delle attività preliminari per l'accesso Single Sign-On facile.
 * Conversione del metodo di accesso all'autenticazione pass-through e abilitazione dell'accesso Single Sign-On facile.
 
-### <a name="step-1-prepare-for-seamless-sso"></a>Passaggio 1: Eseguire le attività preliminari per l'accesso Single Sign-On facile
+### <a name="step-1-prepare-for-seamless-sso"></a>Passaggio 1: preparare l'accesso SSO facile
 
 Per consentire agli utenti di usufruire dell'accesso Single Sign-On facile, è necessario aggiungere un URL di Azure AD alle impostazioni dell'area Intranet degli utenti usando Criteri di gruppo in Active Directory.
 
@@ -229,13 +230,13 @@ Completare questi passaggi per [implementare](https://docs.microsoft.com/azure/a
 > [!IMPORTANT]
 > L'introduzione di questa modifica non cambia il modo in cui gli utenti accedono ad Azure AD. È tuttavia importante applicare questa configurazione a tutti i dispositivi prima di proseguire. Per accedere ai dispositivi a cui non è stata applicata questa configurazione, gli utenti devono immettere un nome utente e una password per l'accesso ad Azure AD.
 
-### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Passaggio 2: Convertire il metodo di accesso all'autenticazione pass-through e abilitare l'accesso Single Sign-On facile
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Passaggio 2: modificare il metodo di accesso per l'autenticazione pass-through e abilitare la funzionalità seamless SSO
 
 Per convertire il metodo di accesso all'autenticazione pass-through e abilitare l'accesso Single Sign-On facile sono disponibili due opzioni.
 
-#### <a name="option-a-configure-pass-through-authentication-by-using-azure-ad-connect"></a>Opzione A: Configurare l'autenticazione pass-through con Azure AD Connect
+#### <a name="option-a-configure-pass-through-authentication-by-using-azure-ad-connect"></a>Opzione A: configurare l'autenticazione pass-through usando Azure AD Connect
 
-Usare questo metodo se si è inizialmente configurato l'ambiente di AD FS tramite Azure AD Connect. In *caso contrario*, questo metodo non può essere usato.
+Usare questo metodo se si è inizialmente configurato l'ambiente di AD FS usando Azure AD Connect. In *caso contrario*, questo metodo non può essere usato.
 
 > [!IMPORTANT]
 > Al termine della procedura seguente, tutti i domini vengono convertiti dall'identità federata all'identità gestita. Per altre informazioni, vedere [Pianificare il metodo di migrazione](#plan-the-migration-method).
@@ -261,7 +262,7 @@ Prima di tutto, cambiare il metodo di accesso:
 7. Nel portale di Azure AD selezionare **Azure Active Directory** e quindi **Azure AD Connect**.
 8. Verificare le impostazioni di questi campi:
    * **Federazione** deve essere impostato su **Disabilitato**.
-   * **Accesso Single Sign-On facile** deve essere impostato su **Abilitata**.
+   * **Accesso Single Sign-On facile** deve essere impostato su **Abilitato**.
    * **Autenticazione pass-through** deve essere impostato su **Abilitata**.<br />
 
    ![Screenshot che mostra le impostazioni nella sezione Accesso utente](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
@@ -288,11 +289,11 @@ Distribuire quindi i metodi di autenticazione aggiuntivi:
 Proseguire con la sezione [Test e passaggi successivi](#testing-and-next-steps).
 
 > [!IMPORTANT]
-> Ignorare la sezione **Opzione B: Passare dalla federazione all'autenticazione pass-through con Azure AD Connect e PowerShell**. I passaggi in questa sezione non sono applicabili se si è scelta l'opzione A per convertire il metodo di accesso all'autenticazione pass-through e abilitare l'accesso Single Sign-On facile. 
+> Ignorare la sezione **opzione B: passare dalla Federazione all'autenticazione pass-through usando Azure ad Connect e PowerShell**. I passaggi in questa sezione non sono applicabili se si è scelta l'opzione A per convertire il metodo di accesso all'autenticazione pass-through e abilitare l'accesso Single Sign-On facile. 
 
-#### <a name="option-b-switch-from-federation-to-pass-through-authentication-by-using-azure-ad-connect-and-powershell"></a>Opzione B: Passare dalla federazione all'autenticazione pass-through con Azure AD Connect e PowerShell
+#### <a name="option-b-switch-from-federation-to-pass-through-authentication-by-using-azure-ad-connect-and-powershell"></a>Opzione B: passare dalla Federazione all'autenticazione pass-through usando Azure AD Connect e PowerShell
 
-Usare questa opzione se non si sono inizialmente configurati i domini federati tramite Azure AD Connect.
+Usare questa opzione se non si sono inizialmente configurati i domini federati usando Azure AD Connect.
 
 Prima di tutto, abilitare l'autenticazione pass-through:
 
@@ -320,7 +321,7 @@ Prima di tutto, abilitare l'autenticazione pass-through:
 
 7. Verificare le impostazioni di questi campi:
    * **Federazione** deve essere impostato su **Abilitata**.
-   * **Accesso Single Sign-On facile** deve essere impostato su **Abilitata**.
+   * **Accesso Single Sign-On facile** deve essere impostato su **Abilitato**.
    * **Autenticazione pass-through** deve essere impostato su **Abilitata**.
    
    ![Screenshot che mostra le impostazioni nella sezione Accesso utente](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
@@ -361,7 +362,7 @@ Completare la conversione usando il modulo Azure AD PowerShell:
 3. Nel portale di Azure scegliere **Azure Active Directory** > **Azure AD Connect**.
 4. Dopo aver convertito tutti i domini federati, verificare le impostazioni di questi campi:
    * **Federazione** deve essere impostato su **Disabilitato**.
-   * **Accesso Single Sign-On facile** deve essere impostato su **Abilitata**.
+   * **Accesso Single Sign-On facile** deve essere impostato su **Abilitato**.
    * **Autenticazione pass-through** deve essere impostato su **Abilitata**.<br />
 
    ![Screenshot che mostra le impostazioni nella sezione Accesso utente](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
@@ -415,7 +416,7 @@ Dopo aver verificato che tutti gli utenti e i client eseguano correttamente l'au
 
 Se non si usa AD FS per altri scopi, ovvero per altri trust di relying party, a questo punto si possono rimuovere senza problemi le autorizzazioni di AD FS.
 
-### <a name="rollback"></a>Rollback
+### <a name="rollback"></a>Ripristino dello stato precedente
 
 Se si riscontra un problema importante che non può essere risolto rapidamente, può essere opportuno eseguire il ripristino della soluzione alla federazione.
 

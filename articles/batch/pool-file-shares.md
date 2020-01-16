@@ -3,7 +3,7 @@ title: Condivisione file di Azure per i pool di Azure Batch | Microsoft Docs
 description: Come montare una condivisione di File di Azure dai nodi di calcolo in un pool Linux o Windows in Azure Batch.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: ''
-ms.openlocfilehash: cd185035640bf0beaa54fa6a0f4d92a33837442b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d84fdd4635a7a9227e29fe3cd8c43a1fc4cbeb5b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093976"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029442"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usare una condivisione file di Azure con un pool di Batch
 
@@ -50,8 +50,8 @@ In Batch è necessario montare la condivisione a ogni esecuzione di un'attività
 
 Ad esempio, includere un comando `net use` per montare la condivisione file come parte della riga di comando di ogni attività. Per montare la condivisione file, sono necessarie le credenziali seguenti:
 
-* **User name** (Nome utente): AZURE\\\<storageaccountname\>, ad esempio AZURE\\*mystorageaccountname*
-* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome utente**: AZURE\\\<storageaccountname\>, ad esempio AZURE\\*mystorageaccountname*
+* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio, *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:* :
 
@@ -128,7 +128,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 Eseguire quindi il comando `mount` per montare la condivisione file, specificando queste credenziali:
 
 * **Nome utente**: \<storageaccountname\>, ad esempio *mystorageaccountname*
-* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio, *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* in */mnt/MyAzureFileShare*: 
 

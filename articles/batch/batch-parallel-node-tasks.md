@@ -3,7 +3,7 @@ title: 'Eseguire attività in parallelo per usare le risorse di calcolo in modo 
 description: Aumenta l'efficienza e si riducono i costi usando meno nodi di calcolo ed eseguendo attività simultanee in ogni nodo dei pool di Azure Batch
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f45c35e6d9fb611ebf73c4eab8b517d8575b8e82
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a47cbbf11117197d6d00d532fb0321d284c56b7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094936"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026819"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Eseguire attività contemporaneamente per ottimizzare l'uso dei nodi di calcolo Batch 
 
@@ -43,7 +43,7 @@ I nodi di calcolo per l'esecuzione di attività parallele vengono configurati a 
 Azure Batch consente di impostare attività per nodo fino a (4x) il numero di nodi principali. Ad esempio, se il pool è configurato con nodi di grandi dimensioni (quattro core), è possibile impostare il valore di `maxTasksPerNode` su 16. Tuttavia, indipendentemente dal numero di core del nodo, non è possibile avere più di 256 attività per nodo. Per informazioni dettagliate sul numero di core per ognuna delle dimensioni del nodo, vedere [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Per altre informazioni sui limiti del servizio, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
 > [!TIP]
-> Assicurarsi di tenere conto del `maxTasksPerNode` valore quando si crea una formula di [scalabilità][enable_autoscaling] automatica per il pool. Ad esempio, l'impatto di un aumento delle attività per nodo può influire in modo significativo su una formula che valuta `$RunningTasks` . Per altre informazioni, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md) .
+> Assicurarsi di prendere in considerazione il valore `maxTasksPerNode` quando si crea una [formula di scalabilità][enable_autoscaling] automatica per il pool. Ad esempio, l'impatto di un aumento delle attività per nodo può influire in modo significativo su una formula che valuta `$RunningTasks` . Per altre informazioni, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md) .
 >
 >
 
@@ -52,7 +52,7 @@ Quando i nodi di calcolo in un pool possono eseguire attività simultaneamente, 
 
 Utilizzando la proprietà [CloudPool. TaskSchedulingPolicy][task_schedule] , è possibile specificare che le attività devono essere assegnate in modo uniforme in tutti i nodi del pool ("distribuzione"). In alternativa, è possibile specificare che più attività possibili vengano assegnate a ciascun nodo prima di essere assegnate a un altro nodo del pool ("imballaggio").
 
-Per un esempio di come questa funzionalità è utile, prendere in considerazione il pool di nodi [D14 standard\_](../cloud-services/cloud-services-sizes-specs.md) (nell'esempio precedente) configurato con un valore [CloudPool. MaxTasksPerComputeNode][maxtasks_net] pari a 16. Se [CloudPool. TaskSchedulingPolicy][task_schedule] è configurato con un [tipo computenodefilltype][fill_type] di *Pack*, l'utilizzo di tutti i 16 core di ogni nodo potrebbe essere ottimizzato e il [pool](batch-automatic-scaling.md) di scalabilità automatica consente di eliminare i nodi inutilizzati dal pool (nodi senza qualsiasi attività assegnata). Ciò consente di ridurre al minimo l'utilizzo delle risorse e di generare un risparmio sui costi.
+Come esempio del modo in cui questa funzionalità è utile, considerare il pool di nodi [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (nell'esempio precedente) configurato con un valore [CloudPool. MaxTasksPerComputeNode][maxtasks_net] pari a 16. Se [CloudPool. TaskSchedulingPolicy][task_schedule] è configurato con un [tipo computenodefilltype][fill_type] di *Pack*, l'utilizzo di tutti i 16 core di ogni nodo verrà ottimizzato e il [pool di scalabilità](batch-automatic-scaling.md) automatica consentirà di eliminare i nodi inutilizzati dal pool (nodi senza attività assegnati). Ciò consente di ridurre al minimo l'utilizzo delle risorse e di generare un risparmio sui costi.
 
 ## <a name="batch-net-example"></a>Esempio per Batch .NET
 Questo frammento di codice dell'API [batch .NET][api_net] Mostra una richiesta per creare un pool contenente quattro nodi con un massimo di quattro attività per nodo. Specifica i criteri di pianificazione delle attività che definiscono le attività da inserire in ogni nodo prima di assegnarle a un altro nodo nel pool. Per altre informazioni sull'aggiunta di pool con l'API batch .NET, vedere [BatchClient. PoolOperations. CreatePool][poolcreate_net].
@@ -89,7 +89,7 @@ Questo frammento di codice API [Rest batch][api_rest] Mostra una richiesta per c
 ```
 
 > [!NOTE]
-> È possibile impostare l' `maxTasksPerNode` elemento e la proprietà [MaxTasksPerComputeNode][maxtasks_net] solo al momento della creazione del pool. e non possono essere modificati una volta che il pool è stato creato.
+> È possibile impostare l'elemento `maxTasksPerNode` e la proprietà [MaxTasksPerComputeNode][maxtasks_net] solo al momento della creazione del pool. e non possono essere modificati una volta che il pool è stato creato.
 >
 >
 

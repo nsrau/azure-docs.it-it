@@ -1,7 +1,7 @@
 ---
 title: Creare configurazioni da server esistenti-automazione di Azure
 description: Informazioni su come creare configurazioni da server esistenti per automazione di Azure.
-keywords: DSC, PowerShell, configurazione, configurazione
+keywords: dsc,powershell,configurazione,installazione
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35f967e946854c3ca097db379015a7ee0bbe2f3d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d888c8fd3bf7cd44c37e7225618bd197f419d275
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231676"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030133"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Creazione di configurazioni da server esistenti
 
@@ -39,12 +39,12 @@ La versione più recente include più [modalità di estrazione](https://github.c
 Il risultato dell'uso della soluzione è la generazione di [dati di configurazione](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) da usare con gli script di configurazione SharePointDSC.
 
 Una volta generati i file di dati, è possibile usarli con gli [script di configurazione DSC](/powershell/scripting/dsc/overview/overview) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Quindi registrare i server da [locale](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) o [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) per eseguire il pull delle configurazioni.
+Quindi registrare i server da [locale](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) o [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) per eseguire il pull delle configurazioni.
 
 Per provare ReverseDSC, visitare il [PowerShell Gallery](https://www.powershellgallery.com/packages/ReverseDSC/) e scaricare la soluzione oppure fare clic su "Project Site" per visualizzare la [documentazione](https://github.com/Microsoft/sharepointDSC.reverse).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview)
+- [Panoramica di PowerShell DSC](/powershell/scripting/dsc/overview/overview)
 - [Risorse DSC](/powershell/scripting/dsc/resources/resources)
-- [Configurazione della Configuration Manager locale](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [Configurazione di Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaconfig)

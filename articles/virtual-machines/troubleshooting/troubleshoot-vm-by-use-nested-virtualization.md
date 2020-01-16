@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 4ef8bc029c63aaf297462a7b53f6daba1a7c850b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942191"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028437"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi relativi a una macchina virtuale di Azure usando la virtualizzazione annidata in Azure
 
@@ -26,11 +26,7 @@ Questo articolo illustra come creare un ambiente di virtualizzazione annidata in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per montare la macchina virtuale con problemi, la macchina virtuale di ripristino deve soddisfare i prerequisiti seguenti:
-
--   Deve trovarsi nella stessa posizione della macchina virtuale con problemi.
-
--   Deve usare lo stesso tipo di account di archiviazione (Standard o Premium) della macchina virtuale con problemi.
+Per montare la macchina virtuale con problemi, la macchina virtuale di ripristino deve usare lo stesso tipo di account di archiviazione (standard o Premium) della macchina virtuale con problemi.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Passaggio 1: Creare una macchina virtuale di ripristino e installare il ruolo Hyper-V
 

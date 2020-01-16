@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: a5cfb79626370ab9f8493038ac1583993a154b59
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912058"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965943"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -249,7 +249,7 @@ Per assicurarsi che un'azione possa ancora essere eseguita nonostante lo stato d
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>Valutare le azioni con ambiti e i relativi risultati
 
-Analogamente ai passaggi eseguiti dopo le singole azioni con la proprietà `runAfter`, è possibile raggruppare le azioni all'interno di un [ambito](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Quando si vuole raggruppare le azioni logicamente, valutare lo stato di aggregazione dell'ambito ed eseguire azioni in base a tale stato, è possibile usare gli ambiti. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito stesso ottiene il proprio stato. 
+Analogamente ai passaggi eseguiti dopo le singole azioni con la proprietà `runAfter`, è possibile raggruppare le azioni all'interno di un [ambito](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Quando si vuole raggruppare le azioni logicamente, valutare lo stato di aggregazione dell'ambito ed eseguire azioni in base a tale stato, è possibile usare gli ambiti. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito stesso ottiene il proprio stato.
 
 Per controllare lo stato di un ambito, è possibile usare gli stessi criteri usati per controllare lo stato di esecuzione di un'app per la logica, ad esempio `Succeeded`, `Failed`e così via.
 
@@ -267,7 +267,7 @@ Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto p
 
 La funzione [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) fornisce il contesto sui risultati di tutte le azioni in un ambito. La funzione `result()` accetta un solo parametro, ovvero il nome dell'ambito, e restituisce una matrice che contiene tutti i risultati dell'azione all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi dell'oggetto `actions()`, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID di correlazione e gli output dell'azione. Per inviare il contesto per qualsiasi azione non riuscita all'interno di un ambito, è possibile associare facilmente un'espressione `@result()` alla proprietà `runAfter`.
 
-Per eseguire un'azione per ogni azione in un ambito con un risultato `Failed` e per filtrare la matrice dei risultati fino alle azioni non riuscite, è possibile associare un'espressione `@result()` a un'azione di [**matrice di filtro**](../connectors/connectors-native-query.md) e un ciclo [**For Each**](../logic-apps/logic-apps-control-flow-loops.md) . È possibile utilizzare la matrice dei risultati filtrata ed eseguire un'azione per ogni errore utilizzando il ciclo `For_each`.
+Per eseguire un'azione per ogni azione in un ambito con un risultato `Failed` e per filtrare la matrice dei risultati fino alle azioni non riuscite, è possibile associare un'espressione `@result()` a un'azione di [**matrice di filtro**](logic-apps-perform-data-operations.md#filter-array-action) e un ciclo [**For Each**](../logic-apps/logic-apps-control-flow-loops.md) . È possibile utilizzare la matrice dei risultati filtrata ed eseguire un'azione per ogni errore utilizzando il ciclo `For_each`.
 
 Di seguito è riportato un esempio, con una spiegazione dettagliata, che invia una richiesta HTTP POST con il corpo della risposta di qualsiasi azione non riuscita all'interno dell'ambito "My_Scope":
 

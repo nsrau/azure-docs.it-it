@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2c32f46ca85007608b5e17f2bf77b0a8f0fb8397
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862748"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972286"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Controlli di sicurezza per il gateway VPN di Azure
 
@@ -36,7 +36,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nel gateway VPN di
 |---|---|--|
 | Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Vedere [avvisi e log di diagnostica di monitoraggio](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) di Azure & [metriche/avvisi di monitoraggio di Azure](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Registrazione e controllo del piano di gestione e controllo| Sì | Azure Resource Manager log attività. |
-| Registrazione e controllo del piano dati | Sì | [Log di diagnostica di monitoraggio di Azure](../azure-resource-manager/resource-group-audit.md) per la registrazione e il controllo della connettività VPN. |
+| Registrazione e controllo del piano dati | Sì | [Log di diagnostica di monitoraggio di Azure](../azure-resource-manager/management/view-activity-logs.md) per la registrazione e il controllo della connettività VPN. |
 
 ## <a name="identity"></a>Identità
 
@@ -59,7 +59,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nel gateway VPN di
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | Per le operazioni di gestione, lo stato di una configurazione del gateway VPN di Azure può essere esportato come modello di Azure Resource Manager e con controllo delle versioni nel tempo. | 
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | Per le operazioni di gestione, lo stato di una configurazione del gateway VPN di Azure può essere esportato come modello di Azure Resource Manager e con controllo delle versioni nel tempo. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

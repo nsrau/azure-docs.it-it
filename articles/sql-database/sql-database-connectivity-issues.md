@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
+ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082501"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027802"
 ---
-# <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestione dei problemi di connessione e degli errori temporanei del database SQL
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Risoluzione degli errori di connessione temporanei al database SQL
 
 Questo articolo illustra come evitare, risolvere, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nell'applicazione client durante l'interazione con il database SQL di Azure. Informazioni su come configurare la logica di ripetizione dei tentativi, compilare la stringa di connessione e modificare altre impostazioni di connessione.
 
@@ -77,8 +77,8 @@ Per i client che usano ADO.NET, è disponibile una discussione sul periodo di bl
 
 Esempi di codice di logica di ripetizione dei tentativi sono disponibili in:
 
-- [Connettersi in modo resiliente a SQL tramite ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Connettersi in modo resiliente a SQL tramite PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Connettersi in modo resiliente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Connettere in modo resiliente a SQL con PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -275,7 +275,7 @@ Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la re
 
 Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli errori e alla ricerca di altre informazioni.
 
-| Query di un log | DESCRIZIONE |
+| Query di un log | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La visualizzazione [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria, è possibile correlare i valori **start_time** o **end_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) offre un conteggio aggregato dei tipi di evento, per consentire operazioni di diagnostica aggiuntive.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
@@ -444,7 +444,6 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla risoluzione dei problemi di connessione del database SQL, vedere [Risoluzione dei problemi di connessione al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 - [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 - [Pool di connessioni di SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in Python](https://pypi.python.org/pypi/retrying) per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.

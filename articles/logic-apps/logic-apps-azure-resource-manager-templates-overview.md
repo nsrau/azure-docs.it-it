@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428811"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972692"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
 Quando si è pronti per automatizzare la creazione e la distribuzione dell'app per la logica, è possibile espandere la definizione del flusso di lavoro sottostante dell'app per la logica in un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Questo modello definisce l'infrastruttura, le risorse, i parametri e altre informazioni per il provisioning e la distribuzione dell'app per la logica. Definendo i parametri per i valori che variano in base alla distribuzione, nota anche come *parametrizzazione*, è possibile distribuire ripetutamente e in modo coerente le app per la logica in base alle diverse esigenze di distribuzione.
 
-Se ad esempio si esegue la distribuzione in ambienti per sviluppo, test e produzione, è probabile che si usino stringhe di connessione diverse per ogni ambiente. È possibile dichiarare parametri di modello che accettano stringhe di connessione diverse e quindi archiviare tali stringhe in un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato. In questo modo, è possibile modificare tali valori senza dover aggiornare e ridistribuire il modello. Per gli scenari in cui sono presenti valori di parametro sensibili o che devono essere protetti, ad esempio password e segreti, è possibile archiviare tali valori in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) e fare in modo che il file di parametri recuperi tali valori. Tuttavia, in questi scenari è necessario eseguire nuovamente la distribuzione per recuperare i valori correnti.
+Se ad esempio si esegue la distribuzione in ambienti per sviluppo, test e produzione, è probabile che si usino stringhe di connessione diverse per ogni ambiente. È possibile dichiarare parametri di modello che accettano stringhe di connessione diverse e quindi archiviare tali stringhe in un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato. In questo modo, è possibile modificare tali valori senza dover aggiornare e ridistribuire il modello. Per gli scenari in cui sono presenti valori di parametro sensibili o che devono essere protetti, ad esempio password e segreti, è possibile archiviare tali valori in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e fare in modo che il file di parametri recuperi tali valori. Tuttavia, in questi scenari è necessario eseguire nuovamente la distribuzione per recuperare i valori correnti.
 
 Questa panoramica descrive gli attributi in un modello di Gestione risorse che include una definizione del flusso di lavoro dell'app per la logica. Sia il modello che la definizione del flusso di lavoro usano la sintassi JSON, ma esistono alcune differenze perché la definizione del flusso di lavoro segue lo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md). Le espressioni di modello e le espressioni di definizione del flusso di lavoro, ad esempio, differiscono per quanto [riguarda i parametri](#parameter-references) e i valori che possono accettare.
 
@@ -31,8 +31,8 @@ L'app per la logica di esempio in questo argomento usa un [trigger di Office 365
 Per ulteriori informazioni sui modelli di Gestione risorse, vedere gli argomenti seguenti:
 
 * [Struttura e sintassi del modello di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Procedure consigliate per i modelli di Azure Resource Manager](../azure-resource-manager/template-best-practices.md)
-* [Sviluppare i modelli di Azure Resource Manager per la coerenza cloud](../azure-resource-manager/templates-cloud-consistency.md)
+* [Procedure consigliate per i modelli di Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md)
+* [Sviluppare i modelli di Azure Resource Manager per la coerenza cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 Per i modelli di app per la logica di esempio, vedere questi esempi:
 
@@ -149,7 +149,7 @@ Per proteggere i parametri del modello, vedere gli argomenti seguenti:
 
 * [Raccomandazioni sulla sicurezza per i parametri del modello](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [Parametri di modello protetti](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Altri oggetti modello spesso fanno riferimento a parametri di modello in modo che possano usare i valori che passano attraverso parametri di modello, ad esempio:
 
@@ -173,7 +173,7 @@ Di seguito sono riportate alcune procedure consigliate per la definizione dei pa
 
   * [Parametri di modello protetti](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * Per distinguere i nomi dei parametri di modello dai nomi dei parametri di definizione del flusso di lavoro, è possibile usare nomi di parametri di modello descrittivi, ad esempio: `TemplateFabrikamPassword`
 
@@ -188,7 +188,7 @@ Per specificare i valori per i parametri del modello, archiviare i valori in un 
 * Nome file modello app per la logica: **<*Logic-app-name*>. JSON**
 * Nome file dei parametri: **<*nome-app-Logic*>. Parameters. JSON**
 
-Di seguito è illustrata la struttura all'interno del file dei parametri, che include un riferimento a Key Vault per [passare un valore di parametro sicuro con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md):
+Di seguito è illustrata la struttura all'interno del file dei parametri, che include un riferimento a Key Vault per [passare un valore di parametro sicuro con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -409,7 +409,7 @@ Questa sintassi Mostra la posizione in cui è possibile dichiarare parametri sia
 
 Per un parametro di definizione del flusso di lavoro che gestisce informazioni riservate, password, chiavi di accesso o segreti in fase di esecuzione, dichiarare o modificare il parametro per usare il tipo di parametro `securestring` o `secureobject`. È possibile fare riferimento a questo parametro in tutta la definizione del flusso di lavoro. Al livello principale del modello, dichiarare un parametro con lo stesso tipo per gestire queste informazioni in fase di distribuzione.
 
-Per impostare il valore per il parametro di definizione del flusso di lavoro, usare l'oggetto `parameters` al di *fuori* della definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica per fare riferimento al parametro di modello. Infine, per passare il valore al parametro di modello in fase di distribuzione, archiviare tale valore in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) e fare riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
+Per impostare il valore per il parametro di definizione del flusso di lavoro, usare l'oggetto `parameters` al di *fuori* della definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica per fare riferimento al parametro di modello. Infine, per passare il valore al parametro di modello in fase di distribuzione, archiviare tale valore in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e fare riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
 
 Questo modello di esempio Mostra come è possibile completare queste attività definendo parametri protetti quando necessario, in modo da poter archiviare i valori in Azure Key Vault:
 
@@ -558,7 +558,7 @@ Per assicurarsi che la finestra di progettazione dell'app per la logica possa vi
 
   * [Raccomandazioni sulla sicurezza per i parametri nelle definizioni del flusso di lavoro](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Per ulteriori informazioni sui parametri di definizione del flusso di lavoro, vedere [parametri-Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
 
@@ -652,7 +652,7 @@ La definizione di risorsa dell'app per la logica funziona anche con le definizio
 
 * Al di *fuori* della definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica, un altro oggetto `parameters` imposta i valori da usare in fase di esecuzione per il parametro `$connections` facendo riferimento ai parametri di modello corrispondenti. Questi valori usano le espressioni di modello per fare riferimento a risorse che archiviano in modo sicuro i metadati per le connessioni nell'app per la logica.
 
-  I metadati, ad esempio, possono includere stringhe di connessione e token di accesso, che è possibile archiviare in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). Per passare questi valori ai parametri del modello, si fa riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione. Per ulteriori informazioni sulle differenze nei parametri di riferimento, vedere [riferimenti ai parametri](#parameter-references) più avanti in questo argomento.
+  I metadati, ad esempio, possono includere stringhe di connessione e token di accesso, che è possibile archiviare in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Per passare questi valori ai parametri del modello, si fa riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione. Per ulteriori informazioni sulle differenze nei parametri di riferimento, vedere [riferimenti ai parametri](#parameter-references) più avanti in questo argomento.
 
   Quando si apre la definizione del flusso di lavoro dell'app per la logica nella visualizzazione codice tramite il portale di Azure o Visual Studio, l'oggetto `$connections` viene visualizzato al di fuori della definizione del flusso di lavoro, ma allo stesso livello. Questo ordinamento nella visualizzazione codice rende più semplice fare riferimento a questi parametri quando si aggiorna manualmente la definizione del flusso di lavoro:
 
@@ -744,7 +744,7 @@ Questo esempio mostra le interazioni tra la definizione di risorsa dell'app per 
 
 ### <a name="secure-connection-parameters"></a>Parametri di connessione protetti
 
-Per un parametro di connessione che gestisce informazioni riservate, password, chiavi di accesso o segreti, la definizione di risorsa della connessione include un oggetto `parameterValues` che specifica questi valori nel formato della coppia nome-valore. Per nascondere queste informazioni, è possibile dichiarare o modificare i parametri del modello per questi valori usando i tipi di parametro `securestring` o `secureobject`. È quindi possibile archiviare tali informazioni in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). Per passare questi valori ai parametri del modello, si fa riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
+Per un parametro di connessione che gestisce informazioni riservate, password, chiavi di accesso o segreti, la definizione di risorsa della connessione include un oggetto `parameterValues` che specifica questi valori nel formato della coppia nome-valore. Per nascondere queste informazioni, è possibile dichiarare o modificare i parametri del modello per questi valori usando i tipi di parametro `securestring` o `secureobject`. È quindi possibile archiviare tali informazioni in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Per passare questi valori ai parametri del modello, si fa riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
 
 Di seguito è riportato un esempio che fornisce il nome dell'account e la chiave di accesso per una connessione all'archivio BLOB di Azure:
 
@@ -1011,7 +1011,7 @@ Per ulteriori informazioni sull'utilizzo delle entità servizio, vedere gli argo
 
 ## <a name="references-to-parameters"></a>Riferimenti a parametri
 
-Per fare riferimento ai parametri di modello, è possibile usare espressioni di modello con [funzioni modello](../azure-resource-manager/resource-group-template-functions.md), che vengono valutate in fase di distribuzione. Le espressioni modello utilizzano le parentesi quadre ( **[]** ):
+Per fare riferimento ai parametri di modello, è possibile usare espressioni di modello con [funzioni modello](../azure-resource-manager/templates/template-functions.md), che vengono valutate in fase di distribuzione. Le espressioni modello utilizzano le parentesi quadre ( **[]** ):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

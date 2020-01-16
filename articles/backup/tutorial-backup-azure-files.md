@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di condivisioni file di Azure'
 description: Questa esercitazione illustra come usare il portale di Azure per configurare un insieme di credenziali di Servizi di ripristino ed eseguire il backup di condivisioni file di Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171859"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921638"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Eseguire il backup di condivisioni file di Azure nel portale di Azure
 
@@ -20,7 +20,7 @@ Questa guida illustra come eseguire queste operazioni:
 > * Configurare un insieme di credenziali di Servizi di ripristino per eseguire il backup di file di Azure
 > * Eseguire un processo di backup su richiesta per creare un punto di ripristino
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di eseguire il backup di una condivisione file di Azure, assicurarsi che la condivisione si trovi in uno dei [tipi di account di archiviazione supportati](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Dopo questa verifica è possibile proteggere le condivisioni file.
 
@@ -28,7 +28,6 @@ Prima di eseguire il backup di una condivisione file di Azure, assicurarsi che l
 
 Il backup per le condivisioni file di Azure è disponibile in anteprima. Le condivisioni file di Azure sono supportate negli account di archiviazione per utilizzo generico sia v1 che v2. Gli scenari di backup seguenti non sono supportati nelle condivisioni file di Azure:
 
-* Non è possibile proteggere le condivisioni file di Azure negli account di archiviazione con reti virtuali o firewall abilitati.
 * Per la protezione di File di Azure con Backup di Azure non è disponibile l'interfaccia della riga di comando.
 * Il numero massimo di backup pianificati al giorno è uno.
 * Il numero massimo di backup su richiesta al giorno è quattro.

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 12e9ab9066449e8928d937d9c3f9f7f1522b6c60
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 7c54b3010b42d56ffa9b701b76c7aef51095404c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942114"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028658"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-customer-managed-key"></a>Crittografia dei dati del database di Azure per MySQL con chiave gestita dal cliente
 
@@ -37,11 +37,11 @@ La crittografia dei dati per database di Azure per MySQL offre i vantaggi seguen
 
 ## <a name="terminology-and-description"></a>Terminologia e descrizione
 
-**Chiave DEK (Data Encryption Key)** : una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave di crittografia viene sostituita con una nuova chiave, solo i dati nel blocco associato devono essere crittografati nuovamente con la nuova chiave.
+**Chiave di crittografia dei dati** : chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave di crittografia viene sostituita con una nuova chiave, solo i dati nel blocco associato devono essere crittografati nuovamente con la nuova chiave.
 
 Chiave di **crittografia della chiave (KEK)** : chiave di crittografia usata per crittografare le chiavi di crittografia dei dati. L'uso di una chiave di crittografia della chiave che non lascia mai Key Vault consente di crittografare e controllare le chiavi di crittografia dei dati. L'entità che ha accesso alla chiave KEK può essere diversa dall'entità che richiede la chiave DEK. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
 
-Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia della chiave vengono archiviate separatamente e solo un'entità con accesso alla chiave di crittografia della chiave può decrittografare queste chiavi di crittografia dei dati. Per altre informazioni, vedere [sicurezza in crittografia](../security/fundamentals/encryption-atrest.md)dati inattivi.
+Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia della chiave, vengono archiviate separatamente e solo un'entità con accesso alla chiave di crittografia della chiave può decrittografare queste chiavi di crittografia dei dati. Per altre informazioni, vedere [sicurezza in crittografia](../security/fundamentals/encryption-atrest.md)dati inattivi.
 
 ## <a name="how-data-encryption-with-customer-managed-key-works"></a>Funzionamento della crittografia dei dati con la chiave gestita dal cliente
 
@@ -50,8 +50,8 @@ Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia 
 Affinché un server MySQL possa usare chiavi gestite dal cliente archiviate in AKV per la crittografia della chiave di crittografia, un amministratore Key Vault deve concedere al server i seguenti diritti di accesso usando l'identità univoca:
 
 * **Get** : per il recupero della parte pubblica e delle proprietà della chiave nella Key Vault
-* **wrapKey** -per poter proteggere (crittografare) la chiave di crittografia
-* **unwrapKey** -per poter rimuovere la protezione (decrittografia)
+* **wrapKey** -per poter crittografare la chiave di crittografia
+* **unwrapKey** -per poter decrittografare la decrittografia
 
 Key Vault amministratore può anche [abilitare la registrazione degli eventi di controllo Key Vault](../azure-monitor/insights/azure-key-vault.md), in modo che possano essere controllati in un secondo momento.
 

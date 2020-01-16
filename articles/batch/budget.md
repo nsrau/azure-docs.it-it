@@ -2,20 +2,20 @@
 title: Analisi dei costi e budget-Azure Batch
 description: Informazioni su come ottenere un'analisi dei costi e impostare un budget per il carico di lavoro batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/19/2019
-ms.author: lahugh
-ms.openlocfilehash: 6ccf530fe2164b3d9b1936648ffe9057c334efd6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.author: jushiman
+ms.openlocfilehash: 7707d966049e9eced1add1104441af8fee356ef0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70094214"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029560"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Analisi dei costi e budget per Azure Batch
 
@@ -23,7 +23,7 @@ Non sono previsti addebiti per Azure Batch, ma solo le risorse di calcolo sottos
 
 ## <a name="batch-resources"></a>Risorse batch
 
-Le macchine virtuali sono la risorsa più significativa utilizzata per l'elaborazione batch. Il costo di utilizzo delle macchine virtuali per batch viene calcolato in base al tipo, alla quantità e alla durata dell'utilizzo. Le opzioni di fatturazione della VM includono [pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo o [prenotazione](../billing/billing-save-compute-costs-reservations.md) (pagamento anticipato). Entrambe le opzioni di pagamento hanno vantaggi diversi a seconda del carico di lavoro di calcolo, mentre entrambi i modelli di pagamento avranno effetto sulla fattura in modo diverso.
+Le macchine virtuali sono la risorsa più significativa utilizzata per l'elaborazione batch. Il costo di utilizzo delle macchine virtuali per batch viene calcolato in base al tipo, alla quantità e alla durata dell'utilizzo. Le opzioni di fatturazione della VM includono [pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo o [prenotazione](../cost-management-billing/reservations/save-compute-costs-reservations.md) (pagamento anticipato). Entrambe le opzioni di pagamento hanno vantaggi diversi a seconda del carico di lavoro di calcolo, mentre entrambi i modelli di pagamento avranno effetto sulla fattura in modo diverso.
 
 Quando le applicazioni vengono distribuite in nodi di batch (VM) usando i [pacchetti dell'applicazione](batch-application-packages.md), vengono fatturate le risorse di archiviazione di Azure utilizzate dai pacchetti dell'applicazione. Viene addebitata anche l'archiviazione di tutti i file di input o di output, ad esempio file di risorse e altri dati di log. In generale, il costo dei dati di archiviazione associati a batch è molto inferiore al costo delle risorse di calcolo. Ogni macchina virtuale in un pool creato con **VirtualMachineConfiguration** dispone di un disco del sistema operativo associato che usa dischi gestiti di Azure. I dischi gestiti di Azure presentano costi aggiuntivi e anche altri livelli di prestazioni del disco hanno costi diversi.
 
@@ -36,7 +36,7 @@ I servizi che non includono macchine virtuali e spazio di archiviazione possono 
 Altri servizi comunemente usati con batch possono includere:
 
 - Application Insights
-- Data Factory
+- Data factory
 - Monitoraggio di Azure
 - Rete virtuale
 - Macchine virtuali con applicazioni grafiche
@@ -50,15 +50,15 @@ Grazie alla portale di Azure, è possibile creare budget e avvisi di spesa per i
 1. Nella portale di Azure selezionare **Gestione costi e fatturazione** dalla barra di spostamento a sinistra.
 1. Selezionare la sottoscrizione nella sezione **sottoscrizioni personali**
 1. Passare a **analisi costi** nella sezione **Gestione costi** della barra di spostamento a sinistra, in cui verrà visualizzata una visualizzazione simile alla seguente:
-1. Selezionare **Aggiungi filtro**. Nel primo elenco a discesa selezionare **resource** ![Select il filtro delle risorse ](./media/batch-budget/resource-filter.png)
+1. Selezionare **Aggiungi filtro**. Nel primo elenco a discesa selezionare **resource** ![selezionare il filtro delle risorse](./media/batch-budget/resource-filter.png)
 1. Nel secondo elenco a discesa selezionare il pool di batch. Quando il pool è selezionato, l'analisi dei costi sarà simile a quella riportata di seguito.
-    ![Cost l'analisi di un pool ](./media/batch-budget/pool-cost-analysis.png)
+    analisi dei costi ![di un pool](./media/batch-budget/pool-cost-analysis.png)
 
 L'analisi dei costi risultante Mostra il costo del pool e le risorse che contribuiscono a questo costo. In questo esempio, le macchine virtuali usate nel pool sono la risorsa più costosa.
 
 Per creare un budget per il pool, selezionare **budget: nessuno**, quindi selezionare **crea nuovo budget >** . Usare ora la finestra per configurare un budget specifico per il pool.
 
-Per altre informazioni sulla configurazione di un budget, vedere [creare e gestire i budget di Azure](../cost-management/tutorial-acm-create-budgets.md).
+Per altre informazioni sulla configurazione di un budget, vedere [creare e gestire i budget di Azure](../cost-management-billing/costs/tutorial-acm-create-budgets.md).
 
 > [!NOTE]
 > Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine virtuali di Azure. Quando si sceglie la **configurazione di servizi cloud**, l'addebito viene addebitato in base alla struttura dei prezzi dei servizi cloud. Quando si sceglie **configurazione macchina virtuale**, l'addebito viene addebitato in base alla struttura dei prezzi delle macchine virtuali. Nell'esempio riportato in questa pagina viene utilizzata la **configurazione della macchina virtuale**.
@@ -81,9 +81,9 @@ SSD Premium dischi del sistema operativo sono più costosi, ma hanno prestazioni
 
 ### <a name="reserved-virtual-machine-instances"></a>Istanze di macchine virtuali riservate
 
-Se si prevede di usare batch per un lungo periodo di tempo, è possibile risparmiare sui costi delle macchine virtuali usando le [prenotazioni di Azure](../billing/billing-save-compute-costs-reservations.md) per i carichi di lavoro. Una tariffa di prenotazione è notevolmente inferiore rispetto a una tariffa con pagamento in base al consumo. Per le istanze di macchine virtuali usate senza prenotazione viene addebitata una tariffa con pagamento in base al consumo. Se si acquista una prenotazione, viene applicato lo sconto di prenotazione e non vengono più addebitate le tariffe con pagamento in base al consumo.
+Se si prevede di usare batch per un lungo periodo di tempo, è possibile risparmiare sui costi delle macchine virtuali usando le [prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md) per i carichi di lavoro. Una tariffa di prenotazione è notevolmente inferiore rispetto a una tariffa con pagamento in base al consumo. Per le istanze di macchine virtuali usate senza prenotazione viene addebitata una tariffa con pagamento in base al consumo. Se si acquista una prenotazione, viene applicato lo sconto di prenotazione e non vengono più addebitate le tariffe con pagamento in base al consumo.
 
-### <a name="automatic-scaling"></a>Ridimensionamento automatico
+### <a name="automatic-scaling"></a>Scalabilità automatica
 
 Il [ridimensionamento automatico ridimensiona](batch-automatic-scaling.md) in modo dinamico il numero di macchine virtuali nel pool di batch in base alle esigenze del processo corrente. Ridimensionando il pool in base alla durata di un processo, il ridimensionamento automatico garantisce che le macchine virtuali vengano aumentate e usate solo quando è presente un processo da eseguire. Al termine del processo o se non sono presenti processi, le macchine virtuali vengono automaticamente ridimensionate per ridurre le risorse di calcolo. La scalabilità consente di ridurre il costo complessivo della soluzione batch usando solo le risorse necessarie.
 

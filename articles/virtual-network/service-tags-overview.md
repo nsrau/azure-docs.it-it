@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: d0d7d9a4dd39428468d05ddf7297a424832d1020
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: e4c18f1148259d246445b94ac6117ebefa9470a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921190"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975383"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale 
 <a name="network-service-tags"></a>
@@ -27,7 +27,7 @@ Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un deter
 
 È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o nel firewall di [Azure](https://docs.microsoft.com/azure/firewall/service-tags). Usare i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **ApiManagement**) nel campo di di *origine* o di *destinazione* di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
 
-È possibile usare i tag di servizio per ottenere l'isolamento rete e proteggere le risorse di Azure da Internet generale durante l'accesso ai servizi di Azure con endpoint pubblici. Creare regole del gruppo di sicurezza di rete in ingresso/in uscita per negare il traffico da e verso **Internet** e consentire il traffico verso/da **AzureCloud** o altri [tag di servizio disponibili]() di servizi di Azure specifici. 
+È possibile usare i tag di servizio per ottenere l'isolamento rete e proteggere le risorse di Azure da Internet generale durante l'accesso ai servizi di Azure con endpoint pubblici. Creare regole del gruppo di sicurezza di rete in ingresso/in uscita per negare il traffico da e verso **Internet** e consentire il traffico verso/da **AzureCloud** o altri [tag di servizio disponibili](#available-service-tags) di servizi di Azure specifici. 
 
 ## <a name="available-service-tags"></a>Tag di servizio disponibili
 La tabella seguente include tutti i tag di servizio disponibili per l'uso nelle regole del [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) .

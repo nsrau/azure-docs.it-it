@@ -1,17 +1,14 @@
 ---
 title: Configurare un'appliance Azure Migrate per VMware
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali VMware.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360175"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029054"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -72,7 +69,7 @@ Importare il file scaricato e creare una macchina virtuale.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](migrate-appliance.md#url-access).
 
 
 ## <a name="configure-the-appliance"></a>Configurare l'appliance
@@ -114,7 +111,7 @@ L'appliance deve connettersi al server vCenter per individuare la configurazione
 
 ### <a name="specify-vcenter-server-details"></a>Specificare i dettagli del server vCenter
 1. In **Specificare i dettagli del server vCenter** specificare il nome di dominio completo o l'indirizzo IP del server vCenter. È possibile lasciare la porta predefinita o specificare una porta personalizzata su cui il server vCenter rimane in ascolto.
-2. In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'appliance per individuare le macchine virtuali nel server vCenter. Verificare che l'account abbia le [autorizzazioni necessarie per l'individuazione](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). È possibile definire l'ambito dell'individuazione limitando l'accesso all'account vCenter di conseguenza. Altre informazioni su come definire l'ambito dell'individuazione sono disponibili [qui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+2. In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'appliance per individuare le macchine virtuali nel server vCenter. È possibile definire l'ambito dell'individuazione limitando l'accesso all'account vCenter di conseguenza. Altre informazioni su come definire l'ambito dell'individuazione sono disponibili [qui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 3. Fare clic su **Convalida connessione** per verificare che l'appliance sia in grado di connettersi al server vCenter.
 
 ### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM

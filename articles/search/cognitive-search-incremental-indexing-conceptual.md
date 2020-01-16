@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a5b12a426e52c3b80c58a30b320b2f746bbe990d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832189"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028520"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduzione all'arricchimento e alla memorizzazione nella cache incrementali in Azure ricerca cognitiva
 
@@ -56,14 +56,16 @@ Il ciclo di vita della cache è gestito dall'indicizzatore. Se la proprietà `ca
 
 Mentre l'arricchimento incrementale è progettato per rilevare e rispondere alle modifiche senza alcun intervento da parte dell'utente, è possibile utilizzare parametri per eseguire l'override dei comportamenti predefiniti:
 
-+ Sospendere la memorizzazione nella cache
++ Assegnare priorità ai nuovi documenti
 + Ignorare i controlli delle competenze
 + Ignora controlli origine dati
 + Valutazione Force Skills
 
-### <a name="suspend-caching"></a>Sospendere la memorizzazione nella cache
+### <a name="prioritize-new-documents"></a>Assegnare priorità ai nuovi documenti
 
-È possibile sospendere temporaneamente l'arricchimento incrementale impostando la proprietà `enableReprocessing` nella cache su `false` e riprenderlo in seguito per ottenere la coerenza finale impostandola su `true`. Questo controllo è particolarmente utile quando si vuole dare la priorità all'indicizzazione dei nuovi documenti rispetto a garantire la coerenza fra tutti i documenti.
+Impostare la proprietà `enableReprocessing` per controllare l'elaborazione dei documenti in ingresso già rappresentati nella cache. Quando `true` (impostazione predefinita), i documenti già presenti nella cache vengono rielaborati quando si esegue nuovamente l'indicizzatore, presumendo che l'aggiornamento delle competenze influisca sul documento. 
+
+Quando `false`, i documenti esistenti non vengono rielaborati, classificando in modo efficace il contenuto nuovo in ingresso rispetto al contenuto esistente. È necessario impostare solo `enableReprocessing` su `false` su base temporanea. Per garantire la coerenza tra il corpo, `enableReprocessing` deve essere `true` la maggior parte del tempo, assicurando che tutti i documenti, sia nuovi che esistenti, siano validi per la definizione di competenze corrente.
 
 ### <a name="bypass-skillset-evaluation"></a>Ignora valutazione competenze
 
@@ -93,9 +95,9 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 ### <a name="force-skillset-evaluation"></a>Valutazione Force Skills
 
-Lo scopo della cache è quello di evitare un'elaborazione non necessaria, ma si supponga di aver apportato una modifica a una competenza o a un esperto che l'indicizzatore non rileva, ad esempio le modifiche apportate ai componenti esterni come un skillt personalizzato. 
+Lo scopo della cache è quello di evitare un'elaborazione non necessaria, ma si supponga di apportare una modifica a una competenza non rilevata dall'indicizzatore (ad esempio, modificando qualcosa nel codice esterno, ad esempio un'abilità personalizzata).
 
-In questo caso, è possibile usare l'API [Reimposta competenze](preview-api-resetskills.md) per forzare la rielaborazione di una determinata competenza, incluse le competenze a valle che hanno una dipendenza dall'output di tale capacità. Questa API accetta una richiesta POST con un elenco di competenze da invalidare e rieseguire. Dopo aver reimpostato le competenze, eseguire l'indicizzatore per eseguire l'operazione.
+In questo caso, è possibile usare le [competenze di reimpostazione](preview-api-resetskills.md) per forzare la rielaborazione di una determinata competenza, incluse le competenze downstream che hanno una dipendenza dall'output di tale capacità. Questa API accetta una richiesta POST con un elenco di competenze che devono essere invalidate e contrassegnate per la rielaborazione. Dopo aver reimpostato le competenze, eseguire l'indicizzatore per richiamare la pipeline.
 
 ## <a name="change-detection"></a>Rilevamento delle modifiche
 
@@ -158,7 +160,7 @@ Informazioni sull'utilizzo ed esempi sono disponibili in [configurare la memoriz
 
 ### <a name="datasources"></a>Datasources
 
-+ Alcuni indicizzatori recuperano i dati tramite query. Per le query che recuperano dati, l' [aggiornamento dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/update-datasource) supporta un nuovo parametro in una richiesta `ignoreResetRequirement`, che deve essere impostata su `true` quando l'azione di aggiornamento non deve invalidare la cache.
++ Alcuni indicizzatori recuperano i dati tramite query. Per le query che recuperano dati, l' [aggiornamento dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supporta un nuovo parametro in una richiesta `ignoreResetRequirement`, che deve essere impostata su `true` quando l'azione di aggiornamento non deve invalidare la cache.
 
 Usare il `ignoreResetRequirement` sporadicamente perché potrebbe causare incoerenza indesiderata nei dati che non verranno rilevati facilmente.
 

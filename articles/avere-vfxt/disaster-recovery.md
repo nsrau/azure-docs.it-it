@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414229"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966658"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Linee guida per il ripristino di emergenza per vFXT per Azure
 
@@ -60,7 +60,7 @@ Questa sezione fornisce suggerimenti su come proteggere ulteriormente i dati nel
 Le procedure consigliate per la protezione dei dati nell'archivio BLOB di Azure includono:
 
 * Copiare spesso i dati critici in un altro account di archiviazione in un'altra area (spesso come determinato dal piano di ripristino di emergenza).
-* Controllare l'accesso ai dati in tutti i sistemi di destinazione per evitare eliminazioni accidentali o danneggiamenti. Si consiglia di usare i [blocchi delle risorse](../azure-resource-manager/resource-group-lock-resources.md) nell'archivio dati.
+* Controllare l'accesso ai dati in tutti i sistemi di destinazione per evitare eliminazioni accidentali o danneggiamenti. Si consiglia di usare i [blocchi delle risorse](../azure-resource-manager/management/lock-resources.md) nell'archivio dati.
 * Abilitare la funzionalità di vFXT per [snapshot cloud](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) di Azure per i file di base di BLOB.
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Copiare i dati di vFXT Core filer in un account di backup

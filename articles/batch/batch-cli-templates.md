@@ -2,21 +2,21 @@
 title: Eseguire processi end-to-end usando i modelli - Azure Batch | Microsoft Docs
 description: Creare pool, processi e attività di Batch con file di modelli e l'interfaccia della riga di comando di Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095321"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029744"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch
 
@@ -24,7 +24,7 @@ Usando un'estensione Azure Batch per l'interfaccia della riga di comando di Azur
 
 Creare e usare file modello JSON con l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch. Usare i comandi di estensione dell'interfaccia della riga di comando per caricare facilmente i file di input dei processi nell'account di archiviazione associato all'account Batch e scaricare i file di output dei processi.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Un'estensione dell'interfaccia della riga di comando di Azure consente a utenti non sviluppatori di usare Batch end-to-end. Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti. Non è necessario alcun codice aggiuntivo. Eseguire i comandi dell'interfaccia della riga di comando direttamente o integrarli negli script.
 

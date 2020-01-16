@@ -2,17 +2,17 @@
 title: Crittografia lato server di Azure Managed Disks-interfaccia della riga di comando di Azure
 description: Archiviazione di Azure protegge i dati mediante la crittografia dei dati inattivi prima di renderli permanente nei cluster di archiviazione. È possibile basarsi sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti oppure usare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate.
 author: roygara
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 61e45a5d13da7af42bbed273e5b39ce2af15d1ca
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: d8729e447aabfcb1c378919501ee48124e7ae27b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912762"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027812"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
 
@@ -54,21 +54,18 @@ L'elenco seguente illustra il diagramma in modo ancora più dettagliato:
 
 Per revocare l'accesso alle chiavi gestite dal cliente, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca efficacemente l'accesso a tutti i dati nell'account di archiviazione, in quanto la chiave di crittografia non è accessibile da parte di archiviazione di Azure.
 
-### <a name="supported-scenarios-and-restrictions"></a>Scenari e restrizioni supportati
+### <a name="supported-regions"></a>Aree supportate
 
-Per il momento, sono supportati solo gli scenari seguenti:
+Attualmente sono supportate solo le aree seguenti:
 
-- Creare una macchina virtuale (VM) da un'immagine di Azure Marketplace e crittografare il disco del sistema operativo con la crittografia lato server usando chiavi gestite dal cliente.
-- Creare un'immagine personalizzata crittografata con la crittografia lato server e le chiavi gestite dal cliente.
-- Creare una macchina virtuale da un'immagine personalizzata e crittografare il disco del sistema operativo usando la crittografia lato server e le chiavi gestite dal cliente.
-- Creare dischi dati crittografati usando la crittografia lato server e le chiavi gestite dal cliente.
-- (Solo CLI/PowerShell) Creare snapshot crittografati tramite la crittografia lato server e le chiavi gestite dal cliente.
-- Creare set di scalabilità di macchine virtuali crittografati con la crittografia lato server e le chiavi gestite dal cliente.
+- Disponibile come offerta GA nelle aree Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
+- Disponibile come anteprima pubblica nelle aree Stati Uniti centro-occidentali, Stati Uniti orientali 2, Canada centrale ed Europa settentrionale.
 
-Per il momento, sono disponibili anche le restrizioni seguenti:
+### <a name="restrictions"></a>Restrizioni
 
-- Disponibile come offerta GA negli Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
-- Disponibile come anteprima pubblica negli Stati Uniti centro-occidentali, Stati Uniti orientali 2, Canada centrale ed Europa settentrionale.
+Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti:
+
+- Sono supportate solo le [chiavi RSA "soft" e "hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) di dimensioni 2080, senza altre chiavi o dimensioni.
 - I dischi creati da immagini personalizzate crittografate con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
 - Le immagini personalizzate crittografate usando la crittografia lato server e le chiavi gestite dal cliente non possono essere usate nella raccolta di immagini condivise.

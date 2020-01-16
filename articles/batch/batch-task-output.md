@@ -2,7 +2,7 @@
 title: Rendere persistenti i risultati o i log da processi e attività completati in un archivio dati - Azure Batch | Microsoft Docs
 description: Informazioni su diverse opzioni per rendere persistenti i dati di output da attività e processi di Batch. È possibile rendere persistenti i dati in Archiviazione di Azure o in un altro archivio dati.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81f89d5e4c3fb797cfc935764bb80853660ee2c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c5063955fc6e04c9cfec2407f8b1cc91c5b24d10
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707538"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026247"
 ---
 # <a name="persist-job-and-task-output"></a>Rendere persistente l'output di processi e attività
 

@@ -2,19 +2,19 @@
 title: API e strumenti per sviluppatori - Azure Batch | Microsoft Docs
 description: Informazioni sulle API e gli strumenti disponibili per lo sviluppo di soluzioni con il servizio Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 3eeb955d312e21f96f4b1029548c5e84b5e586ec
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a353651fa045b146b257432c812c73bec9485566
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323783"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027353"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Panoramica delle API e degli strumenti di Batch
 
@@ -37,7 +37,7 @@ Quando si sviluppano soluzioni Batch, è necessario usare gli account seguenti n
 
 Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare una o più delle librerie client seguenti per eseguire e gestire i carichi di lavoro di Azure Batch.
 
-| API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice | Altre informazioni |
+| API SmartBear Ready! | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice | Altre informazioni |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/D |- |- | [Versioni supportate](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Esercitazione](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Note sulla versione](https://aka.ms/batch-net-dataplane-changelog) |
@@ -49,7 +49,7 @@ Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare
 
 Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di codice agli account Batch. Usando queste API, è possibile gestire a livello di codice gli account Batch, le quote, i pacchetti dell'applicazione e altre risorse tramite il provider Microsoft.Batch.  
 
-| API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice |
+| API SmartBear Ready! | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice |
 | --- | --- | --- | --- | --- |
 | **REST per la gestione di Batch** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **.NET per la gestione di Batch** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Esercitazione](batch-management-dotnet.md) |[GitHub][api_sample_net] |
@@ -60,17 +60,17 @@ Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di cod
 
 Questi strumenti da riga di comando forniscono le stesse funzionalità delle API del servizio Batch e di gestione di Batch: 
 
-* [Cmdlet di PowerShell per batch][batch_ps]: i cmdlet di Azure Batch nel modulo [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse di Batch con PowerShell.
+* [Cmdlet di PowerShell per batch][batch_ps]: i cmdlet di Azure batch nel modulo [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse batch con PowerShell.
 * [Interfaccia della riga di comando di Azure](/cli/azure): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, inclusi il servizio Batch e il servizio di gestione di Batch. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Batch, vedere [Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Altri strumenti per lo sviluppo di applicazioni
 
 Di seguito sono riportati alcuni strumenti aggiuntivi che possono risultare utili per la compilazione e il debug di applicazioni e servizi Batch:
 
-* [Portale di Azure][portal]: nel portale di Azure è possibile creare, monitorare ed eliminare pool, processi e attività di Batch. È possibile visualizzare informazioni sullo stato di queste e altre risorse mentre si eseguono i processi, nonché scaricare file dai nodi di calcolo dei pool. È ad esempio possibile scaricare il file `stderr.txt` di un'attività non riuscita durante la risoluzione dei problemi. Si possono anche scaricare i file desktop remoto (RDP) che possono essere usati per accedere ai nodi di calcolo.
-* [Azure Batch Explorer][batch_labs]: Batch Explorer, in precedenza detto BatchLabs, è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare e monitorare le applicazioni di Azure Batch, oltre che di eseguirne il debug. È possibile scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows.
-* [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard è uno strumento che consente di effettuare il provisioning, eseguire e monitorare l'elaborazione batch basata su contenitori e carichi di lavoro HPC in Azure Batch.
-* [Azure Storage Explorer][storage_explorer]: anche se non è uno strumento di Azure Batch in senso stretto, Storage Explorer è un altro strumento utile per lo sviluppo e il debug delle soluzioni Batch.
+* [Portale di Azure][portal]: è possibile creare, monitorare ed eliminare pool, processi e attività di Batch nel portale di Azure. È possibile visualizzare informazioni sullo stato di queste e altre risorse mentre si eseguono i processi, nonché scaricare file dai nodi di calcolo dei pool. È ad esempio possibile scaricare il file `stderr.txt` di un'attività non riuscita durante la risoluzione dei problemi. Si possono anche scaricare i file desktop remoto (RDP) che possono essere usati per accedere ai nodi di calcolo.
+* [Azure Batch Explorer][batch_labs]: Batch Explorer (noto in precedenza come BatchLabs) è uno strumento client autonomo gratuito e con funzionalità avanzate che consente di creare, eseguire il debug e monitorare Azure batch applicazioni. È possibile scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows.
+* [Azure batch cantiere](https://github.com/Azure/batch-shipyard): batch Shipyard è uno strumento che consente di effettuare il provisioning, l'esecuzione e il monitoraggio di carichi di lavoro HPC e di elaborazione batch basati su contenitori su Azure batch.
+* [Azure Storage Explorer][storage_explorer]: Sebbene non sia esclusivamente uno strumento Azure batch, il Storage Explorer è un altro strumento utile per lo sviluppo e il debug delle soluzioni batch.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

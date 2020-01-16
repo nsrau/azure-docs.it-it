@@ -7,30 +7,30 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/12/2019
+ms.date: 01/07/2020
 ms.custom: include file
-ms.openlocfilehash: 4ed5be09d952d4d64c269e3eaf698ad7a74fffdd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9ccdc7a438d1dade534d39dc97a39a3bdae37dc4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014059"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895475"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare la barra laterale Home, quindi **+ Crea una risorsa**. 
 
-   [![Espandere la barra laterale Home, quindi selezionare + Crea una risorsa](./media/create-digital-twins-portal/create-a-resource.png)](./media/create-digital-twins-portal/create-a-resource.png#lightbox)
+   [![Espandere la barra laterale Home, quindi selezionare + Crea una risorsa](./media/create-digital-twins-portal/azure-portal-create-a-resource.png)](./media/create-digital-twins-portal/azure-portal-create-a-resource.png#lightbox)
 
 1. Cercare **gemelli digitali** e selezionare **Gemelli digitali**. 
 
-   [![Selezioni per la creazione di una nuova istanza di Gemelli digitali](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+   [![Selezioni per la creazione di una nuova istanza di Gemelli digitali](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png)](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png#lightbox)
 
    In alternativa, selezionare **Internet delle cose** e **Gemelli digitali (anteprima)** .
 
 1. Selezionare **Crea** per avviare il processo di distribuzione.
 
-   [![Creare e confermare la distribuzione della risorsa](./media/create-digital-twins-portal/create-and-confirm-resource.png)](./media/create-digital-twins-portal/create-and-confirm-resource.png#lightbox)
+   [![Creare e confermare la distribuzione della risorsa](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
 
 1. Nel riquadro **Gemelli digitali** immettere le informazioni seguenti:
    * **Nome risorsa**: Creare un nome univoco per l'istanza di Gemelli digitali.

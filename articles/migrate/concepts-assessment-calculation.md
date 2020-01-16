@@ -3,12 +3,12 @@ title: Valutazioni in Azure Migrate
 description: Informazioni sulle valutazioni in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6950050be3c6fb812a6ade47e98f2d1ed479e61f
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720243"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029110"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Informazioni sulle valutazioni in Azure Migrate
 
@@ -23,7 +23,7 @@ I dati sulle prestazioni per le impostazioni di calcolo vengono raccolti come se
 
 1. Il [dispositivo Azure migrate](migrate-appliance.md) raccoglie un punto di esempio in tempo reale:
 
-    - **macchine virtuali VMware*: per le macchine virtuali VMware, l'appliance Azure migrate raccoglie un punto di esempio in tempo reale a ogni intervallo di 20 secondi.
+    - **VM VMware**: per le macchine virtuali VMware, l'appliance Azure migrate raccoglie un punto di esempio in tempo reale a ogni intervallo di 20 secondi.
     - **Macchine virtuali Hyper-v**: per le macchine virtuali Hyper-v, il punto di esempio in tempo reale viene raccolto a ogni intervallo di 30 secondi.
     - **Server fisici**: per i server fisici, il punto di esempio in tempo reale viene raccolto a ogni intervallo di cinque minuti. 
     
@@ -58,7 +58,7 @@ I dati sulle prestazioni vengono raccolti come segue:
 
 1. Il [dispositivo Azure migrate](migrate-appliance.md) raccoglie un punto di esempio in tempo reale:
 
-    - **macchine virtuali VMware*: per le macchine virtuali VMware, l'appliance Azure migrate raccoglie un punto di esempio in tempo reale a ogni intervallo di 20 secondi.
+    - **VM VMware**: per le macchine virtuali VMware, l'appliance Azure migrate raccoglie un punto di esempio in tempo reale a ogni intervallo di 20 secondi.
     - **Macchine virtuali Hyper-v**: per le macchine virtuali Hyper-v, il punto di esempio in tempo reale viene raccolto a ogni intervallo di 30 secondi.
     - **Server fisici**: per i server fisici, il punto di esempio in tempo reale viene raccolto a ogni intervallo di cinque minuti. 
     
@@ -73,24 +73,23 @@ I dati sulle prestazioni vengono raccolti come segue:
 5. Questo valore viene moltiplicato per il fattore di comfort per ottenere i dati di utilizzo delle prestazioni effettivi per ogni metrica (utilizzo della CPU, utilizzo della memoria, IOPS del disco (lettura e scrittura), velocità effettiva del disco (lettura e scrittura) e velocità effettiva della rete (in uscita) il dispositivo raccoglie.
 ## <a name="whats-in-an-assessment"></a>Elementi inclusi nella valutazione
 
-Di seguito è riportato il contenuto di una valutazione in Azure Migrate: server Assessment
+Di seguito è riportato il contenuto di una valutazione in Azure Migrate: server assessment.
 
 **Proprietà** | **Dettagli**
 --- | ---
-**Posizione di destinazione** | Percorso in cui si desidera eseguire la migrazione.<br/><br/>Server Assessment supporta attualmente le aree di Azure di destinazione: Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, India centrale, Stati Uniti centrali, Cina orientale, Cina settentrionale, Asia orientale, Stati Uniti orientali, East Uniti, Germania centrale, Germania Nordest, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Regno Unito occidentale, US Gov Arizona, US Gov Texas, US Gov Virginia, Stati Uniti centro-occidentali, Europa occidentale, India occidentale, Stati Uniti occidentali e ovest Uniti.
-**Disco di archiviazione di destinazione: ridimensionamento** | Tipo di dischi da usare per l'archiviazione in Azure. <br/><br/> Specificare il disco di archiviazione di destinazione come gestito Premium, gestito da SSD standard o gestito da HDD standard.<br/><br/> 
-**Disco di archiviazione di destinazione: dimensionamento basato sulle prestazioni** | Specificare il tipo di disco di archiviazione di destinazione come automatico, gestito Premium, gestito da HDD standard o gestito da SSD standard.<br/><br/> **Automatico**: l'indicazione del disco è basata sui dati sulle prestazioni dei dischi (operazioni di input/output al secondo (IOPS) e velocità effettiva). <br/><br/>**Premium/standard**: la valutazione consiglia uno SKU del disco all'interno del tipo di archiviazione selezionato.<br/><br/> Se si vuole ottenere un contratto di Service per macchine virtuali a istanza singola pari al 99,9%, considerando l'uso di Managed disks Premium. In questo modo si garantisce che tutti i dischi della valutazione siano consigliati come dischi gestiti Premium.<br/><br/> Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
+**Posizione di destinazione** | Percorso in cui si desidera eseguire la migrazione. Server Assessment supporta attualmente le aree di Azure di destinazione seguenti:<br/><br/> Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, India centrale, Stati Uniti centrali, Cina orientale, Cina settentrionale, Asia orientale, Stati Uniti orientali, East Uniti, Germania centrale, Germania nord-orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Nord Stati Uniti centrali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Regno Unito occidentale, US Gov Arizona, US Gov Texas, US Gov Virginia, Stati Uniti centro-occidentali, Europa occidentale, India occidentale, Stati Uniti occidentali e Uniti occidentali.
+*Disco di archiviazione di destinazione (ridimensionamento)* * | Tipo di dischi da usare per l'archiviazione in Azure. <br/><br/> Specificare il disco di archiviazione di destinazione come gestito Premium, gestito da SSD standard o gestito da HDD standard.
+**Disco di archiviazione di destinazione (dimensionamento basato sulle prestazioni)** | Specificare il tipo di disco di archiviazione di destinazione come automatico, gestito Premium, gestito da HDD standard o gestito da SSD standard.<br/><br/> **Automatico**: l'indicazione del disco è basata sui dati sulle prestazioni dei dischi (operazioni di input/output al secondo (IOPS) e velocità effettiva).<br/><br/>**Premium/standard**: la valutazione consiglia uno SKU del disco all'interno del tipo di archiviazione selezionato.<br/><br/> Se si vuole ottenere un contratto di Service per macchine virtuali a istanza singola pari al 99,9%, considerando l'uso di Managed disks Premium. In questo modo si garantisce che tutti i dischi della valutazione siano consigliati come dischi gestiti Premium.<br/><br/> Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
 **Istanze riservate (RIs)** | Specificare le [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure, in modo che le stime dei costi nella valutazione tengano conto degli sconti.<br/><br/> I servizi di installazione remota sono attualmente supportati solo per le offerte con pagamento in base al consumo in Azure Migrate.
 **Criteri di ridimensionamento** | Usato per dimensionare correttamente la VM in Azure.<br/><br/> Usare il ridimensionamento così come o il dimensionamento in base alle prestazioni.
 **Cronologia delle prestazioni** | Utilizzato con il dimensionamento basato sulle prestazioni. Consente di specificare la durata della valutazione dei dati sulle prestazioni.
 **Utilizzo percentile** | Utilizzato con il dimensionamento basato sulle prestazioni. Specifica il valore percentile dell'esempio di prestazioni da utilizzare per il dimensionamento corretto. 
 **Serie macchina virtuale** | Specificare la serie di VM di Azure che si vuole considerare per il corretto dimensionamento. Se, ad esempio, non si dispone di un ambiente di produzione che richiede macchine virtuali serie A in Azure, è possibile escludere una serie A dall'elenco o dalla serie.
-**Fattore di comfort** | Buffer utilizzato durante la valutazione. Applicato in base ai dati di utilizzo del computer per le macchine virtuali (CPU, memoria, disco e rete). 
-Viene considerato un problema, ad esempio l'utilizzo stagionale, una breve cronologia delle prestazioni e probabilmente aumenti nell'utilizzo futuro.<br/><br/> Ad esempio, una macchina virtuale con 10 core con utilizzo del 20% normalmente produce una macchina virtuale a due core. Con un fattore di comfort di 2.0 x, il risultato è invece una macchina virtuale a quattro core.
+**Fattore di comfort** | Buffer utilizzato durante la valutazione. Applicato in base ai dati di utilizzo del computer per le macchine virtuali (CPU, memoria, disco e rete). Viene considerato un problema, ad esempio l'utilizzo stagionale, una breve cronologia delle prestazioni e probabilmente aumenti nell'utilizzo futuro.<br/><br/> Ad esempio, una macchina virtuale con 10 core con utilizzo del 20% normalmente produce una macchina virtuale a due core. Con un fattore di comfort di 2.0 x, il risultato è invece una macchina virtuale a quattro core.
 **Offerta** | Visualizza l' [offerta Azure](https://azure.microsoft.com/support/legal/offer-details/) in cui si è iscritti. Server Assessment stima il costo di conseguenza.
 **Valuta** | Valuta di fatturazione per l'account.
 **Sconto (%)** | Elenca gli sconti specifici della sottoscrizione ricevuti dall'offerta di Azure. L'impostazione predefinita è 0%.
-**Tempo di esecuzione macchina virtuale** | Se le macchine virtuali di Azure non vengono eseguite 24 ore al giorno, 7 giorni alla settimana, è possibile specificare la durata (giorni al mese e ore al giorno) che verranno eseguite. Le stime dei costi vengono gestite di conseguenza.<br/><br/> Il valore predefinito è di 31 giorni al mese e di 24 ore al giorno.
+**Tempo di attività macchina virtuale** | Se le macchine virtuali di Azure non vengono eseguite 24 ore al giorno, 7 giorni alla settimana, è possibile specificare la durata (giorni al mese e ore al giorno) che verranno eseguite. Le stime dei costi vengono gestite di conseguenza.<br/><br/> Il valore predefinito è di 31 giorni al mese e di 24 ore al giorno.
 **Vantaggio Azure Hybrid** | Specifica se il Software Assurance è idoneo per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se è impostato su Sì (impostazione predefinita), per le macchine virtuali Windows vengono considerati i prezzi non Windows Azure.
 
 [Esaminare le procedure consigliate per la creazione della](best-practices-assessment.md) valutazione con server assessment.

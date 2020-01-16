@@ -3,7 +3,7 @@ title: Creare attività per preparare e completare i processi nei nodi di calcol
 description: Usare le attività di preparazione a livello di processo per ridurre al minimo il trasferimento dei dati ai nodi di calcolo di Azure Batch e le attività di rilascio per la pulizia del nodo al completamento del processo.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 2dbdbc8b13a75b72ca09a319c6925d0835a52e13
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7c5c9dfcaa88b35e14cf5d56b01b4e364c856600
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095128"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027126"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch
 
@@ -67,7 +67,7 @@ L'attività di preparazione del processo viene eseguita solo su nodi pianificati
 > 
 > 
 
-## <a name="job-release-task"></a>Attività di rilascio del processo
+## <a name="job-release-task"></a>attività di rilascio del processo
 Dopo aver contrassegnato un processo come completato , viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Un processo viene contrassegnato come completato generando una richiesta di interruzione. Il servizio Batch imposta quindi lo stato del processo su *Arresto in corso*, termina le attività attive o in esecuzione associate al processo ed esegue l'attività di rilascio del processo. Il processo passa quindi allo stato *completato* .
 
 > [!NOTE]
@@ -80,7 +80,7 @@ Le attività di rilascio dei processi possono essere eseguite per un massimo di 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Attività di preparazione e di rilascio del processo con Batch .NET
 Per usare un'attività di preparazione del processo, assegnare un oggetto [JobPreparationTask][net_job_prep] alla proprietà [CloudJob. JobPreparationTask][net_job_prep_cloudjob] del processo. Analogamente, inizializzare un [JobReleaseTask][net_job_release] e assegnarlo alla proprietà [CloudJob. JobReleaseTask][net_job_prep_cloudjob] del processo per impostare l'attività di rilascio del processo.
 
-In questo frammento `myBatchClient` di codice è un'istanza di [BatchClient][net_batch_client]ed `myPool` è un pool esistente nell'account batch.
+In questo frammento di codice, `myBatchClient` è un'istanza di [BatchClient][net_batch_client]e `myPool` è un pool esistente nell'account batch.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -186,7 +186,7 @@ Lo screenshot seguente mostra il pannello **Attività di preparazione** nel port
 ![Proprietà di preparazione del processo nel portale di Azure][1]
 
 ## <a name="next-steps"></a>Passaggi successivi
-### <a name="application-packages"></a>Pacchetti dell'applicazione
+### <a name="application-packages"></a>Pacchetti delle applicazioni
 Oltre all'attività di preparazione del processo, è possibile usare anche la funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch per preparare i nodi di calcolo per l'esecuzione dell'attività. Questa funzionalità è particolarmente utile per la distribuzione di applicazioni che non richiedono l'esecuzione di un programma di installazione, applicazioni che contengono molti file (100+) o applicazioni che richiedono un controllo delle versioni rigoroso.
 
 ### <a name="installing-applications-and-staging-data"></a>Installazione delle applicazioni e staging dei dati

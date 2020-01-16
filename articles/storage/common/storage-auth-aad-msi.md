@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c0b07cc001f65ff369f87954779634b8b49ba4ec
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3bac0d47a53da1ec4d1fa08b5f0933f5f65dc56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892052"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965773"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -29,7 +29,7 @@ Prima di poter usare le identità gestite per le risorse di Azure per autorizzar
 
 - [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modello di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Librerie client di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
@@ -93,7 +93,7 @@ Il comando `az ad sp create-for-rbac` restituisce un elenco di proprietà dell'e
 
 La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
 
-|Variabile di ambiente|Value
+|Variabile di ambiente|Valore
 |-|-
 |`AZURE_CLIENT_ID`|ID app per l'entità servizio
 |`AZURE_TENANT_ID`|ID tenant Azure AD dell'entità servizio
@@ -164,4 +164,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [Gestione dei diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
 - [Usare Azure ad con le applicazioni di archiviazione](storage-auth-aad-app.md).
-- [Eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o Queue](storage-auth-aad-script.md)
+- [Eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o Queue](authorize-active-directory-powershell.md)

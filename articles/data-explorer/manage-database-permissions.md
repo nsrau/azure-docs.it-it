@@ -1,5 +1,5 @@
 ---
-title: Gestire le autorizzazioni di database in Esplora dati di Azure
+title: Gestire le autorizzazioni del database in Azure Esplora dati
 description: Questo articolo descrive i controlli degli accessi in base al ruolo per i database e le tabelle in Esplora dati di Azure.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758802"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030099"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gestire le autorizzazioni per database di Esplora dati di Azure
 
@@ -27,7 +27,7 @@ Esplora dati di Azure presenta i seguenti ruoli:
 |Ruolo                       |Autorizzazioni                                                                        |
 |---------------------------|-----------------------------------------------------------------------------------|
 |Amministratore database             |Può eseguire qualsiasi operazione nell'ambito di un determinato database.|
-|Utente database              |Può leggere tutti i dati e metadati nel database. Inoltre, può creare tabelle (diventando l'amministratore di tabella per tale tabella) e funzioni nel database.|
+|Utente del database              |Può leggere tutti i dati e metadati nel database. Inoltre, può creare tabelle (diventando l'amministratore di tabella per tale tabella) e funzioni nel database.|
 |Visualizzatore database            |Può leggere tutti i dati e metadati nel database.|
 |Inseritore database          |Può inserire dati per tutte le tabelle esistenti nel database, ma non una query sui dati.|
 |Monitoraggio del database           |Può eseguire comandi ".show..." nel contesto del database e le relative entità figlio.|
@@ -42,7 +42,7 @@ Esplora dati di Azure presenta i seguenti ruoli:
 
 1. Nella sezione **Panoramica**, selezionare il database in cui si desidera gestire le autorizzazioni.
 
-    ![Selezionare il database](media/manage-database-permissions/select-database.png)
+    ![Seleziona database](media/manage-database-permissions/select-database.png)
 
 1. Selezionare **Autorizzazioni** quindi**Aggiungi**.
 
@@ -73,6 +73,8 @@ Esplora dati di Azure presenta i seguenti ruoli:
     ```
 
     L'output del comando mostra l'elenco di utenti esistenti e i ruoli che vengono loro assegnati nel database.
+    
+    Per esempi relativi a Azure Active Directory e al modello di autorizzazione kusto, vedere [principi e provider di identità](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

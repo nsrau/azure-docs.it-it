@@ -1,28 +1,24 @@
 ---
 title: Eseguire la migrazione di macchine virtuali VMware con la soluzione Migrazione server di Azure Migrate basata su agente
 description: Informazioni su come eseguire una migrazione di macchine virtuali VMware basata su agente con Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196289"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028964"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 
 Questo articolo illustra come eseguire una migrazione basata su agente di macchine virtuali VMware locali in Azure con lo strumento Migrazione server di Azure Migrate.
 
-[Azure Migrate](migrate-services-overview.md) offre un hub centrale da cui monitorare l'individuazione, la valutazione e la migrazione dei carichi di lavoro e delle app locali, oltre che delle istanze di macchine virtuali AWS/GCP, in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, oltre a offerte di fornitori di software indipendenti (ISV) di terze parti.
+[Azure Migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione dei carichi di lavoro e delle app locali, nonché delle istanze di VM AWS/GCP, in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi.
 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Configurare l'ambiente di origine e distribuire un'appliance di replica di Azure Migrate per la migrazione basata su agente.
 > * Configurare l'ambiente di destinazione della migrazione.
@@ -61,7 +57,7 @@ Per decidere se usare la migrazione senza agente o basata su agente, vedere ques
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, è necessario:
 
@@ -83,7 +79,7 @@ Se non è stata eseguita una valutazione, è necessario configurare le autorizza
 
 - **Creare un progetto**: l'account Azure deve avere le autorizzazioni per creare un progetto di Azure Migrate. 
 - **Registrare l'appliance di replica Azure Migrate**: l'appliance di replica crea e registra un'app Azure Active Directory nell'account Azure. È necessario delegare le autorizzazioni per queste operazioni.
-- **Creare un insieme di credenziali delle chiavi**: per eseguire la migrazione delle macchine virtuali VMware con Migrazione server di Azure Migrate, Azure Migrate crea un insieme di credenziali delle chiavi nel gruppo di risorse per gestire le chiavi di accesso all'account di archiviazione di replica nella sottoscrizione. Per creare l'insieme di credenziali delle chiavi sono necessarie autorizzazioni di assegnazione di ruolo per il gruppo di risorse in cui si trova il progetto Azure Migrate. 
+- **Creare un insieme di credenziali delle chiavi**: Per eseguire la migrazione delle macchine virtuali VMware con Migrazione server di Azure Migrate, Azure Migrate crea un insieme di credenziali delle chiavi nel gruppo di risorse per gestire le chiavi di accesso all'account di archiviazione di replica nella sottoscrizione. Per creare l'insieme di credenziali, sono necessarie autorizzazioni di assegnazione di ruolo per il gruppo di risorse in cui si trova il progetto di Azure Migrate. 
 
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
@@ -175,11 +171,11 @@ Assicurarsi che i server e le macchine virtuali VMware siano conformi ai requisi
 
 
 > [!NOTE]
-> La migrazione basata su agente con Migrazione server di Azure Migrate si basa sulle funzionalità del servizio Azure Site Recovery. Alcuni requisiti potrebbero includere collegamenti alla documentazione di Site Recovery.
+> La migrazione basata su agente con lo strumento Migrazione server di Azure Migrate si basa sulle funzionalità del servizio Azure Site Recovery. Alcuni requisiti potrebbero includere collegamenti alla documentazione di Site Recovery.
 
-1. [Verificare](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) i requisiti dei server VMware.
-2. [Verificare](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) i requisiti di supporto delle macchine virtuali per la migrazione.
-3. Verificare le impostazioni delle macchine virtuali. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Verificare](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) i requisiti dei server VMware.
+2. [Verificare](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) i requisiti di supporto delle macchine virtuali per la migrazione.
+3. Verificare le impostazioni delle macchine virtuali. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
@@ -238,7 +234,7 @@ Per scaricare il modello, seguire questa procedura:
 
 3. In **Individua macchine virtuali** > **I computer sono virtualizzati?** fare clic su **Sì, con VMware vSphere Hypervisor**.
 4. In **Scegliere la modalità di migrazione** selezionare **Con replica basata su agente**.
-5. In **Area di destinazione** selezionare l'area di Azure in cui si vuole eseguire la migrazione delle macchine virtuali.
+5. In **Area di destinazione** selezionare l'area di Azure in cui eseguire la migrazione delle macchine virtuali.
 6. Selezionare **Confermare che l'area di destinazione della migrazione è <nome area>** .
 7. Fare clic su **Crea risorse**. Verrà creato un insieme di credenziali di Azure Site Recovery in background.
     - Dopo aver fatto clic su questo pulsante non è più possibile cambiare l'area di destinazione di questo progetto.
@@ -336,7 +332,7 @@ Selezionare ora le VM per la migrazione.
     - Selezionare **No** se non si vuole applicare Vantaggio Azure Hybrid. Quindi fare clic su **Next**.
     - Selezionare **Sì** se si hanno computer Windows Server con copertura Software Assurance o sottoscrizioni di Windows Server attive e si vuole applicare il vantaggio alle VM di cui si sta eseguendo la migrazione. Quindi fare clic su **Next**.
 
-12. In **Calcolo** controllare il nome, le dimensioni, il tipo di disco del sistema operativo e il set di disponibilità delle VM. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+12. In **Calcolo** controllare il nome, le dimensioni, il tipo di disco del sistema operativo e il set di disponibilità delle VM. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
 
     - **Dimensioni macchina virtuale**: se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale conterrà le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**. 
     - **Disco del sistema operativo**: specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo. 

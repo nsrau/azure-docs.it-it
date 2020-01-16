@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357567"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028863"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure
 Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato.
@@ -127,11 +127,11 @@ In questa sezione verrà creato un account di archiviazione privato utilizzando 
     | Sottoscrizione | Selezionare la propria sottoscrizione. |
     | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     |Percorso|Selezionare **Stati Uniti centro-occidentali**.|
-    |Nome|Immettere *myPrivateEndpoint*.  |
+    |Nome|Immettere *myPrivateEndpoint*.  |
     |Sottorisorsa di archiviazione|Lasciare il **BLOB**predefinito. |
     | **RETE** |  |
-    | Rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
-    | Subnet | Selezionare  *mySubnet*. |
+    | Rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
+    | Subnet | Selezionare la *subnet*. |
     | **INTEGRAZIONE DNS PRIVATO**|  |
     | Integra con la zona DNS privato  | Lasciare l'impostazione predefinita **Sì**. |
     | Zona DNS privato  | Lasciare il valore predefinito **(nuovo) privatelink.blob.Core.Windows.NET**. |
@@ -172,8 +172,8 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 In questa sezione si effettuerà la connessione privata con l'account di archiviazione usando l'endpoint privato.
 
-1. Nel desktop remoto di  *myVM* aprire PowerShell.
-2. Immettere `nslookup mystorageaccount.blob.core.windows.net` verrà visualizzato un messaggio simile al seguente:
+1. Nel Desktop remoto di *myVm1* aprire PowerShell.
+2. Immettere `nslookup mystorageaccount.blob.core.windows.net` verrà visualizzato un messaggio simile al seguente:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -192,7 +192,7 @@ In questa sezione si effettuerà la connessione privata con l'account di archivi
 10. Selezionare **Connetti**.
 11. Esplorare i contenitori BLOB da mystorageaccount 
 12. Facoltativamente Creare cartelle e/o caricare file in *mystorageaccount*. 
-13. Chiudere la connessione Desktop remoto a *myVM*. 
+13. Chiudere la connessione Desktop remoto a *myVM*. 
 
 Opzioni aggiuntive per accedere all'account di archiviazione:
 - Microsoft Azure Storage Explorer è un'app gratuita autonoma di Microsoft che consente di lavorare visivamente con i dati di archiviazione di Azure in Windows, macOS e Linux. È possibile installare l'applicazione per esplorare in modo privato il contenuto dell'account di archiviazione. 
@@ -202,9 +202,9 @@ Opzioni aggiuntive per accedere all'account di archiviazione:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 Al termine dell'uso dell'endpoint privato, dell'account di archiviazione e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute: 
-1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca. 
+1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca. 
 2. Selezionare **Elimina gruppo di risorse**. 
-3. Immettere *myResourceGroup* per **digitare il nome del gruppo di risorse** e selezionare **Elimina**. 
+3. Immettere *myResourceGroup* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa Guida introduttiva è stata creata una VM in una rete virtuale e un account di archiviazione e un endpoint privato. È stata effettuata la connessione a una macchina virtuale da Internet e la comunicazione protetta con l'account di archiviazione tramite un collegamento privato. Per altre informazioni sull'endpoint privato, vedere [che cos'è endpoint privato di Azure?](private-endpoint-overview.md).
+In questa Guida introduttiva è stata creata una VM in una rete virtuale e un account di archiviazione e un endpoint privato. È stata effettuata la connessione a una macchina virtuale da Internet e la comunicazione protetta con l'account di archiviazione tramite un collegamento privato. Per altre informazioni sull'endpoint privato, vedere [che cos'è endpoint privato di Azure?](private-endpoint-overview.md).
