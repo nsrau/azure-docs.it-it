@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: bad21019607c99964caa1712e50231705689aad2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce74966cab3469d59693c59831bb3d4ce625f90e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055328"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159415"
 ---
 >[!NOTE]
->Le funzionalità descritte in questo articolo sono disponibili solo nel livello standard dell'IoT Hub. Per altre informazioni sui livelli basic e standard dell'IoT Hub, vedere [scegliere il livello di IoT Hub corretto](../articles/iot-hub/iot-hub-scaling.md).
+>Le funzionalità descritte in questo articolo sono disponibili solo nel livello standard dell'hub Internet. Per altre informazioni sui livelli Basic e standard/free per gli hub, vedere [scegliere il livello dell'hub degli elementi appropriati](../articles/iot-hub/iot-hub-scaling.md).

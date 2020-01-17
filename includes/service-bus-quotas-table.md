@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ab17d86251be6a0ef2452b258acf8d055b4605db
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: c8412a01f4a5056b352b1d985f36e5a51a25a649
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561510"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76158933"
 ---
 La tabella seguente elenca le informazioni sulle quote specifiche per la messaggistica del bus di servizio di Azure. Per informazioni sui prezzi e altre quote per il bus di servizio, vedere [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Nome della quota | Scope | Note | Value |
+| Nome della quota | Ambito | Note | Valore |
 | --- | --- | --- | --- |
 | Numero massimo di spazi dei nomi Basic o standard per ogni sottoscrizione di Azure |Spazio dei nomi |Le richieste successive per gli spazi dei nomi di base o standard aggiuntivi vengono rifiutate dal portale di Azure. |100|
 | Numero massimo di spazi dei nomi premium per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |100 |
@@ -32,9 +32,9 @@ La tabella seguente elenca le informazioni sulle quote specifiche per la messagg
 | Dimensioni massime di un [ID di sessione](/dotnet/api/microsoft.azure.servicebus.message.sessionid) del messaggio | Persona giuridica |- | 128 |
 | Dimensioni del messaggio per una coda, un argomento o un'entità di sottoscrizione |Persona giuridica |I messaggi in ingresso che superano queste quote vengono rifiutati e viene ricevuta un'eccezione dal codice chiamante. |Dimensioni massime del messaggio: 256 KB per il [livello standard](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB per il [livello Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />A causa di un sovraccarico del sistema, questo limite è minore di questi valori.<br /><br />Dimensioni massime intestazione: 64 KB.<br /><br />Numero massimo di proprietà di intestazione nel contenitore delle proprietà: **byte/int. MaxValue**.<br /><br />Dimensioni massime della proprietà nel contenitore delle proprietà: nessun limite esplicito. Limitato dalla dimensione massima delle intestazioni. |
 | Dimensioni delle proprietà dei messaggi per una coda, un argomento o un'entità di sottoscrizione |Persona giuridica | Viene generata l'eccezione **SerializationException** . |La dimensione massima della proprietà del messaggio per ogni proprietà è 32.000. La dimensione cumulativa di tutte le proprietà non può essere superiore a 64.000. Questo limite si applica all'intera intestazione di [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), che include sia proprietà utente che proprietà di sistema, ad esempio [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)e [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
-| Numero di sottoscrizioni e per ogni argomento |Persona giuridica |Le successive richieste di creazione di altre sottoscrizioni per l'argomento vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il portale, viene visualizzato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |2\.000 per argomento per il livello Basic o standard. |
+| Numero di sottoscrizioni e per ogni argomento |Persona giuridica |Le successive richieste di creazione di altre sottoscrizioni per l'argomento vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il portale, viene visualizzato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |2\.000 per argomento per il livello standard. |
 | Numero di filtri SQL per ogni argomento |Persona giuridica |Le successive richieste di creazione di filtri aggiuntivi per l'argomento vengono rifiutate e viene ricevuta un'eccezione dal codice chiamante. |2\.000 |
-| Numero di filtri di correlazione per ogni argomento |Persona giuridica |Le successive richieste di creazione di filtri aggiuntivi per l'argomento vengono rifiutate e viene ricevuta un'eccezione dal codice chiamante. |100,000 |
+| Numero di filtri di correlazione per ogni argomento |Persona giuridica |Le successive richieste di creazione di filtri aggiuntivi per l'argomento vengono rifiutate e viene ricevuta un'eccezione dal codice chiamante. |100.000 |
 | Dimensioni dei filtri o delle azioni SQL |Spazio dei nomi |Le successive richieste di creazione di filtri aggiuntivi vengono rifiutate e il codice chiamante riceve un'eccezione. |Lunghezza massima della stringa della condizione di filtro: 1.024 (1 K).<br /><br />Lunghezza massima della stringa dell'azione della regola: 1.024 (1 K).<br /><br />Numero massimo di espressioni per ogni azione della regola: 32. |
 | Numero di regole [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) per ogni spazio dei nomi, coda o argomento |Entità, spazio dei nomi |Le successive richieste di creazione di regole aggiuntive vengono rifiutate e il codice chiamante riceve un'eccezione. |Numero massimo di regole: 12. <br /><br /> Le regole configurate in uno spazio dei nomi del bus di servizio si applicano a tutte le code e gli argomenti in tale spazio dei nomi. |
 | Numero di messaggi per transazione | Transazione | I messaggi in arrivo aggiuntivi vengono rifiutati e un'eccezione che indica "Impossibile inviare più di 100 messaggi in una singola transazione" viene ricevuta dal codice chiamante. | 100 <br /><br /> Per entrambe le operazioni **Send()** e **SendAsync()** . |

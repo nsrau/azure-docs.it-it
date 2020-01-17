@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180070"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159073"
 ---
 ## <a name="os-config"></a>Aggiungere indirizzi IP a un sistema operativo VM
 
@@ -23,15 +23,15 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
 
 1. Da un prompt dei comandi digitare *ipconfig /all*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
 2. Digitare *ncpa.cpl* nel prompt dei comandi per aprire la finestra **Connessioni di rete**.
-3. Aprire le proprietà per la scheda appropriata: **Connessione alla rete locale**.
+3. Visualizzare le proprietà per la scheda appropriata: **Connessione alla rete locale (LAN)** .
 4. Fare doppio clic su Protocollo Intenret versione 4 (IPv4).
 5. Selezionare **Utilizza il seguente indirizzo IP** e immettere i valori seguenti:
 
-    * **Indirizzo IP**: Immettere il *primaria* indirizzo IP privato
-    * **La subnet mask**: Impostati in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
-    * **Gateway predefinito**: Il primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
+    * **Indirizzo IP**: immettere l'indirizzo IP privato *Primary* .
+    * **Subnet mask**: configurare questo valore in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
+    * **Gateway predefinito**: primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
     * Selezionare **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
-        * **Server DNS preferito**: Se non si usa il proprio server DNS, immettere 168.63.129.16.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
+        * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
     * Selezionare il pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere tutti gli indirizzi IP secondari, aggiunti all'interfaccia di rete di Azure in un passaggio precedente, all'interfaccia di rete di Windows assegnata all'indirizzo IP primario assegnato all'interfaccia di rete di Azure.
 
         Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale. Quando si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato all'[interfaccia di rete](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Altre informazioni sulle impostazioni dell'[indirizzo IP privato](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). L'assegnazione di un indirizzo IP pubblico di Azure all'interno del sistema operativo è un'operazione sempre sconsigliata.
@@ -52,7 +52,69 @@ ping -S 10.0.0.5 hotmail.com
 >Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-È consigliabile esaminare la versione più recente la documentazione per la distribuzione di Linux. 
+
+Si consiglia di esaminare la documentazione più recente per la distribuzione di Linux. 
+
+1. Aprire una finestra del terminale.
+2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
+
+   ```bash
+   sudo -i
+   ```
+
+3. Aggiornare il file di configurazione dell'interfaccia di rete, presupponendo 'eth0'.
+
+   * Mantenere la voce esistente per dhcp. L'indirizzo IP primario conserva la configurazione precedente.
+   * Aggiungere una configurazione per un indirizzo IP statico aggiuntivo con i comandi seguenti:
+
+     ```bash
+     cd /etc/network/interfaces.d/
+     ls
+     ```
+
+     Dovrebbe essere visualizzato un file con estensione cfg.
+4. Open the file. Dovrebbero essere visualizzate le righe seguenti alla fine del file:
+
+   ```bash
+   auto eth0
+   iface eth0 inet dhcp
+   ```
+
+5. Aggiungere le righe seguenti dopo le righe esistenti nel file:
+
+   ```bash
+   iface eth0 inet static
+   address <your private IP address here>
+   netmask <your subnet mask>
+   ```
+
+6. Salvare il file usando il comando seguente:
+
+   ```bash
+   :wq
+   ```
+
+7. Reimpostare l'interfaccia di rete con il comando seguente:
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   > [!IMPORTANT]
+   > Eseguire ifdown e ifup nella stessa riga se si usa una connessione remota.
+   >
+
+8. Verificare che l'indirizzo IP venga aggiunto all'interfaccia di rete con il comando seguente:
+
+   ```bash
+   ip addr list eth0
+   ```
+
+   L'indirizzo IP aggiunto dovrebbe essere incluso nell'elenco.
+
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+
+Ubuntu 18,04 e versioni successive sono state modificate in `netplan` per la gestione della rete del sistema operativo. Si consiglia di esaminare la documentazione più recente per la distribuzione di Linux. 
 
 1. Aprire una finestra del terminale.
 2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
@@ -61,47 +123,43 @@ ping -S 10.0.0.5 hotmail.com
     sudo -i
     ```
 
-3. Aggiornare il file di configurazione dell'interfaccia di rete, presupponendo 'eth0'.
-
-   * Mantenere la voce esistente per dhcp. L'indirizzo IP primario conserva la configurazione precedente.
-   * Aggiungere una configurazione per un indirizzo IP statico aggiuntivo con i comandi seguenti:
-
-       ```bash
-       cd /etc/network/interfaces.d/
-       ls
-       ```
-
-     Dovrebbe essere visualizzato un file con estensione cfg.
-4. Open the file. Dovrebbero essere visualizzate le righe seguenti alla fine del file:
+3. Creare un file per la seconda interfaccia e aprirlo in un editor di testo:
 
     ```bash
-    auto eth0
-    iface eth0 inet dhcp
+    vi /etc/netplan/60-static.yaml
     ```
 
-5. Aggiungere le righe seguenti dopo le righe esistenti nel file:
+4. Aggiungere le righe seguenti al file, sostituendo `10.0.0.6/24` con l'IP/Netmask:
 
     ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    netmask <your subnet mask>
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
     ```
 
-6. Salvare il file usando il comando seguente:
+5. Salvare il file usando il comando seguente:
 
     ```bash
     :wq
     ```
 
-7. Reimpostare l'interfaccia di rete con il comando seguente:
+6. Testare le modifiche usando [Netplan provare](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) a confermare la sintassi:
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    netplan try
     ```
 
-    > [!IMPORTANT]
-    > Eseguire ifdown e ifup nella stessa riga se si usa una connessione remota.
-    >
+> [!NOTE]
+> `netplan try` applicherà temporaneamente le modifiche ed eseguirà il rollback delle modifiche dopo 120 secondi. Se si verifica una perdita di connettività, attendere 120 secondi e quindi riconnettersi. In quel momento, verrà eseguito il rollback delle modifiche.
+
+7. Se non si verificano problemi con `netplan try`, applicare le modifiche di configurazione:
+
+    ```bash
+    netplan apply
+    ```
 
 8. Verificare che l'indirizzo IP venga aggiunto all'interfaccia di rete con il comando seguente:
 
@@ -109,8 +167,25 @@ ping -S 10.0.0.5 hotmail.com
     ip addr list eth0
     ```
 
-    L'indirizzo IP aggiunto dovrebbe essere incluso nell'elenco.
+    L'indirizzo IP aggiunto dovrebbe essere incluso nell'elenco. Esempio:
 
+    ```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (RedHat, CentOS e altri)
 
 1. Aprire una finestra del terminale.
