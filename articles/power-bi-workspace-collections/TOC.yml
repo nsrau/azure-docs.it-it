@@ -1,44 +1,11 @@
 - name: Panoramica
-  items:
-    - name: Informazioni sulle raccolte di aree di lavoro di Power BI
-      href: what-are-power-bi-workspace-collections.md
-    - name: Novità delle raccolte di aree di lavoro di Power BI
-      href: whats-new.md
-- name: Attività iniziali
-  items:
-    - name: Introduzione alle raccolte di aree di lavoro di Power BI
-      href: get-started.md
-    - name: Esempio introduttivo
-      href: get-started-sample.md
-    - name: Domande frequenti
-      href: faq.md
+- name: Introduzione
 - name: Procedure
   items:
     - name: Pianificare e progettare
-      items:
-        - name: Scenari comuni
-          href: scenarios.md
-    - name: Gestisci
-      items:
-        - name: Connettersi a un'origine dati
-          href: connect-datasource.md
-        - name: Incorporare un report di Power BI
-          href: embed-report.md
-        - name: Interagire con i report
-          href: interact-with-reports.md
-        - name: Creare un nuovo report da un set di dati
-          href: create-report-from-dataset.md
-        - name: Salvare i report
-          href: save-reports.md
-        - name: Passare dalla visualizzazione alla modifica e viceversa
-          href: toggle-mode.md
-    - name: Proteggere
-      items:
-        - name: Autenticazione e autorizzazione
-          href: app-token-flow.md
-        - name: Sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
-          href: row-level-security.md
-- name: riferimento
+    - name: Gestione
+    - name: Sicurezza
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=power-bi-embedded'
