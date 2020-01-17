@@ -50,6 +50,8 @@
       href: powershell-samples.md
 - name: Concetti
   items:
+    - name: Componenti e limiti
+      href: concepts-limitations.md
     - name: Monitoraggio dell’integrità
       items:
         - name: Probe di integrità
@@ -147,7 +149,7 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'

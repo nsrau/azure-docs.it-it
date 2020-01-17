@@ -139,8 +139,8 @@
               href: configure-linked-sign-on.md
         - name: Assegnare utenti e gestire l'accesso alle app
           items:
-            - name: Configurare il consenso utente
-              href: configure-user-consent.md
+            - name: Gestire e valutare le richieste di consenso
+              href: manage-consent-requests.md
             - name: Concedere il consenso amministratore a livello di tenant
               href: grant-admin-consent.md
             - name: Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
@@ -385,7 +385,7 @@
       items:
         - name: Proteggere le app legacy con reti o controller di distribuzione delle app
           href: secure-hybrid-access.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Provisioning di applicazioni (SCIM)
       items:

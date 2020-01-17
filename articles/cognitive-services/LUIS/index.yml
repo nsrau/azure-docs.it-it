@@ -12,12 +12,12 @@ metadata:
   title: Documentazione di Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Il servizio Language Understanding (LUIS) consente all'applicazione di riconoscere la finalità espressa da una persona usando il linguaggio naturale. Language Understanding usa LUIS usa Machine Learning per consentire agli sviluppatori di compilare applicazioni in grado di ricevere input dall'utente in linguaggio naturale ed estrarne il significato.
-  ms.openlocfilehash: 43f40e042fdbecbfc571fb719a0a42ded6c70909
-  ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+  ms.openlocfilehash: f45461b49b51d6d25464ffa7d2084b1bbb1f9e0e
+  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74706680"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76169652"
 landingContent:
 - title: Informazioni su Language Understanding (LUIS)
   linkLists:
@@ -58,9 +58,9 @@ landingContent:
     - text: 'Portale: Creare una nuova app LUIS'
       url: get-started-portal-build-app.md
     - text: Uso di C# SDK
-      url: sdk-csharp-quickstart-authoring-app.md
+      url: sdk-authoring.md?pivots=programming-language-csharp
     - text: Uso di Python SDK
-      url: sdk-python-quickstart-authoring-app.md
+      url: sdk-authoring.md?pivots=programming-language-python
   - linkListType: how-to-guide
     links:
     - text: Creare una nuova app LUIS
@@ -85,10 +85,8 @@ landingContent:
     links:
     - text: "Portale: Distribuire l'app nell'endpoint di stima"
       url: get-started-portal-deploy-app.md
-    - text: Uso di C# SDK
-      url: sdk-csharp-quickstart-authoring-app.md#train-the-app
-    - text: Uso di Python SDK
-      url: sdk-python-quickstart-authoring-app.md#train-the-app
+    - text: Uso dell'SDK
+      url: sdk-authoring.md
   - linkListType: how-to-guide
     links:
     - text: Assegnare un numero di versione all'app
@@ -105,8 +103,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Con C# .NET SDK
-      url: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - text: Uso dell'SDK
+      url: sdk-query-prediction-endpoint.md
   - linkListType: quickstart
     links:
     - text: Con C# usando REST
@@ -119,7 +117,7 @@ landingContent:
       url: luis-get-started-node-get-intent.md
     - text: Con Python usando REST
       url: luis-get-started-python-get-intent.md
-- title: riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:
@@ -137,7 +135,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: risoluzione dei problemi
+    - text: Risoluzione dei problemi
       url: troubleshooting.md
     - text: Inviare domande a Stack Overflow
       url: https://stackoverflow.com/questions/tagged/LUIS

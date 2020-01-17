@@ -8,6 +8,8 @@
   items:
     - name: Sottoscrizione e limiti dei servizi
       href: azure-subscription-service-limits.md
+    - name: Regole per i nomi delle risorse
+      href: resource-name-rules.md
     - name: Resource Manager e distribuzione classica
       href: deployment-models.md
     - name: Attributi comuni della sicurezza di Azure
@@ -108,7 +110,7 @@
       href: request-limits-and-throttling.md
     - name: Tenere traccia delle operazioni asincrone
       href: async-operations.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: REST
       href: /rest/api/resources/

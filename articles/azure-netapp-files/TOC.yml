@@ -27,6 +27,8 @@
           href: azure-netapp-files-performance-benchmarks.md
         - name: Raccomandazioni sui test di benchmark delle prestazioni per Azure NetApp Files
           href: azure-netapp-files-performance-metrics-volumes.md
+        - name: Domande frequenti sulle prestazioni di SMB
+          href: azure-netapp-files-smb-performance.md
     - name: Modello di costi per Azure NetApp Files
       href: azure-netapp-files-cost-model.md
     - name: Linee guida per la pianificazione della rete per Azure NetApp Files
@@ -69,7 +71,7 @@
           href: azure-netapp-files-sdk-cli.md
         - name: Risolvere i problemi del provider di risorse di Azure NetApp Files
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/netapp/'
@@ -79,7 +81,7 @@
   items:
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/netapp/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'
     - name: Contratto di servizio
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'

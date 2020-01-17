@@ -249,6 +249,8 @@
           items:
             - name: Integrare competenze personalizzate
               href: cognitive-search-custom-skill-interface.md
+            - name: Esempio - Funzioni di Azure (Python)
+              href: cognitive-search-custom-skill-python.md
             - name: Esempio - Funzioni di Azure
               href: cognitive-search-create-custom-skill-example.md
             - name: Esempio - Contenitori
@@ -321,7 +323,7 @@
           href: search-indexer-troubleshooting.md
         - name: Errori e avvisi dell'indicizzatore
           href: cognitive-search-common-errors-warnings.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'

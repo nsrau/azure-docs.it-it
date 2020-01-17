@@ -17,6 +17,8 @@
   items:
     - name: Avviare lo strumento di lettura immersiva (Python)
       href: tutorial-python.md
+    - name: Usare più risorse dello strumento di lettura immersiva
+      href: tutorial-multiple-resources.md
 - name: Procedure
   items:
     - name: Creare una risorsa dello strumento di lettura immersiva

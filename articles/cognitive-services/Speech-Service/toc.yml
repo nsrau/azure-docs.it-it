@@ -47,7 +47,7 @@
           href: how-to-use-codec-compressed-audio-input-streams-android.md
         - name: Usare il riconoscimento vocale con i contenitori Docker
           href: speech-container-howto.md?tabs=stt
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: API Speech SDK
           items:
@@ -109,7 +109,7 @@
           href: long-audio-api.md
         - name: Usare la sintesi vocale con contenitori Docker
           href: speech-container-howto.md?tabs=tts
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Speech SDK
           items:
@@ -155,7 +155,7 @@
       items:
         - name: 'Riconoscere le finalità voce con LUIS, C#'
           href: how-to-recognize-intents-from-speech-csharp.md
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Speech SDK
           items:
@@ -203,7 +203,7 @@
       items:
         - name: 'Creare un''app Flask per tradurre e sintetizzare testo, REST'
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Speech SDK
           items:
@@ -245,7 +245,7 @@
           href: how-to-use-conversation-transcription.md
         - name: Trascrizione conversazione asincrona
           href: how-to-async-conversation-transcription.md
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Speech SDK
           items:
@@ -416,7 +416,7 @@
           href: 'https://github.com/Azure-Samples/Cognitive-Speech-TTS'
         - name: Esempi di REST di trascrizione batch
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch'
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: API REST
           items:
@@ -452,14 +452,16 @@
           href: how-to-use-logging.md
         - name: Come tenere traccia dell'utilizzo della memoria
           href: how-to-track-speech-sdk-memory-usage.md
-          displayName: 'memory usage, memory consumption, object logging, object tracking, memory'
+        - name: Come configurare OpenSSL per Linux
+          href: how-to-configure-openssl-linux.md
+          displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
     - name: Esempi
       items:
         - name: Esempi di Speech SDK (GitHub)
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
         - name: Esempi di Speech Device SDK (GitHub)
           href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: C++
           href: 'https://aka.ms/csspeech/cppref'
@@ -502,7 +504,7 @@
       items:
         - name: Risolvere i problemi di Speech Devices SDK
           href: speech-devices-sdk-troubleshooting.md
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Note sulla versione di Speech Devices SDK
           href: devices-sdk-release-notes.md

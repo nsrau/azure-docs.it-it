@@ -71,7 +71,7 @@
       href: concept-workspace.md
     - name: Ambienti
       href: concept-environments.md
-    - name: data
+    - name: Data
       href: concept-data.md
     - name: Training dei modelli
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
@@ -123,7 +123,7 @@
           href: monitor-azure-machine-learning.md
     - name: Integrazione di Griglia di eventi
       href: concept-event-grid-integration.md
-    - name: Apprendimento avanzato
+    - name: Deep Learning
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
 - name: Guide pratiche
@@ -310,15 +310,9 @@
         - name: Utilizzo in tempo reale
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Eseguire previsioni in batch
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions.md
         - name: Previsioni in batch nella finestra di progettazione
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
-        - name: Eseguire il debug e risolvere i problemi relativi alle previsioni in batch
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-batch-predictions.md
     - name: Monitorare i modelli
       items:
         - name: Raccogliere e valutare i dati dei modelli
@@ -343,6 +337,12 @@
         - name: 'Progettazione: Ripetere il training usando le pipeline pubblicate'
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: Usare il passaggio di esecuzione in parallelo
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-use-parallel-run-step.md
+        - name: Eseguire il debug e la risoluzione dei problemi del passaggio di esecuzione in parallelo
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-parallel-run-step.md
     - name: Gestire le quote di risorse
       displayName: limits
       href: how-to-manage-quotas.md
@@ -352,7 +352,7 @@
     - name: Creare flussi di lavoro basati su eventi
       displayName: event grid
       href: how-to-use-event-grid.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Python SDK
       displayName: 'api, core, package, python, class'
@@ -383,7 +383,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Problemi noti
       displayName: 'bugs, errors, troubleshoot'

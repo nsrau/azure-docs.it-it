@@ -2,44 +2,36 @@
   href: index.yml
 - name: Guida alla verifica in due passaggi
   items:
-    - name: Panoramica
-      href: user-help-two-step-verification-overview.md
-    - name: Configurare i metodi di verifica a due fattori
-      items:
-        - name: Panoramica
-          href: multi-factor-authentication-end-user-first-time.md
-        - name: Configurare un'app di autenticazione
-          href: multi-factor-authentication-setup-auth-app.md
-        - name: Configurare un dispositivo mobile
-          href: multi-factor-authentication-setup-phone-number.md
-        - name: Configurare un telefono dell'ufficio
-          href: multi-factor-authentication-setup-office-phone.md
+    - name: Cos'è la pagina Verifica aggiuntiva?
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configurare un'app di autenticazione
+      href: multi-factor-authentication-setup-auth-app.md
+    - name: Configurare un dispositivo mobile
+      href: multi-factor-authentication-setup-phone-number.md
+    - name: Configurare un telefono dell'ufficio
+      href: multi-factor-authentication-setup-office-phone.md
     - name: Gestire le impostazioni
       href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Ottenere aiuto
-      href: multi-factor-authentication-end-user-troubleshoot.md
     - name: Gestire le password delle app
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Come effettuare l'accesso
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Ottenere aiuto
+      href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Guida alla reimpostazione delle password
   items:
-    - name: Panoramica
-      href: user-help-password-reset-overview.md
     - name: Registrarsi per la reimpostazione delle password
       href: active-directory-passwords-reset-register.md
     - name: Reimpostare la password
       href: active-directory-passwords-update-your-own-password.md
 - name: Guida all'app Microsoft Authenticator
   items:
-    - name: Panoramica
+    - name: Che cos'è l'app Microsoft Authenticator?
       href: user-help-auth-app-overview.md
     - name: Scaricare e installare l'app
       href: user-help-auth-app-download-install.md
     - name: Aggiungere account
       items:
-        - name: Panoramica
-          href: user-help-auth-app-add-account-overview.md
         - name: Aggiungere un account aziendale o dell'istituto di istruzione
           href: user-help-auth-app-add-work-school-account.md
         - name: Aggiungere un account Microsoft personale
@@ -56,10 +48,10 @@
       href: user-help-auth-app-faq.md
 - name: Guida del portale Account personale
   items:
-    - name: Panoramica
+    - name: Che cos'è il portale Account personale?
       href: my-account-portal-overview.md
     - name: Gestire le informazioni di sicurezza
-      href: user-help-security-info-overview.md
+      href: security-info-setup-signin.md
     - name: Gestire i dispositivi connessi
       href: my-account-portal-devices-page.md
     - name: Cambiare la password
@@ -72,14 +64,10 @@
       href: my-account-portal-sign-ins-page.md
 - name: Guida alle informazioni di sicurezza (anteprima)
   items:
-    - name: Panoramica
-      href: user-help-security-info-overview.md
     - name: Aggiungere informazioni di sicurezza durante l'accesso
       href: security-info-setup-signin.md
     - name: Aggiungere o aggiornare i metodi correlati alle informazioni di sicurezza
       items:
-        - name: Panoramica
-          href: security-info-add-update-methods-overview.md
         - name: Configurare un'app di autenticazione
           href: security-info-setup-auth-app.md
         - name: Configurare SMS
@@ -98,8 +86,6 @@
       href: user-help-sign-in.md?toc=./toc.json
 - name: Guida alla gestione dei dispositivi
   items:
-    - name: Panoramica
-      href: user-help-device-mgmt-overview.md
     - name: Aggiungere un dispositivo aziendale
       href: user-help-join-device-on-network.md
     - name: Registrare un dispositivo personale per l'uso aziendale
@@ -108,8 +94,6 @@
       href: user-help-device-remediation.md
 - name: Guida al portale delle app personali
   items:
-    - name: Panoramica
-      href: my-apps-portal-end-user-overview.md
     - name: Accedere e usare il portale App personali
       href: my-apps-portal-end-user-access.md
     - name: Aggiornare le informazioni su profilo e account
@@ -122,8 +106,6 @@
       href: my-apps-portal-end-user-troubleshoot.md
 - name: Guida del portale App personali (anteprima)
   items:
-    - name: Panoramica
-      href: my-applications-portal-overview.md
     - name: Accedere e usare il portale App personali
       href: my-applications-portal-access.md
     - name: Accedere e usare le aree di lavoro

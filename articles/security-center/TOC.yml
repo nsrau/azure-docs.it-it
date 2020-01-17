@@ -29,6 +29,10 @@
       href: security-center-compliance-dashboard.md
 - name: Concetti
   items:
+    - name: Punteggio di sicurezza nel Centro sicurezza
+      href: security-center-secure-score.md
+    - name: Punteggio di sicurezza migliorato
+      href: secure-score-security-controls.md
     - name: Autorizzazioni
       href: security-center-permissions.md
     - name: Sicurezza dei dati
@@ -73,8 +77,6 @@
           href: security-center-alert-validation.md
 - name: Guide pratiche
   items:
-    - name: Migliorare il punteggio di sicurezza
-      href: security-center-secure-score.md
     - name: Eseguire l'aggiornamento alla sicurezza avanzata
       href: security-center-onboarding.md
     - name: Analizzare le macchine virtuali per individuare le vulnerabilità
@@ -175,7 +177,7 @@
           href: security-center-playbooks.md
         - name: Pianificazione e gestione
           href: security-center-planning-and-operations-guide.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
@@ -209,7 +211,7 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Guida per la risoluzione dei problemi
       href: security-center-troubleshooting-guide.md

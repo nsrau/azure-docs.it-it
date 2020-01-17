@@ -35,6 +35,8 @@
       href: rule-processing.md
     - name: Tag di servizio
       href: service-tags.md
+    - name: Certificazioni per la conformità
+      href: compliance-certifications.md
 - name: Guide pratiche
   items:
     - name: Eseguire la distribuzione tramite Azure PowerShell
@@ -53,7 +55,7 @@
       href: integrate-lb.md
     - name: Regole dell'applicazione con FQDN di SQL
       href: sql-fqdn-filtering.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/azure-firewall/network/firewall
@@ -83,5 +85,5 @@
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'

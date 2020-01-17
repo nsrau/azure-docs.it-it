@@ -206,7 +206,7 @@
               href: ./hdinsight-key-scenarios-to-monitor.md
             - name: Monitorare la disponibilità dei cluster con i log di Ambari e di Monitoraggio di Azure
               href: ./hdinsight-cluster-availability.md
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
@@ -314,7 +314,7 @@
               items:
                 - name: Panoramica dello streaming
                   href: ./spark/apache-spark-streaming-overview.md
-                - name: Panoramica dello streaming strutturato
+                - name: Panoramica di Structured Streaming
                   href: ./spark/apache-spark-structured-streaming-overview.md
                 - name: Creare processi di streaming Apache Spark a disponibilità elevata in Apache Hadoop YARN
                   href: ./spark/apache-spark-streaming-high-availability.md
@@ -507,8 +507,6 @@
               href: ./hdinsight-troubleshoot-hdfs.md
             - name: Risoluzione dei problemi di Apache Hadoop YARN
               href: ./hdinsight-troubleshoot-yarn.md
-            - name: Analizzare i log di Apache Hadoop
-              href: ./hadoop/apache-hadoop-debug-jobs.md
             - name: Risolvere i problemi relativi ai file di Data Lake Store
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
 - name: Apache Kafka
@@ -782,6 +780,8 @@
           href: ./storm/apache-storm-write-data-lake-store.md
     - name: Procedure
       items:
+        - name: Eseguire la migrazione di Storm a Spark
+          href: ./storm/migrate-storm-to-spark.md
         - name: Sviluppo
           items:
             - name: Topologie
