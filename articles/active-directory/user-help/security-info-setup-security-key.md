@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03855b7596f45fcdde0bebe018d2157ad33a617b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278958"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156081"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurare una chiave di sicurezza come metodo di verifica
 
@@ -25,8 +25,21 @@ ms.locfileid: "74278958"
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
->[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>[!Note]
+> Se l'opzione chiave di sicurezza non è visibile, è possibile che l'organizzazione non consenta di usare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ottenere assistenza.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Verifica della sicurezza rispetto all'autenticazione per la reimpostazione della password
+
+I metodi delle informazioni di sicurezza vengono usati per la verifica della sicurezza a due fattori e per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
+
+| Metodo | Utilizzo |
+| ------ | -------- |
+| App di autenticazione | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| SMS | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| Telefonate | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| Chiave di sicurezza | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| Account di posta elettronica | Solo autenticazione per la reimpostazione della password. Per la verifica a due fattori sarà necessario scegliere un altro metodo. |
+| Domande di sicurezza | Solo autenticazione per la reimpostazione della password. Per la verifica a due fattori sarà necessario scegliere un altro metodo. |
 
 ## <a name="what-is-a-security-key"></a>Che cos'è una chiave di sicurezza?
 
@@ -144,7 +157,7 @@ Per eliminare tutte le informazioni sull'account archiviate nella chiave di sicu
      La chiave di sicurezza viene aggiornata con il nuovo PIN della chiave di sicurezza da usare con l'account aziendale o dell'Istituto di istruzione. Se si decide di modificare di nuovo il PIN, è possibile selezionare il pulsante **Cambia** .
 4. Selezionare **Chiudi** per chiudere la schermata **Gestisci** .
 
-## <a name="additional-security-info-methods"></a>Altri metodi per le informazioni di sicurezza
+## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
 Per registrare una chiave di sicurezza, è necessario avere almeno un metodo di verifica di sicurezza aggiuntivo registrato. Per ulteriori informazioni, vedere la [sezione Panoramica](security-info-add-update-methods-overview.md) . 
 

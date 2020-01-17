@@ -3,12 +3,12 @@ title: Creare e distribuire progetti Gruppo di risorse con Visual Studio
 description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: ee76c2ae94373b63be6a1efd9ae13d4629dd98c8
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680631"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152732"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
@@ -350,9 +350,9 @@ Non si è limitati solo alle risorse disponibili tramite l'interfaccia di Visual
           }
         }
       },
+      "type": "Microsoft.Portal/dashboards",
       "apiVersion": "2015-08-01-preview",
       "name": "[concat('ARM-',resourceGroup().name)]",
-      "type": "Microsoft.Portal/dashboards",
       "location": "[resourceGroup().location]",
       "tags": {
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"

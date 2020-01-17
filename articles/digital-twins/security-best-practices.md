@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/15/2020
+ms.openlocfilehash: 5fc5ba447557aa89e8f0870c576d6d4c439f3353
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860946"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122560"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Procedure consigliate per la sicurezza di Gemelli digitali di Azure
 
@@ -40,6 +40,7 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > * Limitare larghezza di banda di I/O e dei dispositivi per migliorare le prestazioni. La limitazione della velocità può consentire di migliorare la sicurezza impedendo attacchi Denial of Service.
 > * Mantieni aggiornato il firmware, il sistema operativo e il software del dispositivo.
 > * Controllare periodicamente le procedure consigliate per la sicurezza dei dispositivi, dei software, delle reti e dei gateway Man mano che continuano a migliorare e a evolversi.
+> * Utilizzare sistemi, software e dispositivi di sicurezza attendibili, certificati e conformi. Ad esempio, esaminare [le offerte di conformità per il](https://azure.microsoft.com/overview/trusted-cloud/compliance/) cloud di Azure.
 
 Ecco alcune tra le principali procedure consigliate per proteggere in modo sicuro uno spazio IoT:
 
@@ -67,8 +68,8 @@ I dispositivi gemelli digitali di Azure usano [Azure Active Directory](https://d
 > * Per l'autenticazione usare un certificato emesso da un'[autorità di certificazione](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) attendibile invece dei segreti delle app.
 > * Limitare l'ambito di accesso di OAuth 2.0 per un token.
 > * Verificare la durata della validità di un token e se un token rimane valido.
-> * Impostare periodi di tempo appropriati per la validità dei token.
-> * Aggiornare i token scaduti.
+> * Impostare periodi di tempo appropriati per la validità dei token. Aggiornare i token scaduti.
+> * Rimuovere gli **URI di reindirizzamento** non usati e le autorizzazioni per il [controllo degli accessi in base al ruolo procedure consigliate](#role-based-access-control-best-practices).
 
 ## <a name="role-based-access-control-best-practices"></a>Procedure consigliate per il controllo degli accessi in base al ruolo
 

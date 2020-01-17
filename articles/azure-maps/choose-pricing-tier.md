@@ -3,61 +3,60 @@ title: Scegliere il piano tariffario giusto | Mappe Microsoft Azure
 description: In questo articolo vengono illustrati i piani tariffari offerti dalle mappe Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 01/02/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5ff774f9848db948058075a98504e6c13db5467a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8764e9161f952118ca7ae28343dcd16477cf1eee
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911761"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155758"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Scegliere il piano tariffario corretto in Mappe di Azure
 
-Mappe di Azure offre due piani tariffari. Lo scopo di questo articolo è aiutare l'utente a scegliere il piano tariffario corretto secondo le proprie esigenze. Per scegliere il piano tariffario corretto, è opportuno porsi le due domande seguenti.
+Azure Maps offre due piani tariffari, S0 e S1. Lo scopo di questo articolo è aiutare l'utente a scegliere il piano tariffario corretto secondo le proprie esigenze. Per scegliere il piano tariffario corretto, è opportuno porsi le due domande seguenti.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quali funzionalità geospaziali si prevede di usare?
-Se si ritiene che i requisiti di servizio siano stati soddisfatti per le API core geospaziali, allora il piano tariffario corretto è S0. Se si desiderano funzionalità più avanzate per l'applicazione, prendere in considerazione il piano tariffario S1. Le funzionalità di esempio sono settoriali più immagini ibride, ottenengono l'intervallo di route e la geocodifica di batch. La tabella delle **funzionalità dei piani tariffari** riportata di seguito offre una panoramica di tutte le esigenze legate all'applicazione. Consente inoltre di scegliere un piano tariffario più adatto all'applicazione.
+Se si ritiene che i requisiti di servizio siano stati soddisfatti per le API core geospaziali, allora il piano tariffario corretto è S0. Se si desiderano funzionalità più avanzate per l'applicazione, prendere in considerazione il piano tariffario S1. Esempio di funzionalità avanzate: aerea e immagini ibride, acquisizione dell'intervallo di route e geocodifica batch. La tabella delle funzionalità del piano **tariffario** può essere utile per scegliere un piano tariffario più adatto all'applicazione.
 
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Quanti utenti simultanei si prevede di supportare? 
-I piani tariffari S0 e S1 possono gestire diverse quantità di velocità effettive dei dati. Prima di scegliere un piano tariffario di Mappe di Azure, è opportuno porsi alcune domande. Ad esempio: "Quanti utenti simultanei si prevede di supportare?" Il piano tariffario S0 gestisce fino a **50 query al secondo**. Il piano tariffario S1 gestisce più di **50 query al secondo**.
+I piani tariffari S0 e S1 possono gestire diverse quantità di velocità effettive dei dati. Il piano tariffario s0 gestisce fino a **50 query al secondo**, mentre il livello S1 gestisce **più di 50 query al secondo**.
 
 ### <a name="pricing-tier-capabilities"></a>Funzionalità dei piani tariffari
 
 | Funzionalità                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Ricerca (geocodifica FWD/REV, punti di interesse)  |        ✓           |     ✓    |
-| Geocodifica batch (anteprima)              |                   |     ✓    |
-| Poligoni dalla ricerca          |                   |     ✓    |
-| Routing                                 |        ✓           |     ✓    |
-| Intervallo di route                    |                   |     ✓    |
-| Routing batch (anteprima)                |                   |     ✓    |
-| Routing di matrici (anteprima)               |                   |     ✓    |
-| Rendering                                  |        ✓           |     ✓    |
-| Immagini più immagini ibride    |            |     ✓    |
-| Traffico                                 |        ✓           |     ✓    |
-| Fusi orari                              |        ✓           |     ✓    |
-| Georilevazione (anteprima)                |        ✓           |     ✓    |
-| Dati (anteprima)               |                   |     ✓    |
-| Spaziale (anteprima)               |                   |     ✓    |
-| Geofencing (anteprima)               |                   |     ✓    |
-
-
+| Rendering mappa                              | ✓                   | ✓       |
+| Immagini satellite                       |                     | ✓        |
+| Cerca                                  | ✓                    | ✓        |
+| Ricerca batch                            |                     | ✓        |
+| Route                                   | ✓                    |✓        |
+| Routing di batch                            |                    | ✓        |
+| Routing di matrici                          |                     | ✓        |
+| Intervallo percorso (isocrone)                |                     | ✓        |
+| Traffico                                |✓                    |✓        |
+| Fuso orario                               |✓                    |✓        |
+| Georilevazione (anteprima)                    |✓                   |✓        |
+| Operazioni spaziali                        |                    |✓        |
+| Geofencing                                |                    |✓        |
+| Dati di Maps di Azure (anteprima)                |                     | ✓        |
+| Mobilità (anteprima)                       |                     | ✓        |
+| Meteo (anteprima)                        |✓                    |✓        |
 
 Risulta opportuno prendere in considerazione i seguenti punti dati aggiuntivi:
-* Qual è il tipo di azienda?
-* Quanto è critica l'applicazione in costruzione?
-
-Vedere la tabella contenente **Clienti di destinazione del piano tariffario** per un'idea più accurata dei piani tariffari S0 e S1. Per altre informazioni, vedere [Prezzi per Mappe di Azure](https://azure.microsoft.com/pricing/details/azure-maps/). 
+* Quale tipo di azienda si ha?
+* Quanto è importante l'applicazione?
 
 ### <a name="pricing-tier-targeted-customers"></a>Clienti di destinazione del piano tariffario
 
+Vedere la tabella contenente **Clienti di destinazione del piano tariffario** per un'idea più accurata dei piani tariffari S0 e S1. Per altre informazioni, vedere [Prezzi per Mappe di Azure](https://azure.microsoft.com/pricing/details/azure-maps/). 
+
 | Piano tariffario  |     Clienti di destinazione                                                                |
-|---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>Il piano tariffario S0 è destinato ai clienti di aziende di piccole o medie dimensioni. Se non si prevedono di volumi elevati di utenti simultanei, allora questo è il piano tariffario corretto. È il piano corretto inoltre, se le API core geospaziali illustrate nella tabella precedente soddisfano i requisiti di servizio. Questo piano tariffario è disponibile a livello generale. ed è attuabile alle applicazioni in tutte le fasi di produzione, dallo sviluppo del modello di verifica e dalla fase iniziale di test alla produzione e distribuzione.<p>|
+|-----------------|:-----------------------------------------------------------------------------------------|
+| S0            |    <p>Il piano tariffario s0 funziona per le applicazioni in tutte le fasi di produzione: dallo sviluppo di modelli di prova e dalla fase iniziale di test per la produzione e la distribuzione di applicazioni. Tuttavia, questo livello è progettato per lo sviluppo su scala ridotta o per i clienti con utenti simultanei di basso livello o entrambi. <p>|
 | S1            |    <p>Il piano tariffario S1 è destinato ai clienti che necessitano di supporto per aziende di grandi dimensioni, applicazioni cruciali o volumi elevati di utenti simultanei. È l'ideale anche per clienti che richiedono servizi geospaziali avanzati.</p>|
 
 ## <a name="next-steps"></a>Passaggi successivi

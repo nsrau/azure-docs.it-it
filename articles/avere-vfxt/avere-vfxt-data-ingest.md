@@ -4,20 +4,20 @@ description: Come aggiungere dati a un nuovo volume di archiviazione da usare co
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480600"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153719"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Spostamento dei dati nel cluster vFXT - Inserimento di dati parallelo
 
-Dopo aver creato un nuovo cluster vFXT, la prima attività da eseguire potrebbe essere spostare i dati nel nuovo volume di archiviazione. Tuttavia, se il metodo che si usa in genere per spostare i dati è l'esecuzione di un semplice comando di copia da un client, probabilmente le prestazioni di copia risulteranno lente. La copia a thread singolo non rappresenta una scelta ottimale per copiare dati nella risorsa di archiviazione back-end del cluster Avere vFXT.
+Dopo aver creato un nuovo cluster vFXT, è possibile che la prima attività sposti i dati in un nuovo volume di archiviazione in Azure. Tuttavia, se il metodo che si usa in genere per spostare i dati è l'esecuzione di un semplice comando di copia da un client, probabilmente le prestazioni di copia risulteranno lente. La copia a thread singolo non è un'opzione adatta per la copia dei dati nell'archiviazione back-end del cluster vFXT.
 
-Poiché il cluster Avere vFXT è una cache multi-client scalabile, il modo più rapido ed efficiente per copiare i dati consiste nell'usare più thread. Questa tecnica parallelizza l'inserimento dei file e degli oggetti.
+Dato che il vFXT per il cluster di Azure è una cache multiclient scalabile, il modo più veloce ed efficiente per copiare i dati è con più client. Questa tecnica parallelizza l'inserimento dei file e degli oggetti.
 
 ![Diagramma che mostra lo spostamento dati multi-client a thread multipli: in alto a sinistra, da un'icona per la risorsa di archiviazione hardware locale partono più frecce. Le frecce puntano a quattro computer client. Da ogni computer client tre frecce puntano verso Avere vFXT. Da Avere vFXT, più frecce puntano all'archiviazione BLOB.](media/avere-vfxt-parallel-ingest.png)
 
@@ -44,12 +44,12 @@ La macchina virtuale per l'inserimento dei dati fa parte di un'esercitazione in 
 
 ## <a name="strategic-planning"></a>Pianificazione strategica
 
-Quando si crea una strategia per copiare dati in parallelo, è necessario comprendere i compromessi in termini di dimensioni dei file, numero di file e profondità di directory.
+Quando si progetta una strategia per la copia dei dati in parallelo, è necessario comprendere i compromessi relativi alle dimensioni del file, al numero di file e alla profondità della directory.
 
 * Quando i file sono di piccole dimensioni, la metrica di interesse è file al secondo.
 * Quando i file sono di grandi dimensioni (10 MiBi o oltre), la metrica di interesse è byte al secondo.
 
-Ogni processo di copia ha una velocità effettiva e una velocità di trasferimento dei file, che può essere misurata cronometrando la lunghezza del comando di copia e considerando le dimensioni del file e il numero di file. Spiegare come misurare questi valori non rientra nell'ambito di questo documento, ma è fondamentale comprendere se si gestiranno file piccoli o grandi dimensioni.
+Ogni processo di copia ha una velocità effettiva e una velocità di trasferimento dei file, che può essere misurata cronometrando la lunghezza del comando di copia e considerando le dimensioni del file e il numero di file. Spiegare come misurare le tariffe esula dall'ambito di questo documento, ma è importante capire se si tratta di file di piccole o grandi dimensioni.
 
 ## <a name="manual-copy-example"></a>Esempio di copia manuale
 
@@ -278,11 +278,11 @@ Questo metodo è un metodo semplice e a tempo effettivo per i set di dati fino a
 
 ## <a name="use-the-msrsync-utility"></a>Usare l'utilità msrsync
 
-Per spostare i dati in un core filer back-end per il cluster Avere si può anche usare lo strumento ``msrsync``. Questo strumento è progettato per ottimizzare l'utilizzo della larghezza di banda mediante l'esecuzione parallela di più processi ``rsync``. È disponibile da GitHub all'indirizzo <https://github.com/jbd/msrsync>.
+Lo strumento di ``msrsync`` può essere usato anche per spostare i dati in un file di base back-end per il cluster. Questo strumento è progettato per ottimizzare l'utilizzo della larghezza di banda mediante l'esecuzione parallela di più processi ``rsync``. È disponibile da GitHub all'indirizzo <https://github.com/jbd/msrsync>.
 
 ``msrsync`` suddivide la directory di origine in contenitori separati e quindi esegue singoli processi ``rsync`` in ogni contenitore.
 
-I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``msrsync`` di ``-p`` per impostare il numero di processi su 64.
+I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``-p`` di ``msrsync`` per impostare il numero di processi su 64.
 
 È anche possibile usare l'argomento ``--inplace`` con ``msrsync`` comandi. Se si usa questa opzione, provare a eseguire un secondo comando (come con [rsync](#use-a-two-phase-rsync-process), descritto in precedenza) per garantire l'integrità dei dati.
 
@@ -323,7 +323,7 @@ Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di in
 
 ## <a name="use-the-parallel-copy-script"></a>Usare lo script di copia parallela
 
-Lo script ``parallelcp`` può anche essere utile per lo spostamento di dati nella risorsa di archiviazione back-end del cluster vFXT.
+Lo script di ``parallelcp`` può essere utile anche per lo stato di trasferimento dei dati nell'archiviazione back-end del cluster vFXT.
 
 Lo script seguente aggiungerà l'eseguibile `parallelcp`. Questo script è progettato per Ubuntu, se si usa un'altra distribuzione è necessario installare ``parallel`` separatamente.
 

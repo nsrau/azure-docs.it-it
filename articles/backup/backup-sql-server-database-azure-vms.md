@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup di database di SQL
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: fc0c3127594fe3ca90b0a66ce548f471c55f4e5f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611390"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156472"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -29,7 +29,7 @@ In questo articolo si apprenderà come:
 
 Prima di eseguire il backup di un database di SQL Server, verificare i criteri seguenti:
 
-1. Identificare o creare un insieme di credenziali di [servizi di ripristino](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) nella stessa area o nelle stesse impostazioni locali della VM che ospita l'istanza di SQL Server.
+1. Identificare o creare un insieme di credenziali di [servizi di ripristino](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) nella stessa area e nella stessa sottoscrizione della macchina virtuale che ospita l'istanza di SQL Server.
 2. Verificare che la macchina virtuale disponga di [connettività di rete](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Assicurarsi che i database di SQL Server seguano le [linee guida per la denominazione dei database per backup di Azure](#database-naming-guidelines-for-azure-backup).
 4. Verificare che non siano presenti altre soluzioni di backup abilitate per il database. Disabilitare tutti gli altri backup SQL Server prima di eseguire il backup del database.

@@ -3,19 +3,19 @@ title: 'Guida introduttiva: creare un comando personalizzato (anteprima)-servizi
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come creare e testare un'applicazione di comandi personalizzati ospitata.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446903"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155588"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Guida introduttiva: creare un comando personalizzato (anteprima)
 
@@ -24,7 +24,7 @@ L'applicazione rileverà un enunciato come "accendere la TV" e rispondere con un
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione vocale. 
+- Sottoscrizione vocale.
 
 Se non si ha una sottoscrizione vocale, è possibile crearne una passando a [speech studio](https://speech.microsoft.com/) e selezionando **Crea una risorsa vocale**.
 
@@ -73,7 +73,7 @@ La visualizzazione dovrebbe ora essere una panoramica dell'applicazione comandi 
 
 ## <a name="update-luis-resources-optional"></a>Aggiornare le risorse LUIS (facoltativo)
 
-È possibile aggiornare il set di risorse di creazione nella finestra nuovo progetto e impostare una risorsa di stima utilizzata per riconoscere gli input in fase di esecuzione. 
+È possibile aggiornare il set di risorse di creazione nella finestra nuovo progetto e impostare una risorsa di stima utilizzata per riconoscere gli input in fase di esecuzione.
 
 > [!NOTE]
 > È necessario impostare una risorsa di stima prima che l'applicazione richieda le stime oltre le 1.000 richieste fornite dalla risorsa di creazione.

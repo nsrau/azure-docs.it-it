@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ce2394805bfc302179da807c798445c30ce9daff
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ef1266b783034cf18dc2b3ea4be5ebc01bc12c70
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619547"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121863"
 ---
 # <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>Configurare applicazioni e carichi di lavoro DNS e DHCP nel cloud privato CloudSimple
 
@@ -27,7 +27,7 @@ Le applicazioni e i carichi di lavoro in esecuzione in un ambiente cloud privato
 
 ## <a name="linux-based-dns-server-setup"></a>Configurazione del server DNS basato su Linux
 
-Linux offre diversi pacchetti per la configurazione dei server DNS.  Di seguito è [riportato un esempio di installazione di DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7) con istruzioni per la configurazione di un server DNS BIND open source.
+Linux offre diversi pacchetti per la configurazione dei server DNS.  Di seguito è [riportato un esempio di installazione di DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) con istruzioni per la configurazione di un server DNS BIND open source.
 
 ## <a name="windows-based-setup"></a>Installazione basata su Windows
 

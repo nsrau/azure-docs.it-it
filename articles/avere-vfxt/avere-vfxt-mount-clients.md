@@ -4,14 +4,14 @@ description: Come montare i client con Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 39c4d6a77121e0b52a1da827ebb9e1976f609b30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415275"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153412"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montare il cluster Avere vFXT
 
@@ -47,7 +47,7 @@ function mount_round_robin() {
 
     # no need to write again if it is already there
     if ! grep --quiet "${DEFAULT_MOUNT_POINT}" /etc/fstab; then
-        echo "${ROUND_ROBIN_IP}:${NFS_PATH}    ${DEFAULT_MOUNT_POINT}    nfs hard,nointr,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
+        echo "${ROUND_ROBIN_IP}:${NFS_PATH}    ${DEFAULT_MOUNT_POINT}    nfs hard,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
         mkdir -p "${DEFAULT_MOUNT_POINT}"
         chown nfsnobody:nfsnobody "${DEFAULT_MOUNT_POINT}"
     fi
@@ -62,27 +62,27 @@ La funzione precedente fa parte dell'esempio di Batch disponibile nel sito degli
 ## <a name="create-the-mount-command"></a>Creare il comando mount
 
 > [!NOTE]
-> Se non è stato creato un nuovo contenitore BLOB durante la creazione del cluster Avere vFXT, seguire la procedura descritta in [Configurare l'archiviazione](avere-vfxt-add-storage.md) prima di provare a montare i client.
+> Se non è stato creato un nuovo contenitore BLOB quando si crea il cluster vFXT, aggiungere i sistemi di archiviazione come descritto in [configurare l'archiviazione](avere-vfxt-add-storage.md) prima di provare a montare i client.
 
 Dal client, il comando ``mount`` esegue il mapping del server virtuale (vserver) nel cluster vFXT a un percorso nel file system locale. Il formato è ``mount <vFXT path> <local path> {options}``
 
-Il comando mount è costituito da tre elementi:
+Il comando di montaggio ha tre elementi:
 
-* percorso vFXT - combinazione di indirizzo IP e percorso della giunzione dello spazio dei nomi descritta di seguito
+* percorso vFXT-combinazione di un indirizzo IP e di un percorso di giunzione dello spazio dei nomi nel cluster 9described di seguito
 * percorso locale - percorso nel client
-* opzioni del comando mount - elencate in [Argomenti del comando mount](#mount-command-arguments)
+* opzioni di comando di montaggio-elencate in [argomenti del comando di montaggio](#mount-command-arguments)
 
 ### <a name="junction-and-ip"></a>Giunzione e IP
 
 Il percorso del server virtuale è una combinazione del relativo *indirizzo IP* e del percorso a una *giunzione dello spazio dei nomi*. La giunzione dello spazio dei nomi è un percorso virtuale definito quando è stato aggiunto il sistema di archiviazione.
 
-Se il cluster è stato creato con l'archiviazione BLOB, il percorso dello spazio dei nomi è `/msazure`
+Se il cluster è stato creato con l'archiviazione BLOB, il percorso dello spazio dei nomi del contenitore viene `/msazure`
 
 Esempio: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
-Se l'archiviazione è stata aggiunta dopo la creazione del cluster, il percorso della giunzione dello spazio dei nomi corrisponde al valore impostato in **Namespace path** (Percorso dello spazio dei nomi) al momento della creazione della giunzione. Ad esempio, se è stato usato ``/avere/files`` come percorso dello spazio dei nomi, i client monteranno *indirizzo_IP*:/avere/files nel relativo punto di montaggio locale.
+Se è stata aggiunta l'archiviazione dopo la creazione del cluster, il percorso di giunzione dello spazio dei nomi corrisponde al valore impostato nel **percorso dello spazio dei nomi** durante la creazione della giunzione. Ad esempio, se è stato usato ``/avere/files`` come percorso dello spazio dei nomi, i client monteranno *indirizzo_IP*:/avere/files nel relativo punto di montaggio locale.
 
-![Finestra di dialogo "Add new junction" (Aggiungi nuova giunzione) con /avere/files nel campo del percorso dello spazio dei nomi](media/avere-vfxt-create-junction-example.png)
+![Finestra di dialogo "Add new junction" (Aggiungi nuova giunzione) con /avere/files nel campo del percorso dello spazio dei nomi](media/avere-vfxt-create-junction-example.png) <!-- to do - change example and screenshot to vfxt/files instead of avere -->
 
 L'indirizzo IP è uno degli indirizzi IP lato client definiti per il server virtuale. L'intervallo di indirizzi IP lato client è disponibile in due posizioni nel pannello di controllo di Avere:
 
@@ -100,7 +100,7 @@ Oltre ai percorsi, includere gli [argomenti del comando mount](#mount-command-ar
 
 Per garantire un montaggio senza problemi del client, passare le impostazioni e gli argomenti seguenti nel comando mount:
 
-``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
 | Impostazioni obbligatorie | |
 --- | ---
@@ -109,14 +109,10 @@ Per garantire un montaggio senza problemi del client, passare le impostazioni e 
 ``mountproto=netid`` | Questa opzione supporta la gestione appropriata degli errori di rete per le operazioni di montaggio.
 ``retry=n`` | Impostare ``retry=30`` per evitare errori di montaggio temporanei (per i montaggi in primo piano è consigliato un valore diverso).
 
-| Impostazioni preferite  | |
---- | ---
-``nointr``            | L'opzione "nointr" è preferibile per i client con kernel legacy (antecedenti ad aprile 2008) che supportano questa opzione. Si noti che l'opzione "intr" è l'impostazione predefinita.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo che i client sono stati montati, è possibile usarli per popolare l'archivio dati back-end (core filer). Fare riferimento a questi documenti per altre informazioni sulle attività di configurazione aggiuntive:
+Dopo aver installato i client, è possibile usarli per copiare i dati in un nuovo contenitore di archiviazione BLOB nel cluster. Se non è necessario popolare la nuova risorsa di archiviazione, leggere gli altri collegamenti per ulteriori informazioni sulle attività di configurazione aggiuntive:
 
-* [Spostare dati nel core filer del cluster](avere-vfxt-data-ingest.md): come usare più client e thread per caricare dati in modo efficiente
+* [Spostare i dati in un filer core del cluster](avere-vfxt-data-ingest.md) : come usare più client e thread per caricare in modo efficiente i dati in un nuovo filer di base
 * [Personalizzare l'ottimizzazione dei cluster](avere-vfxt-tuning.md): adattare le impostazioni dei cluster in base al carico di lavoro
 * [Gestire il cluster](avere-vfxt-manage-cluster.md): come avviare o interrompere il cluster e gestire i nodi

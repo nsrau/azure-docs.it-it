@@ -5,15 +5,15 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 54435dd21fccdd43f17d13674b324b989a00f7a1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 777fa7caa80371592f93ee6f7458a7669fe6698f
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684246"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121359"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Azure offre diagnostica integrata per facilitare il debug di un'[app del servizio app](overview.md). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione. Viene anche descritto come accedere alle informazioni registrate da Azure.
 
 L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com) e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -23,11 +23,11 @@ L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com)
 >
 >
 
-|Type|Piattaforma|Località|Description|
+|Tipo|Piattaforma|Percorso|Description|
 |-|-|-|-|
 | Registrazione di applicazioni | Windows, Linux | File system del servizio app e/o BLOB di archiviazione di Azure | Registra i messaggi generati dal codice dell'applicazione. I messaggi possono essere generati dal framework Web scelto oppure dal codice dell'applicazione usando direttamente il modello di registrazione standard della lingua. A ogni messaggio viene assegnata una delle seguenti categorie: **Critical**, **Error**, **warning**, **info**, **debug**e **Trace**. È possibile selezionare il livello di dettaglio desiderato per la registrazione impostando il livello di gravità quando si Abilita la registrazione dell'applicazione.|
-| Registrazione del server Web| Windows | file system del servizio app o BLOB di archiviazione di Azure| Dati della richiesta HTTP non elaborati nel [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'indirizzo IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
-| Registrazione dettagliata degli errori | Windows | file system del servizio app | Copie delle pagine di errore *htm* che verrebbero inviate al browser client. Per motivi di sicurezza, le pagine di errore dettagliate non devono essere inviate ai client in produzione, ma il servizio app può salvare la pagina di errore ogni volta che si verifica un errore dell'applicazione con codice HTTP 400 o versione successiva. La pagina può contenere informazioni che consentono di determinare il motivo per cui il server restituisce il codice di errore. |
+| Registrazione server Web| Windows | file system del servizio app o BLOB di archiviazione di Azure| Dati della richiesta HTTP non elaborati nel [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'indirizzo IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
+| Messaggi di errore dettagliati| Windows | file system del servizio app | Copie delle pagine di errore *htm* che verrebbero inviate al browser client. Per motivi di sicurezza, le pagine di errore dettagliate non devono essere inviate ai client in produzione, ma il servizio app può salvare la pagina di errore ogni volta che si verifica un errore dell'applicazione con codice HTTP 400 o versione successiva. La pagina può contenere informazioni che consentono di determinare il motivo per cui il server restituisce il codice di errore. |
 | Traccia delle richieste non riuscite | Windows | file system del servizio app | Informazioni dettagliate sulla traccia delle richieste non riuscite, inclusa una traccia dei componenti IIS usati per elaborare la richiesta e il tempo impiegato in ogni componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Viene generata una cartella per ogni richiesta non riuscita, che contiene il file di log XML e il foglio di stile XSL per visualizzare il file di log con. |
 | Registrazione della distribuzione | Windows, Linux | file system del servizio app | Registra quando si pubblica il contenuto in un'app. La registrazione della distribuzione viene eseguita automaticamente e non sono disponibili impostazioni configurabili per la registrazione della distribuzione. Consente di determinare il motivo per cui una distribuzione non è riuscita. Se ad esempio si usa uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), è possibile usare la registrazione della distribuzione per determinare il motivo per cui lo script non riesce. |
 
@@ -57,7 +57,7 @@ L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore
 
 Consente di selezionare il **livello**o il livello dei dettagli da registrare. La tabella seguente illustra le categorie di log incluse in ogni livello:
 
-| Level | Categorie incluse |
+| Livello | Categorie incluse |
 |-|-|
 |**Disabilitato** | Nessuno |
 |**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
@@ -105,9 +105,9 @@ Entrambi i tipi di log vengono archiviati nel servizio app file system. Vengono 
 
 ## <a name="add-log-messages-in-code"></a>Aggiungere messaggi di log nel codice
 
-Nel codice dell'applicazione si usano le normali funzionalità di registrazione per inviare messaggi di log ai log dell'applicazione. ad esempio:
+Nel codice dell'applicazione si usano le normali funzionalità di registrazione per inviare messaggi di log ai log dell'applicazione. Ad esempio:
 
-- Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. ad esempio:
+- Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -135,12 +135,12 @@ Per eseguire lo streaming dei log in tempo reale in [cloud Shell](../cloud-shell
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . ad esempio:
+Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . Ad esempio:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . ad esempio:
+Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . Ad esempio:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -182,12 +182,12 @@ Con la nuova [integrazione di monitoraggio di Azure](https://aka.ms/appsvcblog-a
 
 La tabella seguente illustra i tipi di log e le descrizioni supportati: 
 
-| Tipo di log | Supporto di Windows | Supporto per Linux (Docker) | Description |
+| Tipo di log | supporto per Windows | Supporto per Linux (Docker) | Description |
 |-|-|-|
-| AppServiceConsoleLogs | Da definire | SÌ | Output standard e errore standard |
-| AppServiceHTTPLogs | SÌ | SÌ | Web Server Logs |
-| AppServiceEnvironmentPlatformLogs | SÌ | SÌ | Ambiente del servizio app: ridimensionamento, modifiche di configurazione e log di stato|
-| AppServiceAuditLogs | SÌ | SÌ | Attività di accesso tramite FTP e Kudu |
+| AppServiceConsoleLogs | Da definire | Sì | Output standard e errore standard |
+| AppServiceHTTPLogs | Sì | Sì | Web Server Logs |
+| AppServiceEnvironmentPlatformLogs | Sì | Sì | Ambiente del servizio app: ridimensionamento, modifiche di configurazione e log di stato|
+| AppServiceAuditLogs | Sì | Sì | Attività di accesso tramite FTP e Kudu |
 | AppServiceFileAuditLogs | Da definire | Da definire | Modifiche ai file tramite FTP e Kudu |
 | AppServiceAppLogs | Da definire | Java SE & Tomcat | Log applicazioni |
 

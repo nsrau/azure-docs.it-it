@@ -1,14 +1,14 @@
 ---
 title: Fasi della distribuzione di un progetto
-description: Informazioni sui passaggi correlati alla sicurezza e agli artefatti eseguiti dai servizi Azure Blueprint durante la creazione di un'assegnazione di progetto.
+description: Informazioni sui passaggi correlati alla sicurezza e agli artefatti durante la creazione di un'assegnazione di progetto.
 ms.date: 11/13/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4c1d0cd47e0f43b73e3178e18a4ba5d705048a72
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: daa7722fa37547929aa21b76b870f70143ae71ab
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463558"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156625"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fasi della distribuzione di un progetto
 
@@ -27,7 +27,7 @@ La distribuzione del progetto viene attivata assegnando un progetto a una sottos
 
 All'entità servizio di Azure Blueprints vengono concessi i diritti di proprietario per la sottoscrizione o le sottoscrizioni assegnate quando viene usata un'identità gestita gestita da un' [identità gestita assegnata dal sistema](../../../active-directory/managed-identities-azure-resources/overview.md) . Il ruolo concesso consente ai progettisti di creare e revocare successivamente l'identità gestita **assegnata dal sistema** . Se si usa un'identità gestita **assegnata dall'utente** , l'entità servizio di Azure Blueprints non ottiene e non necessita dei diritti di proprietario per la sottoscrizione.
 
-I diritti vengono concessi automaticamente se l'assegnazione viene eseguita tramite il portale. Tuttavia, se l'assegnazione viene eseguita tramite l'API REST, la concessione dei diritti deve essere eseguita con una chiamata API separata. Il Azure Blueprint AppId è `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, ma l'entità servizio varia in base al tenant. Usare [Azure Active Directory API Graph](../../../active-directory/develop/active-directory-graph-api.md) e l'endpoint REST [entità servizio](/graph/api/resources/serviceprincipal) per ottenere l'entità servizio. Quindi, concedere al modello di Azure il ruolo di _proprietario_ tramite il [portale](../../../role-based-access-control/role-assignments-portal.md), l' [interfaccia](../../../role-based-access-control/role-assignments-cli.md)della riga di comando di Azure, [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l' [API REST](../../../role-based-access-control/role-assignments-rest.md)o un [modello di gestione risorse](../../../role-based-access-control/role-assignments-template.md).
+I diritti vengono concessi automaticamente se l'assegnazione viene eseguita tramite il portale. Tuttavia, se l'assegnazione viene eseguita tramite l'API REST, la concessione dei diritti deve essere eseguita con una chiamata API separata. L'AppId dei progetti di Azure è `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, ma l'entità servizio varia in base al tenant. Usare [Azure Active Directory API Graph](../../../active-directory/develop/active-directory-graph-api.md) e l'endpoint REST [entità servizio](/graph/api/resources/serviceprincipal) per ottenere l'entità servizio. Quindi, concedere al modello di Azure il ruolo di _proprietario_ tramite il [portale](../../../role-based-access-control/role-assignments-portal.md), l' [interfaccia](../../../role-based-access-control/role-assignments-cli.md)della riga di comando di Azure, [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l' [API REST](../../../role-based-access-control/role-assignments-rest.md)o un [modello di gestione risorse](../../../role-based-access-control/role-assignments-template.md).
 
 Il servizio Blueprints non distribuisce direttamente le risorse.
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef65904b19c5f42548c7b98cb37f6609124e0541
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 1923e26ba0ada7dcf5b8b333150b7cd5b775398b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922416"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121200"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -207,9 +207,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di input per il token di autenticazione nel codice](#token-input-code).|
-|**type**||Obbligatoria. Deve essere impostata su `token`.|
-|**direction**||Obbligatoria. Deve essere impostata su `in`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di input per il token di autenticazione nel codice](#token-input-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `token`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `in`.|
 |**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. I possibili valori sono i seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
@@ -342,9 +342,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per la tabella di Excel. Vedere [Usare un'associazione di input per la tabella di Excel nel codice](#excel-input-code).|
-|**type**||Obbligatoria. Deve essere impostata su `excel`.|
-|**direction**||Obbligatoria. Deve essere impostata su `in`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per la tabella di Excel. Vedere [Usare un'associazione di input per la tabella di Excel nel codice](#excel-input-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `excel`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `in`.|
 |**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. I possibili valori sono i seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
@@ -504,9 +504,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di ouput per la tabella di Excel nel codice](#excel-output-code).|
-|**type**||Obbligatoria. Deve essere impostata su `excel`.|
-|**direction**||Obbligatoria. Deve essere impostata su `out`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di ouput per la tabella di Excel nel codice](#excel-output-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `excel`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `out`.|
 |**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. I possibili valori sono i seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**UserId** |**userId** |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
@@ -650,9 +650,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di input per i file di OneDrive nel codice](#onedrive-input-code).|
-|**type**||Obbligatoria. Deve essere impostata su `onedrive`.|
-|**direction**||Obbligatoria. Deve essere impostata su `in`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di input per i file di OneDrive nel codice](#onedrive-input-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `onedrive`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `in`.|
 |**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. I possibili valori sono i seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
@@ -798,9 +798,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di output per i file di OneDrive nel codice](#onedrive-output-code).|
-|**type**||Obbligatoria. Deve essere impostata su `onedrive`.|
-|**direction**||Obbligatoria. Deve essere impostata su `out`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di output per i file di OneDrive nel codice](#onedrive-output-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `onedrive`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `out`.|
 |**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. I possibili valori sono i seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**UserId** |**userId** |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
@@ -949,9 +949,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
-|**type**||Obbligatoria. Deve essere impostata su `outlook`.|
-|**direction**||Obbligatoria. Deve essere impostata su `out`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `outlook`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `out`.|
 |**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. I possibili valori sono i seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
@@ -1092,9 +1092,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
-|**type**||Obbligatoria. Deve essere impostata su `graphWebhook`.|
-|**direction**||Obbligatoria. Deve essere impostata su `trigger`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `graphWebhook`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `trigger`.|
 |**resourceType**|**ResourceType**|Obbligatoria: la risorsa del grafico per cui questa funzione deve rispondere ai webhook. I possibili valori sono i seguenti:<ul><li><code>#Microsoft.Graph.Message</code>: le modifiche apportate ai messaggi di Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code>: le modifiche apportate agli elementi radice di OneDrive.</li><li><code>#Microsoft.Graph.Contact</code>: modifiche apportate ai contatti personali in Outlook.</li><li><code>#Microsoft.Graph.Event</code>: modifiche apportate agli elementi del calendario di Outlook.</li></ul>|
 
 > [!Note]
@@ -1244,9 +1244,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
-|**type**||Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
-|**direction**||Obbligatoria. Deve essere impostata su `in`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `in`.|
 |**filter**|**Filter**| Se impostata su `userFromRequest`, l'associazione recupererà solo le sottoscrizioni di proprietà dell'utente chiamante. Questa operazione è valida solo con il [trigger HTTP].| 
 
 ### <a name="webhook-input---usage"></a>Input di webhook: utilizzo
@@ -1385,9 +1385,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
-|**type**||Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
-|**direction**||Obbligatoria. Deve essere impostata su `out`.|
+|**nome**| N/D |Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**type**| N/D |Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
+|**direction**| N/D |Obbligatoria. Deve essere impostata su `out`.|
 |**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. I possibili valori sono i seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |

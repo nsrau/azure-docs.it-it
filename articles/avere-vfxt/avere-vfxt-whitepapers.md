@@ -1,21 +1,21 @@
 ---
-title: White paper e case study - Avere vFXT per Azure
+title: White paper e case study-vFXT per Azure
 description: Collegamenti a white paper, case study e altri articoli scaricabili che illustrano Avere vFXT per Azure e il suo uso.
 ms.service: avere-vfxt
 author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
-ms.date: 02/13/2019
-ms.openlocfilehash: a85b939eb222fa459d33ba4eb79b4937baf9056f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/06/2020
+ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414270"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152970"
 ---
-# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Azure vFTX per white paper di Azure e altre risorse
+# <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Azure vFXT per Azure White paper e altre risorse
 
-Le risorse in questa tabella includono case study, white paper tecnologici, infografiche e altri articoli utili per comprendere come Avere vFXT per Azure si adatti al flusso di lavoro.
+Questo articolo elenca i case study, la tecnologia white paper, le infografica e altre risorse che consentono di comprendere il modo in cui vFXT per Azure si inserisce nel flusso di lavoro.
 
 ## <a name="deploy-agisoft-photoscan-on-azure"></a>Distribuire Agisoft PhotoScan in Azure
 
@@ -34,12 +34,6 @@ Questo riepilogo di due pagine contiene informazioni di base e diagrammi in cui 
 **Collegamento:** [infografica: creazione di un cloud ibrido per carichi di lavoro basati su file](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/)
 
 Questo documento mostra componenti e layout per l'uso di Avere vFXT per Azure in modo da aggiungere l'infrastruttura cloud al sistema esistente. Usare Avere vFXT per Azure per aumentare le capacità di calcolo con l'infrastruttura locale esistente, o spostare dati e calcolo nel cloud in modo temporaneo o permanente.
-
-## <a name="cloud-bursting"></a>Espansione nel cloud
-
-**Collegamento:** espansione [del cloud per prestazioni elevate e SCALAbilità del NAS](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf)
-
- La panoramica della soluzione di espansione nel cloud mostra come rendere rapidamente disponibili i dati per il cloud computing delle risorse senza interruzioni usando Avere vFXT per Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

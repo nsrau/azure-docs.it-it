@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771922"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122373"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -1488,7 +1488,7 @@ L'ambiente di calcolo di Azure Machine Learning può essere creato in Python, tr
 + Pipeline di Machine Learning
   + Notebook nuovi e aggiornati per iniziare con le pipeline, la definizione dell'ambito di batch e gli esempi di trasferimenti di stile: https://aka.ms/aml-pipeline-notebooks
   + Informazioni su come [creare la prima pipeline](how-to-create-your-first-pipeline.md)
-  + Informazioni su come [eseguire previsioni in batch utilizzando le pipeline](how-to-run-batch-predictions.md)
+  + Informazioni su come [eseguire previsioni in batch utilizzando le pipeline](how-to-use-parallel-run-step.md)
 + Destinazione di calcolo di Azure Machine Learning
   + I [notebook di esempio](https://aka.ms/aml-notebooks) sono ora aggiornati per l'uso del nuovo ambiente di calcolo gestito.
   + [Informazioni su questo ambiente di calcolo](how-to-set-up-training-targets.md#amlcompute)

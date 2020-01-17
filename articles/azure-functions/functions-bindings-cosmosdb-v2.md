@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 478a7ae8d6938ee4d4ef5c30c8126c3e95f35305
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921120"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121285"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -255,9 +255,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**type** || Il valore deve essere impostato su `cosmosDBTrigger`. |
-|**direction** || Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** || Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
+|**type** | N/D | Il valore deve essere impostato su `cosmosDBTrigger`. |
+|**direction** | N/D | Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | N/D | Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Il nome di un'impostazione dell'app che contiene la stringa di connessione usata per connettersi all'account di Azure Cosmos DB monitorato. |
 |**databaseName**|**DatabaseName**  | Il nome del database di Azure Cosmos DB con la raccolta monitorata. |
 |**collectionName** |**CollectionName** | Il nome della raccolta monitorata. |
@@ -1737,9 +1737,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**type**     || Il valore deve essere impostato su `cosmosDB`.        |
-|**direction**     || Il valore deve essere impostato su `in`.         |
-|**nome**     || Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**type**     | N/D | Il valore deve essere impostato su `cosmosDB`.        |
+|**direction**     | N/D | Il valore deve essere impostato su `in`.         |
+|**nome**     | N/D | Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** |**DatabaseName** |Database che contiene il documento.        |
 |**collectionName** |**CollectionName** | Nome della raccolta che contiene il documento. |
 |**id**    | **Id** | ID del documento da recuperare. Questa proprietà supporta le [espressioni di associazione](./functions-bindings-expressions-patterns.md). Non impostare entrambe le proprietà **id** e **sqlQuery**. Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta. |
@@ -2366,9 +2366,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**type**     || Il valore deve essere impostato su `cosmosDB`.        |
-|**direction**     || Il valore deve essere impostato su `out`.         |
-|**nome**     || Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**type**     | N/D | Il valore deve essere impostato su `cosmosDB`.        |
+|**direction**     | N/D | Il valore deve essere impostato su `out`.         |
+|**nome**     | N/D | Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** | **DatabaseName**|Database contenente la raccolta in cui viene creato il documento.     |
 |**collectionName** |**CollectionName**  | Nome della raccolta in cui viene creato il documento. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false* perché le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di costi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).  |

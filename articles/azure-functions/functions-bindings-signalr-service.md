@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d5ded7200c438fc734e1af0a42ca6071196bd41c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769490"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120338"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
@@ -1011,9 +1011,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**type**|| Il valore deve essere impostato su `signalRConnectionInfo`.|
-|**direction**|| Il valore deve essere impostato su `in`.|
-|**nome**|| Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
+|**type**| N/D | Il valore deve essere impostato su `signalRConnectionInfo`.|
+|**direction**| N/D | Il valore deve essere impostato su `in`.|
+|**nome**| N/D | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
 |**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
 |**userId**|**UserId**| Facoltativo: valore dell'attestazione dell'identificatore utente da impostare nel token della chiave di accesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
@@ -1024,9 +1024,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 |Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**type**|| Il valore deve essere impostato su `signalR`.|
-|**direction**|| Il valore deve essere impostato su `out`.|
-|**nome**|| Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
+|**type**| N/D | Il valore deve essere impostato su `signalR`.|
+|**direction**| N/D | Il valore deve essere impostato su `out`.|
+|**nome**| N/D | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
 |**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
 

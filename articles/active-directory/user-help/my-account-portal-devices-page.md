@@ -12,24 +12,27 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9cd2d712dfcc6d3f01cbdb1f4886dd64a6d299d4
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233207"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156217"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Gestire i dispositivi connessi all'account aziendale o dell'Istituto di istruzione dalla pagina dispositivi
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>Gestire i dispositivi connessi dalla pagina dispositivi
 
-Dalla pagina **dispositivi** del portale **account personale** è possibile:
+La pagina **dispositivi** del portale **account personale** consente di gestire i dispositivi connessi all'account aziendale o dell'Istituto di istruzione. Dalla pagina **dispositivi** è possibile:
 
 - Visualizzare i dispositivi connessi all'account aziendale o dell'Istituto di istruzione.
 
 - Disabilitare i dispositivi di cui non si è più proprietari, quelli smarriti o che sono stati rubati.
 
+>[!Important]
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni sul dispositivo connesse a un account aziendale o dell'Istituto di istruzione. Se si è un amministratore che cerca informazioni sulla gestione dei dispositivi per i dipendenti e altri usi, vedere la [documentazione relativa alle identità dei dispositivi](https://docs.microsoft.com/azure/active-directory/devices/index).
+
 ## <a name="view-your-connected-devices"></a>Visualizzare i dispositivi connessi
 
-1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'Istituto di istruzione e passare alla pagina **account personale** (https://myprofile.microsoft.com/).
 
 2. Selezionare **Dispositivi** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci i dispositivi** nel blocco **Dispositivi**.
 
@@ -73,3 +76,13 @@ Dopo aver visualizzato i dispositivi connessi, è possibile:
 - Visualizzare l' [attività di accesso](my-account-portal-sign-ins-page.md).
 
 - Visualizzare il modo in cui l'organizzazione [Usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
+
+## <a name="related-office-content"></a>Contenuto di Office correlato
+
+- [Accedere per gestire Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Andare alla pagina **Account personale** di Office](https://portal.office.com/account/#home)
+
+- [Andare alla pagina **Mie installazioni** di Office](https://portal.office.com/account/#installs)
+
+- [Andare alla pagina **Sottoscrizioni** di Office](https://portal.office.com/account/#subscriptions)

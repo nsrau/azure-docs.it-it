@@ -3,19 +3,19 @@ title: "Guida introduttiva: connettersi a un'app comandi personalizzata con rico
 titleSuffix: Azure Cognitive Services
 description: In questo articolo verrà creata un'applicazione client per l'SDK di riconoscimento vocale con comandi personalizzati.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381104"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156778"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Guida introduttiva: connettersi a un'applicazione di comandi personalizzati con Speech SDK (anteprima)
 
@@ -46,7 +46,7 @@ Questa Guida introduttiva descrive in modo dettagliato come creare un'applicazio
 
 1. Aprire l' [applicazione comandi personalizzati creati in precedenza](./quickstart-custom-speech-commands-create-new.md) e selezionare **pubblica**
 
-   > [!div class="mx-imgBorder"] 
+   > [!div class="mx-imgBorder"]
    > ![pubblicare un'applicazione](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copiare l'ID app dalla notifica di pubblicazione per un uso successivo

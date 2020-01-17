@@ -4,30 +4,22 @@ description: Panoramica delle prestazioni personalizzate per ottimizzare le pres
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414324"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152936"
 ---
 # <a name="cluster-tuning"></a>Ottimizzazione del cluster
 
 La maggior parte dei cluster vFXT può trarre vantaggio dalle impostazioni delle prestazioni personalizzate. Queste impostazioni consentono al cluster di ottenere la massima efficienza con il flusso di lavoro, il set di dati e gli strumenti specifici.
 
-Questa personalizzazione dovrebbe essere eseguita con un rappresentante del supporto tecnico, perché in genere è necessario configurare funzionalità non disponibili nel pannello di controllo di Avere.
+Questa personalizzazione dovrebbe essere eseguita con assistenza da un rappresentante del supporto, perché può comportare la configurazione di funzionalità non disponibili nel pannello di controllo.
 
-Questa sezione illustra alcune delle ottimizzazioni personalizzate che è possibile eseguire.
-
-<!-- 
-[ xxx keep or not? \/ research this xxx ]
-
-> [!TIP]
-> The VDBench utility can be helpful in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
-
--->
+Questa sezione descrive alcune delle operazioni di ottimizzazione personalizzate che è possibile eseguire.
 
 ## <a name="general-optimizations"></a>Ottimizzazioni generali
 
@@ -42,19 +34,21 @@ Queste modifiche possono essere consigliabili a seconda della qualità del set d
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Ottimizzazioni del gateway cloud o del dispositivo NAS cloud
 
-Per sfruttare le maggiori velocità dei dati tra il cluster vFXT e la risorsa di archiviazione cloud in uno scenario gateway o NAS cloud (dove il cluster vFXT fornisce un accesso di tipo NAS a un contenitore), il rappresentante potrebbe consigliare di modificare impostazioni come le seguenti per eseguire un push dei dati più aggressivo nel volume di archiviazione dalla cache:
+In uno scenario di gateway cloud o gateway, il cluster vFXT fornisce l'accesso in stile NAS a un contenitore cloud. Per sfruttare i vantaggi della velocità dei dati più elevata tra il cluster vFXT e l'archiviazione cloud, il rappresentante potrebbe consigliare di modificare le impostazioni per eseguire il push più aggressivo dei dati nel volume di archiviazione dalla cache. Ad esempio:
 
 * Aumentare il numero di connessioni TCP tra il cluster e il contenitore di archiviazione
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Burst nel cloud o ottimizzazioni della rete WAN ibrida
 
-In uno scenario di burst nel cloud o di ottimizzazione della rete WAN ibrida (dove l'integrazione del cluster vFXT fornisce l'integrazione tra il cloud e la risorsa di archiviazione hardware locale) possono essere utili queste modifiche:
+In uno scenario di espansione nel cloud o in uno scenario di ottimizzazione WAN di archiviazione ibrida, il cluster vFXT fornisce l'integrazione tra il cloud e l'archiviazione hardware locale. Queste modifiche possono essere utili:
 
 * Aumentare il numero di connessioni TCP consentite tra il cluster e il core filer
 * Abilitare l'impostazione di ottimizzazione WAN per il core filer remoto. Questa impostazione può essere usata per un filer locale remoto o per un core filer cloud in un'altra area di Azure.
-* Aumentare le dimensioni del buffer socket TCP (a seconda del carico di lavoro e delle esigenze in termini di prestazioni)
-* Abilitare l'impostazione "always forward" (Inoltra sempre) per ridurre i file memorizzati nella cache in modo ridondante (a seconda del carico di lavoro e delle esigenze in termini di prestazioni)
+* Aumentare le dimensioni del buffer del socket TCP<sup>*</sup>
+* Abilitare l'impostazione "sempre in diretta" per ridurre i file memorizzati nella cache ridondante<sup>*</sup>
+
+<sup>*</sup> Queste rettifiche potrebbero non essere valide per tutti i sistemi, a seconda del carico di lavoro e delle esigenze di prestazioni.
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ottimizzazione di Avere vFXT per Azure
 
-Usare la procedura descritta in [Ottenere assistenza per il sistema](avere-vfxt-open-ticket.md) per contattare personale di supporto per informazioni su queste ottimizzazioni.
+Per contattare il personale del supporto tecnico in merito a queste ottimizzazioni, attenersi alla procedura descritta in [ottenere assistenza con il sistema](avere-vfxt-open-ticket.md).

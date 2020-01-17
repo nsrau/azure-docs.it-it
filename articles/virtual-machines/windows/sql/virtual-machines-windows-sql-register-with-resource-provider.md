@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690792"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122441"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -419,11 +419,11 @@ No. La registrazione con il provider di risorse VM SQL non è disponibile nel po
 
 **È possibile registrare una macchina virtuale con il provider di risorse VM SQL prima di installare SQL Server?**
 
-No. Per eseguire correttamente la registrazione con il provider di risorse VM SQL, una macchina virtuale deve disporre di almeno un'istanza di SQL Server. Se non è presente alcuna istanza di SQL Server nella macchina virtuale, la nuova risorsa Microsoft. SqlVirtualMachine sarà in stato di errore.
+No. Una macchina virtuale deve avere almeno un'istanza di SQL Server (motore di database) per eseguire correttamente la registrazione con il provider di risorse della macchina virtuale SQL. Se non è presente alcuna istanza di SQL Server nella macchina virtuale, la nuova risorsa Microsoft. SqlVirtualMachine sarà in stato di errore.
 
 **È possibile registrare una macchina virtuale con il provider di risorse VM SQL se sono presenti più istanze di SQL Server?**
 
-Sì. Il provider di risorse VM SQL registrerà una sola istanza di SQL Server. Il provider di risorse VM SQL registrerà l'istanza predefinita di SQL Server nel caso di più istanze. Se non è presente alcuna istanza predefinita, è supportata solo la registrazione in modalità lightweight. Per eseguire l'aggiornamento dalla modalità Lightweight alla gestione completa, è necessario che sia presente l'istanza predefinita di SQL Server o che la macchina virtuale disponga di una sola istanza denominata SQL Server.
+Sì. Il provider di risorse VM SQL registrerà una sola istanza di SQL Server (motore di database). Il provider di risorse VM SQL registrerà l'istanza predefinita di SQL Server nel caso di più istanze. Se non è presente alcuna istanza predefinita, è supportata solo la registrazione in modalità lightweight. Per eseguire l'aggiornamento dalla modalità Lightweight alla gestione completa, è necessario che sia presente l'istanza predefinita di SQL Server o che la macchina virtuale disponga di una sola istanza denominata SQL Server.
 
 **È possibile registrare un'istanza del cluster di failover di SQL Server con il provider di risorse VM SQL?**
 

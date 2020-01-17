@@ -1,18 +1,18 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione, all'assegnazione e alla rimozione di progetti quali violazioni dei criteri e funzioni di parametri del progetto.
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982481"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157084"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
-È possibile riscontrare errori durante la creazione o l'assegnazione dei progetti. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
+È possibile che si verifichino errori durante la creazione, l'assegnazione o la rimozione di progetti. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
 
 ## <a name="finding-error-details"></a>Ricerca dei dettagli di errore
 
@@ -60,6 +60,22 @@ Il passaggio di un parametro del progetto che usa una funzione, ad esempio `[res
 #### <a name="resolution"></a>Risoluzione
 
 Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+
+## <a name="delete-errors"></a>Elimina errori
+
+### <a name="assign-delete-timeout"></a>Scenario: timeout dell'eliminazione dell'assegnazione
+
+#### <a name="issue"></a>Problema
+
+L'eliminazione di un'assegnazione di progetto non è stata completata.
+
+#### <a name="cause"></a>Causa
+
+Un'assegnazione di progetto può rimanere bloccata in uno stato non terminale quando viene eliminata. Questo stato viene generato quando le risorse create dall'assegnazione del progetto sono ancora in attesa di eliminazione o non restituiscono un codice di stato ai progetti di Azure.
+
+#### <a name="resolution"></a>Risoluzione
+
+Le assegnazioni di progetto in uno stato non terminale vengono contrassegnate automaticamente come **non riuscite** dopo un timeout di _6 ore_ . Una volta che il timeout ha regolato lo stato dell'assegnazione del progetto, è possibile ritentare l'eliminazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928438"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121778"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identità gestita per Data Factory
 
@@ -23,7 +23,7 @@ Questo articolo consente di comprendere l'identità gestita per Data Factory (no
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Quando si crea una data factory, è possibile creare un'identità gestita insieme alla creazione della factory. L'identità gestita è un'applicazione gestita registrata per Azure Active Directory e rappresenta questo data factory specifico.
 
@@ -155,17 +155,19 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperare l'identità gestita usando portale di Azure
 
-È possibile trovare le informazioni sull'identità gestita da portale di Azure > le proprietà di data factory >:
+È possibile trovare le informazioni sull'identità gestita da portale di Azure > le proprietà di data factory >.
 
 - ID oggetto identità gestita
 - Tenant di identità gestita
-- **ID applicazione identità gestita** > copiare questo valore
+- ID applicazione identità gestita
 
-![Recupera identità gestita](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+Le informazioni sull'identità gestita vengono visualizzate anche quando si crea un servizio collegato che supporta l'autenticazione dell'identità gestita, ad esempio BLOB di Azure, Azure Data Lake Storage, Azure Key Vault e così via.
+
+Quando si concede l'autorizzazione, usare l'ID oggetto o il nome del data factory (come nome identità gestita) per trovare questa identità.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Recuperare l'identità gestita con PowerShell
 
-L'ID dell'entità di identità gestita e l'ID tenant verranno restituiti quando si ottiene uno specifico data factory come indicato di seguito:
+L'ID dell'entità di identità gestita e l'ID tenant verranno restituiti quando si ottiene uno specifico data factory come indicato di seguito. Usare **PrincipalId** per concedere l'accesso:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -175,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Copiare l'ID entità, quindi eseguire il comando di Azure Active Directory seguente con l'ID entità come parametro per ottenere il valore di **ApplicationId**, usato per concedere l'accesso:
+È possibile ottenere l'ID applicazione copiando sopra l'ID entità, quindi eseguire sotto Azure Active Directory comando con ID entità come parametro.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

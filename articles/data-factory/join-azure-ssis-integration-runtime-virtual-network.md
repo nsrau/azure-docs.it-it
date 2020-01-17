@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 58bfc35776e83df7754379a12ad4b7afca73e32c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: fec34c54971878178b2a5ea4548ad20d3b51b104
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892333"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119910"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 
@@ -140,49 +140,96 @@ Se si vuole portare gli indirizzi IP pubblici statici per Azure-SSIS IR durante 
 - Tali utenti e la rete virtuale devono trovarsi nella stessa sottoscrizione e nella stessa area.
 
 ### <a name="dns_server"></a>Configurare il server DNS 
+Se è necessario usare il proprio server DNS in una rete virtuale unita dall'Azure-SSIS IR per risolvere il nome host privato, assicurarsi che sia in grado di risolvere i nomi host di Azure globali (ad esempio, un BLOB di archiviazione di Azure denominato `<your storage account>.blob.core.windows.net`). 
 
-Se è necessario usare il proprio server DNS in una rete virtuale unita dall'Azure-SSIS IR, assicurarsi che sia in grado di risolvere i nomi host di Azure globali (ad esempio, un BLOB di archiviazione di Azure denominato `<your storage account>.blob.core.windows.net`). 
+Di seguito è riportato un approccio consigliato: 
 
-Sono consigliati i passaggi seguenti: 
-
-- Configurare il DNS personalizzato per l'invio di richieste al servizio DNS di Azure. È possibile inviare i record DNS non risolti all'indirizzo IP dei resolver ricorsivi di Azure (168.63.129.16) nel server DNS. 
-
-- Configurare il DNS personalizzato come server DNS primario per la rete virtuale. Configurare DNS di Azure come server DNS secondario. Registrare l'indirizzo IP dei resolver ricorsivi di Azure (168.63.129.16) come server DNS secondario nel caso in cui il server DNS non sia disponibile. 
+-   Configurare il DNS personalizzato per l'invio di richieste al servizio DNS di Azure. È possibile inviare i record DNS non risolti all'indirizzo IP dei resolver ricorsivi di Azure (168.63.129.16) nel server DNS. 
 
 Per altre informazioni, vedere [risoluzione dei nomi che usa il proprio server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
-### <a name="nsg"></a>Configurare un NSG
+> [!NOTE]
+> Usare un nome di dominio completo (FQDN) per il nome host privato, ad esempio usare `<your_private_server>.contoso.com` anziché `<your_private_server>`, in quanto Azure-SSIS IR non aggiungerà automaticamente il proprio suffisso DNS.
 
+### <a name="nsg"></a>Configurare un NSG
 Se è necessario implementare un NSG per la subnet usata dal Azure-SSIS IR, consentire il traffico in ingresso e in uscita attraverso le porte seguenti: 
+
+-   **Requisito in ingresso di Azure-SSIS IR**
 
 | Direction | Protocollo di trasporto | Origine | Intervallo di porte di origine | Destinazione | Destination port range | Commenti |
 |---|---|---|---|---|---|---|
 | In ingresso | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (se si aggiunge il runtime di integrazione a una rete virtuale Gestione risorse) <br/><br/>10100, 20100, 30100 (se si aggiunge il runtime di integrazione a una rete virtuale classica)| Il servizio Data Factory usa queste porte per comunicare con i nodi del Azure-SSIS IR nella rete virtuale. <br/><br/> Indipendentemente dalla creazione di un NSG a livello di subnet, Data Factory configura sempre un NSG al livello delle schede di interfaccia di rete collegate alle macchine virtuali che ospitano il Azure-SSIS IR. Il gruppo di sicurezza di rete a livello di scheda di interfaccia di rete consente solo il traffico in entrata dagli indirizzi IP di Data Factory nelle porte specificate. Anche se si aprono queste porte al traffico Internet a livello di subnet, il traffico da indirizzi IP che non sono Data Factory indirizzi IP viene bloccato a livello di NIC. |
-| In uscita | TCP | VirtualNetwork | * | AzureCloud | 443 | I nodi del Azure-SSIS IR nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. |
-| In uscita | TCP | VirtualNetwork | * | Internet | 80 | I nodi del Azure-SSIS IR nella rete virtuale usano questa porta per scaricare un elenco di revoche di certificati da Internet. |
-| In uscita | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | I nodi del Azure-SSIS IR nella rete virtuale usano queste porte per accedere a un SSISDB ospitato dal server del database SQL. Se il criterio di connessione del server di database SQL è impostato su **proxy** anziché su **Reindirizzamento**, è necessaria solo la porta 1433. Questa regola di sicurezza in uscita non è applicabile a un SSISDB ospitato dall'istanza gestita nella rete virtuale. |
+| In ingresso | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | Opzionale Questa regola è necessaria solo quando il supporto tecnico Microsoft chiede all'utente di aprire per la risoluzione dei problemi avanzata e può essere chiuso immediatamente dopo la risoluzione dei problemi. Il tag del servizio **CorpNetSaw** consente solo alle workstation con accesso sicuro nella rete aziendale Microsoft di usare desktop remoto. Questo tag di servizio non può essere selezionato dal portale ed è disponibile solo tramite Azure PowerShell o l'interfaccia della riga di comando di Azure. <br/><br/> Al livello NIC NSG la porta 3389 è aperta per impostazione predefinita e consente di controllare la porta 3389 a livello di subnet NSG, nel frattempo Azure-SSIS IR ha disabilitato la porta 3389 in uscita per impostazione predefinita nella regola di Windows Firewall in ogni nodo IR per la protezione. |
 ||||||||
 
-### <a name="route"></a>Usare Azure ExpressRoute o un UDR
+-   **Requisito in uscita di Azure-SSIS IR**
 
-Quando si connette un circuito [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) all'infrastruttura di rete virtuale per estendere la rete locale ad Azure, una configurazione comune usa il tunneling forzato (annunciando una route BGP, 0.0.0.0/0, alla rete virtuale). Questo tunneling forza il traffico Internet in uscita dal flusso della rete virtuale a un'appliance di rete locale per l'ispezione e la registrazione. 
- 
-In alternativa, è possibile definire [UdR](../virtual-network/virtual-networks-udr-overview.md) per forzare il traffico Internet in uscita dalla subnet che ospita il Azure-SSIS IR a un'altra subnet che ospita un'appliance virtuale di rete come firewall o firewall di Azure per l'ispezione e la registrazione. 
+| Direction | Protocollo di trasporto | Origine | Intervallo di porte di origine | Destinazione | Destination port range | Commenti |
+|---|---|---|---|---|---|---|
+| In uscita | TCP | VirtualNetwork | * | AzureCloud | 443 | I nodi del Azure-SSIS IR nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. |
+| In uscita | TCP | VirtualNetwork | * | Internet | 80 | Opzionale I nodi del Azure-SSIS IR nella rete virtuale usano questa porta per scaricare un elenco di revoche di certificati da Internet. Se si blocca questo traffico, è possibile che si verifichi un downgrade delle prestazioni quando si avvia IR e si perde la possibilità di controllare l'elenco di revoche di certificati per l'utilizzo del certificato. Se si vuole restringere ulteriormente la destinazione a determinati FQDN, vedere la sezione **usare Azure ExpressRoute o UdR**|
+| In uscita | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | Opzionale Questa regola è necessaria solo quando i nodi del Azure-SSIS IR nella rete virtuale accedono a un SSISDB ospitato dal server del database SQL. Se il criterio di connessione del server di database SQL è impostato su **proxy** anziché su **Reindirizzamento**, è necessaria solo la porta 1433. <br/><br/> Questa regola di sicurezza in uscita non è applicabile a un SSISDB ospitato dall'istanza gestita nella rete virtuale o nel server di database di Azure configurato con l'endpoint privato. |
+| In uscita | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Opzionale Questa regola è necessaria solo quando i nodi del Azure-SSIS IR nella rete virtuale accedono a un SSISDB ospitato dall'istanza gestita nella rete virtuale o nel server di database di Azure configurato con l'endpoint privato. Se il criterio di connessione del server di database SQL è impostato su **proxy** anziché su **Reindirizzamento**, è necessaria solo la porta 1433. |
+| In uscita | TCP | VirtualNetwork | * | Archiviazione | 445 | Opzionale Questa regola è necessaria solo quando si desidera eseguire il pacchetto SSIS archiviato in File di Azure. |
+||||||||
 
-In entrambi i casi, la route di traffico interrompe la connettività in ingresso richiesta da servizi Azure Data Factory dipendenti (in particolare Azure Batch servizi di gestione) al Azure-SSIS IR nella rete virtuale. Per evitare questo problema, definire uno o più UdR sulla subnet che contiene il Azure-SSIS IR. 
+### <a name="route"></a>Usare Azure ExpressRoute o UDR
+Se si vuole ispezionare il traffico in uscita da Azure-SSIS IR, è possibile instradare il traffico avviato da Azure-SSIS IR all'appliance del firewall locale tramite il tunneling forzato di [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) (annunciando una route BGP, 0.0.0.0/0, alla rete virtuale) o a appliance virtuale di rete come firewall o [firewall di Azure](https://docs.microsoft.com/azure/firewall/) tramite [UdR](../virtual-network/virtual-networks-udr-overview.md). 
 
-È possibile applicare una route 0.0.0.0/0 con il tipo di hop successivo come **Internet** nella subnet che ospita il Azure-SSIS IR in uno scenario di Azure ExpressRoute. In alternativa, è possibile modificare la Route 0.0.0.0/0 esistente dal tipo di hop successivo come appliance virtuale a Internet in uno scenario di **appliance virtuale** di **rete** .
+![Scenario di appliance virtuale di Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
 
-![Aggiungere una route](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+È necessario eseguire le operazioni seguenti per far funzionare l'intero scenario
+   -   Il traffico in ingresso tra Azure Batch Management Services e il Azure-SSIS IR non può essere instradato tramite il dispositivo firewall.
+   -   Il dispositivo firewall deve consentire il traffico in uscita richiesto da Azure-SSIS IR.
 
-Se si è preoccupati di perdere la possibilità di controllare il traffico Internet in uscita da tale subnet, è possibile definire UdR specifici per instradare il traffico solo tra i servizi Azure Batch Management e i Azure-SSIS IR con un tipo di hop successivo **Internet**.
+Il traffico in ingresso tra Azure Batch Management Services e il Azure-SSIS IR non può essere instradato all'appliance firewall altrimenti il traffico verrà danneggiato a causa di un problema di routing asimmetrico. È necessario definire le route per il traffico in ingresso, in modo che il traffico possa rispondere allo stesso modo in cui è arrivato. È possibile definire UdR specifici per instradare il traffico tra Azure Batch Management Services e il Azure-SSIS IR con il tipo di hop successivo **Internet**.
 
-Se, ad esempio, il Azure-SSIS IR si trova in `UK South`, si otterrebbe un elenco di intervalli IP di tag di servizio `BatchNodeManagement.UKSouth` dal [collegamento di download dell'intervallo IP dei tag del servizio](https://www.microsoft.com/en-us/download/details.aspx?id=56519) o tramite l'API di individuazione dei tag di [servizio](https://aka.ms/discoveryapi). Applicare quindi le seguenti UdR di route di intervallo IP correlate con il tipo di hop successivo come **Internet**.
+Se, ad esempio, il Azure-SSIS IR si trova in `UK South` e si vuole controllare il traffico in uscita attraverso il firewall di Azure, si otterrà prima di tutto un elenco di intervalli IP di tag di servizio `BatchNodeManagement.UKSouth` dal [collegamento di download dell'intervallo IP dei tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519) o tramite l'API di [individuazione tag di servizio](https://aka.ms/discoveryapi). Applicare quindi le seguenti UdR di route di intervallo IP correlate con il tipo di hop successivo come **Internet** insieme alla Route 0.0.0.0/0 con il tipo di hop successivo come **appliance virtuale**.
 
 ![Impostazioni Azure Batch UDR](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
 > [!NOTE]
 > Questo approccio comporta un costo aggiuntivo per la manutenzione. Controllare regolarmente l'intervallo di indirizzi IP e aggiungere nuovi intervalli IP nella UDR per evitare di suddividere il Azure-SSIS IR. Si consiglia di controllare l'intervallo di indirizzi IP mensilmente perché quando il nuovo IP viene visualizzato nel tag del servizio, l'indirizzo IP verrà applicato un altro mese. 
+
+Per consentire al dispositivo firewall di consentire il traffico in uscita, è necessario consentire le porte in uscita per le porte indicate di seguito come requisito nelle regole in uscita NSG.
+-   Porta 443 con destinazione come servizi cloud di Azure.
+
+    Se si usa il firewall di Azure, è possibile specificare la regola di rete con il tag del servizio AzureCloud. in caso contrario, è possibile consentire la destinazione come tutto nell'appliance del firewall.
+
+-   Porta 80 con destinazione come siti di download CRL.
+
+    È necessario consentire gli FQDN seguenti che vengono usati come CRL (elenco di revoche di certificati) per scaricare i siti dei certificati per Azure-SSIS IR scopo di gestione:
+    -  crl.microsoft.com:80
+    -  mscrl.microsoft.com:80
+    -  crl3.digicert.com:80
+    -  crl4.digicert.com:80
+    -  ocsp.digicert.com:80
+    -  cacerts.digicert.com:80
+    
+    Se si usano certificati con CRL diversi, è consigliabile includerli. Per ulteriori informazioni, vedere l'elenco di [revoche di certificati](https://social.technet.microsoft.com/wiki/contents/articles/2303.understanding-access-to-microsoft-certificate-revocation-list.aspx).
+
+    Se il traffico non è consentito, è possibile che si verifichi un downgrade delle prestazioni quando si avvia Azure-SSIS IR e si perde la possibilità di controllare l'elenco di revoche di certificati per l'utilizzo del certificato, che non è consigliato dal punto di vista della sicurezza.
+
+-   Porta 1433, 11000-11999 con destinazione come SQL di Azure (necessario solo quando i nodi del Azure-SSIS IR nella rete virtuale accedono a un SSISDB ospitato dal server del database SQL).
+
+    Se si usa il firewall di Azure, è possibile specificare la regola di rete con il tag del servizio SQL di Azure. in caso contrario, è possibile consentire la destinazione come URL SQL di Azure specifico nel dispositivo firewall.
+
+-   Porta 445 con destinazione come archiviazione di Azure (necessaria solo quando si esegue un pacchetto SSIS archiviato in File di Azure).
+
+    Se si usa il firewall di Azure, è possibile specificare la regola di rete con il tag del servizio di archiviazione; in caso contrario, è possibile consentire la destinazione come URL di archiviazione file di Azure specifico nel dispositivo firewall.
+
+> [!NOTE]
+> Per SQL e archiviazione di Azure, se si configurano gli endpoint di servizio di rete virtuale nella subnet, il traffico tra Azure-SSIS IR e Azure SQL nella stessa area \ archiviazione di Azure nella stessa area o in un'area abbinata verrà indirizzato a Microsoft Azure rete backbone direttamente anziché il dispositivo firewall.
+
+Se non è necessaria la possibilità di controllare il traffico in uscita di Azure-SSIS IR, è possibile applicare semplicemente route per forzare tutto il traffico al tipo di hop successivo **Internet**:
+
+-   In uno scenario Azure ExpressRoute è possibile applicare una route 0.0.0.0/0 con il tipo di hop successivo come **Internet** nella subnet che ospita il Azure-SSIS IR. 
+-   In uno scenario di appliance virtuale di rete è possibile modificare la Route 0.0.0.0/0 esistente applicata alla subnet che ospita il Azure-SSIS IR dal tipo di hop successivo come **appliance virtuale** a **Internet**.
+
+![Aggiungere una route](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+
+> [!NOTE]
+> Specificare la route con il tipo di hop successivo **Internet** non significa che tutto il traffico passerà su Internet. Fino a quando l'indirizzo di destinazione è per uno dei servizi di Azure, Azure instrada il traffico direttamente al servizio tramite la rete backbone di Azure, anziché indirizzare il traffico a Internet.
 
 ### <a name="resource-group"></a>Configurare il gruppo di risorse
 
@@ -291,21 +338,21 @@ Usare il portale per configurare una rete virtuale classica prima di provare ad 
 
    1. Nel menu a sinistra selezionare **controllo di accesso (IAM)** e selezionare la scheda **assegnazioni di ruolo** . 
 
-   ![Pulsanti "Controllo di accesso" e "Aggiungi"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
+       ![Pulsanti "Controllo di accesso" e "Aggiungi"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
    1. Selezionare **Aggiungi assegnazione ruolo**.
 
    1. Nella pagina **Aggiungi assegnazione ruolo** selezionare **collaboratore macchina virtuale classica**per **ruolo**. Nella casella **Seleziona** incollare **ddbf3205-c6bd-46AE-8127-60eb93363864**, quindi selezionare **Microsoft Azure batch** dall'elenco dei risultati della ricerca. 
 
-   ![Risultati della ricerca nella pagina "Aggiungi assegnazione ruolo"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+       ![Risultati della ricerca nella pagina "Aggiungi assegnazione ruolo"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 
    1. Selezionare **Save (Salva** ) per salvare le impostazioni e chiudere la pagina. 
 
-   ![Salvare le impostazioni di accesso](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
+       ![Salvare le impostazioni di accesso](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
    1. Verificare che venga visualizzato **Microsoft Azure Batch** nell'elenco dei collaboratori. 
 
-   ![Confermare l'accesso di Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
+       ![Confermare l'accesso di Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
 1. Verificare che il provider di Azure Batch sia registrato nella sottoscrizione di Azure che ha la rete virtuale. In alternativa, registrare il provider di Azure Batch. Se si dispone già di un account Azure Batch nella sottoscrizione, la sottoscrizione viene registrata per l'Azure Batch. Se si crea il runtime di integrazione Azure-SSIS nel portale di Data Factory, il provider di Azure Batch viene registrato automaticamente. 
 

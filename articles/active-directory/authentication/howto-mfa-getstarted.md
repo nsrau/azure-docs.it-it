@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848392"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155147"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -85,18 +85,18 @@ Alcuni dei rilevamenti dei rischi rilevati da Azure Active Directory Identity Pr
 ### <a name="configuring-a-named-location"></a>Configurazione di un percorso denominato
 
 1. Aprire **Azure Active Directory** nella portale di Azure
-2. Fare clic su **accesso condizionale**
-3. Fare clic su **località denominate**
-4. Fare clic su **nuova posizione**
+2. Selezionare la **sicurezza**
+3. In **Gestisci**scegliere **località denominate**
+4. Seleziona **nuova posizione**
 5. Nel campo **nome** specificare un nome significativo
-6. Consente di indicare se si sta definendo il percorso usando gli intervalli IP o i paesi/aree geografiche
-   1. Se si usano gli intervalli IP
-      1. Decidere se contrassegnare il percorso come attendibile. L'accesso da una posizione attendibile riduce il rischio di accesso dell'utente. Contrassegnare questo percorso come attendibile se si è certi che gli intervalli IP immessi siano stabiliti e credibili nell'organizzazione.
+6. Consente di indicare se si sta definendo il percorso usando gli *intervalli IP* o i *paesi/aree geografiche*
+   1. Se si usano gli *intervalli IP*
+      1. Decidere se *contrassegnare come percorso attendibile*. L'accesso da una posizione attendibile riduce il rischio di accesso dell'utente. Contrassegnare questo percorso come attendibile se si è certi che gli intervalli IP immessi siano stabiliti e credibili nell'organizzazione.
       2. Specificare gli intervalli IP
-   2. Se si usano paesi/aree geografiche
+   2. Se si usano *paesi/aree geografiche*
       1. Espandere il menu a discesa e selezionare i paesi o le aree geografiche che si desidera definire per la località specificata.
-      2. Decidere se includere aree sconosciute. Le aree sconosciute sono indirizzi IP di cui non è possibile eseguire il mapping a un paese/area geografica.
-7. Fare clic su **Crea**
+      2. Decidere se *includere aree sconosciute*. Le aree sconosciute sono indirizzi IP di cui non è possibile eseguire il mapping a un paese/area geografica.
+7. Selezionare **Crea**
 
 ## <a name="plan-authentication-methods"></a>Pianificare i metodi di autenticazione
 
@@ -221,7 +221,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
 ### <a name="create-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
-1. Passare ad **Azure Active Directory** , **Accesso condizionale**.
+1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
    ![creare un criterio di accesso condizionale per abilitare l'autenticazione a più fattori per portale di Azure utenti del gruppo pilota](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Immettere un nome significativo per i criteri.
@@ -240,7 +240,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
     * Fare clic su **Seleziona**.
 1. Ignorare la sezione **Sessione**.
 1. Impostare l'interruttore **Abilita criterio** su **Sì**.
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Pianificare l'integrazione con i sistemi locali
 
@@ -277,7 +277,7 @@ Se è già stata distribuita un'istanza NPS e in uso, fare riferimento a [integr
 
 Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema `REQUIRE_USER_MATCH` nel percorso del registro di sistema `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | Value | Predefinito |
+| Chiave | Valore | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Non impostato (equivalente a VERO) |
 
@@ -347,7 +347,7 @@ Report per l'autenticazione a più fattori di Azure
 
 Azure Multi-Factor Authentication fornisce report tramite i portale di Azure:
 
-| Documentazione | Località | Description |
+| Documentazione | Percorso | Description |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

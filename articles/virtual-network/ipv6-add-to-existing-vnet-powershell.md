@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965247"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119840"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Aggiornare un'applicazione IPv4 a IPv6 in rete virtuale di Azure-PowerShell (anteprima)
 
@@ -26,7 +26,7 @@ Questo articolo illustra come aggiungere connettività IPv6 a un'applicazione IP
 - Spazio degli indirizzi IPv6 per la rete virtuale e la subnet
 - Load Balancer Standard con configurazioni front-end IPv4 e IPV6
 - VM con NIC con una configurazione di IPv4 + IPv6
-- IP pubblico di IPv, quindi il servizio di bilanciamento del carico ha connettività IPv6 con connessione Internet
+- IP pubblico IPv6, quindi il servizio di bilanciamento del carico ha connettività IPv6 con connessione Internet
 
 > [!Important]
 > Il supporto IPv6 per la rete virtuale di Azure è attualmente disponibile in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

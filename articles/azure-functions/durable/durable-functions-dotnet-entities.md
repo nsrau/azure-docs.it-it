@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 74b013c9953974371957cc4d88439d20770d78a3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 750ccbfa885b4679dfa61240b49ea9ec86a46d51
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231437"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120642"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guida per gli sviluppatori di entità durevoli in .NET
 
@@ -74,7 +74,7 @@ La funzione `Run` contiene lo standard richiesto per l'utilizzo della sintassi b
 
 ### <a name="class-requirements"></a>Requisiti della classe
  
-Le classi di entità sono POCO (Plain Old CLR Object) che non richiedono superclasse, interfacce o attributi speciali. Tuttavia
+Le classi di entità sono POCO (Plain Old CLR Object) che non richiedono superclasse, interfacce o attributi speciali. Tuttavia:
 
 - La classe deve essere costruibile (vedere [costruzione di entità](#entity-construction)).
 - La classe deve essere serializzabile in JSON (vedere [serializzazione di entità](#entity-serialization)).
@@ -363,7 +363,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
     {
         ctx.SetState(...);
     }
-    ctx.DispatchAsync<Counter>();
+    return ctx.DispatchAsync<Counter>();
 }
 ```
 

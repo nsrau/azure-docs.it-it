@@ -12,29 +12,30 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1ab01f5427401bd129fa84f9a5dd1a4d3f8dc77d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231854"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156200"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Gestire le organizzazioni connesse all'account aziendale o dell'Istituto di istruzione dalla pagina organizzazioni
+# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gestire le organizzazioni connesse dalla pagina delle organizzazioni
 
-È possibile gestire le organizzazioni dalla pagina **organizzazioni** del portale **account personale** .
-
-Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
+La pagina **organizzazioni** del portale **account personale** consente di gestire le organizzazioni (in genere, il nome dell'organizzazione) connesse all'account aziendale o dell'Istituto di istruzione. Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
 - **Organizzazione principale.** L'organizzazione principale è l'organizzazione titolare dell'account aziendale o dell'istituto di istruzione. Non è possibile lasciare l'organizzazione principale.
-
-- **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
 
     >[!NOTE]
     > Se non si dispone di un'organizzazione domestica assegnata, verrà visualizzata solo una singola intestazione che indica alle organizzazioni l'elenco delle organizzazioni associate.
 
+- **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
+
+>[!Important]
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni sull'organizzazione connesse a un account aziendale o dell'Istituto di istruzione. Se si è un amministratore che cerca informazioni sulla gestione di utenti e gruppi per i dipendenti e altri usi, vedere la [documentazione relativa alla gestione degli utenti aziendali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
 
-1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'Istituto di istruzione e passare alla pagina **account personale** (https://myprofile.microsoft.com/).
 
 2. Selezionare **Organizzazioni** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci le organizzazioni** nel blocco **Organizzazioni**.
 
@@ -53,7 +54,7 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 >[!Important]
 >Se si esce da un'organizzazione per errore, non è possibile annullare l'azione. È necessario attendere che l'amministratore dell'organizzazione voglia invitare di nuovo l'utente.
 
-1. Selezionare **lascia l'organizzazione** accanto all'organizzazione che si vuole lasciare, quindi selezionare **lascia** per confermare che si desidera uscire.
+- Selezionare **lascia l'organizzazione** accanto all'organizzazione che si vuole lasciare, quindi selezionare **lascia** per confermare che si desidera uscire.
 
     ![Pagina Organizzazioni con il collegamento Esci dall'organizzazione evidenziato](media/my-account-portal/my-account-portal-organizations-leave.png)
 

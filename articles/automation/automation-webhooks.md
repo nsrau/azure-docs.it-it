@@ -3,14 +3,14 @@ title: Avviare un runbook di Automazione di Azure con un webhook
 description: Un webhook che consente a un client di avviare un Runbook in Automazione di Azure da una chiamata HTTP.  Questo articolo descrive come creare un webhook e come chiamarne uno per avviare un Runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbf3a48d1e7cb3dd80b6c418d7c916184756b6fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f86193e818a91132f9bbca447acadd7e81747522
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418963"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155826"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 
@@ -126,7 +126,7 @@ Il client non è in grado di determinare quando viene completato il processo del
 
 ## <a name="renew-webhook"></a>Rinnovare un webhook
 
-Un webhook ha un periodo di validità di un anno a partire dalla data di creazione. Quando raggiunge il limite di validità di un anno, il webhook scade automaticamente. Dopo la scadenza, un webhook non può essere riattivato, ma deve essere rimosso e ricreato. Se un webhook non ha raggiunto la scadenza, può essere esteso.
+Quando viene creato un webhook, ha un periodo di validità di dieci anni. Dopo tale periodo di tempo, il webhook scade automaticamente. Dopo la scadenza, un webhook non può essere riattivato, ma deve essere rimosso e ricreato. Se un webhook non ha raggiunto la scadenza, può essere esteso.
 
 Per estendere un webhook, passare al runbook che contiene il webhook. Selezionare **Webhook** sotto **Risorse**. Fare clic sul webhook che si vuole estendere in modo da visualizzare la pagina **Webhook**.  Scegliere una nuova data e ora di scadenza e fare clic su **Salva**.
 

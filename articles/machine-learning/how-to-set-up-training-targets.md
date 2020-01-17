@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 730436c7437d2ed77f9066f486d9716ec6d5681f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771837"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156353"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Altre informazioni sull'[invio degli esperimenti](#submit) alla fine di questo a
 
 ## <a name="whats-an-estimator"></a>Che cos'è un estimatore?
 
-Per semplificare il training del modello usando i Framework più diffusi, il Azure Machine Learning Python SDK fornisce un'astrazione di livello superiore alternativa, la classe Estimator.  Questa classe consente di creare facilmente configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio Scikit-learn. Si consiglia di usare un estimatore per il training in quanto il sistema integra automaticamente oggetti incorporati come un ambiente o oggetti RunConfiguration. Per avere un maggiore controllo sulla modalità di creazione di questi oggetti e specfify i pacchetti da installare per l'esecuzione di experiement, seguire [questa procedura](#amlcompute) per inviare gli esperimenti di training usando un oggetto RunConfiguration in un calcolo Azure Machine Learning.
+Per semplificare il training del modello usando i Framework più diffusi, il Azure Machine Learning Python SDK fornisce un'astrazione di livello superiore alternativa, la classe Estimator.  Questa classe consente di creare facilmente configurazioni di esecuzione. È possibile creare e usare uno strumento di [stima](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio Scikit-learn. È consigliabile usare un estimatore per il training perché crea automaticamente oggetti incorporati come un ambiente o oggetti RunConfiguration. Per avere un maggiore controllo sulla modalità di creazione di questi oggetti e specificare i pacchetti da installare per l'esecuzione dell'esperimento, attenersi alla [procedura seguente](#amlcompute) per inviare gli esperimenti di training usando un oggetto RunConfiguration in un calcolo Azure Machine Learning.
 
 Per le attività PyTorch, TensorFlow e Chainer, Azure Machine Learning fornisce anche i rispettivi estimatori [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) per semplificare l'uso di questi Framework.
 
@@ -364,7 +364,7 @@ Per altre informazioni consultare [Gestione delle risorse](reference-azure-machi
 
 ## <a name="set-up-with-vs-code"></a>Configurare con VS Code
 
-È possibile accedere, creare e gestire le destinazioni di calcolo associate all'area di lavoro usando l' [estensione vs code](how-to-vscode-tools.md#create-and-manage-compute-targets) per Azure Machine Learning.
+È possibile accedere, creare e gestire le destinazioni di calcolo associate all'area di lavoro usando l' [estensione vs code](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) per Azure Machine Learning.
 
 ## <a id="submit"></a>Inviare l'esecuzione del training usando Azure Machine Learning SDK
 
@@ -414,7 +414,7 @@ In alternativa, è possibile:
 
 * Inviare l'esperimento con un oggetto `Estimator` come illustrato in [Eseguire il training di modelli di Machine Learning con oggetti Estimator](how-to-train-ml-models.md).
 * Inviare un'esecuzione iperguida per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md).
-* Inviare un esperimento tramite l' [estensione vs code](how-to-vscode-tools.md#train-and-tune-models).
+* Inviare un esperimento tramite l' [estensione vs code](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
 Per ulteriori informazioni, vedere la documentazione di [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) e [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) .
 

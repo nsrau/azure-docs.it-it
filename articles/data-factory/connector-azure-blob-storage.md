@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/16/2020
+ms.openlocfilehash: f245254c85cbf9223ab5dda60799c6b7ce72f11c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893313"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120214"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati nell'archiviazione BLOB di Azure usando Azure Data Factory
 
@@ -270,7 +270,7 @@ Una data factory può essere associata a un'[identità gestita per le risorse di
 
 Per informazioni generali sull'autenticazione per l'archiviazione di Azure, vedere [Autenticare l'accesso all'archiviazione di Azure tramite Azure Active Directory](../storage/common/storage-auth-aad.md). Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
 
-1. [Recuperare data factory informazioni sull'identità gestita](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore di "ID applicazione dell'identità del servizio" generato insieme alla Factory.
+1. [Recuperare data factory informazioni sull'identità gestita](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore dell' **ID oggetto identità gestito** generato insieme alla Factory.
 
 2. Concedere l'autorizzazione appropriata per l'identità gestita in Archiviazione BLOB di Azure. Per informazioni dettagliate sui ruoli, vedere [Gestire i diritti di accesso ai dati di archiviazione di Azure con il controllo degli accessi in base al ruolo](../storage/common/storage-auth-aad-rbac.md).
 

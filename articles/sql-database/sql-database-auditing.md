@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 3d6f9f7d09664f9a5bd968ca5c0441b0846ceca3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028536"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122696"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -249,11 +249,11 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 - Per la configurazione del controllo non modificabile nell'account di archiviazione, vedere [Allow protected Append Blobs writes](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Si noti che il nome del contenitore per il controllo è **sqldbauditlogs**.
 
-> [!IMPORTANT] 
->  L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile e visibile solo nelle aree seguenti:
-> - Stati Uniti orientali
-> - Stati Uniti centro-meridionali
-> - Stati Uniti occidentali 2
+    > [!IMPORTANT]
+    > L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile e visibile solo nelle aree seguenti:
+    > - Stati Uniti orientali
+    > - Stati Uniti centro-meridionali
+    > - Stati Uniti occidentali 2
 
 
 ## <a id="subheading-7"></a>Gestire SQL Server di Azure e il controllo del database usando Azure PowerShell

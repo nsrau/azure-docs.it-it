@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/11/2020
-ms.openlocfilehash: 0354abf6a5450a1116423e3a35c3a7e2ae7b9057
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ef70c211c395556a4c15ff06e65098e8aaac32ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971100"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120265"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di monitoraggio di Azure 
 
@@ -378,8 +378,6 @@ Se si aggiorna la chiave in Key Vault e non si aggiornano i nuovi dettagli dell'
 
 - La crittografia CMK si applica ai dati appena inseriti dopo la configurazione di CMK. I dati inseriti prima della configurazione di CMK sono rimasti crittografati con la chiave Microsoft. È possibile eseguire query sui dati prima e dopo la configurazione in modo uniforme.
 
-- La funzionalità CMK è a livello di area: il Azure Key Vault, la risorsa *cluster* e le aree di lavoro associate devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse.
-
 - Una volta che l'area di lavoro è associata a una risorsa *cluster* , non può essere deassociata dalla risorsa *cluster* , perché i dati vengono crittografati con la chiave e non sono accessibili senza la KEK in Azure Key Vault.
 
 - Il Azure Key Vault deve essere configurato come reversibile. Queste proprietà non sono abilitate per impostazione predefinita e devono essere configurate tramite CLI e PowerShell:
@@ -391,9 +389,9 @@ Se si aggiorna la chiave in Key Vault e non si aggiornano i nuovi dettagli dell'
 
 - Lo spostamento di risorse *cluster* in un altro gruppo di risorse o sottoscrizione non è attualmente supportato.
 
-- L'associazione dell'area di lavoro alla risorsa *cluster* non riuscirà se la risorsa *cluster* si trova in un tenant diverso.
+- Il Azure Key Vault, la risorsa *cluster* e le aree di lavoro associate devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure ad), ma possono trovarsi in sottoscrizioni diverse.
 
--   L'associazione dell'area di lavoro alla risorsa *cluster* non riuscirà se è associata a un'altra risorsa *cluster*
+- L'associazione dell'area di lavoro alla risorsa *cluster* non riuscirà se è associata a un'altra risorsa *cluster*
 
 ## <a name="troubleshooting-and-management"></a>Risoluzione dei problemi e gestione
 
@@ -557,7 +555,7 @@ Content-type: application/json
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
   "name": "component-name",
   "type": "Microsoft.Insights/components",
   "location": "region-name",

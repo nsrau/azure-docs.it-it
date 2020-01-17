@@ -4,14 +4,14 @@ description: Procedura per la distribuzione del cluster Avere vFXT in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: ad5b0ecd9e7e6326c5b91844b6f7b557972b4852
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415628"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153585"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -22,7 +22,7 @@ Questo articolo illustra come usare la procedura guidata per la distribuzione di
 * Consente di creare le macchine virtuali del nodo del cluster e di configurarle come cluster.
 * Se richiesto, crea un nuovo contenitore BLOB di Azure e lo configura come un file di base del cluster.
 
-Dopo aver seguito le istruzioni riportate in questo documento, si disporrà di una rete virtuale, una subnet, un controller e un cluster vFXT, come illustrato nel diagramma seguente. Questo diagramma mostra il file di Azure BLOB Core facoltativo, che include un nuovo contenitore di archiviazione BLOB (in un nuovo account di archiviazione, non mostrato) e un endpoint di servizio per l'archiviazione Microsoft all'interno della subnet.
+Dopo aver seguito le istruzioni riportate in questo documento, si disporrà di una rete virtuale, una subnet, un controller cluster e un cluster vFXT, come illustrato nella figura seguente. Questo diagramma mostra il file di Azure BLOB Core facoltativo, che include un nuovo contenitore di archiviazione BLOB (in un nuovo account di archiviazione, non mostrato) e un endpoint di servizio per l'archiviazione Microsoft all'interno della subnet.
 
 ![diagramma che mostra tre rettangoli concentrici con i componenti del cluster. Il rettangolo esterno è denominato "gruppo di risorse" e contiene un esagono con etichetta "BLOB Storage (facoltativo)". Il rettangolo successivo in è denominato "rete virtuale: 10.0.0.0/16" e non contiene componenti univoci. Il rettangolo più interno è denominato "subnet: 10.0.0.0/24" e contiene una macchina virtuale denominata "controller cluster", uno stack di tre macchine virtuali con etichetta "vFXT nodes (vFXT cluster)" e un esagono con etichetta "service endpoint". È presente una freccia che connette l'endpoint del servizio (che si trova all'interno della subnet) e l'archiviazione BLOB (che si trova all'esterno della subnet e VNET nel gruppo di risorse). La freccia passa attraverso i limiti della subnet e della rete virtuale.](media/avere-vfxt-deployment.png)
 
@@ -31,7 +31,7 @@ Prima di usare il modello di creazione, verificare che siano soddisfatti i prere
 1. [Nuova sottoscrizione](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Autorizzazioni di proprietario della sottoscrizione](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota per il cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Endpoint del servizio di archiviazione (se necessario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : necessario per le distribuzioni usando una rete virtuale esistente e la creazione dell'archiviazione BLOB
+1. [Endpoint del servizio di archiviazione (se necessario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : necessario per le distribuzioni che usano una rete virtuale esistente e creano l'archiviazione BLOB
 
 Per altre informazioni sulla procedura di distribuzione e sulla pianificazione del cluster, vedere [Pianificare il sistema Avere vFXT](avere-vfxt-deploy-plan.md) e [Panoramica della distribuzione](avere-vfxt-deploy-overview.md).
 
@@ -41,7 +41,7 @@ Accedere al modello di creazione nel portale di Azure cercando di avere e selezi
 
 ![Finestra del browser in cui è visualizzato il portale di Azure con il percorso di navigazione "Nuovo > Marketplace > Tutto". Nella pagina Everything il campo Search ha il termine "ha" e il secondo risultato, "vFXT per Azure ARM template" è indicato in rosso per evidenziarlo.](media/avere-vfxt-template-choose.png)
 
-Dopo aver letto i dettagli nella pagina di vFXT per il modello ARM di Azure, fare clic su **Crea** per iniziare.
+Dopo aver letto i dettagli nella pagina di vFXT per il modello ARM di Azure, fare clic sul pulsante **Crea** per iniziare.
 
 ![Azure Marketplace con la prima pagina del modello di distribuzione](media/avere-vfxt-deploy-first.png)
 
@@ -149,11 +149,11 @@ Per trovare le informazioni:
 
 1. A sinistra fare clic su **Distribuzioni** e quindi su **microsoft-avere.vfxt-template**.
 
-   ![Pagina del portale del gruppo di risorse con l'opzione Distribuzioni selezionata a sinistra e microsoft-avere.vfxt-template in una tabella nella colonna Nome distribuzione](media/avere-vfxt-outputs-deployments.png) <!-- update image for new portal GUI -->
+   ![Pagina del portale del gruppo di risorse con l'opzione Distribuzioni selezionata a sinistra e microsoft-avere.vfxt-template in una tabella nella colonna Nome distribuzione](media/avere-vfxt-outputs-deployments.png)
 
 1. A sinistra fare clic su **Output**. Copiare i valori in ognuno dei campi.
 
-   ![Pagina dell'output con i valori SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs e MGMT_IP nei campi a destra delle etichette](media/avere-vfxt-outputs-values.png)<!-- update image for new portal GUI -->
+   ![Pagina dell'output con i valori SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs e MGMT_IP nei campi a destra delle etichette](media/avere-vfxt-outputs-values.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

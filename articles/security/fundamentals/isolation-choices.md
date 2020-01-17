@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979265"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121948"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
@@ -179,7 +179,7 @@ La comunicazione è consentita dalla VLAN del controller di infrastruttura alla 
 ### <a name="logical-isolation-between-compute-and-storage"></a>Isolamento logico tra calcolo e archiviazione
 Nell'ambito della sua progettazione fondamentale, Microsoft Azure separa il calcolo basato sulle VM dall'archiviazione. Questa separazione consente la scalabilità indipendente di calcolo e archiviazione, semplificando l'uso di multi-tenancy e isolamento.
 
-Il servizio Archiviazione di Azure viene quindi eseguito in hardware separato senza alcuna connettività di rete ai servizi di calcolo di Azure, ad eccezione di quella logica. [Questo](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) significa che quando viene creato un disco virtuale, lo spazio sul disco non viene allocato per l'intera capacità. Viene invece creata una tabella che associa gli indirizzi nel disco virtuale ad aree del disco fisico. Questa tabella è inizialmente vuota. **La prima volta che un cliente scrive dati nel disco virtuale, viene allocato spazio sul disco fisico e il relativo puntatore viene inserito nella tabella.**
+Il servizio Archiviazione di Azure viene quindi eseguito in hardware separato senza alcuna connettività di rete ai servizi di calcolo di Azure, ad eccezione di quella logica. Ciò significa che quando viene creato un disco virtuale, lo spazio su disco non viene allocato per l'intera capacità. Viene invece creata una tabella che associa gli indirizzi nel disco virtuale ad aree del disco fisico. Questa tabella è inizialmente vuota. **La prima volta che un cliente scrive dati nel disco virtuale, viene allocato spazio sul disco fisico e il relativo puntatore viene inserito nella tabella.**
 ### <a name="isolation-using-storage-access-control"></a>Isolamento tramite il controllo di accesso per l'archiviazione
 Il **controllo di accesso in Archiviazione di Azure** ha un modello semplice. Ogni sottoscrizione di Azure può creare uno o più account di archiviazione. Ogni account di archiviazione ha un'unica chiave privata usata per controllare l'accesso a tutti i dati presenti nell'account di archiviazione.
 
@@ -320,14 +320,6 @@ La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello
 
 ## <a name="next-steps"></a>Fasi successive
 
-- [Opzioni di isolamento della rete per le macchine nelle reti virtuali di Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- Informazioni sulle [Opzioni di isolamento rete per i computer nelle reti virtuali di Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Sono inclusi gli scenari di front-end e back-end classici in cui i computer in una rete back-end particolare o in una subnet possono consentire solo a determinati client o altri computer di connettersi a un determinato endpoint in base a un elenco di indirizzi IP consentiti.
 
-Sono inclusi gli scenari di front-end e back-end classici in cui i computer in una rete back-end particolare o in una subnet possono consentire solo a determinati client o altri computer di connettersi a un determinato endpoint in base a un elenco di indirizzi IP consentiti.
-
-- [Isolamento del calcolo](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione.
-
-- [Isolamento dell'archiviazione](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure separa tra loro il calcolo e l'archiviazione basati sulle VM. Questa separazione consente la scalabilità indipendente di calcolo e archiviazione, semplificando l'uso di multi-tenancy e isolamento. Il servizio Archiviazione di Azure viene quindi eseguito in hardware separato senza alcuna connettività di rete ai servizi di calcolo di Azure, ad eccezione di quella logica. Tutte le richieste vengono eseguite tramite HTTP o HTTPS in base alla scelta del cliente.
+- Informazioni sull' [isolamento delle macchine virtuali in Azure](../../virtual-machines/windows/isolation.md). Calcolo di Azure offre dimensioni di macchine virtuali isolate a un tipo di hardware specifico e dedicate a un singolo cliente.

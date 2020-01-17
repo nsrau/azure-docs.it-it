@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/27/2018
-ms.openlocfilehash: 274d8dc80d9318aa3ddf4a904a5b623319ea01f4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/13/2020
+ms.openlocfilehash: 607020f1d540e83a4d049b96b9ab9a4ebcd385f0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645005"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157254"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
@@ -22,44 +22,90 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
 > [!NOTE]  
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere il documento [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md).
 
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a id="prereq"></a>Prerequisiti
+* Un cluster Apache Hadoop in HDInsight. Vedere [creare cluster Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Un cluster Hadoop in HDInsight
-* Windows PowerShell o [Curl](https://curl.haxx.se/) e [jq](https://stedolan.github.io/jq/)
+È possibile:
+  * Windows PowerShell o,
+  * [Curl](https://curl.haxx.se/) con [JQ](https://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Eseguire un processo MapReduce
+## <a name="run-a-mapreduce-job"></a>Eseguire un processo MapReduce
 
 > [!NOTE]  
 > Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password da amministratore del cluster HDInsight. È necessario specificare il nome del cluster come parte dell'URI usato per inviare le richieste al server.
 >
 > L'API REST viene protetta tramite l' [autenticazione dell'accesso di base](https://en.wikipedia.org/wiki/Basic_access_authentication). È necessario effettuare sempre le richieste usando il protocollo HTTPS per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
-1. Per configurare l'accesso al cluster usato dagli script in questo documento, usare uno dei comandi seguenti:
+### <a name="curl"></a>Curl
+
+1. Per semplicità d'uso, impostare le variabili seguenti. Questo esempio è basato su un ambiente Windows, modificato in base alle esigenze dell'ambiente in uso.
+
+    ```cmd
+    set CLUSTERNAME=
+    set PASSWORD=
+    ```
+
+1. Da una riga di comando usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
 
     ```bash
-    read -p "Enter your cluster login account name: " LOGIN
+    curl -u admin:%PASSWORD% -G https://%CLUSTERNAME%.azurehdinsight.net/templeton/v1/status
     ```
+
+    I parametri usati in questo comando sono i seguenti:
+
+   * **-u**: il nome utente e la password usati per autenticare la richiesta.
+   * **-G**: indica che questa operazione è una richiesta GET
+
+   L'inizio dell'URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, è lo stesso per tutte le richieste.
+
+    Si riceverà una risposta simile al testo JSON seguente:
+
+    ```output
+    {"version":"v1","status":"ok"}
+    ```
+
+1. Per inviare un processo MapReduce, usare il comando seguente. Modificare il percorso di **JQ** in base alle esigenze.
+
+    ```cmd
+    curl -u admin:%PASSWORD% -d user.name=admin ^
+    -d jar=/example/jars/hadoop-mapreduce-examples.jar ^
+    -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output ^
+    https://%CLUSTERNAME%.azurehdinsight.net/templeton/v1/mapreduce/jar | ^
+    C:\HDI\jq-win64.exe .id
+    ```
+
+    La fine dell'URI (/mapreduce/jar) indica a WebHCat che la richiesta avvia un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
+
+   * **-d**: `-G` non viene usato, quindi per impostazione predefinita la richiesta è il metodo post. `-d` specifica i valori di dati che vengono inviati con la richiesta.
+     * **user.name**: l'utente che esegue il comando.
+     * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire.
+     * **class**: la classe che contiene la logica MapReduce.
+     * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output
+
+    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo:
+
+       job_1415651640909_0026
+
+1. Per verificare lo stato del processo, usare il seguente comando. Sostituire il valore di `JOBID` con il valore **effettivo** restituito nel passaggio precedente. Rivedere il percorso di **JQ** in base alle esigenze.
+
+    ```cmd
+    set JOBID=job_1415651640909_0026
+
+    curl -G -u admin:%PASSWORD% -d user.name=admin https://%CLUSTERNAME%.azurehdinsight.net/templeton/v1/jobs/%JOBID% | ^
+    C:\HDI\jq-win64.exe .status.state
+    ```
+
+### <a name="powershell"></a>PowerShell
+
+1. Per semplicità d'uso, impostare le variabili seguenti. Sostituire `CLUSTERNAME` con il nome del cluster effettivo. Eseguire il comando e immettere la password di accesso del cluster quando richiesto.
 
     ```powershell
-    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    $clusterName="CLUSTERNAME"
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-2. Per configurare il nome del cluster, usare uno dei comandi seguenti:
-
-    ```bash
-    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
-    ```
-
-    ```powershell
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    ```
-
-3. Da una riga di comando usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
-
-    ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-    ```
+1. usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -70,21 +116,11 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
 
     Si riceverà una risposta simile al testo JSON seguente:
 
-        {"status":"ok","version":"v1"}
-
-    I parametri usati in questo comando sono i seguenti:
-
-   * **-u**: il nome utente e la password usati per autenticare la richiesta.
-   * **-G**: indica che questa operazione è una richiesta GET
-
-   L'inizio dell'URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, è lo stesso per tutte le richieste.
-
-4. Per inviare un processo MapReduce, usare il seguente comando:
-
-    ```bash
-    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | jq .id`
-    echo $JOBID
+    ```output
+    {"version":"v1","status":"ok"}
     ```
+
+1. Per inviare un processo MapReduce, usare il seguente comando:
 
     ```powershell
     $reqParams = @{}
@@ -105,21 +141,16 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
 
     La fine dell'URI (/mapreduce/jar) indica a WebHCat che la richiesta avvia un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
 
-   * **-d**: `-G` non viene usato, quindi la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
-     * **user.name**: l'utente che esegue il comando.
-     * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire.
-     * **class**: la classe che contiene la logica MapReduce.
-     * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output
+    * **user.name**: l'utente che esegue il comando.
+    * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire.
+    * **class**: la classe che contiene la logica MapReduce.
+    * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output
 
    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo:
 
        job_1415651640909_0026
 
-5. Per verificare lo stato del processo, usare il seguente comando:
-
-    ```bash
-    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
-    ```
+1. Per verificare lo stato del processo, usare il seguente comando:
 
     ```powershell
     $reqParams=@{"user.name"="admin"}
@@ -127,30 +158,26 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
        -Credential $creds `
        -Body $reqParams `
        -UseBasicParsing
+
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Se il processo è stato completato, lo stato restituito è `SUCCEEDED`.
+### <a name="both-methods"></a>Entrambi i metodi
 
-   > [!NOTE]  
-   > Questa richiesta curl restituisce un documento JSON con informazioni sul processo. Jq viene usato per recuperare solo il valore di stato.
+1. Se il processo è stato completato, lo stato restituito è `SUCCEEDED`.
 
-6. Dopo che lo stato del processo risulta essere `SUCCEEDED`, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output. In questo esempio la località è `/example/curl`. Questo indirizzo archivia l'output del processo nella risorsa di archiviazione predefinita dei cluster in `/example/curl`.
+1. Dopo che lo stato del processo risulta essere `SUCCEEDED`, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output. In questo esempio la località è `/example/curl`. Questo indirizzo archivia l'output del processo nella risorsa di archiviazione predefinita dei cluster in `/example/curl`.
 
 È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Per altre informazioni sull'uso dei BLOB dalla riga di comando di Azure, vedere il documento [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../../storage/common/storage-azure-cli.md#create-and-manage-blobs).
 
-## <a id="nextsteps"></a>Passaggi successivi
-
-Per informazioni generali sui processi MapReduce in HDInsight:
-
-* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
+## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
+* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
 * [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
-* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 
 Per altre informazioni sull'interfaccia REST usata in questo articolo, vedere le [informazioni di riferimento su WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

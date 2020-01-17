@@ -4,22 +4,22 @@ description: Prerequisiti per Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 0dafef7cf262153ccdb3b490aa0c7bd039b4a89b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7f89ea553bc7198c1faee5ba3549f88da5ec2b2c
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889177"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152987"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
-Questo articolo illustra le attività preliminari per la creazione di un cluster Avere vFXT.
+Questo articolo illustra le attività preliminari per la creazione di un cluster vFXT.
 
 ## <a name="create-a-new-subscription"></a>Creare una nuova sottoscrizione
 
-Iniziare creando una nuova sottoscrizione di Azure. Usare una sottoscrizione distinta per ogni progetto di Avere vFXT per tenere traccia con facilità di tutte le spese e le risorse del progetto, proteggere altri progetti dalla possibile limitazione delle risorse durante il provisioning e semplificare la pulizia.
+Iniziare creando una nuova sottoscrizione di Azure. Usare una sottoscrizione separata per ogni progetto vFXT per semplificare il rilevamento e la pulizia delle spese e per assicurarsi che altri progetti non siano interessati dalle quote o dalla limitazione delle risorse durante il provisioning del flusso di lavoro del cluster.
 
 Per creare una nuova sottoscrizione di Azure nel portale di Azure:
 
@@ -30,37 +30,41 @@ Per creare una nuova sottoscrizione di Azure nel portale di Azure:
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurare le autorizzazioni di proprietario della sottoscrizione
 
-Il cluster vFXT deve essere creato da un utente con autorizzazioni di proprietario per la sottoscrizione. Le autorizzazioni del proprietario della sottoscrizione sono necessarie per accettare le condizioni del servizio software ed eseguire altre azioni.
+Il cluster vFXT deve essere creato da un utente con autorizzazioni di proprietario per la sottoscrizione. Per la creazione di cluster è necessario che un proprietario accetti le condizioni del servizio software e autorizzare le modifiche alle risorse di rete e di archiviazione.
 
-Esistono alcuni scenari di soluzione alternativa che consentono a un utente non proprietario di creare un vFTX per il cluster di Azure. Questi scenari coinvolgono la limitazione delle risorse e l'assegnazione di ruoli aggiuntivi al creatore. In entrambi i casi, anche il proprietario di una sottoscrizione deve accettare in anticipo [le condizioni del software vFXT](#accept-software-terms) .
+Esistono alcune soluzioni alternative per consentire a un utente non proprietario di creare un vFXT per il cluster di Azure. Questi scenari coinvolgono la limitazione delle risorse e l'assegnazione di ruoli di controllo degli accessi in base al ruolo (RBAC) aggiuntivi al creatore. In tutti questi casi, è necessario che un proprietario della sottoscrizione accetti in anticipo [i termini del software vFXT](#accept-software-terms) .
 
 | Scenario | Restrizioni | Accedere ai ruoli necessari per creare il cluster vFXT. |
 |----------|--------|-------|
-| Amministratore del gruppo di risorse | La rete virtuale, il controller cluster e i nodi del cluster devono essere creati all'interno del gruppo di risorse | Ruoli [collaboratore](../role-based-access-control/built-in-roles.md#contributor) e [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) , entrambi con ambito per il gruppo di risorse di destinazione |
-| Rete virtuale esterna | Il controller del cluster e i nodi del cluster vengono creati all'interno del gruppo di risorse, ma viene usata una rete virtuale esistente in un gruppo di risorse diverso | (1) i ruoli [amministratore accesso utente](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) hanno come ambito il gruppo di risorse vFXT. e (2) [collaboratore macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator)e ruoli di [collaboratore](../role-based-access-control/built-in-roles.md#avere-contributor) di avere nell'ambito del gruppo di risorse della rete virtuale. |
-
-In alternativa, è possibile creare un ruolo personalizzato di controllo degli accessi in base al ruolo (RBAC) in anticipo e assegnare privilegi all'utente, come illustrato in [questo articolo](avere-vfxt-non-owner.md). Questo metodo consente di concedere autorizzazioni significative a questi utenti.
+| L'amministratore del gruppo di risorse crea il vFXT | La rete virtuale, il controller cluster e i nodi del cluster devono essere creati all'interno del gruppo di risorse. | Ruoli [collaboratore](../role-based-access-control/built-in-roles.md#contributor) e [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) , entrambi limitati al gruppo di risorse di destinazione. |
+| Usa una rete virtuale esterna esistente | Il controller del cluster e i nodi del cluster vengono creati all'interno del gruppo di risorse di vFXT, ma usano una rete virtuale esistente in un gruppo di risorse diverso. | (1) i ruoli [amministratore accesso utente](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) hanno come ambito il gruppo di risorse vFXT. e (2) [collaboratore macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator)e ruoli di [collaboratore](../role-based-access-control/built-in-roles.md#avere-contributor) di avere nell'ambito del gruppo di risorse della rete virtuale. |
+| Ruolo personalizzato per gli autori del cluster | Nessuna restrizione sulla posizione delle risorse. Questo metodo fornisce privilegi significativi non proprietari. | Il proprietario della sottoscrizione crea un ruolo personalizzato RBAC come descritto in [questo articolo](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota per il cluster vFXT
 
-È necessario avere una quota sufficiente per i componenti di Azure seguenti. Se necessario, [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Verificare di disporre di una quota sufficiente per i componenti di Azure seguenti. Se necessario, [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 > [!NOTE]
-> Le macchine virtuali e i componenti SSD elencati di seguito sono per il cluster vFXT stesso. È necessaria una quota aggiuntiva per le macchine virtuali e le unità SSD che si intende usare per la farm di calcolo.  Assicurarsi che la quota sia abilitata per l'area in cui si prevede di eseguire il flusso di lavoro.
+> Le macchine virtuali e i componenti SSD elencati di seguito sono per il cluster vFXT stesso. Tenere presente che è necessaria anche la quota per le macchine virtuali e le unità SSD che si utilizzeranno per la farm di calcolo.
+>
+> Assicurarsi che la quota sia abilitata per l'area in cui si prevede di eseguire il flusso di lavoro.
 
 |Componente di Azure|Quota|
 |----------|-----------|
-|Macchine virtuali|3 o più E32_v3|
+|Macchine virtuali|3 o più E32s_v3 (uno per nodo del cluster) |
 |Archiviazione SSD Premium|200 GB di spazio del sistema operativo più 1-4 TB di spazio di memorizzazione nella cache per nodo |
 |Account di archiviazione (facoltativo) |v2|
-|Archiviazione back-end dei dati (facoltativa) |Un nuovo contenitore BLOB di archiviazione con ridondanza locale |
+|Archiviazione back-end dei dati (facoltativo) |Un nuovo contenitore BLOB di archiviazione con ridondanza locale |
+<!-- this table also appears in the overview - update it there if updating here -->
 
 ## <a name="accept-software-terms"></a>Accettare le condizioni d'uso del software
 
-> [!NOTE]
-> Questo passaggio non è richiesto se il proprietario di una sottoscrizione crea il cluster Avere vFXT.
+> [!TIP]
+> Ignorare questo passaggio se il proprietario della sottoscrizione creerà il cluster vFXT.
 
-Durante la creazione di un cluster, è necessario accettare le condizioni d'uso per il software Avere vFXT. Se non si è il proprietario di una sottoscrizione, fare in modo che le condizioni vengano preventivamente accettate dal proprietario di una sottoscrizione. Questo passaggio deve essere eseguito una volta sola per ogni sottoscrizione.
+Durante la creazione di un cluster, è necessario accettare le condizioni d'uso per il software Avere vFXT. Se non si è il proprietario di una sottoscrizione, fare in modo che le condizioni vengano preventivamente accettate dal proprietario di una sottoscrizione.
+
+Questo passaggio deve essere eseguito una volta sola per ogni sottoscrizione.
 
 Per accettare preventivamente le condizioni software:
 
@@ -68,7 +72,7 @@ Per accettare preventivamente le condizioni software:
 
    ```azurecli
     az login
-    az account set --subscription abc123de-f456-abc7-89de-f01234567890
+    az account set --subscription <subscription ID>
    ```
 
 1. Eseguire questo comando per accettare le condizioni d'uso e abilitare l'accesso a livello di codice per l'immagine software di Avere vFXT per Azure:
@@ -81,14 +85,12 @@ Per accettare preventivamente le condizioni software:
 
 Un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene il traffico BLOB di Azure locale anziché instradarlo all'esterno della rete virtuale. È consigliabile per tutti i cluster vFXT per Azure che usano il BLOB di Azure per l'archiviazione dei dati back-end.
 
-Se si fornisce una rete virtuale esistente e si crea un nuovo contenitore BLOB di Azure per l'archiviazione back-end nell'ambito della creazione del cluster, è necessario disporre di un endpoint di servizio nella rete per l'archiviazione Microsoft. Questo endpoint deve esistere prima di creare il cluster, altrimenti la creazione avrà esito negativo.
-
-Un endpoint del servizio di archiviazione è consigliato per tutti i vFXT per cluster di Azure che usano l'archiviazione BLOB di Azure, anche se si aggiunge l'archiviazione in un secondo momento.
+Se durante la creazione del cluster si crea una nuova rete virtuale, viene creato automaticamente un endpoint. Se si specifica una rete virtuale esistente, è necessario che disponga di un endpoint del servizio di archiviazione Microsoft se si desidera creare un nuovo contenitore di archiviazione BLOB durante la creazione del cluster.<!-- if there is no endpoint in that situation, the cluster creation will fail -->
 
 > [!TIP]
 >
 >* Ignorare questo passaggio se si sta creando una nuova rete virtuale come parte della creazione del cluster.
->* Questo passaggio è facoltativo se non si crea l'archiviazione BLOB durante la creazione del cluster. In tal caso, è possibile creare l'endpoint del servizio in un secondo momento se si decide di usare il BLOB di Azure.
+>* Un endpoint è facoltativo se non si crea l'archiviazione BLOB durante la creazione del cluster. In tal caso, è possibile creare l'endpoint del servizio in un secondo momento se si decide di usare il BLOB di Azure.
 
 Creare l'endpoint del servizio di archiviazione dal portale di Azure.
 
@@ -104,4 +106,4 @@ Creare l'endpoint del servizio di archiviazione dal portale di Azure.
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Passaggio successivo: creare il cluster vFXT
 
-Dopo aver completato questi prerequisiti, è possibile passare direttamente alla creazione del cluster stesso. Leggere [Distribuire il cluster vFXT](avere-vfxt-deploy.md) per istruzioni.
+Dopo aver completato questi prerequisiti, è possibile creare il cluster. Leggere [Distribuire il cluster vFXT](avere-vfxt-deploy.md) per istruzioni.

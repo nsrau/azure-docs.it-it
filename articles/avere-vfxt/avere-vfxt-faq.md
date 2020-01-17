@@ -4,14 +4,14 @@ description: Domande frequenti su Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 186b2c048a9de42318e4af287393d731a4eb16f1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415348"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153463"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -25,11 +25,11 @@ Avere vFXT per Azure è un file system a prestazioni elevate che memorizza nella
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT è una soluzione di archiviazione?
 
-No. Avere vFXT è una *cache* di file system collegata agli ambienti di archiviazione, come EMC, NAS NetApp o un contenitore BLOB di Azure. Avere vFXT semplifica le richieste di dati dai client e memorizza nella cache i dati necessari per migliorare le prestazioni su larga scala e nel corso del tempo. Avere vFXT non archivia dati e non contiene informazioni sulla quantità di dati archiviati.
+No. VFXT per Azure è una *cache* di file System che si connette agli ambienti di archiviazione, ad esempio EMC o NetApp NAS, o un contenitore BLOB di Azure. Avere vFXT semplifica le richieste di dati dai client e memorizza nella cache i dati necessari per migliorare le prestazioni su larga scala e nel corso del tempo. Avere vFXT non archivia dati e non contiene informazioni sulla quantità di dati archiviati.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT è una soluzione di suddivisione in livelli?
 
-Avere vFXT non suddivide automaticamente i dati tra livelli di archiviazione ad accesso frequente e ad accesso sporadico.  
+VFXT per Azure non esegue automaticamente il livello dati tra livelli ad accesso frequente e sporadico.  
 
 ### <a name="how-do-i-know-if-an-environment-is-right-for-avere-vfxt"></a>Come si determina se un ambiente è adatto ad Avere vFXT?
 
@@ -47,9 +47,9 @@ Prendere in considerazione Avere vFXT per Azure se si dispone di una pipeline di
 
 * L'applicazione HPC si basa su client NFSv3 (in alcuni casi può usare i client SMB 2.1, ma le prestazioni sono limitate).
 
-Il diagramma seguente semplifica la risposta a questa domanda. Quanto più il flusso di lavoro si avvicina all'angolo in alto a destra, maggiore sarà la probabilità che la soluzione di memorizzazione nella cache Avere sia adatta all'ambiente in uso.
+Il diagramma seguente può essere utile per rispondere a questa domanda. Il flusso di lavoro più vicino è quello in alto a destra, più è probabile che la soluzione vFXT per la memorizzazione nella cache di Azure sia adatta all'ambiente in uso.
 
-![Diagramma che mostra che i carichi con intensa attività di lettura e migliaia di client sono più adatti per Avere vFXT](media/avere-vfxt-fit-assessment.png)
+![Diagramma a grafo che mostra che i carichi di lavoro intensivi con migliaia di client sono più adatti per vFXT](media/avere-vfxt-fit-assessment.png)
 
 ### <a name="at-what-scale-of-clients-does-the-avere-vfxt-solution-make-the-most-sense"></a>Con quale scalabilità dei client ha più senso la soluzione Avere vFXT?
 
@@ -59,7 +59,7 @@ I clienti tipici di Avere vFXT eseguono carichi di lavoro complessi a partire da
 
 ### <a name="how-much-data-can-an-avere-vfxt-environment-store"></a>Quanti dati può archiviare un ambiente Avere vFXT?
 
-Avere vFXT è una cache. Non è specificatamente progettato per archiviare i dati. Usa una combinazione di RAM e unità SSD per archiviare i dati memorizzati nella cache. I dati vengono archiviati in modo permanente in un sistema di archiviazione back-end (ad esempio, un sistema NAS NetApp o un contenitore BLOB). Il sistema Avere vFXT non contiene informazioni sulla quantità di dati archiviati. Avere vFXT memorizza nella cache solo il subset dei dati richiesti dai client.  
+VFXT per Azure è una cache. Non è specificatamente progettato per archiviare i dati. Usa una combinazione di RAM e unità SSD per archiviare i dati memorizzati nella cache. I dati vengono archiviati in modo permanente in un sistema di archiviazione back-end (ad esempio, un sistema NAS NetApp o un contenitore BLOB). Il sistema Avere vFXT non contiene informazioni sulla quantità di dati archiviati. Avere vFXT memorizza nella cache solo il subset dei dati richiesti dai client.  
 
 ### <a name="what-regions-are-supported"></a>Quali aree sono supportate?
 
@@ -67,7 +67,7 @@ VFXT per Azure è supportato in tutte le aree, ad eccezione delle aree sovrane (
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Come ottenere assistenza con Avere vFXT?
 
-Un gruppo di supporto specializzato offre assistenza con Avere vFXT per Azure. Seguire le istruzioni in [Ottenere assistenza per il sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) per aprire un ticket di supporto dal portale di Azure.
+Un gruppo specializzato di personale di supporto offre assistenza per vFXT per Azure. Seguire le istruzioni in [Ottenere assistenza per il sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) per aprire un ticket di supporto dal portale di Azure.
 
 ### <a name="is-avere-vfxt-highly-available"></a>Avere vFXT è a disponibilità elevata?
 
@@ -78,7 +78,7 @@ Sì, Avere vFXT viene eseguito esclusivamente come soluzione a disponibilità el
 Sì, i clienti possono usare più di un provider di servizi cloud con il cluster Avere vFXT. Supporta bucket standard di AWS S3, bucket standard di Google Cloud Services e contenitori BLOB di Azure.
 
 > [!NOTE]
-> Per l'uso di Avere vFXT in AWS o Google Cloud è previsto un addebito per la tariffa del software, non applicabile con Azure.
+> Si applica una tariffa software per l'uso di vFXT con AWS o Google Cloud Storage. Non sono previste tariffe software aggiuntive per l'uso dell'archiviazione BLOB di Azure.
 
 ## <a name="technical-compute"></a>Tecnica: calcolo
 
@@ -165,10 +165,10 @@ Viene eseguito lo striping dei dati tra i dischi, ma i dati non vengono crittogr
 
 ### <a name="what-network-is-recommended"></a>Quale rete è consigliata?
 
-Se si usa l'archiviazione locale con Avere vFXT, è necessario avere una connessione di rete da almeno 1 Gbps. Se si ha una quantità di dati limitata e si è disposti a copiare i dati nel cloud prima di eseguire i processi, potrebbe essere sufficiente la connettività VPN. 
+Se si usa l'archiviazione locale con vFXT, è necessario disporre di una connessione di rete di 1 Gbps o migliore tra l'archiviazione e il cluster. Se si dispone di una quantità di dati limitata e si è disposti a copiare i dati nel cloud prima di eseguire i processi, potrebbe essere sufficiente la connettività VPN.
 
 > [!TIP]
-> Un collegamento di rete lento implica una maggiore lentezza delle letture a freddo iniziali. A sua volta, una lentezza della lettura aumenta la latenza della pipeline di lavoro.
+> Più lento è il collegamento di rete, più lento sarà il collegamento "a freddo" iniziale. A sua volta, una lentezza della lettura aumenta la latenza della pipeline di lavoro.
 
 ### <a name="can-i-run-avere-vfxt-in-a-different-virtual-network-than-my-compute-cluster"></a>È possibile eseguire Avere vFXT in una rete virtuale diversa dal cluster di elaborazione?
 
@@ -176,7 +176,7 @@ Sì, è possibile creare il sistema Avere vFXT in un'altra rete virtuale. Legger
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Avere vFXT richiede una subnet propria?
 
-Sì. VFXT viene eseguito esclusivamente come un cluster a disponibilità elevata e richiede l'uso di più indirizzi IP. Se il cluster è nella propria subnet, si evita il rischio di conflitti di indirizzi IP, che possono causare problemi per l'installazione e il normale funzionamento. La subnet del cluster può essere all'interno della rete virtuale esistente purché non si sovrapponga alcun indirizzo IP.
+Sì. VFXT viene eseguito esclusivamente come un cluster a disponibilità elevata e richiede l'uso di più indirizzi IP. Se il cluster è nella propria subnet, si evita il rischio di conflitti di indirizzi IP, che possono causare problemi per l'installazione e il normale funzionamento. La subnet del cluster può trovarsi all'interno di una rete virtuale usata da altre risorse, purché non vi siano indirizzi IP sovrapposti.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>È possibile eseguire Avere vFXT con InfiniBand?
 
@@ -224,9 +224,6 @@ In termini generali, Avere vFXT per Azure supporta i sistemi seguenti come core 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 e 8.1) 
 * NetApp ONTAP (modalità Cluster 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) e (modalità 7 7.*, 8.0-8.3)
 
-  > [!NOTE]
-  > Azure NetApp Files attualmente non è supportato.
-
 * Contenitori BLOB di Azure (solo archiviazione con ridondanza locale)
 * Bucket di AWS S3
 * Bucket di Google Cloud
@@ -245,11 +242,13 @@ Il supporto è basato sull'entità della richiesta sul campo. Se c'è un numero 
 
 ### <a name="can-i-use-azure-blob-storage-as-a-core-filer"></a>È possibile usare un archivio BLOB di Azure come core filer?
 
-Sì, Avere vFXT per Azure può usare un contenitore BLOB in blocchi come core filer cloud.  
+Sì, Avere vFXT per Azure può usare un contenitore BLOB in blocchi come core filer cloud.
 
 ### <a name="what-are-the-storage-account-requirements-for-a-blob-core-filer"></a>Quali sono i requisiti dell'account di archiviazione per un core filer BLOB?
 
 L'account di archiviazione deve essere un account per utilizzo generico v2 (GPv2) configurato solo per l'archiviazione con ridondanza locale. L'archiviazione con ridondanza geografica e l'archiviazione con ridondanza della zona non sono supportate.
+
+Per informazioni dettagliate sui requisiti dell'account di archiviazione, vedere [archiviazione BLOB di Azure cloud Core filer](avere-vfxt-add-storage.md#azure-blob-storage-cloud-core-filer) .
 
 ### <a name="can-i-use-archive-blob-storage"></a>È possibile usare lo spazio di archiviazione BLOB?
 

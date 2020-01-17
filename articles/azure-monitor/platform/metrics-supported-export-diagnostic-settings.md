@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1bab6a990ba38bc32c2b7350bb1d4eac15a7b95e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479033"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152953"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metriche della piattaforma di monitoraggio di Azure esportabili tramite le impostazioni di diagnostica
 
@@ -689,10 +689,10 @@ Sì | Microsoft.Devices/IotHubs | d2c.endpoints.latency.eventHubs | Routing: lat
 Sì | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | Routing: latenza dei messaggi per la coda del bus di servizio | Millisecondi | Media
 Sì | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | Routing: latenza dei messaggi per l'argomento del bus di servizio | Millisecondi | Media
 Sì | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | Routing: latenza dei messaggi per l'archiviazione | Millisecondi | Media
-Sì | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routing: messaggi di telemetria eliminati | Conteggio | Totale
+Sì | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routing: messaggi di telemetria eliminati  | Conteggio | Totale
 Sì | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | Routing: messaggi recapitati al fallback | Conteggio | Totale
 Sì | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | Routing: messaggi di telemetria incompatibili | Conteggio | Totale
-Sì | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routing: messaggi di telemetria orfani | Conteggio | Totale
+Sì | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routing: messaggi di telemetria orfani  | Conteggio | Totale
 Sì | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | Routing: messaggi di telemetria recapitati | Conteggio | Totale
 Sì | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | Tentativi di invio di messaggi di telemetria | Conteggio | Totale
 Sì | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | Number of throttling errors (Numero di errori di limitazione) | Conteggio | Totale

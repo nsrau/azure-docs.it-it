@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 6b23ae21366699162b900ae420afae640aa20613
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4c2985f35621ff3120217cbe38705ad2c228d6f7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921467"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122101"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -28,7 +28,7 @@ L'API offre trascrizioni asincrone di sintesi vocale e altre funzionalità. È p
 - Scaricare i risultati della trascrizione
 - Elimina le informazioni di trascrizione dal servizio
 
-L'API dettagliata è disponibile come [documento di spavalderia](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), sotto l'intestazione `Custom Speech transcriptions`.
+L'API dettagliata è disponibile come [documento Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A) sotto l'intestazione `Custom Speech transcriptions`.
 
 I processi di trascrizione batch sono pianificati in base al massimo sforzo. Attualmente non è prevista alcuna stima per il momento in cui un processo cambierà in stato di esecuzione. Con il normale carico di sistema, il processo dovrebbe avvenire entro pochi minuti. Una volta nello stato di esecuzione, la trascrizione effettiva viene elaborata più velocemente dell'audio in tempo reale.
 
@@ -88,18 +88,13 @@ I parametri di configurazione vengono forniti in formato JSON:
 Usare queste proprietà facoltative per configurare la trascrizione:
 
 | Parametro | Description |
-|-----------|------------|
-|`ProfanityFilterMode`|Specifica come gestire la profanità nei risultati del riconoscimento
-||**`Masked`** : valore predefinito. Sostituisce la volgarità con gli asterischi<br>`None` Disabilita il filtro per la volgarità<br>`Removed`-rimuove tutti i messaggi profani dal risultato<br>`Tags`: aggiunge tag di profanità
-|`PunctuationMode`|Specifica di gestire la punteggiatura nei risultati del riconoscimento
-||`Automatic`: il servizio inserisce la punteggiatura<br>punteggiatura di `Dictated` (parlato)<br>**`DictatedAndAutomatic`** : valore predefinito. Punteggiatura dettata e automatica<br>`None`-Disabilita la punteggiatura
-|`AddWordLevelTimestamps`|Specifica se i timestamp a livello di parola devono essere aggiunti all'output
-||`True`-Abilita i timestamp a livello di parola<br>**`False`** : valore predefinito. Disabilitare i timestamp a livello di parola
-|`AddSentiment`|Specifica se l'analisi dei sentimenti viene aggiunta all'espressione
-||`True`-Abilita i sentimenti per espressione<br>**`False`** : valore predefinito. Disabilita sentimento
-|`AddDiarization`|Specifica se viene eseguita l'analisi della pagina. Se `true`, è previsto che l'input sia un audio del canale mono contenente un massimo di due voci. `AddWordLevelTimestamps` deve essere impostato su `true`
-||`True`-Abilita la riattivazione<br>**`False`** : valore predefinito. Disabilita la tua
-|`TranscriptionResultsContainerUrl`|Token SAS facoltativo per un contenitore scrivibile in Azure. Il risultato verrà archiviato in questo contenitore
+|-----------|-------------|
+| `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `None` che disabilita i filtri del contenuto volgare, `Masked` che sostituisce il contenuto volgare con gli asterischi, `Removed` che rimuove tutto il contenuto volgare dal risultato, o `Tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `Masked`. |
+| `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `None` che consente di disattivare la punteggiatura, `Dictated` che implica la punteggiatura esplicita, `Automatic` che permette al decodificatore di occuparsi della punteggiatura, o `DictatedAndAutomatic` che implica segni di punteggiatura dettata o automatica. |
+| `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. |
+| `AddSentiment` | Specifica che il sentimento deve essere aggiunto all'espressione. I valori accettati sono `true` che Abilita il sentimento per enunciato e `false` (valore predefinito) per disabilitarlo. |
+| `AddDiarization` | Specifica che l'analisi della fase di esecuzione deve essere eseguita nell'input che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` che consentono di eseguire la `false` (valore predefinito) e di disabilitarlo. Richiede anche che `AddWordLevelTimestamps` sia impostato su true.|
+|`TranscriptionResultsContainerUrl`|Token SAS facoltativo per un contenitore scrivibile in Azure. Il risultato verrà archiviato in questo contenitore.
 
 ### <a name="storage"></a>Archiviazione
 

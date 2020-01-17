@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: evansma
-ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933913"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121812"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale
 
@@ -86,7 +86,7 @@ Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offe
 
 ### <a name="publisher-agreement"></a>Contratto editore
 
-Tutte le attività descritte in questa pagina sono coperte dal contratto per la [pubblicazione nel Marketplace](https://docs.microsoft.com/legal/marketplace/terms) e sono conformi all'addendum del programma Commercial benefits.
+Tutte le attività descritte in questa pagina sono coperte dal contratto per la [pubblicazione nel Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e sono conformi all'addendum del programma Commercial benefits.
 
 ### <a name="cancellation-policy"></a>Criteri per l'annullamento
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1560b5d60ae3c6de3ecb6d50859e24ebb7bc2d28
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753995"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156914"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Per ulteriori informazioni sui concetti relativi al flusso di lavoro di distribu
 
 - Un modello. Se non si dispone di un modello sottoposto a training, è possibile utilizzare i file di modello e di dipendenza forniti in [questa esercitazione](https://aka.ms/azml-deploy-cloud).
 
-- Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), l' [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](how-to-vscode-tools.md).
+- Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), l' [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 ## <a name="connect-to-your-workspace"></a>Connettersi all'area di lavoro
 
@@ -59,7 +59,7 @@ Il codice seguente illustra come connettersi a un'area di lavoro di Azure Machin
 
 + **Utilizzo di VS Code**
 
-   Quando si utilizza VS Code, è possibile selezionare l'area di lavoro utilizzando un'interfaccia grafica. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione e gestione dei modelli](how-to-vscode-tools.md#deploy-and-manage-models) nella documentazione sull'estensione vs code.
+   Quando si utilizza VS Code, è possibile selezionare l'area di lavoro utilizzando un'interfaccia grafica. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione e gestione dei modelli](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) nella documentazione sull'estensione vs code.
 
 ## <a id="registermodel"></a>Registrare il modello
 
@@ -115,7 +115,7 @@ I frammenti di codice in questa sezione illustrano come registrare un modello da
 
 + **Utilizzo di VS Code**
 
-  Registrare i modelli usando i file o le cartelle del modello usando l'estensione [vs code](how-to-vscode-tools.md#deploy-and-manage-models) .
+  Registrare i modelli usando i file o le cartelle del modello usando l'estensione [vs code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) .
 
 ### <a name="register-a-model-from-a-local-file"></a>Registrare un modello da un file locale
 
@@ -185,7 +185,7 @@ Per distribuire il modello, è necessario quanto segue:
     >
     > * Il Azure Machine Learning SDK non fornisce un modo per i servizi Web o le distribuzioni IoT Edge per accedere all'archivio dati o ai set di dati. Se il modello distribuito deve accedere ai dati archiviati all'esterno della distribuzione, ad esempio i dati in un account di archiviazione di Azure, è necessario sviluppare una soluzione di codice personalizzata usando l'SDK pertinente. Ad esempio, [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python).
     >
-    >   Un'alternativa che può funzionare per lo scenario è la [stima in batch](how-to-run-batch-predictions.md), che fornisce l'accesso agli archivi dati durante il punteggio.
+    >   Un'alternativa che può funzionare per lo scenario è la [stima in batch](how-to-use-parallel-run-step.md), che fornisce l'accesso agli archivi dati durante il punteggio.
 
 * **Dipendenze**, ad esempio script helper o pacchetti Python/Conda necessari per eseguire lo script di avvio o il modello.
 

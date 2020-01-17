@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: Informazioni sul supporto per la valutazione di VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 2a9c5504d99f439723a250b619b9f9b660ea9c59
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 74dae71404fe827c9e19d5e3042afd2f98a7a5dd
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029011"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154687"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per VMware Assessment 
 
@@ -37,11 +37,14 @@ Oltre a individuare i computer, Azure Migrate: server assessment può individuar
 
 **Supporto** | **Dettagli**
 --- | ---
-Individuazione | L'individuazione è senza agente, usando le credenziali Guest del computer e accedendo in remoto ai computer usando le chiamate WMI e SSH.
-Computer supportati | Macchine virtuali VMware locali.
-Sistema operativo del computer | Tutte le versioni di Windows e Linux
-Credenziali | Attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente normale/normale (accesso non sudo) per tutte le macchine virtuali Linux.
-Limiti | Per l'individuazione di app è possibile individuare fino a 10000 per ogni appliance. 
+**Individuazione** | L'individuazione è senza agente, usando le credenziali Guest del computer e accedendo in remoto ai computer usando le chiamate WMI e SSH.
+**Computer supportati** | Macchine virtuali VMware locali.
+**Sistema operativo del computer** | Tutte le versioni di Windows e Linux.
+**credenziali vCenter** | Un account server vCenter con accesso in sola lettura e i privilegi abilitati per le macchine virtuali > operazioni Guest.
+**Credenziali VM** | Attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente normale/normale (accesso non sudo) per tutte le macchine virtuali Linux.
+**Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera individuare.
+**Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si vuole individuare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
+**Limiti** | Per l'individuazione di app è possibile individuare fino a 10000 per ogni appliance. 
 
 ## <a name="vmware-requirements"></a>Requisiti di VMware
 
@@ -67,21 +70,38 @@ Azure Migrate usa l' [appliance Azure migrate](migrate-appliance.md) per l'indiv
 Elettrodomestici | Connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Connessioni in uscita sulla porta 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
 Server vCenter | Connessioni in ingresso sulla porta TCP 443 per consentire all'appliance di raccogliere i metadati di configurazione e prestazioni per le valutazioni. <br/><br/> Per impostazione predefinita, l'appliance si connette a vCenter sulla porta 443. Se il server vCenter è in ascolto su una porta diversa, è possibile modificare la porta quando si configura l'individuazione.
 
-## <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
+## <a name="agent-based-dependency-visualization"></a>Visualizzazione delle dipendenze basate su agente
 
-La visualizzazione delle dipendenze consente di visualizzare le dipendenze tra i computer che si desidera valutare e migrare. In genere si usa il mapping delle dipendenze quando si desidera valutare i computer con livelli di confidenza più elevati. Per le macchine virtuali VMware, la visualizzazione delle dipendenze è supportata come segue:
+La [visualizzazione](concepts-dependency-visualization.md) delle dipendenze consente di visualizzare le dipendenze tra i computer che si desidera valutare e migrare. Per la visualizzazione basata su agenti, i requisiti e le limitazioni sono riepilogati nella tabella seguente.
 
-- **Visualizzazione delle dipendenze senza agente**: questa opzione è attualmente in anteprima. Non richiede l'installazione di agenti nei computer.
-    - L'operazione viene eseguita acquisendo i dati di connessione TCP da computer per i quali è abilitata. Dopo l'avvio dell'individuazione delle dipendenze, l'appliance raccoglie i dati dai computer a un intervallo di polling di cinque minuti.
-    - Vengono raccolti i dati seguenti:
-        - Connessioni TCP
-        - Nomi dei processi con connessioni attive
-        - Nomi delle applicazioni installate che eseguono i processi precedenti
-        - No. delle connessioni rilevate a ogni intervallo di polling
-- **Visualizzazione delle dipendenze basate su agente**: per usare la visualizzazione di dipendenza basata su agenti, è necessario scaricare e installare gli agenti seguenti in ogni computer locale che si vuole analizzare.
-    - Installare Microsoft Monitoring Agent (MMA) in ogni computer. [Altre](how-to-create-group-machine-dependencies.md#install-the-mma) informazioni su come installare l'agente MMA.
-    - Installare Dependency Agent in ogni computer. [Altre](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) informazioni su come installare Dependency Agent.
-    - Se vi sono computer senza accesso a Internet, è necessario scaricare e installare il gateway di Log Analytics.
+
+**Requisito** | **Dettagli**
+--- | ---
+**Distribuzione** | Prima di distribuire la visualizzazione delle dipendenze, è necessario disporre di un progetto Azure Migrate, con lo strumento Azure Migrate: server Assessment aggiunto al progetto. La visualizzazione delle dipendenze viene distribuita dopo aver configurato un'appliance Azure Migrate per individuare i computer locali.<br/><br/> La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
+**Elenco dei servizi** | La visualizzazione delle dipendenze basate su agenti usa la soluzione [mapping dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nei [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> Per eseguire la distribuzione, è necessario associare un'area di lavoro Log Analytics nuova o esistente a un progetto Azure Migrate.
+**area di lavoro Log Analytics** | L'area di lavoro deve trovarsi nella stessa sottoscrizione del progetto Azure Migrate.<br/><br/> Azure Migrate supporta le aree di lavoro che risiedono nelle aree Stati Uniti orientali, Asia sudorientale ed Europa occidentale.<br/><br/>  L'area di lavoro deve trovarsi in un'area in cui [mapping dei servizi è supportato](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> Non è possibile modificare l'area di lavoro per un progetto di Azure Migrate dopo che è stata aggiunta.
+**Charges** | La soluzione Mapping dei servizi non comporta alcun addebito per i primi 180 giorni (dal giorno in cui è stata associata l'area di lavoro Log Analytics al progetto Azure Migrate).<br/><br/> Dopo 180 giorni verranno applicati gli addebiti standard di Log Analytics.<br/><br/> L'uso di qualsiasi soluzione diversa da Mapping dei servizi nell'area di lavoro Log Analytics associata genererà addebiti Log Analytics standard.<br/><br/> Se si elimina il progetto Azure Migrate, l'area di lavoro non viene eliminata. Dopo l'eliminazione del progetto, Mapping dei servizi non è gratuito e ogni nodo verrà addebitato in base al livello a pagamento di Log Analytics area di lavoro.
+**Agenti** | La visualizzazione delle dipendenze basate su agente richiede l'installazione di due agenti in ogni computer che si vuole analizzare.<br/><br/> - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+**Connettività Internet** | Se i computer non sono connessi a Internet, è necessario installare il gateway Log Analytics.
+
+
+## <a name="agentless-dependency-visualization"></a>Visualizzazione delle dipendenze senza agente
+
+Questa opzione è attualmente in fase di anteprima. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md) I requisiti sono riepilogati nella tabella seguente.
+
+**Requisito** | **Dettagli**
+--- | ---
+**Distribuzione** | Prima di distribuire la visualizzazione delle dipendenze, è necessario disporre di un progetto Azure Migrate, con lo strumento Azure Migrate: server Assessment aggiunto al progetto. La visualizzazione delle dipendenze viene distribuita dopo aver configurato un'appliance Azure Migrate per individuare i computer locali.
+**Supporto per VM** | Attualmente supportato solo per le macchine virtuali VMware.
+**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit)
+**Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
+**Account Windows** |  Per la visualizzazione è necessario un account utente con accesso guest.
+**Account Linux** | Per la visualizzazione è necessario un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre di queste autorizzazioni per i file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
+**Agenti VM** | Non è necessario alcun agente nelle VM.
+**Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera analizzare.
+**credenziali vCenter** | Un account server vCenter con accesso in sola lettura e i privilegi abilitati per le macchine virtuali > operazioni Guest.
+**Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si vuole analizzare, il Azure Migrate appliance deve essere in grado di connettersi alla porta TCP 443.
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -12,25 +12,23 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3981c152ba836a01daca16cd486623a9a26d86f2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231863"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156234"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Modificare la password dell'account aziendale o dell'Istituto di istruzione dal portale account personale
+# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Modificare la password dell'account aziendale o dell'Istituto di istruzione dalla pagina Cambia password
 
-Nella pagina **Cambia password** del portale **account personale** è possibile aggiornare la password dell'account aziendale o dell'Istituto di istruzione. Questa operazione funzionerà solo se si conosce la password esistente e se l'account non è bloccato.
+La pagina **Cambia password** del portale **account personale** consente di aggiornare una password esistente per l'account aziendale o dell'Istituto di istruzione, presupponendo che la password sia stata memorizzata e che l'account non sia bloccato. Se non si ricorda la password, se l'account è bloccato o se non si è mai avuta una password dall'organizzazione, è possibile usare le info di sicurezza e il dispositivo mobile per reimpostare la password.
 
-Se non si ricorda la password, se l'account è stato bloccato o se non si è mai avuta una password dal team di supporto tecnico aziendale, è possibile usare le info di sicurezza e il dispositivo mobile per reimpostare la password. Per altre informazioni, vedere [Reimpostare la password aziendale o scolastica](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+>[!Important]
+>Questo articolo è destinato agli utenti che tentano di aggiornare una password nota per un account aziendale o dell'Istituto di istruzione esistente. Se si sta tentando di accedere a un account personale, ad esempio per Xbox, Hotmail o Outlook.com, provare i suggerimenti nel [quando non è possibile accedere al account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) articolo. Se si è un amministratore che tenta di trovare altre informazioni su come testare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere [reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
 
->[!Note]
->Se si sta provando a tornare a un account personale come per Xbox, hotmail.com o outlook.com, provare i suggerimenti nel [quando non è possibile accedere al account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) articolo.
+## <a name="update-a-password-from-the-change-password-page"></a>Aggiornare una password dalla pagina Cambia password
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>Per modificare la password dal portale account personale
-
-1. Accedere al proprio account aziendale o dell'Istituto di istruzione, usando la password esistente, quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere al proprio account aziendale o dell'Istituto di istruzione, usando la password esistente, quindi passare alla pagina **account personale** (https://myprofile.microsoft.com/).
 
 2. Selezionare **password** dal riquadro di spostamento a sinistra oppure selezionare il collegamento **Cambia password** dal blocco **password** .
 

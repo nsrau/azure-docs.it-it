@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: a320a446bf6a2ff5d5d923961b2614970ffa70f9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b337c1d57d253f55f3171e1de78a81b6de13ba31
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75988409"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157159"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a gestione costi di Azure per i partner
 
@@ -213,7 +213,7 @@ I campi dati seguenti si trovano nei file di dettagli sull'utilizzo e nelle API 
 | Percorso | Posizione normalizzata della risorsa. | N/D |
 | effectivePrice | Prezzo unitario effettivo del servizio, in valuta prezzo. Univoco per un prodotto, una famiglia di servizi, un contatore e un'offerta. Usato con prezzi nell'elenco prezzi per l'account di fatturazione. Quando sono presenti prezzi a livelli o una quantità inclusa, viene visualizzato il prezzo misto per l'utilizzo. | Il prezzo unitario dopo le modifiche apportate. |
 | Quantità | Quantità misurata acquistata o utilizzata. Quantità del contatore utilizzata durante il periodo di fatturazione. | Numero di unità. Assicurarsi che corrisponda alle informazioni del sistema di fatturazione durante la riconciliazione. |
-| unitOfMeasure | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB e ore. | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore e 10 migliaia. |
+| unitOfMeasure | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB e ore. | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore e 10.000 s. |
 | pricingCurrency | Valuta che definisce il prezzo unitario. | Valuta nell'elenco prezzi.|
 | billingCurrency | Valuta che definisce il costo fatturato. | Valuta dell'area geografica del cliente. |
 | chargeType | Definisce il tipo di addebito rappresentato dal costo in gestione costi di Azure, ad esempio acquisto e rimborso. | Tipo di addebito o rettifica. Non disponibile per l'attività corrente. |
@@ -257,7 +257,7 @@ I dati sull'utilizzo del servizio normalmente richiedono 8-24 ore per essere vis
 
 ## <a name="export-cost-data-to-azure-storage"></a>Esportare i dati dei costi in archiviazione di Azure
 
-I partner con accesso agli ambiti di fatturazione in un tenant partner possono esportare i dati relativi ai costi e all'utilizzo in un BLOB di archiviazione di Azure. Il BLOB deve trovarsi in una sottoscrizione nel tenant partner che non è una sottoscrizione del servizio condiviso o una sottoscrizione di un cliente. Per abilitare l'esportazione dei dati sui costi, è consigliabile configurare una sottoscrizione con pagamento in base al consumo indipendente nel tenant partner per ospitare i dati dei costi esportati. L'account di archiviazione di esportazione viene creato nel BLOB di archiviazione di Azure ospitato nella sottoscrizione con pagamento in base al consumo. In base all'ambito in cui il partner crea l'esportazione, i dati associati vengono esportati automaticamente nell'account di archiviazione in caso di ricorrenza.
+I partner con accesso agli ambiti di fatturazione in un tenant partner possono esportare i dati relativi ai costi e all'utilizzo in un BLOB di archiviazione di Azure. Il BLOB deve trovarsi in una sottoscrizione nel tenant partner che non è una sottoscrizione del servizio condiviso o una sottoscrizione di un cliente. Per abilitare l'esportazione dei dati sui costi, è consigliabile configurare una sottoscrizione con pagamento in base al consumo indipendente nel tenant partner per ospitare i dati dei costi esportati. L'account di archiviazione di esportazione viene creato nel BLOB di archiviazione di Azure ospitato nella sottoscrizione con pagamento in base al consumo. In base all'ambito in cui il partner crea l'esportazione, i dati associati vengono esportati automaticamente nell'account di archiviazione su base ricorrente.
 
 Gli utenti con accesso RBAC alla sottoscrizione possono anche esportare i dati sui costi in un BLOB di archiviazione di Azure ospitato in qualsiasi sottoscrizione nel tenant del cliente.
 
@@ -265,7 +265,11 @@ Gli utenti con accesso RBAC alla sottoscrizione possono anche esportare i dati s
 
 Nella portale di Azure accedere al tenant partner o al tenant del cliente e selezionare **Gestione costi e fatturazione**. Selezionare un ambito appropriato, ad esempio un account di fatturazione, quindi selezionare **analisi dei costi**. Quando la pagina viene caricata, selezionare **Esporta**. Selezionare **Visualizza tutte le esportazioni** in Pianifica esportazione.
 
+![Selezionare Esporta e Visualizza tutte le esportazioni](./media/get-started-partners/export01.png)
+
 Selezionare quindi **Aggiungi** e digitare il nome e selezionare un tipo di esportazione. Selezionare la scheda **archiviazione** e immettere le informazioni necessarie.
+
+![Aggiungi nuova esportazione e seleziona scheda archiviazione](./media/get-started-partners/export02.png)
 
 Quando si crea un'esportazione nel tenant partner, selezionare la sottoscrizione con pagamento in base al consumo nel tenant partner. Creare un account di archiviazione di Azure usando tale sottoscrizione.
 
@@ -274,6 +278,8 @@ Per gli utenti RBAC nel tenant del cliente, selezionare una sottoscrizione nel t
 Esaminare il contenuto e quindi selezionare **Crea** per pianificare un'esportazione.
 
 Per verificare i dati nell'elenco Esporta, selezionare il nome dell'account di archiviazione. Nella pagina account di archiviazione selezionare **contenitori** , quindi selezionare il contenitore. Passare alla cartella corrispondente e selezionare il file CSV. Selezionare **download** per ottenere il file CSV e aprirlo. I dati esportati esportati sono simili ai dati dei costi simili ai dettagli di utilizzo del portale di Azure.
+
+![Esempio di dati esportati](./media/get-started-partners/example-export-data.png)
 
 ## <a name="cost-management-rest-apis"></a>API REST di gestione costi
 

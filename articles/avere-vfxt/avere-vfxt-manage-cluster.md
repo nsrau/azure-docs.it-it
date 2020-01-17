@@ -4,20 +4,22 @@ description: 'Come gestire il cluster Avere: aggiungere o rimuovere nodi, riavvi
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d963c951d2202b3f60f0dd93c440b36fabf6478d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415294"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153480"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
 
-Dopo aver creato il cluster, potrebbe essere necessario aggiungere nodi del cluster oppure interromperlo o riavviarlo. Quando un progetto è concluso, è inoltre necessario sapere come interrompere e rimuovere il cluster in modo definitivo.
+A un certo punto del ciclo di vita del cluster di vFXT per Azure, potrebbe essere necessario aggiungere nodi del cluster o avviare o riavviare il cluster. Al termine del progetto, è necessario saper arrestare il cluster e rimuoverlo definitivamente.
 
-A seconda dell'attività di gestione del cluster, per l'esecuzione può essere necessario usare il pannello di controllo di Avere, lo script per la creazione del cluster dalla riga di comando di vfxt.py o il portale di Azure.
+Questo articolo illustra come aggiungere o rimuovere nodi del cluster e altre operazioni di base del cluster. Se è necessario modificare le impostazioni del cluster o monitorarne il funzionamento, usare il [Pannello di controllo](avere-vfxt-cluster-gui.md).
+
+A seconda dell'attività di gestione, potrebbe essere necessario usare uno dei tre diversi strumenti: il pannello di controllo, lo script di gestione cluster della riga di comando vfxt.py e il portale di Azure.
 
 Questa tabella offre una panoramica degli strumenti utilizzabili per ogni attività.
 
@@ -38,7 +40,7 @@ Di seguito vengono fornite istruzioni dettagliate per ogni strumento.
 
 Quando si arresta o si interrompe una macchina virtuale di Azure, non vengono più addebitati i costi di calcolo ma rimangono comunque applicabili i costi di archiviazione. Se si arresta un nodo vFXT o l'intero cluster vFXT e non si prevede di riavviarlo, si dovrebbe usare il portale di Azure per eliminare le relative macchine virtuali.
 
-Nel portale di Azure per un nodo *interrotto* (che può essere riavviato) viene visualizzato lo stato **interrotto**; per un nodo *eliminato* viene visualizzato lo stato **interrotto (deallocato)** e non verranno più addebitati costi di calcolo o archiviazione.
+Nel portale di Azure, un nodo *interrotto* , che può essere riavviato, Mostra lo stato **arrestato** nell'portale di Azure. Un nodo *eliminato* Mostra lo stato **arrestato (deallocato)** e non comporta più costi di calcolo o di archiviazione.
 
 Prima di eliminare la macchina virtuale, assicurarsi che tutti i dati modificati siano stati scritti dalla cache nell'archiviazione back-end tramite le opzioni di vfxt.py o del pannello di controllo di Avere per interrompere o arrestare il cluster.
 
@@ -50,7 +52,7 @@ Il pannello di controllo di Avere può essere usato per queste attività:
 * Rimuovere un nodo dal cluster
 * Interrompere o riavviare l'intero cluster
 
-Il pannello di controllo di Avere considera prioritaria l'integrità dei dati, pertanto tenta di scrivere eventuali dati modificati in un archivio back-end prima di un'operazione potenzialmente distruttiva. Ciò lo rende un'opzione più sicura rispetto al portale di Avere.
+Il pannello di controllo ha priorità all'integrità dei dati, quindi tenta di scrivere i dati modificati nell'archiviazione back-end prima di un'operazione potenzialmente distruttiva. Questo rende un'opzione più sicura rispetto all'portale di Azure.
 
 È possibile accedere al pannello di controllo di Avere da un Web browser. Seguire le istruzioni in [Accedere al cluster vFXT](avere-vfxt-cluster-gui.md) se si ha bisogno di assistenza.
 
@@ -69,7 +71,7 @@ Leggere [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_
 
 La pagina delle impostazioni **System Maintenance** (Manutenzione del sistema) include comandi per il riavvio dei servizi cluster, il riavvio del cluster o lo spegnimento del cluster in modo sicuro. Leggere [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (Amministrazione > Manutenzione del sistema) nella guida alle impostazioni del cluster Avere per maggiori dettagli.
 
-Quando è in corso l'arresto di un cluster, per prima cosa vengono pubblicati messaggi di stato nella scheda **Dashboard**. Dopo qualche istante, la sessione del pannello di controllo di Avere smetterà di rispondere, il che significa che il cluster è stato arrestato.
+Quando un cluster inizia a arrestarsi, invia messaggi di stato alla scheda **Dashboard** . Dopo alcuni istanti, i messaggi vengono arrestati e alla fine la sessione del pannello di controllo ha smesso di rispondere, il che significa che il cluster è stato arrestato.
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>Gestire il cluster con vfxt.py
 
@@ -83,7 +85,7 @@ Lo script vfxt.py può essere usato per queste attività di gestione del cluster
 * Interrompere o avviare un cluster  
 * Eliminare definitivamente un cluster
 
-Analogamente al pannello di controllo di Avere, le operazioni vfxt.py tentano di verificare che i dati modificati siano archiviati in modo permanente nell'archiviazione back-end prima dell'arresto o dell'eliminazione definitiva del cluster o di un nodo. Ciò lo rende un'opzione più sicura rispetto al portale di Avere.
+Analogamente al pannello di controllo di Avere, le operazioni vfxt.py tentano di verificare che i dati modificati siano archiviati in modo permanente nell'archiviazione back-end prima dell'arresto o dell'eliminazione definitiva del cluster o di un nodo. Questo rende un'opzione più sicura rispetto all'portale di Azure.
 
 La guida completa all'utilizzo di vfxt.py è disponibile in GitHub: [Cloud cluster management with vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md) (Gestione del cluster nel cloud con vfxt.py)
 
@@ -95,7 +97,7 @@ Il cluster deve essere in esecuzione per poter usare questo comando.
 
 Specificare i valori seguenti:
 
-* Nome del gruppo di risorse per il cluster, oltre che per le risorse di rete e di archiviazione se non coincidono con il cluster
+* Nome del gruppo di risorse per il cluster e anche per le risorse di rete e di archiviazione se non si trovano nello stesso gruppo di risorse del cluster
 * Percorso del cluster
 * Rete e subnet del cluster
 * Ruolo di accesso ai nodi del cluster (usare l' [operatore](../role-based-access-control/built-in-roles.md#avere-operator)Role haveing predefinito)
@@ -139,7 +141,7 @@ Dal momento che il cluster è interrotto, è necessario passare gli identificato
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-L'opzione ``--quick-destroy`` può essere usata se non si vogliono scrivere i dati modificati dalla cache del cluster.
+È possibile utilizzare l'opzione ``--quick-destroy`` se non si desidera salvare i dati modificati dalla cache del cluster.
 
 Fare riferimento alla [guida all'utilizzo di vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) per altre informazioni.
 
@@ -195,7 +197,7 @@ Oltre a eliminare i nodi del cluster, considerare di rimuovere questi componenti
 * Dischi dati associati ai nodi del cluster
 * Interfacce di rete e indirizzi IP pubblici associati ai componenti del cluster
 * Reti virtuali
-* Account di archiviazione (**solo** se non contengono dati importanti)
+* Contenitori di archiviazione e account di archiviazione (**solo** se non contengono dati importanti)
 * Set di disponibilità
 
 ![Elenco "Tutte le risorse" del portale di Azure che mostra le risorse create per un cluster di test](media/avere-vfxt-all-resources-list.png)

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb049b5af5c700cdb72f0319019cfd6eee952d9f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977514"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156965"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -330,7 +330,7 @@ Se si è in modalità GIT, è possibile eseguire l'override delle proprietà pre
 * Si utilizza l'integrazione continua/recapito continuo automatica e si desidera modificare alcune proprietà durante Gestione risorse distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita.
 * La Factory è talmente grande che il modello di Gestione risorse predefinito non è valido perché contiene un numero di parametri massimo consentito (256).
 
-In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato ARM-Template-Parameters-Definition. JSON nella cartella radice del repository. È necessario usare il nome esatto del file. Data Factory legge questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
+In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato ARM-Template-Parameters-Definition. JSON nella cartella specificata come cartella radice per l'integrazione di git data factory. È necessario usare il nome esatto del file. Data Factory legge questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintassi di un file dei parametri personalizzati
 

@@ -1,6 +1,6 @@
 ---
 title: Punteggio di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
-description: " Definire la priorità delle raccomandazioni sulla sicurezza con il punteggio di sicurezza nel Centro sicurezza di Azure. "
+description: " Assegnare priorità ai consigli di sicurezza usando il Punteggio sicuro nel centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,17 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 0a39fd1870ae803f2cf694e01c67d125fc96cac9
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200966"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156659"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure
+# <a name="improve-your-secure-score-in-azure-security-center"></a>Migliorare il Punteggio sicuro nel centro sicurezza di Azure
 
+> [!NOTE]
+> È disponibile un punteggio sicuro migliorato in anteprima. Il Punteggio sicuro migliorato sostituirà infine il Punteggio sicuro esistente, ma per un periodo di tempo verrà eseguito side-by-side per facilitare la transizione.
+>
+> Per informazioni dettagliate sui vantaggi del Punteggio sicuro migliorato, vedere [qui](secure-score-security-controls.md).
+>
+> Per partecipare all'anteprima, aprire il portale di Azure, avviare il Centro sicurezza di Azure e selezionare Punteggio sicuro. Da qui, viene visualizzato un banner nella parte superiore della pagina che offre la nuova esperienza di assegnazione dei punteggi sicuri. In alternativa, fare clic [qui](https://aka.ms/ascnewscore).
 
-A fronte di così tanti servizi che offrono vantaggi in termini di sicurezza, è spesso difficile sapere quali passaggi eseguire prima per proteggere e rafforzare il carico di lavoro. Il punteggio di sicurezza di Azure esamina i consigli sulla sicurezza e assegna a ciascuno un livello di priorità che indica quali consigli implementare per primi. Questo è utile per trovare le vulnerabilità della sicurezza più gravi e stabilire di conseguenza le priorità di indagine. Il punteggio di sicurezza è uno strumento che consente di valutare le condizioni di sicurezza del carico di lavoro.
+A fronte di così tanti servizi che offrono vantaggi in termini di sicurezza, è spesso difficile sapere quali passaggi eseguire prima per proteggere e rafforzare il carico di lavoro. Il punteggio di sicurezza di Azure esamina i consigli sulla sicurezza e assegna a ciascuno un livello di priorità che indica quali consigli implementare per primi. Questo è utile per trovare le vulnerabilità della sicurezza più gravi e stabilire di conseguenza le priorità di indagine. Secure Score è uno strumento che ti permette di valutare il comportamento di sicurezza del carico di lavoro.
 
 ## <a name="secure-score-calculation"></a>Calcolo del punteggio di sicurezza
 
@@ -34,13 +40,12 @@ Il Centro sicurezza offre anche un **punteggio di sicurezza complessivo**.
 
 Il **punteggio di sicurezza complessivo** è dato dalla somma dei punteggi di tutti i consigli. È possibile visualizzare il punteggio di sicurezza complessivo per le sottoscrizioni o i gruppi di gestione, a seconda della scelta. Il punteggio varia in base alla sottoscrizione selezionata e alle raccomandazioni attive in ognuna di queste sottoscrizioni.
 
- 
 Per controllare quali consigli influiscono maggiormente sul punteggio di sicurezza, è possibile visualizzare i tre consigli con maggiore impatto nel dashboard del Centro sicurezza oppure è possibile ordinare l'elenco dei consigli nel pannello relativo usando la colonna **Impatto di punteggio di sicurezza**.
-
 
 Per visualizzare il punteggio di sicurezza complessivo:
 
 1. Nel dashboard Azure fare clic su **Centro sicurezza** e quindi su **Punteggio di sicurezza**.
+
 2. Nella parte superiore è possibile visualizzare le informazioni in evidenza del punteggio di sicurezza:
    - Il **punteggio di sicurezza complessivo** rappresenta il punteggio in base ai criteri e alla sottoscrizione selezionata
    - Il **punteggio di sicurezza in base alla categoria** mostra le risorse che richiedono più attenzione

@@ -10,17 +10,65 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: raiye
-ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779587"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122135"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="january-2020-guest-os"></a>Sistema operativo guest di gennaio 2020
+
+>[!NOTE]
+>Il sistema operativo guest di gennaio è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le seguenti patch sono incluse nel sistema operativo guest di gennaio. L'elenco è soggetto a variazioni.
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 20-01  |  [4532960]  |  Windows Security  | 2,94 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 2,94 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534314]  |  Windows Security  | 2,94 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532958]  |  Windows Security  | 3,81 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532963]  |  Windows Security  | 3,81 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 3,81 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534288]  |  Windows Security  | 3,81 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532961]  |  Windows Security  | 4.74 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532962]  |  Windows Security  | 4.74 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 4.74 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534309]  |  Windows Security  | 4.74 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4494175]  |  Microcodice V3  | 5,39 | 29 ago 2019 |
+|  Rel 20-01  |  [4534271]  |  LCU  | 5,39 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4494174]  |  Microcodice V4  | 6,15 | 29 ago 2019 |
+|  Rel 20-01  |  [4532947]  |  Windows Security  | 6,15 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | 6,15 | 14 gennaio 2020 |
+|  Rel 20-01  |  [4530734]  |  Non-sicurezza  | 2,94 | 10 dicembre 2019 |
+|  Rel 20-01  |  [4530691]  |  Non-sicurezza   | 3,81 | 10 dicembre 2019 |
+|  Rel 20-01  |  [4530702]  |  Non-sicurezza  | 4.74 | 10 dicembre 2019 |
+
+[4532960]: https://support.microsoft.com/kb/4532960
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534314]: https://support.microsoft.com/kb/4534314
+[4532958]: https://support.microsoft.com/kb/4532958
+[4532963]: https://support.microsoft.com/kb/4532963
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534288]: https://support.microsoft.com/kb/4534288
+[4532961]: https://support.microsoft.com/kb/4532961
+[4532962]: https://support.microsoft.com/kb/4532962
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534309]: https://support.microsoft.com/kb/4534309
+[4494175]: https://support.microsoft.com/kb/4494175
+[4534271]: https://support.microsoft.com/kb/4534271
+[4494174]: https://support.microsoft.com/kb/4494174
+[4532947]: https://support.microsoft.com/kb/4532947
+[4534273]: https://support.microsoft.com/kb/4534273
+[4530734]: https://support.microsoft.com/kb/4530734
+[4530691]: https://support.microsoft.com/kb/4530691
+[4530702]: https://support.microsoft.com/kb/4530702
+
 
 ## <a name="december-2019-guest-os"></a>Sistema operativo guest 2019 dicembre
 

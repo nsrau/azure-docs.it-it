@@ -1,14 +1,14 @@
 ---
 title: Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 description: Informazioni sui concetti di tenant, utenti e ruoli di Azure Active Directory, nonché su come possono essere usati negli scenari di Azure Lighthouse.
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453563"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156336"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 
@@ -29,6 +29,9 @@ Tutti i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) s
 - Il ruolo [Proprietario](../../role-based-access-control/built-in-roles.md#owner) non è supportato.
 - I ruoli predefiniti con autorizzazione [DataActions](../../role-based-access-control/role-definitions.md#dataactions) non sono supportati.
 - Il ruolo predefinito [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator) è supportato, ma solo per lo scopo limitato di [assegnazione di ruoli a un'identità gestita nel tenant del cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Non verranno applicate altre autorizzazioni generalmente concesse da questo ruolo. Se si definisce un utente con questo ruolo, è necessario specificare anche uno o più ruoli predefiniti che possono essere assegnati da questo utente alle identità gestite.
+
+> [!NOTE]
+> Una volta aggiunto in Azure un nuovo ruolo incorporato applicabile, è possibile assegnarlo durante l' [onboarding di un cliente usando Azure Resource Manager modelli](../how-to/onboard-customer.md). È possibile che si verifichi un ritardo prima che il ruolo appena aggiunto diventi disponibile in portale Cloud Partner durante la [pubblicazione di un'offerta di servizio gestito](../how-to/publish-managed-services-offers.md).
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Procedure consigliate per la definizione di utenti e ruoli
 

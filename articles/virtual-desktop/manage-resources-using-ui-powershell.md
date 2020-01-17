@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 5049c32e06967cc123a24f07f601c1698bea3351
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896428"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122509"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuire uno strumento di gestione con PowerShell
 
@@ -31,19 +31,19 @@ I browser seguenti sono compatibili con lo strumento di gestione di:
 - Mozilla Firefox 52.0 o versione successiva
 - Safari 10 o versione successiva (solo macOS)
 
-## <a name="what-you-need-to-deploy-the-management-tool"></a>Cosa è necessario per distribuire lo strumento di gestione
+## <a name="what-you-need-to-deploy-the-management-tool"></a>Requisiti per la distribuzione dello strumento di gestione
 
-Prima di distribuire lo strumento di gestione, è necessario un utente Azure Active Directory (Azure AD) per creare una registrazione dell'app e distribuire l'interfaccia utente di gestione. Questo utente dovrà avere:
+Prima di distribuire lo strumento di gestione, è necessario che un utente di Azure Active Directory (Azure AD) crei una registrazione dell'app e distribuisca l'interfaccia utente di gestione. Questo utente dovrà avere:
 
 - L'autorizzazione per creare risorse nella sottoscrizione di Azure
-- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente dispone delle autorizzazioni necessarie seguendo le istruzioni riportate in [autorizzazioni obbligatorie](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
 Per distribuire e configurare correttamente lo strumento di gestione, è prima di tutto necessario scaricare gli script di PowerShell seguenti dal [repository GitHub dei modelli RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) e salvarli nella stessa cartella del computer locale.
 
   - createWvdMgmtUxAppRegistration. ps1
   - updateWvdMgmtUxApiUrl. ps1
 
-Dopo aver distribuito e configurato lo strumento di gestione, è consigliabile richiedere all'utente di avviare l'interfaccia utente di gestione per verificare che tutto funzioni. L'utente che avvia l'interfaccia utente di gestione deve disporre di un'assegnazione di ruolo che consenta di visualizzare o modificare il tenant di desktop virtuale di Windows.
+Dopo aver distribuito e configurato lo strumento di gestione, è consigliabile chiedere a un utente di avviare l'interfaccia utente di gestione per verificarne il corretto funzionamento. L'utente che avvia l'interfaccia utente di gestione deve avere un'assegnazione di ruolo che gli consenta di visualizzare o modificare il tenant di Desktop virtuale Windows.
 
 ## <a name="set-up-powershell"></a>Configurare PowerShell
 
@@ -135,7 +135,7 @@ Per verificare la configurazione dell'applicazione Azure AD e fornire il consens
    
    [![la pagina di autenticazione con l'URI di reindirizzamento immesso](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. Nel pannello sinistro selezionare **autorizzazioni API** per verificare che siano state aggiunte le autorizzazioni. Se si è un amministratore globale, selezionare il pulsante di **consenso dell'amministratore per `tenantname`** e seguire le istruzioni della finestra di dialogo per fornire il consenso dell'amministratore per l'organizzazione.
+5. Nel pannello sinistro selezionare **autorizzazioni API** per verificare che siano state aggiunte le autorizzazioni. Se si è un amministratore globale, selezionare il pulsante **concedi il consenso dell'amministratore per `tenantname`** e seguire le istruzioni della finestra di dialogo per fornire il consenso dell'amministratore per l'organizzazione.
     
     [![pagina autorizzazioni API](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
 
@@ -152,15 +152,15 @@ Ora che lo strumento di gestione è stato configurato in qualsiasi momento, è p
    > Se non è stato concesso il consenso dell'amministratore durante la configurazione dello strumento di gestione, ogni utente che esegue l'accesso dovrà fornire il proprio consenso dell'utente per poter usare lo strumento.
 
 3. Quando viene richiesto di scegliere un gruppo di tenant, selezionare **gruppo tenant predefinito** dall'elenco a discesa.
-4. Quando si seleziona **gruppo tenant predefinito**, un menu viene visualizzato sul lato sinistro della finestra. In questo menu trovare il nome del gruppo tenant e selezionarlo.
+4. Quando si seleziona **Default Tenant Group** (Gruppo di tenant predefinito), sul lato destro della finestra viene visualizzato un menu. In questo menu trovare il nome del gruppo di tenant e selezionarlo.
    
    > [!NOTE]
-   > Se si dispone di un gruppo tenant personalizzato, immettere il nome manualmente anziché scegliere dall'elenco a discesa.
+   > Se è disponibile un gruppo di tenant personalizzato, immettere il nome manualmente invece di scegliere una voce dell'elenco a discesa.
 
 ## <a name="report-issues"></a>Segnalare i problemi
 
-Se si verificano problemi con lo strumento di gestione o altri strumenti per desktop virtuali di Windows, seguire le istruzioni in [Azure Resource Manager modelli per Servizi Desktop remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) per segnalarli in GitHub.
+Se si verificano problemi con lo strumento di gestione o altri strumenti di Desktop virtuale Windows, seguire le istruzioni nell'articolo relativo ai [modelli di Azure Resource Manager per Servizi Desktop remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) per segnalarli in GitHub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come distribuire e connettersi allo strumento di gestione, è possibile apprendere come usare la guida del servizio di Azure per monitorare i problemi del servizio e gli avvisi di integrità. Per altre informazioni, vedere l' [esercitazione configurare gli avvisi dei servizi](./set-up-service-alerts.md).
+Dopo aver appreso come distribuire lo strumento di gestione e come connettersi, è possibile scoprire come usare il servizio di Azure per monitorare i problemi dei servizi e gli avvisi di integrità. Per altre informazioni, vedere l'esercitazione [Configurare gli avvisi dei servizi](./set-up-service-alerts.md).

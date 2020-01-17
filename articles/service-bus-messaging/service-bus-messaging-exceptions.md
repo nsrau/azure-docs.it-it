@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ad0eb602d9e7b907e23ebf7b91ed86650c1e807
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: eebbef25f2cd4539a5092f271c3944c24503f287
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790488"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156812"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce alcune eccezioni .NET generate dalle API di .NET Framework del bus di servizio e altri suggerimenti per la risoluzione dei problemi. 
@@ -81,7 +81,7 @@ Il messaggio indica che l'argomento ha superato il limite di dimensioni, in ques
 
 #### <a name="namespaces"></a>Spazi dei nomi
 
-Per gli spazi dei nomi, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) può indicare che un'applicazione ha superato il numero massimo di connessioni a uno spazio dei nomi. ad esempio:
+Per gli spazi dei nomi, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) può indicare che un'applicazione ha superato il numero massimo di connessioni a uno spazio dei nomi. Ad esempio:
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -121,10 +121,10 @@ I passaggi seguenti possono essere utili per la risoluzione dei problemi di conn
     ```shell
     telnet sbwagn2.servicebus.windows.net 5671
     ```
-- Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Per verificare se le connessioni sono parzialmente bloccate, è necessario mantenerle in esecuzione per circa 1 minuto. È possibile scaricare lo strumento `psping` da [qui](/sysinternals/downloads/psping).
+- Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio, quindi è possibile controllare il numero di riuscite/non riuscite e vedere anche la latenza di connessione TCP. È possibile scaricare lo strumento `psping` da [qui](/sysinternals/downloads/psping).
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
     ```
     È possibile utilizzare comandi equivalenti se si utilizzano altri strumenti, ad esempio `tnc`, `ping`e così via. 
 - Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzati o contattano [supporto tecnico Microsoft](https://support.microsoft.com/).

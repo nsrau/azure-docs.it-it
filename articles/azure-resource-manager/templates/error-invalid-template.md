@@ -3,12 +3,12 @@ title: Errori di modello non validi
 description: Viene descritto come risolvere gli errori del modello non validi durante la distribuzione di Azure Resource Manager modelli.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.openlocfilehash: 9337812152dac7948afc7471760f3dc14443f549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484571"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154058"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi
 
@@ -86,18 +86,18 @@ Per le risorse figlio, il tipo e il nome devono avere lo stesso numero di segmen
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.KeyVault/vaults",
-        "name": "contosokeyvault",
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "contosokeyvault",
+    ...
+    "resources": [
+      {
+        "type": "secrets",
+        "name": "appPassword",
         ...
-        "resources": [
-            {
-                "type": "secrets",
-                "name": "appPassword",
-                ...
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
 ```
 
@@ -105,9 +105,9 @@ Ottenere il numero di segmenti corretto può essere difficile con i tipi di Reso
 
 ```json
 {
-    "type": "Microsoft.Web/sites/providers/locks",
-    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-    ...
+  "type": "Microsoft.Web/sites/providers/locks",
+  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+  ...
 }
 ```
 
@@ -140,13 +140,13 @@ Questo errore viene visualizzato quando le dipendenze tra le risorse impediscono
 
 Per risolvere una dipendenza circolare:
 
-1. Nel modello trovare la risorsa identificata nella dipendenza circolare. 
-2. Esaminare la proprietà **dependsOn** e le occorrenze della funzione **reference** per tale risorsa per verificare le risorse da cui dipende. 
+1. Nel modello trovare la risorsa identificata nella dipendenza circolare.
+2. Esaminare la proprietà **dependsOn** e le occorrenze della funzione **reference** per tale risorsa per verificare le risorse da cui dipende.
 3. Esaminare tali risorse per verificare da quali risorse dipendono. Seguire le dipendenze finché non si rileva una risorsa che dipende dalla risorsa originale.
-5. Per le risorse coinvolte nella dipendenza circolare, esaminare attentamente tutte le occorrenze della proprietà **dependsOn** per identificare eventuali dipendenze non necessarie. Rimuovere tali dipendenze. Se non si è certi che una dipendenza sia necessaria, provare a rimuoverla. 
+5. Per le risorse coinvolte nella dipendenza circolare, esaminare attentamente tutte le occorrenze della proprietà **dependsOn** per identificare eventuali dipendenze non necessarie. Rimuovere tali dipendenze. Se non si è certi che una dipendenza sia necessaria, provare a rimuoverla.
 6. Ridistribuire il modello.
 
-La rimozione di valori dalla proprietà **dependsOn** può causare errori durante la distribuzione del modello. Se si riceve un errore, riaggiungere la dipendenza nel modello. 
+La rimozione di valori dalla proprietà **dependsOn** può causare errori durante la distribuzione del modello. Se si riceve un errore, riaggiungere la dipendenza nel modello.
 
 Se con questo approccio non si risolve la dipendenza circolare, provare a spostare parte della logica di distribuzione in risorse figlio, ad esempio estensioni o impostazioni di configurazione. Configurare tali risorse figlio in modo che vengano distribuite dopo le risorse coinvolte nella dipendenza circolare. Si supponga, ad esempio, di distribuire due macchine virtuali e che sia necessario impostare in ognuna proprietà che fanno riferimento all'altra. È possibile eseguire la distribuzione nell'ordine seguente:
 
