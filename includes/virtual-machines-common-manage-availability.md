@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: edaa3f7c17ff5fb6bc79f67b7028a7ba72347367
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468587"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268262"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -69,9 +69,15 @@ Se si usano macchine virtuali con dischi non gestiti, è fortemente consigliabil
 ![Domini di errore di Managed Disks](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
-> Il numero di domini di errore per i set di disponibilità gestiti dipende dall'area: due o tre per area. La tabella seguente illustra il numero per area
+> Il numero di domini di errore per i set di disponibilità gestiti dipende dall'area: due o tre per area. È possibile visualizzare il dominio di errore per ogni area eseguendo gli script seguenti.
 
-[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+```azurepowershell-interactive
+Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.Name -eq 'Aligned'}
+```
+
+```azurecli-interactive 
+az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
+```
 
 > Nota: in alcune circostanze, è possibile che due macchine virtuali che fanno parte dello stesso abilitate per condividono lo stesso FaultDomain. Per confermare questo problema, passare a abilitate per e selezionare la colonna "dominio di errore".
 > Questo comportamento può essere osservato quando si verifica la sequenza seguente durante la distribuzione delle macchine virtuali:

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5751ed33673ca859ba1aed54cfc7c2e7ecc8e495
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ff3409fad12e54be5ac00ead3ca44c1f24bb0af8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124188"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268275"
 ---
-Azure ultra Disks offre velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per macchine virtuali IaaS di Azure. Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. Uno dei vantaggi principali di ultra disks è la possibilità di modificare dinamicamente le prestazioni dell'unità SSD insieme ai carichi di lavoro senza dover riavviare le macchine virtuali. I dischi Ultra sono adatti per carichi di lavoro con utilizzo intensivo di dati, ad esempio SAP HANA, database di livello superiore e carichi di lavoro pesanti per le transazioni.
+Azure ultra Disks offre velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per macchine virtuali IaaS di Azure. Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. Uno dei vantaggi principali di ultra disks è la possibilità di modificare dinamicamente le prestazioni dell'unità SSD insieme ai carichi di lavoro senza dover riavviare le macchine virtuali. I dischi Ultra sono idonei per carichi di lavoro a elevato utilizzo di dati, come SAP HANA, database di alto livello e carichi di lavoro con numerose transazioni.
 
 ## <a name="ga-scope-and-limitations"></a>Ambito e limitazioni di GA
 
@@ -29,8 +29,10 @@ Interfaccia della riga di comando:
 
 ```bash
 $subscription = "<yourSubID>"
-$region = "<yourLocation>, example value is southeastasia"
-$vmSize = "<yourVMSize>, example value is Standard_E64s_v3"
+# example value is southeastasia
+$region = "<yourLocation>"
+# example value is Standard_E64s_v3
+$vmSize = "<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
@@ -47,9 +49,9 @@ La risposta sarà simile a quella riportata di seguito, dove X è la zona da usa
 
 Mantenere il valore **Zones** , che rappresenta la zona di disponibilità e sarà necessario per distribuire un disco Ultra.
 
-|ResourceType  |Nome  |Location  |Zone  |Restrizione  |Funzionalità  |Valore  |
+|ResourceType  |Nome  |Percorso  |Zone  |Restrizione  |Funzionalità  |Valore  |
 |---------|---------|---------|---------|---------|---------|---------|
-|dischi     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
 > Se non è stata trovata alcuna risposta dal comando, le dimensioni della macchina virtuale selezionate non sono supportate con i dischi ultra nell'area selezionata.
