@@ -1,5 +1,5 @@
 ---
-title: Informazioni di riferimento per l'API - API Viso
+title: Riferimento API-Face
 titleSuffix: Azure Cognitive Services
 description: Informazioni di riferimento sulle API fornisce informazioni sulle API person, LargePersonGroup/gruppo, LargeFaceList/facet e degli algoritmi Face.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 940a5e25125acc2631fd3629bd610bb0e927e650
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 431525964eb69431600d36ba8249c6dc465a5df3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390102"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169938"
 ---
 # <a name="face-api-reference-list"></a>Elenco di API Viso di riferimento
 
-L'API Viso di Azure è un'API basata su cloud che fornisce gli algoritmi per il rilevamento e il riconoscimento dei visi. Le API Viso comprendono le categorie seguenti:
+Azure facet è un servizio basato sul cloud che fornisce algoritmi per il rilevamento e il riconoscimento dei volti. Le API Viso comprendono le categorie seguenti:
 
 - API per l'algoritmo viso: coprire le funzioni di base, ad esempio il [rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [trovare simili](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [Identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)e [gruppo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 - [API facet](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): utilizzata per gestire un facet per la [ricerca simile](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d715252f16a34f2261c108ebd3ff5d1f6f3424d8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887920"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169168"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
@@ -76,7 +76,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="multi-service"></a>Multi-servizio
 
-| Service                    | Tipo                      |
+| Servizio                    | Tipo                      |
 |----------------------------|---------------------------|
 | Più servizi. Per ulteriori informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
 
@@ -84,20 +84,20 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 > [!NOTE]
 > Molti dei servizi cognitivi di seguito hanno un livello gratuito che è possibile usare per provare il servizio. Per usare il livello gratuito, usare `F0` come SKU per la risorsa.
 
-### <a name="vision"></a>Visione
+### <a name="vision"></a>Visione artificiale
 
-| Service                    | Tipo                      |
+| Servizio                    | Tipo                      |
 |----------------------------|---------------------------|
 | Visione artificiale            | `ComputerVision`          |
 | Visione personalizzata-stima | `CustomVision.Prediction` |
 | Training di Visione personalizzata   | `CustomVision.Training`   |
-| API Viso                   | `Face`                    |
+| Viso                       | `Face`                    |
 | Riconoscimento modulo            | `FormRecognizer`          |
 | Riconoscimento input penna             | `InkRecognizer`           |
 
-### <a name="search"></a>Search
+### <a name="search"></a>Cerca
 
-| Service            | Tipo                  |
+| Servizio            | Tipo                  |
 |--------------------|-----------------------|
 | Suggerimenti automatici Bing   | `Bing.Autosuggest.v7` |
 | Ricerca personalizzata Bing | `Bing.CustomSearch`   |
@@ -105,26 +105,26 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Ricerca Bing        | `Bing.Search.v7`      |
 | Controllo ortografico Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Sintesi vocale
+### <a name="speech"></a>Voce
 
-| Service            | Tipo                 |
+| Servizio            | Tipo                 |
 |--------------------|----------------------|
 | Servizi Voce    | `SpeechServices`     |
 | Riconoscimento vocale | `SpeakerRecognition` |
 
 ### <a name="language"></a>Lingua
 
-| Service            | Tipo                |
+| Servizio            | Tipo                |
 |--------------------|---------------------|
 | Informazioni sui moduli | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
+| Analisi del testo     | `TextAnalytics`     |
 | Traduzione testuale   | `TextTranslation`   |
 
 ### <a name="decision"></a>Decisione
 
-| Service           | Tipo               |
+| Servizio           | Tipo               |
 |-------------------|--------------------|
 | Rilevamento anomalie  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -198,7 +198,7 @@ Per rimuovere il gruppo di risorse e le risorse associate, usare il comando AZ G
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
 * [Che cosa sono i servizi cognitivi di Azure?](Welcome.md)

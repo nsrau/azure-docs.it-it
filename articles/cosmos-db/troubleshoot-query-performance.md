@@ -8,12 +8,12 @@ ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: c004031ec40bedcf83d77d08a34ce1d0e28fecd8
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157024"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264272"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query quando si usa Azure Cosmos DB
 
@@ -39,13 +39,11 @@ Il conteggio del documento recuperato è il numero di documenti necessari per il
 
 #### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>Il conteggio dei documenti recuperati è significativamente maggiore del numero di documenti di output
 
-- [Verificare che i criteri di indicizzazione includano i percorsi necessari](#ensure-that-the-indexing-policy-includes-necessary-paths)
+- [Includere i percorsi necessari nei criteri di indicizzazione](#include-necessary-paths-in-the-indexing-policy)
 
 - [Informazioni sulle funzioni di sistema che utilizzano l'indice](#understand-which-system-functions-utilize-the-index)
 
-- [Ottimizzare le query con un filtro e una clausola ORDER BY](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
-
-- [Ottimizzare le query che utilizzano DISTINCT](#optimize-queries-that-use-distinct)
+- [Query con una clausola Filter e ORDER BY](#queries-with-both-a-filter-and-an-order-by-clause)
 
 - [Ottimizzare le espressioni di JOIN utilizzando una sottoquery](#optimize-join-expressions-by-using-a-subquery)
 
@@ -55,23 +53,23 @@ Il conteggio del documento recuperato è il numero di documenti necessari per il
 
 - [Evitare query tra partizioni](#avoid-cross-partition-queries)
 
-- [Ottimizzare le query con un filtro su più proprietà](#optimize-queries-that-have-a-filter-on-multiple-properties)
+- [Filtri su più proprietà](#filters-on-multiple-properties)
 
-- [Ottimizzare le query con un filtro e una clausola ORDER BY](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+- [Query con una clausola Filter e ORDER BY](#queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>L'addebito delle UR della query è accettabile, ma la latenza è ancora troppo elevata
 
-- [Miglioramento della prossimità tra l'app e Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
+- [Miglioramento della prossimità](#improve-proximity)
 
-- [Aumento della velocità effettiva con provisioning](#increasing-provisioned-throughput)
+- [Aumenta la velocità effettiva con provisioning](#increase-provisioned-throughput)
 
-- [Aumento della MaxConcurrency](#increasing-maxconcurrency)
+- [Aumenta MaxConcurrency](#increase-maxconcurrency)
 
-- [Aumento della MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+- [Aumenta MaxBufferedItemCount](#increase-maxbuffereditemcount)
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-significantly-exceeds-output-document-count"></a>Ottimizzazioni per le query in cui il conteggio dei documenti recuperati supera significativamente il numero di documenti di output:
+## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Query in cui il numero di documenti recuperati supera il numero di documenti di output
 
  Il conteggio del documento recuperato è il numero di documenti necessari per il caricamento della query. Il conteggio dei documenti di output è il numero di documenti necessari per i risultati della query. Se il conteggio dei documenti recuperati è significativamente superiore rispetto al numero di documenti di output, è presente almeno una parte della query che non è in grado di utilizzare l'indice ed è necessario eseguire un'analisi.
 
@@ -113,7 +111,7 @@ Client Side Metrics
 
 Il numero di documenti recuperati (60.951) è significativamente maggiore del numero di documenti di output (7), quindi questa query ha richiesto di eseguire un'analisi. In questo caso, la funzione di sistema [Upper ()](sql-query-upper.md) non usa l'indice.
 
-## <a name="ensure-that-the-indexing-policy-includes-necessary-paths"></a>Verificare che i criteri di indicizzazione includano i percorsi necessari
+## <a name="include-necessary-paths-in-the-indexing-policy"></a>Includere i percorsi necessari nei criteri di indicizzazione
 
 I criteri di indicizzazione devono coprire tutte le proprietà incluse in `WHERE` clausole, clausole `ORDER BY`, `JOIN`e la maggior parte delle funzioni di sistema. Il percorso specificato nei criteri di indice deve corrispondere (maiuscole/minuscole) alla proprietà nei documenti JSON.
 
@@ -191,7 +189,7 @@ Di seguito sono riportate alcune funzioni di sistema comuni che non utilizzano l
 
 Altre parti della query possono comunque utilizzare l'indice nonostante le funzioni di sistema non utilizzino l'indice.
 
-## <a name="optimize-queries-with-both-a-filter-and-an-order-by-clause"></a>Ottimizzare le query con un filtro e una clausola ORDER BY
+## <a name="queries-with-both-a-filter-and-an-order-by-clause"></a>Query con una clausola Filter e ORDER BY
 
 Sebbene le query con un filtro e una clausola `ORDER BY` utilizzeranno normalmente un indice di intervallo, saranno più efficienti se possono essere gestite da un indice composto. Oltre a modificare i criteri di indicizzazione, è necessario aggiungere tutte le proprietà nell'indice composito alla clausola `ORDER BY`. Questa modifica della query garantisce che venga utilizzato l'indice composto.  È possibile osservare l'effetto eseguendo una query sul set di dati [nutrizionale](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
 
@@ -261,33 +259,6 @@ Criteri di indicizzazione aggiornati:
 
 **Costo ur:** 8,86 ur
 
-## <a name="optimize-queries-that-use-distinct"></a>Ottimizzare le query che utilizzano DISTINCT
-
-Se i risultati duplicati sono consecutivi, sarà più efficiente trovare il set di risultati `DISTINCT`. L'aggiunta di una clausola `ORDER BY` alla query e di un indice composto garantirà che i risultati duplicati siano consecutivi. Se è necessario `ORDER BY` più proprietà, aggiungere un indice composito. È possibile osservare l'effetto eseguendo una query sul set di dati [nutrizionale](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
-
-### <a name="original"></a>Originale
-
-Query:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c
-```
-
-**Costo ur:** 32,39 ur
-
-### <a name="optimized"></a>Ottimizzato
-
-Query aggiornata:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c 
-ORDER BY c.foodGroup
-```
-
-**Costo ur:** 3,38 ur
-
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Ottimizzare le espressioni di JOIN utilizzando una sottoquery
 Le sottoquery multivalore consentono di ottimizzare le espressioni `JOIN` eseguendo il push dei predicati dopo ogni espressione SELECT-many invece che dopo tutti i cross join nella clausola `WHERE`.
 
@@ -323,7 +294,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Si supponga che un solo elemento nella matrice dei tag corrisponda al filtro e che siano disponibili cinque elementi sia per i nutrienti che per la conservazione delle matrici. Le espressioni `JOIN` si espanderanno quindi fino a 1 x 1 x 5 x 5 = 25 elementi, anziché 1.000 elementi nella prima query.
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Ottimizzazioni per le query in cui il conteggio dei documenti recuperati è approssimativamente uguale al numero di documenti di output:
+## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Query in cui il numero di documenti recuperati è uguale al numero di documenti di output
 
 Se il conteggio dei documenti recuperati è approssimativamente uguale al numero di documenti di output, significa che la query non ha dovuto analizzare molti documenti superflui. Per molte query, ad esempio quelle che usano la parola chiave TOP, il conteggio dei documenti recuperati può superare il numero di documenti di output di 1. Questa operazione non deve essere motivo di preoccupazione.
 
@@ -359,7 +330,7 @@ SELECT * FROM c
 WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
 ```
 
-## <a name="optimize-queries-that-have-a-filter-on-multiple-properties"></a>Ottimizzare le query con un filtro su più proprietà
+## <a name="filters-on-multiple-properties"></a>Filtri su più proprietà
 
 Sebbene le query con filtri su più proprietà utilizzeranno normalmente un indice di intervallo, saranno più efficienti se possono essere gestite da un indice composto. Per piccole quantità di dati, questa ottimizzazione non avrà un impatto significativo. Tuttavia, può rivelarsi utile per grandi quantità di dati. È possibile ottimizzare, al massimo, un filtro di non uguaglianza per ogni indice composto. Se nella query sono presenti più filtri di non uguaglianza, è necessario sceglierne uno che utilizzerà l'indice composto. Il resto continuerà a usare gli indici di intervallo. Il filtro di non uguaglianza deve essere definito per ultimo nell'indice composto. [Altre informazioni sugli indici compositi](index-policy.md#composite-indexes)
 
@@ -402,23 +373,23 @@ Di seguito è riportato l'indice composito pertinente:
 }
 ```
 
-## <a name="common-optimizations-that-reduce-query-latency-no-impact-on-ru-charge"></a>Ottimizzazioni comuni che riducono la latenza delle query (nessun effetto sull'addebito delle UR):
+## <a name="optimizations-that-reduce-query-latency"></a>Ottimizzazioni che riducono la latenza delle query:
 
 In molti casi, l'addebito delle UR può essere accettabile, ma la latenza delle query è ancora troppo elevata. Le sezioni seguenti offrono una panoramica dei suggerimenti per la riduzione della latenza delle query. Se la stessa query viene eseguita più volte nello stesso set di dati, lo stesso addebito viene addebitato ogni volta. Tuttavia, la latenza delle query può variare tra le esecuzioni di query.
 
-## <a name="improving-proximity-between-your-app-and-azure-cosmos-db"></a>Miglioramento della prossimità tra l'app e Azure Cosmos DB
+## <a name="improve-proximity"></a>Miglioramento della prossimità
 
 Le query che vengono eseguite da un'area diversa da quella dell'account Azure Cosmos DB avranno una latenza superiore rispetto a quando vengono eseguite all'interno della stessa area. Se, ad esempio, si esegue il codice sul computer desktop, è necessario prevedere che la latenza sia di decine o centinaia (o più) millisecondi superiore a se la query proviene da una macchina virtuale all'interno della stessa area di Azure come Azure Cosmos DB. È semplice distribuire a [livello globale i dati in Azure Cosmos DB](distribute-data-globally.md) per assicurarsi che sia possibile avvicinare i dati all'app.
 
-## <a name="increasing-provisioned-throughput"></a>Aumento della velocità effettiva con provisioning
+## <a name="increase-provisioned-throughput"></a>Aumenta la velocità effettiva con provisioning
 
 In Azure Cosmos DB la velocità effettiva con provisioning viene misurata in unità richiesta (UR). Si supponga di disporre di una query che utilizza 5 UR di velocità effettiva. Se, ad esempio, si esegue il provisioning di 1.000 UR, sarà possibile eseguire la query 200 volte al secondo. Se si è tentato di eseguire la query quando la velocità effettiva disponibile non è sufficiente, Azure Cosmos DB restituirebbe un errore HTTP 429. Uno qualsiasi degli SDK dell'API Core (SQL) corrente tenterà automaticamente di ripetere la query dopo un breve periodo di tempo. Le richieste limitate richiedono una quantità di tempo maggiore, quindi l'aumento della velocità effettiva con provisioning può migliorare la latenza delle query. È possibile osservare il [numero totale di richieste limitate](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) richieste nel pannello metriche del portale di Azure.
 
-## <a name="increasing-maxconcurrency"></a>Aumento della MaxConcurrency
+## <a name="increase-maxconcurrency"></a>Aumenta MaxConcurrency
 
 Le query parallele funzionano eseguendo query su più partizioni in parallelo. I dati di una singola raccolta partizionata vengono recuperati in modo seriale per quanto riguarda la query. Quindi, la modifica di MaxConcurrency al numero di partizioni ha la possibilità massima di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare MaxConcurrency (o MaxDegreesOfParallelism nelle versioni precedenti dell'SDK) su un numero elevato e il sistema sceglie il numero minimo di partizioni, ovvero l'input fornito dall'utente, come massimo grado di parallelismo.
 
-## <a name="increasing-maxbuffereditemcount"></a>Aumento della MaxBufferedItemCount
+## <a name="increase-maxbuffereditemcount"></a>Aumenta MaxBufferedItemCount
 
 Le query sono progettate per recuperare in anticipo i risultati mentre il batch di risultati corrente viene elaborato dal client. La prelettura consente il miglioramento complessivo della latenza di una query. L'impostazione di MaxBufferedItemCount limita il numero di risultati prerecuperati. Impostando questo valore sul numero previsto di risultati restituiti (o un numero più alto), la query può ricevere il massimo vantaggio dal recupero preliminare. Impostando questo valore su-1 si consente al sistema di decidere automaticamente il numero di elementi da memorizzare nel buffer.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0b24c064424b00fa9acb96b03c0a3c5ca69f67f2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930192"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264377"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creare una regola di telemetria e impostare notifiche nell'applicazione Azure IoT Central
 
@@ -27,7 +27,7 @@ I dispositivi possono usare unità di misura di dati di telemetria per l'invio d
 
 ## <a name="create-a-telemetry-rule"></a>Creare una regola di telemetria
 
-Per creare una regola di telemetria, il modello di dispositivo deve disporre di misurazione di almeno una telemetria definita. L'esempio usa un distributore automatico refrigerato, che invia dati di telemetria relativi alla temperatura e all'umidità. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 27 gradi.
+Per creare una regola di telemetria, il modello di dispositivo deve disporre di misurazione di almeno una telemetria definita. L'esempio usa un distributore automatico refrigerato, che invia dati di telemetria relativi alla temperatura e all'umidità. La regola monitora la temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando supera 70&deg; F.
 
 1. Usando la pagina **modelli di dispositivo** , passare al modello di dispositivo per cui si sta aggiungendo la regola.
 
@@ -43,7 +43,7 @@ Per creare una regola di telemetria, il modello di dispositivo deve disporre di 
 
 1. Immettere un nome che consente di identificare la regola in questo modello di dispositivo.
 
-1. Per attivare immediatamente la regola per tutti i dispositivi creati per questo modello, attivare o disattivare **Abilita regola** per tutti i dispositivi di questo modello.
+1. Per abilitare immediatamente la regola per tutti i dispositivi creati per questo modello, impostare **Abilita regola per tutti i dispositivi di questo modello**.
 
    ![Dettagli regola](media/howto-create-telemetry-rules/rule_detail1.png)
 
@@ -58,8 +58,8 @@ Condizione definisce i criteri che vengono monitorato dalla regola.
 1. Selezionare la telemetria da monitorare nell'elenco a discesa **Misura**.
 
 1. Scegliere quindi **Aggregazione**, **Operatore** e specificare un valore **Soglia**.
-   - L'aggregazione è facoltativa. Senza aggregazione, la regola viene attivata per ogni punto dati di telemetria che soddisfa la condizione. Se, ad esempio, la regola è configurata per essere attivata quando la temperatura è superiore a 80, la regola viene attivata quasi immediatamente quando il dispositivo segnala la temperatura > 80.
-   - Se viene usata una funzione di aggregazione come Media, Min, Max, Calcolo, è necessario specificare un **intervallo di tempo di aggregazione** su cui la condizione deve essere valutata. Ad esempio, se si imposta il periodo su "5 minuti" e la regola cerca una temperatura media superiore a 80, la regola viene attivata quando la temperatura media è superiore a 80 per almeno 5 minuti. La frequenza di valutazione della regola è identica all'**intervallo di tempo di aggregazione**, ovvero, in questo esempio, la regola viene valutata una volta ogni 5 minuti.
+   - L'aggregazione è facoltativa. Senza aggregazione, la regola viene attivata per ogni punto dati di telemetria che soddisfa la condizione. Se, ad esempio, la regola è configurata per essere attivata quando la temperatura è superiore a 70&deg; F, la regola viene attivata quasi immediatamente quando il dispositivo segnala la temperatura > 70.
+   - Se viene usata una funzione di aggregazione come Media, Min, Max, Calcolo, è necessario specificare un **intervallo di tempo di aggregazione** su cui la condizione deve essere valutata. Se ad esempio si imposta il periodo su "5 minuti" e la regola cerca la temperatura media superiore a 70, la regola viene attivata quando la temperatura media è superiore a 70&deg; F per almeno 5 minuti. La frequenza di valutazione della regola è identica all'**intervallo di tempo di aggregazione**, ovvero, in questo esempio, la regola viene valutata una volta ogni 5 minuti.
 
      ![Condizione](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
@@ -90,11 +90,11 @@ Questa sezione illustra come configurare le azioni da intraprendere quando la re
 
 ## <a name="parameterize-the-rule"></a>Impostare parametri per la regola
 
-Le regole possono derivare determinati valori da **Device Properties** (Proprietà dispositivo) sotto forma di parametri. L'uso dei parametri è pratico negli scenari in cui le soglie di telemetria variano a seconda del dispositivo. Quando si crea la regola, invece di specificare un valore assoluto, ad esempio 27 gradi, scegliere una proprietà del dispositivo che specifica la soglia, ad esempio **Maximum Ideal Threshold** (Soglia massima ideale). Quando la regola viene eseguita, rileva la corrispondenza tra la telemetria del dispositivo e il valore specificato nella proprietà dispositivo.
+Le regole possono derivare determinati valori da **Device Properties** (Proprietà dispositivo) sotto forma di parametri. L'uso dei parametri è pratico negli scenari in cui le soglie di telemetria variano a seconda del dispositivo. Quando si crea la regola, scegliere una proprietà del dispositivo che specifichi la soglia, ad esempio la **soglia ideale massima**, anziché fornire un valore assoluto, ad esempio 70&deg; F. Quando la regola viene eseguita, corrisponde ai dati di telemetria del dispositivo con il valore impostato nella proprietà del dispositivo.
 
 L'uso dei parametri è un metodo efficace per ridurre il numero di regole da gestire per ogni modello di dispositivo.
 
-Le azioni possono essere configurate anche usando **Device Property** (Proprietà dispositivo) come parametro. Se un indirizzo di posta elettronica viene archiviato come una proprietà, può essere usato quando si definisce l'indirizzo **A**.
+Le azioni possono anche essere configurate usando **Device Property** (Proprietà dispositivo) come parametro. Se un indirizzo di posta elettronica viene archiviato come una proprietà, può essere usato quando si definisce l'indirizzo **A**.
 
 ## <a name="delete-a-rule"></a>Eliminare una regola
 

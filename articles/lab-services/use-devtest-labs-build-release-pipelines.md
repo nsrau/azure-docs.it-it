@@ -1,5 +1,5 @@
 ---
-title: Usare DevTest Labs in Azure Pipelines pipeline di compilazione e versione | Microsoft Docs
+title: Usare DevTest Labs nelle pipeline di compilazione e versione di Azure Pipelines
 description: Informazioni su come usare Azure DevTest Labs in Azure Pipelines le pipeline di compilazione e rilascio.
 services: devtest-lab, lab-services
 documentationcenter: na
@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e16f3c5a0c0b2b86d6a893f541cefb275a8e7d07
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774461"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169230"
 ---
-# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usare DevTest Labs in Azure Pipelines pipeline di compilazione e rilascio
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usare DevTest Labs nelle pipeline di compilazione e versione di Azure Pipelines
 Questo articolo fornisce informazioni sul modo in cui è possibile usare DevTest Labs in Azure Pipelines pipeline di compilazione e rilascio. 
 
 ## <a name="overall-flow"></a>Flusso generale
@@ -35,7 +35,7 @@ Una volta completata la compilazione, la pipeline di **rilascio** utilizzerà gl
 
 Una delle sedi necessarie è che tutte le informazioni necessarie per ricreare l'ecosistema testato sono disponibili negli elementi di compilazione, inclusa la configurazione delle risorse di Azure. Poiché le risorse di Azure comportano un costo quando vengono usate, le aziende vogliono controllare o tenere traccia dell'uso di queste risorse. In alcune situazioni, i modelli di Azure Resource Manager usati per creare e configurare le risorse possono essere gestiti da un altro reparto, ad esempio. Questi modelli possono essere archiviati in un repository diverso. Ciò comporta una situazione interessante in cui verrà creata e testata una compilazione e il codice e la configurazione devono essere archiviati all'interno degli elementi di compilazione per ricreare correttamente il sistema in produzione. 
 
-Utilizzando DevTest Labs durante la fase di compilazione/test, è possibile aggiungere Azure Resource Manager modelli e i file di supporto alle origini di compilazione in modo che durante la fase di rilascio la configurazione esatta utilizzata per il test di venga distribuita nell'ambiente di produzione. L'attività **crea Azure DevTest Labs ambiente** con la configurazione corretta salverà i modelli di gestione risorse all'interno degli elementi di compilazione. Per questo esempio verrà usato il codice [dell'esercitazione: Consente di compilare un'app Web .NET Core e database SQL nel](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)servizio app Azure per distribuire e testare l'app Web in Azure.
+Utilizzando DevTest Labs durante la fase di compilazione/test, è possibile aggiungere Azure Resource Manager modelli e i file di supporto alle origini di compilazione in modo che durante la fase di rilascio la configurazione esatta utilizzata per il test di venga distribuita nell'ambiente di produzione. L'attività **crea Azure DevTest Labs ambiente** con la configurazione corretta salverà i modelli di gestione risorse all'interno degli elementi di compilazione. Per questo esempio verrà usato il codice dell' [esercitazione: compilare un'app Web .NET Core e database SQL nel servizio app Azure](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)per distribuire e testare l'app Web in Azure.
 
 ![Flusso generale](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -49,7 +49,7 @@ Utilizzando DevTest Labs durante la fase di compilazione/test, è possibile aggi
 La pipeline di compilazione creerà un ambiente DevTest Labs e distribuirà il codice per il test.
 
 ## <a name="set-up-a-build-pipeline"></a>Configurare una pipeline di compilazione
-In Azure Pipelines creare una pipeline di compilazione usando il codice [dell'esercitazione: Creare un'app Web .NET Core e database SQL nel servizio](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)app Azure. Usare il modello di **ASP.NET Core** , che consente di popolare l'attività necessaria per compilare, testare e pubblicare il codice.
+In Azure Pipelines creare una pipeline di compilazione usando il codice dell' [esercitazione: compilare un'app Web .NET Core e database SQL nel servizio app Azure](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Usare il modello di **ASP.NET Core** , che consente di popolare l'attività necessaria per compilare, testare e pubblicare il codice.
 
 ![Selezionare il modello ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -61,7 +61,7 @@ In Azure Pipelines creare una pipeline di compilazione usando il codice [dell'es
 Nell'attività crea ambiente (**Azure DevTest Labs attività crea ambiente** ) utilizzare gli elenchi a discesa per selezionare i valori seguenti:
 
 - Sottoscrizione di Azure
-- nome del Lab
+- Nome del Lab
 - nome del repository
 - nome del modello, che mostra la cartella in cui è archiviato l'ambiente. 
 
@@ -86,7 +86,7 @@ La terza attività è l'attività di **distribuzione del servizio app Azure** . 
 ![Attività di distribuzione del servizio app](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
 ## <a name="set-up-release-pipeline"></a>Configurare la pipeline di rilascio
-Si crea una pipeline di rilascio con due attività: **Distribuzione di Azure: Creare o aggiornare il gruppo** di risorse e **distribuire app Azure servizio**. 
+Si crea una pipeline di rilascio con due attività: **distribuzione di Azure: creare o aggiornare il gruppo di risorse** e **distribuire app Azure servizio**. 
 
 Per la prima attività, specificare il nome e il percorso del gruppo di risorse. Il percorso del modello è un artefatto collegato. Se il modello di Gestione risorse include modelli collegati, è necessario implementare una distribuzione del gruppo di risorse personalizzata. Il modello si trova nell'artefatto di rilascio pubblicato. Eseguire l'override dei parametri di modello per il modello di Gestione risorse. È possibile lasciare le impostazioni rimanenti con i valori predefiniti. 
 

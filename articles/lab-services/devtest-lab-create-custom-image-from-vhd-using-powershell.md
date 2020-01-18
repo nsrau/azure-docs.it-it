@@ -1,5 +1,5 @@
 ---
-title: Creare un'immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell | Microsoft Docs
+title: Creare un'immagine personalizzata da un file VHD usando Azure PowerShell
 description: Automatizzare la creazione di un'immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: b43dc668af74f532838dad3baf1d6e11d51ac69d
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: cd144659dd8a8e981e267be998c9c783b7482840
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964072"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169565"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Creare un'immagine personalizzata da un file VHD usando PowerShell
 
@@ -111,4 +111,4 @@ New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name Cr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere una macchina virtuale all'ambiente lab](devtest-lab-add-vm.md)
+- [Aggiungere una macchina virtuale al lab](devtest-lab-add-vm.md)

@@ -1,5 +1,5 @@
 ---
-title: Configurare le impostazioni di arresto automatico per una macchina virtuale in Azure DevTest Labs | Microsoft Docs
+title: Configurare le impostazioni di arresto automatico per una macchina virtuale in Azure DevTest Labs
 description: Informazioni su come configurare le impostazioni di arresto automatico per una macchina virtuale (VM) in modo che la VM venga arrestata automaticamente quando non è in uso.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 934e8fd71c901c89f328c777103a8cb39bf21ac4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4cca4fd4bc9cd880c5b7a75e54e8cfd8192bae1e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361570"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170201"
 ---
 # <a name="configure-autoshutdown-settings-for-a-vm-in-azure-devtest-labs"></a>Configurare le impostazioni di arresto automatico per una macchina virtuale in Azure DevTest Labs
 Azure DevTest Labs consente di gestire i criteri (impostazioni) in ogni lab, in modo da controllare i costi e ridurre al minimo gli sprechi. Questo articolo illustra come configurare i criteri di arresto automatico per un account Lab e configurare le impostazioni di arresto automatico per un Lab nell'account Lab. Per vedere come impostare ogni criterio del lab, vedere [Definire i criteri di lab in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -29,7 +29,7 @@ I proprietari del lab possono configurare una pianificazione di arresto per tutt
 
 1. Nella home page del lab selezionare **Configurazione e criteri**.
 2. Selezionare **Criteri di arresto automatico** nella sezione **Pianificazioni** del menu a sinistra.
-3. Selezionare una delle opzioni disponibili. Le sezioni seguenti forniscono ulteriori dettagli su queste opzioni: I criteri impostati si applicano solo alle nuove macchine virtuali create nel Lab e non alle macchine virtuali già esistenti. 
+3. Selezionare una delle opzioni disponibili. Le sezioni seguenti forniscono altri dettagli su queste opzioni: il criterio impostato si applica solo alle nuove macchine virtuali create nel lab e non alle macchine virtuali già esistenti. 
 
     ![Opzioni dei criteri di arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
@@ -44,7 +44,7 @@ Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 4. Selezionare **Configuration and policies** (Configurazione e criteri).
 
     ![Riquadro Impostazioni criteri](./media/devtest-lab-set-lab-policy/policies-menu.png)
-5. Nel riquadro **configurazione e criteri** del Lab selezionare **arresto automatico** in pianificazioni.
+5. Nel riquadro **configurazione e criteri** del Lab selezionare **arresto automatico** in **pianificazioni**.
    
     ![Arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 6. Selezionare **Attivo** per abilitare i criteri e **Non attivo** per disabilitarli.

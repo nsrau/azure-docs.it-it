@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966928"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169941"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API di stima
 
@@ -109,11 +109,11 @@ In questa guida verrà usata un'immagine locale, quindi copiare l'URL in **se si
     ```
 
 1. Modificare le informazioni seguenti:
-   * Impostare il `namespace` campo sul nome del progetto.
+   * Impostare il campo `namespace` sul nome del progetto.
    * Sostituire il segnaposto `<Your prediction key>` con il valore della chiave recuperato in precedenza.
    * Sostituire il segnaposto `<Your prediction URL>` con l'URL recuperato in precedenza.
 
-## <a name="run-the-application"></a>Esecuzione dell'applicazione
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Quando si esegue l'applicazione, viene richiesto di immettere un percorso di un file di immagine nella console di. L'immagine viene quindi inviata all'API di stima e i risultati della stima vengono restituiti come stringa in formato JSON. Di seguito è riportato un esempio di risposta.
 
@@ -135,7 +135,7 @@ Quando si esegue l'applicazione, viene richiesto di immettere un percorso di un 
 In questa guida si è appreso come inviare immagini al classificatore/rilevatore di immagini personalizzate e ricevere una risposta a livello C# di codice con l'SDK. Si apprenderà quindi come completare gli scenari end-to- C#end con oppure iniziare a usare un SDK di linguaggio diverso.
 
 * [Guida introduttiva: .NET SDK](csharp-tutorial.md)
-* [Avvio rapido: SDK Python](python-tutorial.md)
-* [Avvio rapido: Java SDK](java-tutorial.md)
-* [Avvio rapido: Node SDK](node-tutorial.md)
-* [Avvio rapido: SDK go](go-tutorial.md)
+* [Guida introduttiva: Python SDK](python-tutorial.md)
+* [Guida introduttiva: Java SDK](java-tutorial.md)
+* [Guida introduttiva: node SDK](node-tutorial.md)
+* [Guida introduttiva: go SDK](go-tutorial.md)

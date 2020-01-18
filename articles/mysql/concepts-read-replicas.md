@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790084"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167340"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -132,7 +132,7 @@ Se si interrompe la replica tra un server master e una replica di lettura, la re
 
 ### <a name="deleted-master-and-standalone-servers"></a>Master eliminato e server autonomi
 
-Quando un server master viene eliminato, la replica viene arrestata per tutte le repliche in lettura. Queste repliche diventano server autonomi. Il server master viene eliminato.
+Quando un server master viene eliminato, la replica viene arrestata per tutte le repliche in lettura. Queste repliche diventano automaticamente server autonomi e possono accettare sia le letture sia le Scritture. Il server master viene eliminato.
 
 ### <a name="user-accounts"></a>Account utente
 

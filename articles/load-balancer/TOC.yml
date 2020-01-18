@@ -4,8 +4,6 @@
   items:
     - name: Che cos'è il servizio di bilanciamento del carico?
       href: load-balancer-overview.md
-    - name: Cos’è Load Balancer Standard?
-      href: load-balancer-standard-overview.md
 - name: Guida introduttiva
   items:
     - name: Creare un'istanza di Load Balancer Standard

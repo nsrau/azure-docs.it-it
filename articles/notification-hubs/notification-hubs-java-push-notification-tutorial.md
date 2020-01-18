@@ -1,5 +1,5 @@
 ---
-title: Come usare Hub di notifica con Java
+title: Come usare hub di notifica di Azure con Java
 description: Informazioni su come usare Hub di notifica di Azure da un back-end Java.
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 532ffc7a7393f016f27264b67b4ee5d3e6e5888f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213217"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263864"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Come usare Hub di notifica da Java
 
@@ -41,7 +41,7 @@ L'SDK supporta attualmente:
 * Invii regolari
 * Invii pianificati
 * Operazioni asincrone tramite Java NIO
-* Piattaforme supportate: APNS (iOS), FCM (Android), WNS (app di Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire) e Baidu (Android senza servizi Google)
+* Piattaforme supportate: APNS (iOS), FCM (Android), WNS (app di Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android senza servizi Google)
 
 ## <a name="sdk-usage"></a>Uso dell'SDK
 
@@ -71,7 +71,7 @@ Per creare:
     hub = namespaceManager.createNotificationHub(hub);
     ```
 
- Oppure
+ OPPURE
 
     ```java
     hub = new NotificationHub("connection string", "hubname");
@@ -374,7 +374,7 @@ Quando si esegue il codice Java, dovrebbe essere visualizzata una notifica sul d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento è stato illustrato come creare un semplice client REST Java per Hub di notifica. A questo punto è possibile:
+In questo argomento è stato illustrato come creare un semplice client REST Java per Hub di notifica. Da qui è possibile:
 
 * Scaricare la versione completa di [SDK per Java]contenente l'intero codice SDK.
 * Consultare gli esempi:

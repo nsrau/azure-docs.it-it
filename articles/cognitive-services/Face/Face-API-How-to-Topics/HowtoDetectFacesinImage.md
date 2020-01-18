@@ -1,5 +1,5 @@
 ---
-title: Rilevare visi in un'immagine-API Viso
+title: Rileva visi in un'immagine-faccia
 titleSuffix: Azure Cognitive Services
 description: Questa guida illustra come usare il rilevamento viso per estrarre attributi come Gender, Age o pose da un'immagine specifica.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744274"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169886"
 ---
 # <a name="get-face-detection-data"></a>Ottenere i dati di rilevamento viso
 
-Questa guida illustra come usare il rilevamento viso per estrarre attributi come Gender, Age o pose da un'immagine specifica. I frammenti di codice in questa guida sono scritti in C# usando la libreria client di servizi cognitivi di Azure API viso. La stessa funzionalità è disponibile tramite l' [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Questa guida illustra come usare il rilevamento viso per estrarre attributi come Gender, Age o pose da un'immagine specifica. I frammenti di codice in questa guida sono scritti in C# usando la libreria client Face di servizi cognitivi di Azure. La stessa funzionalità è disponibile tramite l' [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 Questa guida illustra come:
 

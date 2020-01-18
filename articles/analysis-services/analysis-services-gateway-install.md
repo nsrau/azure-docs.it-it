@@ -4,21 +4,21 @@ description: Informazioni su come installare e configurare un gateway dati local
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f578840726543027a8c1b1db9bd88ea42f6e85fa
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029890"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264068"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 
-Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale.  Mentre il gateway installato è lo stesso usato da altri servizi, ad esempio Power BI, Power Apps e app per la logica, quando si installa per Azure Analysis Services, è necessario completare alcuni passaggi aggiuntivi. Questo articolo di installazione è specifico per **Azure Analysis Services**.
+Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale.  Mentre il gateway installato è lo stesso usato da altri servizi, ad esempio Power BI, Power Apps e app per la logica, quando si installa per Azure Analysis Services, è necessario completare alcuni passaggi aggiuntivi. Questo articolo di installazione è specifico per **Azure Analysis Services**. 
 
-Per altre informazioni sul gateway e su come viene usato da Azure Analysis Services, vedere [connessione alle origini dati locali](analysis-services-gateway.md).
+Per altre informazioni sul funzionamento di Azure Analysis Services con il gateway, vedere [connessione alle origini dati locali](analysis-services-gateway.md). Per altre informazioni sugli scenari di installazione avanzati e sul gateway in generale, vedere la documentazione relativa ai [gateway dati locali](/data-integration/gateway/service-gateway-onprem).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,11 +35,11 @@ Per altre informazioni sul gateway e su come viene usato da Azure Analysis Servi
 
 **Considerazioni importanti:**
 
-* Durante l'installazione, quando si registra il gateway con Azure, viene selezionata l'area predefinita per la sottoscrizione. È possibile scegliere un'area diversa. Se si dispone di server in più aree, è necessario installare un gateway per ogni area. 
+* Durante l'installazione, quando si registra il gateway con Azure, viene selezionata l'area predefinita per la sottoscrizione. È possibile scegliere una sottoscrizione e un'area diversi. Se si dispone di server in più aree, è necessario installare un gateway per ogni area. 
 * Il gateway non può essere installato in un controller di dominio.
 * In un singolo computer può essere installato un solo gateway.
 * Installare il gateway in un computer che rimane attivo e non passa alla modalità di sospensione.
-* Non installare il gateway in un computer connesso alla rete in modalità wireless. È infatti possibile che si verifichi un calo delle prestazioni.
+* Non installare il gateway in un computer con una connessione wireless solo alla rete. È infatti possibile che si verifichi un calo delle prestazioni.
 * Quando si installa il gateway, l'account utente con il quale è stato effettuato l'accesso al computer deve accedere come privilegi del servizio. Al termine dell'installazione, il servizio di gateway dati locale usa l'account NT SERVICE\PBIEgwService per accedere come un servizio. È possibile specificare un altro account durante l'installazione o in Services al termine dell'installazione. Assicurarsi che le impostazioni dei Criteri di gruppo consentano di accedere come privilegi di servizio all'account con il quale ci si è connessi al momento dell'installazione e all'account di servizio scelto per l'accesso.
 * Accedere ad Azure con un account di Azure AD per lo stesso [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) della sottoscrizione in cui si sta registrando il gateway. Gli account Azure B2B (guest) non sono supportati per l'installazione e registrazione di un gateway.
 * Se le origini dati si trovano in un'istanza di Rete virtuale di Azure (VNet), è necessario configurare la proprietà del server [AlwaysUseGateway](analysis-services-vnet-gateway.md).
@@ -87,7 +87,7 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
 
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure
 
-Dopo aver installato e registrato il gateway, è necessario creare una risorsa per il gateway nella sottoscrizione di Azure. Accedere ad Azure con lo stesso account usato durante la registrazione del gateway.
+Dopo aver installato e registrato il gateway, è necessario creare una risorsa del gateway in Azure. Accedere ad Azure con lo stesso account usato durante la registrazione del gateway.
 
 1. In portale di Azure fare clic su **Crea una risorsa**, quindi cercare **il gateway dati locale**e quindi fare clic su **Crea**.
 

@@ -1,7 +1,7 @@
 ---
-title: Note sulla versione - Servizio API Viso
+title: Note sulla versione-servizio Face
 titleSuffix: Azure Cognitive Services
-description: Le note sulla versione per il servizio API Viso includono una cronologia delle modifiche delle varie versioni.
+description: Le note sulla versione per il servizio viso includono una cronologia delle modifiche di versione per varie versioni.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: yluiu
-ms.openlocfilehash: a7667f94d3f4dea2901c4b4b0e2b2c893b9f535e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 767c9dec373a2bda806d75d602b194edde98c6b5
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074085"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165859"
 ---
-# <a name="face-api-release-notes"></a>Note sulla versione dell'API Viso
+# <a name="face-release-notes"></a>Note sulla versione del volto
 
-Questo articolo si riferisce al servizio API Viso versione 1.0.
+Questo articolo è relativo alla versione 1,0 del servizio Face.
 
-### <a name="release-changes-in-june-2019"></a>Modifiche di versione nel giugno 2019
+### <a name="release-changes-in-june-2019"></a>Modifiche della versione nel 2019 giugno
 
-* Aggiungere un nuovo modello di rilevamento viso con una maggiore precisione sulle facce di piccole dimensioni, side-vista, bloccate e sfocate. Usare tramite il [affrontano: rilevare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [persona di gruppo di persone - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) e [LargePersonGroup persona - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) specificando il nuovo nome di modello di rilevamento viso `detection_02` in `detectionModel` parametro. Altre informazioni, vedere [come specificare un modello di rilevamento](Face-API-How-to-Topics/specify-detection-model.md).
+* È stato aggiunto un nuovo modello di rilevamento viso con maggiore precisione sui visi piccoli, a visualizzazione laterale, bloccati e sfocati. Usare il tipo di rilevamento [viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), facet [-Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList-Add](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)visi, [gruppo person-Add](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) Face e [LargePersonGroup person-Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) , specificando il nuovo nome del modello di rilevamento viso `detection_02` `detectionModel` parametro. Ulteriori informazioni su [come specificare un modello di rilevamento](Face-API-How-to-Topics/specify-detection-model.md).
 
-### <a name="release-changes-in-april-2019"></a>Modifiche di versione nel mese di aprile 2019
+### <a name="release-changes-in-april-2019"></a>Modifiche della versione nel 2019 aprile
 
-* Migliorata l'accuratezza complessiva del `age` e `headPose` attributi. Il `headPose` attributo venga aggiornato con il `pitch` valore ora abilitato. Usare questi attributi specificandole nel `returnFaceAttributes` parametro di [affrontano: rilevare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parametro. 
+* Accuratezza complessiva migliorata degli attributi `age` e `headPose`. Anche l'attributo `headPose` viene aggiornato con il valore di `pitch` abilitato ora. Usare questi attributi specificando questi attributi nel parametro `returnFaceAttributes` del parametro `returnFaceAttributes` del [rilevamento delle facce](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . 
 
-* Migliorato velocità della [affrontano: rilevare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [persona di gruppo di persone - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) e [ Persona LargePersonGroup - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
+* Maggiore velocità di [rilevamento viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), facet [-Add](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)visi, [LargeFaceList-Add](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)face, [gruppo person-Add](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) Face e [LargePersonGroup person-Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
 
-### <a name="release-changes-in-march-2019"></a>Modifiche di versione nel mese di marzo 2019
+### <a name="release-changes-in-march-2019"></a>Modifiche della versione nel 2019 marzo
 
-* Aggiungere un nuovo modello di riconoscimento volto con una maggiore precisione. Usarlo attraverso [affrontano: rilevare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - creare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList - creare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [gruppo di persone - creare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [ LargePersonGroup - creare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) specificando il nuovo nome di modello di riconoscimento volto `recognition_02` in `recognitionModel` parametro. Altre informazioni, vedere [come specificare un modello di riconoscimento](Face-API-How-to-Topics/specify-recognition-model.md).
+* È stato aggiunto un nuovo modello di riconoscimento viso con maggiore accuratezza. Usare il [rilevamento delle facce](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [facet-create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList-create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [gruppo-create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [LargePersonGroup-create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) specificando il nuovo nome del modello di riconoscimento della faccia `recognition_02` in `recognitionModel` parametro. Ulteriori informazioni su [come specificare un modello di riconoscimento](Face-API-How-to-Topics/specify-recognition-model.md).
 
 ### <a name="release-changes-in-january-2019"></a>Modifiche alla versione di gennaio 2019
 
-* Aggiunta della funzionalità Snapshot per supportare la migrazione dei dati tra le sottoscrizioni: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). Altre informazioni, vedere [come eseguire la migrazione dei dati viso in un'altra sottoscrizione di volti](Face-API-How-to-Topics/how-to-migrate-face-data.md).
+* Aggiunta della funzionalità snapshot per supportare la migrazione dei dati tra sottoscrizioni: [snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). Altre informazioni su [come eseguire la migrazione dei dati volti a una sottoscrizione di un altro viso](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### <a name="release-changes-in-october-2018"></a>Modifiche alla versione di ottobre 2018
 
@@ -45,19 +45,19 @@ Questo articolo si riferisce al servizio API Viso versione 1.0.
 
 ### <a name="release-changes-in-may-2018"></a>Modifiche alla versione di maggio 2018
 
-* L'attributo `gender` è stato migliorato significativamente, inoltre sono stati modificati anche gli attributi `age`, `glasses`, `facialHair`, `hair` e `makeup`. Usarli tramite il parametro [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes`. 
+* L'attributo `gender` è stato migliorato significativamente, inoltre sono stati modificati anche gli attributi `age`, `glasses`, `facialHair`, `hair` e `makeup`. Usare i parametri tramite il parametro [di rilevamento delle facce](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes`. 
 
 * Il limite delle dimensioni del file di immagine di input è stato aumentato da 4 MB a 6 MB in [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) e [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
 
 ### <a name="release-changes-in-march-2018"></a>Modifiche alla versione di marzo 2018
 
-* Aggiunta del contenitore Million-Scale: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Maggiori dettagli sono descritti in [Come usare la funzionalità su larga scala](Face-API-How-to-Topics/how-to-use-large-scale.md).
+* È stato aggiunto il contenitore Million-Scale: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Maggiori dettagli sono descritti in [Come usare la funzionalità su larga scala](Face-API-How-to-Topics/how-to-use-large-scale.md).
 
-* Il parametro [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` è stato aumentato da [1, 5] a [1, 100] e il valore predefinito è stato impostato su 10.
+* Aumentare [il](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) valore di `maxNumOfCandidatesReturned` parametro da [1, 5] a [1, 100] e il valore predefinito è 10.
 
 ### <a name="release-changes-in-may-2017"></a>Modifiche alla versione di maggio 2017
 
-* Sono stati aggiunti gli attributi `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure` e `noise` nel parametro [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes`.
+* Sono stati aggiunti attributi `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure`e `noise` nel parametro del `returnFaceAttributes` del [rilevamento delle facce](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) .
 
 * PersonGroup e [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) supportano 10.000 persone.
 
@@ -66,7 +66,7 @@ Questo articolo si riferisce al servizio API Viso versione 1.0.
 * È supportata la concorrenza nell'aggiunta/nell'eliminazione di volti in FaceList diversi e persone diverse in PersonGroup.
 
 ### <a name="release-changes-in-march-2017"></a>Modifiche alla versione di marzo 2017
-* È stato aggiunto l'attributo `emotion` nel parametro [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes`.
+* Aggiunta `emotion` attributo nei parametri di `returnFaceAttributes` del [rilevamento delle facce](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) .
 
 * È stato risolto il problema di impossibilità di rilevare il viso con la restituzione di un rettangolo da [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) come `targetFace` in [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) e [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 

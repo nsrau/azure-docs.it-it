@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 26056e9b52ea319856505db837c67dc68b2f4aa6
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 96eaae81a25e361c0041fb02099b8e0cb9da8c28
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157288"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260455"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Guida alla risoluzione dei problemi di hub eventi di Azure
 Questo articolo fornisce alcune eccezioni .NET generate da Hub eventi .NET Framework API e altri suggerimenti per la risoluzione dei problemi. 
@@ -103,25 +103,42 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problemi di connettività, certificato o timeout
 I passaggi seguenti possono essere utili per la risoluzione dei problemi di connettività/certificato/timeout per tutti i servizi in *. servicebus.windows.net. 
 
-- Passare a o [wget](https://www.gnu.org/software/wget/) `https://sbwagn2.servicebus.windows.net/`. Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
-- Eseguire il comando seguente per verificare se una porta è bloccata sul firewall. A seconda della libreria usata, vengono usate anche altre porte. Ad esempio: 443, 5672, 9354.
+- Passare a o [wget](https://www.gnu.org/software/wget/) `https://<yournamespacename>.servicebus.windows.net/`. Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
+- Eseguire il comando seguente per verificare se una porta è bloccata sul firewall. Le porte usate sono 443 (HTTPS), 5671 (AMQP) e 9093 (Kafka). A seconda della libreria usata, vengono usate anche altre porte. Ecco il comando di esempio che controlla se la porta 5671 è bloccata.
 
     ```powershell
-    tnc sbwagn2.servicebus.windows.net -port 5671
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
     In Linux:
 
     ```shell
-    telnet sbwagn2.servicebus.windows.net 5671
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio, quindi è possibile controllare il numero di riuscite/non riuscite e vedere anche la latenza di connessione TCP. È possibile scaricare lo strumento `psping` da [qui](/sysinternals/downloads/psping).
+    
+    Esempio di messaggio riuscito:
+    
+    ```xml
+    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
+    ```
+    
+    Esempio di messaggio di errore di errore:
+
+    ```json
+    <Error>
+        <Code>400</Code>
+        <Detail>
+            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
+        </Detail>
+    </Error>
+    ```
+- Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio. Quindi, è possibile controllare il numero di riuscite/non riuscite e vedere anche latenza di connessione TCP. È possibile scaricare lo strumento `psping` da [qui](/sysinternals/downloads/psping).
 
     ```shell
-    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
+    .\psping.exe -n 25 -i 1 -q <yournamespacename>.servicebus.windows.net:5671 -nobanner     
     ```
     È possibile utilizzare comandi equivalenti se si utilizzano altri strumenti, ad esempio `tnc`, `ping`e così via. 
-- Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzati o contattano [supporto tecnico Microsoft](https://support.microsoft.com/). 
+- Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzarli tramite strumenti come [Wireshark](https://www.wireshark.org/). Se necessario, contattare [supporto tecnico Microsoft](https://support.microsoft.com/) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

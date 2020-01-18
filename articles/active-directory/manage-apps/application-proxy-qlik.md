@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45bf71274d8eb1039254cafe48a34587199be724
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859545"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263507"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
 Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme per permettere di usare con facilità l'Application Proxy e fornire l'accesso remoto alla distribuzione Qlik Sense.  
@@ -52,17 +52,17 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 ### <a name="application-2"></a>Applicazione n°2: 
 Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni seguenti: 
 
-**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e 4248 per HTTP. Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br> 
-**Passaggio 10:** non configurare SSO e lasciare l'accesso **Single Sign-On disabilitato**
+**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e **4248** per http per le versioni Qlik Sense precedenti al 2018 aprile. Il valore predefinito per le versioni di Qlik Sense dopo il 2018 aprile è **443** per HTTPS e **80** per http.  Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br>**Passaggio 10:** non configurare SSO e lasciare il **Single Sign-On disabilitato** 
+
  
  
 ## <a name="testing"></a>Test 
 L'applicazione è ora pronta per il test. Accedere all'URL esterno usato per pubblicare Qlik Sense nell'applicazione n°1 e accedere come utente assegnato a entrambe le applicazioni.  
 
-## <a name="additional-references"></a>Altri riferimenti
-Per altre informazioni sulla pubblicazione Qlik Sense con Proxy dell'applicazione, vedere gli articoli Community Qlik i seguenti: 
-- [Azure AD con l'autenticazione integrata di Windows usando una delega vincolata Kerberos con Qlik Sense](https://community.qlik.com/docs/DOC-20183)
-- [Integrazione di Qlik Sense con Azure AD Application Proxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+Per altre informazioni sulla pubblicazione di Qlik Sense con il proxy di applicazione, vedere gli articoli della community di Qlik seguenti: 
+- [Azure AD con autenticazione integrata di Windows tramite una delega vincolata Kerberos con Qlik Sense](https://community.qlik.com/docs/DOC-20183)
+- [Integrazione di Qlik Sense con Azure AD proxy di applicazione](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

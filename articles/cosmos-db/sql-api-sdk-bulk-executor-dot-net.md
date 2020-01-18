@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/14/2020
+ms.date: 01/16/2020
 ms.author: ramkris
-ms.openlocfilehash: b5d4f490f7710824b8382091a1e814f6847766fa
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 1a8040fc397b526b540ce9343baa985cab49e2b4
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945549"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169406"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Libreria dell'executor bulk .NET: informazioni sul download 
 
@@ -72,6 +72,10 @@ ms.locfileid: "75945549"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Aggiunta di .NET Standard 2,0 come uno dei framework di destinazione supportati per far funzionare la libreria dell'executor bulk con le applicazioni .NET Core.
+
+### <a name="a-name188188"></a><a name="1.8.8"/>1.8.8
+
+* È stato risolto un problema in MongoBulkExecutor che stava aumentando la dimensione del documento in modo imprevisto aggiungendo spaziatura interna e in alcuni casi, superando il limite massimo consentito per le dimensioni del documento.
 
 ### <a name="a-name187187"></a><a name="1.8.7"/>1.8.7
 

@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare gli errori degli elementi in una macchina virtuale di Azure DevTest Labs | Microsoft Docs
+title: Diagnosticare gli errori degli elementi in una macchina virtuale Azure DevTest Labs
 description: Informazioni su come risolvere i problemi relativi agli elementi in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8b7a72c03d41d54aa80505e781b6f6d32cd2a2c0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 50cb3138b8d79c4d60c94513d931996d667d9c01
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991373"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170323"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticare errori di elementi nel lab 
 Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto esito positivo o negativo. I log degli elementi in Azure DevTest Labs forniscono informazioni che è possibile usare per diagnosticare un errore di un elemento. Ci sono due modi per visualizzare le informazioni del log degli elementi per una macchina virtuale Windows:
@@ -52,7 +52,7 @@ Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto e
 
 3. Aprire il file di **stato**.
 
-Per istruzioni su come trovare i file di log in una macchina virtuale **Linux** , vedere l'articolo seguente: [Usare l'estensione di script personalizzata di Azure versione 2 con macchine virtuali Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+Per istruzioni su come trovare i file di log in una macchina virtuale **Linux** , vedere l'articolo relativo all' [uso dell'estensione di script personalizzati di Azure versione 2 con macchine virtuali Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting) .
 
 
 ## <a name="related-blog-posts"></a>Post di blog correlati

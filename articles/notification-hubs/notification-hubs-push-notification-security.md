@@ -1,6 +1,6 @@
 ---
-title: Sicurezza di Hub di notifica
-description: Questo argomento descrive la sicurezza per gli hub di notifica di Azure.
+title: Modello di sicurezza di hub di notifica
+description: Informazioni sul modello di sicurezza per hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273628"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263762"
 ---
 # <a name="notification-hubs-security"></a>Sicurezza di hub di notifica
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questo argomento viene descritto il modello di protezione degli hub di notifica di Azure.
 
@@ -46,13 +46,13 @@ La chiave con accesso in **ascolto** consente a un'app client di registrarsi per
 
 ## <a name="security-claims"></a>Attestazioni di sicurezza
 
-Analogamente ad altre entità, le operazioni degli hub di notifica sono consentite per tre attestazioni di sicurezza: **Ascolto**, **invio**e **gestione**.
+Analogamente ad altre entità, le operazioni dell'hub di notifica sono consentite per tre attestazioni di sicurezza: **ascolto**, **invio**e **gestione**.
 
-| Attestazione   | Descrizione                                          | Operazioni consentite |
+| Attestazione   | Description                                          | Operazioni consentite |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Essere in ascolto  | Creare o aggiornare, leggere ed eliminare singole registrazioni | Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Eliminare una registrazione |
-| Invio    | Inviare messaggi all'hub di notifica                | Invia messaggio |
-| Gestisci  | CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Crea/aggiorna/leggi/Elimina Hub<br><br>Leggere le registrazioni per tag |
+| Attesa  | Creare o aggiornare, leggere ed eliminare singole registrazioni | Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Elimina registrazione |
+| Invia    | Inviare messaggi all'hub di notifica                | Send message |
+| Gestire  | CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Crea/aggiorna/leggi/Elimina Hub<br><br>Leggere le registrazioni per tag |
 
 Hub di notifica accetta i token SAS generati con chiavi condivise configurate direttamente nell'hub.
 

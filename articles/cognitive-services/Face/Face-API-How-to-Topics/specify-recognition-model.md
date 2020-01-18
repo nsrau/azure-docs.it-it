@@ -1,7 +1,7 @@
 ---
-title: Come specificare un modello di riconoscimento-API Viso
+title: Come specificare un modello di riconoscimento-Face
 titleSuffix: Azure Cognitive Services
-description: In questo articolo viene illustrato come scegliere il modello di riconoscimento da usare con l'applicazione Azure API Viso.
+description: In questo articolo viene illustrato come scegliere il modello di riconoscimento da usare con l'applicazione Azure Face.
 services: cognitive-services
 author: longli0
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 44392b807659ff8f13511b48d0afd33db080e4f6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771020"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166467"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
-Questa guida illustra come specificare un modello di riconoscimento viso per il rilevamento del viso, l'identificazione e la ricerca di somiglianza usando il API Viso di Azure.
+Questa guida illustra come specificare un modello di riconoscimento viso per il rilevamento del viso, l'identificazione e la ricerca di somiglianza usando il servizio Azure Face.
 
-Il API Viso usa i modelli di apprendimento automatico per eseguire operazioni sui visi umani nelle immagini. Continuiamo a migliorare l'accuratezza dei nostri modelli in base ai commenti e ai suggerimenti dei clienti e ai miglioramenti apportati alla ricerca e offriamo questi miglioramenti come aggiornamenti del modello. Gli sviluppatori hanno la possibilità di specificare la versione del modello di riconoscimento viso che si vuole usare. possono scegliere il modello più adatto al caso d'uso.
+Il servizio viso usa i modelli di apprendimento automatico per eseguire operazioni sui visi umani nelle immagini. Continuiamo a migliorare l'accuratezza dei nostri modelli in base ai commenti e ai suggerimenti dei clienti e ai miglioramenti apportati alla ricerca e offriamo questi miglioramenti come aggiornamenti del modello. Gli sviluppatori hanno la possibilità di specificare la versione del modello di riconoscimento viso che si vuole usare. possono scegliere il modello più adatto al caso d'uso.
 
 Se si è un nuovo utente, è consigliabile usare il modello più recente. Per informazioni su come specificarlo in operazioni viso diverse evitando conflitti tra i modelli, vedere. Se si è un utente avanzato e non si è certi se è necessario passare al modello più recente, passare alla sezione [valuta modelli diversi](#evaluate-different-models) per valutare il nuovo modello e confrontare i risultati con il set di dati corrente.
 
@@ -57,7 +57,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>Identificare i visi con il modello specificato
 
-Il API Viso è in grado di estrarre i dati facciali da un'immagine e di associarli a un oggetto **Person** (tramite la chiamata all'API [Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) , ad esempio) e più oggetti **Person** possono essere archiviati insieme in un **gruppo**. Quindi, è possibile confrontare una nuova faccia con una **gruppo** (con la chiamata di [Face - Identify] ) e la persona corrispondente all'interno del gruppo.
+Il servizio viso può estrarre i dati facciali da un'immagine e associarli a un oggetto **Person** (tramite la chiamata all'API [Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) , ad esempio) e più oggetti **Person** possono essere archiviati insieme in un **gruppo**. Quindi, è possibile confrontare una nuova faccia con una **gruppo** (con la chiamata di [Face - Identify] ) e la persona corrispondente all'interno del gruppo.
 
 Un **gruppo** deve avere un solo modello di riconoscimento univoco per tutte le **persone**e può essere specificato usando il parametro `recognitionModel` quando si crea il gruppo ([PersonGroup - Create] o [LargePersonGroup - Create]). Se non si specifica questo parametro, viene utilizzato il modello di `recognition_01` originale. Un gruppo userà sempre il modello di riconoscimento con cui è stato creato e i nuovi visi verranno associati a questo modello quando vengono aggiunti al modello; Questa operazione non può essere modificata dopo la creazione di un gruppo. Per visualizzare il modello con cui è configurata una **gruppo** , usare l'API [gruppo-Get] con il parametro _returnRecognitionModel_ impostato su **true**.
 

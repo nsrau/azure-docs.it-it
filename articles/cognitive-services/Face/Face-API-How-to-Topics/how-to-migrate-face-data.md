@@ -1,7 +1,7 @@
 ---
-title: Eseguire la migrazione dei dati sui visi tra sottoscrizioni - API Viso
+title: Eseguire la migrazione dei dati viso tra sottoscrizioni-Face
 titleSuffix: Azure Cognitive Services
-description: Questa guida illustra come eseguire la migrazione dei dati sui visi archiviati da una sottoscrizione dell'API Viso a un'altra.
+description: In questa guida viene illustrato come eseguire la migrazione dei dati del viso archiviati da una sottoscrizione faccia a un'altra.
 services: cognitive-services
 author: lewlu
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859171"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169818"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
 
-Questa guida illustra come spostare i dati facciali, ad esempio un oggetto gruppo salvato con visi, in un'altra sottoscrizione di servizi cognitivi di Azure API Viso. Per spostare i dati, utilizzare la funzionalità snapshot. In questo modo si evita di dover compilare ripetutamente e eseguire il training di un oggetto gruppo o facet quando si spostano o si espandono le operazioni. Ad esempio, è possibile che sia stato creato un oggetto gruppo usando una sottoscrizione di valutazione gratuita e che ora si voglia eseguirne la migrazione alla sottoscrizione a pagamento. In alternativa, potrebbe essere necessario sincronizzare i dati volti tra le sottoscrizioni in aree diverse per un'operazione aziendale di grandi dimensioni.
+Questa guida illustra come spostare i dati facciali, ad esempio un oggetto gruppo salvato con visi, in una sottoscrizione diversa del volto di servizi cognitivi di Azure. Per spostare i dati, utilizzare la funzionalità snapshot. In questo modo si evita di dover compilare ripetutamente e eseguire il training di un oggetto gruppo o facet quando si spostano o si espandono le operazioni. Ad esempio, è possibile che sia stato creato un oggetto gruppo usando una sottoscrizione di valutazione gratuita e che ora si voglia eseguirne la migrazione alla sottoscrizione a pagamento. In alternativa, potrebbe essere necessario sincronizzare i dati volti tra le sottoscrizioni in aree diverse per un'operazione aziendale di grandi dimensioni.
 
-Questa stessa strategia di migrazione si applica anche agli oggetti LargePersonGroup e LargeFaceList. Se non si ha familiarità con i concetti illustrati in questa guida, vedere le relative definizioni nella Guida ai [concetti di riconoscimento delle facce](../concepts/face-recognition.md) . Questa guida usa la libreria client .NET per l'API Viso con C#.
+Questa stessa strategia di migrazione si applica anche agli oggetti LargePersonGroup e LargeFaceList. Se non si ha familiarità con i concetti illustrati in questa guida, vedere le relative definizioni nella Guida ai [concetti di riconoscimento delle facce](../concepts/face-recognition.md) . Questa guida usa la libreria client .NET con C#.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Sono necessari gli elementi seguenti:
 
-- Due API Viso chiavi di sottoscrizione, una con i dati esistenti e l'altra per la migrazione. Per sottoscrivere il servizio API Viso e ottenere la chiave, seguire le istruzioni in [creare un account servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-- Stringa dell'ID di sottoscrizione API Viso corrispondente alla sottoscrizione di destinazione. Per individuarlo, selezionare **Panoramica** nella portale di Azure. 
+- Due chiavi di sottoscrizione del viso, una con i dati esistenti e l'altra per la migrazione. Per sottoscrivere il servizio Face e ottenere la chiave, seguire le istruzioni in [creare un account di servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Stringa dell'ID di sottoscrizione della superficie che corrisponde alla sottoscrizione di destinazione. Per individuarlo, selezionare **Panoramica** nella portale di Azure. 
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 
-Questa guida usa una semplice app console per eseguire la migrazione dei dati per i volti. Per un'implementazione completa, vedere l' [esempio API viso snapshot](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) su GitHub.
+Questa guida usa una semplice app console per eseguire la migrazione dei dati per i volti. Per un'implementazione completa, vedere l' [esempio di snapshot viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) su GitHub.
 
 1. In Visual Studio creare una nuova app console .NET Framework progetto. Denominarlo **FaceApiSnapshotSample**.
 1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto nella Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Selezionare la scheda **Sfoglia** e selezionare **Includi versione preliminare**. Trovare e installare il pacchetto seguente:
@@ -62,7 +62,7 @@ Immettere i valori delle chiavi di sottoscrizione e gli URL degli endpoint per l
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Preparare un oggetto PersonGroup per la migrazione
 
-Per eseguire la migrazione alla sottoscrizione di destinazione, è necessario l'ID di gruppo nella sottoscrizione di origine. Usare il metodo [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) per recuperare un elenco di oggetti gruppo. Ottenere quindi la proprietà [gruppo. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Questo processo ha un aspetto diverso a seconda degli oggetti gruppo. In questa guida, l'ID gruppo di origine viene archiviato `personGroupId`in.
+Per eseguire la migrazione alla sottoscrizione di destinazione, è necessario l'ID di gruppo nella sottoscrizione di origine. Usare il metodo [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) per recuperare un elenco di oggetti gruppo. Ottenere quindi la proprietà [gruppo. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Questo processo ha un aspetto diverso a seconda degli oggetti gruppo. In questa guida, l'ID gruppo di origine viene archiviato in `personGroupId`.
 
 > [!NOTE]
 > Il [codice di esempio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) crea ed esegue il training di un nuovo gruppo per la migrazione. Nella maggior parte dei casi, è necessario avere già un gruppo da usare.
@@ -85,14 +85,14 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperare l'ID dello snapshot
 
-Il metodo utilizzato per creare gli snapshot è asincrono, pertanto è necessario attenderne il completamento. Impossibile annullare le operazioni di snapshot. In questo codice, il `WaitForOperation` metodo monitora la chiamata asincrona. Controlla lo stato ogni 100 ms. Al termine dell'operazione, recuperare un ID operazione analizzando il `OperationLocation` campo. 
+Il metodo utilizzato per creare gli snapshot è asincrono, pertanto è necessario attenderne il completamento. Impossibile annullare le operazioni di snapshot. In questo codice, il metodo `WaitForOperation` monitora la chiamata asincrona. Controlla lo stato ogni 100 ms. Al termine dell'operazione, recuperare un ID operazione analizzando il campo `OperationLocation`. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
-Un valore `OperationLocation` tipico è simile al seguente:
+Un valore di `OperationLocation` tipico è simile al seguente:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
@@ -127,13 +127,13 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-Una volta visualizzato `Succeeded`lo stato dell'operazione, ottenere l'ID dello snapshot analizzando il `ResourceLocation` campo dell'istanza di OperationStatus restituita.
+Quando lo stato dell'operazione indica `Succeeded`, ottenere l'ID dello snapshot analizzando il campo `ResourceLocation` dell'istanza di OperationStatus restituita.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
-Un valore `resourceLocation` tipico è simile al seguente:
+Un valore di `resourceLocation` tipico è simile al seguente:
 
 ```csharp
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
@@ -152,13 +152,13 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 > [!NOTE]
 > Un oggetto snapshot è valido solo per 48 ore. Creare uno snapshot solo se si intende usarlo per la migrazione dei dati subito dopo.
 
-Una richiesta di applicazione snapshot restituisce un altro ID operazione. Per ottenere questo ID, analizzare il `OperationLocation` campo dell'istanza di applySnapshotResult restituita. 
+Una richiesta di applicazione snapshot restituisce un altro ID operazione. Per ottenere questo ID, analizzare il campo `OperationLocation` dell'istanza di applySnapshotResult restituita. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-Il processo dell'applicazione snapshot è anche asincrono, quindi è `WaitForOperation` necessario usarlo di nuovo per attendere il completamento.
+Il processo dell'applicazione snapshot è anche asincrono, quindi usare di nuovo `WaitForOperation` per attenderne il completamento.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 Vedere quindi la documentazione di riferimento per le API pertinente, esplorare un'app di esempio che usa la funzionalità snapshot oppure seguire una guida dettagliata per iniziare a usare le altre operazioni API indicate di seguito:
 
 - [Documentazione di riferimento sugli snapshot (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [Esempio di API Viso snapshot](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [Esempio di snapshot viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Aggiungere visi](how-to-add-faces.md)
 - [Rilevare i visi in un'immagine](HowtoDetectFacesinImage.md)
 - [Identificare i visi in un'immagine](HowtoIdentifyFacesinImage.md)

@@ -1,6 +1,6 @@
 ---
-title: Hub di notifica di Azure - Domande frequenti (FAQ) | Documentazione Microsoft
-description: Domande frequenti su progettazione/implementazione di soluzioni di Hub di notifica
+title: Domande frequenti sugli hub di notifica di Azure | Microsoft Docs
+description: Domande frequenti sulla progettazione e l'implementazione di soluzioni in hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,16 +17,16 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066866"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263830"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 
-## <a name="general"></a>General
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Che cos'è la struttura di risorse di Hub di notifica?
 
@@ -56,7 +56,7 @@ Per i livelli Basic e Standard di Hub di notifica, le applicazioni correttamente
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Come eseguire l'aggiornamento o il downgrade di un hub o di uno spazio dei nomi a un livello diverso?
 
-Passare al **[portale di Azure]**  > **Spazi dei nomi di Hub di notifica** o **Hub di notifica**. Selezionare la risorsa che si desidera aggiornare, quindi passare al **piano tariffario**. Tenere presenti i requisiti seguenti:
+Passare al **[Azure portal]**  > **Spazi dei nomi di Hub di notifica** o **Hub di notifica**. Selezionare la risorsa che si desidera aggiornare, quindi passare al **piano tariffario**. Tenere presenti i requisiti seguenti:
 
 * Il piano tariffario aggiornato si applica a *tutti* gli hub nello spazio dei nomi in uso.
 * Se il conteggio dei dispositivi supera il limite del livello a cui si passa, è necessario eliminare i dispositivi prima effettuare il downgrade.
@@ -181,7 +181,7 @@ Hub di notifica di Azure crittografa tutti i dati dei clienti inattivi, ad eccez
 
 ### <a name="is-there-audit-log-capability"></a>È disponibile una funzionalità di log di controllo?
 
-Sì. Tutte le operazioni di gestione di Hub di notifica aggiornano il log attività di Azure, esposto nel [portale di Azure]. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Tuttavia, il log attività non include operazioni di lettura (GET).
+Sì. Tutte le operazioni di gestione di Hub di notifica aggiornano il log attività di Azure, esposto nel [Azure portal]. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Tuttavia, il log attività non include operazioni di lettura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 
@@ -191,7 +191,7 @@ Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei 
 
 ### <a name="what-telemetry-features-are-available"></a>Sono disponibili le funzionalità di telemetria?
 
-Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [portale di Azure]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
+Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [Azure portal]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
 
 È anche possibile accedere alle metriche a livello di codice. Per altre informazioni, vedere gli articoli seguenti:
 
@@ -202,7 +202,7 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 > [!NOTE]
 > Le notifiche riuscite significano semplicemente che le notifiche push sono state recapitate al PNS esterno, ad esempio APNs per iOS e macOS o FCM per i dispositivi Android. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
 
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Prezzi di Hub di notifica]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [API REST di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn530746.aspx
@@ -215,6 +215,6 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 [Risoluzione dei problemi di Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Metriche di Hub di notifica]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [esportazione/importazione delle registrazioni]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

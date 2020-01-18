@@ -1,5 +1,5 @@
 ---
-title: Distribuire ambienti modello di Gestione risorse annidati in Azure DevTest Labs | Microsoft Docs
+title: Distribuire ambienti modello annidati in Azure DevTest Labs
 description: Informazioni su come distribuire modelli di Azure Resource Manager annidati per fornire ambienti con Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976544"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168829"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Distribuire modelli di Azure Resource Manager annidati per ambienti di testing
 Una distribuzione annidata consente di eseguire altri modelli di Azure Resource Manager dall'interno di un modello Gestione risorse principale. Consente di scomporre la distribuzione in un set di modelli mirati e specifici dello scopo. Fornisce vantaggi in termini di test, riutilizzo e leggibilità. L'articolo [utilizzo di modelli collegati quando si distribuiscono risorse di Azure](../azure-resource-manager/templates/linked-templates.md) fornisce una panoramica di questa soluzione con diversi esempi di codice. Questo articolo fornisce un esempio specifico per Azure DevTest Labs. 

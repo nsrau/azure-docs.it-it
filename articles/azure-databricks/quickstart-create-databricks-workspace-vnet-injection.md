@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889002"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263148"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Guida introduttiva: creare un'area di lavoro Azure Databricks nella propria rete virtuale
 
@@ -41,17 +41,24 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
     |Impostazione|Valore consigliato|Description|
     |-------|---------------|-----------|
-    |Nome|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
-    |Spazio degli indirizzi|10.1.0.0/16|Intervallo di indirizzi della rete virtuale nella notazione CIDR. L'intervallo CIDR deve essere compreso tra/16 e/24|
     |Sottoscrizione|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Gruppo di risorse|databricks-avvio rapido|Selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse per l'account.|
-    |Percorso|\<Selezionare l'area più vicina agli utenti\>|Selezionare una posizione geografica in cui è possibile ospitare la rete virtuale. Usare la località più vicina agli utenti.|
+    |Nome|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
+    |Area|\<Selezionare l'area più vicina agli utenti\>|Selezionare una posizione geografica in cui è possibile ospitare la rete virtuale. Usare la località più vicina agli utenti.|
+
+    ![Nozioni di base per una rete virtuale su portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+
+3. Selezionare **Avanti: indirizzi IP >** e applicare le impostazioni seguenti. Quindi selezionare **Verifica + crea**.
+    
+    |Impostazione|Valore consigliato|Description|
+    |-------|---------------|-----------|
+    |Spazio indirizzi IPv4|10.2.0.0/16|Intervallo di indirizzi della rete virtuale nella notazione CIDR. L'intervallo CIDR deve essere compreso tra/16 e/24|
     |Nome della subnet|default|Selezionare un nome per la subnet predefinita nella rete virtuale.|
-    |Intervallo di indirizzi subnet|10.1.0.0/24|Intervallo di indirizzi della subnet nella notazione CIDR. Deve essere contenuto nello spazio degli indirizzi della rete virtuale. Non è possibile modificare l'intervallo di indirizzi di una subnet in uso.|
+    |Intervallo di indirizzi subnet|10.2.0.0/24|Intervallo di indirizzi della subnet nella notazione CIDR. Deve essere contenuto nello spazio degli indirizzi della rete virtuale. Non è possibile modificare l'intervallo di indirizzi di una subnet in uso.|
 
-    ![Creare una rete virtuale in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
+    ![Impostare le configurazioni IP per una rete virtuale in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-ip-config.png)
 
-3. Al termine della distribuzione, passare alla rete virtuale e selezionare **spazio indirizzi** in **Impostazioni**. Nella casella *aggiungere un intervallo di indirizzi aggiuntivo*, inserire `10.179.0.0/16` e selezionare **Salva**.
+4. Nella scheda **Verifica e crea** selezionare **Crea** per distribuire la rete virtuale. Al termine della distribuzione, passare alla rete virtuale e selezionare **spazio indirizzi** in **Impostazioni**. Nella casella *aggiungere un intervallo di indirizzi aggiuntivo*, inserire `10.179.0.0/16` e selezionare **Salva**.
 
     ![Spazio di indirizzi della rete virtuale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
@@ -70,6 +77,13 @@ Accedere al [portale di Azure](https://portal.azure.com/).
     |Gruppo di risorse|databricks-avvio rapido|Selezionare lo stesso gruppo di risorse usato per la rete virtuale.|
     |Percorso|\<Selezionare l'area più vicina agli utenti\>|Scegliere lo stesso percorso della rete virtuale.|
     |Piano tariffario|Scegliere tra standard o Premium.|Per altre informazioni sui piani tariffari, vedere la [pagina dei prezzi di databricks](https://azure.microsoft.com/pricing/details/databricks/).|
+
+    ![Creare una Azure Databricks di base dell'area di lavoro](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+
+3. Al termine dell'immissione delle impostazioni nella pagina **nozioni di base** , fare clic su **Next: Networking >** e applicare le impostazioni seguenti:
+
+    |Impostazione|Valore consigliato|Description|
+    |-------|---------------|-----------|
     |Distribuire Azure Databricks area di lavoro nella rete virtuale (VNet)|Sì|Questa impostazione consente di distribuire un'area di lavoro Azure Databricks nella rete virtuale.|
     |Rete virtuale|databricks-avvio rapido|Selezionare la rete virtuale creata nella sezione precedente.|
     |Nome della subnet pubblica|subnet pubblica|Usare il nome predefinito della subnet pubblica.|
@@ -77,7 +91,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
     |Nome subnet privata|subnet privata|Usare il nome della subnet privata predefinita.|
     |Intervallo CIDR della subnet privata|10.179.0.0/18|Utilizzare un intervallo CIDR fino a e includendo/26.|
 
-    ![Creare un'area di lavoro Azure Databricks in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+    ![Aggiungere le informazioni VNet all'area di lavoro Azure Databricks in portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-vnet-config.png)
 
 3. Al termine della distribuzione, passare alla risorsa Azure Databricks. Si noti che il peering di rete virtuale è disabilitato. Si noti anche il gruppo di risorse e il gruppo di risorse gestite nella pagina panoramica. 
 

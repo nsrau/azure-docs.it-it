@@ -1,6 +1,6 @@
 ---
 title: Cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica | Microsoft Docs
-description: Informazioni su come cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica di Azure.
+description: Informazioni su come modificare il piano tariffario di uno spazio dei nomi di hub di notifica di Azure.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -13,17 +13,17 @@ ms.date: 01/28/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 679e8b58e5876d5460b426e694df85ded992a36d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212573"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261076"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica di Azure
 Hub di notifica è disponibile con tre piani tariffari: **Gratuito**, **Basic** e **Standard**. Questo articolo illustra come cambiare il piano tariffario per uno spazio dei nomi di Hub di notifica di Azure. 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 In Hub di notifica di Azure un **hub** corrisponde alla risorsa o entità più piccola, in genere mappata a un'applicazione e in grado di contenere un certificato per ogni Platform Notification System supportato per l'app. L'applicazione può essere ibrida o nativa e multipiattaforma.
 
 Uno **spazio dei nomi** è una raccolta di hub di notifica. Ogni spazio dei nomi in genere è costituito da hub correlati e usati per uno scopo specifico. Ad esempio, si possono avere tre diversi spazi dei nomi rispettivamente a scopo di sviluppo, test e produzione. 

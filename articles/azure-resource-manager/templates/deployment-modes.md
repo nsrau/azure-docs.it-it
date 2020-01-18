@@ -2,19 +2,21 @@
 title: Modalità di distribuzione
 description: Viene descritto come specificare se usare una modalità di distribuzione completa o incrementale con Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: dc5446c56c92b61016563995ebc4c884d48e2419
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/17/2020
+ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152392"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261025"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
-Quando si distribuiscono le risorse, specificare se la distribuzione è un aggiornamento incrementale o completo.  La differenza tra queste due modalità è il modo in cui Gestione risorse gestisce le risorse esistenti nel gruppo di risorse che non sono incluse nel modello. La modalità predefinita è incrementale.
+Quando si distribuiscono le risorse, specificare se la distribuzione è un aggiornamento incrementale o completo. La differenza tra queste due modalità è il modo in cui Gestione risorse gestisce le risorse esistenti nel gruppo di risorse che non sono incluse nel modello.
 
 Per entrambe le modalità, Resource Manager prova a creare tutte le risorse specificate nel modello. Se la risorsa esiste già nel gruppo di risorse e le relative impostazioni sono identiche, non viene eseguita alcuna operazione per tale risorsa. Se si modificano i valori della proprietà per una risorsa, questa viene aggiornata con i nuovi valori. Se si prova ad aggiornare il percorso o il tipo di una risorsa esistente, la distribuzione ha esito negativo e restituisce un errore. È invece necessario distribuire una nuova risorsa con il percorso o il tipo necessari.
+
+La modalità predefinita è incrementale.
 
 ## <a name="complete-mode"></a>Modalità completa
 
@@ -46,7 +48,8 @@ Se il gruppo di risorse è [bloccato](../management/lock-resources.md), la modal
 
 Nella modalità incrementale, Resource Manager **lascia invariate** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse nel modello **vengono aggiunte** al gruppo di risorse.
 
-È importante notare che la modalità incrementale si applica all'intera risorsa e non alle singole proprietà di una risorsa esistente. Quando si ridistribuisce una risorsa esistente in modalità incrementale, tutte le proprietà vengono riapplicate. Le **proprietà non vengono aggiunte in modo incrementale**. Un equivoco comune è pensare che le proprietà che non sono specificate nel modello rimangano invariate. Se non si specificano determinate proprietà, Gestione risorse interpreta la distribuzione come sovrascrivendo tali valori. Le proprietà che non sono incluse nel modello vengono reimpostate sui valori predefiniti impostati dal provider di risorse. Specificare tutti i valori non predefiniti per la risorsa, non solo quelli che si sta aggiornando. La definizione di risorsa nel modello contiene sempre lo stato finale della risorsa. Non può rappresentare un aggiornamento parziale di una risorsa esistente.
+> [!NOTE]
+> Quando si ridistribuisce una risorsa esistente in modalità incrementale, tutte le proprietà vengono riapplicate. Le **proprietà non vengono aggiunte in modo incrementale**. Un equivoco comune è pensare che le proprietà che non sono specificate nel modello rimangano invariate. Se non si specificano determinate proprietà, Gestione risorse interpreta la distribuzione come sovrascrivendo tali valori. Le proprietà che non sono incluse nel modello vengono reimpostate sui valori predefiniti. Specificare tutti i valori non predefiniti per la risorsa, non solo quelli che si sta aggiornando. La definizione di risorsa nel modello contiene sempre lo stato finale della risorsa. Non può rappresentare un aggiornamento parziale di una risorsa esistente.
 
 ## <a name="example-result"></a>Risultati di esempio
 

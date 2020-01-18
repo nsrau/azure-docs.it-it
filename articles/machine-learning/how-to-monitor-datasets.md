@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 524a831c63e2a034766b874cc45bb039e3185b50
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4efdc47e65f0f29f74f1477b02efdc6b8767ffb2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536876"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264764"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rileva Drift dei dati (anteprima) nei set di dati
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -315,6 +315,7 @@ Limitazioni e problemi noti:
 * Limitazione delle funzionalità di 200, a meno che non sia specificato un elenco di funzionalità (tutte le funzionalità usate).
 * La dimensione di calcolo deve essere sufficientemente grande da poter gestire i dati. 
 * Verificare che il set di dati includa dati entro la data di inizio e di fine per una determinata esecuzione del monitoraggio.
+* I monitoraggi del set di dati funzioneranno solo sui set di dati che contengono 50 righe o più. 
 
 Le colonne, o funzionalità, nel set di dati vengono classificate come categoriche o numeriche in base alle condizioni riportate nella tabella seguente. Se la funzionalità non soddisfa queste condizioni, ad esempio una colonna di tipo String con > 100 valori univoci, la funzionalità viene eliminata dall'algoritmo di Drift dei dati, ma viene comunque profilata. 
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351368"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260954"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -246,6 +246,9 @@ La definizione di ogni regola include un set di filtri e un set di azioni. Il [s
 ### <a name="sample-rule"></a>Regola di esempio
 
 La regola di esempio seguente Filtra l'account per eseguire le azioni sugli oggetti presenti all'interno `container1` e iniziare con `foo`.  
+
+>[!NOTE]
+>Gestione del ciclo di vita supporta solo il tipo di BLOB in blocchi.  
 
 - Impostare il BLOB sul livello di accesso sporadico 30 giorni dopo l'ultima modifica
 - Impostare il BLOB sul livello archivio 90 giorni dopo l'ultima modifica

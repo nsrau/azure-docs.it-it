@@ -3,12 +3,12 @@ title: Azure Service Fabric-uso di Service Fabric riferimenti all'insieme di cre
 description: Questo articolo illustra come usare il supporto KeyVaultReference di Service Fabric per i segreti dell'applicazione.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463046"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167133"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Supporto di KeyVaultReference per applicazioni Service Fabric (anteprima)
 
@@ -61,6 +61,7 @@ Un problema comune durante la creazione di applicazioni cloud è come archiviare
 
     > [!NOTE] 
     > È consigliabile usare un certificato di crittografia separato per CSS. È possibile aggiungerlo nella sezione "CentralSecretService".
+    
 
     ```json
         {
@@ -68,7 +69,18 @@ Un problema comune durante la creazione di applicazioni cloud è come archiviare
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+Per rendere effettive le modifiche, sarà anche necessario modificare i criteri di aggiornamento per specificare un riavvio forzato del runtime di Service Fabric in ogni nodo durante l'avanzamento dell'aggiornamento attraverso il cluster. Questo riavvio garantisce che il servizio di sistema appena abilitato venga avviato e in esecuzione in ogni nodo. Nel frammento di codice seguente forceRestart è l'impostazione essenziale. usare i valori esistenti per il resto delle impostazioni.
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - Concedere l'autorizzazione di accesso alle identità gestite dell'applicazione all'insieme di credenziali delle credenziali
 
     Fare riferimento a questo [documento](how-to-grant-access-other-resources.md) per vedere come concedere l'accesso all'identità gestita all'insieme di credenziali delle credenziali. Si noti anche che se si usa l'identità gestita assegnata dal sistema, l'identità gestita viene creata solo dopo la distribuzione dell'applicazione.

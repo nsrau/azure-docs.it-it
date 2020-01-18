@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 17a1f2c245e19afbf4d8c5092a0ddf0562a7cb0e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b2a49528ca3c2b55c02f3bda89b3722ee8fef535
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979316"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264255"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -48,6 +48,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Collaboratore servizio Gestione API](#api-management-service-contributor) | Può gestire il servizio e le API. | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | [Ruolo operatore del servizio Gestione API](#api-management-service-operator-role) | Può gestire il servizio ma non le API. | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
 > | [Ruolo lettura del servizio Gestione API](#api-management-service-reader-role) | Consente l'accesso di sola lettura al servizio e alle API. | 71522526-b88f-4d52-b57f-d31fc3546d0d |
+> | [Proprietario dati di configurazione dell'app](#app-configuration-data-owner) | Consente l'accesso completo ai dati di configurazione dell'app. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
+> | [Lettore dati di configurazione dell'app](#app-configuration-data-reader) | Consente l'accesso in lettura ai dati di configurazione dell'app. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
 > | [Collaboratore componente di Application Insights](#application-insights-component-contributor) | È in grado di gestire i componenti di Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Debugger di snapshot di Application Insights](#application-insights-snapshot-debugger) | Concede l'autorizzazione utente per visualizzare e scaricare gli snapshot di debug raccolti con Application Insights Snapshot Debugger. Si noti che queste autorizzazioni non sono incluse nei ruoli [Proprietario](#owner) e [Collaboratore](#contributor). | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Operatore processo di automazione](#automation-job-operator) | Consente di creare e gestire i processi tramite i runbook di Automazione. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
@@ -55,6 +57,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Operatore runbook di automazione](#automation-runbook-operator) | Consente di leggere le proprietà del runbook per permettere di creare processi del runbook. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
 > | [Collaboratore](#avere-contributor) | Consente di creare e gestire un cluster vFXT. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Operatore di stato](#avere-operator) | Usato dal cluster vFXT per la gestione del cluster | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | [Onboarding del computer connesso di Azure](#azure-connected-machine-onboarding) | Consente di caricare i computer connessi ad Azure. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
+> | [Amministratore delle risorse del computer connesso ad Azure](#azure-connected-machine-resource-administrator) | Può leggere, scrivere, eliminare e ricaricare i computer connessi di Azure. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Proprietario dati di hub eventi di Azure](#azure-event-hubs-data-owner) | Consente l'accesso completo alle risorse di hub eventi di Azure. | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | [Ricevitore di dati di hub eventi di Azure](#azure-event-hubs-data-receiver) | Consente di ricevere l'accesso alle risorse di hub eventi di Azure. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Mittente dati di hub eventi di Azure](#azure-event-hubs-data-sender) | Consente di inviare l'accesso alle risorse di hub eventi di Azure. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
@@ -378,6 +382,38 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
+## <a name="app-configuration-data-owner"></a>Proprietario dati di configurazione dell'app
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso completo ai dati di configurazione dell'app. |
+> | **Id** | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
+> | **Actions** |  |
+> | *nessuna* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Read |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Write |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Delete |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="app-configuration-data-reader"></a>Lettore dati di configurazione dell'app
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso in lettura ai dati di configurazione dell'app. |
+> | **Id** | 516239f1-63e1-4d78-a4de-a74fb236a071 |
+> | **Actions** |  |
+> | *nessuna* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Read |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
 ## <a name="application-insights-component-contributor"></a>Collaboratore componente di Application Insights
 > [!div class="mx-tableFixed"]
 > | | |
@@ -561,6 +597,42 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Restituisce il risultato dell'eliminazione di un BLOB |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Restituisce un BLOB o un elenco di BLOB |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Restituisce il risultato della scrittura su un BLOB |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="azure-connected-machine-onboarding"></a>Onboarding del computer connesso di Azure
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente di caricare i computer connessi ad Azure. |
+> | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
+> | **Actions** |  |
+> | Microsoft. HybridCompute/machines/Read | Leggi tutti i computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Write | Scrivere un computer Azure Arc |
+> | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Assegnazione di configurazione guest Get. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="azure-connected-machine-resource-administrator"></a>Amministratore delle risorse del computer connesso ad Azure
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Può leggere, scrivere, eliminare e ricaricare i computer connessi di Azure. |
+> | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
+> | **Actions** |  |
+> | Microsoft. HybridCompute/machines/Read | Leggi tutti i computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Write | Scrivere un computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Delete | Eliminare un computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Riconnetti/azione | Riconnettere un computer Azure Arc |
+> | Microsoft. HybridCompute/*/Read |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -821,7 +893,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Aggiorna l'elenco di contenitori |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Consente di creare e gestire i processi di backup |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Esporta processi |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Consente di creare e gestire i metadati relativi alla gestione di backup |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Consente di creare e gestire i risultati delle operazioni di gestione di backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Consente di creare e gestire i criteri di backup |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Consente di creare e gestire gli elementi su cui è possibile eseguire il backup |
@@ -886,7 +957,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Aggiorna l'elenco di contenitori |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Consente di creare e gestire i processi di backup |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Esporta processi |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Consente di creare e gestire i risultati delle operazioni di gestione di backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Ottiene i risultati dell'operazione sui criteri. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Restituisce tutti i criteri di protezione |
@@ -952,7 +1022,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Restituisce il risultato dell'operazione di processo. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Restituisce tutti gli oggetti processo |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Esporta processi |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Restituisce il risultato dell'operazione di backup di un insieme di credenziali di Servizi di ripristino. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Ottiene i risultati dell'operazione sui criteri. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Restituisce tutti i criteri di protezione |

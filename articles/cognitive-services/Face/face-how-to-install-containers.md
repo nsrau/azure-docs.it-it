@@ -1,5 +1,5 @@
 ---
-title: Installare ed eseguire contenitori-FACE API
+title: Installare ed eseguire contenitori-viso
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come scaricare, installare ed eseguire i contenitori per i volti in questa esercitazione della procedura dettagliata.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 574f6bead9cac384c72d2d0cd35353eb571a9490
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327049"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165990"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installare ed eseguire i contenitori viso (anteprima)
 
@@ -24,11 +24,11 @@ Il volto dei servizi cognitivi di Azure fornisce un contenitore Linux standardiz
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Prima di usare i contenitori di API Viso, è necessario soddisfare i prerequisiti seguenti.
+È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori del servizio Face.
 
-|obbligatori|Scopo|
+|Obbligatorio|Finalità|
 |--|--|
 |Motore Docker| Il motore Docker deve essere installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È necessaria una conoscenza di base dei concetti di Docker, ad esempio registri, repository, contenitori e immagini del contenitore. È anche necessario conoscere i comandi di base `docker`.| 
@@ -46,9 +46,9 @@ Prima di usare i contenitori di API Viso, è necessario soddisfare i prerequisit
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
-La tabella seguente indica il valore minimo e consigliato per CPU e memoria da allocare per ogni contenitore di API Viso.
+La tabella seguente descrive i core CPU minimi e consigliati e la memoria da allocare per ogni contenitore del servizio viso.
 
-| Contenitore: | Minima | Consigliato | Transazioni al secondo<br>(Minimo, massimo)|
+| Contenitore | Minima | Consigliato | Transazioni al secondo<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |Viso | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |10, 20|
 
@@ -59,9 +59,9 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con docker pull
 
-Sono disponibili le immagini del contenitore per la API Viso. 
+Sono disponibili le immagini del contenitore per il servizio Face. 
 
-| Contenitore: | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Viso | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
@@ -84,7 +84,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori `{ENDPOINT_URI}` e `{API_KEY}`, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) .
 
-Sono disponibili [esempi](face-resource-container-config.md#example-docker-run-commands) del comando `docker run`.
+Sono disponibili [esempi](face-resource-container-config.md#example-docker-run-commands) di comando `docker run`.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -132,7 +132,7 @@ Se si esegue il contenitore con un [montaggio](./face-resource-container-config.
 
 ## <a name="billing"></a>Fatturazione
 
-I contenitori di API Viso inviano informazioni di fatturazione ad Azure usando una risorsa API Viso nell'account Azure. 
+I contenitori di servizi volti inviano informazioni di fatturazione ad Azure usando una risorsa Face nell'account Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -142,13 +142,13 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./f
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Riepilogo
 
-In questo articolo sono stati illustrati i concetti e il flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di API Viso. In sintesi:
+In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di servizi viso. In sintesi:
 
 * Le immagini del contenitore vengono scaricate dalla Container Registry di Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
-* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di API Viso specificando l'URI host del contenitore.
+* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori dei servizi volti specificando l'URI host del contenitore.
 * È necessario specificare le informazioni di fatturazione quando si crea un'istanza di un contenitore.
 
 > [!IMPORTANT]

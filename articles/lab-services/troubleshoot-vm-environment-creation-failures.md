@@ -1,5 +1,5 @@
 ---
-title: Risolvere gli errori di creazione della macchina virtuale e dell'ambiente Azure DevTest Labs | Microsoft Docs
+title: Risolvere gli errori di ambiente e VM Azure DevTest Labs
 description: Informazioni su come risolvere i problemi di creazione della macchina virtuale (VM) e dell'ambiente in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 155a359608cf6d846578306545f5ce0b4003949c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129046"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166338"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Risolvere gli errori di creazione della macchina virtuale (VM) e dell'ambiente in Azure DevTest Labs
-DevTest Labs fornisce avvisi se il nome di un computer non è valido o se si sta per violare un criterio Lab. In alcuni casi, viene `X` visualizzato rosso accanto alla macchina virtuale del Lab o allo stato dell'ambiente che informa che si è verificato un errore.  Questo articolo fornisce alcuni trucchi che è possibile usare per individuare il problema sottostante e, possibilmente, evitare il problema in futuro.
+DevTest Labs fornisce avvisi se il nome di un computer non è valido o se si sta per violare un criterio Lab. In alcuni casi, vengono visualizzati `X` rossi accanto alla macchina virtuale del Lab o allo stato dell'ambiente che informa che si è verificato un errore.  Questo articolo fornisce alcuni trucchi che è possibile usare per individuare il problema sottostante e, possibilmente, evitare il problema in futuro.
 
 ## <a name="portal-notifications"></a>Notifiche del portale
-Se si usa il portale di Azure, il primo punto da considerare è il **pannello notifiche**.  Pannello di notifiche, disponibili sulla barra dei comandi principale facendo il **sull'icona a forma di campanello**, indicherà se la creazione della macchina virtuale o ambiente di laboratorio esito positivo o negativo.  Se si è verificato un errore, viene visualizzato il messaggio di errore associato all'errore di creazione. I dettagli forniscono spesso ulteriori informazioni per facilitare la risoluzione del problema. Nell'esempio seguente, la creazione della macchina virtuale non è riuscita a causa di un esaurimento delle memorie centrali. Il messaggio dettagliato indica come risolvere il problema e richiedere un aumento della quota di core.
+Se si usa il portale di Azure, il primo punto da considerare è il **pannello notifiche**.  Pannello di notifiche, disponibili sulla barra dei comandi principale facendo il **sull'icona a forma di campanello** , indicherà se la creazione della macchina virtuale o ambiente di laboratorio esito positivo o negativo.  Se si è verificato un errore, viene visualizzato il messaggio di errore associato all'errore di creazione. I dettagli forniscono spesso ulteriori informazioni per facilitare la risoluzione del problema. Nell'esempio seguente, la creazione della macchina virtuale non è riuscita a causa di un esaurimento delle memorie centrali. Il messaggio dettagliato indica come risolvere il problema e richiedere un aumento della quota di core.
 
 ![Notifica portale di Azure](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 
@@ -41,11 +41,11 @@ Esaminare i log attività se si sta esaminando un errore in un momento successiv
 
 1. Nella home page per il Lab selezionare la VM per avviare la pagina della **macchina virtuale** .
 2. Nella pagina **macchina virtuale** , nella sezione **monitoraggio** del menu a sinistra, selezionare **log attività** per visualizzare tutti i log associati alla macchina virtuale.
-3. Negli elementi del log attività selezionare l'operazione non riuscita. In genere, viene chiamata `Write Virtualmachines`l'operazione non riuscita.
+3. Negli elementi del log attività selezionare l'operazione non riuscita. In genere, l'operazione non riuscita viene chiamata `Write Virtualmachines`.
 4. Nel riquadro destro passare alla scheda JSON. Vengono visualizzati i dettagli nella visualizzazione JSON del log.
 
     ![Log attività per una macchina virtuale](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
-5. Esaminare il log JSON fino a trovare la `statusMessage` proprietà. Fornisce il messaggio di errore principale e informazioni dettagliate, se applicabile. Il codice JSON seguente è un esempio per l'errore di core racchiuso tra virgolette illustrato in precedenza in questo articolo.
+5. Esaminare il log JSON fino a trovare la proprietà `statusMessage`. Fornisce il messaggio di errore principale e informazioni dettagliate, se applicabile. Il codice JSON seguente è un esempio per l'errore di core racchiuso tra virgolette illustrato in precedenza in questo articolo.
 
     ```json
     "properties": {
@@ -66,7 +66,7 @@ Per visualizzare il log attività per la creazione di un ambiente, attenersi all
     ![Log attività ambiente](./media/troubleshoot-vm-environment-creation-failures/envirionment-activity-log.png)
 
 ## <a name="resource-manager-template-deployment-logs"></a>Log di distribuzione del modello di Gestione risorse
-Se l'ambiente o la macchina virtuale è stata creata tramite l'automazione, è possibile esaminare le informazioni sull'errore in un'ultima posizione. Questo è il log di distribuzione del modello Azure Resource Manager. Quando una risorsa lab viene creata tramite l'automazione, viene spesso eseguita tramite una distribuzione del modello di Azure Resource Manager. Per[https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) Azure Resource Manager modelli di esempio che creano risorse di DevTest Labs, vedere.
+Se l'ambiente o la macchina virtuale è stata creata tramite l'automazione, è possibile esaminare le informazioni sull'errore in un'ultima posizione. Questo è il log di distribuzione del modello Azure Resource Manager. Quando una risorsa lab viene creata tramite l'automazione, viene spesso eseguita tramite una distribuzione del modello di Azure Resource Manager. Vedere[https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) per modelli di Azure Resource Manager di esempio che creano risorse di DevTest Labs.
 
 Per visualizzare i log di distribuzione del modello Lab, attenersi alla procedura seguente:
 

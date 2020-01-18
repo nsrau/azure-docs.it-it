@@ -1,6 +1,6 @@
 ---
-title: Espressioni di routing e tag
-description: Questo argomento illustra le espressioni di routing e tag per gli hub di notifica di Azure.
+title: Espressioni di routing e tag in hub di notifica di Azure
+description: Informazioni su come indirizzare e contrassegnare espressioni per gli hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 254517cc1d9cc042387b63147b2a3fd9bdeece5e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971998"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263779"
 ---
 # <a name="routing-and-tag-expressions"></a>Espressioni di routing e tag
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Le espressioni tag consentono di avere come destinazione set specifici di dispositivi, o più specificamente registrazioni, quando si invia una notifica push tramite hub di notifica.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 01/17/2020
 ms.author: aschhab
-ms.openlocfilehash: eebbef25f2cd4539a5092f271c3944c24503f287
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a795aa536e6e72b487abd18e60cfa52d6ab633ee
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156812"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264883"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce alcune eccezioni .NET generate dalle API di .NET Framework del bus di servizio e altri suggerimenti per la risoluzione dei problemi. 
@@ -109,25 +109,25 @@ Per le code e gli argomenti, il timeout è specificato nella proprietà [Messagi
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problemi di connettività, certificato o timeout
 I passaggi seguenti possono essere utili per la risoluzione dei problemi di connettività/certificato/timeout per tutti i servizi in *. servicebus.windows.net. 
 
-- Passare a o [wget](https://www.gnu.org/software/wget/) `https://sbwagn2.servicebus.windows.net/`. Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
-- Eseguire il comando seguente per verificare se una porta è bloccata sul firewall. A seconda della libreria usata, vengono usate anche altre porte. Ad esempio: 443, 5672, 9354.
+- Passare a o [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
+- Eseguire il comando seguente per verificare se una porta è bloccata sul firewall. Le porte utilizzate sono 443 (HTTPS), 5671 (AMQP) e 9354 (NET Messaging/SBMP). A seconda della libreria usata, vengono usate anche altre porte. Ecco il comando di esempio che controlla se la porta 5671 è bloccata. 
 
     ```powershell
-    tnc sbwagn2.servicebus.windows.net -port 5671
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
     In Linux:
 
     ```shell
-    telnet sbwagn2.servicebus.windows.net 5671
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio, quindi è possibile controllare il numero di riuscite/non riuscite e vedere anche la latenza di connessione TCP. È possibile scaricare lo strumento `psping` da [qui](/sysinternals/downloads/psping).
+- Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio. Quindi, è possibile controllare il numero di riuscite/non riuscite e vedere anche latenza di connessione TCP. È possibile scaricare lo strumento `psping` da [qui](/sysinternals/downloads/psping).
 
     ```shell
-    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
+    .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
     ```
     È possibile utilizzare comandi equivalenti se si utilizzano altri strumenti, ad esempio `tnc`, `ping`e così via. 
-- Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzati o contattano [supporto tecnico Microsoft](https://support.microsoft.com/).
+- Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzarli tramite strumenti come [Wireshark](https://www.wireshark.org/). Se necessario, contattare [supporto tecnico Microsoft](https://support.microsoft.com/) . 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

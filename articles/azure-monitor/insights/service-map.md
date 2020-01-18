@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402589"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168184"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -27,7 +27,7 @@ Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei 
 * Dependency Agent installato nel computer Windows o nel server Linux.
 
 >[!NOTE]
->Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md). Per informazioni sulle differenze tra la soluzione Mapping dei servizi e la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali, vedere le [domande frequenti](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map)riportate di seguito.
+>Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md). Per informazioni sulle differenze tra la soluzione Mapping dei servizi e la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali, vedere le [domande frequenti](../faq.md#azure-monitor-for-vms-preview)riportate di seguito.
 
 ## <a name="sign-in-to-azure"></a>Accedere a Azure
 
@@ -321,7 +321,7 @@ Poiché possono essere presenti vari record per un determinato processo o comput
 
 ### <a name="connections"></a>Connessioni
 
-Le metriche relative alla connessione vengono scritte in una nuova tabella in Log Analytics, ovvero VMConnection. Questa tabella fornisce informazioni sulle connessioni di un computer (in ingresso e in uscita). Le metriche relative alla connessione vengono inoltre esposte con le API che forniscono i mezzi per ottenere una metrica specifica durante un intervallo di tempo.  Le connessioni TCP stabilite *accettando* l'operazione su un socket in ascolto sono connessioni in ingresso, mentre quelle create tramite *connessione* a un IP e una porta specifici sono in uscita. La direzione di una connessione è rappresentata dalla proprietà Direction, che può essere impostata su **inbound** o **outbound**. 
+Le metriche relative alla connessione vengono scritte in una nuova tabella in Log Analytics, ovvero VMConnection. Questa tabella fornisce informazioni sulle connessioni di un computer (in ingresso e in uscita). Le metriche relative alla connessione vengono inoltre esposte con le API che forniscono i mezzi per ottenere una metrica specifica durante un intervallo di tempo.  Le connessioni TCP derivanti dall'accettazione su un socket di ascolto sono in ingresso, mentre quelle create tramite la connessione a un determinato IP e a una porta sono in uscita. La direzione di una connessione è rappresentata dalla proprietà Direction, che può essere impostata su **inbound** o **outbound**. 
 
 I record in queste tabelle vengono generati dai dati segnalati da Dependency Agent. Ogni record rappresenta un'osservazione in un intervallo di tempo di un minuto. La proprietà TimeGenerated indica l'inizio dell'intervallo di tempo. Ogni record contiene informazioni per identificare l'entità corrispondente, ovvero la connessione o la porta, oltre che le metriche associate a tale entità. Attualmente, viene segnalata solo l'attività di rete che si verifica tramite TCP su IPv4.
 

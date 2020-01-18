@@ -4,19 +4,21 @@ description: Un gateway locale è necessario se il server Analysis Services di A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f1fc00ced0d933884ca0fe6dce91fed4602eb825
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768555"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263439"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 
-Il gateway dati locale garantisce il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a usare più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, Power Apps e Power automatizzate. È possibile associare più servizi nella stessa sottoscrizione e nella stessa area con un singolo gateway. Sebbene il gateway installato sia lo stesso in tutti i servizi, Azure Analysis Services e le app per la logica hanno alcuni passaggi aggiuntivi.
+Il gateway dati locale garantisce il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a usare più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, Power Apps e Power automatizzate. Sebbene il gateway installato sia lo stesso in tutti i servizi, Azure Analysis Services e le app per la logica hanno alcuni passaggi aggiuntivi.
+
+Le informazioni fornite di seguito sono specifiche del funzionamento di Azure Analysis Services con il gateway dati locale. Per altre informazioni sul gateway in generale e sul relativo funzionamento con altri servizi, vedere [che cos'è un gateway dati locale?](/data-integration/gateway/service-gateway-onprem).
 
 Per Azure Analysis Services, il primo processo di configurazione con il gateway è un processo in quattro parti:
 
@@ -24,9 +26,11 @@ Per Azure Analysis Services, il primo processo di configurazione con il gateway 
 
 - **Registrare il gateway**: in questo passaggio vengono specificati un nome e una chiave di ripristino per il gateway, si seleziona un'area e si registra il gateway con il servizio cloud Gateway. La risorsa gateway può essere registrata in qualsiasi area, ma è consigliabile registrarla nella stessa area dei server Analysis Services. 
 
-- **Creare una risorsa per il gateway in Azure**: in questo passaggio, si crea una risorsa per il gateway nella sottoscrizione di Azure.
+- **Creare una risorsa del gateway in Azure** : in questo passaggio si crea una risorsa del gateway in Azure.
 
-- **Connettere i server per la risorsa per il gateway**: dopo aver creato una risorsa per il gateway nella sottoscrizione, è possibile iniziare a connettere i server. È possibile connettere più server e altre risorse purché si trovino nella stessa sottoscrizione e nella stessa area.
+- **Connettere i server alla risorsa del gateway** : dopo avere creato una risorsa del gateway, è possibile iniziare a connettervi i server. È possibile connettere più server e altre risorse, purché si trovino nella stessa area.
+
+
 
 ## <a name="how-it-works"> </a>Funzionamento
 Il gateway installato su un computer dell'organizzazione viene eseguito come servizio Windows, **Gateway dati locale**. Il servizio locale è registrato con il servizio Cloud Gateway tramite il bus di servizio di Azure. Si crea quindi una risorsa gateway dati locale per la sottoscrizione di Azure. I server di Azure Analysis Services vengono quindi connessi alla risorsa del gateway di Azure. Quando i modelli nel server devono connettersi ai dati locali di origine per le query o l'elaborazione, un flusso di dati e query attraversa la risorsa del gateway, il bus di servizio di Azure, il servizio gateway dati locale e le origini dati. 

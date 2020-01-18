@@ -33,7 +33,7 @@
         - name: Load Balancer
           items:
             - name: Che cos'è il servizio di bilanciamento del carico?
-              href: ../load-balancer/load-balancer-standard-overview.md
+              href: ../load-balancer/load-balancer-overview.md
             - name: Load Balancer Standard e zone di disponibilità
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Creare un'istanza di Load Balancer Standard pubblica con ridondanza della zona

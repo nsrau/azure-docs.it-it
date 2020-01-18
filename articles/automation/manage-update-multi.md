@@ -3,14 +3,14 @@ title: Gestire gli aggiornamenti per più macchine virtuali Azure
 description: Questo articolo descrive come gestire gli aggiornamenti per le macchine virtuali di Azure e non Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de7171d3807540ae7d5f09c3a877031631248e49
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75417837"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168039"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -147,6 +147,13 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
   - Aggiornamenti
 
 - **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per ulteriori informazioni sulla gestione dell'inclusione, vedere [pianificare una distribuzione degli aggiornamenti](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> Tenere presente che le esclusioni eseguono l'override delle inclusioni. Se ad esempio si definisce una regola di esclusione `*`, non vengono installate patch o pacchetti perché vengono tutti esclusi. Le patch escluse vengono ancora visualizzate come mancanti dal computer. Per i computer Linux, se un pacchetto è incluso, ma ha un pacchetto dipendente che è stato escluso, il pacchetto non viene installato.
+
+> [!NOTE]
+> Non è possibile specificare gli aggiornamenti che sono stati sostituiti per l'inclusione con la distribuzione degli aggiornamenti.
+>
 
 - **Impostazioni pianificazione**: è possibile accettare la data e l'ora predefinite, ossia 30 minuti dopo l'ora corrente, ma anche specificare un momento diverso.
 

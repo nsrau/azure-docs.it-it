@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757422"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169598"
 ---
 # <a name="configure-the-review-tool"></a>Configurare lo strumento di revisione
 
@@ -90,14 +90,14 @@ Fare clic su **Aggiungi** per aggiungere un tag, quindi fare clic su **Salva** a
 
 La scheda **connettori** consente di gestire i connettori, che sono plug-in specifici del servizio in grado di elaborare il contenuto in modi diversi come parte dei [flussi di lavoro](../review-api.md#workflows)del contenuto.
 
-Il connettore predefinito quando si crea un flusso di lavoro è il connettore Content Moderator, che può contrassegnare il contenuto come **adulto** o **audace**, trovare volgarità e così via. Tuttavia, è possibile usare altri connettori, elencati qui, purché siano disponibili le credenziali per i rispettivi servizi (per usare il connettore API Viso, ad esempio, è necessario ottenere una chiave di sottoscrizione [API viso](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
+Il connettore predefinito quando si crea un flusso di lavoro è il connettore Content Moderator, che può contrassegnare il contenuto come **adulto** o **audace**, trovare volgarità e così via. Tuttavia, è possibile usare altri connettori, elencati qui, purché siano disponibili le credenziali per i rispettivi servizi (per usare il connettore viso, ad esempio, è necessario ottenere una chiave di sottoscrizione [facciale](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
 
 Lo [strumento di revisione](./human-in-the-loop.md) include i connettori seguenti:
 
-- API Emozioni
-- Face API
+- Emozioni
+- Viso
 - Servizio cloud PhotoDNA
-- API Analisi del testo
+- Analisi del testo
 
 ### <a name="add-a-connector"></a>Aggiungere un connettore
 

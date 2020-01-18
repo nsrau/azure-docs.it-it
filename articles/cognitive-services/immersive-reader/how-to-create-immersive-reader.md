@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: a806e6eeecc6976286566d05a0f19dac684b2c0b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a2a404a03c06dde59edc88436afdc9dba3d74797
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75946089"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170175"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creare una risorsa Reader immersiva e configurare l'autenticazione Azure Active Directory
 
@@ -153,7 +153,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
     | SubscriptionName |Nome della sottoscrizione di Azure da usare per la risorsa Reader immersiva. Per creare una risorsa, è necessario disporre di una sottoscrizione. |
     | NomeRisorsa |  Deve essere alfanumerico e può contenere '-', purché'-' non sia il primo o l'ultimo carattere. La lunghezza non può superare i 63 caratteri.|
     | ResourceSubdomain |Per la risorsa Reader immersivo è necessario un sottodominio personalizzato. Il sottodominio viene usato dall'SDK quando si chiama il servizio di lettura immersiva per avviare il lettore. Il sottodominio deve essere globalmente univoco. Il sottodominio deve essere alfanumerico e può contenere '-', purché'-' non sia il primo o l'ultimo carattere. La lunghezza non può superare i 63 caratteri. Questo parametro è facoltativo se la risorsa esiste già. |
-    | ResourceSKU |Opzioni: `S0` o `S1`. Visitare la [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) per altre informazioni su ogni SKU disponibile. Questo parametro è facoltativo se la risorsa esiste già. |
+    | ResourceSKU |Opzioni: `S0`. Visitare la [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) per altre informazioni su ogni SKU disponibile. Questo parametro è facoltativo se la risorsa esiste già. |
     | ResourceLocation |Opzioni: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth``westeurope`. Questo parametro è facoltativo se la risorsa esiste già. |
     | ResourceGroupName |Le risorse vengono create in gruppi di risorse all'interno delle sottoscrizioni. Specificare il nome di un gruppo di risorse esistente. Se il gruppo di risorse non esiste già, ne verrà creato uno nuovo con questo nome. |
     | ResourceGroupLocation |Se il gruppo di risorse non esiste, è necessario specificare un percorso in cui creare il gruppo. Per trovare un elenco di percorsi, eseguire `az account list-locations`. Usare la proprietà *Name* (senza spazi) del risultato restituito. Questo parametro è facoltativo se il gruppo di risorse esiste già. |

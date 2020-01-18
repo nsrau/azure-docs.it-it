@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d4b6ba0c516e7c8c585f9364092403496a53139
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3712e67e95c8957d2537660add14d6cdb09d609f
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894676"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264815"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -120,6 +120,8 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 01/16/2020: modificare [le modalità di installazione e configurazione di SAP Hana (istanze large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) per adattare le versioni del sistema operativo alla directory hardware Hana IaaS
+- 01/16/2020: modifiche alla [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure nella Guida a più SID SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) per aggiungere istruzioni per i sistemi SAP, usando l'architettura di Accodamento server 2 (ENSA2)
 - 01/10/2020: le modifiche apportate all' [SAP Hana con scalabilità orizzontale con il nodo standby in macchine virtuali di Azure con Azure NetApp files in SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) e in [SAP Hana con scalabilità orizzontale con nodo standby in macchine virtuali di Azure con Azure NetApp files su RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) per aggiungere istruzioni su come rendere permanenti le modifiche `nfs4_disable_idmapping`.
 - 01/10/2020: modifiche alla [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SLES con Azure NetApp files per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e in [macchine virtuali di Azure disponibilità elevata per SAP NetWeaver in RHEL con Azure NetApp files per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) per aggiungere istruzioni su come montare Azure NetApp files volumi NFSv4.
 - 12/23/2019: rilascio della [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure nella Guida a più SID di SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)

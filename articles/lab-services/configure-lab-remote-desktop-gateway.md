@@ -1,5 +1,5 @@
 ---
-title: Configurare un Lab per l'uso di Desktop remoto Gateway in Azure DevTest Labs | Microsoft Docs
+title: Configurare un Lab per l'uso di Desktop remoto Gateway in Azure DevTest Labs
 description: Informazioni su come configurare un Lab in Azure DevTest Labs con Gateway Desktop remoto per garantire l'accesso sicuro alle macchine virtuali del Lab senza dover esporre la porta RDP.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f879a6389c7a77708e8041dd8b82dc3785679fa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162626"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170295"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il Lab in Azure DevTest Labs per l'uso di un Gateway Desktop remoto
 In Azure DevTest Labs, è possibile configurare un Gateway Desktop remoto per il Lab per garantire l'accesso sicuro alle macchine virtuali (VM) Lab senza dover esporre la porta RDP. Il Lab fornisce una posizione centralizzata in cui gli utenti del Lab possono visualizzare e connettersi a tutte le macchine virtuali a cui hanno accesso. Il pulsante **Connetti** nella pagina **macchina virtuale** crea un file RDP specifico del computer che è possibile aprire per connettersi al computer. È possibile personalizzare ulteriormente e proteggere la connessione RDP connettendo il Lab a un Gateway Desktop remoto. 

@@ -4,16 +4,16 @@ description: Informazioni su come configurare e usare lo stato dell'orchestrazio
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 22242a40a29a1a014a7ab88ed705c7ca3e5ba288
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b8b78f58570186a0b17eb47f8445d2ba9aa47e8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232959"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261654"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stato dell'orchestrazione personalizzato in Funzioni permanenti (Funzioni di Azure)
 
-Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato personalizzato per la funzione di agente di orchestrazione. Questo stato viene fornito tramite l'API HTTP GetStatus o l'API `DurableOrchestrationClient.GetStatusAsync`.
+Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l' [API HTTP GetStatus](durable-functions-http-api.md#get-instance-status) o l' [API`GetStatusAsync`](durable-functions-instance-management.md#query-instances) sul client di orchestrazione.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 
@@ -24,7 +24,7 @@ Lo stato dell'orchestrazione personalizzato consente di impostare un valore di s
 
 I client possono eseguire il polling dell'endpoint di stato e visualizzare un elemento dell'interfaccia utente con lo stato che mostra la fase di esecuzione corrente. L'esempio seguente mostra la condivisione dello stato:
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -51,7 +51,9 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`E1_HelloSequence` funzione dell'agente di orchestrazione:
 
 ```javascript
 const df = require("durable-functions");
@@ -71,15 +73,19 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
+`E1_SayHello` funzione attività:
+
 ```javascript
 module.exports = async function(context, name) {
     return `Hello ${name}!`;
 };
 ```
 
+---
+
 A questo punto il client riceverà l'output dell'orchestrazione solo quando il campo `CustomStatus`è impostato su "London":
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -112,7 +118,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -144,11 +150,13 @@ module.exports = async function(context, req) {
 > [!NOTE]
 > In JavaScript, il campo `customStatus` verrà impostato alla pianificazione della successiva azione `yield` o `return`.
 
+---
+
 ### <a name="output-customization"></a>Personalizzazione dell'output
 
 Un altro scenario interessante è la segmentazione degli utenti con la restituzione di un output personalizzato in base a caratteristiche o interazioni univoche. Con l'aiuto dello stato dell'orchestrazione personalizzato, il codice lato client viene mantenuto generico. Tutte le modifiche principali avverranno sul lato server come illustrato nell'esempio seguente:
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -186,7 +194,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -219,11 +227,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 ### <a name="instruction-specification"></a>Specifiche delle istruzioni
 
 L'agente di orchestrazione può offrire istruzioni univoche ai client tramite lo stato personalizzato. Le istruzioni dello stato personalizzate verranno mappate ai passaggi nel codice di orchestrazione:
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -251,7 +261,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -278,11 +288,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 ## <a name="sample"></a>Esempio
 
 Nell'esempio seguente lo stato personalizzato è impostato per primo:
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -297,7 +309,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -312,6 +324,8 @@ module.exports = df.orchestrator(function*(context) {
     // ...do more work...
 });
 ```
+
+---
 
 Mentre l'orchestrazione è in esecuzione, i client esterni possono recuperare questo stato personalizzato:
 

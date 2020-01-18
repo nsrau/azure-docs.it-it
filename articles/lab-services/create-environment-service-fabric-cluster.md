@@ -1,5 +1,5 @@
 ---
-title: Creare un ambiente con un cluster di Service Fabric in Azure DevTest Labs | Microsoft Docs
+title: Creare un ambiente cluster Service Fabric in Azure DevTest Labs
 description: Informazioni su come creare un ambiente con un cluster Service Fabric autonomo e avviare e arrestare il cluster usando le pianificazioni.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 01/16/2020
 ms.author: enewman
-ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325248"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170333"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Creare un ambiente con un cluster Service Fabric autonomo in Azure DevTest Labs
 Questo articolo fornisce informazioni su come creare un ambiente con un cluster Service Fabric autonomo in Azure DevTest Labs. 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 DevTest Labs può creare ambienti di test autonomi come definito dai modelli di Azure Resource Manager. Questi ambienti contengono sia risorse IaaS, ad esempio macchine virtuali, che risorse PaaS, ad esempio Service Fabric. DevTest Labs consente di gestire le macchine virtuali in un ambiente fornendo comandi per controllare le macchine virtuali. Questi comandi offrono la possibilità di avviare o arrestare una macchina virtuale in base a una pianificazione. Analogamente, DevTest Labs può anche aiutare a gestire i cluster Service Fabric in un ambiente. È possibile avviare o arrestare un cluster Service Fabric in un ambiente sia manualmente che tramite una pianificazione.
 
 ## <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
 I cluster Service Fabric vengono creati usando gli ambienti in DevTest Labs. Ogni ambiente è definito da un modello di Azure Resource Manager in un repository git. Il [repository git pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) per DevTest Labs contiene il modello di gestione risorse per creare un cluster Service Fabric nella cartella [ServiceFabric-cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) . 
 
-1. Per prima cosa, creare un Lab in Azure DevTest Labs usando le istruzioni riportate nell'articolo seguente: [Creare un Lab](devtest-lab-create-lab.md). Si noti che l'opzione **ambienti pubblici** è **attiva** per impostazione predefinita. 
+1. Per prima cosa, creare un Lab in Azure DevTest Labs usando le istruzioni riportate nell'articolo seguente: [creare un Lab](devtest-lab-create-lab.md). Si noti che l'opzione **ambienti pubblici** è **attiva** per impostazione predefinita. 
 2. Verificare che il provider di Service Fabric sia registrato per la sottoscrizione attenendosi alla procedura seguente:
     1. Selezionare **sottoscrizioni** nel menu di spostamento a sinistra e selezionare la **sottoscrizione**
     2. Nella pagina **sottoscrizione** selezionare provider di **risorse** nella sezione **Impostazioni** nel menu a sinistra. 
@@ -105,11 +105,11 @@ Per modificare le impostazioni per l'arresto, attenersi alla procedura seguente:
 
 1. Selezionare **arresto automatico** nel menu a sinistra. 
 2. In questa pagina è possibile rifiutare esplicitamente l'arresto automatico selezionando **disattivato** per **attivato**. 
-3. Se è **stata selezionata l'** opzione **attiva**, attenersi alla seguente procedura:
+3. Se è stata selezionata l'opzione **attiva**, **attenersi alla seguente** procedura:
     1. Specificare l' **ora** di arresto.
     2. Specificare il **fuso orario** per l'ora. 
     3. Specificare se si vuole che DevTest Labs invii le **notifiche** prima dell'arresto automatico. 
-    4. Se è stato selezionato **Sì** per l'opzione di notifica, specificare l' **URL** del webhook e/o l' **indirizzo di posta elettronica** per inviare le notifiche. 
+    4. Se è stato selezionato **Sì** per l'opzione di notifica, specificare l' **URL del webhook** e/o l' **indirizzo di posta elettronica** per inviare le notifiche. 
     5. Sulla barra degli strumenti selezionare **Salva**.
 
         ![Arresta automaticamente pagina](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)

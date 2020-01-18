@@ -1,6 +1,6 @@
 ---
-title: Avviare le macchine con i runbook di automazione in Azure DevTest Labs | Microsoft Docs
-description: Informazioni su come avviare le macchine virtuali in un lab in Azure DevTest Labs usando i runbook di automazione di Azure.
+title: Avviare i computer con manuali operativi di automazione in Azure DevTest Labs
+description: Informazioni su come avviare le macchine virtuali in un Lab in Azure DevTest Labs usando manuali operativi di automazione di Azure.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,29 +10,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083619"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166318"
 ---
-# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Avviare le macchine virtuali in un lab in ordine usando i runbook di automazione di Azure
-Il [autostart](devtest-lab-set-lab-policy.md#set-autostart) funzionalità di DevTest Labs consente di configurare le macchine virtuali per l'avvio automatico in un momento specificato. Tuttavia, questa funzionalità non supporta computer per iniziare in un ordine specifico. Esistono diversi scenari in cui sarebbe utile questo tipo di automazione.  Uno scenario è quello in cui una VM Jumpbox all'interno di un lab deve essere avviata per prima, prima di altre macchine virtuali, come il Jumpbox viene usato come punto di accesso con altre macchine virtuali.  Questo articolo illustra come configurare un account di automazione di Azure con un runbook di PowerShell che esegue uno script. Lo script Usa i tag nelle macchine virtuali nel lab consente di controllare l'ordine di avvio senza dover modificare lo script.
+# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Avviare le macchine virtuali in un Lab usando manuali operativi di automazione di Azure
+La funzionalità di [avvio](devtest-lab-set-lab-policy.md#set-autostart) automatico di DevTest Labs consente di configurare le macchine virtuali per l'avvio automatico all'ora specificata. Questa funzionalità, tuttavia, non supporta l'avvio di computer in un ordine specifico. Esistono diversi scenari in cui questo tipo di automazione risulta utile.  Uno scenario è la posizione in cui è necessario avviare una macchina virtuale JumpBox all'interno di un Lab prima delle altre VM, perché il JumpBox viene usato come punto di accesso per le altre macchine virtuali.  Questo articolo illustra come configurare un account di automazione di Azure con un Runbook di PowerShell per l'esecuzione di uno script. Lo script usa i tag nelle macchine virtuali nel Lab per consentire di controllare l'ordine di avvio senza dover modificare lo script.
 
 ## <a name="setup"></a>Configurazione
-In questo esempio, è necessario disporre di tag di macchine virtuali nel lab **StartupOrder** aggiunto con il valore appropriato (0,1,2, ecc.). Specificare tutti i computer che non devono essere avviato come -1.
+In questo esempio, le macchine virtuali nel lab devono avere il tag **StartupOrder** aggiunto con il valore appropriato (0, 1, 2 e così via). Designare tutti i computer che non devono essere avviati come-1.
 
 ## <a name="create-an-azure-automation-account"></a>Creare un account di Automazione di Azure
-Creare un account di automazione di Azure seguendo le istruzioni [questo articolo](../automation/automation-create-standalone-account.md). Scegliere il **account RunAs** durante la creazione dell'account. Dopo aver creato l'account di automazione, aprire il **moduli** pagina, quindi selezionare **Aggiorna moduli di Azure** nella barra dei menu. I moduli predefiniti sono che diverse versioni precedenti e senza l'aggiornamento dello script potrebbero non funzionare.
+Creare un account di automazione di Azure seguendo le istruzioni riportate in [questo articolo](../automation/automation-create-standalone-account.md). Scegliere l'opzione **account RunAs** durante la creazione dell'account. Una volta creato l'account di automazione, aprire la pagina **moduli** e selezionare **Aggiorna moduli di Azure** sulla barra dei menu. I moduli predefiniti sono diverse versioni precedenti e senza l'aggiornamento lo script potrebbe non funzionare.
 
-## <a name="add-a-runbook"></a>Aggiungere un runbook
-A questo punto, per aggiungere un runbook nell'account di automazione, selezionare **runbook** nel menu a sinistra. Selezionare **Aggiungi runbook** nel menu e seguire le istruzioni per [creare un runbook PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+## <a name="add-a-runbook"></a>Aggiungere un Runbook
+A questo punto, per aggiungere un runbook all'account di automazione, selezionare **manuali operativi** nel menu a sinistra. Selezionare **Aggiungi Runbook** nel menu e seguire le istruzioni per [creare un Runbook di PowerShell](../automation/automation-first-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>Script di PowerShell
-Lo script seguente accetta il nome della sottoscrizione, il nome del lab come parametri. Il flusso dello script è per ottenere tutte le VM nel lab e quindi analizzare le informazioni di tag per creare un elenco di nomi di macchina virtuale e l'ordine di avvio. Lo script illustra in modo dettagliato le macchine virtuali in ordine e avvia le macchine virtuali. Se sono presenti più macchine virtuali in un dato numero d'ordine, essi vengono avviati in modo asincrono utilizzando i processi di PowerShell. Per tali macchine virtuali che non hanno un tag, il valore di avvio impostato per essere l'ultimo (10), essi verrà avviati ultime, per impostazione predefinita.  Se il lab non desidera che la macchina virtuale per essere avviato automaticamente, impostare il valore di tag a 11 e verrà ignorato.
+Lo script seguente accetta il nome della sottoscrizione, il nome del Lab come parametri. Il flusso dello script consiste nell'ottenere tutte le macchine virtuali nel Lab, quindi analizzare le informazioni sui tag per creare un elenco dei nomi delle macchine virtuali e il relativo ordine di avvio. Lo script esamina le macchine virtuali in ordine e avvia le VM. Se sono presenti più macchine virtuali in un numero di ordine specifico, vengono avviate in modo asincrono usando i processi di PowerShell. Per le macchine virtuali che non dispongono di un tag, impostare valore di avvio su ultimo (10), per impostazione predefinita verranno avviate per ultime.  Se il Lab non desidera che la macchina virtuale venga avviata in modo automatico, impostare il valore di tag su 11 e verrà ignorato.
 
 ```powershell
 #Requires -Version 3.0
@@ -133,9 +133,9 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>Creare una pianificazione
-Affinché questo script ogni giorno, eseguire [creare una pianificazione](../automation/shared-resources/schedules.md#creating-a-schedule) nell'account di automazione. Dopo aver creata la pianificazione, [crea un collegamento al runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+Per eseguire questo script ogni giorno, [creare una pianificazione](../automation/shared-resources/schedules.md#creating-a-schedule) nell'account di automazione. Una volta creata la pianificazione, [collegarla a Runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
 
-In una situazione su larga scala in cui sono presenti più sottoscrizioni con più Lab, archiviare le informazioni sui parametri in un file per i laboratori diversi e passare il file dello script anziché i singoli parametri. Lo script dovrà essere modificato, ma l'esecuzione di core è la stessa. Mentre in questo esempio Usa l'automazione di Azure per eseguire lo script di PowerShell, esistono altre opzioni, come l'uso di un'attività in una pipeline di compilazione/versione.
+In una situazione di grandi dimensioni in cui sono presenti più sottoscrizioni con più laboratori, archiviare le informazioni sui parametri in un file per laboratori diversi e passare il file allo script anziché ai singoli parametri. È necessario modificare lo script, ma l'esecuzione principale è la stessa. Mentre questo esempio USA automazione di Azure per eseguire lo script di PowerShell, sono disponibili altre opzioni, ad esempio l'uso di un'attività in una pipeline di compilazione/versione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere l'articolo seguente per altre informazioni su automazione di Azure: [Introduzione ad automazione di Azure](../automation/automation-intro.md).

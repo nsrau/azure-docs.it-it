@@ -2,18 +2,18 @@
 title: Sicurezza per le istanze di contenitore
 description: Suggerimenti per proteggere le immagini e i segreti per le istanze di contenitore di Azure e considerazioni generali sulla sicurezza per qualsiasi piattaforma di contenitori
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b25cb4178ba211ff819ba512c9820165e0efbbf1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481691"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260498"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerazioni sulla sicurezza per le istanze di contenitore di Azure
 
-Questo articolo presenta considerazioni sulla sicurezza per l'uso di istanze di contenitore di Azure per l'esecuzione di app contenitore. Gli argomenti includono:
+Questo articolo presenta considerazioni sulla sicurezza per l'uso di istanze di contenitore di Azure per l'esecuzione di app contenitore. Tra gli argomenti:
 
 > [!div class="checklist"]
 > * **Consigli sulla sicurezza** per la gestione di immagini e segreti per istanze di contenitore di Azure
@@ -23,13 +23,17 @@ Questo articolo presenta considerazioni sulla sicurezza per l'uso di istanze di 
 
 ### <a name="use-a-private-registry"></a>Usa un registro privato
 
-I contenitori sono costituiti da immagini archiviati in una o più repository. Questi repository possono appartenere a un registro pubblico, ad esempio [Docker Hub](https://hub.docker.com)o a un registro privato. Un esempio di un registro privato è il [registro attendibile Docker](https://docs.docker.com/datacenter/dtr/2.0/), che può essere installato in locale o in un cloud privato virtuale. È anche possibile usare i servizi del registro contenitori privati basati sul cloud, tra cui [Azure container Registry](../container-registry/container-registry-intro.md). 
+I contenitori sono costituiti da immagini archiviati in una o più repository. Questi repository possono appartenere a un registro pubblico, ad esempio [Docker Hub](https://hub.docker.com)o a un registro privato. Un esempio di un registro privato è il [registro attendibile Docker](https://docs.docker.com/datacenter/dtr/), che può essere installato in locale o in un cloud privato virtuale. È anche possibile usare i servizi del registro contenitori privati basati sul cloud, tra cui [Azure container Registry](../container-registry/container-registry-intro.md). 
 
-Un'immagine del contenitore disponibile pubblicamente non garantisce la sicurezza. Le immagini del contenitore sono costituite da più livelli software e ogni livello software potrebbe avere vulnerabilità. Per ridurre il rischio di attacchi, è consigliabile archiviare e recuperare le immagini da un registro privato, ad esempio Azure Container Registry o il registro di sistema attendibile docker. Oltre a fornire un registro privato gestito, Azure Container Registry supporta [l'autenticazione basata su entità servizio](../container-registry/container-registry-authentication.md) tramite Azure Active Directory per i flussi di autenticazione di base. Questa autenticazione include l'accesso in base al ruolo per le autorizzazioni di sola lettura (pull), scrittura (push) e proprietario.
+Un'immagine del contenitore disponibile pubblicamente non garantisce la sicurezza. Le immagini del contenitore sono costituite da più livelli software e ogni livello software potrebbe avere vulnerabilità. Per ridurre il rischio di attacchi, è consigliabile archiviare e recuperare le immagini da un registro privato, ad esempio Azure Container Registry o il registro di sistema attendibile docker. Oltre a fornire un registro privato gestito, Azure Container Registry supporta [l'autenticazione basata su entità servizio](../container-registry/container-registry-authentication.md) tramite Azure Active Directory per i flussi di autenticazione di base. Questa autenticazione include l'accesso in base al ruolo per le autorizzazioni di sola lettura (pull), scrittura (push) e altre autorizzazioni.
 
 ### <a name="monitor-and-scan-container-images"></a>Monitorare e analizzare le immagini del contenitore
 
-Le soluzioni di monitoraggio e analisi della sicurezza, ad esempio [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) e [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) , sono disponibili tramite Azure Marketplace. È possibile usarli per analizzare le immagini del contenitore in un registro privato e identificare le potenziali vulnerabilità. È importante comprendere la profondità dell'analisi fornita dalle diverse soluzioni. 
+Sfrutta i vantaggi delle soluzioni per analizzare le immagini del contenitore in un registro privato e identificare le potenziali vulnerabilità. È importante comprendere la profondità del rilevamento delle minacce fornito dalle diverse soluzioni.
+
+Azure Container Registry, ad esempio, si [integra facoltativamente con il Centro sicurezza di Azure](../security-center/azure-container-registry-integration.md) per analizzare automaticamente tutte le immagini Linux inviate a un registro. Lo scanner Qualys integrato del Centro sicurezza di Azure rileva le vulnerabilità delle immagini, le classifica e fornisce indicazioni per la correzione.
+
+Le soluzioni di monitoraggio della sicurezza e di analisi delle immagini, ad esempio [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) e [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) , sono disponibili anche tramite Azure Marketplace.  
 
 ### <a name="protect-credentials"></a>Proteggi credenziali
 
@@ -90,17 +94,17 @@ Il concetto di privilegi minimi è una procedura consigliata di sicurezza di bas
 
 È anche possibile ridurre al minimo la potenziale superficie di attacco rimuovendo eventuali processi o privilegi non usati o non necessari dal runtime del contenitore. I contenitori con privilegi vengono eseguiti come radice. Se un utente malintenzionato o un carico di lavoro viene sottoposto a escape in un contenitore con privilegi, il contenitore viene quindi eseguito come radice nel sistema.
 
-### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>File whitelist ed eseguibili a cui il contenitore può accedere o eseguire 
+### <a name="preapprove-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Preapprovare i file e gli eseguibili a cui il contenitore può accedere o eseguire 
 
-La riduzione del numero di variabili o di incognite consente di mantenere un ambiente stabile e affidabile. La limitazione dei contenitori in modo che possano accedere o eseguire solo file e file eseguibili preapprovati o consentiti è un metodo collaudato per limitare l'esposizione al rischio.  
+La riduzione del numero di variabili o di incognite consente di mantenere un ambiente stabile e affidabile. La limitazione dei contenitori in modo che possano accedere o eseguire solo file preapprovati o safelisted ed eseguibili è un metodo collaudato per limitare l'esposizione al rischio.  
 
-È molto più semplice gestire un elenco di elementi consentiti quando viene implementato dall'inizio. Un elenco di elementi consentiti fornisce una misura del controllo e della gestibilità quando si apprenderanno i file e gli eseguibili necessari per il corretto funzionamento dell'applicazione. 
+È molto più semplice gestire una cassetta di sicurezza quando viene implementata dall'inizio. Un oggetto Safe fornisce una misura del controllo e della gestibilità quando si apprenderanno i file e gli eseguibili richiesti per il corretto funzionamento dell'applicazione. 
 
-Un elenco di elementi consentiti non solo riduce la superficie di attacco, ma può anche fornire una linea di base per le anomalie ed evitare i casi d'uso degli scenari di interruzione del contenitore. 
+Un tipo di attendibilità non solo riduce la superficie di attacco, ma può anche fornire una linea di base per le anomalie e impedire i casi d'uso degli scenari di interruzione del contenitore. 
 
 ### <a name="enforce-network-segmentation-on-running-containers"></a>Applicare la segmentazione di rete nei contenitori in esecuzione  
 
-Per proteggere i contenitori in una subnet dai rischi per la sicurezza in un'altra subnet, gestire la segmentazione di rete (o la nano-segmentazione) o la separazione tra i contenitori in esecuzione. Potrebbe essere necessario gestire la segmentazione della rete anche per l'uso di contenitori nei settori necessari per soddisfare i requisiti di conformità.  
+Per proteggere i contenitori in una subnet dai rischi per la sicurezza in un'altra subnet, gestire la segmentazione di rete (o la nano-segmentazione) o la separazione tra i contenitori in esecuzione. Potrebbe essere necessario gestire la segmentazione della rete anche per usare i contenitori nei settori necessari per soddisfare i requisiti di conformità.  
 
 Ad esempio, lo strumento partner [Aqua](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) fornisce un approccio automatizzato per la segmentazione nano. Aqua monitora le attività di rete del contenitore in fase di esecuzione. Identifica tutte le connessioni di rete in ingresso e in uscita verso/da altri contenitori, servizi, indirizzi IP e la rete Internet pubblica. La nano-segmentazione viene creata automaticamente in base al traffico monitorato. 
 
@@ -108,13 +112,13 @@ Ad esempio, lo strumento partner [Aqua](https://azuremarketplace.microsoft.com/m
 
 Come per qualsiasi ambiente IT, è necessario monitorare costantemente l'attività e l'accesso degli utenti all'ecosistema di contenitori per identificare rapidamente eventuali attività sospette o dannose. Azure fornisce soluzioni di monitoraggio del contenitore, tra cui:
 
-* [Monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md) per monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes ospitati nel servizio Azure KUBERNETES (AKS). Monitoraggio di Azure per contenitori assicura la visibilità sulle prestazioni raccogliendo metriche sulla memoria e sul processore da controller, nodi e contenitori disponibili in Kubernetes tramite l'API per le metriche. 
+* [Monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md) consente di monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes ospitati nel servizio Azure KUBERNETES (AKS). Monitoraggio di Azure per contenitori assicura la visibilità sulle prestazioni raccogliendo metriche sulla memoria e sul processore da controller, nodi e contenitori disponibili in Kubernetes tramite l'API per le metriche. 
 
 * La [soluzione monitoraggio contenitori di Azure](../azure-monitor/insights/containers.md) consente di visualizzare e gestire altri host contenitore Docker e Windows in un'unica posizione. Ad esempio:
 
   * Visualizzare informazioni di controllo dettagliate che mostrano i comandi utilizzati con i contenitori. 
   * Risolvere i problemi dei contenitori visualizzando i log centralizzati e cercandoli senza dover visualizzare in remoto gli host Docker o Windows.  
-  * Individuare i contenitori che potrebbero essere rumorosi e che utilizzano risorse in eccesso in un host.
+  * Individuare i contenitori che potrebbero essere rumorosi e utilizzare risorse in eccesso in un host.
   * Visualizzare le informazioni su CPU, memoria, archiviazione e utilizzo della rete centralizzate e sulle prestazioni per i contenitori.  
 
   La soluzione supporta gli agenti di orchestrazione dei contenitori, tra cui Docker Swarm, DC/OS, Kubernetes non gestito, Service Fabric e Red Hat OpenShift. 
@@ -125,14 +129,18 @@ Monitorare l'attività delle risorse, ad esempio file, rete e altre risorse acce
 
 [Monitoraggio di Azure](../azure-monitor/overview.md) permette il monitoraggio di base per i servizi di Azure consentendo la raccolta di metriche, log attività e log di diagnostica. Il log attività, ad esempio, indica quando vengono create nuove risorse o quando vengono modificate risorse esistenti. 
 
-Sono disponibili metriche che forniscono statistiche sulle prestazioni per diverse risorse, nonché per il sistema operativo all'interno di una macchina virtuale. È possibile visualizzare questi dati con una delle utilità di esplorazione disponibili nel portale di Azure e creare avvisi basati su queste metriche. Monitoraggio di Azure fornisce la pipeline delle metriche più veloce (da 5 minuti a 1 minuto), quindi è consigliabile usarla per avvisi e notifiche critiche per il tempo. 
+  Sono disponibili metriche che forniscono statistiche sulle prestazioni per diverse risorse, nonché per il sistema operativo all'interno di una macchina virtuale. È possibile visualizzare questi dati con una delle utilità di esplorazione disponibili nel portale di Azure e creare avvisi basati su queste metriche. Monitoraggio di Azure fornisce la più veloce pipeline di metriche (da 5 minuti a 1 minuto), che è necessario usare per gestire notifiche e avvisi con particolari requisiti di tempo. 
 
 ### <a name="log-all-container-administrative-user-access-for-auditing"></a>Registra tutti gli accessi utente amministrativi del contenitore per il controllo 
 
-Mantenere un audit trail accurato di accesso amministrativo all'ecosistema di contenitori, al registro contenitori e alle immagini del contenitore. Questi log potrebbero essere necessari a scopo di controllo e saranno utili come prove legali dopo qualsiasi evento imprevisto della sicurezza. Per ottenere questo scopo, è possibile usare la [soluzione di monitoraggio dei contenitori di Azure](../azure-monitor/insights/containers.md) . 
+Mantenere un audit trail accurato di accesso amministrativo all'ecosistema di contenitori, inclusi il cluster Kubernetes, il registro contenitori e le immagini del contenitore. Questi log potrebbero essere necessari a scopo di controllo e saranno utili come prove legali dopo qualsiasi evento imprevisto della sicurezza. Le soluzioni di Azure includono:
+
+* [Integrazione del servizio Kubernetes di Azure con il Centro sicurezza di Azure](../security-center/azure-kubernetes-service-integration.md) per monitorare la configurazione di sicurezza dell'ambiente cluster e generare raccomandazioni sulla sicurezza
+* [Soluzione di monitoraggio del contenitore di Azure](../azure-monitor/insights/containers.md)
+* Log delle risorse per [istanze di contenitore di Azure](container-instances-log-analytics.md) e [Azure container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sulla gestione delle vulnerabilità del contenitore con soluzioni di [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) e [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/).
+* Altre informazioni sull'uso del [Centro sicurezza di Azure](../security-center/container-security.md) per il rilevamento delle minacce in tempo reale negli ambienti in contenitori.
 
-* Scopri di più sulla [sicurezza dei contenitori in Azure](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/).
+* Scopri di più sulla gestione delle vulnerabilità del contenitore con soluzioni di [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) e [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/).

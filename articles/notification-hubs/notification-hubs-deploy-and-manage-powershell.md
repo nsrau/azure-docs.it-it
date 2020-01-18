@@ -1,6 +1,6 @@
 ---
-title: Distribuire e gestire hub di notifica tramite PowerShell
-description: Come creare e gestire Hub di notifica utilizzando PowerShell per l'automazione
+title: Distribuire e gestire Hub di notifica tramite PowerShell
+description: Come creare e gestire Hub di notifica tramite PowerShell per l'automazione
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5af920249000cabbc63f0c9ab453738450875172
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213411"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264645"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire Hub di notifica tramite PowerShell
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questo articolo viene illustrato come utilizzare Creazione e gestione di hub di notifica di Azure tramite PowerShell. Le seguenti attività comuni di automazione sono illustrate in questo articolo.
 
@@ -38,8 +38,8 @@ La gestione degli hub di notifica non è supportata direttamente tramite i cmdle
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto], [Offerte per i membri] oppure [Versione di valutazione gratuita].
-- Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell].
+- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto], [Offerte per i membri] oppure [Versione di prova gratuita].
+- Un computer con Azure PowerShell. Per istruzioni, vedere [Installare e configurare Azure PowerShell].
 - Conoscenza generale degli script di PowerShell, dei pacchetti NuGet e di .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Inclusione di un riferimento all'assembly .NET per il bus di servizio
@@ -96,8 +96,8 @@ In questa parte dello script vengono impostate quattro variabili locali.
 
 1. `$Namespace`: impostare sul nome dello spazio dei nomi in cui si desidera creare un hub di notifica.
 2. `$Path`: impostare il percorso sul nome del nuovo hub di notifica.  Ad esempio, "MyHub".
-3. `$WnsPackageSid`: impostare sul SID di pacchetto per l'App di Windows da [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
-4. `$WnsSecretkey`: impostare sulla chiave privata per l'App di Windows da [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
+3. `$WnsPackageSid`: impostare sul SID di pacchetto per l'App di Windows dal [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: impostare sulla chiave privata per l'App di Windows dal [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
 
 Queste variabili vengono utilizzate per connettersi allo spazio dei nomi e creare un nuovo Hub di notifica configurato per gestire le notifiche Windows Notification Services (WNS) con credenziali WNS per un’applicazione Windows. Per informazioni su come ottenere il SID di pacchetto e la chiave privata, vedere l’esercitazione [Introduzione agli Hub di notifica](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 
@@ -148,7 +148,7 @@ else
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Gestire il bus di servizio con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
+- [Gestire Bus di servizio con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
 - [Come creare code, argomenti e sottoscrizioni del bus di servizio tramite uno script di PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Come creare uno spazio dei nomi del bus di servizio e un hub eventi tramite uno script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
@@ -158,8 +158,8 @@ Sono disponibili per il download anche alcuni script predefiniti:
 
 [Opzioni di acquisto]: https://azure.microsoft.com/pricing/purchase-options/
 [Offerte per i membri]: https://azure.microsoft.com/pricing/member-offers/
-[Versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/
-[Come installare e configurare Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Versione di prova gratuita]: https://azure.microsoft.com/pricing/free-trial/
+[Installare e configurare Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API .NET per Hub di notifica]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace

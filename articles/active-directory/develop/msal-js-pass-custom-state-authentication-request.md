@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/29/2019
+ms.date: 01/16/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cb0f3d054f9afd0c606f80fd6fc5d553eff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 29418e0000f917f7184a230c04b93adeae44efef
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916316"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261195"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passare lo stato personalizzato nelle richieste di autenticazione con MSAL. js
+
 Il parametro *state* , come definito da OAuth 2,0, è incluso in una richiesta di autenticazione e viene anche restituito nella risposta del token per evitare attacchi di richiesta intersito falsa. Per impostazione predefinita, Microsoft Authentication Library per JavaScript (MSAL. js) passa un valore di parametro di *stato* univoco generato in modo casuale nelle richieste di autenticazione.
 
 Il parametro state può essere usato anche per codificare le informazioni dello stato dell'app prima del reindirizzamento. È possibile passare lo stato dell'utente nell'app, ad esempio la pagina o la vista in cui si trovavano, come input per questo parametro. La libreria MSAL. js consente di passare lo stato personalizzato come parametro di stato nell'oggetto `Request`:
@@ -40,10 +41,18 @@ export type AuthenticationParameters = {
     account?: Account;
     sid?: string;
     loginHint?: string;
+    forceRefresh?: boolean;
 };
 ```
 
-ad esempio:
+> [!Note]
+> Se si vuole ignorare un token memorizzato nella cache e passare al server, passare il valore booleano `forceRefresh` nell'oggetto AuthenticationParameters usato per effettuare una richiesta di accesso/token.
+> per impostazione predefinita, `forceRefresh` non deve essere usato, a causa dell'effetto sulle prestazioni dell'applicazione.
+> Affidarsi alla cache offrirà agli utenti un'esperienza migliore.
+> Ignorare la cache deve essere utilizzata solo negli scenari in cui si sa che i dati attualmente memorizzati nella cache non contengono informazioni aggiornate.
+> Ad esempio uno strumento di amministrazione che aggiunge ruoli a un utente che deve ottenere un nuovo token con i ruoli aggiornati.
+
+Ad esempio:
 
 ```javascript
 let loginRequest = {

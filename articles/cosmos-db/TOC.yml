@@ -721,7 +721,7 @@
           items:
             - name: 1 - Eseguire query sui dati
               href: tutorial-query-graph.md
-        - name: Riferimento
+        - name: Informazioni di riferimento
           items:
             - name: Intestazioni della risposta
               href: gremlin-headers.md
@@ -812,7 +812,7 @@
               href: powershell-samples-table.md
             - name: Gestire con l'interfaccia della riga di comando di Azure
               href: cli-samples-table.md
-        - name: Riferimento
+        - name: Informazioni di riferimento
           items:
             - name: .NET
               href: table-sdk-dotnet.md
@@ -851,8 +851,6 @@
         - name: Gestire i livelli di coerenza
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: Implementare la sincronizzazione personalizzata
-          href: how-to-custom-synchronization.md
         - name: Configurare i criteri di risoluzione dei conflitti
           href: how-to-manage-conflicts.md
     - name: Velocità effettiva con provisioning
@@ -1075,7 +1073,7 @@
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Libreria Java
           href: bulk-executor-java.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: .NET
       href: sql-api-sdk-dotnet.md

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d1d94e07fc38ae5de62793666df5a73dbf8b79eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480567"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264017"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard dei clienti in analisi del Marketplace commerciale
 
@@ -24,7 +24,7 @@ Per accedere al **Dashboard del cliente**, aprire il dashboard **[analizza](http
 >[!NOTE]
 > Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
 
-## <a name="customer-dashboard"></a>Dashboard del cliente
+## <a name="customer-dashboard"></a>Dashboard Cliente
 
 Il **Dashboard del cliente** del menu **analizza** Visualizza i dati per i clienti che hanno acquisito le offerte. È possibile visualizzare le rappresentazioni grafiche degli elementi seguenti:
 
@@ -72,7 +72,7 @@ Il grafico **tendenze dei clienti** Visualizza un conteggio di tutti i clienti, 
 
 Il grafico **Customers by Orders/Usage** include tre schede, "Orders", "normalizzated Usage" e "Raw Usage". Il **primo percentile del cliente** viene visualizzato lungo l'asse x, come determinato dal numero di ordini. L'asse y Visualizza il numero di ordini del cliente. L'asse y secondario (grafico a linee) Visualizza la percentuale cumulativa del numero totale di ordini. È possibile visualizzare i dettagli posizionando il puntatore del mouse sui punti lungo il grafico a linee.
 
-Per un esempio, vedere il grafico seguente per l'utilizzo normalizzato: il 30 ° percentile più alto dei clienti contribuisce al 87% dell'utilizzo normalizzato in modo cumulativo. Il 30 ° percentile dei clienti contribuisce solo a 1.57 ore di utilizzo.
+Per un esempio, vedere il grafico seguente per l'utilizzo normalizzato: il 30 ° percentile più alto dei clienti contribuisce al 87% dell'utilizzo normalizzato in modo cumulativo. Il 30 ° percentile dei clienti contribuisce solo a 1.570.000 ore di utilizzo.
 
 ### <a name="customers-by-skus"></a>Clienti per SKU
 

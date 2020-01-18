@@ -4,15 +4,15 @@ description: Eseguire la replica di Azure Analysis Services server con scalabili
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572632"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167955"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -30,7 +30,7 @@ Indipendentemente dal numero di repliche di query presenti in un pool di query, 
 
 Quando si aumenta la scalabilità orizzontale, possono essere necessari fino a cinque minuti per aggiungere le nuove repliche di query al pool di query. Quando tutte le nuove repliche di query sono in esecuzione, le nuove connessioni client vengono sottoposte a bilanciamento del carico tra le risorse nel pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse. Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. I client possono riconnettersi a una risorsa del pool di query rimanente.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Quando si configura la scalabilità orizzontale per la prima volta, i database modello nel server primario vengono sincronizzati *automaticamente* con le nuove repliche in un nuovo pool di query. La sincronizzazione automatica viene eseguita una sola volta. Durante la sincronizzazione automatica, i file di dati del server primario (crittografati inattivi nell'archivio BLOB) vengono copiati in una seconda posizione, crittografati anche inattivi nell'archivio BLOB. Le repliche nel pool di query vengono quindi *idratate* con i dati del secondo set di file. 
 
@@ -48,6 +48,26 @@ Quando si esegue un'operazione di scalabilità orizzontale successiva, ad esempi
 
 * Quando si rinomina un database nel server primario, è necessario eseguire un passaggio aggiuntivo per verificare che il database sia correttamente sincronizzato con tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) specificando il parametro `-Database` con il nome del database precedente. Questa sincronizzazione rimuove il database e i file con il nome precedente dalle repliche. Quindi eseguire un'altra sincronizzazione specificando il parametro `-Database` con il nuovo nome del database. La seconda sincronizzazione copia il database appena denominato nel secondo set di file e idrata tutte le repliche. Queste sincronizzazioni non possono essere eseguite usando il comando Sincronizza modello nel portale.
 
+### <a name="synchronization-mode"></a>Modalità di sincronizzazione
+
+Per impostazione predefinita, le repliche di query vengono reidratate in modo completo e non incrementale. La riattivazione avviene nelle fasi. Vengono scollegati e collegati due alla volta (presupponendo che siano presenti almeno tre repliche) per garantire che almeno una replica venga mantenuta online per le query in un determinato momento. In alcuni casi, è possibile che i client debbano riconnettersi a una delle repliche online durante l'esecuzione del processo. Utilizzando l'impostazione **ReplicaSyncMode** , è ora possibile specificare la sincronizzazione della replica delle query in parallelo. La sincronizzazione parallela offre i vantaggi seguenti: 
+
+- Riduzione significativa del tempo di sincronizzazione. 
+- È più probabile che i dati tra le repliche siano coerenti durante il processo di sincronizzazione. 
+- Poiché i database vengono mantenuti online su tutte le repliche durante il processo di sincronizzazione, i client non devono riconnettersi. 
+- La cache in memoria viene aggiornata in modo incrementale con solo i dati modificati, che possono essere più veloci rispetto alla completa riattivazione del modello. 
+
+#### <a name="setting-replicasyncmode"></a>Impostazione di ReplicaSyncMode
+
+Usare SSMS per impostare ReplicaSyncMode in proprietà avanzate. I valori possibili sono: 
+
+- `1` (impostazione predefinita): reidratazione completa del database di replica in fasi (incrementale). 
+- `2`: sincronizzazione ottimizzata in parallelo. 
+
+![Impostazione RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
+
+Quando si imposta **ReplicaSyncMode = 2**, a seconda della quantità di cache che deve essere aggiornata, è possibile che venga utilizzata memoria aggiuntiva da parte delle repliche di query. Per mantenere il database online e disponibile per le query, a seconda della quantità di dati che sono stati modificati, l'operazione può richiedere fino al *doppio della memoria* sulla replica perché i segmenti vecchi e nuovi vengono mantenuti in memoria contemporaneamente. I nodi di replica hanno la stessa allocazione di memoria del nodo primario ed è in genere presente una memoria aggiuntiva nel nodo primario per le operazioni di aggiornamento, pertanto potrebbe essere improbabile che le repliche esaurissero la memoria. Inoltre, lo scenario comune è che il database viene aggiornato in modo incrementale nel nodo primario e pertanto il requisito per il doppio della memoria non deve essere comune. Se si verifica un errore di memoria insufficiente nell'operazione di sincronizzazione, verrà effettuato un nuovo tentativo utilizzando la tecnica predefinita (collegamento/scollegamento due alla volta). 
+
 ### <a name="separate-processing-from-query-pool"></a>Separare l'elaborazione dal pool di query
 
 Per ottenere prestazioni ottimali sia delle operazioni di elaborazione che delle operazioni di query, è possibile scegliere di separare il server di elaborazione dal pool di query. Una volta separate, le nuove connessioni client vengono assegnate alle repliche di query solo nel pool di query. Se le operazioni di elaborazione richiedono pochi minuti, è possibile scegliere di separare il server di elaborazione dal pool di query solo per il tempo necessario per eseguire le operazioni di elaborazione e sincronizzazione e quindi includerlo nuovamente nel pool di query. Quando si separa il server di elaborazione dal pool di query o se lo si aggiunge nuovamente nel pool di query, possono essere necessari fino a cinque minuti per il completamento dell'operazione.
@@ -56,7 +76,7 @@ Per ottenere prestazioni ottimali sia delle operazioni di elaborazione che delle
 
 Per determinare se per il server è necessario un ridimensionamento orizzontale, monitorare il server nel portale di Azure tramite le metriche. Se le QPU si esauriscono regolarmente, significa che il numero di query verso i modelli supera il limite di QPU per il piano. La metrica relativa alla lunghezza della coda dei processi del pool di query aumenta anche quando il numero di query nella coda del pool di thread di query supera le QPU disponibili. 
 
-Un'altra metrica efficace da controllare è la media di QPU per ServerResourceType. Questa metrica confronta il numero medio di QPU per il server primario con quello del pool di query. 
+Un'altra metrica efficace da controllare è la media di QPU per ServerResourceType. Questa metrica confronta la media QPU per il server primario con il pool di query. 
 
 ![Metriche di scalabilità orizzontale delle query](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
@@ -82,7 +102,7 @@ Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-serv
 
 Quando si configura per la prima volta la scalabilità orizzontale per un server, i modelli nel server primario vengono sincronizzati automaticamente con le repliche nel pool di query. La sincronizzazione automatica si verifica solo una volta, quando si configura per la prima volta la scalabilità orizzontale in una o più repliche. Le successive modifiche al numero di repliche sullo stesso server *non attiverà un'altra sincronizzazione automatica*. La sincronizzazione automatica non verrà rieseguita anche se si imposta il server su zero repliche e quindi si aumenta di nuovo la scalabilità orizzontale a un numero qualsiasi di repliche. 
 
-## <a name="synchronize"></a>Sincronizzare 
+## <a name="synchronize"></a>Sincronizza 
 
 Le operazioni di sincronizzazione devono essere eseguite manualmente o tramite l'API REST.
 
@@ -107,13 +127,13 @@ Usare l'operazione **sync**.
 Codici di stato restituiti:
 
 
-|Codice  |Descrizione  |
+|Codice  |Description  |
 |---------|---------|
 |-1     |  Non valido       |
-|0     | La replica        |
+|0     | Replicating        |
 |1     |  Reidratanti       |
-|2     |   Completed       |
-|3     |   Non riuscito      |
+|2     |   Completi       |
+|3     |   Operazione non riuscita      |
 |4     |    Finalizzazione     |
 |||
 
@@ -146,7 +166,7 @@ Per SSMS, Visual Studio e le stringhe di connessione in PowerShell, app per le f
 
 È possibile modificare il piano tariffario in un server con più repliche. Lo stesso piano tariffario si applica a tutte le repliche. Un'operazione di ridimensionamento arresterà prima tutte le repliche in una sola volta e quindi mostrerà tutte le repliche nel nuovo piano tariffario.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 **Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
 

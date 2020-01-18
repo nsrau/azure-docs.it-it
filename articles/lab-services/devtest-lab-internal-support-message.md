@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un'informativa sul supporto interno in un lab di Azure DevTest Labs | Microsoft Docs
+title: Aggiungere un'informativa sul supporto interno in un lab di Azure DevTest Labs
 description: Informazioni su come pubblicare un'informativa sul supporto interno in un lab di Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 591dcec36dc62143901d3b49db24196e84d58c29
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60562311"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170361"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Aggiungere un'informativa sul supporto interno in un lab di Azure DevTest Labs
 

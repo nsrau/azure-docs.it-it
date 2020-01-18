@@ -4,15 +4,15 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045843"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264085"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -29,7 +29,10 @@ Application Insights è compatibile con tutte le pagine Web, con una minima aggi
     * [Frammento JavaScript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> È sufficiente usare uno dei metodi seguenti per aggiungere la Application Insights JavaScript SDK all'applicazione. Se si usa l'installazione basata su NPM, non usare l'installazione basata sul frammento. Lo stesso vale per lo scenario inverso quando si usa l'approccio basato su frammenti di codice, non usare anche la configurazione basata su NPM. 
+> > Usare un solo metodo per aggiungere JavaScript SDK all'applicazione. Se si usa il programma di installazione di NPM, non usare il frammento e viceversa.
+
+> [!NOTE]
+> Il programma di installazione di NPM installa JavaScript SDK come dipendenza dal progetto, abilitando IntelliSense, mentre il frammento recupera l'SDK in fase di esecuzione. Entrambi supportano le stesse funzionalità. Tuttavia, gli sviluppatori che desiderano un maggior numero di eventi personalizzati e la configurazione scelgono generalmente la configurazione di NPM, mentre gli utenti che cercano di abilitare rapidamente le analisi Web predefinite optano per il frammento di codice.
 
 ### <a name="npm-based-setup"></a>configurazione basata su NPM
 
@@ -261,4 +264,3 @@ Il Application Insights JavaScript SDK è open source per visualizzare il codice
 * [Tenere traccia dell'utilizzo](usage-overview.md)
 * [Metriche ed eventi personalizzati](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-

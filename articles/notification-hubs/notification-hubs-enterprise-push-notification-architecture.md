@@ -1,6 +1,6 @@
 ---
-title: 'Hub di notifica: architettura push aziendale'
-description: Indicazioni sull'uso di Hub di notifica di Azure in un ambiente aziendale
+title: Architettura push Enterprise Hub di notifica
+description: Informazioni sull'uso di hub di notifica di Azure in un ambiente aziendale
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,14 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211912"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264034"
 ---
-# <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
+# <a name="enterprise-push-architectural-guidance"></a>Linee guida sull'architettura push aziendale
 
 Al giorno d'oggi, le aziende stanno gradualmente passando alla creazione di applicazioni per dispositivi mobili sia per gli utenti finali (esterni) che per i dipendenti (interni). Le aziende dispongono di sistemi back-end già esistenti, ovvero mainframe o applicazioni LoB che è necessario integrare nell'architettura delle applicazioni per dispositivi mobili. In questa Guida verrà illustrato come eseguire questa integrazione nel modo migliore possibile, fornendo possibili soluzioni per scenari comuni.
 
@@ -44,7 +44,7 @@ L'elemento chiave di questo diagramma dell'architettura è il bus di servizio di
 1. Sistema back-end (sistemi LoB/legacy)
    * Crea un argomento del bus di servizio
    * Invia un messaggio
-1. Back-end Mobile
+1. Back-end per dispositivi mobili
    * Crea una sottoscrizione al servizio
    * Riceve un messaggio (dal sistema back-end)
    * Invia la notifica al client (tramite Hub di notifica di Azure)
@@ -234,7 +234,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 
     ![][3]
 
-    g. Configurare il processo per l'esecuzione continua, in modo che, quando si accede al [portale di Azure], venga visualizzata una schermata simile alla seguente:
+    g. Configurare il processo per l'esecuzione continua, in modo che, quando si accede al [Azure portal], venga visualizzata una schermata simile alla seguente:
 
     ![][4]
 
@@ -272,7 +272,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 
     ![][5]
 
-4. All'inizio i messaggi sono stati inviati ad argomenti del bus di servizio, operazione monitorata da sottoscrizioni del bus di servizio nel processo Web. Una volta ricevuto un messaggio, è stata creata una notifica che è stata inviata all'app per dispositivi mobili. Per confermare l'elaborazione, è possibile esaminare i log del processo Web quando si accede al collegamento Log relativo al processo Web nel [portale di Azure]:
+4. All'inizio i messaggi sono stati inviati ad argomenti del bus di servizio, operazione monitorata da sottoscrizioni del bus di servizio nel processo Web. Una volta ricevuto un messaggio, è stata creata una notifica che è stata inviata all'app per dispositivi mobili. Per confermare l'elaborazione, è possibile esaminare i log del processo Web quando si accede al collegamento Log relativo al processo Web nel [Azure portal]:
 
     ![][6]
 
@@ -287,8 +287,8 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 <!-- Links -->
 [esempi di Hub di notifica]: https://github.com/Azure/azure-notificationhubs-samples
 [Servizio mobile di Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
-[bus di servizio di Azure]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Bus di servizio di Azure]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Come usare argomenti/sottoscrizioni del bus di servizio]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Processo Web di Azure]: ../app-service/webjobs-create.md
 [Introduzione ad Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

@@ -1,17 +1,17 @@
 ---
-title: Usare i comandi e le funzionalità predefiniti del notebook in Azure Cosmos DB
+title: Usare i comandi e le funzionalità predefiniti del notebook in Azure Cosmos DB (anteprima)
 description: Informazioni su come usare i comandi e le funzionalità predefiniti per eseguire operazioni comuni usando i notebook predefiniti di Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: dech
-ms.openlocfilehash: f5ab1491c8561c90b06374a0a58f160cbcdd1cad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2066701a88e03feb29bd1689f36460765f1c638d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444632"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264713"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Usare i comandi e le funzionalità predefiniti del notebook in Azure Cosmos DB
 

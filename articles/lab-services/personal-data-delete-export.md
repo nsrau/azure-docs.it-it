@@ -1,5 +1,5 @@
 ---
-title: Come eliminare ed esportare dati personali da Azure DevTest Labs | Microsoft Docs
+title: Come eliminare ed esportare i dati personali da Azure DevTest Labs
 description: Informazioni su come eliminare ed esportare dati personali dal servizio Azure DevLast Labs per adempiere agli obblighi derivanti dall'applicazione del Regolamento generale sulla protezione dei dati (GDPR).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371180"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169690"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Esportare o eliminare dati personali da Azure DevTest Labs
 Questo articolo illustra la procedura da eseguire per eliminare ed esportare dati personali dal servizio Azure DevTest Labs. 
@@ -68,7 +68,7 @@ Un utente del lab può richiedere un'esportazione dei dati personali archiviati 
     ![Pagina Dati personali](./media/personal-data-delete-export/personal-data-page.png)
 2. Selezionare il **gruppo di risorse** che contiene il lab.
 
-    ![Seleziona gruppo di risorse](./media/personal-data-delete-export/select-resource-group.png)
+    ![Selezionare il gruppo di risorse](./media/personal-data-delete-export/select-resource-group.png)
 3. Selezionare l'**account di archiviazione** nel gruppo di risorse.
 4. Nella pagina **Account di archiviazione** selezionare **BLOB**.
 
@@ -160,7 +160,7 @@ Verranno ora esaminati in dettaglio i dati esportati. Come indicato in precedenz
 
 **VirtualMachines. csv** contiene le colonne di dati seguenti:
 
-| Nome colonna | Descrizione |
+| Nome colonna | Description |
 | ----------- | ----------- | 
 | SubscriptionId | Identificatore della sottoscrizione in cui è presente il Lab. |
 | LabUId | Identificatore GUID univoco per il Lab. |
@@ -169,7 +169,7 @@ Verranno ora esaminati in dettaglio i dati esportati. Come indicato in precedenz
 | ResourceGroupName | Nome del gruppo di risorse che contiene la macchina virtuale | 
 | ResourceId | ID risorsa completo per la macchina virtuale. |
 | ResourceUId | GUID della macchina virtuale |
-| Name | Nome della macchina virtuale. |
+| Nome | Nome macchina virtuale. |
 | CreatedTime | Data e ora in cui è stata creata la macchina virtuale. |
 | DeletedDate | Data e ora in cui la macchina virtuale è stata eliminata. Se è vuota, l'eliminazione non è ancora stata eseguita. |
 | ResourceOwner | Proprietario della macchina virtuale. Se il valore è vuoto, si tratta di una macchina virtuale richiedibile o creata da un'entità servizio. |
@@ -188,7 +188,7 @@ Verranno ora esaminati in dettaglio i dati esportati. Come indicato in precedenz
 
 Di seguito sono elencate le colonne di dati contenute in **Disks. csv** :
 
-| Nome colonna | Descrizione | 
+| Nome colonna | Description | 
 | ----------- | ----------- | 
 | SubscriptionId | ID della sottoscrizione che contiene il Lab |
 | LabUId | GUID per il Lab |
@@ -197,7 +197,7 @@ Di seguito sono elencate le colonne di dati contenute in **Disks. csv** :
 | ResourceGroupName | Nome del gruppo di risorse che contiene il Lab | 
 | ResourceId | ID risorsa completo per la macchina virtuale. |
 | ResourceUId | GUID della macchina virtuale |
- |Name | Nome del disco collegato |
+ |Nome | Nome del disco collegato |
 | CreatedTime |Data e ora di creazione del disco dati. |
 | DeletedDate | Data e ora in cui è stato eliminato il disco dati. |
 | ResourceStatus | Stato della risorsa. Attivo, se la risorsa esiste. Inattivo, quando viene eliminato. |

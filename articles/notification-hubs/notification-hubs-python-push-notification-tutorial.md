@@ -1,6 +1,6 @@
 ---
 title: Come usare Hub di notifica con Python
-description: Informazioni su come usare Hub di notifica di Azure da un back-end Python.
+description: Informazioni su come usare hub di notifica di Azure da un back-end Python.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db5174ed6f008be0fed1fdf3c2c83d33277c3b4e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213072"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263796"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
 
@@ -305,7 +305,7 @@ L'URL HTTP della richiesta di invio a Hub di notifica viene aggiunto con una que
 
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end Python.
 
-Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [esercitazione introduttiva]:
+Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'[esercitazione introduttiva] a Hub di notifica:
 
 ```python
 hub = NotificationHub("myConnectionString", "myNotificationHubName")
@@ -445,9 +445,9 @@ hub.send_template_notification(template_payload)
 
 ![][5]
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
-Questo articolo ha illustrato come creare un client REST Python per Hub di notifica. A questo punto è possibile:
+Questo articolo ha illustrato come creare un client REST Python per Hub di notifica. Da qui è possibile:
 
 - Scaricare l'intero [esempio di wrapper REST Python], che contiene tutto il codice indicato in questo articolo.
 - Visualizzare altre informazioni sulla funzionalità di aggiunta tag di Hub di notifica nell' [esercitazione sull'invio delle ultime notizie]

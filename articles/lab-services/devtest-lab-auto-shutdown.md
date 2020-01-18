@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 01/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 1c13414bb252da1192f82675da5b134bf43a40f0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772636"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264789"
 ---
-# <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire i criteri di arresto automatico per un Lab in Azure DevTest Labs
+# <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurare l'arresto automatico per le macchine virtuali Lab e di calcolo in Azure DevTest Labs
+
+Questo articolo illustra come configurare le impostazioni di arresto automatico per le macchine virtuali del Lab in DevTest Labs e nelle macchine virtuali di calcolo. 
+
+## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configurare l'arresto automatico per le macchine virtuali del Lab (DevTest Labs)
 Azure DevTest Labs consente di gestire i criteri (impostazioni) in ogni lab, in modo da controllare i costi e ridurre al minimo gli sprechi. Questo articolo illustra come configurare i criteri di arresto automatico per un account Lab e configurare le impostazioni di arresto automatico per un Lab nell'account Lab. Per vedere come impostare ogni criterio del lab, vedere [Definire i criteri di lab in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-## <a name="set-auto-shutdown-policy-for-a-lab"></a>Impostare i criteri di arresto automatico per un Lab
+### <a name="set-auto-shut-down-policy-for-a-lab"></a>Impostare i criteri di arresto automatico per un Lab
 I proprietari del lab possono configurare una pianificazione di arresto per tutte le macchine virtuali nel lab. In questo modo, è possibile ridurre i costi dovuti all'esecuzione di macchine virtuali che non vengono usate (inattive). È possibile applicare un criterio di arresto a tutte le macchine virtuali del lab a livello centrale, ma anche evitare agli utenti di dover configurare una pianificazione per i propri computer. Questa funzionalità consente di impostare il criterio per la pianificazione del lab, offrendo agli utenti del lab il livello di controllo desiderato. I proprietari del lab possono configurare questo criterio seguendo questa procedura:
 
 1. Nella home page del lab selezionare **Configurazione e criteri**.
@@ -33,7 +37,7 @@ I proprietari del lab possono configurare una pianificazione di arresto per tutt
 
     ![Opzioni dei criteri di arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-## <a name="configure-auto-shutdown-settings"></a>Configurare le impostazioni di arresto automatico
+### <a name="configure-auto-shutdown-settings"></a>Configurare le impostazioni di arresto automatico
 I criteri di arresto automatico consentono di ridurre al minimo gli sprechi del Lab consentendo di specificare l'ora di arresto delle macchine virtuali del Lab.
 
 Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
@@ -72,7 +76,7 @@ Se si imposta il lab su questo criterio, gli utenti del lab non possono eseguire
 
 ![Opzione per l'arresto automatico dei criteri-3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## <a name="notifications"></a>Notifiche
+### <a name="notifications"></a>Notifiche
 Al termine dell'arresto automatico da parte del proprietario del Lab, le notifiche verranno inviate agli utenti del Lab 30 minuti prima che venga attivato l'arresto automatico in caso di influire su una delle macchine virtuali. Questa opzione offre agli utenti del Lab la possibilità di salvare il proprio lavoro prima dell'arresto. La notifica fornisce inoltre i collegamenti per ogni macchina virtuale per le azioni seguenti:
 
 - Ignora l'arresto automatico per questa ora
@@ -82,7 +86,7 @@ La notifica viene inviata tramite l'endpoint dell'hook Web configurato o un indi
 
 Si consiglia di usare i webhook perché sono ampiamente supportati da varie app (ad esempio, Slack, app per la logica di Azure e così via) e consente di implementare un metodo personalizzato per l'invio di notifiche. Ad esempio, questo articolo illustra come ottenere la notifica di arresto automatico dei messaggi di posta elettronica usando app per la logica di Azure. Per prima cosa, è possibile eseguire i passaggi di base per abilitare la notifica di arresto automatico nel Lab.   
 
-## <a name="create-a-logic-app-that-receives-email-notifications"></a>Creare un'app per la logica che riceve le notifiche tramite posta elettronica
+### <a name="create-a-logic-app-that-receives-email-notifications"></a>Creare un'app per la logica che riceve le notifiche tramite posta elettronica
 [App](../logic-apps/logic-apps-overview.md) per la logica di Azure offre numerosi connettori predefiniti che semplificano l'integrazione di un servizio con altri client, ad esempio Office 365 e Twitter. Al livello elevato, i passaggi per configurare un'app per la logica per la notifica tramite posta elettronica possono essere divisi in quattro fasi: 
 
 - Creare un'app per la logica. 
@@ -185,5 +189,16 @@ Per iniziare, creare un'app per la logica nella sottoscrizione di Azure attenend
 
     ![URL webhook](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
+## <a name="configure-autoshutdown-for-compute-vms"></a>Configurare l'arresto automatico per le macchine virtuali di calcolo
+
+1. Nella pagina **macchina virtuale** selezionare **arresto automatico** nel menu a sinistra. 
+2. Nella pagina **arresto automatico** **selezionare attivato** per abilitare questo criterio e **disattivarlo** per disabilitarlo.
+3. Se si Abilita questo criterio, specificare l' **ora** e il **fuso orario**in cui deve essere arrestata la macchina virtuale.
+4. Specificare **Sì** o **No** per l'opzione per inviare una notifica 30 minuti prima del tempo di arresto automatico specificato. Se si sceglie **Sì**, immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di ritardare l'arresto. Per ulteriori informazioni, vedere la sezione [notifiche](#notifications) . 
+9. Selezionare **Salva**.
+
+    ![Configurare l'arresto automatico per una macchina virtuale di calcolo](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come impostare tutti i criteri, vedere [definire i criteri di Lab in Azure DevTest Labs](devtest-lab-set-lab-policy.md).
+

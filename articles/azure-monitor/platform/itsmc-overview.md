@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: efb4e4f68935898c083c1dbca6a6c64512544095
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936196"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263473"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -58,7 +58,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
 3. Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro Azure Log Analytics dove si vuole installare la soluzione.
    >[!NOTE]
    > * In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
-   > * Il connettore ITSM può essere installato solo nelle aree di lavoro Log Analytics nelle aree seguenti: Stati Uniti orientali, Europa occidentale, Asia sudorientale, Australia sudorientale, Stati Uniti centro-occidentali, Giappone orientale, Regno Unito meridionale, India centrale, Canada centrale.
+   > * Il connettore ITSM può essere installato solo nelle aree di lavoro Log Analytics nelle aree seguenti: Stati Uniti orientali, Europa occidentale, Asia sudorientale, Australia sudorientale, Stati Uniti centro-occidentali, Giappone orientale, Regno Unito meridionale, India centrale, Canada centrale, Uniti occidentale, Stati Uniti centro-meridionali.
 
 4. Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
 
@@ -66,7 +66,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
    >[!NOTE]
    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 
-5. Fare clic su **Create**(Crea).
+5. Fare clic su **Crea**.
 
 Quando viene distribuita la risorsa della soluzione, viene visualizzata una notifica nella parte superiore destra della finestra.
 
@@ -152,7 +152,7 @@ Il dashboard fornisce anche informazioni sullo stato del connettore, che è poss
 
 È anche possibile visualizzare gli eventi imprevisti sincronizzati in relazione ai computer interessati, all'interno della soluzione Mapping dei servizi.
 
-Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. L'elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../../azure-monitor/insights/service-map.md).
+Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../../azure-monitor/insights/service-map.md)
 
 Se si usa anche la soluzione Mapping dei servizi, è possibile visualizzare gli elementi del service desk creati nelle soluzioni di Gestione dei servizi IT, come illustrato nell'esempio seguente:
 
@@ -172,14 +172,14 @@ Le informazioni seguenti mostrano esempi di dati raccolti da Connettore di Gesti
 >
 > A seconda del tipo di elemento di lavoro importato in Log Analytics, **ServiceDesk_CL** contiene i campi seguenti:
 
-**Elemento di lavoro:** **Eventi imprevisti**  
+**Elemento di lavoro:** **eventi imprevisti**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Fields**
 
 - ServiceDeskConnectionName
 - ID Service Desk
-- Stato
+- Statale
 - Urgenza
 - Impatto
 - Priorità
@@ -187,11 +187,11 @@ ServiceDeskWorkItemType_s="Incident"
 - Created By (Creato da)
 - Resolved By (Risolto da)
 - Closed By (Chiuso da)
-- Source
+- Origine
 - Assegnato a
 - Categoria
 - Titolo
-- DESCRIZIONE
+- Description
 - Data di creazione
 - Data di chiusura
 - Data di risoluzione
@@ -199,7 +199,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Computer
 
 
-**Elemento di lavoro:** **Richieste di modifica**
+**Elemento di lavoro:** **richieste di modifica**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
@@ -208,12 +208,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID Service Desk
 - Created By (Creato da)
 - Closed By (Chiuso da)
-- Source
+- Origine
 - Assegnato a
 - Titolo
-- digitare
+- Tipo
 - Categoria
-- Stato
+- Statale
 - Riassegnazione
 - Conflict Status (Stato di conflitto)
 - Urgenza
@@ -229,15 +229,15 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Planned End Date (Data di fine pianificata)
 - Work Start Date (Data di inizio lavoro)
 - Work End Date (Data di fine pianificata)
-- DESCRIZIONE
+- Description
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dati di output per un evento imprevisto ServiceNow
 
 | Campo Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| NUMBER |
-| IncidentState_s | Stato |
+| ServiceDeskId_s| Numero |
+| IncidentState_s | Statale |
 | Urgency_s |Urgenza |
 | Impact_s |Impatto|
 | Priority_s | Priorità |
@@ -248,7 +248,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Assegnato a  |
 | Category_s | Categoria |
 | Title_s|  Breve descrizione |
-| Description_s|  note |
+| Description_s|  Note |
 | CreatedDate_t|  Aperto |
 | ClosedDate_t| closed|
 | ResolvedDate_t|Risolto|
@@ -258,14 +258,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| NUMBER |
+| ServiceDeskId_s| Numero |
 | CreatedBy_s | Richiesto da |
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
-| Type_s|  digitare |
+| Type_s|  Tipo |
 | Category_s|  Categoria |
-| CRState_s|  Stato|
+| CRState_s|  Statale|
 | Urgency_s|  Urgenza |
 | Priority_s| Priorità|
 | Risk_s| Rischio|
@@ -276,7 +276,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data di fine pianificata |
 | WorkStartDate_t  | Data di inizio effettiva |
 | WorkEndDate_t | Data di fine effettiva|
-| Description_s | DESCRIZIONE |
+| Description_s | Description |
 | Computer  | Elemento di configurazione |
 
 
@@ -299,7 +299,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, assicurarsi che il provider di risorse richiesto sia registrato nella sottoscrizione. Qualora non fosse registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È inoltre possibile crearlo durante [la creazione della connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) dal portale di Azure.
 
 
-## <a name="contact-us"></a>Contatti
+## <a name="contact-us"></a>Contattaci
 
 Per eventuali domande o commenti e suggerimenti su IT Service Management Connector, è possibile contattare [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 

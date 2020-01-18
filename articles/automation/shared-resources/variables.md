@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e56a1c9a158974266b810d31a0e9bb898262761a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ac2c276f051155d7ba18ee91e4ca27acb0b35192
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849429"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167996"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Asset di tipo variabile in Automazione di Azure
 
@@ -28,10 +28,10 @@ Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le con
 
 Poiché le variabili di automazione sono persistenti, sono disponibili anche se la configurazione di Runbook o DSC ha esito negativo. Questo comportamento consente l'impostazione di un valore da parte di un Runbook che viene quindi usato da un altro o viene usato dalla stessa configurazione di Runbook o DSC la volta successiva che viene eseguita.
 
-Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Le variabili crittografate vengono archiviate in modo sicuro in automazione di Azure e il relativo valore non può essere recuperato dal cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) incluso nel modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC. Se si desidera modificare una variabile crittografata in non crittografato, è possibile eliminare e ricreare la variabile come non crittografata.
+Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Le variabili crittografate vengono archiviate in modo sicuro in automazione di Azure e il relativo valore non può essere recuperato dal cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) incluso nel modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC. Se si desidera modificare una variabile crittografata in non crittografato, è necessario eliminare e ricreare la variabile come non crittografata.
 
 >[!NOTE]
->Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito da Automazione di Azure.
+>Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito dall'Automazione di Azure.
 
 ## <a name="variable-types"></a>Tipi di variabile
 
@@ -41,17 +41,17 @@ Quando si crea una variabile con il portale di Azure, è necessario selezionare 
 
 Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazione:
 
-* Stringa
+* string
 * Integer
 * Data e ora
-* boolean
+* Boolean
 * Null
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlet di PowerShell AzureRM
 
 Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente. Vengono forniti come parte del [modulo AzureRM. Automation](/powershell/azure/overview), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
 
-| Cmdlets | Description |
+| Cmdlet | Description |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|Recupera il valore di una variabile esistente.|
 |[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|Crea una nuova variabile e ne imposta il valore.|
@@ -161,7 +161,7 @@ except AutomationAssetNotFound:
     print "variable not found"
 ```
 
-### <a name="graphical-runbook-samples"></a>Esempi di runbook grafici
+### <a name="graphical-runbook-samples"></a>Esempi di Runbook grafici
 
 In un runbook grafico è possibile aggiungere **Get-AutomationVariable** o **Set-AutomationVariable** facendo clic con il pulsante destro del mouse sulla variabile nel riquadro della libreria dell'editor grafico e scegliendo l'attività desiderata.
 

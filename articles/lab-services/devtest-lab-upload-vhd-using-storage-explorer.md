@@ -1,5 +1,5 @@
 ---
-title: Caricare un file VHD in Azure DevTest Labs usando Esplora archivi di Microsoft Azure | Microsoft Docs
+title: Caricare il file VHD in Azure DevTest Labs usando Storage Explorer
 description: Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 3c187d104334fe75ec9e0ce41a3fdc14b508dfb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623354"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170380"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da usare per il provisioning di macchine virtuali. In questo articolo viene illustrato come usare [Esplora archivi di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e dischi rigidi virtuali in Azure, vedere [Introduzione ai dischi gestiti](../virtual-machines/linux/managed-disks-overview.md)
+In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da utilizzare per il provisioning di macchine virtuali. In questo articolo viene illustrato come usare [Esplora archivi di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e dischi rigidi virtuali in Azure, vedere [Introduzione ai dischi gestiti](../virtual-machines/linux/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Istruzioni dettagliate
 
@@ -33,7 +33,7 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
 
 1. [Scaricare e installare la versione più recente di Esplora archivi di Microsoft Azure](https://www.storageexplorer.com).
 
-1. Ottenere il nome dell'account di archiviazione del lab usando il portale di Azure:
+1. Ottenere il nome dell'account di archiviazione del lab tramite il portale di Azure:
 
     1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
@@ -53,7 +53,7 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
     
         ![Carica un file VHD con PowerShell][0]
     
-    1. Nel pannello **Upload an image using PowerShell** (Carica un'immagine usando PowerShell) è visualizzata una chiamata al cmdlet **Add-AzureVhd**. Il primo parametro (*Destination*) contiene il nome dell'account di archiviazione per il lab nel formato seguente:
+    1. Nel pannello **Carica un'immagine con PowerShell** è visualizzata una chiamata al cmdlet **Add-AzureVhd**. Il primo parametro (*Destination*) contiene il nome dell'account di archiviazione per il lab nel formato seguente:
     
         `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
 
@@ -75,7 +75,7 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
     
         ![Aggiungi un account][2]
     
-    1. Dopo avere effettuato l'acceso con un account Microsoft, il riquadro sinistro verrà popolato con le sottoscrizioni di Azure associate a quell'account. Selezionare le sottoscrizioni di Azure da utilizzare e quindi selezionare **Applica**. Selezionando **Tutte le sottoscrizioni** , viene alternata la selezione di tutte o di nessuna delle sottoscrizioni di Azure elencate.
+    1. Dopo aver effettuato l'acceso con un account Microsoft, il riquadro sinistro viene popolato con le sottoscrizioni di Azure associate a tale account. Selezionare le sottoscrizioni di Azure da utilizzare e quindi selezionare **Applica**. Selezionando **Tutte le sottoscrizioni** , viene alternata la selezione di tutte o di nessuna delle sottoscrizioni di Azure elencate.
     
         ![Selezionare le sottoscrizioni di Azure][3]
     

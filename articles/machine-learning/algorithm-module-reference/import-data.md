@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529610"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166779"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
@@ -27,7 +27,7 @@ Usare questo modulo per caricare i dati in una pipeline di machine learning da s
 > Dopo aver registrato un set di dati, è possibile trovarlo nella categoria **datasets** -> **My Datasets** nell'interfaccia della finestra di progettazione. Questo modulo è riservato agli utenti di studio (classico) per un'esperienza familiare. 
 >
 
-Prima di tutto, scegliere l'origine da leggere e completare le impostazioni aggiuntive. Il modulo **Import Data** supporta la lettura dei dati dalle origini seguenti:
+Il modulo **Import Data** supporta la lettura dei dati dalle origini seguenti:
 
 - URL tramite HTTP
 - Archiviazione cloud di Azure tramite [**archivi dati**](../how-to-access-data.md)

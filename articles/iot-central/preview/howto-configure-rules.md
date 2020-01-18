@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f528135445824a17a8d8c95913adf6934cc87eb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895738"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260122"
 ---
 # <a name="configure-rules-preview-features"></a>Configurare le regole (funzionalità di anteprima)
 
@@ -33,7 +33,7 @@ Usare la sezione dispositivi di destinazione per selezionare il tipo di disposit
 
 Condizioni in base alle quali vengono attivate le regole. Attualmente, quando si aggiungono più condizioni a una regola, le condizioni sono logiche e combinate. In altre parole, è necessario che tutte le condizioni siano soddisfatte perché la regola valuti come true.  
 
-Nello screenshot seguente le condizioni verificano quando la temperatura è maggiore di 90 e l'umidità è minore di 10. Quando entrambe le istruzioni sono true, la regola restituisce true e attiva un'azione.
+Nello screenshot seguente le condizioni verificano quando la temperatura è maggiore di 70&deg; F e l'umidità è minore di 10. Quando entrambe le istruzioni sono true, la regola restituisce true e attiva un'azione.
 
 ![Condizioni](media/howto-configure-rules/conditions.png)
 

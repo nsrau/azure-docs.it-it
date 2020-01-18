@@ -1,5 +1,5 @@
 ---
-title: Integrare gli ambienti in Azure Pipelines Azure DevTest Labs | Microsoft Docs
+title: Integrare gli ambienti in Azure Pipelines in Azure DevTest Labs
 description: Informazioni su come integrare Azure DevTest Labs ambienti nelle pipeline di integrazione continua (CI) e recapito continuo (CD) di Azure DevOps.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163920"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169416"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integra gli ambienti nelle pipeline CI/CD di Azure DevOps
-È possibile usare l'estensione Azure DevTest Labs Tasks installata in Azure DevOps Services (precedentemente nota come Visual Studio Team Services) per integrare facilmente la pipeline di compilazione e rilascio continua (CI)/recapito continuo (CD) con Azure DevTest Labs. Queste estensioni semplificano la distribuzione rapida di un [ambiente](devtest-lab-test-env.md) per un'attività di test specifica e quindi l'eliminazione al termine del test. 
+È possibile usare l'estensione Azure DevTest Labs Tasks installata in Azure DevOps Services (noto in precedenza come Visual Studio Team Services) per integrare facilmente la pipeline di compilazione e rilascio di integrazione continua (CI)/recapito continuo (CD) con Azure DevTest Labs. Queste estensioni semplificano la distribuzione rapida di un [ambiente](devtest-lab-test-env.md) per un'attività di test specifica e quindi l'eliminazione al termine del test. 
 
 Questo articolo illustra come creare e distribuire un ambiente, quindi eliminare l'ambiente, tutto in un'unica pipeline completa. Ognuna di queste attività viene normalmente eseguita singolarmente nella pipeline di compilazione, test e distribuzione personalizzata. Le estensioni usate in questo articolo sono in aggiunta alle [attività di creazione/eliminazione di macchine virtuali DTL](devtest-lab-integrate-ci-cd-vsts.md):
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare le impostazioni di utilizzo nel lab per le classi di Azure Lab Services | Microsoft Docs
+title: Configurare le impostazioni di utilizzo nei Lab della classe Azure Lab Services
 description: Informazioni su come configurare il numero di utenti per il lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora.
 services: lab-services
 documentationcenter: na
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584218"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169214"
 ---
-# <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del Lab
+# <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del lab
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
 
 
 ## <a name="add-users-to-the-lab"></a>Aggiungere utenti al lab
 
 1. Selezionare **Utenti** nel menu a sinistra. Per impostazione predefinita, l'opzione **Limita l'accesso** è abilitata. Quando questa impostazione è attiva, un utente non può registrarsi al lab anche se ha il collegamento di registrazione, a meno che non sia presente nell'elenco degli utenti. Solo gli utenti nell'elenco possono registrarsi al lab utilizzando il collegamento di registrazione inviato. In questa procedura si aggiungono utenti all'elenco. In alternativa, è possibile disattivare **Limita l'accesso**, consentendo agli utenti di registrarsi al lab alla sola condizione di disporre del collegamento di registrazione. 
-2. Selezionare **Aggiungi utenti** sulla barra degli strumenti e quindi selezionare **Aggiungi per indirizzi di posta elettronica**. 
+2. Selezionare **Aggiungi utenti** sulla barra degli strumenti e quindi **Add by email addresses** (Aggiungi per indirizzi di posta elettronica). 
 
     ![Pulsante Aggiungi utenti](../media/how-to-configure-student-usage/add-users-button.png)
 1. Nella pagina **Aggiungi utenti** immettere gli indirizzi di posta elettronica degli utenti in righe separate o in una singola riga, separati da punti e virgola. 
@@ -38,7 +38,7 @@ Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, cont
     ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
     > [!NOTE]
-    > Verranno visualizzati i nomi degli utenti nell'elenco dopo che sono stati registrati nel Lab. Il nome visualizzato nell'elenco viene costruito usando il nome e il cognome dell'utente nella Azure Active Directory. 
+    > Nell'elenco verranno visualizzati i nomi degli utenti dopo la registrazione nel lab. Il nome visualizzato nell'elenco viene costruito usando il nome e il cognome dell'utente nella Azure Active Directory. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Aggiungere gli utenti caricando un file CSV
 È anche possibile aggiungere gli utenti caricando un file CSV con gli indirizzi di posta elettronica degli utenti.
@@ -60,19 +60,19 @@ Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, cont
 ## <a name="send-invitations-to-users"></a>Invia inviti agli utenti
 Per inviare il collegamento di registrazione agli studenti, usare uno dei metodi seguenti. Il primo metodo illustra come inviare messaggi di posta elettronica agli studenti con il collegamento di registrazione e un messaggio facoltativo. Il secondo metodo Mostra come ottenere il collegamento di registrazione che è possibile condividere con altri utenti nel modo desiderato. 
 
-Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclusi nell'elenco di utenti possono usare il collegamento di registrazione per eseguire la registrazione al lab. Questa opzione è abilitata per impostazione predefinita. 
+Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclusi nell'elenco di utenti possono usare il collegamento di registrazione per eseguire la registrazione al lab. Per impostazione predefinita, questa casella di controllo è selezionata. 
 
 ### <a name="invite-all-users"></a>Invita tutti gli utenti
-1. Passare alla visualizzazione **utenti** se non è già presente nella pagina e selezionare **invita tutti** sulla barra degli strumenti. 
+1. Passare alla visualizzazione **Users** (Utenti) se la pagina non è già aperta e selezionare **Invite all** (Invita tutti) sulla barra degli strumenti. 
 
     ![Selezionare gli studenti](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-1. Nella pagina **Send invito by email** immettere un messaggio facoltativo e quindi selezionare **Send (Invia**). Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. È possibile ottenere questo collegamento per la registrazione selezionando **... (puntini** di sospensione) sulla barra degli strumenti e sul **collegamento di registrazione**. 
+1. Nella pagina **Send invitation by email** (Invia invito per posta elettronica) immettere un messaggio facoltativo e quindi selezionare **Send** (Invia). Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. Per ottenere questo collegamento di registrazione, selezionare **... (puntini di sospensione)** sulla barra degli strumenti e quindi **Registration link** (Collegamento di registrazione). 
 
     ![Inviare un collegamento per la registrazione tramite posta elettronica](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Viene visualizzato lo stato di **invito** nell'elenco **utenti** . Lo stato deve essere modificato in **mittente** e quindi **inviato in \<data >** . 
+4. Lo stato dell'**invito** viene visualizzato nell'elenco **Users** (Utenti). Lo stato deve essere modificato in **mittente** e quindi **inviato in \<data >** . 
 
-    Per ulteriori informazioni sull'aggiunta di studenti a una classe e sulla gestione dell'utilizzo del Lab, vedere [How to configure Student Usage](how-to-configure-student-usage.md).
+    Per altre informazioni sull'aggiunta di studenti a una classe e sulla gestione dell'utilizzo del lab, vedere [Come configurare l'utilizzo degli studenti](how-to-configure-student-usage.md).
 
 ### <a name="invite-selected-users"></a>Invita gli utenti selezionati
 

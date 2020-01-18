@@ -1,6 +1,6 @@
 ---
-title: Modelli
-description: In questo argomento vengono illustrati i modelli per Hub di notifica di Azure.
+title: Modelli di hub di notifica di Azure
+description: Informazioni sull'uso dei modelli per hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212980"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263745"
 ---
 # <a name="templates"></a>Modelli
 
@@ -133,7 +133,7 @@ I modelli sono limitati ai formati di documento XML o JSON. Inoltre, è possibil
 
 Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 
-| Espressione       | Descrizione |
+| Expression       | Description |
 | ---------------- | --- |
 | $(prop)          | Riferimento a una proprietà di evento con il nome specificato. I nomi delle proprietà non distinguono tra maiuscole e minuscole. Questa espressione viene risolta nel valore di testo della proprietà o in una stringa vuota se la proprietà non è presente. |
 | $(prop, n)       | Come in precedenza, ma il testo viene esplicitamente troncato dopo n caratteri, ad esempio $(title, 20) tronca il contenuto della proprietà del riquadro dopo 20 caratteri. |
@@ -145,7 +145,7 @@ Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 
 Il formato delle espressioni può essere uno dei precedenti.
 
-Quando si usa la concatenazione, l'intera espressione deve essere racchiusa tra `{}`. Ad esempio `{$(prop) + ‘ - ’ + $(prop2)}`.
+Quando si usa la concatenazione, l'intera espressione deve essere racchiusa tra `{}`. Ad esempio: `{$(prop) + ‘ - ’ + $(prop2)}`.
 
 Ad esempio, il modello XML seguente non è valido:
 
@@ -159,7 +159,7 @@ Ad esempio, il modello XML seguente non è valido:
 </tile>
 ```
 
-Come spiegato in precedenza, quando si usa la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Esempio:
+Come spiegato in precedenza, quando si usa la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Ad esempio:
 
 ```xml
 <tile>
@@ -170,3 +170,7 @@ Come spiegato in precedenza, quando si usa la concatenazione, le espressioni dev
   </visual>
 </tile>
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Informazioni su Hub di notifica di Azure](notification-hubs-push-notification-overview.md)

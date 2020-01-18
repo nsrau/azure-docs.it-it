@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire macchine virtuali in DevTest Labs con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Creare e gestire macchine virtuali in DevTest Labs con l'interfaccia della riga di comando di Azure
 description: Informazioni su come usare Azure DevTest Labs per creare e gestire le macchine virtuali con l'interfaccia della riga di comando di Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d3cd104e36cb407e9b1b833335869cac2c69d0ec
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773109"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167060"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Creare e gestire macchine virtuali con DevTest Labs tramite l'interfaccia della riga di comando di Azure
 Questa Guida introduttiva illustra la creazione, l'avvio, la connessione, l'aggiornamento e la pulizia di un computer di sviluppo nel Lab. 
@@ -30,7 +30,7 @@ Prima di iniziare:
 * [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) Per iniziare, eseguire az login per creare una connessione con Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Creare e verificare la macchina virtuale 
-Prima di eseguire i comandi correlati a DevTest Labs, impostare il contesto di Azure appropriato `az account set` usando il comando:
+Prima di eseguire i comandi correlati a DevTest Labs, impostare il contesto di Azure appropriato usando il comando `az account set`:
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
@@ -61,7 +61,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 È anche possibile creare macchine virtuali basate su formule impostando il parametro del **tipo di immagine** sulla **Formula**. Se è necessario scegliere una rete virtuale specifica per la macchina virtuale, usare i parametri **VNET-Name** e **Subnet** . Per ulteriori informazioni, vedere [AZ Lab VM create](/cli/azure/lab/vm#az-lab-vm-create).
 
 ## <a name="verify-that-the-vm-is-available"></a>Verificare che la VM sia disponibile.
-Usare il `az lab vm show` comando per verificare che la macchina virtuale sia disponibile prima di iniziare e connettersi. 
+Usare il comando `az lab vm show` per verificare che la macchina virtuale sia disponibile prima di iniziare e connettersi. 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -81,7 +81,7 @@ Il comando di esempio seguente avvia una macchina virtuale:
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 
-Connettersi a una macchina virtuale: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) o [Desktop remoto](../virtual-machines/windows/connect-logon.md).
+Connettersi a una VM: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) o [Desktop remoto](../virtual-machines/windows/connect-logon.md).
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
@@ -127,13 +127,13 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 
 Per elencare gli elementi disponibili in una macchina virtuale in un Lab, eseguire i comandi seguenti.
 
-**Cloud Shell-PowerShell**: si noti l'utilizzo dell'apice inverso\`() prima di $ in $Expand (ad esempio,' $Expand):
+**Cloud Shell-PowerShell**: si noti l'utilizzo dell'apice inverso (\`) prima di $ in $Expand (ad esempio ' $Expand):
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
 
-**Cloud shell-bash**: si noti l'uso del carattere barra\\() davanti a $ nel comando. 
+**Cloud shell-bash**: si noti l'uso del carattere barra (\\) davanti a $ nel comando. 
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
@@ -163,4 +163,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere il contenuto seguente: [Documentazione dell'interfaccia della riga di comando di Azure per Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 
+Vedere il contenuto seguente: [documentazione dell'interfaccia della riga di comando di Azure per Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 

@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale in DevTest Labs con Azure PowerShell | Microsoft Docs
+title: Creare una macchina virtuale in DevTest Labs con Azure PowerShell
 description: Informazioni su come usare Azure DevTest Labs per creare e gestire macchine virtuali con Azure PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 1a6938bd541e316dbe9f333c670c382faab6ad21
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 13014c39641203bddadf858c34cff67462b3a4b3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854255"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167100"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Creare una macchina virtuale con DevTest Labs usando Azure PowerShell
 Questo articolo illustra come creare una macchina virtuale in Azure DevTest Labs usando Azure PowerShell. È possibile usare gli script di PowerShell per automatizzare la creazione di macchine virtuali in un Lab in Azure DevTest Labs. 
@@ -137,7 +137,7 @@ In questa sezione viene illustrato come ottenere le proprietà specifiche di un 
 6. Selezionare un' **immagine di base** per la macchina virtuale. 
 7. Selezionare le **Opzioni di automazione** nella parte inferiore della pagina sopra il pulsante **Invia** . 
 8. Viene visualizzato il **modello di Azure Resource Manager** per la creazione della macchina virtuale. 
-9. Il segmento JSON nella sezione  resources contiene la definizione del tipo di immagine selezionato in precedenza. 
+9. Il segmento JSON nella sezione **Resources** contiene la definizione del tipo di immagine selezionato in precedenza. 
 
     ```json
     {
@@ -180,7 +180,7 @@ In questa sezione viene illustrato come ottenere le proprietà specifiche di un 
 In questo esempio si vedrà come ottenere una definizione di un'immagine di Azure Market Place. È possibile ottenere una definizione di un'immagine personalizzata, una formula o un ambiente nello stesso modo. Aggiungere gli elementi necessari per la macchina virtuale e impostare le impostazioni avanzate necessarie. Dopo aver fornito i valori per i campi obbligatori e i campi facoltativi, prima di selezionare il pulsante **Opzioni di automazione** .
 
 ### <a name="use-azure-rest-api"></a>Usare l'API REST di Azure
-La procedura seguente illustra i passaggi per ottenere le proprietà di un'immagine usando l'API REST: Questi passaggi funzionano solo per una macchina virtuale esistente in un Lab. 
+La procedura seguente illustra i passaggi per ottenere le proprietà di un'immagine usando l'API REST: questa procedura funziona solo per una macchina virtuale esistente in un Lab. 
 
 1. Passare alla pagina [macchine virtuali-elenco](/rest/api/dtl/virtualmachines/list) , quindi fare clic sul pulsante **prova** . 
 2. Selezionare la **sottoscrizione di Azure**.
@@ -225,4 +225,4 @@ Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere il contenuto seguente: [Documentazione di Azure PowerShell per Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+Vedere il contenuto seguente: [Azure PowerShell documentazione per Azure DevTest Labs](/powershell/module/az.devtestlabs/)

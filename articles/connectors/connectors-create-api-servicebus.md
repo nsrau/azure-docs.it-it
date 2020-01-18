@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 26609bc95bf6fd49ded23d8f117911a02577405a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445903"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261620"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -154,7 +154,9 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Il connettore del bus di servizio può salvare fino a 1.500 sessioni univoche alla volta da un bus di servizio alla cache del connettore. Se il numero di sessioni supera questo limite, le sessioni precedenti vengono rimosse dalla cache. Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento](/connectors/servicebus/)del connettore.
+Il connettore del bus di servizio può salvare fino a 1.500 sessioni univoche alla volta da un bus di servizio alla cache del connettore. Se il numero di sessioni supera questo limite, le sessioni precedenti vengono rimosse dalla cache. Per ulteriori informazioni, vedere [sessioni di messaggi](../service-bus-messaging/message-sessions.md).
+
+Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento](/connectors/servicebus/)del connettore. Per altre informazioni sulla messaggistica del bus di servizio di Azure, vedere [che cos'è il bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md)?
 
 ## <a name="next-steps"></a>Passaggi successivi
 

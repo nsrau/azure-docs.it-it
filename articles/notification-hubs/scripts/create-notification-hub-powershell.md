@@ -1,23 +1,23 @@
 ---
-title: 'Script di PowerShell: Creare un hub di notifica di Azure | Microsoft Docs'
-description: Questo script di PowerShell crea un hub di notifica di Azure.
-services: notification-hubs
+title: Creare un hub di notifica di Azure tramite PowerShell | Microsoft Docs
+description: Informazioni su come usare uno script di PowerShell per creare un hub di notifica di Azure.
 author: dimazaid
-manager: kpiteira
-editor: spelluru
+manager: femila
+services: notification-hubs
+editor: sethmanheim
 ms.service: notification-hubs
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 01/14/2020
 ms.author: dimazaid
-ms.openlocfilehash: 93c5118962fed1bfda4d32afba942a6600664e5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01749e1ae5c29a7e77b2143939e25cf1ccd1aec2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172146"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263975"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>Usare PowerShell per creare un hub di notifica di Azure
 
@@ -28,12 +28,12 @@ Questo script di PowerShell crea un esempio di hub di notifica di Azure.
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="sample-script"></a>Script di esempio
 
 [!code-powershell[main](../../../powershell_scripts/notification-hubs/create-notification-hub/create-notification-hub.ps1 "Create a notification hub")]
-
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa i comandi seguenti: 
+Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
