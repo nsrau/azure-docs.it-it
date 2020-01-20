@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 2917b2f04e7c5a4896c52861ab7eab4e0eb00b5d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 6b5793408545c2a61a30b5d89bc41d35460ed3eb
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186691"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119466"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Configurare una regola di restrizione IP con un Web Application Firewall per il servizio front door di Azure
 Questo articolo illustra come configurare le regole di restrizione IP in un Web Application Firewall (WAF) per il servizio front door di Azure usando l'interfaccia della riga di comando di Azure, Azure PowerShell o un modello di Azure Resource Manager.
@@ -24,7 +24,7 @@ Per impostazione predefinita, l'applicazione Web è accessibile da Internet. Se 
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Configurare un criterio WAF con l'interfaccia della riga di comando di Azure
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare a configurare un criterio di restrizione IP, configurare l'ambiente dell'interfaccia della riga di comando e creare un profilo del servizio front door di Azure.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Configurare l'ambiente dell'interfaccia della riga di comando di Azure
@@ -101,7 +101,7 @@ In questo esempio, il criterio WAF viene applicato a **FrontendEndpoints [0]** .
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Configurare un criterio WAF con Azure PowerShell
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare la configurazione di un criterio di restrizione IP, configurare l'ambiente di PowerShell e creare un profilo del servizio front door di Azure.
 
 #### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
@@ -140,10 +140,10 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      
 ### <a name="create-a-custom-ip-allow-rule"></a>Creare una regola di autorizzazione IP personalizzata
 
-Usare il comando [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) per definire un'azione e impostare una priorità. Nell'esempio seguente, le richieste provenienti da indirizzi IP client che corrispondono all'elenco verranno bloccate.
+Usare il comando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) per definire un'azione e impostare una priorità. Nell'esempio seguente, le richieste provenienti da indirizzi IP client che corrispondono all'elenco verranno bloccate.
 
 ```powershell
-$IPAllowRule = New-AzFrontDoorCustomRuleObject `
+$IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "IPAllowRule" `
 -RuleType MatchRule `
 -MatchCondition $IPMatchCondition `

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: dbfee5d897d54d68ea6471f0001793a905c95e62
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cb2e1c16c1419d9925bd837bb4e12119f08d56c4
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835061"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119534"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -64,7 +64,7 @@ except Exception as e:
  
 - Sostituire il valore segnaposto `storage_account_name` con il nome del proprio account di archiviazione.
 
-- Sostituire il valore del segnaposto `storage-account-key` con la chiave di accesso dell'account di archiviazione.
+- Sostituire il valore del segnaposto `storage_account_key` con la chiave di accesso dell'account di archiviazione.
 
 ## <a name="create-a-file-system"></a>Creare un file system
 

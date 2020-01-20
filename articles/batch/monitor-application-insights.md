@@ -2,7 +2,7 @@
 title: Monitorare Batch con Azure Application Insights | Microsoft Docs
 description: Informazioni su come instrumentare un'applicazione .NET di Azure Batch con la libreria di Azure Application Insights.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: lahugh
-ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: c69ef0bf20e2ade15d2278d0fc2fabd75f39153b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322573"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029492"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
@@ -37,7 +37,7 @@ In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Arti
 
 * [Una risorsa di Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare *Generale* **Tipo di applicazione**.
+   * Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare il **tipo di applicazione**generale.
 
    * Copiare la [chiave di strumentazione](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) dal portale. Sarà necessaria più avanti in questo articolo.
   
@@ -45,7 +45,7 @@ In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Arti
   > Potrebbe essere registrato un [addebito](https://azure.microsoft.com/pricing/details/application-insights/) per i dati archiviati in Application Insights. Tali dati includono i dati di diagnostica e monitoraggio descritti in questo articolo.
   > 
 
-## <a name="add-application-insights-to-your-project"></a>Aggiunta di Application Insights al progetto
+## <a name="add-application-insights-to-your-project"></a>Aggiungere Application Insights al progetto
 
 Per il progetto sono necessari il pacchetto NuGet **Microsoft.ApplicationInsights.WindowsServer** e le relative dipendenze. Aggiungerli o ripristinarli nel progetto dell'applicazione. Per installare il pacchetto, usare il comando `Install-Package` o Gestione pacchetti NuGet.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064325"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119653"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -37,7 +37,7 @@ L'esempio seguente mostra l'identificatore di definizione del contenuto e la def
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
@@ -61,25 +61,25 @@ I metadati del profilo tecnico autocertificato **LocalAccountSignUpWithLogonEmai
 
 L'elemento **ContentDefinition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
 | ID | Sì | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
 
 L'elemento **ContentDefinition** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Una stringa che contiene l'URL della pagina HTML5 per la definizione del contenuto. |
 | RecoveryUri | 0:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. |
 | DataUri | 1:1 | Una stringa che contiene l'URL relativo di un file HTML che fornisce l'esperienza utente da richiamare per il passaggio. |
-| Metadata | 1:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
+| Metadati | 1:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
 | LocalizedResourcesReferences | 0:1 | Una raccolta di riferimenti di risorse localizzate. Usare questo elemento per personalizzare la localizzazione di un'interfaccia utente e di un attributo delle attestazioni. |
 
 ### <a name="datauri"></a>DataUri
 
 L'elemento **DataUri** viene usato per specificare l'identificatore della pagina. Azure AD B2C usa l'identificatore di pagina per caricare e avviare gli elementi dell'interfaccia utente e JavaScript lato client. Il formato del valore è `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I seguenti elenchi tabella degli identificatori di pagina che è possibile usare.
 
-| Value |   Descrizione |
+| Valore |   Description |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. |
@@ -93,15 +93,15 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 
 L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | Un elenco di riferimenti di risorse localizzate per la definizione del contenuto. |
 
 L'elemento **LocalizedResources** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
-| Linguaggio | Yes | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
+| Lingua | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
 | LocalizedResourcesReferenceId | Sì | L'identificatore dell'elemento **LocalizedResources**. |
 
 Nell'esempio seguente viene mostrata una definizione del contenuto di iscrizione o accesso:
@@ -141,7 +141,7 @@ Per informazioni su come aggiungere il supporto di localizzazione per le definiz
 
 L'attributo ID dell'elemento **ContentDefinition** specifica il tipo di pagina correlato alla definizione del contenuto. L'elemento definisce il contesto a cui un modello personalizzato HTML5/CSS viene applicato. La tabella seguente descrive il set degli ID definizione del contenuto riconosciuti dal framework di gestione dell'identità e i tipi di pagina correlati. È possibile creare le definizioni del contenuto con un ID arbitrario.
 
-| id | Modello predefinito | Descrizione |
+| ID | Modello predefinito | Description |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**: Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina di selezione del provider di identità** - Elenca i provider di identità tra cui gli utenti possono scegliere durante l'iscrizione. Si tratta in genere di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
