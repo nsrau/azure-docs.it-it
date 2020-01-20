@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045808"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277980"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -415,7 +415,7 @@ La personalizzazione supportata include:
 |Personalizzazione|Definizione|
 |--|--|
 |Aggiornamento a scopo di colonna|Consente di eseguire l'override del tipo di funzionalità per la colonna specificata.|
-|Aggiornamento parametri Transformer |Aggiornare i parametri per il trasformatore specificato. Attualmente supporta l'Imputatore e HashOneHotEncoder.|
+|Aggiornamento parametri Transformer |Aggiornare i parametri per il trasformatore specificato. Attualmente supporta l'Imputatore (medio, più frequente & mediana) e HashOneHotEncoder.|
 |Rilascia colonne |Colonne da eliminare dall'oggetto trasformato.|
 |Trasformatori blocco| Blocca i trasformatori da usare nel processo conteggi.|
 

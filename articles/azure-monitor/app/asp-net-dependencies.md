@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/25/2019
-ms.openlocfilehash: 7b23da81143a4ae66d9f25cd953c4a3952f27455
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5b37ce1ba3d8a9d56cb2204c9db89d0e47d9996e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678375"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277689"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in applicazione Azure Insights 
 
-Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura la durata delle chiamate alle dipendenze, indipendentemente dal fatto che si verifichino o meno, insieme a informazioni aggiuntive come il nome della dipendenza e così via. È possibile analizzare chiamate di dipendenza specifiche e metterle in correlazione a richieste ed eccezioni.
+Una *dipendenza* è un componente esterno chiamato dall'applicazione. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura la durata delle chiamate alle dipendenze, indipendentemente dal fatto che si verifichino o meno, insieme a informazioni aggiuntive come il nome della dipendenza e così via. È possibile analizzare chiamate di dipendenza specifiche e metterle in correlazione a richieste ed eccezioni.
 
 ## <a name="automatically-tracked-dependencies"></a>Dipendenze rilevate automaticamente
 
-Application Insights SDK per .NET e .NET Core viene fornito con `DependencyTrackingTelemetryModule` che è un modulo di telemetria che raccoglie automaticamente le dipendenze. Questa raccolta delle dipendenze viene abilitata automaticamente per le applicazioni [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) e [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) , se configurata in base alla documentazione ufficiale collegata.  `DependencyTrackingTelemetryModule` viene fornito come [questo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) pacchetto NuGet e viene portato automaticamente quando si usa uno dei pacchetti NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore`.
+Application Insights SDK per .NET e .NET Core viene fornito con `DependencyTrackingTelemetryModule` che è un modulo di telemetria che raccoglie automaticamente le dipendenze. Questa raccolta delle dipendenze viene abilitata automaticamente per le applicazioni [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) e [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) , se configurata in base alla documentazione ufficiale collegata. `DependencyTrackingTelemetryModule` viene fornito come [questo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) pacchetto NuGet e viene portato automaticamente quando si usa uno dei pacchetti NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore`.
 
  `DependencyTrackingTelemetryModule` tiene attualmente traccia automaticamente le dipendenze seguenti:
 
-|Dipendenze |Dettagli|
+|Dependencies |Dettagli|
 |---------------|-------|
 |Http/https | Chiamate http/https locali o remote |
 |Chiamate WCF| Viene rilevata automaticamente solo se vengono utilizzate associazioni basate su http.|
@@ -38,7 +38,7 @@ Se manca una dipendenza o se si usa un SDK diverso, assicurarsi che sia presente
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Configurare il rilevamento automatico delle dipendenze nelle app console
 
-Per tenere traccia automaticamente delle dipendenze dalle app console .NET/.NET Core, installare il pacchetto NuGet `Microsoft.ApplicationInsights.DependencyCollector` e inizializzare `DependencyTrackingTelemetryModule` come indicato di seguito:
+Per tenere traccia automaticamente delle dipendenze dalle app console .NET/.NET Core, installare il pacchetto NuGet `Microsoft.ApplicationInsights.DependencyCollector`e inizializzare `DependencyTrackingTelemetryModule` come indicato di seguito:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
@@ -90,7 +90,7 @@ Per le pagine Web, Application Insights JavaScript SDK raccoglie automaticamente
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Rilevamento SQL avanzato per ottenere una query SQL completa
 
-Per le chiamate SQL, il nome del server e del database viene sempre raccolto e archiviato come nome della `DependencyTelemetry` raccolta. È presente un campo aggiuntivo denominato "data", che può contenere il testo completo della query SQL.
+Per le chiamate SQL, il nome del server e del database viene sempre raccolto e archiviato come nome della `DependencyTelemetry`raccolta. È presente un campo aggiuntivo denominato "data", che può contenere il testo completo della query SQL.
 
 Per ASP.NET Core applicazioni, non sono necessari passaggi aggiuntivi per ottenere la query SQL completa.
 

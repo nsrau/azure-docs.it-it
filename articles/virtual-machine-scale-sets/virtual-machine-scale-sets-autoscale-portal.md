@@ -1,26 +1,19 @@
 ---
-title: Ridimensionare automaticamente i set di scalabilità di macchine virtuali nel portale di Azure | Microsoft Docs
+title: Ridimensionare automaticamente i set di scalabilità di macchine virtuali nella portale di Azure
 description: Come creare regole di scalabilità automatica per i set di scalabilità di macchine virtuali nel portale di Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618879"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278190"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
@@ -47,12 +40,12 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
 
     Specificare le seguenti impostazioni per la regola:
     
-    | Parametro              | Spiegazione                                                                                                         | Value          |
+    | Parametro              | Spiegazione                                                                                                         | Valore          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Aggregazione temporale*     | Definisce la modalità di aggregazione delle metriche raccolte per l'analisi.                                                | Media        |
     | *Nome della metrica*          | La metrica delle prestazioni da monitorare e a cui applicare azioni dei set di scalabilità.                                                   | CPU percentuale |
     | *Statistica intervallo di tempo* | Definisce la modalità di aggregazione delle metriche raccolte in ogni intervallo di tempo per l'analisi.                             | Media        |
-    | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                     | Maggiore di   |
+    | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                     | Più di   |
     | *Soglia*            | La percentuale che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                 | 70             |
     | *Duration*             | Il tempo monitorato prima che vengano confrontati i valori delle metriche e delle soglie.                                   | 10 minuti     |
     | *operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                        | Aumenta percentuale di |
@@ -74,9 +67,9 @@ Nelle ore serali o nel fine settimana è possibile che la richiesta delle applic
 
     Usare lo stesso approccio usato con la regola precedente. Modificare le seguenti impostazioni per la regola:
     
-    | Parametro              | Spiegazione                                                                                                          | Value          |
+    | Parametro              | Spiegazione                                                                                                          | Valore          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                      | Minore di   |
+    | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                      | Meno di   |
     | *Soglia*            | La percentuale che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                 | 30             |
     | *operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                         | Riduci percentuale di |
     | *Numero di istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                             | 20             |
@@ -89,7 +82,7 @@ Il profilo di scalabilità automatica deve definire un numero minimo e massimo e
 
 1. Impostare i limiti delle istanze seguenti:
 
-    | Minima | Massima | Predefinito|
+    | Minima | Massimo | Predefinito|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 

@@ -1,26 +1,18 @@
 ---
-title: Usare la sequenziazione delle estensioni con set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Usare la sequenziazione delle estensioni con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come eseguire la sequenziazione del provisioning delle estensioni durante la distribuzione di più estensioni in set di scalabilità di macchine virtuali.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60620173"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278060"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Eseguire la sequenziazione del provisioning delle estensioni in set scalabilità di macchine virtuali
 Le estensioni di macchine virtuali di Azure offrono funzionalità come la configurazione e la gestione post-distribuzione, il monitoraggio, la sicurezza e altro ancora. In genere, le distribuzioni di produzione usano una combinazione di più estensioni configurate per le istanze di macchine virtuali per ottenere risultati desiderati.
@@ -245,11 +237,11 @@ az vmss extension set \
 ```
 
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Non è possibile aggiungere un'estensione con dipendenze?
 1. Verificare che le estensioni specificate in provisionAfterExtensions siano definite nel modello del set di scalabilità.
-2. Assicurarsi che non siano state introdotte dipendenze circolari. Ad esempio, la sequenza seguente non è consentita: EstensioneA -> EstensioneB -> EstensioneC -> EstensioneA
+2. Assicurarsi che non siano state introdotte dipendenze circolari. La sequenza seguente, ad esempio, non è consentita: Extensiona-> ExtensionB-> ExtensionC-> Extensiona
 3. Assicurarsi che tutte le estensioni con dipendenze abbiano una proprietà "settings" in "properties". Ad esempio, se è necessario eseguire il provisioning di EstensioneB dopo EstensioneA, per EstensioneA deve essere disponibile il campo "settings" in "properties" di EstensioneA. È possibile specificare una proprietà "settings" vuota se l'estensione non richiede impostazioni obbligatorie.
 
 ### <a name="not-able-to-remove-extensions"></a>Non è possibile rimuovere le estensioni?

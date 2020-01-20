@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0c0f1f4dfd873c8c9a18d300b249ace0295e450e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6e8c0e1c7fef884844b8aaae9dc4c7e3eaa220a2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174031"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274532"
 ---
 Archiviazione di Azure offre diversi tipi di account di archiviazione. Ogni tipo supporta caratteristiche diverse e ha uno specifico modello di prezzi. È importante tenere in considerazione tali differenze prima di creare un account di archiviazione per determinare il tipo di account ottimale per le proprie applicazioni. I tipi di account di archiviazione sono i seguenti:
 
 - **Account per utilizzo generico V2**: tipo di account di archiviazione di base per BLOB, file, code e tabelle. Consigliato per la maggior parte degli scenari che usano Archiviazione di Azure.
 - **Account per utilizzo generico V1**: tipo di account legacy per BLOB, file, code e tabelle. Laddove è possibile, preferire account per utilizzo generico v2.
-- **Account BlockBlobStorage**: account di archiviazione solo BLOB con caratteristiche di prestazioni Premium. Consigliato per scenari con tariffe di transazioni elevate, uso di oggetti più piccoli o che richiedono una latenza di archiviazione costantemente bassa.
+- **Account BlockBlobStorage**: account di archiviazione con caratteristiche di prestazioni Premium per i BLOB in blocchi e i BLOB di Accodamento. Consigliato per scenari con tariffe di transazioni elevate o scenari che usano oggetti più piccoli o che richiedono una latenza di archiviazione costantemente bassa.
 - **Account filestorage**: account di archiviazione solo file con caratteristiche di prestazioni Premium. Consigliato per applicazioni di livello aziendale o a prestazioni elevate.
 - **Account BlobStorage**: account di archiviazione solo BLOB legacy. Laddove è possibile, preferire account per utilizzo generico v2.
 
@@ -27,11 +27,11 @@ Nella tabella seguente sono descritti i tipi di account di archiviazione e le re
 
 | Tipo di account di archiviazione | Servizi supportati                       | Livelli di prestazioni supportati      | Livelli di accesso supportati         | Opzioni di replica               | Modello di distribuzione<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Crittografia<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Utilizzo generico v2   | BLOB, file, code, tabelle, dischi e Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>6</sup></div>      | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frequente, ad accesso sporadico, archivio<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | CON ridondanza locale, GRS, RA-GRS, ZRS, GZRS (anteprima), RA-GZRS (anteprima)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Gestione risorse             | Crittografato              |
+| Utilizzo generico v2   | BLOB, file, code, tabelle, dischi e Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>6</sup></div>      | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frequente, ad accesso sporadico, archivio<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | CON ridondanza locale, GRS, RA-GRS, ZRS, GZRS (anteprima), RA-GZRS (anteprima)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Azure Resource Manager             | Crittografato              |
 | Utilizzo generico v1   | BLOB, file, coda, tabella e disco       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/D                            | LRS, GRS, RA-GRS                  | Resource Manager, classica    | Crittografato              |
-| BlockBlobStorage   | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Premium                       | N/D                            | CON RIDONDANZA LOCALE, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Gestione risorse             | Crittografato              |
-| FileStorage   | Solo file | Premium                       | N/D                            | CON RIDONDANZA LOCALE, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Gestione risorse             | Crittografato              |
-| BlobStorage         | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Standard                      | Frequente, ad accesso sporadico, archivio<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Gestione risorse             | Crittografato              |
+| BlockBlobStorage   | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Premium                       | N/D                            | CON RIDONDANZA LOCALE, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Azure Resource Manager             | Crittografato              |
+| FileStorage   | Solo file | Premium                       | N/D                            | CON RIDONDANZA LOCALE, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Azure Resource Manager             | Crittografato              |
+| BlobStorage         | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Standard                      | Frequente, ad accesso sporadico, archivio<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Azure Resource Manager             | Crittografato              |
 
 <div id="deployment-model"><sup>1</sup>È consigliabile usare il modello di distribuzione Azure Resource Manager. Gli account di archiviazione che usano il modello di distribuzione classico possono comunque essere creati in alcune posizioni e gli account classici esistenti continuano a essere supportati. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse</a>.</div>
 

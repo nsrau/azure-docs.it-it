@@ -1,26 +1,19 @@
 ---
-title: Modificare un set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Modificare un set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come modificare e aggiornare un set di scalabilità di macchine virtuali di Azure con le API REST, Azure PowerShell e l'interfaccia della riga di comando di Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803145"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274446"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 
@@ -316,7 +309,7 @@ Per aggiornare le macchine virtuali esistenti, è necessario eseguire un "aggior
 - È anche possibile usare gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio.
 
 >[!NOTE]
-> I cluster di Service Fabric possono usare solo la modalità *automatica*, ma l'aggiornamento viene gestito in modo diverso. Per altre informazioni, vedere [gli aggiornamenti dell'applicazione di Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> I cluster di Service Fabric possono usare solo la modalità *automatica*, ma l'aggiornamento viene gestito in modo diverso. Per ulteriori informazioni, vedere [Service Fabric aggiornamenti dell'applicazione](../service-fabric/service-fabric-application-upgrade.md).
 
 Esiste un tipo di modifica alle proprietà globali del set di scalabilità che non segue il criterio di aggiornamento. Le modifiche al profilo del sistema operativo del set di scalabilità (ad esempio, il nome utente amministratore e la password) possono essere apportate solo nella versione dell'API *2017-12-01* o successiva. Queste modifiche si applicano solo alle macchine virtuali create dopo la modifica nel modello del set di scalabilità. Per aggiornare le macchine virtuali esistenti, è necessario ricreare l'immagine di ogni singola macchina virtuale. È possibile farlo tramite:
 

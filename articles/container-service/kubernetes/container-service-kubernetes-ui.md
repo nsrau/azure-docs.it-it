@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Gestire un cluster Azure Kubernetes con l'interfaccia utente Web
 description: Uso dell'interfaccia utente Web Kubernetes nel servizio Azure Container
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309767"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276988"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(DEPRECATO) Uso dell'interfaccia utente Web Kubernetes con il servizio Azure Container
 
@@ -49,7 +47,7 @@ Se `kubectl` non è installato, è possibile eseguire:
 $ az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 ### <a name="connect-to-the-web-ui"></a>Connettersi all'interfaccia utente Web
 È possibile avviare l'interfaccia utente Web Kubernetes eseguendo:
@@ -67,7 +65,7 @@ Viene aperto un Web browser configurato per comunicare con un proxy sicuro che c
 
     Viene visualizzata una finestra di dialogo in cui è possibile iniziare a creare l'applicazione.
 
-2. Assegnare il nome `hello-nginx`. Utilizzare il contenitore [ `nginx` da Docker](https://hub.docker.com/_/nginx/) e distribuire tre repliche del servizio web.
+2. Assegnare il nome `hello-nginx`. Utilizzare il contenitore [`nginx` da Docker](https://hub.docker.com/_/nginx/) e distribuire tre repliche del servizio web.
 
     ![Finestra di dialogo Pod Create Kubernetes (Crea podcast Kubernetes)](./media/container-service-kubernetes-ui/nginx.png)
 

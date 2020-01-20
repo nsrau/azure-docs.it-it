@@ -1,25 +1,18 @@
 ---
-title: Configurare MPIO sull'host Linux StorSimple | Microsoft Docs
+title: Configurare MPIO nell'host StorSimple Linux
 description: Configurare MPIO in dispositivi StorSimple connessi all'host Linux che esegue CentOS 6.6
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077845"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278369"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -35,15 +28,15 @@ La funzionalità di percorsi multipli consente di configurare più percorsi I/O 
 
 Lo scopo dei percorsi multipli è duplice:
 
-* **Disponibilità elevata**: Fornisce un percorso alternativo se qualsiasi elemento del percorso dei / o (ad esempio un cavo, switch, interfaccia di rete o controller) ha esito negativo.
-* **Il bilanciamento del carico**: A seconda della configurazione del dispositivo di archiviazione, è possibile migliorare le prestazioni rilevando carichi sui percorsi / o e in modo dinamico il ribilanciamento di tali carichi.
+* **Disponibilità elevata**: fornisce un percorso alternativo se qualsiasi elemento del percorso I/O (ad esempio un cavo, uno switch, l'interfaccia di rete o il controller) non riesce.
+* **Bilanciamento del carico**: a seconda della configurazione del dispositivo di archiviazione, è possibile migliorare le prestazioni rilevando carichi sui percorsi I/O e in modo dinamico con il ribilanciamento di tali carichi.
 
 ### <a name="about-multipathing-components"></a>Informazioni sui componenti dei percorsi multipli
 I percorsi multipli in Linux sono costituiti da componenti kernel e spazio utente come elencato di seguito.
 
-* **Kernel**: Il componente principale è il *mapper dei dispositivi* che reindirizza i/o e supporta il failover per i percorsi e i gruppi di percorsi.
+* **Kernel**: il componente principale è il *mapper dei dispositivi* che reindirizza l'I/O e supporta il failover per i percorsi e i gruppi di percorsi.
 
-* **Spazio utente**: Si tratta *strumenti per percorsi multipli* che gestiscono i dispositivi con percorsi multipli, indicando il modulo a percorsi multipli device mapper operazioni da eseguire. Questi strumenti sono:
+* **Spazio utente**: si tratta di *strumenti per percorsi multipli* che gestiscono i dispositivi a percorsi multipli, indicando il modulo a percorsi multipli del mapper dei dispositivi le operazioni da eseguire. Questi strumenti sono:
    
    * **Multipath**: elenca e configura i dispositivi a percorsi multipli.
    * **Multipathd**: daemon che esegue i percorsi multipli e monitora i percorsi.
@@ -56,11 +49,11 @@ Il file di configurazione `/etc/multipath.conf` rende configurabili dall'utente 
 
 Il file multipath.conf è composto da cinque sezioni:
 
-- **Le impostazioni predefinite a livello di sistema** *(valori predefiniti)* : È possibile eseguire l'override di valori predefiniti a livello di sistema.
-- **Disattivati dei rispettivi dispositivi** *(blacklist)* : È possibile specificare l'elenco dei dispositivi che non devono essere controllati da mapper dei dispositivi.
-- **Le eccezioni di blacklist** *(blacklist_exceptions)* : È possibile identificare i dispositivi specifici per essere considerati come i dispositivi a percorsi multipli anche se elencati nella blacklist.
-- **Impostazioni di specifici controller di archiviazione** *(dispositivi)* : È possibile specificare le impostazioni di configurazione che verranno applicate ai dispositivi che le informazioni sul fornitore e il prodotto.
-- **Impostazioni specifiche del dispositivo** *(multipaths)* : È possibile usare questa sezione per ottimizzare le impostazioni di configurazione per singole unità logiche.
+- **Impostazioni predefinite a livello di sistema** *(impostazioni predefinite)* : è possibile eseguire l'override delle impostazioni predefinite a livello di sistema.
+- **Dispositivi con blacklist** *(blacklist)* : è possibile specificare l'elenco di dispositivi che non devono essere controllati dal mapper del dispositivo.
+- **Eccezioni blacklist** *(blacklist_exceptions)* : è possibile identificare dispositivi specifici da trattare come dispositivi a percorsi multipli anche se elencati nella blacklist.
+- **Impostazioni specifiche del controller di archiviazione** *(dispositivi)* : è possibile specificare le impostazioni di configurazione che verranno applicate ai dispositivi con informazioni sul fornitore e sul prodotto.
+- **Impostazioni specifiche del dispositivo** *(percorsi multipli)* : è possibile usare questa sezione per ottimizzare le impostazioni di configurazione per i singoli lun.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configurare percorsi multipli in dispositivi StorSimple connessi all'host Linux
 Un dispositivo StorSimple connesso a un host Linux può essere configurato per l'elevata disponibilità e il bilanciamento del carico. Ad esempio, se l'host Linux ha due interfacce connesse alla SAN e il dispositivo ha due interfacce connesse alla SAN in modo che queste interfacce siano tutte nella stessa subnet, saranno disponibili quattro percorsi. Tuttavia, se ogni interfaccia DATA sull'interfaccia del dispositivo e dell'host si trova in una diversa subnet IP (non instradabile), saranno disponibili solo due percorsi. È possibile configurare percorsi multipli per trovare automaticamente tutti i percorsi disponibili, scegliere un algoritmo di bilanciamento del carico per tali percorsi, applicare impostazioni di configurazione specifiche per i volumi solo StorSimple, quindi abilitare e verificare i percorsi multipli.
@@ -71,7 +64,7 @@ La procedura seguente descrive come configurare i percorsi multipli quando un di
 Questa sezione illustra nel dettaglio i prerequisiti di configurazione per il server CentOS e il dispositivo StorSimple.
 
 ### <a name="on-centos-host"></a>Sull'host CentOS
-1. Assicurarsi che l'host CentOS abbia due interfacce di rete abilitate. Digitare:
+1. Assicurarsi che l'host CentOS abbia due interfacce di rete abilitate. Tipo:
    
     `ifconfig`
    
@@ -109,10 +102,10 @@ Questa sezione illustra nel dettaglio i prerequisiti di configurazione per il se
 1. Installare *iSCSI-initiator-utils* sul server CentOS. Seguire questa procedura per installare *iSCSI-initiator-utils*.
    
    1. Accedere come `root` all'host CentOS.
-   1. Installare *iSCSI-initiator-utils*. Digitare:
+   1. Installare *iSCSI-initiator-utils*. Tipo:
       
        `yum install iscsi-initiator-utils`
-   1. Dopo aver correttamente installato *iSCSI-initiator-utils* , avviare il servizio iSCSI. Digitare:
+   1. Dopo aver correttamente installato *iSCSI-initiator-utils* , avviare il servizio iSCSI. Tipo:
       
        `service iscsid start`
       
@@ -130,7 +123,7 @@ Questa sezione illustra nel dettaglio i prerequisiti di configurazione per il se
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        Nell'esempio precedente, è possibile vedere che l'ambiente iSCSI verrà eseguito in fase di avvio su livelli di esecuzione 2, 3, 4 e 5.
-1. Installare *device-mapper-multipath*. Digitare:
+1. Installare *device-mapper-multipath*. Tipo:
    
     `yum install device-mapper-multipath`
    
@@ -180,25 +173,25 @@ La configurazione sopra indicata restituirà 4 percorsi separati tra il disposit
 > 
 > 
 
-## <a name="configuration-steps"></a>Procedura di configurazione
+## <a name="configuration-steps"></a>Passaggi di configurazione
 La procedura di configurazione per i percorsi multipli implica la configurazione dei percorsi disponibili per il rilevamento automatico, specificando l'algoritmo di bilanciamento del carico da usare, abilitando i percorsi multipli e infine verificando la configurazione. Ognuno dei passaggi precedenti viene illustrato nel dettaglio nelle sezioni seguenti.
 
-### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Passaggio 1: Configurare percorsi multipli per l'individuazione automatica
+### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Passaggio 1: Configurare percorsi multipli per il rilevamento automatico
 I dispositivi supportati da percorsi multipli possono essere individuati e configurati automaticamente.
 
-1. Inizializzare il file `/etc/multipath.conf` . Digitare:
+1. Inizializzare il file `/etc/multipath.conf` . Tipo:
    
      `mpathconf --enable`
    
     Il comando precedente creerà un file `sample/etc/multipath.conf` .
-1. Avviare il servizio a percorsi multipli. Digitare:
+1. Avviare il servizio a percorsi multipli. Tipo:
    
     `service multipathd start`
    
     Viene visualizzato l'output seguente:
    
     `Starting multipathd daemon:`
-1. Abilitare il rilevamento automatico dei percorsi multipli. Digitare:
+1. Abilitare il rilevamento automatico dei percorsi multipli. Tipo:
    
     `mpathconf --find_multipaths y`
    
@@ -210,10 +203,10 @@ I dispositivi supportati da percorsi multipli possono essere individuati e confi
         path_grouping_policy multibus
         }
 
-### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passaggio 2: Configurare percorsi multipli per volumi StorSimple
+### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passaggio 2: Configurare i percorsi multipli per volumi StorSimple
 Per impostazione predefinita, tutti i dispositivi sono elencati nella blacklist del file multipath.conf neri e verranno ignorati. È necessario creare eccezioni di blacklist per consentire percorsi multipli per volumi dai dispositivi StorSimple.
 
-1. Modificare il file `/etc/mulitpath.conf` . Digitare:
+1. Modificare il file `/etc/mulitpath.conf` . Tipo:
    
     `vi /etc/multipath.conf`
 1. Trovare la sezione blacklist_exceptions nel file multipath.conf. Il dispositivo StorSimple deve essere elencato come eccezione di blacklist in questa sezione. È possibile rimuovere il commento dalle righe pertinenti in questo file per modificarlo, come mostrato di seguito (usare solo il modello specifico del dispositivo in uso):
@@ -232,7 +225,7 @@ Per impostazione predefinita, tutti i dispositivi sono elencati nella blacklist 
 ### <a name="step-3-configure-round-robin-multipathing"></a>Passaggio 3: Configurare percorsi multipli round robin
 Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli disponibili per il controller attivo in modo bilanciato e round robin.
 
-1. Modificare il file `/etc/multipath.conf` . Digitare:
+1. Modificare il file `/etc/multipath.conf` . Tipo:
    
     `vi /etc/multipath.conf`
 1. Nella sezione `defaults` impostare `path_grouping_policy` su `multibus`. `path_grouping_policy` specifica il criterio di raggruppamento dei percorsi predefinito da applicare ai percorsi multipli non specificati. La sezione delle impostazioni predefinite avrà l'aspetto seguente.
@@ -251,7 +244,7 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 > 
 
 ### <a name="step-4-enable-multipathing"></a>Passaggio 4: Abilitare i percorsi multipli
-1. Riavviare il daemon `multipathd` . Digitare:
+1. Riavviare il daemon `multipathd` . Tipo:
    
     `service multipathd restart`
 1. Si otterrà un output come quello illustrato di seguito:
@@ -262,7 +255,7 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 ### <a name="step-5-verify-multipathing"></a>Passaggio 5: Verificare i percorsi multipli
 1. Assicurarsi prima di tutto che venga stabilita la connessione iSCSI con il dispositivo StorSimple come indicato di seguito:
    
-   a. Trovare il dispositivo StorSimple. Digitare:
+   a. Trovare il dispositivo StorSimple. Tipo:
       
     ```
     iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
@@ -277,7 +270,7 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 
     Copiare il nome qualificato iSCSI del dispositivo StorSimple, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, dall'output precedente.
 
-   b. Connettersi al dispositivo usando il nome qualificato iSCSI di destinazione. In questo caso, la destinazione iSCSI è il dispositivo StorSimple. Digitare:
+   b. Connettersi al dispositivo usando il nome qualificato iSCSI di destinazione. In questo caso, la destinazione iSCSI è il dispositivo StorSimple. Tipo:
 
     ```
     iscsiadm -m node --login -T <IQN of iSCSI target>
@@ -298,12 +291,12 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 
     Se in questo caso vengono visualizzati due percorsi e una sola interfaccia host, sarà necessario abilitare entrambe le interfacce sull'host per iSCSI. Consultare le [istruzioni dettagliate nella documentazione Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-1. Un volume viene esposto al server CentOS dal dispositivo StorSimple. Per altre informazioni, vedere [passaggio 6: Creare un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) tramite il portale di Azure nel dispositivo StorSimple.
+1. Un volume viene esposto al server CentOS dal dispositivo StorSimple. Per altre informazioni, vedere il [Passaggio 6: Creare un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) tramite il portale di Azure nel dispositivo StorSimple.
 
-1. Verificare i percorsi disponibili. Digitare:
+1. Verificare i percorsi disponibili. Tipo:
 
       ```
-      multipath –l
+      multipath -l
       ```
 
       L'esempio seguente illustra l'output di due interfacce di rete su un dispositivo StorSimple connesso a una singola interfaccia di rete host con due percorsi disponibili.
@@ -333,21 +326,21 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 ## <a name="troubleshoot-multipathing"></a>Risoluzione dei problemi relativi ai percorsi multipli
 Questa sezione contiene alcuni suggerimenti utili in caso di problemi durante la configurazione dei percorsi multipli.
 
-D: Le modifiche apportate al file `multipath.conf` non hanno effetto.
+Q. Le modifiche apportate al file `multipath.conf` non hanno effetto.
 
 R. Se sono state apportate modifiche al file `multipath.conf` , è necessario riavviare il servizio di percorsi multipli. Digitare il comando seguente:
 
     service multipathd restart
 
-D: Sono state abilitate due interfacce di rete sul dispositivo StorSimple e due interfacce di rete sull'host. Nell'elenco dei percorsi disponibili sono visibili solo due percorsi, mentre dovrebbero essercene quattro.
+Q. Sono state abilitate due interfacce di rete sul dispositivo StorSimple e due interfacce di rete sull'host. Nell'elenco dei percorsi disponibili sono visibili solo due percorsi, mentre dovrebbero essercene quattro.
 
 R. Assicurarsi che i due percorsi siano nella stessa subnet e instradabili. Se le interfacce di rete si trovano su VLAN diverse e non sono instradabili, verranno visualizzati solo due percorsi. Un modo per verificare questa condizione è assicurarsi che sia possibile raggiungere entrambe le interfacce host da un'interfaccia di rete nel dispositivo StorSimple. Sarà necessario [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) perché questa verifica può essere eseguita solo in una sessione di supporto.
 
-D: Nell'elenco dei percorsi disponibili non è visualizzato alcun output.
+Q. Nell'elenco dei percorsi disponibili non è visualizzato alcun output.
 
-R. In genere, la mancata visualizzazione di percorsi multipli suggerisce un problema con il daemon di percorsi multipli ed è probabile che qualsiasi problema riguardi il file `multipath.conf` .
+R. In genere, non viene visualizzato alcun percorso multipercorso che suggerisce un problema con il daemon percorsi multipli ed è molto probabile che qualsiasi problema si trovi nel file di `multipath.conf`.
 
-Potrebbe anche essere opportuno verificare che si possano visualizzare alcuni dischi dopo aver eseguito la connessione alla destinazione, perché se non si riceve alcuna risposta dagli elenchi dei percorsi multipli è probabile che non sia presente alcun disco.
+Sarebbe anche opportuno verificare che sia possibile visualizzare alcuni dischi dopo la connessione alla destinazione, poiché nessuna risposta dalle liste a percorsi multipli potrebbe significare che non sono presenti dischi.
 
 * Per ripetere la scansione del bus iSCSI, usare il comando seguente:
   
@@ -358,14 +351,14 @@ Potrebbe anche essere opportuno verificare che si possano visualizzare alcuni di
      
      Oppure
   
-    `$ fdisk –l`
+    `$ fdisk -l`
   
     Verranno restituite informazioni dettagliate sui dischi aggiunti di recente.
 * Per determinare se si tratta di un disco StorSimple, usare i comandi seguenti:
   
     `cat /sys/block/<DISK>/device/model`
   
-    Verrà restituita una stringa, che determinerà se si tratta di un disco StorSimple.
+    Verrà restituita una stringa che determina se si tratta di un disco StorSimple.
 
 Una causa meno probabile, ma possibile, potrebbe anche essere un PID iSCSI non aggiornato. Per disconnettersi dalle sessioni iSCSI usare il comando seguente:
 
@@ -376,11 +369,11 @@ Ripetere questo comando per tutte le interfacce di rete connesse nella destinazi
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-D: Come è possibile verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti?
+Q. Come è possibile verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti?
 
-A. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti, usare il comando interattivo di risoluzione dei problemi seguente:
+R. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti, usare il comando interattivo di risoluzione dei problemi seguente:
 
-    multipathd –k
+    multipathd -k
     multipathd> show devices
     available block devices:
     ram0 devnode blacklisted, unmonitored
@@ -417,10 +410,10 @@ A. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi con
     dm-3 devnode blacklisted, unmonitored
 
 
-Per altre informazioni, visitare [risoluzione dei problemi per i percorsi multipli](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
+Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei problemi per percorsi multipli](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Elenco di comandi utili
-| Digitare | Comando | Descrizione |
+| Tipo | Comando | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Avviare il servizio iSCSI |
 | &nbsp; |`service iscsid stop` |Arrestare il servizio iSCSI |
@@ -429,15 +422,15 @@ Per altre informazioni, visitare [risoluzione dei problemi per i percorsi multip
 | &nbsp; |`iscsiadm -m node --login -T <TARGET_IQN>` |Accedere alla destinazione iSCSI |
 | &nbsp; |`iscsiadm -m node --logout -p <Target_IP>` |Disconnettersi dalla destinazione iSCSI |
 | &nbsp; |`cat /etc/iscsi/initiatorname.iscsi` |Stampare il nome dell'iniziatore iSCSI |
-| &nbsp; |`iscsiadm –m session –s <sessionid> -P 3` |Controllare lo stato della sessione e del volume iSCSI individuati nell'host |
-| &nbsp; |`iscsi –m session` |Mostra tutte le sessioni iSCSI stabilite tra l'host e il dispositivo StorSimple |
+| &nbsp; |`iscsiadm -m session -s <sessionid> -P 3` |Controllare lo stato della sessione e del volume iSCSI individuati nell'host |
+| &nbsp; |`iscsi -m session` |Mostra tutte le sessioni iSCSI stabilite tra l'host e il dispositivo StorSimple |
 |  | | |
 | **Percorsi multipli** |`service multipathd start` |Avviare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd stop` |Arrestare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd restart` |Riavviare il daemon a percorsi multipli |
-| &nbsp; |`chkconfig multipathd on` </br> Oppure </br> `mpathconf –with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
-| &nbsp; |`multipathd –k` |Avviare la console interattiva per la risoluzione dei problemi |
-| &nbsp; |`multipath –l` |Elencare le connessioni e i dispositivi a percorsi multipli |
+| &nbsp; |`chkconfig multipathd on` </br> OPPURE </br> `mpathconf -with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
+| &nbsp; |`multipathd -k` |Avviare la console interattiva per la risoluzione dei problemi |
+| &nbsp; |`multipath -l` |Elencare le connessioni e i dispositivi a percorsi multipli |
 | &nbsp; |`mpathconf --enable` |Creare un file mulitpath.conf di esempio in `/etc/mulitpath.conf` |
 |  | | |
 

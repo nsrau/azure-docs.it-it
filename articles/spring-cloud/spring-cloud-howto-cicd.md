@@ -1,17 +1,17 @@
 ---
 title: Integrazione continua/distribuzione continua per il cloud di Azure Spring
 description: Integrazione continua/distribuzione continua per il cloud di Azure Spring
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 1fdd68bd0f817e4749c759a8f844eeac34599f02
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.author: brendm
+ms.openlocfilehash: f329fb5472c5a2eab6f22a2e81b19d90e7045330
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552798"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278524"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>Integrazione continua/distribuzione continua per il cloud di Azure Spring
 

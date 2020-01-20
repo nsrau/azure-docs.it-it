@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1b421e7acd7f94654ea80e41340022c8ef7a130e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1cf9ce6d57c1e106472caeef6c1f2a4b008a09bd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264221"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277862"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
@@ -24,36 +24,43 @@ ms.locfileid: "76264221"
 
 **Nuove funzionalità**
 
-- Conversazione multi-dispositivo: connettere più dispositivi in una conversazione vocale o basata su testo e, facoltativamente, tradurre i messaggi inviati tra di essi. Altre informazioni sono disponibili in [questo articolo](multi-device-conversation.md). 
+- Conversazione a più dispositivi: connettere più dispositivi alla stessa conversazione vocale o basata su testo e, facoltativamente, convertire i messaggi inviati tra di essi. Altre informazioni sono disponibili in [questo articolo](multi-device-conversation.md). 
 - Aggiunta del supporto per il riconoscimento delle parole chiave per il pacchetto Android. Aar e aggiunta del supporto per le versioni x86 e x64. 
-- `SendMessage` e `SetMessageProperty` metodi aggiunti all'oggetto `Connection` in Objective-C. Vedere la documentazione [qui](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- Objective-C: `SendMessage` e `SetMessageProperty` metodi aggiunti all'oggetto `Connection`. Vedere la documentazione [qui](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - L' C++ API TTS ora supporta `std::wstring` come input di testo di sintesi, eliminando la necessità di convertire una wstring in una stringa prima di passarla all'SDK. Vedere i dettagli [qui](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
-- L' [ID lingua](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) e la [configurazione della lingua](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) di origine C#sono ora disponibili in.
+- C#: L' [ID lingua](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) e la [configurazione della lingua di origine](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) sono ora disponibili.
+- JavaScript: è stata aggiunta una funzionalità per `Connection` oggetto per passare i messaggi personalizzati dal servizio di riconoscimento vocale come `receivedServiceMessage`di callback.
+- JavaScript: è stato aggiunto il supporto per `FromHost API` per semplificare l'uso con i contenitori locali e i cloud sovrani. Vedere la documentazione [qui](speech-container-howto.md).
+- JavaScript: ora è possibile rispettare `NODE_TLS_REJECT_UNAUTHORIZED` grazie a un contributo di [orgads](https://github.com/orgads). Vedere i dettagli [qui](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
 
 **Modifiche di rilievo**
 
 - `OpenSSL` è stato aggiornato alla versione 1.1.1 b ed è collegato in modo statico alla libreria principale di Speech SDK per Linux. Questa operazione può causare un'interrotta se la posta in arrivo `OpenSSL` non è stata installata nella directory `/usr/lib/ssl` del sistema. Per risolvere il problema, vedere la [documentazione relativa](how-to-configure-openssl-linux.md) ai documenti dell'SDK per la sintesi vocale.
 - È stato modificato il tipo di dati restituito C# per `WordLevelTimingResult.Offset` da `int` a `long` per consentire l'accesso a `WordLevelTimingResults` quando i dati vocali sono più lunghi di 2 minuti.
+- `PushAudioInputStream` e `PullAudioInputStream` ora inviano informazioni di intestazione WAV al servizio di riconoscimento vocale basato su `AudioStreamFormat`, facoltativamente specificate al momento della creazione. I clienti devono ora usare il [formato di input audio supportato](how-to-use-audio-input-streams.md). Eventuali altri formati otterranno risultati di riconoscimento non ottimali o potrebbero causare altri problemi. 
 
 
 **Correzioni di bug**
 
 - Vedere il `OpenSSL` aggiornamento in modifiche di rilievo precedenti. Sono stati corretti un arresto intermittente e un problema di prestazioni (conflitti di blocco sotto carico elevato) in Linux e Java. 
-- Sono stati apportati miglioramenti alla chiusura degli oggetti Java negli scenari di concorrenza elevata.
+- Java: miglioramenti apportati alla chiusura degli oggetti in scenari di concorrenza elevata.
 - Il pacchetto NuGet è stato ristrutturato. Sono state rimosse le tre copie di `Microsoft.CognitiveServices.Speech.core.dll` e `Microsoft.CognitiveServices.Speech.extension.kws.dll` in cartelle lib, rendendo il pacchetto NuGet più piccolo e veloce da scaricare e abbiamo aggiunto le intestazioni necessarie C++ per compilare alcune app native.
 - Correzione degli esempi di avvio rapido [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). Si è verificata l'uscita senza visualizzare l'eccezione "microfono non trovato" in Linux, MacOS e Windows.
 - Correzione di un arresto anomalo dell'SDK con i risultati del riconoscimento vocale lungo su determinati percorsi di codice come [questo esempio](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
 - Correzione dell'errore di distribuzione dell'SDK nell'ambiente app Web di Azure per risolvere [questo problema del cliente](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
 - Correzione di un errore TTS durante l'utilizzo del tag multi`<voice>` o del tag `<audio>` per risolvere [questo problema del cliente](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
 - Correzione di un errore TTS 401 quando l'SDK viene recuperato dalla sospensione.
+- JavaScript: è stata corretta un'importazione circolare di dati audio grazie a un contributo di [euirim](https://github.com/euirim). 
+- JavaScript: è stato aggiunto il supporto per l'impostazione delle proprietà del servizio, come aggiunto in 1,7.
+- JavaScript: è stato risolto un problema per cui un errore di connessione poteva causare tentativi di riconnessione WebSocket continui e non riusciti.
 
 
 **Esempi**
 
 - Aggiunta dell'esempio di riconoscimento delle parole chiave [per Android.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo)
-- Aggiunto esempio TTS per lo scenario server [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp). 
-- Aggiunta di guide introduttive per la conversazione C++ per C# più dispositivi in e .NET [qui](multi-device-conversation.md).
+- Aggiunto esempio TTS per lo scenario server [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
+- Sono state aggiunte guide introduttive per la C# conversazione C++ per più dispositivi per e [qui](quickstarts/multi-device-conversation.md).
 
 
 **Altre modifiche**

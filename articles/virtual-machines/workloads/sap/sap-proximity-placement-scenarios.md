@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805706"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277605"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP
 Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Questa distinzione è il risultato della maggior parte della logica di business in esecuzione a livello di applicazione. Poiché il livello dell'applicazione SAP esegue la logica di business, emette query al livello del database a una frequenza elevata, a una frequenza di migliaia o decine di migliaia al secondo. Nella maggior parte dei casi, la natura di queste query è semplice. Spesso possono essere eseguite a livello di database in microsecondi di 500 o meno.
@@ -156,7 +156,7 @@ Il risultato di questa distribuzione è:
 > Poiché si distribuisce una macchina virtuale DBMS in una zona e la seconda macchina virtuale DBMS in un'altra zona per creare una configurazione a disponibilità elevata, è necessario un gruppo di posizionamento di prossimità diverso per ogni zona. Lo stesso vale per qualsiasi set di disponibilità utilizzato.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Spostare un sistema esistente in gruppi di posizionamento di prossimità
-Se sono già stati distribuiti sistemi SAP, potrebbe essere necessario ottimizzare la latenza di rete di alcuni dei sistemi critici e individuare il livello dell'applicazione e il livello DBMS nello stesso data center. Durante l'anteprima pubblica dei gruppi di posizionamento vicino, è necessario eliminare le macchine virtuali e crearne di nuove per spostare il sistema in gruppi di posizionamento di prossimità. Attualmente non è possibile arrestare le VM e assegnarle ai gruppi di posizionamento di prossimità.
+Se sono già stati distribuiti sistemi SAP, potrebbe essere necessario ottimizzare la latenza di rete di alcuni dei sistemi critici e individuare il livello dell'applicazione e il livello DBMS nello stesso data center. Per spostare le macchine virtuali di un set di disponibilità di Azure completo in un gruppo di posizionamento di prossimità esistente con ambito già definito, è necessario arrestare tutte le VM del set di disponibilità e assegnare il set di disponibilità al gruppo di posizionamento di prossimità esistente tramite portale di Azure, PowerShell o l'interfaccia della riga di comando. Se si vuole spostare una macchina virtuale che non fa parte di un set di disponibilità in un gruppo di posizionamento di prossimità esistente, è sufficiente arrestare la macchina virtuale e assegnarla a un gruppo di posizionamento di prossimità esistente. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

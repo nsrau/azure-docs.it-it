@@ -1,26 +1,18 @@
 ---
-title: Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Aggiornamenti automatici delle immagini del sistema operativo con set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come aggiornare automaticamente l'immagine del sistema operativo nelle istanze di macchine virtuali in un set di scalabilità
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: vashan
-ms.openlocfilehash: 95a313b3c6995d55b86561c685641b447edae127
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240935"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278151"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -56,12 +48,12 @@ Attualmente sono supportate solo alcune immagini della piattaforma del sistema o
 
 Sono attualmente supportati gli SKU seguenti e ne vengono aggiunti altri periodicamente:
 
-| Editore               | Offerta sistema operativo      |  Sku               |
+| Editore               | Offerta sistema operativo      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
 | Rogue Wave (OpenLogic)  | CentOS        | 7.5                |
-| CoreOS                  | CoreOS        | Stabile             |
+| CoreOS                  | CoreOS        | Stable             |
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
@@ -78,7 +70,7 @@ Sono attualmente supportati gli SKU seguenti e ne vengono aggiunti altri periodi
 - Usare i probe di integrità dell'applicazione o l'[estensione Integrità applicazione](virtual-machine-scale-sets-health-extension.md) per i set di scalabilità non di Service Fabric.
 - Usare l'API di calcolo versione 2018-10-01 o successiva.
 - Assicurarsi che le risorse esterne specificate nel modello del set di scalabilità siano disponibili e aggiornate. Ad esempio, URI della firma di accesso condiviso per il payload di bootstrap nelle proprietà di estensione della macchina virtuale, payload nell'account di archiviazione, riferimento ai segreti nel modello e altro.
-- Per i set di scalabilità che usano macchine virtuali Windows, a partire dall'API di calcolo versione 2019-03-01, la proprietà *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* deve essere impostata su *false* nel modello del set di scalabilità definizione. La proprietà precedente Abilita gli aggiornamenti nella macchina virtuale in cui "Windows Update" applica le patch del sistema operativo senza sostituire il disco del sistema operativo. Con gli aggiornamenti automatici delle immagini del sistema operativo abilitati nel set di scalabilità, non è necessario un aggiornamento aggiuntivo tramite "Windows Update".
+- Per i set di scalabilità che usano macchine virtuali Windows, a partire dall'API di calcolo versione 2019-03-01, la proprietà *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* della proprietà deve essere impostata su *false* nella definizione del modello del set di scalabilità. La proprietà precedente Abilita gli aggiornamenti nella macchina virtuale in cui "Windows Update" applica le patch del sistema operativo senza sostituire il disco del sistema operativo. Con gli aggiornamenti automatici delle immagini del sistema operativo abilitati nel set di scalabilità, non è necessario un aggiornamento aggiuntivo tramite "Windows Update".
 
 ### <a name="service-fabric-requirements"></a>Requisiti di Service Fabric
 

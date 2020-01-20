@@ -1,31 +1,23 @@
 ---
-title: Disponibilità in base all'area StorSimple | Microsoft Docs
+title: Disponibilità area StorSimple
 description: Illustra le aree di Azure in cui sono disponibili i modelli di dispositivo StorSimple.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965130"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275118"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Aree disponibili per StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 I Data center di Azure operano in più aree geografiche in tutto il mondo per soddisfare le richieste dei clienti relative a prestazioni, requisiti e preferenze sulla posizione dei dati. Un'area geografica di Azure è un'area definita del mondo che include almeno un'area di Azure. Un'area di Azure all'interno di un'area geografica include uno o più data center.
 
@@ -78,8 +70,8 @@ Se si usa un dispositivo fisico StorSimple 8100 o 8600, il dispositivo è dispon
 | 5  | Brasile                | 20 | Indonesia          | 35 | Filippine         | 50 | Svezia                     |
 | 6  | Canada                | 21 | Irlanda            | 36 | Polonia              | 51 | Svizzera                |
 | 7  | Cile                 | 22 | Israele             | 37 | Portogallo            | 52 | Taiwan                     |
-| 8  | Colombia              | 23 | Italia              | 38 | Portorico         | 53 | Thailandia                   |
-| 9  | Ceca, Repubblica        | 24 | Giappone              | 39 | Qatar               | 54 | Turchia                     |
+| 8  | Colombia              | 23 | Italia              | 38 | Portorico         | 53 | Tailandia                   |
+| 9  | Repubblica Ceca        | 24 | Giappone              | 39 | Qatar               | 54 | Turchia                     |
 | 10 | Danimarca               | 25 | Kenya              | 40 | Romania             | 55 | Ucraina                    |
 | 11 | Egitto                 | 26 | Kuwait             | 41 | Russia              | 56 | Emirati Arabi Uniti       |
 | 12 | Finlandia               | 27 | RAS di Macao          | 42 | Arabia Saudita        | 57 | Regno Unito             |

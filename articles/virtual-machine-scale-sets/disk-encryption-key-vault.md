@@ -2,17 +2,17 @@
 title: Creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure
 description: Questo articolo illustra la procedura per creare e configurare un insieme di credenziali delle chiavi per l'uso con crittografia dischi di Azure
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0252fff84307577ab307e591948e16dc30c38f66
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eec5b42da709ab5e79da42f11600f6ffc81d247e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750002"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279008"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure
 
@@ -49,5 +49,5 @@ Connect-AzAccount
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni su Crittografia dischi di Azure](disk-encryption-overview.md)
-- [Crittografare un set di scalabilità di macchine virtuali usando l'interfaccia della riga di comando](disk-encryption-cli.md)
-- [Crittografare i set di scalabilità di macchine virtuali usando il Azure PowerShell](disk-encryption-powershell.md)
+- [Crittografare set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure](disk-encryption-cli.md)
+- [Crittografare set di scalabilità di macchine virtuali con Azure PowerShell](disk-encryption-powershell.md)

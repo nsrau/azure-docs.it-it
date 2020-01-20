@@ -1,29 +1,22 @@
 ---
-title: Note sulla versione dell'aggiornamento 5 di StorSimple serie 8000 | Microsoft Docs
+title: Note sulla versione dell'aggiornamento 5 di StorSimple serie 8000
 description: Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 5 per StorSimple serie 8000.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844092"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275160"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Note sulla versione dell'aggiornamento 5 di StorSimple serie 8000
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Le note sulla versione seguenti descrivono le nuove funzionalità e illustrano i problemi critici non risolti relativi all'aggiornamento 5 di StorSimple serie 8000. Contengono inoltre un elenco degli aggiornamenti software di StorSimple inclusi in questa versione.
 
@@ -53,9 +46,9 @@ La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornament
 
 | No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
-| 1 |Comunicazione remota di Windows PowerShell |Nella versione precedente, gli utenti ricevevano un errore se provavano a stabilire una connessione remota all'appliance cloud StorSimple tramite Windows PowerShell. In questa versione il problema è stato corretto una volta individuata la causa radice. |No |Yes |
-| 2 |Modelli di larghezza di banda |Nella versione precedente, un problema con i modelli di larghezza di banda determinava una larghezza di banda inferiore rispetto a quella per cui era stato configurato il dispositivo. Questo problema è stato risolto in questa versione. |Yes |Yes |
-| 3 |Failover |Nella versione precedente, quando veniva eseguito il failover di un dispositivo con un numero elevato di volumi su un altro dispositivo che eseguiva l'aggiornamento 4, il processo si interrompeva mentre provava ad applicare i record di controllo di accesso. Tale problema è stato corretto in questa versione. |Yes |Yes |
+| 1 |Comunicazione remota di Windows PowerShell |Nella versione precedente, gli utenti ricevevano un errore se provavano a stabilire una connessione remota all'appliance cloud StorSimple tramite Windows PowerShell. In questa versione il problema è stato corretto una volta individuata la causa radice. |No |Sì |
+| 2 |Modelli di larghezza di banda |Nella versione precedente, un problema con i modelli di larghezza di banda determinava una larghezza di banda inferiore rispetto a quella per cui era stato configurato il dispositivo. Questo problema è stato risolto in questa versione. |Sì |Sì |
+| 3 |Failover |Nella versione precedente, quando veniva eseguito il failover di un dispositivo con un numero elevato di volumi su un altro dispositivo che eseguiva l'aggiornamento 4, il processo si interrompeva mentre provava ad applicare i record di controllo di accesso. Tale problema è stato corretto in questa versione. |Sì |Sì |
 
 
 

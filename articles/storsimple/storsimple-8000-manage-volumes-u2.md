@@ -1,29 +1,21 @@
 ---
-title: Gestire i volumi StorSimple (aggiornamento 3) | Microsoft Docs
+title: Gestire i volumi StorSimple (aggiornamento 3)
 description: Viene illustrato come aggiungere, modificare, monitorare ed eliminare i volumi StorSimple e come portarli offline, se necessario.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634819"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278835"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questa esercitazione viene illustrato come usare il servizio Gestione dispositivi StorSimple per creare e gestire i volumi nel dispositivo StorSimple serie 8000 con aggiornamento 3 o successivo.
 
@@ -34,7 +26,7 @@ Il servizio Gestione dispositivi StorSimple è un'estensione del portale di Azur
 I volumi di StorSimple possono essere:
 
 * **Volumi aggiunti in locale**: i dati in questi volumi rimangono sempre nel dispositivo StorSimple locale.
-* **Volumi a livelli**: i dati in questi volumi possono essere distribuiti nel cloud.
+* **Volumi a livelli**: i dati in questi volumi essere distribuiti nel cloud.
 
 Un volume di archivio è un tipo di volume a livelli. La maggiore dimensione del blocco di deduplicazione usata per i volumi di archivio consente al dispositivo di trasferire nel cloud segmenti di dati più grandi.
 
@@ -120,7 +112,7 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
       
        Se nel dispositivo 8100 si effettua il provisioning di un volume aggiunto in locale di 8,5 TB, ovvero le dimensioni massime consentite, si esaurisce tutto lo spazio locale disponibile nel dispositivo. Non è possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se nel dispositivo 8100 sono già presenti volumi a livelli di circa 106 TB, saranno disponibili solo 4 TB di spazio per i volumi aggiunti in locale.
 
-    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Fare clic su **Create**(Crea). Verrà creato un volume con le impostazioni specificate.
+    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
 
         ![Fare clic su Crea](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

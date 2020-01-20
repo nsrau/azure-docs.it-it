@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Gestire un cluster DC/OS di Azure con l'API REST Marathon
 description: Distribuire contenitori in un cluster DC/OS del servizio Azure Container usando l'API REST di Marathon.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3492f35d54dd3ee61ab8d29a3af06e4998bbd477
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916691"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277791"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(DEPRECATO) Gestione dei contenitori DC/OS tramite l'API REST Marathon
 
@@ -30,7 +28,7 @@ Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurat
 * [Connettersi a un cluster del servizio Azure Container](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Accedere alle API di DC/OS
-Dopo essersi connessi al cluster servizio contenitore di Azure, è possibile accedere di DC/OS e alle API REST correlate tramite http:\//localhost:local-porta. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, gli endpoint Marathon possono contattarlo all'URI che iniziano con http: \/ /localhost/marathon/v2 /. 
+Dopo essersi connessi al cluster del servizio contenitore di Azure, è possibile accedere al controller di dominio/sistema operativo e alle API REST correlate tramite http:\//localhost: Local-Port. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, gli endpoint Marathon possono essere raggiunti a URI a partire da http:\//localhost/Marathon/V2/. 
 
 Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -123,7 +121,7 @@ L'API Marathon può essere usata per aumentare o ridurre il numero di istanze de
 Dalla connessione con tunnel, eseguire il comando seguente per aumentare il numero di istanze dell'applicazione.
 
 > [!NOTE]
-> L'URI è http: \/ /localhost/marathon/v2/apps/seguita dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di Nginx fornito qui, l'URI sarà http:\//localhost/marathon/v2/apps/nginx.
+> L'URI è http:\//localhost/Marathon/V2/Apps/seguito dall'ID dell'applicazione di cui eseguire la scalabilità. Se si usa l'esempio Nginx fornito qui, l'URI sarà http:\//localhost/Marathon/V2/Apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -180,7 +178,7 @@ L'API Marathon può anche essere usata per aumentare o ridurre il numero di ista
 Eseguire questo comando per aumentare il numero di istanze dell'applicazione:
 
 > [!NOTE]
-> L'URI è http: \/ /localhost/marathon/v2/apps/seguita dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di Nginx fornito qui, l'URI sarà http:\//localhost/marathon/v2/apps/nginx.
+> L'URI è http:\//localhost/Marathon/V2/Apps/seguito dall'ID dell'applicazione di cui eseguire la scalabilità. Se si usa l'esempio Nginx fornito qui, l'URI sarà http:\//localhost/Marathon/V2/Apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

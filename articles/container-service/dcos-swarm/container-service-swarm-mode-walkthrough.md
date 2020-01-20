@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Guida introduttiva - Cluster Docker CE di Azure per Linux
 description: Informazioni per creare rapidamente un cluster Docker CE per contenitori Linux nel servizio Azure Container con l'interfaccia della riga di comando di Azure.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721786"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274868"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(DEPRECATO) Distribuire cluster Docker CE
 
@@ -67,7 +65,7 @@ In alcuni casi la sottoscrizione di Azure ha accesso limitato alle risorse di Az
 
 Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato JSON sul cluster.
 
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
 Nel corso di questa guida introduttiva è necessario il nome di dominio completo sia del master Docker Swarm che del pool di agenti Docker. Eseguire questo comando per ottenere entrambi i nomi di dominio completi.
 
@@ -106,7 +104,6 @@ Creare un file denominato `azure-vote.yaml` e copiarvi il contenuto seguente.
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:
@@ -161,7 +158,7 @@ Quando il cluster non è più necessario, è possibile usare il comando [az grou
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="get-the-code"></a>Ottenere il codice
+## <a name="get-the-code"></a>Ottieni il codice
 
 In questa guida introduttiva sono state usate immagini del contenitore già create per creare un servizio Docker. Il codice dell'applicazione correlato, Dockerfile, e il file Compose sono disponibili in GitHub.
 

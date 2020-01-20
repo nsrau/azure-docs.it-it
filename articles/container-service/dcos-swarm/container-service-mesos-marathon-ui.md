@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Gestire un cluster DC/OS di Azure con l'interfaccia utente Marathon
 description: Distribuire contenitori in un cluster del servizio Azure Container usando l'interfaccia utente Web di Marathon.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61468227"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277797"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(DEPRECATO) Gestire un cluster DC/OS del servizio Azure Container tramite l'interfaccia utente Web di Marathon
 
@@ -36,26 +34,26 @@ Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurat
 >
 
 ## <a name="explore-the-dcos-ui"></a>Esplorare l'interfaccia utente di DC/OS
-Con un tunnel Secure Shell (SSH) [stabilita](../container-service-connect.md), passare a http: \/ /localhost /. Verrà caricata l'interfaccia utente Web di DC/OS che visualizza informazioni sul cluster, ad esempio le risorse usate, gli agenti attivi e i servizi in esecuzione.
+Con un tunnel Secure Shell (SSH) [stabilito](../container-service-connect.md), passare a http:\//localhost/. Verrà caricata l'interfaccia utente Web di DC/OS che visualizza informazioni sul cluster, ad esempio le risorse usate, gli agenti attivi e i servizi in esecuzione.
 
 ![Interfaccia utente di DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Esplorare l'interfaccia utente di Marathon
-Per visualizzare l'interfaccia utente di Marathon, passare a http: \/ /localhost/marathon. In questa schermata è possibile avviare un nuovo contenitore o un'altra applicazione nel cluster DC/OS del servizio Azure Container. È anche possibile visualizzare le informazioni sull'esecuzione di contenitori e applicazioni.  
+Per visualizzare l'interfaccia utente di Marathon, passare a http:\//localhost/Marathon. In questa schermata è possibile avviare un nuovo contenitore o un'altra applicazione nel cluster DC/OS del servizio Azure Container. È anche possibile visualizzare le informazioni sull'esecuzione di contenitori e applicazioni.  
 
 ![Interfaccia utente di Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
 ## <a name="deploy-a-docker-formatted-container"></a>Distribuire un contenitore Docker formattato
 Per distribuire un nuovo contenitore con Marathon, fare clic sul pulsante **Create Application** (Crea applicazione) e immettere le informazioni seguenti nel modulo:
 
-| Campo | Value |
+| Campo | Valore |
 | --- | --- |
 | ID |nginx |
 | Memoria | 32 |
-| Image |nginx |
-| Network |Bridged |
+| Immagine |nginx |
+| Rete |Bridged |
 | Host Port |80 |
-| Protocol |TCP |
+| Protocollo |TCP |
 
 ![Interfaccia utente New Application--General](./media/container-service-mesos-marathon-ui/dcos4.png)
 
@@ -85,7 +83,7 @@ Tornare alla pagina principale di Marathon, dove ora viene visualizzato lo stato
 
 ![Interfaccia utente della pagina principale di Marathon--stato di distribuzione contenitore](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Quando si passa al controller di dominio/sistema operativo di un'interfaccia utente web (http:\//localhost/), noterete che un'attività (in questo caso, un contenitore Docker formattato) sia in esecuzione nel cluster DC/OS.
+Quando si torna all'interfaccia utente Web di DC/OS (http:\//localhost/), si noterà che un'attività, in questo caso un contenitore in formato Docker, è in esecuzione nel cluster DC/OS.
 
 ![Interfaccia utente Web di DC/OS--attività in esecuzione nel cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 

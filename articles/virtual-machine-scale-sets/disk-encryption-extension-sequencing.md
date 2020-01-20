@@ -3,15 +3,15 @@ title: Crittografia dischi di Azure e sequenza di estensioni di set di scalabili
 description: Questo articolo offre informazioni sull'abilitazione di Crittografia dischi di Microsoft Azure per le macchine virtuali IaaS Linux.
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/10/2019
-ms.openlocfilehash: 351c3603ddc069647577b5465ea9fa839810cbc1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: aa638b86b0788b8c274f9dcb3c04c1fc385b4ae1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530888"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279023"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Usare crittografia dischi di Azure con la sequenziazione delle estensioni del set di scalabilità di macchine virtuali
 
@@ -158,7 +158,7 @@ Per un modello più dettagliato, vedere:
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulla sequenziazione delle estensioni: [provisioning dell'estensione di sequenza nei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-extension-sequencing.md).
 - Altre informazioni sulla proprietà `provisionAfterExtensions`: [riferimento al modello Microsoft. Compute virtualMachineScaleSets/Extensions](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
-- [Crittografia dischi di Azure per i set di scalabilità di macchine virtuali](disk-encryption-overview.md)
-- [Crittografare un set di scalabilità di macchine virtuali usando l'interfaccia della riga di comando](disk-encryption-cli.md)
-- [Crittografare i set di scalabilità di macchine virtuali usando il Azure PowerShell](disk-encryption-powershell.md)
-- [Creare e configurare un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md)
+- [Crittografia dischi di Azure per set di scalabilità di macchine virtuali](disk-encryption-overview.md)
+- [Crittografare set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure](disk-encryption-cli.md)
+- [Crittografare set di scalabilità di macchine virtuali con Azure PowerShell](disk-encryption-powershell.md)
+- [Creare e configurare un insieme di credenziali delle chiavi per Crittografia dischi di Azure](disk-encryption-key-vault.md)

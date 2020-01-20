@@ -1,21 +1,19 @@
 ---
 title: Creare un set di scalabilità che usa VM di Azure spot (anteprima)
 description: Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano macchine virtuali spot per risparmiare sui costi.
-services: virtual-machine-scale-sets
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: b57c13d4a5c671595a3e82ac7858c027456107f2
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4f434afdd02d15f98e005b44f5563847f4c5847d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894083"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278217"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Anteprima: VM di Azure spot per i set di scalabilità di macchine virtuali 
 

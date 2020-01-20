@@ -1,26 +1,19 @@
 ---
-title: Gestire i set di scalabilità di macchine virtuali con Azure PowerShell | Microsoft Docs
+title: Gestire i set di scalabilità di macchine virtuali con Azure PowerShell
 description: Cmdlet comuni di Azure PowerShell per la gestione dei set di scalabilità di macchine virtuali, ad esempio per l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a6474320fd8b1545d61320cd43e155ab077ba310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc83c8b73c73b2aa70bc36bad175e5c19c1ab700
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683538"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275707"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gestire un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -55,7 +48,7 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modificare la capacità di un set di scalabilità
 Con i comandi precedenti vengono visualizzate informazioni sul set di scalabilità e sulle istanze di VM. Per aumentare o diminuire il numero di istanze in un set di scalabilità è possibile modificare la capacità. Il set di scalabilità crea o rimuove automaticamente il numero necessario di VM, quindi configura le VM per la ricezione del traffico dell'applicazione.
 
-Creare prima un oggetto set di scalabilità con [Get-AzVmss](/powershell/module/az.compute/get-azvmss) e quindi specificare un nuovo valore per `sku.capacity`. Per applicare la modifica della capacità, usare [Update-AzVmss](/powershell/module/az.compute/update-azvmss). L'esempio seguente aggiorna *myScaleSet* nel gruppo di risorse *myResourceGroup* a una capacità di *5* istanze. Specificare i valori personalizzati nel modo seguente:
+Creare prima di tutto un oggetto set di scalabilità con [Get-AzVmss](/powershell/module/az.compute/get-azvmss) e quindi specificare un nuovo valore per `sku.capacity`. Per applicare la modifica della capacità, usare [Update-AzVmss](/powershell/module/az.compute/update-azvmss). L'esempio seguente aggiorna *myScaleSet* nel gruppo di risorse *myResourceGroup* a una capacità di *5* istanze. Specificare i valori personalizzati nel modo seguente:
 
 ```powershell
 # Get current scale set
@@ -70,7 +63,7 @@ Sono necessari alcuni minuti per aggiornare la capacità del set di scalabilità
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrestare e avviare le macchine virtuali in un set di scalabilità
-Per arrestare una o più macchine virtuali in un set di scalabilità, usare [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le VM del set di scalabilità. Per arrestare più VM, separare gli ID istanza con una virgola.
+Per arrestare una o più VM in un set di scalabilità, usare [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le macchine virtuali del set di scalabilità. Per arrestare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente arresta l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 
@@ -82,7 +75,7 @@ Per impostazione predefinita, le VM arrestate vengono deallocate e quindi non ge
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Avviare le macchine virtuali in un set di scalabilità
-Per avviare una o più macchine virtuali in un set di scalabilità, usare [Start-AzVmss](/powershell/module/az.compute/start-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da avviare. Se non si specifica un ID istanza, vengono avviate tutte le VM del set di scalabilità. Per avviare più VM, separare gli ID istanza con una virgola.
+Per avviare una o più VM in un set di scalabilità, usare [Start-AzVmss](/powershell/module/az.compute/start-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da avviare. Se non si specifica un ID istanza, vengono avviate tutte le macchine virtuali del set di scalabilità. Per avviare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente avvia l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 
@@ -92,7 +85,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Riavviare le macchine virtuali in un set di scalabilità
-Per riavviare una o più VM in un set di scalabilità, usare [riavvio AzVmss](/powershell/module/az.compute/restart-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le VM del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
+Per riavviare una o più macchine virtuali in un set di scalabilità, usare [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le macchine virtuali del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente riavvia l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 

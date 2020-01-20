@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: d936f9f30f79b3be6035d668211a15533cb3fa85
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: cfb77548217cf173438ab0407320cbdff8db092e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157220"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276998"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Avvisi di sicurezza-Guida di riferimento
 
@@ -128,7 +128,7 @@ Tipi di avvisi inclusi in questa tabella:
 |**Inserimento di codice individuato**|Un attacco di code injection consiste nell'inserimento di moduli eseguibili in processi o thread in esecuzione. Questa tecnica viene usata da malware per accedere ai dati, mentre si nasconde correttamente per impedire che venga individuata e rimossa.<br>Questo avviso indica che nel dump di arresto anomalo del sistema è presente un modulo inserito. Per distinguere i moduli inseriti dannosi e non dannosi, il Centro sicurezza controlla se il modulo inserito è conforme a un profilo di comportamento sospetto.|-|
 |**Rilevato segmento di codice sospetto**|Indica che un segmento di codice è stato allocato usando metodi non standard, ad esempio l'inserimento riflettente e la svuotamento dei processi. L'avviso fornisce caratteristiche aggiuntive del segmento di codice che sono state elaborate per fornire il contesto per le funzionalità e i comportamenti del segmento di codice restituito.|-|
 |**Shellcode individuato**|Uno shellcode è il payload che viene eseguito dopo che il malware ha sfruttato una vulnerabilità del software.<br>Questo avviso indica che l'analisi dei dump di arresto anomalo del sistema ha rilevato codice eseguibile che presenta un comportamento comunemente eseguito da payload dannosi. Sebbene il software non dannoso possa anche eseguire questo comportamento, non è tipico delle normali procedure di sviluppo del software.|-|
-|**È stata rilevata una tecnica di attacco non file**|La memoria del processo specificato contiene un toolkit di attacco informatico: Meterpreter. I toolkit di attacco senza file in genere non hanno una presenza sul file system, rendendo difficile il rilevamento da parte del software antivirus tradizionale.|DefenseEvasion/esecuzione|
+|**È stata rilevata una tecnica di attacco non file**|La memoria del processo specificato contiene un toolkit di attacco senza file: [nome Toolkit]. I toolkit di attacco senza file in genere non hanno una presenza sul file system, rendendo difficile il rilevamento da parte del software antivirus tradizionale.|DefenseEvasion/esecuzione|
 ||<a name="alerts-linux"></a><h3>Computer Linux</h3> [Ulteriori dettagli e note](security-center-alerts-iaas.md#linux-)||
 |**Il processo ha visto l'accesso al file delle chiavi autorizzate SSH in modo insolito**|È stato eseguito l'accesso a un file di chiavi autorizzate SSH in un metodo simile a una campagna malware nota. Questo accesso può indicare che un utente malintenzionato sta tentando di ottenere l'accesso permanente a un computer.|-|
 |**Tentativo di persistenza rilevato**|L'analisi dei dati host ha rilevato che è stato installato uno script di avvio per la modalità utente singolo.<br>Poiché è raro che qualsiasi processo legittimo debba essere eseguito in tale modalità, questo potrebbe indicare che un utente malintenzionato ha aggiunto un processo dannoso a ogni livello di esecuzione per garantire la persistenza. |Persistenza|

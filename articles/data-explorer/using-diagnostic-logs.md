@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173805"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277434"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Monitorare le operazioni di inserimento di Azure Esplora dati usando i log di diagnostica (anteprima)
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in una tabella di un database in modo che sia possibile eseguire query su di essa. I [log di diagnostica di monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-logs-overview) forniscono i dati sul funzionamento delle risorse di Azure. Azure Esplora dati usa i log di diagnostica per ottenere informazioni dettagliate sugli errori e sugli errori di inserimento. È possibile esportare i log delle operazioni in archiviazione di Azure, Hub eventi o Log Analytics per monitorare lo stato di inserimento. I log da archiviazione di Azure e hub eventi di Azure possono essere indirizzati a una tabella nel cluster di Azure Esplora dati per un'ulteriore analisi.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per analisi in tempo reale su volumi elevati di dati in streaming da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in una tabella di un database in modo che sia possibile eseguire query su di essa. I [log di diagnostica di monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-logs-overview) forniscono i dati sul funzionamento delle risorse di Azure. Azure Esplora dati usa i log di diagnostica per ottenere informazioni dettagliate sugli errori e sugli errori di inserimento. È possibile esportare i log delle operazioni in archiviazione di Azure, Hub eventi o Log Analytics per monitorare lo stato di inserimento. I log da archiviazione di Azure e hub eventi di Azure possono essere indirizzati a una tabella nel cluster di Azure Esplora dati per un'ulteriore analisi.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/).
 * Creare un [cluster e un database](create-cluster-database-portal.md).
@@ -52,7 +52,7 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
     1. Selezionare **nome** per l'impostazione di diagnostica.
     1. Selezionare una o più destinazioni: un account di archiviazione, un hub eventi o un Log Analytics.
     1. Selezionare i log da raccogliere: `SucceededIngestion` o `FailedIngestion`.
-    1. Selezionare le [metriche](using-metrics.md) da raccogliere (facoltativo).   
+    1. Selezionare le [metriche](using-metrics.md#supported-azure-data-explorer-metrics) da raccogliere (facoltativo).  
     1. Selezionare **Save (Salva** ) per salvare le impostazioni e le metriche dei nuovi log di diagnostica.
     1. Creare una **nuova richiesta di supporto** nel portale di Azure per richiedere l'attivazione dei log di diagnostica.
 
@@ -66,7 +66,7 @@ Tutti i [log di diagnostica di monitoraggio di Azure condividono uno schema di p
 
 Le stringhe JSON di log includono gli elementi elencati nella tabella seguente:
 
-|Nome               |DESCRIZIONE
+|Nome               |Description
 |---                |---
 |time               |Ora del report
 |resourceId         |ID della risorsa Azure Resource Manager
@@ -100,15 +100,15 @@ Le stringhe JSON di log includono gli elementi elencati nella tabella seguente:
 ```
 **Proprietà di un log di diagnostica operazione completata**
 
-|Nome               |DESCRIZIONE
+|Nome               |Description
 |---                |---
 |succeededOn        |Tempo di completamento dell'inserimento
 |operationId        |ID operazione di inserimento Esplora dati Azure
 |database           |Nome del database di destinazione
-|table              |Nome della tabella di destinazione
-|IngestionSourceId  |ID dell'origine dati di inserimento
-|IngestionSourcePath|Percorso dell'origine dati di inserimento o dell'URI del BLOB
-|RootActivityId     |ID attività
+|tabella              |Nome della tabella di destinazione
+|ingestionSourceId  |ID dell'origine dati di inserimento
+|ingestionSourcePath|Percorso dell'origine dati di inserimento o dell'URI del BLOB
+|rootActivityId     |ID attività
 
 #### <a name="failed-ingestion-operation-log"></a>Log delle operazioni di inserimento non riuscito
 
@@ -141,20 +141,20 @@ Le stringhe JSON di log includono gli elementi elencati nella tabella seguente:
 
 **Proprietà di un log di diagnostica di un'operazione non riuscita**
 
-|Nome               |DESCRIZIONE
+|Nome               |Description
 |---                |---
-|FailedOn           |Tempo di completamento dell'inserimento
+|failedOn           |Tempo di completamento dell'inserimento
 |operationId        |ID operazione di inserimento Esplora dati Azure
 |database           |Nome del database di destinazione
-|table              |Nome della tabella di destinazione
-|IngestionSourceId  |ID dell'origine dati di inserimento
-|IngestionSourcePath|Percorso dell'origine dati di inserimento o dell'URI del BLOB
-|RootActivityId     |ID attività
-|informazioni dettagliate            |Descrizione dettagliata dell'errore e del messaggio di errore
+|tabella              |Nome della tabella di destinazione
+|ingestionSourceId  |ID dell'origine dati di inserimento
+|ingestionSourcePath|Percorso dell'origine dati di inserimento o dell'URI del BLOB
+|rootActivityId     |ID attività
+|dettagli            |Descrizione dettagliata dell'errore e del messaggio di errore
 |errorCode          |Codice di errore 
-|FailureStatus      |`Permanent` o `Transient`. Il tentativo di un errore temporaneo potrebbe avere esito positivo.
-|OriginatesFromUpdatePolicy|True se l'errore proviene da un criterio di aggiornamento
-|ShouldRetry        |True se il tentativo potrebbe avere esito positivo
+|failureStatus      |`Permanent` o `Transient`. Il tentativo di un errore temporaneo potrebbe avere esito positivo.
+|originatesFromUpdatePolicy|True se l'errore proviene da un criterio di aggiornamento
+|shouldRetry        |True se il tentativo potrebbe avere esito positivo
 
 ## <a name="next-steps"></a>Passaggi successivi
 

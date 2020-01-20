@@ -1,21 +1,19 @@
 ---
 title: Integrare l'applicazione MongoDB esistente con l'API Azure Cosmos DB per MongoDB e Open Service Broker for Azure (OSBA)
 description: In questo articolo viene descritto come integrare un'applicazione Java e MongoDB esistente con l'API Azure Cosmos DB per MongoDB usando Open Service Broker for Azure (OSBA).
-services: azure-dev-spaces
 author: zr-msft
-manager: jeconnoc
 ms.service: azure-dev-spaces
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d0ab0b27d77e45d779227d30c5a8e4f824ba62a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61028427"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277694"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrare l'applicazione MongoDB esistente con l'API Azure Cosmos DB per MongoDB e Open Service Broker for Azure (OSBA)
 
@@ -189,7 +187,7 @@ Passare a `http://localhost:8080` nel browser. Si noti che sono stati ripristina
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Eseguire l'applicazione nel cluster del servizio Azure Kubernetes
 
-È possibile usare [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) per distribuire l'applicazione nel cluster del servizio Azure Kubernetes. Azure Dev consentono di generare elementi, ad esempio i grafici Helm e i Dockerfile e distribuire ed eseguire un'applicazione nel servizio contenitore di AZURE.
+È possibile usare [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) per distribuire l'applicazione nel cluster del servizio Azure Kubernetes. Azure Dev Spaces consente di generare elementi, ad esempio grafici Dockerfile e Helm, e di distribuire ed eseguire un'applicazione in AKS.
 
 Per abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes:
 

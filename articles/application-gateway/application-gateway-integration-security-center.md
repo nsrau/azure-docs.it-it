@@ -1,32 +1,26 @@
 ---
 title: Integrazione del gateway applicazione con il Centro sicurezza di Azure | Microsoft Docs
 description: Questa pagina include informazioni sull'integrazione del gateway applicazione nel Centro sicurezza di Azure.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
+ms.author: victorh
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: victorh
-ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122306"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277197"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure
 
 Informazioni sulla protezione delle risorse dell'applicazione Web tramite il gateway applicazione e il Centro sicurezza di Azure. Il web application firewall (WAF) del gateway applicazione è integrato nel [Centro sicurezza](../security-center/security-center-intro.md) per offrire alle applicazioni Web non protette dell'ambiente una visualizzazione semplice per prevenire, rilevare e rispondere alle minacce.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il WAF del gateway applicazione è una raccomandazione del Centro sicurezza per la protezione delle applicazioni Web da attacchi e vulnerabilità. Le risorse abilitate per il Web non protette da WAF sono visualizzate nel Centro sicurezza come raccomandazioni con gravità elevata. Le raccomandazioni per i web application firewall sono visualizzate nella pagina **Panoramica** in **Applicazioni**.
 
@@ -50,7 +44,7 @@ Se esiste alcun gateway applicazione o se ne vuole creare uno nuovo, fare clic s
 
 Se è presente un gateway applicazione, è possibile selezionarlo in **Usa la soluzione esistente**
 
-![pagina di aggiunta di web application firewall][4]
+![Pagina per aggiungere un web application firewall][4]
 
 L'aggiunta di un'applicazione Web a un gateway applicazione tramite il Centro sicurezza non implica l'aggiunta della risorsa come membro del pool back-end. Questa operazione deve essere eseguita direttamente nella risorsa del gateway applicazione.
 
@@ -68,7 +62,7 @@ Fare clic su **Collega app** per aprire **Collega applicazioni** nel quale sarà
 
 Il Centro sicurezza rileva le applicazioni aggiunte a un gateway applicazione come risorse protette.  Il Centro sicurezza monitora l'integrità della risorsa e verifica che sia protetta da un gateway applicazione. Il passaggio successivo consiste nell'aggiungere l'IP privato, l'IP pubblico o la scheda di interfaccia di rete della macchina virtuale al pool back-end del gateway applicazione. Prima del completamento del passaggio, viene visualizzata la raccomandazione aggiuntiva **Finalizza la protezione dell'applicazione** fino a quando la risorsa non viene aggiunta.
 
-![pagina di aggiunta di web application firewall][5]
+![Pagina per aggiungere un web application firewall][5]
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 
@@ -76,7 +70,7 @@ In Centro sicurezza passare a **RILEVAMENTO** > **Avvisi di sicurezza**.  Vengon
 
 ![avvisi di sicurezza][8]
 
-Fare clic su una regola per visualizzare un elenco degli avvisi per la regola WAF specifica. Ogni avviso visualizza dettagli aggiuntivi sull'elemento individuato. I dettagli includono un collegamento al gateway applicazione.
+La selezione di una regola fornirà un elenco di avvisi per la regola WAF specifica. Ogni avviso visualizza dettagli aggiuntivi sull'elemento individuato. I dettagli includono un collegamento al gateway applicazione.
  
 ![dettagli dell'avviso][9]
 

@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) CI/CD con il servizio Azure Container e Swarm
 description: Usare il servizio Azure Container con Docker Swarm, un'istanza di Registro Azure Container e Azure DevOps per distribuire un'applicazione .NET Core multi-contenitore in modo continuativo
-services: container-service
 author: jcorioland
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 860c277e88918dc37eceb496d852691ced2af114
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598548"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277899"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio Azure Container con Docker Swarm usando Azure DevOps Services
 
@@ -22,7 +20,6 @@ ms.locfileid: "68598548"
 
 Una delle sfide principali quando si sviluppano applicazioni moderne per il cloud è quella di riuscire a distribuire le applicazioni in modo continuativo. In questo articolo viene descritto come implementare una pipeline completa di distribuzione e di integrazione continua (CI/CD) tramite il servizio Azure Container con Docker Swarm, Registro Azure Container e la gestione Azure Pipelines.
 
-Questo articolo si basa su una semplice applicazione, disponibile in [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs) e sviluppata con ASP.NET Core. L'applicazione è composta da quattro servizi diversi: tre API Web e un Web front-end:
 
 ![Applicazione MyShop di esempio](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 
@@ -47,7 +44,7 @@ Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seg
 
 - [Creare un cluster Swarm nel servizio Azure Container](container-service-deployment.md)
 - [Connettersi a un cluster Swarm nel servizio Azure Container](../container-service-connect.md)
-- [Creare un registro contenitori di Azure](../../container-registry/container-registry-get-started-portal.md)
+- [Creare un Registro Azure Container](../../container-registry/container-registry-get-started-portal.md)
 - [Disporre di un'organizzazione di Azure DevOps Services e di un progetto creato](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Creare una fork del repository GitHub nell'account GitHub](https://github.com/jcorioland/MyShop/)
 
@@ -107,7 +104,7 @@ Gli ultimi passaggi prima di approfondire la pipeline CI/CD consistono nel confi
 
 Tutti i passaggi di configurazione vengono eseguiti ora. Nei passaggi successivi viene creata la pipeline CI/CD che compila e distribuisce l'applicazione al cluster Docker Swarm. 
 
-## <a name="step-2-create-the-build-pipeline"></a>Passaggio 2: Creare la pipeline di compilazione
+## <a name="step-2-create-the-build-pipeline"></a>Passaggio 2: creare la pipeline di compilazione
 
 In questo passaggio, viene impostata una pipeline di compilazione per il progetto di Azure DevOps Services e viene definito il flusso di lavoro di compilazione per le immagini contenitore
 
@@ -162,7 +159,7 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 
 1. Dopo aver configurato i passaggi di compilazione e push per ognuna delle cinque immagini, aggiungere altri due passaggi nel flusso di lavoro di compilazione.
 
-    a. Un'attività della riga di comando che usi uno script bash per sostituire l'occorrenza *BuildNumber* nel file docker-compose.yml con l'ID di compilazione corrente. Vedere i dettagli nella schermata di seguito.
+    a. Un'attività della riga di comando che usa uno script bash per sostituire l'occorrenza di *BuildNumber* nel file Docker-compose. yml con l'ID di compilazione corrente. Per informazioni dettagliate, vedere la schermata seguente.
 
     ![Azure DevOps Services- Aggiornamento del file Compose](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
