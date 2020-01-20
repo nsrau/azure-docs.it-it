@@ -95,7 +95,7 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 
 ## <a name="map-your-domain"></a>Eseguire il mapping del dominio
 
-È possibile utilizzare un **record CNAME** o un **record A** per eseguire il mapping di un nome DNS personalizzato con un servizio app. Seguire la procedura corrispondente:
+È possibile utilizzare un **record CNAME** o un **record A** per eseguire il mapping di un nome DNS personalizzato a Servizio app. Seguire la procedura corrispondente:
 
 - [Esecuzione del mapping di un record CNAME](#map-a-cname-record)
 - [Esecuzione del mapping di un record A](#map-an-a-record)
@@ -192,7 +192,7 @@ Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla t
 
 | Tipo di record | Host | Valore |
 | - | - | - |
-| A | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
+| Una | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
@@ -200,7 +200,7 @@ Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla t
 >
 > | Tipo di record | Host | Valore |
 > | - | - | - |
-> | A | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
+> | Una | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 
