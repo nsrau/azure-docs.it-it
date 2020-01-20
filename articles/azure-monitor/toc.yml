@@ -6,6 +6,8 @@
       href: overview.md
     - name: Modifiche della terminologia
       href: terminology.md
+    - name: Domande frequenti
+      href: faq.md
 - name: Avvi rapidi
   items:
     - name: Monitorare la risorsa di Azure
@@ -113,14 +115,6 @@
       href: visualizations.md
     - name: Integrazioni di partner
       href: platform/partners.md
-    - name: Domande frequenti
-      items:
-        - name: Log Analytics
-          displayName: FAQ
-          href: platform/log-faq.md
-        - name: Application Insights
-          displayName: FAQ
-          href: app/troubleshoot-faq.md
 - name: Guide pratiche
   items:
     - name: Gestire Monitoraggio di Azure
@@ -162,6 +156,8 @@
       items:
         - name: Panoramica di Application Insights
           href: app/app-insights-overview.md
+        - name: Domande frequenti
+          href: app/troubleshoot-faq.md
         - name: Monitoraggio basato su codice
           items:
             - name: ASP.NET Core
@@ -295,7 +291,7 @@
               href: app/availability-alerts.md
             - name: Test delle prestazioni
               href: app/performance-testing.md
-            - name: risoluzione dei problemi
+            - name: Risoluzione dei problemi
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
         - name: Analisi distribuita
@@ -535,6 +531,8 @@
           items:
             - name: Panoramica degli agenti
               href: platform/agents-overview.md
+            - name: Domande frequenti
+              href: 'faq.md#agents'
             - name: Estensione di Diagnostica di Azure
               items:
                 - name: Panoramica
@@ -565,7 +563,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
                     - name: Formato dei log delle risorse di Righe JSON
                       href: platform/diagnostic-logs-append-blobs.md
-                    - name: risoluzione dei problemi
+                    - name: Risoluzione dei problemi
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
                   items:
@@ -633,7 +631,7 @@
             - name: Domande frequenti sulla disponibilità generale
               href: insights/vminsights-ga-release-faq.md
             - name: Domande frequenti
-              href: insights/vminsights-faq.md
+              href: 'faq.md#azure-monitor-for-vms-preview'
             - name: Abilitare il monitoraggio
               items:
                 - name: Abilitare il monitoraggio - Panoramica
@@ -679,7 +677,7 @@
             - name: Panoramica
               href: insights/container-insights-overview.md
             - name: Domande frequenti
-              href: insights/container-insights-faq.md
+              href: 'faq.md#azure-monitor-for-containers'
             - name: Abilitare il monitoraggio
               items:
                 - name: Abilitare il monitoraggio - Panoramica
@@ -726,7 +724,7 @@
               href: insights/container-insights-optout.md
             - name: Disabilitare il monitoraggio di Red Hat OpenShift
               href: insights/container-insights-optout-openshift.md
-            - name: risoluzione dei problemi
+            - name: Risoluzione dei problemi
               href: insights/container-insights-troubleshoot.md
         - name: Monitoraggio dei contenitori Docker e Windows
           href: insights/containers.md
@@ -975,7 +973,7 @@
               href: platform/alerts-log-query.md
             - name: Azioni webhook
               href: platform/alerts-log-webhook.md
-            - name: risoluzione dei problemi
+            - name: Risoluzione dei problemi
               href: platform/alert-log-troubleshoot.md
         - name: Regole di avviso del log attività
           items:
@@ -1077,7 +1075,7 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Usare webhook e notifiche di posta elettronica
               href: platform/autoscale-webhook-email.md
-            - name: risoluzione dei problemi
+            - name: Risoluzione dei problemi
               href: platform/autoscale-troubleshoot.md
             - name: Schemi di Log risorse
               href: platform/autoscale-resource-log-schema.md
@@ -1123,7 +1121,7 @@
           href: insights/scom-assessment.md
         - name: Connettere Configuration Manager
           href: platform/collect-sccm.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Limiti del servizio
       href: service-limits.md
@@ -1235,7 +1233,7 @@
           href: app/release-notes.md
     - name: Windows Analytics
       href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'

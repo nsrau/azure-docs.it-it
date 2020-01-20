@@ -4,10 +4,10 @@
   items:
     - name: Informazioni su Video Indexer
       href: video-indexer-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: Attività iniziali
+    - name: Introduzione
       href: video-indexer-get-started.md
     - name: Invitare gli utenti
       href: invite-users.md
@@ -37,15 +37,15 @@
           href: customize-brands-model-overview.md
         - name: Linguaggio
           href: customize-language-model-overview.md
-        - name: Person
+        - name: Persona
           href: customize-person-model-overview.md
 - name: Guide pratiche
   items:
-    - name: Connect to Azure
+    - name: Connettersi ad Azure
       href: connect-to-azure.md
     - name: Gestire un account connesso ad Azure
       href: manage-account-connected-to-azure.md
-    - name: Usare l'API per caricare e indicizzare i video
+    - name: Caricare e indicizzare video
       href: upload-index-videos.md
     - name: Esaminare l'output di Video Indexer
       href: video-indexer-output-json-v2.md
@@ -67,7 +67,7 @@
       items:
         - name: Personaggi animati
           href: animated-characters-recognition.md
-        - name: Person
+        - name: Persona
           items:
             - name: con il sito Web di Video Indexer
               href: customize-person-model-with-website.md
@@ -85,7 +85,7 @@
               href: customize-language-model-with-website.md
             - name: con l'API Video Indexer
               href: customize-language-model-with-api.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Video Indexer
       href: 'https://api-portal.videoindexer.ai/'
@@ -95,7 +95,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Regioni
       href: regions.md

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione di Mappe di Azure
-summary: Mappe di Microsoft Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa più aggiornati disponibili per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Mappe di Azure è un set di API REST conforme all'API Azure One per mappe, ricerca, routing, traffico, mobilità, meteo, fusi orari, georilevazione, geofencing, dati mappa e operazioni spaziali accompagnati da SDK Web e Android per rendere lo sviluppo semplice, flessibile e portabile in più piattaforme.
+summary: "Mappe di Microsoft Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali, combinate con i dati delle mappe più aggiornati. Mappe di Azure è disponibile sia per le applicazioni Web che per quelle per dispositivi mobili. Mappe di Azure è un set di API REST conforme all'API Azure One. La seguente è solo una panoramica generale dei servizi offerti da Mappe di Azure: mappe, ricerca, pianificazione percorso, informazioni sul traffico, mobilità, meteo, fusi orari, georilevazione, geofencing, dati mappe e operazioni spaziali. Gli SDK per Android e per il Web rendono lo sviluppo semplice, flessibile e portabile tra più piattaforme."
 metadata:
   title: Documentazione di Mappe di Azure | Microsoft Docs
   description: Informazioni su come usare Mappe di Azure per fornire servizi geospaziali all'applicazione Web o per dispositivi mobili.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 66721caadce09816368d673c217c9bf97daf1b6c
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 1/15/2020
+  ms.openlocfilehash: f4ae414179f77413e5d5daa4fda635e0bf24c2aa
+  ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75408641"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76264102"
 landingContent:
 - title: Informazioni su Mappe di Azure
   linkLists:
@@ -94,7 +94,7 @@ landingContent:
       url: how-to-add-tile-layer-android-map.md
     - text: Aggiungere forme a una mappa
       url: how-to-add-shapes-to-android-map.md
-- title: Sviluppo con i servizi Location Based
+- title: Sviluppo con Servizi basati sulla posizione
   linkLists:
   - linkListType: concept
     links:

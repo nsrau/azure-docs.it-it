@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sull'accesso condizionale
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Richiedere MFA per app specifiche
       href: app-based-mfa.md
@@ -19,6 +19,8 @@
       href: concept-conditional-access-policy-common.md
     - name: Componenti dei criteri di accesso condizionale
       href: concept-conditional-access-policies.md
+    - name: App cloud o azioni
+      href: concept-conditional-access-cloud-apps.md
     - name: Condizioni
       href: conditions.md
     - name: Condizioni di posizione
@@ -35,7 +37,7 @@
       href: policy-migration.md
     - name: Criteri di protezione di base
       href: concept-baseline-protection.md
-- name: Guide alle procedure
+- name: Guide pratiche
   expanded: true
   items:
     - name: Pianificare la distribuzione dell'accesso condizionale
@@ -78,11 +80,11 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Eseguire la migrazione di criteri classici
       href: policy-migration-mfa.md
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       items:
         - name: Risolvere i problemi durante l'uso dello strumento What If
           href: troubleshoot-conditional-access-what-if.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Riferimenti tecnici
       href: technical-reference.md

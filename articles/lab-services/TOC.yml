@@ -66,8 +66,6 @@
           href: enable-browser-connection-lab-virtual-machines.md
         - name: Configurare la gestione dei costi
           href: devtest-lab-configure-cost-management.md
-        - name: Inviare notifiche di arresto automatico
-          href: devtest-lab-auto-shutdown.md
         - name: Impostare l'avvio automatico per le macchine virtuali del lab
           href: devtest-lab-auto-startup-vm.md
         - name: Ridimensionare il lab
@@ -124,8 +122,8 @@
           href: devtest-lab-resize-vm.md
         - name: Ridistribuire una VM
           href: devtest-lab-redeploy-vm.md
-        - name: Configurare l'arresto automatico di una macchina virtuale
-          href: devtest-lab-auto-shutdown-vm.md
+        - name: Configurare l'arresto automatico di macchine virtuali di calcolo e lab
+          href: devtest-lab-auto-shutdown.md
         - name: Creare e gestire macchine virtuali richiedibili
           href: devtest-lab-add-claimable-vm.md
         - name: Configurare segreti
@@ -243,7 +241,7 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: Risolvere gli errori relativi agli artefatti
           href: devtest-lab-troubleshoot-artifact-failure.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: CLI
       href: /cli/azure/lab

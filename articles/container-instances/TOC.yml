@@ -63,6 +63,8 @@
           href: container-instances-encrypt-data.md
         - name: Eseguire la distribuzione in host dedicati
           href: container-instances-dedicated-hosts.md
+        - name: Usare il connettore per App per la logica
+          href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: Scenari dei contenitori
       items:
         - name: Impostare i criteri di riavvio per le attività a esecuzione unica
@@ -113,7 +115,7 @@
       items:
         - name: Risolvere i problemi comuni
           href: container-instances-troubleshooting.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container

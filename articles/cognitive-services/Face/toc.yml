@@ -1,9 +1,9 @@
-- name: Documentazione dell'API Viso
+- name: Documentazione di Viso
   href: index.yml
 - name: Panoramica
   expanded: true
   items:
-    - name: Informazioni sull'API Viso
+    - name: Che cos'è il servizio Viso?
       href: Overview.md
 - name: Avvi rapidi
   items:
@@ -77,9 +77,9 @@
           href: face-resource-container-config.md
         - name: Usare istanze di contenitore
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: Usare il servizio connesso dell'API Viso
+    - name: Usare il servizio connesso Viso
       href: vs-face-connected-service.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Viso
       href: APIReference.md
@@ -101,7 +101,7 @@
   items:
     - name: Esempi
       items:
-        - name: Esempi di API Viso
+        - name: Esempi di Viso
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: Prezzi e limiti
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
@@ -111,7 +111,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

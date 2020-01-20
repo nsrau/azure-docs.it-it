@@ -4,14 +4,14 @@ description: Come aggiungere un sistema di archiviazione back-end ad Avere vFXT 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416466"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153990"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
 
@@ -32,7 +32,7 @@ Questa procedura usa il pannello di controllo di Avere. Leggere [Accedere al clu
 
 ## <a name="create-a-core-filer"></a>Creare un core filer
 
-"Core filer" è un termine di vFXT che indica un sistema di archiviazione back-end. Il sistema di archiviazione può essere un'appliance NAS hardware, ad esempio NetApp o Isilon, oppure può essere un archivio di oggetti cloud. Altre informazioni sui filer di base sono disponibili nella [Guida alle impostazioni del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Core filer" è un termine vFXT per un sistema di archiviazione back-end. Il sistema di archiviazione può essere un'appliance NAS hardware, ad esempio NetApp o Isilon, oppure può essere un archivio di oggetti cloud. Altre informazioni sui filer di base sono disponibili nella [Guida alle impostazioni del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Per aggiungere un core filer, sceglierne uno dei due tipi principali:
 
@@ -69,7 +69,7 @@ A questo punto, passare a [Creare una giunzione](#create-a-junction).
 
 ### <a name="azure-blob-storage-cloud-core-filer"></a>Archiviazione BLOB di Azure cloud Core
 
-Per usare l'archivio BLOB di Azure come risorsa di archiviazione back-end del cluster vFXT, è necessario un contenitore vuoto da aggiungere come core filer.
+Per usare l'archiviazione BLOB di Azure come archiviazione back-end del cluster vFXT, è necessario un contenitore vuoto da aggiungere come core filer.
 
 L'aggiunta del servizio di archiviazione BLOB al cluster richiede queste attività:
 
