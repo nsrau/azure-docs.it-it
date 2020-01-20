@@ -1,25 +1,17 @@
 ---
-title: Usare i runbook di automazione di Azure per gestire i dispositivi StorSimple | Microsoft Docs
+title: Usare Runbook di automazione di Azure per gestire i dispositivi StorSimple
 description: Informazioni su come usare i runbook di automazione di Azure per automatizzare i processi di StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 727bebe0c190ed4dff4408884c45fe166ad541a9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310154"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276963"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Usare i runbook di automazione di Azure per gestire i dispositivi StorSimple
 
@@ -190,7 +182,7 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
    3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
    4. Selezionare un **Percorso** (se possibile lo stesso in cui è in esecuzione il servizio).
    5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
-   6. Selezionare facoltativamente **Aggiungi al dashboard**. Fare clic su **Create**(Crea).
+   6. Selezionare facoltativamente **Aggiungi al dashboard**. Fare clic su **Crea**.
 
        ![Creare un account di automazione](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
@@ -206,7 +198,7 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
 
     ![Aggiungere il modulo](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. Passare ad **Automazione processi > Runbook e fare clic su + Aggiungi runbook**. Nel pannello **Aggiungi runbook** fare clic su **Importa un runbook esistente**. Selezionare il file di script di Windows PowerShell in **File di runbook**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Fare clic su **Create**(Crea).
+6. Passare ad **Automazione processi > Runbook e fare clic su + Aggiungi runbook**. Nel pannello **Aggiungi runbook** fare clic su **Importa un runbook esistente**. Selezionare il file di script di Windows PowerShell in **File di runbook**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Fare clic su **Crea**.
 
     ![Aggiungere il modulo](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 

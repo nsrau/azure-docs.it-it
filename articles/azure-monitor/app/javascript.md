@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264085"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276789"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -29,7 +29,7 @@ Application Insights è compatibile con tutte le pagine Web, con una minima aggi
     * [Frammento JavaScript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> > Usare un solo metodo per aggiungere JavaScript SDK all'applicazione. Se si usa il programma di installazione di NPM, non usare il frammento e viceversa.
+> Usare un solo metodo per aggiungere JavaScript SDK all'applicazione. Se si usa il programma di installazione di NPM, non usare il frammento e viceversa.
 
 > [!NOTE]
 > Il programma di installazione di NPM installa JavaScript SDK come dipendenza dal progetto, abilitando IntelliSense, mentre il frammento recupera l'SDK in fase di esecuzione. Entrambi supportano le stesse funzionalità. Tuttavia, gli sviluppatori che desiderano un maggior numero di eventi personalizzati e la configurazione scelgono generalmente la configurazione di NPM, mentre gli utenti che cercano di abilitare rapidamente le analisi Web predefinite optano per il frammento di codice.

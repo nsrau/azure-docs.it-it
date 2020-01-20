@@ -1,31 +1,24 @@
 ---
-title: Installare il dispositivo Microsoft Azure StorSimple 8100 | Documentazione Microsoft
+title: Installare Microsoft Azure StorSimple dispositivo 8100
 description: Viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8100 prima di distribuire e configurare il software.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963590"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277091"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Il dispositivo Microsoft Azure StorSimple 8100 è un dispositivo a singolo enclosure montato su rack. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8100 prima di configurare e distribuire il dispositivo.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Disimballare il dispositivo StorSimple 8100
@@ -34,7 +27,7 @@ Nella seguente procedura vengono fornite istruzioni chiare e dettagliate su come
 ### <a name="prepare-to-unpack-your-device"></a>Preparazione del disimballaggio del dispositivo
 Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVVISO**
+icona di avviso ![](./media/storsimple-safety/IC740879.png)![icona del peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **avviso.**
 
 1. Accertarsi che siano disponibili almeno due persone per sostenere il peso dell'enclosure, nel caso in cui debba essere trasportato manualmente. Un'enclosure completamente configurata può pesare fino a 32 kg.
 2. Posizionare la scatola su una superficie piana e orizzontale.
@@ -49,7 +42,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Label | Descrizione |
+   | Etichette | Description |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Protezione inferiore |
@@ -64,11 +57,11 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    * 2 cavi console seriali
    * 1 convertitore seriale-USB per l'accesso seriale
    * 1 cacciavite T10 tamper-proof
-   * 4 schede da QSFP a SFP+ da usare con interfacce di rete 10 GbE
+   * 4 schede da QSFP a SFP da usare con interfacce di rete 10 GbE
    * 1 kit per il montaggio in rack (2 guide laterali con componenti di montaggio)
    * Guida introduttiva
      
-     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [contattare il Supporto Tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
+     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 Il passaggio successivo consiste nel montaggio su rack del dispositivo.
 
@@ -90,7 +83,7 @@ Il dispositivo deve essere installato su un rack standard da 48,26 cm (19 pollic
 2. Verificare che nell'ambiente in cui si intende effettuare l'installazione sia disponibile una fonte di alimentazione CA standard indipendente o un'unità PDU (Power Distribution Unit) rack con un gruppo di continuità.
 3. Assicurarsi che nel rack in cui si intende montare il dispositivo sia disponibile uno slot 2U.
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVVISO**
+icona di avviso ![](./media/storsimple-safety/IC740879.png)![icona del peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **avviso.**
 
 Se si prevede di trasportare il dispositivo a mano, assicurarsi che siano disponibili due persone. Un'enclosure completamente configurata può pesare fino a 32 kg.
 
@@ -105,13 +98,13 @@ L'enclosure 8100 è stata progettata per essere installata in un armadio rack st
 Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 cm (19 pollici). Le guide sono state testate per sostenere il peso massimo dell'enclosure. Inoltre, grazie alla presenza delle guide, è possibile installare anche altre enclosure senza occupare spazio all'interno del rack.
 
 #### <a name="to-install-the-device-on-the-rails"></a>Per installare il dispositivo sulle guide
-1. Eseguire questo passaggio solo se nel dispositivo non sono installate guide interne. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.<br/>
+1. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.<br/>
    
     ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
     **Fissaggio delle slitte delle guide interne ai lati dello chassis**
    
-    Etichetta | Descrizione
+    Etichette | Description
     ----- | -----------
     1     | Viti con testa a bottone M 3X4
     2     | Guide dello chassis
@@ -125,7 +118,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio dei gruppi guida esterna al rack**
    
-   | Label | DESCRIZIONE |
+   | Etichette | Description |
    | --- | --- |
    |   1 |Vite di fissaggio |
    |   2 |Montante rack anteriore con fori quadrati |
@@ -151,7 +144,7 @@ Per montare il dispositivo nel rack usando le guide appena installate, seguire q
    
     **Installazione dei copriflangia**
    
-   | Label | DESCRIZIONE |
+   | Etichette | Description |
    | --- | --- |
    |   1 |Vite di fissaggio dell'enclosure |
 
@@ -191,7 +184,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Label | Descrizione |
+   | Etichette | Description |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -202,14 +195,14 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
     **Cablaggio di rete per il dispositivo**
 
-   |Label | DESCRIZIONE |
+   |Etichette | Description |
    |----- | ----------- |
-   | Una    | LAN con accesso a Internet |
+   | A    | LAN con accesso a Internet |
    | B    | Controller 0 |
    | C    | PCM 0 |
    | D    | Controller 1 |
    | E    | PCM 1 |
-   | F, G | Host |
+   | F, G | Hosts |
    | 0-5  | Interfacce di rete |
 
 
@@ -239,11 +232,11 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 3. Usare il cavo seriale fornito (se necessario, usare il convertitore USB-seriale per il portatile) e collegare la console o il computer (con emulazione terminal al dispositivo) alla porta seriale del controller attivo.
 4. Installare i driver seriali-USB (forniti con il dispositivo) sul computer.
-5. Configurare la connessione seriale come segue: 115.200 baud, 8 bit di dati, 1 bit di stop, nessuna parità e controllo di flusso impostato su nessuno.
+5. Configurare la connessione seriale come segue: 115,200 baud, 8 bit di dati, 1 bit di stop, nessuna parità, set di controllo impostato su nessuno.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Lights-out**: Quando il dispositivo è installato in un data center remoto o in una sala computer con accesso limitato, verificare che le connessioni seriali a entrambi i controller siano sempre connesse a un comportatore di console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-Out:** quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 

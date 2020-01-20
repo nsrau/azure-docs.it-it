@@ -1,29 +1,21 @@
 ---
-title: Nuova autenticazione per gli array virtuali StorSimple | Microsoft Docs
+title: Nuova autenticazione per gli array virtuali StorSimple
 description: Spiega come usare l'autenticazione basata su Azure Active Directory per il servizio, generare una nuova chiave di registrazione ed eseguire la registrazione manuale dei dispositivi.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 723d5e969ba2f635724ffa50d562a7abaf936dcf
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517126"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273799"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usare la nuova autenticazione per StorSimple
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -49,7 +41,7 @@ Se si usa l'array virtuale StorSimple, verificare che l'URL seguente sia incluso
 | Modello URL                         | Cloud | Componente/funzionalità         |
 |------------------------------------|-------|---------------------------------|
 | `https://login.windows.net`        | Azure Public |Servizio di autenticazione di Azure Active Directory      |
-| `https://login.microsoftonline.us` | Governo degli Stati Uniti |Servizio di autenticazione di Azure Active Directory      |
+| `https://login.microsoftonline.us` | Azure per enti pubblici |Servizio di autenticazione di Azure Active Directory      |
 
 Per un elenco completo dei modelli URL per gli array virtuali StorSimple, passare a [Modelli URL per le regole del firewall](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 
@@ -61,9 +53,9 @@ Se si usa un array virtuale StorSimple, usare la tabella seguente per determinar
 
 | Versione in esecuzione  | Azione da eseguire                                    |
 |----------------------------|--------------------------------------------------------------|
-| Aggiornamento 1.0 o versione successiva e dispositivo offline. <br> Viene visualizzato l'avviso che comunica che l'URL non è nell'elenco elementi consentiti.| 1. Modificare le regole del firewall per includere l'URL di autenticazione. Vedere gli [URL di autenticazione](#url-changes-for-aad-authentication). <br> 2. [Ottenere la chiave di registrazione di Azure Active Directory dal servizio](#aad-based-registration-keys). <br> 3. Eseguire i passaggi da 1 a 5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Usare il cmdlet `Invoke-HcsReRegister` per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
+| Aggiornamento 1.0 o versione successiva e dispositivo offline. <br> Viene visualizzato l'avviso che comunica che l'URL non è nell'elenco elementi consentiti.| 1. modificare le regole del firewall in modo da includere l'URL di autenticazione. Vedere gli [URL di autenticazione](#url-changes-for-aad-authentication). <br> 2. [ottenere la chiave di registrazione di AAD dal servizio](#aad-based-registration-keys). <br> 3. eseguire i passaggi 1-5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. usare `Invoke-HcsReRegister` cmdlet per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
 | Aggiornamento 1.0 o versione successiva e dispositivo online.| Non è necessaria alcuna azione.                                       |
-| Aggiornamento 0.6 o versione precedente e dispositivo offline. | 1. [Scaricare l'aggiornamento 1.0 tramite il server di catalogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Applicare l'aggiornamento 1.0 tramite l'interfaccia utente Web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Ottenere la chiave di registrazione di Azure Active Directory dal servizio](#aad-based-registration-keys). <br>4. Eseguire i passaggi da 1 a 5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Usare il cmdlet `Invoke-HcsReRegister` per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
+| Aggiornamento 0.6 o versione precedente e dispositivo offline. | 1. [scaricare l'aggiornamento 1,0 tramite il server di catalogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [applicare l'aggiornamento 1,0 tramite l'interfaccia utente Web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [ottenere la chiave di registrazione di AAD dal servizio](#aad-based-registration-keys). <br>4. eseguire i passaggi 1-5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. usare `Invoke-HcsReRegister` cmdlet per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
 | Aggiornamento 0.6 o versione precedente e dispositivo online | Modificare le regole del firewall per includere l'URL di autenticazione.<br> Installare l'aggiornamento 1.0 tramite il portale di Azure. |
 
 ## <a name="aad-based-registration-keys"></a>Chiavi di registrazione basate su Azure Active Directory
@@ -80,7 +72,7 @@ Per generare una chiave di registrazione del servizio Azure Active Directory, at
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Per generare la chiave di registrazione del servizio Azure Active Directory
 
-1. In **Gestione dispositivi StorSimple** passare a **Gestione &gt;** **Chiavi**.
+1. In **StorSimple Device Manager**passare a **gestione &gt;** **chiavi**.
     
     ![Passare alle chiavi](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 

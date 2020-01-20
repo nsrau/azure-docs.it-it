@@ -1,28 +1,19 @@
 ---
-title: Usare immagini di macchina virtuale condivise per creare un set di scalabilità in Azure | Microsoft Docs
+title: Usare le immagini di VM condivise per creare un set di scalabilità in Azure
 description: Informazioni su come usare Azure PowerShell per creare immagini di macchina virtuale condivise da usare per la distribuzione di set di scalabilità di macchine virtuali in Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: axayjo
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.custom: ''
-ms.openlocfilehash: 13c870ec87fa914f74bcfc4297dbe2fcc0bea282
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b60a00828cfed8ef5d47704de2b2d7ede309ed6d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875620"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276305"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Creare e usare un'immagine condivisa per i set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -34,7 +25,7 @@ La raccolta è una risorsa di primo livello che offre un completo controllo degl
 
 La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate o compilate le seguenti contenute in questo articolo:
 
-| Risorsa | Descrizione|
+| Gruppi | Description|
 |----------|------------|
 | **Immagine gestita** | Si tratta di un'immagine di base che può essere usata da sola o per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
@@ -49,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 La procedura riportata di seguito illustra come prendere una VM esistente e convertirla in un'immagine personalizzata riutilizzabile che è possibile usare per creare nuove istanze di VM.
 
-Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. Per crearne una, se necessario, è possibile seguire questa [Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con Azure PowerShell](tutorial-use-custom-image-powershell.md). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
+Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. È possibile seguire [l'esercitazione: creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con Azure PowerShell](tutorial-use-custom-image-powershell.md) per crearne uno, se necessario. Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
 
 Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle macchine virtuali dove necessario.
 
@@ -58,7 +49,7 @@ Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e dell
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Creare un set di scalabilità dalla versione di immagine condivisa
 
-Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). L'esempio seguente crea un set di scalabilità dalla nuova versione dell'immagine nel Data Center *degli Stati Uniti centro* -meridionali. Quando richiesto, impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
+Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). L'esempio seguente crea un set di scalabilità dalla nuova versione dell'immagine nel Data Center *degli Stati Uniti centro-meridionali* . Quando richiesto, impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
 
 
 ```azurepowershell-interactive
@@ -173,6 +164,6 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creare una macchina virtuale da una versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](troubleshooting-shared-images.md).

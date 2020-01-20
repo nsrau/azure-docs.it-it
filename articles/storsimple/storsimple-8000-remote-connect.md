@@ -1,32 +1,24 @@
 ---
-title: Connessione remota al dispositivo StorSimple | Microsoft Docs
+title: Connettersi in remoto al dispositivo StorSimple
 description: Viene illustrato come configurare il dispositivo per la gestione remota e come connettersi a Windows PowerShell per StorSimple tramite HTTP o HTTPS.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70d0246debc532260d287104bacea2f15c1b94d2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631780"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277286"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connettersi in remoto al dispositivo StorSimple serie 8000
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
-È possibile connettersi in remoto al dispositivo tramite Windows PowerShell. Questo metodo di connessione non consente di visualizzare alcun menu. (Verrà visualizzato un menu solo se si utilizza la console seriale del dispositivo per la connessione.) Con la comunicazione remota di Windows PowerShell, ci si connette a uno specifico spazio di esecuzione. È inoltre possibile specificare la lingua di visualizzazione.
+È possibile connettersi in remoto al dispositivo tramite Windows PowerShell. Questo metodo di connessione non consente di visualizzare alcun menu. Viene visualizzato un menu solo se si usa la console seriale sul dispositivo per la connessione. Con la comunicazione remota di Windows PowerShell è possibile connettersi a un spazio specifico. È inoltre possibile specificare la lingua di visualizzazione.
 
 Per ulteriori informazioni sull'utilizzo della comunicazione remota di Windows PowerShell per gestire il dispositivo, andare a [Utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 
@@ -62,7 +54,7 @@ Attenersi alla procedura seguente nel portale di Azure per abilitare la gestione
 1. Passare al servizio Gestione dispositivi StorSimple. Selezionare **Dispositivi** e quindi fare clic sul dispositivo che si vuole configurare per la gestione remota. Passare a **Impostazioni dispositivo > Sicurezza**.
 2. Nel pannello **Impostazioni di sicurezza** fare clic su **Gestione remota**.
 3. Nel pannello **Gestione remota** impostare l'opzione **Abilita gestione remota** su **Sì**.
-4. È ora possibile scegliere di connettersi tramite HTTP. (La connessione su HTTPS rappresenta la scelta predefinita.) Assicurarsi che HTTP sia selezionato.
+4. È ora possibile scegliere di connettersi tramite HTTP. (L'impostazione predefinita è la connessione tramite HTTPS). Assicurarsi che sia selezionato HTTP.
    
    > [!NOTE]
    > La connessione tramite HTTP dovrebbe essere eseguita solo su reti attendibili.
@@ -141,7 +133,7 @@ Attenersi alla procedura seguente nel portale di Azure per abilitare la gestione
 1. Passare al servizio Gestione dispositivi StorSimple. Selezionare **Dispositivi** e quindi fare clic sul dispositivo che si vuole configurare per la gestione remota. Passare a **Impostazioni dispositivo > Sicurezza**.
 2. Nel pannello **Impostazioni di sicurezza** fare clic su **Gestione remota**.
 3. Impostare **Abilita gestione remota** su **Sì**.
-4. È ora possibile scegliere di connettersi tramite HTTPS. (La connessione su HTTPS rappresenta la scelta predefinita.) Assicurarsi che HTTPS sia selezionato.
+4. È ora possibile scegliere di connettersi tramite HTTPS. (L'impostazione predefinita è la connessione tramite HTTPS). Assicurarsi che sia selezionato HTTPS.
 5. Fare clic su **Scarica il certificato di gestione remota**. Specificare un percorso per salvare il file. Sarà necessario installare questo certificato nel computer client o host che si userà per connettersi al dispositivo.
 6. Alla richiesta di conferma fare clic su **Salva** e quindi su **Sì**.
 
@@ -197,13 +189,13 @@ Ognuna di queste procedure è descritta di seguito.
 3. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
    
     ![Impostazione guidata del certificato 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Fare clic su **Finish**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
+4. Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
    
     ![Impostazione guidata del certificato 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Per aggiungere i numeri di serie del dispositivo all'host remoto:
 1. Avviare Blocco note come amministratore, quindi aprire il file hosts che si trova in \Windows\System32\Drivers\etc.
-2. Al file hosts aggiungere le tre voci seguenti: **indirizzo IP DATA 0**, **indirizzo IP fisso controller 0**, e **indirizzo IP fisso controller 1**.
+2. Aggiungere le tre voci seguenti al file hosts: **DATA 0 IP address**, **Controller 0 Fixed IP address** e **Controller 1 Fixed IP address**.
 3. Immettere il numero di serie salvato in precedenza. Eseguirne il mapping all'indirizzo IP come illustrato nella figura seguente. Per Controller 0 e Controller 1, aggiungere **Controller0** e **Controller1** alla fine del numero di serie (nome CN).
    
     ![Aggiunta del nome CN al file hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
@@ -237,7 +229,7 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Per il parametro -ComputerName nel cmdlet, specificare il <*numero di serie del dispositivo di destinazione*>. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
-5. Digitare:
+5. Tipo:
    
      `Enter-PSSession $session`
 6. Sarà necessario attendere alcuni minuti, quindi verrà effettuata la connessione al dispositivo tramite HTTPS su SSL. Verrà visualizzato un messaggio indicante che è stata effettuata la connessione al dispositivo.

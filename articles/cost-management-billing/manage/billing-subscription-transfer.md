@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 01/17/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f43f7424cddae8659301be0ddc4842412a62952
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75993544"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270866"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -86,7 +86,7 @@ Alle sottoscrizioni di Visual Studio e Microsoft Partner Network è associato un
 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Trasferire la proprietà della fatturazione di sottoscrizioni del contratto Enterprise Agreement (EA)
 
-L'amministratore dell'organizzazione può trasferire la proprietà delle sottoscrizioni tra gli account all'interno di una registrazione. Per altre informazioni, vedere [Traferire la proprietà dell'account](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in EA Portal.
+L'amministratore dell'organizzazione può trasferire la proprietà delle sottoscrizioni tra gli account all'interno di una registrazione. Per altre informazioni, vedere [cambiare il proprietario dell'account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) nel portale EA.
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Passaggi successivi all'accettazione della proprietà della fatturazione
 
@@ -117,7 +117,7 @@ Il trasferimento di sottoscrizioni nel portale di Azure è disponibile per i tip
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
 - [Piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-\* [tramite il portale EA](#EA).
+\* [Tramite EA Portal](#EA).
 
 \*\* Supportato solo per gli account creati durante l'iscrizione nel sito Web di Azure.
 

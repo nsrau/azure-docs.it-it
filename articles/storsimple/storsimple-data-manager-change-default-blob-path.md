@@ -1,25 +1,17 @@
 ---
-title: Cambiare il percorso BLOB da quello predefinito | Microsoft Docs
+title: Modificare il percorso BLOB da quello predefinito
 description: Informazioni su come impostare una funzione di Azure per rinominare un percorso di file BLOB
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723798"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270620"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambiare il percorso BLOB predefinito
 
@@ -39,7 +31,7 @@ Per creare una funzione di Azure, seguire questa procedura:
 
     ![Digitare "App per le funzioni" nella casella Cerca](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
-3. Fare clic su **Create**(Crea).
+3. Fare clic su **Crea**.
 
     ![Pulsante "Crea" della finestra App per le funzioni](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
@@ -54,7 +46,7 @@ Per creare una funzione di Azure, seguire questa procedura:
 
         ![Immettere i dati per la configurazione della nuova app per le funzioni](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    7. Fare clic su **Create**(Crea). Verrà creata l'app per le funzioni.
+    7. Fare clic su **Crea**. Verrà creata l'app per le funzioni.
      
         ![App per le funzioni creata](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
@@ -72,7 +64,7 @@ Per creare una funzione di Azure, seguire questa procedura:
 
         ![Creare una nuova funzione C#](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
-    4. Fare clic su **Create**(Crea). La **funzione** è stata creata.
+    4. Fare clic su **Crea**. La **funzione** è stata creata.
 
      
 10. Nella finestra Funzione eseguire il file con estensione _csx_.
@@ -217,7 +209,7 @@ Per creare una funzione di Azure, seguire questa procedura:
         ```
 
     
-    4. Fare clic su **Save**.
+    4. Fare clic su **Salva**.
 
         ![Collegamento "Visualizza file"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 

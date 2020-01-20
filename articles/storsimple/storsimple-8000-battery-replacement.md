@@ -1,29 +1,21 @@
 ---
-title: Sostituire la batteria sul dispositivo Microsoft Azure StorSimple serie 8000 | Microsoft Docs
+title: Sostituire la batteria sul dispositivo Microsoft Azure StorSimple serie 8000
 description: Viene descritto come rimuovere, sostituire e mantenere il modulo della batteria di backup nel dispositivo StorSimple.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693744"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276892"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Il modulo di alimentazione e raffreddamento (PCM, Power and Cooling Module) dello chassis principale nel dispositivo Microsoft Azure StorSimple dispone di un pacchetto di batteria aggiuntivo. Tale pacchetto fornisce l'alimentazione in modo che il dispositivo StorSimple possa salvare i dati in caso di perdita dell'alimentazione CA allo chassis principale. Questo pacchetto di batteria viene definito come *modulo della batteria di backup*. Il modulo della batteria di backup è disponibile solo per lo chassis principale nel dispositivo StorSimple (lo chassis EBOD non contiene un modulo della batteria di backup).
 
 In questa esercitazione viene illustrato come:
@@ -47,7 +39,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
    
     **Figura 1** Parte posteriore del dispositivo principale in cui vengono mostrati il PCM e i moduli del controller
    
-   | Etichetta | Descrizione |
+   | Etichette | Description |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -60,7 +52,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
    
     **Figura 2** Parte posteriore del PCM in cui vengono mostrati gli indicatori LED di monitoraggio
    
-   | Etichetta | Descrizione |
+   | Etichette | Description |
    |:--- |:--- |
    | 1 |Guasto dell’alimentazione CA |
    | 2 |Guasto alla ventola |

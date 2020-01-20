@@ -1,29 +1,21 @@
 ---
-title: Visualizzare e gestire gli avvisi per il dispositivo StorSimple serie 8000 | Microsoft Docs
+title: Visualizzare e gestire gli avvisi per il dispositivo StorSimple serie 8000
 description: Vengono descritte le condizioni di avviso StorSimple e la loro gravità, come configurare le notifiche di avviso e come usare il servizio Gestione dispositivi StorSimple per gestire gli avvisi.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320389"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270835"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il pannello **Avvisi** del servizio Gestione dispositivi StorSimple fornisce un modo per esaminare e deselezionare gli avvisi correlati ai dispositivi StorSimple in tempo reale. Il pannello consente di monitorare in modo centralizzato i problemi di integrità dei dispositivi StorSimple e della soluzione Microsoft Azure StorSimple in generale.
 
@@ -56,7 +48,7 @@ Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determ
 > [!NOTE]
 > È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
-Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply\@mail.windowsazure.com* e descriveranno la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *StorSimple-Alerts-noreply\@mail.WindowsAzure.com* e descrivono la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo
 1. Passare al servizio Gestione dispositivi StorSimple. Nell'elenco dei dispositivi, selezionare e fare clic sul dispositivo da configurare.
@@ -68,7 +60,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
    
    1. Nel campo **Invia notifica tramite posta elettronica** selezionare **SÌ**.
    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **SÌ** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
-   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *qualcuno\@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
+   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *qualcuno\@Somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
       
 3. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e inoltra la notifica di prova.
 
@@ -131,7 +123,7 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 ### <a name="cloud-connectivity-alerts"></a>Avvisi di connettività cloud
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Non è possibile stabilire la connessione a <*nome credenziali cloud*>. |Impossibile connettersi all'account di archiviazione. |Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet `Test-HcsmConnection` dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema. Se le impostazioni sono corrette, il problema potrebbe essere relativo alle credenziali dell'account di archiviazione per cui è stato generato l'avviso. In questo caso, usare il cmdlet `Test-HcsStorageAccountCredential` per determinare se sono presenti problemi che possono essere risolti.<ul><li>Verificare le impostazioni di rete.</li><li>Verificare le credenziali dell'account di archiviazione.</li></ul> |
 | Nessun heartbeat ricevuto dal dispositivo negli ultimi <*numero*> minuti. |Impossibile connettersi al dispositivo. |Potrebbe essersi verificato un problema di connettività con il dispositivo. Usare il cmdlet `Test-HcsmConnection` dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema o contattare l'amministratore di rete. |
@@ -142,15 +134,15 @@ Cosa accade se si verifica un errore di connettività cloud per il dispositivo S
 
 Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, quindi a seconda dello stato del dispositivo, può verificarsi quanto segue:
 
-* **Per i dati locali sul dispositivo**: Per un certo tempo, non vi sarà alcuna interruzione del servizio e le letture continueranno a essere gestite. Tuttavia, come il numero di IOs attesa aumenta e supera un limite, le operazioni di lettura è possibile avviare esito negativo.
+* **Per i dati locali nel dispositivo**: per un certo periodo, non ci sarà alcuna interruzione del servizio e le letture continueranno a essere gestite. Tuttavia, come il numero di IOs attesa aumenta e supera un limite, le operazioni di lettura è possibile avviare esito negativo.
 
     A seconda della quantità di dati nel dispositivo, anche le operazioni di scrittura continueranno a essere eseguite per alcune ore dopo l'interruzione della connettività cloud. Le operazioni di scrittura verrà quindi rallentano e alla fine iniziano ad avere esito negativo se viene interrotta la connettività cloud per diverse ore. Nel dispositivo è presente un archivio temporaneo per i dati di cui è necessario effettuare il push nel cloud. Quest'area viene scaricata quando i dati vengono inviati. Se si verifica un errore di connettività, non verrà effettuato il push nel cloud dei dati in quest'area di archiviazione e l'I/O avrà esito negativo.
-* **Per i dati nel cloud**: Per la maggior parte degli errori di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, l'intervento dell'utente potrebbe essere necessario per riportare in linea il volume dal portale di Azure.
-* **Per gli snapshot cloud in corso**: L'operazione viene ritentata più volte all'interno di 4-5 ore e se non viene ripristinata la connettività, gli snapshot cloud avranno esito negativo.
+* **Per i dati nel cloud**: per la maggior parte dei problemi di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, l'intervento dell'utente potrebbe essere necessario per riportare in linea il volume dal portale di Azure.
+* **Per gli snapshot cloud in corso**: l'operazione viene ripetuta alcune volte nell'arco di 4-5 ore e, se non viene ripristinata la connettività, gli snapshot cloud avranno esito negativo.
 
 ### <a name="cluster-alerts"></a>Avvisi di cluster
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Failover del dispositivo su <*nome dispositivo*>. |Il dispositivo è in modalità di manutenzione. |Failover del dispositivo a causa dell'ingresso o dell'uscita dalla modalità manutenzione. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
 | Failover del dispositivo su <*nome dispositivo*>. |Il software o il firmware del dispositivo è stato appena aggiornato. |Failover del cluster a causa di un aggiornamento. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
@@ -164,20 +156,20 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="disaster-recovery-alerts"></a>Avvisi di ripristino di emergenza
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Non è possibile ripristinare tutte le impostazioni per questo servizio. I dati di configurazione del dispositivo si trovano in uno stato incoerente per alcuni dispositivi. |Incoerenza dei dati rilevata dopo il ripristino di emergenza. |I dati crittografati del servizio non sono sincronizzati con quelli sul dispositivo. Autorizzare il dispositivo <*nome dispositivo*> da Gestione dispositivi StorSimple per avviare il processo di sincronizzazione. Usare l'interfaccia di Windows PowerShell per StorSimple per eseguire il cmdlet `Restore-HcsmEncryptedServiceData` sul dispositivo <*nome dispositivo*>, fornire la vecchia password come input per questo cmdlet per ripristinare il profilo di sicurezza. Eseguire quindi il cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` per aggiornare la chiave DEK del servizio. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 
 ### <a name="hardware-alerts"></a>Avvisi di hardware
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Lo stato del componente hardware <*ID componente*> è segnalato come <*stato*>. | |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Malfunzionamento del controller passivo. |Il controller passivo (secondario) non funziona. |Il dispositivo è operativo, ma uno dei controller non funziona correttamente. Provare a riavviare il controller. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 
 ### <a name="job-failure-alerts"></a>Avvisi di errore di processo
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Backup di <*ID gruppo di volumi di origine*> non riuscito. |Il processo di backup non è riuscito. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il numero massimo di backup consentiti. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | Clonazione di <*ID elemento backup di origine*> a <*numeri di serie volume di destinazione*> non riuscita. |Il processo di clonazione non è riuscito. |Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di clonazione. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi. |
@@ -185,7 +177,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="locally-pinned-volume-alerts"></a>Avvisi sul volume aggiunto in locale
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Creazione del volume locale <*nome volume*> non riuscita. |Il processo di creazione del volume non è riuscito. <*Messaggio di errore corrispondente al codice di errore non riuscito*>. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di creazione dello spazio. Per i volumi aggiunti in locale viene effettuato il thick provisioning e il processo di creazione dello spazio comporta la distribuzione dei volumi a livelli nel cloud. Se non esistono problemi di connettività, è possibile che lo spazio locale sul dispositivo sia stato esaurito. Determinare se lo spazio sul dispositivo è sufficiente prima di riprovare questa operazione. |
 | Espansione del volume locale <*nome volume*> non riuscita. |Il processo di modifica del volume non è riuscito. <*Messaggio di errore corrispondente al codice di errore non riuscito*>. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di espansione del volume. Per i volumi aggiunti in locale viene effettuato il thick provisioning e il processo di estensione dello spazio esistente comporta la distribuzione dei volumi a livelli nel cloud. Se non esistono problemi di connettività, è possibile che lo spazio locale sul dispositivo sia stato esaurito. Determinare se lo spazio sul dispositivo è sufficiente prima di riprovare questa operazione. |
@@ -197,23 +189,23 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="networking-alerts"></a>Avvisi di rete
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete "Data0" sul dispositivo  *\<device1 >* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e prefisso di lunghezza "22" sul dispositivo  *\<device1 >* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per altre informazioni sui criteri URL nel portale di Azure, passare a https:\//aka.ms/ss-8000-network-reqs. Se si usa Azure Government Cloud, passare ai modelli di URL HTTPS:\//aka.ms/ss8000-gov-network-reqs.|
+| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete ' DATA0' nel dispositivo *\<device1 >* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e la lunghezza del prefisso '22 ' nel dispositivo *\<device1 >* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per ulteriori informazioni sui modelli di URL in portale di Azure, vedere https:\//aka.ms/ss-8000-network-reqs. Se si usa il cloud di Azure per enti pubblici, passare ai modelli di URL in https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate | |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate | |
 |:--- |:--- |:--- | --- |
 | Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.|
-| Non è stato possibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | La sessione del supporto tecnico Microsoft è stata avviata. |Sessione di supporto per l'accesso di terze parti. |Verificare che l'accesso sia autorizzato. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | La password per <*elemento*> scadrà tra <*periodo di tempo*>. |La scadenza della password è prossima. |Modificare la password prima della scadenza. |
@@ -223,7 +215,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="support-package-alerts"></a>Avvisi del pacchetto per il supporto
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Creazione del pacchetto per il supporto non riuscita. |StorSimple: impossibile generare il pacchetto. |Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
 

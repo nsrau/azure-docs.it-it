@@ -1,22 +1,20 @@
 ---
-title: Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure che usano la configurazione di scalabilità automatica per gestire il numero di istanze
-services: virtual-machine-scale-sets
 author: avverma
-manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: avverma
-ms.openlocfilehash: c1618c398c0f7c4f0f54647e5232fdacc17de186
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453160"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271771"
 ---
 # <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Anteprima: usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 
@@ -133,17 +131,17 @@ I set di scalabilità di macchine virtuali forniscono due tipi di [protezione de
 1. Proteggi dalla scalabilità
 2. Proteggi da azioni di set di scalabilità
 
-Una macchina virtuale protetta non viene eliminata tramite un'azione di riduzione delle prestazioni, a prescindere dai criteri di scalabilità applicati. Se, ad esempio, VM_0 (la macchina virtuale meno recente nel set di scalabilità) è protetta dal ridimensionamento e nel set di scalabilità sono abilitati i criteri di scalabilità "OldestVM", VM_0 non verrà preso in considerazione per la scalabilità in, anche se si tratta della macchina virtuale meno recente nel set di scalabilità. 
+Una macchina virtuale protetta non viene eliminata tramite un'azione di riduzione delle prestazioni, a prescindere dai criteri di scalabilità applicati. Se, ad esempio, VM_0 (macchina virtuale meno recente nel set di scalabilità) è protetta dal ridimensionamento e nel set di scalabilità sono abilitati i criteri di scalabilità "OldestVM", VM_0 non verranno presi in considerazione per la scalabilità in, anche se si tratta della macchina virtuale meno recente nel set di scalabilità. 
 
 Una macchina virtuale protetta può essere eliminata manualmente dall'utente in qualsiasi momento, indipendentemente dai criteri di ridimensionamento abilitati nel set di scalabilità. 
 
-## <a name="usage-examples"></a>Esempi di uso 
+## <a name="usage-examples"></a>Esempi di utilizzo 
 
 Gli esempi seguenti illustrano come un set di scalabilità di macchine virtuali selezioni le VM da eliminare quando viene attivato un evento di scalabilità. Si presuppone che le macchine virtuali con gli ID istanza più elevati siano le VM più recenti nel set di scalabilità e che le VM con gli ID di istanza più piccoli siano le macchine virtuali meno recenti del set di scalabilità. 
 
 ### <a name="oldestvm-scale-in-policy"></a>Criteri di ridimensionamento OldestVM
 
-| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Ridimensionamento              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Scegliere tra Zona 1 e 2, anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM2 da Zona 2 perché si tratta della macchina virtuale meno recente in tale zona.   |
@@ -157,7 +155,7 @@ Per i set di scalabilità di macchine virtuali non di zona, il criterio selezion
 
 ### <a name="newestvm-scale-in-policy"></a>Criteri di ridimensionamento NewestVM
 
-| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Ridimensionamento              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Scegliere tra Zona 1 e 2. Eliminare da VM11 da Zona 2 perché è la macchina virtuale più recente tra le due zone.                                |
@@ -169,7 +167,7 @@ Per i set di scalabilità di macchine virtuali non di zona, il criterio selezion
 
 Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale più recente nel set di scalabilità per l'eliminazione. Eventuali macchine virtuali "protette" verranno ignorate per l'eliminazione. 
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 1. Errore di abilitazione di scaleInPolicy se viene visualizzato un errore ' richiesta non valida ' con un messaggio di errore che indica che "non è stato possibile trovare il membro ' scaleInPolicy ' nell'oggetto di tipo ' Properties '", quindi controllare la versione dell'API usata per il set di scalabilità di macchine virtuali. Per questa anteprima è richiesta l'API versione 2019-03-01 o successiva.
 

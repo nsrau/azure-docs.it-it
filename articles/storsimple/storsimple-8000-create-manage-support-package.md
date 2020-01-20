@@ -1,29 +1,21 @@
 ---
-title: Creare un pacchetto per il supporto StorSimple serie 8000 | Microsoft Docs
+title: Creare un pacchetto per il supporto di StorSimple serie 8000
 description: Informazioni su come creare, decrittografare e modificare un pacchetto per il supporto del dispositivo StorSimple serie 8000.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481872"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277065"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Creare e gestire un pacchetto di supporto StorSimple serie 8000
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Un pacchetto per il supporto StorSimple è un meccanismo semplice da usare che raccoglie tutti i log pertinenti per aiutare il supporto tecnico Microsoft a risolvere i problemi relativi ai dispositivi StorSimple. I log raccolti vengono crittografati e compressi.
 
@@ -72,7 +64,7 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
 
 Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 
-| Parametro | Obbligatorio/Facoltativo | Descrizione |
+| Parametro | Obbligatorio/Facoltativo | Description |
 | --- | --- | --- |
 | `-Path` |Obbligatorio |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
 | `-EncryptionPassphrase` |Obbligatorio |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
@@ -121,7 +113,7 @@ Per modificare un pacchetto per il supporto prima di caricarlo nel sito del supp
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Annotare la nuova passphrase in modo che sia possibile condividerla con il supporto tecnico Microsoft quando richiesto.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Esempio: Modifica dei file in un pacchetto di supporto in una condivisione protetta da password
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Esempio: modifica dei file in un pacchetto per il supporto in una condivisione protetta da password
 
 L'esempio seguente mostra come decrittografare, modificare e crittografare di nuovo un pacchetto per il supporto.
 

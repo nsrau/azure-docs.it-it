@@ -1,22 +1,21 @@
 ---
-title: Creare un tenant di Azure AD per Azure Red Hat OpenShift | Microsoft Docs
-description: Di seguito viene illustrato come creare un tenant di Azure Active Directory (Azure AD) per ospitare il cluster di Microsoft Azure Red Hat OpenShift.
+title: Creare un tenant di Azure AD per Azure Red Hat OpenShift
+description: Di seguito viene illustrato come creare un tenant di Azure Active Directory (Azure AD) per ospitare il cluster Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306455"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270457"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creare un tenant di Azure AD per Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift richiede un [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tenant in cui creare il cluster. Oggetto *tenant* è un'istanza dedicata di Azure Active Directory che uno sviluppatore di app o organizzazione riceve quando si crea una relazione con Microsoft effettuando l'iscrizione per Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato da altri Azure AD tenant e ha il proprio lavoro e le identità dell'istituto di istruzione e registrazioni per l'app.
+Microsoft Azure Red Hat OpenShift richiede un tenant di [Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in cui creare il cluster. Un *tenant* è un'istanza dedicata di Azure ad che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha le proprie identità aziendali e dell'Istituto di istruzione e le registrazioni delle app.
 
 Se non si ha già un tenant di Azure AD, seguire queste istruzioni per crearne uno.
 
@@ -24,26 +23,26 @@ Se non si ha già un tenant di Azure AD, seguire queste istruzioni per crearne u
 
 Per creare un tenant:
 
-1. Accedi per il [portale di Azure](https://portal.azure.com/) usando l'account si vuole associare al cluster di Azure Red Hat OpenShift.
-2. Aprire il [pannello Azure Active Directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) per creare un nuovo tenant (noto anche come un nuovo *Azure Active Directory*).
-3. Fornire un' **nome organizzazione**.
-4. Fornire un' **nome di dominio iniziale**. Questo avrà *onmicrosoft.com* aggiunto a tale file. È possibile riutilizzare il valore per *nome organizzazione* qui.
-5. Scegliere un paese o area geografica in cui verrà creato il tenant.
-6. Fare clic su **Create**(Crea).
-7. Dopo aver creato il tenant di Azure AD, selezionare la **fare clic qui per gestire la nuova directory** collegamento. Il nuovo nome del tenant deve essere visualizzato in alto a destra del portale di Azure:  
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'account che si vuole associare al cluster Azure Red Hat OpenShift.
+2. Aprire il pannello [Azure Active Directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) per creare un nuovo tenant (anche noto come nuovo *Azure Active Directory*).
+3. Specificare un **nome**per l'organizzazione.
+4. Specificare un **nome di dominio iniziale**. A questa operazione verrà aggiunto *onmicrosoft.com* . È possibile riusare il valore per *nome organizzazione* qui.
+5. Scegliere un paese o un'area geografica in cui verrà creato il tenant.
+6. Fare clic su **Crea**.
+7. Dopo la creazione del tenant di Azure AD, selezionare il collegamento **fare clic qui per gestire la nuova directory** . Il nome del nuovo tenant dovrebbe essere visualizzato in alto a destra nella portale di Azure:  
 
     ![Screenshot del portale che mostra il nome del tenant in alto a destra][tenantcallout]  
 
-8. Assicurarsi di annotare il *ID tenant* quindi in un secondo momento è possibile specificare la posizione in cui creare il cluster di Azure Red Hat OpenShift. Nel portale, viene visualizzato il pannello di panoramica di Azure Active Directory per il nuovo tenant. Selezionare **delle proprietà** e copiare il valore per il **ID Directory**. Si farà riferimento a questo valore come `TENANT` nella [creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) esercitazione.
+8. Prendere nota dell' *ID tenant* per poter specificare in seguito dove creare il cluster Azure Red Hat OpenShift. Nel portale dovrebbe ora essere visualizzato il pannello panoramica Azure Active Directory per il nuovo tenant. Selezionare **Proprietà** e copiare il valore per l' **ID directory**. Si fa riferimento a questo valore come `TENANT` nell'esercitazione [creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
 ## <a name="resources"></a>Risorse
 
-Consulta [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) per altre informazioni sui [tenant Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+Per altre informazioni sui [tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), vedere [Azure Active Directory documentazione](https://docs.microsoft.com/azure/active-directory/) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come creare un'entità servizio, generare un URL di callback autenticazione e il segreto client e creare un nuovo utente di Active Directory per il test di App nel cluster Azure Red Hat OpenShift.
+Informazioni su come creare un'entità servizio, generare un segreto client e un URL di callback di autenticazione e creare un nuovo utente Active Directory per testare le app nel cluster OpenShift di Azure Red Hat.
 
-[Creare un oggetto di app di Azure AD e l'utente](howto-aad-app-configuration.md)
+[Creare un oggetto Azure AD app e un utente](howto-aad-app-configuration.md)

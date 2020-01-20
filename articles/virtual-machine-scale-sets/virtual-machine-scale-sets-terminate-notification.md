@@ -1,26 +1,18 @@
 ---
-title: Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come abilitare la notifica di chiusura per le istanze del set di scalabilità di macchine virtuali di Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705915"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271745"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure (anteprima)
 Le istanze del set di scalabilità possono acconsentire esplicitamente a ricevere notifiche di terminazione dell'istanza e impostare un timeout di ritardo predefinito per l'operazione di interruzione. La notifica di chiusura viene inviata tramite il servizio metadati di Azure- [eventi pianificati](../virtual-machines/windows/scheduled-events.md), che fornisce le notifiche per e ritardare le operazioni di cui si è interessati, ad esempio il riavvio e la ridistribuzione. La soluzione di anteprima aggiunge un altro evento, ovvero terminate, all'elenco di Eventi pianificati e il ritardo associato dell'evento di terminazione dipenderà dal limite di ritardo specificato dagli utenti nelle configurazioni del modello del set di scalabilità.
@@ -160,7 +152,7 @@ Verificare che ogni macchina virtuale nel set di scalabilità approvi solo gli E
 -   Approva tutte le eliminazioni in sospeso: se è presente un'eliminazione in sospeso su VM_1 che non è approvata ed è stato approvato un altro evento di terminazione in VM_2, VM_2 non viene eliminato fino a quando non viene approvato l'evento di terminazione per VM_1 o il timeout è scaduto. Una volta approvata l'evento di terminazione per VM_1, verranno eliminati sia VM_1 che VM_2.
 -   Approva tutte le eliminazioni simultanee: estendendo l'esempio precedente, se VM_1 e VM_2 hanno lo stesso tempo di *NotBefore* , entrambi gli eventi terminano devono essere approvati o nessuna macchina virtuale viene eliminata prima della scadenza del timeout.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Errore di abilitazione di scheduledEventsProfile
 Se viene visualizzato un errore "richiesta non valida" con un messaggio di errore che indica che "non è stato possibile trovare il membro ' scheduledEventsProfile ' nell'oggetto di tipo ' VirtualMachineProfile '", controllare la versione dell'API usata per le operazioni del set di scalabilità. Per questa anteprima è richiesta l'API di calcolo versione **2019-03-01** o successiva.
 

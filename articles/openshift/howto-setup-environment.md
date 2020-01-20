@@ -1,20 +1,18 @@
 ---
-title: Configurare l'ambiente di sviluppo di Azure Red Hat OpenShift | Microsoft Docs
+title: Configurare l'ambiente di sviluppo di Azure Red Hat OpenShift
 description: Ecco i prerequisiti per l'uso di Microsoft Azure Red Hat OpenShift.
-services: openshift
 keywords: impostazione del programma di installazione di Red Hat OpenShift
 author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-manager: jeconnoc
-ms.openlocfilehash: fa09ed90258a62d37dafeea5f4760e1fabdc210b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 559c932c4826e82f36c09b85ee8da4186d90d34d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581609"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276079"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurare l'ambiente di sviluppo di Azure Red Hat OpenShift
 
@@ -100,7 +98,7 @@ Per registrare manualmente questi provider e funzionalità, usare le istruzioni 
 
 Il servizio Azure Red Hat OpenShift richiede un tenant di Azure Active Directory (Azure AD) associato che rappresenta l'organizzazione e la relativa relazione con Microsoft. Il tenant di Azure AD consente di registrare, compilare e gestire le app, nonché di usare altri servizi di Azure.
 
-Se non si dispone di un Azure AD da usare come tenant per il cluster Azure Red Hat OpenShift o si vuole creare un tenant per il test, seguire le istruzioni in [creare un tenant Azure ad per il cluster Azure Red Hat OpenShift](howto-create-tenant.md) prima di continuare con questa guida .
+Se non si dispone di un Azure AD da usare come tenant per il cluster Azure Red Hat OpenShift o si vuole creare un tenant per il test, seguire le istruzioni in [creare un tenant Azure ad per il cluster Azure Red Hat OpenShift](howto-create-tenant.md) prima di continuare con questa guida.
 
 ## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Creare un Azure AD utente, un gruppo di sicurezza e un oggetto applicazione
 

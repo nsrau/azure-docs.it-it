@@ -1,25 +1,17 @@
 ---
-title: Interfaccia utente di Microsoft Azure StorSimple Data Manager | Documentazione Microsoft
+title: Interfaccia utente di Microsoft Azure StorSimple Data Manager
 description: Questo articolo illustra come usare l'interfaccia utente del servizio StorSimple Data Manager
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796654"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273974"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
@@ -56,7 +48,7 @@ Eseguire la procedura seguente per creare un servizio StorSimple Data Manager.
     
    5. Per inserire un collegamento al servizio nel dashboard, selezionare **Aggiungi al dashboard**.
     
-   6. Fare clic su **Create**.
+   6. Fare clic su **Crea**.
 
       ![Creare un servizio StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
@@ -147,7 +139,7 @@ Per spostare i dati da StorSimple all'account di archiviazione specificato nella
      
      ![Avviare l'esecuzione del processo 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-2. Fare clic su **Esegui adesso**.
+2. Fare clic su **Esegui**.
      
      ![Avviare l'esecuzione del processo 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 

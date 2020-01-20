@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Monitorare un cluster DC/OS di Azure - Stack ELK
 description: Monitorare un cluster DC/OS nel cluster del servizio Azure Container con ELK (Elasticsearch, Logstash e Kibana).
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467716"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277770"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con ELK
 

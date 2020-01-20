@@ -1,31 +1,24 @@
 ---
-title: Panoramica dell'array virtuale StorSimple di Microsoft Azure | Microsoft Docs
+title: Panoramica di Microsoft Azure StorSimple Virtual Array
 description: Fornisce una descrizione dell'array virtuale StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra un array virtuale locale e la risorsa di archiviazione cloud di Microsoft Azure.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516715"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273877"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Microsoft Azure StorSimple Virtual Array è una soluzione di archiviazione integrata che consente di gestire le attività di archiviazione tra un array virtuale locale eseguito in un hypervisor e la risorsa di archiviazione cloud di Microsoft Azure. L'array virtuale è un file server o una soluzione server iSCSI efficiente, dai costi contenuti e facilmente gestibile che elimina molti problemi e spese associati agli archivi dell'organizzazione e alla protezione dei dati. L'array virtuale è particolarmente adatto per l'archiviazione di dati di archivio ad accesso sporadico.
 
@@ -42,7 +35,7 @@ La tabella seguente riepiloga le funzionalità principali dell'array virtuale St
 | Funzionalità | Array virtuale StorSimple |
 | --- | --- |
 | Requisiti di installazione |Viene usata un'infrastruttura di virtualizzazione (Hyper-V o VMware) |
-| Disponibilità |Nodo singolo |
+| Disponibilità |Un solo nodo |
 | Capacità totale (incluso il cloud) |Fino a 64 TB di capacità utilizzabile per array virtuale |
 | Capacità locale |Capacità utilizzabile da 390 GB a 6,4 TB per array virtuale (necessità di provisioning da 500 GB a 8 TB di spazio su disco) |
 | Protocolli nativi |iSCSI o SMB |
@@ -50,11 +43,11 @@ La tabella seguente riepiloga le funzionalità principali dell'array virtuale St
 | Obiettivo del punto di ripristino (RPO) |Backup giornalieri e backup su richiesta |
 | Suddivisione in livelli di archiviazione |Uso di mappe termiche per determinare in che modo suddividere in livelli i dati |
 | Supporto |Infrastruttura di virtualizzazione supportata dal fornitore |
-| Prestazioni |Variabile in base all'infrastruttura sottostante |
+| Performance |Variabile in base all'infrastruttura sottostante |
 | Mobilità dei dati |Consente di ripristinare lo stesso dispositivo o eseguire il ripristino a livello di elemento (file server) |
 | Livelli di archiviazione |Archiviazione hypervisor locale e cloud |
 | Dimensione della condivisione |A livelli: fino a 20 TB; aggiunti in locale: fino a 2 TB |
-| Dimensioni del volume |A livelli: Da 500 GB a 5 TB; aggiunto localmente: Da 50 GB a 200 GB <br> La prenotazione locale massima per i volumi a livelli è 200 GB. |
+| Dimensioni del volume |A livelli: da 500 GB a 5 TB; aggiunti in locale: da 50 GB a 200 GB <br> La prenotazione locale massima per i volumi a livelli è 200 GB. |
 | Snapshot |Coerenza in caso di arresto anomalo |
 | Ripristino a livello di elemento |Sì. Gli utenti possono ripristinare dalle condivisioni |
 
@@ -175,7 +168,7 @@ Oltre all'array virtuale e ad altri componenti, la soluzione StorSimple usa le s
 * [Backup pianificati e su richiesta](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Suddivisione automatica in livelli dell'archiviazione
-L'array virtuale si serve di un meccanismo di suddivisione in livelli nuovo per gestire i dati archiviati nell'array virtuale e nel cloud. Sono disponibili solo due livelli: l'array virtuale locale e l'archiviazione cloud di Azure. StorSimple Virtual Array organizza automaticamente i dati in livelli in base a una mappa termica che tiene traccia dell'uso corrente, dell'età e delle relazioni con altri dati. I dati più attivi (i più caldi) vengono archiviati in locale, mentre quelli meno attivi e non attivi vengono automaticamente migrati nel cloud. (Tutti i backup vengono archiviati nel cloud.) StorSimple ordina e riorganizza i dati e le assegnazioni delle risorse di archiviazione in base ai cambiamenti dei modelli di utilizzo. Alcune informazioni, ad esempio, possono diventare meno attive nel corso del tempo. Man mano che diminuisce la loro attività, vengono distribuite nel cloud. Se gli stessi dati diventano nuovamente attivi, vengono reinseriti nell'array di archiviazione.
+L'array virtuale si serve di un meccanismo di suddivisione in livelli nuovo per gestire i dati archiviati nell'array virtuale e nel cloud. Sono disponibili solo due livelli: l'array virtuale locale e l'archiviazione cloud di Azure. StorSimple Virtual Array organizza automaticamente i dati in livelli in base a una mappa termica che tiene traccia dell'uso corrente, dell'età e delle relazioni con altri dati. I dati più attivi (i più caldi) vengono archiviati in locale, mentre quelli meno attivi e non attivi vengono automaticamente migrati nel cloud. Tutti i backup vengono archiviati nel cloud. StorSimple regola e riorganizza i dati e le assegnazioni di archiviazione Man seconda che i modelli di utilizzo cambiano. Alcune informazioni, ad esempio, possono diventare meno attive nel corso del tempo. Man mano che diminuisce la loro attività, vengono distribuite nel cloud. Se gli stessi dati diventano nuovamente attivi, vengono reinseriti nell'array di archiviazione.
 
 Viene garantito uno spazio a livello locale per i dati di una particolare condivisione a livelli o un volume specifico (circa il 10% dello spazio totale con provisioning per la condivisione o il volume). Anche se in questo modo si riduce la memoria disponibile nell'array virtuale per una data condivisione o un dato volume, si garantisce che la suddivisione in livelli di una condivisione o di un volume non sia interessata dalle esigenze di suddivisione in livelli di altre condivisioni o altri volumi. Pertanto, un carico di lavoro molto pesante in una condivisione o in un volume non può forzare tutti gli altri carichi di lavoro nel cloud.
 

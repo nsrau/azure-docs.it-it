@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 7987555dfd435aae1f580c73795a5617c192490a
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: ac37c0e1f1f7d769a881c5965744b29d40468486
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725702"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276674"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>Configurare chiavi gestite dal cliente medianteC#
 
@@ -34,9 +34,9 @@ Questa sezione illustra come configurare la crittografia delle chiavi gestite da
 
 ### <a name="install-c-nuget"></a>Installare C# NuGet
 
-* Installare il [pacchetto NuGet Esplora dati di Azure (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Installare il [pacchetto NuGet Azure Esplora dati (kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
-* Installare il [pacchetto NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) per l'autenticazione.
+* Installare il [pacchetto NuGet Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) per l'autenticazione.
 
 ### <a name="authentication"></a>Autenticazione
 

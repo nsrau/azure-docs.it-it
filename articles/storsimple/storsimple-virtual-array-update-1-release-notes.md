@@ -1,29 +1,21 @@
 ---
-title: Note sulla versione dell'aggiornamento 1.0 per l'array virtuale StorSimple | Microsoft Docs
+title: Note sulla versione dell'aggiornamento 1.0 per l'array virtuale StorSimple
 description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'aggiornamento 1.0.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: fdf37a8360ec69017458fabee2a9e16aa2c160aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48dec3a87ab540af224ae4ac59dd37cee7c9d0ee
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789672"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271347"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>Note sulla versione dell'aggiornamento 1.0 per l'array virtuale StorSimple
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Le seguenti note sulla versione identificano i problemi critici aperti e risolti per lgi aggiornamenti dell'array virtuale di Microsoft Azure StorSimple.
 
@@ -59,7 +51,7 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 | --- | --- | --- |
 | 1 |Autenticazione basata su Azure Active Directory| Questa versione contiene delle modifiche che consentono ad Azure Active Directory di eseguire l'autenticazione con Gestione dispositivi StorSimple.|
 | 2 |Garbage Collection| Questo problema è stato segnalato nel sito di un cliente in cui l'account del dispositivo e l'account di archiviazione sono in due aree diverse. Il cliente ha segnalato errori di rete intermittenti che hanno un impatto sulla fatturazione. In questa versione il problema è stato corretto. |
-| 3 |Prestazioni| Questa versione contiene modifiche che migliorano le prestazioni di ripristino, lettura nel cloud e suddivisione in livelli.|
+| 3 |Performance| Questa versione contiene modifiche che migliorano le prestazioni di ripristino, lettura nel cloud e suddivisione in livelli.|
 | 4 |Aggiornamento| Nella versione precedente si verificava un problema con l'aggiornamento che causava errori di backup nel sito del cliente. Tale problema è stato corretto in questa versione.|
 
 ## <a name="known-issues-in-update-10"></a>Problemi noti nell'aggiornamento 1.0
@@ -84,7 +76,7 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 | **14.** |File server |Se un file contenuto in una cartella è associato a un flusso di dati alternativi (ADS), sul flusso non viene eseguito il backup o il ripristino tramite ripristino di emergenza, clonazione e ripristino a livello di elemento. | |
 | **15.** |File server |I collegamenti simbolici non sono supportati. | |
 | **16.** |File server |I file protetti da Windows Encrypting File System (EFS), quando vengono copiati o archiviati in un file server StorSimple Virtual Array, restituiscono una configurazione non supportata.  | |
-| **17.** |Aggiornamenti |Se viene visualizzato errore codice: 2359302 (hex 0x240006) quando si tenta di installare un hotfix tramite l'interfaccia utente locale, quindi questo implica che l'hotfix è già installato nel dispositivo.   | |
+| **17.** |Aggiornamenti |Se viene visualizzato il codice di errore: 2359302 (hex 0x240006) quando si tenta di installare un aggiornamento rapido tramite l'interfaccia utente locale, vuol dire che l'aggiornamento rapido è già installato nel dispositivo.   | |
 | **18.** |Aggiornamenti |Se si usa l'interfaccia utente Web locale per installare l'aggiornamento 1 nell'array virtuale, verificare che si stia eseguendo l'aggiornamento 0.6. Se si esegue una versione precedente all'aggiornamento 0.6, installare prima l'aggiornamento 0.6 e quindi applicare l'aggiornamento 1. Se si installa direttamente l'aggiornamento 1.0 da una versione precedente all'aggiornamento 0.6, alcuni aggiornamenti non verranno eseguiti e i grafici di monitoraggio non funzioneranno.   | |
 
 

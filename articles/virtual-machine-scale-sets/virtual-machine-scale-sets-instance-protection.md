@@ -1,61 +1,53 @@
 ---
-title: Istanze del set di protezione dell'istanza per la scalabilità di macchine virtuali di Azure | Microsoft Docs
-description: Informazioni su come impedire operazioni di riduzione del numero e set di scalabilità di istanze di set di scalabilità di macchine virtuali di Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Protezione dell'istanza per le istanze del set di scalabilità di macchine virtuali di Azure
+description: Informazioni su come proteggere le istanze del set di scalabilità di macchine virtuali di Azure dalle operazioni di scalabilità e impostazione del set di scalabilità.
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416544"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275799"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protezione dell'istanza per la scalabilità di macchine virtuali di Azure imposta le istanze (anteprima)
-Set di scalabilità di macchine virtuali di Azure Abilita elasticità migliori per i carichi di lavoro attraverso [scalabilità automatica](virtual-machine-scale-sets-autoscale-overview.md), pertanto è possibile configurare quando l'infrastruttura di scale-out e quando lo scale-in. Set di scalabilità consentono inoltre di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali tramite diversi [criteri di aggiornamento](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) impostazioni. È possibile configurare un aggiornamento nel modello del set di scalabilità e la nuova configurazione viene applicata automaticamente a ogni istanza di set di scalabilità se è stato impostato il criterio di aggiornamento automatico o in corso.
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protezione dell'istanza per le istanze del set di scalabilità di macchine virtuali di Azure (anteprima)
+I set di scalabilità di macchine virtuali di Azure consentono una migliore elasticità per i carichi di lavoro tramite la [scalabilità](virtual-machine-scale-sets-autoscale-overview.md)automatica, per consentirti di configurare la scalabilità orizzontale dell'infrastruttura e il ridimensionamento. I set di scalabilità consentono inoltre di gestire, configurare e aggiornare in modo centralizzato un numero elevato di macchine virtuali tramite diverse impostazioni dei [criteri di aggiornamento](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) . È possibile configurare un aggiornamento sul modello del set di scalabilità e la nuova configurazione viene applicata automaticamente a ogni istanza del set di scalabilità se il criterio di aggiornamento è stato impostato su automatico o in sequenza.
 
-Come l'applicazione elabora il traffico, possono esserci situazioni in cui si desidera che le istanze specifiche di trattare in modo diverso rispetto al resto della scala impostare l'istanza. Ad esempio, alcune istanze del set di scalabilità è stato possibile eseguire operazioni a esecuzione prolungata e non si desidera che queste istanze per essere ridimensionati fino al completamento di operazioni. Si potrebbero anche avere specializzati poche istanze nel set di scalabilità per eseguire attività aggiuntive o diverse rispetto agli altri membri del set di scalabilità. Si richiedono queste macchine virtuali 'speciale' non deve essere modificato con le altre istanze del set di scalabilità. Protezione dell'istanza fornisce i controlli aggiuntivi per abilitare questi e altri scenari per l'applicazione.
+Quando l'applicazione elabora il traffico, possono essere presenti situazioni in cui si desidera che istanze specifiche vengano trattate in modo diverso rispetto al resto dell'istanza del set di scalabilità. Ad esempio, alcune istanze nel set di scalabilità possono eseguire operazioni a esecuzione prolungata e non si vuole che queste istanze vengano ridimensionate fino al completamento delle operazioni. È anche possibile specializzare alcune istanze nel set di scalabilità per eseguire attività aggiuntive o diverse da quelle degli altri membri del set di scalabilità. È necessario che le macchine virtuali "speciali" non vengano modificate con le altre istanze nel set di scalabilità. La protezione dell'istanza fornisce i controlli aggiuntivi per abilitare questi e altri scenari per l'applicazione.
 
-Questo articolo descrive come è possibile applicare e usare le funzionalità di protezione diversi istanza con istanze del set di scalabilità.
+Questo articolo descrive come applicare e usare le diverse funzionalità di protezione dell'istanza con le istanze del set di scalabilità.
 
 > [!NOTE]
->Protezione dell'istanza è attualmente in anteprima pubblica. Per usare la funzionalità di anteprima pubblica descritta di seguito non è necessaria alcuna procedura di consenso esplicito. L'anteprima di protezione istanza è supportato solo con l'API versione 2019-03-01 e nei set di scalabilità Usa dischi gestiti.
+>La protezione dell'istanza è attualmente disponibile in anteprima pubblica. Per usare la funzionalità di anteprima pubblica descritta di seguito non è necessaria alcuna procedura di consenso esplicito. L'anteprima di protezione dell'istanza è supportata solo con l'API versione 2019-03-01 e nei set di scalabilità con Managed Disks.
 
 ## <a name="types-of-instance-protection"></a>Tipi di protezione dell'istanza
-Set di scalabilità offrono due tipi di funzionalità di protezione istanza:
+I set di scalabilità forniscono due tipi di funzionalità di protezione dell'istanza:
 
--   **Proteggere da ridimensionare**
-    - Abilitati tramite **protectFromScaleIn** istanza del set di proprietà sulla scala
-    - Protegge l'istanza di scale-in ha avviata la scalabilità automatica
-    - Operazioni avviate dall'utente istanza (tra cui l'eliminazione di istanza) sono **non bloccato**
-    - Operazioni avviate nel set di scalabilità (eseguire l'aggiornamento, ricreare l'immagine, deallocare, e così via) sono **non bloccato**
+-   **Proteggi dalla scalabilità**
+    - Abilitata tramite la proprietà **protectFromScaleIn** nell'istanza del set di scalabilità
+    - Protegge l'istanza dalla scalabilità avviata con scalabilità automatica
+    - Le operazioni dell'istanza avviate dall'utente (inclusa l'eliminazione dell'istanza) **non sono bloccate**
+    - Le operazioni avviate nel set di scalabilità (aggiornamento, ricreazione dell'immagine, deallocazione e così via) **non sono bloccate**
 
--   **Protezione dalle azioni del set di scalabilità**
-    - Abilitati tramite **protectFromScaleSetActions** istanza del set di proprietà sulla scala
-    - Protegge l'istanza di scale-in ha avviata la scalabilità automatica
-    - Protegge l'istanza da operazioni avviate nel set di scalabilità (ad esempio l'aggiornamento, ricreare l'immagine, deallocare, ecc.)
-    - Operazioni avviate dall'utente istanza (tra cui l'eliminazione di istanza) sono **non bloccato**
-    - L'eliminazione del set di scalabilità completa è **non bloccato**
+-   **Proteggi da azioni del set di scalabilità**
+    - Abilitata tramite la proprietà **protectFromScaleSetActions** nell'istanza del set di scalabilità
+    - Protegge l'istanza dalla scalabilità avviata con scalabilità automatica
+    - Protegge l'istanza dalle operazioni avviate nel set di scalabilità, ad esempio l'aggiornamento, la ricreazione dell'immagine, la deallocazione e così via.
+    - Le operazioni dell'istanza avviate dall'utente (inclusa l'eliminazione dell'istanza) **non sono bloccate**
+    - L'eliminazione del set di scalabilità completo **non è bloccata**
 
-## <a name="protect-from-scale-in"></a>Proteggere da ridimensionare
-Protezione dell'istanza può essere applicata per istanze del set di scalabilità dopo che le istanze vengono create. Protezione viene applicata e modificata solo nel [modello di istanza](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) e non per il [modello del set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
+## <a name="protect-from-scale-in"></a>Proteggi dalla scalabilità
+La protezione dell'istanza può essere applicata alle istanze del set di scalabilità dopo la creazione delle istanze. La protezione viene applicata e modificata solo sul [modello di istanza](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) e non sul [modello del set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
-Esistono diversi modi per applicare la protezione di riduzione del numero su istanze del set di scalabilità come descritto in dettaglio negli esempi seguenti.
+Esistono diversi modi per applicare la protezione con scalabilità in istanze del set di scalabilità, come descritto negli esempi seguenti.
 
 ### <a name="rest-api"></a>API REST
 
-L'esempio seguente applica protezione scale-in a un'istanza del set di scalabilità.
+Nell'esempio seguente viene applicata la protezione con scalabilità in un'istanza del set di scalabilità.
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -73,13 +65,13 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->Protezione dell'istanza è supportata solo con l'API versione 2019-03-01 e versioni successive
+>La protezione dell'istanza è supportata solo con l'API versione 2019-03-01 e successive
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Usare la [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) istanza del set di cmdlet per applicare la protezione di scale-in per la scalabilità.
+Usare il cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) per applicare la protezione con scalabilità orizzontale all'istanza del set di scalabilità.
 
-L'esempio seguente applica protezione scale-in a un'istanza del set di scalabilità con l'ID dell'istanza 0.
+Nell'esempio seguente viene applicata la protezione con scalabilità in un'istanza del set di scalabilità con ID istanza 0.
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -91,9 +83,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Uso [az vmss update](/cli/azure/vmss#az-vmss-update) per applicare la protezione di scale-in per l'istanza del set di scalabilità.
+Usare il comando [AZ vmss Update](/cli/azure/vmss#az-vmss-update) per applicare la protezione con scalabilità orizzontale all'istanza del set di scalabilità.
 
-L'esempio seguente applica protezione scale-in a un'istanza del set di scalabilità con l'ID dell'istanza 0.
+Nell'esempio seguente viene applicata la protezione con scalabilità in un'istanza del set di scalabilità con ID istanza 0.
 
 ```azurecli-interactive
 az vmss update \  
@@ -103,16 +95,16 @@ az vmss update \
   --protect-from-scale-in true
 ```
 
-## <a name="protect-from-scale-set-actions"></a>Protezione dalle azioni del set di scalabilità
-Protezione dell'istanza può essere applicata per istanze del set di scalabilità dopo che le istanze vengono create. Protezione viene applicata e modificata solo nel [modello di istanza](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) e non per il [modello del set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
+## <a name="protect-from-scale-set-actions"></a>Proteggi da azioni del set di scalabilità
+La protezione dell'istanza può essere applicata alle istanze del set di scalabilità dopo la creazione delle istanze. La protezione viene applicata e modificata solo sul [modello di istanza](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) e non sul [modello del set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
-La protezione dalle azioni del set di scalabilità di un'istanza protegge anche l'istanza di scale-in di scalabilità automatica ha avviata.
+La protezione di un'istanza dalle azioni del set di scalabilità protegge anche l'istanza dalla scalabilità avviata con scalabilità automatica.
 
-Esistono diversi modi per applicare scalabilità nastavit protezione azioni di scalabilità di istanze del set come descritto in dettaglio negli esempi seguenti.
+Esistono diversi modi per applicare la protezione delle azioni dei set di scalabilità nelle istanze del set di scalabilità, come descritto negli esempi seguenti.
 
 ### <a name="rest-api"></a>API REST
 
-Nell'esempio seguente applica la protezione dalle azioni del set di scalabilità a un'istanza del set di scalabilità.
+Nell'esempio seguente viene applicata la protezione dalle azioni del set di scalabilità a un'istanza nel set di scalabilità.
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vMScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -131,14 +123,14 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->Protezione dell'istanza è supportata solo con l'API versione 2019-03-01 e versioni successive.</br>
-La protezione dalle azioni del set di scalabilità di un'istanza protegge anche l'istanza di scale-in di scalabilità automatica ha avviata. Non è possibile specificare "protectFromScaleIn": false durante l'impostazione "protectFromScaleSetActions": true
+>La protezione dell'istanza è supportata solo con l'API versione 2019-03-01 e successive.</br>
+La protezione di un'istanza dalle azioni del set di scalabilità protegge anche l'istanza dalla scalabilità avviata con scalabilità automatica. Non è possibile specificare "protectFromScaleIn": false quando si imposta "protectFromScaleSetActions": true
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Usare la [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) cmdlet per applicare la protezione dalla scala set di azioni per l'istanza del set di scalabilità.
+Usare il cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) per applicare la protezione dalle azioni del set di scalabilità all'istanza del set di scalabilità.
 
-Nell'esempio seguente applica la protezione dalle azioni del set di scalabilità a un'istanza del set di scalabilità con l'ID dell'istanza 0.
+Nell'esempio seguente viene applicata la protezione dalle azioni del set di scalabilità a un'istanza nel set di scalabilità con ID istanza 0.
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -151,9 +143,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Uso [az vmss update](/cli/azure/vmss#az-vmss-update) per applicare la protezione dalle azioni del set di scalabilità per l'istanza del set di scalabilità.
+Usare il comando [AZ vmss Update](/cli/azure/vmss#az-vmss-update) per applicare la protezione dalle azioni del set di scalabilità all'istanza del set di scalabilità.
 
-Nell'esempio seguente applica la protezione dalle azioni del set di scalabilità a un'istanza del set di scalabilità con l'ID dell'istanza 0.
+Nell'esempio seguente viene applicata la protezione dalle azioni del set di scalabilità a un'istanza nel set di scalabilità con ID istanza 0.
 
 ```azurecli-interactive
 az vmss update \  
@@ -164,17 +156,17 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Risolvere problemi
-### <a name="no-protectionpolicy-on-scale-set-model"></a>Nessun protectionPolicy nel modello del set di scalabilità
-Protezione dell'istanza è applicabile solo su istanze del set di scalabilità e non nel modello del set di scalabilità.
+## <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="no-protectionpolicy-on-scale-set-model"></a>Nessun protectionPolicy sul modello del set di scalabilità
+La protezione dell'istanza è applicabile solo alle istanze del set di scalabilità e non al modello del set di scalabilità.
 
-### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>Nessun protectionPolicy nel modello di istanza di set di scalabilità
-Per impostazione predefinita, i criteri di protezione non viene applicato a un'istanza al momento della creazione.
+### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>Nessun protectionPolicy sul modello di istanza del set di scalabilità
+Per impostazione predefinita, i criteri di protezione non vengono applicati a un'istanza di al momento della creazione.
 
-È possibile applicare la protezione di istanza per istanze del set di scalabilità dopo che le istanze vengono create.
+È possibile applicare la protezione dell'istanza alle istanze del set di scalabilità dopo la creazione delle istanze.
 
-### <a name="not-able-to-apply-instance-protection"></a>Non è possibile applicare la protezione di istanza
-Protezione dell'istanza è supportata solo con l'API versione 2019-03-01 e versioni successive. Verificare la versione dell'API in uso e aggiornare in base alle esigenze. È anche necessario aggiornare alla versione più recente di PowerShell o CLI.
+### <a name="not-able-to-apply-instance-protection"></a>Non è possibile applicare la protezione dell'istanza
+La protezione dell'istanza è supportata solo con l'API versione 2019-03-01 e successive. Controllare la versione dell'API in uso e aggiornarla secondo le esigenze. Potrebbe anche essere necessario aggiornare PowerShell o l'interfaccia della riga di comando alla versione più recente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [distribuire l'applicazione](virtual-machine-scale-sets-deploy-app.md) nei set di scalabilità di macchine virtuali.

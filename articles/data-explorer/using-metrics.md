@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: 7ff504a466224594c0098bc9d80557d45e4197a6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/19/2020
+ms.openlocfilehash: 82aa7f782dbb1842a29d55eef8983edd4afce8eb
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027878"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277412"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitora le prestazioni, l'integrità e l'utilizzo di Azure Esplora dati con le metriche
 
@@ -38,35 +38,83 @@ Nel riquadro metriche:
 
 ![Riquadro metriche](media/using-metrics/metrics-pane.png)
 
-1. Per creare un grafico delle metriche, selezionare nome della **metrica** e **aggregazione** pertinente per ogni metrica, come descritto di seguito. I selezionatori **dello spazio dei nomi** della **risorsa** e della metrica sono preselezionati per il cluster Esplora dati di Azure.
-
-    **Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica**
-    |---|---|---|---|
-    | Utilizzo della cache | Percentuale | AVG, Max, min | Percentuale di risorse della cache allocata attualmente in uso dal cluster. Cache è la dimensione dell'unità SSD allocata per l'attività utente in base ai criteri di cache definiti. Un utilizzo medio della cache del 80% o meno è uno stato sostenibile per un cluster. Se l'utilizzo medio della cache è superiore al 80%, il cluster deve essere [scalato fino](manage-cluster-vertical-scaling.md) a un piano tariffario ottimizzato per l'archiviazione o [ridimensionato](manage-cluster-horizontal-scaling.md) a più istanze. In alternativa, adattare i criteri di cache (un minor numero di giorni nella cache). Se l'utilizzo della cache è superiore al 100%, la dimensione dei dati da memorizzare nella cache, in base ai criteri di memorizzazione nella cache, è maggiore delle dimensioni totali della cache nel cluster. |
-    | CPU | Percentuale | AVG, Max, min | Percentuale di risorse di calcolo allocate attualmente utilizzate dai computer del cluster. Una CPU media di 80% o meno è sostenibile per un cluster. Il valore massimo della CPU è pari al 100%, ovvero non sono disponibili risorse di calcolo aggiuntive per elaborare i dati. Quando un cluster non funziona correttamente, controllare il valore massimo della CPU per determinare se sono presenti CPU specifiche bloccate. |
-    | Eventi elaborati (per hub eventi) | Conteggio | Max, min, Sum | Numero totale di eventi letti dall'hub eventi ed elaborati dal cluster. Gli eventi vengono suddivisi in eventi rifiutati ed eventi accettati dal motore del cluster. |
-    | Latenza inserimento | Secondi | AVG, Max, min | Latenza dei dati inseriti, dal momento in cui i dati sono stati ricevuti nel cluster fino a quando non sono pronti per la query. Il periodo di latenza di inserimento dipende dallo scenario di inserimento. |
-    | Risultato inserimento | Conteggio | Conteggio | Numero totale di operazioni di inserimento non riuscite e riuscite. Utilizzare **applica suddivisione** per creare bucket di esito positivo e risultati non riusciti e analizzare le dimensioni (**valore** > **stato**).|
-    | Utilizzo dell'inserimento | Percentuale | AVG, Max, min | Percentuale di risorse effettive usate per inserire i dati dalle risorse totali allocate, nei criteri di capacità, per eseguire l'inserimento. I criteri di capacità predefiniti non sono più di 512 operazioni di inserimento simultanee o il 75% delle risorse del cluster investito nell'inserimento. L'utilizzo medio dell'inserimento del 80% o meno è uno stato sostenibile per un cluster. Il valore massimo di utilizzo dell'inserimento è pari al 100%, il che significa che viene utilizzata tutta la capacità di inserimento del cluster e che può verificarsi una coda di inserimento. |
-    | Volume di inserimento (in MB) | Conteggio | Max, min, Sum | Dimensioni totali dei dati inseriti nel cluster (in MB) prima della compressione. |
-    | Keep-Alive | Conteggio | Avg | Rileva la velocità di risposta del cluster. Un cluster completamente reattivo restituisce il valore 1 e un cluster bloccato o disconnesso restituisce 0. |
-    | Durata delle query | Secondi | Count, AVG, min, Max, Sum | Tempo totale fino alla ricezione dei risultati della query (non include la latenza di rete). |
-    | Numero totale di query simultanee | Conteggio | AVG, Max, min, Sum | Il numero di query eseguite in parallelo nel cluster. Questa metrica è un modo efficace per stimare il carico sul cluster. |
-    | Numero totale di query limitate | Conteggio | AVG, Max, min, Sum | Numero di query limitate (rifiutate) nel cluster. Il numero massimo di query simultanee (parallele) consentite è definito nei criteri di query simultanei. |
-    | Numero totale di comandi limitati | Conteggio | AVG, Max, min, Sum | Numero di comandi limitati (rifiutati) nel cluster, poiché è stato raggiunto il numero massimo consentito di comandi simultanei (paralleli). |
-    | Numero totale di extent | Conteggio | AVG, Max, min, Sum | Numero totale di extent dei dati nel cluster. Le modifiche apportate a questa metrica possono implicare modifiche massive della struttura dei dati e un carico elevato sul cluster, poiché l'Unione degli extent dei dati è un'attività con utilizzo intensivo della CPU |
-    | | | | |
-
-    Altre informazioni sulle [metriche del cluster di Azure Esplora dati supportate](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
-
-2. Selezionare il pulsante **Aggiungi metrica** per visualizzare più metriche tracciate nello stesso grafico.
-3. Selezionare il pulsante **+ nuovo grafico** per visualizzare più grafici in un'unica visualizzazione.
-4. Usare selezione ora per modificare l'intervallo di tempo (impostazione predefinita: ultime 24 ore).
-5. Usare [ **Aggiungi filtro** e **applicare la suddivisione** per le](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting) metriche con dimensioni.
-6. Selezionare Aggiungi **al dashboard** per aggiungere la configurazione del grafico ai dashboard in modo che sia possibile visualizzarla di nuovo.
-7. Impostare **nuova regola di avviso** per visualizzare le metriche usando i criteri di impostazione. La nuova regola di avviso includerà la risorsa di destinazione, la metrica, la suddivisione e le dimensioni di filtro del grafico. Modificare queste impostazioni nel [riquadro di creazione della regola di avviso](/azure/azure-monitor/platform/metrics-charts#create-alert-rules).
+1. Per creare un grafico delle metriche, selezionare nome della **metrica** e **aggregazione** pertinente per ogni metrica. I selezionatori **dello spazio dei nomi** della **risorsa** e della metrica sono pre-selezionati per il cluster Azure Esplora dati. Per altre informazioni sulle metriche diverse, vedere la pagina relativa alle [metriche di Azure Esplora dati supportate](#supported-azure-data-explorer-metrics).
+1. Selezionare il pulsante **Aggiungi metrica** per visualizzare più metriche tracciate nello stesso grafico.
+1. Selezionare il pulsante **+ nuovo grafico** per visualizzare più grafici in un'unica visualizzazione.
+1. Usare selezione ora per modificare l'intervallo di tempo (impostazione predefinita: ultime 24 ore).
+1. Usare [ **Aggiungi filtro** e **applicare la suddivisione** per le](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting) metriche con dimensioni.
+1. Selezionare Aggiungi **al dashboard** per aggiungere la configurazione del grafico ai dashboard in modo che sia possibile visualizzarla di nuovo.
+1. Impostare **nuova regola di avviso** per visualizzare le metriche usando i criteri di impostazione. La nuova regola di avviso includerà la risorsa di destinazione, la metrica, la suddivisione e le dimensioni di filtro del grafico. Modificare queste impostazioni nel [riquadro di creazione della regola di avviso](/azure/azure-monitor/platform/metrics-charts#create-alert-rules).
 
 Informazioni aggiuntive sull'utilizzo del [Esplora metriche](/azure/azure-monitor/platform/metrics-getting-started).
+
+## <a name="supported-azure-data-explorer-metrics"></a>Metriche di Azure Esplora dati supportate
+
+Le metriche di Azure Esplora dati supportate sono suddivise in diverse categorie in base all'utilizzo. 
+
+### <a name="cluster-health-metrics"></a>Metriche di integrità del cluster
+
+Le metriche di integrità del cluster tengono traccia dell'integrità generale del cluster. Sono inclusi l'utilizzo delle risorse e dell'inserimento e la velocità di risposta.
+
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica**
+|---|---|---|---|
+| Utilizzo della cache | Percentuale | AVG, Max, min | Percentuale di risorse della cache allocata attualmente in uso dal cluster. Cache è la dimensione dell'unità SSD allocata per l'attività utente in base ai criteri di cache definiti. Un utilizzo medio della cache del 80% o meno è uno stato sostenibile per un cluster. Se l'utilizzo medio della cache è superiore al 80%, il cluster deve essere [scalato fino](manage-cluster-vertical-scaling.md) a un piano tariffario ottimizzato per l'archiviazione o [ridimensionato](manage-cluster-horizontal-scaling.md) a più istanze. In alternativa, adattare i criteri di cache (un minor numero di giorni nella cache). Se l'utilizzo della cache è superiore al 100%, la dimensione dei dati da memorizzare nella cache, in base ai criteri di memorizzazione nella cache, è maggiore delle dimensioni totali della cache nel cluster. |
+| CPU | Percentuale | AVG, Max, min | Percentuale di risorse di calcolo allocate attualmente utilizzate dai computer del cluster. Una CPU media di 80% o meno è sostenibile per un cluster. Il valore massimo della CPU è pari al 100%, ovvero non sono disponibili risorse di calcolo aggiuntive per elaborare i dati. Quando un cluster non funziona correttamente, controllare il valore massimo della CPU per determinare se sono presenti CPU specifiche bloccate. |
+| Utilizzo dell'inserimento | Percentuale | AVG, Max, min | Percentuale di risorse effettive usate per inserire i dati dalle risorse totali allocate, nei criteri di capacità, per eseguire l'inserimento. I criteri di capacità predefiniti non sono più di 512 operazioni di inserimento simultanee o il 75% delle risorse del cluster investito nell'inserimento. L'utilizzo medio dell'inserimento del 80% o meno è uno stato sostenibile per un cluster. Il valore massimo di utilizzo dell'inserimento è pari al 100%, il che significa che viene utilizzata tutta la capacità di inserimento del cluster e che può verificarsi una coda di inserimento. |
+| Keep-Alive | Conteggio | Avg | Rileva la velocità di risposta del cluster. Un cluster completamente reattivo restituisce il valore 1 e un cluster bloccato o disconnesso restituisce 0. |
+| Numero totale di comandi limitati | Conteggio | AVG, Max, min, Sum | Numero di comandi limitati (rifiutati) nel cluster, poiché è stato raggiunto il numero massimo consentito di comandi simultanei (paralleli). |
+| Numero totale di extent | Conteggio | AVG, Max, min, Sum | Numero totale di extent dei dati nel cluster. Le modifiche apportate a questa metrica possono implicare modifiche massive della struttura dei dati e un carico elevato sul cluster, poiché l'Unione degli extent dei dati è un'attività con utilizzo intensivo della CPU |
+| | | | |
+
+### <a name="export-health-and-performance-metrics"></a>Esportare le metriche di integrità e prestazioni
+
+Le metriche delle prestazioni e dello stato di esportazione tengono traccia dell'integrità e delle prestazioni generali delle operazioni di esportazione, ad esempio la latenza, i risultati, il numero di record e l'utilizzo.
+
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica**
+|---|---|---|---|
+Numero di esportazioni continue dei record esportati    | Conteggio | SUM | Numero totale di record esportati dal cluster. |
+Minuti di ritardo massimo esportazione continua |    Conteggio   | Max   | Valore massimo in minuti dei record esportati.|
+Conteggio in sospeso esportazione continua | Conteggio | Max   | Valore massimo delle operazioni di esportazione in sospeso.
+Risultato dell'esportazione continua    | Conteggio |   Conteggio   | Numero totale di operazioni di esportazione continua, in base al risultato. La metrica include un nome di esportazione e un database continui. 
+Esporta utilizzo |    Percentuale | Max   | Utilizzo dello slot definito per le operazioni di esportazione.
+| | | | |
+
+### <a name="ingestion-health-and-performance-metrics"></a>Misurazione dello stato e delle prestazioni di inserimento
+
+Le metriche relative a integrità e prestazioni di inserimento tengono traccia dell'integrità generale e delle prestazioni delle operazioni di inserimento, ad esempio latenza, risultati e volume.
+
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica**
+|---|---|---|---|
+| Eventi elaborati (per gli hub eventi/tutto) | Conteggio | Max, min, Sum | Numero totale di eventi letti dall'hub eventi ed elaborati dal cluster. Gli eventi vengono suddivisi in eventi rifiutati ed eventi accettati dal motore del cluster. |
+| Latenza inserimento | Secondi | AVG, Max, min | Latenza dei dati inseriti, dal momento in cui i dati sono stati ricevuti nel cluster fino a quando non sono pronti per la query. Il periodo di latenza di inserimento dipende dallo scenario di inserimento. |
+| Risultato inserimento | Conteggio | Conteggio | Numero totale di operazioni di inserimento non riuscite e riuscite. Utilizzare **applica suddivisione** per creare bucket di esito positivo e risultati non riusciti e analizzare le dimensioni (**valore** > **stato**).|
+| Volume di inserimento (in MB) | Conteggio | Max, Sum | Dimensioni totali dei dati inseriti nel cluster (in MB) prima della compressione. |
+| | | | |  
+
+### <a name="query-performance"></a>Prestazioni delle query
+
+Le metriche delle prestazioni delle query tengono traccia della durata delle query e del numero totale di query simultanee o limitate.
+
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica**
+|---|---|---|---|
+| Durata delle query | Millisecondi | AVG, min, Max, Sum | Tempo totale fino alla ricezione dei risultati della query (non include la latenza di rete). |
+| Numero totale di query simultanee | Conteggio | AVG, Max, min, Sum | Il numero di query eseguite in parallelo nel cluster. Questa metrica è un modo efficace per stimare il carico sul cluster. |
+| Numero totale di query limitate | Conteggio | AVG, Max, min, Sum | Numero di query limitate (rifiutate) nel cluster. Il numero massimo di query simultanee (parallele) consentite è definito nei criteri di query simultanei. |
+| | | | |
+
+### <a name="streaming-ingest-metrics"></a>Metriche di inserimento di flussi
+
+Le metriche di inserimento del flusso tengono traccia dei dati di inserimento del flusso e della frequenza delle richieste, della durata e dei risultati.
+
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica**
+|---|---|---|---|
+Velocità dati di inserimento dei flussi |    Conteggio   | RateRequestsPerSecond | Volume totale dei dati inseriti nel cluster. |
+Durata inserimento flusso   | Millisecondi  | AVG, Max, min | Durata totale di tutte le richieste di inserimento di flussi. |
+Frequenza delle richieste di inserimento di flussi   | Conteggio | Count, AVG, Max, min, Sum | Numero totale di richieste di inserimento di flussi. |
+Risultato inserimento flusso | Conteggio | Avg   | Numero totale di richieste di inserimento di flussi in base al tipo di risultato. |
+| | | | |
+
+Altre informazioni sulle [metriche del cluster di Azure Esplora dati supportate](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

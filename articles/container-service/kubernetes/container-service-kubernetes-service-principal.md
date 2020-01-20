@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Entità servizio per il cluster Azure Kubernetes
 description: Creare e gestire un'entità servizio di Azure Active Directory per un cluster Kubernetes nel servizio Azure Container
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3126339a1eb8ff9c0ef34a330333635d3d0f6433
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609104"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274359"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(DEPRECATO) Configurare un'entità servizio di Azure AD per un cluster Kubernetes in servizio Container
 
@@ -33,9 +31,9 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 
 È possibile usare un'entità servizio di Azure AD esistente che soddisfi i requisiti seguenti oppure crearne una nuova.
 
-* **Ambito**: Gruppo di risorse
+* **Ambito**: gruppo di risorse
 
-* **Ruolo**: Collaboratore
+* **Ruolo**: collaboratore
 
 * **Segreto client**: deve essere una password. Non è attualmente possibile usare un'entità servizio configurata per l'autenticazione del certificato.
 
@@ -43,7 +41,7 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 > Per creare un'entità servizio sono necessarie autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare l'applicazione a un ruolo nella sottoscrizione. È possibile verificare se si hanno a disposizione le autorizzazioni necessarie [nel portale](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
-## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Opzione 1: Creare un'entità servizio in Azure AD
+## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Opzione 1: creare un'entità servizio in Azure AD
 
 Azure mette a disposizione diversi metodi per creare un'entità servizio di Azure AD prima di distribuire il cluster Kubernetes.
 
@@ -61,7 +59,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 L'output è simile al seguente (visualizzato con alcune modifiche):
 
-![Creare un’entità servizio](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
+![Creare un'entità servizio](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
 Sono evidenziati l'**ID client** (`appId`) e il **segreto client** (`password`) usati come parametri dell'entità servizio per la distribuzione del cluster.
 
@@ -80,7 +78,7 @@ L'esempio seguente illustra un modo per passare i parametri con l'interfaccia de
 
 1. [Scaricare](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) il file di parametri del modello `azuredeploy.parameters.json` da GitHub.
 
-2. Per specificare l'entità servizio, immettere i valori per `servicePrincipalClientId` e `servicePrincipalClientSecret` nel file. È anche necessario specificare valori personalizzati per `dnsNamePrefix` e `sshRSAPublicKey`, che indica la chiave pubblica SSH per l'accesso al cluster. Salvare il file.
+2. Per specificare l'entità servizio, immettere i valori per `servicePrincipalClientId` e `servicePrincipalClientSecret` nel file. È anche necessario specificare valori personalizzati per `dnsNamePrefix` e `sshRSAPublicKey`, Il secondo è la chiave pubblica SSH per accedere al cluster. Salvare il file.
 
     ![Passare i parametri dell'entità servizio](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -97,7 +95,7 @@ L'esempio seguente illustra un modo per passare i parametri con l'interfaccia de
     ```
 
 
-## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opzione 2: Generare un'entità servizio durante la creazione del cluster con `az acs create`
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opzione 2: generare un'entità servizio durante la creazione del cluster con `az acs create`
 
 Se si esegue il comando [`az acs create`](/cli/azure/acs#az-acs-create) per creare il cluster Kubernetes, è possibile scegliere di generare automaticamente un'entità servizio.
 
@@ -113,7 +111,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 > Se l'account non ha le autorizzazioni di Azure AD e della sottoscrizione necessarie per creare un'entità servizio, il comando genera un errore simile a `Insufficient privileges to complete the operation.`
 >
 
-## <a name="additional-considerations"></a>Ulteriori considerazioni
+## <a name="additional-considerations"></a>Altre considerazioni
 
 * Se non si hanno le autorizzazioni per creare un'entità servizio nella sottoscrizione, potrebbe essere necessario chiedere all'amministratore di Azure AD o della sottoscrizione di assegnare le autorizzazioni necessarie oppure chiedere che venga creata un'entità servizio da usare con il servizio Azure Container.
 

@@ -1,26 +1,18 @@
 ---
-title: Usare l'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Usare l'estensione integrità dell'applicazione con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come usare l'estensione Integrità applicazione per monitorare l'integrità delle applicazioni distribuite nei set di scalabilità di macchine virtuali.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: e074d76f9ed095725d99bddc9eb21925f4b3697c
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 37d93b04e6755512eac6c2a168bd2a04f8ac298f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114476"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275885"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
 Il monitoraggio dell'integrità delle applicazioni è un elemento importante per la gestione e l'aggiornamento della distribuzione. I set di scalabilità di macchine virtuali di Azure supportano gli [aggiornamenti in sequenza](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), inclusi gli [aggiornamenti automatici dell'immagine del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), che si basano sul monitoraggio dell'integrità delle singole istanze per l'aggiornamento della distribuzione.
@@ -63,16 +55,16 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| NOME | Valore/Esempio | Tipo di dati
+| Nome | Valore/Esempio | Tipo di dati
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | date |
+| apiVersion | `2018-10-01` | Data |
 | publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Impostazioni
 
-| Name | Valore/Esempio | Tipo di dati
+| Nome | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | protocol | `http` o `tcp` | string |
 | port | Facoltativo se il protocollo è `http`, obbligatorio se il protocollo è `tcp` | int |
@@ -171,7 +163,7 @@ Contenuto del file Extension. JSON.
 ```
 
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 L'output dell'esecuzione dell'estensione viene registrato nei file presenti nelle directory seguenti:
 
 ```Windows

@@ -1,26 +1,19 @@
 ---
-title: Preparazione del portale per l'array virtuale StorSimple | Documentazione Microsoft
+title: Preparazione del portale per l'array virtuale StorSimple
 description: La prima esercitazione per la distribuzione dell'array virtuale StorSimple include la preparazione del portale di Azure
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b938de0fec099b3f964eae60dc94d059e05a1c6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973498"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273846"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 

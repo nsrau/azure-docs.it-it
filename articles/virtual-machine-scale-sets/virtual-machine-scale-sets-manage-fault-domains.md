@@ -1,26 +1,18 @@
 ---
-title: Gestione dei domini di errore nei set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Gestire i domini di errore nei set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come scegliere il numero corretto dei domini di errore durante la creazione di un set di scalabilità della macchina virtuale.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: rajsqr
-manager: drewm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: drewm
-ms.openlocfilehash: d6207a1a77ff00ff36fe6b3b748c3f8f7279b62d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 297837354cea4bb5ccdcc03261810dcffd144243
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639950"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275734"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Scelta del numero corretto dei domini di errore per set di scalabilità di macchine virtuali
 I set di scalabilità di macchine virtuali vengono creati con cinque domini di errore per impostazione predefinita in aree di Azure senza zone. Per le aree che supportano la distribuzione di zona dei set di scalabilità di macchine virtuali e questa opzione è selezionata, il valore predefinito del numero di domini di errore è 1 per ogni zona. FD = 1 questo caso implica che le istanze di macchine virtuali che appartengono al set di scalabilità verranno distribuite tra molti rack nel modo più efficiente possibile.

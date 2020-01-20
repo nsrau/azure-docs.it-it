@@ -1,31 +1,23 @@
 ---
-title: Distribuire il dispositivo StorSimple serie 8000 nel portale di Azure | Microsoft Docs
+title: Distribuire il dispositivo StorSimple serie 8000 in portale di Azure
 description: Descrive i passaggi e le procedure consigliate per la distribuzione del dispositivo StorSimple serie 8000 che esegue l'aggiornamento 3 e versioni successive e del servizio Gestione dispositivi StorSimple.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1f44690de1f38e3d337072cc7c974887eb0e31cc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965893"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273955"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuire un dispositivo StorSimple locale (aggiornamento 3 e successivi)
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Benvenuti nella distribuzione del dispositivo Microsoft Azure StorSimple. Queste esercitazioni per la distribuzione si applicano all'aggiornamento 3 o successivi di StorSimple serie 8000. Questa serie di esercitazioni include un elenco di controllo della configurazione, di prerequisiti di configurazione e i passaggi di configurazione dettagliati per il dispositivo StorSimple.
 
 Le informazioni contenute in queste esercitazioni prevedono che siano state esaminate le precauzioni di sicurezza e che il dispositivo StorSimple sia stato disimballato, installato e cablato. Se occorre eseguire tali attività, iniziare con la revisione di [precauzioni di sicurezza](storsimple-8000-safety.md). Seguire le istruzioni specifiche per il dispositivo per disimballare, montare su rack e cablare il dispositivo.
@@ -42,19 +34,19 @@ Per completare il processo di installazione e configurazione sono necessari priv
 ## <a name="deployment-steps"></a>Passaggi di distribuzione
 Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e connetterlo al servizio Gestione dispositivi StorSimple. Oltre ai passaggi necessari sono disponibili passaggi facoltativi e procedure che possono essere necessarie durante la distribuzione. Le istruzioni dettagliate di distribuzione indicano quando è necessario eseguire ciascuno di questi passaggi facoltativi.
 
-| Passaggio | Descrizione |
+| Passaggio | Description |
 | --- | --- |
 | **PREREQUISITI** |Devono essere completati per preparare la successiva distribuzione. |
 | [Elenco di controllo configurazione della distribuzione](#deployment-configuration-checklist) |Usare questo elenco di controllo per raccogliere e registrare informazioni prima e durante la distribuzione. |
 | [Prerequisiti di distribuzione](#deployment-prerequisites) |Questi confermano che l'ambiente è pronto per la distribuzione. |
 |  | |
 | **DISTRIBUZIONE PASSO PER PASSO** |Questi passaggi sono necessari per distribuire il dispositivo StorSimple nell'ambiente di produzione. |
-| [Passaggio 1: Creazione di un nuovo servizio](#step-1-create-a-new-service) |Impostare Gestione cloud e archiviazione per il dispositivo StorSimple. *Ignorare questo passaggio se si dispone di un servizio esistente per altri dispositivi StorSimple*. |
+| [Passaggio 1: Creare un nuovo servizio](#step-1-create-a-new-service) |Impostare Gestione cloud e archiviazione per il dispositivo StorSimple. *Ignorare questo passaggio se si dispone di un servizio esistente per altri dispositivi StorSimple*. |
 | [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2-get-the-service-registration-key) |Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple con il servizio di gestione. |
 | [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Per completare la configurazione usando il servizio di gestione, connettere il dispositivo alla rete e registrarlo con Azure. |
-| [Passaggio 4: Completare la configurazione minima del dispositivo](#step-4-complete-minimum-device-setup)</br>[Procedura consigliata: Aggiornare il dispositivo StorSimple](#scan-for-and-apply-updates) |Utilizzare il servizio di gestione per completare l'installazione del dispositivo e abilitarlo per fornire l'archiviazione. |
+| [Passaggio 4: Completare l'installazione minima del dispositivo](#step-4-complete-minimum-device-setup)</br>[Procedura consigliata: aggiornare il dispositivo StorSimple](#scan-for-and-apply-updates) |Utilizzare il servizio di gestione per completare l'installazione del dispositivo e abilitarlo per fornire l'archiviazione. |
 | [Passaggio 5: Creare un contenitore di volumi](#step-5-create-a-volume-container) |Creare un contenitore di volumi di provisioning. Un contenitore di volumi dispone di account di archiviazione, larghezza di banda e impostazioni di crittografia per tutti i volumi in esso contenuti. |
-| [Passaggio 6: Creazione di un volume](#step-6-create-a-volume) |Effettuare il provisioning di volumi di archiviazione nel dispositivo StorSimple per i server. |
+| [Passaggio 6: Creare un volume](#step-6-create-a-volume) |Effettuare il provisioning di volumi di archiviazione nel dispositivo StorSimple per i server. |
 | [Passaggio 7: Montare, inizializzare e formattare un volume](#step-7-mount-initialize-and-format-a-volume)</br>[Facoltativo: Configurare MPIO](storsimple-8000-configure-mpio-windows-server.md) |Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Facoltativamente, è possibile configurare MPIO per assicurarsi che i server possano di tollerare errori di collegamento, rete e interfaccia. |
 | [Passaggio 8: Eseguire un backup](#step-8-take-a-backup) |Impostare criteri di backup per proteggere i dati |
 |  | |
@@ -70,7 +62,7 @@ Prima di distribuire il dispositivo, è necessario raccogliere informazioni per 
 
 * [Scaricare l'elenco di controllo configurazione della distribuzione StorSimple](https://www.microsoft.com/download/details.aspx?id=49159)
 
-## <a name="deployment-prerequisites"></a>Prerequisiti di distribuzione
+## <a name="deployment-prerequisites"></a>Prerequisiti per la distribuzione
 Le sezioni seguenti illustrano i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple e per il dispositivo StorSimple.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Per il servizio Gestione dispositivi StorSimple
@@ -119,7 +111,7 @@ Utilizzare Windows PowerShell per StorSimple per completare l'installazione iniz
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>Passaggio 4: Completare la configurazione minima del dispositivo
+## <a name="step-4-complete-minimum-device-setup"></a>Passaggio 4: Completare l'installazione minima del dispositivo
 Per la configurazione minima del dispositivo del dispositivo StorSimple, è necessario: 
 
 * Specificare un nome descrittivo per il dispositivo.
@@ -139,7 +131,7 @@ Seguire questa procedura nel portale di Azure per creare un contenitore del volu
 
 [!INCLUDE [storsimple-8000-create-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
 
-## <a name="step-6-create-a-volume"></a>Passaggio 6: Crea un volume
+## <a name="step-6-create-a-volume"></a>Passaggio 6: Creare un volume
 Dopo aver creato un contenitore di volumi, è possibile eseguire il provisioning di un volume di archiviazione nel dispositivo StorSimple per i server. Seguire questa procedura nel portale di Azure per creare un volume.
 
 > [!IMPORTANT]

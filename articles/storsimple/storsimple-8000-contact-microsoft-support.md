@@ -1,27 +1,19 @@
 ---
-title: Creare il ticket di supporto o il case per StorSimple serie 8000 | Microsoft Docs
+title: Crea il ticket di supporto o il case per StorSimple serie 8000
 description: Informazioni su come registrare una richiesta di supporto e avviare una sessione di supporto nel dispositivo StorSimple serie 8000.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5394feff80c1df8b7a6cf7f6e6ea56678f575823
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612514"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277165"
 ---
-# <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
+# <a name="contact-microsoft-support"></a>Contatta il supporto Microsoft
 
 Gestione dispositivi StorSimple offre la possibilità di **registrare una nuova richiesta di supporto** all'interno del pannello di riepilogo servizio. Se si verificano problemi con la soluzione StorSimple, è possibile creare una richiesta di servizio per il supporto tecnico. In una sessione online con il supporto tecnico, è necessario anche avviare una sessione di supporto nel dispositivo StorSimple. In questo articolo viene descritto:
 
@@ -64,8 +56,8 @@ In base al [piano di supporto](https://azure.microsoft.com/support/plans/) è po
 4. Nel pannello **Nuova richiesta di assistenza** fare clic su **Passaggio 3 - Informazioni di contatto**. Nel pannello **Informazioni di contatto**, attenersi alla procedura seguente:
 
    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-   2. Le informazioni di contatto, specificare il nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare la casella di controllo **Salva modifiche di contatto per le richieste di supporto future** .
-   3. Fare clic su **Create**(Crea).
+   2. Nelle informazioni di contatto specificare nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare la casella di controllo **Salva modifiche di contatto per le richieste di supporto future** .
+   3. Fare clic su **Crea**.
    
        ![Contattare il supporto tecnico Microsoft tramite il nuovo portale](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 

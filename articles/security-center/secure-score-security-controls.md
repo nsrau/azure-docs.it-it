@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 8f0b7b1225d78c7626c5be3e68c3dcd2dd557aa3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0287a8011eb10120e273fb063c98ccd3c1a85782
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158156"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278015"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>Punteggio sicuro migliorato (anteprima) 
 
-Questo articolo presenta il miglior punteggio sicuro (attualmente in anteprima), i controlli di sicurezza associati e i vantaggi offerti.
+Questo articolo presenta il miglior punteggio sicuro (attualmente in anteprima), i controlli di sicurezza associati e i vantaggi offerti. Spiega anche come viene calcolato il punteggio.
 
 ## <a name="introduction-to-secure-score"></a>Introduzione al Punteggio sicuro
 
@@ -32,11 +32,11 @@ Il Centro sicurezza valuta continuamente le risorse, le sottoscrizioni e l'organ
 
 Il Punteggio sicuro *migliorato* , attualmente in anteprima, è **incentrato sulla superficie di attacco** e offre tre vantaggi:
 
-- Controlli di sicurezza: le raccomandazioni sulla sicurezza sono ora raggruppate in set logici che riflettono meglio le superfici di attacco vulnerabili. Per altre informazioni, vedere [come viene calcolato il Punteggio sicuro](secure-score-security-controls.md#how-the-secure-score-is-calculated) di seguito.
+- **Controlli di sicurezza** : le raccomandazioni sulla sicurezza sono ora raggruppate in set logici che riflettono meglio le superfici di attacco vulnerabili. Per altre informazioni, vedere [come viene calcolato il Punteggio sicuro](secure-score-security-controls.md#how-the-secure-score-is-calculated) di seguito.
 
-- Il Punteggio complessivo riflette meglio la postura complessiva a cui sono stati assegnati i punti a livello di raccomandazione. Con questo miglioramento, il Punteggio migliorerà solo quando si correggeranno *tutti* i consigli per una singola risorsa all'interno di un controllo. Ciò significa che il punteggio è migliore solo quando la sicurezza di una risorsa migliora. 
+- **Il punteggio complessivo riflette meglio la postura complessiva** a cui sono stati assegnati i punti a livello di raccomandazione. Con questo miglioramento, il Punteggio migliorerà solo quando si correggeranno *tutti* i consigli per una singola risorsa all'interno di un controllo. Ciò significa che il punteggio è migliore solo quando la sicurezza di una risorsa migliora. 
 
-- Lo stato di sicurezza delle singole superfici di attacco è più visibile, mostrando il punteggio per controllo di sicurezza, la pagina Punteggio sicuro diventa la posizione in cui è possibile ottenere una visualizzazione granulare del modo in cui l'organizzazione protegge ogni singola superficie di attacco.
+- Lo **stato di sicurezza delle singole superfici di attacco è più visibile** , mostrando il punteggio per controllo di sicurezza, la pagina Punteggio sicuro diventa la posizione in cui è possibile ottenere una visualizzazione granulare del modo in cui l'organizzazione protegge ogni singola superficie di attacco.
 
 Il Punteggio sicuro migliorato viene visualizzato come percentuale, come illustrato nello screenshot seguente:
 
@@ -63,7 +63,7 @@ Ad esempio, il controllo di sicurezza denominato "Applica aggiornamenti del sist
 
 [![il controllo di sicurezza "Applica aggiornamenti del sistema"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
-Il valore per il controllo di sicurezza "Applica aggiornamenti del sistema" nella schermata precedente Mostra "2% (1 punto)". Ciò significa che se si esegue il monitoraggio e l'aggiornamento di tutte le raccomandazioni in questo controllo, il punteggio aumenterà del 2% (che in questo caso è un punto). Per semplicità, i valori nella colonna "aumento potenziale" dell'elenco di raccomandazioni vengono arrotondati a numeri interi. Le descrizioni comandi mostrano i valori esatti:
+Il potenziale per il controllo di sicurezza "Applica aggiornamenti del sistema" nella schermata precedente Mostra "2% (1 punto)". Ciò significa che se si esegue il monitoraggio e l'aggiornamento di tutte le raccomandazioni in questo controllo, il punteggio aumenterà del 2% (in questo caso, un punto). Per semplicità, i valori nella colonna "aumento potenziale" dell'elenco di raccomandazioni vengono arrotondati a numeri interi. Le descrizioni comandi mostrano i valori esatti:
 
 * **Potenziale aumento** : i punti rimanenti disponibili all'interno del controllo. Per aggiungere questi punti al Punteggio sicuro, correggere tutte le raccomandazioni del controllo. Nell'esempio precedente, l'unico punto visualizzato per il controllo è effettivamente 0,96 punti.
 * **Punteggio corrente** : punteggio corrente per questo controllo. Ogni controllo contribuisce a raggiungere il punteggio totale. In questo esempio, il controllo contribuisce a 5,04 punti al totale. 

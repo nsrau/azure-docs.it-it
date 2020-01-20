@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975698"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274552"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -64,17 +64,15 @@ Nella maggior parte dei casi è consigliabile usare account di utilizzo generico
 
 ### <a name="blockblobstorage-accounts"></a>Account BlockBlobStorage
 
-Un account BlockBlobStorage è un account di archiviazione specializzato usato per archiviare dati di oggetti non strutturati come BLOB in blocchi. Per creare BLOB in blocchi Premium, è anche possibile usare un account BlockBlobStorage. Questo tipo di account di archiviazione supporta i BLOB in blocchi e i BLOB di Accodamento, ma non i BLOB di pagine, le tabelle o le code.
+Un account BlockBlobStorage è un account di archiviazione specializzato nel livello di prestazioni Premium per l'archiviazione di dati di oggetti non strutturati come BLOB in blocchi o BLOB di Accodamento. Rispetto agli account per utilizzo generico V2 e BlobStorage, gli account BlockBlobStorage offrono latenza bassa, coerente e frequenze di transazione più elevate.
 
-Rispetto agli account per utilizzo generico V2 e BlobStorage, gli account BlockBlobStorage forniscono una latenza bassa e coerente e frequenze di transazioni più elevate.
-
-Gli account BlockBlobStorage non supportano attualmente la suddivisione in livelli per i livelli di accesso frequente, sporadico o archivio.
+Gli account BlockBlobStorage non supportano attualmente la suddivisione in livelli per i livelli di accesso frequente, sporadico o archivio. Questo tipo di account di archiviazione non supporta BLOB di pagine, tabelle o code.
 
 ### <a name="filestorage-accounts"></a>Account filestorage
 
 Un account filestorage è un account di archiviazione specializzato usato per archiviare e creare condivisioni file Premium. Questo tipo di account di archiviazione supporta i file ma non i BLOB in blocchi, i BLOB di Accodamento, i BLOB di pagine, le tabelle o le code.
 
-Gli account filestorage offrono caratteristiche esclusive dedicate alle prestazioni, ad esempio il picchi di IOPS. Per ulteriori informazioni su queste caratteristiche, vedere la sezione [livelli di prestazioni della condivisione file](../files/storage-files-planning.md#file-share-performance-tiers) della Guida alla pianificazione dei file.
+Gli account filestorage offrono caratteristiche di prestazioni univoche, ad esempio il picchi di IOPS. Per ulteriori informazioni su queste caratteristiche, vedere la sezione [livelli di prestazioni della condivisione file](../files/storage-files-planning.md#file-share-performance-tiers) della Guida alla pianificazione dei file.
 
 ## <a name="naming-storage-accounts"></a>Denominazione degli account di archiviazione
 
@@ -85,12 +83,20 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 
 ## <a name="performance-tiers"></a>Livelli di prestazioni
 
+A seconda del tipo di account di archiviazione creato, è possibile scegliere tra i livelli di prestazioni standard e Premium.
+
+### <a name="general-purpose-storage-accounts"></a>Account di archiviazione per utilizzo generico
+
 Gli account di archiviazione per utilizzo generico possono essere configurati per uno dei livelli di prestazioni seguenti:
 
 - Un livello di prestazioni standard per l'archiviazione di BLOB, file, tabelle, code e dischi delle macchine virtuali di Azure. Per altre informazioni sugli obiettivi di scalabilità per gli account di archiviazione standard, vedere [obiettivi di scalabilità per gli account di archiviazione standard](scalability-targets-standard-account.md).
-- Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali non gestiti. Microsoft consiglia di usare Managed disks con macchine virtuali di Azure anziché con dischi non gestiti. Per altre informazioni sugli obiettivi di scalabilità per il livello di prestazioni Premium, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../blobs/scalability-targets-premium-page-blobs.md).
+- Livello di prestazioni Premium per l'archiviazione di dischi di macchine virtuali non gestiti. Microsoft consiglia di usare Managed disks con macchine virtuali di Azure anziché con dischi non gestiti. Per altre informazioni sugli obiettivi di scalabilità per il livello di prestazioni Premium, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../blobs/scalability-targets-premium-page-blobs.md).
+
+### <a name="blockblobstorage-storage-accounts"></a>Account di archiviazione BlockBlobStorage
 
 Gli account di archiviazione BlockBlobStorage forniscono un livello di prestazioni Premium per l'archiviazione di BLOB in blocchi e BLOB di Accodamento. Per ulteriori informazioni, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB in blocchi Premium](../blobs/scalability-targets-premium-block-blobs.md).
+
+### <a name="filestorage-storage-accounts"></a>Account di archiviazione filestorage
 
 Gli account di archiviazione filestorage forniscono un livello di prestazioni Premium per le condivisioni file di Azure. Per ulteriori informazioni, vedere [obiettivi di scalabilità e prestazioni file di Azure](../files/storage-files-scale-targets.md).
 
@@ -102,7 +108,7 @@ I livelli di accesso disponibili sono i seguenti:
 
 - Livello **di accesso** frequente. Questo livello è ottimizzato per l'accesso frequente agli oggetti nell'account di archiviazione. L'accesso ai dati nel livello critico è più conveniente, mentre i costi di archiviazione sono maggiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
 - Livello **di accesso** sporadico. Questo livello è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede raramente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso a tali dati può risultare più costoso rispetto all'accesso ai dati nel livello critico.
-- Livello **Archivio** . Questo livello è disponibile solo per i singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
+- Livello **Archivio** . Questo livello è disponibile solo per i singoli BLOB in blocchi e i BLOB di Accodamento. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
 
 Se viene apportata una modifica al modello di utilizzo dei dati, è possibile passare da un livello di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 

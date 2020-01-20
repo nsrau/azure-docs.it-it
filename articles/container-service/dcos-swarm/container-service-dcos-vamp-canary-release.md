@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Versione canary con Vamp nel cluster DC/OS di Azure
 description: Come usare Vamp per i servizi della versione canary e applicare filtri intelligenti al traffico in un cluster Azure DC/OS del servizio Azure Container
-services: container-service
 author: gggina
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458194"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275654"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Microservizi della versione canary con Vamp in un cluster DC/OS del servizio Azure Container
 
@@ -44,7 +42,7 @@ La [versione canary](https://martinfowler.com/bliki/CanaryRelease.html) è una s
 
 ## <a name="set-up-vamp"></a>Configurare Vamp
 
-Dopo aver creato un cluster DC/OS in esecuzione, è possibile installare Vamp dall'interfaccia utente di DC/OS (http:\//localhost:80). 
+Ora che si dispone di un cluster DC/OS in esecuzione, è possibile installare vamp dall'interfaccia utente di DC/OS (http:\//localhost: 80). 
 
 ![Interfaccia utente di DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -135,7 +133,7 @@ Questo scenario usa un'applicazione monolitica di esempio denominata [**sava**](
 
 1. Andare in **Deployments** (Distribuzioni).
 
-2. Fare clic su **Aggiungi**.
+2. Scegliere **Aggiungi**.
 
 3. Incollare il progetto YAML seguente. Questo progetto contiene un cluster con solo una variante di servizio, che verrà modificata in un passaggio successivo:
 
@@ -145,7 +143,6 @@ Questo scenario usa un'applicazione monolitica di esempio denominata [**sava**](
     9050: sava_cluster/webport      # stable endpoint
    clusters:
     sava_cluster:               # cluster to create
-     services:
         -
           breed:
             name: sava:1.0.0        # service variant name
@@ -154,7 +151,7 @@ Questo scenario usa un'applicazione monolitica di esempio denominata [**sava**](
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. Fare clic su **Save**. Vamp avvia la distribuzione.
+4. Fare clic su **Salva**. Vamp avvia la distribuzione.
 
 La distribuzione viene elencata nella pagina **Distribuzioni**. Fare clic sulla distribuzione per monitorarne lo stato.
 
@@ -200,13 +197,12 @@ Per unire il nuovo servizio sava 1.1 con la distribuzione in esecuzione:
 
 1. Nell'interfaccia utente di Vamp fare clic su **Blueprints** (Progetti).
 
-2. Fare clic su **Add** (Aggiungi) e incollare il progetto YAML seguente: questo progetto descrive una nuova variante di servizio, sava:1.1.0, da distribuire nel cluster esistente, sava_cluster.
+2. Fare clic su **Add** (Aggiungi) e incollare il seguente progetto YAML: questo progetto descrive una nuova variante di servizio, sava: 1.1.0, da distribuire nel cluster esistente, sava_cluster.
 
    ```YAML
    name: sava:1.1.0      # blueprint name
    clusters:
     sava_cluster:       # cluster to update
-      services:
         -
           breed:
             name: sava:1.1.0    # service variant name
@@ -215,7 +211,7 @@ Per unire il nuovo servizio sava 1.1 con la distribuzione in esecuzione:
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Fare clic su **Save**. Il progetto viene archiviato ed elencato nella pagina **Blueprints** (Progetti).
+3. Fare clic su **Salva**. Il progetto viene archiviato ed elencato nella pagina **Blueprints** (Progetti).
 
 4. Aprire il menu di azione nel progetto sava:1.1 e fare clic su **Merge to** (Unisci a).
 

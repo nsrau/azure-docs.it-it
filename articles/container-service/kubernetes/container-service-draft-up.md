@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Usare Draft con il servizio Azure Container e il Registro Azure Container
 description: Creare un cluster Kubernetes ACS e un'istanza di Registro Azure Container per creare la prima applicazione in Azure con Draft.
-services: container-service
 author: squillace
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712671"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271141"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(DEPRECATO) Usare Draft con il servizio Azure Container e il Registro Azure Container per compilare e distribuire un'applicazione in Kubernetes
 
@@ -31,7 +29,7 @@ ms.locfileid: "60712671"
 ## <a name="create-an-azure-container-registry"></a>Creare un'istanza di Registro Azure Container
 È possibile [creare una nuova istanza di Registro Azure Container](../../container-registry/container-registry-get-started-azure-cli.md) facilmente, ma i passaggi sono i seguenti:
 
-1. Creare un gruppo di risorse di Azure per gestire il registro contenitori di AZURE e il cluster Kubernetes nel servizio contenitore di AZURE.
+1. Creare un gruppo di risorse di Azure per gestire il registro ACR e il cluster Kubernetes in ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -204,7 +202,7 @@ In questo caso, l'IP esterno per il dominio di distribuzione è `13.64.108.240`.
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Mappare l'indirizzo IP dell'ingresso a un sottodominio personalizzato
 
-Draft crea una versione per ogni grafico Helm creato, ovvero ogni applicazione a cui si sta lavorando. Ogni versione ottiene un nome generato, usato da **Draft** come _sottodominio_ del _dominio di distribuzione_ radice controllato dall'utente. In questo esempio viene usato `squillace.io` come dominio di distribuzione. Per abilitare questo comportamento del sottodominio, è necessario creare un record A per `'*.draft'` nelle voci DNS per il dominio di distribuzione, in modo che venga eseguito il routing di ogni sottodominio generato al controller di ingresso del cluster Kubernetes. 
+Draft crea una versione per ogni grafico Helm creato, ovvero ogni applicazione a cui si sta lavorando. Ogni versione ottiene un nome generato, usato da **Draft** come _sottodominio_ del _dominio di distribuzione_ radice controllato dall'utente. In questo esempio si usa `squillace.io` come dominio di distribuzione. Per abilitare questo comportamento del sottodominio, è necessario creare un record A per `'*.draft'` nelle voci DNS per il dominio di distribuzione, in modo che ogni sottodominio generato venga indirizzato al controller di ingresso del cluster Kubernetes. 
 
 Ogni provider di dominio assegna i server DNS in un modo specifico. Per [delegare i server dei nomi di dominio al servizio DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md), seguire questa procedura:
 
