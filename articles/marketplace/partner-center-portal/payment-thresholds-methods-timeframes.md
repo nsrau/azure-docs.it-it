@@ -77,7 +77,7 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 | Repubblica democratica del Congo                      | Sì               | Sì                                      | Sì    | No              |
 | Congo, Repubblica di               | Sì               | Sì                                      | Sì    | No              |
 | Costa Rica                       | Sì               | Sì                                      | Sì    | Sì             |
-| Costa d'Avorio                    | Sì               | Sì                                      | Sì    | No              |
+| Côte d’Ivoire (Costa d'Avorio)                    | Sì               | Sì                                      | Sì    | No              |
 | Croazia                          | Sì               | Sì                                      | Sì    | No              |
 | Cipro                           | Sì               | Sì                                      | Sì    | Sì             |
 | Repubblica Ceca                   | Sì               | Sì                                      | Sì    | Sì             |
