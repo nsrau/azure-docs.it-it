@@ -3,24 +3,24 @@ title: "Avvio rapido: Usare una chiave simmetrica per effettuare il provisioning
 description: In questa guida di avvio rapido verrà usato l'SDK per dispositivi C per creare un dispositivo simulato che usa la chiave simmetrica con il servizio Device Provisioning in hub IoT di Azure.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 01/14/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0c0192ac2cafc724875c07de152bdb1d3f4e49ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6047051a36459d61bb5f02907dde9e73a70e86ec
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434702"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945208"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
 
 In questa guida introduttiva si apprenderà come creare ed eseguire un simulatore di dispositivo in un computer di sviluppo Windows. Si configurerà il dispositivo simulato per usare una chiave simmetrica da autenticare con un'istanza del servizio Device Provisioning e da assegnare a un hub IoT. Si userà un codice di esempio da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per simulare una sequenza di avvio per il dispositivo che avvia il processo di provisioning. Il dispositivo verrà riconosciuto in base alla registrazione singola nell'istanza del servizio di provisioning e assegnato all'hub IoT.
 
-Sebbene questo articolo illustri il provisioning con una registrazione singola, è possibile utilizzare le stesse procedure con i gruppi di registrazioni. L'unica differenza è che è necessario usare una chiave di dispositivo derivata con un ID di registrazione univoco per il dispositivo. Con i gruppi di registrazione, la chiave simmetrica della registrazione non viene utilizzata direttamente. Anche se i gruppi di registrazione di chiave simmetrica non sono limitati per i dispositivi legacy, in [Come eseguire il provisioning di dispositivi legacy usando l'attestazione di chiave simmetrica](how-to-legacy-device-symm-key.md) viene fornito un esempio di gruppo di registrazione. Per altre informazioni, vedere [Attestazione con chiave simmetrica delle registrazioni di gruppo](concepts-symmetric-key-attestation.md#group-enrollments).
+Anche se questo articolo illustra il provisioning con una registrazione singola, è possibile usare gruppi di registrazioni. Esistono alcune differenze quando si usano i gruppi di registrazioni. È ad esempio necessario usare una chiave di dispositivo derivata con un ID registrazione univoco per il dispositivo. Anche se i gruppi di registrazione di chiave simmetrica non sono limitati per i dispositivi legacy, in [Come eseguire il provisioning di dispositivi legacy usando l'attestazione di chiave simmetrica](how-to-legacy-device-symm-key.md) viene fornito un esempio di gruppo di registrazione. Per altre informazioni, vedere [Attestazione con chiave simmetrica delle registrazioni di gruppo](concepts-symmetric-key-attestation.md#group-enrollments).
 
 Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). 
 
@@ -52,7 +52,9 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
 
     È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
-2. Trovare il nome del tag per la [versione più recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) dell'SDK.
+    Con le versioni precedenti del sistema di compilazione CMake non è possibile generare il file di soluzione usato in questo articolo. Assicurarsi di usare una versione più recente di CMake.
+
+2. Fare clic su **Tag** e trovare il nome di tag per la versione più recente nella [pagina delle versioni di Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
 3. Aprire un prompt dei comandi o la shell Git Bash. Eseguire i comandi seguenti per clonare la versione più recente del repository GitHub [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Usare il tag trovato nel passaggio precedente come valore per il parametro `-b`:
 
@@ -97,7 +99,7 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Creare una voce per la registrazione del dispositivo nel portale
 
-1. Accedere al portale di Azure, selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
+1. Accedere al [portale di Azure](https://portal.azure.com), selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
 
 2. Selezionare **Gestisci registrazioni** e quindi fare clic sul pulsante **Aggiungi registrazione singola** nella parte superiore. 
 
@@ -136,6 +138,8 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
+
+    Se il file non è stato generato nella directory cmake, verificare di aver usato una versione recente del sistema di compilazione CMake.
 
 3. Nella finestra *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Samples**. Espandere il progetto di esempio denominato **prov\_dev\_client\_sample**. Espandere **File di origine** e aprire **prov\_dev\_client\_sample.c**.
 

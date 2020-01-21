@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2ef7f273d6838b1bc051c70539ef7d9da59d7148
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791024"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754575"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure
 
@@ -103,7 +103,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 
 ## <a name="key-features-and-concepts"></a>Funzionalità e concetti principali
 
-| Concetto | DESCRIZIONE| Collegamenti |
+| Concetto | Descrizione| Collegamenti |
 |---------|------------|-------|
 | Set di competenze | Risorsa denominata di primo livello contenente una raccolta di competenze. Un set di competenze è la pipeline di arricchimento. Viene richiamata durante l'indicizzazione da parte di un indicizzatore. | Vedere [Definire un set di competenze](cognitive-search-defining-skillset.md) |
 | Competenza cognitiva | Trasformazione atomica in una pipeline di arricchimento. Spesso si tratta di un componente che consente di estrarre o dedurre la struttura e pertanto aumenta il riconoscimento dei dati di input. Quasi sempre, l'output è testuale e l'elaborazione è del linguaggio naturale o di immagini e consente di estrarre o generare testo dagli input delle immagini. L'output di una competenza può essere mappato a un campo di un indice o usato come input per un arricchimento a valle. Una competenza può essere predefinita e fornita da Microsoft o personalizzata, ossia creata e distribuita dall'utente. | [Competenze cognitive predefinite](cognitive-search-predefined-skills.md) |
@@ -113,11 +113,11 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 | Individuazione di documenti | Processo di estrazione o creazione di contenuti di testo da origini non testuali durante l'indicizzazione. La funzione di riconoscimento ottico dei caratteri (Optical Character Recognition - OCR) ne è un esempio, ma in genere si fa riferimento alla funzionalità di base dell'indicizzatore, che consente di estrarre contenuti da file dell'applicazione. L'origine dati che fornisce il percorso del file di origine e la definizione dell'indicizzatore che fornisce il mapping dei campi sono entrambi fattori chiave nell'individuazione di documenti. | Vedere [Panoramica degli indicizzatori](search-indexer-overview.md) |
 | Shaping | Consolidare frammenti di testo in una struttura più ampia o viceversa suddividere i blocchi di testo più grandi in blocchi di dimensioni gestibili per un'altra elaborazione a valle. | Vedere [Competenza Shaper](cognitive-search-skill-shaper.md), [Competenza di unione testo](cognitive-search-skill-textmerger.md), [Competenze di divisione testo](cognitive-search-skill-textsplit.md) |
 | Documenti arricchiti | Struttura interna transitoria, generata durante l'elaborazione, con l'output finale riflesso in un indice di ricerca. Un set di competenze determina i miglioramenti eseguiti. Il mapping dei campi determina gli elementi dati aggiunti all'indice. È facoltativamente possibile creare un knowledge store per rendere persistenti ed esplorare i documenti arricchiti usando strumenti come Storage Explorer, Power BI o qualsiasi altro strumento che si connette ad Archiviazione BLOB di Azure. | Vedere [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md) |
-| Indexer |  Crawler che estrae dati e metadati che supportano la ricerca da un'origine dati esterna e popola un indice in base a mapping da campo a campo tra l'indice e l'origine dati per l'individuazione dei documenti. Per gli arricchimenti tramite intelligenza artificiale, l'indicizzatore richiama un set di competenze e contiene i mapping dei campi che associano gli output di arricchimento ai campi di destinazione nell'indice. La definizione dell'indicizzatore contiene tutte le istruzioni e i riferimenti per le operazioni della pipeline, che viene a sua volta richiamata quando si esegue l'indicizzatore. Con la configurazione aggiuntiva, è possibile riutilizzare l'elaborazione esistente ed eseguire solo le competenze e i passaggi cambiati. | Vedere [Indicizzatori](search-indexer-overview.md) e [Indicizzazione incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md). |
+| Indexer |  Crawler che estrae dati e metadati che supportano la ricerca da un'origine dati esterna e popola un indice in base a mapping da campo a campo tra l'indice e l'origine dati per l'individuazione dei documenti. Per gli arricchimenti tramite intelligenza artificiale, l'indicizzatore richiama un set di competenze e contiene i mapping dei campi che associano gli output di arricchimento ai campi di destinazione nell'indice. La definizione dell'indicizzatore contiene tutte le istruzioni e i riferimenti per le operazioni della pipeline, che viene a sua volta richiamata quando si esegue l'indicizzatore. Con la configurazione aggiuntiva, è possibile riutilizzare il contenuto elaborato esistente ed eseguire solo le competenze e i passaggi che sono cambiati. | Vedere [Indicizzatori](search-indexer-overview.md) e [Arricchimento incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md). |
 | origine dati  | Oggetto usato da un indicizzatore per la connessione a un'origine dati esterna di tipi supportati in Azure. | Vedere [Panoramica degli indicizzatori](search-indexer-overview.md) |
 | Indice | Indice di ricerca persistente in Ricerca cognitiva di Azure, compilato in base a uno schema dell'indice che definisce la struttura dei campi e l'utilizzo. | Vedere [Creare un indice di base](search-what-is-an-index.md) | 
 | Knowledge store | Account di archiviazione in cui è possibile modellare e proiettare i documenti arricchiti oltre all'indice di ricerca | Vedere [Introduzione all'archivio conoscenze](knowledge-store-concept-intro.md) | 
-| Cache dell'indicizzatore | Gli output delle competenze dell'account di archiviazione vengono memorizzati nella cache dall'indicizzatore. La cache consente all'indicizzatore di ridurre al minimo il costo di rielaborazione di un numero elevato di documenti quando viene modificato un set di competenze. | Vedere [Indicizzazione incrementale](cognitive-search-incremental-indexing-conceptual.md) | 
+| Cache | Account di archiviazione che contiene l'output memorizzato nella cache creato da una pipeline di arricchimento. L'abilitazione della cache consente di mantenere l'output esistente non interessato dalle modifiche apportate a un set di competenze o ad altri componenti della pipeline di arricchimento. | Vedere [Arricchimento incrementale](cognitive-search-incremental-indexing-conceptual.md). | 
 
 <a name="where-do-i-start"></a>
 
@@ -139,7 +139,7 @@ Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che 
 
 In questo passaggio vengono usate API REST per creare una soluzione di arricchimento tramite intelligenza artificiale. Per l'arricchimento tramite intelligenza artificiale vengono aggiunte o estese solo due API. Altre API hanno la stessa sintassi delle versioni generalmente disponibili.
 
-| API REST | DESCRIZIONE |
+| API REST | Descrizione |
 |-----|-------------|
 | [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Risorsa che identifica un'origine dati esterna che fornisce dati di origine usati per creare documenti arricchiti.  |
 | [Creare un set di competenze (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Questa API è specifica dell'arricchimento tramite intelligenza artificiale. È una risorsa che coordina l'utilizzo di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) usate in una pipeline di arricchimento durante l'indicizzazione. |
@@ -171,7 +171,7 @@ Per altre informazioni su domande o problemi specifici, vedere [Suggerimenti per
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Collegamenti alla documentazione per l'arricchimento tramite intelligenza artificiale](cognitive-search-resources-documentation.md)
-+ [Guida introduttiva: Creare una pipeline di arricchimento con intelligenza artificiale usando competenze cognitive in Ricerca di Azure](cognitive-search-quickstart-blob.md)
++ [Avvio rapido: Creare una pipeline di arricchimento con intelligenza artificiale usando competenze cognitive in Ricerca di Azure](cognitive-search-quickstart-blob.md)
 + [Esercitazione: Definire la struttura di "contenuto non strutturato" con la ricerca cognitiva](cognitive-search-tutorial-blob.md)
 + [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
-+ [Procedura dettagliata su Knowledge Store](knowledge-store-howto.md)
++ [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)

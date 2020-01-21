@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b9491a4438ff07222bb5ce5bd684964bdfc0031
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c068e33bc7844c464bc8a289387990128d96dd35
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452824"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861796"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
@@ -82,7 +82,7 @@ Seguire questa procedura per iniziare.
 1. Effettuare il provisioning di un nuovo ambiente Time Series Insights nel portale di Azure.
 1. Connettersi a un'origine evento, ad esempio un hub IoT o un hub eventi.
 1. Caricare i dati di riferimento. Non è un servizio aggiuntivo.
-1. I dati verranno visualizzati nel giro di pochi minuti nello strumento di esplorazione di Time Series Insights.
+1. Esaminare e visualizzare i dati nel giro di pochi minuti nello strumento di esplorazione di Time Series Insights.
 
 ## <a name="explorer"></a>Explorer
 

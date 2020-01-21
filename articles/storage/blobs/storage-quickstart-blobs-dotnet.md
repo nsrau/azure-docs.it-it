@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f788f7827f778029a0f34ec1f7e73b174738e1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351297"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863962"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per .NET
 
@@ -229,7 +229,8 @@ Aggiungere questo codice alla fine del metodo `Main`:
 
 ```csharp
 // Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension so you can see both files in MyDocuments
+// Append the string "DOWNLOAD" before the .txt extension 
+// so you can compare the files in the data directory
 string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
 
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
@@ -267,7 +268,7 @@ Console.WriteLine("Done");
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-Questa app crea un file di test nella cartella *MyDocuments* locale e lo carica nella risorsa di archiviazione BLOB. L'esempio elenca quindi i BLOB presenti nel contenitore e scarica il file con un nuovo nome per consentire il confronto tra i nuovi file e quelli precedenti.
+Questa app crea un file di test nella cartella *data* locale e lo carica nell'archiviazione BLOB. L'esempio elenca quindi i BLOB presenti nel contenitore e scarica il file con un nuovo nome per consentire il confronto tra i nuovi file e quelli precedenti.
 
 Passare alla directory dell'applicazione, quindi compilarla ed eseguirla.
 
@@ -299,7 +300,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Prima di iniziare il processo di pulizia, controllare che nella cartella *Documenti* siano presenti due file. È possibile aprirli e verificare che sono identici.
+Prima di iniziare il processo di pulizia, controllare che nella cartella *data* siano presenti due file. È possibile aprirli e verificare che sono identici.
 
 Dopo aver verificato i file, premere **INVIO** per eliminare i file di test e completare la demo.
 

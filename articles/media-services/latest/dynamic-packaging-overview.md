@@ -1,5 +1,5 @@
 ---
-title: Creazione dinamica dei pacchetti in Servizi multimediali
+title: Creazione dinamica dei pacchetti in Servizi multimediali di Azure versione 3
 titleSuffix: Azure Media Services
 description: Questo articolo offre una panoramica della creazione dinamica dei pacchetti in Servizi multimediali di Azure.
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977761"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779604"
 ---
-# <a name="dynamic-packaging-in-media-services"></a>Creazione dinamica dei pacchetti in Servizi multimediali
+# <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
 Servizi multimediali di Microsoft Azure può essere usato per codificare molti formati di file di origini multimediali. Tali formati vengono distribuiti tramite protocolli di streaming diversi, con o senza protezione del contenuto, per raggiungere tutti i dispositivi principali, ad esempio dispositivi iOS e Android. Tali client supportano protocolli diversi. iOS, ad esempio, richiede che i flussi vengano distribuiti nel formato HLS (HTTP Live Streaming), mentre i dispositivi Android supportano HLS e MPEG DASH.
 
@@ -273,7 +273,7 @@ Per controllare il numero di tracce, i formati, la velocità in bit e gli interv
 > [!NOTE]
 > Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 Consultare [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

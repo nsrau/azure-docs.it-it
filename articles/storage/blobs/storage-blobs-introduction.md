@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615610"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972460"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduzione all'archiviazione BLOB di Azure
 
@@ -41,7 +41,7 @@ Ad esempio, se l'account di archiviazione si chiama *mystorageaccount*, l’endp
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../common/storage-quickstart-create-account.md). Per altre informazioni sugli account di archiviazione, vedere la [panoramica degli account di archiviazione di Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../common/storage-account-create.md). Per altre informazioni sugli account di archiviazione, vedere la [panoramica degli account di archiviazione di Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="containers"></a>Contenitori
 
@@ -50,7 +50,7 @@ Un contenitore consente di organizzare un set di BLOB, in modo simile a una dire
   > [!NOTE]
   > Il nome del contenitore deve essere in lettere minuscole. Per altre informazioni sui contenitori di denominazione, vedere [Contenitori di denominazione e di riferimento, BLOB e metadati](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-### <a name="blobs"></a>Blobs
+### <a name="blobs"></a>BLOB
  
 Archiviazione di Azure supporta tre tipi di BLOB:
 
@@ -73,5 +73,5 @@ Esistono diverse soluzioni per la migrazione dei dati esistenti nell'archivio BL
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un account di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md)
+- [Creare un account di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](scalability-targets.md)

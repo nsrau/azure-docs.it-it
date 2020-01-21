@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ab3805e39112d4d37635571d8aa43030a1896951
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: aa6d3d61cb2ce0972653f787976a89e3d372ae27
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552441"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912348"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Windows virtuale
 
@@ -227,7 +227,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
    ![Visualizzare i dati dal modulo](./media/quickstart/iotedge-logs.png)
 
-È anche possibile visualizzare i messaggi ricevuti dall'hub IoT usando l'[estensione Azure IoT Hub Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (in precedenza Azure IoT Toolkit).
+È anche possibile visualizzare i messaggi ricevuti dall'hub IoT usando l'[estensione Azure IoT Hub per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

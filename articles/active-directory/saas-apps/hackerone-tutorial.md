@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0158a7df96f4c83763c5b2324ccc2bfcb5a72b5d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159166"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Esercitazione: Integrazione di Azure Active Directory con HackerOne
 
@@ -35,7 +35,7 @@ L'integrazione di HackerOne con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con HackerOne, sono necessari gli elementi seguenti:
 
@@ -76,7 +76,7 @@ Per configurare l'integrazione di HackerOne in Azure AD, è necessario aggiunger
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con HackerOne usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in HackerOne.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con HackerOne, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con HackerOne, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per HackerOne](#configure-hackerone-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -107,12 +107,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di HackerOne](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://hackerone.com/<company name>/authentication`
+    a. Nella casella di testo **URL di accesso** immettere quanto segue: `https://hackerone.com/users/saml/auth`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://hackerone.com/users/saml/metadata`
-
-    > [!NOTE]
-    > Poiché l'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di HackerOne](mailto:support@hackerone.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    b. Nella casella di testo **Identificatore (ID entità)** immettere quanto segue: `hackerone.com`
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -150,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     c. Aprire nel Blocco note il **file del certificato** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **X509 Certificate** (Certificato X.509).
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
 5. Nella finestra di dialogo relativa alle impostazioni di autenticazione seguire questa procedura:
 
@@ -162,7 +159,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -179,21 +176,21 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HackerOne.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HackerOne.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **HackerOne**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **HackerOne**.
+2. Nell'elenco delle applicazioni selezionare **HackerOne**.
 
     ![Collegamento di HackerOne nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -219,7 +216,7 @@ In questa sezione viene creato un utente di nome Britta Simon in HackerOne. Hack
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di HackerOne nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione HackerOne per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di HackerOne nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di HackerOne per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

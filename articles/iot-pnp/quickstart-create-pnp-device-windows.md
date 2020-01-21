@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b447a0328de210caeb23a1beb91c532853c180bc
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550469"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867478"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Avvio rapido: Usare un modello funzionalità di dispositivo per creare un dispositivo di anteprima Plug and Play IoT (Windows)
 
@@ -85,7 +85,7 @@ In questo argomento di avvio rapido viene usato lo strumento di gestione libreri
 
 In questa guida di avvio rapido si useranno un modello di funzionalità di dispositivo di esempio esistente e le interfacce associate.
 
-1. Creare una directory `pnp_app` nell'unità locale. Questa cartella viene usata per i file del modello di dispositivo e lo stub del codice del dispositivo.
+1. Creare una cartella `pnp_app` nell'unità locale. Questa cartella viene usata per i file del modello di dispositivo e lo stub del codice del dispositivo.
 
 1. Scaricare il [modello di funzionalità di dispositivo e i file di interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) e l'[interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e salvare i file nella cartella `pnp_app`.
 
@@ -124,7 +124,7 @@ A questo punto, si dispone di un modello di funzionalità di dispositivo e delle
 
 ## <a name="build-and-run-the-code"></a>Compilare ed eseguire il codice
 
-Per compilare lo stub del codice del dispositivo generato, si usa il codice sorgente dell'SDK per dispositivi. L'applicazione compilata simula un dispositivo che si connette a un hub IoT. L'applicazione invia proprietà e dati di telemetria e riceve comandi.
+Per compilare lo stub del codice del dispositivo generato, usare il pacchetto Vcpkg. L'applicazione compilata simula un dispositivo che si connette a un hub IoT. L'applicazione invia proprietà e dati di telemetria e riceve comandi.
 
 1. Creare una sottodirectory `cmake` nella cartella `sample_device` e passare a tale cartella:
 

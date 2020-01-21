@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 20802cf9f9934a85e00bce41b6bbe21a6ff95579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151247"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772296"
 ---
-# <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure
+# <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Avvio rapido: Creare e crittografare una macchina virtuale con il portale di Azure
 
 È possibile creare macchine virtuali di Azure tramite il portale di Azure. Il portale di Azure è un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questo argomento di avvio rapido illustra come usare il portale di Azure per distribuire una macchina virtuale (VM) Linux che esegue Ubuntu 18.04 LTS, creare un insieme di credenziali delle chiavi per l'archiviazione delle chiavi di crittografia e crittografare la VM.
 
@@ -71,7 +71,7 @@ Quando non serve più, è possibile eliminare il gruppo di risorse, la macchina 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato creato un insieme di credenziali delle chiavi abilitato per le chiavi di crittografia, quindi è stata creata una macchina virtuale che è stata abilitata per la crittografia.  
+In questo argomento di avvio rapido è stato creato un Key Vault abilitato per le chiavi di crittografia, quindi è stata creata una macchina virtuale che è stata abilitata per la crittografia.  
 
 > [!div class="nextstepaction"]
 > [Informazioni su Crittografia dischi di Azure](disk-encryption-overview.md)

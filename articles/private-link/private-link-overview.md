@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 127807a57598fcfe239db39cb9874bca955da44e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647357"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867550"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Che cos'è Collegamento privato di Azure? (Anteprima)
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure, Azure Cosmos DB e Database SQL, e ai servizi di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È anche possibile creare un proprio [servizio Collegamento privato](private-link-service-overview.md) nella rete virtuale e distribuirlo privatamente ai clienti. Collegamento privato di Azure offre un'esperienza di configurazione e utilizzo coerente per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
@@ -46,6 +46,9 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |  |  database SQL di Azure         | Tutte le aree pubbliche      |   Anteprima      |
 ||Azure SQL Data Warehouse| Tutte le aree pubbliche |Anteprima|
 ||Azure Cosmos DB| Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-settentrionali |Anteprima|
+|  |  Database di Azure per PostgreSQL - Server singolo         | Tutte le aree pubbliche      |   Anteprima      |
+|  |  Database di Azure per MySQL         | Tutte le aree pubbliche      |   Anteprima      |
+|  |  Database di Azure per MariaDB         | Tutte le aree pubbliche      |   Anteprima      |
 
 Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi a Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

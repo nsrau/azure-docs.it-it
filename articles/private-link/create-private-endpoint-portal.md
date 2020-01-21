@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459928"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028887"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Avvio rapido: Creare un endpoint privato con il portale di Azure
 
@@ -64,7 +64,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
     | Nome macchina virtuale | Immettere *myVm*. |
     | Region | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Image | Selezionare **Windows Server 2019 Datacenter**. |
+    | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
     | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
@@ -162,7 +162,7 @@ In questa sezione si creerà un server SQL e vi si aggiungerà un endpoint priva
     | ------- | ----- |
     |**RETE**| |
     | Rete virtuale| Selezionare *MyVirtualNetwork*. |
-    | Subnet | Selezionare  *mySubnet*. |
+    | Subnet | Selezionare *mySubnet*. |
     |**INTEGRAZIONE DNS PRIVATO**||
     |Integra con la zona DNS privato |Selezionare **Sì**. |
     |Zona DNS privato |Selezionare *(Nuovo)privatelink.database.windows.net* |
@@ -199,9 +199,9 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla VM
 
-1. Nel desktop remoto di  *myVM* aprire PowerShell.
+1. Nel Desktop remoto di *myVm1* aprire PowerShell.
 
-2. Immettere  `nslookup myserver.database.windows.net`. 
+2. Immettere `nslookup myserver.database.windows.net`. 
 
     Verrà visualizzato un messaggio simile al seguente:
     ```azurepowershell
@@ -227,11 +227,11 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 1. Selezionare **Connetti**.
 2. Esplorare i database dal menu a sinistra.
 3. (Facoltativamente) Creare o eseguire query sulle informazioni di mydatabase.
-4. Chiudere la connessione Desktop remoto a  *myVm*. 
+4. Chiudere la connessione Desktop remoto a *myVm*. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 Quando non si ha più bisogno dell'endpoint privato, del server SQL e della macchina virtuale, rimuovere il gruppo di risorse e tutte le risorse che contiene: 
-1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca. 
+1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca. 
 2. Selezionare **Elimina gruppo di risorse**. 
 3. Immettere myResourceGroup in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 

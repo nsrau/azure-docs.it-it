@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 545e3efc0815e48d5bd16beabbf9f6ef283fea8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e3d984fee75dcdb8d4e14e7b454e74a3f7c629f2
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464413"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730140"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Avvio rapido: Distribuire un'applicazione Reliable Services .NET su Service Fabric
 
@@ -51,6 +51,8 @@ Dopo aver installato il runtime, gli SDK e gli strumenti di Visual Studio e aver
 > Durante questa procedura, è necessario che il Docker sia in esecuzione per fare in modo che il cluster venga creato con le funzionalità del contenitore abilitate. Se il Docker non è in esecuzione, sarà necessario ricreare il cluster per abilitare le funzionalità del contenitore.
 > Anche se non è necessaria per questa specifica guida introduttiva, l'istruzione di avere il Docker in esecuzione quando si crea il cluster viene inclusa come procedura consigliata.
 > Per testare se Docker è in esecuzione, aprire una finestra del terminale ed eseguire `docker ps` per vedere se si verifica un errore. Se la risposta non indica un errore, Docker è in esecuzione ed è possibile creare un cluster.
+>
+> [Configurare Windows 10 o Windows Server per i contenitori](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Aprire una nuova finestra di PowerShell con privilegi elevati come amministratore.
 2. Eseguire il comando di PowerShell seguente per creare un cluster di sviluppo:

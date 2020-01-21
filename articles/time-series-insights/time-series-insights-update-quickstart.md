@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 12/20/2019
-ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 023128d35030f99458bc5fd2c7a4a155a856e4c9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497365"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861507"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Avvio rapido: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
 
@@ -45,7 +45,7 @@ Lo strumento di esplorazione di anteprima di Time Series Insights consente di vi
 
       [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. Di recente, Contoso ha riscontrato un incendio nella turbina eolica **W7**. Le opinioni sulla causa dell'incendio sono diverse. In Time Series Insights è possibile vedere che il sensore dell'allarme antincendio si è attivato durante l'incendio.
+1. Di recente, Contoso ha riscontrato un incendio nella turbina eolica **W7**. Le opinioni sulla causa dell'incendio sono diverse. In Time Series Insights è indicato il sensore dell'allarme antincendio che si è attivato durante l'incendio.
 
    1. Cambiare l'intervallo di visualizzazione da **3/9/17 20:00:00.00 a 3/10/17 20:00:00.00 (UTC)** .
    1. Selezionare **Safety System** > **FireAlert**.
@@ -86,7 +86,7 @@ Tramite i dati di telemetria di sensori e di Time Series Insights, abbiamo indiv
 
        [![Cambiare l'intervallo di visualizzazione e selezionare W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
-1. L'avviso indica un problema con la tensione del generatore. La potenza complessiva in uscita del generatore si trova entro i normali parametri nell'intervallo corrente. Se si aumenta l'intervallo, si noterà un calo evidente.
+1. L'avviso indica un problema con la tensione del generatore. La potenza complessiva in uscita del generatore si trova entro i normali parametri nell'intervallo corrente. Aumentando l'intervallo, emerge un altro modello un calo evidente.
 
     1. Rimuovere il sensore **VoltageActuatorSwitchWarning**.
     1. Selezionare **Generator System** > **ActivePower**.

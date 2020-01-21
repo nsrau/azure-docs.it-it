@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821299"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045632"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Collegamento privato per il database SQL di Azure e Azure SQL Data Warehouse (anteprima)
 
@@ -57,7 +57,7 @@ Con Collegamento privato, gli utenti possono abilitare l'accesso cross-premise a
 ### <a name="approval-process"></a>Processo di approvazione
 Dopo che l'amministratore di rete ha creato l'endpoint privato, l'amministratore di SQL può gestire la connessione dell'endpoint privato al database SQL.
 
-1. Nel portale di Azure passare alla risorsa di SQL Server.
+1. Nel portale di Azure passare alla risorsa di SQL Server seguendo la procedura descritta nello screenshot seguente.
 
     - (1) Selezionare Connessioni endpoint privato nel riquadro sinistro
     - (2) Viene visualizzato un elenco di tutte le connessioni di endpoint privato
@@ -146,8 +146,10 @@ Il risultato mostra che un indirizzo IP è attivo, ossia quello corrispondente a
 
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verificare la connettività con SQL Server Management Studio (SSMS)
+> [!NOTE]
+>Usare il **nome di dominio completo (FQDN)** del server nelle stringhe di connessione per i client. In base alla progettazione, eventuali tentativi di accesso effettuati direttamente all'indirizzo IP non riusciranno.
 
-L'ultimo passaggio consiste nell'usare [SSMS per connettersi al database SQL](sql-database-connect-query-ssms.md). Dopo aver stabilito la connessione al database SQL tramite SSMS, verificare che la connessione sia stata eseguita dall'indirizzo IP privato della macchina virtuale di Azure eseguendo la query seguente:
+Seguire questa procedura per usare [SSMS per connettersi al database SQL](sql-database-connect-query-ssms.md). Dopo aver stabilito la connessione al database SQL tramite SSMS, verificare che la connessione sia stata eseguita dall'indirizzo IP privato della macchina virtuale di Azure eseguendo la query seguente:
 
 ````
 select client_net_address from sys.dm_exec_connections 

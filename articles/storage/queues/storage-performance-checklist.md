@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614965"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750506"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Elenco di controllo di prestazioni e scalabilità di archiviazione code
 
 Un elenco di controllo delle procedure consolidate per l'uso con archiviazione code nello sviluppo di applicazioni ad elevate prestazioni. Questo elenco di controllo identifica le procedure chiave che gli sviluppatori possono seguire per ottimizzare le prestazioni. Tenere presenti queste procedure durante la progettazione dell'applicazione e dell'intero processo.
 
-Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la frequenza di transazioni e la larghezza di banda. Per altre informazioni sugli obiettivi di scalabilità per Archiviazione di Azure, vedere [Obiettivi di scalabilità e prestazioni per gli account di archiviazione](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la frequenza di transazioni e la larghezza di banda. Per altre informazioni sugli obiettivi di scalabilità di Archiviazione di Azure, vedere [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) e [Obiettivi di scalabilità e prestazioni per l'archiviazione code](scalability-targets.md).
 
 ## <a name="checklist"></a>Elenco di controllo
 
@@ -194,5 +194,6 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure per gli account di archiviazione](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Obiettivi di scalabilità e prestazioni per l'archiviazione code](scalability-targets.md)
+- [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Stato e codici errore](/rest/api/storageservices/Status-and-Error-Codes2)

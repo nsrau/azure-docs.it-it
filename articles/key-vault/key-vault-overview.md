@@ -10,20 +10,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0cd6cbf21a392f68db707b9c0184320316d45ffe
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 97df5c309a3bdbf5055d67f893e33ab1a0c3232a
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851027"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832768"
 ---
-# <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
+# <a name="what-is-azure-key-vault"></a>Informazioni sull'insieme di credenziali delle chiavi di Azure
 
 Azure Key Vault contribuisce a risolvere i problemi seguenti:
 
 - **Gestione dei segreti**: Azure Key Vault può essere usato per archiviare in modo sicuro e controllare rigorosamente l'accesso a token, password, certificati, chiavi API e altri segreti.
 - **Gestione delle chiavi**: Azure Key Vault può essere usato anche come soluzione di gestione delle chiavi. Con Azure Key Vault è semplice creare e controllare le chiavi di crittografia usate per crittografare i dati. 
-- **Gestione dei certificati**: Azure Key Vault è anche un servizio che facilita il provisioning, la gestione e la distribuzione dei certificati Secure Sockets Layer/Transport Layer Security (TLS/SSL) pubblici e privati da usare con Azure e le risorse connesse interne. 
+- **Gestione dei certificati**: Azure Key Vault è anche un servizio che facilita il provisioning, la gestione e la distribuzione dei certificati Transport Layer Security/Secure Sockets Layer (TLS/SSL) pubblici e privati da usare con Azure e le risorse connesse interne. 
 - **Archiviazione dei segreti supportati da moduli di protezione hardware**: le chiavi e i segreti possono essere protetti da software o da moduli di protezione hardware certificati FIPS 140-2 livello 2
 
 ## <a name="why-use-azure-key-vault"></a>Vantaggi di Azure Key Vault
@@ -79,5 +79,5 @@ Key Vault può integrarsi con account di archiviazione, hub eventi e Log Analyti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva: Creare un'istanza di Azure Key Vault usando l'interfaccia della riga di comando](quick-create-cli.md)
+- [Avvio rapido: Creare un'istanza di Azure Key Vault usando l'interfaccia della riga di comando](quick-create-cli.md)
 - [Configurare un'applicazione Web di Azure per la lettura di un segreto da Key Vault ](tutorial-web-application-keyvault.md)
