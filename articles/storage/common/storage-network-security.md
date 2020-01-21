@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 28e3f276da231ef0186dba8ecd9c064cdd10a5a8
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973465"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281224"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -381,7 +381,7 @@ Quando si Abilita l'impostazione **Consenti servizi Microsoft attendibili...** ,
 | HDInsight di Azure          | Microsoft.HDInsight        | Eseguire il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) |
 | Importazione/esportazione di Azure      | Microsoft.ImportExport     | Consente l'importazione di dati in Azure e l'esportazione di dati da Azure tramite il servizio di importazione/esportazione. [Altre informazioni](/azure/storage/common/storage-import-export-service)  |
 | Monitoraggio di Azure            | Microsoft.Insights         | Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview) |
+| Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log di traffico di rete. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usano gli account di archiviazione della cache, di origine o di destinazione abilitati per il firewall.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
 L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a una particolare istanza dei servizi riportati di seguito di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso, l'ambito di accesso per l'istanza corrisponde al ruolo RBAC assegnato all'identità gestita.

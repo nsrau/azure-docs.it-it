@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cb73acc227d110cbfe5f5bbd37c69e08e7628eee
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275181"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281071"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -484,18 +484,18 @@ La precisione dell'approssimazione dipende in gran parte dalla percentuale di ca
   
   Di seguito viene illustrato il file di `ApplicationInsights.config` predefinito generato. In ASP.NET Core lo stesso comportamento predefinito è abilitato nel codice. Usare gli [esempi nella sezione precedente di questa pagina](#configuring-adaptive-sampling-for-aspnet-core-applications) per modificare questo comportamento predefinito.
 
-```xml
-<TelemetryProcessors>
-    <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-        <ExcludedTypes>Event</ExcludedTypes>
-    </Add>
-    <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-        <IncludedTypes>Event</IncludedTypes>
-    </Add>
-</TelemetryProcessors>
-```
+    ```xml
+    <TelemetryProcessors>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <ExcludedTypes>Event</ExcludedTypes>
+        </Add>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <IncludedTypes>Event</IncludedTypes>
+        </Add>
+    </TelemetryProcessors>
+    ```
 
 *È possibile campionare i dati di telemetria più di una volta?*
 
@@ -533,18 +533,18 @@ La precisione dell'approssimazione dipende in gran parte dalla percentuale di ca
 
 * Il modo migliore per ottenere questo risultato è scrivere un [personalizzata telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizzato, che imposta il `SamplingPercentage` su 100 sull'elemento di telemetria che si vuole mantenere, come illustrato di seguito. Poiché gli inizializzatori sono garantiti per l'esecuzione prima dei processori di telemetria (incluso il campionamento), ciò garantisce che tutte le tecniche di campionamento ignoreranno questo elemento da eventuali considerazioni di campionamento.
 
-```csharp
-public class MyTelemetryInitializer : ITelemetryInitializer
-{
-    public void Initialize(ITelemetry telemetry)
+    ```csharp
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        if(somecondition)
+        public void Initialize(ITelemetry telemetry)
         {
-            ((ISupportSampling)telemetry).SamplingPercentage = 100;
+            if(somecondition)
+            {
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
+            }
         }
     }
-}
-```
+    ```
 
 ## <a name="older-sdk-versions"></a>Versioni precedenti dell'SDK
 

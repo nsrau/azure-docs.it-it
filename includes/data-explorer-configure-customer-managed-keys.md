@@ -4,17 +4,19 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 5443ee6912c30b89cee6fdb43f84f3bc1fbcfe68
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020890"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280603"
 ---
 Azure Esplora dati crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente da usare per la crittografia dei dati. Le chiavi gestite dal cliente devono essere archiviate in un [Azure Key Vault](/azure/key-vault/key-vault-overview). È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure è possibile usare un'API Azure Key Vault per generare chiavi. Il cluster Esplora dati di Azure e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse. Per una spiegazione dettagliata delle chiavi gestite dal cliente, vedere [chiavi gestite dal cliente con Azure Key Vault](/azure/storage/common/storage-service-encryption). Questo articolo illustra come configurare le chiavi gestite dal cliente.
 
-> [!Note]
-> Per configurare le chiavi gestite dal cliente con Azure Esplora dati, è necessario [impostare due proprietà nell'insieme di credenziali delle chiavi](/azure/key-vault/key-vault-ovw-soft-delete): **eliminazione** temporanea e non **ripulitura**. Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, usare [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) o l'interfaccia della riga di comando di [Azure](/azure/key-vault/key-vault-soft-delete-cli). Sono supportate solo le chiavi RSA e le dimensioni della chiave 2048.
+Per configurare le chiavi gestite dal cliente con Azure Esplora dati, è necessario [impostare due proprietà nell'insieme di credenziali delle chiavi](/azure/key-vault/key-vault-ovw-soft-delete): **eliminazione** temporanea e non **ripulitura**. Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, usare [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) o l'interfaccia della riga di comando di [Azure](/azure/key-vault/key-vault-soft-delete-cli). Sono supportate solo le chiavi RSA e le dimensioni della chiave 2048.
+
+> [!NOTE]
+> La crittografia dei dati tramite chiavi gestite dal cliente non è supportata nei [cluster leader e di seguito](/azure/data-explorer/follower). 
 
 ## <a name="assign-an-identity-to-the-cluster"></a>Assegnare un'identità al cluster
 

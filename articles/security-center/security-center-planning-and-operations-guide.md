@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462464"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281003"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -239,7 +239,7 @@ Questa pagina include dettagli relativi al momento in cui si è verificato l'att
 
 Da questa pagina è anche possibile avviare un'[indagine](https://docs.microsoft.com/azure/security-center/security-center-investigation) per ottenere una migliore comprensione della sequenza temporale dell'attacco, della modalità in cui è stato effettuato l'attacco, dei sistemi potenzialmente danneggiati e delle credenziali usate e infine per ottenere una rappresentazione grafica dell'intera catena di attacco.
 
-Dopo avere identificato il sistema danneggiato, è possibile eseguire i [playbook](https://docs.microsoft.com/azure/security-center/security-center-playbooks) di sicurezza creati in precedenza. Il playbook di sicurezza è una raccolta di procedure che possono essere eseguite dal Centro sicurezza dopo l'attivazione di un determinato playbook da un avviso selezionato.
+Una volta identificato il sistema compromesso, è possibile eseguire un' [automazione del flusso di lavoro](workflow-automation.md) creata in precedenza. Si tratta di una raccolta di procedure che possono essere eseguite dal centro sicurezza una volta attivata da un avviso.
 
 Nell'argomento [come sfruttare il Centro sicurezza di Azure & Microsoft Operations Management Suite per un video di risposta agli eventi imprevisti](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) , è possibile vedere alcune dimostrazioni che consentono di comprendere il modo in cui il Centro sicurezza può essere usato in ognuna di queste fasi.
 

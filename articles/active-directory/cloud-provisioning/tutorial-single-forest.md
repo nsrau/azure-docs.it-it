@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691c8e8d2f2c6c8e9472ba7a4ae83d8b76f2850c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7f7c348e29fa2234627a53095a99e913a6389a27
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868729"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280969"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Esercitazione: integrare una singola foresta con un singolo tenant di Azure AD
 
 Questa esercitazione illustra la creazione di un ambiente di identità ibrido usando Azure Active Directory (Azure AD) connettere il provisioning cloud.
 
-![Create](media/tutorial-single-forest/diagram1.png)
+![Creazione](media/tutorial-single-forest/diagram1.png)
 
 È possibile usare l'ambiente creato in questa esercitazione per i test o per acquisire familiarità con il provisioning cloud.
 
@@ -34,25 +34,25 @@ Questa esercitazione illustra la creazione di un ambiente di identità ibrido us
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
-1. Identità un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e .NET 4.7.1 + Runtime 
+1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e .NET 4.7.1 + Runtime 
 
 2. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
-   - Verificare che gli agenti possano effettuare richieste in *uscita* per Azure ad sulle seguenti porte:
+   - Assicurarsi che gli agenti possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
 
      | Numero della porta | Uso |
      | --- | --- |
      | **80** | Scarica gli elenchi di revoche di certificati (CRL) durante la convalida del certificato SSL |
      | **443** | Gestisce tutte le comunicazioni in uscita con il servizio |
-     | **8080** (facoltativo) | Gli agenti segnalano il proprio stato ogni 10 minuti sulla porta 8080, se la porta 443 non è disponibile. Lo stato viene visualizzato nel portale di Azure AD. |
+     | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. |
      
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
    - Se il firewall o il proxy consente di specificare suffissi sicuri, aggiungere connessioni t a **\*. msappproxy.NET** e **\*. ServiceBus.Windows.NET**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
-   - Gli agenti devono accedere a **login.Windows.NET** e **login.microsoftonline.com** per la registrazione iniziale. Aprire il firewall anche per questi URL.
-   - Per la convalida del certificato, sbloccare gli URL seguenti: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**e **www\.Microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
+   - Gli agenti devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
+   - Per la convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
-## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installare l'agente di provisioning Azure AD Connect
-1. Accedere al server aggiunto al dominio.  Se si usa l'esercitazione di [base di Active Directory e dell'ambiente Azure](tutorial-basic-ad-azure.md) , sarà DC1.
-2. Accedere al portale di Azure usando le credenziali di amministratore globale solo cloud.
+## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
+1. Accedere al server aggiunto al dominio.  Se si usa l'esercitazione [Ambiente di AD e Azure di base](tutorial-basic-ad-azure.md), sarà DC1.
+2. Accedere al portale di Azure con le credenziali di amministratore globale solo cloud.
 3. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure ad Connect**e al centro selezionare **Gestisci provisioning (anteprima)** .
 
    ![Portale di Azure](media/how-to-install/install6.png)
@@ -63,61 +63,61 @@ Questa esercitazione illustra la creazione di un ambiente di identità ibrido us
 
    ![Schermata iniziale](media/how-to-install/install1.png)
 
-7. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale Azure AD.  Si noti che se è abilitata la sicurezza avanzata di IE, l'accesso verrà bloccato.  In tal caso, chiudere l'installazione, disabilitare la sicurezza avanzata di IE in Server Manager e fare clic sulla **creazione guidata dell'agente di provisioning di AAD Connect** per riavviare l'installazione.
-8. Nella schermata **connetti Active Directory** fare clic su **Aggiungi directory** , quindi accedere con l'account amministratore di dominio Active Directory.  Nota: l'account amministratore di dominio non deve avere requisiti per la modifica della password. Se la password scade o viene modificata, sarà necessario riconfigurare l'agente con le nuove credenziali. Questa operazione aggiungerà la directory locale.  Fare clic su **Next** (Avanti).
+7. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale di Azure AD.  Si noti che se è abilitata la sicurezza avanzata di Internet Explorer, l'accesso verrà bloccato.  In tal caso, chiudere l'installazione, disabilitare la sicurezza avanzata di Internet Explorer in Server Manager e fare clic su **AAD Connect Provisioning Agent Wizard** (Configurazione guidata dell'agente di provisioning AAD Connect) per riavviare l'installazione.
+8. Nella schermata **Connect Active Directory** (Connetti Active Directory) fare clic su **Aggiungi directory** quindi accedere con l'account amministratore di dominio di Active Directory.  Nota: l'account amministratore di dominio non deve avere requisiti per la modifica della password. Se la password scade o viene cambiata, sarà necessario riconfigurare l'agente con le nuove credenziali. Questa operazione aggiungerà la directory locale.  Fare clic su **Avanti**.
 
    ![Schermata iniziale](media/how-to-install/install3.png)
 
-9. Nella schermata **Configurazione completata** fare clic su **conferma**.  Questa operazione registrerà e riavvierà l'agente.
+9. Nella schermata **Configurazione completata** fare clic su **Conferma**.  Questa operazione registrerà e riavvierà l'agente.
 
    ![Schermata iniziale](media/how-to-install/install4.png)
 
 10. Al termine dell'operazione verrà visualizzato un avviso: **la configurazione dell'agente è stata verificata correttamente.**  È possibile fare clic su **Esci**.</br>
 ![Schermata iniziale](media/how-to-install/install5.png)</br>
-11. Se viene ancora visualizzata la schermata iniziale iniziale, fare clic su **Chiudi**.
+11. Se è ancora visualizzata la schermata iniziale, fare clic su **Chiudi**.
 
 
 ## <a name="verify-agent-installation"></a>Verificare l'installazione dell'agente
-La verifica dell'agente viene eseguita nel portale di Azure e nel server locale in cui è in esecuzione l'agente.
+La verifica dell'agente si esegue nel portale di Azure e nel server locale che esegue l'agente.
 
-### <a name="azure-portal-agent-verification"></a>Verifica dell'agente portale di Azure
-Per verificare che l'agente sia visualizzato da Azure, attenersi alla procedura seguente:
+### <a name="azure-portal-agent-verification"></a>Verifica dell'agente nel portale di Azure
+Per verificare se l'agente viene visto da Azure, seguire questa procedura:
 
 1. Accedere al portale di Azure.
-2. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure ad Connect** e al centro selezionare **Gestisci provisioning (anteprima)** .</br>
+2. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure AD Connect** e al centro selezionare **Gestione del provisioning (anteprima)** .</br>
 ![Azure portal](media/how-to-install/install6.png)</br>
 
-3.  Nella schermata **Azure ad provisioning (anteprima)** fare clic su **Controlla tutti gli agenti**.
-provisioning di ![Azure AD](media/how-to-install/install7.png)</br>
+3.  Nella schermata **Provisioning di Azure AD (anteprima)** fare clic su **Verifica tutti gli agenti**.
+![Provisioning di Azure AD](media/how-to-install/install7.png)</br>
  
-4. Nella **schermata agenti di provisioning locali** vengono visualizzati gli agenti installati.  Verificare che l'agente in questione sia presente ed è contrassegnato come **attivo**.
-![agenti di provisioning](media/how-to-install/verify1.png)</br>
+4. Nella **schermata degli agenti di provisioning locali** verranno visualizzati gli agenti installati.  Verificare che l'agente in questione sia presente e contrassegnato come **attivo**.
+![Agenti di provisioning](media/how-to-install/verify1.png)</br>
 
-### <a name="on-the-local-server"></a>Sul server locale
-Per verificare che l'agente sia in esecuzione, attenersi alla seguente procedura:
+### <a name="on-the-local-server"></a>Nel server locale
+Per verificare se l'agente è in esecuzione, seguire questa procedura:
 
 1.  Accedere al server con un account amministratore
-2.  Aprire i **Servizi** passando a Start/Run/Services. msc.
-3.  In **Servizi**verificare che **Microsoft Azure ad Connect agent Updater** e **Microsoft Azure ad Connect provisioning Agent** siano presenti e che lo stato sia **in esecuzione**.
-![Servizi](media/how-to-troubleshoot/troubleshoot1.png)
+2.  Aprire **Servizi** passando all'opzione oppure tramite Start/Esegui/Services.msc.
+3.  In **Servizi** assicurarsi che siano presenti i servizi **Microsoft Azure AD Connect Agent Updater** e **Microsoft Azure AD Connect Provisioning Agent** e che il relativo stato sia **In esecuzione**.
+![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
-## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Configurare Azure AD Connect il provisioning cloud
- Per configurare il provisioning, attenersi alla procedura seguente:
+## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Configurare il provisioning cloud di Azure AD Connect
+ Per configurare il provisioning, seguire questa procedura
 
 1.  Accedere al portale di Azure AD.
 2.  Fare clic su **Azure Active Directory**
-3.  Fare clic su **Azure ad Connect**
-4.  Selezionare **gestione del provisioning (anteprima)** 
+3.  Fare clic su **Azure AD Connect**
+4.  Selezionare **Gestione del provisioning (anteprima)** 
 ![](media/how-to-configure/manage1.png)
-5.  Fare clic su **nuova configurazione**
+5.  Fare clic su **Nuova configurazione**
 ![](media/tutorial-single-forest/configure1.png)
-7.  Nella schermata di configurazione immettere un **messaggio di posta elettronica di notifica**, spostare il selettore in **Abilita** e fare clic su **Salva**.
+7.  Nella schermata di configurazione, immettere un valore per **Messaggio di posta elettronica di notifica**, spostare il selettore su **Abilita** e fare clic su **Salva**.
 ![](media/tutorial-single-forest/configure2.png)
-1.  Lo stato di configurazione ora è **integro**.
+1.  Lo stato della configurazione dovrebbe ora essere **Integro**.
 ![](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Verificare che gli utenti siano stati creati e che la sincronizzazione sia in esecuzione
-A questo punto, si verificherà che gli utenti presenti nella directory locale siano stati sincronizzati e che ora esistano nel tenant Azure AD.  Per essere completata, questa operazione può richiedere alcune ore.  Per verificare che gli utenti siano sincronizzati, eseguire le operazioni seguenti.
+A questo punto verificare che gli utenti presenti nella directory locale siano stati sincronizzati e che ora siano inclusi nel tenant di Azure AD.  Per essere completata, questa operazione può richiedere alcune ore.  Per verificare che gli utenti siano sincronizzati, eseguire le operazioni seguenti.
 
 
 1. Selezionare il [portale di Azure](https://portal.azure.com) e accedere con un account che dispone di una sottoscrizione di Azure.
@@ -137,5 +137,5 @@ La configurazione di un ambiente ibrido di gestione delle identità è stata com
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- [Che cos'è il provisioning?](what-is-provisioning.md)
-- [Che cos'è Azure AD Connect provisioning cloud?](what-is-cloud-provisioning.md)
+- [Cos'è il provisioning?](what-is-provisioning.md)
+- [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)

@@ -3,12 +3,12 @@ title: Individuare app, ruoli e funzionalità nei server locali con Azure Migrat
 description: Informazioni su come individuare app, ruoli e funzionalità nei server locali con Azure Migrate Assessment server.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029067"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280765"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
 
@@ -17,18 +17,18 @@ Questo articolo descrive come individuare applicazioni, ruoli e funzionalità ne
 L'individuazione dell'inventario delle app e dei ruoli e delle funzionalità in esecuzione nei computer locali ti permette di identificare e pianificare un percorso di migrazione ad Azure personalizzato per i tuoi carichi di lavoro.
 
 > [!NOTE]
-> L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware ed è limitata all'individuazione. Non è ancora stata offerta una valutazione basata su app.  Attualmente la valutazione server attualmente valuta le VM VMware locali, le VM Hyper-V e i server fisici a livello di computer, per le migrazioni in modalità Lift-and-Shift.
+> L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware ed è limitata all'individuazione. Non è ancora stata offerta una valutazione basata su app. Valutazione basata su computer per macchine virtuali VMware locali, VM Hyper-V e server fisici.
 
 Individuazione app con Azure Migrate: la valutazione del server è senza agente. Non è necessario installare nulla in computer e macchine virtuali. Server Assessment usa il dispositivo Azure Migrate per eseguire l'individuazione insieme alle credenziali Guest del computer. L'appliance accede in remoto ai computer VMware usando le API VMware.
 
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-1. Esaminare le [limitazioni del supporto](migrate-support-matrix-vmware.md#application-discovery) per l'individuazione a livello di app.
-2. Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
-3. Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
+1. Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
+2. Assicurarsi di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server Assessment a un progetto.
 4. Verificare i [requisiti di VMware](migrate-support-matrix-vmware.md#vmware-requirements) per l'individuazione e la valutazione delle macchine virtuali VMware con l'appliance Azure migrate.
-4. Verificare i [requisiti](migrate-appliance.md) per la distribuzione di Azure migrate Appliance.
+5. Verificare i [requisiti](migrate-appliance.md) per la distribuzione di Azure migrate Appliance.
+6. [Verificare il supporto e i requisiti](/migrate-support-matrix-vmware.md#application-discovery) per l'individuazione delle applicazioni.
 
 ## <a name="prepare-for-app-discovery"></a>Prepararsi per l'individuazione delle app
 

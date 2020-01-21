@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 41d48bdd7cc7972536d0cf0e0cb78483f727d7f2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277027"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281343"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usare il database di seguito per alleghi i database in Azure Esplora dati
 
@@ -383,6 +383,7 @@ L'amministratore del database seguito può modificare i [criteri di memorizzazio
 
 * Il follower e i cluster leader devono trovarsi nella stessa area.
 * Non è possibile usare l'inserimento di [flussi](/azure/data-explorer/ingest-data-streaming) in un database che viene seguito.
+* La crittografia dei dati tramite [chiavi gestite dal cliente](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) non è supportata nei cluster leader e nei cluster seguiti. 
 * Non è possibile eliminare un database collegato a un cluster diverso prima di scollegarlo.
 * Non è possibile eliminare un cluster con un database collegato a un cluster diverso prima di scollegarlo.
 * Non è possibile arrestare un cluster che ha associato un o più database. 
