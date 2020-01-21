@@ -1,19 +1,15 @@
 ---
 title: Valutare la migrazione delle VM Hyper-V ad Azure con Azure Migrate | Microsoft Docs
 description: Questo articolo descrive come valutare le VM Hyper-V locali per la migrazione ad Azure tramite Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: d8a4a6d650684cd5c8c0f22ad683c3952e2f6d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158374"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029016"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Valutare le VM Hyper-V con Valutazione server di Azure Migrate
 
@@ -23,12 +19,12 @@ Questo articolo descrive come valutare le VM Hyper-V locali con lo strumento Azu
 
 
 
-Questa esercitazione è la seconda di una serie che illustra come valutare le VM Hyper-V ed eseguirne la migrazione ad Azure. In questa esercitazione si apprenderà come:
+Questa esercitazione è la seconda di una serie che illustra come valutare le VM Hyper-V ed eseguirne la migrazione ad Azure. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare un progetto di Azure Migrate.
 > * Configurare e registrare un'appliance di Azure Migrate.
-> * Avviare l'individuazione continua di VM locali.
+> * Avviare l'individuazione continua di macchine virtuali locali.
 > * Raggruppare le VM individuate e valutare il gruppo.
 > * Esaminare la valutazione.
 
@@ -38,18 +34,19 @@ Questa esercitazione è la seconda di una serie che illustra come valutare le VM
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Completare](tutorial-prepare-hyper-v.md) la prima esercitazione di questa serie. In caso contrario, le istruzioni di questa esercitazione non funzioneranno.
 - Ecco le operazioni che dovrebbero essere state completate nella prima esercitazione:
     - [Configurare le autorizzazioni di Azure](tutorial-prepare-hyper-v.md#prepare-azure) per Azure Migrate.
-    - [Preparare i cluster Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment), gli host e le macchine virtuali per la valutazione.
+    - [Preparare i cluster Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment), gli host e le macchine virtuali per la valutazione.
+    - [Preparare la distribuzione](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) dell'appliance di Azure Migrate, usata per la valutazione e l'individuazione delle VM Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurare un progetto di Azure Migrate
 
 1. Nel portale di Azure selezionare **Tutti i servizi** e cercare **Azure Migrate**.
 2. Nei risultati della ricerca selezionare **Azure Migrate**.
-3. In **Individuare, valutare ed eseguire la migrazione dei server**  della pagina **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server**.
+3. In **Individuare, valutare ed eseguire la migrazione dei server** della pagina **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server**.
 
     ![Individuare e valutare i server](./media/tutorial-assess-hyper-v/assess-migrate.png)
 
@@ -98,7 +95,7 @@ Valutazione server di Azure Migrate esegue un'appliance VM Hyper-V leggera.
 
 Scaricare il modello di disco rigido virtuale compresso per l'appliance.
 
-1. In **Obiettivi della migrazione**  > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
+1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
 2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
 3. Fare clic su **Scarica** per scaricare i file VHD.
 
@@ -148,7 +145,7 @@ Importare il file scaricato e creare la VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](migrate-appliance.md#url-access).
 
 ### <a name="configure-the-appliance"></a>Configurare l'appliance
 
@@ -184,7 +181,7 @@ Configurare l'appliance per la prima volta.
 
 Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare la delega delle credenziali dall'appliance agli host Hyper-V. A questo scopo è necessario:
 
-- Abilitare ogni host in modo che funga da delegato per l'appliance. Questa operazione dovrebbe essere eseguita nell'esercitazione precedente, quando si è preparato Hyper-V per la valutazione e la migrazione. È necessario aver configurato CredSSP per gli host [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) oppure [eseguendo lo script di configurazione dei prerequisiti di Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Abilitare ogni host in modo che funga da delegato per l'appliance. Se le esercitazioni sono state seguite nell'ordine, questa operazione dovrebbe essere eseguita nell'esercitazione precedente, durante la preparazione di Hyper-V per la valutazione e la migrazione. Sarà stato configurato CredSSP per gli host [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) oppure [eseguendo un apposito script](tutorial-prepare-hyper-v.md#prepare-with-a-script).
 - Abilitare la delega CredSSP in modo che l'appliance di Azure Migrate possa fungere da client, delegando le credenziali a un host.
 
 Eseguire l'abilitazione nell'appliance nel modo seguente:
@@ -276,7 +273,7 @@ Una valutazione descrive:
 
 ### <a name="view-an-assessment"></a>Visualizzare una valutazione
 
-1. In **Obiettivi della migrazione**  >  **Server** > **Azure Migrate: Valutazione server** fare clic su **Valutazioni**.
+1. In **Obiettivi della migrazione** >  **Server** > **Azure Migrate: Valutazione server** fare clic su **Valutazioni**.
 2. In **Valutazioni** fare clic su una valutazione per aprirla.
 
     ![Riepilogo della valutazione](./media/tutorial-assess-hyper-v/assessment-summary.png)

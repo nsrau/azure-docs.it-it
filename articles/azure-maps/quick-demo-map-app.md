@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Ricerca interattiva nelle mappe con Mappe di Azure'
-description: Guida introduttiva di Azure - Creare una demo di una ricerca interattiva sulla mappa con Mappe di Azure
+title: 'Avvio rapido: Ricerca interattiva nelle mappe con Mappe di Azure | Mappe di Microsoft Azure'
+description: Informazioni su come creare un'applicazione Web demo per la ricerca interattiva di mappe tramite l'SDK Web Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408452"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910685"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Avvio rapido: Creare una mappa per la ricerca interattiva con Mappe di Azure
 
@@ -57,7 +57,7 @@ Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente d
 2. Nella sezione delle impostazioni selezionare **Autenticazione**.
 3. Copiare il valore di **Chiave primaria** negli Appunti. Salvarlo in locale per usarlo in seguito in questa esercitazione.
 
-![Ottenere la chiave primaria nel portale](./media/quick-demo-map-app/get-key.png)
+![Ottenere la chiave primaria di Mappe di Azure nel portale di Azure](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Scaricare l'applicazione
 
@@ -73,7 +73,7 @@ Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente d
 4. Provare l'esperienza di ricerca interattiva. Nella casella di ricerca nell'angolo in alto a sinistra dell'applicazione Web demo cercare **restaurants**.
 5. Spostare il puntatore del mouse sull'elenco di indirizzi e posizioni visualizzato sotto la casella di ricerca. Osservare che l'indicatore corrispondente sulla mappa visualizza le informazioni sulla posizione corrispondente. Per la privacy delle aziende private, sono visualizzati nomi e indirizzi fittizi.
 
-    ![Applicazione Web di ricerca interattiva](./media/quick-demo-map-app/interactive-search.png)
+    ![Applicazione Web di ricerca interattiva di mappe](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

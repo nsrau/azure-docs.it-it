@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Inviare e ricevere eventi tramite Node.js - Hub eventi di Azure'
-description: "Guida introduttiva: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Node.js in grado di inviare eventi da Hub eventi di Azure."
+title: 'Avvio rapido: Inviare e ricevere eventi tramite Node.js - Hub eventi di Azure'
+description: "Avvio rapido: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Node.js in grado di inviare eventi da Hub eventi di Azure."
 services: event-hubs
 author: spelluru
 manager: kamalb
@@ -8,25 +8,28 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: spelluru
-ms.openlocfilehash: ded2c83bc648e509c8cf00236cdf453b9c61af53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39087b189c424866fffcc3ea8723c712883f288c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720567"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940718"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Guida introduttiva: Inviare o ricevere eventi da Hub eventi di Azure tramite Node.js
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Avvio rapido: Inviare o ricevere eventi da Hub eventi di Azure tramite Node.js
 
 Hub eventi di Azure è una piattaforma di streaming per Big Data e un servizio di inserimento eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
 Questa esercitazione descrive come creare applicazioni Node.js per inviare o ricevere eventi da un hub eventi.
 
+> [!IMPORTANT]
+> Questo argomento di avvio rapido usa la versione 2 di JavaScript SDK per Hub eventi di Azure. Se non si ha familiarità con Hub eventi di Azure, usare la versione 5 di JavaScript SDK. Per un argomento di avvio rapido che usa la versione 5 di JavaScript SDK, vedere [questo articolo](get-started-node-send-v2.md). Se è necessario eseguire la migrazione del codice esistente dalla versione 2 alla versione 5, vedere la [guida alla migrazione](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
+
 > [!NOTE]
 > È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
@@ -37,10 +40,10 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 
 
 ### <a name="install-npm-package"></a>Installare un pacchetto npm
-Per installare il [pacchetto npm per Hub eventi](https://www.npmjs.com/package/@azure/event-hubs), aprire un prompt dei comandi il cui percorso comprenda `npm`, passare alla cartella in cui si vogliono archiviare gli esempi e quindi eseguire questo comando
+Per installare il [pacchetto npm per Hub eventi](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0), aprire un prompt dei comandi il cui percorso comprenda `npm`, passare alla cartella in cui si vogliono archiviare gli esempi e quindi eseguire questo comando
 
 ```shell
-npm install @azure/event-hubs
+npm install @azure/event-hubs@2
 ```
 
 Per installare il [pacchetto npm per l'host processore di eventi](https://www.npmjs.com/package/@azure/event-processor-host), eseguire invece il comando seguente
@@ -57,7 +60,7 @@ Questa sezione illustra come creare un'applicazione Node.js che invia eventi a u
 2. Creare un file denominato `send.js` e incollarvi il codice riportato di seguito. Ottenere la stringa di connessione per lo spazio dei nomi dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs");
+    const { EventHubClient } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -83,7 +86,7 @@ Questa sezione illustra come creare un'applicazione Node.js che invia eventi a u
     });
     ```
 3. Immettere la stringa di connessione e il nome dell'hub eventi nel codice precedente
-4. Eseguire quindi questo file tramite il comando `node send.js` nel prompt dei comandi. Verranno inviati 100 eventi all'hub eventi
+4. Eseguire quindi questo file tramite il comando `node send.js` in un prompt dei comandi. Verranno inviati 100 eventi all'hub eventi
 
 Congratulazioni! Sono stati inviati eventi a un hub eventi.
 
@@ -95,7 +98,7 @@ Questa sezione illustra come creare un'applicazione Node. js che riceve eventi d
 1. Aprire l'editor preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com). 
 2. Creare un file denominato `receive.js` e incollarvi il codice riportato di seguito.
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs");
+    const { EventHubClient, delay } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -127,7 +130,7 @@ Questa sezione illustra come creare un'applicazione Node. js che riceve eventi d
     });
     ```
 3. Immettere la stringa di connessione e il nome dell'hub eventi nel codice precedente.
-4. Eseguire quindi questo file tramite il comando `node receive.js` nel prompt dei comandi. Verranno ricevuti gli eventi da una delle partizioni del gruppo di consumer predefinito nell'hub eventi
+4. Eseguire quindi questo file tramite il comando `node receive.js` in un prompt dei comandi. Verranno ricevuti gli eventi da una delle partizioni del gruppo di consumer predefinito nell'hub eventi
 
 Congratulazioni! Sono stati ricevuti eventi dall'hub eventi.
 
@@ -182,7 +185,7 @@ Questa sezione illustra come ricevere eventi da un hub eventi usando [EventProce
 
     ```
 3. Immettere la stringa di connessione e il nome dell'hub eventi nel codice precedente, insieme alla stringa di connessione per un archivio BLOB di Azure
-4. Eseguire quindi questo file tramite il comando `node receiveAll.js` nel prompt dei comandi.
+4. Eseguire quindi questo file tramite il comando `node receiveAll.js` in un prompt dei comandi.
 
 Congratulazioni! Sono stati ricevuti eventi da un hub eventi tramite l'host processore di eventi. Verranno ricevuti gli eventi da tutte le partizioni del gruppo di consumer predefinito nell'hub eventi
 

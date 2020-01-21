@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e la riga di comando per sviluppare un'applicazione nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b4902930b04e880bbbdfbe7418d5e0ec86f89470
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 553c316587d27e0921fbbbf78b02ddb048532c43
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438268"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867241"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Avvio rapido: Sviluppare un'applicazione in Kubernetes - Azure Dev Spaces
 In questa guida si apprenderà come:
@@ -80,6 +80,9 @@ azds prep --public
 ```
 
 Per la corretta generazione delle risorse grafico Docker e Helm, è necessario eseguire il comando `prep` dalla directory *dev-spaces/samples/nodejs/getting-started/webfrontend*.
+
+> [!TIP]
+> Il comando `prep` prova a generare [un Dockerfile e un grafico Helm](how-dev-spaces-works.md#prepare-your-code) per il progetto. Azure Dev Spaces usa questi file per compilare ed eseguire il codice, ma è possibile modificarli se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Compilare ed eseguire codice in Kubernetes
 
@@ -157,4 +160,4 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 [nodejs-quickstart]: quickstart-nodejs.md
 [netcore-quickstart]: quickstart-netcore.md
 [team-quickstart]: quickstart-team-development.md
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 106252b7c77f9ee3d6b9bdebafce3441d9c4b090
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224235"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971857"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -35,13 +35,20 @@ Si apprenderà come:
 > * Concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi 
 > * Ottenere un token di accesso usando l'identità  della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concedere alla macchina virtuale l'accesso a un segreto archiviato nell'insieme di credenziali delle chiavi 
+
+## <a name="enable"></a>Abilitare
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Concedere l'accesso  
  
-Usando le identità gestite per le risorse di Azure, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Tuttavia, non tutti i servizi di Azure supportano l'autenticazione di Azure AD. Per usare le identità gestite per le risorse di Azure con questi servizi, archiviare le credenziali del servizio in Azure Key Vault e usare l'identità gestita della macchina virtuale per accedere a Key Vault e recuperare le credenziali. 
+Questa sezione illustra come concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi. Usando le identità gestite per le risorse di Azure, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Tuttavia, non tutti i servizi di Azure supportano l'autenticazione di Azure AD. Per usare le identità gestite per le risorse di Azure con questi servizi, archiviare le credenziali del servizio in Azure Key Vault e usare l'identità gestita della macchina virtuale per accedere a Key Vault e recuperare le credenziali. 
 
 In primo luogo, è necessario creare un insieme di credenziali delle chiavi e concedere l'accesso a tale insieme all'identità gestita assegnata dal sistema della macchina virtuale.   
 
@@ -66,9 +73,9 @@ Successivamente, aggiungere un segreto all'insieme di credenziali delle chiavi, 
 5. Lasciare vuoti i campi della data di attivazione e della data di scadenza e lasciare **Abilitato** su **Sì**. 
 6. Fare clic su **Crea** per creare il segreto. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto da Key Vault  
+## <a name="access-data"></a>Accedere ai dati  
 
-Se non si dispone di PowerShell 4.3.1 o versione successiva, è necessario [scaricare e installare la versione più recente](https://docs.microsoft.com/powershell/azure/overview).
+Questa sezione illustra come ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi. Se non si dispone di PowerShell 4.3.1 o versione successiva, è necessario [scaricare e installare la versione più recente](https://docs.microsoft.com/powershell/azure/overview).
 
 In primo luogo, si userà l'identità gestita assegnata dal sistema della macchina virtuale per ottenere un token di accesso per l'autenticazione a Key Vault:
  
@@ -108,6 +115,13 @@ In primo luogo, si userà l'identità gestita assegnata dal sistema della macchi
     ```
     
 Dopo aver recuperato il segreto dall'insieme di credenziali delle chiavi, è possibile usarlo per eseguire l'autenticazione a un servizio che richiede un nome e una password. 
+
+
+## <a name="disable"></a>Disabilitazione
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

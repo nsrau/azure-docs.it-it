@@ -1,23 +1,22 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale da un file audio, C++ (Linux) - Servizio Voce'
+title: 'Avvio rapido: Riconoscimento vocale da un file audio, C++ (Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C++ in Linux con Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 01/14/2020
 ms.author: wolfma
-ms.openlocfilehash: 2372e04ed7e20757cc0a3cbb9aae5e7597f17c3f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7cd4faaebd3a16b927fcbb1f7752f4fb404565d8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819276"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76038106"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 
@@ -32,8 +31,7 @@ Prima di iniziare, assicurarsi di:
 
 1. Creare un file di origine C++ denominato `helloworld.cpp`e incollare il codice seguente al suo interno.
 
-   ````C++
-
+   ```cpp
     // Creates an instance of a speech config with specified subscription key and service region.
     // Replace with your own subscription key and service region (e.g., "westus").
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -53,28 +51,27 @@ Prima di iniziare, assicurarsi di:
     auto result = recognizer->RecognizeOnceAsync().get();
 
     // Checks result.
-    if (result->Reason == ResultReason::RecognizedSpeech)
+    switch (result->Reason)
     {
-        cout << "RECOGNIZED: Text=" << result->Text << std::endl;
-    }
-    else if (result->Reason == ResultReason::NoMatch)
-    {
-        cout << "NOMATCH: Speech could not be recognized." << std::endl;
-    }
-    else if (result->Reason == ResultReason::Canceled)
-    {
-        auto cancellation = CancellationDetails::FromResult(result);
-        cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+        case ResultReason::RecognizedSpeech:
+            cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+            break;
+        case ResultReason::NoMatch:
+            cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            break;
+        case ResultReason::Canceled:
+            auto cancellation = CancellationDetails::FromResult(result);
+            cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
 
-        if (cancellation->Reason == CancellationReason::Error)
-        {
-            cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
-            cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-            cout << "CANCELED: Did you update the subscription info?" << std::endl;
-        }
+            if (cancellation->Reason == CancellationReason::Error)
+            {
+                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
+                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+            }
+            break;
     }
-
-   ````
+   ```
 
 1. Nel nuovo file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del Servizio di riconoscimento vocale.
 
@@ -108,7 +105,7 @@ Prima di iniziare, assicurarsi di:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
   ```
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 1. Configurare il percorso di libreria del caricatore in modo da puntare alla libreria Speech SDK.
 

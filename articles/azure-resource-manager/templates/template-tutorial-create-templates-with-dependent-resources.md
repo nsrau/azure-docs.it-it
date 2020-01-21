@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 15c707b5424e84e99e0b1942bb623e6d3845213a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73a35b9c04b8b520be4f0adeb8ddb4142499075
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471256"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834373"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
@@ -18,7 +18,7 @@ Informazioni su come creare un modello di Azure Resource Manager per distribuire
 
 In questa esercitazione si creano un account di archiviazione, una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti. Alcune delle risorse non possono essere distribuite finché non esiste un'altra risorsa. Ad esempio, non è possibile creare la macchina virtuale finché non esistono la relativa interfaccia di rete e l'account di archiviazione. Per definire questa relazione, si contrassegna una risorsa come dipendente dalle altre. Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. Per altre informazioni, leggere [Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager](./define-resource-dependency.md).
 
-![modello di resource manager, distribuzione di risorse dipendenti, schema dell'ordine](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![Modello di Resource Manager, distribuzione di risorse dipendenti, schema dell'ordine](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -117,7 +117,7 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazion
     ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 1. Selezionare il modello salvato in precedenza in questa esercitazione. Il nome predefinito è **azuredeploy.json**.  Se è presente un file con lo stesso nome, il file precedente viene sovrascritto senza alcuna notifica.
 
-    È possibile usare i comandi **ls $HOME** e **cat $HOME/azuredeploy.json** per verificare che il file sia stato caricato correttamente.
+    È possibile usare i comandi **ls $HOME** e **cat $HOME/azuredeploy.json** per verificare che i file siano stati caricati correttamente.
 
 1. In Cloud Shell eseguire i comandi di PowerShell seguenti. Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Vedere [Prerequisiti](#prerequisites).
 
@@ -161,7 +161,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato sviluppato e distribuito un modello per creare una macchina virtuale, una rete virtuale e le risorse dipendenti. Per informazioni su come distribuire risorse di Azure in base a condizioni, vedere:
+In questa esercitazione è stato sviluppato e distribuito un modello per creare una macchina virtuale, una rete virtuale e le risorse dipendenti. Per informazioni su come usare gli script di distribuzione per eseguire operazioni di pre/post-distribuzione, vedere:
 
 > [!div class="nextstepaction"]
-> [Usare le condizioni](./template-tutorial-use-conditions.md)
+> [Usare lo script di distribuzione](./template-tutorial-deployment-script.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure'
-description: 'Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure.'
+title: "Esercitazione: Creare un'applicazione di localizzazione di punti vendita con Mappe di Azure | Microsoft Docs"
+description: In questa esercitazione si apprenderà come creare un'applicazione Web di localizzazione di punti vendita usando Microsoft Azure Maps Web SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408033"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910960"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -43,13 +43,13 @@ Prima di passare al codice, è consigliabile definire la struttura. Il localizza
 
 <center>
 
-![Wireframe di un localizzatore di punti vendita per le posizioni dei bar Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe di un'applicazione di localizzazione di punti vendita per le posizioni dei bar Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Per massimizzare l'utilità di questo localizzatore di punti vendita, includeremo un layout reattivo che si adatta quando la larghezza dello schermo di un utente è inferiore a 700 pixel. Un layout reattivo semplifica l'uso del localizzatore di punti vendita su un piccolo schermo, ad esempio in un dispositivo mobile. Ecco un wireframe del layout per uno schermo di piccole dimensioni:  
 
 <center>
 
-![Wireframe del localizzatore di punti vendita di Contoso Coffee su un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe dell'applicazione di localizzazione di punti vendita di Contoso Coffee su un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include una casella di ricerca, un elenco di punti vendita nelle vicinanze, una mappa con alcuni marcatori (simboli) e una finestra popup che mostra informazioni aggiuntive quando l'utente seleziona un marcatore. Ecco una descrizione più dettagliata delle funzionalità create nel localizzatore di punti vendita in questa esercitazione:
 

@@ -5,22 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: bryanla
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a743df545450f87a01785f6f8a15fe08b8eafe
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181184"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977867"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL
 
@@ -34,11 +33,17 @@ Questa esercitazione illustra come usare un'identità assegnata dal sistema per 
 > * Creare un utente indipendente nel database che rappresenta l'identità assegnata dal sistema della macchina virtuale
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per eseguire query su un server SQL di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Concedere l'accesso della macchina virtuale a un database in un server SQL di Azure
+
+## <a name="enable"></a>Abilitare
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+## <a name="grant-access"></a>Concedere l'accesso
 
 Per concedere alla macchina virtuale l'accesso a un database in un server SQL di Azure, è possibile usare un server SQL esistente o crearne uno nuovo. Per creare un nuovo server e un database tramite il portale di Azure, seguire questa [Guida rapida di SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Nella [documentazione di SQL di Azure](https://docs.microsoft.com/azure/sql-database/) sono disponibili anche guide rapide che usano l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
@@ -47,9 +52,9 @@ Per concedere alla macchina virtuale l'accesso a un database sono necessari due 
 1. Abilitare l'autenticazione di Azure AD per il server SQL.
 2. Creare un **utente indipendente** nel database che rappresenta l'identità assegnata dal sistema della macchina virtuale.
 
-## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Abilitare l'autenticazione di Azure AD per il server SQL
+### <a name="enable-azure-ad-authentication"></a>Abilitare l'autenticazione di Azure AD
 
-[Configurare l'autenticazione di Azure AD per il server SQL](/azure/sql-database/sql-database-aad-authentication-configure) seguendo questa procedura:
+**Per [configurare l'autenticazione di Azure AD per il server SQL](/azure/sql-database/sql-database-aad-authentication-configure):**
 
 1.  Nel portale di Azure selezionare **i server SQL** dal menu a sinistra.
 2.  Fare clic sul server SQL da abilitare per l'autenticazione di Azure AD.
@@ -58,14 +63,16 @@ Per concedere alla macchina virtuale l'accesso a un database sono necessari due 
 5.  Selezionare un account utente di Azure AD da rendere amministratore del server e fare clic su **Seleziona**.
 6.  Nella barra dei comandi fare clic su **Salva**.
 
-## <a name="create-a-contained-user-in-the-database-that-represents-the-vms-system-assigned-identity"></a>Creare un utente indipendente nel database che rappresenta l'identità assegnata dal sistema della macchina virtuale
+### <a name="create-contained-user"></a>Creare un utente indipendente
 
-Per il passaggio successivo, sarà necessario [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Prima di iniziare, potrebbe essere utile consultare anche gli articoli seguenti per avere informazioni sull'integrazione di Azure AD:
+Questa sezione illustra come creare un utente indipendente nel database che rappresenta l'identità assegnata dal sistema della macchina virtuale. Per questo passaggio è necessario [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Prima di iniziare, potrebbe essere utile consultare anche gli articoli seguenti per avere informazioni sull'integrazione di Azure AD:
 
 - [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 Il database SQL richiede nomi visualizzati AAD univoci. Con questa impostazione, gli account AAD come utenti, gruppi ed entità servizio (applicazioni) e i nomi di macchine virtuali abilitati per l'identità gestita devono essere definiti in modo univoco in AAD in relazione ai nomi visualizzati. Il database SQL controlla il nome visualizzato AAD durante la creazione T-SQL di tali utenti e, se non è univoco, il comando ha esito negativo e richiede di specificare un nome visualizzato AAD univoco per un determinato account.
+
+**Per creare un utente indipendente:**
 
 1. Avviare SQL Server Management Studio.
 2. Nella finestra di dialogo **Connetti al server** immettere il nome del server SQL nel campo **Nome server**.
@@ -99,9 +106,9 @@ Il database SQL richiede nomi visualizzati AAD univoci. Con questa impostazione,
 
 Il codice in esecuzione nella macchina virtuale può ora ottenere un token tramite l'identità gestita assegnata dal sistema e usarlo per l'autenticazione al server SQL.
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>Ottenere un token di accesso usando l'identità gestita assegnata dal sistema della macchina virtuale e usarlo per chiamare Azure SQL
+## <a name="access-data"></a>Accedere ai dati
 
-Azure SQL supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando identità gestite per le risorse di Azure. Usare il metodo di creazione di una connessione a SQL del **token di accesso**. Questo fa parte dell'integrazione di SQL di Azure con Azure AD e non prevede l'inserimento di credenziali nella stringa di connessione.
+Questa sezione illustra come ottenere un token di accesso usando l'identità gestita assegnata dal sistema della macchina virtuale e usarlo per chiamare Azure SQL. Azure SQL supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando identità gestite per le risorse di Azure. Usare il metodo di creazione di una connessione a SQL del **token di accesso**. Questo fa parte dell'integrazione di SQL di Azure con Azure AD e non prevede l'inserimento di credenziali nella stringa di connessione.
 
 Di seguito è riportato un esempio di codice .NET per l'apertura di una connessione a SQL tramite un token di accesso. Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità gestita assegnata dal sistema della macchina virtuale. Per usare il metodo del token di accesso, è necessario **.NET Framework 4.6** o versione successiva oppure **.NET Core 2.2** o versione successiva. Sostituire i valori di AZURE-SQL-SERVERNAME e DATABASE di conseguenza. Si noti che l'ID risorsa per Azure SQL è `https://database.windows.net/`.
 
@@ -192,6 +199,12 @@ Un altro modo rapido per verificare le impostazioni end-to-end senza dover scriv
     ```
 
 Esaminare il valore di `$DataSet.Tables[0]` per visualizzare i risultati della query.
+
+
+## <a name="disable"></a>Disabilitazione
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

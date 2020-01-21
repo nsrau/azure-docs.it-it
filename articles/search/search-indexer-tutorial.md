@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 1b03f5569386212905cdeb362cfe0a88774eb887
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406703"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754344"
 ---
 # <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Esercitazione: Importare un database SQL di Azure in C# con gli indicizzatori di Ricerca cognitiva di Azure
 
@@ -33,11 +33,11 @@ In questa esercitazione verranno usate le [librerie client .NET di Ricerca cogni
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
-[Creare un servizio di ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
+[Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
 
 [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/) archivia l'origine dati esterna usata da un indicizzatore. La soluzione di esempio fornisce un file di dati SQL per creare la tabella. I passaggi per la creazione del servizio e del database sono forniti in questa esercitazione.
 
@@ -159,7 +159,7 @@ In questa esercitazione l'indicizzatore esegue il pull di dati da un'origine dat
 
 Il programma principale include la logica per la creazione di un client, un indice, un'origine dati e un indicizzatore. Il codice cerca ed elimina le risorse esistenti con lo stesso nome, presupponendo che sia possibile che il programma venga eseguito più volte.
 
-L'oggetto origine dati è configurato con le impostazioni specifiche nelle risorse del database SQL di Azure, tra cui l'[indicizzazione incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di Azure SQL. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca cognitiva di Azure.
+L'oggetto origine dati è configurato con le impostazioni specifiche per le risorse del database SQL di Azure, tra cui l'[indicizzazione parziale o incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di Azure SQL. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca cognitiva di Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");

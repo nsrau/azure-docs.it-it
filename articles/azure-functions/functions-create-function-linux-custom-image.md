@@ -4,12 +4,12 @@ description: Informazioni su come creare Funzioni di Azure in esecuzione in un'i
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e70edac09c8b2d61c148c9ba0fd04ec231e9a965
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551489"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769320"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creare una funzione in Linux tramite un'immagine personalizzata
 
@@ -17,7 +17,7 @@ Funzioni di Azure consente di ospitare le funzioni in Linux in un contenitore pe
 
 In questa esercitazione si vedrà come distribuire funzioni in Azure come un'immagine personalizzata di Docker. Questo modello è utile quando è necessario personalizzare l'immagine del contenitore predefinita. È possibile che l'utente desideri usare un'immagine personalizzata quando le funzioni hanno bisogno di una versione di linguaggio specifica o richiedono una configurazione o una dipendenza specifica non indicata all'interno dell'immagine predefinita. Le immagini di base supportate per Funzioni di Azure sono disponibili nel [repository di immagini di base per Funzioni di Azure](https://hub.docker.com/_/microsoft-azure-functions-base). 
 
-Questa esercitazione illustra come usare Azure Functions Core Tools per creare una funzione in un'immagine Linux personalizzata. L'immagine viene pubblicata in Azure, in un'app per le funzioni creata tramite l'interfaccia della riga di comando di Azure. Successivamente, si aggiorna la funzione per connettersi all'archiviazione code di Azure. Si abilita inoltre la distribuzione continua.  
+Questa esercitazione illustra come usare Azure Functions Core Tools per creare una funzione in un'immagine Linux personalizzata. L'immagine viene pubblicata in Azure, in un'app per le funzioni creata tramite l'interfaccia della riga di comando di Azure. Successivamente, si aggiorna la funzione per connettersi all'archiviazione code di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -101,7 +101,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 Al termine del comando, è possibile eseguire il nuovo contenitore in locale.
 
 ### <a name="run-the-image-locally"></a>Creare l'immagine in locale
-Verificare che l'immagine creata funzioni eseguendo l'immagine Docker in un contenitore locale. Eseguire il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e passargli il nome e il tag dell'immagine. Accertarsi di specificare la porta usando l'argomento `-p`.
+Verificare che l'immagine creata funzioni eseguendo l'immagine Docker in un contenitore locale. Eseguire il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e passargli il nome e il tag dell'immagine. Accertarsi di specificare le porte usando l'argomento `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
@@ -118,7 +118,7 @@ Dopo aver verificato l'app per le funzioni nel contenitore, arrestare l'esecuzio
 
 ## <a name="push-to-docker-hub"></a>Eseguire il push in Docker Hub
 
-Un registro è un'applicazione che ospita le immagini e fornisce l'immagine dei servizi e i servizi contenitore. Per condividere l'immagine, è necessario eseguirne il push in un registro. Docker Hub è un registro per le immagini Docker che consente di ospitare i propri repository, pubblici o privati.
+Un registro è un'applicazione che ospita le immagini e fornisce i servizi immagine e contenitore. Per condividere l'immagine, è necessario eseguirne il push in un registro. Docker Hub è un registro per le immagini Docker che consente di ospitare i propri repository, pubblici o privati.
 
 Prima di eseguire il push di un'immagine, è necessario accedere ad hub Docker usando il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Sostituire `<docker-id>` con il nome dell'account e digitare la password nella console quando richiesto. Per altre opzioni relative alla password di hub Docker, vedere la [documentazione relativa al comando docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
@@ -346,13 +346,13 @@ Una volta definito il binding, è possibile usare il relativo valore `name` per 
 Nella cartella radice eseguire di nuovo il comando [docker build](https://docs.docker.com/engine/reference/commandline/build/) e questa volta aggiornare la versione nel tag impostandola su `v1.0.2`. Come in precedenza, sostituire `<docker-id>` con l'ID dell'account Docker Hub. 
 
 ```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.0 .
+docker build --tag <docker-id>/mydockerimage:v1.0.2
 ```
 
 Eseguire il push dell'immagine aggiornata nel repository.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0
+docker push <docker-id>/mydockerimage:v1.0.2
 ```
 
 ### <a name="verify-the-updates-in-azure"></a>Verificare gli aggiornamenti in Azure

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6adb48b9d6c490b60302f93101506ec53679ae4f
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bebc7dde30dad57157d0abee7f2294d9da58fd5c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530230"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861813"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Esercitazione: Configurare un ambiente di anteprima di Azure Time Series Insights
 
@@ -62,7 +62,7 @@ In questa sezione verranno creati tre dispositivi simulati che inviano dati a un
 
    [![Eseguire il provisioning della soluzione di simulazione dispositivi.](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. Al termine del provisioning, verranno visualizzati due aggiornamenti che mostrano che lo stato della distribuzione è passato da **Provisioning** a **Pronto**. 
+1. Al termine del provisioning, verranno visualizzate due notifiche che mostrano che lo stato della distribuzione è passato da **Provisioning** a **Pronto**. 
 
    >[!IMPORTANT]
    > Non immettere ancora l'acceleratore di soluzione, ma mantenere aperta questa pagina Web per tornarvi in un secondo momento.
@@ -125,7 +125,7 @@ Questa sezione descrive come creare un ambiente di anteprima di Azure Time Serie
 
     [![Pagina Rivedi e crea, con il pulsante Crea.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
-    È possibile visualizzare lo stato della distribuzione:
+    È possibile esaminare lo stato della distribuzione:
 
     [![Notifica del completamento della distribuzione.](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
@@ -169,7 +169,7 @@ Ora che l'ambiente Time Series Insights è stato distribuito, iniziare a trasmet
 
     Selezionare **Start simulation** (Avvia simulazione).
 
-    Nella dashboard della simulazione dispositivi verranno visualizzati **Active devices** (Dispositivi attivi) e **Total messages** (Totale messaggi).
+    Nel dashboard di simulazione dei dispositivi verranno visualizzati **Active devices** (Dispositivi attivi) e **Total messages** (Totale messaggi).
 
     [![Dashboard di simulazione di Azure IoT.](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
@@ -181,9 +181,9 @@ In questa sezione verranno eseguite attività di analisi di base sui dati delle 
 
     [![URL dello strumento di esplorazione dell'anteprima di Time Series Insights.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. Nello strumento di esplorazione di Time Series Insights è presente una barra che si estende nella parte superiore della schermata. Questa è la selezione disponibilità. Assicurarsi di avere almeno due valori 2 m selezionati e, se necessario, espandere l'intervallo di tempo selezionando e trascinando i quadratini di selezione verso sinistra e verso destra.
+1. Nello strumento di esplorazione di Time Series Insights verrà visualizzata una barra che si estende nella parte superiore della schermata. Questa è la selezione disponibilità. Assicurarsi di avere almeno due valori 2 m selezionati e, se necessario, espandere l'intervallo di tempo selezionando e trascinando i quadratini di selezione verso sinistra e verso destra.
 
-1. Le **istanze della serie temporale** saranno visibili a sinistra.
+1. **Le istanze della serie temporale** verranno visualizzate sul lato sinistro.
 
     [![Elenco di istanze senza padre.](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 
@@ -205,7 +205,7 @@ In questa sezione verranno eseguite attività di analisi di base sui dati delle 
 
 ## <a name="define-and-apply-a-model"></a>Definire e applicare un modello
 
-In questa sezione si applica un modello per strutturare i dati. Per completare il modello, vengono definiti i tipi, le gerarchie e le istanze. Per altre informazioni sulla modellazione dei dati, vedere [Modello Time Series](./time-series-insights-update-tsm.md).
+In questa sezione si applica un modello per strutturare i dati. Per completare il modello, vengono definiti i tipi, le gerarchie e le istanze. Per altre informazioni sulla modellazione dei dati, vedere [Modello di serie temporale](./time-series-insights-update-tsm.md).
 
 1. Nella finestra di esplorazione, selezionare la scheda **Modello**:
 
@@ -254,9 +254,9 @@ In questa sezione si applica un modello per strutturare i dati. Per completare i
 
     Selezionare **Applica**.
 
-1. Selezionare **Salva**. Sono state create tre variabili:
+1. Selezionare **Salva**. Vengono create e visualizzate tre variabili.
 
-    [![Dopo aver aggiunto il tipo, visualizzarlo nella visualizzazione modello.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+    [![Dopo aver aggiunto il tipo, esaminarlo nella visualizzazione Modello.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Selezionare la scheda **Gerarchie**. Quindi selezionare **+ Aggiungi**.
    

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 16837ff53d7a87f6d6ac86643c7c8d16721e9470
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: b95c5511b2f64414fcf165a4346dbb06b1f02435
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660376"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833865"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Avvio rapido: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess).
 - [cURL](https://curl.haxx.se/windows/) installato.
-- Un set di almeno cinque moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello. I moduli possono essere di tipi di file diversi, ma devono essere dello stesso tipo di documento. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
+- Un set di almeno sei moduli dello stesso tipo. Cinque di questi moduli verranno usati per eseguire il training del modello, che quindi verrà testato con il sesto. I moduli possono essere di tipi di file diversi, ma devono essere dello stesso tipo di documento. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure. È possibile inserire i file di test in una cartella separata.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -143,15 +143,14 @@ Quindi, usare il modello appena sottoposto a training per analizzare un document
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
 1. Sostituire `<model ID>` con l'ID modello ricevuto nella sezione precedente.
-1. Sostituire `<path to your form>` con il percorso del file del proprio modulo (ad esempio, C:\temp\file.pdf). Può anche essere un URL di un file remoto. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Test** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451).
-1. Sostituire `<file type>` con il tipo di file. I tipi supportati sono `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.
+1. Sostituire `<SAS URL>` con un URL di firma di accesso condiviso per il file in archiviazione di Azure. Seguire la procedura decritta nella sezione Training, ma invece di ottenere un URL di firma di accesso condiviso per l'intero contenitore BLOB ottenerne uno per il file specifico da analizzare.
 1. Sostituire `<subscription key>` con la chiave di sottoscrizione.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
-Si riceverà una risposta `202 (Success)` che include l'intestazione **Operation-Location**. Il valore di questa intestazione corrisponde all'ID da usare per tenere traccia dei risultati dell'operazione di analisi. Salvare questo ID per il passaggio successivo.
+Si riceverà una risposta `202 (Success)` che include l'intestazione **Operation-Location**. Il valore di questa intestazione include un ID risultati da usare per tenere traccia dei risultati dell'operazione di analisi. Salvare questo ID risultati per il passaggio successivo.
 
 ## <a name="get-the-analyze-results"></a>Ottenere i risultati dell'analisi
 

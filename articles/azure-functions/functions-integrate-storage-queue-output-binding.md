@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226891"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769184"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 
@@ -18,7 +18,7 @@ In Funzioni di Azure le associazioni di input e di output forniscono una modalit
 
 ![Messaggio della coda visualizzato in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva:
 
@@ -48,7 +48,7 @@ In questa sezione si usa l'interfaccia utente del portale per aggiungere un'asso
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Impostazione      |  Valore consigliato   | DESCRIZIONE                              |
+    | Impostazione      |  Valore consigliato   | Descrizione                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome del parametro del messaggio** | outputQueueItem | Nome del parametro di binding di output. | 
     | **Connessione dell'account di archiviazione** | AzureWebJobsStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
@@ -103,7 +103,7 @@ In questa sezione si aggiunge il codice che scrive un messaggio nella coda di ou
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-    Si noti che in **Corpo della richiesta** è presente il valore di `name` *Azure*. Questo valore viene visualizzato nel messaggio della coda creato quando viene richiamata la funzione.
+    Si noti che in **Corpo della richiesta** è presente il valore di `name`*Azure*. Questo valore viene visualizzato nel messaggio della coda creato quando viene richiamata la funzione.
     
     Al posto di fare clic su **Esegui**, in questo caso è possibile chiamare la funzione immettendo un URL in un browser e specificando il valore di `name` nella stringa di query. Il metodo tramite browser è illustrato nella [guida introduttiva precedente](functions-create-first-azure-function.md#test-the-function).
 
@@ -143,7 +143,7 @@ Se Storage Explorer è già stato installato e connesso all'account di archiviaz
 
 1. Espandere il nodo **Code** e quindi selezionare la coda denominata **outqueue**. 
 
-   La coda contiene il messaggio creato dall'associazione di output della coda quando è stata eseguita la funzione attivata da HTTP. Se la funzione è stata richiamata con il valore predefinito di `name` *Azure*, il messaggio della coda è *Name passed to the function: Azure*.
+   La coda contiene il messaggio creato dall'associazione di output della coda quando è stata eseguita la funzione attivata da HTTP. Se la funzione è stata richiamata con il valore predefinito di `name`*Azure*, il messaggio della coda è *Name passed to the function: Azure*.
 
     ![Messaggio della coda visualizzato in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

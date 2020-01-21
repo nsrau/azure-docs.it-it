@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 50c5067c3db2f07da225b72d9ba0a8f0bdc44368
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431772"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748148"
 ---
 # <a name="azure-storage-samples-using-net"></a>Esempi di Archiviazione di Azure che usano .NET
 
@@ -21,7 +21,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 > [!NOTE]
 > Questi esempi usano la libreria .NET v11 di Archiviazione di Azure. Per il codice v12, vedere gli [esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) nel repository GitHub.
 
-## <a name="blob-samples"></a>Esempi di BLOB
+## <a name="blob-samples-v11"></a>Esempi di BLOB (v11)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -42,7 +42,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 | Proprietà del servizio | [Getting Started with Blobs](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) (Introduzione ai BLOB) |
 | Snapshot Blob | [Backup dei dischi delle macchine virtuali di Azure con snapshot incrementali](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
 
-## <a name="file-samples"></a>Esempi di file
+## <a name="file-samples-v11"></a>Esempi di file (v11)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -56,7 +56,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 | Elenco di condivisioni | [Azure Storage .NET File Storage Sample](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) (Esempio di archiviazione file .NET in Archiviazione di Azure) |
 | Condivisione di proprietà/metadati/statistiche | [Azure Storage .NET File Storage Sample](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) (Esempio di archiviazione file .NET in Archiviazione di Azure) |
 
-## <a name="queue-samples"></a>Esempi di code
+## <a name="queue-samples-v11"></a>Esempi di code (v11)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -69,11 +69,11 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 | Proprietà del servizio di accodamento | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
 | Aggiornamento del messaggio | [Getting Started with Azure Queue Service in .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 
-## <a name="table-samples"></a>Esempi di tabelle
+## <a name="table-samples-v11"></a>Esempi di tabelle (v11)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
-| Creazione di tabella | [Gestione della concorrenza con l'archiviazione di Azure - Applicazione di esempio](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
+| Create Table | [Gestione della concorrenza con l'archiviazione di Azure - Applicazione di esempio](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
 | Eliminazione entità/tabella | [Introduzione all'archiviazione tabelle di Azure con .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |
 | Inserimento/unione/sostituzione di entità | [Gestione della concorrenza con l'archiviazione di Azure - Applicazione di esempio](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262) |
 | Query Entities | [Introduzione all'archiviazione tabelle di Azure con .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs) |

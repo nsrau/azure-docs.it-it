@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ca172e16fc13d2b8e10d0797f5b57b5b48136349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0fc5c32570e5a5920d1616a522120ea5d5b251d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430437"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768328"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduzione agli ambienti del servizio app #
  
@@ -41,6 +41,7 @@ Gli ambienti del servizio app sono isolati per eseguire solo le applicazioni di 
 * Per ottenere la scalabilità orizzontale è possibile usare più ambienti del servizio app. Per altre informazioni, vedere [come configurare un footprint dell'app con distribuzione geografica](app-service-app-service-environment-geo-distributed-scale.md).
 * Gli ambienti del servizio app consentono di configurare l'architettura di sicurezza, come illustrato negli approfondimenti di AzureCon. Per vedere come è stata configurata l'architettura di sicurezza illustrata negli approfondimenti di AzureCon, vedere l'articolo relativo all'[implementazione di un'architettura di sicurezza a più livelli](app-service-app-service-environment-layered-security.md) con gli ambienti del servizio app.
 * Le app in esecuzione in ambienti del servizio app possono avere l'accesso controllato da dispositivi upstream, quali Web application firewall. Per altre informazioni, vedere [Web application firewall (WAF)][AppGW].
+* Gli ambienti del servizio app possono essere distribuiti in zone di disponibilità (AZ) tramite associazione delle zone.  Per informazioni dettagliate, vedere [Supporto dell'ambiente del servizio app per le zone di disponibilità][ASEAZ].
 
 ## <a name="dedicated-environment"></a>Ambiente dedicato ##
 
@@ -102,3 +103,4 @@ ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, 
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md
+[ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

@@ -5,16 +5,16 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 74b0f83500903170616034d9d18d8ad31fa7065c
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670397"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834309"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurare un'app Ruby in Linux per il Servizio app di Azure
 
-Questo articolo descrive in che modo il [Servizio app di Azure](app-service-linux-intro.md) esegue le app Ruby e come è possibile personalizzare il comportamento del servizio app quando è necessario. Le app Ruby devono essere distribuite con tutti i moduli [pip](https://pypi.org/project/pip/) richiesti.
+Questo articolo descrive in che modo il [Servizio app di Azure](app-service-linux-intro.md) esegue le app Ruby e come è possibile personalizzare il comportamento del servizio app quando è necessario. Le app Ruby devono essere distribuite con tutti i moduli [gems](https://rubygems.org/gems) richiesti.
 
 Questa guida illustra i concetti chiave e le istruzioni per gli sviluppatori Ruby che usano un contenitore Linux predefinito nel servizio app. Se non si è mai usato il Servizio app di Azure, è consigliabile seguire per prima cosa l'[Avvio rapido di Ruby](quickstart-ruby.md) e l'[esercitazione di Ruby con PostgreSQL](tutorial-ruby-postgres-app.md).
 
@@ -47,7 +47,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
-> oppure
+> o
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
@@ -72,7 +72,7 @@ Quando si distribuisce un [repository Git](../deploy-local-git.md?toc=%2fazure%2
 
 ### <a name="use---without-flag"></a>Usare il flag --without
 
-Per eseguire `bundle install` con il flag [--without](https://bundler.io/man/bundle-install.1.html), impostare l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `BUNDLE_WITHOUT` su un elenco di gruppi delimitato da virgole. Ad esempio, il comando seguente la imposta su `development,test`.
+Per eseguire `bundle install` con il flag [--without](https://bundler.io/man/bundle-install.1.html), specificare un elenco di gruppi delimitati da virgole per l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `BUNDLE_WITHOUT`. Ad esempio, il comando seguente la imposta su `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"

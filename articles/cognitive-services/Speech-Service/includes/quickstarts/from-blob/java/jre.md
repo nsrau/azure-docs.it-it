@@ -1,32 +1,26 @@
 ---
-title: 'Avvio rapido: Riconoscimento della voce archiviata in archiviazione BLOB, Java - Servizio Voce'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e110c87835cdf517bdd54adda0ef6d9168a44d52
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466601"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942727"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
+> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
+> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Caricare un file di origine in un BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=dotnet)
+
 
 ## <a name="open-your-project-in-eclipse"></a>Aprire il progetto in Eclipse
 
@@ -45,7 +39,8 @@ Aprire il file pom.xml e aggiungere il seguente riferimento: [!code-xml[](~/samp
 Aggiungere codice che funga da scheletro del progetto.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=1-13,95-105,206-207)]
-(Sarà necessario sostituire i valori di `YourSubscriptionKey`, `YourServiceRegion` e `YourFileUrl` con valori personalizzati.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="json-wrappers"></a>Wrapper JSON
 

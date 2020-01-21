@@ -6,16 +6,16 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4bf0e43132662f6f5322485a59f356f872559092
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0fe4cb6e75a74f58b4c3b312f923935053ea4756
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532512"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922605"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Creare un'app per le funzioni per l'esecuzione di codice senza server 
 
-Questo script di esempio di Funzioni di Azure crea un'app per le funzioni che è un contenitore per le funzioni. L'app per le funzioni viene creata usando il [piano a consumo](../functions-scale.md#consumption-plan), ideale per i carichi di lavoro senza server guidati dagli eventi.
+Questo script di esempio di Funzioni di Azure crea un'app per le funzioni che è un contenitore per le funzioni. L'app per le funzioni viene creata usando il [Piano a consumo](../functions-scale.md#consumption-plan), ideale per i carichi di lavoro serverless guidati dagli eventi.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,9 +25,9 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo script crea un'app per le funzioni di Azure usando il [piano di consumo](../functions-scale.md#consumption-plan) dedicato.
+Questo script crea un'app per le funzioni di Azure usando il [Piano a consumo](../functions-scale.md#consumption-plan).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

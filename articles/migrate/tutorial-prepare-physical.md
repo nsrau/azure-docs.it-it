@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196390"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028662"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
@@ -21,7 +21,7 @@ Questo articolo descrive come effettuare la preparazione per la valutazione di s
 
 [Azure Migrate](migrate-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
-Questa esercitazione è la prima di una serie che illustra come valutare i server fisici con Azure Migrate. In questa esercitazione si apprenderà come:
+Questa esercitazione è la prima di una serie che illustra come valutare i server fisici con Azure Migrate. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Preparare Azure. Configurare le autorizzazioni per consentire all'account e alle risorse di Azure di interagire con Azure Migrate.
@@ -69,7 +69,7 @@ Verificare di avere le autorizzazioni per creare un progetto di Azure Migrate.
 Vale la pena notare che:
 
 - Le app non hanno altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
-- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuovere le autorizzazioni.
+- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuoverle.
 
 
 #### <a name="grant-account-permissions"></a>Concedere le autorizzazioni all'account
@@ -95,18 +95,18 @@ Per la preparazione per la valutazione dei server fisici, è necessario verifica
 
 ### <a name="verify-physical-server-settings"></a>Verificare le impostazioni dei server fisici
 
-1. Verificare i [requisiti dei server fisici](migrate-support-matrix-physical.md#assessment-physical-server-requirements) per la valutazione dei server.
-2. Assicurarsi che nei server fisici siano aperte le [porte necessarie](migrate-support-matrix-physical.md#assessment-port-requirements).
+1. Verificare i [requisiti dei server fisici](migrate-support-matrix-physical.md#physical-server-requirements) per la valutazione dei server.
+2. Assicurarsi che nei server fisici siano aperte le [porte necessarie](migrate-support-matrix-physical.md#port-access).
 
 
 ### <a name="verify-appliance-settings"></a>Verificare le impostazioni dell'appliance
 
 Prima di configurare l'appliance di Azure Migrate e iniziare la valutazione nella prossima esercitazione, preparare la distribuzione dell'appliance.
 
-1. [Verificare](migrate-support-matrix-physical.md#assessment-appliance-requirements) i requisiti dell'appliance.
-2. [Rivedere](migrate-support-matrix-physical.md#assessment-appliance-url-access) gli URL di Azure a cui l'appliance dovrà accedere.
-3. Esaminare i dati che l'appliance raccoglierà durante l'individuazione e la valutazione.
-4. [Prendere nota](migrate-support-matrix-physical.md#assessment-port-requirements) dei requisiti di accesso alle porte per l'appliance.
+1. [Verificare](migrate-appliance.md#appliance---physical) i requisiti dell'appliance per i server fisici.
+2. [Rivedere](migrate-appliance.md#url-access) gli URL di Azure a cui l'appliance dovrà accedere.
+3. [Esaminare](migrate-appliance.md#collected-data---vmware) i dati che l'appliance raccoglierà durante l'individuazione e la valutazione.
+4. [Prendere nota](migrate-support-matrix-physical.md#port-access) dei requisiti di accesso alle porte per la valutazione dei server fisici.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configurare un account per l'individuazione di server fisici
@@ -115,6 +115,15 @@ Azure Migrate necessita delle autorizzazioni per individuare i server locali.
 
 - **Windows:** Configurare un account utente locale in tutti i server Windows che si vuole includere nell'individuazione. L'account utente deve essere aggiunto ai gruppi seguenti:       - Utenti gestione remota       - Performance Monitor Users       - Performance Log Users
 - **Linux:** È necessario un account radice nei server Linux che si desidera individuare.
+
+## <a name="prepare-for-physical-server-migration"></a>Preparare i server fisici per la migrazione
+
+Esaminare i requisiti per la migrazione dei server fisici.
+
+- [Esaminare](migrate-support-matrix-physical-migration.md#physical-server-requirements) requisiti dei server fisici per la migrazione.
+- Azure Migrate: Migrazione del server usa un server di replica per la migrazione di server fisici:
+    - [Esaminare](migrate-replication-appliance.md#appliance-requirements) i requisiti di distribuzione per l'appliance di replica e le [opzioni](migrate-replication-appliance.md#mysql-installation) per l'installazione di MySQL nell'appliance.
+    - Esaminare i requisiti di accesso agli [URL](migrate-replication-appliance.md#url-access) e alle [porte] (migrate-replication-appliance.md#port-access) per l'appliance di replica.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

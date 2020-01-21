@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083417"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770952"
 ---
 # <a name="expressroute-overview"></a>Panoramica di ExpressRoute
 ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure e Office 365.
@@ -39,7 +39,7 @@ Per altre informazioni, vedere [Domande frequenti su ExpressRoute](expressroute-
 Microsoft usa BGP, il protocollo di routing dinamico di standard del settore, per lo scambio di route tra la rete locale, le istanze in Azure e gli indirizzi pubblici Microsoft. Vengono stabilite più sessioni BGP con la rete per profili di traffico diversi. Per altre informazioni, vedere l'articolo relativo [al circuito e ai domini di routing ExpressRoute](expressroute-circuit-peerings.md) .
 
 ### <a name="redundancy"></a>Ridondanza
-Ogni circuito ExpressRoute è costituito da due connessioni a due router perimetrali Microsoft Enterprise (MSEE) dal provider di connettività o dal perimetro della rete. Microsoft richiede una connessione BGP doppia dal provider di connettività o dalla rete perimetrale, una per ogni MSEE. È possibile scegliere di non distribuire dispositivi ridondanti/circuiti Ethernet sul lato dell'utente. I provider di connettività tuttavia usano dispositivi ridondanti per garantire che le connessioni vengono passate a Microsoft in modo ridondante. Una connettività di livello 3 ridondante è un requisito per la validità del [contratto di servizio](https://azure.microsoft.com/support/legal/sla/) .
+Ogni circuito ExpressRoute è costituito da due connessioni con due router perimetrali di Microsoft Enterprise (MSEE) in una [posizione di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) provenienti dal provider di connettività o dal perimetro della rete. Microsoft richiede una connessione BGP doppia dal provider di connettività o dalla rete perimetrale, una per ogni MSEE. È possibile scegliere di non distribuire dispositivi ridondanti/circuiti Ethernet sul lato dell'utente. I provider di connettività tuttavia usano dispositivi ridondanti per garantire che le connessioni vengono passate a Microsoft in modo ridondante. Una connettività di livello 3 ridondante è un requisito per la validità del [contratto di servizio](https://azure.microsoft.com/support/legal/sla/) .
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Connettività ai servizi cloud Microsoft
 Le connessioni ExpressRoute abilitano l'accesso ai servizi seguenti:

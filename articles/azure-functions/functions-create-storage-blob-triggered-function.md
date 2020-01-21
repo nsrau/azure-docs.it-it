@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227156"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769303"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Creare una funzione attivata dall'archiviazione BLOB di Azure
 
@@ -18,7 +18,7 @@ Informazioni su come creare una funzione attivata nel momento in cui vengono car
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 + Scaricare e installare [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -45,7 +45,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Nel campo di ricerca digitare `blob` e quindi scegliere il modello **Trigger BLOB**.
 
-1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure e le relative dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
+1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure ed eventuali dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
 
     ![Installare le estensioni di binding](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -87,7 +87,7 @@ Dopo aver creato un contenitore BLOB, è possibile ora testare la funzione caric
 
 1. Tornare al portale di Azure, selezionare la funzione, espandere i **log** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non sia stato interrotto.
 
-1. In Esplora archivi espandere l'account di archiviazione, **Contenitori BLOB** e **samples-workitems**. Fare clic su **Carica** e quindi su **Carica file...** .
+1. In Storage Explorer espandere l'account di archiviazione, **Contenitori BLOB** e **samples-workitems**. Fare clic su **Carica** e quindi su **Carica file...** .
 
     ![Caricare un file nel contenitore BLOB.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

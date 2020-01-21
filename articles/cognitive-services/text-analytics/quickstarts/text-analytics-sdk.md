@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
-ms.openlocfilehash: 67e404675d6a4917b6e26c0c5dd5e067a3408652
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: edd4c09bb8cf724e293f1f947eab81f0f9f7a7c8
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446266"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832216"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Avvio rapido: Usare la libreria client di Analisi del testo
 
@@ -69,7 +69,7 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Analisi del testo con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Esplorare una soluzione](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 
 * [Panoramica di Analisi del testo](../overview.md)

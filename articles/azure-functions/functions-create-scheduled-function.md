@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8e89c3923daab15793707ff99dbbed6deeb6a0b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 808f0f81f937da688a8873e5f6ee959976e9d6aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227179"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769286"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Creare una funzione in Azure attivata da un timer
 
@@ -18,7 +18,7 @@ Informazioni su come usare Funzioni di Azure per creare una funzione [serverless
 
 ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
@@ -53,7 +53,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     | **Nome** | Predefinito | Definisce il nome della funzione attivata dal timer. |
     | **Pianificare** | 0 \*/1 \* \* \* \* | [Espressione CRON](functions-bindings-timer.md#ncrontab-expressions) a sei campi che pianifica la funzione in modo che venga eseguita ogni minuto. |
 
-4. Fare clic su **Create**(Crea). Viene creata una funzione nel linguaggio scelto che verrà eseguita ogni minuto.
+4. Fare clic su **Crea**. Viene creata una funzione nel linguaggio scelto che verrà eseguita ogni minuto, al minuto.
 
 5. Verificare l'esecuzione visualizzando le informazioni di traccia scritte nei log.
 
@@ -69,7 +69,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 ![Pianificazione del timer di aggiornamento di Funzioni nel portale di Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-È ora disponibile una funzione che viene eseguita ogni ora. 
+È ora disponibile una funzione che viene eseguita ogni ora, all'ora.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034574"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778414"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Azure DevOps Services
 
@@ -163,7 +163,7 @@ Per creare la pipeline di versione in Azure Pipelines:
 
 1. Selezionare **+ Versione** e selezionare **Crea versione**.
 2. Selezionare la build completata nell'elenco a discesa evidenziato e quindi **Accoda**.
-3. Scegliere il collegamento di versione nel messaggio popup. Ad esempio:  "Versione **Versione-1** creata".
+3. Scegliere il collegamento di versione nel messaggio popup. Ad esempio: "Versione **Versione-1** creata".
 4. Aprire la scheda **Log** per osservare l'output della console della versione.
 5. Nel browser aprire l'URL di uno dei server aggiunti al gruppo di distribuzione. Ad esempio, immettere **http://{indirizzo-ip-server-personale}** .
 6. Passare al repository Git di origine e modificare il contenuto del titolo **h1** nel file app/views/index.jade con un testo modificato.
@@ -182,9 +182,11 @@ In questa esercitazione è stata automatizzata la distribuzione di un'app in Azu
 > * Creare l'app in Jenkins.
 > * Configurare Jenkins per l'integrazione con Azure DevOps Services.
 > * Creare un gruppo di distribuzione per le macchine virtuali di Azure.
-> * Creare una pipeline di versione che configuri le macchine virtuali e distribuisca l'app.
+> * Creare una pipeline di Azure che configura le VM e distribuisce l'app.
 
-Per informazioni su come distribuire uno stack LAMP (Linux, Apache, MySQL e PHP), passare all'esercitazione successiva.
+Per informazioni su come usare Azure Pipelines per i passaggi di compilazione e versioni, vedere [questo articolo](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+
+Per informazioni su come creare una pipeline CI/CD basata su YAML per la distribuzione in macchine virtuali, passare all'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Distribuire lo stack LAMP](tutorial-lamp-stack.md)
+> [CI/CD con Azure Pipelines](tutorial-build-deploy-azure-pipelines.md)

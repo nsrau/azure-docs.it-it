@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Leggere i dati acquisiti dall'app Python - Hub eventi di Azure"
-description: 'Guida introduttiva: Script che usano Azure Python SDK per illustrare la funzionalità Acquisizione di Hub eventi.'
+title: "Avvio rapido: Leggere i dati acquisiti dall'app Python - Hub eventi di Azure"
+description: 'Avvio rapido: Script che usano Azure Python SDK per illustrare la funzionalità Acquisizione di Hub eventi.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e81871e27c04f8a43f678110d7f44cc9c3be149c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717851"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940751"
 ---
-# <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Guida introduttiva: Procedura dettagliata sull'acquisizione di Hub eventi: Python
+# <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Avvio rapido: Procedura dettagliata sull'acquisizione di Hub eventi: Python
 
 L'acquisizione è una funzionalità di Hub eventi di Azure. È possibile usare la funzionalità Acquisizione per inviare automaticamente i dati di streaming dell'hub eventi a un determinato account di archiviazione BLOB di Azure. Questa funzionalità semplifica l'esecuzione dell'elaborazione batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'acquisizione di Hub eventi con Python. Per altre informazioni su Acquisizione di Hub eventi, vedere [Acquisire eventi tramite Hub eventi di Azure][Overview of Event Hubs Capture].
 
 Questa procedura dettagliata usa [Azure Python SDK](https://azure.microsoft.com/develop/python/) per illustrare la funzionalità Acquisizione. Il programma *sender.py* invia una simulazione di telemetria ambientale a Hub eventi in formato JSON. L'hub eventi usa la funzionalità Acquisizione per scrivere i dati in batch nell'archiviazione BLOB. L'app *capturereader.py* legge questi BLOB, crea un file di accodamento per ogni dispositivo e scrive i dati in file con estensione *csv* in ogni dispositivo.
+
+> [!IMPORTANT]
+> Questo argomento di avvio rapido usa la versione 1 di Python SDK per Hub eventi di Azure. Se non si ha familiarità con Hub eventi di Azure, usare la versione 5 di Python SDK. Per un argomento di avvio rapido che usa la versione 5 di Python SDK, vedere [questo articolo](get-started-capture-python-v2.md). Se è necessario eseguire la migrazione del codice esistente dalla versione 1 alla versione 5, vedere la [guida alla migrazione](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
 
 Questa procedura dettagliata è costituita dai passaggi seguenti: 
 
@@ -36,7 +39,7 @@ Questa procedura dettagliata è costituita dai passaggi seguenti:
 > * Inviare i dati all'hub eventi tramite uno script Python.
 > * Leggere ed elaborare i file ottenuti da Acquisizione di Hub eventi tramite un altro script Python.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Python 3.4 o versione successiva con `pip` installato e aggiornato.
   

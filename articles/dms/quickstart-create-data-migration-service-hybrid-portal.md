@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.openlocfilehash: c93ff5d97826ee618716cc15361a439a5429d696
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437743"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708292"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Avvio rapido: Creare un'istanza in modalità ibrida con il portale di Azure e il Servizio Migrazione del database di Azure
 
@@ -172,7 +172,7 @@ Attualmente la disinstallazione della modalità ibrida del Servizio Migrazione d
 
 ## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Configurare il ruolo di lavoro ibrido del Servizio Migrazione del database di Azure con PowerShell
 
-Oltre a installare il ruolo di lavoro ibrido del Servizio Migrazione del database di Azure tramite la portale di Azure, viene fornito uno script di PowerShell che è possibile usare per automatizzare i passaggi di installazione del ruolo di lavoro dopo aver creato una nuova istanza del Servizio Migrazione del database di Azure in modalità ibrida. Lo script:
+Oltre a installare il ruolo di lavoro ibrido del servizio Migrazione del database di Azure tramite il portale di Azure, è disponibile uno [script di PowerShell](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) che è possibile usare per automatizzare l'installazione del ruolo di lavoro dopo aver creato una nuova istanza del Servizio Migrazione del database di Azure in modalità ibrida. Lo script:
 
 1. Crea un nuovo elemento AdApp.
 2. Scarica il programma di installazione.

@@ -1,101 +1,101 @@
 ---
-title: Eseguire la migrazione da Google Maps | Microsoft Docs
-description: Esercitazione su come eseguire la migrazione da Google Maps a Microsoft Azure maps. Le linee guida illustrano come passare alle API e agli SDK di Azure maps.
+title: 'Esercitazione: Eseguire la migrazione da Google Maps a Mappe di Azure | Mappe di Microsoft Azure'
+description: Esercitazione su come eseguire la migrazione da Google Maps a Mappe di Microsoft Azure. Vengono fornite indicazioni dettagliate su come passare alle API e agli SDK di Mappe di Azure.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6709c42b19b18c8cae783a6b4ecc2c0721e1217d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.openlocfilehash: 0e841b1f386d45ddb4af8598855d8e739750307e
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770306"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910730"
 ---
-# <a name="migrate-from-google-maps"></a>Eseguire la migrazione da Google Maps
+# <a name="migrate-from-google-maps-to-azure-maps"></a>Eseguire la migrazione da Google Maps a Mappe di Azure
 
-Questa esercitazione fornisce informazioni dettagliate su come eseguire la migrazione di applicazioni Web, per dispositivi mobili e basate su server da Google Maps alla piattaforma Microsoft Azure maps. Questa esercitazione include esempi di codice comparato, suggerimenti per la migrazione e procedure consigliate per la migrazione a mappe di Azure.
+Questa esercitazione fornisce informazioni dettagliate su come eseguire la migrazione di applicazioni Web, per dispositivi mobili e basate su server da Google Maps alla piattaforma Mappe di Microsoft Azure. L'esercitazione include esempi di codice comparativi, suggerimenti per la migrazione e procedure consigliate per la migrazione a Mappe di Azure.
 
-## <a name="azure-maps-platform-overview"></a>Panoramica della piattaforma mappe di Azure
+## <a name="azure-maps-platform-overview"></a>Panoramica della piattaforma Mappe di Azure
 
-Azure Maps offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali, con i dati della mappa aggiornati regolarmente per fornire contesto geografico per le applicazioni Web e per dispositivi mobili. Azure Maps dispone di un set di API REST conforme a Azure One API per le mappe, la ricerca, il routing, il traffico, i fusi orari, la georilevazione, il geoschermatura, i dati delle mappe, il meteo, la mobilità e le operazioni spaziali accompagnati da SDK Web e Android per rendere lo sviluppo semplice, flessibile e portatile tra più piattaforme.
+Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati di mappa aggiornati regolarmente per fornire contesto geografico per le applicazioni Web e per dispositivi mobili. Mappe di Azure offre un set di API REST conforme all'API Azure One per mappe, ricerca, pianificazione percorso, traffico, fusi orari, georilevazione, geofencing, dati mappa, mobilità, meteo e operazioni spaziali accompagnati da Web SDK e Android SDK per rendere lo sviluppo semplice, flessibile e portabile in più piattaforme.
 
-## <a name="high-level-platform-comparison"></a>Confronto tra piattaforme di alto livello
+## <a name="high-level-platform-comparison"></a>Confronto generale tra piattaforme
 
-La tabella seguente include un elenco generale delle funzionalità di Google Maps e il relativo supporto per le funzionalità di Azure maps. Questo elenco non include le funzionalità aggiuntive di Azure Maps, ad esempio l'accessibilità, le API di geoschermatura, isocrone, le operazioni spaziali, l'accesso diretto alle tessere, i servizi batch e i confronti di code coverage (ad esempio, la copertura delle immagini).
+La tabella seguente fornisce un elenco generale delle funzionalità di Google Maps e il relativo supporto per tali funzionalità in Mappe di Azure. L'elenco non include funzionalità di Mappe di Azure aggiuntive come accessibilità, API di geofencing, isocrone, operazioni spaziali, accesso diretto alle tessere mappa, servizi batch e confronti di copertura dei dati (ad esempio copertura delle immagini).
 
-| Funzionalità di Google Maps         | Supporto per mappe di Azure                     |
+| Funzionalità di Google Maps         | Supporto di Mappe di Azure                     |
 |-----------------------------|:--------------------------------------:|
 | Web SDK                     | ✓                                      |
 | Android SDK                 | ✓                                      |
 | iOS SDK                     | Pianificata                                |
-| API del servizio REST           | ✓                                      |
-| Direzioni (routing)        | ✓                                      |
-| Matrice di distanza             | ✓                                      |
+| API REST del servizio           | ✓                                      |
+| Indicazioni (pianificazione percorso)        | ✓                                      |
+| Matrice di distanze             | ✓                                      |
 | Altitudine                   | Pianificata                                |
 | Geocodifica (diretta/inversa) | ✓                                      |
 | Georilevazione                 | N/D                                    |
-| Cerca in posizioni               | ✓                                      |
-| Dettagli località              | N/A: sito Web & numero di telefono disponibile |
-| Inserisce le foto               | N/D                                    |
-| Inserisci completamento automatico          | ✓                                      |
+| Ricerca luoghi               | ✓                                      |
+| Dettagli di luoghi              | N/D - sito Web e numero di telefono disponibili |
+| Foto di luoghi               | N/D                                    |
+| Completamento automatico luoghi          | ✓                                      |
 | Mappe statiche                 | ✓                                      |
-| Visualizzazione statica via          | N/D                                    |
+| Visualizzazione strada statica          | N/D                                    |
 | Fuso orario                   | ✓                                      |
-| API Embedded Maps           | N/D                                    |
+| API mappe incorporata           | N/D                                    |
 | URL mappa                    | N/D                                    |
 
-Google Maps fornisce l'autenticazione basata su chiavi di base. Azure Maps fornisce l'autenticazione basata su chiavi di base, oltre a una sicurezza elevata Azure Active Directory.
+Google Maps fornisce l'autenticazione basata su chiavi di base. Mappe di Azure fornisce sia l'autenticazione basata su chiavi di base, sia l'autenticazione di Azure Active Directory, estremamente sicura.
 
-## <a name="licensing-considerations"></a>Considerazioni sulle licenze
+## <a name="licensing-considerations"></a>Considerazioni sulla gestione delle licenze
 
-Quando si esegue la migrazione ad Azure Maps da Google Maps, è necessario considerare i punti seguenti per quanto riguarda le licenze.
+Quando si esegue la migrazione da Google Maps a Mappe di Azure, occorre tenere in considerazione i punti seguenti in relazione alla gestione delle licenze.
 
-- Azure Maps addebita l'utilizzo di mappe interattive in base al numero di tessere mappa caricate, mentre Google Maps addebita il caricamento del controllo mappa. Negli SDK di Maps di Azure interattivo, le tessere mappa vengono automaticamente memorizzate nella cache per ridurre i costi per lo sviluppatore. Viene generata una transazione di Azure Maps per ogni 15 riquadri mappa caricati. Gli SDK di Azure Maps interattivo usano i riquadri di 512 pixel e in media generano una o meno transazioni per ogni visualizzazione pagina.
-- Spesso è molto più conveniente sostituire le immagini della mappa statica dai servizi Web di Google Maps con Azure Maps Web SDK, perché questo usa i riquadri della mappa e, a meno che l'utente non riquadri e ingrandisca la mappa, genererà spesso solo una frazione di una transazione per ogni carico di mappa. Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Inoltre, Azure Maps Web SDK offre molto più opzioni di visualizzazione rispetto a un servizio Web mappa statica.
-- Mappe di Azure consente di archiviare i dati dalla propria piattaforma in Azure. Può anche essere memorizzato nella cache altrove per un massimo di sei mesi in base alle condizioni per l' [utilizzo](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
+- Mappe di Azure addebita i costi per l'utilizzo delle mappe interattive in base al numero di tessere mappa caricate, mentre Google Maps li addebita per il caricamento del controllo mappa. Negli Azure Maps SDK interattivi le tessere mappa vengono automaticamente memorizzate nella cache per ridurre i costi per lo sviluppatore. Viene generata una transazione di Mappe di Azure ogni 15 tessere mappa caricate. Gli Azure Maps SDK interattivi usano tessere da 512-pixel e generano in media una o meno transazioni per visualizzazione pagina.
+- Spesso è molto più conveniente sostituire le immagini di mappe statiche dei servizi Web di Google Maps con Azure Maps Web SDK, che usa le tessere mappa e, a meno che l'utente non faccia la panoramica e lo zoom della mappa, genera spesso solo una frazione di una transazione per ogni caricamento di mappa. Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Offre inoltre molte più opzioni di visualizzazione rispetto a un servizio Web di mappe statiche.
+- Mappe di Azure consente di archiviare in Azure i dati della sua piattaforma. I dati possono anche essere memorizzati in una cache altrove per un massimo di sei mesi, in base alle [condizioni per l'utilizzo](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
-Di seguito sono riportate alcune risorse correlate per le mappe di Azure:
+Ecco alcune risorse correlate per Mappe di Azure:
 
-- [Pagina dei prezzi di mappe di Azure](https://azure.microsoft.com/pricing/details/azure-maps/)
+- [Pagina dei prezzi di Mappe di Azure](https://azure.microsoft.com/pricing/details/azure-maps/)
 - [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
-- Termini [di utilizzo di mappe di Azure](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46) (incluse nelle condizioni di Microsoft Online Services)
-- [Scegliere il piano tariffario corretto in mappe di Azure](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+- [Condizioni per l'utilizzo di Mappe di Azure](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46) (incluse nelle condizioni per l'utilizzo di Microsoft Online Services)
+- [Scegliere il piano tariffario corretto in Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
 
 ## <a name="suggested-migration-plan"></a>Piano di migrazione suggerito
 
-Di seguito è riportato un piano di migrazione di alto livello.
+Di seguito è descritto un piano di migrazione generale.
 
-1. Eseguire l'inventario degli SDK di Google Maps e dei servizi usati dall'applicazione e verificare che Azure Maps fornisca SDK e servizi alternativi per la migrazione a.
-2. Creare una sottoscrizione di Azure (se non ne è già presente una) in [https://azure.com](https://azure.com).
-3. Creare un account Azure Maps ([documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) e una chiave di autenticazione o Azure Active Directory ([documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
+1. Fare un inventario degli SDK e dei servizi di Google Maps usati dall'applicazione e verificare che Mappe di Azure fornisca SDK e servizi alternativi a cui eseguire la migrazione.
+2. Creare una sottoscrizione di Azure (se non se ne ha già una) all'indirizzo [https://azure.com](https://azure.com)
+3. Creare un account di Mappe di Azure ([documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) e una chiave di autenticazione per Azure Active Directory ([documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
 4. Eseguire la migrazione del codice dell'applicazione.
-5. Testare l'applicazione migrata.
-6. Distribuire l'applicazione migrata in produzione.
+5. Testare l'applicazione dopo la migrazione.
+6. Distribuire l'applicazione di cui è stata eseguita la migrazione in ambiente di produzione.
 
-## <a name="azure-maps-technical-resources"></a>Risorse tecniche di Azure Maps
+## <a name="azure-maps-technical-resources"></a>Risorse tecniche di Mappe di Azure
 
-Ecco un elenco di risorse tecniche utili per le mappe di Azure.
+Ecco un elenco di risorse tecniche utili per Mappe di Azure.
 
 - Panoramica: [https://azure.com/maps](https://azure.com/maps)
 - Documentazione: [https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)
-- Esempi di codice dell'SDK Web: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
+- Esempi di codice di Web SDK: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
 - Forum per sviluppatori: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
 - Video: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
-- Commenti e suggerimenti su Azure Maps (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
+- Feedback su Mappe di Azure (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
 
-## <a name="migration-support"></a>Supporto della migrazione
+## <a name="migration-support"></a>Supporto per la migrazione
 
-Gli sviluppatori possono richiedere supporto per la migrazione tramite i [Forum](https://aka.ms/AzureMapsForums) o tramite una delle numerose opzioni di supporto per Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
+Gli sviluppatori possono richiedere supporto per la migrazione nei [forum](https://aka.ms/AzureMapsForums) o tramite una delle numerose opzioni di supporto di Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come eseguire la migrazione dell'applicazione Google Maps con questi articoli:
+Per informazioni su come eseguire la migrazione dell'applicazione Google Maps, vedere questi articoli:
 
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione di un'app Web](migrate-from-google-maps-web-app.md)

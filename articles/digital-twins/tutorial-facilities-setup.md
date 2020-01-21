@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383016"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895501"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Anteprima di Gemelli digitali di Azure e configurare un grafo spaziale
 
@@ -36,7 +36,7 @@ Nella prima esercitazione di questa serie si apprenderà come:
 
 Queste esercitazioni usano e modificano gli stessi esempi usati nella [guida introduttiva alla ricerca di stanze disponibili](quickstart-view-occupancy-dotnet.md) per fornire informazioni più dettagliate e approfondite sui concetti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha un account Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -102,7 +102,7 @@ Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csh
    * **Tenant**: immettere l'ID directory del [tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Anche questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#grant-permissions-to-your-app).
    * **BaseUrl**: immettere l'URL dell'istanza di Gemelli digitali. Per ottenere questo URL, sostituire i segnaposto nell'URL con i valori per l'istanza: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. È anche possibile ottenere l'URL modificando l'URL dell'API Gestione della [sezione relativa alla distribuzione](#deploy-digital-twins). Sostituire **swagger/** con **api/v1.0/** .
 
-1. Per visualizzare un elenco delle funzionalità di Gemelli digitali che è possibile esplorare usando l'esempio. Eseguire il comando seguente:
+1. Esaminare un elenco di funzionalità di Gemelli digitali che è possibile esplorare usando l'esempio. Eseguire il comando seguente:
 
     ```cmd/sh
     dotnet run
@@ -129,7 +129,6 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
     return results;
 }
-
 ```
 
 Questa funzione usa il file [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) nella stessa cartella. Aprire questo file e osservare la gerarchia di un palazzo di uffici, costituita da sede, piano, area e stanze (oggetti *Venue*, *Floor*, *Area* e *Rooms*). Ognuno di questi spazi fisici può contenere dispositivi e sensori (oggetti *devices* e *sensors*). Ogni elemento ha un valore `type` predefinito, ad esempio Floor, Room.
@@ -150,7 +149,7 @@ Il file **provisionSample.yaml** contiene i nodi seguenti:
 
 - **devices**: gli spazi possono contenere oggetti `devices`, che sono entità fisiche o virtuali che gestiscono diversi sensori. Un dispositivo può ad esempio essere il telefono di un utente, un pod di sensori Raspberry Pi o un gateway. Nell'edificio immaginario di esempio osservare che la stanza denominata **Focus Room** contiene un dispositivo **Raspberry Pi 3 A1**. Ogni nodo di un dispositivo è identificato da un valore `hardwareId` univoco, che è hardcoded nell'esempio. Per configurare questo esempio per un ambiente di produzione reale, sostituire questi valori con quelli della configurazione in uso.  
 
-- **sensors**: un dispositivo può contenere più oggetti `sensors`. Possono rilevare e registrare i cambiamenti fisici, ad esempio per quanto riguarda temperatura, movimento e livello delle batterie. Ogni nodo di un sensore è identificato da un valore `hardwareId` univoco hardcoded. Per un'applicazione reale, sostituire questi valori con gli identificatori univoci dei sensori nella configurazione in uso. Il file provisionSample.yaml include due sensori per la registrazione dei valori di *Motion* e *CarbonDioxide*. Un altro sensore registra i valori di *Temperature*, aggiungendo le righe seguenti sotto a quelle per il sensore relativo a CarbonDioxide. Si noti che vengono forniti in provisionSample.yaml come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga. 
+- **sensors**: un dispositivo può contenere più oggetti `sensors`. Possono rilevare e registrare i cambiamenti fisici, ad esempio per quanto riguarda temperatura, movimento e livello delle batterie. Ogni nodo di un sensore è identificato da un valore `hardwareId` univoco hardcoded. Per un'applicazione reale, sostituire questi valori con gli identificatori univoci dei sensori nella configurazione in uso. Il file provisionSample.yaml include due sensori per la registrazione dei valori di *Motion* e *CarbonDioxide*. Un altro sensore registra i valori di *Temperature*, aggiungendo le righe seguenti sotto a quelle per il sensore relativo a CarbonDioxide. Vengono fornite in provisionSample.yaml come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga. 
 
     ```yaml
             - dataType: Temperature

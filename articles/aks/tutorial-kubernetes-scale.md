@@ -5,15 +5,15 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/14/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1838cfefee8c1cf9ca6548aa64fa7a6fcb46f66a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b668d2bfecfba53c2a1b0904a8b6b77805ad965b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442847"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967426"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -98,6 +98,43 @@ L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per rid
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
+```
+
+In alternativa, è possibile creare un file manifesto per definire il comportamento della scalabilità automatica e i limiti delle risorse. Di seguito è riportato un esempio di un file manifesto denominato `azure-vote-hpa.yaml`.
+
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-back-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-back
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-front-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-front
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+```
+
+Usare `kubectl apply` per applicare la scalabilità automatica definita nel file manifesto `azure-vote-hpa.yaml`.
+
+```
+$ kubectl apply -f azure-vote-hpa.yaml
 ```
 
 Per visualizzare lo stato della scalabilità automatica, usare il comando `kubectl get hpa` come di seguito:

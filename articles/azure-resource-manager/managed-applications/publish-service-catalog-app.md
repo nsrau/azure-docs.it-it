@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: de2b79c5016b44011a14c1071eab6579f3a0b6df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e756617a700d258078e84a3fa11c8aceb6f4dd88
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649058"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903273"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Creare e pubblicare una definizione di applicazione gestita
 
@@ -18,7 +18,7 @@ ms.locfileid: "75649058"
 
 È possibile creare e pubblicare [applicazioni gestite](overview.md) di Azure studiate per i membri della propria organizzazione. Un reparto IT può, ad esempio, pubblicare applicazioni gestite conformi agli standard aziendali. Queste applicazioni gestite sono disponibili nel catalogo dei servizi, non in Azure Marketplace.
 
-Per pubblicare un'applicazione gestita per il catalogo dei servizi, è necessario:
+Per pubblicare un'applicazione gestita per il catalogo di servizi di Azure, è necessario:
 
 * Creare un modello che definisce le risorse da distribuire con l'applicazione gestita.
 * Definire gli elementi dell'interfaccia utente per il portale quando si distribuisce l'applicazione gestita.
@@ -207,6 +207,108 @@ New-AzManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Usare la propria risorsa di archiviazione per la definizione di applicazione gestita
+È possibile scegliere di archiviare la definizione di applicazione gestita all'interno di un account di archiviazione fornito durante la creazione, in modo che la posizione e l'accesso possano essere completamente gestiti dall'utente per le proprie esigenze normative.
+
+> [!NOTE]
+> La funzionalità Bring Your Own Storage è supportata solo con le distribuzioni di modelli ARM o API REST della definizione di applicazione gestita.
+
+### <a name="select-your-storage-account"></a>Selezionare l'account di archiviazione
+È necessario [creare un account di archiviazione](../../storage/common/storage-account-create.md) per contenere la definizione di applicazione gestita per l'uso con il catalogo di servizi.
+
+Copiare l'ID risorsa dell'account di archiviazione. Verrà usato più avanti durante la distribuzione della definizione.
+
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Impostare l'assegnazione di ruolo per "Provider di risorse di Appliance" nell'account di archiviazione
+Prima che la definizione di applicazione gestita possa essere distribuita nell'account di archiviazione, è necessario concedere le autorizzazioni di collaboratore al ruolo **Provider di risorse di Appliance** in modo da poter scrivere i file di definizione nel contenitore dell'account di archiviazione.
+
+1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
+1. Selezionare **Controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'account di archiviazione. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
+1. Nella finestra **Aggiungi assegnazione di ruolo** selezionare il ruolo **Collaboratore**. 
+1. Nel campo **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**.
+1. In **Seleziona** cercare il ruolo **Provider di risorse di Appliance** e selezionarlo.
+1. Salvare l'assegnazione di ruolo.
+
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuire la definizione di applicazione gestita con un modello ARM 
+
+Usare il modello ARM seguente per distribuire l'applicazione gestita compressa come nuova definizione di applicazione gestita nel catalogo di servizi i cui file di definizione vengono archiviati e gestiti nel proprio account di archiviazione:
+   
+```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "applicationName": {
+            "type": "string",
+            "metadata": {
+                "description": "Managed Application name"
+            }
+        },
+        "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+        "definitionStorageResourceID": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account resource ID for where you're storing your definition"
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located."
+            }
+        }
+    },
+    "variables": {
+        "lockLevel": "None",
+        "description": "Sample Managed application definition",
+        "displayName": "Sample Managed application definition",
+        "managedApplicationDefinitionName": "[parameters('applicationName')]",
+        "packageFileUri": "[parameters('_artifactsLocation')]",
+        "defLocation": "[parameters('definitionStorageResourceID')]",
+        "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
+        "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Solutions/applicationDefinitions",
+            "apiVersion": "2019-07-01",
+            "name": "[variables('managedApplicationDefinitionName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "lockLevel": "[variables('lockLevel')]",
+                "description": "[variables('description')]",
+                "displayName": "[variables('displayName')]",
+                "packageFileUri": "[variables('packageFileUri')]",
+                "storageAccountId": "[variables('defLocation')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+È stata aggiunta una nuova proprietà denominata **storageAccountId** alle proprietà di applicationDefintion e la possibilità di specificare l'ID account di archiviazione in cui si vuole archiviare la definizione come valore.
+
+È possibile verificare che i file di definizione dell'applicazione vengano salvati nell'account di archiviazione specificato in un contenitore denominato **applicationdefinitions**.
+
+> [!NOTE]
+> Per una maggiore sicurezza, è possibile creare una definizione di applicazione gestita e archiviarla in un [BLOB dell'account di archiviazione di Azure in cui è abilitata la crittografia](../../storage/common/storage-service-encryption.md). Il contenuto della definizione viene crittografato tramite le opzioni di crittografia dell'account di archiviazione. Solo gli utenti con autorizzazioni per il file possono visualizzare la definizione nel catalogo di servizi.
 
 ### <a name="make-sure-users-can-see-your-definition"></a>Assicurarsi che gli utenti possano visualizzare la definizione
 

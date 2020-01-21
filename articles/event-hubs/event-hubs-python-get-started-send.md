@@ -1,37 +1,41 @@
 ---
-title: 'Guida introduttiva: Inviare e ricevere eventi tramite Python - Hub eventi di Azure'
-description: 'Guida introduttiva: Questa procedura dettagliata illustra come creare ed eseguire script Python che inviano o ricevono eventi da Hub eventi di Azure.'
+title: 'Avvio rapido: Inviare e ricevere eventi tramite Python - Hub eventi di Azure'
+description: 'Avvio rapido: Questa procedura dettagliata illustra come creare ed eseguire script Python che inviano o ricevono eventi da Hub eventi di Azure.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720558"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939961"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Guida introduttiva: Inviare e ricevere eventi con Hub eventi tramite Python
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Avvio rapido: Inviare e ricevere eventi con Hub eventi tramite Python
 
 Hub eventi di Azure è una piattaforma di streaming per Big Data e un servizio di inserimento eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi è in grado di elaborare e archiviare eventi, dati o dati di telemetria provenienti da software e dispositivi distribuiti. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per altre informazioni su Hub eventi, vedere [Hub eventi di Azure](event-hubs-about.md) e [Funzionalità e terminologia di Hub eventi di Azure](event-hubs-features.md).
 
 Questo Avvio rapido illustra come creare applicazioni Python che inviano e ricevono eventi da un hub eventi. 
 
+> [!IMPORTANT]
+> Questo argomento di avvio rapido usa la versione 1 di Python SDK per Hub eventi di Azure. Se non si ha familiarità con Hub eventi di Azure, usare la versione 5 di Python SDK. Per un argomento di avvio rapido che usa la versione 5 di Python SDK, vedere [questo articolo](get-started-python-send-v2.md). Per eseguire la migrazione del codice esistente dalla versione 1 alla versione 5, vedere la [guida alla migrazione](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+
+
 > [!NOTE]
 > Anziché seguire l'Avvio rapido, è possibile scaricare le [app di esempio](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) da GitHub ed eseguirle. Sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
 - Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- Uno spazio dei nomi e un hub eventi di Hub eventi attivo, creato seguendo le istruzioni disponibili in [Avvio rapido: Creare un hub eventi con il portale di Azure](event-hubs-create.md). Prendere nota dei nomi dello spazio dei nomi e dell'hub eventi per usarli più avanti in questa procedura dettagliata. 
-- Il nome della chiave di accesso condiviso e il valore della chiave primaria per lo spazio dei nomi di Hub eventi. Ottenere il nome e il valore della chiave di accesso seguendo le istruzioni in [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Il nome predefinito della chiave di accesso è **RootManageSharedAccessKey**. Copiare il nome della chiave e il valore della chiave primaria per usarli più avanti in questa procedura dettagliata. 
+- Uno spazio dei nomi Hub eventi e un hub eventi attivi, creati seguendo le istruzioni disponibili in [Avvio rapido: Creare un hub eventi con il portale di Azure](event-hubs-create.md). Prendere nota dei nomi dello spazio dei nomi e dell'hub eventi per usarli più avanti in questa procedura dettagliata. 
+- Il nome della chiave di accesso condiviso e il valore della chiave primaria per lo spazio dei nomi di Hub eventi. Ottenere il nome e il valore della chiave di accesso seguendo le istruzioni in [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Il nome della chiave di accesso predefinita è **RootManageSharedAccessKey**. Copiare il nome della chiave e il valore della chiave primaria per usarli più avanti in questa procedura dettagliata. 
 - Python 3.4 o versione successiva con `pip` installato e aggiornato.
 - Il pacchetto Python per Hub eventi. Per installare il pacchetto, eseguire questo comando in un prompt dei comandi il cui percorso contenga Python: 
   

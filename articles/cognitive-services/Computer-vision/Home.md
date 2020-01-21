@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2b80e09f086cfaa90174dc9abc5a5cd06294036e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794967"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770425"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -32,7 +32,7 @@ Visione artificiale può ottimizzare molti scenari di gestione delle risorse dig
 
 È possibile analizzare le immagini per rilevare e fornire informazioni dettagliate sugli elementi visivi e sulle caratteristiche. Tutte le funzionalità nella tabella seguente vengono fornite dall'API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisi dell'immagine).
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | ------ | ----------- |
 |**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|Identificare e assegnare tag agli elementi visivi di un'immagine in base a un set di migliaia di oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o non di conoscenza comune, la risposta dell'API fornisce suggerimenti per chiarire il contesto del tag. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
 |**[Rilevare gli oggetti](concept-object-detection.md)**| Il rilevamento di oggetti è simile all'assegnazione di tag, ma l'API restituisce le coordinate del rettangolo di selezione per ogni tag applicato. Se, ad esempio, un'immagine contiene un cane, gatto e una persona, l'operazione di rilevamento elencherà tali oggetti insieme alle relative coordinate nell'immagine. È possibile usare questa funzionalità per elaborare ulteriormente le relazioni tra gli oggetti in un'immagine. Questa funzionalità consente anche di sapere quando sono presenti più istanze dello stesso tag in un'immagine.|
@@ -77,6 +77,6 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 Per un'introduzione a Visione artificiale, seguire una guida introduttiva:
 
-- [Guida introduttiva: SDK .NET per Visione artificiale](quickstarts-sdk/csharp-sdk.md)
-- [Guida introduttiva: SDK Python per Visione artificiale](quickstarts-sdk/python-sdk.md)
-- [Guida introduttiva: SDK Java per Visione artificiale](quickstarts-sdk/java-sdk.md)
+- [Avvio rapido: SDK .NET per Visione artificiale](quickstarts-sdk/csharp-sdk.md)
+- [Avvio rapido: SDK Python per Visione artificiale](quickstarts-sdk/python-sdk.md)
+- [Avvio rapido: SDK Java per Visione artificiale](quickstarts-sdk/java-sdk.md)

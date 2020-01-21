@@ -4,14 +4,14 @@ description: Informazioni su come creare in Azure la prima funzione ospitata in 
 ms.date: 03/12/2019
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 57c1b4a0ef5e8f030360bca6d69f66e8752f3da1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 972feedf880ed55210c8422094d5b26a85b31d5e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964141"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769405"
 ---
-# <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>Guida introduttiva: Creare la prima funzione ospitata in Linux con gli strumenti da riga di comando
+# <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>Avvio rapido: Creare la prima funzione ospitata in Linux con gli strumenti da riga di comando
 
 Funzioni di Azure consente di eseguire il codice in un ambiente Linux [senza server](https://azure.com/serverless), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. L'hosting in Linux richiede il [runtime di Funzioni 2.x e versioni successive](functions-versions.md). Le funzioni serverless vengono eseguite nel [piano a consumo](functions-scale.md#consumption-plan).
 
@@ -19,7 +19,7 @@ Questa guida introduttiva illustra come usare l'interfaccia della riga di comand
 
 I passaggi seguenti sono supportati in computer Mac, Windows o Linux. Questo articolo descrive come creare funzioni in JavaScript o C#. Per informazioni su come creare funzioni Python, vedere [Creare la prima funzione Python con Core Tools e l'interfaccia della riga di comando di Azure](functions-create-first-function-python.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
@@ -47,7 +47,7 @@ Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 ## <a name="create-a-linux-function-app-in-azure"></a>Creare un'app per le funzioni Linux in Azure
 
-Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente senza server per l'esecuzione del codice della funzione. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. Creare un'app per le funzioni in esecuzione in Linux usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
+Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente senza server per l'esecuzione del codice della funzione. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse. Creare un'app per le funzioni in esecuzione in Linux usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
 Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco dell'app per le funzioni e il segnaposto `<storage_name>` con il nome dell'account di archiviazione. `<app_name>` è anche il dominio DNS predefinito per l'app per le funzioni. Questo nome deve essere univoco in tutte le app di Azure. È necessario impostare anche il runtime `<language>` per l'app per le funzioni, da `dotnet` (C#), `node` (JavaScript/TypeScript) o `python`.
 

@@ -4,12 +4,12 @@ description: Esempio di script dell'interfaccia della riga di comando di Azure -
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 9c2a70066e673bfa164a58884891f29e220c7bd6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532825"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922682"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Creare un'app per le funzioni con una connessione a un account di archiviazione specificato 
 
@@ -37,7 +37,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un gruppo di risorse con una località. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creare un account di archiviazione. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [piano a consumo](../functions-scale.md#consumption-plan) senza server. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [Piano a consumo](../functions-scale.md#consumption-plan) serverless. |
 | [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) | Ottiene la stringa di connessione per l'account. |
 | [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Imposta la stringa di connessione come impostazione dell'app nell'app per le funzioni. |
 

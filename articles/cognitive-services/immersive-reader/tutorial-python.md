@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326419"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945236"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Esercitazione: Avviare lo strumento di lettura immersiva usando il progetto di esempio Python
 
-Nella [panoramica](./overview.md) si è appreso che cos'è lo strumento di lettura immersiva e come questo strumento implementa tecniche comprovate per migliorare la comprensione della lettura per studenti di lingue, lettori emergenti e studenti con differenze nell'apprendimento. Questa esercitazione descrive la creazione di un'applicazione Web Python che avvia lo strumento di lettura immersiva. In questa esercitazione si apprenderà come:
+Nella [panoramica](./overview.md) si è appreso che cos'è lo strumento di lettura immersiva e come questo strumento implementa tecniche comprovate per migliorare la comprensione della lettura per studenti di lingue, lettori emergenti e studenti con differenze nell'apprendimento. Questa esercitazione descrive la creazione di un'applicazione Web Python che avvia lo strumento di lettura immersiva. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'app Web Python con pip, Flask, Jinja e virtualenv usando un progetto di esempio
@@ -28,9 +28,9 @@ Nella [panoramica](./overview.md) si è appreso che cos'è lo strumento di lettu
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Una risorsa Strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory (Azure AD). Seguire [queste istruzioni](./azure-active-directory-authentication.md) per configurare l'ambiente. Per la configurazione delle proprietà dell'ambiente, saranno necessari alcuni dei valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
+* Una risorsa dello strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory. Seguire [queste istruzioni](./how-to-create-immersive-reader.md) per configurare l'ambiente. Per la configurazione delle proprietà dell'ambiente, saranno necessari alcuni dei valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
 * [Git](https://git-scm.com/)
 * [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) e [pip](https://docs.python.org/3/installing/index.html). A partire da Python 3,4, pip è incluso per impostazione predefinita con i programmi di installazione binari di Python.
@@ -40,20 +40,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 * [Modulo requests](https://pypi.org/project/requests/2.7.0/)
 * Un ambiente di sviluppo integrato, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Acquisire un token di autenticazione di Azure AD
+## <a name="configure-authentication-credentials"></a>Configurare le credenziali di autenticazione
 
-Scrivere un'API back-end per recuperare un token di autenticazione di Azure AD.
-
-Per questa parte sono necessari alcuni valori del passaggio relativo ai prerequisiti di configurazione dell'autenticazione di Azure AD. Fare riferimento al file di testo salvato della sessione.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-Dopo aver recuperato i valori necessari, creare un nuovo file denominato _.env_ e incollare il codice seguente al suo interno, specificando i valori delle proprietà personalizzate dal passaggio precedente. Sostituire il file _.env_ nell'app di esempio con il nuovo file creato.
+Creare un nuovo file denominato _.env_ e incollarvi il codice seguente, specificando i valori forniti quando è stata creata la risorsa dello strumento di lettura immersiva.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}

@@ -4,12 +4,12 @@ description: Esempio di script dell'interfaccia della riga di comando - Creare u
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc
-ms.openlocfilehash: d881a5eb6132f95239418f032da51d002af01905
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532855"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922719"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creare una funzione di Azure che si connette a un database Azure Cosmos DB | Documentazione Microsoft
 
@@ -37,7 +37,7 @@ Questo script usa i comandi seguenti: Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creare un gruppo di risorse con una posizione |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Creare un account di archiviazione |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [piano a consumo](../functions-scale.md#consumption-plan) senza server. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [Piano a consumo](../functions-scale.md#consumption-plan) serverless. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea un database di Azure Cosmos DB. |
 | [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Ottiene la connessione dell'account del database. |
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Ottiene le chiavi per il database. |

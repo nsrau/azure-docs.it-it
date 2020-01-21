@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Configurare la governance delle macchine virtuali di Azure con l'interfaccia della riga di comando di Azure"
-description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure per gestire macchine virtuali di Azure applicando controllo degli accessi in base al ruolo, criteri, blocchi e tag
+title: "Esercitazione: Gestire le macchine virtuali con l'interfaccia della riga di comando"
+description: Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure per gestire macchine virtuali di Azure applicando il controllo degli accessi in base al ruolo, oltre a criteri, blocchi e tag.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034534"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970123"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Esercitazione: Informazioni sulla governance di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Esercitazione: Informazioni sulla gestione di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -140,7 +140,7 @@ Al termine della distribuzione è possibile applicare altre impostazioni di gest
 
 ## <a name="lock-resources"></a>Bloccare le risorse
 
-I [blocchi delle risorse](../../azure-resource-manager/resource-group-lock-resources.md) impediscono agli utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale. Diversamente dal controllo degli accessi in base al ruolo, i blocchi delle risorse consentono di applicare una restrizione a tutti gli utenti e i ruoli. È possibile impostare il livello di blocco *CanNotDelete* o *ReadOnly*.
+I [blocchi delle risorse](../../azure-resource-manager/management/lock-resources.md) impediscono agli utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale. Diversamente dal controllo degli accessi in base al ruolo, i blocchi delle risorse consentono di applicare una restrizione a tutti gli utenti e i ruoli. È possibile impostare il livello di blocco *CanNotDelete* o *ReadOnly*.
 
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni `Microsoft.Authorization/locks/*`. Dei ruoli predefiniti, solo **Proprietario** e **Amministratore Accesso utenti** garantiscono tali azioni.
 
@@ -172,7 +172,7 @@ Viene visualizzato un messaggio di errore che informa che l'operazione di elimin
 
 ## <a name="tag-resources"></a>Aggiungere tag alle risorse
 
-I [tag](../../azure-resource-manager/resource-group-using-tags.md) vengono applicati alle risorse di Azure per organizzarle in modo logico in categorie. Ogni tag è costituito da un nome e un valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
+I [tag](../../azure-resource-manager/management/tag-resources.md) vengono applicati alle risorse di Azure per organizzarle in modo logico in categorie. Ogni tag è costituito da un nome e un valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 

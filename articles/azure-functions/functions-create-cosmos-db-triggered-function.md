@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e321fcdf4b5871cf4a55e7018229569a337e8305
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230938"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863285"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -18,7 +18,7 @@ Informazioni su come creare una funzione attivata quando i dati vengono aggiunti
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
@@ -65,9 +65,9 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome** | Predefinito | Usare il nome della funzione predefinito suggerito dal modello.|
     | **Connessione all'account Azure Cosmos DB** | Nuova impostazione | Selezionare **Nuova**, scegliere **Sottoscrizione**, l'**account di database** creato in precedenza e fare clic su **Seleziona**. Verrà creata un'impostazione applicazione per la connessione all'account. Questa impostazione viene usata dal binding per la connessione al database. |
-    | **Nome raccolta** | Items | Nome della raccolta da monitorare. |
-    | **Creare la raccolta di lease se non esiste** | Selezionato | La raccolta non esiste ancora, quindi crearla. |
-    | **Nome database** | Attività | Nome del database con la raccolta da monitorare. |
+    | **Nome contenitore** | Items | Il nome del contenitore da monitorare. |
+    | **Crea raccolta di lease se non esiste** | Selezionato | Il contenitore non esiste ancora, quindi è necessario crearlo. |
+    | **Nome database** | Attività | Il nome del database con il contenitore da monitorare. |
 
 1. Fare clic su **Crea** per creare la funzione attivata da Azure Cosmos DB. Dopo aver creato la funzione, viene visualizzato il codice della funzione basato sul modello.  
 
@@ -75,9 +75,9 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
     Questo modello di funzione scrive il numero di documenti e l'ID del primo documento nei log.
 
-Successivamente, connettersi al proprio account di Azure Cosmos DB e creare la raccolta `Items` nel database `Tasks`.
+Successivamente, connettersi al proprio account Azure Cosmos DB e creare il contenitore `Items` nel database `Tasks`.
 
-## <a name="create-the-items-collection"></a>Creare la raccolta di elementi
+## <a name="create-the-items-container"></a>Creare il contenitore Items
 
 1. Aprire una seconda istanza del [portale di Azure](https://portal.azure.com) in una nuova scheda del browser.
 
@@ -87,33 +87,32 @@ Successivamente, connettersi al proprio account di Azure Cosmos DB e creare la r
 
 1. Scegliere l'account di Azure Cosmos DB, quindi selezionare **Esplora dati**. 
 
-1. In **Raccolte** scegliere **taskDatabase** e selezionare **Nuova raccolta**.
+1. In **API SQL** scegliere il database **Tasks** e selezionare **Nuovo contenitore**.
 
-    ![Creare una raccolta](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+    ![Creare un contenitore](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. In **Aggiungi raccolta** usare le impostazioni visualizzate nella tabella riportata sotto l'immagine. 
+1. In **Aggiungi contenitore** usare le impostazioni visualizzate nella tabella riportata sotto l'immagine. 
 
-    ![Definire taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
+    ![Definire il contenitore Tasks](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | Impostazione|Valore consigliato|DESCRIZIONE |
+    | Impostazione|Valore consigliato|Descrizione |
     | ---|---|--- |
     | **ID database** | Attività |Nome del nuovo database. Deve corrispondere al nome definito nell'associazione della funzione. |
-    | **ID raccolta** | Items | Nome della nuova raccolta. Deve corrispondere al nome definito nell'associazione della funzione.  |
-    | **Capacità di archiviazione** | Fissa (10 GB)|Usare il valore predefinito. Questo valore indica la capacità di archiviazione del database. |
-    | **Velocità effettiva** |400 UR| Usare il valore predefinito. Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento. |
-    | **[Chiave di partizione](../cosmos-db/partition-data.md)** | /category|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea una raccolta ad alte prestazioni è importante selezionare la chiave di partizione corretta. | 
+    | **ID contenitore** | Items | Il nome del nuovo contenitore. Deve corrispondere al nome definito nell'associazione della funzione.  |
+    | **[Chiave di partizione](../cosmos-db/partition-data.md)** | /category|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea un contenitore a elevate prestazioni, è importante selezionare la chiave di partizione corretta. | 
+    | **Velocità effettiva** |400 UR| Usare il valore predefinito. Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento. |    
 
-1. Fare clic su **OK** per creare la raccolta Items. La creazione della raccolta potrebbe richiedere del tempo.
+1. Fare clic su **OK** per creare il contenitore Items. La creazione del contenitore potrebbe richiedere del tempo.
 
-Dopo aver creato la raccolta specificata nell'associazione della funzione, è possibile testare la funzione aggiungendo i documenti a questa nuova raccolta.
+Dopo aver creato il contenitore specificato nel binding della funzione, è possibile testare la funzione aggiungendo elementi a questo nuovo contenitore.
 
 ## <a name="test-the-function"></a>Testare la funzione
 
-1. Espandere la nuova raccolta **taskCollection** in Esplora dati, scegliere **Documenti**, quindi selezionare **Nuovo documento**.
+1. In Esplora dati espandere il nuovo contenitore **Items**, scegliere **Items**, quindi selezionare **Nuovo elemento**.
 
-    ![Creare un documento in taskCollection](./media/functions-create-cosmos-db-triggered-function/create-document-in-collection.png)
+    ![Creare un elemento nel contenitore Items](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
 
-1. Sostituire il contenuto del nuovo documento con il contenuto seguente, quindi scegliere **Salva**.
+1. Sostituire il contenuto del nuovo elemento con il contenuto seguente, quindi scegliere **Salva**.
 
         {
             "id": "task1",

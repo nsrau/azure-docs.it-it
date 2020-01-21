@@ -4,16 +4,16 @@ description: Creare un'app per le funzioni e distribuire il codice di funzione d
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 37dc0235b258f6d47f8813546fe953e92799454a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e424737b67be58ac0c3880ad2454c87fab803a15
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532816"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922725"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Creare un'app per le funzioni in Azure distribuita da GitHub
 
-Questo script di esempio di Funzioni di Azure crea un'app per le funzioni usando il [piano a consumo](../functions-scale.md#consumption-plan) con le relative risorse. Lo script configura anche il codice di funzione per la distribuzione continua dal repository GitHub. 
+Questo script di esempio di Funzioni di Azure crea un'app per le funzioni usando il [Piano a consumo](../functions-scale.md#consumption-plan) con le relative risorse. Lo script configura anche il codice di funzione per la distribuzione continua dal repository GitHub. 
 
 In questo esempio è necessario:
 
@@ -42,7 +42,7 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea l'account di archiviazione necessario per l'app per le funzioni. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [piano a consumo](../functions-scale.md#consumption-plan) senza server e la associa a un repository Git o Mercurial. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [Piano a consumo](../functions-scale.md#consumption-plan) serverless e la associa a un repository Git o Mercurial. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

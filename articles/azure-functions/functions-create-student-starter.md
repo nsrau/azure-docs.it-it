@@ -1,21 +1,21 @@
 ---
 title: Creare una funzione usando Azure for Students Starter
 description: Informazioni su come creare una funzione di Azure da una sottoscrizione di Azure for Students Starter
-Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
+Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409891"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921127"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creare una funzione usando Azure for Students Starter
 
-In questa esercitazione si creerà una funzione HTTP di benvenuto in una sottoscrizione di Azure for Students Starter. Verranno anche illustrate le funzionalità disponibili in Funzioni di Azure in questo tipo di sottoscrizione.
+In questa esercitazione si creerà una funzione HTTP "hello world" in una sottoscrizione di Azure for Students Starter. Verranno anche illustrate le funzionalità disponibili in Funzioni di Azure in questo tipo di sottoscrizione.
 
 Microsoft *Azure for Students Starter* permette di iniziare a usare i prodotti di Azure che servono per sviluppare sul cloud gratuitamente. [Altre informazioni su questa offerta.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -33,9 +33,9 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com> con il pro
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. 
+Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse.
 
-1. Selezionare il pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure e quindi selezionare **Calcolo** > **App per le funzioni**.
+1. Selezionare il pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure. Quindi selezionare **Calcolo** > **App per le funzioni**.
 
     ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -110,13 +110,13 @@ Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
 
 ## <a name="supported-features-in-azure-for-students-starter"></a>Funzionalità supportate in Azure for Students Starter
 
-Azure for Student Starter offre l'accesso alla maggior parte delle funzioni del runtime di Funzioni di Azure, ma con diverse limitazioni chiave, elencate di seguito:
+Azure for Students Starter offre l'accesso alla maggior parte delle funzionalità del runtime di Funzioni di Azure, ma con diverse limitazioni chiave, elencate di seguito:
 
 * Il trigger HTTP è l'unico tipo di trigger supportato.
     * Sono supportati tutti i binding di input e output. [L'elenco completo è disponibile qui.](functions-triggers-bindings.md)
 * Linguaggi supportati: 
     * C# (.NET Core 2)
-    * Javascript (Node.js 8 e 10)
+    * JavaScript (Node.js 8 e 10)
     * F# (.NET Core 2)
     * [Linguaggi supportati nei piani superiori](supported-languages.md)
 * Windows è l'unico sistema operativo supportato.

@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532474"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982428"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -138,9 +138,9 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
         Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 2
         Concorrenza| Numero massimo di iterazioni parallele eseguite e di core usati per iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 5<br> Numero massimo di&nbsp;core&nbsp;per&nbsp;iterazione: nessuno
         
-        Selezionare **OK**.
+        Selezionare **Salva**.
 
-1. Selezionare **Crea** per eseguire l'esperimento. Verrà visualizzata la schermata **Dettagli esecuzione** con **Stato dell'esecuzione** quando inizia la preparazione dell'esperimento.
+1. Selezionare **Fine** per eseguire l'esperimento. Verrà visualizzata la schermata **Dettagli esecuzione** con **Stato dell'esecuzione** quando inizia la preparazione dell'esperimento.
 
 >[!IMPORTANT]
 > La preparazione dell'esecuzione dell'esperimento richiede **10-15 minuti**.

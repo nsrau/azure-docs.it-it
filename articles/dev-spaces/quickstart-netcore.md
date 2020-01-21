@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: a9a750e239dd47ce85b6075c65c644258134ba52
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0025f395c89a8a9f2eff4204ed0859cda0fa86fc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438231"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867516"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio Code e .NET Core - Azure Dev Spaces
 
@@ -93,6 +93,9 @@ Quando Visual Studio Code richiede anche di configurare l'endpoint pubblico, sce
 
 Questo comando consente di preparare il progetto per l'esecuzione in Azure Dev Spaces generando un Dockerfile e un grafico Helm. Genera inoltre una directory *.vscode* con la configurazione di debug alla radice del progetto.
 
+> [!TIP]
+> Il [Dockerfile e il grafico Helm](how-dev-spaces-works.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
+
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Compilare ed eseguire il codice in Kubernetes da Visual Studio
 
 Fare clic sull'icona *Debug* a sinistra e quindi su *.NET Core Launch (AZDS)* (Avvia .NET Core AZDS) nella parte superiore.
@@ -167,4 +170,4 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 > [Uso di più contenitori e sviluppo in team](multi-service-netcore.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

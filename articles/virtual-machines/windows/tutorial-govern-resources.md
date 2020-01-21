@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Gestire le macchine virtuali di Azure con Azure PowerShell'
+title: 'Esercitazione: Gestire le macchine virtuali con PowerShell'
 description: In questa esercitazione viene descritto come usare Azure PowerShell per gestire macchine virtuali di Azure applicando controllo degli accessi in base al ruolo, criteri, blocchi e tag
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,20 +13,18 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 9f806c6790c953d86cf7fe99daf40c17a43d2d35
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fd7e7f14d076a6a9652e902c4dc0ec41665735ee
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067940"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981751"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Esercitazione: Gestione delle macchine virtuali Windows con Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
-
- 
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
 
@@ -140,7 +138,7 @@ Al termine della distribuzione è possibile applicare altre impostazioni di gest
 
 ## <a name="lock-resources"></a>Bloccare le risorse
 
-I [blocchi delle risorse](../../azure-resource-manager/resource-group-lock-resources.md) impediscono agli utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale. Diversamente dal controllo degli accessi in base al ruolo, i blocchi delle risorse consentono di applicare una restrizione a tutti gli utenti e i ruoli. È possibile impostare il livello di blocco *CanNotDelete* o *ReadOnly*.
+I [blocchi delle risorse](../../azure-resource-manager/management/lock-resources.md) impediscono agli utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale. Diversamente dal controllo degli accessi in base al ruolo, i blocchi delle risorse consentono di applicare una restrizione a tutti gli utenti e i ruoli. È possibile impostare il livello di blocco *CanNotDelete* o *ReadOnly*.
 
 Per bloccare la macchina virtuale e il gruppo di sicurezza di rete, usare il comando [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock):
 
@@ -170,7 +168,7 @@ Viene visualizzato un messaggio di errore che informa che l'operazione di elimin
 
 ## <a name="tag-resources"></a>Aggiungere tag alle risorse
 
-I [tag](../../azure-resource-manager/resource-group-using-tags.md) vengono applicati alle risorse di Azure per organizzarle in modo logico in categorie. Ogni tag è costituito da un nome e un valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
+I [tag](../../azure-resource-manager/management/tag-resources.md) vengono applicati alle risorse di Azure per organizzarle in modo logico in categorie. Ogni tag è costituito da un nome e un valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 

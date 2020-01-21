@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Trovare stanze disponibili - Gemelli digitali di Azure | Microsoft Docs'
+title: 'Avvio rapido: Trovare stanze disponibili - Gemelli digitali di Azure | Microsoft Docs'
 description: In questa guida introduttiva si eseguono due applicazioni .NET Core di esempio per inviare dati di telemetria simulati relativi a movimento ed emissioni di anidride carbonica in uno spazio in Gemelli digitali di Azure. L'obiettivo è trovare le stanze disponibili con aria pulita dalle API di gestione dopo l'elaborazione nel cloud.
 ms.author: alinast
 author: alinamstanciu
@@ -9,25 +9,25 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/12/2019
-ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383151"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895543"
 ---
-# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Avvio rapido: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
 Il servizio Gemelli digitali di Azure consente di ricreare un'immagine digitale dell'ambiente fisico. È quindi possibile ricevere notifiche in base agli eventi che si verificano nell'ambiente e personalizzare le risposte agli eventi.
 
 Questa guida introduttiva usa [due esempi .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) per digitalizzare un edificio per uffici immaginario. Illustra come trovare le stanze disponibili nell'edificio. Con Gemelli digitali è possibile associare molti sensori all'ambiente. È anche possibile scoprire se la qualità dell'aria nella stanza disponibile è ottimale, con l'aiuto di un sensore simulato di anidride carbonica. Una delle applicazioni di esempio genera dati del sensore casuali per visualizzare più facilmente questo scenario.
 
-Il video seguente riepiloga la configurazione della guida introduttiva:
+Il video seguente riepiloga la configurazione dell'argomento di avvio rapido:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Se non si ha un account Azure, [crearne uno gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -83,11 +83,11 @@ Il provisioning del grafico spaziale viene effettuato usando il file [provisionS
 
 1. Il passaggio di provisioning potrebbe richiedere alcuni minuti. Viene effettuato anche il provisioning di un hub IoT nell'istanza di Gemelli digitali. Si ripeterà in ciclo finché lo stato dell'hub IoT non è `Running`.
 
-    [![Provisioning dell'esempio - Stato = Running](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Provisioning dell'esempio - Stato = Running](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png#lightbox)
 
 1. Al termine dell'esecuzione, copiare il valore `ConnectionString` del dispositivo per usarlo nell'esempio del simulatore di dispositivo. Copiare solo la stringa evidenziata nell'immagine seguente.
 
-    [![Copiare la stringa di connessione](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![Copiare la stringa di connessione](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png#lightbox)
 
     >[!TIP]
     > È possibile visualizzare e modificare il grafo spaziale con il [Visualizzatore di Microsoft Azure Active Directory Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -102,9 +102,9 @@ Compilare ed eseguire l'applicazione del dispositivo simulatore di sensori segue
 1. Eseguire `cd device-connectivity`.
 1. Eseguire `dotnet restore`.
 1. Modificare [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) per aggiornare **DeviceConnectionString** con il valore `ConnectionString` precedente. Salvare il file aggiornato.
-1. Eseguire `dotnet run` per iniziare a inviare i dati dei sensori. Dovrebbero essere inviati al servizio Gemelli digitali come illustrato nell'immagine seguente.
+1. Eseguire `dotnet run` per iniziare a inviare i dati dei sensori. Verranno inviati al servizio Gemelli digitali di Azure come illustrato nell'immagine seguente.
 
-     [![Connettività dei dispositivi](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![Connettività dei dispositivi](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png#lightbox)
 
 1. Mantenere il simulatore in esecuzione in modo da poter visualizzare i risultati affiancati con l'azione del passaggio successivo. Questa finestra mostra i dati dei sensori simulati inviati a Gemelli digitali. Il passaggio successivo esegue query in tempo reale per trovare le stanze disponibili con aria pulita.
 
@@ -123,7 +123,7 @@ L'esempio dei sensori simula valori di dati casuali per i due sensori: di movime
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![Ottenere gli spazi disponibili con aria pulita](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![Ottenere gli spazi disponibili con aria pulita](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
 Per comprendere cosa è accaduto in questo avvio rapido e quali API sono state chiamate, aprire [Visual Studio Code](https://code.visualstudio.com/Download) con il progetto di codice dell'area di lavoro trovato in `digital-twins-samples-csharp`. Usare il comando seguente:
 
@@ -137,7 +137,7 @@ Le esercitazioni approfondiscono l'esame del codice e illustrano come modificare
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOME | Sostituire con |
+| Nome | Sostituire con |
 | --- | --- |
 | NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali dell'utente |
 | POSIZIONE_UTENTE | Area del server in cui è ospitata l'istanza |
@@ -161,7 +161,7 @@ Per continuare con le esercitazioni, non eliminare le risorse create in questa g
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo avvio rapido vengono impiegati uno scenario semplice e applicazioni di esempio per illustrare in che modo usare Gemelli digitali per trovare camere in buone condizioni. Per un'analisi più approfondita di questo scenario,vedere questa esercitazione:
+In questo avvio rapido vengono impiegati uno scenario semplice e applicazioni di esempio per illustrare in che modo usare Gemelli digitali per trovare camere in buone condizioni. Per un'analisi più approfondita di questo scenario, vedere:
 
 >[!div class="nextstepaction"]
 >[Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafico spaziale](tutorial-facilities-setup.md)

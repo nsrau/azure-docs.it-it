@@ -4,12 +4,12 @@ description: Informazioni su come creare in Azure la prima funzione Python usand
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3de8c42c59455cc326fa909bc520a94daac68706
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433207"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769337"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Avvio rapido: Creare una funzione Python attivata da HTTP in Azure
 
@@ -122,7 +122,7 @@ Prima di poter distribuire l'app, è necessario creare alcune risorse di Azure.
 
 ## <a name="create-a-function-app-in-azure"></a>Creare un'app per le funzioni in Azure
 
-Un'app per le funzioni offre un ambiente per l'esecuzione del codice delle funzioni. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. 
+Un'app per le funzioni offre un ambiente per l'esecuzione del codice delle funzioni. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse.
 
 Eseguire il comando seguente. Sostituire `<APP_NAME>` con un nome univoco per l'app per le funzioni. Sostituire `<STORAGE_NAME>` con un nome per l'account di archiviazione. `<APP_NAME>` è anche il dominio DNS predefinito per l'app per le funzioni. Questo nome deve essere univoco in tutte le app di Azure.
 

@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Mappe di Azure | Microsoft Docs
-description: Introduzione a Mappe di Azure
+title: Panoramica | Mappe di Microsoft Azure
+description: Questo articolo illustra i servizi e le funzionalità di Mappe di Microsoft Azure e descrive come utilizzarli nelle applicazioni.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/04/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: dbcb0e87159efc7cc33101cdd5eee55afbdf3c10
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 353850cacb06dcc8a0db1b957114db314d7002a3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516646"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911840"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -184,7 +184,7 @@ Verificare che la località dell'indirizzo IP corrente non sia uno dei paesi non
 Provare un'app di esempio che presenta Mappe di Azure:
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un'app Web](quick-demo-map-app.md)
+> [Avvio rapido: Creare un'app Web](quick-demo-map-app.md)
 
 Rimanere aggiornati su Mappe di Azure: 
 

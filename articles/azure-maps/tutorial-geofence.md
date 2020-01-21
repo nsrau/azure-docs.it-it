@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Creare un recinto virtuale con Mappe di Azure'
-description: 'Esercitazione: Configurare un recinto virtuale con Mappe di Azure.'
+title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa | Mappe di Microsoft Azure'
+description: In questa esercitazione si apprenderà come configurare un recinto virtuale e monitorare i dispositivi in relazione al recinto virtuale usando il servizio spaziale di Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407840"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910934"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -58,7 +58,7 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
 
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore di subscription-key con la chiave di Mappe di Azure.
    
-    ![Parametri chiave-valore di Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Parametri per il caricamento dei dati (recinto virtuale) in Postman](./media/tutorial-geofence/postman-key-vals.png)
 
 4. Fare clic su **Body** (Corpo), quindi selezionare il formato di input non elaborato e scegliere JSON come formato di input nell'elenco a discesa. Specificare il codice JSON seguente come dati da caricare:
 
@@ -177,7 +177,7 @@ Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/az
 
 1. Creare un'app per la logica nel portale di Azure
 
-   ![Creare app per la logica](./media/tutorial-geofence/logic-app.png)
+   ![Creare app per la logica di Azure per gestire gli eventi del recinto virtuale](./media/tutorial-geofence/logic-app.png)
 
 2. Selezionare un trigger di richiesta HTTP e quindi selezionare "Send and email" (Invia una e-mail) come azione nel connettore di Outlook
   
@@ -185,7 +185,7 @@ Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/az
 
 3. Salvare l'app per la logica per generare l'endpoint dell'URL HTTP e copiare l'URL HTTP.
 
-   ![Endpoint di App per la logica](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Generare un endpoint delle app per la logica](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Creare una sottoscrizione di Eventi di Mappe di Azure
@@ -196,15 +196,15 @@ Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso
 
 1. Passare al proprio account di Mappe di Azure tramite [questo collegamento al portale](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/) e selezionare la scheda Eventi.
 
-   ![Eventi di Mappe di Azure](./media/tutorial-geofence/events-tab.png)
+   ![Passare all'account eventi di Mappe di Azure](./media/tutorial-geofence/events-tab.png)
 
 2. Per creare una sottoscrizione per gli eventi, selezionare Sottoscrizione di eventi dalla pagina degli eventi.
 
-   ![Sottoscrizione per Eventi di Mappe di Azure](./media/tutorial-geofence/create-event-subscription.png)
+   ![Creare una sottoscrizione di Eventi di Mappe di Azure](./media/tutorial-geofence/create-event-subscription.png)
 
 3. Assegnare un nome alla sottoscrizione e selezionare il tipo di eventi di ingresso. Selezionare ora Web Hook come "Tipo di endpoint" e copiare l'endpoint dell'URL HTTP dell'app per la logica in "Endpoint"
 
-   ![Sottoscrizione per gli eventi](./media/tutorial-geofence/events-subscription.png)
+   ![Dettagli della sottoscrizione per Eventi di Mappe di Azure](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>Usare l'API Recinto virtuale
@@ -214,7 +214,7 @@ Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso
 > [!Note]
 > Lo scenario e il comportamento descritti in precedenza si basano sullo stesso **ID dispositivo**, quindi riflettono le cinque posizioni come nella figura seguente.
 
-![Mappa del recinto virtuale](./media/tutorial-geofence/geofence.png)
+![Mappa del recinto virtuale in Mappe di Azure](./media/tutorial-geofence/geofence.png)
 
 Nell'app Postman aprire una nuova scheda nella stessa raccolta creata in precedenza. Selezionare il metodo HTTP GET nella scheda Builder (Generatore):
 

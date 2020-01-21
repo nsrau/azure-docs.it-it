@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare una definizione di criteri personalizzata'
 description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885450"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966033"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 
@@ -31,7 +31,7 @@ L'approccio per creare criteri personalizzati segue questi passaggi:
 > - Determinare quale effetto usare
 > - Comporre la definizione del criterio
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -58,7 +58,7 @@ Per determinare le proprietà delle risorse di Azure, sono disponibili varie opz
   - Esperienza di creazione
   - Modelli di avvio rapido (GitHub)
   - Documentazione di riferimento sui modelli
-- Esplora risorse di Azure
+- Azure Resource Explorer
 
 ### <a name="view-resources-in-vs-code-extension"></a>Visualizzare le risorse nell'estensione per VS Code
 
@@ -66,7 +66,7 @@ L'[estensione per VS Code](../how-to/extension-for-vscode.md#search-for-and-view
 
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
-È possibile esaminare in vari modi un [modello di Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) che include la proprietà da gestire.
+È possibile esaminare in vari modi un [modello di Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) che include la proprietà da gestire.
 
 #### <a name="existing-resource-in-the-portal"></a>Risorsa esistente nel portale
 
@@ -151,7 +151,7 @@ I [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-t
 Per verificare se **supportsHttpsTrafficOnly** è la proprietà corretta, controllare le informazioni di riferimento del modello di Resource Manager relativo alla [risorsa account di archiviazione](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) nel provider di archiviazione.
 L'oggetto proprietà include un elenco di parametri validi. Selezionando il collegamento [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) viene visualizzata una tabella di proprietà accettabili. La proprietà **supportsHttpsTrafficOnly** è presente e la descrizione corrisponde alla risorsa necessaria per soddisfare i requisiti aziendali.
 
-### <a name="azure-resource-explorer"></a>Esplora risorse di Azure
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
 È possibile esplorare le risorse di Azure anche in un altro modo, ossia tramite [Azure Resource Explorer](https://resources.azure.com) (anteprima). Questo strumento usa il contesto della sottoscrizione, quindi è necessario eseguire l'autenticazione per il sito Web con le credenziali di Azure. Dopo aver completato l'autenticazione, è possibile esplorare le risorse in base a provider, sottoscrizioni, gruppi di risorse e singole risorse.
 
@@ -348,7 +348,7 @@ A questo punto sono disponibili i dettagli e l'alias della proprietà per lo sce
 }
 ```
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>Metadati
 
 I primi tre componenti sono metadati dei criteri. Per questi componenti è facile fornire i valori, perché il motivo per cui viene creata la regola è noto. L'opzione [mode](../concepts/definition-structure.md#mode) riguarda prevalentemente i tag e la posizione delle risorse. Poiché non è necessario limitare la valutazione alle risorse che supportano i tag, verrà usato il valore _all_ per **mode**.
 
@@ -463,7 +463,7 @@ Se le risorse di questa esercitazione non sono più necessarie, usare i passaggi
 
 1. Fare clic con il pulsante destro del mouse sulla riga o selezionare i puntini di sospensione alla fine della definizione (o assegnazione) e quindi **Elimina definizione** o **Elimina assegnazione**.
 
-## <a name="review"></a>Revisione
+## <a name="review"></a>Verifica
 
 In questa esercitazione sono state eseguite le attività seguenti:
 

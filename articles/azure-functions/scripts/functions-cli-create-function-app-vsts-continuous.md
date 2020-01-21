@@ -4,16 +4,16 @@ description: Creare un'app per le funzioni e distribuire il codice di funzione d
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 3fa11d5cd81d93b89b6e8ae63fd491842be78633
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532795"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922652"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Creare una funzione in Azure distribuita da Azure DevOps
 
-Questo argomento illustra come usare Funzioni di Azure per creare un'app per le funzioni [senza server](https://azure.microsoft.com/solutions/serverless/) che usa il [piano a consumo](../functions-scale.md#consumption-plan). L'app per le funzioni, che rappresenta un contenitore per le funzioni, viene distribuita in modo continuo da un repository di Azure DevOps. 
+Questo argomento illustra come usare Funzioni di Azure per creare un'app per le funzioni [serverless](https://azure.microsoft.com/solutions/serverless/) che usa il [Piano a consumo](../functions-scale.md#consumption-plan). L'app per le funzioni, che rappresenta un contenitore per le funzioni, viene distribuita in modo continuo da un repository di Azure DevOps. 
 
 Per completare questo argomento sono necessari:
 
@@ -42,7 +42,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, un account
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea l'account di archiviazione necessario per l'app per le funzioni. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [piano a consumo](../functions-scale.md#consumption-plan) senza server. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [Piano a consumo](../functions-scale.md#consumption-plan) serverless. |
 | [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associa un'app per le funzioni con un archivio Git o Mercurial. |
 
 ## <a name="next-steps"></a>Passaggi successivi

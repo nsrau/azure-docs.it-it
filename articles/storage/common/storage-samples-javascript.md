@@ -7,18 +7,21 @@ ms.date: 09/26/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 363739bbab67b92e78e0cdb56cf98cdb8e1446eb
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 44fe68b8b04a1192c928e04c7d2a9d147f400130
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350893"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748300"
 ---
 # <a name="azure-storage-samples-using-javascript"></a>Esempi di Archiviazione di Azure che usano JavaScript
 
 Le tabelle seguenti forniscono una panoramica del repository di esempi e degli scenari presentati in ogni esempio. Fare clic sui collegamenti per visualizzare il codice di esempio corrispondente in GitHub.
 
-## <a name="blob-samples"></a>Esempi di BLOB
+> [!NOTE]
+> Questi esempi usano la libreria JavaScript v10 di Archiviazione di Azure. Per il codice v12, vedere gli [esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples) nel repository GitHub.
+
+## <a name="blob-samples-v10"></a>Esempi di BLOB (v10)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -43,7 +46,7 @@ Le tabelle seguenti forniscono una panoramica del repository di esempi e degli s
 | Impostare regole CORS | [Introduzione al servizio BLOB di Azure in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L152) |
 | Snapshot Blob | [Introduzione al servizio BLOB di Azure in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L79) |
 
-## <a name="file-samples"></a>Esempi di file
+## <a name="file-samples-v10"></a>Esempi di file (v10)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ Le tabelle seguenti forniscono una panoramica del repository di esempi e degli s
 | Elenco di directory e file | [Introduzione al servizio File di Azure in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L115) |
 | Elenco di condivisioni | [Introduzione al servizio File di Azure in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L187) |
 
-## <a name="queue-samples"></a>Esempi di code
+## <a name="queue-samples-v10"></a>Esempi di code (v10)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -71,12 +74,12 @@ Le tabelle seguenti forniscono una panoramica del repository di esempi e degli s
 | Statistiche per le code | [Introduzione al servizio di accodamento di Azure in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L149) |
 | Aggiornamento del messaggio | [Introduzione al servizio di accodamento di Azure in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L176) |
 
-## <a name="table-samples"></a>Esempi di tabelle
+## <a name="table-samples-v10"></a>Esempi di tabelle (v10)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
 | Entità batch | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L87) |
-| Creazione di tabella | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41) |
+| Create Table | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41) |
 | Eliminazione entità/tabella | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L67) |
 | Inserimento/unione/sostituzione di entità | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49) |
 | Elenco tabelle | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L63) |
@@ -86,7 +89,7 @@ Le tabelle seguenti forniscono una panoramica del repository di esempi e degli s
 | SAS | [Firma di accesso condiviso in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87) |
 | ACL per le tabelle | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L255) |
 | Regole CORS per le tabelle | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L149) |
-| Proprietà tabella | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188) |
+| Table Properties | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188) |
 | Statistiche per le tabelle | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L243) |
 | Update Entity | [Introduzione al servizio tabelle di Azure in JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49) |
 

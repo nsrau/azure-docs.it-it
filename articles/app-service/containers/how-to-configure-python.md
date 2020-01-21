@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2570e3753dd93173166c6b563e9add69bed3f862
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670471"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922265"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -50,7 +50,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="container-characteristics"></a>Caratteristiche del contenitore
 
-Le app Python distribuite nel servizio app in Linux vengono eseguite all'interno di un contenitore Docker definito nel repository GitHub, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) o [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Le app Python distribuite nel servizio app in Linux vengono eseguite all'interno di un contenitore Docker definito nel [repository GitHub di Python per il servizio app](https://github.com/Azure-App-Service/python). È possibile trovare le configurazioni delle immagini all'interno delle directory specifiche della versione.
 
 Questo contenitore presenta le caratteristiche seguenti:
 
@@ -149,7 +149,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 # Do something when HTTPS is used
 ```
 
-I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [CodeIgniter](https://codeigniter.com/) [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) controlla il valore di `X_FORWARDED_PROTO` per impostazione predefinita.
+I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [CodeIgniter](https://codeigniter.com/)[is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) controlla il valore di `X_FORWARDED_PROTO` per impostazione predefinita.
 
 ## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
@@ -159,7 +159,7 @@ I framework Web più diffusi consentono di accedere alle informazioni `X-Forward
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 - **Dopo avere distribuito il codice app personalizzato viene visualizzata l'app predefinita.** L'app predefinita viene visualizzata perché il codice app personalizzato non è stato distribuito nel servizio app o perché il servizio app non è riuscito a trovare il codice app personalizzato e ha quindi eseguito l'app predefinita.
 - Riavviare il servizio app, attendere 15-20 secondi e verifica di nuovo l'app.

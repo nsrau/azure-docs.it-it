@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d7200dd89d51817a5d146ff4d33e2501ed2826
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278022"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971957"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure
 
@@ -36,11 +36,22 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 > [!NOTE]
 > L'autenticazione di Azure Active Directory per l'Archiviazione di Azure è disponibile come anteprima pubblica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione
+
+
+## <a name="enable"></a>Abilitare
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Concedere l'accesso
+
+
+### <a name="create-storage-account"></a>Crea account di archiviazione
 
 In questa sezione, si crea un account di archiviazione.
 
@@ -49,11 +60,11 @@ In questa sezione, si crea un account di archiviazione.
 3. In **Nome**, immettere il nome dell'account di archiviazione.
 4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su **Gestione di risorse** e **Archiviazione (utilizzo generico v1)** .
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
-6. Fare clic su **Create**(Crea).
+6. Fare clic su **Crea**.
 
     ![Creare un nuovo account di archiviazione](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Creare un contenitore BLOB e caricare un file nell'account di archiviazione
+### <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Creare un contenitore BLOB e caricare un file nell'account di archiviazione
 
 Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenitore BLOB in cui archiviare il file. Nel contenitore BLOB caricare un file con il nuovo account di archiviazione.
 
@@ -69,9 +80,9 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 7. Nel riquadro **Caricamento BLOB**, in **File**, fare clic sull'icona della cartella e individuare il file **hello_world.txt** nel computer locale, selezionare il file, quindi fare clic su **Carica**.
     ![Caricare un file di testo](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concedere alla macchina virtuale l'accesso a un contenitore di Archiviazione di Azure
+### <a name="grant-access"></a>Concedere l'accesso
 
-È possibile usare l'identità gestita assegnata dal sistema della macchina virtuale per recuperare i dati nel BLOB di archiviazione di Azure.
+Questa sezione illustra come concedere alla macchina virtuale l'accesso a un contenitore di Archiviazione di Azure. È possibile usare l'identità gestita assegnata dal sistema della macchina virtuale per recuperare i dati nel BLOB di archiviazione di Azure.
 
 1. Tornare all'account di archiviazione appena creato.
 2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.
@@ -81,9 +92,9 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su **Tutti i gruppi di risorse**.
 7. In **Seleziona**, scegliere la macchina virtuale e quindi fare clic su **Salva**.
 
-    ![Assegnare autorizzazioni](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
+    ![Assegnare le autorizzazioni](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Ottenere un token di accesso e usarlo per chiamare l'archiviazione di Azure 
+## <a name="access-data"></a>Accedere ai dati 
 
 Archiviazione di Azure supporta in modo nativo l'autenticazione di Azure AD, per poter accettare direttamente i token di accesso ottenuti usando un'identità gestita. Questo fa parte dell'integrazione di Archiviazione di Azure con Azure AD e non prevede l'inserimento di credenziali nella stringa di connessione.
 
@@ -160,6 +171,13 @@ namespace StorageOAuthToken
 La risposta contiene il contenuto del file:
 
 `Hello world! :)`
+
+
+## <a name="disable"></a>Disabilitazione
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

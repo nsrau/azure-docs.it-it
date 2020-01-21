@@ -10,18 +10,18 @@ keywords: automazione di Azure, DSC, powershell, configurazione dello stato desi
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 814be233c80213f84fb81a62caf152536ef4811f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951446"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834070"
 ---
-# <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Guida introduttiva: Connettere computer ad Azure con Azure Arc per server - PowerShell
+# <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Avvio rapido: Connettere computer ad Azure con Azure Arc per server - PowerShell
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Esaminare i client supportati e la configurazione di rete necessaria in [Panoramica di Azure Arc per server](overview.md).
 
@@ -35,6 +35,9 @@ Un'entità servizio è un'identità di gestione limitata speciale a cui viene co
 ### <a name="steps-to-create-the-service-principal"></a>Procedure per la creazione dell'entità servizio
 
 In questo esempio verrà usato [Azure PowerShell](/powershell/azure/install-az-ps) per creare un nome dell'entità servizio (SPN, Service Principal Name). In alternativa, è possibile seguire la procedura descritta in [Creare un'entità servizio usando il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) per questa attività.
+
+> [!NOTE]
+> Quando si crea l'entità servizio, è necessario essere un proprietario o un amministratore Accesso utente nella sottoscrizione che si vuole usare per l'onboarding. Se non si hanno autorizzazioni sufficienti per creare assegnazioni di ruolo, l'entità servizio potrebbe essere creata, ma non sarà in grado di eseguire l'onboarding dei computer.
 
 Il ruolo `Azure Connected Machine Onboarding` contiene solo le autorizzazioni necessarie per l'onboarding. È possibile definire l'autorizzazione di un nome SPN per consentire all'ambito di coprire un gruppo di risorse o una sottoscrizione.
 
@@ -142,7 +145,7 @@ In Windows aprire PowerShell come amministratore in un nodo di destinazione ed e
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -164,7 +167,7 @@ Parametri
 * `tenant-id` : GUID del tenant. È possibile trovarlo nel portale di Azure selezionando **Azure Active Directory** -> **Proprietà** -> **ID directory**.
 * `subscription-id` : GUID della sottoscrizione di Azure che si intende usare per connettere il computer.
 * `resource-group` : gruppo di risorse a cui si intende connettere il computer.
-* `location` : vedere [Aree e località di Azure](https://azure.microsoft.com/global-infrastructure/regions/). La località può essere uguale o diversa da quella del gruppo di risorse. Per l'anteprima pubblica, il servizio è supportato negli **Stati Uniti occidentali 2** e in **Europa occidentale**.
+* `location` : vedere [Aree e località di Azure](https://azure.microsoft.com/global-infrastructure/regions/). La località può essere uguale o diversa da quella del gruppo di risorse. Per l'anteprima pubblica, il servizio è supportato negli **Stati Uniti occidentali 2**, in **Asia sudorientale** e in **Europa occidentale**.
 * `resource-name` :  (*facoltativo*) usato per la rappresentazione delle risorse di Azure del computer locale. Se non si specifica questo valore, verrà usato il nome host del computer.
 
 Altre informazioni sullo strumento "azcmagent" sono disponibili in [Informazioni di riferimento per Azcmagent](azcmagent-reference.md).

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 28705ea8a552f4d2e6653857c69ebb8d5f87b962
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907117"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028796"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Eseguire la migrazione di server fisici o virtuali ad Azure 
 
@@ -29,7 +29,7 @@ Questo articolo illustra come eseguire la migrazione di server fisici o virtuali
 [Azure Migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione ad Azure dei carichi di lavoro e delle app locali, nonché delle istanze di VM del cloud. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi.
 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Preparare Azure per la migrazione con lo strumento Migrazione server di Azure Migrate.
 > * Verificare i requisiti dei computer di cui eseguire la migrazione e preparare un computer per l'appliance di replica di Azure Migrate usata per individuare ed eseguire la migrazione di computer ad Azure.
@@ -46,7 +46,7 @@ In questa esercitazione si apprenderà come:
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, è necessario:
 
@@ -123,9 +123,8 @@ Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azur
 > [!NOTE]
 > La migrazione basata su agente con lo strumento Migrazione server di Azure Migrate si basa sulle funzionalità del servizio Azure Site Recovery. Alcuni requisiti potrebbero includere collegamenti alla documentazione di Site Recovery.
 
-1. [Verificare](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) i requisiti dei server.
-2. [Verificare](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) i requisiti di supporto delle macchine virtuali per la migrazione.
-3. Verificare le impostazioni delle macchine virtuali. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Verificare](migrate-support-matrix-physical-migration.md#physical-server-requirements) i requisiti dei server fisici.
+2. Verificare le impostazioni delle macchine virtuali. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Preparare un computer per l'appliance di replica
@@ -135,7 +134,7 @@ Lo strumento Migrazione server di Azure Migrate usa un'appliance di replica per 
 - **Server di configurazione**: Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
 - **Server di elaborazione** Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione cache in Azure. 
 
-Prima di iniziare, è necessario preparare un computer Windows Server 2016 in cui ospitare l'appliance di replica. Il computer deve essere conforme a [questi requisiti](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements). L'appliance non deve essere installata in un computer di origine che si vuole proteggere.
+Prima di iniziare, è necessario preparare un computer Windows Server 2016 in cui ospitare l'appliance di replica. Il computer deve essere conforme a [questi requisiti](migrate-replication-appliance.md). L'appliance non deve essere installata in un computer di origine che si vuole proteggere.
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Aggiungere lo strumento Migrazione server di Azure Migrate
@@ -237,7 +236,7 @@ Nei computer di cui eseguire la migrazione, è necessario installare l'agente de
     UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
     ```
 
-### <a name="install-on-linux"></a>Eseguire l'installazione in Linux
+### <a name="install-on-linux"></a>Installare in Linux
 
 1. Estrarre il contenuto del tarball del programma di installazione in una cartella locale del computer, ad esempio /tmp/MobSvcInstaller, come indicato di seguito:
     ```
@@ -288,7 +287,7 @@ Selezionare ora le VM per la migrazione.
 
     ![Impostazioni di destinazione](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. In **Calcolo** esaminare il nome, le dimensioni, il tipo di disco del sistema operativo e il set di disponibilità delle VM. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
+12. In **Calcolo** controllare il nome, le dimensioni, il tipo di disco del sistema operativo e il set di disponibilità delle VM. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Dimensioni macchina virtuale**: per impostazione predefinita, Migrazione server di Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**. 
     - **Disco del sistema operativo**: specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo. 
@@ -319,7 +318,7 @@ Selezionare ora le VM per la migrazione.
 
 È possibile tenere traccia dello stato del processo nelle notifiche del portale.
 
-È possibile monitorare lo stato della replica facendo clic su **Replica dei server**  in **Azure Migrate: Migrazione server**.
+È possibile monitorare lo stato della replica facendo clic su **Replica dei server** in **Azure Migrate: Migrazione server**.
 ![Monitorare la replica](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
 ## <a name="run-a-test-migration"></a>Eseguire una migrazione di test

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Eseguire ricerche con Mappe di Azure'
-description: 'Esercitazione: Eseguire ricerche vicino a un punto di interesse con Mappe di Azure'
+title: 'Esercitazione: Cercare località vicine su una mappa | Mappe di Microsoft Azure'
+description: In questa esercitazione si apprenderà come cercare località vicine (punti di interesse) su una mappa con Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432758"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910821"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -49,19 +49,19 @@ Creare un nuovo account di Mappe con i passaggi seguenti:
     * Leggere la *Licenza* e l'*Informativa sulla Privacy* e selezionare la casella di controllo per accettare le condizioni.
     * Fare clic sul pulsante **Create** (Crea).
 
-![Creare account di Mappe nel portale](./media/tutorial-search-location/create-account.png)
+![Creare l'account di Mappe di Azure nel portale di Azure](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
 ## <a name="get-the-primary-key-for-your-account"></a>Ottenere la chiave primaria per l'account
 
-Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente di eseguire query nelle API di Mappe. È consigliabile usare la chiave primaria dell'account come chiave di sottoscrizione quando si chiamano i servizi di Mappe di Azure.
+Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente di eseguire query nelle API di Mappe. Nella chiamata dei servizi di Mappe di Azure è consigliabile usare la chiave primaria dell'account come chiave di sottoscrizione.
 
 1. Aprire l'account di Mappe nel portale.
 2. Nella sezione delle impostazioni selezionare **Autenticazione**.
 3. Copiare il valore di **Chiave primaria** negli Appunti. Salvarlo in locale per usarlo in seguito in questa esercitazione.
 
-![Ottenere la chiave primaria nel portale](./media/tutorial-search-location/get-key.png)
+![Ottenere la chiave primaria nel portale di Azure](./media/tutorial-search-location/get-key.png)
 
 Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 

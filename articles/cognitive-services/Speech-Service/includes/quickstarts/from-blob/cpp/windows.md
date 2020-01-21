@@ -1,32 +1,25 @@
 ---
-title: 'Avvio rapido: Riconoscimento della voce archiviata in archiviazione BLOB, C++ - Servizio Voce'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b7ce80baa090ed87722397384b8e75c134eb26da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 731248c88855e2c23d2d7e94a01a9681d30259ce
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466438"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942697"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
+> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
+> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?pivots=programmming-language-cpp)
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Caricare un file di origine in un BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Aprire il progetto in Visual Studio
 
@@ -53,7 +46,8 @@ vcpkg install nlohmann-json
 Aggiungere codice che funga da scheletro del progetto.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-32,187-190,300-309)]
-(Sarà necessario sostituire i valori di `YourSubscriptionKey`, `YourServiceRegion` e `YourFileUrl` con valori personalizzati.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="json-wrappers"></a>Wrapper JSON
 

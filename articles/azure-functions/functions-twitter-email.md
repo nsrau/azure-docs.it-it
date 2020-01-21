@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226615"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768963"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -22,7 +22,7 @@ Questa esercitazione illustra come usare Funzioni con App per la logica e Serviz
 
 ![immagine dei primi due passaggi dell'app in Progettazione app per la logica](media/functions-twitter-email/00-logic-app-overview.png)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una risorsa API per Servizi cognitivi.
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 > * Connettere l'app per la logica alla funzione.
 > * Inviare un messaggio di posta elettronica in base alla risposta dalla funzione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 + Un account [Twitter](https://twitter.com/) attivo. 
 + Un account [Outlook.com](https://outlook.com/) per l'invio delle notifiche.
@@ -129,7 +129,7 @@ A questo punto è disponibile una funzione che classifica i punteggi dei sentime
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica   
 
-1. Nel portale di Azure fare clic sul pulsante **Nuovo** nell'angolo in alto a sinistra del portale.
+1. Nel portale di Azure fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
 
 2. Fare clic su **Web** > **App per la logica**.
  
@@ -161,7 +161,7 @@ Creare prima di tutto una connessione all'account Twitter. L'app per la logica e
 
     ![Impostazioni del connettore Twitter](media/functions-twitter-email/10-tweet-settings.png)
 
-    | Impostazione      |  Valore consigliato   | DESCRIZIONE                                        |
+    | Impostazione      |  Valore consigliato   | Descrizione                                        |
     | ----------------- | ------------ | ------------- |
     | **Testo di ricerca** | #Azure | Usare un hashtag che sia abbastanza comune per generare nuovi tweet nell'intervallo selezionato. Quando si usa un hashtag troppo comune con il livello gratuito, c'è il rischio di esaurire rapidamente la quota di transazioni nell'API Servizi cognitivi. |
     | **Interval** | 15 | Tempo trascorso tra le richieste di Twitter, in unità di frequenza. |
@@ -205,7 +205,7 @@ Dopo aver configurato il rilevamento dei sentiment, è possibile aggiungere una 
 
 4. In **Corpo della richiesta** fare clic su **Punteggio** e quindi su **Salva**.
 
-    ![Score](media/functions-twitter-email/17-function-input-score.png)
+    ![Punteggio](media/functions-twitter-email/17-function-input-score.png)
 
 A questo punto, la funzione viene attivata quando l'app per la logica invia un punteggio di sentiment. La funzione restituisce quindi una categoria colore all'app per la logica. Aggiungere quindi l'invio di una notifica di posta elettronica quando la funzione restituisce un valore di sentiment **RED**. 
 
@@ -232,13 +232,13 @@ L'ultima parte del flusso di lavoro consiste nell'attivare l'invio di un messagg
 
     ![Configurare la posta elettronica per l'azione Invia un messaggio di posta elettronica.](media/functions-twitter-email/21-configure-email.png)
     
-| Impostazione      |  Valore consigliato   | DESCRIZIONE  |
+| Impostazione      |  Valore consigliato   | Descrizione  |
 | ----------------- | ------------ | ------------- |
 | **To** | Digitare l'indirizzo di posta elettronica | Indirizzo di posta elettronica che riceve la notifica. |
 | **Oggetto** | Rilevato sentiment di tweet negativo  | Riga dell'oggetto della notifica di posta elettronica.  |
 | **Corpo** | Testo tweet, Località | Fare clic sui parametri **Testo tweet** e **Località**. |
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 Ora che il flusso di lavoro è completo, è possibile abilitare l'app per la logica e provarne il funzionamento.
 
@@ -283,7 +283,7 @@ Per disabilitare l'app per la logica, fare clic su **Panoramica** e quindi scegl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una risorsa API per Servizi cognitivi.

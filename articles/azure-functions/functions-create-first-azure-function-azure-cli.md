@@ -5,20 +5,20 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 147ad4bd20ee1c7ae8f1529e1b3bc0e4f3e7dbb0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 222e4a98974a1af40ff860cfc4fdb246d9c97bca
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230847"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769388"
 ---
-# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Guida introduttiva: Creare la prima funzione dalla riga di comando con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Avvio rapido: Creare la prima funzione dalla riga di comando con l'interfaccia della riga di comando di Azure
 
 Questa guida introduttiva illustra come creare la prima funzione dalla riga di comando o terminale. Si userà l'interfaccia della riga di comando di Azure per creare un'app per le funzioni, ovvero l'infrastruttura [senza server](https://azure.microsoft.com/solutions/serverless/) che ospita la funzione. Il progetto del codice della funzione viene generato da un modello tramite [Core Tools di Funzioni di Azure](functions-run-local.md), che viene usato anche per distribuire il progetto dell'app della funzione in Azure.
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
@@ -46,7 +46,7 @@ Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione senza server del codice di funzione. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. Creare un'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
+Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione senza server del codice di funzione. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse. Creare un'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
 Nel comando seguente sostituire il segnaposto `<APP_NAME>` con il nome univoco dell'app per le funzioni e il nome dell'account di archiviazione con `<STORAGE_NAME>`. Dato che verrà usato come dominio DNS predefinito per l'app per le funzioni, è necessario che `<APP_NAME>` sia univoco tra tutte le app in Azure. È necessario impostare anche il runtime `<language>` per l'app per le funzioni, da `dotnet` (C#) o `node` (JavaScript).
 

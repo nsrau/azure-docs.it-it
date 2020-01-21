@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/10/2020
+ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790339"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933738"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Esercitazione: Ricevere notifiche dagli spazi di Gemelli digitali di Azure usando App per la logica
 
@@ -24,13 +24,13 @@ Nella [prima esercitazione](tutorial-facilities-setup.md) è stato configurato i
 
 Questa esercitazione illustra come integrare queste notifiche con App per la logica di Azure per inviare messaggi di posta elettronica quando è disponibile una stanza con tali condizioni. Un amministratore dell'ufficio può usare queste informazioni per aiutare i dipendenti a prenotare la sala riunioni più produttiva.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Integrare eventi con Griglia di eventi di Azure.
 > * Inviare notifiche per gli eventi con l'app per la logica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa esercitazione presuppone che siano già state effettuate le attività di [configurazione](tutorial-facilities-setup.md) e [provisioning](tutorial-facilities-udf.md) dell'installazione di Gemelli digitali di Azure. Prima di procedere, assicurarsi di avere:
 
@@ -65,7 +65,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 1. Selezionare **Chiavi di accesso** e copiare i valori di **Chiave 1** e **Chiave 2** in un file temporaneo. Questi valori saranno necessari per creare l'endpoint nella sezione successiva.
 
-    [![Chiavi di Griglia di eventi](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
+    [![Chiavi di Griglia di eventi](./media/tutorial-facilities-events/tutorial-event-grid-keys.png)](./media/tutorial-facilities-events/tutorial-event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Creare un endpoint per l'argomento di Griglia di eventi
 
@@ -114,7 +114,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 1. In **Nome** immettere un nome per la risorsa dell'app per la logica e quindi selezionare le opzioni per **Sottoscrizione**, **Gruppo di risorse** e **Località**. Selezionare **Create** (Crea).
 
-    [![Creare una risorsa di App per la logica](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
+    [![Creare una risorsa di App per la logica](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
 1. Aprire la risorsa App per la logica dopo averla distribuita e quindi aprire il riquadro **Progettazione app per la logica**. 
 
@@ -172,7 +172,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    c. Nella seconda casella di testo **Scegliere un valore** immettere `UdfCustom`.
 
-   [![Condizioni selezionate](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
+   [![Condizioni selezionate](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
 1. Nella finestra **È true**:
 
@@ -184,7 +184,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    d. In **Corpo**, nella stessa finestra, immettere un testo simile al seguente: **In una stanza è stata rilevata una qualità scadente dell'aria ed è necessario regolare la temperatura**. Elaborare a piacimento il messaggio usando gli elementi dell'elenco **Contenuto dinamico**.
 
-   [![Selezioni "Invia un messaggio di posta elettronica" App per la logica](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
+   [![Selezioni "Invia un messaggio di posta elettronica" App per la logica](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
 1. Selezionare il pulsante **Salva** nella parte superiore del riquadro **Progettazione app per la logica**.
 

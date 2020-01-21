@@ -8,17 +8,17 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707753"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912270"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Esercitazione: Generare dati di dispositivi simulati
 
 > [!NOTE]
-> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per risultati ottimali.
+> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
 
 In questo articolo vengono usati dati di training di Machine Learning per simulare un dispositivo che invia dati di telemetria all'hub IoT. Come indicato nell'introduzione, in questa esercitazione completa viene usato il [set di dati di simulazione della riduzione delle prestazioni del motore Turbofan](https://c3.nasa.gov/dashlink/resources/139/) per simulare i dati di un set di motori di aero per il training e i test.
 
@@ -123,7 +123,7 @@ Dopo aver avviato la creazione del progetto, connettersi all'hub IoT per acceder
 
 1. Per visualizzare i messaggi inviati all'hub, fare clic con il pulsante destro del mouse su un dispositivo e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia monitoraggio endpoint eventi predefinito). I messaggi verranno visualizzati nel riquadro di output in Visual Studio Code.
 
-1. Per interrompere il monitoraggio, fare clic nel riquadro di output **Azure IoT Hub Toolkit** (Toolkit hub IoT di Azure) e scegliere **Stop Monitoring Built-in Event Endpoint** (Interrompi monitoraggio endpoint eventi predefinito).
+1. Per interrompere il monitoraggio, fare clic nel riquadro di output **Hub IoT di Azure** e scegliere **Arresta monitoraggio endpoint eventi predefinito**.
 
 1. Attendere alcuni minuti mentre viene completata l'esecuzione dell'applicazione.
 

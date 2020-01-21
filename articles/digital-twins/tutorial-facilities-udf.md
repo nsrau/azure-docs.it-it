@@ -8,19 +8,19 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383230"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895343"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Anteprima di Gemelli digitali di Azure
 
 Questa esercitazione illustra come usare Anteprima di Gemelli digitali di Azure per monitorare la temperatura e il livello di comfort dei propri spazi. Dopo aver [configurato l'edificio di esempio](tutorial-facilities-setup.md), è possibile effettuare il provisioning dell'edificio ed eseguire funzioni personalizzate sui dati dei sensori usando la procedura descritta in questa esercitazione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Definire le condizioni da monitorare
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 > * Simulare i dati dei sensori
 > * Ottenere i risultati di una funzione definita dall'utente
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa esercitazione presuppone che sia stata [completata l'installazione di Gemelli digitali di Azure](tutorial-facilities-setup.md). Prima di procedere, assicurarsi di avere:
 
@@ -38,7 +38,7 @@ Questa esercitazione presuppone che sia stata [completata l'installazione di Gem
 - [.NET Core SDK versione 2.1.403 o successiva](https://www.microsoft.com/net/download) nel computer di sviluppo per compilare ed eseguire l'esempio. Eseguire `dotnet --version` per verificare se è installata la versione corretta. 
 - [Visual Studio Code](https://code.visualstudio.com/) per esplorare il codice di esempio. 
 
-> [!TIP]
+>[!TIP]
 > Se si esegue il provisioning di una nuova istanza, usare un nome istanza di Gemelli digitali univoco.
 
 ## <a name="define-conditions-to-monitor"></a>Definire le condizioni da monitorare
@@ -74,7 +74,7 @@ Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Ammi
 
    Modificare il file JavaScript per monitorare la temperatura e le altre condizioni. Aggiungere le righe di codice seguenti per cercare le condizioni in non viene rilevato alcun movimento nel locale, i livelli di emissione di anidride carbonica sono inferiori a 1,000 ppm e la temperatura è inferiore 78 gradi Fahrenheit.
 
-   > [!NOTE]
+   >[!NOTE]
    > Questa sezione modifica il file *src\actions\userDefinedFunctions\availability.js* ed è quindi possibile vedere in dettaglio come scrivere una funzione definita dall'utente. È tuttavia possibile scegliere di usare il file [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) nella configurazione. Questo file contiene tutte le modifiche necessarie per questa esercitazione. Se si usa invece questo file, verificare di usare il nome file corretto per la chiave **script** in [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
     a. All'inizio del file aggiungere le righe seguenti per la temperatura sotto il commento `// Add your sensor type here`:
@@ -178,7 +178,7 @@ Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Ammi
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > Per evitare l'accesso non autorizzato all'API di gestione di Gemelli digitali, l'applicazione **occupancy-quickstart** richiede di accedere con le credenziali dell'account Azure. Salva le credenziali per un breve periodo, quindi non dovrebbe essere necessario eseguire l'accesso ogni volta che viene eseguita. Quando questo programma viene eseguito per la prima volta o quando le credenziali salvate scadono, l'applicazione indirizzerà a una pagina di accesso e si riceverà un codice specifico della sessione da immettere in tale pagina. Seguire le istruzioni per accedere con l'account Azure.
 
 1. Dopo l'autenticazione dell'account, l'applicazione avvia la creazione di un grafico spaziale di esempio configurato in *provisionSample.yaml*. Attendere finché non viene completato il processo di provisioning. L'operazione richiederà alcuni minuti. Al termine, esaminare i messaggi nella finestra di comando. Si noterà che il grafico spaziale è stato creato. Si noti che l'applicazione crea un hub IoT nel nodo radice o `Venue`.
@@ -187,7 +187,7 @@ Si noti anche la sezione denominata **roleassignments** Assegna il ruolo di Ammi
 
     [![Effettuare il provisioning dell'esempio](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > Se viene visualizzato un messaggio di errore simile a "The I/O operation has been aborted because of either a thread exit or an application request", durante il provisioning, provare a eseguire nuovamente il comando. Questa situazione può verificarsi se il client HTTP ha raggiunto il timeout a causa di un problema di rete.
 
 ## <a name="simulate-sensor-data"></a>Simulare i dati dei sensori
@@ -229,12 +229,12 @@ In questa sezione si userà il progetto denominato *device-connectivity* nell'es
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > Dal momento che l'esempio di simulazione non comunica direttamente con l'istanza Gemelli digitali, non richiede l'autenticazione.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Ottenere i risultati della funzione definita dall'utente
 
-La funzione definita dall'utente viene eseguita ogni volta che l'istanza riceve i dati dei sensori e dei dispositivi. Questa sezione esegue una query dell'istanza di Gemelli digitali di Azure per ottenere i risultati della funzione definita dall'utente. Si noterà quasi in tempo reale quando un locale è disponibile, l'aria è fresca e la temperatura è giusta. 
+La funzione definita dall'utente viene eseguita ogni volta che l'istanza riceve i dati dei sensori e dei dispositivi. Questa sezione esegue una query dell'istanza di Gemelli digitali di Azure per ottenere i risultati della funzione definita dall'utente. Si riceverà una notifica quasi in tempo reale quando un locale è disponibile, l'aria è fresca e la temperatura è giusta. 
 
 1. Aprire la finestra di comando usata per effettuare il provisioning dell'esempio o una nuova finestra di comando e passare nuovamente alla cartella **occupancy-quickstart\src** dell'esempio.
 
@@ -246,7 +246,7 @@ La funzione definita dall'utente viene eseguita ogni volta che l'istanza riceve 
 
 La finestra di output visualizza come viene eseguita la funzione definita dall'utente e intercetta gli eventi della simulazione del dispositivo. 
 
-   [![Output per la funzione definita dall'utente](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![Output per la funzione definita dall'utente](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 Se la condizione monitorata viene soddisfatta, la funzione definita dall'utente imposta il valore dello spazio con il messaggio pertinente, come è stato illustrato nella [sezione precedente](#create-a-user-defined-function). La funzione `GetAvailableAndFreshSpaces` visualizza il messaggio nella console.
 
@@ -256,7 +256,7 @@ Se si non si vuole esplorare ulteriormente Gemelli digitali di Azure, è possibi
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra, selezionare il gruppo di risorse di Gemelli digitali e quindi fare clic su **Elimina**.
 
-    > [!TIP]
+    >[!TIP]
     > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.
 
 2. Se necessario, eliminare le applicazioni di esempio nel computer di lavoro.

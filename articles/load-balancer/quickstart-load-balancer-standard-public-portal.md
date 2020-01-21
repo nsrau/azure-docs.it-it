@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225199"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771462"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali con il portale di Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali con il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico di macchine virtuali. Questa guida introduttiva illustra come bilanciare il carico delle macchine virtuali con un'istanza di Load Balancer Standard.
 
@@ -34,16 +34,16 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 
-In questa sezione viene creata un'istanza di Load Balancer Standard che consente di bilanciare il carico delle macchine virtuali. Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando si crea un'istanza di Load Balancer Standard, è necessario creare anche un nuovo indirizzo IP pubblico standard che viene configurato come il front-end (denominato come *LoadBalancerFrontend* per impostazione predefinita) per Load Balancer Standard. 
+In questa sezione viene creata un'istanza di Load Balancer Standard che consente di bilanciare il carico delle macchine virtuali. È possibile creare un servizio Load Balancer Standard pubblico o interno. Load Balancer Standard supporta solo un indirizzo IP pubblico standard, mentre gli indirizzi IP pubblici di base non sono supportati. Quando si crea un servizio Load Balancer Standard pubblico, è necessario creare anche un nuovo indirizzo IP pubblico standard che viene configurato come front-end (denominato *LoadBalancerFrontend* per impostazione predefinita) per Load Balancer Standard. 
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare *myResourceGroupSLB* nella casella di testo.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
     | SKU           | Selezionare **Standard**.                          |
@@ -73,9 +73,9 @@ Per consentire all'istanza di Load Balancer di monitorare lo stato dell'app, si 
 1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myLoadBalancer** nell'elenco di risorse.
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *myHealthProbe*. |
+    | Nome | Immettere *myHealthProbe*. |
     | Protocollo | Selezionare **HTTP**. |
     | Porta | Immettere *80*.|
     | Interval | Immettere *15* in **Intervallo** come numero di secondi tra i tentativi del probe. |
@@ -90,9 +90,9 @@ Una regola di bilanciamento del carico consente di definire come il traffico ver
 2. In **Impostazioni** selezionare **Regole di bilanciamento del carico** e quindi selezionare **Aggiungi**.
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *myHTTPRule*. |
+    | Nome | Immettere *myHTTPRule*. |
     | Protocollo | selezionare **TCP**. |
     | Porta | Immettere *80*.|
     | Porta back-end | Immettere *80*. |
@@ -110,16 +110,16 @@ In questa sezione si crea una rete virtuale, si creano tre macchine virtuali per
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *myVNet*. |
+    | Nome | Immettere *myVNet*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare la risorsa esistente: *myResourceGroupSLB*. |
     | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *myBackendSubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
-1. Lasciare tutte le impostazioni predefinite e selezionare **Crea**.
+1. Accettare tutte le impostazioni predefinite e selezionare **Crea**.
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 Load Balancer Standard supporta solo le macchine virtuali con indirizzi IP standard nel pool back-end. In questa sezione si creeranno tre macchine virtuali (*myVM1*, *myVM2* e *myVM3*) con un indirizzo IP pubblico standard in tre aree diverse (*Zona 1*, *Zona 2* e *Zona 3*) che vengono aggiunte in seguito al pool di back-end dell'istanza di Load Balancer Standard che è stata creata in precedenza.
@@ -154,7 +154,7 @@ Load Balancer Standard supporta solo le macchine virtuali con indirizzi IP stand
 
     | Impostazione | VM 2| VM 3|
     | ------- | ----- |---|
-    | NOME |  *myVM2* |*myVM3*|
+    | Nome |  *myVM2* |*myVM3*|
     | Zona di disponibilità | 2 |3|
     |IP pubblico| SKU **Standard**|SKU **Standard**|
     | IP pubblico: Zona di disponibilità| **Con ridondanza della zona** |**Con ridondanza della zona**|
@@ -199,7 +199,7 @@ In questa sezione si crea una regola del gruppo di sicurezza di rete per consent
 6. Chiudere la sessione RDP con *myVM1*.
 7. Ripetere i passaggi da 1 a 6 per installare IIS e il file iisstart.htm aggiornato in *myVM2* e *myVM3*.
 
-## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
+## <a name="test-the-load-balancer"></a>Testare l'istanza di Load Balancer
 1. Trovare l'indirizzo IP pubblico del servizio di bilanciamento del carico nella schermata **Panoramica**. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myPublicIP**.
 
 2. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Nel browser verrà visualizzata la pagina predefinita del server Web IIS.

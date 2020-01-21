@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b387df5049fff2cb17e8d0758f1cf5fd8f0d0853
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049099"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045659"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Load Balancer Standard usando Azure PowerShell
+# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard usando Azure PowerShell
 
 Questa guida introduttiva mostra come creare un'istanza di Load Balancer Standard usando Azure PowerShell. Per testare il servizio di bilanciamento del carico, distribuire tre macchine virtuali che eseguono Windows Server e bilanciare il carico di un'app Web tra le VM. Per saperne di più su Load Balancer Standard, vedere [Panoramica di Azure Load Balancer Standard](load-balancer-standard-overview.md).
 
@@ -105,7 +105,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>Creare le regole NAT
 
-Creare le regole NAT con [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). L'esempio seguente crea le regole NAT denominate *myLoadBalancerRDP1* e *myLoadBalancerRDP2* per consentire le connessioni RDP ai server back-end con le porte 4221 e 4222:
+Creare regole NAT con [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). L'esempio seguente crea le regole NAT denominate *myLoadBalancerRDP1* e *myLoadBalancerRDP2* per consentire le connessioni RDP ai server back-end con le porte 4221 e 4222:
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `

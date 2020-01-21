@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Trovare un itinerario con Mappe di Azure'
-description: 'Esercitazione: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure'
+title: 'Esercitazione: Trovare il percorso per una località | Mappe di Microsoft Azure'
+description: In questa esercitazione viene illustrato come eseguire il rendering del percorso verso una località (punto di interesse) su una mappa usando il servizio di pianificazione percorso di Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613602"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910842"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Esercitazione: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
@@ -168,7 +168,7 @@ In questa esercitazione verrà eseguito il rendering di un itinerario semplice u
 
 3. Salvare il file **MapRoute.html** e aggiornare il browser. Ora la mappa è centrata su Seattle ed è possibile vedere il segnaposto blu che indica il punto di partenza e il segnaposto blu che indica il punto di arrivo.
 
-   ![Visualizzare la mappa con i punti di partenza e di arrivo contrassegnati](media/tutorial-route-location/map-pins.png)
+   ![Visualizzare il punto di partenza e di arrivo di un percorso sulla mappa](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a7d25dfad20d8eff25020070d0bb32d5777fdb62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561494"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754602"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
-Questa esercitazione illustra come configurare il ripristino di emergenza per le macchine virtuali di Azure replicandole da un'area di Azure a un'altra. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come configurare il ripristino di emergenza per le macchine virtuali di Azure replicandole da un'area di Azure a un'altra. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali di Servizi di ripristino
@@ -30,7 +30,7 @@ Questa esercitazione illustra come configurare il ripristino di emergenza per le
 > [!NOTE]
 > Questo articolo contiene le istruzioni per distribuire il ripristino di emergenza con le impostazioni più semplici. Per ottenere informazioni sulle impostazioni personalizzate, leggere gli articoli nella [sezione Procedure](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
@@ -42,7 +42,7 @@ Per completare questa esercitazione:
 Creare l'insieme di credenziali in tutte le aree, ad eccezione dell'area di origine.
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**. Selezionare quindi **Strumenti di gestione** > **Backup e Site Recovery**.
+2. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. Selezionare quindi **Strumenti di gestione** > **Backup e Site Recovery**.
 3. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 4. Creare un gruppo di risorse o selezionarne uno esistente. Specificare un'area di Azure. Per verificare le aree supportate, vedere la sezione relativa alla disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** e quindi su **Crea**.
@@ -77,15 +77,18 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
-Se si vuole controllare la connettività in uscita usando indirizzi IP invece di URL, autorizzare questi indirizzi per firewall basati su IP, proxy o regole dei gruppi di sicurezza di rete.
+Se si usa un gruppo di sicurezza di rete, creare regole dei gruppi di sicurezza di rete basate su tag del servizio per l'accesso ad Archiviazione di Azure, Azure Active Directory, servizio Site Recovery e monitoraggio di Site Recovery. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
+
+Se si vuole controllare la connettività in uscita usando indirizzi IP invece di regole dei gruppi di sicurezza di rete, autorizzare questi indirizzi per firewall basati su IP, proxy o regole dei gruppi di sicurezza di rete.
+
+>[!NOTE]
+>È consigliabile configurare sempre le regole dei gruppi di sicurezza di rete con i tag del servizio per l'accesso in uscita.
 
   - [Intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Intervalli IP del data center di Microsoft Azure in Germania](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Intervalli IP del data center di Microsoft Azure in Cina](https://www.microsoft.com/download/details.aspx?id=42064)
   - [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Indirizzi IP dell'endpoint di servizio di Site Recovery](https://aka.ms/site-recovery-public-ips)
-
-Se si usa NSG è possibile creare una tag del servizio di archiviazione basato sulle regole NSG per l'area di origine. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
 
 ## <a name="verify-azure-vm-certificates"></a>Verificare i certificati della macchina virtuale di Azure
 

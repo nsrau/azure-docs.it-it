@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3f4e9f8a607856e3de92a4824a4221071f3c02a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227147"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769252"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Creare una funzione attivata dall'archiviazione code di Azure
 
@@ -18,7 +18,7 @@ Informazioni su come creare una funzione attivata nel momento in cui vengono inv
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Scaricare e installare [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -46,7 +46,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Nel campo di ricerca digitare `queue` e quindi scegliere il modello **Trigger coda**.
 
-1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure e le relative dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
+1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure ed eventuali dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
 
     ![Installare le estensioni di binding](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -58,7 +58,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     |---|---|---|
     | **Nome** | Univoco nell'app per le funzioni | Nome della funzione attivata dalla coda. |
     | **Nome coda**   | myqueue-items    | Nome della coda a cui connettersi nell'account di archiviazione. |
-    | **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |    
+    | **Connessione dell'account di archiviazione** | AzureWebJobsStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |    
 
 1. Fare clic su **Crea** per creare la funzione.
 
@@ -88,7 +88,7 @@ Connettersi quindi all'account di archiviazione di Azure e creare la coda di arc
 
 1. Tornare al portale di Azure, selezionare la funzione, espandere i **log** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non sia stato interrotto.
 
-1. In Esplora archivi espandere l'account di archiviazione, **Code** e **myqueue-items** e quindi fare clic su **Aggiungi messaggio**.
+1. In Storage Explorer espandere l'account di archiviazione, **Code** e **myqueue-items**, quindi fare clic su **Aggiungi messaggio**.
 
     ![Aggiungere un messaggio alla coda.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 

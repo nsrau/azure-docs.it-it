@@ -9,16 +9,16 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872410"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863707"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Esercitazione: Creare un ambiente Azure Time Series Insights
 
-Questa esercitazione illustra come creare un ambiente Azure Time Series Insights, popolato con i dati provenienti da dispositivi simulati. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come creare un ambiente Azure Time Series Insights, popolato con i dati provenienti da dispositivi simulati. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un ambiente Time Series Insights
@@ -30,7 +30,7 @@ Questa esercitazione illustra come creare un ambiente Azure Time Series Insights
 > [!IMPORTANT]
 > Registrarsi per creare una [sottoscrizione di Azure gratuita](https://azure.microsoft.com/free/), se non è già stato fatto.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * L'account di accesso di Azure deve anche essere membro del ruolo **Proprietario** della sottoscrizione. Per altre informazioni, vedere [Gestire l'accesso mediante il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
@@ -61,7 +61,7 @@ Creare prima di tutto la soluzione di simulazione di dispositivi che genera i da
 
 1.  Selezionare **Prova adesso**. Immettere i parametri necessari nella pagina di **creazione della soluzione Simulazione dispositivi**.
 
-   Parametro|DESCRIZIONE
+   Parametro|Descrizione
    ---|---
    **Nome distribuzione** | Questo valore univoco viene usato per creare un nuovo gruppo di risorse. Le risorse di Azure elencate vengono create e assegnate al gruppo di risorse.
    **Sottoscrizione di Azure** | Specificare la stessa sottoscrizione usata per creare l'ambiente Time Series Insights nella sezione precedente.
@@ -95,7 +95,7 @@ Creare quindi un ambiente Time Series Insights nella sottoscrizione di Azure.
 
 1. Nella pagina **Ambiente Time Series Insights** specificare i parametri richiesti.
 
-   Parametro|DESCRIZIONE
+   Parametro|Descrizione
    ---|---
    **Nome ambiente** | Scegliere un nome univoco per l'ambiente di Time Series Insights. I nomi vengono usati da Time Series Insights Explorer e dalle [API di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
    **Sottoscrizione** | Le sottoscrizioni sono contenitori per le risorse di Azure. Scegliere una sottoscrizione in cui creare l'ambiente Time Series Insights.
@@ -134,7 +134,7 @@ Insieme all'hub IoT è stata generata un'applicazione Web del servizio app di Az
 
 1. Selezionare **+ Nuova simulazione**. Al termine del caricamento della pagina **Simulation setup** (Configurazione simulazione), immettere i parametri richiesti.
 
-   Parametro|DESCRIZIONE
+   Parametro|Descrizione
    ---|---
    **Target IoT Hub** (Hub IoT di destinazione) | Selezionare **Use pre-provisioned IoT Hub** (Usa l'hub IoT di cui è già stato eseguito il provisioning).
    **Device model** (Modello del dispositivo) | Selezionare **Chiller** (Refrigeratore).
@@ -162,7 +162,7 @@ In questa sezione finale si verifica che i dati di telemetria siano stati genera
 
    [![Strumento di esplorazione di Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. Lo strumento di esplorazione di Time Series Insights verrà caricato e sarà eseguita l'autenticazione tramite l'account del portale di Azure. Dopo la visualizzazione iniziale, è possibile verificare nell'area grafico che l'ambiente Time Series Insights sia stato popolato con i dati di telemetria simulati. Per filtrare un intervallo di tempo più ristretto, selezionare l'elenco a discesa nell'angolo in alto a sinistra. Immettere un intervallo di tempo sufficientemente ampio da coprire l'intera durata della simulazione del dispositivo. Selezionare quindi la lente di ingrandimento Cerca.
+1. Lo strumento di esplorazione di Time Series Insights verrà caricato e sarà eseguita l'autenticazione tramite l'account del portale di Azure. Inizialmente, verranno visualizzati l'area del grafico con cui è stato popolato l'ambiente Time Series Insights insieme ai dati di telemetria simulati. Per filtrare un intervallo di tempo più ristretto, selezionare l'elenco a discesa nell'angolo in alto a sinistra. Immettere un intervallo di tempo sufficientemente ampio da coprire l'intera durata della simulazione del dispositivo. Selezionare quindi la lente di ingrandimento Cerca.
 
    [![Filtro dell'intervallo di tempo dello strumento di esplorazione di Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -186,7 +186,7 @@ Dal menu a sinistra nel portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un ambiente Time Series Insights

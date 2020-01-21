@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
-ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7dd1f07d44bd3b71bb83becee5405cf5c100460c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563225"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754079"
 ---
-# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Creare un archivio conoscenze di Ricerca cognitiva di Azure con REST
+# <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creare un archivio conoscenze con REST e Postman
 
 > [!IMPORTANT] 
 > L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
-L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che rende persistente l'output di una pipeline di arricchimento tramite intelligenza artificiale per analisi successive o l'ulteriore elaborazione downstream. Una pipeline con arricchimento tramite intelligenza artificiale accetta file di immagine o file di testo non strutturati, li indicizza usando Ricerca cognitiva di Azure, applica gli arricchimenti di intelligenza artificiale di Servizi cognitivi di Azure (come l'analisi delle immagini e l'elaborazione del linguaggio naturale) e quindi salva i risultati in un archivio conoscenze in Archiviazione di Azure. È possibile usare strumenti come Power BI o Storage Explorer nel portale di Azure per esplorare l'archivio conoscenze.
+L'archivio conoscenze contiene l'output di una pipeline di arricchimento di Ricerca cognitiva di Azure per l'analisi successiva o l'ulteriore elaborazione downstream. Una pipeline arricchita tramite intelligenza artificiale accetta file di immagine o file di testo non strutturati, li indicizza tramite Ricerca cognitiva di Azure, applica gli arricchimenti di intelligenza artificiale di Servizi cognitivi (come l'analisi delle immagini e l'elaborazione del linguaggio naturale) e quindi salva i risultati in un archivio conoscenze in Archiviazione di Azure. È possibile usare strumenti come Power BI o Storage Explorer nel portale di Azure per esplorare l'archivio conoscenze.
 
 In questo articolo si usa l'interfaccia dell'API REST per inserire, indicizzare e applicare gli arricchimenti di intelligenza artificiale a un set di recensioni di hotel. Le recensioni degli hotel vengono importate in Archiviazione BLOB di Azure. I risultati vengono salvati come archivio conoscenze in Archiviazione tabelle di Azure.
 

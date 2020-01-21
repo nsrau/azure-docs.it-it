@@ -1,19 +1,15 @@
 ---
 title: Preparare le macchine virtuali Hyper-V per la valutazione e la migrazione con Azure Migrate
 description: Informazioni su come preparare la valutazione e la migrazione di macchine virtuali Hyper-V con Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 78e8a42c4f1e101f8d083c8d58bb452aadfa3a87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6140d9689dafe8a97ae77346ea2212846e964cdc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454573"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028916"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparare le VM Hyper-V per la valutazione e la migrazione ad Azure
 
@@ -25,7 +21,8 @@ Questa esercitazione è la prima di una serie che illustra come valutare ed eseg
 
 > [!div class="checklist"]
 > * Preparare Azure. Configurare le autorizzazioni per consentire all'account e alle risorse di Azure di interagire con Azure Migrate.
-> * Preparare gli host Hyper-V e le VM locali per la valutazione server.
+> * Preparare gli host Hyper-V e le VM locali per la valutazione server. È possibile eseguire la preparazione con uno script di configurazione oppure manualmente.
+> * Preparare la distribuzione dell'appliance di Azure Migrate. L'appliance viene usata per l'individuazione e la valutazione delle VM locali.
 > * Preparare gli host Hyper-V e le VM locali per la migrazione server.
 
 
@@ -43,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 È necessario configurare le autorizzazioni per la distribuzione di Azure Migrate.
 
 - Autorizzazioni per l'account Azure per la creazione di un progetto Azure Migrate.
-- Autorizzazioni per l'account per la registrazione dell'appliance di Azure Migrate. L'appliance viene usato per l'individuazione e la migrazione di Hyper-V. Durante la registrazione dell'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD) che la identificano in modo univoco:
+- Autorizzazioni per l'account per la registrazione dell'appliance di Azure Migrate. L'appliance viene usata per l'individuazione e la valutazione delle VM Hyper-V di cui eseguire la migrazione. Durante la registrazione dell'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD) che la identificano in modo univoco:
     - La prima app comunica con gli endpoint del servizio Azure Migrate.
     - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance.
 
@@ -92,26 +89,21 @@ L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguen
 L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
 
-## <a name="prepare-for-hyper-v-assessment"></a>Preparare la valutazione di Hyper-V
+## <a name="prepare-hyper-v-for-assessment"></a>Preparare Hyper-V per la valutazione
 
-Per preparare la valutazione di Hyper-V, eseguire le operazioni seguenti:
+È possibile preparare Hyper-V per la valutazione delle VM manualmente o usando uno script di configurazione. Ecco cosa è necessario preparare, con lo script o [manualmente](#prepare-hyper-v-manually).
 
-1. Verificare le impostazioni degli host Hyper-V.
-2. Configurare la comunicazione remota di PowerShell in ogni host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM.
-3. Se i dischi delle macchine virtuali si trovano nell'archiviazione SMB remota, è necessaria la delega delle credenziali.
-    - Abilitare la delega CredSSP in modo che l'appliance di Azure Migrate possa fungere da client, delegando le credenziali a un host.
-    - Abilitare ogni host in modo che funga da delegato per l'appliance, come descritto di seguito.
-    - Successivamente, quando si configura il dispositivo, si abiliterà la delega nell'appliance.
-4. Esaminare i requisiti dell'appliance e l'accesso a URL/porte necessario per l'appliance.
-5. Configurare un account che l'appliance userà per individuare le macchine virtuali.
-6. Configurare Integration Services Hyper-V in ogni macchina virtuale che si vuole individuare e valutare.
+- [Verificare](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) le impostazioni dell'host Hyper-V e assicurarsi che le [porte richieste](migrate-support-matrix-hyper-v.md#port-access) siano aperte negli host Hyper-V.
+- Configurare la comunicazione remota di PowerShell in ogni host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM.
+- Delegare le credenziali se i dischi delle macchine virtuali si trovano in condivisioni SMB remote.
+- Configurare un account che verrà usato dall'appliance per individuare le VM negli host Hyper-V.
+- Configurare Integration Services Hyper-V in ogni macchina virtuale che si vuole individuare e valutare.
 
 
-È possibile configurare queste impostazioni manualmente usando le procedure seguenti. In alternativa, è possibile eseguire lo script di configurazione dei prerequisiti di Hyper-V.
 
-### <a name="hyper-v-prerequisites-configuration-script"></a>Script di configurazione dei prerequisiti di Hyper-V
+## <a name="prepare-with-a-script"></a>Eseguire la preparazione con uno script
 
-Lo script convalida gli host Hyper-V e configura le impostazioni necessarie per individuare e valutare le macchine virtuali Hyper-V. Vengono eseguite le operazioni seguenti:
+Lo script effettua le operazioni seguenti:
 
 - Verifica che lo script sia in esecuzione in una versione di PowerShell supportata.
 - Verifica che l'utente che esegue lo script disponga dei privilegi amministrativi per l'host Hyper-V.
@@ -144,7 +136,7 @@ Eseguire lo script nel modo seguente:
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
 
-#### <a name="hashtag-values"></a>Valori hashtag
+### <a name="hashtag-values"></a>Valori hashtag
 
 I valori degli hash sono:
 
@@ -153,10 +145,34 @@ I valori degli hash sono:
 | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
+
+## <a name="prepare-hyper-v-manually"></a>Preparare Hyper-V manualmente
+
+Seguire le procedure descritte in questa sezione per preparare Hyper-V manualmente, invece di usare lo script.
+
+### <a name="verify-powershell-version"></a>Verificare la versione di PowerShell
+
+Assicurarsi che PowerShell 4.0 o versioni successive sia installato nell'host Hyper-V.
+
+
+
+### <a name="set-up-an-account-for-vm-discovery"></a>Configurare un account per l'individuazione di macchine virtuali
+
+Azure Migrate necessita delle autorizzazioni per individuare le macchine virtuali locali.
+
+- Configurare un account utente locale o di dominio con autorizzazioni di amministratore per gli host o i cluster Hyper-V.
+
+    - È necessario un singolo account per tutti gli host e i cluster da includere nell'individuazione.
+    - L'account può essere locale o di dominio. È consigliabile che abbia autorizzazioni di amministratore per gli host o i cluster Hyper-V.
+    - In alternativa, se non si vogliono assegnare autorizzazioni di amministratore, sono necessarie le autorizzazioni seguenti:
+        - Utenti gestione remota
+        - Amministratori di Hyper-V
+        - Performance Monitor Users
+
 ### <a name="verify-hyper-v-host-settings"></a>Verificare le impostazioni degli host Hyper-V
 
-1. Verificare i [requisiti degli host Hyper-V](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) per la valutazione dei server.
-2. Assicurarsi che le [porte necessarie](migrate-support-matrix-hyper-v.md#assessment-port-requirements) siano aperte negli host Hyper-V.
+1. Verificare i [requisiti degli host Hyper-V](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) per la valutazione dei server.
+2. Assicurarsi che le [porte necessarie](migrate-support-matrix-hyper-v.md#port-access) siano aperte negli host Hyper-V.
 
 ### <a name="enable-powershell-remoting-on-hosts"></a>Abilitare la comunicazione remota di PowerShell negli host
 
@@ -168,6 +184,12 @@ Configurare la comunicazione remota di PowerShell in ogni host, come indicato di
     ```
     Enable-PSRemoting -force
     ```
+### <a name="enable-integration-services-on-vms"></a>Abilitare i servizi di integrazione nelle VM
+
+I servizi di integrazione devono essere abilitati in ogni VM, in modo che Azure Migrate possa acquisire informazioni sul relativo sistema operativo.
+
+In ogni VM da individuare e valutare abilitare [Servizi di integrazione Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+
 
 ### <a name="enable-credssp-on-hosts"></a>Abilitare CredSSP negli host
 
@@ -188,40 +210,21 @@ Abilitarlo nel modo seguente:
 Quando si configura l'appliance, si completa la configurazione di CredSSP [abilitandolo nell'appliance](tutorial-assess-hyper-v.md#delegate-credentials-for-smb-vhds). Questa operazione viene descritta nell'esercitazione successiva di questa serie.
 
 
-### <a name="verify-appliance-settings"></a>Verificare le impostazioni dell'appliance
+## <a name="prepare-for-appliance-deployment"></a>Preparare la distribuzione dell'appliance
 
 Prima di configurare l'appliance di Azure Migrate e iniziare la valutazione nella prossima esercitazione, preparare la distribuzione dell'appliance.
 
-1. [Verificare](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) i requisiti dell'appliance.
-2. [Rivedere](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) gli URL di Azure a cui l'appliance dovrà accedere.
+1. [Verificare](migrate-appliance.md#appliance---hyper-v) i requisiti dell'appliance.
+2. [Rivedere](migrate-appliance.md#url-access) gli URL di Azure a cui l'appliance dovrà accedere.
 3. Esaminare i dati che l'appliance raccoglierà durante l'individuazione e la valutazione.
-4. [Prendere nota](migrate-support-matrix-hyper-v.md#assessment-port-requirements) dei requisiti di accesso alle porte per l'appliance.
+4. [Prendere nota](migrate-appliance.md#collected-data---hyper-v) dei requisiti di accesso alle porte per l'appliance.
 
-
-### <a name="set-up-an-account-for-vm-discovery"></a>Configurare un account per l'individuazione di macchine virtuali
-
-Azure Migrate necessita delle autorizzazioni per individuare le macchine virtuali locali.
-
-- Configurare un account utente locale o di dominio con autorizzazioni di amministratore per gli host o i cluster Hyper-V.
-
-    - È necessario un singolo account per tutti gli host e i cluster da includere nell'individuazione.
-    - L'account può essere locale o di dominio. È consigliabile che abbia autorizzazioni di amministratore per gli host o i cluster Hyper-V.
-    - In alternativa, se non si vogliono assegnare autorizzazioni di amministratore, sono necessarie le autorizzazioni seguenti:
-        - Utenti gestione remota
-        - Amministratori di Hyper-V
-        - Performance Monitor Users
-
-### <a name="enable-integration-services-on-vms"></a>Abilitare i servizi di integrazione nelle VM
-
-I servizi di integrazione devono essere abilitati in ogni VM, in modo che Azure Migrate possa acquisire informazioni sul relativo sistema operativo.
-
-In ogni VM da individuare e valutare abilitare [Servizi di integrazione Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
 
 ## <a name="prepare-for-hyper-v-migration"></a>Preparare la migrazione di Hyper-V
 
-1. [Esaminare](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements) i requisiti degli host Hyper-V per la migrazione.
-2. [Esaminare](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) i requisiti delle VM Hyper-V di cui eseguire la migrazione ad Azure.
-3. [Prendere nota ](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) degli URL di Azure a cui gli host e i cluster Hyper-V dovranno accedere per la migrazione delle VM.
+1. [Esaminare](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) i requisiti dell'host Hyper-V per la migrazione e gli URL di Azure a cui gli host e i cluster Hyper-V dovranno accedere per la migrazione delle VM.
+2. [Esaminare](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) i requisiti delle VM Hyper-V di cui eseguire la migrazione ad Azure.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -230,8 +233,9 @@ In questa esercitazione:
 > [!div class="checklist"]
 > * Sono state configurate le autorizzazioni dell'account Azure.
 > * Sono stati preparati gli host e le VM Hyper-V per la valutazione e la migrazione.
+> * È stata preparata la distribuzione dell'appliance di Azure Migrate.
 
-Continuare con l'esercitazione successiva per creare un progetto di Azure Migrate e valutare le VM Hyper-V per la migrazione ad Azure
+Continuare con l'esercitazione successiva per creare un progetto di Azure Migrate, distribuire l'appliance, quindi individuare e valutare le VM Hyper-V per la migrazione ad Azure.
 
 > [!div class="nextstepaction"]
 > [Valutare le VM Hyper-V](./tutorial-assess-hyper-v.md)

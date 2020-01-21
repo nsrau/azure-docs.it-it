@@ -13,28 +13,28 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b646c64b0ec45a11f99350ff5bd81a89418b2ecd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072518"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768529"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Eseguire il debug delle API con la traccia delle richieste
 
 Questa esercitazione descrive come esaminare l'elaborazione delle richieste per aiutare gli sviluppatori a eseguire il debug e la risoluzione dei problemi correlati alle API. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Tenere traccia di una chiamata
 
 ![Controllo API](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 ## <a name="trace-a-call"></a>Tenere traccia di una chiamata
@@ -47,10 +47,12 @@ In questa esercitazione si apprenderà come:
 4. Selezionare l'operazione **GetSpeakers**.
 5. Includere un'impostazione HTTP denominata **Ocp-Apim-Trace** con valore impostato su **true**.
 
-    > [!NOTE]
-    > Se l'intestazione Ocp-Apim-Subscription-Key non viene popolata automaticamente, può essere recuperata passando al portale per sviluppatori ed esponendo le chiavi nella pagina del profilo.
+   > [!NOTE]
+   > * Se l'intestazione Ocp-Apim-Subscription-Key non viene popolata automaticamente, può essere recuperata passando al portale per sviluppatori ed esponendo le chiavi nella pagina del profilo.
+   > * Per ottenere una traccia dell'uso dell'intestazione HTTP Ocp-Apim-Trace, è necessario abilitare l'impostazione **Consenti traccia** per la chiave della sottoscrizione. Per configurare l'impostazione **Consenti traccia**, in **Gestione API** nel menu a sinistra selezionare **sottoscrizioni**.
+   >   ![Consenti traccia nel riquadro Sottoscrizioni di Gestione API](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Fare clic su **"Invia"** per effettuare una chiamata API. 
+6. Fare clic su **Invia** per effettuare una chiamata API. 
 7. Attendere il completamento della chiamata. 
 8. Passare alla scheda **Traccia** della **console API**. Fare clic su uno dei collegamenti seguenti per visualizzare informazioni di traccia dettagliate: **inbound**, **backend**, **outbound**.
 
@@ -65,7 +67,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Tenere traccia di una chiamata

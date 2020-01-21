@@ -8,17 +8,17 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701838"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772364"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 
 > [!NOTE]
-> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per risultati ottimali.
+> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
 
 In questo articolo vengono creati tre moduli IoT Edge che ricevono messaggi da dispositivi foglia, elaborano i dati tramite un modello di Machine Learning e quindi inoltrano le informazioni all'hub IoT.
 
@@ -639,7 +639,7 @@ Con il router e il classificatore implementati, si dovrebbero ricevere messaggi 
 
 13. Selezionare **Testa route**. Se il test riesce, viene visualizzato il messaggio "Il messaggio corrisponde alla query".
 
-14. Fare clic su **Save**.
+14. Fare clic su **Salva**.
 
 #### <a name="update-turbofandevicetostorage-route"></a>Aggiornare la route turbofanDeviceToStorage
 

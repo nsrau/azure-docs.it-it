@@ -7,18 +7,21 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7f694ee51989023a3e7a72f40700edcbb6a97bae
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351153"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747981"
 ---
 # <a name="azure-storage-samples-using-python"></a>Esempi di Archiviazione di Azure che usano Python
 
 Le tabelle seguenti forniscono una panoramica del repository di esempi e degli scenari presentati in ogni esempio. Fare clic sui collegamenti per visualizzare il codice di esempio corrispondente in GitHub.
 
-## <a name="blob-samples"></a>Esempi di BLOB
+> [!NOTE]
+> Questi esempi usano la libreria Python v2.1 di Archiviazione di Azure. Per il codice v12, vedere gli [esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples) nel repository GitHub.
+
+## <a name="blob-samples-v21"></a>Esempi di BLOB (v2.1)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -39,7 +42,7 @@ Le tabelle seguenti forniscono una panoramica del repository di esempi e degli s
 | Proprietà del servizio | [Introduzione al servizio BLOB di Azure in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L540) |
 | Snapshot Blob | [Introduzione al servizio BLOB di Azure in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L214) |
 
-## <a name="file-samples"></a>Esempi di file
+## <a name="file-samples-v21"></a>Esempi di file (v2.1)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ Le tabelle seguenti forniscono una panoramica del repository di esempi e degli s
 | Elenco di condivisioni | [Introduzione al Servizio file di Azure in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L82) |
 | Condivisione di proprietà/metadati/statistiche | [Introduzione al Servizio file di Azure in Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L144) |
 
-## <a name="queue-samples"></a>Esempi di code
+## <a name="queue-samples-v21"></a>Esempi di code (v2.1)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
@@ -66,11 +69,11 @@ Le tabelle seguenti forniscono una panoramica del repository di esempi e degli s
 | Proprietà del servizio di accodamento | [Introduzione al Servizio di accodamento di Azure in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L128) |
 | Aggiornamento del messaggio | [Introduzione al Servizio di accodamento di Azure in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L120) |
 
-## <a name="table-samples"></a>Esempi di tabelle
+## <a name="table-samples-v21"></a>Esempi di tabelle (v2.1)
 
 | **Scenario** | **Codice di esempio** |
 |--------------|-----------------|
-| Creazione di tabella | [Introduzione al Servizio tabelle di Azure in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) |
+| Create Table | [Introduzione al Servizio tabelle di Azure in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) |
 | Eliminazione entità/tabella | [Introduzione al Servizio tabelle di Azure in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79) |
 | Inserimento/unione/sostituzione di entità | [Introduzione al Servizio tabelle di Azure in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L57) |
 | Query Entities | [Introduzione al Servizio tabelle di Azure in Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L62) |

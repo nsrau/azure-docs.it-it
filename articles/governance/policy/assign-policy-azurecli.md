@@ -1,16 +1,16 @@
 ---
-title: "Guida introduttiva: Nuova assegnazione di criteri con l'interfaccia della riga di comando di Azure"
+title: "Avvio rapido: Nuova assegnazione di criteri con l'interfaccia della riga di comando di Azure"
 description: In questo argomento di avvio rapido viene usata l'interfaccia della riga di comando di Azure per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi.
-ms.date: 11/25/2019
+ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 80dbccdb728da94d9f9fdd0aeb506ade40fd7394
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482634"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978312"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Guida introduttiva: Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Avvio rapido: Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti.
@@ -19,7 +19,7 @@ Alla fine di questo processo, verranno identificate le macchine virtuali che non
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida usa l'interfaccia della riga di comando di Azure per creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -31,7 +31,7 @@ L'interfaccia della riga di comando di Azure viene usata per creare e gestire le
   az provider register --namespace 'Microsoft.PolicyInsights'
   ```
 
-  Per maggiori dettagli sulla registrazione e la visualizzazione di provider di risorse, vedere [Provider e tipi di risorse](../../azure-resource-manager/resource-manager-supported-services.md)
+  Per maggiori dettagli sulla registrazione e la visualizzazione di provider di risorse, vedere [Provider e tipi di risorse](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 - Se non è già stato fatto, installare [ARMClient](https://github.com/projectkudu/ARMClient). È uno strumento che invia richieste HTTP alle API basate su Azure Resource Manager.
 
@@ -50,7 +50,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 Il comando precedente usa le informazioni seguenti.
 
 - **Name**: nome effettivo dell'assegnazione. Per questo esempio è stato usato il nome _audit-vm-manageddisks_.
-- **DisplayName**: nome visualizzato per l'assegnazione di criteri. In questo caso viene utilizzato _controllare le macchine virtuali senza assegnazione di dischi gestiti_.
+- **DisplayName**: nome visualizzato per l'assegnazione di criteri. In questo caso viene usato _controllare le macchine virtuali senza assegnazione di dischi gestiti_.
 - **Policy**: ID della definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri _Controllare le macchine virtuali che non usano i dischi gestiti_. Per ottenere l'ID della definizione di criteri, eseguire questo comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. e può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.
 
@@ -58,17 +58,16 @@ Il comando precedente usa le informazioni seguenti.
 
 Per visualizzare le risorse non conformi in base a questa nuova assegnazione, ottenere l'ID dell'assegnazione di criteri eseguendo questi comandi:
 
-```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+```azurecli-interactive
+az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
 ```
 
-Per altre informazioni sugli ID delle assegnazioni dei criteri, vedere [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
+Per altre informazioni sugli ID delle assegnazioni dei criteri, vedere [Assegnazioni di criteri di Azure](/cli/azure/policy/assignment).
 
 Eseguire quindi questo comando per ottenere gli ID risorsa delle risorse non conformi restituite in un file JSON:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 I risultati saranno simili all'esempio seguente:
@@ -111,7 +110,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 In questa Guida introduttiva è stata assegnata una definizione dei criteri per identificare le risorse non conformi nell'ambiente Azure.
 
-Per altre informazioni sull'assegnazione di criteri per convalidare che le nuove risorse siano conformi, continuare con l'esercitazione seguente:
+Per altre informazioni sull'assegnazione di criteri per convalidare la conformità delle nuove risorse, continuare con l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
 > [Creazione e gestione dei criteri](./tutorials/create-and-manage.md)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670727"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768462"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Aggiungere un certificato SSL al servizio app di Azure
 
@@ -21,7 +21,7 @@ Dopo aver aggiunto il certificato all'app del servizio app o all'[app per le fun
 
 La tabella seguente elenca le opzioni disponibili per aggiungere certificati nel servizio app:
 
-|Opzione|DESCRIZIONE|
+|Opzione|Descrizione|
 |-|-|
 | Creare un certificato gratuito gestito dal servizio app (anteprima) | Un certificato privato facile da usare se è sufficiente proteggere il proprio [dominio personalizzato](app-service-web-tutorial-custom-domain.md) `www` o qualsiasi dominio non di tipo naked nel servizio app. |
 | Acquistare un certificato del servizio app | Un certificato privato gestito da Azure. Combina la semplicità della gestione automatica dei certificati e la flessibilità delle opzioni di rinnovo ed esportazione. |
@@ -29,7 +29,7 @@ La tabella seguente elenca le opzioni disponibili per aggiungere certificati nel
 | Caricare un certificato privato | Se si ha già un certificato privato rilasciato da un provider di terze parti, è possibile caricarlo. Vedere [Requisiti dei certificati privati](#private-certificate-requirements). |
 | Caricare un certificato pubblico | I certificati pubblici non vengono usati per proteggere i domini personalizzati, ma è possibile caricarli nel codice se sono necessari per accedere a risorse remote. |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida pratica:
 
@@ -109,12 +109,12 @@ Avviare un ordine di un certificato del servizio app nella <a href="https://port
 
 Usare la tabella seguente per informazioni sulla configurazione del certificato. Al termine, fare clic su **Crea**.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 |-|-|
-| NOME | Nome descrittivo per il certificato del servizio app. |
+| Nome | Nome descrittivo per il certificato del servizio app. |
 | Nome host di dominio di tipo naked | Specificare qui il dominio radice. Il certificato emesso protegge *sia* il dominio radice sia il sottodominio `www`. Nel certificato emesso, il campo relativo al nome comune contiene il dominio radice e quello relativo al nome alternativo del soggetto contiene il dominio `www`. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`.|
-| Subscription | Data center in cui è ospitata l'app Web. |
-| Resource group | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
+| Subscription | Sottoscrizione che conterrà il certificato. |
+| Resource group | Gruppo di risorse che conterrà il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
 | Certificato SKU | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Note legali | Fare clic per confermare che si accettano le condizioni legali. I certificati vengono ottenuti da GoDaddy. |
 
@@ -128,18 +128,18 @@ Selezionare il certificato nella pagina [Certificati del servizio app](https://p
 
 Il [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) è un servizio di Azure che consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. È l'archiviazione scelta per i certificati del servizio app.
 
-Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Repository dell'insieme di credenziali delle chiavi** per creare un nuovo insieme di credenziali o sceglierne uno esistente. Se si sceglie di creare un nuovo insieme di credenziali, usare la tabella seguente per configurarlo e quindi fare clic su Crea. Vedere le informazioni per creare un nuovo insieme di credenziali delle chiavi all'interno della stessa sottoscrizione e dello stesso gruppo di risorse.
+Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Repository dell'insieme di credenziali delle chiavi** per creare un nuovo insieme di credenziali o sceglierne uno esistente. Se si sceglie di creare un nuovo insieme di credenziali, usare la tabella seguente per configurarlo e quindi fare clic su Crea. Creare il nuovo insieme di credenziali delle chiavi nella stessa sottoscrizione e nello stesso gruppo di risorse dell'app del servizio app.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 |-|-|
-| NOME | Nome univoco costituito da caratteri alfanumerici e trattini. |
+| Nome | Nome univoco costituito da caratteri alfanumerici e trattini. |
 | Resource group | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Criteri di accesso| Definisce le applicazioni e l'accesso consentito alle risorse dell'insieme di credenziali. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Concedere a diverse applicazioni l'autorizzazione per accedere a un insieme di credenziali delle chiavi](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Accesso alla rete virtuale | Limitare l'accesso all'insieme di credenziali a determinate reti virtuali di Azure. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/key-vault-network-security.md) |
 
-Dopo aver selezionato l'insieme di credenziali, chiudere la pagina **Repository dell'insieme di credenziali delle chiavi**. L'opzione di **archiviazione** dovrebbe mostrare un segno di spunta verde, a indicare che l'operazione è riuscita. Mantenere aperta la pagina per proseguire con il passaggio successivo.
+Dopo aver selezionato l'insieme di credenziali, chiudere la pagina **Repository dell'insieme di credenziali delle chiavi**. L'opzione **Passaggio 1: archiviare** dovrebbe mostrare un segno di spunta verde, a indicare che l'operazione è riuscita. Mantenere aperta la pagina per proseguire con il passaggio successivo.
 
 ### <a name="verify-domain-ownership"></a>Verificare la proprietà del dominio
 
@@ -183,15 +183,15 @@ Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">porta
 
 Nel riquadro di spostamento a sinistra dell'app selezionare **Impostazioni TLS/SSL** > **Certificati a chiave privata (.pfx)**  > **Importa certificato dell'insieme di credenziali delle chiavi**.
 
-![Importare il certificato di Key Vault nel servizio app](./media/configure-ssl-certificate/import-key-vault-cert.png))
+![Importare il certificato di Key Vault nel servizio app](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 La tabella seguente contiene informazioni utili per facilitare la selezione del certificato.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 |-|-|
 | Subscription | La sottoscrizione a cui appartiene l'istanza di Key Vault. |
 | Key Vault | L'insieme di credenziali con il certificato da importare. |
-| Certificate | Selezionare il certificato dall'elenco di certificati PKCS12 nell'insieme di credenziali. Tutti i certificati PKCS12 nell'insieme di credenziali sono elencati con le relative identificazioni, ma non tutti sono supportati nel servizio app. |
+| Certificato | Selezionare il certificato dall'elenco di certificati PKCS12 nell'insieme di credenziali. Tutti i certificati PKCS12 nell'insieme di credenziali sono elencati con le relative identificazioni, ma non tutti sono supportati nel servizio app. |
 
 Al termine dell'operazione, il certificato viene visualizzato nell'elenco **Certificati a chiave privata**. Se l'importazione non riesce e viene restituito un errore, significa che il certificato non soddisfa i [requisiti per il servizio app](#private-certificate-requirements).
 

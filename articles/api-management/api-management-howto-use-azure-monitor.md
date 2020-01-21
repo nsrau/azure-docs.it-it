@@ -13,18 +13,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707193"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028362"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
 Con Monitoraggio di Azure è possibile eseguire operazioni di visualizzazione, query, instradamento, archiviazione, e quindi adottare le misure appropriate, sulle metriche o sui log provenienti da risorse di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Visualizzare log di attività
@@ -36,10 +36,10 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -48,7 +48,7 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 
 Gestione API genera le metriche ogni minuto in modo da ottenere una visibilità quasi in tempo reale dello stato e dell'integrità delle API. Di seguito è riportato un riepilogo delle metriche disponibili:
 
-* Capacità (anteprima): consente di decidere se eseguire l'aggiornamento o il downgrade dei servizi di Gestione API. La metrica viene emessa ogni minuto e riflette la capacità del gateway nel momento in cui viene eseguito il report. La metrica è compresa tra 0 e 100 e viene calcolata in base alle risorse gateway, come utilizzo della CPU e della memoria.
+* Capacità: consente di decidere se eseguire l'aggiornamento o il downgrade dei servizi di Gestione API. La metrica viene emessa ogni minuto e riflette la capacità del gateway nel momento in cui viene eseguito il report. La metrica è compresa tra 0 e 100 e viene calcolata in base alle risorse gateway, come utilizzo della CPU e della memoria.
 * Totale richieste gateway: numero di richieste di API nel periodo. 
 * Richieste gateway riuscite: numero di richieste di API che hanno ricevuto codici di risposta HTTP con esito positivo, tra cui 304, 307 e qualsiasi valore minore di 301, ad esempio 200.
 * Richieste gateway non riuscite: numero di richieste di API che hanno ricevuto codici di risposta HTTP con esito negativo, tra cui 400 e qualsiasi valore maggiore di 500.
@@ -180,50 +180,50 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 }  
 ```
 
-| Proprietà  | Type | DESCRIZIONE |
+| Proprietà  | Type | Descrizione |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True se la richiesta HTTP è stata completata con codice di stato risposta compreso nell'intervallo 2xx o 3xx |
 | time | datetime | Timestamp relativo all'avvio dell'elaborazione della richiesta nel gateway |
-| operationName | stringa | Valore costante 'Microsoft.ApiManagement/GatewayLogs' |
-| category | stringa | Valore costante 'GatewayLogs' |
-| durationMs | numero intero | Numero di millisecondi dal momento in cui il gateway ha ricevuto la richiesta al momento dell'invio della risposta completa. Include clienTime, cacheTime e backendTime. |
-| callerIpAddress | stringa | Indirizzo IP del chiamante gateway immediato (può essere un intermediario) |
-| correlationId | stringa | Identificatore richiesta http univoco assegnato da Gestione API |
-| location | stringa | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
-| httpStatusCodeCategory | stringa | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
-| resourceId | stringa | ID della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| operationName | string | Valore costante 'Microsoft.ApiManagement/GatewayLogs' |
+| category | string | Valore costante 'GatewayLogs' |
+| durationMs | integer | Numero di millisecondi dal momento in cui il gateway ha ricevuto la richiesta al momento dell'invio della risposta completa. Include clienTime, cacheTime e backendTime. |
+| callerIpAddress | string | Indirizzo IP del chiamante gateway immediato (può essere un intermediario) |
+| correlationId | string | Identificatore richiesta http univoco assegnato da Gestione API |
+| posizione | string | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
+| httpStatusCodeCategory | string | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
+| resourceId | string | ID della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Proprietà della richiesta corrente |
-| method | stringa | Metodo HTTP della richiesta in ingresso |
-| url | stringa | URL della richiesta in ingresso |
-| clientProtocol | stringa | Versione del protocollo HTTP della richiesta in ingresso |
-| responseCode | numero intero | Codice di stato della risposta HTTP inviata a un client |
-| backendMethod | stringa | Metodo HTTP della richiesta inviata a un back-end |
-| backendUrl | stringa | URL della richiesta inviata a un back-end |
-| backendResponseCode | numero intero | Codice della risposta HTTP ricevuta da un back-end |
-| backendProtocol | stringa | Versione del protocollo HTTP della richiesta inviata a un back-end | 
-| requestSize | numero intero | Numero di byte ricevuti da un client durante l'elaborazione della richiesta | 
-| responseSize | numero intero | Numero di byte inviati a un client durante l'elaborazione della richiesta | 
-| cache | stringa | Stato di intervento della cache di Gestione API nell'elaborazione della richiesta (hit, miss, none) | 
-| cacheTime | numero intero | Numero di millisecondi impiegati complessivamente per l'I/O della cache di Gestione API (connessione, invio e ricezione byte) | 
-| backendTime | numero intero | Numero di millisecondi impiegati complessivamente per l'I/O del back-end (connessione, invio e ricezione byte) | 
-| clientTime | numero intero | Numero di millisecondi impiegati complessivamente per l'I/O del client (connessione, invio e ricezione byte) | 
-| apiId | stringa | Identificatore dell'entità API per la richiesta corrente | 
-| operationId | stringa | Identificatore dell'entità operazione per la richiesta corrente | 
-| productId | stringa | Identificatore dell'entità prodotto per la richiesta corrente | 
-| userId | stringa | Identificatore dell'entità utente per la richiesta corrente | 
-| apimSubscriptionId | stringa | Identificatore dell'entità sottoscrizione per la richiesta corrente | 
-| backendId | stringa | Identificatore dell'entità back-end per la richiesta corrente | 
+| method | string | Metodo HTTP della richiesta in ingresso |
+| url | string | URL della richiesta in ingresso |
+| clientProtocol | string | Versione del protocollo HTTP della richiesta in ingresso |
+| responseCode | integer | Codice di stato della risposta HTTP inviata a un client |
+| backendMethod | string | Metodo HTTP della richiesta inviata a un back-end |
+| backendUrl | string | URL della richiesta inviata a un back-end |
+| backendResponseCode | integer | Codice della risposta HTTP ricevuta da un back-end |
+| backendProtocol | string | Versione del protocollo HTTP della richiesta inviata a un back-end | 
+| requestSize | integer | Numero di byte ricevuti da un client durante l'elaborazione della richiesta | 
+| responseSize | integer | Numero di byte inviati a un client durante l'elaborazione della richiesta | 
+| cache | string | Stato di intervento della cache di Gestione API nell'elaborazione della richiesta (hit, miss, none) | 
+| cacheTime | integer | Numero di millisecondi impiegati complessivamente per l'I/O della cache di Gestione API (connessione, invio e ricezione byte) | 
+| backendTime | integer | Numero di millisecondi impiegati complessivamente per l'I/O del back-end (connessione, invio e ricezione byte) | 
+| clientTime | integer | Numero di millisecondi impiegati complessivamente per l'I/O del client (connessione, invio e ricezione byte) | 
+| apiId | string | Identificatore dell'entità API per la richiesta corrente | 
+| operationId | string | Identificatore dell'entità operazione per la richiesta corrente | 
+| productId | string | Identificatore dell'entità prodotto per la richiesta corrente | 
+| userId | string | Identificatore dell'entità utente per la richiesta corrente | 
+| apimSubscriptionId | string | Identificatore dell'entità sottoscrizione per la richiesta corrente | 
+| backendId | string | Identificatore dell'entità back-end per la richiesta corrente | 
 | lastError | object | Errore di elaborazione dell'ultima richiesta | 
-| elapsed | numero intero | Numero di millisecondi trascorsi tra la ricezione della richiesta nel gateway e il momento in cui si è verificato l'errore | 
-| source | stringa | Nome del criterio o del gestore interno di elaborazione che ha causato l'errore | 
-| scope | stringa | Ambito del documento dei criteri contenente il criterio che ha causato l'errore | 
-| section | stringa | Sezione del documento dei criteri contenente il criterio che ha causato l'errore | 
-| reason | stringa | Motivo dell'errore | 
-| message | stringa | Messaggio di errore | 
+| elapsed | integer | Numero di millisecondi trascorsi tra la ricezione della richiesta nel gateway e il momento in cui si è verificato l'errore | 
+| source | string | Nome del criterio o del gestore interno di elaborazione che ha causato l'errore | 
+| scope | string | Ambito del documento dei criteri contenente il criterio che ha causato l'errore | 
+| section | string | Sezione del documento dei criteri contenente il criterio che ha causato l'errore | 
+| reason | string | Motivo dell'errore | 
+| message | string | Messaggio di errore | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Visualizzare log di attività

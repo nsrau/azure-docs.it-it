@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Più itinerari con Mappe di Azure'
-description: 'Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure'
+title: 'Esercitazione: Trovare più itinerari per modalità di trasporto | Mappe di Microsoft Azure'
+description: In questa esercitazione si apprenderà come trovare itinerari per diverse modalità di trasporto usando Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613636"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910855"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -117,7 +117,7 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
 
 2. Salvare il file **MapTruckRoute.html** e aggiornare la pagina nel browser. Se si interagisce con la mappa e si fa zoom in avanti su Los Angeles, si dovrebbero visualizzare le strade con i dati aggiornati sul traffico.
 
-   ![Visualizzare la mappa con il traffico](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![Visualizzare il traffico su una mappa](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 
