@@ -1,4 +1,4 @@
-- name: Documentazione del'API Analisi del testo
+- name: Documentazione dell'API Analisi del testo
   href: index.yml
 - name: Panoramica
   expanded: true
@@ -9,13 +9,15 @@
       href: text-analytics-user-scenarios.md
     - name: Novità
       href: whats-new.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Libreria client
       items:
-        - name: Analizzare il testo con la libreria client
+        - name: Analizzare il testo con v3.0-preview
           href: quickstarts/text-analytics-sdk.md
+        - name: Analizzare il testo con v2
+          href: quickstarts/text-analytics-sdk-v2.md
     - name: API REST
       items:
         - name: Uso di Java
@@ -42,7 +44,7 @@
     - name: 'Usare Flask per tradurre testo, analizzare sentiment e sintetizzare la voce'
       maintainContext: true
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Chiamare l'API Analisi del testo
       href: How-tos/text-analytics-how-to-call-api.md
@@ -66,7 +68,7 @@
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
     - name: Usare il servizio connesso di Analisi del testo
       href: vs-text-connected-service.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sull'interfaccia della riga di comando
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
@@ -100,7 +102,7 @@
       href: named-entity-types.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
