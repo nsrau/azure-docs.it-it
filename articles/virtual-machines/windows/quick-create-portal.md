@@ -44,7 +44,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Sezione Dettagli dell'istanza](./media/quick-create-portal/instance-details.png)
 
-1. Sotto **Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. In**Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     ![Immettere il proprio nome utente e la password](./media/quick-create-portal/administrator-account.png)
 
@@ -59,9 +59,9 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
-Creare una connessione Desktop remoto alla macchina virtuale. Queste istruzioni spiegano come connettersi alla macchina virtuale da un computer Windows. In Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
+Creare una connessione Desktop remoto alla macchina virtuale. Queste istruzioni spiegano come connettersi alla macchina virtuale da un computer Windows. In un Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
 
-1. Fare clic sul pulsante **Connetti** nella pagina Panoramica della macchina virtuale. 
+1. Fare clic sul pulsante **Connetti** nella pagina di panoramica della macchina virtuale. 
 
     ![Connettersi a una macchina virtuale di Azure dal portale](./media/quick-create-portal/portal-quick-start-9.png)
     
