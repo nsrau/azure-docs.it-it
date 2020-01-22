@@ -148,10 +148,28 @@
           href: backup-mabs-sharepoint-azure-stack.md
         - name: Proteggere database di SQL Server
           href: backup-mabs-sql-azure-stack.md
-    - name: Condivisioni di File di Azure
+    - name: Backup di condivisioni file di Azure
       items:
-        - name: Eseguire il backup di condivisioni file di Azure
-          href: backup-azure-files.md
+        - name: Dal portale di Azure
+          items:
+            - name: Eseguire il backup di condivisioni file di Azure
+              href: backup-afs.md
+            - name: Ripristinare condivisioni file di Azure
+              href: restore-afs.md
+            - name: Gestire i backup di condivisioni file di Azure
+              href: manage-afs-backup.md
+        - name: Con l'interfaccia della riga di comando di Azure
+          items:
+            - name: Eseguire il backup di condivisioni file di Azure con l'interfaccia della riga di comando
+              href: backup-afs-cli.md
+            - name: Ripristinare condivisioni file di Azure con l'interfaccia della riga di comando
+              href: restore-afs-cli.md
+            - name: Gestire i backup di condivisioni file di Azure con l'interfaccia della riga di comando
+              href: manage-afs-backup-cli.md
+        - name: Con PowerShell
+          items:
+            - name: Backup di condivisioni file di Azure con PowerShell
+              href: backup-azure-afs-automation.md
     - name: Eseguire il backup delle VM di Azure
       items:
         - name: Informazioni sul backup di macchine virtuali di Azure
@@ -222,8 +240,6 @@
           href: backup-dpm-automation.md
         - name: Windows Server nel portale di Azure
           href: backup-client-automation.md
-        - name: Condivisioni file di Azure nel portale di Azure
-          href: backup-azure-afs-automation.md
         - name: SQL nei backup di macchine virtuali di Azure
           href: backup-azure-sql-automation.md
     - name: Usare l'API REST di Backup di Azure
@@ -314,7 +330,7 @@
           href: backup-azure-monitoring-built-in-monitor.md
         - name: Uso di Monitoraggio di Azure
           href: backup-azure-monitoring-use-azuremonitor.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup

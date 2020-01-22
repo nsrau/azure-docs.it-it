@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentazione di Servizi multimediali di Azure v3
+title: Informazioni sulla piattaforma Servizi multimediali di Azure v3 basata sul cloud
 summary: Informazioni su come codificare e creare pacchetti del contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 metadata:
   title: Documentazione di Servizi multimediali di Azure v3
@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 10/07/2019
-  ms.openlocfilehash: b55677aba5f99d4960d51d3a717175d47db026e2
-  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.openlocfilehash: 70eab66c3bd2d8536e415c9ac7c62161f3710c0c
+  ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72244236"
+  ms.lasthandoff: 01/22/2020
+  ms.locfileid: "76314675"
 landingContent:
 - title: Informazioni su Servizi multimediali
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
       url: use-azure-media-player.md
     - text: Sviluppo con le istruzioni dell'API v3
       url: media-services-apis-overview.md
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: how-to-guide
     links:

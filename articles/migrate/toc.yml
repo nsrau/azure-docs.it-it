@@ -124,6 +124,8 @@
           href: scale-vmware-assessment.md
         - name: Valutare numeri elevati di VM Hyper-V
           href: scale-hyper-v-assessment.md
+        - name: Valutare numeri elevati di server fisici
+          href: scale-physical-assessment.md
         - name: Automatizzare la migrazione di un numero elevato di macchine virtuali
           href: how-to-migrate-at-scale.md
         - name: Esempi di migrazione (serie Contoso)
