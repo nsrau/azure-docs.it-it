@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0ab4a0ebf2844d064e40c8417ab22162d2d0ded6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ca47bed45f8d726010dde40a936da6f93eb0b140
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485867"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315015"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Modulo della macchina a vettori di supporto a due classi
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello basato sull'algoritmo della macchina a vettori di supporto. 
 
@@ -28,13 +28,13 @@ Dopo aver definito i parametri del modello, eseguire il training del modello usa
 
 ## <a name="about-support-vector-machines"></a>Informazioni sulle macchine a vettori di supporto
 
-Le macchine a vettori di supporto sono tra i primi degli algoritmi di machine learning e i modelli SVM sono stati usati in molte applicazioni, dal recupero delle informazioni alla classificazione di testo e immagini. SVM può essere usato sia per le attività di classificazione che di regressione.
+Le macchine a vettori di supporto (SVM) sono tra gli algoritmi di Machine Learning meno recenti e i modelli SVM sono stati usati in molte applicazioni, dal recupero di informazioni alla classificazione di testo e immagini. SVM può essere usato sia per le attività di classificazione che di regressione.
 
 Questo modello SVM è un modello di apprendimento supervisionato che richiede dati con etichetta. Nel processo di training, l'algoritmo analizza i dati di input e riconosce i modelli in uno spazio di funzionalità multidimensionale denominato *iperpiano*.  Tutti gli esempi di input sono rappresentati come punti in questo spazio ed è stato eseguito il mapping alle categorie di output in modo che le categorie siano divise per il livello più ampio e determinino il gap possibile.
 
 Per la stima, l'algoritmo SVM assegna nuovi esempi in una categoria o nell'altra, eseguendone il mapping nello stesso spazio. 
 
-## <a name="how-to-configure"></a>Come configurare 
+## <a name="how-to-configure"></a>Modalità di configurazione 
 
 Per questo tipo di modello, è consigliabile normalizzare il set di dati prima di usarlo per il training del classificatore.
   
@@ -50,7 +50,7 @@ Per questo tipo di modello, è consigliabile normalizzare il set di dati prima d
   
 4.  Per **lambda**, digitare un valore da usare come peso per la regolarizzazione L1.  
   
-     Questo coefficiente di regolarizzazione può essere utilizzato per ottimizzare il modello. I valori più elevati penalizzano i modelli più complessi.  
+     Questo coefficiente di regolarizzazione consente di ottimizzare il modello. I valori più elevati penalizzano i modelli più complessi.  
   
 5.  Selezionare l'opzione **normalizzare le funzionalità**se si vuole normalizzare le funzionalità prima del training.
   
@@ -66,16 +66,15 @@ Per questo tipo di modello, è consigliabile normalizzare il set di dati prima d
   
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](train-model.md) .
   
-
 10. Eseguire la pipeline.
 
 ## <a name="results"></a>Risultati
 
 Al termine del training:
 
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare **Visualize (Visualizza**).
++ Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 
-+ Per usare i modelli sottoposti a training per eseguire stime, connettere il modello sottoposto a training al modulo [Score Model](score-model.md) .
++ Per usare il modello per l'assegnazione dei punteggi, aggiungere il modulo **Score Model** a una pipeline.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

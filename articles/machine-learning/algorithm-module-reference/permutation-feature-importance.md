@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: b939e88606fba5d7759e55239838d5308bf0563c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9ef859cce68e13f5207d77d8396bc69ddbbce339
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428482"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314947"
 ---
 # <a name="permutation-feature-importance"></a>Permutation Feature Importance
 
-Questo articolo descrive come usare il modulo Permutation feature importance in Azure Machine Learning Designer (Preview) per calcolare un set di punteggi di importanza della funzionalità per il set di dati. Questi punteggi vengono utilizzati per determinare le funzionalità migliori da utilizzare in un modello.
+Questo articolo descrive come usare il modulo Permutation feature importance in Azure Machine Learning Designer per calcolare un set di punteggi di importanza della funzionalità per il set di dati. Questi punteggi vengono utilizzati per determinare le funzionalità migliori da utilizzare in un modello.
 
 In questo modulo i valori delle funzionalità vengono mescolati in modo casuale, una colonna alla volta. Le prestazioni del modello vengono misurate prima e dopo. È possibile scegliere una metrica standard per misurare le prestazioni.
 

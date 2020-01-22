@@ -9,20 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ce232fc9216166e94520203bb4afbf4c152aaf6f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497709"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314930"
 ---
 # <a name="partition-and-sample-module"></a>Modulo Partition and Sample
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per eseguire il campionamento in un set di dati o per creare partizioni dal set di dati.
 
-Il campionamento è uno strumento importante in Machine Learning perché consente di ridurre le dimensioni di un set di dati mantenendo lo stesso rapporto di valori. Questo modulo supporta diverse attività correlate che sono importanti per Machine Learning: 
+Il campionamento è uno strumento importante di Machine Learning perché consente di ridurre le dimensioni di un set di dati, mantenendo lo stesso rapporto di valori. Questo modulo supporta diverse attività correlate che sono importanti per Machine Learning: 
 
 - Suddivisione dei dati in più sottosezioni delle stesse dimensioni. 
 
@@ -45,9 +45,9 @@ Il campionamento è uno strumento importante in Machine Learning perché consent
 Questo modulo supporta più metodi per dividere i dati in partizioni o per il campionamento. Prima scegliere il metodo, quindi impostare le opzioni aggiuntive richieste dal metodo.
 
 - Head
-- campionamento
+- Campionamento
 - Assegna a riduzioni
-- Selezione
+- Scegliere una sezione
 
 ### <a name="get-top-n-rows-from-a-dataset"></a>Ottenere le prime N righe da un set di dati
 
@@ -91,7 +91,7 @@ Questa opzione supporta il campionamento casuale semplice o il campionamento cas
 
     2. Le righe vengono mescolate all'interno di ogni gruppo.
 
-    3. Ogni gruppo viene aggiunto in modo selettivo al set di dati di output per soddisfare il rapporto specificato.
+    3. Ogni gruppo viene aggiunto selettivamente al set di dati di output per soddisfare il rapporto specificato.
 
 
 6. Eseguire la pipeline.
@@ -114,7 +114,7 @@ Utilizzare questa opzione quando si desidera suddividere il set di dati in subse
 
     Se non si seleziona questa opzione, le righe vengono assegnate a riduzioni utilizzando il metodo Round Robin.
 
-5. **Seed casuale**: digitare facoltativamente un valore integer da usare come valore di inizializzazione. Questa opzione è importante se si desidera che le righe vengano divise allo stesso modo ogni volta. In caso contrario, il valore predefinito 0 indica che verrà utilizzato un valore di inizializzazione iniziale casuale.
+5. **Seed casuale**: digitare facoltativamente un valore integer da usare come valore di inizializzazione. Questa opzione è importante se si desidera che le righe vengano divise allo stesso modo ogni volta. In caso contrario, il valore predefinito 0 indica che verrà usato un valore di inizializzazione casuale.
 
 6. **Specificare il metodo Partitioner**: indicare come si desidera che i dati vengano ripartiti in ogni partizione, usando le opzioni seguenti:
 
@@ -122,7 +122,7 @@ Utilizzare questa opzione quando si desidera suddividere il set di dati in subse
 
     - **Partition with Custom proports**: usare questa opzione per specificare le dimensioni di ogni partizione come un elenco delimitato da virgole.
 
-        Se, ad esempio, si desidera creare tre partizioni, con la prima partizione che contiene il 50% dei dati e le due partizioni rimanenti ognuna contenente il 25% dei dati, fare clic sull' **elenco di proporzioni separate da virgola** e digitare i numeri seguenti: @no_ _t_1_
+        Se, ad esempio, si desidera creare tre partizioni, con la prima partizione che contiene il 50% dei dati e le due partizioni rimanenti ognuna contenente il 25% dei dati, fare clic sull' **elenco di proporzioni separate da virgola** e digitare i numeri seguenti: `.5, .25, .25`
 
         La somma di tutte le dimensioni della partizione deve essere sommata esattamente a 1.
 

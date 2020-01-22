@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a037c959b44a6216724c285f932250b1b05cb509
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428447"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313746"
 ---
 # <a name="summarize-data"></a>Riepilogare i dati
 
-Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo di Azure Machine Learning Designer.
 
 Usare il modulo riepiloga dati per creare un set di misure statistiche standard che descrivono ogni colonna della tabella di input.
 
@@ -40,7 +40,7 @@ Il modulo calcola i punteggi importanti per ogni colonna e restituisce una riga 
 
 1. Non è necessario alcun parametro aggiuntivo. Per impostazione predefinita, il modulo analizza tutte le colonne fornite come input e, a seconda del tipo di valori nelle colonne, restituisce un set di statistiche pertinente, come descritto nella sezione [risultati](#results) .
 
-1. Eseguire la pipeline oppure fare clic con il pulsante destro del mouse sul modulo e scegliere **Esegui selezione**.
+1. Eseguire la pipeline.
 
 ## <a name="results"></a>Risultati
 

@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b49ff44e898a78d865278df087aca75e4f8e50ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b3d79438797f47dfcc178640af60f5207b4f7650
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466044"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314641"
 ---
 # <a name="multiclass-neural-network-module"></a>Modulo di rete neurale multiclasse
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
-Usare questo modulo per creare un modello di rete neurale che può essere usato per stimare una destinazione con più valori. 
+Usare questo modulo per creare un modello di rete neurale da usare per stimare una destinazione contenente più valori. 
 
 Ad esempio, le reti neurali di questo tipo possono essere utilizzate in attività complesse di visione artificiale, ad esempio il riconoscimento di cifre o lettere, la classificazione dei documenti e il riconoscimento del modello.
 
@@ -32,7 +32,7 @@ Per eseguire il training del modello, è possibile fornire il modello e il set d
 
 Una rete neurale è un set di livelli interconnessi. Gli input sono il primo livello e sono connessi a un livello di output da un grafico aciclici costituito da bordi ponderati e nodi.
 
-Tra i livelli di input e di output è possibile inserire più livelli nascosti. La maggior parte delle attività predittive può essere eseguita facilmente con solo uno o pochi livelli nascosti. Tuttavia, la ricerca recente ha dimostrato che le reti neurali profonde (DNN) con molti livelli possono essere efficaci in attività complesse, ad esempio il riconoscimento vocale o di immagine. I livelli successivi vengono usati per modellare livelli crescenti di profondità semantica.
+Tra i livelli di input e di output è possibile inserire più livelli nascosti. Con uno solo o più livelli nascosti, è possibile eseguire facilmente la maggior parte delle attività di stima. Tuttavia, la ricerca recente ha dimostrato che le reti neurali profonde (DNN) con molti livelli possono essere efficaci in attività complesse, ad esempio il riconoscimento vocale o di immagine. I livelli successivi vengono usati per modellare livelli crescenti di profondità semantica.
 
 La relazione tra input e output viene appresa dal training della rete neurale sui dati di input. La direzione del grafico prosegue dagli input attraverso il livello nascosto e il livello di output. Tutti i nodi di un livello sono connessi con i bordi ponderati ai nodi nel livello successivo.
 
@@ -86,10 +86,7 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
 
 Al termine del training:
 
-- Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md) e scegliere **Visualize**.  
-
-- Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato in esecuzioni successive della stessa pipeline.
-
+- Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

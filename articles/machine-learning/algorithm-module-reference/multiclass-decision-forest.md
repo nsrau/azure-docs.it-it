@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 85459fe586ccbb5adb1e86b153ec63252c0cce2d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f100271162d20f5d13033efcd04bfa20081b6073
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466015"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314658"
 ---
 # <a name="multiclass-decision-forest-module"></a>Modulo della foresta delle decisioni multiclasse
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di machine learning basato sull'algoritmo della *foresta delle decisioni* . Una foresta delle decisioni è un modello di ensemble che consente di compilare rapidamente una serie di alberi delle decisioni, imparando dai dati con tag.
 
@@ -26,16 +26,16 @@ Usare questo modulo per creare un modello di machine learning basato sull'algori
 
 L'algoritmo di foresta delle decisioni è un metodo di apprendimento dell'insieme per la classificazione. L'algoritmo funziona compilando più alberi delle decisioni e quindi *votando* la classe di output più diffusa. Il voto è una forma di aggregazione, in cui ogni albero in una foresta delle decisioni di classificazione restituisce un istogramma non normalizzato di etichette. Il processo di aggregazione Somma questi istogrammi e normalizza il risultato per ottenere le "probabilità" per ciascuna etichetta. Gli alberi con attendibilità di stima elevata hanno un peso maggiore nella decisione finale dell'insieme.
 
-Gli alberi delle decisioni in generale sono modelli non parametrici, ovvero supportano i dati con diverse distribuzioni. In ogni albero viene eseguita una sequenza di test semplici per ogni classe, aumentando i livelli di una struttura ad albero fino a quando non viene raggiunto un nodo foglia (decisione).
+Gli alberi delle decisioni in generale sono modelli non parametrici, ovvero supportano i dati con diverse distribuzioni. In ogni albero viene eseguita una sequenza di semplici test per ogni classe, aumentando i livelli di una struttura ad albero, finché viene raggiunto un nodo foglia (decisione).
 
-Gli alberi delle decisioni presentano molti vantaggi:
+Gli alberi delle decisioni offrono molti vantaggi:
 
 + Possono rappresentare limiti di decisione non lineari.
-+ Sono efficienti nell'utilizzo di calcolo e memoria durante il training e la stima.
-+ Eseguono la selezione e la classificazione delle funzionalità integrate.
-+ Sono resilienti in presenza di funzionalità rumorose.
++ Sono efficienti sia nel calcolo che nell'uso della memoria durante il training e la stima.
++ Eseguono la selezione e la classificazione integrata di funzionalità
++ e sono resilienti in caso di funzionalità rumorose.
 
-Il classificatore della foresta delle decisioni in Azure Machine Learning è costituito da un insieme di alberi delle decisioni. In genere, i modelli di insieme offrono una migliore copertura e accuratezza rispetto a singoli alberi delle decisioni. Per altre informazioni, vedere [Decision Trees](https://go.microsoft.com/fwlink/?LinkId=403677).
+Il classificatore della foresta delle decisioni in Azure Machine Learning è costituito da un insieme di alberi delle decisioni. In genere, i modelli di insieme offrono una copertura e un'accuratezza migliori rispetto a singoli alberi delle decisioni. Per altre informazioni, vedere [Decision Trees](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Come configurare una foresta delle decisioni multiclasse
 
@@ -43,7 +43,7 @@ Il classificatore della foresta delle decisioni in Azure Machine Learning è cos
 
 2. Fare doppio clic sul modulo per aprire il riquadro **Proprietà** .
 
-3. Per il **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l'insaccamento o la replica.
+3. Per il **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere il bagging o la replica.
 
     + **Insaccamento**: l'insaccamento viene chiamato anche *aggregazione bootstrap*. In questo metodo ogni albero viene ampliato in un nuovo esempio, creato eseguendo il campionamento casuale del set di dati originale con sostituzione fino a quando non si dispone di un set di dati di dimensioni originali. Gli output dei modelli vengono combinati *votando*, ovvero una forma di aggregazione. Per ulteriori informazioni, vedere la voce Wikipedia per l'aggregazione bootstrap.
 
@@ -60,13 +60,13 @@ Il classificatore della foresta delle decisioni in Azure Machine Learning è cos
 
     Questo valore controlla anche il numero di alberi visualizzati nei risultati, quando si Visualizza il modello sottoposto a training. Per visualizzare o stampare un singolo albero, è possibile impostare il valore su 1; Ciò significa tuttavia che è possibile produrre solo un albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
 
-6. **Profondità massima degli alberi delle decisioni**: digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero può aumentare la precisione, a rischio di overfitting e di aumento dei tempi di training.
+6. **Profondità massima degli alberi delle decisioni**: digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio però di overfitting e di aumento dei tempi di training.
 
 7. **Numero di divisioni casuali per nodo**: digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
 
-8. **Numero minimo di campioni per nodo foglia**: indica il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero. Aumentando questo valore, si aumenta la soglia per la creazione di nuove regole.
+8. **Numero minimo di campioni per nodo foglia**: indica il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero. Aumentando questo valore, aumenta la soglia per la creazione di nuove regole.
 
-    Ad esempio, con il valore predefinito 1, anche un singolo caso può causare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque case che soddisfano le stesse condizioni.
+    Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.
 
 
 
@@ -76,12 +76,6 @@ Il classificatore della foresta delle decisioni in Azure Machine Learning è cos
 
 11. Eseguire la pipeline.
 
-## <a name="results"></a>Risultati
-
-Al termine del training:
-
-+ Per visualizzare l'albero che è stato creato a ogni iterazione, fare clic con il pulsante destro del mouse sull'output del modulo [Train Model](./train-model.md) e selezionare **Visualize (Visualizza**).
-+ Per visualizzare le regole per ogni nodo, fare clic su ogni albero per eseguire il drill-down nelle divisioni.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

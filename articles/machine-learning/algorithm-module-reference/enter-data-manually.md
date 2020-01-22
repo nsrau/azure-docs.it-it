@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 509b82596ce4819152fcd8d0bc202df186a20095
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497925"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314845"
 ---
 # <a name="enter-data-manually-module"></a>Immettere manualmente i dati del modulo
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un set di dati di piccole dimensioni digitando i valori. Il set di dati può contenere più colonne.
   
@@ -28,7 +28,7 @@ Questo modulo può essere utile in scenari come i seguenti:
   
 - Creazione di un breve elenco di etichette
   
-- Immissione di un elenco di nomi di colonna da inserire in un set di dati
+- Digitazione di un elenco di nomi di colonna da inserire in un set di dati
 
 ## <a name="enter-data-manually"></a>Immettere i dati manualmente 
   
@@ -97,9 +97,9 @@ Questo modulo può essere utile in scenari come i seguenti:
   
      Se si creano righe con valori mancanti, è sempre possibile filtrarle in un secondo momento.  
   
-5.  Fare clic con il pulsante destro del mouse sul modulo e scegliere **Esegui selezionati** per analizzare i dati e caricarli nell'area di lavoro come set di dati.  
+5.  Connettere la porta di output ad altri moduli ed eseguire la pipeline.  
   
-     Per visualizzare il set di dati, fare clic sulla porta di output e selezionare **Visualizza**.  
+     Per visualizzare il set di dati, fare clic con il pulsante destro del mouse sul modulo e scegliere **Visualizza**.  
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

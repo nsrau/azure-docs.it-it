@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7a0cf3c41929eb6a020a9d4761b08a2a4f2f6caa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460396"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314760"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 
@@ -143,10 +143,10 @@ Per altre informazioni sull'aggiunta e la personalizzazione di grafici di metric
 
 Archiviazione di Azure scrive i dati di log del server nei BLOB, mentre le metriche vengono scritti nelle tabelle. I BLOB di log sono disponibili nel noto contenitore `$logs` per l'account di archiviazione. Dato che i BLOB sono denominati in modo gerarchico per anno, mese, giorno e ora, è possibile individuare facilmente l'intervallo di tempo da esaminare. Ad esempio, nell'account `storagesample`, il contenitore per i BLOB di log relativi al 02/01/2015, dalle 8 alle 9, è `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. I singoli BLOB nel contenitore sono denominati in sequenza, a partire da `000000.log`.
 
-È possibile usare lo strumento da riga di comando AzCopy per scaricare questi file di log lato server nel percorso desiderato sul computer locale. Ad esempio, tramite il comando seguente è possibile scaricare i file di log per le operazioni BLOB verificatesi il 2 gennaio 2015 nella cartella`C:\Temp\Logs\Server`, sostituendo `<storageaccountname>` con il nome del proprio account di archiviazione e `<storageaccountkey>` con la chiave di accesso dell'account:
+È possibile usare lo strumento da riga di comando AzCopy per scaricare questi file di log lato server nel percorso desiderato sul computer locale. Ad esempio, è possibile usare il comando seguente per scaricare i file di log per le operazioni BLOB effettuate il 2 gennaio 2015 alla cartella `C:\Temp\Logs\Server`; sostituire `<storageaccountname>` con il nome dell'account di archiviazione:
 
 ```azcopy
-AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
 ```
 
 AzCopy è disponibile per il download nella pagina [Download di Azure](https://azure.microsoft.com/downloads/) . Per informazioni dettagliate sull'uso di AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).

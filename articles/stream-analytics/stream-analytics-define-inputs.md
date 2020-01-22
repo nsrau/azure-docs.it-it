@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/17/2020
+ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646847"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314794"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -55,6 +55,7 @@ La tabella seguente descrive le proprietà disponibili nella pagina **Nuovo inpu
 | **Nome hub eventi** | Nome dell'hub eventi da usare come input. |
 | **Nome criteri hub eventi** | Criteri di accesso condiviso che consentono di accedere all'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'hub eventi manualmente.|
 | **Gruppo di consumer dell'hub eventi** (consigliata) | È vivamente consigliato usare un gruppo di consumer distinto per ogni processo di Analisi di flusso. Questa stringa identifica il gruppo di consumer da usare per l'inserimento di dati dall'hub eventi. Se non è specificato alcun gruppo di consumer, il processo di Analisi di flusso usa il gruppo di consumer $Default.  |
+| **Chiave di partizione** | Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà. Le chiavi di partizione sono facoltative e vengono utilizzate per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV, avro o [other (protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
 | **Encoding** | L'unico formato di codifica attualmente supportato è UTF-8. |
 | **Tipo di compressione eventi** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |
@@ -104,6 +105,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 | **Nome criteri di accesso condiviso** | Criteri di accesso condiviso che consentono di accedere all'hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
 | **Chiave criteri di accesso condiviso** | Chiave di accesso condiviso usata per autorizzare l'accesso all'hub IoT.  Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'hub IoT manualmente. |
 | **Gruppo di consumer** | È vivamente consigliato usare un gruppo di consumer differente per ogni processo di Analisi di flusso. Il gruppo di consumer viene usato per inserire dati dall'hub IoT. Analisi di flusso usa il gruppo di consumer $Default se non diversamente specificato.  |
+| **Chiave di partizione** | Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà. Le chiavi di partizione sono facoltative e vengono utilizzate per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV, avro o [other (protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
 | **Encoding** | L'unico formato di codifica attualmente supportato è UTF-8. |
 | **Tipo di compressione eventi** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |
@@ -157,6 +159,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 | **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. Se si desidera leggere i BLOB dalla radice del contenitore, non impostare un modello di percorso. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. Non includere nomi di contenitori o nomi di file. |
 | **Formato data** (facoltativa) | Formato della data in base al quale vengono organizzati i file, se si usa la variabile date nel percorso. Esempio: `YYYY/MM/DD` |
 | **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. Al momento, l'unico valore supportato è `HH` per le ore. |
+| **Chiave di partizione** | Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà. Le chiavi di partizione sono facoltative e vengono utilizzate per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV, avro o [other (protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
 | **Encoding** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
 | **Compressione** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |

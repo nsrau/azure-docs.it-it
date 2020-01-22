@@ -6,12 +6,12 @@ ms.author: jeconnoc
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 52fa9a94d86dac2d49b078f98aaa494fbebf52d6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: HT
+ms.openlocfilehash: 1b7586e6321318a3fe4566e8c744c17a1d7ee179
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294448"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310613"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizzare l'istanza di configurazione dell'app usando le azioni di GitHub
 App Azure configurazione usa le azioni di GitHub per aggiornare un'istanza di configurazione dell'app quando viene attivata da un'azione eseguita in un repository GitHub. È possibile sfruttare i flussi di lavoro GitHub per aggiornare la configurazione dell'app, consentendo l'integrazione degli aggiornamenti della configurazione dell'app nello stesso flusso di lavoro usato per aggiornare il codice dell'app.

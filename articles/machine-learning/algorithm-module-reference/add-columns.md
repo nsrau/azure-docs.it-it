@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 55981279cb1902424d1a0f77af097dc379d7222f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5e1390cb45fc6f659883ddfc8624719e45f99ce
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493962"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314590"
 ---
 # <a name="add-columns-module"></a>Modulo Aggiungi colonne
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per concatenare due set di impostazioni. Per creare un singolo set di dati, è possibile combinare tutte le colonne dei due set di dati specificati come input. Se è necessario concatenare più di due set di impostazioni, utilizzare diverse istanze di **Aggiungi colonne**.
 
@@ -38,11 +38,11 @@ Usare questo modulo per concatenare due set di impostazioni. Per creare un singo
 ### <a name="results"></a>Risultati
 Dopo l'esecuzione della pipeline:
 
-- Per visualizzare le prime righe del nuovo set di dati, fare clic con il pulsante destro del mouse sull'output di **Aggiungi colonne** e selezionare Visualizza.
+- Per visualizzare le prime righe del nuovo set di dati, fare clic con il pulsante destro del mouse sul modulo **Aggiungi colonne** e scegliere Visualizza. In alternativa, selezionare il modulo e passare alla scheda **output** nel riquadro di destra e fare clic sull'icona istogramma nell' **output della porta** per visualizzare il risultato.
 
 Il numero di colonne nel nuovo set di dati equivale alla somma delle colonne di entrambi i set di dati di input.
 
-Se sono presenti due colonne con lo stesso nome nei set di dati di input, viene aggiunto un suffisso numerico al nome della colonna. Se, ad esempio, sono presenti due istanze di una colonna denominata TargetOutcome, la colonna sinistra verrà rinominata TargetOutcome_1 e la colonna destra verrà rinominata TargetOutcome_2.
+Se sono presenti due colonne con lo stesso nome nei set di dati di input, viene aggiunto un suffisso numerico al nome della colonna. Se, ad esempio, sono presenti due istanze di una colonna denominata TargetOutcome, la colonna sinistra verrebbe rinominata TargetOutcome_1 e la colonna a destra verrebbe rinominata TargetOutcome_2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

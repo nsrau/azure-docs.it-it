@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38b37a386e4e9829b5d90e31067ec9f6aaf75502
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466000"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314913"
 ---
 # <a name="neural-network-regression-module"></a>Modulo di regressione della rete neurale
 
@@ -24,13 +24,13 @@ ms.locfileid: "73466000"
   
 ## <a name="module-overview"></a>Panoramica del modulo  
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di regressione usando un algoritmo di rete neurale personalizzabile.
   
- Sebbene le reti neurali siano ampiamente note per l'uso nell'apprendimento avanzato e la modellazione di problemi complessi, come il riconoscimento delle immagini, sono facilmente adattabili ai problemi di regressione. Qualsiasi classe di modelli statistici può essere definita una rete neurale se usa pesi adattivi e può approssimarsi a funzioni non lineari degli input. Quindi, la regressione della rete neurale è adatta ai problemi in cui un modello di regressione più tradizionale non può adattarsi a una soluzione.
+ Anche se le reti neurali sono ampiamente note per l'uso di problemi complessi di formazione e modellazione, ad esempio riconoscimento di immagini, sono facilmente soggetti a problemi di regressione. Qualsiasi classe di modelli statistici può definirsi rete neurale se usa pesi adattivi e può definire in maniera approssimativa funzioni non lineari dei relativi input. Pertanto la regressione della rete neurale è adatta a problemi in cui un modello di regressione più tradizionale non può contenere una soluzione.
   
- La regressione della rete neurale è un metodo di apprendimento supervisionato e pertanto richiede un *set di dati con tag*, che include una colonna di etichetta. Poiché un modello di regressione stima un valore numerico, la colonna di etichetta deve essere un tipo di dati numerico.  
+ La regressione della rete neurale è un metodo di apprendimento supervisionato e pertanto richiede un *set di dati con tag*, che include una colonna di etichetta. Poiché un modello di regressione effettua stime su un valore numerico, la colonna di etichetta deve essere un tipo di dati numerico.  
   
  Per eseguire il training del modello, è possibile fornire il modello e il set di dati con tag come input per il [training del modello](./train-model.md). Il modello con Training può quindi essere usato per stimare i valori per i nuovi esempi di input.  
   
@@ -68,7 +68,7 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
   
 4. Per **numero di nodi nascosti**, digitare il numero di nodi nascosti. Il valore predefinito è un livello nascosto con nodi 100. Questa opzione non è disponibile se si definisce un'architettura personalizzata usando NET #.
   
-5.  Per la **velocità di apprendimento**, digitare un valore che definisce il passaggio effettuato a ogni iterazione, prima della correzione. Un valore più grande per la velocità di apprendimento può comportare una maggiore velocità di convergenza del modello, ma è possibile che venga superata la minima locale.
+5.  Per la **velocità di apprendimento**, digitare un valore che definisce il passaggio effettuato a ogni iterazione, prima della correzione. Un valore superiore per la velocità di apprendimento può provocare una convergenza più rapida del modello, ma può eccedere i valori minimi locali.
 
 6.  Per **numero di iterazioni di apprendimento**specificare il numero massimo di volte in cui l'algoritmo elabora i case di training.
 
@@ -91,10 +91,7 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
 
 Al termine del training:
 
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi della funzionalità appresi dal training e ad altri parametri della rete neurale, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md)e selezionare **Visualize (Visualizza**).  
-
-+ Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training e selezionare **Salva come modello con training**. Questo modello non viene aggiornato in esecuzioni successive della stessa pipeline.
-
+- Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214564"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314505"
 ---
 # <a name="module-assign-data-to-clusters"></a>Modulo: assegnare i dati ai cluster
 
-Questo articolo descrive come usare il modulo *assign data to Clusters* in Azure Machine Learning Designer (Preview). Il modulo genera stime tramite un modello di clustering di cui è stato eseguito il training con l'algoritmo *K-means clustering* .
+Questo articolo descrive come usare il modulo *assign data to Clusters* in Azure Machine Learning Designer. Il modulo genera stime tramite un modello di clustering di cui è stato eseguito il training con l'algoritmo *K-means clustering* .
 
 Il modulo assign data to Clusters restituisce un set di dati che contiene le assegnazioni probabili per ogni nuovo punto dati. 
 
@@ -47,5 +47,5 @@ Il modulo assign data to Clusters restituisce un set di dati che contiene le ass
   
 ### <a name="results"></a>Risultati
 
-+  Per visualizzare i valori nel set di dati, fare clic con il pulsante destro del mouse sul modulo, selezionare set di dati dei **risultati**e quindi selezionare **Visualizza**.
++  Per visualizzare i valori nel set di dati, fare clic con il pulsante destro del mouse sul modulo, quindi scegliere **Visualizza**. In alternativa, selezionare il modulo e passare alla scheda **output** nel riquadro di destra e fare clic sull'icona istogramma nell' **output della porta** per visualizzare il risultato.
 

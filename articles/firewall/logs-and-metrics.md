@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/22/2020
 ms.author: victorh
-ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974514"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315032"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
 
@@ -103,17 +103,19 @@ Per il firewall di Azure sono disponibili le metriche seguenti:
 
     Unità: byte
 
-- **Stato di integrità del firewall** : indica l'integrità del firewall.
+- **Stato di integrità del firewall** : indica lo stato di integrità del firewall in base alla disponibilità della porta SNAT.
 
     Unità: percentuale
 
    Questa metrica ha due dimensioni:
-  - **Stato**: i valori possibili sono *integro*, *danneggiato*, non *integro*.
-  - **Motivo**: indica il motivo dello stato corrispondente del firewall. Ad esempio, può indicare le *porte SNAT* se lo stato del firewall è danneggiato o non integro.
+  - Stato: i valori possibili sono *integro*, *danneggiato*, non *integro*.
+  - Motivo: indica il motivo dello stato corrispondente del firewall. 
 
+     Se vengono usate le porte SNAT > 95%, vengono considerate esaurite e l'integrità è 50% con status =**Degraded** e Reason =**SNAT Port**. Il firewall mantiene l'elaborazione del traffico e le connessioni esistenti non sono interessate. Tuttavia, le nuove connessioni potrebbero non essere stabilite in modo intermittente.
 
+     Se vengono usate porte SNAT < 95%, il firewall viene considerato integro e l'integrità viene visualizzata come 100%.
 
-
+     Se non viene segnalato alcun utilizzo delle porte SNAT, l'integrità viene visualizzata come 0%. 
 
 - **Utilizzo delle porte SNAT** : la percentuale di porte SNAT utilizzate dal firewall.
 

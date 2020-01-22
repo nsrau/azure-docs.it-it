@@ -9,36 +9,34 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4271a180a0f00ae921de9b8deb9a3e5123f9b519
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493891"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314488"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Modulo di regressione dell'albero delle decisioni con boosting
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
-Usare questo modulo per creare un insieme di alberi di regressione con boosting. L' *incremento* significa che ogni albero dipende da alberi precedenti. L'algoritmo apprende inserendo il residuo degli alberi che lo precedono. Il potenziamento in un insieme di alberi delle decisioni tende quindi a migliorare l'accuratezza con un piccolo rischio di minore copertura.  
+Usare questo modulo per creare un insieme di alberi di regressione con boosting. L' *incremento* significa che ogni albero dipende da alberi precedenti. L'algoritmo apprende inserendo il residuo degli alberi che lo precedono. Il boosting in un insieme di alberi delle decisioni tende quindi a migliorare la precisione, anche se con un rischio minimo di minore copertura.  
   
 Questo metodo di regressione è un metodo di apprendimento supervisionato e pertanto richiede un *set di dati con etichetta*. La colonna Label deve contenere valori numerici.  
 
 > [!NOTE]
-> Usare questo modulo solo con i set di impostazioni che usano variabili numeriche.  
+> Usare questo modulo solo con set di dati che usano variabili numeriche.  
 
 Dopo aver definito il modello, eseguirne il training usando il [modello di training](./train-model.md).
 
-> [!TIP]
-> Per ulteriori informazioni sugli alberi creati, Dopo aver eseguito il training del modello, fare clic con il pulsante destro del mouse sull'output del modulo [Train Model](./train-model.md) e selezionare **Visualize (Visualizza** ) per visualizzare l'albero che è stato creato a ogni iterazione. È possibile eseguire il drill-down nelle divisioni per ogni albero e visualizzare le regole per ogni nodo.  
   
 ## <a name="more-about-boosted-regression-trees"></a>Altre informazioni sugli alberi di regressione con boosting  
 
-Il potenziamento è uno dei diversi metodi classici per la creazione di modelli di Ensemble, insieme a un sacco, a foreste casuali e così via.  In Azure Machine Learning, gli alberi delle decisioni con boosting usano un'implementazione efficiente dell'algoritmo di boosting dei gradienti MART. L'incremento delle sfumature è una tecnica di apprendimento automatico per i problemi di regressione. Ogni albero di regressione viene compilato in modo graduale, usando una funzione di perdita predefinita per misurare l'errore in ogni passaggio e correggerlo nella prossima. In questo modo il modello di stima è in realtà un insieme di modelli di stima più vulnerabili.  
+Il boosting è uno dei metodi classici per la creazione di modelli d'insieme, insieme al bagging, alle foreste casuali e così via.  In Azure Machine Learning, gli alberi delle decisioni con boosting usano un'implementazione efficiente dell'algoritmo di boosting dei gradienti MART. Il boosting dei gradienti è una tecnica di apprendimento automatico per i problemi di regressione. Permette di creare ogni albero di regressione eseguendo alcuni passaggi e usando una funzione di perdita predefinita per misurare l'errore in ogni passaggio, in modo da applicare una correzione nel passaggio successivo. Il modello di previsione è quindi effettivamente un insieme di modelli di previsione più deboli.  
   
 Nei problemi di regressione, l'aumento delle prestazioni crea una serie di alberi in modo graduale, quindi seleziona l'albero ottimale usando una funzione di perdita differenziale arbitraria.  
   
-Per ulteriori informazioni, vedere i seguenti articoli:  
+Per altre informazioni, vedere i seguenti articoli:  
   
 + [https://wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting](https://wikipedia.org/wiki/Gradient_boosting)
 
@@ -48,7 +46,7 @@ Per ulteriori informazioni, vedere i seguenti articoli:
 
     Microsoft Research: da RankNet a LambdaRank a LambdaMART: panoramica. Di J.C. Burges.
 
-Il metodo di boosting a gradienti può essere usato anche per i problemi di classificazione riducendo la regressione con una funzione di perdita adatta. Per altre informazioni sull'implementazione degli alberi con boosting per le attività di classificazione, vedere [albero delle decisioni con boosting a due classi](./two-class-boosted-decision-tree.md).  
+Il metodo di boosting dei gradienti può essere usato anche per problemi di classificazione, tramite la riduzione a regressione con una funzione di perdita idonea. Per altre informazioni sull'implementazione degli alberi con boosting per le attività di classificazione, vedere [albero delle decisioni con boosting a due classi](./two-class-boosted-decision-tree.md).  
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Come configurare la regressione dell'albero delle decisioni con boosting
 
@@ -61,11 +59,11 @@ Il metodo di boosting a gradienti può essere usato anche per i problemi di clas
   
 3. **Numero massimo di foglie per albero**: indica il numero massimo di nodi terminali (foglie) che possono essere creati in qualsiasi albero.  
 
-    Aumentando questo valore, è possibile aumentare le dimensioni dell'albero e ottenere una maggiore precisione, con il rischio di overfitting e tempi di training più lunghi.  
+    Aumentando questo valore, potenzialmente si aumentano le dimensioni dell'albero e si ottiene una maggiore precisione. Possono tuttavia verificarsi casi di overfitting e tempi di training più lunghi.  
 
 4. **Numero minimo di campioni per nodo foglia**: indica il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
 
-    Aumentando questo valore, si aumenta la soglia per la creazione di nuove regole. Ad esempio, con il valore predefinito 1, anche un singolo caso può causare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno 5 case che soddisfano le stesse condizioni.
+    Aumentando questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno 5 casi che soddisfano le stesse condizioni.
 
 5. **Velocità di apprendimento**: digitare un numero compreso tra 0 e 1 che definisce le dimensioni del passaggio durante l'apprendimento. La velocità di apprendimento determina la velocità o la lentezza della convergenza degli studenti sulla soluzione ottimale. Se le dimensioni del passaggio sono troppo grandi, è possibile che si richieda la soluzione ottimale. Se le dimensioni del passaggio sono troppo ridotte, il training impiega più tempo per convergere sulla soluzione migliore.
 
@@ -91,13 +89,9 @@ Il metodo di boosting a gradienti può essere usato anche per i problemi di clas
 
 Al termine del training:
 
-+ Per visualizzare l'albero che è stato creato a ogni iterazione, fare clic con il pulsante destro del mouse sull'output del modulo [Train Model](train-model.md) e scegliere **Visualize**.
-  
-     Fare clic su ogni albero per eseguire il drill-down nelle divisioni e visualizzare le regole per ogni nodo.  
-
 + Per utilizzare il modello per il punteggio, connetterlo al [modello di Punteggio](./score-model.md)per stimare i valori per i nuovi esempi di input.
 
-+ Per salvare uno snapshot del modello con training, fare clic con il pulsante destro del mouse sull'output del **modello** sottoposto a training del modulo training e scegliere **Salva con nome**. La copia del modello sottoposto a training salvato non viene aggiornata sulle esecuzioni successive della pipeline.
++ Per salvare uno snapshot del modello sottoposto a training, selezionare scheda **output** nel riquadro destro del **modello** sottoposto a training e fare clic sull'icona **registra set di dati** . La copia del modello sottoposto a training verrà salvata come modulo nell'albero del modulo e non verrà aggiornata sulle esecuzioni successive della pipeline.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

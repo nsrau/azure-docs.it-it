@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 379cddd9654cc897b49fd085d8df55fcd77a7ce8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4180fced60c4a9f2402253c7c3b3d3ff97fe1e1
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490363"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314607"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Modulo perceptron medio a due classi
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di machine learning basato sull'algoritmo perceptron medio.  
   
@@ -28,7 +28,7 @@ Questo algoritmo di classificazione è un metodo di apprendimento supervisionato
 
 Il *Metodo perceptron mediato* è una versione iniziale e semplice di una rete neurale. In questo approccio, gli input sono classificati in diversi output possibili basati su una funzione lineare e quindi combinati con un set di pesi derivati dal vettore di funzionalità, di conseguenza il nome "perceptron".
 
-I modelli perceptron più semplici sono adatti per apprendere modelli separabili in modo lineare, mentre le reti neurali, in particolare le reti neurali profonde, possono modellare limiti di classe più complessi. Tuttavia, perceptron sono più veloci e, dal momento che elaborano i case in modo seriale, perceptron può essere usato con il training continuo.
+I modelli più semplici di percettrone sono adatti per l'apprendimento di modelli separabili in modo lineare, mentre le reti neurali, specialmente quelle profonde, consentono di modellare limiti di classe più complessi. I percettroni sono tuttavia più rapidi e poiché elaborano i casi in serie, possono essere usati con il training continuo.
 
 ## <a name="how-to-configure-two-class-averaged-perceptron"></a>Come configurare la media con due classi perceptron
 
@@ -40,11 +40,11 @@ I modelli perceptron più semplici sono adatti per apprendere modelli separabili
   
 3.  Per la **velocità di apprendimento**specificare un valore per la velocità di *apprendimento*. I valori della velocità di apprendimento controllano le dimensioni del passaggio usato nella discesa della sfumatura stocastica ogni volta che il modello viene testato e corretto.
   
-     Rendendo la percentuale più piccola, si testa il modello più spesso, con il rischio che si possa rimanere bloccati in un plateau locale. Rendendo il passaggio più grande, è possibile convergere più velocemente, a rischio di sovrascattare il valore true minime.
+     Rendendo la percentuale più piccola, si testa il modello più spesso, con il rischio che si possa rimanere bloccati in un plateau locale. Estendendo le dimensioni del passaggio, è possibile rendere più veloce la convergenza con il rischio di oltrepassare il valore minimo true.
   
 4.  Per il **numero massimo di iterazioni**, digitare il numero di volte in cui si desidera che l'algoritmo esamini i dati di training.  
   
-     L'arresto anticipato spesso offre una maggiore generalizzazione. L'aumento del numero di iterazioni migliora l'adattamento, a rischio di overfitting.
+     L'interruzione anticipata spesso fornisce una migliore generalizzazione. L'aumento del numero di iterazioni migliora l'adattamento, con il rischio di overfitting.
   
 5.  Per il valore di **inizializzazione numerico casuale**, digitare facoltativamente un valore intero da utilizzare come valore di inizializzazione. L'uso di un valore di inizializzazione è consigliato se si vuole garantire la riproducibilità della pipeline tra le esecuzioni.  
   
@@ -52,11 +52,7 @@ I modelli perceptron più semplici sono adatti per apprendere modelli separabili
   
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](train-model.md) .
 
-## <a name="results"></a>Risultati
 
-Al termine del training:
-
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

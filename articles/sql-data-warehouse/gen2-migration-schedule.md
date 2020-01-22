@@ -9,14 +9,14 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 01/21/2020
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 888f50d645c9b3babf95335e434db65423108ccb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f793fd68c83f90b87182647eef47a07eb452f45
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693027"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314777"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -33,41 +33,12 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 
 | **Area** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
 |:--- |:--- |:--- |
-| Australia orientale |Disponibile |Complete |
-| Australia sudorientale |Disponibile |Complete |
-| Brasile meridionale |Disponibile |Complete |
-| Canada centrale |Disponibile |Complete |
 | Canada orientale |1 giugno 2020 |1 ° luglio 2020 |
-| Stati Uniti centrali |Disponibile |Complete |
 | Cina orientale |\* |\* |
-| Cina orientale 2 |Disponibile |Complete |
 | Cina settentrionale |\* |\* |
-| Cina settentrionale 2 |Disponibile |Complete |
-| Asia orientale |Disponibile |Complete |
-| Stati Uniti orientali |Disponibile |Complete |
-| Stati Uniti orientali 2 |Disponibile |Complete |
-| Francia centrale |Disponibile |In corso |
 | Germania centrale |\* |\* |
-| Germania centro-occidentale |1 settembre 2019|1 ottobre 2019 |
-| India centrale |Disponibile |Complete |
-| India meridionale |Disponibile |Complete |
-| India occidentale |1 ° luglio 2019 |In corso |
-| Giappone orientale |Disponibile |Complete |
-| Giappone occidentale |Disponibile |Complete |
-| Corea del Sud centrale |Disponibile |Complete |
-| Corea del Sud meridionale |Disponibile |Complete |
-| Stati Uniti centro-settentrionali |Disponibile |Complete |
-| Europa settentrionale |Disponibile |Complete |
-| Sudafrica settentrionale |12 luglio 2019 |Complete |
-| Stati Uniti centro-meridionali |Disponibile |Complete |
-| Asia sudorientale |Disponibile |Complete |
-| Emirati Arabi Uniti settentrionali |20 luglio 2019 |Complete |
-| Regno Unito meridionale |Disponibile |In corso |
-| Regno Unito occidentale |Disponibile |In corso |
-| Stati Uniti centro-occidentali |1 novembre 2019 |1 dicembre 2019|
-| Europa occidentale |Disponibile |Complete |
-| Stati Uniti occidentali |Disponibile |Complete |
-| Stati Uniti occidentali 2 |Disponibile |Complete |
+| Germania centro-occidentale |Disponibile |1 maggio 2020 |
+| India occidentale |Disponibile |1 maggio 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Processo di aggiornamento automatico
 
