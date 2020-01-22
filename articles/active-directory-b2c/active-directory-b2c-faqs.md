@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643649"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289085"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -27,7 +27,7 @@ Esistono due motivi comuni per cui l'estensione di Azure AD non funziona per l'u
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>È possibile usare le funzionalità di Azure AD B2C nel tenant di Azure AD esistente per dipendenti aziendali?
 
-Azure AD e Azure AD B2C vengono offerti come prodotti separati e non possono coesistere nello stesso tenant. Un tenant di Azure AD rappresenta un'organizzazione. Un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Con i criteri personalizzati Azure AD B2C possibile attuare la Federazione per Azure AD consentendo l'autenticazione dei dipendenti in un'organizzazione.
+Azure AD e Azure AD B2C vengono offerti come prodotti separati e non possono coesistere nello stesso tenant. Un tenant di Azure AD rappresenta un'organizzazione. Un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Con l'aggiunta di un **nuovo provider OpenID Connect** in **Azure ad B2C > provider di identità** o con criteri personalizzati, Azure AD B2C possibile federare Azure ad consentire l'autenticazione dei dipendenti in un'organizzazione.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>È possibile usare Azure AD B2C per fornire l'accesso a piattaforme di social networking (Facebook e Google+) in Office 365?
 
@@ -59,7 +59,7 @@ No. Gli ambiti predefiniti usati per il gruppo di provider di identità di socia
 
 ### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>Per essere compatibile con Azure AD B2C, un'applicazione deve essere eseguita in Azure?
 
-No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per interagire con Azure AD B2C deve avere la possibilità di inviare e ricevere richieste HTTP su endpoint accessibili pubblicamente.
+No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per interagire con Azure AD B2C è sufficiente la possibilità di inviare e ricevere richieste HTTP su endpoint accessibili pubblicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Nel caso di più tenant Azure AD B2C, come è possibile gestirli nel portale di Azure?
 
@@ -137,8 +137,8 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Eliminare tutti i **flussi utente (criteri)** nel tenant del Azure ad B2C.
 1. Eliminare tutte le **applicazioni** registrate nel tenant del Azure ad B2C.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
@@ -150,7 +150,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. In **Gestisci**selezionare **impostazioni utente**.
 1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
-1. In **gestione accessi per le risorse di Azure**selezionare **Sì**e quindi fare clic su **Salva**.
+1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.
@@ -158,8 +158,8 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Eliminare tutti i **flussi utente (criteri)** nel tenant del Azure ad B2C.
 1. Selezionare **registrazioni app (anteprima)** , quindi selezionare la scheda **tutte le applicazioni** .
 1. Eliminare tutte le applicazioni registrate.
@@ -170,7 +170,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. In **Gestisci**selezionare **impostazioni utente**.
 1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
-1. In **gestione accessi per le risorse di Azure**selezionare **Sì**e quindi fare clic su **Salva**.
+1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.

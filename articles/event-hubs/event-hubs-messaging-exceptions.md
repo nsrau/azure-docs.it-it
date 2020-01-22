@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 96eaae81a25e361c0041fb02099b8e0cb9da8c28
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: de5b95bd10bf72f60ba5d63c4b3a799556fcce33
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260455"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309779"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Guida alla risoluzione dei problemi di hub eventi di Azure
 Questo articolo fornisce alcune eccezioni .NET generate da Hub eventi .NET Framework API e altri suggerimenti per la risoluzione dei problemi. 
@@ -104,18 +104,7 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 I passaggi seguenti possono essere utili per la risoluzione dei problemi di connettività/certificato/timeout per tutti i servizi in *. servicebus.windows.net. 
 
 - Passare a o [wget](https://www.gnu.org/software/wget/) `https://<yournamespacename>.servicebus.windows.net/`. Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
-- Eseguire il comando seguente per verificare se una porta è bloccata sul firewall. Le porte usate sono 443 (HTTPS), 5671 (AMQP) e 9093 (Kafka). A seconda della libreria usata, vengono usate anche altre porte. Ecco il comando di esempio che controlla se la porta 5671 è bloccata.
 
-    ```powershell
-    tnc <yournamespacename>.servicebus.windows.net -port 5671
-    ```
-
-    In Linux:
-
-    ```shell
-    telnet <yournamespacename>.servicebus.windows.net 5671
-    ```
-    
     Esempio di messaggio riuscito:
     
     ```xml
@@ -131,6 +120,17 @@ I passaggi seguenti possono essere utili per la risoluzione dei problemi di conn
             Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
         </Detail>
     </Error>
+    ```
+- Eseguire il comando seguente per verificare se una porta è bloccata sul firewall. Le porte usate sono 443 (HTTPS), 5671 (AMQP) e 9093 (Kafka). A seconda della libreria usata, vengono usate anche altre porte. Ecco il comando di esempio che controlla se la porta 5671 è bloccata.
+
+    ```powershell
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
+    ```
+
+    In Linux:
+
+    ```shell
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
 - Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio. Quindi, è possibile controllare il numero di riuscite/non riuscite e vedere anche latenza di connessione TCP. È possibile scaricare lo strumento `psping` da [qui](/sysinternals/downloads/psping).
 

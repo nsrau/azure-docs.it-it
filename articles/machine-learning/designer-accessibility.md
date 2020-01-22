@@ -1,5 +1,5 @@
 ---
-title: Usare le funzionalità di accessibilità nella finestra di progettazione (anteprima)
+title: Usare le funzionalità di accessibilità nella finestra di progettazione
 titleSuffix: Azure Machine Learning
 description: Informazioni sulle scelte rapide da tastiera e sulle funzionalità di accessibilità per la lettura schermo disponibili nella finestra di progettazione.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 9c899ae16d16fc76f0ea8d24169451556cf24025
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158013"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314233"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilizzare una tastiera per utilizzare Azure Machine Learning Designer (anteprima)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Utilizzare una tastiera per utilizzare Azure Machine Learning Designer
 
 Informazioni su come usare una tastiera e un'utilità per la lettura dello schermo per usare Azure Machine Learning Designer. Per un elenco di tasti di scelta rapida che funzionano ovunque nella portale di Azure, vedere [tasti di scelta rapida nella portale di Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 

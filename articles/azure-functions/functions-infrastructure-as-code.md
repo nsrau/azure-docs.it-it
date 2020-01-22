@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: df0c90ba3784acb96bd9f76a436ff2746f7efe2c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a3d8c8769ff5026ec1dde98f3c4167aac302bf8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262436"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292944"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -129,6 +129,7 @@ La risorsa dell'app per le funzioni viene definita usando una risorsa di tipo **
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+}
 ```
 
 > [!IMPORTANT]
@@ -138,7 +139,7 @@ Un'app per le funzioni deve includere le impostazioni dell'applicazione seguenti
 
 | Nome impostazione                 | Description                                                                               | Valori di esempio                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | Una stringa di connessione a un account di archiviazione che il runtime di funzioni per l'accodamento interno | Vedere l' [account di archiviazione](#storage)       |
+| AzureWebJobsStorage          | Una stringa di connessione a un account di archiviazione usato dal runtime di funzioni per l'accodamento interno | Vedere l' [account di archiviazione](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Versione del runtime di funzioni di Azure                                                | `~2`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | Lo stack del linguaggio da usare per le funzioni in questa app                                   | `dotnet`, `node`, `java`, `python` o `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Necessaria solo se si usa lo stack di lingue `node`, specifica la versione da usare              | `10.14.1`                             |
@@ -174,7 +175,7 @@ Queste proprietà vengono specificate nella raccolta `appSettings` nella proprie
 
 ## <a name="deploy-on-consumption-plan"></a>Distribuisci nel piano a consumo
 
-Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce le prestazioni quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md#consumption-plan).
+Il piano a consumo alloca automaticamente la potenza di calcolo quando il codice è in esecuzione, aumenta le dimensioni in base alle esigenze per gestire il carico e quindi esegue il ridimensionamento quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md#consumption-plan).
 
 Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni in un piano a consumo].
 

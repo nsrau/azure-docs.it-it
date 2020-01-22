@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
-ms.openlocfilehash: d491a67a44a2cb01e4968c4d31d20dee4b75a60a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980283"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311666"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Eccezioni e codici di errore per la finestra di progettazione (anteprima)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
 
-Questo articolo descrive i messaggi di errore e i codici di eccezione in Azure Machine Learning Designer (anteprima) per semplificare la risoluzione dei problemi relativi alle pipeline di machine learning.
+Questo articolo descrive i messaggi di errore e i codici di eccezione in Azure Machine Learning Designer per semplificare la risoluzione dei problemi relativi alle pipeline di machine learning.
 
 Esistono due modi per ottenere il testo completo di un messaggio di errore nella finestra di progettazione:  
 
@@ -348,7 +348,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 ## <a name="error-0018"></a>Errore 0018  
  Si verifica un'eccezione se il set di dati di input non è valido.  
 
-**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, quindi non esiste una singola risoluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne oppure che il tipo di dati non corrisponde ai requisiti del modulo. ad esempio:  
+**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, quindi non esiste una singola risoluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne oppure che il tipo di dati non corrisponde ai requisiti del modulo. Ad esempio:  
 
 -   Il modulo richiede una colonna Label, ma nessuna colonna è contrassegnata come etichetta oppure non è ancora stata selezionata una colonna Label.  
   
@@ -356,7 +356,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 
 <!---   The module requires a specific data type. For example, ratings provided to [Train Matchbox Recommender](train-matchbox-recommender.md) can be either numeric or categorical, but cannot be floating point numbers.  -->
 
--   Il formato dei dati non è corretto.  
+-   I dati sono nel formato non corretto.  
   
 -   I dati importati contengono caratteri non validi, valori non validi o valori non compresi nell'intervallo.  
 -   La colonna è vuota o contiene troppi valori mancanti.  
@@ -427,7 +427,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 ## <a name="error-0022"></a>Errore 0022  
  Si verifica un'eccezione se il numero di colonne selezionate nel set di dati di input non corrisponde al numero previsto.  
 
- Questo errore in Azure Machine Learning può verificarsi quando il modulo o l'operazione downstream richiede un numero specifico di colonne o input e sono stati specificati troppi o troppi colonne o input. ad esempio:  
+ Questo errore in Azure Machine Learning può verificarsi quando il modulo o l'operazione downstream richiede un numero specifico di colonne o input e sono stati specificati troppi o troppi colonne o input. Ad esempio:  
 
 -   È possibile specificare una singola colonna di etichetta o colonna chiave e selezionare accidentalmente più colonne.  
   
@@ -1066,7 +1066,7 @@ Il messaggio di errore di hive viene in genere riportato nel log degli errori di
 + Verificare che la query funzioni correttamente al di fuori di Azure Machine Learning eseguendo l'accesso alla console hive del cluster Hadoop ed eseguendo la query.  
 + Provare a inserire commenti nello script hive in una riga distinta, anziché combinare istruzioni e commenti eseguibili in un'unica riga.  
 
-### <a name="resources"></a>resources
+### <a name="resources"></a>Risorse
 
 Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per Machine Learning:
 

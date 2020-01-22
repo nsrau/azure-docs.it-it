@@ -2,13 +2,13 @@
 title: Tipi di risorsa dell'estensione
 description: Elenca i tipi di risorse di Azure usati per estendere le funzionalità di altri tipi di risorse.
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: af60bd648e41532cca364272fb0ded01c0c18239
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/20/2020
+ms.openlocfilehash: 47a98bca4912a1c59c8b2d9bad458769c6bf4ebf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484675"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293267"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipi di risorse che estendono le funzionalità di altre risorse
 
@@ -23,12 +23,14 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. AlertsManagement/alertsSummary
 - Microsoft. Authorization/checkAccess
 - Microsoft. Authorization/denyAssignments
+- Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft. Authorization/Locks
 - Microsoft. Authorization/autorizzazioni
 - Microsoft. Authorization/policyAssignments
 - Microsoft. Authorization/policyDefinitions
 - Microsoft. Authorization/policySetDefinitions
 - Microsoft. Authorization/roleAssignments
+- Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
 - Microsoft. Billing/billingPeriods
 - Microsoft. Billing/billingPermissions
@@ -82,6 +84,7 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. Insights/automatedExportSettings
 - Microsoft. Insights/Baseline
 - Microsoft. Insights/calculatebaseline
+- Microsoft. Insights/dataCollectionRuleAssociations
 - Microsoft. Insights/diagnosticSettings
 - Microsoft. Insights/diagnosticSettingsCategories
 - Microsoft. Insights/EventTypes
@@ -94,6 +97,8 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. Insights/metricbaselines
 - Microsoft. Insights/metrica
 - Microsoft. Insights/cartelle di lavoro
+- Microsoft. Insights/topologia
+- Microsoft. Insights/transazioni
 - Microsoft. Insights/vmInsightsOnboardingStatuses
 - Microsoft. KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
@@ -109,6 +114,7 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. PolicyInsights/policyTrackedResources
 - Microsoft. PolicyInsights/monitoraggio e aggiornamento
 - Microsoft. RecoveryServices/backupProtectedItems
+- Microsoft. RecoveryServices/replicationEligibilityResults  
 - Microsoft. ResourceHealth/availabilityStatuses
 - Microsoft. ResourceHealth/childAvailabilityStatuses
 - Microsoft. ResourceHealth/childResources

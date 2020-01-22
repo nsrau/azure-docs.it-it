@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280816"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288957"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze senza agenti per la valutazione
 
@@ -87,10 +87,10 @@ Scegliere i computer in cui si desidera abilitare l'individuazione delle dipende
 
 1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
 2. Fare clic sull'icona **analisi dipendenza** .
-3. Fare clic su **Avvia individuazione dipendenza**.
-3. Nella pagina **Avvia individuazione dipendenza** , scegliere l'appliance che sta individuando i computer pertinenti.
+3. Fare clic su **Aggiungi server**.
+3. Nella pagina **Aggiungi server** scegliere l'appliance che sta scoprendo i computer pertinenti.
 4. Dall'elenco computer selezionare le macchine virtuali.
-5. Fare clic su **Avvia individuazione dipendenza**.
+5. Fare clic su **Aggiungi server**.
 
     ![Avvia individuazione dipendenza](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -123,10 +123,10 @@ Scegliere i computer in cui si desidera arrestare l'individuazione delle dipende
 
 1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
 2. Fare clic sull'icona **analisi dipendenza** .
-3. Fare clic su **Arresta individuazione dipendenza**.
-3. Nella pagina **Arresta individuazione dipendenze** scegliere il **dispositivo** che sta individuando le macchine virtuali in cui si desidera arrestare l'individuazione delle dipendenze.
+3. Fare clic su **Rimuovi server**.
+3. Nella pagina **Rimuovi server** scegliere il **dispositivo** che sta individuando le macchine virtuali in cui si vuole arrestare l'individuazione delle dipendenze.
 4. Dall'elenco computer selezionare le macchine virtuali.
-5. Fare clic su **Arresta individuazione dipendenza**
+5. Fare clic su **Rimuovi server**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

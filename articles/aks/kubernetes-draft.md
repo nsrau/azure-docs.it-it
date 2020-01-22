@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9b942c4726c770f1ea0d35c924395cdff40e1c7
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 07e267af307fedd9b896e08919b7026a3a1c2bac
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732019"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292963"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Guida introduttiva: sviluppare in Azure Kubernetes Service (AKS) con Draft
 
 Draft è uno strumento open source che consente di creare pacchetti di contenitori di applicazioni ed eseguirli in un cluster Kubernetes. Con Draft è possibile ridistribuire rapidamente un'applicazione in Kubernetes quando si verificano modifiche al codice senza dover eseguire il commit delle modifiche nel controllo della versione. Per altre informazioni su Draft, vedere la [documentazione bozza su GitHub][draft-documentation].
 
-Questo articolo illustra come usare Draft Package ed eseguire un'applicazione in AKS.
+Questo articolo illustra come usare Draft per creare un pacchetto ed eseguire un'applicazione in AKS.
 
 
 ## <a name="prerequisites"></a>Prerequisiti

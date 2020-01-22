@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 60a9c6b237423337abb520b335c98d3c8c7549be
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497839"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312201"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
 
-Questo articolo descrive un modulo incluso in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo incluso in Azure Machine Learning Designer.
 
 Usare il modulo feature hashing per trasformare un flusso di testo in inglese in un set di funzionalità Integer. È quindi possibile passare questo set di funzionalità con hash a un algoritmo di machine learning per eseguire il training di un modello di analisi del testo.
 
@@ -52,14 +52,14 @@ Internamente, il modulo feature hashing crea un dizionario di n-grammi. Ad esemp
 |------------|---------------|
 |libro|3|
 |I|3|
-|Documentazione|1|
+|libri|1|
 |è stato|1|
 
 Dopo la compilazione del dizionario, il modulo feature hashing converte i termini del dizionario in valori hash. Viene quindi calcolato se una funzionalità è stata utilizzata in ogni caso. Per ogni riga di dati di testo, il modulo restituisce un set di colonne, una colonna per ogni funzionalità con hash.
 
 Ad esempio, dopo l'hashing, le colonne delle funzionalità potrebbero avere un aspetto simile al seguente:
 
-|Rating|Funzionalità di hashing 1|Funzionalità di hashing 2|Funzionalità di hashing 3|
+|Rating|Funzione hash 1|Funzionalità di hashing 2|Funzionalità di hashing 3|
 |-----|-----|-----|-----|
 |4|1|1|0|
 |5|0|0|0|

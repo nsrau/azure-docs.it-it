@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9817205a419e2b61af66dba16d09620e2c1dec9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432376"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310867"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -47,6 +47,7 @@ Profiler scrive i messaggi di analisi e gli eventi personalizzati nella risorsa 
 * Se l'app Web è un'applicazione ASP.NET Core, deve eseguire almeno ASP.NET Core 2.0.
 * Se i dati che si sta tentando di visualizzare sono antecedenti a un paio di settimane, limitare il filtro temporale e riprovare. Le tracce vengono eliminate dopo sette giorni.
 * Assicurarsi che un firewall o i proxy non abbiano bloccato l'accesso a https://gateway.azureserviceprofiler.net.
+* Profiler non è supportato nei piani di servizio app gratuiti o condivisi. Se si usa uno di questi piani, provare a scalare fino a uno dei piani di base e Profiler dovrebbe iniziare a funzionare.
 
 ### <a id="double-counting"></a>Doppio conteggio dei thread in parallelo
 

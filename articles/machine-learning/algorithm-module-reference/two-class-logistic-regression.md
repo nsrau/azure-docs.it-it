@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ee52f3a0bec058f1b94820123ac5514e4e855c05
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485937"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311394"
 ---
 # <a name="two-class-logistic-regression-module"></a>Modulo di regressione logistica a due classi
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di regressione logistica che può essere usato per stimare due (e solo due) risultati. 
 
@@ -30,7 +30,7 @@ La regressione logistica è un metodo noto nelle statistiche usato per stimare l
   
 In questo modulo, l'algoritmo di classificazione è ottimizzato per dicotomica o variabili binarie. Se è necessario classificare più risultati, usare il modulo di [regressione logistica multiclasse](./multiclass-logistic-regression.md) .
 
-##  <a name="how-to-configure"></a>Come configurare  
+##  <a name="how-to-configure"></a>Modalità di configurazione  
 
 Per eseguire il training di questo modello, è necessario fornire un set di dati contenente un'etichetta o una colonna di classe. Poiché questo modulo è concepito per problemi a due classi, l'etichetta o la colonna di classe deve contenere esattamente due valori. 
 
@@ -44,15 +44,14 @@ Ad esempio, la colonna Label potrebbe essere [voted] con i possibili valori di "
   
 3.  Per la **tolleranza di ottimizzazione**, specificare un valore soglia da usare per l'ottimizzazione del modello. Se il miglioramento tra le iterazioni scende al di sotto della soglia specificata, l'algoritmo viene considerato convergente in una soluzione e il training viene arrestato.  
   
-4.  Per il peso della **regolarizzazione L1** e il **peso della regolarizzazione L2**, digitare un valore da usare per i parametri di regolarizzazione L1 e L2. Per entrambi è consigliabile un valore diverso da zero.  
-  
+4.  Per il peso della **regolarizzazione L1** e il **peso della regolarizzazione L2**, digitare un valore da usare per i parametri di regolarizzazione L1 e L2. È consigliabile usare per entrambi un valore diverso da zero.  
      La *regolarizzazione* è un metodo per evitare l'overfitting penalizzando i modelli con valori di coefficienti estremi. La regolarizzazione funziona aggiungendo la penalità associata ai valori coefficienti all'errore dell'ipotesi. Pertanto, un modello accurato con valori di coefficienti estremi verrebbe penalizzato più, ma un modello meno accurato con valori più conservativi verrebbe penalizzato meno.  
   
-     La regolarizzazione L1 e L2 presenta effetti e usi diversi.  
+     Le regolarizzazioni di tipo L1 e L2 hanno effetti e usi differenti.  
   
-    -   È possibile applicare la funzione L1 ai modelli sparse, che risulta utile quando si utilizzano dati ad alta dimensionalità.  
+    -   La regolarizzazione L1 può essere applicata a modelli di tipo sparse, caratteristica utile quando si lavora con dati a elevata dimensionalità.  
   
-    -   Al contrario, la regolarizzazione L2 è preferibile per i dati che non sono di tipo sparse.  
+    -   La regolarizzazione L2, al contrario, è preferibile per i dati non di tipo sparse.  
   
      Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se <code>x = L1</code> e <code>y = L2</code>, <code>ax + by = c</code> definisce la portata lineare dei termini di regolarizzazione.  
   
@@ -63,9 +62,9 @@ Ad esempio, la colonna Label potrebbe essere [voted] con i possibili valori di "
       
 5.  Per le **dimensioni della memoria per l-BFGS**, specificare la quantità di memoria da usare per l'ottimizzazione *l-BFGS* .  
   
-     L-BFGS è l'acronimo di "Limited Memory Broyden-Fletcher-Goldfarb-Shanno". Si tratta di un algoritmo di ottimizzazione popolare per la stima dei parametri. Questo parametro indica il numero di posizioni e sfumature precedenti da archiviare per il calcolo del passaggio successivo.  
+     L-BFGS è l'acronimo di "Limited Memory Broyden-Fletcher-Goldfarb-Shanno". Si tratta di un algoritmo di ottimizzazione usato di frequente per la stima dei parametri. Questo parametro indica il numero di posizioni e gradienti precedenti da archiviare per il calcolo del passaggio successivo.  
   
-     Questo parametro di ottimizzazione limita la quantità di memoria utilizzata per calcolare il passaggio e la direzione successivi. Quando si specifica una quantità di memoria inferiore, il training è più veloce ma meno accurato.  
+     Questo parametro di ottimizzazione limita la quantità di memoria usata per il calcolo del passaggio e della direzione successivi. Quando si specifica una quantità di memoria inferiore, il training è più veloce ma meno accurato.  
   
 6.  Per il valore di **inizializzazione numerico casuale**, digitare un valore integer. La definizione di un valore di inizializzazione è importante se si desidera che i risultati siano riproducibili su più esecuzioni della stessa pipeline.  
   
@@ -79,8 +78,7 @@ Ad esempio, la colonna Label potrebbe essere [voted] con i possibili valori di "
 ## <a name="results"></a>Risultati
 
 Al termine del training:
-
-+ Per visualizzare un riepilogo dei parametri del modello, insieme ai pesi delle funzionalità appresi dal training, fare clic con il pulsante destro del mouse sull'output di [Train Model](./train-model.md) e selezionare **Visualize (Visualizza**).   
+ 
   
 + Per eseguire stime sui nuovi dati, usare il modello sottoposto a training e i nuovi dati come input per il modulo [Score Model](./score-model.md) . 
 

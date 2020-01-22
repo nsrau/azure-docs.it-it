@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/30/2019
-ms.openlocfilehash: 1002a19506ad0a59cb24ae4edb1f7c9726d68cb2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170862"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290343"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su monitoraggio di Azure
 
@@ -94,7 +94,7 @@ Tutti i dati vengono recuperati da un'area di lavoro Log Analytics usando una qu
 Tutti i dati di log raccolti da monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics. Un'area di lavoro è essenzialmente un contenitore in cui i dati di log vengono raccolti da diverse origini. È possibile che si disponga di una singola area di lavoro Log Analytics per tutti i dati di monitoraggio o che siano necessari requisiti per più aree di lavoro. Vedere [progettazione della distribuzione dei log di monitoraggio di Azure](platform/design-logs-deployment.md).
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>È possibile spostare un'area di lavoro Log Analytics esistente in un'altra sottoscrizione di Azure?
-È possibile spostare un'area di lavoro tra gruppi di risorse o sottoscrizioni, ma non in un'area diversa. Vedere [spostare un'area di lavoro log Analytics a una sottoscrizione o a un gruppo di risorse diverso](/platform/move-workspace.md).
+È possibile spostare un'area di lavoro tra gruppi di risorse o sottoscrizioni, ma non in un'area diversa. Vedere [spostare un'area di lavoro log Analytics a una sottoscrizione o a un gruppo di risorse diverso](platform/move-workspace.md).
 
 
 ## <a name="alerts"></a>Avvisi
@@ -345,7 +345,7 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 ### <a name="what-are-the-user-and-session-counts"></a>Che cosa sono i conteggi utente e sessione?
 
 * JavaScript SDK imposta un cookie utente nel client Web, per identificare gli utenti abituali, e un cookie di sessione per raggruppare le attività.
-* Se non c'è uno script lato client, è possibile [impostare cookie per il server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-app/).
+* Se non c'è uno script lato client, è possibile [impostare cookie per il server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Se un utente reale usa il sito in browser diversi o esegue una navigazione privata o in incognito oppure usa computer diversi, viene inclusi più di una volta nei conteggi.
 * Per identificare un utente connesso a più computer e browser, aggiungere una chiamata a [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
@@ -455,7 +455,7 @@ Il gateway deve indirizzare il traffico all'indirizzo di base dell'endpoint. Nel
 #### <a name="proxy-passthrough"></a>Passthrough del proxy
 
 È possibile ottenere il pass-through del proxy configurando un proxy a livello di computer o di applicazione.
-Per altre informazioni, vedere l'articolo di DotNet in [defaultProxy](https://docs.microsoft.com/dotnet/framework/configure-app/file-schema/network/defaultproxy-element-network-settings).
+Per altre informazioni, vedere l'articolo di DotNet in [defaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Web. config di esempio:
  ```xml

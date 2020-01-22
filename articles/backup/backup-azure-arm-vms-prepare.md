@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Viene descritto come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino con backup di Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: f2954ad2693d7b4f56e3f1b33e804a6936cf8a65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 95c185c09558f3d1a525c9bcf15f3957118c4311
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450136"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294032"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -295,6 +295,18 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 * [Informazioni](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) sulla distribuzione di Firewall di Azure.
 * [Informazioni](https://docs.microsoft.com/azure/firewall/fqdn-tags) sui tag FQDN.
+
+>[!NOTE]
+> Backup di Azure supporta ora il backup e il ripristino dei dischi selettivi con la soluzione di backup della macchina virtuale di Azure.
+>
+>Attualmente, backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale con la soluzione di backup della macchina virtuale. Con la funzionalità Escludi disco è possibile scegliere di eseguire il backup di uno o più dischi dati in una macchina virtuale. Questo offre una soluzione efficiente ed economica per le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup, che consente di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
+>
+> Questa soluzione è particolarmente utile negli scenari seguenti:
+>  
+>1. È necessario eseguire il backup dei dati critici in un solo disco e non si vuole eseguire il backup dei restanti dischi collegati a una macchina virtuale. Questo consente di ridurre al minimo i costi di archiviazione dei backup.  
+>2. Sono disponibili altre soluzioni di backup per una parte dei dati della VM. Ad esempio, si esegue il backup dei database o dei dati con una soluzione di backup del carico di lavoro diversa e si vuole usare il backup a livello di VM di Azure per il resto dei dischi e dei dati per creare un sistema efficiente e affidabile usando le funzionalità migliori disponibili.
+>
+>Per iscriverti all'anteprima, scrivici all'indirizzo AskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Passaggi successivi
 

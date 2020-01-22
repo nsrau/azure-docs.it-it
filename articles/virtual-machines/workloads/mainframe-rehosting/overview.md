@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305859"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289799"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Riallocazione del mainframe in macchine virtuali di Azure
 
@@ -31,15 +31,15 @@ Le macchine virtuali di Azure possono eseguire ambienti di emulazione mainframe 
 
 È possibile eseguire la migrazione di alcuni carichi di lavoro mainframe in Azure con relativa facilità, mentre altri possono essere riallocati in Azure usando una soluzione partner. Per istruzioni dettagliate sulla scelta di una soluzione partner, il [centro migrazione del mainframe di Azure](https://azure.microsoft.com/migration/mainframe/) può essere di aiuto.
 
-## <a name="mainframe-migration"></a>Migrazione dei mainframe
+## <a name="mainframe-migration"></a>Migrazione del mainframe
 
-Riallocare, ricompilare, sostituire o ritirare? IaaS o PaaS? Per determinare la strategia di migrazione appropriata per l'applicazione mainframe, vedere la guida alla [migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) nell'centro architetture di Azure.
+Riallocare, ricompilare, sostituire o ritirare? Soluzioni IaaS o PaaS? Per determinare la strategia di migrazione appropriata per l'applicazione mainframe, vedere la guida alla [migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) nell'centro architetture di Azure.
 
 ## <a name="micro-focus-rehosting-platform"></a>Piattaforma di riallocazione dello stato attivo micro
 
 Micro Focus Enterprise Server è una delle più grandi piattaforme di riallocazione mainframe disponibili. È possibile usarlo per eseguire i carichi di lavoro z/OS su una piattaforma x86 meno costosa in Azure.
 
-Attività iniziali
+Per iniziare:
 
 - [Installare Enterprise Server e Enterprise Developer in Azure](./microfocus/set-up-micro-focus-azure.md)
 - [Configurare CICS BankDemo per Enterprise Developer in Azure](./microfocus/demo.md)
@@ -50,7 +50,7 @@ Attività iniziali
 
 TmaxSoft OpenFrame è una diffusa soluzione di riallocazione mainframe utilizzata negli scenari di Lift-and-Shift. Un ambiente OpenFrame in Azure è adatto per lo sviluppo, le demo, i test o i carichi di lavoro di produzione.
 
-Attività iniziali
+Per iniziare:
 
 - [Introduzione a TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
 - [Scarica l'eBook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
@@ -61,7 +61,7 @@ Ambiente di sviluppo e test IBM Z (IBM zD & T) configura un ambiente non di prod
 
 L'ambiente di emulazione in Azure può ospitare tipi diversi di istanze Z tramite distribuzioni controllate di sviluppatori di applicazioni (ADCDs). È possibile eseguire zD & T Personal Edition, zD & T Parallel Sysplex e zD & T Enterprise Edition in Azure e Azure Stack.
 
-Attività iniziali
+Per iniziare:
 
 - [Configurare IBM zD & T 12,0 in Azure](./ibm/install-ibm-z-environment.md)
 - [Configurare ADCD su zD & T](./ibm/demo.md)
@@ -90,7 +90,7 @@ Con Azure IaaS, ad esempio una macchina virtuale, funzioni di sistema specifiche
 
 ### <a name="scalability"></a>Scalabilità
 
-I mainframe supportano in genere la scalabilità verticale, mentre gli ambienti cloud supportano lo scale-out. Azure offre una gamma di dimensioni di [Linux](/azure/virtual-machines/linux/sizes) e [Windows](/azure/virtual-machines/windows/sizes) per soddisfare le tue esigenze. Il cloud viene inoltre ridimensionato in base alle specifiche utente esatte. Calcolo della potenza, dell'archiviazione e dei servizi [scalabile](/azure/architecture/best-practices/auto-scaling) su richiesta con un modello di fatturazione basato sull'utilizzo.
+I mainframe vengono in genere scalati verso l'alto, mentre gli ambienti cloud si ridimensionano. Azure offre una gamma di dimensioni di [Linux](/azure/virtual-machines/linux/sizes) e [Windows](/azure/virtual-machines/windows/sizes) per soddisfare le tue esigenze. Il cloud viene inoltre ridimensionato in base alle specifiche utente esatte. Calcolo della potenza, dell'archiviazione e dei servizi [scalabile](/azure/architecture/best-practices/auto-scaling) su richiesta con un modello di fatturazione basato sull'utilizzo.
 
 ### <a name="storage"></a>Archiviazione
 
@@ -112,7 +112,7 @@ Per iniziare, scaricare [Microsoft Azure per enti pubblici cloud per le applicaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Chiedi ai nostri [partner](partner-workloads.md) di aiutarti a eseguire la migrazione o riallocare le tue applicazioni mainframe. Per istruzioni dettagliate sulla scelta di una soluzione per i partner, vedere il sito Web [Platform modernation Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) .
+Chiedi ai nostri [partner](partner-workloads.md) di aiutarti a eseguire la migrazione o riallocare le tue applicazioni mainframe. 
 
 Vedere anche la pagina relativa alla
 

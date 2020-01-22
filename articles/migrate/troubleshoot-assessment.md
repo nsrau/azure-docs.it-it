@@ -7,14 +7,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 3098e85fd21b6185defc4bbcf0a71d412846ab25
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: fb1e32d9f67febb09eadfb5d31221db33504eb05
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725741"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289476"
 ---
-# <a name="troubleshoot-assessmentdependency-visualization"></a>Risoluzione dei problemi di visualizzazione delle dipendenze
+# <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
 Questo articolo consente di risolvere i problemi relativi alla valutazione e alla visualizzazione delle dipendenze con [Azure migrate: server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
@@ -92,6 +92,7 @@ Server Assessment segnala "PercentageOfCoresUtilizedMissing" o "PercentageOfMemo
 - Questo problema può verificarsi se le macchine virtuali sono spente durante la durata della valutazione. L'appliance non può raccogliere i dati sulle prestazioni per una macchina virtuale quando è spenta.
 - Se mancano solo i contatori di memoria e si sta provando a valutare le VM Hyper-V, controllare se la memoria dinamica è abilitata in queste VM. Si verifica un problema noto solo per le macchine virtuali Hyper-V, in cui un'appliance Azure Migrate non è in grado di raccogliere dati di utilizzo della memoria per le macchine virtuali in cui non è abilitata la memoria dinamica.
 - Se non è presente alcun contatore delle prestazioni, Azure Migrate server Assessment esegue il fallback alla memoria e ai core allocati e suggerisce le dimensioni della VM corrispondenti.
+- Se tutti i contatori delle prestazioni risultano mancanti, verificare che siano soddisfatti i requisiti di accesso alle porte per la valutazione. Altre informazioni sui requisiti di accesso alle porte per [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) e la valutazione dei server [fisici](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) .
 
 ## <a name="is-the-operating-system-license-included"></a>La licenza del sistema operativo è inclusa?
 

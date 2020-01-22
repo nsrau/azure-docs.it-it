@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b62e03184453c4daea8615ee2bea39c936de5c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490377"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313978"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per eseguire il training di un modello di classificazione o di regressione. Il training viene eseguito dopo aver definito un modello e avere impostato i relativi parametri e richiede i dati con tag. È inoltre possibile utilizzare **Train Model** per ripetere il training di un modello esistente con nuovi dati. 
 
@@ -57,21 +57,20 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
     
     Esempi possono essere un punteggio di rischio di credito, il tempo previsto per l'errore per un disco rigido o il numero previsto di chiamate a un Call Center in un giorno o in un momento specifico.  Se non si sceglie una colonna numerica, è possibile che venga ricevuto un errore.
   
-    -   Se non si specifica quale colonna di etichetta usare, Azure Machine Learning tenterà di dedurre la colonna di etichetta appropriata, usando i metadati del set di dati. Se seleziona la colonna errata, usare il selettore di colonna per correggerla.
+    -   Se non si specifica la colonna di etichetta da usare, Azure Machine Learning tenterà di dedurre la colonna di etichetta appropriata usando i metadati del set di dati. Se seleziona la colonna errata, usare il selettore di colonna per correggerla.
   
     > [!TIP] 
     > In caso di problemi con il selettore di colonna, vedere l'articolo [selezionare le colonne nel set di dati](./select-columns-in-dataset.md) per i suggerimenti. Vengono descritti alcuni scenari comuni e suggerimenti per l'utilizzo delle opzioni **with Rules** e **by Name** .
   
 5.  Eseguire la pipeline. Se si dispone di una grande quantità di dati, l'operazione può richiedere alcuni minuti.
 
-## <a name="bkmk_results"></a>Risultati
+## <a name="bkmk_results"></a> Risultati
 
 Dopo il training del modello:
 
-+ Per visualizzare i parametri del modello e i pesi delle funzionalità, fare clic con il pulsante destro del mouse sull'output e selezionare **Visualizza**.
-+ Per utilizzare il modello in altre pipeline, fare clic con il pulsante destro del mouse sul modello e selezionare **Salva modello**. Digitare un nome per il modello. 
 
-    Questo consente di salvare il modello come snapshot non aggiornato da esecuzioni ripetute della pipeline.
++ Per usare il modello in altre pipeline, selezionare il modulo e selezionare l'icona **registra set di dati** nella scheda **output** nel pannello di destra. È possibile accedere ai modelli salvati nella tavolozza dei moduli in **set di impostazioni**.
+
 + Per usare il modello per stimare nuovi valori, connetterlo al modulo [Score Model](./score-model.md) , insieme ai nuovi dati di input.
 
 

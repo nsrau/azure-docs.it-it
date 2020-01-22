@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: d3a12dec64d481c5c877039fecc71b46f224e91d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541829"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312431"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è Azure Machine Learning Designer (anteprima)? 
+# <a name="what-is-azure-machine-learning-designer"></a>Che cos'è Azure Machine Learning Designer? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Azure Machine Learning Designer consente di connettere visivamente [set di impostazioni](#datasets) e [moduli](#module) in un'area di disegno interattiva per creare modelli di apprendimento automatico. Per informazioni su come iniziare a usare la finestra di progettazione, vedere [esercitazione: stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
@@ -116,7 +116,7 @@ La finestra di progettazione crea lo stesso oggetto [PublishedPipeline](https://
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Passaggio dall'interfaccia visiva alla finestra di progettazione
 
-L'interfaccia visiva (anteprima) è stata aggiornata e ora è Azure Machine Learning Designer (anteprima). La finestra di progettazione è stata riprogettata per l'uso di un back-end basato su pipeline che si integra completamente con le altre funzionalità di Azure Machine Learning. 
+L'interfaccia visiva (anteprima) è stata aggiornata e ora è Azure Machine Learning Designer. La finestra di progettazione è stata riprogettata per l'uso di un back-end basato su pipeline che si integra completamente con le altre funzionalità di Azure Machine Learning. 
 
 In seguito a questi aggiornamenti, alcuni concetti e termini per l'interfaccia visiva sono stati modificati o rinominati. Per le modifiche concettuali più importanti, vedere la tabella seguente. 
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e4e09ca77de00b7f189db2cbbcaca2e090dd7e72
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428515"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311632"
 ---
 # <a name="filter-based-feature-selection"></a>Filter Based Feature Selection
 
-Questo articolo descrive come usare il modulo Filter based feature selection in Azure Machine Learning Designer (Preview). Questo modulo consente di identificare le colonne nel set di dati di input con la massima potenza predittiva. 
+Questo articolo descrive come usare il modulo Filter based feature selection in Azure Machine Learning Designer. Questo modulo consente di identificare le colonne nel set di dati di input con la massima potenza predittiva. 
 
 In generale, la *selezione delle caratteristiche* si riferisce al processo di applicazione dei test statistici agli input, dato un output specificato. L'obiettivo è determinare quali colonne sono più predittive dell'output. Il modulo filtro basato sulle funzionalità di selezione offre più algoritmi di selezione delle funzioni tra cui scegliere. Il modulo include metodi di correlazione come la correlazione di Pearson e i valori chi quadrato. 
 
@@ -97,9 +97,9 @@ Si sceglie una metrica statistica standard. Il modulo calcola la correlazione tr
 
 Al termine dell'elaborazione:
 
-+ Per visualizzare un elenco completo delle colonne di funzionalità analizzate e dei relativi punteggi, fare clic con il pulsante destro del mouse sul modulo. Selezionare **funzionalità**, quindi selezionare **Visualizza**.  
++ Per visualizzare un elenco completo delle colonne delle funzionalità analizzate e dei relativi punteggi, fare clic con il pulsante destro del mouse sul modulo e scegliere **Visualizza**.  
 
-+ Per visualizzare il set di dati generato in base ai criteri di selezione delle funzionalità, fare clic con il pulsante destro del mouse sul modulo. Selezionare **DataSet**, quindi selezionare **Visualizza**. 
++ Per visualizzare il set di dati in base ai criteri di selezione delle funzionalità, fare clic con il pulsante destro del mouse sul modulo e scegliere **Visualizza**. 
 
 Se il set di dati contiene un numero di colonne inferiore al previsto, controllare le impostazioni del modulo. Controllare inoltre i tipi di dati delle colonne fornite come input. Se, ad esempio, si imposta il **numero di funzionalità desiderate** su 1, il set di dati di output conterrà solo due colonne, ovvero la colonna Label e la colonna di funzionalità con classificazione più elevata.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1cf9ce6d57c1e106472caeef6c1f2a4b008a09bd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 15a118dc72ae9ffc4b6c99b0e0b527a252d3ded8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277862"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293590"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
@@ -26,7 +26,7 @@ ms.locfileid: "76277862"
 
 - Conversazione a più dispositivi: connettere più dispositivi alla stessa conversazione vocale o basata su testo e, facoltativamente, convertire i messaggi inviati tra di essi. Altre informazioni sono disponibili in [questo articolo](multi-device-conversation.md). 
 - Aggiunta del supporto per il riconoscimento delle parole chiave per il pacchetto Android. Aar e aggiunta del supporto per le versioni x86 e x64. 
-- Objective-C: `SendMessage` e `SetMessageProperty` metodi aggiunti all'oggetto `Connection`. Vedere la documentazione [qui](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- Objective-C: `SendMessage` e `SetMessageProperty` metodi aggiunti all'oggetto `Connection`. Vedere la documentazione [qui](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection).
 - L' C++ API TTS ora supporta `std::wstring` come input di testo di sintesi, eliminando la necessità di convertire una wstring in una stringa prima di passarla all'SDK. Vedere i dettagli [qui](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
 - C#: L' [ID lingua](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) e la [configurazione della lingua di origine](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) sono ora disponibili.
 - JavaScript: è stata aggiunta una funzionalità per `Connection` oggetto per passare i messaggi personalizzati dal servizio di riconoscimento vocale come `receivedServiceMessage`di callback.

@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API .NET Framework di Hub eventi di Azure | Microsoft Docs
-description: Un riepilogo di alcune delle principale API client .NET Framework di Hub eventi.
+description: Questo articolo fornisce un riepilogo di alcuni degli hub eventi principali .NET Framework API client (gestione e Runtime).
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822037"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312618"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Panoramica dell'API .NET Framework di Hub eventi
 
@@ -26,7 +26,7 @@ Gli [scenari di monitoraggio](event-hubs-metrics-azure-monitor.md) comprendono s
 
 Per eseguire le operazioni di gestione riportate di seguito sono necessarie autorizzazioni di **gestione** per lo spazio dei nomi di Hub eventi:
 
-### <a name="create"></a>Create
+### <a name="create"></a>Creazione
 
 ```csharp
 // Create the event hub
@@ -48,7 +48,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 
 ```csharp
 await namespaceManager.DeleteEventHubAsync("event hub name");

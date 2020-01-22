@@ -4,15 +4,15 @@ description: Un gateway locale è necessario se il server Analysis Services di A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f1fc00ced0d933884ca0fe6dce91fed4602eb825
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263439"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310153"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 
@@ -24,11 +24,11 @@ Per Azure Analysis Services, il primo processo di configurazione con il gateway 
 
 - **Scaricare ed eseguire il programma di installazione**: questo passaggio consente di installare un servizio gateway in un computer dell'organizzazione. È anche possibile accedere ad Azure usando un account in Azure AD del [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant). Gli account Azure B2B (guest) non sono supportati.
 
-- **Registrare il gateway**: in questo passaggio vengono specificati un nome e una chiave di ripristino per il gateway, si seleziona un'area e si registra il gateway con il servizio cloud Gateway. La risorsa gateway può essere registrata in qualsiasi area, ma è consigliabile registrarla nella stessa area dei server Analysis Services. 
+- **Registrare il gateway**: in questo passaggio vengono specificati un nome e una chiave di ripristino per il gateway, si seleziona un'area e si registra il gateway con il servizio cloud Gateway. La risorsa del gateway può essere registrata in qualsiasi area, ma è consigliabile che si trovi nella stessa area dei server Analysis Services. 
 
 - **Creare una risorsa del gateway in Azure** : in questo passaggio si crea una risorsa del gateway in Azure.
 
-- **Connettere i server alla risorsa del gateway** : dopo avere creato una risorsa del gateway, è possibile iniziare a connettervi i server. È possibile connettere più server e altre risorse, purché si trovino nella stessa area.
+- **Connettere i server alla risorsa del gateway** : dopo avere creato una risorsa del gateway, è possibile iniziare a connettervi server. È possibile connettere più server e altre risorse purché si trovino nella stessa area.
 
 
 
@@ -54,7 +54,7 @@ Quando si installa per un ambiente di Azure Analysis Services, è importante att
 
 Il gateway crea una connessione in uscita al bus di servizio di Azure. Comunica sulle porte in uscita seguenti: TCP 443 (impostazione predefinita), 5671, 5672 e da 9350 a 9354.  Non sono richieste porte in ingresso.
 
-Potrebbe essere necessario includere indirizzi IP per l'area dati nel firewall. È possibile scaricare l'[elenco degli indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). L'elenco viene aggiornato ogni settimana. Gli indirizzi IP inclusi nell'elenco degli indirizzi IP dei data center di Azure sono nella notazione CIDR. Per altre informazioni, vedere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Potrebbe essere necessario includere indirizzi IP per l'area dati nel firewall. È possibile scaricare l'[elenco degli indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=56519). L'elenco viene aggiornato ogni settimana. Gli indirizzi IP inclusi nell'elenco degli indirizzi IP dei data center di Azure sono nella notazione CIDR. Per altre informazioni, vedere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Di seguito sono riportati i nomi di dominio completi usati dal gateway.
 

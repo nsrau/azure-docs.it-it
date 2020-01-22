@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: ae04bf5268bb9973098735183842f7393e9d679b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4de8b032bd284ce0a2d6d8fd168b9ea3dd4937d3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121761"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289051"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accedere ai dati nei servizi di archiviazione di Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ Gli archivi dati supportano attualmente l'archiviazione delle informazioni di co
 | Tipo di&nbsp;di archiviazione | Tipo di&nbsp;di autenticazione | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [INTERFACCIA della riga di comando di Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; API REST](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
 [Archiviazione&nbsp;BLOB di Azure&nbsp;](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓
-[Condivisione file&nbsp;di Azure&nbsp;]((https://docs.microsoft.com/azure/storage/files/storage-files-introduction))| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓
+[Condivisione file&nbsp;di Azure&nbsp;](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;storage gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Entità servizio| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;storage gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Entità servizio| ✓ | ✓ | ✓ |✓
 Database SQL&nbsp;di Azure&nbsp;| Autenticazione SQL <br>Entità servizio| ✓ | ✓ | ✓ |✓
@@ -271,7 +271,7 @@ Per le situazioni in cui l'SDK non fornisce l'accesso agli archivi dati, è poss
 
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>Spostare i dati in soluzioni di archiviazione di Azure supportate
 
-Azure Machine Learning supporta l'accesso ai dati di archiviazione BLOB di Azure, File di Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, database SQL di Azure e database di Azure per PostgreSQL. Se si usa una risorsa di archiviazione non supportata, è consigliabile spostare i dati in soluzioni di archiviazione di Azure supportate usando [Azure Data Factory e questi passaggi]((https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool)). Lo stato di trasferimento dei dati nell'archiviazione supportata può consentire di risparmiare i costi di uscita dei dati durante gli esperimenti di machine learning. 
+Azure Machine Learning supporta l'accesso ai dati di archiviazione BLOB di Azure, File di Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, database SQL di Azure e database di Azure per PostgreSQL. Se si usa una risorsa di archiviazione non supportata, è consigliabile spostare i dati in soluzioni di archiviazione di Azure supportate usando [Azure Data Factory e questi passaggi](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Lo stato di trasferimento dei dati nell'archiviazione supportata può consentire di risparmiare i costi di uscita dei dati durante gli esperimenti di machine learning. 
 
 Azure Data Factory offre un trasferimento dati efficiente e resiliente con più di 80 connettori predefiniti senza costi aggiuntivi. Questi connettori includono i servizi dati di Azure, le origini dati locali, Amazon S3 e lo spostamento verso il proprio e Google BigQuery.
 

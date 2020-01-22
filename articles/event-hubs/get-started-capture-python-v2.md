@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d7a0c757f7314e45d5b4d13273df984739912b27
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 43223f7cb9ed254340c99d235d494d1e93583c7f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942412"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293539"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-using-python"></a>Acquisire i dati di hub eventi in archiviazione di Azure e leggerli con Python 
 È possibile usare configurare un hub eventi in modo che i dati inviati a un hub eventi vengano acquisiti in una risorsa di archiviazione di Azure o in Azure Data Lake Storage. Questo articolo illustra come usare scrivere codice Python per inviare eventi a un hub eventi e leggere i dati acquisiti da un archivio BLOB di Azure. Per altre informazioni su questa funzionalità, vedere [Panoramica della funzionalità di acquisizione di hub eventi](event-hubs-capture-overview.md).
@@ -42,9 +42,9 @@ Questa guida introduttiva spiega come:
 - Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - [Creare uno spazio dei nomi di hub eventi e un hub eventi nello spazio dei nomi](event-hubs-create.md). Annotare il nome dello spazio dei nomi di hub eventi, il nome dell'hub eventi e la chiave di accesso primaria per lo spazio dei nomi. Ottenere la chiave di accesso seguendo le istruzioni dell'articolo: [ottenere la stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Il nome della chiave predefinita è: **RootManageSharedAccessKey**. Per l'esercitazione non è necessaria la stringa di connessione. È necessaria solo la chiave primaria. 
 - Per creare un **account di archiviazione di Azure** e un **contenitore BLOB**, seguire questa procedura:
-    1. [Creare un account di archiviazione di Azure](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
-    2. [Creare un contenitore BLOB nella risorsa di archiviazione](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
-    3. [Ottenere la stringa di connessione all'account di archiviazione](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+    1. [Creare un account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    2. [Creare un contenitore BLOB nella risorsa di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
+    3. [Ottenere la stringa di connessione all'account di archiviazione](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string).
 
         Annotare la **stringa di connessione** e il **nome del contenitore**. Che sarà possibile usare in un secondo momento nel codice. 
 - Abilitare la funzionalità di **acquisizione** per l'hub eventi seguendo le istruzioni riportate in [abilitare l'acquisizione di hub eventi usando il portale di Azure](event-hubs-capture-enable-through-portal.md). Selezionare l'account di archiviazione e il contenitore BLOB creato nel passaggio precedente. È anche possibile abilitare la funzionalità quando si crea un hub eventi. 

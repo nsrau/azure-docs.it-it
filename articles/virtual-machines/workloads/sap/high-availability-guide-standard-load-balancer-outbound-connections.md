@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: ae2fb4c13633fa2ac22510a98e193bd9f01efb12
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045382"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293811"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali con Load Balancer Standard di Azure in scenari a disponibilità elevata di SAP
 
@@ -29,13 +29,13 @@ Lo scopo di questo articolo è descrivere le configurazioni che consentiranno la
 Se si usa pacemaker con l'agente di recinzione di Azure nella soluzione a disponibilità elevata, le macchine virtuali devono avere connettività in uscita all'API di gestione di Azure.  
 L'articolo presenta diverse opzioni che consentono di selezionare l'opzione più adatta per lo scenario in uso.  
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Quando si implementa la disponibilità elevata per le soluzioni SAP tramite il clustering, è [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)uno dei componenti necessari. Azure offre due SKU del servizio di bilanciamento del carico: standard e Basic.
 
 Azure Load Balancer standard offre alcuni vantaggi rispetto al servizio di bilanciamento del carico di base. Ad esempio, funziona nelle zone di disponibilità di Azure, offre funzionalità di monitoraggio e registrazione migliori per semplificare la risoluzione dei problemi e una latenza ridotta. La funzionalità "porte a disponibilità elevata" copre tutte le porte, ovvero non è più necessario elencare tutte le singole porte.  
 
-Esistono alcune differenze importanti tra lo SKU Basic e lo SKU standard di Azure Load Balancer. Uno di essi è la gestione del traffico in uscita verso l'endpoint pubblico. Per il confronto completo di base rispetto al servizio di bilanciamento del carico SKU standard, vedere [Load Balancer confronto tra SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus).  
+Esistono alcune differenze importanti tra lo SKU Basic e lo SKU standard di Azure Load Balancer. Uno di essi è la gestione del traffico in uscita verso l'endpoint pubblico. Per il confronto completo di base rispetto al servizio di bilanciamento del carico SKU standard, vedere [Load Balancer confronto tra SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
 Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non esiste alcuna connettività in uscita agli endpoint pubblici, a meno che non venga eseguita una configurazione aggiuntiva.  
 
@@ -71,7 +71,7 @@ Leggere prima i documenti seguenti:
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Load Balancer Standard di Azure esterno aggiuntivo per le connessioni in uscita a Internet
 
-Un'opzione per ottenere la connettività in uscita agli endpoint pubblici, senza consentire la connettività in ingresso alla macchina virtuale dall'endpoint pubblico, consiste nel creare un secondo servizio di bilanciamento del carico con indirizzo IP pubblico, aggiungere le macchine virtuali al pool back-end del secondo servizio di bilanciamento del carico e definire solo [regole in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
+Un'opzione per ottenere la connettività in uscita agli endpoint pubblici, senza consentire la connettività in ingresso alla macchina virtuale dall'endpoint pubblico, consiste nel creare un secondo servizio di bilanciamento del carico con indirizzo IP pubblico, aggiungere le macchine virtuali al pool back-end del secondo servizio di bilanciamento del carico e definire solo [le regole in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
 Usare i [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview) per controllare gli endpoint pubblici, accessibili per le chiamate in uscita dalla macchina virtuale.  
 Per altre informazioni, vedere lo scenario 2 nelle [connessioni in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios)del documento.  
 La configurazione avrà un aspetto simile al seguente:  
@@ -165,7 +165,7 @@ L'architettura avrà un aspetto analogo al seguente:
    La regola del firewall avrà un aspetto simile al seguente: ![connessione in uscita con il firewall di Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Creare una route definita dall'utente dalla subnet delle macchine virtuali all'indirizzo IP privato di **MyAzureFirewall**.
-   1. Quando si è posizionati nella tabella di route, fare clic su route. Selezionare Aggiungi. 
+   1. Quando si è posizionati nella tabella di route, fare clic su route. Fare clic su Aggiungi. 
    1. Nome Route: ToMyAzureFirewall, prefisso Indirizzo: **0.0.0.0/0**. Tipo hop successivo: selezionare appliance virtuale. Indirizzo hop successivo: immettere l'indirizzo IP privato del firewall configurato: **11.97.1.4**.  
    1. Salva
 

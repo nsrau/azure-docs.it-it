@@ -1,5 +1,5 @@
 ---
-title: Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali
+title: Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali V3
 titleSuffix: Azure Media Services
 description: Informazioni sulla protezione del contenuto con crittografia dinamica, protocolli di streaming e tipi di crittografia in servizi multimediali di Azure.
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977778"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313808"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali
 
@@ -150,7 +150,7 @@ Il protocollo MPEG-DASH supporta i formati di contenitore e gli schemi di critto
 
 Il protocollo Smooth Streaming supporta i formati di contenitore e gli schemi di crittografia seguenti.
 
-|Protocol|Formato del contenitore|Schema di crittografia|
+|Protocollo|Formato del contenitore|Schema di crittografia|
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
@@ -236,7 +236,7 @@ Usare i modelli seguenti se si vuole specificare un servizio di distribuzione di
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: uguale al modello precedente, solo per Widevine. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: uguale al modello precedente, solo per FairPlay.  
 
-ad esempio:
+Ad esempio:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -247,15 +247,15 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, vedere [criteri di streaming-crea](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
-> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 Se viene ricevuto il messaggio di errore `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, assicurarsi di specificare i criteri di flusso appropriati.
 
 Se vengono visualizzati errori che terminano con `_NOT_SPECIFIED_IN_URL`, assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

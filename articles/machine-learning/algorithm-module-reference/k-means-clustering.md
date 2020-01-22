@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7451758e758d597bfe63d92fe4789c8fa81b3dff
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213905"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311479"
 ---
 # <a name="module-k-means-clustering"></a>Modulo: clustering K-means
 
-Questo articolo descrive come usare il modulo di *clustering k-means* in Azure Machine Learning Designer (Preview) per creare un modello di clustering k-means non sottoposto a training. 
+Questo articolo descrive come usare il modulo di *clustering k-means* in Azure Machine Learning Designer per creare un modello di clustering k-means non sottoposto a training. 
  
 K-means è uno dei più semplici e noti algoritmi di apprendimento senza *supervisione* . È possibile usare l'algoritmo per un'ampia gamma di attività di Machine Learning, ad esempio: 
 
@@ -83,7 +83,7 @@ Quando elabora i dati di training, l'algoritmo K-means inizia con un set inizial
   
 6.  Per **metrica**, scegliere la funzione da usare per misurare la distanza tra i vettori del cluster o tra i nuovi punti dati e il baricentro scelto in modo casuale. Azure Machine Learning supporta le metriche di distanza del cluster seguenti:  
   
-    -   **Euclideo**: la distanza euclidea viene comunemente usata come misura della dispersione del cluster per il clustering K-means. Questa metrica è preferibile perché riduce al minimo la distanza media tra punti e centroidi.
+    -   **Euclideo**: la distanza euclidea viene comunemente usata come misura della dispersione del cluster per il clustering K-means. Questa metrica è preferibile perché riduce al minimo la distanza media tra i punti e i centroidi.
   
 7.  Per le **iterazioni**, digitare il numero di volte in cui l'algoritmo deve eseguire l'iterazione sui dati di training prima di finalizzare la selezione di centroidi.  
   
@@ -115,9 +115,9 @@ Una volta completata la configurazione e il training del modello, si dispone di 
 
 Se è stato usato il modulo [Train clustering Model](train-clustering-model.md) :
 
-1. Fare clic con il pulsante destro del mouse sul modulo **Train clustering Model** .
+1. Selezionare il modulo **Train clustering Model** e aprire il pannello di destra.
 
-2. Selezionare **modello**sottoposto a training e quindi selezionare **Salva come modello con training**.
+2. Selezionare la scheda **output** . Selezionare l'icona **registra set di dati** per salvare una copia del modello sottoposto a training.
 
 Il modello salvato rappresenta i dati di training nel momento in cui è stato salvato il modello. Se successivamente si aggiornano i dati di training usati nella pipeline, il modello salvato non viene aggiornato. 
 
@@ -127,7 +127,7 @@ Se è stato usato il modulo [Train clustering Model](train-clustering-model.md) 
 
 1. Fare clic con il pulsante destro del mouse sul modulo **Train clustering Model** .
 
-2. Selezionare **results DataSet**, quindi selezionare **Visualize**.
+2. Selezionare **Visualizza**.
 
 ### <a name="tips-for-generating-the-best-clustering-model"></a>Suggerimenti per la generazione del modello di clustering migliore  
 

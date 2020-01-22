@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: fb049b5af5c700cdb72f0319019cfd6eee952d9f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 2e14b1bcc991a009ed9b3267477933706e1ec474
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156965"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289952"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -82,7 +82,7 @@ Di seguito è riportata una guida per la configurazione di una versione Azure Pi
 
 ### <a name="requirements"></a>Requisiti
 
--   Una sottoscrizione di Azure collegata a Visual Studio Team Foundation Server o Azure Repos che usa l' [endpoint del servizio Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Una sottoscrizione di Azure collegata a Visual Studio Team Foundation Server o Azure Repos che usa l' [endpoint del servizio Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   Data factory configurato con Azure Repos integrazione git.
 

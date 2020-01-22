@@ -1,5 +1,5 @@
 ---
-title: Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso - Servizi multimediali di Azure | Microsoft Docs
+title: Un sistema di protezione del contenuto con DRM multiplo-servizi multimediali di Azure V3
 description: Questo articolo fornisce una descrizione dettagliata di come progettare un sistema di protezione del contenuto con DRM multiplo con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: efc070491ca1ea84dc8ef095a2144df9d0bf1bcb
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896163"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311904"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
 
@@ -70,7 +70,7 @@ Questa sezione presenta informazioni di riferimento per una progettazione indipe
 
 Un sottosistema DRM può contenere i componenti seguenti:
 
-* Gestione della chiave
+* Gestione delle chiavi
 * Creazione di pacchetti con crittografia DRM
 * Distribuzione di licenze DRM
 * Controllo dei diritti e dell'accesso
@@ -202,10 +202,10 @@ L'implementazione è costituita dai passaggi seguenti:
 
     | **DRM** | **Browser** | **Risultato per un utente con diritti** | **Risultato per un utente senza diritti** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Fail |
-    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
-    | **FairPlay** |Safari su macOS      |Succeed |Fail |
-    | **AES-128** |Browser più moderni  |Succeed |Fail |
+    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Esito negativo |
+    | **Widevine** |Chrome, Firefox, Opera |Succeed |Esito negativo |
+    | **FairPlay** |Safari su macOS      |Succeed |Esito negativo |
+    | **AES-128** |Browser più moderni  |Succeed |Esito negativo |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
@@ -231,7 +231,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Aggiungere autorizzazioni all'applicazione in Azure AD nella scheda **Configura** dell'applicazione. Le autorizzazioni sono obbligatorie per ogni applicazione, indipendentemente dal tipo di versione: locale e distribuita.
 
-    ![autorizzazioni](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
+    ![Autorizzazioni](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
 * Usare l'autorità di certificazione corretta quando si configura la protezione CENC dinamica.
 

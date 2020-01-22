@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b6a019fbea2ebfed67db4f7c2a9b0f8085438aa8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214580"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311649"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a training. Si fornisce un set di dati contenente i punteggi generati da un modello e il modulo **Evaluate Model** calcola un set di metriche di valutazione standard del settore.
   
@@ -40,7 +40,7 @@ Esistono tre modi per usare il modulo **Evaluate Model** :
 
 ## <a name="use-the-training-data"></a>Usare i dati di training
 
-Per valutare un modello, è necessario connettere un set di dati che contiene un set di colonne di input e punteggi.  Se non sono disponibili altri dati, è possibile usare il set di dati originale.
+Per valutare un modello, è necessario connettere un set di dati contenente un set di colonne di input e punteggi.  Se non sono disponibili altri dati, è possibile usare il set di dati originale.
 
 1. Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](./score-model.md) all'input di **Evaluate Model**. 
 2. Fare clic su **Evaluate Model** Module ed eseguire la pipeline per generare i punteggi di valutazione.
@@ -57,18 +57,15 @@ Uno scenario comune nell'apprendimento automatico consiste nel separare il set d
 
 È anche possibile connettere un secondo set di punteggi per **valutare il modello**.  I punteggi potrebbero essere un set di valutazione condiviso con risultati noti o un set di risultati di un modello diverso per gli stessi dati.
 
-Questa funzionalità è utile perché è possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
+Questa funzione è utile perché è possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
 
 1. Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](score-model.md) all'input di **Evaluate Model**. 
 2. Connettere l'output del modulo Score Model per il secondo modello all'input di destra di **Evaluate Model**.
-3. Fare clic con il pulsante destro del mouse su **Evaluate Model**e selezionare **Esegui selezione** per generare i punteggi di valutazione.
+3. Eseguire la pipeline.
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Risultati valutazione** per visualizzare i risultati. È possibile:
-
-+ Salvare i risultati come set di dati, per semplificare l'analisi con altri strumenti
-+ Generare una visualizzazione nella finestra di progettazione
+Dopo aver eseguito **Evaluate Model**, fare clic con il pulsante destro del mouse sul modulo e selezionare **Visualizza risultati valutazione** per visualizzare i risultati.
 
 Se si connettono i set di dati a entrambi gli input di **Evaluate Model**, i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
 Il modello o i dati collegati alla porta sinistra vengono presentati per primi nel report, seguiti dalle metriche per il set di dati o dal modello collegato sulla porta destra.  
@@ -79,7 +76,7 @@ Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due mo
 
 Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto a quelli di due modelli di regressione oppure a confrontati due modelli di classificazione. Tuttavia, la presentazione complessiva è la stessa. 
 
-## <a name="metrics"></a>Metrica
+## <a name="metrics"></a>Metriche
 
 In questa sezione vengono descritte le metriche restituite per i tipi specifici di modelli supportati per l'utilizzo con **Evaluate Model**:
 

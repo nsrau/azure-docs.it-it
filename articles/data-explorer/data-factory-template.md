@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300434"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293556"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copiare in blocco da un database in Esplora dati di Azure usando il modello di Azure Data Factory 
 
 Azure Esplora dati è un servizio di analisi dei dati veloce e completamente gestito. Offre analisi in tempo reale su grandi volumi di dati trasmessi da numerose origini, ad esempio applicazioni, siti Web e dispositivi Internet. 
 
-Azure Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud. È possibile usarlo per popolare il database Esplora dati di Azure con i dati del sistema esistente. E consente di risparmiare tempo durante la compilazione di soluzioni di analisi. 
+Per copiare dati da un database in Oracle Server, Netezza, Teradata o SQL Server ad Azure Esplora dati, è necessario caricare grandi quantità di dati da più tabelle. In genere, i dati devono essere partizionati in ogni tabella in modo da poter caricare le righe con più thread in parallelo da una singola tabella. Questo articolo descrive un modello da usare in questi scenari.
 
 I [modelli Azure Data Factory](/azure/data-factory/solution-templates-introduction) sono pipeline data factory predefinite. Questi modelli consentono di iniziare rapidamente a usare Data Factory e ridurre i tempi di sviluppo nei progetti di integrazione dei dati. 
 
@@ -53,7 +53,7 @@ ADXTableName varchar(255)
 
 Gli elementi di codice sono descritti nella tabella seguente:
 
-|Proprietà  |Descrizione  | Esempio
+|Proprietà  |Description  | Esempio
 |---------|---------| ---------|
 |PartitionId   |  Ordine di copia | 1  |  
 |SourceQuery   |  Query che indica i dati che verranno copiati durante il runtime della pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    

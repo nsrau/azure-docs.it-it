@@ -3,12 +3,12 @@ title: Domande frequenti sul backup di file di Azure
 description: In questo articolo vengono fornite le risposte alle domande comuni su come proteggere le condivisioni file di Azure con il servizio Backup di Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892570"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293998"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 
@@ -36,7 +36,7 @@ Durante un tentativo di backup, la selezione di un account di archiviazione per 
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>È possibile cambiare l'insieme di credenziali in cui si esegue il backup delle condivisioni file?
 
-Sì. Sarà tuttavia necessario [interrompere la protezione](backup-azure-files.md#stop-protecting-an-azure-file-share) dall'insieme di credenziali connesso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione e quindi proteggerlo da un insieme di credenziali diverso.
+Sì. Tuttavia, è necessario arrestare la [protezione in una condivisione file](manage-afs-backup.md#stop-protection-on-a-file-share) dall'insieme di credenziali connesso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione e quindi proteggerlo da un insieme di credenziali diverso.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>In quali aree geografiche è possibile eseguire il backup di condivisioni file di Azure?
 

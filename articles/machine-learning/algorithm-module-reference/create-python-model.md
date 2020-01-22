@@ -9,20 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 0c1a4f33da7e1f39951d641ed1d563c46fb664ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c07ae779334c97b28803d77d2ce4a1b5b7962b48
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232657"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314420"
 ---
 # <a name="create-python-model"></a>Creare il modello Python
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Informazioni su come usare il modulo **Crea modello Python** per creare un modello non sottoposto a training da uno script Python. È possibile basare il modello su qualsiasi strumento di apprendimento incluso in un pacchetto python nell'ambiente Azure Machine Learning Designer. 
 
-Dopo aver creato il modello, è possibile utilizzare [Train Model](train-model.md) per eseguire il training del modello su un set di dati, come qualsiasi altro discente in Azure Machine Learning. Il modello sottoposto a training può essere passato al [modello di Punteggio](score-model.md) per utilizzare il modello per eseguire stime. Il modello con Training può quindi essere salvato e il flusso di lavoro di assegnazione dei punteggi può essere pubblicato come servizio Web.
+Dopo aver creato il modello, è possibile utilizzare [Train Model](train-model.md) per eseguire il training del modello su un set di dati, come qualsiasi altro discente in Azure Machine Learning. Il modello sottoposto a training può essere passato al [modello di Punteggio](score-model.md) per utilizzare il modello per eseguire stime. Il modello con training può quindi essere salvato e il flusso di lavoro per l'assegnazione dei punteggi può essere pubblicato come servizio Web.
 
 > [!WARNING]
 > Attualmente non è possibile passare i risultati con punteggio di un modello Python per valutare il [modello](evaluate-model.md). Se è necessario valutare un modello, è possibile scrivere uno script Python personalizzato ed eseguirlo usando il modulo [Execute Python script](execute-python-script.md) .  

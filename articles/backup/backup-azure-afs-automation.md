@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino File di Azure con PowerShell
 description: Questo articolo illustra come eseguire il backup e il ripristino di File di Azure usando il servizio backup di Azure e PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224166"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294049"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Eseguire il backup e il ripristino File di Azure con PowerShell
 
@@ -28,7 +28,7 @@ Questo articolo spiega come:
 ## <a name="before-you-start"></a>Prima di iniziare
 
 * [Altre](backup-azure-recovery-services-vault-overview.md) informazioni sugli insiemi di credenziali dei servizi di ripristino.
-* Leggere le informazioni sulle funzionalità di anteprima per il [backup di condivisioni file di Azure](backup-azure-files.md).
+* Leggere le informazioni sulle funzionalità di anteprima per il [backup di condivisioni file di Azure](backup-afs.md).
 * Esaminare la gerarchia di oggetti di PowerShell per i servizi di ripristino.
 
 ## <a name="recovery-services-object-hierarchy"></a>Gerarchia di oggetti dei servizi di ripristino
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sul](backup-azure-files.md) backup di File di Azure nel portale di Azure.
+[Informazioni sul](backup-afs.md) backup di File di Azure nel portale di Azure.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 11/05/2019
-ms.openlocfilehash: 6243b702e38e2a2edbe17a665be1d57b3921b6fd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: f22145541369093f9cb8a2e9d06b705b6b2121df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867101"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289867"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -161,7 +161,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**:' AZ Key Vault show--name < Key-Vault-Name >--query "ID"
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID dell'insieme di credenziali delle chiavi:
 

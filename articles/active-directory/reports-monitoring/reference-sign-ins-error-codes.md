@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429473"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294100"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -96,6 +96,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50072|L'utente deve registrarsi per l'autenticazione a due fattori (interattiva).|
 |50074|L'utente non ha superato la richiesta di verifica MFA.|
 |50076|L'utente non ha superato la richiesta di verifica MFA (non interattiva).|
+|50078|L'autenticazione a più fattori presentata è scaduta, è necessario aggiornare l'autenticazione a più fattori per accedere a.|
 |50079|L'utente deve registrarsi per l'autenticazione a due fattori (accessi non interattivi).|
 |50085|Il token di aggiornamento richiede un accesso IDP social. Chiedere all'utente di provare a eseguire di nuovo l'accesso con il nome utente e la password.|
 |50089|Il token di flusso è scaduto. L'autenticazione non è riuscita. Chiedere all'utente di provare a eseguire di nuovo l'accesso con il nome utente e la password|
@@ -184,7 +185,8 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |90014| Un campo obbligatorio per un messaggio di protocollo non è presente. Contattare il proprietario dell'applicazione. Il proprietario dell'applicazione deve verificare di disporre di tutti i parametri necessari per la richiesta di accesso. |
 |90051| Token di delega non valido. È stato specificato un ID cloud nazionale non valido ({cloudId}).|
 |90072| L'account deve essere prima aggiunto come utente esterno nel tenant. Disconnettersi ed eseguire nuovamente l'accesso con un account Azure AD diverso.|
-|90094| La concessione richiede le autorizzazioni di amministratore. Chiedere all'amministratore del tenant di fornire il consenso per l'applicazione.|
+|90094| L'app ha richiesto le autorizzazioni a cui l'utente connesso non è autorizzato a fornire il consenso e l'utente è stato bloccato. |
+|90095| L'app ha richiesto le autorizzazioni a cui l'utente connesso non è autorizzato a fornire il consenso e l'utente ha visualizzato il modulo di [richiesta di consenso dell'amministratore](../manage-apps/configure-admin-consent-workflow.md) . |
 |500011| L'entità di risorsa denominata <site address> non è stata trovata nel tenant denominato <tenant ID>. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. La richiesta di autenticazione potrebbe essere stata inviata al tenant sbagliato.|
 |500021| Il tenant è limitato dal proxy aziendale. Negazione dell'accesso alle risorse.|
 |500121| Autenticazione non riuscita durante la richiesta di autenticazione avanzata.|
@@ -193,6 +195,8 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |530032|Bloccato dai criteri di sicurezza.| 
 |700016|L'applicazione con identificatore ' {appIdentifier}' non è stata trovata nella directory ' {TenantName}'. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che sia stata inviata la richiesta di autenticazione al tenant errato.|
 |900432|Il client riservato non è supportato nella richiesta tra cloud.|
+|5000811|Impossibile verificare la firma del token SAML. L'identificatore della chiave di firma non corrisponde ad alcuna chiave registrata valida.|
+|7000215|È stato specificato un segreto client non valido.|
 |7000218|Il corpo della richiesta deve contenere il parametro seguente:' client_assertion ' o ' client_secret '.|
 
 

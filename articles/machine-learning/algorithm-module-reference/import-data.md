@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f9815dac9e61eec51230911094f35a33a64e541c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166779"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311513"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per caricare i dati in una pipeline di machine learning da servizi dati cloud esistenti. 
 
@@ -78,7 +78,7 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
 Al termine dell'importazione, fare clic sul set di dati di output e selezionare **Visualizza** per verificare se i dati sono stati importati correttamente.
 
-Se si desidera salvare i dati per riutilizzarli, anziché importare un nuovo set di dati ogni volta che viene eseguita la pipeline, fare clic con il pulsante destro del mouse sull'output e selezionare **Salva come DataSet**. Scegliere un nome per il set di dati. Il set di dati salvato conserva i dati al momento del salvataggio e i dati non vengono aggiornati quando viene rieseguita la pipeline, anche se il set di dati nella pipeline viene modificato. Questo può essere utile per acquisire snapshot dei dati.
+Se si desidera salvare i dati per riutilizzarli, anziché importare un nuovo set di dati ogni volta che viene eseguita la pipeline, selezionare l'icona **registra set** di dati nella scheda **output** nel riquadro di destra del modulo. Scegliere un nome per il set di dati. Il set di dati salvato conserva i dati al momento del salvataggio, il set di dati non viene aggiornato quando viene rieseguita la pipeline, anche se il set di dati nella pipeline viene modificato. Questa operazione può essere utile per acquisire snapshot dei dati.
 
 Dopo aver importato i dati, potrebbero essere necessarie alcune preparazioni aggiuntive per la modellazione e l'analisi:
 

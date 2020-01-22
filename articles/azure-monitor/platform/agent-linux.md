@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
-ms.openlocfilehash: c06a7551a5c0f14be94ed14072b81c189e359aa8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/21/2020
+ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541998"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290326"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connettere i computer Linux a monitoraggio di Azure
 
@@ -74,9 +74,10 @@ Prima di installare l'agente di Log Analytics per Linux, sono necessari l'ID e l
 
 L'agente di Log Analytics per Linux viene fornito in un bundle di script della shell autoestraente e installabile. Questo bundle contiene pacchetti Debian e RPM per ognuno dei componenti dell'agente e può essere installato direttamente o estratto per recuperare i singoli pacchetti. Viene fornito un bundle per x64 e uno per le architetture x86. 
 
-Per le macchine virtuali di Azure, è consigliabile installarvi l'agente usando l' [estensione VM log Analytics di Azure](../../virtual-machines/extensions/oms-linux.md) per Linux. 
+> [!NOTE]
+> Per le macchine virtuali di Azure, è consigliabile installarvi l'agente usando l' [estensione VM log Analytics di Azure](../../virtual-machines/extensions/oms-linux.md) per Linux. 
 
-1. Trasferire il bundle appropriato (x86 o x64) nella macchina virtuale Linux o nel computer fisico usando SCP/SFTP.
+1. [Scaricare](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) e trasferire il bundle appropriato (x64 o x86) nella VM Linux o nel computer fisico usando SCP/SFTP.
 
 2. Installare il bundle usando l'argomento `--install`. Per eseguire l'onboarding in un'area di lavoro Log Analytics durante l'installazione, fornire i parametri `-w <WorkspaceID>` e `-s <workspaceKey>` copiati in precedenza.
 
@@ -133,7 +134,7 @@ Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare 
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Il comando seguente include il parametro `-p` proxy e la sintassi di esempio quando il server proxy richiede l'autenticazione:
+    Il comando seguente include il parametro `-p` del proxy e la sintassi di esempio per i casi in cui il server proxy richiede l'autenticazione:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -145,7 +146,7 @@ Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare 
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Il comando seguente include il parametro `-p` proxy e la sintassi di esempio quando il server proxy richiede l'autenticazione:
+    Il comando seguente include il parametro `-p` del proxy e la sintassi di esempio per i casi in cui il server proxy richiede l'autenticazione:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us

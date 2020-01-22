@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c903e3378e06734a8785531c1a16c695d4b6c21
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 111581def3ed0c366898534ee6b6c5f5b6d9e756
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814946"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293114"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -98,9 +98,16 @@ Quando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* è disabilitato (impos
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
 
-Per abilitare la funzionalità EnforceCloudPasswordPolicyForPasswordSyncedUsers, eseguire il comando seguente usando il modulo MSOnline di PowerShell:
-
-`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers -Enable $true`
+Per abilitare la funzionalità EnforceCloudPasswordPolicyForPasswordSyncedUsers, eseguire il comando seguente usando il modulo PowerShell di MSOnline, come illustrato di seguito. È necessario digitare yes per il parametro enable come illustrato di seguito:
+```
+`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers`
+`cmdlet Set-MsolDirSyncFeature at command pipeline position 1`
+`Supply values for the following parameters:`
+`Enable: yes`
+`Confirm`
+`Continue with this operation?`
+`[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y`
+```
 
 Una volta abilitata, Azure AD non passa a ogni utente sincronizzato per rimuovere il valore `DisablePasswordExpiration` dall'attributo PasswordPolicies. Al contrario, il valore viene impostato su `None` durante la sincronizzazione della password successiva per ogni utente alla successiva modifica della password in AD locale.  
 
@@ -160,7 +167,7 @@ La sincronizzazione di una password non ha alcun impatto sull'utente di Azure co
 Se si usa Azure AD Domain Services per fornire l'autenticazione legacy per le applicazioni e i servizi che devono usare Kerberos, LDAP o NTLM, alcuni processi aggiuntivi fanno parte del flusso di sincronizzazione dell'hash delle password. Azure AD Connect usa il processo aggiuntivo seguente per sincronizzare gli hash delle password con Azure AD da usare nei Azure AD Domain Services:
 
 > [!IMPORTANT]
-> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti di servizi di dominio Active Directory locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito Azure AD DS per sincronizzare nuovamente gli oggetti con Azure AD.
+> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti AD DS locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito di Azure AD DS per sincronizzare gli oggetti con Azure AD.
 >
 > Azure AD Connect sincronizza solo gli hash delle password legacy quando si Abilita Azure AD DS per il tenant di Azure AD. La procedura seguente non viene usata se si usa solo Azure AD Connect per sincronizzare un ambiente Active Directory Domain Services locale con Azure AD.
 >

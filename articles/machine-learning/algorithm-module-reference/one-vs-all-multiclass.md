@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 939ac7caacac7cfb55bd29ed9a5d9c136a8e5c90
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428504"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314250"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
-Questo articolo descrive come usare il modulo One-vs-All Multiclass in Azure Machine Learning Designer (anteprima). L'obiettivo consiste nel creare un modello di classificazione in grado di prevedere più classi, utilizzando l'approccio *uno-a-tutti* .
+Questo articolo descrive come usare il modulo One-vs-All Multiclass in Azure Machine Learning Designer. L'obiettivo consiste nel creare un modello di classificazione in grado di prevedere più classi, utilizzando l'approccio *uno-a-tutti* .
 
 Questo modulo è utile per la creazione di modelli che stimano tre o più risultati possibili quando il risultato dipende da variabili predittive categoriche o continue. Questo metodo consente inoltre di usare metodi di classificazione binaria per problemi che richiedono più classi di output.
 

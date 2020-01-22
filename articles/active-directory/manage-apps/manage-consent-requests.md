@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6a77fa8c6c48c9c3d4f2eba3ba56ac9114707a
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122990"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290700"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestione del consenso alle applicazioni e valutazione delle richieste di consenso
 
@@ -42,7 +42,7 @@ Quando il consenso dell'utente finale è disabilitato o limitato, è necessario 
 
 3. Se l'organizzazione ha la licenza appropriata:
 
-    * Usare le [funzionalità aggiuntive di controllo delle applicazioni OAuth in Microsoft cloud app Security](https://docs.microsoft.com/azure/cloud-app-security/investigate-risky-oauth).
+    * Usare le [funzionalità aggiuntive di controllo delle applicazioni OAuth in Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
     * Usare [le cartelle di lavoro di monitoraggio di Azure per monitorare le autorizzazioni e le](../reports-monitoring/howto-use-azure-monitor-workbooks.md) attività correlate al consenso. La cartella di lavoro di *acconsente Insights* offre una visualizzazione delle app in base al numero di richieste di consenso non riuscite. Questa operazione può essere utile per classificare in ordine di priorità le applicazioni per gli amministratori e decidere se concedere loro il consenso dell'amministratore.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Considerazioni aggiuntive per la riduzione dell'attrito

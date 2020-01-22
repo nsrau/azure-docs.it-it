@@ -15,24 +15,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545012629686e1fe3ece8a48ed852542e09e54fe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b23085e486972ef6a10b3bd2ee86ae1bb1dc3006
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965518"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293318"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: app desktop che chiama le API Web
 
-Scopri tutto quello che ti serve per creare un'app desktop che chiama le API Web
+Scopri tutto quello che ti serve per creare un'app desktop che chiama le API Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="get-started"></a>Inizia oggi stesso
 
-Se non è già stato fatto, creare la prima applicazione seguendo la Guida introduttiva per desktop .NET, la Guida introduttiva di UWP o la Guida introduttiva all'app nativa macOS:
+Se non è già stato fatto, creare la prima applicazione seguendo la Guida introduttiva per desktop .NET, la Guida introduttiva piattaforma UWP (Universal Windows Platform) (UWP) o la Guida introduttiva all'app nativa macOS:
 
 > [!div class="nextstepaction"]
 > [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app desktop di Windows](./quickstart-v2-windows-desktop.md)
@@ -44,31 +44,31 @@ Se non è già stato fatto, creare la prima applicazione seguendo la Guida intro
 > [!div class="nextstepaction"]
 > [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app nativa macOS](./quickstart-v2-ios.md)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
-Si scrive un'applicazione desktop e si vogliono accedere gli utenti all'applicazione e chiamare le API Web, ad esempio la Microsoft Graph, altre API Microsoft o la propria API Web. Sono disponibili diverse possibilità:
+Si scrive un'applicazione desktop e si vogliono accedere gli utenti all'applicazione e chiamare API Web, ad esempio Microsoft Graph, altre API Microsoft o un'API Web personalizzata. Sono disponibili diverse possibilità:
 
 - È possibile usare l'acquisizione di token interattivo:
 
-  - Se l'applicazione desktop supporta i controlli grafici, ad esempio se si tratta di un'applicazione Windows. Form, un'applicazione WPF o un'applicazione nativa macOS.
-  - Se si tratta di un'applicazione .NET Core e si accetta che l'interazione di autenticazione con Azure AD avvenga nel browser di sistema
+  - Se l'applicazione desktop supporta i controlli grafici, ad esempio, se si tratta di un'applicazione Windows. Form, di un'applicazione WPF o di un'applicazione nativa macOS.
+  - In alternativa, se si tratta di un'applicazione .NET Core e si accetta di fare in modo che l'interazione di autenticazione con Azure Active Directory (Azure AD) venga eseguita nel browser del sistema.
 
-- Per le applicazioni ospitate in Windows, è anche possibile che le applicazioni in esecuzione nei computer aggiunti a un dominio Windows o ad AAD siano unite per acquisire un token in modo invisibile all'utente usando l'autenticazione integrata di Windows.
-- Infine, anche se non è consigliabile, è possibile usare il nome utente e la password nelle applicazioni client pubbliche. È ancora necessario in alcuni scenari (ad esempio DevOps), ma è opportuno tenere presente che l'uso di questa funzione imposterà vincoli sull'applicazione. Ad esempio, non può accedere all'utente che deve eseguire l'autenticazione a più fattori (accesso condizionale). Inoltre, l'applicazione non trarrà vantaggio da Single Sign-On (SSO).
+- Per le applicazioni ospitate in Windows, è anche possibile che le applicazioni in esecuzione su computer aggiunti a un dominio di Windows o Azure AD Unite per acquisire un token in modo invisibile all'utente usando l'autenticazione integrata di Windows.
+- Infine, anche se non è consigliabile, è possibile usare un nome utente e una password nelle applicazioni client pubbliche. È ancora necessario in alcuni scenari, ad esempio DevOps. L'uso di esso impone vincoli sull'applicazione. Ad esempio, non può accedere a un utente che deve eseguire l'autenticazione a più fattori (accesso condizionale). Inoltre, l'applicazione non trarrà vantaggio da Single Sign-On (SSO).
 
   Il flusso è anche contrario ai principi dell'autenticazione moderna e viene fornito solo per motivi legacy.
 
   ![Applicazione desktop](media/scenarios/desktop-app.svg)
 
-- Se si sta scrivendo uno strumento da riga di comando portabile, probabilmente un'applicazione .NET Core in esecuzione su Linux o Mac e si accetta che l'autenticazione venga delegata al browser di sistema, sarà possibile usare l'autenticazione interattiva. .NET Core non fornisce ancora un [Web browser](https://aka.ms/msal-net-uses-web-browser) e pertanto l'autenticazione viene eseguita nel browser di sistema. in caso contrario, l'opzione migliore in questo caso consiste nell'usare il flusso del codice del dispositivo. Questo flusso viene usato anche per le applicazioni senza un browser, ad esempio le applicazioni Internet delle cose
+- Se si scrive uno strumento da riga di comando portabile, probabilmente un'applicazione .NET Core eseguita in Linux o Mac e si accetta che l'autenticazione verrà delegata al browser di sistema, è possibile usare l'autenticazione interattiva. .NET Core non fornisce un [Web browser](https://aka.ms/msal-net-uses-web-browser), quindi l'autenticazione viene eseguita nel browser del sistema. In caso contrario, l'opzione migliore in questo caso consiste nell'usare il flusso del codice del dispositivo. Questo flusso viene usato anche per le applicazioni senza un browser, ad esempio le applicazioni Internet.
 
   ![Applicazione browser](media/scenarios/device-code-flow-app.svg)
 
 ## <a name="specifics"></a>Specifiche
 
-Le applicazioni desktop hanno diverse specifiche, che dipendono principalmente dal fatto che l'applicazione usi o meno l'autenticazione interattiva.
+Le applicazioni desktop hanno diverse peculiarità. Dipendono principalmente dal fatto che l'applicazione usi o meno l'autenticazione interattiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [App desktop-registrazione app](scenario-desktop-app-registration.md)
+> [App desktop: registrazione dell'app](scenario-desktop-app-registration.md)

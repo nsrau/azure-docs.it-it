@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1c167c71907e5f8af1006dfabd8f81ce4425d09
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457377"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291159"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Eseguire la migrazione dei dati in blocco al Sincronizzazione file di Azure
 È possibile eseguire la migrazione dei dati in blocco a Sincronizzazione file di Azure in due modi:
@@ -79,7 +79,7 @@ Quando il server completa la sincronizzazione iniziale dello spazio dei nomi, i 
 A questo punto è possibile eliminare la condivisione di staging per ridurre i costi:
 
 1. Quando lo stato è **completato**, nel pannello **proprietà endpoint server** selezionare **Disabilita trasferimento dati offline**.
-2. Provare a eliminare la condivisione di staging per ridurre i costi. La condivisione di staging probabilmente non contiene ACL di file e cartelle, quindi non è molto utile. Per gli scopi temporizzati del backup, creare uno snapshot reale [della condivisione file di Azure di sincronizzazione](storage-snapshots-files.md). È possibile [configurare backup di Azure per eseguire snapshot]( ../../backup/backup-azure-files.md) in base a una pianificazione.
+2. Provare a eliminare la condivisione di staging per ridurre i costi. La condivisione di staging probabilmente non contiene ACL di file e cartelle, quindi non è molto utile. Per gli scopi temporizzati del backup, creare uno snapshot reale [della condivisione file di Azure di sincronizzazione](storage-snapshots-files.md). È possibile [configurare backup di Azure per eseguire snapshot]( ../../backup/backup-afs.md) in base a una pianificazione.
 
 Disabilitare la modalità di trasferimento dati offline solo quando lo stato è **completato** o quando si desidera annullare a causa di una configurazione errata. Se si disabilita la modalità durante una distribuzione, i file inizieranno a essere caricati dal server anche se la condivisione di gestione temporanea è ancora disponibile.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 807bb4b4dd07298635ff0cd3e18f095ccf862e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989800"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290241"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Come viene applicato lo sconto per la prenotazione di Azure alle macchine virtuali
 
@@ -47,7 +47,7 @@ Quando si arresta una risorsa, lo sconto per la prenotazione si applica automati
 
 ![Screenshot di una prenotazione applicata e di due istanze di macchina virtuale corrispondenti](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. Per l'uso al di sopra della linea della prenotazione vengono addebitate le normali tariffe con pagamento in base al consumo. L'utilizzo al di sotto della linea della prenotazione non viene addebitato perché è già stato pagato con l'acquisto della prenotazione.
+1. Per l'uso al di sopra della linea della prenotazione vengono addebitate le normali tariffe con pagamento in base al consumo. Non viene addebitato alcun utilizzo al di sotto della linea di prenotazione, perché è già stata pagata come parte dell'acquisto della prenotazione.
 2. Nell'ora 1 l'istanza 1 viene eseguita per 0,75 ore e l'istanza 2 per 0,5 ore. L'utilizzo totale per l'ora 1 è di 1,25 ore. Vengono addebitate le tariffe con pagamento in base al consumo per le rimanenti 0,25 ore.
 3. Nell'ora 2 e nell'ora 3 ognuna delle istanze è stata eseguita per 1 ora. Un'istanza è coperta dalla prenotazione e per l'altra vengono addebitate le tariffe con pagamento in base al consumo.
 4. Nell'ora 4 l'istanza 1 viene eseguita per 0,5 ore e l'istanza 2 per 1 ora. L'istanza 1 è completamente coperta dalla prenotazione, come anche 0,5 ore dell'istanza 2. Viene addebitata la tariffa con pagamento in base al consumo per le rimanenti 0,5 ore.

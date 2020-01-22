@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: e7ab953a7ac0907244ebaab70b3b86cbe6f0f4d9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 27838aae1d829598bed44a6c16f7a1d38a95b727
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497647"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314097"
 ---
 # <a name="score-model-module"></a>Modulo Score Model
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per generare stime usando un modello di classificazione o regressione con training.
 
@@ -44,7 +44,7 @@ Il Punteggio, o valore stimato, può essere in molti formati diversi, a seconda 
 
 - Per i modelli di classificazione, [Score Model](./score-model.md) restituisce un valore stimato per la classe, nonché la probabilità del valore stimato.
 - Per i modelli di regressione, [Score Model](./score-model.md) genera solo il valore numerico stimato.
-- Per i modelli di classificazione delle immagini, il punteggio potrebbe essere la classe dell'oggetto nell'immagine o un valore booleano che indica se è stata trovata una funzionalità specifica.
+- Per i modelli di classificazione di immagini, il punteggio potrebbe essere la classe dell'oggetto nell'immagine o un valore booleano che indica se è stata trovata una caratteristica specifica.
 
 ## <a name="publish-scores-as-a-web-service"></a>Pubblicare i punteggi come servizio Web
 

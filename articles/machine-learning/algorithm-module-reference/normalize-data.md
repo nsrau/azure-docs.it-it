@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e4bc440d59f41988a52b8b7b808b74f95acdf46
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466052"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314267"
 ---
 # <a name="normalize-data-module"></a>Normalizza modulo dati
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per trasformare un set di dati tramite la *normalizzazione*.
 
@@ -31,11 +31,11 @@ La *normalizzazione* consente di evitare questi problemi creando nuovi valori ch
 Questo modulo offre diverse opzioni per la trasformazione dei dati numerici:
 
 - È possibile modificare tutti i valori in una scala 0-1 o trasformare i valori rappresentando i valori come rango percentile anziché valori assoluti.
-- È possibile applicare la normalizzazione a una singola colonna o a più colonne nello stesso set di dati.
+- È possibile applicare la normalizzazione a una singola colonna o a più colonne dello stesso set di dati.
 - Se è necessario ripetere la pipeline o applicare gli stessi passaggi di normalizzazione ad altri dati, è possibile salvare i passaggi come trasformazione di normalizzazione e applicarla ad altri set di dati con lo stesso schema.
 
 > [!WARNING]
-> Alcuni algoritmi richiedono la normalizzazione dei dati prima di eseguire il training di un modello. Altri algoritmi eseguono il ridimensionamento o la normalizzazione dei dati. Pertanto, quando si sceglie un algoritmo di machine learning da usare per la compilazione di un modello predittivo, assicurarsi di esaminare i requisiti dei dati dell'algoritmo prima di applicare la normalizzazione ai dati di training.
+> Alcuni algoritmi richiedono di normalizzare i dati prima di eseguire il training di un modello. Altri algoritmi scalano o normalizzano autonomamente i propri dati. Pertanto, quando si sceglie un algoritmo di machine learning da usare per la compilazione di un modello predittivo, assicurarsi di esaminare i requisiti dei dati dell'algoritmo prima di applicare la normalizzazione ai dati di training.
 
 ##  <a name="configure-normalize-data"></a>Configurare i dati normalizzati
 
@@ -60,27 +60,27 @@ Con questo modulo è possibile applicare un solo metodo di normalizzazione alla 
   
     - **ZScore**: converte tutti i valori in un punteggio z.
     
-      I valori nella colonna vengono trasformati utilizzando la formula seguente:  
+      I valori nella colonna vengono trasformati usando la seguente formula:  
   
       ![normalizzazione con&#45;punteggi z](media/module/aml-normalization-z-score.png)
   
-      La deviazione media e standard vengono calcolate separatamente per ogni colonna. Viene utilizzata la deviazione standard della popolazione.
+      La deviazione media e quella standard vengono calcolate separatamente per ogni colonna. Viene usata la deviazione standard della popolazione.
   
     - **MinMax**: il normalizzatore min-max ridimensiona in modo lineare ogni funzionalità con l'intervallo [0,1].
     
-      Il ridimensionamento all'intervallo [0, 1] viene eseguito spostando i valori di ogni funzionalità in modo che il valore minimo sia 0 e quindi dividendo per il nuovo valore massimo, ovvero la differenza tra i valori massimi e minimi originali.
+      Questa operazione viene eseguita scalando i valori di ogni funzione in modo che il valore minimo sia 0 e dividendo per il nuovo valore massimo, che è la differenza tra i valori massimo e minimo originali.
       
-      I valori nella colonna vengono trasformati utilizzando la formula seguente:  
+      I valori nella colonna vengono trasformati usando la seguente formula:  
   
       ![normalizzazione con la&#45;funzione min max](media/module/aml-normalization-minmax.png "AML_normalization-MinMax")  
   
     - **Logistica**: i valori nella colonna vengono trasformati usando la formula seguente:
 
-      ![formula per la normalizzazione per funzione logistica](media/module/aml-normalization-logistic.png "AML_normalization-logistica")  
+      ![formula per la normalizzazione per funzione logistica](media/module/aml-normalization-logistic.png "AML_normalization logistica")  
   
     - **Lognormale**: questa opzione converte tutti i valori in una scala lognormale.
   
-      I valori nella colonna vengono trasformati utilizzando la formula seguente:
+      I valori nella colonna vengono trasformati usando la seguente formula:
   
       ![distribuzione normale&#45;di log delle formule](media/module/aml-normalization-lognormal.png "AML_normalization-lognormale")
     
@@ -88,7 +88,7 @@ Con questo modulo è possibile applicare un solo metodo di normalizzazione alla 
   
     - **Tanh**: tutti i valori vengono convertiti in una tangente iperbolica.
     
-      I valori nella colonna vengono trasformati utilizzando la formula seguente:
+      I valori nella colonna vengono trasformati usando la seguente formula:
     
       ![normalizzazione mediante la funzione tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
@@ -98,11 +98,11 @@ Con questo modulo è possibile applicare un solo metodo di normalizzazione alla 
 
 Il modulo **Normalize data** genera due output:
 
-- Per visualizzare i valori trasformati, fare clic con il pulsante destro del mouse sul modulo, scegliere **set di dati trasformato**, quindi fare clic su **Visualizza**.
+- Per visualizzare i valori trasformati, fare clic con il pulsante destro del mouse sul modulo e scegliere **Visualizza**.
 
     Per impostazione predefinita, i valori vengono trasformati sul posto. Se si desidera confrontare i valori trasformati con i valori originali, utilizzare il modulo [Add columns](./add-columns.md) per ricombinare i set di impostazioni e visualizzare le colonne side-by-side.
 
-- Per salvare la trasformazione in modo che sia possibile applicare lo stesso metodo di normalizzazione a un altro set di dati simile, fare clic con il pulsante destro del mouse sul modulo, scegliere **funzione di trasformazione**, quindi fare clic su **Salva come trasformazione**.
+- Per salvare la trasformazione in modo che sia possibile applicare lo stesso metodo di normalizzazione a un altro set di dati, selezionare il modulo e selezionare **registra set di dati** nella scheda **output** nel riquadro di destra.
 
     È quindi possibile caricare le trasformazioni salvate dal gruppo **trasformazioni** del riquadro di spostamento a sinistra e applicarle a un set di dati con lo stesso schema usando la [trasformazione./Apply](apply-transformation.md).  
 

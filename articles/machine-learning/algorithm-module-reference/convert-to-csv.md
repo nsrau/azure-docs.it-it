@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e92201552b4d448a619a801d2ee64032c8bbefe
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493857"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314437"
 ---
 # <a name="convert-to-csv-module"></a>Converti in modulo CSV
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per convertire un set di dati in un formato CSV che può essere scaricato, esportato o condiviso con moduli di script R o Python.
 
@@ -30,14 +30,14 @@ Anche se si esegue la maggior parte del lavoro in Azure Machine Learning, in alc
 
 + Scaricare il file CSV per aprirlo con Excel oppure importarlo in un database relazionale.  
 + Salvare il file CSV nell'archiviazione cloud e connettersi a esso da Power BI per creare le visualizzazioni.  
-+ Usare il formato CSV per preparare i dati per l'uso in R e Python. È sufficiente fare clic con il pulsante destro del mouse sull'output del modulo per generare il codice necessario per accedere ai dati direttamente da Python o da un notebook di Jupyter. 
++ Usare il formato CSV per preparare i dati per l'uso in R e Python. 
 
-Quando si converte un set di dati in formato CSV, il file viene salvato nell'area di lavoro di Azure ML. È possibile usare un'utilità di archiviazione di Azure per aprire e usare direttamente il file. in alternativa, è possibile fare clic con il pulsante destro del mouse sull'output del modulo e scaricare il file CSV nel computer oppure usarlo nel codice R o Python.  
+Quando si converte un set di dati in formato CSV, il volume CSV viene salvato nell'area di lavoro di Azure ML. È possibile usare un'utilità di archiviazione di Azure per aprire e usare direttamente il file. È anche possibile accedere al volume CSV nella finestra di progettazione selezionando il modulo **Convert to CSV** , quindi selezionare l'icona dell'istogramma nella scheda **output** nel riquadro di destra per visualizzare l'output. È possibile scaricare il file CSV dalla cartella dei risultati in una directory locale.  
 
 ## <a name="how-to-configure-convert-to-csv"></a>Come configurare Convert to CSV
 
 
-1.  Aggiungere il modulo [Convert to CSV](./convert-to-csv.md) alla pipeline. È possibile trovare questo modulo nel gruppo **conversioni formato dati** nella finestra di progettazione. 
+1.  Aggiungere il modulo Convert to CSV alla pipeline. È possibile trovare questo modulo nel gruppo **trasformazione dati** nella finestra di progettazione. 
 
 2. Connetterlo a qualsiasi modulo che restituisce un set di dati.   
   
@@ -46,14 +46,11 @@ Quando si converte un set di dati in formato CSV, il file viene salvato nell'are
 ### <a name="results"></a>Risultati
   
 
-Fare doppio clic sull'output di [Convert to CSV](./convert-to-csv.md)e selezionare una di queste opzioni.  
+Selezionare la scheda **output** nel riquadro di destra di **Converti in CSV**e selezionare una di queste icone sotto gli output della **porta**.  
 
- + Set di dati di **risultati-Download >** : apre immediatamente una copia dei dati in formato CSV che è possibile salvare in una cartella locale. Se non si specifica una cartella, viene applicato un nome file predefinito e il file CSV viene salvato nella libreria di **download** locale.
++ **Registra set di dati**: selezionare l'icona e salvare di nuovo il file CSV nell'area di lavoro di Azure ml come set di dati separato. È possibile trovare il set di dati come modulo nell'albero del modulo nella sezione set di dati **personali** .
 
-
- + **Set di dati dei risultati-> Salva come set di dati**: Salva il file CSV di nuovo nell'area di lavoro di Azure ml come set di dati separato.
-
- + **Generare il codice di accesso ai dati**: Azure ml genera due set di codice per accedere ai dati, usando Python o R. Per accedere ai dati, copiare il frammento di codice nell'applicazione. (La*generazione del codice di accesso ai dati sarà presto disponibile).*
+ + **Visualizza output**: selezionare l'icona a forma di occhio e seguire le istruzioni per esplorare la cartella **Results_dataset** e scaricare il file Data. csv.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

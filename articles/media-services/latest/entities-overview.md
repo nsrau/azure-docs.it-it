@@ -1,5 +1,5 @@
 ---
-title: Filtraggio, ordinamento e paging delle entità di servizi multimediali
+title: Filtraggio, ordinamento e paging delle entità di servizi multimediali V3
 titleSuffix: Azure Media Services
 description: Informazioni su filtro, ordinamento e paging delle entità di servizi multimediali di Azure.
 services: media-services
@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c5ae9839b7bbb86e28c9f8adab0aa0ec5e885087
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186255"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311700"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di servizi multimediali
 
@@ -45,7 +45,7 @@ Operatori di intervallo:
 - `ge`: verificare se un campo è *maggiore o uguale a* un valore costante.
 - `le`: verificare se un campo è *minore o uguale a* un valore costante.
 
-## <a name="filter"></a>Filtro
+## <a name="filter"></a>Filtra
 
 Usare `$filter` per fornire un parametro di filtro OData per trovare solo gli oggetti a cui si è interessati.
 
@@ -156,27 +156,27 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 La tabella seguente illustra come applicare le opzioni di filtro e ordinamento a entità diverse:
 
-|Nome dell'entità|Nome proprietà|Filtro|Ordine|
+|Nome dell'entità|Nome proprietà|Filtra|Ordina|
 |---|---|---|---|
-|[Asset](https://docs.microsoft.com/rest/api/media/assets/)|Nome|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
+|[Asset](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` e `desc`|
-|[Criteri chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|Nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Criteri chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[Processi](https://docs.microsoft.com/rest/api/media/jobs)| Nome  | `eq`            | `asc` e `desc`|
+|[Processi](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` e `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
-|[Localizzatori di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|Nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Localizzatori di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-|[Criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|Nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-|[Trasforma](https://docs.microsoft.com/rest/api/media/transforms)| Nome | `eq`            | `asc` e `desc`|
+|[Trasformazioni](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` e `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 

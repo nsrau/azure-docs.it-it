@@ -7,18 +7,18 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f2ee982e2c1e1c363a391779721f848b8ae6afd5
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17b53c508f0c4c5ba8fa257fcdc692cdaa45d470
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088898"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294219"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operazioni del file system in Azure Data Lake Storage Gen1 con Python
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [SDK per Java](data-lake-store-get-started-java-sdk.md)
-> * [API REST](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -39,7 +39,7 @@ Per usare Data Lake Storage Gen1 con Python, è necessario installare tre moduli
 
 * Il modulo `azure-mgmt-resource` che include i moduli di Azure per Active Directory e così via.
 * Il modulo `azure-mgmt-datalake-store` che include le operazioni di gestione di account di Azure Data Lake Storage Gen1. Per altre informazioni su questo modulo, vedere le [informazioni di riferimento sul modulo azure-mgmt-datalake-store](/python/api/azure-mgmt-datalake-store/).
-* Il modulo `azure-datalake-store`, che include le operazioni del file system di Azure Data Lake Storage Gen1. Per altre informazioni su questo modulo, vedere le [informazioni di riferimento sul modulo del file system azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
+* Il modulo `azure-datalake-store` che include le operazioni del file system di Azure Data Lake Storage Gen1. Per altre informazioni su questo modulo, vedere le [informazioni di riferimento sul modulo del file system azure-datalake-store](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Per installare i moduli, usare i comandi seguenti.
 
@@ -82,7 +82,7 @@ pip install azure-datalake-store
 
 3. Salvare le modifiche a mysample.py.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Questa sezione descrive le diverse modalità di autenticazione con Azure AD. Le opzioni disponibili sono:
 
@@ -105,14 +105,14 @@ Il frammento di codice seguente crea innanzitutto il client dell'account Data La
     ## Create a directory
     adlsFileSystemClient.mkdir('/mysampledirectory')
 
-## <a name="upload-a-file"></a>Carica un file
+## <a name="upload-a-file"></a>Caricare un file
 
 
     ## Upload a file
     multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
 
-## <a name="download-a-file"></a>Scarica file
+## <a name="download-a-file"></a>Scaricare un file
 
     ## Download a file
     multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
@@ -125,7 +125,7 @@ Il frammento di codice seguente crea innanzitutto il client dell'account Data La
 ## <a name="next-steps"></a>Passaggi successivi
 * [Operazioni di gestione di account in Data Lake Storage Gen1 con Python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-* [Informazioni di riferimento su Python con Azure Data Lake Storage Gen1 - file system](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Informazioni di riferimento su Python con Azure Data Lake Storage Gen1 - file system](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Aprire le applicazioni Big Data di origine compatibili con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

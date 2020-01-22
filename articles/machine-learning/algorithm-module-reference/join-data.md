@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: b07bde671be73af2a351353d9794907972a022e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c984b38498085567441fb0c4f965602d437589e5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232614"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311496"
 ---
 # <a name="join-data"></a>Unire dati
 
-Questo articolo descrive come usare il modulo **join data** in Azure Machine Learning Designer (Preview) per unire due set di dati usando un'operazione di join di tipo database.  
+Questo articolo descrive come usare il modulo **join data** in Azure Machine Learning Designer per unire due set di dati usando un'operazione di join di tipo database.  
 
 ## <a name="how-to-configure-join-data"></a>Come configurare i dati di join
 
@@ -62,9 +62,9 @@ Per eseguire un join su due set di impostazioni, questi devono essere correlati 
     * Selezionare questa opzione per visualizzare le chiavi da entrambe le tabelle di input.
     * Deseleziona per restituire solo le colonne chiave dall'input di sinistra.
 
-1. Eseguire la pipeline oppure selezionare il modulo join data e selezionare l'opzione **Esegui** selezionata per eseguire il join.
+1. Eseguire la pipeline.
 
-1. Per visualizzare i risultati, fare clic con il pulsante destro del mouse sul set di **dati join Data** > **results** > **Visualizza**.
+1. Per visualizzare i risultati, fare clic con il pulsante destro del mouse sui **dati di join** e scegliere **Visualizza**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

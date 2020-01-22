@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 01/20/2020
+ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819134"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293624"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrare Esplora dati di Azure con Azure Data Factory
 
@@ -44,6 +44,14 @@ Per una procedura dettagliata dell'attività Command, vedere [usare Azure Data F
 ### <a name="copy-in-bulk-from-a-database-template"></a>Copia in blocco da un modello di database
 
 La [copia in blocco da un database in Azure Esplora dati usando il modello di Azure Data Factory](data-factory-template.md) è una pipeline di Azure Data Factory predefinita. Il modello viene usato per creare molte pipeline per database o per tabella per una maggiore velocità di copia dei dati. 
+
+### <a name="mapping-data-flows"></a>Flussi di dati di mapping 
+
+[Azure Data Factory i flussi di dati di mapping](/azure/data-factory/concepts-data-flow-overview) sono le trasformazioni di dati progettate visivamente che consentono agli ingegneri di dati di sviluppare la logica di trasformazione dei dati grafici senza scrivere codice. Per creare un flusso di dati e inserire i dati in Esplora dati di Azure, usare il metodo seguente:
+
+1. Creare il [flusso di dati di mapping](/azure/data-factory/data-flow-create).
+1. [Esportare i dati nel BLOB di Azure](/azure/data-factory/data-flow-sink). 
+1. Definire la [griglia di eventi](/azure/data-explorer/ingest-data-event-grid) o l'attività di [copia ADF](/azure/data-explorer/data-factory-load-data) per inserire i dati in Azure Esplora dati.
 
 ## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Consente di selezionare tra le attività Copy e Azure Esplora dati Command durante la copia dei dati 
 

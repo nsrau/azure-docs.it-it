@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968882"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292859"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizzare le configurazioni di rete della VM di Azure di destinazione
 
@@ -27,7 +27,7 @@ Informazioni sul ripristino di emergenza fornito da Site Recovery per [questo sc
 
 È possibile fornire le configurazioni di risorse chiave seguenti per la macchina virtuale di failover durante la replica di macchine virtuali di Azure:
 
-- [Servizio di bilanciamento del carico interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
+- [Servizio di bilanciamento del carico interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 - [IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) per la subnet e per la scheda di interfaccia di rete
 
@@ -55,7 +55,7 @@ Site Recovery ora rispetta queste impostazioni e garantisce che la macchina virt
 
 Quando si attiva il failover di test tramite il piano di ripristino, viene sempre richiesta la rete virtuale di Azure. Questa rete virtuale verrà usata per il failover di test per i computer in cui non sono già state configurate le impostazioni del failover di test.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="unable-to-view-or-select-a-resource"></a>Non è possibile visualizzare o selezionare una risorsa
 

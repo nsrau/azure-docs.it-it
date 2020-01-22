@@ -9,14 +9,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: ddb906aeb8d1c2b0d1f0c97fc12bd389da431646
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989943"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314132"
 ---
 # <a name="azure-spending-limit"></a>Limite di spesa di Azure
 
@@ -34,20 +34,21 @@ Al raggiungimento del limite di spesa, Azure invia notifiche di posta elettronic
 
 Se si usa un account Azure gratuito e si raggiunge il limite di spesa, è possibile eseguire l'aggiornamento a un piano con [pagamento in base al consumo](upgrade-azure-subscription.md) per rimuovere il limite di spesa e riabilitare automaticamente la sottoscrizione.
 
-<a id="remove"></a>
-
 ## <a name="remove-the-spending-limit-in-azure-portal"></a>Rimuovere il limite di spesa nel portale di Azure
+
+<a id="remove"></a>
 
 È possibile rimuovere il limite di spesa in qualsiasi momento, purché alla sottoscrizione di Azure sia associato un metodo di pagamento valido. Per i tipi di sottoscrizioni con credito su più mesi, ad esempio Visual Studio Enterprise e Visual Studio Professional, è anche possibile abilitare il limite di spesa all'inizio del periodo di fatturazione successivo.
 
 Per rimuovere il limite di spesa, esegui questi passaggi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Seleziona una sottoscrizione. Se viene raggiunto il limite di spesa della sottoscrizione, verrà disabilitata.
-1. Selezionare **Rimuovere il limite di spesa** nella parte superiore della pagina.
-1. Seleziona l'opzione appropriata.
-
-![Selezione di un'opzione per la rimozione del limite di spesa](./media/spending-limit/remove-spending-limit01.png)
+1. Passare a **sottoscrizioni**.
+1. Selezionare la propria sottoscrizione. Ad esempio, *Visual Studio Enterprise*.
+1. Nella parte superiore della pagina selezionare **Gestisci**. Si viene reindirizzati a https://account.azure.com/. Sul lato destro della pagina selezionare **Rimuovi limite di spesa**.  
+  ![esempio che mostra la rimozione del limite di spesa](./media/spending-limit/account-azure-com-spending-limit.png)
+1. Si viene reindirizzati di nuovo al portale di Azure. Selezionare un'opzione appropriata per l'utente e quindi selezionare un metodo di pagamento. Selezionare **Fine**.  
+  ![selezionare un'opzione per rimuovere il limite di spesa](./media/spending-limit/remove-spending-limit.png)
 
 | Opzione | Effetto |
 | --- | --- |
@@ -67,7 +68,7 @@ Il limite di spesa può impedire all'utente di distribuire o usare determinati s
 Questa funzionalità è disponibile solo quando il limite di spesa è stato rimosso per un periodo illimitato per i tipi di sottoscrizioni che includono crediti su più mesi. È possibile usare questa funzionalità per attivare automaticamente il limite di spesa all'inizio del periodo di fatturazione successivo.
 
 1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
-1. Fare clic sul banner giallo per modificare l'opzione relativa al limite di spesa.
+1. Selezionare il banner giallo per modificare l'opzione limite di spesa.
 1. Scegliere **Attiva limite di spesa per il prossimo periodo di fatturazione \<data di inizio del periodo di fatturazione\>** .
 
 ## <a name="custom-spending-limit"></a>Limite di spesa personalizzato

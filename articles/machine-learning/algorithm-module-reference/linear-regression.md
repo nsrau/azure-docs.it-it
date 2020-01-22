@@ -9,19 +9,19 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 00a92d60e494920f516d1a52593a54463c050615
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497743"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311445"
 ---
 # <a name="linear-regression-module"></a>Modulo di regressione lineare
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di regressione lineare da usare in una pipeline.  La regressione lineare tenta di stabilire una relazione lineare tra una o più variabili indipendenti e un risultato numerico o una variabile dipendente. 
 
-Usare questo modulo per definire un metodo di regressione lineare e quindi eseguire il training di un modello usando un set di dati con etichetta. Il modello con Training può quindi essere utilizzato per eseguire stime.
+Usare questo modulo per definire un metodo di regressione lineare e quindi eseguire il training di un modello usando un set di dati con etichetta. Sarà quindi possibile usare il modello con training per ottenere stime.
 
 ## <a name="about-linear-regression"></a>Informazioni sulla regressione lineare
 
@@ -35,17 +35,17 @@ Azure Machine Learning supporta un'ampia gamma di modelli di regressione, oltre 
 
     Il modulo di **regressione lineare** può risolvere questi problemi, in quanto può la maggior parte degli altri moduli di regressione.
 
-+ La *regressione multi-label* è l'attività di stima di più variabili dipendenti all'interno di un singolo modello. Ad esempio, nella regressione logistica multi-Label, un campione può essere assegnato a più etichette diverse. Questa operazione è diversa dall'attività di stima di più livelli all'interno di una singola variabile di classe.
++ La *regressione multi-label* è l'attività di stima di più variabili dipendenti all'interno di un singolo modello. Nella regressione logistica multietichetta, ad esempio, un campione può essere assegnato a più etichette diverse. Questa operazione è diversa dall'attività di stima di più livelli all'interno di una singola variabile di classe.
 
     Questo tipo di regressione non è supportato in Azure Machine Learning. Per stimare più variabili, creare un discente separato per ogni output che si desidera stimare.
 
 Per gli statistici degli anni sono stati sviluppati metodi sempre più avanzati per la regressione. Questo vale anche per la regressione lineare. Questo modulo supporta due metodi per misurare l'errore e adattarlo alla retta di regressione, ovvero al metodo dei minimi quadrati normali e alla discesa della sfumatura.
 
-- La **discesa sfumatura** è un metodo che riduce al minimo la quantità di errori in ogni passaggio del processo di training del modello. Sono state apportate numerose varianti alla discesa delle sfumature e l'ottimizzazione per diversi problemi di apprendimento è stata ampiamente studiata. Se si sceglie questa opzione per il **metodo della soluzione**, è possibile impostare diversi parametri per controllare le dimensioni del passaggio, la velocità di apprendimento e così via. Questa opzione supporta anche l'uso di uno sweep di parametri integrato.
+- La **discesa sfumatura** è un metodo che riduce al minimo la quantità di errori in ogni passaggio del processo di training del modello. Esistono molte varianti del metodo dei valori descent con sfumatura e l'ottimizzazione di tale metodo per diversi problemi di apprendimento è stata oggetto di approfonditi studi. Se si sceglie questa opzione per il **metodo della soluzione**, è possibile impostare diversi parametri per controllare le dimensioni del passaggio, la velocità di apprendimento e così via. Questa opzione supporta anche l'uso di uno sweep di parametri integrato.
 
 - Il numero **minimo di quadrati** è una delle tecniche più diffuse nella regressione lineare. Ad esempio, i quadrati minimi sono il metodo usato nell'analisi strumenti per Microsoft Excel.
 
-    Il formato minimo dei quadrati si riferisce alla funzione loss, che calcola l'errore come somma del quadrato della distanza dal valore effettivo alla riga stimata e si integra con il modello riducendo al minimo l'errore quadrato. Questo metodo presuppone una forte relazione lineare tra gli input e la variabile dipendente.
+    Il metodo dei minimi quadrati fa riferimento alla funzione di perdita, che calcola l'errore come la somma del quadrato della distanza dal valore effettivo alla riga stimata e adatta il modello riducendo al minimo l'errore quadratico. Questo metodo presuppone una forte relazione lineare tra gli input e la variabile dipendente.
 
 ## <a name="configure-linear-regression"></a>Configurare la regressione lineare
 
@@ -53,7 +53,7 @@ Questo modulo supporta due metodi per adattare un modello di regressione, con di
 
 + [Creare un modello di regressione usando la discesa sfumatura online](#bkmk_GradientDescent)
 
-    La discesa sfumatura è una funzione di perdita migliore per i modelli più complessi o con dati di training troppo piccoli in base al numero di variabili.
+    Il metodo dei valori descent con sfumatura rappresenta una funzione di perdita migliore per i modelli più complessi o per i quali sono disponibili pochi dati di training, considerato il numero di variabili.
 
 
 
@@ -90,7 +90,6 @@ Questo modulo supporta due metodi per adattare un modello di regressione, con di
 
 Al termine del training:
 
-+ Per visualizzare i parametri del modello, fare clic con il pulsante destro del mouse sull'output del trainer e scegliere **Visualizza**.
 
 + Per eseguire stime, connettere il modello sottoposto a training al modulo [Score Model](./score-model.md) , insieme a un set di dati con nuovi valori. 
 
@@ -110,7 +109,7 @@ Al termine del training:
    
 4. Per la **velocità di apprendimento**specificare la velocità di apprendimento iniziale per l'utilità di ottimizzazione per la discesa con gradienti stocastici.
 
-5. Per **numero di epoche di training**, digitare un valore che indichi il numero di volte in cui l'algoritmo deve scorrere gli esempi. Per i set di impostazioni con un numero ridotto di esempi, questo numero deve essere grande per raggiungere la convergenza.
+5. Per **numero di epoche di training**, digitare un valore che indichi il numero di volte in cui l'algoritmo deve scorrere gli esempi. Per i set di dati con un numero limitato di esempi, questo numero deve essere elevato per raggiungere la convergenza.
 
 6. **Normalizzare le funzionalità**: se i dati numerici utilizzati per il training del modello sono già stati normalizzati, è possibile deselezionare questa opzione. Per impostazione predefinita, il modulo normalizza tutti gli input numerici in un intervallo compreso tra 0 e 1.
 

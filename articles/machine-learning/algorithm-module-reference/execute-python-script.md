@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a28b77a25971128b9474f18d860f6204c3433c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497859"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312295"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per eseguire il codice Python. Per altre informazioni sull'architettura e i principi di progettazione di Python, vedere [l'articolo seguente](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
@@ -34,37 +34,37 @@ Azure Machine Learning usa la distribuzione anaconda di Python, che include molt
  -  Distribuzione di Anaconda 4.5 + per Python 3,6 
 
 I pacchetti preinstallati sono:
--  asn1crypto = = 0.24.0
-- attrs = = 19.1.0
-- Azure-comune = = 1.1.18
-- Azure-storage-BLOB = = 1.5.0
-- Azure-storage-comune = = 1.4.0
-- Certified = = 2019.3.9
-- CFFI = = 1.12.2
-- bietola = = 3.0.4
+-  asn1crypto==0.24.0
+- attrs==19.1.0
+- azure-common==1.1.18
+- azure-storage-blob==1.5.0
+- azure-storage-common==1.4.0
+- certifi==2019.3.9
+- cffi==1.12.2
+- chardet==3.0.4
 - crittografia = = 2.6.1
-- distro = = 1.4.0
+- distro==1.4.0
 - IDNA = = 2.8
-- jsonschema = = 3.0.1
-- lightgbm = = 2.2.3
-- altro-itertools = = 6.0.0
-- NumPy = = 1.16.2
-- Pandas = = 0.24.2
-- Pillow = = 6.0.0
-- PIP = = 19.0.3
-- pyarrow = = 0.12.1
+- jsonschema==3.0.1
+- lightgbm==2.2.3
+- more-itertools==6.0.0
+- numpy==1.16.2
+- pandas==0.24.2
+- Pillow==6.0.0
+- pip==19.0.3
+- pyarrow==0.12.1
 - pycparser = = 2.19
-- pycryptodomex = = 3.7.3
-- pyrsistent = = 0.14.11
-- Python-dateutil = = 2.8.0
-- pytz = = 2018.9
-- richieste = = 2.21.0
-- Scikit-learn = = 0.20.3
-- SciPy = = 1.2.1
-- setuptools = = 40.8.0
-- Sei = = 1.12.0
-- torcia = = 1.0.1. post2
-- torchvision = = 0.2.2. Post3
+- pycryptodomex==3.7.3
+- pyrsistent==0.14.11
+- python-dateutil==2.8.0
+- pytz==2018.9
+- requests==2.21.0
+- scikit-learn==0.20.3
+- scipy==1.2.1
+- setuptools==40.8.0
+- six==1.12.0
+- torch==1.0.1.post2
+- torchvision==0.2.2.post3
 - urllib3 = = 1.24.1
 - Wheel = = 0.33.1 
 

@@ -76,7 +76,7 @@
   items:
     - name: Integrazione di app
       items:
-        - name: Registrare un'applicazione OIDC
+        - name: Registrare un'applicazione
           href: tutorial-register-applications.md
         - name: Registrare un provider di servizi SAML
           href: connect-with-saml-service-providers.md
@@ -233,7 +233,7 @@
               href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
         - name: Definire attributi personalizzati
           href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-        - name: risoluzione dei problemi
+        - name: Risoluzione dei problemi
           items:
             - name: Raccogliere i log tramite Application Insights
               href: active-directory-b2c-troubleshoot-custom.md
@@ -241,7 +241,7 @@
               href: active-directory-b2c-guide-troubleshooting-custom.md
         - name: Analisi dell'utilizzo
           href: active-directory-b2c-custom-guide-eventlogger-appins.md
-        - name: Riferimento
+        - name: Informazioni di riferimento
           items:
             - name: Definizione di framework attendibilità
               href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
@@ -282,6 +282,11 @@
                   items:
                     - name: ID della stringa di localizzazione
                       href: localization-string-ids.md
+                - name: DisplayControls
+                  href: display-controls.md
+                  items:
+                    - name: Verifica
+                      href: display-control-verification.md
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
@@ -320,11 +325,6 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: Convalida
                       href: validation-technical-profile.md
-            - name: DisplayControls
-              href: display-controls.md
-              items:
-                - name: Verifica
-                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty
@@ -364,7 +364,7 @@
           href: active-directory-b2c-user-migration.md
         - name: Eseguire la migrazione di utenti con identità esterne
           href: active-directory-b2c-social-migration.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Note sulla versione di Identity Experience Framework
       href: active-directory-b2c-developer-notes-custom.md

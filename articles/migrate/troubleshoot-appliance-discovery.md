@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 854d98a4f2a1b2500bc301d2305c0dd1f27aaaa4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980824"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289527"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -41,11 +41,11 @@ Questo problema può verificarsi se il computer dell'appliance si trova dietro u
 - Assicurarsi di specificare le credenziali di autorizzazione se sono necessarie per il proxy.
 - Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, aggiungere questi URL a un elenco Consenti:
 
-    - [URL per la valutazione VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
-    - [URL per la valutazione di Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
-    - [URL per la migrazione senza agenti VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
-    - [URL per la migrazione basata su agenti VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
-    - [URL per la migrazione di Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
+    - [URL per la valutazione VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URL per la valutazione di Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
+    - [URL per la migrazione senza agenti VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URL per la migrazione basata su agenti VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URL per la migrazione di Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
 
 - Se si usa un proxy di intercettazione per connettersi a Internet, importare il certificato proxy nella macchina virtuale dell'appliance seguendo [questa procedura](https://docs.microsoft.com/azure/migrate/concepts-collector).
 

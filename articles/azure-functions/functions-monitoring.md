@@ -4,12 +4,12 @@ description: Informazioni su come usare applicazione Azure Insights con funzioni
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978084"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292927"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -74,7 +74,7 @@ Con [Application Insights integrazione abilitata](#enable-application-insights-i
 
 ![Esecuzione in Application Insights](media/functions-monitoring/run-in-ai.png)
 
-Viene visualizzata la query seguente. Si può notare che l'elenco chiamate è limitato agli ultimi 30 giorni. L'elenco non contiene più di 20 righe (`where timestamp > ago(30d) | take 20`). L'elenco dei dettagli della chiamata è per gli ultimi 30 giorni senza limite.
+Viene visualizzata la query seguente. È possibile osservare che i risultati della query sono limitati agli ultimi 30 giorni (`where timestamp > ago(30d)`). Inoltre, i risultati non mostrano più di 20 righe (`take 20`). Al contrario, l'elenco dei dettagli della chiamata per la funzione è per gli ultimi 30 giorni senza limite.
 
 ![Elenco di chiamate di analisi di Application Insights](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -92,13 +92,13 @@ Per informazioni su come usare Application Insights, vedere la [documentazione s
 
 Le aree di Application Insights seguenti possono essere utili quando si valutano il comportamento, le prestazioni e gli errori nelle funzioni:
 
-| TAB | Description |
+| Scheda | Description |
 | ---- | ----------- |
 | **[Fallimenti](../azure-monitor/app/asp-net-exceptions.md)** |  Creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori nelle dipendenze non vengono visualizzati, a meno che non si implementino i dati di telemetria personalizzati |
 | **[Prestazioni](../azure-monitor/app/performance-counters.md)** | Analizzare i problemi di prestazioni. |
 | **Server** | Visualizzare l'utilizzo delle risorse e la velocità effettiva per server. Questi dati possono essere utili negli scenari di debug in cui le funzioni bloccano le risorse sottostanti. I server sono denominati **Istanze del ruolo del cloud**. |
 | **[Metriche](../azure-monitor/app/metrics-explorer.md)** | Creare grafici e avvisi basati sulle metriche. Le metriche includono il numero di chiamate di funzione, il tempo di esecuzione e le percentuali di successo. |
-| **[Flusso di metriche in tempo reale](../azure-monitor/app/live-stream.md)** | Visualizza i dati di metrica così come vengono creati in tempo reale. |
+| **[Flusso di metriche in tempo reale](../azure-monitor/app/live-stream.md)** | Visualizza i dati delle metriche così come vengono creati quasi in tempo reale. |
 
 ## <a name="query-telemetry-data"></a>Query sui dati di telemetria
 
@@ -119,7 +119,7 @@ requests
 
 Le tabelle disponibili vengono visualizzate nella scheda **schema** a sinistra. Nelle tabelle seguenti è possibile trovare i dati generati dalle chiamate alla funzione:
 
-| Table | Description |
+| Tabella | Description |
 | ----- | ----------- |
 | **traces** | Log creati dal runtime e dal codice della funzione. |
 | **requests** | Una richiesta per ogni chiamata di funzione. |
@@ -283,7 +283,7 @@ I log scritti dal codice della funzione hanno `Function` di categoria e possono 
 
 ## <a name="configure-the-aggregator"></a>Configurare l'aggregatore
 
-Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzioni di funzioni in un periodo di tempo. Il periodo predefinito è 30 secondi o 1000 esecuzioni, ovvero quello che viene prima. È possibile configurare questa impostazione nel file [host. JSON].  Ecco un esempio:
+Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzioni di funzioni in un periodo di tempo. Il periodo predefinito è 30 secondi o 1000 esecuzioni, ovvero quello che viene prima. È possibile configurare questa impostazione nel file [host. JSON].  Ad esempio:
 
 ```json
 {
@@ -296,7 +296,7 @@ Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzio
 
 ## <a name="configure-sampling"></a>Configurare il campionamento
 
-Application Insights dispone di una funzionalità di [campionamento](../azure-monitor/app/sampling.md) che può impedire la produzione di troppi dati di telemetria sulle esecuzioni completate in momenti di picco del carico. Quando la frequenza delle esecuzioni in ingresso supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcune delle esecuzioni in ingresso. L'impostazione predefinita per il numero massimo di esecuzioni al secondo è 20 (cinque nella versione 1. x). È possibile configurare il campionamento nel file [host. JSON].  Ecco un esempio:
+Application Insights dispone di una funzionalità di [campionamento](../azure-monitor/app/sampling.md) che può impedire la produzione di troppi dati di telemetria sulle esecuzioni completate in momenti di picco del carico. Quando la frequenza delle esecuzioni in ingresso supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcune delle esecuzioni in ingresso. L'impostazione predefinita per il numero massimo di esecuzioni al secondo è 20 (cinque nella versione 1. x). È possibile configurare il campionamento nel file [host. JSON].  Ad esempio:
 
 ### <a name="version-2x-and-later"></a>Versione 2. x e versioni successive
 
@@ -337,7 +337,7 @@ Application Insights dispone di una funzionalità di [campionamento](../azure-mo
 
 Usare il parametro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) nelle funzioni anziché il parametro `TraceWriter`. I log creati usando `TraceWriter` passano a Application Insights, ma `ILogger` consente di eseguire la [registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Con un oggetto `ILogger` è possibile chiamare i [metodi di estensione su ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) `Log<level>` per creare i log. Il codice seguente scrive `Information` log con la categoria "Function".
+Con un oggetto `ILogger` è possibile chiamare i [metodi di estensione su ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) `Log<level>` per creare i log. Il codice seguente scrive `Information` logs con la categoria "function. < YOUR_FUNCTION_NAME >. Utente ".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -561,7 +561,7 @@ namespace functionapp0915
 
 Non chiamare `TrackRequest` o `StartOperation<RequestTelemetry>` perché verranno visualizzate richieste duplicate per una chiamata di funzione.  Il runtime di Funzioni rileva automaticamente le richieste.
 
-Non impostare `telemetryClient.Context.Operation.Id`. Questa impostazione globale causa una correlazione errata quando molte funzioni sono in esecuzione simultaneamente. Creare invece una nuova istanza di telemetria (`DependencyTelemetry`, `EventTelemetry`) e modificare la relativa proprietà `Context`. Passare quindi l'istanza di telemetria al metodo `Track` corrispondente `TelemetryClient` in (`TrackDependency()`, `TrackEvent()`). Questo metodo assicura che i dati di telemetria abbiano i dettagli di correlazione corretti per la chiamata di funzione corrente.
+Non impostare `telemetryClient.Context.Operation.Id`. Questa impostazione globale causa una correlazione errata quando molte funzioni sono in esecuzione simultaneamente. Creare invece una nuova istanza di telemetria (`DependencyTelemetry`, `EventTelemetry`) e modificare la relativa proprietà `Context`. Passare quindi l'istanza di telemetria al metodo `Track` corrispondente su `TelemetryClient` (`TrackDependency()`, `TrackEvent()``TrackMetric()`). Questo metodo assicura che i dati di telemetria abbiano i dettagli di correlazione corretti per la chiamata di funzione corrente.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Registrare i dati di telemetria personalizzati nelle funzioni JavaScript
 
@@ -588,9 +588,9 @@ module.exports = function (context, req) {
 
 Il parametro `tagOverrides` imposta l'`operation_Id` sull'ID di chiamata della funzione. Questa impostazione consente di correlare tutti i dati di telemetria personalizzati e generati automaticamente per una chiamata di funzione specifica.
 
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
-Funzioni V2 raccoglie automaticamente le dipendenze per le richieste HTTP, ServiceBus e SQL.
+Funzioni V2 raccoglie automaticamente le dipendenze per le richieste HTTP, ServiceBus, EventHub e SQL.
 
 È possibile scrivere codice personalizzato per visualizzare le dipendenze. Per esempi, vedere il codice di esempio nella [ C# sezione telemetria personalizzata](#log-custom-telemetry-in-c-functions). Il codice di esempio produce una *mappa delle applicazioni* in Application Insights simile all'immagine seguente:
 
@@ -612,7 +612,7 @@ Esistono due modi per visualizzare un flusso di file di log generati dalle esecu
 
 I flussi di log possono essere visualizzati sia nel portale che nella maggior parte degli ambienti di sviluppo locali. 
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 
 È possibile visualizzare entrambi i tipi di flussi di log nel portale.
 

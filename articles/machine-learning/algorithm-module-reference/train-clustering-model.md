@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 57cf5bab2afe58ed802ef5ec03c316f1ebec6673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f1a508e6188b68f932993eb60e13228b56f8e7e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232583"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313945"
 ---
 # <a name="train-clustering-model"></a>Eseguire il training del modello di clustering
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Utilizzare questo modulo per eseguire il training di un modello di clustering.
 
@@ -49,10 +49,7 @@ Il modulo accetta un modello di clustering senza training che è già stato conf
 
 Al termine del training:
 
-
-+  Per visualizzare i valori nel set di dati, fare clic con il pulsante destro del mouse sul modulo, selezionare set di dati dei **risultati**e fare clic su **Visualizza**.
-
-+ Per salvare il modello sottoposto a training per riutilizzarlo in un secondo momento, fare clic con il pulsante destro del mouse sul modulo, scegliere **modello con training**e fare clic su **Salva**
++ Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 
 + Per generare punteggi dal modello, usare [Assegna dati ai cluster](assign-data-to-clusters.md).
 

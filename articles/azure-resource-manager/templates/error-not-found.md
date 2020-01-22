@@ -2,13 +2,13 @@
 title: Errori di risorsa non trovati
 description: Viene descritto come risolvere gli errori quando non è possibile trovare una risorsa durante la distribuzione con un modello di Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 06/06/2018
-ms.openlocfilehash: 81a2541be4f0a99aa28186eb6b7289bdb595e678
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/21/2020
+ms.openlocfilehash: c3e19af24fa7fb850eadf3deb346180476943241
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152426"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310663"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Risolvere gli errori relativi alle risorse di Azure non trovate
 
@@ -87,4 +87,16 @@ Cercare un'espressione contenente la funzione [reference](template-functions-res
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+```
+
+## <a name="solution-4---get-managed-identity-from-resource"></a>Soluzione 4: ottenere l'identità gestita dalla risorsa
+
+Se si distribuisce una risorsa che crea in modo implicito un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md), è necessario attendere che la risorsa venga distribuita prima di recuperare i valori nell'identità gestita. Se si passa il nome dell'identità gestita alla funzione [Reference](template-functions-resource.md#reference) , gestione risorse tenta di risolvere il riferimento prima della distribuzione della risorsa e dell'identità. Al contrario, passare il nome della risorsa a cui viene applicata l'identità. Questo approccio assicura che la risorsa e l'identità gestita vengano distribuite prima che Gestione risorse risolve la funzione di riferimento.
+
+Nella funzione Reference usare `Full` per ottenere tutte le proprietà, inclusa l'identità gestita.
+
+Ad esempio, per ottenere l'ID tenant per un'identità gestita applicata a un set di scalabilità di macchine virtuali, usare:
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
 ```

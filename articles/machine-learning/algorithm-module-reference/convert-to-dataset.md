@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00414bea82a7a78dd88ff4b1a592a6e35b5241c7
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428582"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314403"
 ---
 # <a name="convert-to-dataset"></a>Eseguire la conversione in set di dati
 
-Questo articolo descrive come usare il modulo Convert to DataSet in Azure Machine Learning Designer (Preview) per convertire i dati di una pipeline nel formato interno della finestra di progettazione.
+Questo articolo descrive come usare il modulo Convert to DataSet in Azure Machine Learning Designer per convertire i dati di una pipeline nel formato interno della finestra di progettazione.
   
 La conversione non è necessaria nella maggior parte dei casi. Azure Machine Learning converte in modo implicito i dati nel relativo formato di set di dati nativo quando viene eseguita un'operazione sui dati. 
 
@@ -51,11 +51,11 @@ Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito 
     Si noti che l'operazione **ReplaceValues** si applica solo alle corrispondenze esatte. Queste stringhe, ad esempio, non saranno interessate: `obs.`, `obsolete`.  
  
   
-5.  Eseguire la pipeline oppure fare clic con il pulsante destro del mouse sul modulo Convert to DataSet e scegliere **Esegui selezione**.  
+5.  Eseguire la pipeline.  
 
 ## <a name="results"></a>Risultati
 
-+  Per salvare il set di dati risultante con un nuovo nome, fare clic con il pulsante destro del mouse sull'output di Convert to DataSet e selezionare **Salva come set di dati**.  
++  Per salvare il set di dati risultante con un nuovo nome, selezionare il **set di dati Icon Register** sotto la scheda **Outputs** nel riquadro destro del modulo.  
   
 ## <a name="technical-notes"></a>Note tecniche  
 

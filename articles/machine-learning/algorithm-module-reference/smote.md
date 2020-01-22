@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428445"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311411"
 ---
 # <a name="smote"></a>SMOTE
 
-Questo articolo descrive come usare il modulo PERCOSse in Azure Machine Learning Designer (anteprima) per aumentare il numero di case sottorappresentati in un set di dati usato per Machine Learning. PERCOSse è un modo migliore per aumentare il numero di casi rari rispetto alla semplice duplicazione dei case esistenti.  
+Questo articolo descrive come usare il modulo PERCOSse in Azure Machine Learning Designer per aumentare il numero di case sottorappresentati in un set di dati usato per Machine Learning. PERCOSse è un modo migliore per aumentare il numero di casi rari rispetto alla semplice duplicazione dei case esistenti.  
 
 Il modulo PERCOSse viene connesso a un set di dati *sbilanciato*. Esistono molti motivi per cui un set di dati potrebbe essere sbilanciato. Ad esempio, la categoria di destinazione potrebbe essere rara nella popolazione oppure i dati potrebbero essere difficili da raccogliere. In genere, si usa PERCOSse quando la *classe* che si vuole analizzare è sottorappresentata. 
   

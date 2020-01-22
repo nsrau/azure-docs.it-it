@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b6b9d0f146fd98fd90aa8858e522449be571842c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497285"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293165"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -59,7 +59,7 @@ Alla prima chiamata, l'estensione installa una versione di WMF adottando la logi
 - Se la proprietà **wmfVersion** è specificata, viene installata la versione di WMF corrispondente, a meno che tale versione non sia incompatibile con il sistema operativo della VM.
 - Se la proprietà **wmfVersion** non è specificata, viene installata la versione più recente applicabile di WMF.
 
-L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scarica il file ZIP eventualmente specificato nella proprietà **modulesUrl**. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà **sasToken** per accedere al file. Dopo avere scaricato e decompresso il file ZIP, la funzione di configurazione definita in **configurationFunction** viene eseguita per generare un file MOF. L'estensione esegue quindi `Start-DscConfiguration -Force` usando il file con estensione mof generato, acquisisce l'output e lo scrive nel canale di stato di Azure.
+L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scarica il file ZIP eventualmente specificato nella proprietà **modulesUrl**. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà **sasToken** per accedere al file. Dopo aver scaricato e decompresso il file zip, viene eseguita la funzione di configurazione definita in **configurationFunction** per generare un file mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). L'estensione esegue quindi `Start-DscConfiguration -Force` usando il file con estensione mof generato, acquisisce l'output e lo scrive nel canale di stato di Azure.
 
 ### <a name="default-configuration-script"></a>Script di configurazione predefinito
 

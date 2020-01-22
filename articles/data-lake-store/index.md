@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: ac2c34b8de4ac9f66f1618d854e26aa431d35184
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 751179d9506267c95eee1d31724395a4fc5b87a7
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088949"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290751"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentazione di Azure Data Lake Storage Gen1
 
@@ -173,7 +173,7 @@ Informazioni su come usare Azure Data Lake Storage Gen1 (precedentemente noto co
 
 ---
  
-<h2>riferimento</h2>
+<h2>Informazioni di riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -198,7 +198,7 @@ Informazioni su come usare Azure Data Lake Storage Gen1 (precedentemente noto co
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
                         <p><a href="/python/api/azure-mgmt-datalake-store/">Python (gestione di account)</a></p>
-                        <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python (gestione del file system)</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core">Python (gestione del file system)</a></p>
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@ Informazioni su come usare Azure Data Lake Storage Gen1 (precedentemente noto co
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakestore">API REST</a></p>
+                        <p><a href="/rest/api/datalakestore">REST API</a></p>
                     </div>
                 </div>
             </div>

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 277b22498066542deaa080845cb816df493d7e13
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: bc083a95ebf6c7ecfabfef87e606f99053ba58bb
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122356"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312414"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -176,12 +176,12 @@ L'istanza di contenitore di Azure non supporta la crittografia del disco. Se è 
 
 #### <a name="azure-kubernetes-service"></a>Servizio Azure Kubernetes
 
-È possibile crittografare una risorsa del servizio Azure Kubernetes distribuita usando chiavi gestite dal cliente in qualsiasi momento. Per altre informazioni, vedi [https://aka.ms/aks/byok](https://aka.ms/aks/byok). 
+È possibile crittografare una risorsa del servizio Azure Kubernetes distribuita usando chiavi gestite dal cliente in qualsiasi momento. Per altre informazioni, vedere [Bring your own key with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). 
 
 Questo processo consente di crittografare sia i dati sia il disco del sistema operativo delle macchine virtuali distribuite nel cluster Kubernetes.
 
 > [!IMPORTANT]
-> Questo processo funziona solo con AKS K8s versione 1,16 o successiva. Azure Machine Learning aggiunto il supporto per AKS 1,16 il 13 gennaio 2020.
+> Questo processo funziona solo con AKS K8s versione 1,17 o successiva. Azure Machine Learning aggiunto il supporto per AKS 1,17 il 13 gennaio 2020.
 
 #### <a name="machine-learning-compute"></a>ambiente di calcolo di Machine Learning
 

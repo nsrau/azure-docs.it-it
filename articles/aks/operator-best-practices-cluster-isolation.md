@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348779"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293641"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'isolamento cluster nel servizio Azure Kubernetes (AKS)
 
 Quando si gestiscono i cluster nel servizio Azure Kubernetes (AKS), spesso è necessario isolare i team e i carichi di lavoro. Il servizio Azure Kubernetes offre flessibilità nella modalità di esecuzione dei cluster multi-tenant e di isolamento delle risorse. Per ottimizzare l'investimento in Kubernetes, queste funzionalità di isolamento e multi-tenancy devono essere comprese e implementate.
 
-Questo articolo sulle procedure consigliate è incentrato sull'isolamento per gli operatori del cluster. In questo articolo viene spiegato come:
+Questo articolo sulle procedure consigliate è incentrato sull'isolamento per gli operatori del cluster. In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Pianificare cluster multi-tenant e la separazione delle risorse
@@ -54,7 +54,7 @@ Un approccio comune all'isolamento cluster consiste nell'usare cluster servizio 
 
 ![Isolamento fisico di singoli cluster Kubernetes in servizio Azure Kubernetes](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-I cluster separati fisicamente hanno in genere una bassa densità del pod. Dal momento che ogni team o carico di lavoro ha il proprio cluster servizio Azure Kubernetes, spesso il cluster è sottoposto a over-provisioning per le risorse di calcolo. Spesso, su questi nodi viene pianificato un numero ridotto di pod. La capacità inutilizzata sui nodi non può essere usata per le applicazioni o i servizi in fase di sviluppo da parte di altri team. Queste risorse in eccesso contribuiscono ai costi aggiuntivi nei cluster separati fisicamente.
+I cluster separati fisicamente hanno in genere una bassa densità del pod. Dal momento che ogni team o carico di lavoro ha il proprio cluster servizio Azure Kubernetes, spesso il cluster è sottoposto a over-provisioning per le risorse di calcolo. Spesso viene pianificato un numero ridotto di Pod su tali nodi. La capacità inutilizzata sui nodi non può essere usata per le applicazioni o i servizi in fase di sviluppo da parte di altri team. Queste risorse in eccesso contribuiscono ai costi aggiuntivi nei cluster separati fisicamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

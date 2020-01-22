@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bdc9e8cbea77b504cfdc2c3b1c83c74ea4ab8ed1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935968"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294338"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definire e usare processi di moderazione (.NET)
 
@@ -32,7 +32,7 @@ Un processo di moderazione funge da wrapper per la funzionalità di moderazione 
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
 
-Dopo aver completato i passaggi precedenti, potrebbero esserci due chiavi Content Moderator se la procedura è stata avviata dal portale di Azure.
+Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure.
 
 Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
 
@@ -51,7 +51,7 @@ Usare il nome del flusso di lavoro nel codice che avvia il processo di moderazio
 
    Nel codice di esempio assegnare al progetto il nome **CreateReviews**.
 
-1. Selezionare il progetto come progetto di avvio singolo per la soluzione.
+1. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 
@@ -124,7 +124,7 @@ public static class Clients
 Aggiungere le costanti e i campi statici seguenti alla classe **Program** in Program.cs.
 
 > [!NOTE]
-> Impostare la costante TeamName sul nome usato al momento della creazione della sottoscrizione di Content Moderator. È possibile recuperare il valore di TeamName dal [sito Web di Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Impostare la costante TeamName sul nome usato al momento della creazione della sottoscrizione di Content Moderator. Il TeamName viene recuperato dal sito Web Content Moderator.
 > Una volta effettuato l'accesso, selezionare **Credentials** (Credenziali) dal menu **Settings** (Impostazioni) (ingranaggio).
 >
 > Il nome del team è il valore del campo **ID** nella sezione **API**.
@@ -235,7 +235,7 @@ using (TextWriter writer = new StreamWriter(OutputFile, false))
 > [!NOTE]
 > La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS). Se si supera il limite, l'SDK genera un'eccezione con il codice di errore 429.
 >
-> Una chiave di livello gratuito prevede un limite di frequenza di richieste al secondo pari a uno.
+> Una chiave di livello gratuito prevede un unico limite di frequenza RPS.
 
 ## <a name="run-the-program-and-review-the-output"></a>Eseguire il programma ed esaminare l'output
 
@@ -292,7 +292,7 @@ Get review details.
 
 ## <a name="your-callback-url-if-provided-receives-this-response"></a>L'URL di callback, se specificato, riceve la risposta
 
-Verrà visualizzata una risposta simile all'esempio seguente:
+Viene visualizzata una risposta simile all'esempio seguente:
 
 > [!NOTE]
 > Nella risposta di callback le stringhe **ContentId** e **WorkflowId** riflettono i valori usati in precedenza.

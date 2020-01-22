@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8d58180b11c12afb256dc888406c7c0d58fb119
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428480"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314318"
 ---
 # <a name="select-columns-transform"></a>Select Columns Transform
 
-Questo articolo descrive come usare il modulo Select Columns Transform in Azure Machine Learning Designer (Preview). Lo scopo del modulo Select Columns Transform è quello di garantire che un set di colonne prevedibile e coerente venga usato nelle operazioni di Machine Learning downstream.
+Questo articolo descrive come usare il modulo Select Columns Transform in Azure Machine Learning Designer. Lo scopo del modulo Select Columns Transform è quello di garantire che un set di colonne prevedibile e coerente venga usato nelle operazioni di Machine Learning downstream.
 
 Questo modulo è utile per attività quali l'assegnazione di punteggi, che richiedono colonne specifiche. Le modifiche apportate alle colonne disponibili potrebbero interrompere la pipeline o modificare i risultati.
 

@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate per VMware
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali VMware.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029054"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291941"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -87,7 +87,7 @@ Configurare l'appliance per la prima volta.
         - Fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy in formato http://ProxyIPAddress o http://ProxyFQDN.
         - Se il proxy richiede l'autenticazione, specificare le credenziali.
         - È supportato solo il proxy HTTP.
-    - **Sincronizzazione dell'ora**: viene verificata l'ora. Il tempo necessario per l'individuazione del dispositivo dovrebbe essere sincronizzato con il tempo Internet per il corretto funzionamento dell'individuazione.
+    - **Sincronizzazione dell'ora**: viene verificata l'ora. Per il corretto funzionamento dell'individuazione delle macchine virtuali, l'ora dell'appliance deve essere sincronizzata con l'ora Internet.
     - **Installa aggiornamenti**: Azure migrate verifica che siano installati gli aggiornamenti più recenti dell'appliance.
     - **Installare VDDK**: Azure migrate verifica che sia installato VMware vSphere Virtual Disk Development Kit (VDDK).
         - Azure migrates USA VDDK per replicare i computer durante la migrazione ad Azure.
@@ -115,7 +115,7 @@ L'appliance deve connettersi al server vCenter per individuare la configurazione
 3. Fare clic su **Convalida connessione** per verificare che l'appliance sia in grado di connettersi al server vCenter.
 
 ### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM
-Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali della VM che hanno accesso alle macchine virtuali VMware. È possibile aggiungere credenziali per le macchine virtuali Windows e per le macchine virtuali Linux. [Altre informazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sui privilegi di accesso necessari.
+Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali della VM che hanno accesso alle macchine virtuali VMware. È possibile aggiungere credenziali per le macchine virtuali Windows e per le macchine virtuali Linux. [Altre informazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sui privilegi di accesso necessari.
 
 > [!NOTE]
 > Questo input è facoltativo: è necessario per abilitare l'individuazione delle applicazioni e la visualizzazione delle dipendenze senza agenti.

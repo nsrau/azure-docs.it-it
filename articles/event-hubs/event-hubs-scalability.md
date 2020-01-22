@@ -1,6 +1,6 @@
 ---
-title: Scalabilità, hub eventi di Azure | Microsoft Docs
-description: Fornisce informazioni su come ridimensionare hub eventi di Azure.
+title: Scalabilità-Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni su come ridimensionare Hub eventi di Azure usando partizioni e unità di velocità effettiva.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,24 +14,24 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827706"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309524"
 ---
-# <a name="scaling-with-event-hubs"></a>Scalabilità con l'hub eventi
+# <a name="scaling-with-event-hubs"></a>Ridimensionamento con hub eventi
 
-Esistono due fattori che influenzano la scalabilità con l'hub eventi.
+Esistono due fattori che influenzano la scalabilità con hub eventi.
 *   Unità elaborate
-*   Partitions
+*   Partizioni
 
 ## <a name="throughput-units"></a>Unità elaborate
 
-La capacità di velocità effettiva di Hub eventi è controllata dalle *unità elaborate*. Le unità elaborate sono unità di capacità pre-acquistate. Una velocità effettiva single consente di:
+La capacità di velocità effettiva di Hub eventi è controllata dalle *unità elaborate*. Le unità elaborate sono unità di capacità pre-acquistate. Una singola velocità effettiva consente di:
 
-* Dati in ingresso: fino a 1 MB al secondo o 1000 eventi al secondo, in base al valore raggiunto per primo.
+* Dati in ingresso: fino a 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo.
 * Dati in uscita: fino a 2 MB al secondo o 4096 eventi al secondo.
 
 Oltre la capacità delle unità elaborate acquistate, i dati in ingresso vengono limitati e viene restituito un valore [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). I dati in uscita non producono eccezioni di limitazione, ma sono ancora limitati alla capacità delle unità elaborate acquistate. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi. È possibile gestire le unità elaborate nel pannello **Ridimensionamento** dello spazio dei nomi nel [portale di Azure](https://portal.azure.com). È anche possibile gestire le unità elaborate a livello di programmazione usando le [API degli hub eventi](event-hubs-api-overview.md).
@@ -45,9 +45,9 @@ La funzionalità **Aumento automatico** di Hub eventi aumenta automaticamente le
 
 Il servizio Hub eventi aumenta la velocità effettiva quando il carico supera la soglia minima, senza che le richieste abbiano esito negativo con errori ServerBusy. 
 
-Per altre informazioni sulla funzionalità aumento automatico, vedere [ridimensionare automaticamente le unità elaborate](event-hubs-auto-inflate.md).
+Per altre informazioni sulla funzionalità di aumento automatico, vedere [ridimensionare automaticamente le unità di velocità effettiva](event-hubs-auto-inflate.md).
 
-## <a name="partitions"></a>Partitions
+## <a name="partitions"></a>Partizioni
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
 ### <a name="partition-key"></a>Chiave di partizione

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 680cf04e79a9cb6d5748723dad3cb37cf3c76468
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428552"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314216"
 ---
 # <a name="cross-validate-model"></a>Cross Validate Model
 
-Questo articolo descrive come usare il modulo Cross Validate Model in Azure Machine Learning Designer (anteprima). La *convalida incrociata* è una tecnica spesso usata nell'apprendimento automatico per valutare la variabilità di un set di dati e l'affidabilità di qualsiasi modello sottoposto a training tramite i dati.  
+Questo articolo descrive come usare il modulo Cross Validate Model in Azure Machine Learning Designer. La *convalida incrociata* è una tecnica spesso usata nell'apprendimento automatico per valutare la variabilità di un set di dati e l'affidabilità di qualsiasi modello sottoposto a training tramite i dati.  
 
 Il modulo Cross Validate Model accetta come input un set di dati con etichetta, insieme a un modello di classificazione o regressione senza training. Divide il set di dati in un certo numero di subset (*riduzioni*), compila un modello a ogni riduzioni e quindi restituisce un set di statistiche di accuratezza per ogni sezione. Confrontando le statistiche di accuratezza per tutte le riduzioni, è possibile interpretare la qualità del set di dati. È quindi possibile capire se il modello è soggetto a variazioni nei dati.  
 
@@ -76,7 +76,7 @@ In questo scenario è necessario eseguire il training e il test del modello usan
 
 7. Per una descrizione dei report, vedere la sezione relativa ai [risultati](#results) .
 
-    Per ottenere una copia del modello da riutilizzare in un secondo momento, fare clic con il pulsante destro del mouse sull'output del modulo che contiene l'algoritmo, ad esempio **due classi Bayes Point Machine**. Quindi selezionare **Salva come modello con training**.
+    Per ottenere una copia del modello da riutilizzare in un secondo momento, passare alla scheda **output** nel riquadro di destra del modulo che contiene l'algoritmo (ad esempio, la **due classe Bayes Point Machine**). Selezionare quindi l'icona **registra set di dati** per salvare una copia del modello sottoposto a training nell'albero del modulo.
 
 ## <a name="results"></a>Risultati
 
@@ -86,7 +86,7 @@ Una volta completate tutte le iterazioni, Cross Validate Model crea i punteggi p
 
 Il primo output del modulo fornisce i dati di origine per ogni riga, insieme ad alcuni valori stimati e a probabilità correlate. 
 
-Per visualizzare questi risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **risultati con punteggio**, quindi selezionare **Visualizza**.
+Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Visualizza risultati con punteggio**.
 
 | Nome nuova colonna      | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -100,7 +100,7 @@ Il secondo report è raggruppato per riduzioni. Tenere presente che durante l'es
 
 In questo report, le riduzioni sono elencate in base al valore di indice in ordine crescente.  Per eseguire l'ordinamento in base a qualsiasi altra colonna, è possibile salvare i risultati come set di dati.
 
-Per visualizzare questi risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Risultati valutazione per**Riduci, quindi selezionare **Visualizza**.
+Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Visualizza i risultati della valutazione in base a riduzioni**.
 
 
 |Nome colonna| Description|

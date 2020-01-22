@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: c85ce38f88ecf113a9d27e82b0be12bbfb0b3b47
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8cbc067326bf77648d242cadaf91b491f50c3848
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122662"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294270"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni di trasformazione dei dati nel flusso di dati di mapping 
 
@@ -149,7 +149,7 @@ Ottiene il timestamp corrente quando l'esecuzione del processo inizia con il fus
 ___
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Ottiene il timestamp corrente come ora UTC. Se si vuole che l'ora corrente venga interpretata in un fuso orario diverso dal fuso orario del cluster, è possibile passare un fuso orario facoltativo nel formato ' GMT ',' PST ',' UTC ',' America/Cayman '. Il valore predefinito è il fuso orario corrente. Vedere SimpleDateFormat di Java per i formati disponibili. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo convertire l'ora UTC in un fuso orario diverso, utilizzare fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+Ottiene il timestamp corrente come ora UTC. Se si vuole che l'ora corrente venga interpretata in un fuso orario diverso dal fuso orario del cluster, è possibile passare un fuso orario facoltativo nel formato ' GMT ',' PST ',' UTC ',' America/Cayman '. Il valore predefinito è il fuso orario corrente. Vedere SimpleDateFormat di Java per i formati disponibili. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). Per convertire l'ora UTC in un fuso orario diverso, utilizzare fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___

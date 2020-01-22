@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: ebe9a0368f2111fa6787b7fa4f4432d7ad4106c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3df66c80ab96bbcb9a58f91989cfd63b1e13a67f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485949"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312397"
 ---
 # <a name="two-class-decision-forest-module"></a>Modulo della foresta delle decisioni a due classi
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di machine learning basato sull'algoritmo delle foreste delle decisioni.  
 
@@ -26,7 +26,7 @@ Le foreste delle decisioni sono modelli di ensemble veloci e con supervisione. Q
 
 ## <a name="understanding-decision-forests"></a>Informazioni sulle foreste delle decisioni
 
-Questo algoritmo di foresta delle decisioni è un metodo di apprendimento dell'insieme destinato alle attività di classificazione. I metodi Ensemble sono basati sul principio generale che invece di basarsi su un singolo modello, è possibile ottenere risultati migliori e un modello più generalizzato creando più modelli correlati e combinando tali modelli in qualche modo. In genere, i modelli di insieme offrono una migliore copertura e accuratezza rispetto a singoli alberi delle decisioni. 
+Questo algoritmo di foresta delle decisioni è un metodo di apprendimento dell'insieme destinato alle attività di classificazione. I metodi Ensemble sono basati sul principio generale che invece di basarsi su un singolo modello, è possibile ottenere risultati migliori e un modello più generalizzato creando più modelli correlati e combinando tali modelli in qualche modo. In genere, i modelli di insieme offrono una copertura e un'accuratezza migliori rispetto a singoli alberi delle decisioni. 
 
 Esistono diversi modi per creare singoli modelli e combinarli in un insieme. Questa particolare implementazione di una foresta delle decisioni funziona creando più alberi delle decisioni e **votando** la classe di output più comune. Il voto è uno dei metodi più noti per la generazione di risultati in un modello di insieme. 
 
@@ -47,7 +47,7 @@ Tuttavia, gli alberi delle decisioni semplici possono overfitting sui dati e son
 
 Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
-## <a name="how-to-configure"></a>Come configurare
+## <a name="how-to-configure"></a>Modalità di configurazione
   
 1.  Aggiungere il modulo **Two-Class Decision Forest** alla pipeline in Azure Machine Learning e aprire il riquadro delle **Proprietà** del modulo. 
 
@@ -72,13 +72,13 @@ Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.co
     > [!NOTE]
     >  Questo valore controlla anche il numero di alberi visualizzati durante la visualizzazione del modello sottoposto a training. Se si desidera visualizzare o stampare un singolo albero, è possibile impostare il valore su 1. Tuttavia, è possibile produrre solo un albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
   
-5.  Per la **profondità massima degli alberi delle decisioni**, digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero può aumentare la precisione, a rischio di overfitting e di aumento dei tempi di training.
+5.  Per la **profondità massima degli alberi delle decisioni**, digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio però di overfitting e di aumento dei tempi di training.
   
 6.  Per **numero di divisioni casuali per nodo**, digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
   
 7.  Per il **numero minimo di campioni per nodo foglia**, indicare il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
   
-     Aumentando questo valore, si aumenta la soglia per la creazione di nuove regole. Ad esempio, con il valore predefinito 1, anche un singolo caso può causare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque case che soddisfano le stesse condizioni.  
+     Aumentando questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.  
   
 8.  Selezionare l'opzione **Consenti valori sconosciuti per le funzionalità categoriche** per creare un gruppo per i valori sconosciuti nei set di training o di convalida. Il modello può essere meno preciso per i valori noti, ma può fornire stime migliori per i valori nuovi (sconosciuti). 
 
@@ -87,17 +87,12 @@ Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.co
 9. Alleghi un set di dati con etichetta e uno dei [moduli di training](module-reference.md):  
   
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](./train-model.md) .  
-  
     
 ## <a name="results"></a>Risultati
 
 Al termine del training:
 
-+ Per visualizzare l'albero che è stato creato a ogni iterazione, fare clic con il pulsante destro del mouse sull'output del modulo [Train Model](./train-model.md) e selezionare **Visualize (Visualizza**).
-  
-    Fare clic su ogni albero per eseguire il drill-down nelle divisioni e visualizzare le regole per ogni nodo.
-
-+ Per salvare uno snapshot del modello, fare clic con il pulsante destro del mouse sull'output del modello sottoposto a **Training** e selezionare **Salva modello**. Il modello salvato non viene aggiornato nelle esecuzioni successive della pipeline.
++ Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 
 + Per usare il modello per l'assegnazione dei punteggi, aggiungere il modulo **Score Model** a una pipeline.
 

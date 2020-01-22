@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b3e2b6fbfb11c0ee89e56cd29fa3bf606c336235
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278546"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293913"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a gestione costi di Azure per i partner
 
@@ -120,7 +120,7 @@ Indipendentemente dai criteri, i partner possono anche visualizzare i costi se h
 
 I partner usano le informazioni seguenti per consentire ai criteri di visualizzare gli addebiti per l'utilizzo di Azure per i clienti.
 
-Nella portale di Azure accedere al tenant partner e selezionare **Gestione costi e fatturazione**. Selezionare un account di fatturazione e quindi selezionare **Customers (clienti**). L'elenco dei clienti è associato all'account di fatturazione.
+Nella portale di Azure accedere al tenant partner e selezionare **Gestione costi e fatturazione**. Selezionare l'account di fatturazione del contratto partner Microsoft pertinente e quindi selezionare **Customers**. L'elenco dei clienti è associato all'account di fatturazione.
 
 Nell'elenco dei clienti selezionare il cliente che si desidera consentire per visualizzare i costi.
 
@@ -137,7 +137,7 @@ Quando il criterio di costo è impostato su **Sì**, gli utenti della sottoscriz
 
 Quando i criteri di visibilità dei costi sono abilitati, tutti i servizi con utilizzo delle sottoscrizioni mostrano i costi in base alle tariffe con pagamento in base al consumo. L'utilizzo della prenotazione viene visualizzato con costi zero per i costi effettivi e ammortizzati. Gli acquisti e i diritti non sono associati a una sottoscrizione specifica. Quindi, gli acquisti non vengono visualizzati nell'ambito della sottoscrizione.
 
-Per visualizzare i costi per il tenant del cliente, aprire Gestione costi e fatturazione, quindi selezionare account di fatturazione. Nell'elenco degli account di fatturazione selezionare un account di fatturazione.
+Per visualizzare i costi per il tenant del cliente, aprire **Gestione costi e fatturazione** e selezionare l'account di fatturazione pertinente del contratto partner Microsoft.
 
 ![Selezionare un account di fatturazione](./media/get-started-partners/select-billing-account.png)
 
@@ -263,7 +263,7 @@ Gli utenti con accesso RBAC alla sottoscrizione possono anche esportare i dati s
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Creare un'esportazione in un tenant partner o un tenant del cliente
 
-Nella portale di Azure accedere al tenant partner o al tenant del cliente e selezionare **Gestione costi e fatturazione**. Selezionare un ambito appropriato, ad esempio un account di fatturazione, quindi selezionare **analisi dei costi**. Quando la pagina viene caricata, selezionare **Esporta**. Selezionare **Visualizza tutte le esportazioni** in Pianifica esportazione.
+Nella portale di Azure accedere al tenant partner o al tenant del cliente e selezionare **Gestione costi e fatturazione**. Selezionare un ambito appropriato, ad esempio un account di fatturazione Microsoft Partner Agreement, quindi selezionare **analisi dei costi**. Quando la pagina viene caricata, selezionare **Esporta**. Selezionare **Visualizza tutte le esportazioni** in Pianifica esportazione.
 
 ![Selezionare Esporta e Visualizza tutte le esportazioni](./media/get-started-partners/export01.png)
 

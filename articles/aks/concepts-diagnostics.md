@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 69ae6766414dbe533500860b01852ee8d25c3a1e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513913"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291380"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Panoramica di diagnostica del servizio Azure Kubernetes (AKS)
 
@@ -30,7 +30,7 @@ Per accedere alla diagnostica AKS:
 
 ## <a name="view-a-diagnostic-report"></a>Visualizzare un report di diagnostica
 
-Dopo aver fatto clic su una categoria, è possibile visualizzare un report di diagnostica specifico per il cluster. Il report di diagnostica chiama in modo intelligente se si verificano problemi nel cluster con icone di stato. È possibile eseguire il drill-down in ogni argomento facendo clic su **altre informazioni** per visualizzare una descrizione dettagliata del problema, le azioni consigliate, i collegamenti a docs utili, le metriche correlate e i dati di registrazione. I report di diagnostica vengono generati in modo intelligente in base allo stato corrente del cluster dopo l'esecuzione di diversi controlli. I report di diagnostica possono essere uno strumento utile per individuare il problema del cluster e individuare i passaggi successivi per risolvere il problema.
+Dopo aver fatto clic su una categoria, è possibile visualizzare un report di diagnostica specifico per il cluster. Il report di diagnostica chiama in modo intelligente se si verificano problemi nel cluster con icone di stato. È possibile eseguire il drill-down in ogni argomento facendo clic su **altre informazioni** per visualizzare una descrizione dettagliata del problema, le azioni consigliate, i collegamenti a docs utili, le metriche correlate e i dati di registrazione. I report di diagnostica vengono generati in modo intelligente in base allo stato corrente del cluster dopo l'esecuzione di un'ampia gamma di controlli. I report di diagnostica possono essere uno strumento utile per individuare il problema del cluster e individuare i passaggi successivi per risolvere il problema.
 
 ![Report di diagnostica](./media/concepts-diagnostics/diagnostic-report.png)
 
@@ -76,7 +76,7 @@ Gestione identità e sicurezza rileva gli errori di autenticazione e autorizzazi
 
 - Errori di autorizzazione del nodo
 - 401 errori
-- 403 errori
+- Errori 403
 
 ## <a name="next-steps"></a>Passaggi successivi
 

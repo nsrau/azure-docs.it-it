@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ca35af997834a897572555e752597026b5159712
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428596"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314454"
 ---
 # <a name="clip-values"></a>Ritagliare valori
 
-Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo di Azure Machine Learning Designer.
 
 Usare il modulo clip Values per identificare e facoltativamente sostituire i valori di dati che si trovano al di sopra o al di sotto di una soglia specificata con una media, una costante o un altro valore sostitutivo.  
 
@@ -86,7 +86,7 @@ Se è necessario applicare metodi di ritaglio o criteri diversi ad alcune colonn
   
 1.  Eseguire la pipeline.  
   
-    Fare clic con il pulsante destro del mouse sull'output del modulo **clip values** e selezionare **Visualizza** per esaminare i valori e verificare che l'operazione di ritaglio soddisfi le aspettative.  
+    Fare clic con il pulsante destro del mouse sul modulo **clip values** e selezionare **Visualizza** oppure selezionare il modulo e passare alla scheda **output** nel riquadro destro, fare clic sull'icona istogramma negli **output della porta**, per esaminare i valori e verificare che l'operazione di ritaglio soddisfi le aspettative.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Esempi per il ritaglio con percentile
 

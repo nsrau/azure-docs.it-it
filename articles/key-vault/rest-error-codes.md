@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 9ea77a6822a851951ea7363b9cf496fa0df534ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8c9390ea498647d34e8643ed4be596372ffb8696
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982102"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293386"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Key Vault
  
@@ -54,7 +54,7 @@ L'intestazione "Authorization" è il token di accesso richiesto con ogni chiamat
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Al token manca la risorsa corretta associata. 
 
-Quando si richiede un token di accesso dall'endpoint OAUTH di Azure, è obbligatorio un parametro denominato "Resource". Il valore è importante per il provider di token perché consente di definire l'ambito del token per l'utilizzo previsto. La risorsa per **tutti* i token per accedere a una Key Vault è <https:\//vault.keyvault.net> (senza barra finale).
+Quando si richiede un token di accesso dall'endpoint OAUTH di Azure, è obbligatorio un parametro denominato "Resource". Il valore è importante per il provider di token perché consente di definire l'ambito del token per l'utilizzo previsto. La risorsa per **tutti** i token per accedere a una Key Vault è *https:\//Vault.keyvault.NET* (senza barra finale).
 
 ### <a name="the-token-is-expired"></a>Il token è scaduto
 

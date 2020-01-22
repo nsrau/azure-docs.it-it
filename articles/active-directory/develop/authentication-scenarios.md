@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb09228b561718819c0c48aac4fc66d8205fe384
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ff9af6a6f51ca89fa7e852609ceed1ee02c6e23f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424606"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294355"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
@@ -168,4 +168,4 @@ Per impostazione predefinita, MSAL usa il browser di sistema ad eccezione di .NE
 - Per acquisire familiarità con i termini comuni, vedere il [Glossario per sviluppatori Microsoft Identity Platform](developer-glossary.md) .
 - Vedere [flussi di autenticazione e scenari di app](authentication-flows-app-scenarios.md) per altre informazioni su altri scenari per l'autenticazione degli utenti supportati dalla piattaforma di identità Microsoft.
 - Per informazioni sulle librerie Microsoft che consentono di sviluppare applicazioni che interagiscono con account Microsoft, Azure AD account e Azure AD B2C utenti in un unico modello di programmazione semplificato, vedere [librerie MSAL](msal-overview.md) .
-- Vedere [integrare il servizio app con la piattaforma di identità Microsfot](/azure/app-service/configure-authentication-provider-aad) per informazioni su come configurare l'autenticazione per l'app del servizio app.
+- Vedere [integrare il servizio app con la piattaforma di identità Microsoft](/azure/app-service/configure-authentication-provider-aad) per informazioni su come configurare l'autenticazione per l'app del servizio app.

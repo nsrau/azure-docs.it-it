@@ -9,22 +9,22 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b707971f0b150bce63b4dd0ffa4e55dc3b3d6bac
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492641"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313960"
 ---
 # <a name="split-data-module"></a>Modulo Split data
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Utilizzare questo modulo per dividere un set di dati in due set distinti.
 
 Questo modulo è particolarmente utile quando è necessario separare i dati in set di training e di testing. È possibile personalizzare anche il modo in cui i dati vengono divisi. Alcune opzioni supportano la sequenza casuale dei dati; altre sono personalizzate per un tipo di dati o un tipo di modello specifico.
 
-## <a name="how-to-configure"></a>Come configurare
+## <a name="how-to-configure"></a>Modalità di configurazione
 
 > [!TIP]
 > Prima di scegliere la modalità di suddivisione, leggere tutte le opzioni per determinare il tipo di suddivisione necessario.
@@ -44,7 +44,7 @@ Questo modulo è particolarmente utile quando è necessario separare i dati in s
 
     - **Suddivisione espressione relativa**: usare questa opzione quando si vuole applicare una condizione a una colonna numerica. Il numero può essere un campo di data/ora, una colonna contenente importi di età o dollaro o addirittura una percentuale. È ad esempio possibile dividere il set di dati in base al costo degli elementi, raggruppare le persone in base all'intervallo di età o separare i dati in base a una data di calendario.
 
-### <a name="split-rows"></a>Suddividere le righe
+### <a name="split-rows"></a>Split Rows
 
 1.  Aggiungere il modulo [Split data](./split-data.md) alla pipeline nella finestra di progettazione e connettere il set di dati che si desidera suddividere.
   
@@ -54,13 +54,13 @@ Questo modulo è particolarmente utile quando è necessario separare i dati in s
 
     Il rapporto rappresenta la percentuale di righe inviate al primo set di dati di output, quindi è necessario digitare un numero decimale compreso tra 0 e 1.
      
-     Se, ad esempio, si digita 0,75 come valore, il set di dati verrebbe suddiviso usando un rapporto 75:25, con 75% delle righe inviate al primo set di dati di output e il 25% inviato al secondo set di dati di output.
+     Ad esempio, se si digita 0,75 come valore, il set di dati viene suddiviso con un rapporto 75:25, per cui il 75% delle righe viene inviato al primo set di dati di output e il 25% al secondo set di dati di output.
   
 4. Selezionare l'opzione **suddivisione casuale** se si desidera eseguire la selezione casuale dei dati nei due gruppi. Questa è l'opzione preferita per la creazione di set di risultati di training e di test.
 
 5.  **Seed casuale**: digitare un valore integer non negativo per inizializzare la sequenza di istanze di pseudocasuale da usare. Questo valore di inizializzazione predefinito viene usato in tutti i moduli che generano numeri casuali. 
 
-     La specifica di un valore di inizializzazione rende i risultati generalmente riproducibili. Se è necessario ripetere i risultati di un'operazione Split, è necessario specificare un valore di inizializzazione per il generatore di numeri casuali. In caso contrario, il valore di inizializzazione casuale viene impostato su 0 per impostazione predefinita, il che significa che il valore di inizializzazione iniziale viene ottenuto dal clock di sistema. Di conseguenza, la distribuzione dei dati potrebbe essere leggermente diversa a ogni esecuzione di una divisione. 
+     La specifica di un valore di inizializzazione rende i risultati generalmente riproducibili. Se è necessario ripetere i risultati di un'operazione Split, è necessario specificare un valore di inizializzazione per il generatore di numeri casuali. In caso contrario, il valore di inizializzazione casuale viene impostato automaticamente su 0, per cui il valore di inizializzazione iniziale viene ottenuto dal clock di sistema. Di conseguenza, la distribuzione dei dati può differire leggermente ogni volta che si esegue una suddivisione. 
 
 6. **Suddivisione stratificata**: impostare questa opzione su **true** per assicurarsi che i due set di risultati di output contengano un campione rappresentativo dei valori nella *colonna Strata* o nella *colonna chiave di stratificazione*. 
 

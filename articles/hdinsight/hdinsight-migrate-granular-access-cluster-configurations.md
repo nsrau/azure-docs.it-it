@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: ea8e1565a5ebe4e5cb40049fbfcb329feb83bdda
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498200"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310833"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -26,9 +26,9 @@ A partire dal 3 settembre 2019, per accedere a questi segreti sarà necessaria l
 
 Viene inoltre introdotto un nuovo ruolo [operatore cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) che sarà in grado di recuperare i segreti senza concedere le autorizzazioni amministrative di collaboratore o proprietario. Per riepilogare:
 
-| Ruolo                                  | Precedentemente                                                                                       | In futuro       |
+| Ruolo                                  | Precedentemente                                                                                       | Sviluppi futuri       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Lettore                                | -Accesso in lettura, inclusi i segreti                                                                   | -Accesso in lettura, **esclusi** i segreti |           |   |   |
+| Reader                                | -Accesso in lettura, inclusi i segreti                                                                   | -Accesso in lettura, **esclusi** i segreti |           |   |   |
 | Operatore cluster HDInsight<br>(Nuovo ruolo) | N/D                                                                                              | -Accesso in lettura/scrittura, inclusi i segreti         |   |   |
 | Collaboratore                           | -Accesso in lettura/scrittura, inclusi i segreti<br>-Creare e gestire tutti i tipi di risorse di Azure.     | Nessuna modifica |
 | Proprietario                                 | -Accesso in lettura/scrittura, inclusi i segreti<br>-Accesso completo a tutte le risorse<br>-Delegare l'accesso ad altri utenti | Nessuna modifica |
@@ -53,7 +53,7 @@ Le entità e gli scenari seguenti sono interessati:
 - [AZ. HDInsight PowerShell](#azhdinsight-powershell) sotto la versione 2.0.0.
 Per informazioni sulla procedura di migrazione per il tuo scenario, vedi le sezioni seguenti o usa i collegamenti indicati in precedenza.
 
-### <a name="api"></a>API
+### <a name="api"></a>API SmartBear Ready!
 
 Le seguenti API verranno modificate o deprecate:
 
@@ -71,7 +71,7 @@ Sono state aggiunte le seguenti API sostitutive:</span>
 
 - [**POST/Configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#list-configurations)
     - Usare questa API per ottenere tutte le configurazioni, inclusi i segreti.
-- [**POST/getGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
+- [**POST /getGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
     - Usare questa API per ottenere le impostazioni del gateway.
 - [**POST/updateGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)
     - Usare questa API per aggiornare le impostazioni del gateway (nome utente e/o password).
@@ -132,9 +132,7 @@ Eseguire l'aggiornamento alla [versione 1.0.0](https://pypi.org/project/azure-mg
 Eseguire l'aggiornamento alla [versione 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) o successiva di HDInsight SDK per Java. Potrebbero essere necessarie modifiche minime al codice se si utilizza un metodo interessato da queste modifiche:
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) **non restituirà più parametri sensibili** come le chiavi di archiviazione (sito Core) o le credenziali http (gateway).
-    - Per recuperare tutte le configurazioni, inclusi i parametri sensibili, usare [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) in futuro.  Si noti che gli utenti con il ruolo "Reader" non saranno in grado di utilizzare questo metodo. Questo consente un controllo granulare sugli utenti che possono accedere alle informazioni riservate per un cluster. 
-    - Per recuperare solo le credenziali del gateway HTTP, usare [`ClustersInner.getGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) ora è deprecata ed è stata sostituita da [`ClustersInner.updateGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable).
+- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) ora è deprecata.
 
 ### <a name="sdk-for-go"></a>SDK per go
 
@@ -151,7 +149,7 @@ Eseguire l'aggiornamento a [AZ PowerShell versione 2.0.0](https://www.powershell
 - `Get-AzHDInsightJobOutput` è stato aggiornato per supportare l'accesso granulare basato sui ruoli alla chiave di archiviazione.
     - Gli utenti con ruolo di collaboratore, proprietario oppure operatore cluster HDInsight non sono interessati.
     - Gli utenti con solo il ruolo Reader dovranno specificare esplicitamente il parametro `DefaultStorageAccountKey`.
-- `Revoke-AzHDInsightHttpServicesAccess` è ora deprecata. Il protocollo HTTP è ora sempre abilitato, quindi questo cmdlet non è più necessario.
+- `Revoke-AzHDInsightHttpServicesAccess` ora è deprecata. Il protocollo HTTP è ora sempre abilitato, quindi questo cmdlet non è più necessario.
  Vedere [AZ. Guida alla migrazione di HDInsight](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) per altri dettagli.
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Aggiungere l'assegnazione di ruolo Operatore cluster HDInsight a un utente
@@ -187,7 +185,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 In alternativa, è possibile usare la portale di Azure per aggiungere l'assegnazione di ruolo Operatore cluster HDInsight a un utente. Vedere la documentazione, [gestire l'accesso alle risorse di Azure usando RBAC e il portale di Azure-aggiungere un'assegnazione di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>FAQ
 
 ### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Perché viene visualizzato un 403 (accesso negato) dopo l'aggiornamento delle richieste e/o dello strumento API?
 

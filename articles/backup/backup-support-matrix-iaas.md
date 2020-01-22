@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: c57f625e7f44dc5de6a801ec93bad5433e9a9a66
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829545"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294287"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -31,6 +31,18 @@ Backup diretto di macchine virtuali di Azure (solo Windows)  | Eseguire il backu
 Eseguire il backup della macchina virtuale di Azure nel server di backup  | Eseguire il backup di file/cartelle/volumi; file bare metal e dello stato del sistema; dati delle app in System Center DPM o in Backup di Microsoft Azure Server (MAB).<br/><br/> DPM/MAB esegue quindi il backup nell'insieme di credenziali per il backup. | Installare l'agente protezione DPM/MAB nella macchina virtuale. L'agente di Servizi di ripristino di Microsoft Azure viene installato in DPM o nel server di Backup di Microsoft Azure.| Ripristino di file, cartelle e volumi; file dello stato del sistema/bare metal; dati delle app.
 
 Altre informazioni sul backup [con un server di backup](backup-architecture.md#architecture-back-up-to-dpmmabs) e sui [requisiti di supporto](backup-support-matrix-mabs-dpm.md).
+
+>[!NOTE]
+> Backup di Azure supporta ora il backup e il ripristino dei dischi selettivi con la soluzione di backup della macchina virtuale di Azure.
+>
+>Attualmente, backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale con la soluzione di backup della macchina virtuale. Con la funzionalità Escludi disco è possibile scegliere di eseguire il backup di uno o più dischi dati in una macchina virtuale. Questo offre una soluzione efficiente ed economica per le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup, che consente di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
+>
+> Questa soluzione è particolarmente utile negli scenari seguenti:
+>  
+>1. È necessario eseguire il backup dei dati critici in un solo disco e non si vuole eseguire il backup dei restanti dischi collegati a una macchina virtuale. Questo consente di ridurre al minimo i costi di archiviazione dei backup.  
+>2. Sono disponibili altre soluzioni di backup per una parte dei dati della VM. Ad esempio, si esegue il backup dei database o dei dati con una soluzione di backup del carico di lavoro diversa e si vuole usare il backup a livello di VM di Azure per il resto dei dischi e dei dati per creare un sistema efficiente e affidabile usando le funzionalità migliori disponibili.
+>
+>Per iscriverti all'anteprima, scrivici all'indirizzo AskAzureBackupTeam@microsoft.com
 
 ## <a name="supported-backup-actions"></a>Azioni di backup supportate
 

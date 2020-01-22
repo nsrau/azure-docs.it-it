@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dd2cd89e8edb4e636bf46d2a8125a0f1d00f2f3
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428399"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312244"
 ---
 # <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
-Questo articolo descrive come usare il modulo Tune Model iperparametris in Azure Machine Learning Designer (Preview). L'obiettivo è determinare gli iperparametri ottimali per un modello di machine learning. Il modulo compila e testa più modelli usando diverse combinazioni di impostazioni. Viene confrontata la metrica su tutti i modelli per ottenere le combinazioni di impostazioni. 
+Questo articolo descrive come usare il modulo Tune Model iperparametris in Azure Machine Learning Designer. L'obiettivo è determinare gli iperparametri ottimali per un modello di machine learning. Il modulo compila e testa più modelli usando diverse combinazioni di impostazioni. Viene confrontata la metrica su tutti i modelli per ottenere le combinazioni di impostazioni. 
 
 Il *parametro* dei termini e l' *iperparametro* possono essere confusi. I *parametri* del modello sono quelli impostati nel riquadro proprietà. Fondamentalmente, questo modulo esegue lo *sweep dei parametri* sulle impostazioni del parametro specificate. Viene illustrato un set ottimale di _iperparametri_, che potrebbe essere diverso per ogni particolare albero delle decisioni, set di dati o metodo di regressione. Il processo di individuazione della configurazione ottimale viene talvolta definito *ottimizzazione*. 
 
@@ -81,11 +81,11 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 
 Al termine del training:
 
-+ Per visualizzare un set di metriche di accuratezza per il modello migliore, fare clic con il pulsante destro del mouse sul modulo, scegliere **Sweep risultati**, quindi selezionare **Visualizza**.
++ Per visualizzare un set di metriche di accuratezza per il modello migliore, fare clic con il pulsante destro del mouse sul modulo, quindi scegliere **Visualizza**.
 
     L'output include tutte le metriche di accuratezza applicabili al tipo di modello, ma la metrica selezionata per la classificazione determina quale modello viene considerato "migliore".
 
-+ Per usare il modello per l'assegnazione dei punteggi in altre pipeline senza dover ripetere il processo di ottimizzazione, fare clic con il pulsante destro del mouse sull'output del modello e selezionare **Salva come modello con training**. 
++ Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 
 
 ## <a name="technical-notes"></a>Note tecniche

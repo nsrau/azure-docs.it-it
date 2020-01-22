@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771428"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311037"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compilare un classificatore per stimare la categoria aziendale usando Azure Machine Learning Designer.
 
-**Esempio di finestra di progettazione (anteprima) 7**
+**Esempio di finestra di progettazione 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Questo esempio illustra come usare i moduli di analisi del testo per compilare una pipeline di classificazione del testo in Azure Machine Learning Designer (anteprima).
+Questo esempio illustra come usare i moduli di analisi del testo per compilare una pipeline di classificazione del testo in Azure Machine Learning Designer.
 
 L'obiettivo della classificazione del testo è quello di assegnare parte del testo a una o più classi o categorie predefinite. Il testo può essere un documento, un articolo di notizie, una query di ricerca, un messaggio di posta elettronica, un tweet, ticket di supporto, commenti dei clienti, revisione del prodotto utente e così via. Le applicazioni di classificazione del testo includono la categorizzazione di articoli di giornali e contenuti Wire di notizie in argomenti, l'organizzazione di pagine Web in categorie gerarchiche, il filtraggio della posta indesiderata, l'analisi dei sentimenti, la stima degli obiettivi utente dalle query di ricerca ticket di supporto e analisi dei commenti dei clienti. 
 

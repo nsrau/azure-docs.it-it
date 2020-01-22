@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7a3280e11d40a361c5a3305d71e58661b37b8bd1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563429"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290717"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -38,7 +38,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 1. Nel riquadro sinistro selezionare **IOT Edge** dal menu.
 1. Fare clic sull'ID del dispositivo di destinazione nell'elenco dei dispositivi.
-1. Sulla barra superiore selezionare **imposta moduli**.
+1. Sulla barra superiore selezionare **Imposta moduli**.
 1. Nella sezione **impostazioni container Registry** della pagina fornire le credenziali per accedere ai registri di contenitori privati contenenti le immagini del modulo.
 1. Nella sezione **moduli IOT Edge** della pagina selezionare **Aggiungi**.
 1. Esaminare i tipi di moduli dal menu a discesa:
@@ -53,7 +53,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 ### <a name="specify-routes"></a>Specificare le route
 
-Nella scheda **Route** è possibile definire il modo in cui i messaggi vengono passati tra i moduli e l'hub Internet. I messaggi vengono costruiti mediante coppie nome/valore. Per impostazione predefinita, una route viene chiamata **Route** e definita come **da/messages/* in $upstream * *, il che significa che tutti i messaggi restituiti da qualsiasi modulo vengono inviati all'hub Internet.  
+Nella scheda **Route** è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore. Per impostazione predefinita, una route viene chiamata **Route** e definita come **da/messages/\* in $upstream**, il che significa che tutti i messaggi restituiti da qualsiasi modulo vengono inviati all'hub Internet.  
 
 Aggiungere o aggiornare le route con le informazioni provenienti da [Declare Routes](module-composition.md#declare-routes), quindi selezionare **Next: Review + create** per passare al passaggio successivo della procedura guidata.
 
@@ -92,7 +92,7 @@ Verificare che il modulo sia distribuito nell'hub Internet delle cose nel portal
 1. Nel portale di Azure passare all'hub IoT.
 1. Nel riquadro sinistro, in **gestione automatica dispositivi**, selezionare **IOT Edge**.
 1. Selezionare il dispositivo IoT Edge per ricevere la distribuzione.
-1. Sulla barra superiore selezionare **imposta moduli**.
+1. Sulla barra superiore selezionare **Imposta moduli**.
 1. Nella sezione **moduli IOT Edge** fare clic su **Aggiungi**e selezionare **modulo Marketplace** dal menu a discesa.
 
 ![Aggiungere un modulo nell'hub Internet](./media/how-to-deploy-modules-portal/iothub-add-module.png)

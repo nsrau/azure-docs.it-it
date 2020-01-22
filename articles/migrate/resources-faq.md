@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: 8bfa9237d365636c0bdaa3af06c5af23b683231d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: d06e75ec900faa17ed4441c20a52d8da60ee4d97
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563540"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289459"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: domande comuni
 
@@ -53,7 +53,7 @@ Server assessment è uno strumento di pianificazione della migrazione. Il Site R
 
 ## <a name="which-geographies-are-supported"></a>Quali aree geografiche sono supportate?
 
-Esaminare le aree geografiche supportate Azure Migrate per le macchine virtuali [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+Esaminare le aree geografiche supportate Azure Migrate per le macchine virtuali [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) e [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v).
 
 ## <a name="how-do-i-get-started"></a>Come posso iniziare a usare la soluzione?
 

@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: sgilley
 ms.date: 12/25/2019
-ms.openlocfilehash: 9e0bae722430662ddbe252e82c5108eb820ce352
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 88f688608a0ae3d435699362f9326c7c02d494a4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660119"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311117"
 ---
 # <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Usare l'albero delle decisioni con boosting per stimare la varianza con Azure Machine Learning Designer
 
-**Finestra di progettazione (anteprima) campione 5**
+**Esempio di finestra di progettazione 5**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Scopri come creare una pipeline di Machine Learning complessa senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima).
+Informazioni su come creare una pipeline di Machine Learning complessa senza scrivere una singola riga di codice usando la finestra di progettazione.
 
 Questa pipeline addestra 2 classificatori di **albero delle decisioni con boosting a due classi** per prevedere le attività comuni per i sistemi CRM (Customer Relationship Management), ovvero la varianza dei clienti. I valori dei dati e le etichette sono suddivisi in più origini dati e sono ripartiti in anonimato informazioni sui clienti. Tuttavia, è comunque possibile usare la finestra di progettazione per combinare i set di dati ed eseguire il training di un modello usando i valori nascosti.
 

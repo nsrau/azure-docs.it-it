@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 285456c87835344aba083c68a7876ecc78d9e45e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270564"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288958"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integrazione di Azure Active Directory per Azure Red Hat OpenShift
 
@@ -79,40 +79,40 @@ Generare un segreto client per l'autenticazione dell'app Azure Active Directory.
 3. Fornire una **Descrizione**.
 4. Il set **scade** fino alla durata desiderata, ad esempio **in 2 anni**.
 5. Fare clic su **Aggiungi** e il valore della chiave verrà visualizzato nella sezione **segreti client** della pagina.
-6. Copiare il valore della chiave. Si fa riferimento a questo valore come `SECRET` nell'esercitazione [creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+6. Copiare il valore della chiave. We will refer to this value as `SECRET` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
-![Screenshot del riquadro certificati e segreti](./media/howto-create-tenant/create-key.png)
+![Screenshot of the certificates and secrets pane](./media/howto-create-tenant/create-key.png)
 
-Per ulteriori informazioni sugli oggetti applicazione Azure, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+For more information about Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
-Per informazioni dettagliate sulla creazione di una nuova applicazione Azure AD, vedere [registrare un'app con l'endpoint Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+For details on creating a new Azure AD application, see [Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
 ## <a name="add-api-permissions"></a>Aggiungere autorizzazioni API
 
-1. Nella sezione **Gestisci** fare clic su **autorizzazioni API**.
-2. Fare clic su **Aggiungi autorizzazione** e selezionare **Azure Active Directory grafico** , quindi **autorizzazioni delegate**
-3. Espandere **utente** nell'elenco seguente e verificare che l' **utente. Read** sia abilitato.
-4. Scorrere verso l'alto e selezionare le **autorizzazioni dell'applicazione**.
-5. Espandere **directory** nell'elenco seguente e abilitare **Directory. ReadAll**
-6. Fare clic su **Aggiungi autorizzazioni** per accettare le modifiche.
-7. Il pannello autorizzazioni API dovrebbe ora visualizzare sia *User. Read* che *Directory. ReadAll*. Si noti la colonna avviso nella colonna **consenso dell'amministratore** accanto a *Directory. ReadAll*.
-8. Se si è l' *amministratore della sottoscrizione di Azure*, fare clic su **concedi il consenso dell'amministratore per il *nome della sottoscrizione***  . Se non si è l' *amministratore della sottoscrizione di Azure*, richiedere il consenso dell'amministratore.
-![screenshot del pannello autorizzazioni API. Sono state aggiunte le autorizzazioni User. Read e directory. ReadAll. il consenso dell'amministratore è necessario per directory. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+1. In the **Manage** section click **API permissions**.
+2. Click **Add permission** and select **Azure Active Directory Graph** then **Delegated permissions**. 
+3. Expand **User** on the list below and enable the **User.Read** permission. If **User.Read** is enabled by default, ensure that it is the **Azure Active Directory Graph** permission **User.Read**, *not* the **Microsoft Graph** permission **User.Read**.
+4. Scroll up and select **Application permissions**.
+5. Expand **Directory** on the list below and enable **Directory.ReadAll**
+6. Click **Add permissions** to accept the changes.
+7. The API permissions panel should now show both *User.Read* and *Directory.ReadAll*. Please note the warning in **Admin consent required** column next to *Directory.ReadAll*.
+8. If you are the *Azure Subscription Administrator*, click **Grant admin consent for *Subscription Name*** below. If you are not the *Azure Subscription Administrator*, request the consent from your administrator.
+![Screenshot of the API permissions panel. User.Read and Directory.ReadAll permissions added, admin consent required for Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
-> La sincronizzazione del gruppo Administrators del cluster funzionerà solo dopo che è stato concesso il consenso. Viene visualizzato un cerchio verde con un segno di spunta e un messaggio "concesso per *nome sottoscrizione*" nella colonna *autorizzazione amministratore richiesta* .
+> Synchronization of the cluster administrators group will work only after consent has been granted. You will see a green circle with a checkmark and a message "Granted for *Subscription Name*" in the *Admin consent required* column.
 
-Per informazioni dettagliate sulla gestione degli amministratori e di altri ruoli, vedere [aggiungere o modificare gli amministratori della sottoscrizione di Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+For details on managing administrators and other roles, see [Add or change Azure subscription administrators](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
 
 ## <a name="resources"></a>Risorse
 
-* [Applicazioni e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Guida introduttiva: registrare un'app con l'endpoint Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sono stati soddisfatti tutti i [prerequisiti di Azure Red Hat OpenShift](howto-setup-environment.md), si è pronti per creare il primo cluster.
+If you've met all the [Azure Red Hat OpenShift prerequisites](howto-setup-environment.md), you're ready to create your first cluster!
 
-Provare l'esercitazione:
+Try the tutorial:
 > [!div class="nextstepaction"]
 > [Creare un cluster di Azure Red Hat OpenShift](tutorial-create-cluster.md)

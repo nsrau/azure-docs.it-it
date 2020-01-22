@@ -14,27 +14,27 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917200"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291585"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
 Questo articolo descrive i diversi flussi di autenticazione forniti da Microsoft Authentication Library (MSAL).  Questi flussi possono essere utilizzati in diversi scenari di applicazione.
 
-| Flusso | Description | Usato in|  
+| Flusso | Description | Campo di utilizzo|  
 | ---- | ----------- | ------- | 
 | [Interattivo](#interactive) | Ottiene il token tramite un processo interattivo che richiede all'utente le credenziali tramite un browser o una finestra popup. | [App desktop](scenario-desktop-overview.md), [app per dispositivi mobili](scenario-mobile-overview.md) |
 | [Concessione implicita](#implicit-grant) | Consente all'app di ottenere i token senza eseguire uno scambio di credenziali del server back-end. Ciò consente all'app di eseguire l'accesso dell'utente, gestire la sessione e ottenere i token per altre API Web, tutto all'interno del codice JavaScript del client.| [Applicazioni a singola pagina (SPA)](scenario-spa-overview.md) |
 | [Codice di autorizzazione](#authorization-code) | Usato nelle app installate in un dispositivo per ottenere l'accesso alle risorse protette, ad esempio le API Web. In questo modo è possibile aggiungere l'accesso e l'API alle app desktop e per dispositivi mobili. | [App desktop](scenario-desktop-overview.md), [app per dispositivi mobili](scenario-mobile-overview.md), [app Web](scenario-web-app-call-api-overview.md) | 
 | [On-behalf-of](#on-behalf-of) | Un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. | [API Web](scenario-web-api-call-api-overview.md) |
 | [Credenziali del client](#client-credentials) | Consente di accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Utilizzato comunemente per le interazioni tra server che devono essere eseguite in background, senza interazione immediata con un utente. | [App daemon](scenario-daemon-overview.md) |
-| [Codice del dispositivo](#device-code) | Consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante. | [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Codice del dispositivo](#device-code) | Consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante. | [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Consente alle applicazioni in un dominio o in un Azure Active Directory (Azure AD) di acquisire un token automaticamente (senza alcuna interazione dell'interfaccia utente da parte dell'utente).| [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Nome utente/password](scenario-desktop-acquire-token.md#username--password) | Consente a un'applicazione di accedere all'utente gestendo direttamente la propria password. Questo flusso non è consigliato. | [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#username--password) |
+| [Nome utente/password](scenario-desktop-acquire-token.md#username-and-password) | Consente a un'applicazione di accedere all'utente gestendo direttamente la propria password. Questo flusso non è consigliato. | [App desktop/per dispositivi mobili](scenario-desktop-acquire-token.md#username-and-password) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Modo in cui ogni flusso emette token e codici
  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167955"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310187"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -50,7 +50,7 @@ Quando si esegue un'operazione di scalabilità orizzontale successiva, ad esempi
 
 ### <a name="synchronization-mode"></a>Modalità di sincronizzazione
 
-Per impostazione predefinita, le repliche di query vengono reidratate in modo completo e non incrementale. La riattivazione avviene nelle fasi. Vengono scollegati e collegati due alla volta (presupponendo che siano presenti almeno tre repliche) per garantire che almeno una replica venga mantenuta online per le query in un determinato momento. In alcuni casi, è possibile che i client debbano riconnettersi a una delle repliche online durante l'esecuzione del processo. Utilizzando l'impostazione **ReplicaSyncMode** , è ora possibile specificare la sincronizzazione della replica delle query in parallelo. La sincronizzazione parallela offre i vantaggi seguenti: 
+Per impostazione predefinita, le repliche di query vengono reidratate in modo completo e non incrementale. La riattivazione avviene nelle fasi. Vengono scollegati e collegati due alla volta (presupponendo che siano presenti almeno tre repliche) per garantire che almeno una replica venga mantenuta online per le query in un determinato momento. In alcuni casi, è possibile che i client debbano riconnettersi a una delle repliche online durante l'esecuzione del processo. Utilizzando l'impostazione di **ReplicaSyncMode** (in anteprima), è ora possibile specificare la sincronizzazione della replica delle query in parallelo. La sincronizzazione parallela offre i vantaggi seguenti: 
 
 - Riduzione significativa del tempo di sincronizzazione. 
 - È più probabile che i dati tra le repliche siano coerenti durante il processo di sincronizzazione. 

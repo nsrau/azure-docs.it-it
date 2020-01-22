@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 93fad58e971d761f626b79dc68f9576ccc2e1892
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75993999"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290139"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini nel file dei dati di utilizzo e addebiti di Azure
 
@@ -90,11 +90,11 @@ PublisherType | Tutto | Tipo di server di pubblicazione (valori: **Azure**, **AW
 Quantità | Tutto | Numero di unità acquistate o utilizzate.
 ReservationId | EA, Contratto del cliente Microsoft | Identificatore univoco per l'istanza di prenotazione acquistata.
 ReservationName | EA, Contratto del cliente Microsoft | Nome dell'istanza di prenotazione acquistata.
-ResourceGroup | Tutto | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in cui si trova la risorsa.
+ResourceGroup | Tutto | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in cui si trova la risorsa. Non tutti gli addebiti provengono dalle risorse distribuite ai gruppi di risorse. Gli addebiti che non dispongono di un gruppo di risorse verranno visualizzati come null/vuoti, **altri**o **non applicabili**.
 ResourceId<sup>1</sup> | Tutto | Identificatore univoco della risorsa di [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
 ResourceLocation | Tutto | Località del data center in cui viene eseguita la risorsa. Vedere Location.
-NomeRisorsa | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa.
-ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa.
+NomeRisorsa | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorsa verranno visualizzati come null/vuoti, **altri**o **non applicabili**.
+ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorsa verranno visualizzati come null/vuoti, **altri**o **non applicabili**.
 ServiceFamily | Contratto del cliente Microsoft | Famiglia di servizi a cui appartiene il servizio.
 ServiceInfo1 | Tutto | Metadati specifici del servizio.
 ServiceInfo2 | Tutto | Campo legacy con metadati specifici del servizio facoltativo.

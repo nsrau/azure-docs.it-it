@@ -3,20 +3,20 @@ title: Impostare le preferenze di portale di Azure | Microsoft Docs
 description: È possibile modificare portale di Azure impostazioni predefinite per soddisfare le proprie preferenze. Le impostazioni includono il timeout della sessione inattiva, la visualizzazione predefinita, la modalità menu, il contrasto, il tema, le notifiche, le lingue e i formati internazionali
 services: azure-portal
 keywords: impostazioni, timeout, lingua, regione
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 0c18ccbf5d9e4884af46e088f1a4ead67f50c3f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75641367"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310680"
 ---
-# <a name="set-your-azure-portal-preferences"></a>Imposta le preferenze di portale di Azure
+# <a name="set-your-azure-portal-preferences"></a>Impostare le preferenze del portale di Azure
 
 È possibile modificare le impostazioni predefinite del portale di Azure per soddisfare le proprie preferenze. Ognuna delle impostazioni elencate di seguito può essere modificata:
 

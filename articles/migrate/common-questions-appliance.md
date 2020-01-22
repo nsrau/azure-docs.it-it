@@ -3,12 +3,12 @@ title: Domande comuni sull'appliance Azure Migrate
 description: Risposte alle domande comuni sull'appliance Azure Migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029119"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292333"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -83,9 +83,9 @@ Sì, per entrambi.
 
 No. Esiste un mapping uno-a-uno tra un appliance e server vCenter. Per individuare le macchine virtuali in più istanze di server vCenter, è necessario distribuire più appliance.
 
-### <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quante VM è possibile individuare con un'appliance?
+### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quante VM o server è possibile individuare con un'appliance?
 
-È possibile individuare fino a 10.000 VM VMware e fino a 5.000 macchine virtuali Hyper-V con un unico dispositivo. Se si dispone di più computer nell'ambiente locale, vedere la pagina relativa alla scalabilità di [Hyper-V](scale-hyper-v-assessment.md) e [VMware](scale-vmware-assessment.md) assessment.
+È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 250 Server con una singola appliance. Se si dispone di più computer nell'ambiente locale, vedere la pagina relativa alla scalabilità di [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) e valutazione [fisica](scale-physical-assessment.md) .
 
 ## <a name="can-i-delete-an-appliance"></a>È possibile eliminare un appliance?
 
