@@ -88,6 +88,8 @@
       href: templates-cloud-consistency.md
     - name: Modalità di distribuzione
       href: deployment-modes.md
+    - name: Eliminazione in modalità completa
+      href: complete-mode-deletion.md
     - name: Deployment Manager
       items:
         - name: Panoramica
@@ -215,7 +217,7 @@
           href: error-sku-not-available.md
         - name: Problemi di distribuzione di Windows
           href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sul modello
       href: /azure/templates/
@@ -237,12 +239,6 @@
           href: template-functions-resource.md
         - name: Funzioni per i valori stringa
           href: template-functions-string.md
-    - name: Funzionalità per le risorse
-      items:
-        - name: Eliminazione in modalità completa
-          href: complete-mode-deletion.md
-        - name: Tipi di risorsa dell'estensione
-          href: extension-resource-types.md
     - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell
