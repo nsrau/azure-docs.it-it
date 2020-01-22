@@ -148,7 +148,7 @@ Ad esempio, in una singola macchina virtuale creata in Azure possono essere crea
 - I/O Standard - Scrittura BLOB in blocchi
 - I/O Standard - Eliminazione BLOB in blocchi
 
-Dopo la creazione della VM, ogni contatore inizia a emettere record di utilizzo. L'utilizzo e il costo indicato dal contantore vengono registrati nel sistema di misurazione di Azure.
+Dopo la creazione della VM, ogni contatore inizia a emettere record di utilizzo. L'utilizzo e il costo indicato dal contatore vengono registrati nel sistema di misurazione di Azure.
 
 È possibile visualizzare i contatori usati per calcolare la fattura nel file CSV di utilizzo.
 
