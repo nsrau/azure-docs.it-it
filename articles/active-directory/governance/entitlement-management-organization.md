@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608738"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548901"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -31,9 +31,12 @@ Azure AD la gestione dei diritti consente di collaborare con utenti esterni all'
 
 Un'organizzazione connessa è una directory o un dominio di Azure AD esterno a cui è associata una relazione.
 
-Si supponga, ad esempio, di lavorare presso la Woodgrove Bank e di voler collaborare con due organizzazioni esterne: Graphic Design Institute e contoso. L'utente ha ricevuto il contatto presso Graphical Design Institute che usa Azure AD e che gli utenti dell'Istituto di progettazione grafica hanno un nome dell'entità utente che termina con `graphicdesigninstitute.com`. E il contatto presso Contoso è stato detto che non usano ancora Azure AD, ma che gli utenti di Contoso hanno un nome dell'entità utente che termina con `contoso.com`.
+Si supponga, ad esempio, di lavorare presso la Woodgrove Bank e di voler collaborare con due organizzazioni esterne. Queste due organizzazioni hanno configurazioni diverse:
 
-È possibile configurare due organizzazioni connesse, una per Graphic Design Institute con la `graphicdesigninstitute.com`di dominio e una per Contoso con il dominio `contoso.com`. Se si aggiungono queste due organizzazioni connesse a un criterio, gli utenti di ogni organizzazione che dispongono di un nome dell'entità utente che corrisponde al criterio possono richiedere pacchetti di accesso. Inoltre, poiché Graphic Design Institute è stato identificato come utilizzando Azure AD, se successivamente Graphic Design Institute dispone di sottodomini, ad esempio `graphicdesigninstitute.example`, gli utenti con il nome dell'entità utente saranno anche in grado di richiedere pacchetti di accesso utilizzando lo stesso criterio.
+- Graphic Design Institute USA Azure AD e i relativi utenti hanno un nome dell'entità utente che termina con `graphicdesigninstitute.com`
+- Contoso non usa ancora Azure AD. Gli utenti di Contoso hanno un nome dell'entità utente che termina con `contoso.com`.
+
+In questo caso, è possibile configurare due organizzazioni connesse. Si creerebbe un'organizzazione connessa per Graphic Design Institute e una per contoso. Se si aggiungono queste due organizzazioni connesse a un criterio, gli utenti di ogni organizzazione con un nome dell'entità utente corrispondente ai criteri possono richiedere pacchetti di accesso. Gli utenti con un nome dell'entità utente che ha un dominio di graphicdesigninstitute.com corrispondono all'organizzazione connessa dell'Istituto di progettazione grafica e possono inviare richieste, mentre gli utenti con un nome dell'entità utente che ha un dominio di contoso.com corrispondono l'organizzazione connessa a Contoso e sarà anche autorizzato a richiedere pacchetti. Inoltre, dal momento che Graphic Design Institute USA Azure AD, tutti gli utenti con un nome principale che corrisponde a un [dominio verificato](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) aggiunto al tenant, ad esempio graphicdesigninstitute, saranno anche in grado di richiedere pacchetti di accesso con gli stessi criteri.
 
 ![Esempio di organizzazione connessa](./media/entitlement-management-organization/connected-organization-example.png)
 

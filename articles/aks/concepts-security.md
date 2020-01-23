@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422277"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547932"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -28,9 +28,9 @@ Questo articolo introduce i principali concetti per proteggere le applicazioni n
 
 ## <a name="master-security"></a>Sicurezza master
 
-Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster AKS ha il proprio Master Kubernetes dedicato a tenant singolo per fornire il server API, l'utilità di pianificazione e così via. Questo Master è gestito e gestito da Microsoft.
+Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster AKS ha un Master Kubernetes dedicato a tenant singolo per fornire il server API, l'utilità di pianificazione e così via. Questo Master è gestito e gestito da Microsoft.
 
-Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP pubblico con nome di dominio completo (FQDN). È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per ulteriori informazioni, vedere [Azure ad integrazione con AKS][aks-aad].
+Per impostazione predefinita, il server API Kubernetes utilizza un indirizzo IP pubblico e un nome di dominio completo (FQDN). È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per ulteriori informazioni, vedere [Azure ad integrazione con AKS][aks-aad].
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 

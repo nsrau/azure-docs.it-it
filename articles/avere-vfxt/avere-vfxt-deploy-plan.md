@@ -4,14 +4,14 @@ description: Informazioni sulle attività di pianificazione da eseguire prima de
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 5ffa28a0f6080b94bd47519df578fd15309dbab5
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: cd0c74c8aa40b3e96716ef37aa27b08b5f6aece1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153641"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547541"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 
@@ -175,6 +175,6 @@ Per le macchine virtuali vFXT, vengono usati due ruoli predefiniti di Azure:
 
 Se è necessario personalizzare i ruoli di accesso per i componenti vFXT, è necessario definire il proprio ruolo e quindi assegnarlo alle VM al momento della creazione. Non è possibile usare il modello di distribuzione in Azure Marketplace. Consultare il servizio supporto tecnico clienti Microsoft aprendo un ticket nel portale di Azure come descritto in [ottenere assistenza con il sistema](avere-vfxt-open-ticket.md).
 
-## <a name="next-step-understand-the-deployment-process"></a>Passaggio successivo: Informazioni sul processo di distribuzione
+## <a name="next-steps"></a>Passaggi successivi
 
 [Panoramica della distribuzione](avere-vfxt-deploy-overview.md) offre la visualizzazione di grandi dimensioni dei passaggi necessari per creare un vFXT di ricerca per il sistema di Azure e prepararlo a gestire i dati.

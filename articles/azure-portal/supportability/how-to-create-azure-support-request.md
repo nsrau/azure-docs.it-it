@@ -7,14 +7,14 @@ manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 01/23/2020
 ms.author: kfollis
-ms.openlocfilehash: 35d70d37b881c610d1a38a312d79f39c351c65a5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6218a1089352ce9ee3e2d1d10f3282e64eae8c51
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897416"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547660"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Come creare una richiesta di supporto di Azure
 
@@ -23,14 +23,15 @@ ms.locfileid: "75897416"
 I clienti di Azure possono creare e gestire le richieste di supporto nel [portale di Azure](https://portal.azure.com).
 
 > [!NOTE]
-> L'URL del portale di Azure è specifico per il cloud di Azure in cui viene distribuita l'organizzazione. 
+> L'URL del portale di Azure è specifico per il cloud di Azure in cui viene distribuita l'organizzazione.
+>
 >* Portale di Azure per uso commerciale è: [https://portal.azure.com](https://portal.azure.com)
 >* Portale di Azure per la Germania è: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >* Portale di Azure per il Stati Uniti Government è: [https://portal.azure.us](https://portal.azure.us)
 >
 >
 
-In base ai suggerimenti dei clienti, abbiamo aggiornato l'esperienza relativa alla richiesta di supporto per concentrarsi su tre obiettivi principali:
+In base ai suggerimenti dei clienti, è stata aggiornata l'esperienza di richiesta di supporto per concentrarsi su tre obiettivi principali:
 
 * **Semplificazione**: semplificare la ricerca e la risoluzione dei problemi di invio di una richiesta di supporto.
 * **Integrato**: è possibile aprire facilmente una richiesta di supporto quando si sta risolvendo un problema con una risorsa di Azure, senza cambiare contesto.
@@ -38,9 +39,9 @@ In base ai suggerimenti dei clienti, abbiamo aggiornato l'esperienza relativa al
 
 ## <a name="getting-started"></a>Inizia ora
 
-È possibile ottenere **supporto e supporto** nella portale di Azure. È disponibile dall'intestazione globale o dal menu delle risorse per un servizio. Prima di poter archiviare una richiesta di supporto, è necessario disporre delle autorizzazioni appropriate.
+È possibile ottenere **supporto e supporto** nella portale di Azure. È disponibile dal menu portale di Azure, dall'intestazione globale o dal menu delle risorse per un servizio. Prima di poter archiviare una richiesta di supporto, è necessario disporre delle autorizzazioni appropriate.
 
-### <a name="role-based-access-control"></a>Controllo degli accessi basato sui ruoli
+### <a name="role-based-access-control"></a>Controllo degli accessi basato sul ruolo
 
 Per creare una richiesta di supporto, è necessario essere un amministratore o essere assegnati al ruolo di [collaboratore della richiesta di supporto](../../role-based-access-control/built-in-roles.md#support-request-contributor) .
 
@@ -52,7 +53,7 @@ Per avviare una richiesta di supporto da qualsiasi punto del portale di Azure:
 
    ![Guida e supporto](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-2. Selezionare **+ nuova richiesta di supporto**. Seguire le istruzioni per fornire informazioni sul problema. Verranno suggerite alcune possibili soluzioni, verranno fornite informazioni dettagliate sul problema e verranno fornite informazioni su come inviare e tenere traccia della richiesta di supporto.
+2. Selezionare **Nuova richiesta di supporto**. Seguire le istruzioni per fornire informazioni sul problema. Verranno suggerite alcune possibili soluzioni, verranno fornite informazioni dettagliate sul problema e verranno fornite informazioni su come inviare e tenere traccia della richiesta di supporto.
 
    ![Nuova richiesta di supporto](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
 
@@ -74,12 +75,12 @@ Verranno illustrati alcuni passaggi per raccogliere informazioni sul problema e 
 
 Il primo passaggio del processo di richiesta di supporto consiste nella raccolta di informazioni di base sul problema e sul piano di supporto.
 
-Nella scheda informazioni di **base** della **nuova richiesta di supporto**, usare i selettori per iniziare a indicare il problema. Per prima cosa, è necessario identificare alcune categorie generali per il tipo di problema e scegliere la sottoscrizione correlata. Selezionando il servizio (ad esempio, "macchina virtuale che esegue Windows") e la risorsa (il nome della macchina virtuale) è il passaggio successivo per ottenere assistenza. Descrivere brevemente il problema con le parole, quindi **selezionare il tipo di problema** per ottenere informazioni più specifiche.
+Nella scheda informazioni di **base** della **nuova richiesta di supporto**, usare i selettori per iniziare a indicare il problema. Per prima cosa, è necessario identificare alcune categorie generali per il tipo di problema e scegliere la sottoscrizione correlata. Selezionare il servizio, ad esempio **macchina virtuale che esegue Windows**. Selezionare la risorsa, ad esempio il nome della macchina virtuale. Descrivere il problema con le proprie parole, quindi **selezionare il tipo di problema** per ottenere informazioni più specifiche.
 
 ![Pannello Nozioni di base](./media/how-to-create-azure-support-request/basics2lower.png)
 
 > [!NOTE]
-> Azure offre il supporto illimitato per la gestione delle sottoscrizioni, ad esempio fatturazione, modifiche delle quote e trasferimenti di account. Per rivolgersi al supporto tecnico è necessario un piano di supporto. [Altre informazioni sui piani di supporto](https://azure.microsoft.com/support/plans).
+> Azure offre un supporto illimitato per la gestione delle sottoscrizioni, che include fatturazione, rettifiche delle quote e trasferimenti di account. Per rivolgersi al supporto tecnico è necessario un piano di supporto. [Altre informazioni sui piani di supporto](https://azure.microsoft.com/support/plans).
 >
 >
 
@@ -89,11 +90,11 @@ Dopo aver raccolto le informazioni di base, si mostreranno le soluzioni da prova
 
 ### <a name="details"></a>Dettagli
 
-Successivamente, vengono raccolti ulteriori dettagli sul problema. Fornire informazioni dettagliate e dettagliate in questo passaggio consente di instradare la richiesta di supporto all'agente corretto e di iniziare a diagnosticare il problema.
+Successivamente, vengono raccolti ulteriori dettagli sul problema. Fornire informazioni dettagliate e dettagliate in questo passaggio consente di instradare la richiesta di supporto all'agente corretto.
 
-È consigliabile segnalare il momento in cui è stato avviato il problema e tutti i passaggi per riprodurlo. È anche possibile scegliere di caricare un file, ad esempio un file di log o un output di diagnostica.
+Se possibile, indicare quando il problema è stato avviato ed eventuali passaggi per riprodurlo. È possibile caricare un file, ad esempio un file di log o un output di diagnostica.
 
-Una volta fornite tutte le informazioni sul problema riscontrato, è possibile scegliere come ottenere supporto. Nella sezione **metodo di supporto** della scheda **Dettagli** Selezionare la gravità dell'effetto. Fornire il metodo di contatto preferito, un momento opportuno per contattare l'utente e la lingua di supporto.
+Una volta fornite tutte le informazioni sul problema, scegliere come ottenere supporto. Nella sezione **metodo di supporto** di **Dettagli**Selezionare la gravità dell'effetto. Fornire il metodo di contatto preferito, un momento opportuno per contattare l'utente e la lingua di supporto.
 
 Successivamente, completare la sezione **Contact info (informazioni di contatto** ) per scoprire come contattare l'utente.
 
@@ -101,7 +102,7 @@ Successivamente, completare la sezione **Contact info (informazioni di contatto*
 
 Completare tutte le informazioni necessarie in ogni scheda, quindi selezionare **Verifica + crea**. Verificare i dettagli da inviare per il supporto. Tornare a qualsiasi scheda per apportare una modifica, se necessario. Al termine della richiesta di supporto, selezionare **Crea**.
 
-Un agente di supporto contatterà l'utente utilizzando il metodo indicato. Per informazioni sul tempo di risposta iniziale, vedere [ambito di supporto e](https://azure.microsoft.com/support/plans/response/) velocità di risposta.
+Un agente di supporto contatterà l'utente utilizzando il metodo indicato. Per informazioni sul tempo di risposta iniziale, vedere [ambito del supporto e](https://azure.microsoft.com/support/plans/response/)velocità di risposta.
 
 ## <a name="all-support-requests"></a>Tutte le richieste di supporto
 
@@ -109,11 +110,11 @@ Un agente di supporto contatterà l'utente utilizzando il metodo indicato. Per i
 
 ![Tutte le richieste di supporto](./media/how-to-create-azure-support-request/allrequestslower.png)
 
-In questa pagina è possibile filtrare le richieste di supporto in base alla sottoscrizione, alla data di creazione (UTC) e allo stato. Inoltre, in questa pagina si possono ordinare e cercare le richieste di supporto.
+In questa pagina è possibile filtrare le richieste di supporto in base alla **sottoscrizione**, alla data di **creazione** (UTC) e **allo stato**. Inoltre, in questa pagina si possono ordinare e cercare le richieste di supporto.
 
 Consente di selezionare una richiesta di supporto per visualizzare i dettagli, inclusa la gravità e il tempo previsto per la risposta di un agente di supporto.
 
-Se si desidera modificare il livello di gravità della richiesta, selezionare **effetto business**. Viene visualizzato un elenco di livelli di gravità disponibili per l'assegnazione.
+Se si desidera modificare il livello di gravità della richiesta, selezionare **effetto business**. Consente di scegliere da un elenco di livelli di gravità da assegnare.
 
 > [!NOTE]
 > Il livello di gravità massimo dipende dal piano di supporto. [Altre informazioni sui piani di supporto](https://azure.microsoft.com/support/plans).
@@ -124,6 +125,7 @@ Per ulteriori informazioni sulle opzioni di supporto self-help in Azure, guardar
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Inviare commenti e suggerimenti](https://feedback.azure.com/forums/266794-support-feedback)
 * Seguici su [Twitter](https://twitter.com/azuresupport)
 * Ottenere assistenza dai peer nei [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure)

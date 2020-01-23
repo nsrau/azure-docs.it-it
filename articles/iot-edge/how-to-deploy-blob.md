@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: fe09fb47a75ff9d412ffab2daafaf241a43443b4
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 8c2df4854f4cdb93c08e22f7dcdc23b1b69b13d6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729608"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548782"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuire l'archiviazione BLOB di Azure nel modulo IoT Edge al dispositivo
 
@@ -37,7 +37,7 @@ Il portale di Azure illustra la creazione di un manifesto di distribuzione e il 
 
 ### <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Il portale di Azure dispone di una procedura guidata che illustra la creazione di un manifesto di distribuzione, anziché compilare manualmente il documento JSON. Include tre passaggi organizzati in schede: **moduli**, **Route**e **Revisione + creazione**.
+Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Il portale di Azure dispone di una procedura guidata che illustra la creazione di un manifesto di distribuzione. Include tre passaggi organizzati in schede: **moduli**, **Route**e **Revisione + creazione**.
 
 #### <a name="add-modules"></a>Aggiungere moduli
 
@@ -57,11 +57,11 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
    > [!IMPORTANT]
    > Azure IoT Edge distingue tra maiuscole e minuscole quando si effettuano chiamate ai moduli e l'SDK di archiviazione usa anche il valore minuscolo. Anche se il nome del modulo in [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) è **AzureBlobStorageonIoTEdge**, la modifica del nome in minuscolo consente di garantire che le connessioni all'archivio BLOB di Azure nel modulo IOT Edge non vengano interrotte.
 
-3. Nella scheda **Crea opzioni del contenitore** si fornirà il codice JSON per fornire informazioni sull'account di archiviazione e un montaggio per l'archiviazione nel dispositivo.
+3. Aprire la scheda **Opzioni di creazione del contenitore** .
 
    ![Impostazioni del modulo gemello](./media/how-to-deploy-blob/addmodule-tab3.png)
 
-   Copiare e incollare il codice JSON seguente nella casella, facendo riferimento alle descrizioni dei segnaposto nel passaggio successivo.
+   Copiare e incollare il codice JSON seguente nella casella per fornire le informazioni sull'account di archiviazione e un montaggio per l'archiviazione nel dispositivo.
   
    ```json
    {
@@ -80,13 +80,13 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
    }
    ```
 
-4. Aggiornare il file JSON copiato per le **Opzioni di creazione del contenitore** con le informazioni seguenti:
+4. Aggiornare il file JSON copiato nelle **Opzioni di creazione del contenitore** con le informazioni seguenti:
 
    - Sostituire `<your storage account name>` con un nome facile da ricordare. I nomi degli account devono avere una lunghezza di 3 e 24 caratteri, con lettere minuscole e numeri. Nessuno spazio.
 
    - Sostituire `<your storage account key>` con una chiave Base64 a 64 byte. È possibile generare una chiave con strumenti quali [GeneratePlus](https://generate.plus/en/base64). Queste credenziali verranno usate per accedere all'archiviazione BLOB da altri moduli.
 
-   - Sostituire `<storage mount>` in base al sistema operativo del contenitore. Specificare il nome di un [volume](https://docs.docker.com/storage/volumes/) o il percorso assoluto in una directory nel dispositivo IoT Edge in cui si desidera che il modulo BLOB archivi i suoi dati. Il montaggio di archiviazione esegue il mapping di una posizione nel dispositivo fornita a una posizione impostata nel modulo.
+   - Sostituire `<storage mount>` in base al sistema operativo del contenitore. Specificare il nome di un [volume](https://docs.docker.com/storage/volumes/) o il percorso assoluto di una directory esistente nel dispositivo IOT Edge in cui i dati vengono archiviati nel modulo BLOB. Il montaggio di archiviazione esegue il mapping di una posizione nel dispositivo fornita a una posizione impostata nel modulo.
 
      - Per i contenitori Linux, il formato è *\<percorso di archiviazione o volume >:/blobroot*. Ad esempio:
          - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): **My-volume:/blobroot**
@@ -261,6 +261,7 @@ Modificare le **Opzioni di creazione del contenitore** (nel portale di Azure) o 
 Quando ci si connette ai moduli di archiviazione BLOB aggiuntivi, modificare l'endpoint in modo che punti alla porta host aggiornata.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Scopri di più sull' [archiviazione BLOB di Azure in IOT Edge](how-to-store-data-blob.md)
 
 Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).

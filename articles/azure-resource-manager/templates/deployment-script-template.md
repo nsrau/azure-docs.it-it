@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/22/2020
 ms.author: jgao
-ms.openlocfilehash: 5475f49acfdcd74a792a9a0f2f16cf1ea3272232
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 125fefbb1d83db8b6114b2d09f5bd6da885159ba
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121897"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547643"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -42,7 +42,7 @@ I vantaggi dello script di distribuzione:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene utilizzata per eseguire gli script di distribuzione. Per crearne uno, vedere [identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). È necessario l'ID identità quando si distribuisce il modello. Il formato dell'identità è:
+- **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene utilizzata per eseguire gli script di distribuzione. Per crearne uno, vedere [creare un'identità gestita assegnata dall'utente usando il portale di Azure o l'interfaccia della](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)riga di comando di [Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)oppure [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità quando si distribuisce il modello. Il formato dell'identità è:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>

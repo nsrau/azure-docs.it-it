@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446691"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548119"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API Traduzione testuale 3.0: BreakSentence
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 I parametri della richiesta inviati a una stringa di query sono:
 
-<table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Parametro di query obbligatorio*.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
-  </tr>
-  <tr>
-    <td>Linguaggio</td>
-    <td>*Parametro di query facoltativo*.<br/>Tag di lingua che identifica la lingua del testo di input. Se non viene specificato un codice, verrà applicato il rilevamento automatico della lingua.</td>
-  </tr>
-  <tr>
-    <td>script</td>
-    <td>*Parametro di query facoltativo*.<br/>Tag dell'alfabeto che identifica i caratteri usati dal testo di input. Se non viene specificato un alfabeto, verranno usati i caratteri predefiniti della lingua.</td>
-  </tr>
-</table> 
+| Parametro della query | Description |
+| -------| ----------- |
+| api-version <img width=200/>   | **Parametro di query obbligatorio**.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`. |
+| Linguaggio | **Parametro di query facoltativo**.<br/>Tag di lingua che identifica la lingua del testo di input. Se non viene specificato un codice, verrà applicato il rilevamento automatico della lingua. |
+| script    | **Parametro di query facoltativo**.<br/>Tag dell'alfabeto che identifica i caratteri usati dal testo di input. Se non viene specificato un alfabeto, verranno usati i caratteri predefiniti della lingua.  | 
 
 Le intestazioni della richiesta includono:
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Intestazione/e di autenticazione</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*Intestazione della richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*Intestazione della richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Facoltativo*.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia con un parametro di query denominato `ClientTraceId`.</td>
-  </tr>
-</table> 
+| Headers | Description |
+| ------- | ----------- |
+| Intestazione/e di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
+| Content-Type | **Intestazione della richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
+| Content-Length    | **Intestazione della richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta.  | 
+| X-ClientTraceId   | **Facoltativo**.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia con un parametro di query denominato `ClientTraceId`.  | 
 
 ## <a name="request-body"></a>Corpo della richiesta
 

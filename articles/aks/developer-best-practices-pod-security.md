@@ -7,39 +7,39 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 17f281aeb2ef3f1f32f3e13fe66fe8b74b1d9116
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65073985"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547677"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza dei pod nel servizio Azure Kubernetes
 
 La sicurezza dei pod è un fattore fondamentale da tenere in considerazione nello sviluppo e l'esecuzione di applicazioni nel servizio Azure Kubernetes. Le applicazioni dovrebbero essere progettate in modo da concedere il numero minimo di privilegi necessari. La protezione dei dati privati è la principale preoccupazione dei clienti. Nessuno vuole che credenziali come stringhe di connessione di database, chiavi, segreti o certificati vengano esposte al mondo esterno, dove un utente malintenzionato potrebbe sfruttarle per scopi dannosi. Evitare quindi di aggiungere questi tipi di dati al codice o di incorporarli nelle immagini del contenitore. In caso contrario si creerebbe un rischio di esposizione e si limiterebbe la possibilità di ruotare queste credenziali quando sarà necessario ricompilare le immagini del contenitore.
 
-Questo articolo di procedure consigliate è incentrato sulla protezione dei pod nel servizio Azure Kubernetes. Si apprenderà come:
+Questo articolo sulle procedure consigliate è incentrato sulla protezione di pod in AKS. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Usare il contesto di protezione dei pod per limitare l'accesso a processi e servizi o l'escalation dei privilegi
 > * Eseguire l'autenticazione con altre risorse di Azure usando le identità gestite dei pod
 > * Richiedere e recuperare credenziali da un insieme di credenziali digitali come Azure Key Vault
 
-È anche possibile leggere le procedure consigliate per la [sicurezza dei cluster][best-practices-cluster-security] e la [gestione delle immagini del contenitore][best-practices-container-image-management].
+È anche possibile leggere le procedure consigliate per la [sicurezza del cluster][best-practices-cluster-security] e per la gestione delle [Immagini del contenitore][best-practices-container-image-management].
 
 ## <a name="secure-pod-access-to-resources"></a>Proteggere l'accesso dei pod alle risorse
 
 **Indicazioni sulle procedure consigliate** - Per eseguire l'accesso con un account utente o di gruppo diverso e limitare l'accesso ai processi e servizi dei nodi sottostanti, definire le impostazioni del contesto di protezione dei pod. Assegnare il numero minimo di privilegi necessari.
 
-Per la corretta esecuzione delle applicazioni, i pod dovrebbero essere eseguiti come utente o gruppo definito e non come *radice*. Il `securityContext` di un pod o un contenitore consente di definire impostazioni come *runAsUser* o *fsGroup* per assumere le autorizzazioni appropriate. Assegnare solo le autorizzazioni utente o di gruppo necessarie e non usare il contesto di protezione come mezzo per assumere autorizzazioni aggiuntive. Il *runAsUser*, l'escalation dei privilegi e altre impostazioni delle funzionalità di Linux sono disponibili solo in nodi Linux e di POD.
+Per la corretta esecuzione delle applicazioni, i pod dovrebbero essere eseguiti come utente o gruppo definito e non come *radice*. Il `securityContext` di un pod o un contenitore consente di definire impostazioni come *runAsUser* o *fsGroup* per assumere le autorizzazioni appropriate. Assegnare solo le autorizzazioni utente o di gruppo necessarie e non usare il contesto di protezione come mezzo per assumere autorizzazioni aggiuntive. Le impostazioni *runAsUser*, escalation dei privilegi e altre funzionalità di Linux sono disponibili solo nei nodi e nei Pod Linux.
 
 In un contesto di esecuzione come utente non ROOT, i contenitori non possono eseguire il binding a porte con privilegi inferiori a 1024. In questo scenario è possibile usare i servizi Kubernetes per mascherare il fatto che un'app venga eseguita su una determinata porta.
 
 Un contesto di protezione dei pod può anche definire ulteriori funzionalità o autorizzazioni per l'accesso a processi e servizi. È possibile impostare le seguenti definizioni comuni di contesto di protezione:
 
 * **allowPrivilegeEscalation** definisce se il pod può assumere privilegi *radice*. Progettare le applicazioni in modo che questa impostazione sia sempre *false*.
-* Le **funzionalità Linux** consentono al pod di accedere ai processi dei nodi sottostanti. Prestare attenzione nell'assegnazione di queste funzionalità. Assegnare il numero minimo di privilegi necessari. Per altre informazioni, vedere [Linux capabilities][linux-capabilities] (Funzionalità di Linux).
-* Le **etichette SELinux** sono un modulo di sicurezza del kernel di Linux che consente di definire i criteri di accesso a servizi e processi e l'accesso al file system. Anche in questo caso, assegnare il numero minimo di privilegi necessari. Per altre informazioni, vedere [SELinuxOptions][selinux-labels] nella documentazione di Kubernetes.
+* Le **funzionalità Linux** consentono al pod di accedere ai processi dei nodi sottostanti. Prestare attenzione nell'assegnazione di queste funzionalità. Assegnare il numero minimo di privilegi necessari. Per altre informazioni, vedere [funzionalità di Linux][linux-capabilities].
+* Le **etichette SELinux** sono un modulo di sicurezza del kernel di Linux che consente di definire i criteri di accesso a servizi e processi e l'accesso al file system. Anche in questo caso, assegnare il numero minimo di privilegi necessari. Per altre informazioni, vedere [Opzioni SELinux in Kubernetes][selinux-labels]
 
 Il seguente manifesto YAML di pod di esempio imposta le impostazioni del contesto di protezione da definire:
 
@@ -64,30 +64,30 @@ spec:
         add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
-Consultare l'operatore del cluster per determinare le impostazioni del contesto di protezione necessarie. Cercare di progettare le applicazioni in modo da ridurre al minimo le autorizzazioni aggiuntive e l'accesso necessari al pod. Sono disponibili altre funzionalità di sicurezza per limitare l'accesso mediante AppArmor e seccomp (elaborazione sicura), che possono essere implementate dagli operatori cluster. Per altre informazioni, vedere [Proteggere l'accesso del contenitore alle risorse][apparmor-seccomp].
+Consultare l'operatore del cluster per determinare le impostazioni del contesto di protezione necessarie. Cercare di progettare le applicazioni in modo da ridurre al minimo le autorizzazioni aggiuntive e l'accesso necessari al pod. Sono disponibili altre funzionalità di sicurezza per limitare l'accesso mediante AppArmor e seccomp (elaborazione sicura), che possono essere implementate dagli operatori cluster. Per altre informazioni, vedere [proteggere l'accesso ai contenitori alle risorse][apparmor-seccomp].
 
 ## <a name="limit-credential-exposure"></a>Limitare l'esposizione delle credenziali
 
-**Indicazioni sulle procedure consigliate** - Non definire credenziali nel codice dell'applicazione. Usare le identità gestite per le risorse di Azure per consentire al pod di richiedere l'accesso ad altre risorse. Occorre anche usare un insieme di credenziali digitali, come Azure Key Vault, per archiviare e recuperare le chiavi e le credenziali digitali. POD gestita delle identità è destinato all'uso con POD di Linux e solo le immagini del contenitore.
+**Indicazioni sulle procedure consigliate** - Non definire credenziali nel codice dell'applicazione. Usare le identità gestite per le risorse di Azure per consentire al pod di richiedere l'accesso ad altre risorse. Occorre anche usare un insieme di credenziali digitali, come Azure Key Vault, per archiviare e recuperare le chiavi e le credenziali digitali. Le identità gestite da Pod sono destinate all'uso solo con i pod Linux e le immagini del contenitore.
 
 Per limitare il rischio di esposizione delle credenziali nel codice dell'applicazione, evitare l'uso di credenziali predefinite o condivise. Le credenziali o le chiavi non devono essere incluse direttamente nel codice. In caso di esposizione delle credenziali, è necessario aggiornare o ridistribuire l'applicazione. Un approccio migliore consiste nell'assegnare ai pod la propria identità e un modo per autenticare se stessi oppure nel recuperare automaticamente le credenziali da un insieme di credenziali digitali.
 
-Quanto segue [AKS associato progetti open source] [ aks-associated-projects] consentono di autenticare automaticamente i POD o richiesta delle credenziali e chiavi da un insieme di credenziali digitale:
+I seguenti [progetti open source AKS associati][aks-associated-projects] consentono di autenticare automaticamente i pod o richiedere credenziali e chiavi da un insieme di credenziali digitale:
 
 * Identità gestite per le risorse di Azure e
 * Driver FlexVol di Azure Key Vault
 
-Progetti open source AKS associati non sono supportati dal supporto tecnico di Azure. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. Questi progetti non sono consigliati per la produzione.
+I progetti open source AKS associati non sono supportati dal supporto tecnico di Azure. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. Questi progetti non sono consigliati per l'uso in ambiente di produzione.
 
 ### <a name="use-pod-managed-identities"></a>Usare le identità gestite dei pod
 
-Un'identità gestita per le risorse di Azure consente a un pod di autenticarsi con qualsiasi servizio di Azure che lo supporta, come Archiviazione o SQL. Al pod viene assegnata un'identità di Azure che gli consente di autenticarsi in Azure Active Directory e ricevere un token digitale. Questo token digitale può essere presentato ad altri servizi di Azure, che verificano se il pod è autorizzato ad accedere al servizio e ad eseguire le azioni necessarie. Con questo approccio non sono necessari segreti per le stringhe di connessione di database, ad esempio. Il flusso di lavoro semplificato per l'identità gestita del pod è illustrato nel diagramma seguente:
+Un'identità gestita per le risorse di Azure consente a un pod di eseguire l'autenticazione con i servizi di Azure che la supportano, ad esempio archiviazione o SQL. Al pod viene assegnata un'identità di Azure che gli consente di autenticarsi in Azure Active Directory e ricevere un token digitale. Questo token digitale può essere presentato ad altri servizi di Azure, che verificano se il pod è autorizzato ad accedere al servizio e ad eseguire le azioni necessarie. Con questo approccio non sono necessari segreti per le stringhe di connessione di database, ad esempio. Il flusso di lavoro semplificato per l'identità gestita del pod è illustrato nel diagramma seguente:
 
 ![Flusso di lavoro semplificato per l'identità gestita del pod in Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
 
 Un'identità gestita evita che il codice dell'applicazione debba includere le credenziali per accedere a un servizio, ad esempio Archiviazione di Azure. Poiché ogni pod esegue l'autenticazione con la propria identità, è possibile controllare e verificare l'accesso. Se l'applicazione si connette ad altri servizi di Azure, usare le identità gestite per limitare il riutilizzo delle credenziali e il rischio di esposizione.
 
-Per altre informazioni sulle identità di pod, vedere [configurare un cluster servizio contenitore di AZURE per usare le identità di pod gestito e con le applicazioni][aad-pod-identity]
+Per altre informazioni sulle identità Pod, vedere [configurare un cluster AKS per usare identità gestite da Pod e con le applicazioni][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Usare Azure Key Vault con FlexVol
 
@@ -99,14 +99,14 @@ Quando le applicazioni hanno bisogno di credenziali, comunicano con l'insieme di
 
 Con Azure Key Vault segreti come credenziali, chiavi dell'account di archiviazione o certificati vengono archiviati e sottoposti a regolare rotazione. È possibile integrare Azure Key Vault con un cluster del servizio Azure Kubernetes usando un driver FlexVolume. Questo driver consente al cluster del servizio Azure Kubernetes di recuperare le credenziali in modo nativo da Azure Key Vault e fornirle in tutta sicurezza solo al pod che le ha richieste. Consultare l'operatore del cluster per distribuire il driver FlexVol di Azure Key Vault nei nodi del servizio Azure Kubernetes. È possibile usare un'identità gestita del pod per richiedere l'accesso ad Azure Key Vault e recuperare le credenziali necessarie tramite il driver FlexVolume.
 
-Azure Key Vault con FlexVol deve essere utilizzato con applicazioni e servizi in esecuzione su nodi e i POD di Linux.
+Azure Key Vault con FlexVol è progettato per l'uso con applicazioni e servizi in esecuzione su Pod e nodi Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo è stato illustrato in particolare come proteggere i pod. Per implementare alcune di queste aree, vedere gli articoli seguenti:
 
-* [Usare identità gestite per le risorse di Azure con servizio Azure Kubernetes][aad-pod-identity]
-* [Integrare Azure Key Vault con il servizio Azure Kubernetes][aks-keyvault-flexvol]
+* [Usare le identità gestite per le risorse di Azure con AKS][aad-pod-identity]
+* [Integrare Azure Key Vault con AKS][aks-keyvault-flexvol]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo-pod

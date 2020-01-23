@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9e89336973b0b13544c5bc0bccec41652c6952e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 366a8cc2d8b08c9508053eaeb8bf70622fd870cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755095"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548102"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Crittografia dei dati in Azure Cosmos DB 
 
@@ -46,7 +46,7 @@ R: Le chiavi vengono gestite da Microsoft.
 R: Microsoft ha un set di linee guida interne per la rotazione della chiave di crittografia che segue Cosmos DB. Le linee guida specifiche non vengono pubblicate. Microsoft pubblica il [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), che viene considerato un subset di linee guida interne e include procedure consigliate utili per gli sviluppatori.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>D: È possibile usare le proprie chiavi di crittografia?
-R: Cosmos DB è un servizio PaaS e l'intento è quello di garantire la semplicità d'uso. Spesso questa domanda viene usata come domanda di proxy per soddisfare un requisito conformità come PCI-DSS. Nell'ambito della compilazione di questa funzionalità, la collaborazione con i revisori della conformità consente ai clienti che usano Cosmos DB di soddisfare i propri requisiti senza dover gestire personalmente le chiavi.
+R: Sì ora questa funzionalità è disponibile per i nuovi account Cosmos e questa operazione deve essere eseguita al momento della creazione dell'account. Per ulteriori informazioni, consultare il documento relativo alle [chiavi gestite dal cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) .
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>D: In quali aree è attiva la crittografia?
 R: La crittografia è attiva in tutte le aree di Azure Cosmos DB per tutti i dati utente.

@@ -6,16 +6,17 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 01/23/2020
 ms.author: genli
-ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897000"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548969"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure nuove linee guida dell'utilità di caricamento file di richiesta di supporto
+
 Quando si [Crea una richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support), l'opzione di caricamento file consente di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.  
 
 > [!NOTE]
@@ -25,12 +26,13 @@ Quando si [Crea una richiesta di supporto](https://portal.azure.com/#create/Micr
 
 Quando si usa l'opzione di caricamento file, seguire queste linee guida:
 
-* Tutti i file devono avere un'estensione di file, ad esempio docx o xlsx. Per un elenco delle estensioni di file consentite, vedere la tabella seguente.
+* Tutti i file devono avere un'estensione del nome file, ad esempio *docx* o *xlsx*. Vedere la tabella per le estensioni di file consentite.
 * Il nome del file non deve superare i 110 caratteri.
 * Non è possibile caricare più di un file.
-* Le dimensioni del file non devono superare i 4 MB.
+* I file non possono essere superiori a 4 MB.
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabella delle estensioni dei nomi di file consentite
+
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | 7z         | dat  | hwl        | odx  | rar     | tdb       | xlam   |

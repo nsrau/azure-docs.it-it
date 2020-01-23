@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045632"
+ms.locfileid: "76121081"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Collegamento privato per il database SQL di Azure e Azure SQL Data Warehouse (anteprima)
 
@@ -43,8 +43,6 @@ Con Collegamento privato i clienti possono ora configurare controlli di accesso 
 Quando gli utenti si connettono all'endpoint pubblico da computer locali, il loro indirizzo IP deve essere aggiunto al firewall basato su IP mediante una[ regola del firewall a livello di server](sql-database-server-level-firewall-rule.md). Questo modello è adatto per consentire l'accesso ai singoli computer per i carichi di lavoro di sviluppo o test, ma è difficile da gestire in un ambiente di produzione.
 
 Con Collegamento privato, gli utenti possono abilitare l'accesso cross-premise all'endpoint privato tramite [ExpressRoute](../expressroute/expressroute-introduction.md), il peering privato o il tunneling VPN. Possono quindi disabilitare tutti gli accessi tramite l'endpoint pubblico e non usare il firewall basato su IP per accettare gli indirizzi IP.
-
-Con Collegamento privato, gli utenti possono abilitare l'accesso cross-premise all'endpoint privato tramite ExpressRoute, il peering privato o il tunneling VPN. Possono quindi disabilitare tutti gli accessi tramite l'endpoint pubblico e non usare il firewall basato su IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Come configurare Collegamento privato per il database SQL di Azure 
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 7451758e758d597bfe63d92fe4789c8fa81b3dff
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 000db771f27c7063aee120f06e13eec3575c8ef5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311479"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546640"
 ---
 # <a name="module-k-means-clustering"></a>Modulo: clustering K-means
 
-Questo articolo descrive come usare il modulo di *clustering k-means* in Azure Machine Learning Designer per creare un modello di clustering k-means non sottoposto a training. 
+Questo articolo descrive come usare il modulo di *clustering k-means* in Azure Machine Learning Designer (Preview) per creare un modello di clustering k-means non sottoposto a training. 
  
 K-means è uno dei più semplici e noti algoritmi di apprendimento senza *supervisione* . È possibile usare l'algoritmo per un'ampia gamma di attività di Machine Learning, ad esempio: 
 

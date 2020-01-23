@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a037c959b44a6216724c285f932250b1b05cb509
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313746"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546487"
 ---
 # <a name="summarize-data"></a>Riepilogare i dati
 
-Questo articolo descrive un modulo di Azure Machine Learning Designer.
+Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
 
 Usare il modulo riepiloga dati per creare un set di misure statistiche standard che descrivono ogni colonna della tabella di input.
 

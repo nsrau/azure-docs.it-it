@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 8e0fcdc97475053dcf285b562b28784deffff28c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552730"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548935"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare le funzionalità estese del server di cronologia Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark
 
@@ -163,7 +163,7 @@ Selezionare la scheda **asimmetria dati** . Le attività inclinate corrispondent
 
 #### <a name="specify-parameters"></a>Specificare i parametri
 
-Nella sezione **Specifica parametri** vengono visualizzati i parametri utilizzati per rilevare l'asimmetria dei dati. La regola predefinita è: la lettura dei dati dell'attività è maggiore di tre volte la lettura dei dati dell'attività media e i dati dell'attività letti sono maggiori di 10 MB. Se si vuole definire una regola personalizzata per le attività inclinate, è possibile scegliere i parametri. Le sezioni della **fase asimmetrica** e del **carattere di inclinazione** vengono aggiornate di conseguenza.
+Nella sezione **Specifica parametri** vengono visualizzati i parametri utilizzati per rilevare l'asimmetria dei dati. La regola predefinita è: la lettura dei dati dell'attività è maggiore di tre volte la lettura dei dati dell'attività media e i dati dell'attività letti sono maggiori di 10 MB. Se si vuole definire una regola personalizzata per le attività inclinate, è possibile scegliere i parametri. Le sezioni della fase e del **grafico di inclinazione** **inclinate** vengono aggiornate di conseguenza.
 
 #### <a name="skewed-stage"></a>Fase asimmetrica
 

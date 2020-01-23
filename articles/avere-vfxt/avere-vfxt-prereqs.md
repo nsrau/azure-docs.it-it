@@ -4,14 +4,14 @@ description: Prerequisiti per Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 7f89ea553bc7198c1faee5ba3549f88da5ec2b2c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152987"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547507"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -23,10 +23,10 @@ Iniziare creando una nuova sottoscrizione di Azure. Usare una sottoscrizione sep
 
 Per creare una nuova sottoscrizione di Azure nel portale di Azure:
 
-* Passare al [pannello Sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-* Fare clic sul pulsante **+ Aggiungi** in alto
-* Accedere se richiesto
-* Selezionare un'offerta e seguire la procedura per creare una nuova sottoscrizione
+1. Passare al [pannello Sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+1. Fare clic sul pulsante **+ Aggiungi** in alto
+1. Accedere se richiesto
+1. Selezionare un'offerta e seguire la procedura per creare una nuova sottoscrizione
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurare le autorizzazioni di proprietario della sottoscrizione
 
@@ -104,6 +104,6 @@ Creare l'endpoint del servizio di archiviazione dal portale di Azure.
 
    ![Screenshot del portale di Azure con annotazioni per la procedura di creazione dell'endpoint di servizio](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-step-create-the-vfxt-cluster"></a>Passaggio successivo: creare il cluster vFXT
+## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver completato questi prerequisiti, è possibile creare il cluster. Leggere [Distribuire il cluster vFXT](avere-vfxt-deploy.md) per istruzioni.

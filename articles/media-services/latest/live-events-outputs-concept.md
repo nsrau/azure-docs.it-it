@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: cd1f55a4ca94aae73a56334c76f211afff6e9622
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514052"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546045"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output Live in servizi multimediali
 
@@ -36,7 +36,7 @@ Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono res
 
 Un [evento Live](https://docs.microsoft.com/rest/api/media/liveevents) può essere di uno dei due tipi seguenti: pass-through o codifica live. I tipi vengono impostati durante la creazione con [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None**: un codificatore Live locale invia un flusso a più velocità in bit. Il flusso inserito passa attraverso l'evento live senza ulteriori elaborazioni. 
+* **LiveEventEncodingType. None**: un codificatore Live locale invia un flusso a più velocità in bit. Il flusso inserito passa attraverso l'evento live senza ulteriori elaborazioni. Viene anche chiamata la modalità pass-through.
 * **LiveEventEncodingType. standard**: un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit.
 * **LiveEventEncodingType. Premium1080p**: un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit.
 
@@ -81,6 +81,8 @@ Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 * Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con quattro numeri o intervallo di indirizzi CIDR.
 
     Se si vuole abilitare determinati IP sui firewall o si vuole vincolare gli input agli eventi live agli indirizzi IP di Azure, scaricare un file JSON da intervalli di [indirizzi IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Per informazioni dettagliate su questo file, selezionare la sezione **Dettagli** nella pagina.
+    
+* Quando si crea l'evento, è possibile scegliere di attivare le trascrizioni in tempo reale. <br/> Per impostazione predefinita, la trascrizione in tempo reale è disabilitata. Non è possibile modificare questa proprietà mentre l'evento Live o gli output Live associati sono in esecuzione. 
 
 ### <a name="naming-rules"></a>Regole di denominazione
 

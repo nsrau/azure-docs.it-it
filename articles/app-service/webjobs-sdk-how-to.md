@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421954"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549088"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -681,8 +681,8 @@ Per altre informazioni, vedere [Associazione in fase di esecuzione](../azure-fun
 La documentazione di funzioni di Azure fornisce informazioni di riferimento su ogni tipo di binding. In ogni articolo di riferimento dell'associazione sono disponibili le informazioni seguenti. Questo esempio è basato sulla coda di archiviazione.
 
 * [Pacchetti](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). Il pacchetto che è necessario installare per includere il supporto per l'associazione in un progetto di webjobs SDK.
-* [Esempi](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Esempi di codice. L' C# esempio di libreria di classi si applica a webjobs SDK. Omettere solo l'attributo `FunctionName`.
-* [Attributi](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). Attributi da utilizzare per il tipo di associazione.
+* [Esempi](../azure-functions/functions-bindings-storage-queue.md#trigger). Esempi di codice. L' C# esempio di libreria di classi si applica a webjobs SDK. Omettere solo l'attributo `FunctionName`.
+* [Attributi](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). Attributi da utilizzare per il tipo di associazione.
 * [Configurazione](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Spiegazioni delle proprietà degli attributi e dei parametri del costruttore.
 * [Utilizzo](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Tipi a cui è possibile eseguire l'associazione e informazioni sul funzionamento dell'associazione. Ad esempio: algoritmo di polling, elaborazione di una coda non elaborabile.
   

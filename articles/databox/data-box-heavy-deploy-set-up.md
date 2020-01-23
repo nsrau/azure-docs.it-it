@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3b27a4788bd144a8d2d423af1fa23ef09c5379f8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772846"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514426"
 ---
 ::: zone target = "docs"
 
@@ -32,7 +32,7 @@ ms.locfileid: "70772846"
 
 Questa esercitazione descrive come cablare, connettere e accendere il dispositivo Azure Data Box Heavy.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Cablare Data Box Heavy
@@ -46,12 +46,12 @@ Questa guida fornisce istruzioni su come verificare i prerequisiti, cablare e co
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
 1. Aver completato l'esercitazione descritta in [Esercitazione: Ordinare Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
-2. Aver ricevuto Data Box Heavy e che lo stato dell'ordine nel portale sia **Recapitati**.
+2. Aver ricevuto Data Box Heavy e che lo stato dell'ordine nel portale sia **Recapitato**.
 3. Aver consultato le [linee guida per la sicurezza di Data Box Heavy](data-box-safety.md).
 4. Avere accesso a una superficie piana nel data center, vicina a una connessione di rete disponibile, in grado di alloggiare un dispositivo con questo ingombro. Questo dispositivo non può essere montato su rack.
 5. Aver ricevuto quattro cavi di alimentazione con messa a terra da usare con il dispositivo di archiviazione.

@@ -1,38 +1,38 @@
 ---
-title: Creare un Ubuntu Server NFS (Network File System) per l'uso da POD di Azure Kubernetes Service (AKS)
-description: Informazioni su come creare manualmente un volume NFS Ubuntu Linux Server per l'uso con POD in Azure Kubernetes Service (AKS)
+title: Creare un server Ubuntu per NFS (Network File System) per l'uso da Pod di Azure Kubernetes Service (AKS)
+description: Informazioni su come creare manualmente un volume del server NFS Ubuntu Linux per l'uso con i pod in Azure Kubernetes Service (AKS)
 services: container-service
 author: ozboms
 ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 55eb5b0b98a4097d2f300bacabbfef3b0a32b27b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65468500"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549258"
 ---
-# <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume del Linux Server NFS (Network File System) con Azure Kubernetes Service (AKS)
-Condivisione dei dati tra i contenitori è spesso un componente necessario di applicazioni e servizi basati su contenitori. In genere si dispone di vari POD che richiedono l'accesso alle stesse informazioni in un volume permanente esterno.    
-Anche se i file di Azure sono un'opzione, la creazione di un Server NFS in una macchina virtuale di Azure è un altro formato di archiviazione condivisa permanente. 
+# <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Creare e usare manualmente un volume del server Linux NFS (Network File System) con il servizio Azure Kubernetes (AKS)
+La condivisione dei dati tra contenitori è spesso un componente necessario di applicazioni e servizi basati su contenitori. In genere sono disponibili vari pod che necessitano dell'accesso alle stesse informazioni in un volume permanente esterno.    
+Sebbene i file di Azure siano un'opzione, la creazione di un server NFS in una macchina virtuale di Azure è un'altra forma di archiviazione condivisa permanente. 
 
-Questo articolo illustrerà come creare un Server NFS in una macchina virtuale Ubuntu. E anche fornire l'accesso di contenitori del servizio contenitore di AZURE per questo file system condiviso.
+In questo articolo viene illustrato come creare un server NFS in una macchina virtuale Ubuntu. Inoltre, concedere ai contenitori AKS l'accesso a questa file system condivisa.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Questo articolo presuppone che si dispone di un Cluster servizio contenitore di AZURE esistente. Se è necessario un Cluster del servizio contenitore di AZURE, vedere la Guida introduttiva AKS [tramite la CLI di Azure] [ aks-quickstart-cli] oppure [usando il portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
-Durata (TTL) nelle reti virtuali con peering o stesso come il Server NFS, sarà necessario il Cluster AKS. Il cluster deve essere creato in una rete virtuale esistente, che può essere nella stessa rete virtuale della macchina virtuale.
+Il cluster AKS deve risiedere nelle stesse reti virtuali o nelle reti virtuali con peering del server NFS. Il cluster deve essere creato in un VNET esistente, che può essere lo stesso VNET della macchina virtuale.
 
-Nella documentazione sono descritti i passaggi per la configurazione con una rete virtuale esistente: [creazione di Cluster AKS nella rete virtuale esistente] [ aks-virtual-network] e [connessione di reti virtuali con peering reti virtuali][peer-virtual-networks]
+I passaggi per la configurazione con un VNET esistente sono descritti nella documentazione relativa alla [creazione di un cluster AKS in VNET esistenti][aks-virtual-network] e alla [connessione di reti virtuali con peering VNET][peer-virtual-networks]
 
-Si presuppone inoltre che aver creato una macchina virtuale di Linux Ubuntu (ad esempio, 18.04 LTS). Le impostazioni e le dimensioni possono essere in base alle esigenze e può essere distribuiti tramite Azure. Per la Guida introduttiva di Linux, vedere [gestione delle macchine Virtuali linux][linux-create].
+Si presuppone anche che sia stata creata una macchina virtuale Ubuntu Linux (ad esempio, 18,04 LTS). Le impostazioni e le dimensioni possono essere di propria gradimento e possono essere distribuite tramite Azure. Per la Guida introduttiva a Linux, vedere [gestione delle VM Linux][linux-create].
 
-Se si distribuisce il Cluster AKS prima di tutto, Azure automaticamente popolerà il campo di rete virtuale durante la distribuzione di computer Ubuntu, rendendoli in tempo reale all'interno della stessa rete virtuale. Ma se si desidera lavorare invece con le reti con peering, consultare la documentazione precedente.
+Se si distribuisce il cluster AKS per la prima volta, Azure popola automaticamente il campo rete virtuale quando distribuisce il computer Ubuntu, rendendoli attivi all'interno della stessa VNET. Se invece si desidera lavorare con reti con peering, consultare la documentazione riportata sopra.
 
-## <a name="deploying-the-nfs-server-onto-a-virtual-machine"></a>Distribuzione del Server NFS a una macchina virtuale
-Ecco lo script per configurare un Server NFS all'interno della macchina virtuale Ubuntu:
+## <a name="deploying-the-nfs-server-onto-a-virtual-machine"></a>Distribuzione del server NFS in una macchina virtuale
+Ecco lo script per configurare un server NFS nella macchina virtuale Ubuntu:
 ```bash
 #!/bin/bash
 
@@ -74,31 +74,31 @@ echo "/export        localhost(rw,async,insecure,fsid=0,crossmnt,no_subtree_chec
 
 nohup service nfs-kernel-server restart
 ```
-Il server verrà riavviato (a causa di uno script) ed è possibile montare il Server NFS al servizio contenitore di AZURE
+Il server viene riavviato (a causa dello script) ed è possibile montare il server NFS in AKS
 
 >[!IMPORTANT]  
->Assicurarsi di sostituire il **AKS_SUBNET** con quello corretto dal cluster oppure "*" verrà aperto il Server NFS per tutte le porte e le connessioni.
+>Assicurarsi di sostituire il **AKS_SUBNET** con quello corretto dal cluster. in caso contrario, "*" aprirà il server NFS per tutte le porte e le connessioni.
 
-Dopo aver creato la macchina virtuale, copiare lo script precedente in un file. Quindi, è possibile spostarlo dal computer locale, oppure ogni volta che la macchina virtuale con lo script è: 
+Dopo aver creato la macchina virtuale, copiare lo script precedente in un file. Quindi, è possibile spostarlo dal computer locale o dovunque lo script sia nella VM usando: 
 ```console
 scp /path/to/script_file username@vm-ip-address:/home/{username}
 ```
-Al termine dello script nella macchina virtuale, è possibile usare ssh alla macchina virtuale ed eseguirlo tramite il comando:
+Quando lo script si trova nella macchina virtuale, è possibile connettersi tramite SSH alla macchina virtuale ed eseguirlo tramite il comando:
 ```console
 sudo ./nfs-server-setup.sh
 ```
-Se l'esecuzione ha esito negativo a causa di un errore di autorizzazione negata, impostare le autorizzazioni di esecuzione tramite il comando:
+Se l'esecuzione ha esito negativo a causa di un errore di autorizzazione negata, impostare l'autorizzazione di esecuzione tramite il comando:
 ```console
 chmod +x ~/nfs-server-setup.sh
 ```
 
-## <a name="connecting-aks-cluster-to-nfs-server"></a>Cluster servizio contenitore di AZURE che si connette al Server NFS
-È possibile connettere il Server NFS per il cluster di effettuando il provisioning di un volume permanente e attestazione di volume permanente che specifica la modalità di accesso al volume.  
-Ci si connette i due servizi nello stesse o con peering reti virtuali è necessario. Le istruzioni per configurare il cluster nella stessa rete virtuale sono qui: [creazione Cluster di AKS nella rete virtuale esistente][aks-virtual-network]
+## <a name="connecting-aks-cluster-to-nfs-server"></a>Connessione del cluster AKS al server NFS
+È possibile connettere il server NFS al cluster effettuando il provisioning di un volume permanente e di un'attestazione di volume permanente che specifichi come accedere al volume.  
+È necessario connettere i due servizi nella stessa rete virtuale o in reti virtuali con peering. Le istruzioni per la configurazione del cluster nella stessa VNET sono disponibili qui: [creazione del cluster AKS nel VNET esistente][aks-virtual-network]
 
-Dopo che sono nella stessa rete virtuale o eseguire il peering, è necessario eseguire il provisioning di un volume permanente e un volume permanente di attestazione nel Cluster AKS. I contenitori possono quindi montare l'unità NFS alla propria directory locale.
+Una volta che si trovano nella stessa rete virtuale (o con peering), è necessario effettuare il provisioning di un volume permanente e di un'attestazione di volume permanente nel cluster AKS. I contenitori possono quindi montare l'unità NFS nella directory locale.
 
-Ecco un esempio di definizione di kubernetes per il volume permanente (questa definizione si presuppone che il cluster e macchine Virtuali sono nella stessa rete virtuale):
+Di seguito è riportato un esempio di definizione Kubernetes per il volume permanente (questa definizione presuppone che il cluster e la macchina virtuale si trovino nella stessa VNET):
 
 ```yaml
 apiVersion: v1
@@ -116,12 +116,12 @@ spec:
     server: <NFS_INTERNAL_IP>
     path: <NFS_EXPORT_FILE_PATH>
 ```
-Sostituire **NFS_INTERNAL_IP**, **NFS_NAME** e **NFS_EXPORT_FILE_PATH** con informazioni sul Server NFS.
+Sostituire **NFS_INTERNAL_IP**, **NFS_NAME** e **NFS_EXPORT_FILE_PATH** con le informazioni sul server NFS.
 
-È necessario anche un file di attestazione di volume permanente. Di seguito è riportato un esempio di cosa includere:
+È necessario anche un file di attestazione del volume permanente. Di seguito è riportato un esempio di cosa includere:
 
 >[!IMPORTANT]  
->**"storageClassName"** deve rimanere vuoto stringa o l'attestazione non funzionerà.
+>**"storageClassName"** deve rimanere una stringa vuota o l'attestazione non funzionerà.
 
 ```yaml
 apiVersion: v1
@@ -140,23 +140,23 @@ spec:
       type: nfs
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
-Se non è possibile connettersi al server da un cluster, un problema potrebbe essere la directory di esportazione o il relativo elemento padre, non ha autorizzazioni sufficienti per accedere al server.
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+Se non è possibile connettersi al server da un cluster, un problema potrebbe essere la directory esportata o il relativo padre, non dispone di autorizzazioni sufficienti per accedere al server.
 
-Verificare che sia la directory di esportazione e la relativa directory padre stato 777 autorizzazioni.
+Verificare che la directory di esportazione e la relativa directory padre dispongano di 777 autorizzazioni.
 
-È possibile controllare le autorizzazioni eseguendo il comando seguente e le directory devono avere *'drwxrwxrwx'* autorizzazioni:
+È possibile controllare le autorizzazioni eseguendo il comando seguente e le directory devono disporre delle autorizzazioni *' drwxrwxrwx '* :
 ```console
 ls -l
 ```
 
 ## <a name="more-information"></a>Altre informazioni
-Per ottenere una procedura dettagliata completa o che consentono di eseguire il debug del programma di installazione di Server NFS, ecco un'esercitazione dettagliata:
-  - [NFS Tutorial][nfs-tutorial]
+Per ottenere una procedura dettagliata completa o per eseguire il debug del programma di installazione del server NFS, ecco un'esercitazione approfondita:
+  - [Esercitazione su NFS][nfs-tutorial]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per procedure consigliate associati, vedere [procedure consigliate per i backup nel servizio contenitore di AZURE e archiviazione][operator-best-practices-storage].
+Per le procedure consigliate associate, vedere procedure consigliate [per l'archiviazione e i backup in AKS][operator-best-practices-storage].
 
 <!-- LINKS - external -->
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2377cc2e0824911217fbc2783fdf8e86fd7b9405
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442928"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549207"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e gli aggiornamenti dei cluster nel servizio Azure Kubernetes
 
@@ -24,7 +24,7 @@ Questo articolo illustra in particolare come proteggere il cluster del servizio 
 > * Usare Azure Active Directory e i controlli degli accessi in base al ruolo per proteggere l'accesso al server API
 > * Proteggere l'accesso del contenitore alle risorse dei nodi
 > * Aggiornare un cluster del servizio Azure Kubernetes alla versione più recente di Kubernetes
-> * Mantenere i nodi aggiornati e applicare automaticamente le patch di protezione
+> * Mantieni i nodi aggiornati e applica automaticamente le patch di sicurezza
 
 È anche possibile leggere le procedure consigliate per la [gestione delle immagini del contenitore][best-practices-container-image-management] e per la [sicurezza Pod][best-practices-pod-security].
 

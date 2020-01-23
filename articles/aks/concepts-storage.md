@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d6c14f78fd3cefa5ec41a686ca385639eb3fcb67
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913707"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549275"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ Vengono creati volumi tradizionali per archiviare e recuperare i dati come risor
 
 In Kubernetes, i volumi possono rappresentare più di un semplice disco tradizionale in cui possono essere archiviate e recuperate le informazioni. I volumi di Kubernetes possono anche essere usati come modo per inserire dati in un pod per l'uso da parte dei contenitori. I tipi di volumi aggiuntivi comuni in Kubernetes includono:
 
-- *emptyDir* - Questo volume viene comunemente usato come spazio temporaneo per un pod. Tutti i contenitori all'interno di un pod possono accedere ai dati nel volume. I dati scritti in questo tipo di volume rimangono disponibili solo per il ciclo di vita del pod. Quando viene eliminato il pod, viene eliminato anche il volume. Questo volume usa in genere l'archiviazione su disco del nodo locale sottostante, ma può esistere anche solo nella memoria del nodo.
+- *emptyDir* - Questo volume viene comunemente usato come spazio temporaneo per un pod. Tutti i contenitori all'interno di un pod possono accedere ai dati nel volume. I dati scritti in questo tipo di volume rimangono disponibili solo per il ciclo di vita del pod. Quando viene eliminato il pod, viene eliminato anche il volume. Questo volume USA in genere l'archiviazione su disco del nodo locale sottostante, sebbene possa esistere anche solo nella memoria del nodo.
 - *secret* - Questo volume viene usato per inserire i dati sensibili nei pod, ad esempio le password. Si crea prima di tutto un segreto usando l'API di Kubernetes. Quando si definisce il pod o la distribuzione, è possibile richiedere un segreto specifico. I segreti vengono forniti solo ai nodi che hanno un pod pianificato che li richiede, perché i segreti vengono archiviati in *tmpfs* e non scritti su disco. Quando viene eliminato l'ultimo pod in un nodo che richiede un segreto, il segreto viene eliminato da tmpfs del nodo. I segreti vengono archiviati all'interno di un determinato spazio dei nomi e sono accessibili solo dai pod all'interno dello stesso spazio dei nomi.
 - *configMap* - Questo tipo di volume viene usato per inserire le proprietà di coppie chiave-valore nei pod, ad esempio le informazioni di configurazione dell'applicazione. Invece di definire le informazioni di configurazione dell'applicazione all'interno di un'immagine del contenitore, è possibile definirle come una risorsa Kubernetes che può essere facilmente aggiornata e applicata alle nuove istanze dei pod durante la distribuzione. Come per l'uso di un segreto, è prima di tutto necessario creare un volume di tipo ConfigMap usando l'API di Kubernetes. Questo volume ConfigMap può quindi essere richiesto quando si definisce un pod o distribuzione. I volumi ConfigMap vengono archiviati all'interno di un determinato spazio dei nomi e sono accessibili solo da pod all'interno dello stesso spazio dei nomi.
 

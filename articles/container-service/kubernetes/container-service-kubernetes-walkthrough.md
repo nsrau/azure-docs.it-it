@@ -1,20 +1,18 @@
 ---
 title: '(DEPRECATO) Avvio rapido: cluster Kubernetes di Azure per Linux'
 description: Informazioni per creare in modo rapido un cluster Kubernetes per contenitori Linux nel servizio Azure Container con l'interfaccia della riga di comando di Azure.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659610"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273491"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(DEPRECATO) - Distribuire cluster Kubernetes per contenitori Linux
 
@@ -74,7 +72,7 @@ In alcuni casi la sottoscrizione di Azure ha accesso limitato alle risorse di Az
 
 Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato json sul cluster. 
 
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
 Per gestire un cluster Kubernetes, usare [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), il client da riga di comando di Kubernetes. 
 
@@ -86,7 +84,7 @@ Per configurare kubectl per connettersi al cluster Kubernetes, eseguire il coman
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Per verificare la connessione al cluster, usare il comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) per restituire un elenco dei nodi del cluster.
+Per verificare la connessione al cluster, usare il comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) per restituire un elenco di nodi del cluster.
 
 ```azurecli-interactive
 kubectl get nodes

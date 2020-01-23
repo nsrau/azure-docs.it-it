@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932369"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548017"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -111,6 +111,9 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
     ![Elenco di controllo per l'utente corrente](media/azure-pim-resource-rbac/my-audit-time.png)
+    
+> [!NOTE]
+> Per accedere alla cronologia di controllo è necessario un ruolo amministratore globale o amministratore del ruolo con privilegi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

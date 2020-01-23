@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: ca47bed45f8d726010dde40a936da6f93eb0b140
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c5ad269bf9cfa43ebad7163c858ef20bc8641878
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315015"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548323"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Modulo della macchina a vettori di supporto a due classi
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per creare un modello basato sull'algoritmo della macchina a vettori di supporto. 
 

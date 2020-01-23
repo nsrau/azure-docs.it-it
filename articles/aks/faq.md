@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: d8ff14c28b8fccbf3dce41f5e43daa9685a4786a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 58b372e1f80386c4e02339f67f4c5aeaa686a662
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277848"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549224"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -185,7 +185,7 @@ Sebbene AKS includa meccanismi di resilienza per resistere a tale configurazione
 
 ## <a name="can-i-use-custom-vm-extensions"></a>È possibile usare estensioni di VM personalizzate?
 
-Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare i componenti personalizzati e così via. utilizzare le API e i meccanismi di kubernetes. Ad esempio, utilizzare gli elementi daemonset per installare i componenti necessari.
+Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare i componenti personalizzati e così via. utilizzare le API e i meccanismi di Kubernetes. Ad esempio, utilizzare gli elementi daemonset per installare i componenti necessari.
 
 <!-- LINKS - internal -->
 

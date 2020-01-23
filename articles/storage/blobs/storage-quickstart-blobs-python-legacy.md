@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python'
+title: 'Avvio rapido: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python'
 description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). La libreria client di archiviazione viene usata quindi per Python per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,20 +8,20 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3e1adc9220dd9b49c49ff3fe5e798dfcc9d5c928
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825289"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122679"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Guida introduttiva: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python
+# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python
 
 Questo articolo illustra come usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. I BLOB sono semplicemente oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. I BLOB in Archiviazione di Azure sono diversi dalle condivisioni file, dalle tabelle senza schema e dalle code di messaggi.  Per altre informazioni, vedere [Introduzione ad Archiviazione di Azure](/azure/storage/common/storage-introduction).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -67,7 +67,7 @@ Il programma di esempio consente di creare un file di test nella cartella *Docum
 1. Installare le dipendenze:
 
     ```console
-    pip install azure-storage-blob
+    pip install azure-storage-blob==2.1.0
     ```
 
 1. Passare all'applicazione di esempio:

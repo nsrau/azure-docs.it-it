@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1cd9ca07aab1953d114caf748ca99170fae6b876
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293199"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546351"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -25,18 +25,39 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 
 ## <a name="2020-01-21"></a>2020-01-21
 
-### <a name="azure-machine-learning-designer-generally-available-ga"></a>Azure Machine Learning Designer disponibile a livello generale (GA)
-
-La finestra di progettazione è ora disponibile a livello generale.
+### <a name="azure-machine-learning-sdk-for-python-v1085"></a>SDK di Azure Machine Learning per Python v 1.0.85
 
 + **Nuove funzionalità**
-    + Aggiunta `Regenerate Output` opzione del modulo per forzare la finestra di progettazione a ignorare i risultati memorizzati nella cache.
-    + Aggiunta di nuove visualizzazioni ai dettagli dell'esecuzione della pipeline:
-        + Visualizzazione elenco pipeline.
-        + Visualizzazione del log nel browser.
-    + Aggiunta di etichette alle porte di input e output del modulo.
-    + Aggiunta `Set as Default` opzione della pipeline nella [scheda endpoint](how-to-run-batch-predictions-designer.md#versioning-endpoints).
-    + Aggiunta dei tasti di scelta rapida e delle [funzionalità di accessibilità](designer-accessibility.md)lettore schermo.
+  + **azureml-core**
+    + Ottenere l'utilizzo di base corrente e la limitazione delle quote per le risorse di AmlCompute in una determinata area di lavoro e sottoscrizione
+  
+  + **azureml-contrib-pipeline-passaggi**
+    + Consentire all'utente di passare il set di dati tabulare come risultato intermedio dal passaggio precedente a parallelrunstep
+
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-Runtime**
+    + Rimosso il requisito di y_query colonna nella richiesta al servizio di previsione distribuito. 
+    + ' Y_query ' è stato rimosso dalla sezione della richiesta di servizio del Notebook Orange Juice di Domenico.
+    + Correzione del bug che impediva la previsione nei modelli distribuiti, agendo sui set di dati con colonne di data e ora.
+    + Aggiunto il coefficiente di correlazione Matthews come metrica di classificazione, per la classificazione sia binaria che multiclasse.
+  + **azureml-contrib-interpreta**
+    + La spiegazione del testo rimossa da azureml-contrib-interpretate come spiegazione del testo è stata spostata nel repository di interpretazione-testo che verrà rilasciato a breve.
+  + **azureml-core**
+    + DataSet: gli utilizzi per il set di dati del file non dipendono più da numpy e Pandas da installare in Python ENV.
+    + È stato modificato LocalWebservice. wait_for_deployment () per controllare lo stato del contenitore Docker locale prima di provare a effettuare il ping dell'endpoint di integrità, riducendo notevolmente la quantità di tempo necessaria per segnalare una distribuzione non riuscita.
+    + Correzione dell'inizializzazione di una proprietà interna utilizzata in LocalWebservice. Reload () quando l'oggetto servizio viene creato da una distribuzione esistente utilizzando il costruttore LocalWebservice ().
+    + Messaggio di errore modificato per chiarimenti.
+    + È stato aggiunto un nuovo metodo denominato get_access_token () a AksWebservice che restituirà l'oggetto AksServiceAccessToken, che contiene il token di accesso, l'aggiornamento dopo il timestamp, la scadenza del timestamp e il tipo di token. 
+    + Metodo get_token () deprecato in AksWebservice poiché il nuovo metodo restituisce tutte le informazioni restituite dal metodo.
+    + Output modificato del comando AZ ml Service Get-Access-token. Il token è stato rinominato in accessToken e refreshBy in refreshAfter. Aggiunta delle proprietà expiryOn e tokenType.
+    + Correzione get_active_runs
+  + **azureml-explain-model**
+    + aggiornamento di Shap a 0.33.0 e interpretazione della community a 0,4. *
+  + **azureml-interpreta**
+    + aggiornamento di Shap a 0.33.0 e interpretazione della community a 0,4. *
+  + **azureml-Train-automl-Runtime**
+    + Aggiunto il coefficiente di correlazione Matthews come metrica di classificazione, per la classificazione sia binaria che multiclasse.
+    + Deprecare il flag di pre-elaborazione dal codice e sostituito con conteggi-conteggi è on per impostazione predefinita
 
 ## <a name="2020-01-06"></a>2020-01-06
 
@@ -44,6 +65,7 @@ La finestra di progettazione è ora disponibile a livello generale.
 
 + **Nuove funzionalità**
   + Set di dati: aggiungere due opzioni `on_error` e `out_of_range_datetime` per `to_pandas_dataframe` avere esito negativo quando i dati presentano valori di errore anziché compilarli con `None`.
+  + Area di lavoro: è stato aggiunto il flag `hbi_workspace` per le aree di lavoro con dati sensibili che consentono una maggiore crittografia e Disabilita la diagnostica avanzata nelle aree di lavoro. È stato inoltre aggiunto il supporto per l'uso di chiavi personalizzate per l'istanza di Cosmos DB associata, specificando i parametri `cmk_keyvault` e `resource_cmk_uri` durante la creazione di un'area di lavoro che crea un'istanza di Cosmos DB nella sottoscrizione durante il provisioning dell'area di lavoro. [Altre informazioni sono disponibili qui.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **Correzioni di bug e miglioramenti**
   + **azureml-automl-Runtime**
@@ -64,7 +86,6 @@ La finestra di progettazione è ora disponibile a livello generale.
   + **azureml-Train-automl-client**
     + Correzione dell'allineamento nell'output della console per le esecuzioni automl
     + Correzione di un bug in cui è possibile installare una versione non corretta di Pandas in amlcompute remoto.
-
 
 ## <a name="2019-12-23"></a>2019-12-23
 

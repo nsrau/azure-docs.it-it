@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771292"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548000"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Risorse utili per l'uso di Azure Sentinel
 
@@ -46,13 +46,13 @@ Le operazioni supportate seguenti possono essere controllate.
 |Elimina ricerca salvata    |Microsoft. OperationalInsights/Workspaces/savedSearches|
 |Aggiornare le regole di avviso |Microsoft. SecurityInsights/alertRules|
 |Elimina regole di avviso |Microsoft. SecurityInsights/alertRules|
-|Aggiornare le azioni di risposta alle regole di avviso |Microsoft. SecurityInsights/alertRules|
-|Elimina azioni di risposta regola di avviso |Microsoft. SecurityInsights/alertRules|
+|Aggiornare le azioni di risposta alle regole di avviso |Microsoft. SecurityInsights/alertRules/actions|
+|Elimina azioni di risposta regola di avviso |Microsoft. SecurityInsights/alertRules/actions|
 |Aggiornare i segnalibri   |Microsoft. SecurityInsights/segnalibri|
 |Elimina segnalibri   |Microsoft. SecurityInsights/segnalibri|
 |Casi di aggiornamento   |Microsoft. SecurityInsights/case|
-|Analisi case di aggiornamento  |Microsoft. SecurityInsights/case|
-|Crea commenti case   |Microsoft. SecurityInsights/case|
+|Analisi case di aggiornamento  |Microsoft. SecurityInsights/Cases/Investigations|
+|Crea commenti case   |Microsoft. SecurityInsights/case/Commenti|
 |Aggiornare i connettori dati |Microsoft. SecurityInsights/dataconnectors|
 |Elimina connettori dati |Microsoft. SecurityInsights/dataconnectors|
 |Aggiorna impostazioni    |Microsoft. SecurityInsights/Settings|

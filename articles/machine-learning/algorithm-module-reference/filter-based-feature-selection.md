@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: e4e09ca77de00b7f189db2cbbcaca2e090dd7e72
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311632"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548476"
 ---
 # <a name="filter-based-feature-selection"></a>Filter Based Feature Selection
 
-Questo articolo descrive come usare il modulo Filter based feature selection in Azure Machine Learning Designer. Questo modulo consente di identificare le colonne nel set di dati di input con la massima potenza predittiva. 
+Questo articolo descrive come usare il modulo Filter based feature selection in Azure Machine Learning Designer (Preview). Questo modulo consente di identificare le colonne nel set di dati di input con la massima potenza predittiva. 
 
 In generale, la *selezione delle caratteristiche* si riferisce al processo di applicazione dei test statistici agli input, dato un output specificato. L'obiettivo è determinare quali colonne sono più predittive dell'output. Il modulo filtro basato sulle funzionalità di selezione offre più algoritmi di selezione delle funzioni tra cui scegliere. Il modulo include metodi di correlazione come la correlazione di Pearson e i valori chi quadrato. 
 

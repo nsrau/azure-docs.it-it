@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153585"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547524"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
-Questo articolo illustra come usare la procedura guidata per la distribuzione disponibile in Azure Marketplace. La procedura guidata distribuisce automaticamente il cluster usando un modello di Azure Resource Manager. Dopo che si sono immessi i parametri nel modulo e si è fatto clic su **Crea**, Azure completa automaticamente questi passaggi:
+Questo articolo illustra come usare la procedura guidata per la distribuzione disponibile in Azure Marketplace. La procedura guidata distribuisce automaticamente il cluster usando un modello di Azure Resource Manager. Dopo aver immesso i parametri nel modulo e fatto clic su **Crea**, Azure completa automaticamente le attività seguenti:
 
 * Crea il controller del cluster, ovvero una macchina virtuale di base che contiene il software necessario per la distribuzione e la gestione del cluster.
 * Configura il gruppo di risorse e l'infrastruttura di rete virtuale, inclusa la creazione di nuovi elementi.
@@ -28,10 +28,10 @@ Dopo aver seguito le istruzioni riportate in questo documento, si disporrà di u
 
 Prima di usare il modello di creazione, verificare che siano soddisfatti i prerequisiti seguenti:  
 
-1. [Nuova sottoscrizione](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Autorizzazioni di proprietario della sottoscrizione](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [Quota per il cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Endpoint del servizio di archiviazione (se necessario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : necessario per le distribuzioni che usano una rete virtuale esistente e creano l'archiviazione BLOB
+* [Nuova sottoscrizione](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [Autorizzazioni di proprietario della sottoscrizione](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [Quota per il cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [Endpoint del servizio di archiviazione (se necessario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : necessario per le distribuzioni che usano una rete virtuale esistente e creano l'archiviazione BLOB
 
 Per altre informazioni sulla procedura di distribuzione e sulla pianificazione del cluster, vedere [Pianificare il sistema Avere vFXT](avere-vfxt-deploy-plan.md) e [Panoramica della distribuzione](avere-vfxt-deploy-overview.md).
 

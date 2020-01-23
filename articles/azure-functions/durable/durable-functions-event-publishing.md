@@ -3,12 +3,12 @@ title: Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (antepri
 description: Informazioni su come configurare la pubblicazione automatica di Griglia di eventi di Azure per Funzioni durevoli.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 768af2e89d6523f50bd9fcc3d13cc84b711cc6f0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613126"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547473"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
@@ -277,7 +277,7 @@ L'elenco seguente spiega lo schema degli eventi del ciclo di vita:
 
 ## <a name="how-to-test-locally"></a>Come eseguire test in locale
 
-Per eseguire test in locale, usare [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
+Per eseguire il test in locale, leggere [trigger di griglia di eventi di griglia di eventi debug locale](../functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1c14d1dd171f9bca6b6bdc61e35c0d541b29cb3c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026153"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511213"
 ---
 # <a name="what-is-azure-iot-edge"></a>Che cos'è Azure IoT Edge
 
@@ -26,7 +26,7 @@ L'analisi incrementa il valore aggiunto nelle soluzioni IoT, ma non tutte le ope
 Azure IoT Edge è costituito da tra componenti:
 
 * I **moduli di IoT Edge** sono contenitori che eseguono servizi di Azure, servizi di terze parti o il codice dell'utente. Vengono distribuiti nei dispositivi IoT Edge ed eseguiti in locale su tali dispositivi.
-* Il **runtime di IoT Edge** viene eseguito su ogni dispositivo IoT Edge e gestisce i moduli distribuiti in ogni dispositivo. 
+* Il **runtime di IoT Edge** viene eseguito su ogni dispositivo IoT Edge e gestisce i moduli distribuiti in ogni dispositivo.
 * Un'**interfaccia basata sul cloud** consente di monitorare e gestire in remoto i dispositivi IoT Edge.
 
 >[!NOTE]

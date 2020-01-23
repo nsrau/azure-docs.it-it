@@ -9,24 +9,14 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772741"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313774"
 ---
-::: zone target="docs"
-
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box usando il portale di Azure
-
-::: zone-end
-
-::: zone target="chromeless"
-
 # <a name="get-started-with-azure-data-box"></a>Introduzione ad Azure Data Box 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -44,7 +34,7 @@ Questa guida descrive come distribuire Azure Data Box tramite il portale di Azur
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
@@ -68,7 +58,7 @@ Prima di iniziare:
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 
@@ -89,7 +79,7 @@ Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Ordine
+## <a name="order"></a>JSON
 
 Questo passaggio richiede circa 5 minuti.
 
@@ -112,9 +102,9 @@ Quando si riceve il Data Box, procedere come segue per cablare e connettersi al 
 2. Prima di cablare il dispositivo, assicurarsi di avere i cavi seguenti:
     
     - Cavo di alimentazione a terra da 10 A o superiore (incluso) con un connettore IEC60320 C-13 a un'estremità per la connessione al dispositivo.
-    - Un cavo di rete RJ-45 CAT 6 (da usare con interfaccia di rete MGMT)
+    - Un cavo di rete RJ-45 CAT 6 (da usare con l'interfaccia di rete MGMT)
     - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con interfacce di rete DATA 1, DATA 2 a 10 Gbps)
-    - Un cavo di rete RJ-45 CAT 6A o RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
+    - Un cavo di rete RJ-45 CAT 6A oppure RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
 
 3. Rimuovere e posizionare il dispositivo su una superficie piana. 
     
@@ -128,7 +118,7 @@ Quando si riceve il Data Box, procedere come segue per cablare e connettersi al 
     4. Accendere il dispositivo. Il pulsante di alimentazione è sul pannello anteriore del dispositivo.
 
 
-## <a name="connect"></a>Connettere
+## <a name="connect"></a>Connessione
 
 Questa operazione richiede circa 5-7 minuti.
 

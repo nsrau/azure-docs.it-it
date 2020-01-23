@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: mlearned
-ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5b138849538cb9bbd6af6cbcf3e7a11b0cf66395
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614759"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549122"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
 Quando si creano e si gestiscono cluster nel servizio Azure Kubernetes, viene fornita la connettività di rete per nodi e applicazioni. Queste risorse di rete includono gli intervalli di indirizzi IP, i servizi di bilanciamento del carico e i controller in ingresso. Per garantire un'elevata qualità del servizio per le applicazioni, è necessario pianificare e configurare queste risorse.
 
-Questo articolo sulle procedure consigliate è incentrato sulla sicurezza e la connettività di rete per gli operatori del cluster. In questo articolo viene spiegato come:
+Questo articolo sulle procedure consigliate è incentrato sulla sicurezza e la connettività di rete per gli operatori del cluster. In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Confrontare le modalità di rete kubenet e Azure CNI nel servizio Azure Kubernetes
 > * Pianificare la connettività e gli indirizzi IP necessari
-> * Distribuire il traffico usando servizi di bilanciamento del carico, controller di ingresso o web application firewall (WAF)
+> * Distribuire il traffico usando i bilanciamenti del carico, i controller in ingresso o un web application firewall (WAF)
 > * Connettersi in modo sicuro ai nodi del cluster
 
 ## <a name="choose-the-appropriate-network-model"></a>Scegliere il modello di rete appropriato
@@ -47,7 +47,7 @@ Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale 
 
 Per altre informazioni sulla delega dell'entità servizio di AKS, vedere delegare [l'accesso ad altre risorse di Azure][sp-delegation].
 
-Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire eventi di aumento o aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio di indirizzi aggiuntivo è particolarmente importante se si usano i contenitori di Windows Server (attualmente in anteprima in AKS), perché i pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire gli eventi di scalabilità orizzontale o gli aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio di indirizzi aggiuntivo è particolarmente importante se si usano i contenitori di Windows Server (attualmente in anteprima in AKS), perché i pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 Per calcolare l'indirizzo IP necessario, vedere [configurare la rete CNI di Azure in AKS][advanced-networking].
 
@@ -118,7 +118,7 @@ Un controller in ingresso che distribuisce il traffico ai servizi e alle applica
 
 ![Un web application firewall (WAF), come il gateway applicazione di Azure, può proteggere e distribuire il traffico per il cluster del servizio Azure Kubernetes.](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Un web application firewall (WAF) garantisce un ulteriore livello di sicurezza grazie al filtro del traffico in entrata. OWASP (Open Web Application Security Project) fornisce un insieme di regole da seguire in caso di attacchi come il Cross Site Scripting o la cookie poisoning. [Gateway applicazione Azure][app-gateway] (attualmente in anteprima in AKS) è un WAF che può integrarsi con i cluster AKS per fornire queste funzionalità di sicurezza, prima che il traffico raggiunga le applicazioni e il cluster AKS. Anche altre soluzioni di terze parti svolgono queste funzioni ed è quindi possibile continuare a sfruttare gli investimenti esistenti o le competenze già acquisite per un determinato prodotto.
+Un web application firewall (WAF) garantisce un ulteriore livello di sicurezza grazie al filtro del traffico in entrata. OWASP (Open Web Application Security Project) fornisce un insieme di regole da seguire in caso di attacchi come il Cross Site Scripting o la cookie poisoning. [Applicazione Azure gateway][app-gateway] (attualmente disponibile in anteprima in AKS) è un WAF che può integrarsi con i cluster AKS per fornire queste funzionalità di sicurezza, prima che il traffico raggiunga le applicazioni e il cluster AKS. Anche altre soluzioni di terze parti svolgono queste funzioni ed è quindi possibile continuare a sfruttare gli investimenti esistenti o le competenze già acquisite per un determinato prodotto.
 
 Le risorse in ingresso e il servizio di bilanciamento del carico continuano a essere eseguiti nel cluster del servizio Azure Kubernetes per perfezionare ulteriormente la distribuzione del traffico. Il gateway applicazione può essere gestito centralmente come controller in ingresso con una definizione delle risorse. Per iniziare, [creare un controller][app-gateway-ingress]di ingresso del gateway applicazione.
 
@@ -128,7 +128,7 @@ Le risorse in ingresso e il servizio di bilanciamento del carico continuano a es
 
 I criteri di rete sono una funzionalità Kubernetes che consente di controllare il flusso del traffico tra pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. L'uso di criteri di rete rappresenta un metodo nativo del cloud per controllare il flusso del traffico. Poiché i pod vengono creati dinamicamente in un cluster del servizio Azure Kubernetes, i criteri di rete necessari possono essere applicati automaticamente. Usare tali criteri, anziché gruppi di sicurezza di rete di Azure, per controllare il traffico da pod a pod.
 
-Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente di tale servizio. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze. I criteri di rete devono essere usati solo per i nodi basati su Linux e i pod in AKS.
+Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze. I criteri di rete devono essere usati solo per i nodi basati su Linux e i pod in AKS.
 
 I criteri di rete vengono creati come una risorsa Kubernetes con un manifesto YAML. I criteri vengono applicati ai pod definiti, quindi le regole di ingresso o uscita definiscono la modalità di flusso del traffico. L'esempio seguente applica i criteri di rete ai pod a cui è stata applicata l'etichetta *app: backend*. La regola di ingresso quindi consente solo il traffico proveniente da pod con l'etichetta *app: frontend*:
 

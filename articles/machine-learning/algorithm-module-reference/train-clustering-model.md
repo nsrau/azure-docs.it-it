@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 1f1a508e6188b68f932993eb60e13228b56f8e7e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ea247af871b06bd21c2733272b3d938c536d16ec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313945"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546453"
 ---
 # <a name="train-clustering-model"></a>Eseguire il training del modello di clustering
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Utilizzare questo modulo per eseguire il training di un modello di clustering.
 

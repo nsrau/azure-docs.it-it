@@ -16,12 +16,12 @@ ms.author: arjay
 ms.reviewer: arjay
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50dcee479571626cb6010484b7e66073d448d5c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f500f662db11aaa63548f7d19ace00553d5159af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430841"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547558"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomi dei prodotti e identificatori dei piani di servizio per le licenze
 
@@ -37,7 +37,7 @@ Quando si gestiscono [le](https://portal.azure.com/#blade/Microsoft_AAD_IAM/Lice
 >Queste informazioni sono accurate a partire dal 20 dicembre 2019.
 
 | Nome del prodotto | ID stringa | GUID | Piani di servizio inclusi | Piani di servizio inclusi (nomi descrittivi) |
-| --- | --- | --- |--- |
+| --- | --- | --- |--- | --- |
 | AUDIOCONFERENZA | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | AUDIOCONFERENZA (3e26ee1f-8a5f-4D52-aee2-b81ce45c8f40) |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) | MICROSOFT AZURE ACTIVE DIRECTORY BASIC (c4da7f8a-5ee2-4C99-a7e1-87d2df57f6fe) |
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) | AZURE ACTIVE DIRECTORY PREMIUM P1 (41781fb2-bc02-4B7C-BD55-b576c07bb09d)<br/>MICROSOFT AZURE autenticazione a più fattori (8a256a2b-B617-496D-b51b-e76466e88db0)<br/>INDIVIDUAZIONE di CLOUD APP SECURITY (932ad362-64a8-4783-9106-97849a1a30b9) |
@@ -103,6 +103,7 @@ Quando si gestiscono [le](https://portal.azure.com/#blade/Microsoft_AAD_IAM/Lice
 | OFFICE 365 SMALL BUSINESS PREMIUM | LITEPACK_P2 | fc14ec4a-4169-49a4-a51e-2c852931814b | EXCHANGE_L_STANDARD (d42bdbd6-c335-4231-ab3d-c8f348d5aff5)<br/>MCOLITE (70710b6b-3ab4-4a38-9f6d-9f169461650a)<br/>OFFICE_PRO_PLUS_SUBSCRIPTION_SMBIZ (8ca59559-e2ca-470b-b7dd-afd8c0dee963)<br/>SHAREPOINTLITE (a1f3d0a8-84c0-4ae0-bae4-685917b8ab48)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) | EXCHANGE ONLINE (P1) (d42bdbd6-C335-4231-ab3d-c8f348d5aff5)<br/>SKYPE FOR BUSINESS ONLINE (piano P1) (70710b6b-3ab4-4a38-9F6D-9f169461650a)<br/>OFFICE_PRO_PLUS_SUBSCRIPTION_SMBIZ (8ca59559-e2ca-470b-b7dd-afd8c0dee963)<br/>SHAREPOINTLITE (a1f3d0a8-84c0-4ae0-bae4-685917b8ab48)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | ONEDRIVE FOR BUSINESS (PLAN 1)    | WACONEDRIVESTANDARD   | e6778190-713e-4e4f-9119-8b8238de25df  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>ONEDRIVESTANDARD (13696edf-5a08-49f6-8134-03083ed8ba30)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) | MICROSOFT FORMS (PLAN E1) (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>ONEDRIVESTANDARD (13696edf-5a08-49f6-8134-03083ed8ba30)<br/>OFFICE ONLINE (e95bec33-7c88-4a70-8E19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | ONEDRIVE FOR BUSINESS (PLAN 2)    | WACONEDRIVEENTERPRISE | ed01faf2-1d88-4947-ae91-45ca18703a96  | ONEDRIVEENTERPRISE (afcafa6a-d966-4462-918c-ec0b4e0fe642)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) | ONEDRIVEENTERPRISE (afcafa6a-d966-4462-918c-ec0b4e0fe642)<br/>OFFICE ONLINE (e95bec33-7c88-4a70-8E19-b10bd9d0c014) |
+| POWER APPS PER PIANO UTENTE | POWERAPPS_PER_USER | b30411f5-fea1-4a59-9ad9-3db7c7ead579 |  | 
 | POWER BI FOR OFFICE 365 ADD-ON    | POWER_BI_ADDON    | 45bc2c81-6072-436a-9b0b-3b12eefbc402  | BI_AZURE_P1 (2125cfd7-2110-4567-83c4-c1cd5275163d)<br/>SQL_IS_SSIM (fc0a60aa-feee-4746-a0e3-aecfe81a38dd) |MICROSOFT POWER BI REPORTING AND ANALYTICS piano 1 (2125cfd7-2110-4567-83c4-c1cd5275163d)<br/>MICROSOFT POWER BI INFORMATION SERVICES-piano 1 (fc0a60aa-FEEE-4746-A0E3-aecfe81a38dd) |
 | POWER BI PRO  | POWER_BI_PRO  | f8a1db68-be16-40ed-86d5-cb42ce701560  | BI_AZURE_P2 (70d33638-9c74-4d01-bfd3-562de28bd4ba) | POWER BI PRO (70d33638-9C74-4D01-BFD3-562de28bd4ba) |
 | PROJECT FOR OFFICE 365    | PROJECTCLIENT | a10d5e58-74da-4312-95c8-76be4e5b75a0  | PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3) | PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3) |

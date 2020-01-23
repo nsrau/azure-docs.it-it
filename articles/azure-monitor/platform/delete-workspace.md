@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 739f97e912a33402aa7482e59dd78f5aeb005772
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944432"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547252"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -57,6 +57,29 @@ L'operazione di eliminazione dell'area di lavoro consente di rimuovere l'area di
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+## <a name="permanent-workspace-delete"></a>Eliminazione permanente dell'area di lavoro
+Il metodo di eliminazione temporanea potrebbe non rientrare in alcuni scenari, ad esempio sviluppo e test, in cui è necessario ripetere una distribuzione con le stesse impostazioni e il nome dell'area di lavoro. In questi casi è possibile eliminare definitivamente l'area di lavoro e "eseguire l'override" del periodo di eliminazione temporanea. L'operazione di eliminazione dell'area di lavoro permanente rilascia il nome dell'area di lavoro ed è possibile creare una nuova area di lavoro con lo stesso nome.
+
+
+> [!IMPORTANT]
+> Prestare attenzione quando si elimina definitivamente l'area di lavoro perché l'operazione è irreversibile e l'area di lavoro e i relativi dati non saranno ripristinabili.
+
+L'eliminazione permanente dell'area di lavoro può attualmente essere eseguita tramite l'API REST.
+
+> [!NOTE]
+> Qualsiasi richiesta API deve includere un token di autorizzazione di porta nell'intestazione della richiesta.
+>
+> È possibile acquisire il token usando:
+> - [Registrazioni per l'app](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - Passare a portale di Azure usando la console per gli sviluppatori (F12) nel browser. Esaminare una delle istanze di **batch?** per la stringa di autenticazione in **intestazioni della richiesta**. Questa operazione sarà nel criterio *autorizzazione: bearer <token>* . Copiare e aggiungere questo oggetto alla chiamata API, come illustrato negli esempi.
+> - Passare al sito della documentazione REST di Azure. Premere **prova** su qualsiasi API, copiare il token di porta e aggiungerlo alla chiamata API.
+Per eliminare definitivamente l'area di lavoro, usare le [aree di lavoro-Elimina]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) chiamata all'API REST con un Tag Force:
+>
+> ```rst
+> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
+> ```
 
 ## <a name="recover-workspace"></a>Ripristina area di lavoro
 

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826168"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543155"
 ---
 # <a name="azure-application-skus-tab"></a>Scheda SKU per un'applicazione Azure
 
@@ -44,9 +44,9 @@ La successiva acquisizione schermo mostra il modulo dettagli SKU per un modello 
 
 Specificare i valori SKU seguenti.  I campi accodati con un asterisco sono obbligatori.
 
-|    Campo         |       Descrizione                                                            |
+|    Campo         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
-|  **\* titolo**     | Titolo per lo SKU. Questo titolo viene visualizzato nella raccolta di questo elemento.   |
+|  **Titolo\***     | Titolo per lo SKU. Questo titolo viene visualizzato nella raccolta di questo elemento.   |
 | **Riepilogo\***    | Breve descrizione riepilogativa dello SKU. (La lunghezza massima consentita è di 100 caratteri.)  |
 | **Descrizione\*** | Descrizione dettagliata dello SKU. Il codice HTML di base è supportato.                 | 
 | **\* tipo di SKU**   | Tipo di soluzione applicazione Azure, selezionare ***modello di soluzione** per questo scenario. |
@@ -66,9 +66,9 @@ La schermata successiva mostra il modulo Dettagli SKU per un'applicazione gestit
 
 Configurare le impostazioni dello SKU seguenti. I campi accodati con un asterisco sono obbligatori.
 
-|    Campo         |       Descrizione                                                            |
+|    Campo         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
-|  **\* titolo**     | Titolo per lo SKU. Questo titolo viene visualizzato nella raccolta di questo elemento.   |
+|  **Titolo\***     | Titolo per lo SKU. Questo titolo viene visualizzato nella raccolta di questo elemento.   |
 | **Riepilogo\***    | Breve descrizione riepilogativa dello SKU. (La lunghezza massima consentita è di 100 caratteri.)  |
 | **Descrizione\*** | Descrizione dettagliata dello SKU. Il codice HTML di base è supportato.                 | 
 | **\* tipo di SKU**   | Tipo di soluzione applicazione Azure, selezionare ***applicazione gestita** per questo scenario. 
@@ -82,17 +82,19 @@ Configurare le impostazioni dello SKU seguenti. I campi accodati con un asterisc
 
 ### <a name="package-details-for-solution-template"></a>Dettagli del pacchetto per un modello di soluzione
 
-   ![Dettagli del pacchetto per un modello di soluzione](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Dettagli del pacchetto per un modello di soluzione](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 Specificare i valori seguenti per i **Dettagli del pacchetto** .  I campi accodati con un asterisco sono obbligatori.
 
 - **Versione\*** : la versione del pacchetto che si caricherà. I tag di versione devono essere nel formato X.Y.Z, dove X, Y e Z sono numeri interi.
 - **File del pacchetto (zip)\*** -questo pacchetto contiene i file seguenti, salvati in un file con estensione zip.
-  - applianceMainTemplate.json: file del modello di distribuzione usato per distribuire la soluzione/applicazione e creare le risorse definite per la soluzione. Per altre informazioni, vedere [come creare i file del modello di distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - createUIDefinition.json: questo file viene usato dal portale di Azure per generare l'interfaccia utente per il provisioning di questa soluzione/applicazione. Per altre informazioni, vedere [Creare l'interfaccia utente del portale di Azure per l'applicazione gestita](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - **\*mainTemplate. JSON** : file modello di distribuzione usato per distribuire la soluzione/applicazione e creare le risorse definite per la soluzione. Per altre informazioni, vedere [come creare i file del modello di distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **\*createUIDefinition. JSON** : questo file viene usato dal portale di Azure per generare l'interfaccia utente per il provisioning di questa soluzione/applicazione. Per altre informazioni, vedere [Creare l'interfaccia utente del portale di Azure per l'applicazione gestita](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Script (se necessario): eventuali script aggiuntivi che potrebbero essere necessari durante l'esecuzione del modello, ad esempio `Microsoft.Compute/virtualMachines/extensions`.
+  - Modelli annidati (se necessario)-tutti i modelli annidati aggiuntivi.
 
-  >[!IMPORTANT] 
-  >Questo pacchetto deve contenere gli eventuali modelli annidati o gli script necessari per completare il provisioning di questa applicazione. Il file MainTemplate.json e il file createUIDefinition.json devono trovarsi nella cartella radice.
+  > [!IMPORTANT] 
+  > Questo pacchetto deve contenere gli eventuali modelli annidati o gli script necessari per completare il provisioning di questa applicazione. Il file mainTemplate. JSON e il file createUIDefinition. JSON devono trovarsi nella cartella radice. Per ulteriori informazioni sugli elementi di distribuzione, vedere [Azure Resource Manager Templates-Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
 ### <a name="package-details-for-managed-application"></a>Dettagli del pacchetto per un'applicazione gestita

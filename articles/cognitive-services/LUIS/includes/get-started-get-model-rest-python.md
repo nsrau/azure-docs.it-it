@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 8cefd8357893657d94959cb853004b34b0ec9d8d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f4d180dd6ad99d5bc00e6970e22b756aa26275da
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505844"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268255"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Chiave di avvio.
-* Importare l'[app TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) dal repository GitHub cognitive-services-language-understanding.
+* Importare l'app [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) dal repository GitHub cognitive-services-language-understanding.
 * L'ID applicazione di LUIS per l'app TravelAgent importata. L'ID applicazione viene visualizzato nel dashboard delle applicazioni.
-* ID della versione all'interno dell'applicazione che riceve le espressioni. L'ID predefinito è "0.1".
+* L'ID della versione all'interno dell'applicazione che riceve le espressioni. L'ID predefinito è "0.1".
 * [Python 3.6](https://www.python.org/downloads/) o versione successiva.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -34,9 +34,9 @@ ms.locfileid: "73505844"
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 
-## <a name="change-model-programmatically"></a>Modificare il modello a livello di codice
+## <a name="change-model-programmatically"></a>Cambiare il modello a livello di codice
 
-Usare Vai a per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3-authoring) entità basata su Machine Learning. 
+Usare Go per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3-authoring) entità basata su Machine Learning. 
 
 1. Creare un file denominato `model.py`. Aggiungere il codice seguente:
 
@@ -55,8 +55,8 @@ Usare Vai a per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3
     # The version number of your LUIS app
     LUIS_APP_VERSION = "0.1"
     
-    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/examples'
-    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/train'
+    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/examples'
+    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/train'
     
     HEADERS = {'Ocp-Apim-Subscription-Key': LUIS_authoringKey}
     
@@ -80,7 +80,7 @@ Usare Vai a per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3
 
     * `YOUR-KEY` con la chiave di avvio
     * `YOUR-ENDPOINT` con l'endpoint, ad esempio `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` con l'ID app
+    * `YOUR-APP-ID` con l'ID dell'app
 
 1. Da un prompt dei comandi nella stessa directory in cui è stato creato il file immettere il comando seguente per eseguire il file:
 
