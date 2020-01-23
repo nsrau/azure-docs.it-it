@@ -191,6 +191,9 @@
         - name: Etichettare immagini
           displayName: 'data, dataset, labeling'
           href: how-to-label-images.md
+        - name: Creare set di dati con etichette
+          displayName: 'data, labels, torchvision'
+          href: how-to-use-labeled-dataset.md
     - name: Eseguire il training dei modelli
       items:
         - name: Usare la finestra di progettazione

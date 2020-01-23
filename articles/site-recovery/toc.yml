@@ -191,7 +191,7 @@
               href: azure-to-azure-replicate-after-migration.md
         - name: Gestione
           items:
-            - name: Aggiornare il servizio Mobility per le VM di Azure
+            - name: Aggiornare il servizio di mobilità per le VM di Azure
               href: azure-to-azure-autoupdate.md
             - name: Gestire gli aggiornamenti di Site Recovery
               href: service-updates-how-to.md
@@ -237,13 +237,13 @@
               href: vmware-azure-set-up-target.md
             - name: Configurare le impostazioni di replica
               href: vmware-azure-set-up-replication.md
-            - name: Distribuire il servizio Mobility
+            - name: Distribuire il servizio di mobilità
               items:
-                - name: Panoramica e installazione del servizio Mobility
+                - name: Panoramica e installazione del servizio di mobilità
                   href: vmware-physical-mobility-service-overview.md
                 - name: Preparare l'installazione push
                   href: vmware-azure-install-mobility-service.md
-                - name: Automatizzare la distribuzione del servizio Mobility
+                - name: Automatizzare la distribuzione del servizio di mobilità
                   href: vmware-azure-mobility-install-configuration-mgr.md
             - name: Abilitare la replica per le macchine virtuali VMware
               href: vmware-azure-enable-replication.md
@@ -303,13 +303,13 @@
               href: physical-azure-set-up-source.md
             - name: Configurare l'ambiente di destinazione
               href: vmware-azure-set-up-target.md
-            - name: Distribuire il servizio Mobility
+            - name: Distribuire il servizio di mobilità
               items:
-                - name: Informazioni sull'installazione del servizio Mobility
+                - name: Informazioni sull'installazione del servizio di mobilità
                   href: vmware-physical-mobility-service-overview.md
-                - name: Eseguire la preparazione per l'installazione push del servizio Mobility
+                - name: Eseguire la preparazione per l'installazione push del servizio di mobilità
                   href: vmware-azure-install-mobility-service.md
-                - name: Distribuire il servizio Mobility con System Center Configuration Manager
+                - name: Distribuire il servizio di mobilità con Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Eseguire il failover e il failback
           href: physical-to-azure-failover-failback.md
@@ -451,7 +451,7 @@
       href: monitor-log-analytics.md
     - name: Monitorare i server di elaborazione
       href: vmware-physical-azure-monitor-process-server.md
-- name: risoluzione dei problemi
+- name: Risoluzione dei problemi
   items:
     - name: Risolvere i problemi delle VM di Azure
       items:
@@ -461,7 +461,7 @@
           href: azure-to-azure-troubleshoot-network-connectivity.md
         - name: Risolvere i problemi della replica in corso
           href: azure-to-azure-troubleshoot-replication.md
-        - name: Risolvere i problemi del servizio Mobility
+        - name: Risolvere i problemi del servizio di mobilità
           href: site-recovery-extension-troubleshoot.md
     - name: Risolvere i problemi di VM/server fisici VMware
       items:
@@ -471,7 +471,7 @@
           href: vmware-azure-troubleshoot-configuration-server.md
         - name: Risolvere i problemi dei server di elaborazione
           href: vmware-physical-azure-troubleshoot-process-server.md
-        - name: Risolvere i problemi dell'installazione push del servizio Mobility
+        - name: Risolvere i problemi dell'installazione push del servizio di mobilità
           href: vmware-azure-troubleshoot-push-install.md
         - name: Risolvere i problemi del failover in Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
@@ -487,7 +487,7 @@
           href: hyper-v-azure-troubleshoot.md
         - name: Risolvere i problemi del failover in Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices

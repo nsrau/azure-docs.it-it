@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Ancoraggi nello spazio
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare app Unity
@@ -40,7 +40,7 @@
       href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Avvio di una nuova app Android
       href: tutorials/tutorial-new-android-app.md
-- name: Procedura
+- name: Procedure
   items:
     - name: Creare e individuare ancoraggi
       href: create-locate-anchors-overview.md
@@ -57,7 +57,7 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: In C++/WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: Usare i sensori sul dispositivo per individuare ancoraggi vicini
+    - name: Usare la rilocalizzazione grossolana per individuare ancoraggi nelle vicinanze
       items:
         - name: 'In C#/Unity'
           href: how-tos/set-up-coarse-reloc-unity.md
