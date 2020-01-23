@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Monitorare un cluster Azure Kubernetes con CoScale
 description: Monitorare un cluster Kubernetes nel servizio Azure Container tramite CoScale
-services: container-service
 author: fryckbos
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713078"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271104"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(DEPRECATO) Monitorare un cluster Kubernetes del servizio Azure Container con CoScale
 

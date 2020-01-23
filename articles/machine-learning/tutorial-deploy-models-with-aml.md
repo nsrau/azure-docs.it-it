@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1a749570fe2320be18c98bb6267656cf2687aa1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3c0ff63a360d96d0e9db18d430e755e567197de1
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532194"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122084"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,6 +389,6 @@ service.delete()
 
 + Informazioni su tutte le [opzioni di distribuzione di Azure Machine Learning](how-to-deploy-and-where.md).
 + Informazioni su come [creare i client per il servizio Web](how-to-consume-web-service.md).
-+  [Eseguire stime su grandi quantità di dati](how-to-run-batch-predictions.md) in modo asincrono.
++  [Eseguire stime su grandi quantità di dati](how-to-use-parallel-run-step.md) in modo asincrono.
 + Monitorare i modelli di Azure Machine Learning con [Application Insights](how-to-enable-app-insights.md).
 + Provare l'esercitazione relativa alla [selezione automatica degli algoritmi](tutorial-auto-train-models.md). 

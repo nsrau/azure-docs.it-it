@@ -1,13 +1,10 @@
 ---
 title: 'Esercitazione: Creare immagini di VM personalizzate con Azure PowerShell'
 description: In questa esercitazione viene descritto come usare Azure PowerShell per creare un'immagine personalizzata della macchina virtuale in Azure
-services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aca1f8ce2c125cd90f2e61a7829be09bc81c3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464952"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274199"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
 

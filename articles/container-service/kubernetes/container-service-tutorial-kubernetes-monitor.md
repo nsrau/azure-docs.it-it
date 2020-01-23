@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Esercitazione sul servizio Azure Container - Monitorare Kubernetes
 description: Esercitazione sul servizio Azure Container - Monitorare Kubernetes con Log Analytics
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 35f7c2fb968ea5285af5f2d597c67b3b22065906
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001607"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278229"
 ---
 # <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(DEPRECATO) Monitorare un cluster Kubernetes con Log Analytics
 
@@ -171,4 +169,4 @@ In questa esercitazione è stato monitorato il cluster Kubernetes con Log Analyt
 Seguire questo collegamento per vedere esempi di script predefiniti per il servizio contenitore.
 
 > [!div class="nextstepaction"]
-> [Esempi di script del servizio contenitore di Azure](cli-samples.md)
+> [Esempi di script del servizio Azure Container](cli-samples.md)

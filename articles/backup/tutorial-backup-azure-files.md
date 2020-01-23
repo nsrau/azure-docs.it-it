@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di condivisioni file di Azure'
 description: Questa esercitazione illustra come usare il portale di Azure per configurare un insieme di credenziali di Servizi di ripristino ed eseguire il backup di condivisioni file di Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ec9074a39f2ece7878c0c3ef828dc21748d0ab89
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921638"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293930"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Eseguire il backup di condivisioni file di Azure nel portale di Azure
 
@@ -43,29 +43,29 @@ In questa esercitazione si presuppone che sia già disponibile una condivisione 
 
 1. Creare un insieme di credenziali di Servizi di ripristino nella stessa area della condivisione file. Se è già disponibile un insieme di credenziali, aprire la pagina Panoramica correlata e fare clic su **Backup**.
 
-    ![Fare clic su Backup nella pagina Panoramica dell'insieme di credenziali](./media/backup-file-shares/overview-backup-page.png)
+    ![Fare clic su Backup nella pagina Panoramica dell'insieme di credenziali](./media/tutorial-backup-azure-files/overview-backup-page.png)
 
 2. Nel menu **Obiettivo di backup** scegliere Condivisione file di Azure da **Elementi di cui eseguire il backup**.
 
-    ![Scegliere Condivisione file di Azure come obiettivo di backup](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
+    ![Scegliere Condivisione file di Azure come obiettivo di backup](./media/tutorial-backup-azure-files/choose-azure-fileshare-from-backup-goal.png)
 
 3. Fare clic su **Backup** per configurare la condivisione file di Azure nell'insieme di credenziali di Servizi di ripristino.
 
-   ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/set-backup-goal.png)
+   ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/tutorial-backup-azure-files/set-backup-goal.png)
 
     Dopo aver associato l'insieme di credenziali alla condivisione file di Azure, si aprirà il menu Backup che chiede di selezionare un account di archiviazione. Il menu visualizza tutti gli account di archiviazione supportati presenti nell'area in cui si trova l'insieme di credenziali e non già associati a un insieme di credenziali di Servizi di ripristino.
 
-   ![Selezionare l'account di archiviazione](./media/backup-file-shares/list-of-storage-accounts.png)
+   ![Selezionare l'account di archiviazione](./media/tutorial-backup-azure-files/list-of-storage-accounts.png)
 
 4. Nell'elenco degli account di archiviazione selezionare un account e fare clic su **OK**. Azure cerca nell'account di archiviazione le condivisioni file di cui è possibile eseguire il backup. Se sono state recentemente aggiunte condivisioni file e queste non vengono visualizzate nell'elenco, attendere qualche istante.
 
-   ![Le condivisioni file vengono individuate](./media/backup-file-shares/discover-file-shares.png)
+   ![Le condivisioni file vengono individuate](./media/tutorial-backup-azure-files/discover-file-shares.png)
 
 5. Dall'elenco **Condivisioni file** selezionare una o più condivisioni file delle quali eseguire il backup e fare clic su **OK**.
 
 6. Dopo aver scelto le condivisioni file, il menu Backup passa a **Criteri di backup**. In questo menu selezionare un criterio di backup esistente oppure crearne uno nuovo, quindi fare clic su **Abilita backup**.
 
-   ![Selezionare un criterio di backup o crearne uno nuovo](./media/backup-file-shares/apply-backup-policy.png)
+   ![Selezionare un criterio di backup o crearne uno nuovo](./media/tutorial-backup-azure-files/apply-backup-policy.png)
 
     Dopo aver stabilito un criterio di backup verrà creato uno snapshot delle condivisioni file all'orario pianificato e il punto di ripristino verrà conservato per il periodo scelto.
 
@@ -77,19 +77,19 @@ Dopo aver configurato il criterio di backup, è opportuno creare un backup su ri
 
 1. Aprire l'insieme di credenziali di Servizi di ripristino che contiene i punti di ripristino della condivisione file, quindi fare clic su **Elementi di backup**. Verrà visualizzato l'elenco degli elementi di backup.
 
-   ![Elenco di elementi di backup](./media/backup-file-shares/list-of-backup-items.png)
+   ![Elenco di elementi di backup](./media/tutorial-backup-azure-files/list-of-backup-items.png)
 
 2. Dall'elenco selezionare **Archiviazione di Azure (File di Azure)** . Verrà visualizzato l'elenco delle condivisioni file di Azure.
 
-   ![Elenco delle condivisioni file di Azure](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+   ![Elenco delle condivisioni file di Azure](./media/tutorial-backup-azure-files/list-of-azure-files-backup-items.png)
 
 3. Dall'elenco delle condivisioni file di Azure selezionare la condivisione file desiderata. Verrà visualizzato il menu Elemento di backup per la condivisione file selezionata.
 
-   ![Menu Elemento di backup per la condivisione file selezionata](./media/backup-file-shares/backup-item-menu.png)
+   ![Menu Elemento di backup per la condivisione file selezionata](./media/tutorial-backup-azure-files/backup-item-menu.png)
 
 4. Dal menu Elemento di backup fare clic su **Esegui backup ora**. Trattandosi di un processo di backup su richiesta, non sono presenti criteri di conservazione associati al punto di ripristino. Verrà visualizzata la finestra di dialogo **Esegui backup ora**. Specificare l'ultimo giorno di conservazione del punto di ripristino.
 
-   ![Scegliere una data per la conservazione dei punti di ripristino](./media/backup-file-shares/backup-now-menu.png)
+   ![Scegliere una data per la conservazione dei punti di ripristino](./media/tutorial-backup-azure-files/backup-now-menu.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -103,4 +103,4 @@ In questa esercitazione è stato usato il portale di Azure per eseguire le opera
 Passare all'articolo successivo per eseguire il ripristino da un backup di una condivisione file di Azure.
 
 > [!div class="nextstepaction"]
-> [Eseguire il ripristino da un backup di condivisioni file di Azure](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
+> [Eseguire il ripristino da un backup di condivisioni file di Azure](restore-afs.md)

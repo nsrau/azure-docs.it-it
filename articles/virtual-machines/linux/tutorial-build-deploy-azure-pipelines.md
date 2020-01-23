@@ -2,7 +2,6 @@
 title: 'Esercitazione: CI/CD nelle VM di Azure con Azure Pipelines'
 description: Questa esercitazione illustra come configurare l'integrazione continua (CI) e la distribuzione continua (CD) di un'app Node.js in VM di Azure usando la pipeline di Azure basata su YAML.
 author: ushan
-manager: jpconnock
 tags: azure-devops-pipelines
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -12,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: 0318b73dfb8fed05432dd25b5784e1c890815c53
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 8fda8e3079084ad917ad5a7fcfc4f80a622e2d82
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778516"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277247"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Azure DevOps Services e Azure Pipelines
 

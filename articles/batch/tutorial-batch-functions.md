@@ -1,22 +1,19 @@
 ---
 title: Attivare un processo di Batch usando Funzioni di Azure
 description: Esercitazione - Applicare il metodo OCR ai documenti digitalizzati quando vengono aggiunti a un BLOB di archiviazione
-services: batch
 author: ju-shim
-manager: jeconnoc
-ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e3c85d7dfceecfb85223a9688debf4e8937e7c35
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029230"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275980"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Esercitazione: Attivare un processo di Batch usando Funzioni di Azure
 

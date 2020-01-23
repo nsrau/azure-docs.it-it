@@ -12,21 +12,21 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cd0366a0029ccc4816308e280ac93b7c724bb82a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 300b497765dd1081fbad36292c01c56da5bb5e38
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034616"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277254"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con l'interfaccia della riga di comando di Azure
 
 In questa esercitazione si apprenderà come aumentare la disponibilità e l'affidabilità delle soluzioni delle proprie macchine virtuali in Azure tramite una funzionalità denominata set di disponibilità. I set di disponibilità assicurano che le macchine virtuali distribuite in Azure vengano distribuite tra più cluster hardware isolati. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un subset delle macchine virtuali viene interessato e che nel complesso la soluzione rimane disponibile e operativa.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un set di disponibilità
@@ -37,22 +37,12 @@ Questa esercitazione usa l'interfaccia della riga di comando all'interno di [Azu
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-## <a name="high-availability-in-azure-overview"></a>Panoramica della disponibilità elevata in Azure
-La disponibilità elevata in Azure può essere creata in molti modi diversi. Due opzioni disponibili sono i set di disponibilità e le zone di disponibilità. Usando i set di disponibilità, le macchine virtuali vengono protette dagli errori che possono verificarsi in un data center. Sono inclusi gli errori hardware e gli errori software di Azure. Usando le zone di disponibilità, le macchine virtuali vengono inserite in un'infrastruttura separata fisicamente senza risorse condivise e di conseguenza sono protette da errori dell'intero data center.
-
-Usare set di disponibilità o zone di disponibilità quando si vuole distribuire soluzioni affidabili basate su macchine virtuali all'interno di Azure.
-
-### <a name="availability-set-overview"></a>Informazioni generali sui set di disponibilità
+## <a name="overview"></a>Panoramica
 
 Un set di disponibilità è una funzionalità di raggruppamento logico che è possibile usare in Azure per garantire che le risorse delle macchine virtuali inserite dall'utente siano isolate tra loro quando vengono distribuite all'interno di un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. In caso di guasto hardware o errore software in Azure, viene interessato solo un subset delle macchine virtuali. L'applicazione nel suo complesso rimarrà attiva e disponibile per i clienti. I set di disponibilità sono una funzionalità essenziale da sfruttare quando si vogliono creare soluzioni cloud affidabili.
 
 Si consideri una soluzione tipica basata su macchine virtuali, in cui sono disponibili quattro server Web front-end e vengono usate due macchine virtuali di back-end che ospitano un database. Con Azure è possibile definire due set di disponibilità prima di distribuire le macchine virtuali: un set di disponibilità per il livello "Web" e un set di disponibilità per il livello "database". Quando si crea una nuova macchina virtuale, è quindi possibile specificare il set di disponibilità come parametro per il comando az vm create. Azure garantisce automaticamente che le macchine virtuali create all'interno del set di disponibilità vengano isolate tramite installazione in più risorse hardware fisiche. Se l'hardware fisico in cui è in esecuzione una delle macchine virtuali dei server di database o dei server Web presenta un problema, le altre istanze delle macchine virtuali dei server Web e di database rimangono in esecuzione, perché si trovano all'interno di risorse hardware diverse.
 
-### <a name="availability-zone-overview"></a>Panoramica delle zone di disponibilità
-
-Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, devono essere presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. I servizi con ridondanza della zona replicano le applicazioni e i dati tra aree di disponibilità per garantire la protezione da singoli punti di errore. Con le zone di disponibilità Azure offre un contratto di servizio tra i migliori del settore, con tempo di attività delle macchine virtuali del 99,99%.
-
-Si consideri una tipica soluzione basata su macchine virtuali in cui sono disponibili quattro server Web front-end e vengono usate due macchine virtuali di back-end che ospitano un database. Analogamente ai set di disponibilità, è necessario distribuire le macchine virtuali in due zone di disponibilità separate, una per il livello "Web" e una per il livello "database". Quando si crea una nuova macchina virtuale e si specifica la zona di disponibilità come parametro per il comando az vm create, Azure garantisce che le macchine virtuali create vengano automaticamente isolate in zone di disponibilità completamente diverse. Se l'intero data center in cui è in esecuzione una delle macchine virtuali dei server di database o dei server Web presenta un problema, le altre istanze delle macchine virtuali dei server Web e di database restano in esecuzione, perché vengono eseguite in data center completamente separati.
 
 ## <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
@@ -113,7 +103,7 @@ az vm availability-set list-sizes \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un set di disponibilità

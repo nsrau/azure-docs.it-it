@@ -1,26 +1,20 @@
 ---
 title: Bilanciare il carico di più siti Web - Interfaccia della riga di comando di Azure - Azure Load Balancer
 description: Questo esempio di script dell'interfaccia della riga di comando di Azure illustra come eseguire il bilanciamento del carico di più siti Web nella stessa macchina virtuale
-services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 54258b5129e9804bfba4cc51f0d18770b8486280
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 80ec18ca722b9833307fc270c710abd93c6fb6f9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048929"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274628"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Eseguire il bilanciamento del carico per più siti Web
 

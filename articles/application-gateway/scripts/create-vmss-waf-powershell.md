@@ -4,7 +4,6 @@ description: Esempio di script di Azure PowerShell - Creare un gateway applicazi
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d3dfb9708e22a86af8fb9854e424f7da7d1f410a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fd36775e15376054bed34d9e828344c529313d3b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202864"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273416"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Limitare il traffico Web con Azure PowerShell
 

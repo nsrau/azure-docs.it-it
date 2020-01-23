@@ -1,23 +1,23 @@
 ---
 title: "Esercitazione: Come associare un'istanza di database di Azure per MySQL all'applicazione Azure Spring Cloud"
 description: Questa esercitazione illustra come associare un'istanza di database di Azure per MySQL all'applicazione Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a9911798e42db55d5aaae90c933cfb64945b244c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.author: brendm
+ms.openlocfilehash: 657aa70d77fd1af9fd2121a3e98ea3aca7773642
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708817"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277550"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Esercitazione: Associare un'istanza di database di Azure per MySQL all'applicazione Azure Spring Cloud 
 
 Azure Spring Cloud consente di associare automaticamente determinati servizi di Azure alle applicazioni, invece di configurare manualmente l'applicazione Spring Boot. Questa esercitazione illustra come associare l'applicazione all'istanza di database di Azure per MySQL.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un'istanza di Azure Spring Cloud distribuita
 * Un account di Database di Azure per MySQL

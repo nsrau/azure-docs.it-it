@@ -1,26 +1,24 @@
 ---
 title: (DEPRECATO) Bilanciare il carico dei contenitori in un cluster DC/OS di Azure
 description: Bilanciare il carico tra più contenitori in un cluster DC/OS del servizio Azure Container.
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148870"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277838"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Bilanciare il carico dei contenitori in un cluster DC/OS del servizio Azure Container
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Questo articolo illustra come creare un servizio di bilanciamento del carico interno in un servizio Azure Container gestito di tipo DC/OS con Marathon-LB. Questa configurazione supporta la scalabilità orizzontale delle applicazioni e consente anche di sfruttare i cluster di agenti pubblici e privati inserendo i servizi di bilanciamento del carico nel cluster pubblico e i contenitori di applicazioni nel cluster privato. In questa esercitazione si apprenderà come:
+Questo articolo illustra come creare un servizio di bilanciamento del carico interno in un servizio Azure Container gestito di tipo DC/OS con Marathon-LB. Questa configurazione supporta la scalabilità orizzontale delle applicazioni e consente anche di sfruttare i cluster di agenti pubblici e privati inserendo i servizi di bilanciamento del carico nel cluster pubblico e i contenitori di applicazioni nel cluster privato. In questa esercitazione:
 
 > [!div class="checklist"]
 > * Configurare un servizio di bilanciamento del carico Marathon
