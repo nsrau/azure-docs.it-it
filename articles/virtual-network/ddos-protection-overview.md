@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2018
+ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: ef2319f18b6df15fd7f33e9344e8506f853f47e6
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 23dcabf74284c36f0cb221db7e192859aa75f1f6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532234"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544549"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -33,8 +33,8 @@ Protezione DDoS di Azure, insieme alle procedure consigliate di progettazione de
 
 |Funzionalità                                         |Protezione DDoS Basic                 |Protezione DDoS Standard                      |
 |------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Monitoraggio del traffico attivo & rilevamento always on |SÌ                                   |SÌ                                           |
-|Mitigazioni di attacchi automatici                    |SÌ                                   |SÌ                                           |
+|Monitoraggio del traffico attivo & rilevamento always on |Sì                                   |Sì                                           |
+|Mitigazioni di attacchi automatici                    |Sì                                   |Sì                                           |
 |Garanzia di disponibilità                          |Regione Azure                          |Richiesta                                   |
 |Criteri di mitigazione                             |Ottimizzato per il volume dell'area di traffico di Azure |Ottimizzato per il volume di traffico dell'applicazione          |
 |Metriche e avvisi                                |No                                    |Metriche di attacco in tempo reale & log di diagnostica tramite monitoraggio di Azure                                 |
@@ -76,7 +76,7 @@ Le funzionalità di Protezione DDoS Standard includono:
 
 Protezione DDoS Standard monitora l'utilizzo effettivo del traffico e lo confronta continuamente con le soglie definite nei criteri DDoS. Quando la soglia di traffico viene superata, viene avviata automaticamente la mitigazione DDoS. Quando il traffico torna sotto la soglia, la mitigazione viene rimossa.
 
-![Mitigazione](./media/ddos-protection-overview/mitigation.png)
+![Strategia di riduzione del rischio](./media/ddos-protection-overview/mitigation.png)
 
 Durante la mitigazione il traffico inviato alla risorsa protetta viene reindirizzato dal servizio Protezione DDoS e vengono eseguiti diversi controlli, ad esempio i controlli seguenti:
 

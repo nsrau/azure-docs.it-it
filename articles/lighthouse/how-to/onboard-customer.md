@@ -1,14 +1,14 @@
 ---
 title: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
-ms.date: 01/09/2020
+ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca9e17a9ee4e83492eccf63e4c7d353891071f27
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b3868987fa76d4ce0d4c34e81b46301ea106203d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314624"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543410"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -236,7 +236,7 @@ az deployment create --name <deploymentName> \
                      --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName \
+az deployment create --name <deploymentName> \
                      --location <AzureRegion> \
                      --template-uri <templateUri> \
                      --parameters <parameterFile> \
@@ -302,6 +302,12 @@ Nell'esempio seguente viene illustrata un'assegnazione che concede il **ruolo di
 ```
 
 Un utente con questa autorizzazione può rimuovere una delega in uno dei modi seguenti.
+
+### <a name="azure-portal"></a>Portale di Azure
+
+1. Passare alla [pagina Clienti personali](view-manage-customers.md).
+2. Selezionare **deleghe**.
+3. Trovare la delega da rimuovere, quindi selezionare l'icona del cestino che viene visualizzata nella riga.
 
 ### <a name="powershell"></a>PowerShell
 

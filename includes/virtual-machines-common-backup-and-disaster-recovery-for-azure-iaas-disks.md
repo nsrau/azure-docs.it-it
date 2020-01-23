@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012519"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530897"
 ---
 Questo articolo illustra come pianificare il backup e il ripristino di emergenza di macchine virtuali (VM) e dischi IaaS in Azure. Questo documento è relativo a dischi gestiti e non gestiti.
 
@@ -110,7 +110,7 @@ Per i dischi non gestiti è possibile usare il tipo di archiviazione con ridonda
 | Scenario | Replica automatica | Soluzione di ripristino di emergenza |
 | --- | --- | --- |
 | Dischi SSD Premium | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
-| Dischi gestiti | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
+| Managed Disks | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
 | Dischi non gestiti con archiviazione con ridondanza locale | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
 | Dischi non gestiti con archiviazione con ridondanza geografica | Tra aree ([archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/)<br/>[Snapshot coerenti](#alternative-solution-consistent-snapshots) |
 | Dischi non gestiti con archiviazione con ridondanza geografica e accesso in lettura | Tra aree ([archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Backup di Azure](https://azure.microsoft.com/services/backup/)<br/>[Snapshot coerenti](#alternative-solution-consistent-snapshots) |
@@ -119,9 +119,9 @@ La disponibilità elevata si ottiene usando dischi gestiti in un set di disponib
 
 Le opzioni per la disponibilità elevata, il backup e il ripristino di emergenza a livello di applicazione o infrastruttura possono essere rappresentate come segue:
 
-| Livello |   disponibilità elevata   | Backup o ripristino di emergenza |
+| Livello |   Disponibilità elevata   | Backup o ripristino di emergenza |
 | --- | --- | --- |
-| Applicazione | SQL Server AlwaysOn | Backup di Azure |
+| Richiesta | SQL Server AlwaysOn | Backup di Azure |
 | Infrastruttura    | Set di disponibilità  | Archiviazione con ridondanza geografica con snapshot coerenti |
 
 ### <a name="using-azure-backup"></a>Uso di Backup di Azure 
@@ -151,8 +151,6 @@ Usare la procedura seguente per abilitare i backup delle VM tramite il [portale 
 1.  Configurare i criteri di backup e selezionare la VM dalla stessa interfaccia utente.
 
 1.  Assicurarsi che l'agente di Backup sia installato nella VM. Se la macchina virtuale è stata creata tramite un'immagine della raccolta di Azure, l'agente di backup è già installato. In caso contrario, ovvero se si usa un'immagine personalizzata, seguire le istruzioni per [installare l'agente di macchine virtuali nella macchina virtuale](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.  Assicurarsi che la VM consenta la connettività di rete per permettere il funzionamento del servizio Backup. Seguire le istruzioni per la [connettività di rete](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.  Al termine della procedura precedente, il backup viene eseguito a intervalli regolari, come specificato nei criteri di backup. Se necessario, è possibile attivare manualmente il primo backup dal dashboard dell'insieme di credenziali nel portale di Azure.
 

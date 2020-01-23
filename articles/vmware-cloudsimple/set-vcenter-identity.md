@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d2986acc47087c267193eee43136e030abcc422
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: eeced5205b836a15a43fbccfb8c6cb60b4bec29f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990310"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76542866"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurare le origini di identità vCenter da usare Active Directory
 
@@ -33,7 +33,7 @@ Questa guida illustra le attività per la configurazione di Active Directory con
 Prima [di aggiungere un'origine di identità](#add-an-identity-source-on-vcenter), [inoltrare temporaneamente i privilegi di vCenter](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* .  
+> I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* e gli account del servizio non devono essere usati per accedere all'interfaccia utente Web di vSphere.   
 
 
 ## <a name="identity-source-options"></a>Opzioni origine identità
@@ -112,11 +112,11 @@ Dopo aver stabilito la connessione di rete, seguire la procedura descritta in [a
 
 3. Selezionare **Home > amministrazione**.
 
-    ![amministrazione](media/OnPremAD01.png)
+    ![Amministrazione](media/OnPremAD01.png)
 
 4. Selezionare **Single Sign-On > Configuration**.
 
-    ![Single Sign On](media/OnPremAD02.png)
+    ![Single Sign-On](media/OnPremAD02.png)
 
 5. Aprire la scheda **origini identità** e fare clic su **+** per aggiungere una nuova origine identità.
 

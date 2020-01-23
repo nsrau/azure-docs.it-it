@@ -4,16 +4,16 @@ description: Questo articolo illustra le attività comuni eseguite da un amminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 469bd66a6074db34d1efb6f82fda229400239058
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992309"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547575"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -117,82 +117,74 @@ Al momento l'offerta Sviluppo/test non è applicabile ai clienti di Azure per en
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Trasferire un account aziendale in una nuova registrazione
 
-Un trasferimento di account sposta il proprietario di un account da una registrazione a un'altra. Tutte le sottoscrizioni correlate nel proprietario dell'account passeranno alla registrazione di destinazione. Questa operazione viene eseguita quando si dispone di più registrazioni attive e si desidera spostare solo i proprietari di account selezionati.
+Un trasferimento di account sposta il proprietario dell'account da una registrazione a un'altra. Tutte le sottoscrizioni correlate del proprietario dell'account vengono spostate nella registrazione di destinazione. Questa operazione viene eseguita quando si hanno più registrazioni attive e si vogliono spostare solo determinati proprietari di account.
 
 Quando si trasferisce un account aziendale in una nuova registrazione, tenere presente quanto segue:
 
 - Vengono trasferiti solo gli account specificati nella richiesta. Se si selezionano tutti gli account, vengono trasferiti tutti.
 - La registrazione di origine mantiene il proprio stato come attiva o estesa. È possibile continuare a usarla fino alla scadenza.
 
-### <a name="effective-transfer-date"></a>Data di validità del trasferimento
-
-È possibile eseguire il backdate di un trasferimento dell'account fino alla data di inizio della registrazione di destinazione o alla data di inizio dell'account, a seconda di quale sia la data di inizio successiva. Dopo il trasferimento dell'account, tutte le informazioni sull'utilizzo nell'account prima della data di trasferimento rimangono nella registrazione da cui si sta eseguendo il trasferimento. Le informazioni sull'utilizzo dopo la data di trasferimento verranno spostate nella registrazione di destinazione.
-
 ### <a name="prerequisites"></a>Prerequisiti
 
 Quando si richiede il trasferimento di un account, fornire le informazioni seguenti:
 
-- Il numero della registrazione di destinazione, il nome dell'account e il messaggio di posta elettronica del proprietario dell'account da trasferire
+- Numero della registrazione di destinazione, nome dell'account e indirizzo di posta elettronica del proprietario dell'account da trasferire
 - Per la registrazione di origine, numero di registrazione e account da trasferire
-- Per la data di validità del trasferimento dell'account, può essere obsoleto fino alla data di inizio della registrazione di destinazione o alla data di inizio dell'account, a seconda di quale sia la data di inizio successiva
 
 Altri punti da tenere presenti prima del trasferimento di un account:
 
 - Per la registrazione di destinazione e di origine è necessaria l'approvazione di un amministratore EA
 - Se il trasferimento di un account non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di registrazione.
 - Con il trasferimento vengono trasferiti tutti i servizi e le sottoscrizioni correlati agli account specifici.
-- Al termine del trasferimento, l'account trasferito viene visualizzato inattivo sotto la registrazione di origine e viene visualizzato come attivo nella registrazione di destinazione.
+- Al termine del trasferimento, l'account trasferito appare inattivo nella registrazione di origine e attivo in quella di destinazione.
 - L'account mostra la data di fine corrispondente alla data del trasferimento effettivo nella registrazione di origine e come data di inizio nella registrazione di destinazione.
 - Qualsiasi utilizzo che si verifica per l'account prima della data del trasferimento effettivo rimane nella registrazione di origine.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Trasferire la registrazione EA in una nuova registrazione
 
-Un trasferimento di registrazione viene considerato nei casi seguenti:
+Il trasferimento di una registrazione si prende in considerazione quando:
 
-- Un termine dell'impegno di registrazione corrente è giunto a una fine.
-- Una registrazione si trova nello stato scaduto/esteso e viene negoziato un nuovo contratto.
-- Se sono presenti più registrazioni e si desidera consolidare tutti gli account e la fatturazione con una singola registrazione.
+- Il periodo di impegno di una registrazione corrente è terminato.
+- Una registrazione è nello stato di scadenza/estensione e viene negoziato un nuovo contratto.
+- Si hanno più registrazioni e si vogliono consolidare tutti gli account e la fatturazione in una sola registrazione.
 
 Quando si richiede il trasferimento di un'intera registrazione EA in un'altra registrazione, si verificano le azioni seguenti:
 
-- Tutti i servizi, le sottoscrizioni, gli account, i reparti di Azure e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA, vengono trasferiti a una nuova registrazione di destinazione.
+- Tutti i servizi di Azure, le sottoscrizioni, gli account, i reparti e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA, vengono trasferiti in una nuova registrazione di destinazione.
 - Lo stato della registrazione viene impostato su _Trasferito_. La registrazione trasferita è disponibile solo per la creazione di report cronologici sull'utilizzo.
 - Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione trasferita. Lo stato Trasferito impedisce ulteriori utilizzi per la registrazione.
 - Qualsiasi saldo dell'impegno monetario rimanente nel contratto viene perso, inclusi i periodi futuri.
 -   Se la registrazione da cui si esegue il trasferimento prevede acquisti di istanze riservate, la tariffa di acquisto di istanze riservate verrà mantenuta nella registrazione di origine, tuttavia tutti i vantaggi relativi alle istanze riservate verranno trasferiti per essere usati nella nuova registrazione.
 -   La tariffa di costo di acquisto una tantum del Marketplace ed eventuali tariffe fisse mensili già addebitate nella registrazione precedente non verranno trasferite nella nuova registrazione. Verranno trasferiti gli addebiti per il Marketplace basati sul consumo.
--   Dopo un trasferimento di registrazione retrodatato, le eventuali tariffe una tantum degli acquisti verranno mantenute nella registrazione di origine.
 
 ### <a name="effective-transfer-date"></a>Data di validità del trasferimento
 
-Il giorno di trasferimento effettivo può essere successivo o successivo alla data di inizio della registrazione di destinazione.
+La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione di destinazione.
 
 L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
-
-Un trasferimento obsoleto è supportato fino alla data di inizio della registrazione di destinazione. L'invio della data di trasferimento scelta non influisce sull'utilizzo di una fattura in eccedenza già eseguita.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
 Quando si richiede il trasferimento di una registrazione, fornire le informazioni seguenti:
 
-- Per la registrazione di origine, il numero di registrazione.
+- Per la registrazione di origine, numero di registrazione.
 - Per la registrazione di destinazione, numero della registrazione in cui eseguire il trasferimento.
 - Come data di validità del trasferimento della registrazione, una data corrispondente o successiva alla data di inizio della registrazione di destinazione. La data scelta non può incidere sull'utilizzo relativo a una fattura per l'eccedenza già emessa.
 
 Altri punti da tenere presenti prima del trasferimento di una registrazione:
 
-- È necessaria l'approvazione sia per la registrazione di destinazione sia per quella di origine.
+- È necessaria l'approvazione degli amministratori EA sia della registrazione di destinazione che di quella di origine.
 - Se il trasferimento di una registrazione non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di account.
-- Lo stato di registrazione di origine verrà aggiornato a trasferito e sarà disponibile solo per la creazione di report cronologici sull'utilizzo.
+- Lo stato della registrazione di origine verrà aggiornato a Trasferito e sarà disponibile solo per la creazione di report cronologici sull'utilizzo.
 
 ### <a name="monetary-commitment"></a>Impegno monetario
 
 L'impegno monetario non è trasferibile tra registrazioni. I saldi dell'impegno monetario sono legati contrattualmente alla registrazione in cui è stato ordinato. L'impegno monetario non viene trasferito come parte del processo di trasferimento dell'account o della registrazione.
 
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nessun servizio interessato per i trasferimenti di account e di registrazione
+### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nessun servizio interessato dai trasferimenti di account e registrazioni
 
-Non si verifica alcun tempo di inattività durante un account o un trasferimento di registrazione. Il trasferimento può essere completato nello stesso giorno della richiesta, se vengono fornite tutte le informazioni necessarie.
+Durante il trasferimento di un account o una registrazione non si verifica alcun tempo di inattività. Il trasferimento può essere completato nello stesso giorno della richiesta, se vengono fornite tutte le informazioni necessarie.
 
 ## <a name="change-account-owner"></a>Cambiare il proprietario dell'account
 

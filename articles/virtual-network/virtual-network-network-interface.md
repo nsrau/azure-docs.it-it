@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: df2eb0886b71a2d5daaa95f33ef29a2afc7e112a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980709"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543104"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
@@ -90,7 +90,7 @@ Il portale non offre la possibilità di assegnare l'interfaccia di rete ai grupp
    - **Proprietà**: visualizza le impostazioni chiave relative all'interfaccia di rete, incluso il suo indirizzo MAC (vuoto se l'interfaccia di rete è collegata a una macchina virtuale) e la sottoscrizione in cui si trova.
    - **Regole di sicurezza effettive:** le regole di sicurezza sono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione e un gruppo di sicurezza di rete è associato all'interfaccia, alla subnet cui l'interfaccia è assegnata o a entrambe. Per ulteriori informazioni sul contenuto, vedere [Visualizzare regole di sicurezza valide](#view-effective-security-rules). Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](security-overview.md).
    - **Route valide:** le route vengono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione. Le route sono una combinazione di route predefinite di Azure, route definite dall'utente e route BGP esistenti per la subnet a cui è assegnata l'interfaccia di rete. Per ulteriori informazioni sul contenuto, vedere [Visualizzare route valide](#view-effective-routes). Per altre informazioni sulle route predefinite di Azure e le route definite dall'utente, vedere [Panoramica delle route](virtual-networks-udr-overview.md).
-   - **Impostazioni comuni di Azure Resource Manager:** per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [Log attività](../azure-monitor/platform/platform-logs-overview.md), [Controllo di accesso (IAM)](../role-based-access-control/overview.md), [Tag](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Blocchi](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Script di automazione](../azure-resource-manager/templates/export-template-portal.md).
+Impostazioni di Azure Resource Manager comuni: per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [log attività](../azure-monitor/platform/platform-logs-overview.md), [controllo di accesso (IAM)](../role-based-access-control/overview.md), [tag](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [blocchi](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script di automazione](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Comandi**
 
@@ -168,7 +168,7 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 È possibile aggiungere o eliminare un'interfaccia di rete da un gruppo di sicurezza delle applicazioni tramite il portale solo se l'interfaccia di rete è collegata a una macchina virtuale. È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per aggiungere o eliminare un'interfaccia di rete da un gruppo di sicurezza delle applicazioni sia che l'interfaccia di rete sia collegata a una macchina virtuale o meno. Altre informazioni sui [gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups) e su come [creare un gruppo di sicurezza delle applicazioni](manage-network-security-group.md).
 
 1. Nella casella *Cerca risorse, servizi e documentazione* nella parte superiore del portale iniziare a digitare il nome di una macchina virtuale con un'interfaccia di rete che si vuole aggiungere o eliminare da un gruppo di sicurezza delle applicazioni. Quando il nome della VM compare nei risultati della ricerca, selezionarlo.
-2. In **IMPOSTAZIONI** selezionare **Rete**.  Selezionare **Configura i gruppi di sicurezza delle applicazioni**, selezionare i gruppi di sicurezza delle applicazioni a cui si vuole aggiungere l'interfaccia di rete o deselezionare i gruppi di sicurezza delle applicazioni da cui si vuole eliminare l'interfaccia di rete, quindi selezionare **Salva**. Solo le interfacce di rete della stessa rete virtuale possono essere aggiunte allo stesso gruppo di sicurezza delle applicazioni. Il gruppo di sicurezza delle applicazioni deve trovarsi nella stessa posizione dell'interfaccia di rete.
+2. In **IMPOSTAZIONI** selezionare **Rete**.  Selezionare **gruppi di sicurezza** delle applicazioni, quindi **configurare i**gruppi di sicurezza delle applicazioni che scelgono i gruppi di sicurezza delle applicazioni a cui si vuole aggiungere l'interfaccia di rete oppure deselezionare i gruppi di sicurezza delle applicazioni da cui si vuole rimuovere l'interfaccia di rete e quindi selezionare **Salva**. Solo le interfacce di rete della stessa rete virtuale possono essere aggiunte allo stesso gruppo di sicurezza delle applicazioni. Il gruppo di sicurezza delle applicazioni deve trovarsi nella stessa posizione dell'interfaccia di rete.
 
 **Comandi**
 
@@ -196,8 +196,8 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 È possibile eliminare un'interfaccia purché non sia collegata a una macchina virtuale. Se un'interfaccia di rete è collegata a una macchina virtuale, è innanzitutto necessario arrestare la macchina virtuale (deallocarla) e quindi scollegare l'interfaccia di rete dalla macchina virtuale. Per scollegare un'interfaccia di rete da una macchina virtuale, seguire la procedura descritta in [Scollegare un'interfaccia di rete da una macchina virtuale](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Non è possibile rimuovere un'interfaccia di rete da una macchina virtuale se questa è l'unica interfaccia di rete collegata alla macchina virtuale. Una macchina virtuale deve sempre avere almeno un'interfaccia di rete collegata. Eliminando una macchina virtuale vengono scollegate tutte le interfacce di rete a essa collegate, ma non eliminate.
 
 1. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Selezionare **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
-2. Selezionare **...** a destra dell'interfaccia di rete che si vuole eliminare dall'elenco di interfacce di rete.
-3. Selezionare **Elimina**.
+2. Selezionare l'interfaccia di rete nell'elenco che si desidera eliminare.
+3. In **Panoramica** selezionare **Elimina**.
 4. Selezionare **Sì** per confermare l'eliminazione dell'interfaccia di rete.
 
 Quando si elimina un'interfaccia di rete vengono rilasciati tutti gli indirizzi MAC o IP assegnati.

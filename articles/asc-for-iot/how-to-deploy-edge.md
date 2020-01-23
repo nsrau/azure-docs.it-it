@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991439"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543886"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
 
@@ -66,15 +66,15 @@ Usare la procedura seguente per distribuire un centro sicurezza di Azure per il 
     >[!Note] 
     >Se è stata selezionata l'opzione **Distribuisci su scala**, aggiungere il nome e i dettagli del dispositivo prima di continuare con la scheda **Aggiungi moduli** nelle istruzioni seguenti.     
 
-Sono disponibili tre passaggi per creare una distribuzione IoT Edge per il Centro sicurezza di Azure. illustrati nelle sezioni seguenti. 
+Completare ogni passaggio per completare la distribuzione di IoT Edge per il Centro sicurezza di Azure. 
 
-#### <a name="step-1-add-modules"></a>Passaggio 1: aggiungere moduli
+#### <a name="step-1-modules"></a>Passaggio 1: moduli
 
-1. Dalla scheda **Aggiungi moduli** , area **moduli di distribuzione** , fare clic sull'opzione **Configura** per **AzureSecurityCenterforIoT**. 
-   
-1. Modificare il **nome** in **azureiotsecurity**.
-1. Modificare l' **URI dell'immagine** in **MCR.Microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
-1. Verificare che il valore delle **Opzioni di creazione del contenitore** sia impostato su:      
+1. Selezionare il modulo **AzureSecurityCenterforIoT** .
+1. Nella scheda **Impostazioni modulo** modificare il **nome** in **azureiotsecurity**.
+1. Nella scheda **variabili ambiente** aggiungere una variabile, se necessario (ad esempio, livello di debug).
+1. Nella scheda **Crea opzioni del contenitore** aggiungere la configurazione seguente:
+
     ``` json
     {
         "NetworkingConfig": {
@@ -92,24 +92,20 @@ Sono disponibili tre passaggi per creare una distribuzione IoT Edge per il Centr
         }
     }    
     ```
-1. Verificare che sia selezionata l'opzione **imposta le proprietà desiderate del modulo gemello** e modificare l'oggetto di configurazione in:
+    
+1. Nella scheda **Impostazioni gemelli del modulo** aggiungere la configurazione seguente:
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. Fare clic su **Salva**
-1. Scorrere fino alla fine della scheda e selezionare **Configura Advanced Edge Runtime Settings**. 
-   
-1. Modificare l' **immagine** in **Hub Edge** in **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. Selezionare **Aggiorna**.
 
-1. Verificare che **Crea opzioni** sia impostato su: 
+#### <a name="step-2-runtime-settings"></a>Passaggio 2: impostazioni di runtime
+
+1. Selezionare **le impostazioni di runtime**.
+1. In **Hub Edge**modificare l' **immagine** in **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. Verificare che **Crea opzioni** sia impostato sulla configurazione seguente: 
          
     ``` json
     { 
@@ -134,25 +130,30 @@ Sono disponibili tre passaggi per creare una distribuzione IoT Edge per il Centr
        }
     }
     ```
-1. Fare clic su **Salva**
+    
+1. Selezionare **Salva**.
    
-1. Fare clic su **Next** (Avanti).
+1. Selezionare **Avanti**.
 
-#### <a name="step-2-specify-routes"></a>Passaggio 2: specificare le route 
+#### <a name="step-3-specify-routes"></a>Passaggio 3: specificare le route 
 
-1. Nella scheda **specificare le route** assicurarsi di disporre di una route (esplicita o implicita) che inoltra i messaggi dal **modulo azureiotsecurity** a **$upstream** in base agli esempi seguenti, quindi fare clic su **Avanti**. 
+1. Nella scheda **specificare le route** verificare che sia presente una route (esplicita o implicita) che inoltra i messaggi dal modulo **azureiotsecurity** a **$upstream** in base agli esempi seguenti. Selezionare **Avanti**solo quando è attiva la route.
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   Route di esempio:
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>Passaggio 3: esaminare la distribuzione
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-- Nella scheda **Verifica distribuzione** esaminare le informazioni di distribuzione e quindi selezionare **Invia** per completare la distribuzione.
+1. Selezionare **Avanti**.
+
+#### <a name="step-4-review-deployment"></a>Passaggio 4: esaminare la distribuzione
+
+- Nella scheda **Verifica distribuzione** esaminare le informazioni di distribuzione e quindi selezionare **Crea** per completare la distribuzione.
 
 ## <a name="diagnostic-steps"></a>Procedure di diagnostica
 
@@ -166,7 +167,7 @@ Se si verifica un problema, i log del contenitore rappresentano il modo migliore
    
 1. Verificare che siano in esecuzione i seguenti contenitori:
    
-   | name | IMMAGINE |
+   | Nome | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

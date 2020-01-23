@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830140"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547303"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -60,7 +60,7 @@ Il diagramma seguente illustra il flusso di dati da un gruppo di gestione di Ope
 I computer designati per l'esecuzione del gateway Log Analytics devono disporre della configurazione seguente:
 
 * Windows 10, Windows 8.1 o Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008
+* Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008
 * Microsoft .NET Framework 4.5
 * Almeno un processore a 4 core e 8 GB di memoria 
 * Un [agente log Analytics per Windows](agent-windows.md) configurato per la segnalazione alla stessa area di lavoro degli agenti che comunicano tramite il gateway

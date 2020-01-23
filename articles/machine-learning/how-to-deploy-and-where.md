@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1560b5d60ae3c6de3ecb6d50859e24ebb7bc2d28
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156914"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543563"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -551,7 +551,7 @@ Prima di distribuire il modello come servizio, è consigliabile profilarlo per d
 
 ```python
 import json
-test_sample = json.dumps({'data': [
+test_data = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10]
 ]})
 

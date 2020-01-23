@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8b7a743ebcdf74f6ad740e4e4193bbd98da1536d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291125"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544940"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -131,9 +131,8 @@ La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel k
 Se il client Linux SMB non supporta la crittografia, montare File di Azure usando SMB 2.1 da una macchina virtuale Linux di Azure presente nello stesso data center della condivisione file. Verificare che l'opzione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione. 
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore di "nessun accesso" durante l'esplorazione di una condivisione file di Azure nel portale
-
-Quando si passa alla condivisione file di Azure nel portale, viene visualizzato il messaggio di errore seguente:
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Errore di "nessun accesso" quando si tenta di accedere o eliminare una condivisione file di Azure  
+Quando si tenta di accedere o eliminare una condivisione file di Azure nel portale, è possibile che venga visualizzato l'errore seguente:
 
 Nessun accesso  
 Codice di errore: 403 

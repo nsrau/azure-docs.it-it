@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 08/9/2019
+ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f9d00cff5d910d6bbbb4c436249283cca87b91e1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768589"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549105"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -36,14 +36,14 @@ Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, s
 * Il cluster AKS deve usare il servizio di bilanciamento del carico SKU standard per usare più pool di nodi. la funzionalità non è supportata con i bilanciamenti del carico SKU Basic.
 * Il cluster AKS deve usare i set di scalabilità di macchine virtuali per i nodi.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
-* Il cluster AKS può avere un massimo di otto pool di nodi.
-* Il cluster AKS può avere un massimo di 800 nodi tra questi otto pool di nodi.
+* Il cluster AKS può avere un massimo di 10 pool di nodi.
+* Il cluster AKS può avere un massimo di 1000 nodi tra questi 10 pool di nodi.
 * Tutti i pool di nodi devono trovarsi nella stessa VNET e nella stessa subnet.
 * Quando si creano più pool di nodi in fase di creazione del cluster, tutte le versioni di Kubernetes utilizzate dai pool di nodi devono corrispondere al set di versioni per il piano di controllo. Questa operazione può essere aggiornata dopo il provisioning del cluster tramite operazioni del pool per nodo.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
-Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando [AZ Group create][az-group-create] per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Un cluster AKS denominato *myAKSCluster* viene quindi creato usando il comando [AZ AKS create][az-aks-create] . Viene usata una *versione--kubernetes-Version* di *1.13.10* per illustrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione di Kubernetes supportata][supported-versions].
+Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando [AZ Group create][az-group-create] per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Un cluster AKS denominato *myAKSCluster* viene quindi creato usando il comando [AZ AKS create][az-aks-create] . Viene usata una *versione--kubernetes-Version* di *1.15.7* per illustrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione di Kubernetes supportata][supported-versions].
 
 > [!NOTE]
 > Lo SKU del servizio di bilanciamento del carico di *base* **non è supportato** quando si usano più pool di nodi. Per impostazione predefinita, i cluster AKS vengono creati con lo SKU del servizio di bilanciamento del carico *standard* dall'interfaccia della riga di comando di Azure e portale di Azure.
@@ -59,7 +59,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -84,7 +84,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.12.7
+    --kubernetes-version 1.15.5
 ```
 
 > [!NOTE]
@@ -107,7 +107,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.12.7",
+    "orchestratorVersion": "1.15.5",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -117,7 +117,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -126,32 +126,32 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> Se non si specifica *OrchestratorVersion* o *VmSize* quando si aggiunge un pool di nodi, i nodi vengono creati in base alle impostazioni predefinite del cluster AKS. In questo esempio è stato Kubernetes versione *1.13.10* e dimensioni nodo di *Standard_DS2_v2*.
+> Se non viene specificato alcun *VmSize* quando si aggiunge un pool di nodi, le dimensioni predefinite vengono *Standard_DS2_v3* per i pool di nodi di Windows e *Standard_DS2_v2* per i pool di nodi Linux. Se non viene specificato alcun *OrchestratorVersion* , il valore predefinito è la stessa versione del piano di controllo.
 
 ## <a name="upgrade-a-node-pool"></a>Aggiornare un pool di nodi
- 
+
 > [!NOTE]
 > Le operazioni di aggiornamento e ridimensionamento in un cluster o in un pool di nodi non possono essere eseguite simultaneamente, se si tenta di restituire un errore. Al contrario, ogni tipo di operazione deve essere completato sulla risorsa di destinazione prima della richiesta successiva sulla stessa risorsa. Per altre informazioni, vedere la [Guida alla risoluzione dei problemi](https://aka.ms/aks-pending-upgrade).
 
-Quando il cluster AKS è stato creato inizialmente nel primo passaggio, è stato specificato un `--kubernetes-version` di *1.13.10* . Questo imposta la versione di Kubernetes sia per il piano di controllo che per il pool di nodi predefinito. I comandi in questa sezione illustrano come aggiornare un singolo pool di nodi specifico.
+Quando il cluster AKS è stato creato inizialmente nel primo passaggio, è stato specificato un `--kubernetes-version` di *1.15.7* . Questo imposta la versione di Kubernetes sia per il piano di controllo che per il pool di nodi predefinito. I comandi in questa sezione illustrano come aggiornare un singolo pool di nodi specifico.
 
 La relazione tra l'aggiornamento della versione Kubernetes del piano di controllo e il pool di nodi è illustrata nella [sezione seguente](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La versione dell'immagine del sistema operativo del pool di nodi è associata alla versione Kubernetes del cluster. Si otterranno solo gli aggiornamenti delle immagini del sistema operativo, in seguito a un aggiornamento del cluster.
 
-Poiché in questo esempio sono presenti due pool di nodi, è necessario usare [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare un pool di nodi. Aggiornare *mynodepool* a Kubernetes *1.13.10*. Usare il comando [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
+Poiché in questo esempio sono presenti due pool di nodi, è necessario usare [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare un pool di nodi. Aggiornare *mynodepool* a Kubernetes *1.15.7*. Usare il comando [AZ AKS nodepool upgrade][az-aks-nodepool-upgrade] per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --no-wait
 ```
 
-Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è in stato di *aggiornamento* a *1.13.10*:
+Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è in stato di *aggiornamento* a *1.15.7*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -162,7 +162,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -174,7 +174,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -240,7 +240,7 @@ az aks nodepool scale \
 Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è nello stato di *ridimensionamento* con un nuovo conteggio di *5* nodi:
 
 ```console
-$ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 [
   {
@@ -248,7 +248,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Scaling",
     ...
@@ -260,7 +260,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -298,7 +298,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Deleting",
     ...
@@ -310,7 +310,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -351,7 +351,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Creating",
     ...
@@ -363,7 +363,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -383,8 +383,8 @@ Sono ora disponibili due pool di nodi nel cluster, ovvero il pool di nodi predef
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
 ```
 
 L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per limitare i carichi di lavoro che possono essere eseguiti sui nodi.
@@ -461,7 +461,7 @@ Quando si usa un modello di Azure Resource Manager per creare e risorse gestite,
 Creare un modello, ad esempio `aks-agentpools.json` e incollare il manifesto di esempio seguente. Questo modello di esempio configura le impostazioni seguenti:
 
 * Aggiorna il pool di nodi *Linux* denominato *myagentpool* per eseguire tre nodi.
-* Imposta i nodi nel pool di nodi per eseguire Kubernetes versione *1.13.10*.
+* Imposta i nodi nel pool di nodi per eseguire Kubernetes versione *1.15.7*.
 * Definisce le dimensioni del nodo come *Standard_DS2_v2*.
 
 Modificare questi valori come necessario per aggiornare, aggiungere o eliminare i pool di nodi in base alle esigenze:
@@ -500,7 +500,7 @@ Modificare questi valori come necessario per aggiornare, aggiungere o eliminare 
     },
     "variables": {
         "apiVersion": {
-            "aks": "2019-04-01"
+            "aks": "2020-01-01"
         },
         "agentPoolProfiles": {
             "maxPods": 30,
@@ -513,7 +513,7 @@ Modificare questi valori come necessario per aggiornare, aggiungere o eliminare 
     },
     "resources": [
         {
-            "apiVersion": "2019-04-01",
+            "apiVersion": "2020-01-01",
             "type": "Microsoft.ContainerService/managedClusters/agentPools",
             "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
             "location": "[parameters('location')]",
@@ -526,7 +526,7 @@ Modificare questi valori come necessario per aggiornare, aggiungere o eliminare 
                 "storageProfile": "ManagedDisks",
                 "type": "VirtualMachineScaleSets",
                 "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-                "orchestratorVersion": "1.13.10"
+                "orchestratorVersion": "1.15.7"
             }
         }
     ]
@@ -540,6 +540,25 @@ az group deployment create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
+
+> [!TIP]
+> È possibile aggiungere un tag al pool di nodi aggiungendo la proprietà *tag* nel modello, come illustrato nell'esempio seguente.
+> 
+> ```json
+> ...
+> "resources": [
+> {
+>   ...
+>   "properties": {
+>     ...
+>     "tags": {
+>       "name1": "val1"
+>     },
+>     ...
+>   }
+> }
+> ...
+> ```
 
 L'aggiornamento del cluster AKS potrebbe richiedere alcuni minuti in base alle impostazioni del pool di nodi e alle operazioni definite nel modello di Gestione risorse.
 

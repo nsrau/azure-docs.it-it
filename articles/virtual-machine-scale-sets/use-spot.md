@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 4f434afdd02d15f98e005b44f5563847f4c5847d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278217"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544787"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Anteprima: VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -91,50 +91,20 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Modelli di Resource Manager
 
-Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Aggiungere la proprietà' priority ' al tipo di risorsa *Microsoft. Compute/virtualMachineScaleSets/virtualMachineProfile* nel modello e specificare *spot* come valore. Assicurarsi di usare la versione dell'API *2019-03-01* o successiva. 
+Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
 
-Per impostare i criteri di rimozione per l'eliminazione, aggiungere il parametro "evictionPolicy" e impostarlo su *delete*.
-
-Nell'esempio seguente viene creato un set di scalabilità di *Linux denominato set* di scalabilità in *Stati Uniti centro-occidentali*, che *eliminerà* le VM nel set di scalabilità durante la rimozione:
+Per le distribuzioni di modelli di spot, usare`"apiVersion": "2019-03-01"` o versione successiva. Aggiungere le proprietà `priority`, `evictionPolicy` e `billingProfile` alla sezione `"virtualMachineProfile":` del modello: 
 
 ```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US 2",
-  "apiVersion": "2019-03-01",
-  "sku": {
-    "name": "Standard_DS2_v2",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-       "priority": "Spot",
-       "evictionPolicy": "delete",
-       "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                }
 ```
+
+Per eliminare l'istanza dopo che è stata rimossa, impostare il parametro `evictionPolicy` su `Delete`.
+
 ## <a name="faq"></a>FAQ
 
 **D:** Una volta creato, è un'istanza di spot uguale all'istanza standard?

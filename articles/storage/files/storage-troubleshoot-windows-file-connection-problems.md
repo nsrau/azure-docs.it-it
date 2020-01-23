@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 97fdb0b243f71701491f2d2424c04dbd19208ef0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0321d253eb1db414dff2acbb704d3d36726010d9
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291194"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544974"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -140,9 +140,8 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
 > I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore di "nessun accesso" durante l'esplorazione di una condivisione file di Azure nel portale
-
-Quando si passa alla condivisione file di Azure nel portale, viene visualizzato il messaggio di errore seguente:
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Errore di "nessun accesso" quando si tenta di accedere o eliminare una condivisione file di Azure  
+Quando si tenta di accedere o eliminare una condivisione file di Azure nel portale, è possibile che venga visualizzato l'errore seguente:
 
 Nessun accesso  
 Codice di errore: 403 

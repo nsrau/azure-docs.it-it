@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241385"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514409"
 ---
 ::: zone target = "docs"
 
-# <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box Heavy usando il portale di Azure
+# <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Avvio rapido: Distribuire Azure Data Box Heavy usando il portale di Azure
 
 Questo argomento di avvio rapido descrive come distribuire Azure Data Box Heavy tramite il portale di Azure. I passaggi includono come cablare, configurare e copiare i dati in Data Box Heavy per il caricamento in Azure. La guida introduttiva viene eseguita nel portale di Azure e nell'interfaccia utente Web locale del dispositivo.
 
 Per istruzioni dettagliate sulla distribuzione e sul monitoraggio, vedere [Esercitazione: Ordinare Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di distribuire il dispositivo, completare i prerequisiti di configurazione seguenti per il sito di installazione, il servizio e il dispositivo Data Box.
 
@@ -34,7 +34,7 @@ Prima di iniziare, verificare che:
 
 - Le dimensioni del dispositivo siano adeguate alle vie di accesso ai locali. Le misure del dispositivo sono: larghezza: 66,04 cm, lunghezza: 121,92 cm, altezza: 71,12 cm.
 - Sia disponibile un ascensore o una rampa, se si prevede di installare il dispositivo in un piano diverso dal piano terra.
-- Siano disponibili due persone per maneggiare il dispositivo, che pesa circa 227 kg. ed è montato su ruote.
+- Siano disponibili due persone per maneggiare il dispositivo, Il dispositivo pesa circa 227 kg. ed è montato su ruote.
 - Nel data center sia disponibile una superficie piana, vicina a una connessione di rete disponibile, idonea a un dispositivo con questo ingombro.
 
 ### <a name="for-service"></a>Per il servizio
@@ -50,7 +50,7 @@ Prima di iniziare, verificare che:
 Prima di iniziare, verificare che:
 
 - Siano state esaminate le [linee guida per la sicurezza del Data Box Heavy](data-box-safety.md).
-- Sia disponibile un computer host connesso alla rete del data center. Il servizio Data Box Heavy copierà i dati da questo computer. Il computer host deve eseguire un [sistema operativo supportato](data-box-heavy-system-requirements.md).
+- Sia disponibile un computer host connesso alla rete del data center. Data Box Heavy copierà i dati da questo computer. Il computer host deve eseguire un [sistema operativo supportato](data-box-heavy-system-requirements.md).
 - Sia disponibile un computer portatile con un cavo RJ-45 per connettersi all'interfaccia utente locale e configurare il dispositivo. Usare il portatile per configurare una sola volta ogni nodo del dispositivo.
 - Il data center disponga di una rete ad alta velocità con una connessione da almeno 10 GbE.
 - È necessario un cavo da 40 Gbps o da 10 Gbps per ogni nodo del dispositivo. Scegliere cavi compatibili con l'interfaccia di rete Mellanox MCX314A-BCCT:
@@ -63,7 +63,7 @@ Prima di iniziare, verificare che:
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Ordine
+## <a name="order"></a>JSON
 
 Questo passaggio richiede circa 5 minuti.
 
@@ -147,7 +147,7 @@ Questa operazione richiede circa 15-20 minuti.
 
 1. Rimuovere i cavi e riporli nel vano nella parte posteriore del dispositivo.
 2. Pianificare un ritiro con il corriere di zona.
-3. Contattare il team [Data Box Operations](mailto:DataBoxOps@microsoft.com) per informarli sul ritiro e ottenere l'etichetta per la spedizione di ritorno.
+3. Contattare il team [Data Box Operations](mailto:DataBoxOps@microsoft.com) per informarli sul ritiro e ottenere l'etichetta per la spedizione di reso.
 4. L'etichetta per la spedizione di ritorno deve essere visibile sul pannello frontale trasparente del dispositivo.
 
 ## <a name="verify-data"></a>Verificare i dati

@@ -8,26 +8,26 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13390de8d3008907a0b55bf3a61c931dfdcd84e6
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 406830add1891a058e9b43fccb8435aa4d339ed0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552356"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548680"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni automatiche IoT Edge per singoli dispositivi o su vasta scala
 
-Le distribuzioni automatiche e la distribuzione su più livelli consentono di gestire e configurare moduli su un numero elevato di dispositivi IoT Edge. 
+Le distribuzioni automatiche e la distribuzione su più livelli consentono di gestire e configurare moduli su un numero elevato di dispositivi IoT Edge.
 
-Azure IoT Edge offre due modi per configurare i moduli da eseguire nei dispositivi IoT Edge. Il primo metodo consiste nel distribuire i moduli per ogni singolo dispositivo. Si crea un manifesto di distribuzione e quindi lo si applica a un determinato dispositivo in base al nome. Il secondo metodo consiste nel distribuire automaticamente i moduli a qualsiasi dispositivo registrato che soddisfi un set di condizioni definite. Si crea un manifesto di distribuzione e quindi si definiscono i dispositivi a cui si applicano in base ai [tag](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) nel dispositivo gemello. 
+Azure IoT Edge offre due modi per configurare i moduli da eseguire nei dispositivi IoT Edge. Il primo metodo consiste nel distribuire i moduli per ogni singolo dispositivo. Si crea un manifesto di distribuzione e quindi lo si applica a un determinato dispositivo in base al nome. Il secondo metodo consiste nel distribuire automaticamente i moduli a qualsiasi dispositivo registrato che soddisfi un set di condizioni definite. Si crea un manifesto di distribuzione e quindi si definiscono i dispositivi a cui si applicano in base ai [tag](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) nel dispositivo gemello.
 
-Questo articolo è incentrato sulle fasi di configurazione e monitoraggio per grandi quantità di dispositivi, collettivamente indicate come distribuzioni automatiche IoT Edge. I passaggi generali per la distribuzione sono i seguenti: 
+Questo articolo è incentrato sulla configurazione e il monitoraggio di flotte di dispositivi, chiamati collettivamente *IOT Edge distribuzioni automatiche*. I passaggi di base per la distribuzione sono i seguenti:
 
-1. Un operatore definisce una distribuzione che descrive un set di moduli, nonché i dispositivi di destinazione. Ogni distribuzione dispone di un manifesto di distribuzione che riflette queste informazioni. 
-2. Il servizio Hub IoT comunica con tutti i dispositivi di destinazione per configurarli con i moduli desiderati. 
-3. Il servizio Hub IoT recupera informazioni sullo stato dai dispositivi IoT Edge e li rende disponibili all’operatore.  Un operatore, ad esempio, può vedere quando un dispositivo perimetrale non è configurato correttamente o se un modulo ha esito negativo durante il Runtime. 
-4. In qualsiasi momento, i nuovi dispositivi IoT Edge che soddisfano le condizioni di destinazione vengono configurati per la distribuzione. 
- 
+1. Un operatore definisce una distribuzione che descrive un set di moduli e i dispositivi di destinazione. Ogni distribuzione dispone di un manifesto di distribuzione che riflette queste informazioni.
+2. Il servizio hub Internet delle cose comunica con tutti i dispositivi di destinazione per configurarli con i moduli dichiarati.
+3. Il servizio Hub IoT recupera informazioni sullo stato dai dispositivi IoT Edge e li rende disponibili all’operatore.  Un operatore, ad esempio, può vedere quando un dispositivo perimetrale non è configurato correttamente o se un modulo ha esito negativo durante il Runtime.
+4. In qualsiasi momento, i nuovi dispositivi IoT Edge che soddisfano le condizioni di destinazione vengono configurati per la distribuzione.
+
 Questo articolo descrive ogni componente coinvolto nella configurazione e nel monitoraggio di una distribuzione. Per istruzioni dettagliate sulla creazione e l'aggiornamento di una distribuzione, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Distribuzione
@@ -38,32 +38,32 @@ Solo i dispositivi IoT Edge possono essere configurati con una distribuzione. Pr
 
 * Sistema operativo di base
 * Sistema di gestione dei contenitori, come Moby o Docker
-* Provisioning del runtime IoT Edge 
+* Provisioning del runtime IoT Edge
 
 ### <a name="deployment-manifest"></a>Manifesto della distribuzione
 
 Un manifesto di distribuzione è un documento JSON che descrive i moduli da configurare nei dispositivi IoT Edge di destinazione e contiene i metadati di configurazione per tutti i moduli, inclusi i moduli di sistema richiesti, in particolare l'agente IoT Edge e l'hub IoT Edge.  
 
-I metadati di configurazione per ogni modulo includono: 
+I metadati di configurazione per ogni modulo includono:
 
-* Versione 
-* Tipo 
-* Stato (ad esempio, in esecuzione o arrestato) 
-* Criterio di riavvio 
+* Versione
+* Tipo
+* Stato (ad esempio, in esecuzione o arrestato)
+* Criterio di riavvio
 * Registro di immagini e contenitori
-* Route per l'input e l'output dei dati 
+* Route per l'input e l'output dei dati
 
-Se l'immagine del modulo è archiviata in una registro contenitori privato, le credenziali del registro sono contenute nell'agente di IoT Edge. 
+Se l'immagine del modulo è archiviata in una registro contenitori privato, le credenziali del registro sono contenute nell'agente di IoT Edge.
 
 ### <a name="target-condition"></a>Condizione di destinazione
 
-La condizione di destinazione viene valutata continuamente per tutto il ciclo di vita della distribuzione. Vengono inclusi tutti i nuovi dispositivi che soddisfano i requisiti e i dispositivi che non li soddisfano più vengono rimossi. Se il servizio rileva qualsiasi variazione della condizione di destinazione, la distribuzione viene riattivata. 
+La condizione di destinazione viene valutata continuamente per tutto il ciclo di vita della distribuzione. Vengono inclusi tutti i nuovi dispositivi che soddisfano i requisiti e i dispositivi che non li soddisfano più vengono rimossi. Se il servizio rileva qualsiasi variazione della condizione di destinazione, la distribuzione viene riattivata.
 
-Si supponga ad esempio di avere una distribuzione A con una condizione di destinazione tags.environment = 'prod'. Quando viene avviata la distribuzione, sono disponibili 10 dispositivi di produzione. I moduli vengono installati correttamente in questi 10 dispositivi. Lo stato dell'agente di IoT Edge riporta 10 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 0 risposte in sospeso. Si aggiungono ora altri cinque dispositivi con tags.environment = 'prod'. Il servizio rileva la modifica e lo stato dell'agente di IoT Edge riporta 15 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 5 risposte in sospeso quando tenta di eseguire la distribuzione nei cinque nuovi dispositivi.
+Ad esempio, si dispone di una distribuzione con i tag della condizione di destinazione. Environment =' prod '. Quando viene avviata la distribuzione, sono disponibili 10 dispositivi di produzione. I moduli vengono installati correttamente in questi 10 dispositivi. Lo stato dell'agente di IoT Edge Mostra 10 dispositivi totali, 10 risposte con esito positivo, 0 risposte di errore e 0 risposte in sospeso. Si aggiungono ora altri cinque dispositivi con tags.environment = 'prod'. Il servizio rileva la modifica e lo stato dell'agente IoT Edge diventa 15 dispositivi totali, 10 risposte con esito positivo, 0 risposte di errore e 5 risposte in sospeso durante la distribuzione nei cinque nuovi dispositivi.
 
 Usare qualsiasi condizione booleana sui tag dei dispositivi gemelli o deviceId per selezionare i dispositivi di destinazione. Se si intende usare una condizione con tag, è necessario aggiungere la sezione "tags"{} nel dispositivo gemello allo stesso livello delle proprietà. [Altre informazioni sui tag nel dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md)
 
-Esempi di condizione di destinazione:
+Esempi di condizioni di destinazione:
 
 * deviceId ='linuxprod1'
 * tags.environment ='prod'
@@ -82,9 +82,9 @@ Di seguito sono riportati alcuni vincoli validi quando si crea una condizione di
 
 Una priorità definisce se un tipo di distribuzione deve essere applicato a un dispositivo di destinazione rispetto ad altre distribuzioni. La priorità di distribuzione è un numero intero positivo crescente per indicare una priorità più alta. Se un dispositivo IoT Edge è la destinazione di più di una distribuzione, si applica la distribuzione con priorità più alta.  Le distribuzioni con priorità più bassa non vengono applicate e non vengono unite.  Se un dispositivo è destinato a due o più distribuzioni con uguale priorità, si applica la distribuzione creata più di recente (determinata dal timestamp di creazione).
 
-### <a name="labels"></a>Etichette 
+### <a name="labels"></a>Etichette
 
-Le etichette sono coppie chiave/valore stringa che è possibile usare per filtrare e raggruppare le distribuzioni. Una distribuzione può avere più etichette. Le etichette sono facoltative e non influiscano sulla configurazione effettiva dei dispositivi IoT Edge. 
+Le etichette sono coppie chiave/valore stringa che è possibile usare per filtrare e raggruppare le distribuzioni. Una distribuzione può avere più etichette. Le etichette sono facoltative e non influiscano sulla configurazione effettiva dei dispositivi IoT Edge.
 
 ### <a name="metrics"></a>Metriche
 
@@ -92,43 +92,43 @@ Per impostazione predefinita, tutte le distribuzioni segnalano quattro metriche:
 
 * **Targeted** Mostra i dispositivi IOT Edge che corrispondono alla condizione di destinazione della distribuzione.
 * **Applicato** Mostra i dispositivi IOT Edge di destinazione che non sono interessati da un'altra distribuzione con priorità più elevata.
-* **Segnalazione riuscita** Mostra i dispositivi IOT Edge restituiti al servizio che i moduli sono stati distribuiti correttamente. 
+* **Segnalazione riuscita** Mostra i dispositivi IOT Edge restituiti al servizio che i moduli sono stati distribuiti correttamente.
 * **Segnalazione errori** Mostra i dispositivi IOT Edge che hanno segnalato al servizio che uno o più moduli non sono stati distribuiti correttamente. Per esaminare ulteriormente questo errore, connettersi in remoto a tali dispositivi e visualizzare i file di log.
 
-Inoltre, è possibile definire metriche personalizzate per facilitare il monitoraggio e la gestione della distribuzione. 
+Inoltre, è possibile definire metriche personalizzate per facilitare il monitoraggio e la gestione della distribuzione.
 
-Le metriche forniscono conteggi riepilogativi dei diversi Stati che i dispositivi possono restituire come risultato dell'applicazione di una configurazione di distribuzione. Le metriche possono eseguire query sulle [proprietà segnalate dal dispositivo gemello del modulo edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties), ad esempio l'ultimo stato desiderato o l'ora dell'ultimo collegamento. Ad esempio: 
+Le metriche forniscono conteggi riepilogativi dei diversi Stati che i dispositivi possono restituire come risultato dell'applicazione di una configurazione di distribuzione. Le metriche possono eseguire query sulle [proprietà segnalate del dispositivo gemello del modulo edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties), ad esempio *lastDesiredStatus* o *lastConnectTime*. Ad esempio:
 
 ```sql
 SELECT deviceId FROM devices
   WHERE properties.reported.lastDesiredStatus.code = 200
 ```
 
-L'aggiunta di metriche personalizzate è facoltativa e non ha alcun effetto sulla configurazione effettiva dei dispositivi IoT Edge. 
+L'aggiunta di metriche personalizzate è facoltativa e non ha alcun effetto sulla configurazione effettiva dei dispositivi IoT Edge.
 
 ## <a name="layered-deployment"></a>Distribuzione a più livelli
 
-Le distribuzioni sovrapposte sono distribuzioni automatiche che possono essere combinate insieme per ridurre il numero di distribuzioni univoche che devono essere create. Le distribuzioni sovrapposte sono utili negli scenari in cui gli stessi moduli vengono riutilizzati in combinazioni diverse in molte distribuzioni automatiche. 
+Le distribuzioni sovrapposte sono distribuzioni automatiche che possono essere combinate insieme per ridurre il numero di distribuzioni univoche che devono essere create. Le distribuzioni sovrapposte sono utili negli scenari in cui gli stessi moduli vengono riutilizzati in combinazioni diverse in molte distribuzioni automatiche.
 
-Le distribuzioni a più livelli hanno gli stessi componenti di base di qualsiasi distribuzione automatica. I dispositivi di destinazione sono basati su tag nei dispositivi gemelli e forniscono la stessa funzionalità per le etichette, le metriche e la creazione di rapporti di stato. Le distribuzioni a più livelli hanno anche le priorità assegnate, ma invece di usare la priorità per determinare quale distribuzione viene applicata a un dispositivo, la priorità determina il modo in cui vengono classificate più distribuzioni in un dispositivo. Se, ad esempio, due distribuzioni a più livelli hanno un modulo o una route con lo stesso nome, la distribuzione a più livelli con la priorità più alta verrà applicata mentre la priorità più bassa viene sovrascritta. 
+Le distribuzioni a più livelli hanno gli stessi componenti di base di qualsiasi distribuzione automatica. I dispositivi di destinazione sono basati su tag nei dispositivi gemelli e forniscono la stessa funzionalità per le etichette, le metriche e la creazione di rapporti di stato. Le distribuzioni a più livelli hanno anche le priorità assegnate, ma invece di usare la priorità per determinare quale distribuzione viene applicata a un dispositivo, la priorità determina il modo in cui vengono classificate più distribuzioni in un dispositivo. Se, ad esempio, due distribuzioni a più livelli hanno un modulo o una route con lo stesso nome, la distribuzione a più livelli con la priorità più alta verrà applicata mentre la priorità più bassa viene sovrascritta.
 
-I moduli di runtime di sistema, edgeAgent e edgeHub, non sono configurati come parte di una distribuzione a più livelli. Qualsiasi dispositivo IoT Edge di destinazione di una distribuzione a più livelli necessita di una distribuzione automatica standard applicata prima di tutto per fornire la base su cui è possibile aggiungere distribuzioni a più livelli. 
+I moduli di runtime di sistema, edgeAgent e edgeHub, non sono configurati come parte di una distribuzione a più livelli. Qualsiasi dispositivo IoT Edge di destinazione di una distribuzione a più livelli necessita di una distribuzione automatica standard applicata prima di tutto per fornire la base su cui è possibile aggiungere distribuzioni a più livelli.
 
-Un dispositivo IoT Edge può applicare solo una distribuzione automatica standard, ma può applicare più distribuzioni automatiche a più livelli. Le distribuzioni a più livelli destinate a un dispositivo devono avere una priorità più elevata rispetto alla distribuzione automatica per tale dispositivo. 
+Un dispositivo IoT Edge può applicare solo una distribuzione automatica standard, ma può applicare più distribuzioni automatiche a più livelli. Le distribuzioni a più livelli destinate a un dispositivo devono avere una priorità più elevata rispetto alla distribuzione automatica per tale dispositivo.
 
-Si consideri, ad esempio, lo scenario seguente di una società che gestisce edifici. Sono stati sviluppati IoT Edge moduli per la raccolta di dati da fotocamere, sensori di movimento e ascensori di sicurezza. Tuttavia, non tutti i loro edifici possono utilizzare tutti e tre i moduli. Con le distribuzioni automatiche standard, la società deve creare distribuzioni singole per tutte le combinazioni di moduli necessarie per gli edifici. 
+Si consideri, ad esempio, lo scenario seguente di una società che gestisce edifici. Sono stati sviluppati IoT Edge moduli per la raccolta di dati da fotocamere, sensori di movimento e ascensori di sicurezza. Tuttavia, non tutti i loro edifici possono utilizzare tutti e tre i moduli. Con le distribuzioni automatiche standard, la società deve creare distribuzioni singole per tutte le combinazioni di moduli necessarie per gli edifici.
 
 ![Le distribuzioni automatiche standard devono contenere ogni combinazione di moduli](./media/module-deployment-monitoring/standard-deployment.png)
 
-Tuttavia, una volta che l'azienda passa a distribuzioni automatiche sovrapposte, scopre che è possibile creare le stesse combinazioni di moduli per gli edifici con un minor numero di distribuzioni da gestire. Ogni modulo dispone di una propria distribuzione a più livelli e i tag del dispositivo identificano i moduli aggiunti a ogni edificio. 
+Tuttavia, una volta che l'azienda passa a distribuzioni automatiche sovrapposte, scopre che è possibile creare le stesse combinazioni di moduli per gli edifici con un minor numero di distribuzioni da gestire. Ogni modulo dispone di una propria distribuzione a più livelli e i tag del dispositivo identificano i moduli aggiunti a ogni edificio.
 
-![La distribuzione automatica sovrapposta semplifica gli scenari in cui gli stessi moduli vengono combinati in modi diversi](./media/module-deployment-monitoring/layered-deployment.png)
+![Le distribuzioni automatiche sovrapposte semplificano gli scenari in cui gli stessi moduli vengono combinati in modi diversi](./media/module-deployment-monitoring/layered-deployment.png)
 
 ### <a name="module-twin-configuration"></a>Configurazione del modulo gemello
 
-Quando si lavora con distribuzioni su più livelli, è possibile, intenzionalmente o in altro modo, avere due distribuzioni con lo stesso modulo destinate a un dispositivo. In questi casi è possibile decidere se la distribuzione con priorità più elevata deve sovrascrivere il modulo gemello o accodarlo. Ad esempio, è possibile che si disponga di una distribuzione che applica lo stesso modulo a 100 dispositivi diversi. Tuttavia, 10 di questi dispositivi sono in strutture sicure e richiedono una configurazione aggiuntiva per comunicare attraverso i server proxy. È possibile usare una distribuzione a più livelli per aggiungere proprietà del modulo gemello che consentono a questi 10 dispositivi di comunicare in modo sicuro senza sovrascrivere le informazioni del modulo gemello esistente dalla distribuzione di base. 
+Quando si lavora con distribuzioni su più livelli, è possibile, intenzionalmente o in altro modo, avere due distribuzioni con lo stesso modulo destinate a un dispositivo. In questi casi, è possibile decidere se la distribuzione con priorità più elevata deve sovrascrivere il modulo gemello o accodarlo. Ad esempio, è possibile che si disponga di una distribuzione che applica lo stesso modulo a 100 dispositivi diversi. Tuttavia, 10 di questi dispositivi sono in strutture sicure e richiedono una configurazione aggiuntiva per comunicare attraverso i server proxy. È possibile usare una distribuzione a più livelli per aggiungere proprietà del modulo gemello che consentono a questi 10 dispositivi di comunicare in modo sicuro senza sovrascrivere le informazioni del modulo gemello esistente dalla distribuzione di base.
 
-È possibile aggiungere le proprietà desiderate del modulo gemello nel manifesto della distribuzione. In una distribuzione standard è possibile aggiungere proprietà nella sezione **Properties. desired** del modulo gemello, in una distribuzione a più livelli è possibile dichiarare un nuovo subset di proprietà desiderate. 
+È possibile aggiungere le proprietà desiderate del modulo gemello nel manifesto della distribuzione. In una distribuzione standard è possibile aggiungere proprietà nella sezione **Properties. desired** del modulo gemello, in una distribuzione a più livelli è possibile dichiarare un nuovo subset di proprietà desiderate.
 
 In una distribuzione standard, ad esempio, è possibile aggiungere il modulo di sensore di temperatura simulato con le proprietà desiderate seguenti che lo indicano per inviare dati in intervalli di 5 secondi:
 
@@ -141,7 +141,7 @@ In una distribuzione standard, ad esempio, è possibile aggiungere il modulo di 
 }
 ```
 
-In una distribuzione a più livelli destinata agli stessi dispositivi o a un subset degli stessi dispositivi, potrebbe essere necessario aggiungere una proprietà aggiuntiva che indichi al sensore simulato di inviare 1000 messaggi e quindi arrestare. Se non si desidera sovrascrivere le proprietà esistenti, è necessario creare una nuova sezione all'interno delle proprietà desiderate denominate `layeredProperties` che contiene la nuova proprietà:
+In una distribuzione a più livelli destinata agli stessi dispositivi o a un subset degli stessi dispositivi, potrebbe essere necessario aggiungere una proprietà aggiuntiva che indichi al sensore simulato di inviare 1000 messaggi e quindi arrestare. Non si desidera sovrascrivere le proprietà esistenti, quindi creare una nuova sezione all'interno delle proprietà desiderate denominate `layeredProperties`, che contiene la nuova proprietà:
 
 ```json
 "SimulatedTemperatureSensor": {
@@ -151,7 +151,7 @@ In una distribuzione a più livelli destinata agli stessi dispositivi o a un sub
 }
 ```
 
-Un dispositivo con entrambe le distribuzioni applicato rifletterà quanto segue nel modulo gemello per il sensore di temperatura simulato: 
+Un dispositivo con entrambe le distribuzioni applicato rifletterà le proprietà seguenti nel modulo gemello per il sensore di temperatura simulato:
 
 ```json
 "properties": {
@@ -165,18 +165,18 @@ Un dispositivo con entrambe le distribuzioni applicato rifletterà quanto segue 
 }
 ```
 
-Se si imposta il campo `properties.desired` del modulo gemello in una distribuzione a più livelli, le proprietà desiderate per il modulo vengono sovrascritte in qualsiasi distribuzione con priorità più bassa. 
+Se si imposta il campo `properties.desired` del modulo gemello in una distribuzione a più livelli, le proprietà desiderate per il modulo vengono sovrascritte in qualsiasi distribuzione con priorità più bassa.
 
-## <a name="phased-rollout"></a>Implementazione graduale 
+## <a name="phased-rollout"></a>Implementazione graduale
 
-Un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT Edge. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala. Le distribuzioni automatiche consentono di gestire rollout in più fasi in una flotta di dispositivi IoT Edge. 
+Un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT Edge. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala. Le distribuzioni automatiche consentono di gestire rollout in più fasi in una flotta di dispositivi IoT Edge.
 
-Un'implementazione graduale viene eseguita in base alle fasi e ai passaggi seguenti: 
+Un'implementazione graduale viene eseguita in base alle fasi e ai passaggi seguenti:
 
-1. Definire un ambiente di test di dispositivi IoT Edge eseguendone il provisioning e impostando un tag di dispositivo gemello come `tag.environment='test'`. L'ambiente di test deve rispecchiare l'ambiente di produzione a cui verrà destinata la distribuzione. 
-2. Creare una distribuzione, inclusi i moduli e le configurazioni desiderate. La condizione di destinazione deve essere destinata all'ambiente di test dei dispositivi IoT Edge.   
+1. Definire un ambiente di test di dispositivi IoT Edge eseguendone il provisioning e impostando un tag di dispositivo gemello come `tag.environment='test'`. L'ambiente di test deve rispecchiare l'ambiente di produzione a cui verrà destinata la distribuzione.
+2. Creare una distribuzione, inclusi i moduli e le configurazioni desiderate. La condizione di destinazione deve essere destinata all'ambiente di test dei dispositivi IoT Edge.
 3. Convalidare la nuova configurazione dei moduli nell'ambiente di test.
-4. Aggiornare la distribuzione per includere un sottoinsieme di dispositivi IoT Edge di produzione, aggiungendo un nuovo tag alla condizione di destinazione. Assicurarsi inoltre che la priorità per la distribuzione sia superiore rispetto alle altre distribuzioni attualmente destinate ai dispositivi. 
+4. Aggiornare la distribuzione per includere un sottoinsieme di dispositivi IoT Edge di produzione, aggiungendo un nuovo tag alla condizione di destinazione. Assicurarsi inoltre che la priorità per la distribuzione sia superiore rispetto alle altre distribuzioni attualmente destinate ai dispositivi.
 5. Verificare che la distribuzione venga applicata correttamente nei dispositivi IoT di destinazione visualizzando lo stato di distribuzione.
 6. Aggiornare la distribuzione per destinarla a tutti i dispositivi IoT Edge di produzione rimanenti.
 
@@ -184,19 +184,17 @@ Un'implementazione graduale viene eseguita in base alle fasi e ai passaggi segue
 
 È possibile eseguire il rollback delle distribuzioni in caso di errori o di problemi di configurazione. Poiché una distribuzione definisce la configurazione del modulo assoluta per un dispositivo IoT Edge, anche una distribuzione aggiuntiva deve essere indirizzata allo stesso dispositivo con una priorità più bassa anche se l'obiettivo è quello di rimuovere tutti i moduli.  
 
-L'eliminazione di una distribuzione non comporta la rimozione dei moduli dai dispositivi di destinazione. Deve essere presente un'altra distribuzione che definisce una nuova configurazione per i dispositivi, anche se si tratta di una distribuzione vuota. 
+L'eliminazione di una distribuzione non comporta la rimozione dei moduli dai dispositivi di destinazione. Deve essere presente un'altra distribuzione che definisce una nuova configurazione per i dispositivi, anche se si tratta di una distribuzione vuota.
 
-Eseguire i rollback con la sequenza seguente: 
+Eseguire i rollback con la sequenza seguente:
 
-1. Verificare che esista una seconda distribuzione destinata allo stesso set di dispositivi. Se l'obiettivo del rollback è rimuovere tutti i moduli, la seconda distribuzione non deve includere alcun modulo. 
+1. Verificare che esista una seconda distribuzione destinata allo stesso set di dispositivi. Se l'obiettivo del rollback è rimuovere tutti i moduli, la seconda distribuzione non deve includere alcun modulo.
 2. Modificare o rimuovere l'espressione della condizione di destinazione della distribuzione di cui si vuole eseguire il rollback in modo che i dispositivi non soddisfino più la condizione di destinazione.
 3. Verificare che il rollback sia stato eseguito correttamente visualizzando lo stato di distribuzione.
    * La distribuzione di cui viene eseguito il rollback non deve più visualizzare lo stato per i dispositivi inclusi nel rollback.
    * La seconda distribuzione dovrebbe ora includere lo stato di distribuzione per i dispositivi di cui è stato eseguito il rollback.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Eseguire le procedure per creare, aggiornare o eliminare una distribuzione in [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
 * Per approfondire altri concetti relativi a IoT Edge, vedere [Informazioni sul runtime di IoT Edge](iot-edge-runtime.md) e [Informazioni sui moduli IoT Edge](iot-edge-modules.md).
-

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429299"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546946"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -347,7 +347,7 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
 ## <a name="supported-x509-certificates"></a>Certificati X.509 supportati
 
-È possibile usare qualsiasi certificato X.509 per autenticare un dispositivo con l'hub IoT caricando un'identificazione personale del certificato o un'autorità di certificazione (CA) nell'hub IoT di Azure. L'autenticazione tramite identificazioni personali del certificato verifica solo che l'identificazione personale presentata corrisponda all'identificazione personale configurata. L'autenticazione tramite l'autorità di certificazione convalida la catena di certificati. 
+È possibile usare qualsiasi certificato X.509 per autenticare un dispositivo con l'hub IoT caricando un'identificazione personale del certificato o un'autorità di certificazione (CA) nell'hub IoT di Azure. L'autenticazione tramite identificazione personale del certificato verifica che l'identificazione personale presentata corrisponda all'identificazione personale configurata. L'autenticazione tramite l'autorità di certificazione convalida la catena di certificati. In entrambi i casi, l'handshake TLS richiede che il dispositivo disponga di un certificato e di una chiave privata validi. Per informazioni dettagliate, vedere la specifica TLS, ad esempio: [RFC 5246-il protocollo Transport Layer Security (TLS) versione 1,2](https://tools.ietf.org/html/rfc5246/).
 
 I certificati supportati includono:
 
@@ -461,6 +461,8 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 * [Linguaggio di query dell'hub IoT](iot-hub-devguide-query-language.md) descrive il linguaggio di query che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
 
 * [Supporto di MQTT nell'hub IoT](iot-hub-mqtt-support.md) offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
+
+* [RFC 5246-la versione 1,2 del protocollo Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246/) fornisce altre informazioni sull'autenticazione TLS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822414"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545025"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 
@@ -91,7 +91,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](https://msdn.microsoft.com/library/ms186259.aspx), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
+Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
 
 Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
 
@@ -382,7 +382,7 @@ Se i parametri con valori di tabella usano una stored procedure, è possibile es
 
 Nelle sezioni seguenti viene descritto come usare parametri con valori di tabella in tre scenari di applicazione. Il primo scenario illustra in che modo interagiscono il buffering e l'invio in batch. Nel secondo scenario le prestazioni vengono migliorate eseguendo operazioni master/dettaglio in una singola chiamata di stored procedure. Lo scenario finale illustra come usare parametri con valori di tabella in un'operazione "UPSERT".
 
-### <a name="buffering"></a>Buffering
+### <a name="buffering"></a>responseBuffering
 
 Sebbene alcuni scenari siano particolarmente adatti all'invio in batch, ne esistono numerosi che potrebbero trarre vantaggio da questo tipo di operazione grazie all'elaborazione ritardata. L'elaborazione ritardata implica tuttavia anche un maggiore rischio che i dati vengano persi in caso di errore imprevisto. È importante comprendere tale rischio e valutarne le conseguenze.
 

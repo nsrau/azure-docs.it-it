@@ -9,16 +9,16 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666070"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548697"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestore sicurezza di Azure IoT Edge
 
-Il gestore sicurezza di Azure IoT Edge è una tecnologia di sicurezza ben delimitata per la protezione del dispositivo IoT Edge e di tutti i relativi componenti tramite l'astrazione dell'hardware del processore di sicurezza. Si tratta del punto focale per la protezione avanzata e fornisce un punto di integrazione della tecnologia per OEM (Original Equipment Manufacturer).
+Il gestore sicurezza di Azure IoT Edge è una tecnologia di sicurezza ben delimitata per la protezione del dispositivo IoT Edge e di tutti i relativi componenti tramite l'astrazione dell'hardware del processore di sicurezza. Il responsabile della sicurezza è il punto focale per la protezione avanzata e fornisce un punto di integrazione della tecnologia per OEM (Original Equipment Manufacturer).
 
 ![Gestore sicurezza di Azure IoT Edge](media/edge-security-manager/iot-edge-security-manager.png)
 
@@ -41,7 +41,7 @@ Il gestore sicurezza di IoT Edge include tre componenti:
 
 ## <a name="the-iot-edge-security-daemon"></a>Daemon di sicurezza di IoT Edge
 
-Il daemon di sicurezza IoT Edge è responsabile delle operazioni logiche di IoT Edge Security Manager. Rappresenta una parte significativa della base di calcolo attendibile del dispositivo IoT Edge. 
+Il daemon di sicurezza IoT Edge è responsabile delle operazioni logiche di IoT Edge Security Manager. Rappresenta una parte significativa della base di calcolo attendibile del dispositivo IoT Edge.
 
 ### <a name="design-principles"></a>Principi di progettazione
 
@@ -79,11 +79,11 @@ L'interfaccia cloud consente al daemon di sicurezza IoT Edge di accedere ai serv
 
 #### <a name="management-api"></a>API Gestione
 
-IoT Edge daemon Security offre un'API di gestione, chiamata dall'agente IoT Edge durante la creazione, l'avvio, l'arresto e la rimozione di un modulo di IoT Edge. Il daemon di sicurezza archivia le "registrazioni" per tutti i moduli attivi. Queste registrazioni eseguono il mapping dell'identità di un modulo ad alcune proprietà del modulo. Alcuni esempi di queste proprietà sono l'identificatore di processo (PID) del processo in esecuzione nel contenitore o l'hash del contenuto del contenitore Docker.
+IoT Edge daemon Security offre un'API di gestione, chiamata dall'agente IoT Edge durante la creazione, l'avvio, l'arresto e la rimozione di un modulo di IoT Edge. Il daemon di sicurezza archivia le "registrazioni" per tutti i moduli attivi. Queste registrazioni eseguono il mapping dell'identità di un modulo ad alcune proprietà del modulo. Ad esempio, queste proprietà del modulo includono l'identificatore di processo (PID) del processo in esecuzione nel contenitore e l'hash del contenuto del contenitore docker.
 
 Queste proprietà vengono usate dall'API del carico di lavoro (descritte di seguito) per verificare che il chiamante sia autorizzato a eseguire un'azione.
 
-L'API di gestione è un'API con privilegi, che può essere chiamata solo dall'agente IoT Edge.  Poiché il daemon di sicurezza di IoT Edge esegue il bootstrap e avvia l'agente di IoT Edge, è in grado di creare una registrazione implicita per l'agente di IoT Edge, dopo aver attestato che l'agente di IoT Edge non è stato manomesso. Lo stesso processo di attestazione usato dall'API del carico di lavoro limita anche l'accesso all'API di gestione solo all'agente IoT Edge.
+L'API di gestione è un'API con privilegi, che può essere chiamata solo dall'agente IoT Edge.  Poiché il daemon di sicurezza di IoT Edge bootstrap e avvia l'agente di IoT Edge, verifica che l'agente di IoT Edge non sia stato alterato, quindi può creare una registrazione implicita per l'agente di IoT Edge. Lo stesso processo di attestazione usato dall'API del carico di lavoro limita anche l'accesso all'API di gestione solo all'agente IoT Edge.
 
 #### <a name="container-api"></a>API del contenitore
 
@@ -93,7 +93,7 @@ L'API del contenitore interagisce con il sistema di contenitori usato per la ges
 
 L'API del carico di lavoro è accessibile a tutti i moduli. Fornisce una prova di identità, come un token firmato con radice del modulo di protezione hardware o un certificato X509, e il bundle di trust corrispondente a un modulo. Il bundle di attendibilità contiene i certificati della CA per tutti gli altri server che i moduli devono considerare attendibili.
 
-Il daemon di sicurezza IoT Edge usa un processo di attestazione per proteggere l'API. Quando un modulo chiama questa API, il daemon di sicurezza tenta di trovare una registrazione per l'identità. Se l'operazione riesce, usa le proprietà della registrazione per misurare il modulo. Se il risultato del processo di misurazione corrisponde alla registrazione, viene generata una nuova prova di identità. I certificati della CA (bundle di attendibilità) corrispondenti vengono restituiti al modulo.  Il modulo usa questo certificato per connettersi all'hub IoT o ad altri moduli oppure per avviare un server. Quando il token o il certificato firmato si avvicina alla scadenza, è responsabilità del modulo richiedere un nuovo certificato. 
+Il daemon di sicurezza IoT Edge usa un processo di attestazione per proteggere l'API. Quando un modulo chiama questa API, il daemon di sicurezza tenta di trovare una registrazione per l'identità. Se l'operazione riesce, usa le proprietà della registrazione per misurare il modulo. Se il risultato del processo di misurazione corrisponde alla registrazione, viene generata una nuova prova di identità. I certificati della CA (bundle di attendibilità) corrispondenti vengono restituiti al modulo.  Il modulo usa questo certificato per connettersi all'hub IoT o ad altri moduli oppure per avviare un server. Quando il token o il certificato firmato si avvicina alla scadenza, è responsabilità del modulo richiedere un nuovo certificato.
 
 ### <a name="integration-and-maintenance"></a>Integrazione e manutenzione
 

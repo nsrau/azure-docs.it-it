@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff55257891ff379bea9ff44aa5136195ced44354
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 855d40f9c20f966f6fa2b89949e47c943704bf2b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613109"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549156"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -66,7 +66,7 @@ Gestione traffico USA il DNS (livello 3) per definire il traffico. Il [servizio 
 
 Se i cluster devono comunicare tra loro, la connessione di entrambe le reti virtuali può essere eseguita tramite il [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Questa tecnologia interconnette le reti virtuali tra loro garantendo una larghezza di banda elevata attraverso la rete backbone di Microsoft, anche in diverse aree geografiche.
 
-Un prerequisito per eseguire il peering delle reti virtuali in cui sono in esecuzione i cluster AKS consiste nell'usare la Load Balancer standard nel cluster AKS, in modo che i servizi kubernetes siano raggiungibili attraverso il peering di rete virtuale.
+Un prerequisito per eseguire il peering delle reti virtuali in cui sono in esecuzione i cluster AKS consiste nell'usare la Load Balancer standard nel cluster AKS, in modo che i servizi Kubernetes siano raggiungibili attraverso il peering di rete virtuale.
 
 ## <a name="enable-geo-replication-for-container-images"></a>Abilitare la replica geografica per le immagini del contenitore
 

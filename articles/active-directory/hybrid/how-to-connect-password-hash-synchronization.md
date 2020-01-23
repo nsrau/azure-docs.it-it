@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111581def3ed0c366898534ee6b6c5f5b6d9e756
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 9c4f0a72cb598a8e38fc69f23f62f0f456cccb04
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293114"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543920"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -124,7 +124,7 @@ Avvertenza: se sono presenti account sincronizzati che devono avere password non
 > [!NOTE]
 > Questa funzionalità è disponibile in anteprima pubblica in questo momento.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>Anteprima pubblica della sincronizzazione delle password temporanee e "forza la password all'accesso successivo"
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>Anteprima pubblica della sincronizzazione delle password temporanee e "forza reimpostazione della password all'accesso successivo"
 
 È tipico forzare un utente a modificare la password durante il primo accesso, soprattutto dopo la reimpostazione della password amministratore.  È comunemente nota come impostazione di una password "temporanea" e viene completata selezionando il flag "utente necessario modificare la password al successivo accesso" per un oggetto utente in Active Directory (AD).
   

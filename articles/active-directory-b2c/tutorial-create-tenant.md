@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b7e872f3320a2c72b6e9fb3ffba65510b205ca03
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cb23dc11a853401d8d99a750a0c79082adbe036
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425569"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547592"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
@@ -68,6 +68,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     Per **Gruppo di risorse** selezionare **Crea nuovo**. Immettere un **nome** per il gruppo di risorse che conterrà il tenant, selezionare il **percorso del gruppo di risorse**e quindi selezionare **Crea**.
 
     ![Modulo delle impostazioni di sottoscrizione collegamento in portale di Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+    
+    È possibile collegare più tenant Azure AD B2C a una singola sottoscrizione di Azure ai fini della fatturazione. 
 
 ## <a name="select-your-b2c-tenant-directory"></a>Selezionare la directory del tenant B2C
 

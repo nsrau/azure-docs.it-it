@@ -1,14 +1,14 @@
 ---
 title: Visualizzare e gestire clienti e risorse delegate
 description: I provider di servizi che usano la gestione risorse delegate di Azure possono visualizzare tutte le sottoscrizioni e le risorse dei clienti delegate passando a Clienti personali nel portale di Azure.
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456827"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543427"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
 
@@ -40,13 +40,20 @@ Da questa pagina è possibile visualizzare le informazioni seguenti:
 - Per visualizzare altri dettagli su un'offerta e le relative deleghe, selezionare il nome dell'offerta.
 - Per visualizzare altri dettagli sulle assegnazioni di ruolo per le sottoscrizioni o i gruppi di risorse delegati, selezionare la voce nella colonna **Deleghe**.
 
-## <a name="view-delegations"></a>Visualizzare le deleghe
+## <a name="view-and-manage-delegations"></a>Visualizzazione e gestione delle deleghe
 
 Le deleghe mostrano la sottoscrizione o il gruppo di risorse che è stato delegato, insieme agli utenti e alle autorizzazioni che possono accedervi. Per visualizzare queste informazioni, selezionare **Deleghe** sul lato sinistro della pagina **Clienti personali**.
 
 I filtri nella parte superiore della pagina consentono di ordinare e raggruppare le informazioni sulle assegnazioni di accesso o filtrare in base a clienti, offerte o parole chiave specifiche.
 
+### <a name="view-role-assignments"></a>Visualizzare le assegnazioni di ruolo
+
 Gli utenti e le autorizzazioni associati a ogni delega vengono visualizzati nella colonna **Assegnazioni di ruoli**. È possibile selezionare ogni voce per visualizzare l'elenco completo di utenti, gruppi ed entità servizio a cui è stato concesso l'accesso alla sottoscrizione o al gruppo di risorse. Da qui è possibile selezionare un utente, un gruppo o un nome dell'entità servizio specifico per ottenere altri dettagli.
+
+### <a name="remove-delegations"></a>Rimuovi delega
+
+Se sono stati inclusi utenti con il [ruolo di eliminazione della registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) durante l'onboarding di un cliente per la gestione delle risorse delegate di Azure, gli utenti possono rimuovere una delega selezionando l'icona del Cestino visualizzata nella riga relativa alla delega. In tal caso, nessun utente nel tenant del provider di servizi sarà in grado di accedere alle risorse precedentemente Delegate.
+
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Lavorare nel contesto di una sottoscrizione delegata
 

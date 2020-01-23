@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338487"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514137"
 ---
 ::: zone target="docs"
 
@@ -32,13 +32,13 @@ ms.locfileid: "71338487"
 
 Questa esercitazione descrive come cablare, collegare e accendere il dispositivo Azure Data Box.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Cablare il Data Box
 > * Connettersi al Data Box
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
@@ -89,9 +89,9 @@ Dopo aver ricevuto il dispositivo, è necessario cablarlo e connettersi ad esso.
 2. Prima di cablare il dispositivo, assicurarsi di avere i cavi seguenti:
     
     - Cavo di alimentazione a terra da 10 A o superiore (incluso) con un connettore IEC60320 C-13 a un'estremità per la connessione al dispositivo.
-    - Un cavo di rete RJ-45 CAT 6 (da usare con interfaccia di rete MGMT)
+    - Un cavo di rete RJ-45 CAT 6 (da usare con l'interfaccia di rete MGMT)
     - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con interfacce di rete DATA 1, DATA 2 a 10 Gbps)
-    - Un cavo di rete RJ-45 CAT 6A o RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
+    - Un cavo di rete RJ-45 CAT 6A oppure RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
 
 3. Rimuovere e posizionare il dispositivo su una superficie piana. 
     

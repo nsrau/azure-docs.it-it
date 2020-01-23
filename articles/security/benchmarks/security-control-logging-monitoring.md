@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ae9c678d9dfca895ec74ed92bcb1b541db6b134e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930023"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545501"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controllo di sicurezza: registrazione e monitoraggio
 
@@ -77,7 +77,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6,2, 6,3 | Customer |
 
-Se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile del monitoraggio. Se la risorsa di calcolo è di proprietà dell'organizzazione, è responsabilità dell'utente monitorarla. È possibile usare il Centro sicurezza di Azure per monitorare il sistema operativo. I dati raccolti dal centro sicurezza dal sistema operativo includono il tipo di sistema operativo e la versione, il sistema operativo (registri eventi di Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente di Log Analytics raccoglie anche i file di dump di arresto anomalo del sistema.
+Se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile del monitoraggio. Se la risorsa di calcolo è di proprietà dell'organizzazione, è responsabilità dell'utente monitorarla. È possibile usare il Centro sicurezza di Azure per monitorare il sistema operativo. I dati raccolti dal centro sicurezza dal sistema operativo includono il tipo di sistema operativo e la versione, i log del sistema operativo (registri eventi di Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente di Log Analytics raccoglie anche i file di dump di arresto anomalo del sistema.
 
 Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure:
 
@@ -147,7 +147,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 2.8 | 8,6 | Customer |
+| 2.8 | 8.6 | Customer |
 
 Abilitare la raccolta di eventi antimalware per le macchine virtuali e i servizi cloud di Azure.
 

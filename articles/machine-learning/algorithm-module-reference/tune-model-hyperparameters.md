@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 4dd2cd89e8edb4e636bf46d2a8125a0f1d00f2f3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312244"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548374"
 ---
 # <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
-Questo articolo descrive come usare il modulo Tune Model iperparametris in Azure Machine Learning Designer. L'obiettivo è determinare gli iperparametri ottimali per un modello di machine learning. Il modulo compila e testa più modelli usando diverse combinazioni di impostazioni. Viene confrontata la metrica su tutti i modelli per ottenere le combinazioni di impostazioni. 
+Questo articolo descrive come usare il modulo Tune Model iperparametris in Azure Machine Learning Designer (Preview). L'obiettivo è determinare gli iperparametri ottimali per un modello di machine learning. Il modulo compila e testa più modelli usando diverse combinazioni di impostazioni. Viene confrontata la metrica su tutti i modelli per ottenere le combinazioni di impostazioni. 
 
 Il *parametro* dei termini e l' *iperparametro* possono essere confusi. I *parametri* del modello sono quelli impostati nel riquadro proprietà. Fondamentalmente, questo modulo esegue lo *sweep dei parametri* sulle impostazioni del parametro specificate. Viene illustrato un set ottimale di _iperparametri_, che potrebbe essere diverso per ogni particolare albero delle decisioni, set di dati o metodo di regressione. Il processo di individuazione della configurazione ottimale viene talvolta definito *ottimizzazione*. 
 

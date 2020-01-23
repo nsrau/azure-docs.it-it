@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ee722f88f766178dd658600893b4497bf611be9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372772"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544447"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalation dei privilegi di cloud privato nel portale di CloudSimple
 
@@ -55,6 +55,9 @@ L'escalation dei privilegi inizia e dura fino alla fine dell'intervallo selezion
 
 > [!IMPORTANT]
 > Un solo utente può disporre di privilegi escalation.  È necessario deinoltrare i privilegi dell'utente prima di poter inoltrare i privilegi di un altro utente.
+
+> [!CAUTION]
+> I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* e gli account del servizio non devono essere usati per accedere all'interfaccia utente Web di vSphere.
 
 ## <a name="extend-privilege-escalation"></a>Estendi escalation dei privilegi
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cb15f637337df05c61eeac611286b49e23b6adac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293641"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549190"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'isolamento cluster nel servizio Azure Kubernetes (AKS)
 
@@ -26,7 +26,7 @@ Questo articolo sulle procedure consigliate è incentrato sull'isolamento per gl
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Progettare cluster per il multi-tenancy
 
-Kubernetes offre funzionalità che consentono di isolare in modo logico team e carichi di lavoro nello stesso cluster. L'obiettivo consiste nel fornire il minor numero di privilegi, limitati alle risorse di cui ogni team ha bisogno. Uno [spazio dei nomi][k8s-namespaces] in Kubernetes crea un limite di isolamento logico. Ulteriori funzionalità di Kubernetes e considerazioni per l'isolamento e il multi-tenancy includono le aree seguenti:
+Kubernetes offre funzionalità che consentono di isolare in modo logico team e carichi di lavoro nello stesso cluster. L'obiettivo consiste nel fornire il minor numero di privilegi, limitati alle risorse di cui ogni team ha bisogno. Uno [spazio dei nomi][k8s-namespaces] in Kubernetes crea un limite di isolamento logico. Le funzionalità e le considerazioni aggiuntive di Kubernetes per l'isolamento e la multi-tenant includono le aree seguenti:
 
 * La **pianificazione** include l'uso di funzionalità di base come le quote di risorse e i budget di interruzione dei pod. Per altre informazioni su queste funzionalità, vedere [procedure consigliate per le funzionalità dell'utilità di pianificazione di base in AKS][aks-best-practices-scheduler].
   * Le funzionalità più avanzate dell'utilità di pianificazione includono taint e tolleranze, selettori di nodo e affinità tra nodi e tra pod o anti-affinità. Per altre informazioni su queste funzionalità, vedere [procedure consigliate per le funzionalità dell'utilità di pianificazione avanzate in AKS][aks-best-practices-advanced-scheduler].

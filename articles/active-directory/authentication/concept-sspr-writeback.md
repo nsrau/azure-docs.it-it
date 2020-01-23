@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 151e7b2ab091959c8b6c08d366318a49987aefd9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6ddd7160a56a4529ee31c111f0e202ca235c71af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848528"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544022"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 
@@ -51,8 +51,8 @@ Il writeback delle password offre:
 
 Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
 
-* Azure AD P1 Premium
-* Azure AD P2 Premium
+* Azure AD Premium P1
+* Azure AD Premium P2
 * Enterprise Mobility + Security E3 o A3
 * Enterprise Mobility + Security E5 o A5
 * Microsoft 365 E3 o A3
@@ -164,7 +164,7 @@ Il writeback delle password *non* viene eseguito nelle situazioni seguenti:
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> Uso della casella di controllo "l'utente deve modificare la password all'accesso successivo" in locale Active Directory strumenti di amministrazione come Active Directory utenti e computer oppure il Centro di amministrazione di Active Directory è supportato come funzionalità di anteprima di Azure AD Connect. Per altre informazioni, vedere l'articolo [implementare la sincronizzazione dell'hash delle password con Azure ad Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
+> Uso della casella di controllo "l'utente deve modificare la password all'accesso successivo" in locale Active Directory strumenti di amministrazione come Active Directory utenti e computer oppure il Centro di amministrazione di Active Directory è supportato come funzionalità di anteprima di Azure AD Connect. Per altre informazioni, vedere l'articolo [implementare la sincronizzazione dell'hash delle password con Azure ad Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

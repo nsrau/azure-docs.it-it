@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42fa4dfb3e373eac4167ea1fecbd84ff3a7cca0d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 204026825a5132464e1adda611227db2ac7cf91f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978004"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543988"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accesso condizionale: bloccare l'accesso in base alla località
 
@@ -25,7 +25,7 @@ Con la condizione location nell'accesso condizionale, è possibile controllare l
 ## <a name="define-locations"></a>Definire le posizioni
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
+1. Passare a **Azure Active Directory** > **sicurezza** > **l'accesso condizionale** > **località denominate**.
 1. Scegliere **nuova posizione**.
 1. Assegnare un nome al percorso.
 1. Scegliere **intervalli IP** se si conoscono gli intervalli di indirizzi IPv4 accessibili esternamente specifici che costituiscono la località o i **paesi/aree geografiche**.

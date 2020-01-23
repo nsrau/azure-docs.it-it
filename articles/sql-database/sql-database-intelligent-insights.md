@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745115"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545161"
 ---
-# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights uso di AI per monitorare e risolvere i problemi relativi alle prestazioni del database (anteprima)
 
 Intelligent Insights per il database SQL di Azure assicura un maggior controllo sulle prestazioni dei database SQL di Azure e dei database dell'istanza gestita.
 

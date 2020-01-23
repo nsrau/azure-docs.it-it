@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888394"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543053"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
@@ -28,19 +28,19 @@ In Servizi multimediali di Azure, un [evento live](https://docs.microsoft.com/re
 
 Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento Live. I tipi vengono impostati durante la creazione con [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** : un codificatore Live locale invia un flusso a più velocità in bit. I flussi inseriti passano attraverso l'evento live senza ulteriori elaborazioni. 
+* **LiveEventEncodingType. None** : un codificatore Live locale invia un flusso a più velocità in bit. I flussi inseriti passano attraverso l'evento live senza ulteriori elaborazioni. Definito anche evento Live pass-through.
 * **LiveEventEncodingType. standard** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni di **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit (i dettagli seguiranno più avanti in questo articolo).
 * **LiveEventEncodingType. Premium1080p** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit (i dettagli sono seguiti più avanti nell'articolo). 
 
 | Funzionalità | Evento live pass-through | Evento live standard o Premium1080p |
 | --- | --- | --- |
-| Input a bitrate singolo codificato in bitrate multipli nel cloud |No |SÌ |
+| Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
 | Risoluzione video massima per feed di contributo |4K (4096 x 2160 a 60 fotogrammi/sec) |1080p (1920 x 1088 a 30 fotogrammi/sec)|
 | Livelli massimi consigliati per feed di contributo|Fino a 12|Un audio|
 | Livelli massimi nell'output| Uguale all'input|Fino a 6 (vedere di seguito i set di impostazioni di sistema)|
 | Larghezza di banda aggregata massima per feed di contributo|60 Mbps|N/D|
 | Velocità in bit massima per un singolo livello all'interno del contributo |20 Mbps|20 Mbps|
-| Supporto per tracce audio in più lingue|SÌ|No|
+| Supporto per tracce audio in più lingue|Sì|No|
 | Codec video di input supportati |H.264/AVC e H.265/HEVC|H.264/AVC|
 | Codec video di output supportati|Uguale all'input|H.264/AVC|
 | Profondità bit video di input e output supportata|Fino a 10 bit incluso HDR 10/HLG|8 bit|
@@ -51,13 +51,14 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 | Protocolli di input|RTMP, MP4 frammentato (Smooth Streaming)|RTMP, MP4 frammentato (Smooth Streaming)|
 | Prezzo|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|
 | Tempo di esecuzione massimo| 24 ore su 24, 365 giorni all'anno, live linear | 24 ore x 365 giorni, linea dinamica (anteprima)|
-| Possibilità di trasferire dati dei sottotitoli CEA 608/708 integrati|SÌ|SÌ|
+| Possibilità di trasferire dati dei sottotitoli CEA 608/708 integrati|Sì|Sì|
+| Possibilità di attivare la trascrizione in tempo reale|Sì|Sì|
 | Supporto per l'inserimento di slate|No|No|
 | Supporto per annunci pubblicitari tramite API| No|No|
-| Supporto per annunci pubblicitari tramite messaggi in banda SCTE-35|SÌ|SÌ|
-| Possibilità di recuperare brevi fasi di stallo in feed di contributo|SÌ|Parziale|
-| Supporto per GOP di input non uniformi|SÌ|No - La durate GOP dell’input deve essere fissa|
-| Supporto per input con frequenza dei fotogrammi variabile|SÌ|No: l'input deve essere una frequenza di fotogrammi fissa. Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Tuttavia, il feed di contributo non può eliminare la frequenza dei fotogrammi, ad esempio a 15 fotogrammi al secondo.|
+| Supporto per annunci pubblicitari tramite messaggi in banda SCTE-35|Sì|Sì|
+| Possibilità di recuperare brevi fasi di stallo in feed di contributo|Sì|Parziale|
+| Supporto per GOP di input non uniformi|Sì|No - La durate GOP dell’input deve essere fissa|
+| Supporto per input con frequenza dei fotogrammi variabile|Sì|No: l'input deve essere una frequenza di fotogrammi fissa. Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Tuttavia, il feed di contributo non può eliminare la frequenza dei fotogrammi, ad esempio a 15 fotogrammi al secondo.|
 | Arresto automatico dell'evento live in caso di perdita del feed di input|No|Dopo 12 ore, se nessun LiveOutput è in esecuzione|
 
 ## <a name="system-presets"></a>Set di impostazioni di sistema

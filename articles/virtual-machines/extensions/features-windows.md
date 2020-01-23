@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073073"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544753"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -42,11 +42,11 @@ Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna co
 
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione Script personalizzato per Windows consente l'esecuzione di qualsiasi script PowerShell in una macchina virtuale. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione Script personalizzato per macchine virtuali Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per gestire l'estensione nella macchina virtuale, è necessario aver installato l'agente Windows di Azure. Alcune estensioni individuali hanno prerequisiti, ad esempio l'accesso alle risorse o alle dipendenze.
 
-### <a name="azure-vm-agent"></a>Agente di macchine virtuali di Azure
+### <a name="azure-vm-agent"></a>Agente VM di Azure
 
 L'agente di macchine virtuali di Azure gestisce le interazioni tra una macchina virtuale di Azure e il controller di infrastruttura di Azure. L'agente di macchine virtuali è responsabile di molti aspetti funzionali della distribuzione e della gestione delle macchine virtuali di Azure, tra cui l'esecuzione delle estensioni macchina virtuale. L'agente di macchine virtuali di Azure è preinstallato nelle immagini di Azure Marketplace e può essere installato manualmente nei sistemi operativi supportati. L'agente di macchine virtuali di Azure per Windows è noto come agente guest di Windows.
 
@@ -65,7 +65,7 @@ Alcune estensioni non sono supportate in tutti i sistemi operativi e possono gen
 
 #### <a name="network-access"></a>Accesso alla rete
 
-I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (la funzionalità HostGAPlugin tramite il canale privilegiato su IP privato [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
+I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (HostGAPlugin tramite il canale con privilegi su IP privato [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
 
 > [!IMPORTANT]
 > Se è stato bloccato l'accesso a *168.63.129.16* tramite il firewall Guest o con un proxy, le estensioni hanno esito negativo indipendentemente dalla precedente. Sono necessarie le porte 80, 443 e 32526.
@@ -86,7 +86,7 @@ Get-AzVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>Eseguire le estensioni della macchina virtuale
 
-Le estensioni macchina virtuale di Azure vengono eseguite nelle macchine virtuali esistenti e questo è utile quando è necessario apportare modifiche alla configurazione o ripristinare la connettività in una macchina virtuale già distribuita. Le estensioni della macchina virtuale possono essere anche unite in bundle con le distribuzioni di modelli di Azure Resource Manager. L'uso delle estensioni con i modelli di Resource Manager consente di distribuire e configurare le macchine virtuali di Azure senza l'intervento post-distribuzione.
+Le estensioni macchina virtuale di Azure vengono eseguite nelle macchine virtuali esistenti e questo è utile quando è necessario apportare modifiche alla configurazione o ripristinare la connettività in una macchina virtuale già distribuita. Le estensioni della macchina virtuale possono essere anche unite in bundle con le distribuzioni del modello di Azure Resource Manager. L'uso delle estensioni con i modelli di Resource Manager consente di distribuire e configurare le macchine virtuali di Azure senza l'intervento post-distribuzione.
 
 Per eseguire un'estensione in una macchina virtuale esistente, è possibile usare i metodi seguenti.
 
@@ -140,7 +140,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 Il comando `Set-AzVMExtension` può essere utilizzato per avviare qualsiasi estensione della macchina virtuale. Per altre informazioni, vedere il [riferimento Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 Le estensioni macchina virtuale possono essere applicate a una macchina virtuale esistente tramite il portale di Azure. Selezionare la macchina virtuale nel portale, scegliere **Estensioni**, quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata.
 
@@ -148,9 +148,9 @@ L'esempio seguente illustra l'installazione dell'estensione Microsoft Antimalwar
 
 ![Installare un'estensione antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
-Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente proviene da un modello di Resource Manager che consente di distribuire un set di macchine virtuali con bilanciamento del carico e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione macchina virtuale gestisce l'installazione del software.
+Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente proviene da un modello di Resource Manager che consente di distribuire un set di macchine virtuali con bilanciamento del carico e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
 Per altre informazioni, vedere il [modello di Resource Manager completo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
@@ -186,9 +186,9 @@ Per altre informazioni, vedere il [modello di Resource Manager completo](https:/
 
 Per altre informazioni sulla creazione di modelli di Resource Manager, vedere [Creare modelli di Azure Resource Manager con estensioni macchina virtuale Windows](../windows/template-description.md#extensions).
 
-## <a name="secure-vm-extension-data"></a>Proteggere i dati dell'estensione macchina virtuale
+## <a name="secure-vm-extension-data"></a>Proteggere i dati dell'estensione della macchina virtuale
 
-Quando si esegue un'estensione macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio credenziali, nomi degli account di archiviazione e chiavi di accesso dell'account di archiviazione. Molte estensioni macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione dispone di uno schema di configurazione protetta specifico, descritto in dettaglio nella documentazione specifica dell'estensione.
+Quando si esegue un'estensione macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio credenziali, nomi degli account di archiviazione e chiavi di accesso degli account di archiviazione. Molte estensioni macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione dispone di uno schema di configurazione protetta specifico, descritto in dettaglio nella documentazione specifica dell'estensione.
 
 L'esempio seguente illustra un'istanza dell'estensione Script personalizzato per Windows. Il comando da eseguire include un set di credenziali. In questo esempio il comando da eseguire non è crittografato:
 
@@ -252,6 +252,10 @@ Lo spostamento della proprietà del **comando da eseguire** nella configurazione
 }
 ```
 
+In una VM IaaS di Azure che usa le estensioni, nella console dei certificati, è possibile che vengano visualizzati i certificati con l'oggetto **_Generatore di certificati CRP di Windows Azure_** . In una macchina virtuale RDFE classica, questi certificati hanno il nome soggetto **_Gestione servizi di Microsoft Azure per le estensioni_** .
+
+Questi certificati proteggono la comunicazione tra la macchina virtuale e il relativo host durante il trasferimento delle impostazioni protette (password e altre credenziali) utilizzate dalle estensioni. I certificati vengono compilati dal controller di infrastruttura di Azure e passati all'agente di macchine virtuali. Se si arresta e si avvia la VM ogni giorno, un nuovo certificato potrebbe essere creato dal controller di infrastruttura. Il certificato viene archiviato nell'archivio dei certificati personali del computer. Questi certificati possono essere eliminati. Se necessario, l'agente di macchine virtuali crea nuovamente i certificati.
+
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Aggiornamento di agenti ed estensioni
 
 Agenti ed estensioni condividono il meccanismo di aggiornamento. Alcuni aggiornamenti non richiedono regole del firewall aggiuntive.
@@ -262,7 +266,7 @@ Quando è disponibile un aggiornamento, viene installato nella macchina virtuale
 - Estensioni
 - Contenitore della diagnostica di avvio
 - Segreti del sistema operativo guest
-- Dimensioni macchina virtuale
+- Dimensioni VM
 - Profilo di rete
 
 I server di pubblicazione rendono disponibili gli aggiornamenti nelle varie aree geografiche in momenti diversi, quindi è possibile che le macchine virtuali in aree diverse eseguano versioni diverse.
@@ -284,7 +288,7 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 L'agente guest di Windows contiene solo il *codice Extension Handling*; il *codice Windows Provisioning* è separato. È possibile disinstallare l'agente guest di Windows. Non è possibile disabilitare l'aggiornamento automatico dell'agente guest di Windows.
 
-Il *codice Extension Handling* è responsabile della comunicazione con l'infrastruttura di Azure e della gestione delle operazioni di estensione macchina virtuale, ad esempio installazioni, stato della creazione di report, aggiornamento e rimozione delle singole estensioni. Gli aggiornamenti contengono correzioni per la sicurezza, correzioni di bug e miglioramenti al *codice Extension Handling*.
+Il *codice di gestione delle estensioni* è responsabile della comunicazione con l'infrastruttura di Azure e della gestione delle operazioni di estensione macchina virtuale, ad esempio installazioni, stato della creazione di report, aggiornamento e rimozione delle singole estensioni. Gli aggiornamenti contengono correzioni per la sicurezza, correzioni di bug e miglioramenti al *codice di gestione delle estensioni*.
 
 Per verificare la versione in esecuzione, vedere [Detecting installed Windows Guest Agent](agent-windows.md#detect-the-vm-agent) (Rilevamento dell'agente guest di Windows installato).
 
@@ -318,7 +322,7 @@ Per ottenere le più recenti versioni secondarie delle correzioni di bug, si con
  $vm.Extensions
 ```
 
-L'output di esempio seguente illustra che *autoUpgradeMinorVersion* è impostato su *true*:
+L'output di esempio seguente mostra che *autoUpgradeMinorVersion* è impostato su *true*:
 
 ```powershell
 ForceUpdateTag              :
@@ -409,15 +413,15 @@ In alcuni casi potrebbe essere necessario ripetere l'esecuzione della macchina v
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
-È inoltre possibile rimuovere un'estensione nel portale di Azure come indicato di seguito:
+È anche possibile rimuovere un'estensione nel portale di Azure come indicato di seguito:
 
-1. Selezionare una VM.
+1. Selezionare una macchina virtuale.
 2. Scegliere **Estensioni**.
 3. Selezionare l'estensione desiderata.
 4. Scegliere **Disinstalla**.
 
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
-| Nome estensione | DESCRIZIONE | Altre informazioni |
+| Nome estensione | Description | Altre informazioni |
 | --- | --- | --- |
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |
@@ -426,4 +430,4 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle estensioni delle macchine virtuali, vedere [Panoramica sulle funzionalità ed estensioni macchine virtuali di Azure](overview.md).
+Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features overview](overview.md) (Panoramica delle funzionalità e delle estensioni macchina virtuale di Azure).

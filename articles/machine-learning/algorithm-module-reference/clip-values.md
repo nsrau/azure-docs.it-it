@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: ca35af997834a897572555e752597026b5159712
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5f695bf739a6e096083cd6d8271b6936f24c16da
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314454"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546827"
 ---
 # <a name="clip-values"></a>Ritagliare valori
 
-Questo articolo descrive un modulo di Azure Machine Learning Designer.
+Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
 
 Usare il modulo clip Values per identificare e facoltativamente sostituire i valori di dati che si trovano al di sopra o al di sotto di una soglia specificata con una media, una costante o un altro valore sostitutivo.  
 

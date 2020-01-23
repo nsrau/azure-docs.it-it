@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d86da3013a3cb4573556bc14ea1e6a0fbab72623
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: c82a67bbbf8f1a4f77db6ca965031e85e69ee100
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240401"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514171"
 ---
 ::: zone target="docs"
 
@@ -32,15 +32,15 @@ ms.locfileid: "70240401"
 
 Questa esercitazione descrive come connettersi al computer host e copiarne i dati usando l'interfaccia utente Web locale.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi al Data Box
 > * Copiare i dati nel Data Box
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
@@ -130,7 +130,7 @@ Dopo aver stabilito la connessione alla condivisione SMB, avviare la copia dei d
   
  Gli attributi sono descritti nella tabella seguente.
     
-|Attributo  |DESCRIZIONE  |
+|Attributo  |Descrizione  |
 |---------|---------|
 |/e     |Copia le sottodirectory, incluse le directory vuote.         |
 |/r:     |Specifica il numero di tentativi per le copie non riuscite.         |
@@ -283,7 +283,7 @@ Per le istruzioni dettagliate, vedere [Esercitazione: Usare Data Box per importa
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi al Data Box
 > * Copiare i dati nel Data Box
 

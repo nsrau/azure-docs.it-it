@@ -7,24 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/22/2020
+ms.openlocfilehash: a8176cc07296b7de7b6aba5356485280ef5ebde1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979111"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548816"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creare un cluster Apache Hadoop con account di archiviazione con trasferimento sicuro in Azure HDInsight
 
 La funzionalità [Trasferimento sicuro obbligatorio](../storage/common/storage-require-secure-transfer.md) aumenta la sicurezza dell'account di archiviazione di Azure perché consente l'invio di tutte le richieste all'account solo tramite connessioni sicure. Questa funzionalità e lo schema wasbs sono supportati solo dal cluster HDInsight versione 3.6 o successiva.
+
+**L'abilitazione del trasferimento di archiviazione protetta dopo la creazione di un cluster può causare errori con l'account di archiviazione e non è consigliabile. È preferibile creare un nuovo cluster con la proprietà abilitata.**
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questo articolo, è necessario disporre di:
 
 * Sottoscrizione di Azure: per creare un account di valutazione gratuito di un mese, passare a [Azure.Microsoft.com/Free](https://azure.microsoft.com/free).
-* Un account di archiviazione di Azure con trasferimento sicuro abilitato. Per istruzioni, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) e [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). L'abilitazione del trasferimento di archiviazione protetta dopo la creazione di un cluster richiede passaggi aggiuntivi non trattati in questo articolo.
+* Un account di archiviazione di Azure con trasferimento sicuro abilitato. Per istruzioni, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) e [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). 
 * Un contenitore BLOB nell'account di archiviazione.
 
 ## <a name="create-cluster"></a>Creare cluster
