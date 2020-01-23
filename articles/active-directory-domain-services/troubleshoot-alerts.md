@@ -1,5 +1,5 @@
 ---
-title: Avvisi comuni e risoluzioni in Azure AD Domain Services | Microsoft Docs '
+title: Avvisi comuni e risoluzioni in Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come risolvere gli avvisi comuni generati come parte dello stato di integrità per Azure Active Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979896"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512665"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemi noti: avvisi comuni e risoluzioni in Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Questo errore si verifica in genere quando una sottoscrizione di Azure viene spo
 Questo errore è irreversibile. Per risolvere l'avviso, [eliminare il dominio gestito Azure AD DS esistente](delete-aadds.md) e ricrearlo nella nuova directory. In caso di problemi durante l'eliminazione del dominio gestito Azure AD DS, [aprire una richiesta di supporto tecnico di Azure][azure-support] per ulteriore assistenza per la risoluzione dei problemi.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C è in esecuzione in questa directory
- 
+
 ### <a name="alert-message"></a>Messaggio di avviso
 
 *Azure AD Domain Services non può essere abilitato per una directory di Azure AD B2C.*
@@ -78,7 +78,7 @@ Per risolvere questo avviso, eliminare il dominio gestito di Azure AD DS esisten
 1. Selezionare **subnet** nella parte sinistra della finestra di navigazione.
 1. Scegliere la subnet che si vuole modificare o creare una subnet aggiuntiva.
 1. Aggiornare o specificare un intervallo di indirizzi IP privati, quindi **salvare** le modifiche.
-1. [Creare una sostituzione Azure ad dominio gestito DS](tutorial-create-instance.md). Assicurarsi di selezionare una subnet di rete virtuale aggiornata con un intervallo di indirizzi IP privati.
+1. [Creare una sostituzione Azure ad dominio gestito DS](tutorial-create-instance.md). Assicurarsi di selezionare la subnet della rete virtuale aggiornata con un intervallo di indirizzi IP privati.
 
 L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entro due ore e rimuove l'avviso.
 
@@ -129,7 +129,7 @@ Azure AD DS richiede una sottoscrizione attiva e non può essere spostata in una
 
 ### <a name="resolution"></a>Risoluzione
 
-Azure AD DS crea risorse specifiche per funzionare correttamente, ad esempio indirizzi IP pubblici, nic e un servizio di bilanciamento del carico. Se una di queste risorse viene eliminata, il dominio gestito si trova in uno stato non supportato e impedisce la gestione del dominio. Per altre informazioni su queste risorse, vedere [risorse di rete usate da Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+Azure AD DS crea risorse aggiuntive per funzionare correttamente, ad esempio indirizzi IP pubblici, interfacce di rete virtuali e un servizio di bilanciamento del carico. Se una di queste risorse viene eliminata, il dominio gestito si trova in uno stato non supportato e impedisce la gestione del dominio. Per altre informazioni su queste risorse, vedere [risorse di rete usate da Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 Questo avviso viene generato quando una di queste risorse obbligatorie viene eliminata. Se la risorsa è stata eliminata meno di 4 ore fa, è possibile che la piattaforma Azure ricrei automaticamente la risorsa eliminata. La procedura seguente illustra come verificare lo stato di integrità e il timestamp per l'eliminazione di risorse:
 
@@ -160,7 +160,7 @@ Questo errore è irreversibile. Per risolvere l'avviso, [eliminare il dominio ge
 
 ### <a name="resolution"></a>Risoluzione
 
-Alcune entità servizio generate automaticamente vengono usate per gestire e creare risorse per un dominio gestito Azure AD DS. Se le autorizzazioni di accesso per una di queste entità servizio sono state modificate, non è possibile gestire correttamente le risorse. Nei passaggi seguenti viene illustrato come comprendere e quindi concedere le autorizzazioni di accesso a un'entità servizio:
+Alcune entità servizio generate automaticamente vengono usate per gestire e creare risorse per un dominio gestito Azure AD DS. Se le autorizzazioni di accesso per una di queste entità servizio sono state modificate, il dominio non è in grado di gestire correttamente le risorse. Nei passaggi seguenti viene illustrato come comprendere e quindi concedere le autorizzazioni di accesso a un'entità servizio:
 
 1. Informazioni sul [controllo degli accessi in base al ruolo e su come concedere l'accesso alle applicazioni nel portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Verificare l'accesso dell'entità servizio con ID *abba844e-BC0E-44b0-947A-dc74e5d09022* e concedere l'accesso negato a una data precedente.
@@ -173,18 +173,18 @@ Alcune entità servizio generate automaticamente vengono usate per gestire e cre
 
 ### <a name="resolution"></a>Risoluzione
 
-La subnet della rete virtuale per Azure AD DS necessita di indirizzi IP sufficienti per le risorse create automaticamente. Questo spazio di indirizzi IP include la necessità di creare risorse sostitutive se è presente un evento di manutenzione. Per ridurre al minimo il rischio di esaurire gli indirizzi IP disponibili, non distribuire risorse aggiuntive, ad esempio le macchine virtuali, nella stessa subnet della rete virtuale di Azure AD DS.
+La subnet della rete virtuale per Azure AD DS necessita di un numero sufficiente di indirizzi IP per le risorse create automaticamente. Questo spazio di indirizzi IP include la necessità di creare risorse sostitutive se è presente un evento di manutenzione. Per ridurre al minimo il rischio di esaurire gli indirizzi IP disponibili, non distribuire risorse aggiuntive, ad esempio le macchine virtuali, nella stessa subnet della rete virtuale di Azure AD DS.
 
 Per risolvere questo avviso, eliminare il dominio gestito di Azure AD DS esistente e ricrearlo in una rete virtuale con un intervallo di indirizzi IP sufficientemente grande. Questo processo è problematico perché il dominio gestito di Azure AD DS non è disponibile e tutte le risorse personalizzate create come le ou o gli account del servizio vengono perse.
 
 1. [Eliminare il dominio gestito Azure AD DS](delete-aadds.md) dalla directory.
-1. Per aggiornare l'intervallo di indirizzi IP della rete virtuale, cercare e selezionare *rete virtuale* nella portale di Azure. Selezionare la rete virtuale per Azure AD DS che l'intervallo di indirizzi IP ridotto.
+1. Per aggiornare l'intervallo di indirizzi IP della rete virtuale, cercare e selezionare *rete virtuale* nella portale di Azure. Selezionare la rete virtuale per Azure AD DS con un intervallo di indirizzi IP ridotto.
 1. In **Impostazioni**selezionare *spazio indirizzi*.
 1. Aggiornare l'intervallo di indirizzi scegliendo l'intervallo di indirizzi esistente e modificarlo oppure aggiungendo un intervallo di indirizzi aggiuntivo. Verificare che il nuovo intervallo di indirizzi IP sia sufficientemente grande per l'intervallo di subnet Azure AD DS. Quando è pronto, **salvare** le modifiche.
 1. Selezionare **subnet** nella parte sinistra della finestra di navigazione.
 1. Scegliere la subnet che si vuole modificare o creare una subnet aggiuntiva.
 1. Aggiornare o specificare un intervallo di indirizzi IP sufficientemente grande, quindi **salvare** le modifiche.
-1. [Creare una sostituzione Azure ad dominio gestito DS](tutorial-create-instance.md). Assicurarsi di selezionare una subnet di rete virtuale aggiornata con un intervallo di indirizzi IP sufficientemente grande.
+1. [Creare una sostituzione Azure ad dominio gestito DS](tutorial-create-instance.md). Assicurarsi di selezionare la subnet della rete virtuale aggiornata con un intervallo di indirizzi IP sufficientemente grande.
 
 L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entro due ore e rimuove l'avviso.
 
@@ -216,11 +216,11 @@ Questo errore è irreversibile. Per risolvere l'avviso, [eliminare il dominio ge
 
 ### <a name="resolution"></a>Risoluzione
 
-I blocchi delle risorse possono essere applicati alle risorse e ai gruppi di risorse di Azure per impedire la modifica o l'eliminazione. Poiché Azure AD DS è un servizio gestito, la piattaforma Azure necessita della possibilità di apportare modifiche alla configurazione. Se un blocco di risorsa viene applicato ad alcuni componenti Azure AD DS, la piattaforma Azure non può eseguire le attività di gestione.
+I blocchi delle risorse possono essere applicati alle risorse di Azure per impedire la modifica o l'eliminazione. Poiché Azure AD DS è un servizio gestito, la piattaforma Azure necessita della possibilità di apportare modifiche alla configurazione. Se un blocco di risorsa viene applicato ad alcuni componenti Azure AD DS, la piattaforma Azure non può eseguire le attività di gestione.
 
 Per verificare i blocchi delle risorse nei componenti Azure AD DS e rimuoverli, seguire questa procedura:
 
-1. Per ogni componente di rete Azure AD DS nel gruppo di risorse, ad esempio rete virtuale, NIC o indirizzo IP pubblico, controllare i registri operazioni nel portale di Azure. Questi log operazioni devono indicare il motivo per cui un'operazione non riesce e il punto in cui viene applicato un blocco di risorsa.
+1. Per ogni componente di rete Azure AD DS nel gruppo di risorse, ad esempio rete virtuale, interfaccia di rete o indirizzo IP pubblico, controllare i registri operazioni nel portale di Azure. Questi log operazioni devono indicare il motivo per cui un'operazione non riesce e il punto in cui viene applicato un blocco di risorsa.
 1. Selezionare la risorsa in cui viene applicato un blocco, quindi in **blocchi**selezionare e rimuovere i blocchi.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: Le risorse non sono utilizzabili
@@ -231,7 +231,7 @@ Per verificare i blocchi delle risorse nei componenti Azure AD DS e rimuoverli, 
 
 ### <a name="resolution"></a>Risoluzione
 
-I criteri vengono applicati alle risorse e ai gruppi di risorse di Azure per controllare quali azioni di configurazione sono consentite. Poiché Azure AD DS è un servizio gestito, la piattaforma Azure necessita della possibilità di apportare modifiche alla configurazione. Se un criterio viene applicato ad alcuni componenti Azure AD DS, la piattaforma Azure potrebbe non essere in grado di eseguire le attività di gestione.
+I criteri vengono applicati alle risorse di Azure e ai gruppi di risorse che controllano le azioni di configurazione consentite. Poiché Azure AD DS è un servizio gestito, la piattaforma Azure necessita della possibilità di apportare modifiche alla configurazione. Se un criterio viene applicato ad alcuni componenti Azure AD DS, la piattaforma Azure potrebbe non essere in grado di eseguire le attività di gestione.
 
 Per verificare i criteri applicati nei componenti Azure AD DS e aggiornarli, attenersi alla procedura seguente:
 
@@ -246,7 +246,7 @@ Per verificare i criteri applicati nei componenti Azure AD DS e aggiornarli, att
 
 ### <a name="resolution"></a>Risoluzione
 
-[Controllare lo stato Azure AD DS](check-health.md) per eventuali avvisi che indicano problemi nella configurazione del dominio gestito. Problemi con la configurazione di rete possono bloccare la sincronizzazione da Azure AD. Se è possibile risolvere gli avvisi che indicano un problema di configurazione, attendere due ore e verificare se la sincronizzazione è stata completata.
+[Controllare lo stato Azure AD DS](check-health.md) per eventuali avvisi che indicano problemi nella configurazione del dominio gestito. Problemi con la configurazione di rete possono bloccare la sincronizzazione da Azure AD. Se si è in grado di risolvere avvisi che indicano un problema di configurazione, attendere due ore e verificare se la sincronizzazione è stata completata correttamente.
 
 I motivi comuni seguenti causano l'arresto della sincronizzazione in un Azure AD domini gestiti di DS:
 
@@ -261,7 +261,7 @@ I motivi comuni seguenti causano l'arresto della sincronizzazione in un Azure AD
 
 ### <a name="resolution"></a>Risoluzione
 
-[Controllare lo stato Azure AD DS](check-health.md) per eventuali avvisi che indicano problemi nella configurazione del dominio gestito. Problemi con la configurazione di rete possono impedire alla piattaforma Azure di eseguire correttamente i backup. Se è possibile risolvere gli avvisi che indicano un problema di configurazione, attendere due ore e verificare se la sincronizzazione è stata completata.
+[Controllare lo stato Azure AD DS](check-health.md) per gli avvisi che indicano problemi nella configurazione del dominio gestito. Problemi con la configurazione di rete possono impedire alla piattaforma Azure di eseguire correttamente i backup. Se si è in grado di risolvere avvisi che indicano un problema di configurazione, attendere due ore e verificare se la sincronizzazione è stata completata correttamente.
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Sospensione per sottoscrizione disabilitata
 
@@ -292,7 +292,7 @@ Quando il dominio gestito viene nuovamente abilitato, l'integrità del dominio g
 > [!WARNING]
 > Se un dominio gestito di Azure AD DS viene sospeso per un periodo di tempo prolungato, sussiste il rischio di eliminarlo. Risolvere il motivo della sospensione il più rapidamente possibile. Per ulteriori informazioni, vedere [comprendere gli stati sospesi per Azure AD DS](suspension.md).
 
-[Controllare lo stato Azure AD DS](check-health.md) per eventuali avvisi che indicano problemi nella configurazione del dominio gestito. Se è possibile risolvere gli avvisi che indicano un problema di configurazione, attendere due ore e verificare se la sincronizzazione è stata completata. Quando si è pronti, [aprire una richiesta di supporto tecnico di Azure][azure-support] per abilitare nuovamente il dominio gestito di Azure AD DS.
+[Controllare lo stato Azure AD DS](check-health.md) per gli avvisi che indicano problemi nella configurazione del dominio gestito. Se si è in grado di risolvere avvisi che indicano un problema di configurazione, attendere due ore e verificare se la sincronizzazione è stata completata. Quando si è pronti, [aprire una richiesta di supporto tecnico di Azure][azure-support] per abilitare nuovamente il dominio gestito di Azure AD DS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

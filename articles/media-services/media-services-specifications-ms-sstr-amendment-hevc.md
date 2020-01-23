@@ -1,5 +1,5 @@
 ---
-title: Servizi multimediali di Azure - Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC | Microsoft Docs
+title: Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC-Azure
 description: Questa specifica descrive il protocollo e il formato per lo streaming live basato sul formato MP4 frammentato con HEVC in Servizi multimediali di Azure. In questo articolo vengono specificate solo le modifiche necessarie per usare HEVC, tranne nei casi in cui è riportato "(Nessuna modifica)" per indicare che il testo è stato copiato solo per maggiore chiarezza.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: 6dd7e0dc7e58f33f952aa5531773a84ebd31a163
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887867"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514222"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC 
 
@@ -64,7 +64,7 @@ I termini seguenti sono specifici di questo documento:
 
 ### <a name="121-normative-references"></a>1.2.1 Riferimenti normativi 
 
->  [MS-SSTR] Smooth Streaming Protocol *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>  [MS-SSTR] Protocollo Smooth Streaming *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 > 
 >   [ISO/IEC 14496-12] International Organization for Standardization, "Information technology -- Coding of audio-visual objects -- Part 12: ISO Base Media File Format", ISO/IEC 14496-12:2014, Edition 4, Plus Corrigendum 1, Amendments 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -78,17 +78,17 @@ I termini seguenti sono specifici di questo documento:
 > 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for   "Bucket" Media Types” <https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] Autorità di registrazione MP4, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119 Bradner, S., "parole chiave da usare in RFC per indicare i livelli di requisito", BCP 14, RFC 2119, marzo 1997, [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement   Levels", BCP 14, RFC 2119, marzo 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 Riferimenti informativi 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 > 
->   [RFC3548] Josefsson, S., ed., "base 16, Base32 e Base64 data Encodings", RFC 3548, luglio 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data   Encodings", RFC 3548, luglio 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   RFC5234 Crocker, D., ed. e Overell, P., "Augmented BNF for Syntax Specifications: ABNF", STD 68, RFC 5234, January 2008, [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax   Specifications: ABNF", STD 68, RFC 5234, gennaio 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 Panoramica 

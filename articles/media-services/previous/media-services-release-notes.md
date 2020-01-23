@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: d4c8dd4b3a53d484d5240f3514d171231fc93ae0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5b1daab724d979206983ee758760790967abc06d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968511"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513389"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -50,15 +50,17 @@ Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multim
 
 ### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) verrà ritirato il 1 ° ottobre del 2020. I processori di contenuti multimediali [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) verranno ritirati il 1 ° gennaio 2020. [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
 
-Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
+Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md) .
+
+Vedere anche [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Agosto 2019
 
 ### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-Microsoft sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME), che verranno ritirati il 31 marzo 2020.
+Microsoft sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME), che verranno ritirati il 1 ° marzo 2020.
 
 Per informazioni dettagliate, vedere [eseguire la migrazione di biaigi a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101334) ed [eseguire la migrazione di Ame a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
@@ -509,7 +511,7 @@ Risoluzioni di problemi rilevati nell'SDK del novembre 2012:
 * IAsset.Locators.Count: questo valore è ora riportato in modo corretto nelle nuove interfacce IAsset dopo l'eliminazione di tutti i localizzatori.
 * IAssetFile.ContentFileSize: questo valore viene ora impostato correttamente dopo un caricamento da IAssetFile.Upload(filepath).
 * IAssetFile.ContentFileSize: questa proprietà ora può essere impostata quando si crea un file di asset, mentre in precedenza era di sola lettura.
-* IAssetFile.Upload(filepath): è stato risolto un problema quando il metodo di caricamento sincrono generava l'errore seguente durante il caricamento di più file nell'asset. L'errore era: "Autenticazione della richiesta non riuscita nel server. Verificare che il formato dell'intestazione Authorization, firma inclusa, sia corretto"
+* IAssetFile.Upload(filepath): è stato risolto un problema quando il metodo di caricamento sincrono generava l'errore seguente durante il caricamento di più file nell'asset. L'errore era: "Autenticazione della richiesta non riuscita nel server. Verificare che il formato dell'intestazione Authorization, firma inclusa, sia corretto".
 * IAssetFile.UploadAsync: è stato risolto un problema che limitava l'upload simultaneo a cinque file.
 * IAssetFile.UploadProgressChanged: questo evento è ora fornito dall'SDK.
 * IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken): questo overload del metodo è ora disponibile.
@@ -521,7 +523,7 @@ Risoluzioni di problemi rilevati nell'SDK del novembre 2012:
 ## <a id="november_changes_12"></a>Versione di novembre 2012
 Le modifiche citate in questa sezione sono aggiornamenti inclusi nell'SDK versione 2.0.0.0 di novembre 2012. Queste modifiche possono richiedere la riscrittura o la modifica di un codice scritto per la versione di anteprima di SDK di giugno 2012.
 
-* asset
+* Asset
   
     * IAsset.Create(assetName) è la *sola* funzione di creazione degli asset. IAsset.Create non carica più file come parte della chiamata al metodo. Usare IAssetFile per il caricamento.
     * Il metodo IAsset.Publish e il valore di enumerazione AssetState.Publish sono stati rimossi da Media Services SDK. Qualsiasi codice che si basa su questo valore deve essere riscritto.
@@ -557,7 +559,7 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

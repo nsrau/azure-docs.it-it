@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176054"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512852"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Pianificare una distribuzione del pannello di accesso Azure Active Directory
 
@@ -36,8 +36,8 @@ Tramite il pannello di accesso Azure AD è possibile:
 
 Consente inoltre agli amministratori di gestire:
 
-* Condizioni del servizio
-* Organizzazioni
+* Condizioni per l'utilizzo del servizio
+* Organizations
 * Verifiche di accesso
 
 
@@ -127,11 +127,11 @@ La tabella seguente elenca diverse configurazioni importanti del pannello di acc
 | Determinare i gruppi pilota| Identificare il gruppo di sicurezza Azure AD da usare e assicurarsi che tutti i membri pilota facciano parte del gruppo. |
 | Determinare il gruppo o i gruppi da abilitare per la produzione.| Identificare i gruppi di sicurezza Azure AD o i gruppi di Active Directory sincronizzati con Azure AD, da usare. Assicurarsi che tutti i membri pilota facciano parte del gruppo. |
 | Consenti agli utenti di usare SSO per determinati tipi di applicazioni| SSO federato, OAuth, SSO con password, proxy applicazione |
-| Consenti agli utenti di usare la reimpostazione della password self-service | SÌ |
-| Consenti agli utenti di usare Multi-Factor Authentication| SÌ |
+| Consenti agli utenti di usare la reimpostazione della password self-service | Sì |
+| Consenti agli utenti di usare Multi-Factor Authentication| Sì |
 | Consenti agli utenti di usare la gestione dei gruppi in modalità self-service per determinati tipi di gruppi| Gruppi di sicurezza, gruppi di Office 365 |
-| Consenti agli utenti di usare la gestione self-service delle app| SÌ |
-| Consenti agli utenti di usare le verifiche di accesso| SÌ |
+| Consenti agli utenti di usare la gestione self-service delle app| Sì |
+| Consenti agli utenti di usare le verifiche di accesso| Sì |
 
 ### <a name="plan-consent-strategy"></a>Strategia di consenso del piano
 
@@ -197,7 +197,7 @@ Se è necessario integrare applicazioni SSO basate su password, è necessario de
 
 * [Criteri di gruppo per Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
-* [System Center Configuration Manager (SCCM) per Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager per Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 * [Download e configurazione basati sull'utente per Chrome, Firefox, Microsoft Edge o IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
@@ -261,10 +261,10 @@ Per pianificare l'appartenenza al gruppo self-service, determinare se si consent
 
 Azure AD fornisce [report che offrono informazioni tecniche e aziendali](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Collaborare con i proprietari delle applicazioni aziendali e tecniche per assumere la proprietà di questi report e per utilizzarli a intervalli regolari. Nella tabella seguente vengono forniti alcuni esempi di scenari di Reporting tipici.
 
-|   | per gestire i rischi.| Aumentare la produttività| Governance e conformità |
+|   | per gestire i rischi.| Aumenta la produttività| Governance e conformità |
 |  - |- | - | - |
 | Tipi di report|  Autorizzazioni e utilizzo dell'applicazione| Attività di provisioning dell'account| Esaminare gli utenti che accedono alle applicazioni |
-| Azioni potenziali| Controllare l'accesso; revoca autorizzazioni| Correggere gli errori di provisioning| Revoca l'accesso |
+| Azioni potenziali| Controllare l'accesso; revoca autorizzazioni| Correggere gli errori di provisioning| revoca dell'accesso |
 
 Azure AD mantiene la maggior parte dei dati di controllo per 30 giorni. I dati sono disponibili tramite il portale di amministrazione di Azure o l'API da scaricare nei sistemi di analisi.
 
@@ -336,11 +336,11 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 
 È consigliabile utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria all'interno Azure Active Directory. [Esaminare i diversi ruoli disponibili](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e scegliere quello più adatto per soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi al termine della distribuzione.
 
-| Utenti tipo| Ruoli| Ruolo Azure AD  |
+| Utenti tipo| Ruoli| Ruolo di Azure AD  |
 | - | -| -|
 | Amministratore helpdesk| Supporto di livello 1| Nessuno |
 | Amministratore identità| Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD| Amministratore globale |
-| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
+| Amministratore applicazioni| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 | Amministratori dell'infrastruttura| Proprietario del rollover del certificato| Amministratore globale |
 | Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 

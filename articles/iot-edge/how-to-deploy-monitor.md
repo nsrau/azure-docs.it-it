@@ -9,12 +9,12 @@ ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1e15f237bddd586f81c3b04483111f7e211bfb10
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0a20ea4236683e26c51bc75309435c65e24271d7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563412"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510261"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -24,7 +24,7 @@ Per altre informazioni, vedere [comprendere IOT Edge distribuzioni automatiche p
 
 ## <a name="identify-devices-using-tags"></a>Identificare i dispositivi tramite tag
 
-Prima di poter creare una distribuzione, è necessario essere in grado di specificare i dispositivi a cui la si vuole applicare. Azure IoT Edge identifica i dispositivi tramite **tag** nel dispositivo gemello. Ogni dispositivo può avere più tag definiti in qualsiasi modo appropriato per la soluzione. 
+Prima di poter creare una distribuzione, è necessario essere in grado di specificare i dispositivi a cui la si vuole applicare. Azure IoT Edge identifica i dispositivi tramite **tag** nel dispositivo gemello. Ogni dispositivo può avere più tag definiti in qualsiasi modo appropriato per la soluzione.
 
 Se ad esempio si gestisce un campus di Smart Build, è possibile aggiungere tag di posizione, tipo di stanza e ambiente a un dispositivo:
 
@@ -63,7 +63,7 @@ La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezi
 
 È possibile aggiungere fino a 20 moduli a una distribuzione. Se si crea una distribuzione senza moduli, verranno rimossi tutti i moduli correnti dai dispositivi di destinazione.
 
-Nelle distribuzioni è possibile gestire le impostazioni per i moduli agente IoT Edge e hub IoT Edge. Selezionare **le impostazioni di runtime** per configurare i due moduli di Runtime. In una distribuzione a più livelli i moduli di runtime non sono inclusi e pertanto non possono essere configurati. 
+Nelle distribuzioni è possibile gestire le impostazioni per i moduli agente IoT Edge e hub IoT Edge. Selezionare **le impostazioni di runtime** per configurare i due moduli di Runtime. In una distribuzione a più livelli i moduli di runtime non sono inclusi e pertanto non possono essere configurati.
 
 È possibile aggiungere tre tipi di moduli:
 
@@ -76,15 +76,15 @@ Nelle distribuzioni è possibile gestire le impostazioni per i moduli agente IoT
 Per aggiungere codice personalizzato come modulo o aggiungere manualmente un modulo per un servizio di Azure, seguire questa procedura:
 
 1. Nella sezione **credenziali container Registry** della pagina fornire i nomi e le credenziali per tutti i registri di contenitori privati contenenti le immagini del modulo per la distribuzione. L'agente di IoT Edge segnalerà l'errore 500 se non riesce a trovare le credenziali del registro contenitori per un'immagine docker.
-1. Nella sezione **moduli IOT Edge** della pagina fare clic su **Aggiungi**.
+1. Nella sezione **Moduli IoT Edge** della pagina fare clic su **Aggiungi**.
 1. Selezionare **IOT Edge modulo** dal menu a discesa.
 1. Assegnare al modulo un **nome di modulo IOT Edge**.
 1. Nel campo **URI immagine** immettere l'immagine del contenitore per il modulo.
 1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere tra le opzioni seguenti:
    * **sempre** : il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
    * **mai** : il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
-   * **in caso di errore** : il modulo viene riavviato in caso di arresto anomalo, ma non se viene arrestato in modo corretto. 
-   * **in-non integro** : il modulo viene riavviato in caso di arresto anomalo o restituisce uno stato non integro. Ogni modulo deve implementare la funzione di stato di integrità. 
+   * **in caso di errore** : il modulo viene riavviato in caso di arresto anomalo, ma non se viene arrestato in modo corretto.
+   * **in-non integro** : il modulo viene riavviato in caso di arresto anomalo o restituisce uno stato non integro. Ogni modulo deve implementare la funzione di stato di integrità.
 1. Usare il menu a discesa per selezionare lo **stato desiderato** per il modulo. È possibile scegliere tra le opzioni seguenti:
    * **Running** -running è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
    * **arrestato** : dopo la distribuzione, il modulo rimarrà inattivo fino a quando non viene chiamato per iniziare dall'utente o da un altro modulo.
@@ -97,7 +97,7 @@ Per aggiungere codice personalizzato come modulo o aggiungere manualmente un mod
 
 Per aggiungere un modulo da Azure Marketplace, seguire questa procedura:
 
-1. Nella sezione **moduli IOT Edge** della pagina fare clic su **Aggiungi**.
+1. Nella sezione **Moduli IoT Edge** della pagina fare clic su **Aggiungi**.
 1. Selezionare **modulo Marketplace** dal menu a discesa.
 1. Scegliere un modulo dalla pagina del **Marketplace del modulo IOT Edge** . Il modulo selezionato viene configurato automaticamente per la sottoscrizione, il gruppo di risorse e il dispositivo. Viene quindi visualizzato nell'elenco dei moduli IoT Edge. Alcuni moduli possono richiedere una configurazione aggiuntiva. Per altre informazioni, vedere [distribuire moduli da Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
 
@@ -105,7 +105,7 @@ Per aggiungere un modulo da Azure Marketplace, seguire questa procedura:
 
 Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura:
 
-1. Nella sezione **moduli IOT Edge** della pagina fare clic su **Aggiungi**.
+1. Nella sezione **Moduli IoT Edge** della pagina fare clic su **Aggiungi**.
 1. Selezionare il **modulo analisi di flusso di Azure** dal menu a discesa.
 1. Nel riquadro destro scegliere la **sottoscrizione**.
 1. Scegli il tuo **processo Edge**.
@@ -113,9 +113,9 @@ Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura
 
 #### <a name="configure-module-settings"></a>Configurare le impostazioni del modulo
 
-Dopo aver aggiunto un modulo a una distribuzione, è possibile selezionarne il nome per aprire la pagina **aggiorna IOT Edge modulo** . In questa pagina è possibile modificare le impostazioni del modulo, le variabili di ambiente, le opzioni di creazione e il modulo gemello. Se è stato aggiunto un modulo dal Marketplace, è possibile che alcuni di questi parametri siano già stati compilati. 
+Dopo aver aggiunto un modulo a una distribuzione, è possibile selezionarne il nome per aprire la pagina **aggiorna IOT Edge modulo** . In questa pagina è possibile modificare le impostazioni del modulo, le variabili di ambiente, le opzioni di creazione e il modulo gemello. Se è stato aggiunto un modulo dal Marketplace, è possibile che alcuni di questi parametri siano già stati compilati.
 
-Se si sta creando una distribuzione a più livelli, è possibile che si stia configurando un modulo presente in altre distribuzioni destinate agli stessi dispositivi. Per aggiornare il modulo gemello senza sovrascrivere altre versioni, aprire la scheda **delle impostazioni del modulo gemello** . creare una nuova **proprietà del modulo gemello** con un nome univoco per una sottosezione nelle proprietà desiderate del modulo gemello, ad esempio `properties.desired.settings`. Se si definiscono proprietà solo nel campo `properties.desired`, le proprietà desiderate per il modulo definite in tutte le distribuzioni con priorità inferiore vengono sovrascritte. 
+Se si sta creando una distribuzione a più livelli, è possibile che si stia configurando un modulo presente in altre distribuzioni destinate agli stessi dispositivi. Per aggiornare il modulo gemello senza sovrascrivere altre versioni, aprire la scheda **delle impostazioni del modulo gemello** . creare una nuova **proprietà del modulo gemello** con un nome univoco per una sottosezione nelle proprietà desiderate del modulo gemello, ad esempio `properties.desired.settings`. Se si definiscono proprietà solo nel campo `properties.desired`, le proprietà desiderate per il modulo definite in tutte le distribuzioni con priorità inferiore vengono sovrascritte.
 
 ![Imposta la proprietà del modulo gemello per la distribuzione su più livelli](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -154,9 +154,9 @@ Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici
 
 Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. Se si verifica un conflitto, la distribuzione con la priorità più alta (valori maggiori indica una priorità più alta) prevale. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente.
 
-Se più distribuzioni hanno come destinazione lo stesso dispositivo, viene applicato solo quello con la priorità più alta. Se più distribuzioni a più livelli hanno come destinazione lo stesso dispositivo, vengono applicate tutte. Tuttavia, se le proprietà vengono duplicate, ad esempio se sono presenti due route con lo stesso nome, quella della distribuzione a più livelli con priorità superiore sovrascrive il resto. 
+Se più distribuzioni hanno come destinazione lo stesso dispositivo, viene applicato solo quello con la priorità più alta. Se più distribuzioni a più livelli hanno come destinazione lo stesso dispositivo, vengono applicate tutte. Tuttavia, se le proprietà vengono duplicate, ad esempio se sono presenti due route con lo stesso nome, quella della distribuzione a più livelli con priorità superiore sovrascrive il resto.
 
-Tutte le distribuzioni a più livelli destinate a un dispositivo devono avere una priorità più elevata rispetto alla distribuzione di base per l'applicazione. 
+Tutte le distribuzioni a più livelli destinate a un dispositivo devono avere una priorità più elevata rispetto alla distribuzione di base per l'applicazione.
 
 1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione.
 1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag del dispositivo gemello o sulle proprietà segnalate dal dispositivo gemello e deve corrispondere al formato dell'espressione. Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`.
@@ -179,7 +179,7 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
 
 1. Esaminare l'elenco delle distribuzioni. Per ogni distribuzione, è possibile visualizzare i dettagli seguenti:
    * **ID**: nome della distribuzione.
-   * **Tipo** : il tipo di distribuzione **, ovvero la distribuzione o la** distribuzione a più **livelli**. 
+   * **Tipo** : il tipo di distribuzione **, ovvero la distribuzione o la** distribuzione a più **livelli**.
    * **Condizione di destinazione** : il tag usato per definire i dispositivi di destinazione.
    * **Priority** (Priorità): numero di priorità assegnato alla distribuzione.
    * **System metrics** -  (Metriche di sistema): **Targeted** (Assegnati) specifica il numero di dispositivi gemelli nell'hub IoT che corrispondono alla condizione di destinazione, mentre **Applied** (Applicati) specifica il numero di dispositivi il cui contenuto di distribuzione è stato applicato ai rispettivi dispositivi gemelli nell'hub IoT.

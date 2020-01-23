@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8f664a2c503367410507ccba3bc9078d34acbe17
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 6bb1282212ccff45f179b8750e3ed8aec27d129e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666342"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511060"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM virtuale in una macchina virtuale Linux
 
@@ -26,9 +26,6 @@ Questo articolo illustra come testare il provisioning automatico in un dispositi
 * Creare una singola registrazione per il dispositivo.
 * Installare il runtime IoT Edge e connettere il dispositivo all'hub IoT.
 
-> [!NOTE]
-> Il TPM 2,0 è obbligatorio quando si usa l'attestazione TPM con DPS e può essere usato solo per creare registrazioni individuali, non di gruppo.
-
 > [!TIP]
 > Questo articolo descrive come testare il provisioning di DPS usando un simulatore TPM, ma la maggior parte di esso si applica a hardware TPM fisico, ad esempio [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), un dispositivo Azure Certified per l'it.
 >
@@ -40,41 +37,44 @@ Questo articolo illustra come testare il provisioning automatico in un dispositi
 * Un hub IoT attivo.
 * Se si usa un TPM simulato, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [' sviluppo di applicazioni desktop C++con '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 
+> [!NOTE]
+> Il TPM 2,0 è obbligatorio quando si usa l'attestazione TPM con DPS e può essere usato solo per creare registrazioni individuali, non di gruppo.
+
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Creare una macchina virtuale Linux con un TPM virtuale
 
-In questa sezione viene creata una nuova macchina virtuale Linux in Hyper-V. Questa macchina virtuale è stata configurata con un TPM simulato in modo che sia possibile usarla per testare il funzionamento del provisioning automatico con IoT Edge. 
+In questa sezione viene creata una nuova macchina virtuale Linux in Hyper-V. Questa macchina virtuale è stata configurata con un TPM simulato in modo che sia possibile usarla per testare il funzionamento del provisioning automatico con IoT Edge.
 
 ### <a name="create-a-virtual-switch"></a>Creare un commutatore virtuale
 
 Un commutatore virtuale consente alla macchina virtuale di connettersi a una rete fisica.
 
-1. Aprire la console di gestione di Hyper-V nel computer Windows. 
+1. Aprire la console di gestione di Hyper-V nel computer Windows.
 
-2. Nel menu **Azioni** selezionare **Gestione commutatori virtuali**. 
+2. Nel menu **Azioni** selezionare **Gestione commutatori virtuali**.
 
-3. Scegliere un commutatore virtuale **esterno**, quindi selezionare **Crea commutatore virtuale**. 
+3. Scegliere un commutatore virtuale **esterno**, quindi selezionare **Crea commutatore virtuale**.
 
 4. Assegnare un nome al nuovo commutatore virtuale, ad esempio **EdgeSwitch**. Verificare che il tipo di connessione sia impostato su **Rete esterna**, quindi selezionare **Ok**.
 
-5. Un elemento pop-up avvisa l'utente che la connettività di rete potrebbe essere interrotta. Selezionare **Yes** (Sì) per continuare. 
+5. Un elemento pop-up avvisa l'utente che la connettività di rete potrebbe essere interrotta. Selezionare **Yes** (Sì) per continuare.
 
-Se si verificano errori in fase di creazione del nuovo commutatore virtuale, assicurarsi che nessun altro commutatore stia usando l'adattatore Ethernet e che nessun altro commutatore usi lo stesso nome. 
+Se si verificano errori in fase di creazione del nuovo commutatore virtuale, assicurarsi che nessun altro commutatore stia usando l'adattatore Ethernet e che nessun altro commutatore usi lo stesso nome.
 
 ### <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-1. Scaricare un file di immagine del disco da usare per la macchina virtuale e salvarlo in locale. Esempio: [Ubuntu Server](https://www.ubuntu.com/download/server). 
+1. Scaricare un file di immagine del disco da usare per la macchina virtuale e salvarlo in locale. Esempio: [Ubuntu Server](https://www.ubuntu.com/download/server).
 
 2. Nella console di gestione di Hyper-V selezionare **nuovo** > **macchina virtuale** dal menu **azioni** .
 
 3. Completare la **Creazione guidata macchina virtuale** con le configurazioni specifiche seguenti:
 
    1. **Impostazione generazione**: selezionare **Generazione 2**. Per le macchine virtuali di seconda generazione è abilitata la virtualizzazione nidificata, necessaria per eseguire IoT Edge in una macchina virtuale.
-   2. **Configura rete**: impostare il valore di **Connessione** sul commutatore virtuale creato nella sezione precedente. 
+   2. **Configura rete**: impostare il valore di **Connessione** sul commutatore virtuale creato nella sezione precedente.
    3. **Opzioni di installazione**: selezionare **Installa un sistema operativo da un file immagine di avvio** e individuare il file di immagine del disco che è stato salvato in locale.
 
 4. Selezionare **fine** nella procedura guidata per creare la macchina virtuale.
 
-La creazione della macchina virtuale può richiedere alcuni minuti. 
+La creazione della macchina virtuale può richiedere alcuni minuti.
 
 ### <a name="enable-virtual-tpm"></a>Abilitare il TPM virtuale
 
@@ -82,11 +82,11 @@ Una volta creata la macchina virtuale, aprire le impostazioni per abilitare il m
 
 1. Selezionare la macchina virtuale e quindi aprire le relative **Impostazioni**.
 
-2. Passare a **Sicurezza**. 
+2. Passare a **Sicurezza**.
 
 3. Deselezionare l'opzione **Abilita avvio protetto**.
 
-4. Selezionare **Abilita Trusted Platform Module**. 
+4. Selezionare **Abilita Trusted Platform Module**.
 
 5. Fare clic su **OK**.  
 
@@ -149,34 +149,34 @@ Nel dispositivo compilare uno strumento che è possibile usare per recuperare le
 
 Creare una nuova istanza del servizio Device Provisioning in hub IoT in Azure e collegarla all'hub IoT. È possibile seguire le istruzioni riportate in [Configurare il servizio Device Provisioning in hub IoT](../iot-dps/quick-setup-auto-provision.md).
 
-Con il servizio Device Provisioning in esecuzione, copiare il valore di **Ambito ID** dalla pagina di panoramica. Questo valore viene usato quando si configura il runtime IoT Edge. 
+Con il servizio Device Provisioning in esecuzione, copiare il valore di **Ambito ID** dalla pagina di panoramica. Questo valore viene usato quando si configura il runtime IoT Edge.
 
 ## <a name="create-a-dps-enrollment"></a>Creare una registrazione nel servizio Device Provisioning
 
-Recuperare le informazioni di provisioning dalla macchina virtuale e usarle per creare una registrazione singola nel servizio Device Provisioning. 
+Recuperare le informazioni di provisioning dalla macchina virtuale e usarle per creare una registrazione singola nel servizio Device Provisioning.
 
-Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-monitor.md). 
+Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-monitor.md).
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device provisioning in hub Internet. 
+1. Nella [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device provisioning in hub Internet.
 
-2. In **le impostazioni** selezionare **Gestisci registrazioni**. 
+2. In **le impostazioni** selezionare **Gestisci registrazioni**.
 
 3. Selezionare **Aggiungi registrazione singola**, quindi completare la procedura seguente per configurare la registrazione:  
 
-   1. In **Meccanismo** selezionare **TPM**. 
+   1. In **Meccanismo** selezionare **TPM**.
 
    2. Fornire la **chiave** di verifica dell'autenticità e l' **ID di registrazione** copiati dalla macchina virtuale.
 
       > [!TIP]
       > Se si usa un dispositivo TPM fisico, è necessario determinare la **chiave**di verifica dell'autenticità, che è univoca per ogni chip TPM ed è ottenuta dal produttore del chip TPM associato. È possibile derivare un **ID di registrazione** univoco per il dispositivo TPM, ad esempio creando un hash SHA-256 della chiave di verifica dell'autenticità.
 
-   3. Selezionare **true** per dichiarare che questa macchina virtuale è un dispositivo IOT Edge. 
+   3. Selezionare **true** per dichiarare che questa macchina virtuale è un dispositivo IOT Edge.
 
-   4. Scegliere l'**hub IoT** collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati. 
+   4. Scegliere l'**hub IoT** collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
    5. Se si desidera, specificare un ID per il dispositivo. È possibile usare gli ID dispositivo per identificare come destinazione un singolo dispositivo per la distribuzione di moduli. Se non si specifica un ID dispositivo, viene usato l'ID di registrazione.
 
-   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. ad esempio: 
+   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Ad esempio:
 
       ```json
       {
@@ -189,52 +189,52 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
       }
       ```
 
-   7. Selezionare **Salva**. 
+   7. Selezionare **Salva**.
 
-Ora che è presente una registrazione per questo dispositivo, il runtime di IoT Edge può effettuare automaticamente il provisioning del dispositivo durante l'installazione. 
+Ora che è presente una registrazione per questo dispositivo, il runtime di IoT Edge può effettuare automaticamente il provisioning del dispositivo durante l'installazione.
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Installare il runtime IoT Edge nella macchina virtuale. 
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Installare il runtime IoT Edge nella macchina virtuale.
 
-Prima di iniziare l'articolo per il tipo di dispositivo in uso, assicurarsi di conoscere il valore di **Ambito ID** del servizio Device Provisioning e il valore di **ID registrazione** del dispositivo. Se è installato il server di esempio Ubuntu, usare le istruzioni per **x64**. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale. 
+Prima di iniziare l'articolo per il tipo di dispositivo in uso, assicurarsi di conoscere il valore di **Ambito ID** del servizio Device Provisioning e il valore di **ID registrazione** del dispositivo. Se è installato il server di esempio Ubuntu, usare le istruzioni per **x64**. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale.
 
 [Installare il runtime di Azure IoT Edge in Linux](how-to-install-iot-edge-linux.md)
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Concedere l'accesso IoT Edge al TPM
 
-Affinché possa eseguire il provisioning automaticamente del dispositivo, il runtime IoT Edge necessita dell'accesso al TPM. 
+Affinché possa eseguire il provisioning automaticamente del dispositivo, il runtime IoT Edge necessita dell'accesso al TPM.
 
-È possibile concedere al modulo TPM l'accesso al runtime di IoT Edge eseguendo l'override delle impostazioni di sistema, in modo che il servizio **iotedge** disponga di privilegi a livello radice. Se non si vuole elevare i privilegi di servizio, è possibile usare la procedura seguente per concedere manualmente l'accesso al modulo TPM. 
+È possibile concedere al modulo TPM l'accesso al runtime di IoT Edge eseguendo l'override delle impostazioni di sistema, in modo che il servizio **iotedge** disponga di privilegi a livello radice. Se non si vuole elevare i privilegi di servizio, è possibile usare la procedura seguente per concedere manualmente l'accesso al modulo TPM.
 
-1. Trovare il percorso file al modulo hardware TPM sul dispositivo e salvarlo come variabile locale. 
+1. Trovare il percorso file al modulo hardware TPM sul dispositivo e salvarlo come variabile locale.
 
    ```bash
    tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
    ```
 
-2. Creare una nuova regola che consentirà l'accesso del runtime IoT Edge a tpm0. 
+2. Creare una nuova regola che consentirà l'accesso del runtime IoT Edge a tpm0.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Aprire il file delle regole. 
+3. Aprire il file delle regole.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copiare le informazioni di accesso seguenti nel file di regole. 
+4. Copiare le informazioni di accesso seguenti nel file di regole.
 
-   ```input 
+   ```input
    # allow iotedge access to tpm0
    KERNEL=="tpm0", SUBSYSTEM=="tpm", GROUP="iotedge", MODE="0660"
    ```
 
-5. Salvare e chiudere il file. 
+5. Salvare e chiudere il file.
 
-6. Attivare il sistema udev per valutare la nuova regola. 
+6. Attivare il sistema udev per valutare la nuova regola.
 
    ```bash
    /bin/udevadm trigger $tpm
@@ -252,33 +252,33 @@ Affinché possa eseguire il provisioning automaticamente del dispositivo, il run
    crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
-   Se si riscontra che non state applicate le autorizzazioni corrette, provare a riavviare la macchina per aggiornare udev. 
+   Se si riscontra che non state applicate le autorizzazioni corrette, provare a riavviare la macchina per aggiornare udev.
 
 ## <a name="restart-the-iot-edge-runtime"></a>Riavviare il runtime IoT Edge
 
-Riavviare il runtime IoT Edge in modo che accetti tutte le modifiche alla configurazione apportate nel dispositivo. 
+Riavviare il runtime IoT Edge in modo che accetti tutte le modifiche alla configurazione apportate nel dispositivo.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-Verificare che il runtime IoT Edge sia in esecuzione. 
+Verificare che il runtime IoT Edge sia in esecuzione.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-Se vengono visualizzati errori di provisioning, è possibile che le modifiche di configurazione non abbiano ancora avuto effetto. Provare a riavviare di nuovo il daemon IoT Edge. 
+Se vengono visualizzati errori di provisioning, è possibile che le modifiche di configurazione non abbiano ancora avuto effetto. Provare a riavviare di nuovo il daemon IoT Edge.
 
    ```bash
    sudo systemctl daemon-reload
    ```
-   
-In alternativa, provare a riavviare la macchina virtuale per verificare se le modifiche diventano effettive al nuovo avvio. 
+
+In alternativa, provare a riavviare la macchina virtuale per verificare se le modifiche diventano effettive al nuovo avvio.
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 
-Se il runtime viene avviato correttamente, è possibile accedere all'hub IoT e verificare se è stato eseguito il provisioning automatico del nuovo dispositivo. Il dispositivo è ora è pronto per l'esecuzione di moduli IoT Edge. 
+Se il runtime viene avviato correttamente, è possibile accedere all'hub IoT e verificare se è stato eseguito il provisioning automatico del nuovo dispositivo. Il dispositivo è ora è pronto per l'esecuzione di moduli IoT Edge.
 
 Verificare lo stato del daemon IoT Edge.
 
@@ -298,7 +298,7 @@ Elencare i moduli in esecuzione.
 iotedge list
 ```
 
-È possibile verificare che sia stata usata la registrazione singola creata nel servizio Device provisioning. Passare all'istanza del servizio Device provisioning nel portale di Azure. Aprire i dettagli di registrazione per la registrazione singola creata. Si noti che lo stato della registrazione viene **assegnato** e viene elencato l'ID del dispositivo. 
+È possibile verificare che sia stata usata la registrazione singola creata nel servizio Device provisioning. Passare all'istanza del servizio Device provisioning nel portale di Azure. Aprire i dettagli di registrazione per la registrazione singola creata. Si noti che lo stato della registrazione viene **assegnato** e viene elencato l'ID del dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

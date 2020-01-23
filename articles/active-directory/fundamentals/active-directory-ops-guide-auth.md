@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919342"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511893"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -127,8 +127,8 @@ Come gli utenti dell'organizzazione, anche i dispositivi rappresentano identità
 
 È possibile portare a termine questo obiettivo portando le identità dei dispositivi e gestendo tali identità in Azure AD usando uno dei metodi seguenti:
 
-- Le organizzazioni possono usare [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) per gestire il dispositivo e applicare i criteri di conformità, attestare l'integrità del dispositivo e impostare i criteri di accesso condizionale a seconda che il dispositivo sia conforme. Microsoft Intune possibile gestire i dispositivi iOS, i desktop Mac (tramite l'integrazione con JAMF), i desktop Windows (usando in modo nativo la gestione dei dispositivi mobili per Windows 10 e la co-gestione con Microsoft Endpoint Manager/System Center Configuration Manager) e i dispositivi mobili Android.
-- [Azure ad ibrido join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) offre la gestione di criteri di gruppo, System Center Configuration Manager o Microsoft Endpoint Manager in un ambiente con Active Directory dispositivi di computer aggiunti a un dominio. Le organizzazioni possono distribuire un ambiente gestito tramite pH o PTA con seamless SSO. I dispositivi Azure AD massimizzano la produttività degli utenti tramite SSO nelle risorse cloud e locali, consentendo al tempo stesso di proteggere l'accesso alle risorse cloud e locali con l' [accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) contemporaneamente.
+- Le organizzazioni possono usare [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) per gestire il dispositivo e applicare i criteri di conformità, attestare l'integrità del dispositivo e impostare i criteri di accesso condizionale a seconda che il dispositivo sia conforme. Microsoft Intune possibile gestire i dispositivi iOS, i desktop Mac (tramite l'integrazione con JAMF), i desktop Windows (usando in modo nativo la gestione dei dispositivi mobili per Windows 10 e la co-gestione con Microsoft endpoint Configuration Manager) e i dispositivi mobili Android.
+- [Azure ad ibrido join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) fornisce la gestione con criteri di gruppo o Microsoft endpoint Configuration Manager in un ambiente con Active Directory dispositivi di computer aggiunti a un dominio. Le organizzazioni possono distribuire un ambiente gestito tramite pH o PTA con seamless SSO. I dispositivi Azure AD massimizzano la produttività degli utenti tramite SSO nelle risorse cloud e locali, consentendo al tempo stesso di proteggere l'accesso alle risorse cloud e locali con l' [accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) contemporaneamente.
 
 Se si dispone di dispositivi Windows aggiunti a un dominio che non sono registrati nel cloud o di dispositivi Windows aggiunti a un dominio registrati nel cloud ma senza criteri di accesso condizionale, è necessario registrare i dispositivi non registrati e, in entrambi i casi, [usare Azure ad ibrido join come controllo](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) nei criteri di accesso condizionale.
 
@@ -309,7 +309,7 @@ Di seguito è riportato un elenco di app con autorizzazioni che possono essere e
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. ad esempio:
+- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. Ad esempio:
 
 |Gruppi | Autorizzazione |
 | :- | :- |
@@ -373,7 +373,7 @@ L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è
 - [Informazioni di riferimento sull'API di gestione di Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
 - [Come usare il pacchetto di contenuto Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Esistono 12 aspetti di un'infrastruttura di identità sicura. Questo elenco consente di proteggere e gestire ulteriormente le credenziali, definire l'esperienza di autenticazione, assegnare i delegati, misurare l'utilizzo e definire i criteri di accesso in base al comportamento di sicurezza dell'organizzazione.
 

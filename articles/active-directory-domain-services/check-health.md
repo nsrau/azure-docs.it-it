@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705418"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509139"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificare l'integrità di un dominio gestito Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) esegue alcune attività in background per rendere il dominio gestito integro e aggiornato. Queste attività includono l'esecuzione di backup, l'applicazione di aggiornamenti della sicurezza e la sincronizzazione dei dati da Azure AD. Se si verificano problemi con il dominio gestito Azure AD DS, le attività potrebbero non essere eseguite correttamente. Per esaminare e risolvere eventuali problemi, è possibile verificare lo stato di integrità di un dominio gestito Azure AD DS usando il portale di Azure.
+Azure Active Directory Domain Services (Azure AD DS) esegue alcune attività in background per rendere il dominio gestito integro e aggiornato. Queste attività includono l'esecuzione di backup, l'applicazione di aggiornamenti della sicurezza e la sincronizzazione dei dati da Azure AD. Se si verificano problemi con il dominio gestito Azure AD DS, le attività potrebbero non essere completate correttamente. Per esaminare e risolvere eventuali problemi, è possibile verificare lo stato di integrità di un dominio gestito Azure AD DS usando il portale di Azure.
 
 Questo articolo illustra come visualizzare lo stato di integrità di Azure AD DS e comprendere le informazioni o gli avvisi visualizzati.
 
@@ -38,20 +38,20 @@ L' *ultimo timestamp valutato* della pagina di integrità indica quando è stato
 
 Lo stato in alto a destra indica l'integrità complessiva del dominio gestito Azure AD DS. Lo stato determina tutti gli avvisi esistenti nel dominio. Nella tabella seguente vengono illustrati gli indicatori di stato disponibili:
 
-| Status | Icona | Spiegazione |
+| Stato | Icona | Spiegazione |
 | --- | :----: | --- |
-| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Il dominio gestito Azure AD DS viene eseguito correttamente e non contiene avvisi critici o di avviso. Per il dominio possono essere presenti avvisi informativi. |
+| In esecuzione | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Il dominio gestito Azure AD DS viene eseguito correttamente e non contiene avvisi critici o di avviso. Per il dominio possono essere presenti avvisi informativi. |
 | Richiede attenzione (avviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Non sono presenti avvisi critici nel dominio gestito Azure AD DS, ma è necessario risolvere uno o più avvisi di avviso. |
 | Richiede attenzione (critico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Sono presenti uno o più avvisi critici sul dominio gestito di Azure AD DS che devono essere risolti. È anche possibile che siano presenti avvisi informativi o di avviso. |
 | Distribuzione | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | È in corso la distribuzione del dominio Azure AD DS. |
 
 ## <a name="understand-monitors-and-alerts"></a>Informazioni sui monitoraggi e sugli avvisi
 
-Lo stato di integrità di un dominio gestito Azure AD DS Mostra due tipi di monitoraggi informazioni e avvisi. I monitoraggi indicano il tempo di completamento delle attività in background di base. Gli avvisi forniscono informazioni o suggerimenti per migliorare la stabilità del dominio gestito.
+Lo stato di integrità di un dominio gestito Azure AD DS Mostra due tipi di *monitoraggi*informazioni e *avvisi*. I monitoraggi indicano il tempo di completamento delle attività in background di base. Gli avvisi forniscono informazioni o suggerimenti per migliorare la stabilità del dominio gestito.
 
 ### <a name="monitors"></a>Monitoraggi
 
-I monitoraggi sono aree di un dominio gestito Azure AD DS che vengono controllate regolarmente. Se sono presenti avvisi attivi per il dominio gestito Azure AD DS, è possibile che uno dei monitoraggi segnali un problema. Azure AD Domain Services monitora attualmente le aree seguenti:
+I monitoraggi sono aree di un dominio gestito Azure AD DS che vengono controllate regolarmente. Se sono presenti avvisi attivi per il dominio gestito Azure AD DS, è possibile che uno dei monitoraggi segnali un problema. Azure AD Domain Services dispone attualmente di monitoraggi per le aree seguenti:
 
 * Eseguire il backup
 * Sincronizzazione con Azure AD
@@ -68,7 +68,7 @@ Il monitoraggio backup controlla che i backup regolari automatici del dominio ge
 
 #### <a name="synchronization-with-azure-ad-monitor"></a>Sincronizzazione con monitoraggio Azure AD
 
-Un dominio gestito Azure AD DS si sincronizza regolarmente con Azure Active Directory. Il numero di utenti e oggetti gruppo e il numero di modifiche apportate nella directory Azure AD dall'ultima sincronizzazione influiscono sul tempo necessario per la sincronizzazione. Se il dominio gestito di Azure AD DS è stato sincronizzato l'ultima volta per tre giorni fa, verificare e risolvere eventuali avvisi attivi. Se il monitoraggio della sincronizzazione non aggiorna lo stato per visualizzare una sincronizzazione recente, [aprire una richiesta di supporto di Azure][azure-support].
+Un dominio gestito Azure AD DS si sincronizza regolarmente con Azure Active Directory. Il numero di utenti e oggetti gruppo e il numero di modifiche apportate nella directory Azure AD dall'ultima sincronizzazione influiscono sul tempo necessario per la sincronizzazione. Se il dominio gestito di Azure AD DS è stato sincronizzato l'ultima volta per tre giorni fa, verificare e risolvere eventuali avvisi attivi. Se il monitoraggio della sincronizzazione non aggiorna lo stato per visualizzare una sincronizzazione recente dopo aver indirizzato gli avvisi attivi, [aprire una richiesta di supporto tecnico di Azure][azure-support].
 
 ### <a name="alerts"></a>Avvisi
 

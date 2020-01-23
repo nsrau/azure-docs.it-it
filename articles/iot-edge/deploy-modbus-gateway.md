@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: d4d9d2ff899a169ee81544761fe87fed3cca06c4
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912322"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511145"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connettere dispositivi Modbus TCP tramite un dispositivo gateway IoT Edge
 
@@ -26,6 +26,7 @@ Questo articolo descrive come creare un'immagine del contenitore personalizzata 
 Questo articolo presuppone l'uso del protocollo Modbus TCP. Per altre informazioni su come configurare il modulo per supportare il protocollo Modbus RTU, vedere il progetto [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) (Modulo Modbus per Azure IoT Edge) in GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * Un dispositivo Azure IoT Edge. Per una procedura dettagliata su come configurarne uno, vedere [distribuire Azure IOT Edge in Windows](quickstart.md) o [Linux](quickstart-linux.md).
 * La chiave primaria della stringa di connessione del dispositivo IoT Edge.
 * Un dispositivo Modbus fisico o simulato che supporta il protocollo Modbus TCP. Sarà necessario conoscerne l'indirizzo IPv4.

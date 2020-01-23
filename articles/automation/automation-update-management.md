@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4efe9fe8dd1f006cb21c60c4c0e086264af26561
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310102"
+ms.locfileid: "76513321"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -100,7 +100,7 @@ Le informazioni seguenti descrivono i requisiti del client specifici del sistema
 
 Gli agenti Windows devono essere configurati per comunicare con un server WSUS oppure devono avere accesso a Microsoft Update.
 
-Gestione aggiornamenti può essere usato con System Center Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md#configuration). L'[agente Windows](../azure-monitor/platform/agent-windows.md) è obbligatorio. L'agente viene installato automaticamente se si sta caricando una macchina virtuale di Azure.
+È possibile utilizzare Gestione aggiornamenti con Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [integrare Configuration Manager con gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md#configuration). L'[agente Windows](../azure-monitor/platform/agent-windows.md) è obbligatorio. L'agente viene installato automaticamente se si sta caricando una macchina virtuale di Azure.
 
 Per impostazione predefinita, le macchine virtuali Windows distribuite da Azure Marketplace sono impostate per ricevere aggiornamenti automatici dal servizio Windows Update. Questo comportamento non cambia quando si aggiunge questa soluzione o si aggiungono macchine virtuali Windows all'area di lavoro. Se gli aggiornamenti non vengono gestiti attivamente con questa soluzione, è applicabile il comportamento predefinito, ovvero gli aggiornamenti vengono applicati automaticamente.
 
@@ -192,15 +192,65 @@ Si consiglia di utilizzare gli indirizzi elencati durante la definizione delle e
 
 Seguire le istruzioni riportate in [connettere i computer senza accesso a Internet](../azure-monitor/platform/gateway.md) per configurare i computer che non hanno accesso a Internet.
 
-## <a name="integrate-with-system-center-configuration-manager"></a>Integrazione con System Center Configuration Manager
+## <a name="view-update-assessments"></a>Visualizzare la valutazione degli aggiornamenti
 
-I clienti che hanno investito in System Center Configuration Manager per gestire PC, server e dispositivi mobili si affidano alle caratteristiche potenti e avanzate di questa soluzione anche per gestire gli aggiornamenti software. Configuration Manager fa parte del ciclo di gestione degli aggiornamenti software (SUM).
+Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato dei computer.
 
-Per informazioni su come integrare la soluzione di gestione con System Center Configuration Manager, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md).
+Questa visualizzazione contiene informazioni sui computer, sugli aggiornamenti mancanti, sulle distribuzioni degli aggiornamenti e sulle distribuzioni degli aggiornamenti pianificate. Nella colonna **conformità** è possibile visualizzare l'ultima volta in cui il computer è stato valutato. Nella colonna **aggiornamento disponibilità agenti** è possibile verificare l'integrità dell'agente di aggiornamento. Se si verifica un problema, selezionare il collegamento per passare alla documentazione per la risoluzione dei problemi che consente di risolvere il problema.
+
+Per eseguire una ricerca log che restituisce informazioni sul computer, l'aggiornamento o la distribuzione, selezionare l'elemento corrispondente nell'elenco. Si apre il riquadro **Ricerca log** con una query per l'elemento selezionato:
+
+![Visualizzazione predefinita di Gestione aggiornamenti](media/automation-update-management/update-management-view.png)
+
+## <a name="view-missing-updates"></a>Visualizzare gli aggiornamenti mancanti
+
+Selezionare **Aggiornamenti mancanti** per visualizzare l'elenco di aggiornamenti mancanti nei computer. Ogni aggiornamento viene inserito nell'elenco e può essere selezionato. Sono disponibili informazioni relative al numero di computer che richiedono l'aggiornamento e al sistema operativo, oltre a un collegamento per accedere ad altre informazioni. Il riquadro **Ricerca log** visualizza altri dettagli sugli aggiornamenti.
+
+![Aggiornamenti mancanti](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+
+## <a name="update-classifications"></a>Classificazioni degli aggiornamenti
+
+Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti in Gestione aggiornamenti, con una definizione per ogni classificazione.
+
+### <a name="windows"></a>Windows
+
+|Classificazione  |Description  |
+|---------|---------|
+|Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
+|Aggiornamenti per la sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
+|Aggiornamenti cumulativi     | Un set cumulativo di aggiornamenti rapidi, contenuti nello stesso pacchetto per facilitarne la distribuzione.        |
+|Feature Pack     | Nuove funzionalità del prodotto distribuite di fuori di una versione del prodotto.        |
+|Service Pack     | Un set cumulativo di aggiornamenti rapidi applicati a un'applicazione.        |
+|Aggiornamenti della definizione     | Un aggiornamento per un virus o altri file di definizione.        |
+|Strumenti     | Utilità o funzionalità che consente di completare una o più attività.        |
+|Aggiornamenti     | Un aggiornamento di un'applicazione o un file attualmente installati.        |
+
+### <a name="linux-2"></a>Linux
+
+|Classificazione  |Description  |
+|---------|---------|
+|Aggiornamenti critici e della sicurezza     | Aggiornamenti per un problema specifico o specifico del prodotto, correlato alla sicurezza.         |
+|Altri aggiornamenti     | Tutti gli altri aggiornamenti che non sono critici per natura o che non sono aggiornamenti della sicurezza.        |
+
+Per Linux, Gestione aggiornamenti possibile distinguere tra gli aggiornamenti critici e gli aggiornamenti della sicurezza nel cloud, visualizzando i dati di valutazione a causa dell'arricchimento dei dati nel cloud. Per l'applicazione di patch, Gestione aggiornamenti si affida ai dati di classificazione disponibili nel computer. A differenza di altre distribuzioni, CentOS non ha queste informazioni disponibili nella versione RTM. Se i computer CentOS sono configurati per restituire i dati di sicurezza per il comando seguente, Gestione aggiornamenti possibile applicare una patch in base alle classificazioni.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Attualmente non è disponibile alcun metodo supportato per abilitare la classificazione nativa: disponibilità dei dati in CentOS. A questo punto, viene fornito solo il supporto per il massimo sforzo ai clienti che potrebbero avere abilitato questa funzionalità autonomamente. 
+
+Per classificare gli aggiornamenti in Red Hat Enterprise versione 6, è necessario installare il plug-in yum-Security. In Red Hat Enterprise Linux 7 il plug-in fa già parte di yum, non è necessario installare nulla. Per ulteriori informazioni, vedere l' [articolo della Knowledge](https://access.redhat.com/solutions/10021)base di Red Hat.
+
+## <a name="integrate-with-configuration-manager"></a>Integrazione con Configuration Manager
+
+I clienti che hanno investito in Microsoft endpoint Configuration Manager per la gestione di PC, server e dispositivi mobili si affidano anche al livello di attendibilità e maturità delle Configuration Manager per consentire la gestione degli aggiornamenti software. Configuration Manager fa parte del ciclo di gestione degli aggiornamenti software (SUM).
+
+Per informazioni su come integrare la soluzione di gestione con Configuration Manager, vedere [integrare Configuration Manager con gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md).
 
 ### <a name="third-party-patches-on-windows"></a>Patch di terze parti in Windows
 
-Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Si tratta di WSUS o Windows Update. Strumenti come [System Center Updates Publisher](/sccm/sum/tools/updates-publisher) (Updates Publisher) consentono di pubblicare gli aggiornamenti personalizzati in Windows Server Update Services. Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano System Center Configuration Manager come repository di aggiornamento con software di terze parti. Per informazioni su come configurare Updates Publisher, vedere [Installare Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Gestione aggiornamenti si basa sul repository di aggiornamenti configurato localmente per applicare patch ai sistemi Windows supportati. Si tratta di WSUS o Windows Update. Strumenti come [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) (Updates Publisher) consentono di pubblicare gli aggiornamenti personalizzati in Windows Server Update Services. Questo scenario consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti. Per informazioni su come configurare Updates Publisher, vedere [Installare Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
 
 ## <a name="patch-linux-machines"></a>Applicazione di patch ai computer Linux
 

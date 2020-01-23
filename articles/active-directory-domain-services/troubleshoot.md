@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 5c2a8c8cfa2425985a22b93d4ade509320c48564
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998723"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512624"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Errori comuni e passaggi per la risoluzione dei problemi per Azure Active Directory Domain Services
 
@@ -30,20 +30,20 @@ In caso di problemi di abilitazione di Azure AD DS, esaminare gli errori e i pas
 
 | **Messaggio di errore di esempio** | **Risoluzione** |
 | --- |:--- |
-| *Il nome contoso.com è già in uso in questa rete. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso). |[Conflitto di nomi di dominio nella rete virtuale](troubleshoot.md#domain-name-conflict) |
-| *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. Il servizio non dispone di autorizzazioni adeguate per l'applicazione denominata "Azure AD Domain Services Sync". Eliminare l'applicazione denominata "Azure AD Domain Services Sync" e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[Servizi di dominio non dispone delle autorizzazioni appropriate per l'applicazione di sincronizzazione Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
-| *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Domain Services presente nel tenant di Azure AD non dispone delle autorizzazioni necessarie per abilitare Domain Services. Eliminare l'applicazione con l'identificatore di applicazione d87dcbc6-a371-462e-88e3-28ad15ec4e64 e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[L'applicazione Domain Services non è configurata correttamente nel tenant di Azure AD](troubleshoot.md#invalid-configuration) |
-| *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Microsoft Azure AD è disabilitata nel tenant di Azure AD. Abilitare l'applicazione con l'identificatore di applicazione 00000002-0000-0000-c000-000000000000 e quindi tentare di abilitare Domain Services per il tenant di Azure AD). |[L'applicazione Microsoft Graph è disabilitata nel tenant di Azure AD](troubleshoot.md#microsoft-graph-disabled) |
+| *Il nome contoso.com è già in uso in questa rete. Specificare un nome non in uso.* |[Conflitto di nomi di dominio nella rete virtuale](troubleshoot.md#domain-name-conflict) |
+| *Non è stato possibile abilitare i servizi di dominio in questo tenant Azure AD. Il servizio non dispone delle autorizzazioni appropriate per l'applicazione denominata "Azure AD Domain Services Sync". Eliminare l'applicazione denominata ' Azure AD Domain Services Sync ', quindi provare ad abilitare Domain Services per il tenant di Azure AD.* |[Servizi di dominio non dispone delle autorizzazioni appropriate per l'applicazione di sincronizzazione Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
+| *Non è stato possibile abilitare i servizi di dominio in questo tenant Azure AD. L'applicazione Domain Services nel tenant Azure AD non dispone delle autorizzazioni necessarie per abilitare i servizi di dominio. Eliminare l'applicazione con l'identificatore dell'applicazione d87dcbc6-A371-462E-88e3-28ad15ec4e64, quindi provare ad abilitare i servizi di dominio per il tenant Azure AD.* |[L'applicazione Domain Services non è configurata correttamente nel tenant di Azure AD](troubleshoot.md#invalid-configuration) |
+| *Non è stato possibile abilitare i servizi di dominio in questo tenant Azure AD. L'applicazione Microsoft Azure AD è disabilitata nel tenant del Azure AD. Abilitare l'applicazione con l'identificatore dell'applicazione 00000002-0000-0000-C000-000000000000, quindi provare ad abilitare i servizi di dominio per il tenant Azure AD.* |[L'applicazione Microsoft Graph è disabilitata nel tenant di Azure AD](troubleshoot.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflitto di nomi di dominio
 
 **Messaggio di errore**
 
-*Il nome contoso.com è già in uso in questa rete. Specify a name that is not in use.* (Il nome contoso100.com è già in uso nella rete. Specificare un nome non in uso).
+*Il nome contoso.com è già in uso in questa rete. Specificare un nome non in uso.*
 
 **Risoluzione**
 
-Verificare che non sia presente un ambiente Active Directory Domain Services con lo stesso nome di dominio nella rete virtuale. Ad esempio, è possibile avere un dominio di servizi di dominio Active Directory denominato *contoso.com* che viene eseguito in macchine virtuali di Azure. Quando si tenta di abilitare un dominio gestito di Azure AD DS con lo stesso nome di dominio di *contoso.com* nella rete virtuale, l'operazione richiesta ha esito negativo.
+Verificare che non sia presente un ambiente di servizi di dominio Active Directory con lo stesso nome di dominio nello stesso o in una rete virtuale con peering. Ad esempio, è possibile avere un dominio di servizi di dominio Active Directory denominato *contoso.com* che viene eseguito in macchine virtuali di Azure. Quando si tenta di abilitare un dominio gestito di Azure AD DS con lo stesso nome di dominio di *contoso.com* nella rete virtuale, l'operazione richiesta ha esito negativo.
 
 Questo errore è dovuto a conflitti di nomi per il nome di dominio nella rete virtuale. Una ricerca DNS controlla se un ambiente di servizi di dominio Active Directory esistente risponde sul nome di dominio richiesto. Per risolvere l'errore, usare un nome diverso per configurare il dominio gestito di Azure AD DS oppure effettuare il deprovisioning del dominio di servizi di dominio Active Directory esistente, quindi riprovare ad abilitare Azure AD DS.
 
@@ -51,11 +51,11 @@ Questo errore è dovuto a conflitti di nomi per il nome di dominio nella rete vi
 
 **Messaggio di errore**
 
-*Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. Il servizio non dispone di autorizzazioni adeguate per l'applicazione denominata "Azure AD Domain Services Sync". Eliminare l'applicazione denominata "Azure AD Domain Services Sync" e quindi tentare di abilitare Domain Services per il tenant di Azure AD).
+*Non è stato possibile abilitare i servizi di dominio in questo tenant Azure AD. Il servizio non dispone delle autorizzazioni appropriate per l'applicazione denominata "Azure AD Domain Services Sync". Eliminare l'applicazione denominata ' Azure AD Domain Services Sync ', quindi provare ad abilitare Domain Services per il tenant di Azure AD.*
 
 **Risoluzione**
 
-Controllare se è presente un'applicazione denominata *Azure ad Domain Services Sync* nella directory Azure ad. Se l'applicazione esiste, eliminarla e riprovare ad abilitare Azure AD DS. Per verificare la presenza di un'applicazione esistente ed eliminarla, se necessario, attenersi alla procedura seguente:
+Controllare se è presente un'applicazione denominata *Azure ad Domain Services Sync* nella directory Azure ad. Se l'applicazione esiste, eliminarla, quindi riprovare ad abilitare Azure AD DS. Per verificare la presenza di un'applicazione esistente ed eliminarla, se necessario, attenersi alla procedura seguente:
 
 1. Nella portale di Azure selezionare **Azure Active Directory** dal menu di spostamento a sinistra.
 1. Selezionare **Applicazioni aziendali**. Scegliere *tutte le applicazioni* dal menu a discesa **tipo di applicazione** , quindi selezionare **applica**.
@@ -66,13 +66,13 @@ Controllare se è presente un'applicazione denominata *Azure ad Domain Services 
 
 **Messaggio di errore**
 
-*Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Domain Services presente nel tenant di Azure AD non dispone delle autorizzazioni necessarie per abilitare Domain Services. Eliminare l'applicazione con l'identificatore di applicazione d87dcbc6-a371-462e-88e3-28ad15ec4e64 e quindi tentare di abilitare Domain Services per il tenant di Azure AD).
+*Non è stato possibile abilitare i servizi di dominio in questo tenant Azure AD. L'applicazione Domain Services nel tenant Azure AD non dispone delle autorizzazioni necessarie per abilitare i servizi di dominio. Eliminare l'applicazione con l'identificatore dell'applicazione d87dcbc6-A371-462E-88e3-28ad15ec4e64, quindi provare ad abilitare i servizi di dominio per il tenant Azure AD.*
 
 **Risoluzione**
 
 Controllare se è presente un'applicazione denominata *AzureActiveDirectoryDomainControllerServices* con un identificatore dell'applicazione *d87dcbc6-a371-462e-88e3-28ad15ec4e64* nella directory Azure ad. Se l'applicazione esiste, eliminarla e riprovare ad abilitare Azure AD DS.
 
-Usare lo script di PowerShell seguente per cercare un'istanza dell'applicazione esistente ed eliminarla, se necessario.
+Usare lo script di PowerShell seguente per cercare un'istanza dell'applicazione esistente ed eliminarla, se necessario:
 
 ```powershell
 $InformationPreference = "Continue"
@@ -110,7 +110,7 @@ if ($sp -ne $null)
 
 **Messaggio di errore**
 
-*Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* (Non è possibile abilitare Domain Services in questo tenant di Azure AD. L'applicazione Microsoft Azure AD è disabilitata nel tenant di Azure AD. Abilitare l'applicazione con l'identificatore di applicazione 00000002-0000-0000-c000-000000000000 e quindi tentare di abilitare Domain Services per il tenant di Azure AD).
+*Non è stato possibile abilitare i servizi di dominio in questo tenant Azure AD. L'applicazione Microsoft Azure AD è disabilitata nel tenant del Azure AD. Abilitare l'applicazione con l'identificatore dell'applicazione 00000002-0000-0000-C000-000000000000, quindi provare ad abilitare i servizi di dominio per il tenant Azure AD.*
 
 **Risoluzione**
 
@@ -128,14 +128,14 @@ Per controllare lo stato dell'applicazione e abilitarla, se necessario, completa
 
 Se uno o più utenti nel tenant di Azure AD non possono accedere al dominio gestito di Azure AD DS, completare le procedure di risoluzione dei problemi seguenti:
 
-* **Formato delle credenziali** : provare a usare il formato UPN per specificare le credenziali `dee@contoso.onmicrosoft.com`, ad esempio. Il formato UPN è il modo consigliato per specificare le credenziali in Azure AD DS. Verificare che il nome UPN sia configurato correttamente in Azure AD.
+* **Formato delle credenziali** : provare a usare il formato UPN per specificare le credenziali, ad esempio `dee@contoso.onmicrosoft.com`. Il formato UPN è il modo consigliato per specificare le credenziali in Azure AD DS. Verificare che il nome UPN sia configurato correttamente in Azure AD.
 
     Il *sAMAccountName* per l'account, ad esempio *CONTOSO\driley* , può essere generato automaticamente se sono presenti più utenti con lo stesso prefisso UPN nel tenant o se il prefisso UPN è troppo lungo. Pertanto, il formato di *sAMAccountName* per l'account può essere diverso da quello previsto o da usare nel dominio locale.
 
 * **Sincronizzazione delle password** : assicurarsi di avere abilitato la sincronizzazione delle password per [gli utenti solo cloud][cloud-only-passwords] o per gli [ambienti ibridi usando Azure ad Connect][hybrid-phs].
     * **Account sincronizzati ibridi:** Se gli account utente interessati sono sincronizzati da una directory locale, verificare le aree seguenti:
     
-      * È stata eseguita la distribuzione o l'aggiornamento all' [ultima versione consigliata di Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+      * L' [ultima versione consigliata di Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594)è stata distribuita o aggiornata a.
       * È stato configurato Azure AD Connect per [eseguire una sincronizzazione completa][hybrid-phs].
       * A seconda delle dimensioni della directory, è possibile che gli account utente e gli hash delle credenziali siano disponibili in Azure AD DS. Prima di tentare di eseguire l'autenticazione nel dominio gestito, assicurarsi di attendere abbastanza tempo.
       * Se il problema persiste dopo la verifica dei passaggi precedenti, provare a riavviare il *servizio di sincronizzazione Microsoft Azure ad*. Dalla [macchina virtuale di gestione][management-vm], aprire un prompt dei comandi ed eseguire i comandi seguenti:
@@ -145,13 +145,13 @@ Se uno o più utenti nel tenant di Azure AD non possono accedere al dominio gest
         net start 'Microsoft Azure AD Sync'
         ```
 
-    * **Account solo cloud**: Se l'account utente interessato è un account utente solo cloud, assicurarsi che l' [utente abbia modificato la password dopo l'abilitazione di Azure AD DS][cloud-only-passwords]. Questa reimpostazione della password causa la generazione degli hash delle credenziali necessari per Azure AD Domain Services.
+    * **Account solo cloud**: se l'account utente interessato è un account utente solo cloud, assicurarsi che l' [utente abbia modificato la password dopo l'abilitazione di Azure AD DS][cloud-only-passwords]. Questa reimpostazione della password causa la generazione degli hash delle credenziali necessari per Azure AD Domain Services.
 
-* **Verificare che l'account utente sia attivo**: Per impostazione predefinita, cinque tentativi di password non validi entro 2 minuti dal dominio gestito causano il blocco di un account utente per 30 minuti. L'utente non può effettuare l'accesso mentre l'account è bloccato. Dopo 30 minuti l'account utente viene sbloccato automaticamente.
+* **Verificare che l'account utente sia attivo**: per impostazione predefinita, cinque tentativi di password non validi entro 2 minuti dal dominio gestito causano il blocco di un account utente per 30 minuti. L'utente non può effettuare l'accesso mentre l'account è bloccato. Dopo 30 minuti, l'account utente viene sbloccato automaticamente.
   * Tentativi di password non validi nel dominio gestito Azure AD DS non bloccano l'account utente in Azure AD. L'account utente viene bloccato solo all'interno del dominio gestito. Controllare lo stato dell'account utente nella *console di amministrazione di Active Directory (ADAC)* usando la [macchina virtuale di gestione][management-vm], non in Azure ad.
   * È anche possibile [configurare i criteri granulari][password-policy] per le password per modificare la soglia e la durata di blocco predefinite.
 
-* **Account esterni** : verificare che l'account utente interessato non sia un account esterno nel tenant del Azure ad. Esempi di account esterni includono account Microsoft, `dee@live.com` ad esempio, o account utente da una directory Azure ad esterna. Azure AD DS non archivia le credenziali per gli account utente esterni, in modo che non possano accedere al dominio gestito.
+* **Account esterni** : verificare che l'account utente interessato non sia un account esterno nel tenant del Azure ad. Esempi di account esterni includono account Microsoft come `dee@live.com` o account utente da una directory di Azure AD esterna. Azure AD DS non archivia le credenziali per gli account utente esterni, in modo che non possano accedere al dominio gestito.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Sono presenti uno o più avvisi nel dominio gestito
 
@@ -165,11 +165,11 @@ Azure AD protegge da eliminazioni accidentali di oggetti utente. Quando si elimi
 
 L'account utente rimane nello stato disabilitato nel dominio gestito di Azure AD DS, anche se si ricrea un account utente con lo stesso UPN nella directory Azure AD. Per rimuovere l'account utente dal dominio gestito di Azure AD DS, è necessario eliminarlo forzatamente dal tenant di Azure AD.
 
-Per rimuovere completamente un account utente da un dominio gestito Azure AD DS, eliminare definitivamente l'utente dal tenant di Azure ad usando il cmdlet di PowerShell [Remove-MsolUser][Remove-MsolUser] con `-RemoveFromRecycleBin` il parametro.
+Per rimuovere completamente un account utente da un dominio gestito Azure AD DS, eliminare definitivamente l'utente dal tenant di Azure AD usando il cmdlet di PowerShell [Remove-MsolUser][Remove-MsolUser] con il parametro `-RemoveFromRecycleBin`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si verificano ancora problemi, [aprire una richiesta di supporto tecnico di Azure][azure-support] per ulteriore assistenza per la risoluzione dei problemi.
+Se continuano a verificarsi problemi, è possibile [aprire una richiesta di supporto tecnico di Azure][azure-support] per ulteriore assistenza per la risoluzione dei problemi.
 
 <!-- INTERNAL LINKS -->
 [cloud-only-passwords]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

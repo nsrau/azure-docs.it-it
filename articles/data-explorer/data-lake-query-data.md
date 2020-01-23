@@ -7,14 +7,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922163"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512913"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Eseguire query sui dati in Azure Data Lake usando Esplora dati di Azure (anteprima)
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Eseguire query sui dati in Azure Data Lake usando Azure Esplora dati
 
 Azure Data Lake Storage è una soluzione data Lake altamente scalabile ed economica per Big Data Analytics. Combina la potenza di un file system ad alte prestazioni con caratteristiche che permettono di ottenere rapidamente informazioni dettagliate in modo scalabile ed economico. Data Lake Storage Gen2 estende le funzionalità di Archiviazione BLOB di Azure ed è ottimizzato per i carichi di lavoro di analisi.
  
@@ -242,7 +242,7 @@ Azure Esplora dati supporta formati a colonne parquet e ORC. Il formato parquet 
  
 Verificare che i dati esterni si trovino nella stessa area di Azure in cui si trova il cluster di Azure Esplora dati. Ciò consente di ridurre i tempi di recupero dei dati e dei costi.
  
-### <a name="file-size"></a>Dimensioni complete
+### <a name="file-size"></a>Dimensione del file
  
 Le dimensioni ottimali del file sono pari a centinaia di MB (fino a 1 GB) per ogni file. Evitare molti file di piccole dimensioni che richiedono un sovraccarico non necessario, ad esempio un processo di enumerazione dei file più lento e un uso limitato del formato a colonne. Si noti che il numero di file deve essere maggiore del numero di core CPU nel cluster di Azure Esplora dati. 
  

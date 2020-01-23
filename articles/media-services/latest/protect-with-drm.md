@@ -1,5 +1,5 @@
 ---
-title: Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM
+title: Crittografia DRM e servizio di distribuzione delle licenze di servizi multimediali di Azure
 titleSuffix: Azure Media Services
 description: Informazioni su come usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze per distribuire i flussi crittografati con le licenze Microsoft PlayReady, Google Widevine o Apple FairPlay.
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974071"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513066"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze
 
@@ -150,7 +150,7 @@ In ContentKeyPolicy viene usato ContentKeyIdentifierClaim, il che significa che 
 
 ## <a name="build-a-streaming-url"></a>Creare un URL di streaming
 
-Ora che è stato creato l'oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming. Per compilare un URL, è necessario concatenare il nome host [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio, viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, il **localizzatore di streaming** *predefinito* è in stato arrestato ed è quindi necessario chiamare **Start**.
+Ora che è stato creato l'oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming. Per compilare un URL, è necessario concatenare il nome host [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l' **endpoint di streaming** *predefinito* . Quando si crea un account del servizio multimediale per la prima volta, questo **endpoint di streaming** *predefinito* si trova nello stato interrotto, quindi è necessario chiamare **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -178,9 +178,9 @@ az group delete --name amsResourceGroup
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 01/09/2020
-ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.date: 01/22/2020
+ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834975"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515021"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto vCore
 
@@ -181,7 +181,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Tipo di risorse di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Numero massimo di IOPS dati *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Latenza di I/O (approssimativa)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|8000|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Repliche secondarie|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|

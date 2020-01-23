@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 09371cc66b54d822db5ad24679d28f40323eb871
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 42431c0db55219c3cb49968986c1a0c7f071b219
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561022"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509276"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -30,7 +30,7 @@ Questo articolo fornisce istruzioni per lo sviluppo e il debug di moduli in più
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È possibile usare un computer o una macchina virtuale Windows, macOS o Linux come computer di sviluppo. Nei computer Windows è possibile sviluppare moduli Windows o Linux. Per sviluppare moduli Windows, usare un computer Windows che esegue la versione 1809/Build 17763 o successiva. Per sviluppare moduli Linux, usare un computer Windows che soddisfi i [requisiti per il desktop Docker](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+È possibile usare un computer o una macchina virtuale Windows, macOS o Linux come computer di sviluppo. Nei computer Windows è possibile sviluppare moduli Windows o Linux. Per sviluppare moduli Windows, usare un computer Windows che esegue la versione 1809/Build 17763 o successiva. Per sviluppare moduli Linux, usare un computer Windows che soddisfi i [requisiti per il desktop Docker](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 Prima installare [Visual Studio Code](https://code.visualstudio.com/) e poi aggiungere le estensioni seguenti:
 
@@ -50,7 +50,7 @@ Sarà inoltre necessario installare alcuni strumenti aggiuntivi specifici del li
 
 - Node. js: [node. js](https://nodejs.org). È necessario installare anche [Yeoman](https://www.npmjs.com/package/yo) e il [generatore di moduli Node.js di Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java se Development Kit 10](https://aka.ms/azure-jdks) e [Maven](https://maven.apache.org/). È necessario [impostare la variabile di ambiente `JAVA_HOME` ](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
+- Java: [Java se Development Kit 10](https://aka.ms/azure-jdks) e [Maven](https://maven.apache.org/). È necessario [impostare la variabile di ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
 
 Per compilare e distribuire l'immagine del modulo, è necessario Docker per compilare l'immagine del modulo e un registro contenitori in cui inserire l'immagine del modulo:
 
@@ -66,6 +66,7 @@ A meno che il modulo non venga sviluppato in C, è necessario anche lo [strument
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+   
 > [!NOTE]
 > Attualmente, iotedgehubdev usa una libreria Docker-py non compatibile con Python 3,8.
 >

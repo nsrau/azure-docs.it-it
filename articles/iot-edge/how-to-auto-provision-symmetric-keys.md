@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c42d13f4d2e00b67a2ef471a07c80e1ef61e9c07
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3adefbdf248deaec6170037521ab65890356d184
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666325"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510890"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
@@ -43,11 +43,7 @@ Con il servizio Device Provisioning in esecuzione, copiare il valore di **Ambito
 
 È necessario definire un ID di registrazione univoco per identificare ogni dispositivo. È possibile usare l'indirizzo MAC, il numero di serie o informazioni univoche dal dispositivo.
 
-In questo esempio si usa una combinazione di indirizzo MAC e numero di serie che formano la stringa seguente per un ID di registrazione.
-
-```
-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-```
+In questo esempio viene usata una combinazione di un indirizzo MAC e di un numero di serie che costituisce la stringa seguente per un ID di registrazione: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`.
 
 Creare un ID di registrazione univoco per il dispositivo. I caratteri validi sono i caratteri alfanumerici minuscoli e il trattino ("-").
 
@@ -82,7 +78,7 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 
    1. Scegliere il modo in cui **si vogliono gestire i dati del dispositivo durante il nuovo provisioning** quando i dispositivi richiedono il provisioning dopo la prima volta.
 
-   1. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. ad esempio:
+   1. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Ad esempio:
 
       ```json
       {
@@ -114,7 +110,7 @@ Non includere la chiave primaria o secondaria della registrazione nel codice del
 
 Se si usa una workstation di Linux, è possibile usare openssl per generare la chiave di dispositivo derivata come illustrato nell'esempio seguente.
 
-Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
+Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
 
 Sostituire il valore di **REG_ID** con l'ID registrazione del dispositivo.
 
@@ -134,7 +130,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 Se si usan una workstation basata su Windows, è possibile usare PowerShell per generare le chiavi di dispositivo derivate come illustrato nell'esempio seguente.
 
-Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
+Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
 
 Sostituire il valore di **REG_ID** con l'ID registrazione del dispositivo.
 
@@ -186,7 +182,7 @@ provisioning:
       symmetric_key: "{symmetric_key}"
 ```
 
-Sostituire i valori segnaposto per `{scope_id}`, `{registration_id}`e `{symmetric_key}` con i dati raccolti in precedenza.
+Sostituire i valori segnaposto per `{scope_id}`, `{registration_id}`e `{symmetric_key}` con i dati raccolti in precedenza. Verificare che il **provisioning:** la riga non includa spazi vuoti precedenti e che gli elementi nidificati vengano rientrati da due spazi.
 
 ### <a name="windows-device"></a>Dispositivo Windows
 

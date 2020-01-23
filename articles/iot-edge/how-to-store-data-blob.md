@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12c5bf66de966faf8dc31c7265fdfb0180a95323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970838"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509819"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare dati sul perimetro con archiviazione BLOB di Azure in IoT Edge
 
@@ -85,7 +85,6 @@ Il nome di questa impostazione è `deviceToCloudUploadProperties`. Se si usa il 
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Consente di specificare i nomi dei contenitori che si vuole caricare in Azure. Questo modulo consente di specificare i nomi dei contenitori di origine e di destinazione. Se non si specifica il nome del contenitore di destinazione, il nome del contenitore verrà assegnato automaticamente come `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. È possibile creare stringhe di modello per il nome del contenitore di destinazione, vedere la colonna valori possibili. <br>*% h-> nome dell'hub Internet (3-50 caratteri). <br>*% d-> IoT Edge ID dispositivo (da 1 a 129 caratteri). <br>*% m-> nome del modulo (da 1 a 64 caratteri). <br>*% c-> nome del contenitore di origine (da 3 a 63 caratteri). <br><br>Le dimensioni massime del nome del contenitore sono di 63 caratteri, assegnando automaticamente il nome del contenitore di destinazione se la dimensione del contenitore supera i 63 caratteri. ogni sezione (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) verrà tagliata in 15 caratteri. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | Impostare su `false` per impostazione predefinita. Quando è impostato su `true`, i dati verranno eliminati automaticamente al termine del caricamento nell'archiviazione cloud. <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale dopo il completamento del caricamento e le successive operazioni di blocco per tali BLOB avranno esito negativo. Usare questa impostazione con cautela. non abilitare questa opzione se l'applicazione esegue operazioni di Accodamento non frequenti o non supporta operazioni di Accodamento continue<br><br> Variabile di ambiente: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
 
-
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
 Il nome di questa impostazione è `deviceAutoDeleteProperties`. Se si usa il simulatore di IoT Edge, impostare i valori per le variabili di ambiente correlate per queste proprietà, che è possibile trovare nella sezione spiegazione.
@@ -97,6 +96,7 @@ Il nome di questa impostazione è `deviceAutoDeleteProperties`. Se si usa il sim
 | retainWhileUploading | true, false | Per impostazione predefinita, è impostato su `true`e manterrà il BLOB mentre viene caricato nell'archiviazione cloud se deleteAfterMinutes scade. È possibile impostarlo su `false` e eliminerà i dati non appena scade deleteAfterMinutes. Nota: affinché questa proprietà funzioni, uploadOn deve essere impostato su true.  <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale quando il valore scade e le successive operazioni di blocco di Accodamento a tali BLOB avranno esito negativo. È possibile assicurarsi che il valore di scadenza sia sufficientemente grande per la frequenza prevista delle operazioni di Accodamento eseguite dall'applicazione.<br><br> Variabile di ambiente: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Uso della condivisione SMB come archiviazione locale
+
 È possibile fornire una condivisione SMB come percorso di archiviazione locale, quando si distribuisce il contenitore di Windows di questo modulo nell'host Windows.
 
 Verificare che la condivisione SMB e il dispositivo Internet sia in domini a reciprocamente attendibili.
@@ -104,48 +104,58 @@ Verificare che la condivisione SMB e il dispositivo Internet sia in domini a rec
 È possibile eseguire `New-SmbGlobalMapping` comando di PowerShell per eseguire il mapping della condivisione SMB localmente nel dispositivo Internet delle cose che esegue Windows.
 
 Di seguito sono riportati i passaggi di configurazione:
+
 ```PowerShell
 $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
-Esempio: <br>
-`$creds = Get-Credential` <br>
-`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:`
 
-Questo comando utilizzerà le credenziali per l'autenticazione con il server SMB remoto. Quindi, mappa il percorso di condivisione remota alla lettera di unità G: (può essere qualsiasi altra lettera di unità disponibile). Al dispositivo Internet Internet è ora associato il volume di dati a un percorso nell'unità G:. 
+Ad esempio:
+
+```powershell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
+```
+
+Questo comando utilizzerà le credenziali per l'autenticazione con il server SMB remoto. Quindi, mappa il percorso di condivisione remota alla lettera di unità G: (può essere qualsiasi altra lettera di unità disponibile). Al dispositivo Internet Internet è ora associato il volume di dati a un percorso nell'unità G:.
 
 Assicurarsi che l'utente nel dispositivo Internet sia in grado di leggere/scrivere nella condivisione SMB remota.
 
-Per la distribuzione, il valore di `<storage mount>` può essere **G:/ContainerData: C:/BlobRoot**. 
+Per la distribuzione, il valore di `<storage mount>` può essere **G:/ContainerData: C:/BlobRoot**.
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Concessione dell'accesso alla directory per l'utente contenitore in Linux
+
 Se è stato usato il [montaggio del volume](https://docs.docker.com/storage/volumes/) per l'archiviazione nelle opzioni di creazione per i contenitori Linux, non è necessario eseguire passaggi aggiuntivi, ma se è stato usato [Bind mount](https://docs.docker.com/storage/bind-mounts/) , questi passaggi sono necessari per eseguire correttamente il servizio.
 
-Secondo il principio dei privilegi minimi per limitare i diritti di accesso per gli utenti alle autorizzazioni minime necessarie per eseguire il lavoro, questo modulo include un utente (nome: Absie, ID: 11000) e un gruppo di utenti (nome: Absie, ID: 11000). Se il contenitore viene avviato come **radice** (l'utente predefinito è **root**), il servizio verrà avviato come utente **Absie** con privilegi limitati. 
+Secondo il principio dei privilegi minimi per limitare i diritti di accesso per gli utenti alle autorizzazioni minime necessarie per eseguire il lavoro, questo modulo include un utente (nome: Absie, ID: 11000) e un gruppo di utenti (nome: Absie, ID: 11000). Se il contenitore viene avviato come **radice** (l'utente predefinito è **root**), il servizio verrà avviato come utente **Absie** con privilegi limitati.
 
 Questo comportamento rende la configurazione delle autorizzazioni in percorso host associa cruciale per il corretto funzionamento del servizio. in caso contrario, il servizio si arresterà in modo anomalo con errori di accesso negato. Il percorso usato nell'associazione di directory deve essere accessibile dall'utente del contenitore (ad esempio: Absie 11000). È possibile concedere all'utente del contenitore l'accesso alla directory eseguendo i comandi seguenti nell'host:
 
 ```terminal
-sudo chown -R 11000:11000 <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R 11000:11000 <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
-Esempio:<br>
-`sudo chown -R 11000:11000 /srv/containerdata` <br>
-`sudo chmod -R 700 /srv/containerdata`
+Ad esempio:
 
+```terminal
+sudo chown -R 11000:11000 /srv/containerdata
+sudo chmod -R 700 /srv/containerdata
+```
 
 Se è necessario eseguire il servizio come utente diverso da **Absie**, è possibile specificare l'ID utente personalizzato in CreateOptions nella proprietà "User" del manifesto della distribuzione. In tal caso, è necessario utilizzare l'ID gruppo radice o predefinito `0`.
 
 ```json
-"createOptions": { 
-  "User": "<custom user ID>:0" 
-} 
+"createOptions": {
+  "User": "<custom user ID>:0"
+}
 ```
+
 A questo punto, concedere all'utente del contenitore l'accesso alla directory
+
 ```terminal
-sudo chown -R <user ID>:<group ID> <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R <user ID>:<group ID> <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
 ## <a name="configure-log-files"></a>Configurare i file di log
@@ -158,11 +168,11 @@ Per informazioni sulla configurazione dei file di log per il modulo, vedere le [
 
 Specificare il dispositivo IoT Edge come endpoint BLOB per qualsiasi richiesta di archiviazione effettuata. È possibile [Creare una stringa di connessione per un endpoint di archiviazione esplicita](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) usando le informazioni del dispositivo IoT Edge e il nome dell'account che è stato configurato.
 
-- Per i moduli distribuiti nello stesso dispositivo in cui è in esecuzione l'archivio BLOB di Azure nel modulo IoT Edge, l'endpoint BLOB è: `http://<module name>:11002/<account name>`.
-- Per i moduli o le applicazioni in esecuzione in un dispositivo diverso, è necessario scegliere l'endpoint corretto per la rete. A seconda della configurazione della rete, scegliere un formato di endpoint in modo che il traffico dati dal modulo esterno o dall'applicazione possa raggiungere il dispositivo che esegue l'archiviazione BLOB di Azure nel modulo IoT Edge. L'endpoint BLOB per questo scenario è uno dei seguenti:
-  - `http://<device IP >:11002/<account name>`
-  - `http://<IoT Edge device hostname>:11002/<account name>`
-  - `http://<fully qualified domain name>:11002/<account name>`
+* Per i moduli distribuiti nello stesso dispositivo in cui è in esecuzione l'archivio BLOB di Azure nel modulo IoT Edge, l'endpoint BLOB è: `http://<module name>:11002/<account name>`.
+* Per i moduli o le applicazioni in esecuzione in un dispositivo diverso, è necessario scegliere l'endpoint corretto per la rete. A seconda della configurazione della rete, scegliere un formato di endpoint in modo che il traffico dati dal modulo esterno o dall'applicazione possa raggiungere il dispositivo che esegue l'archiviazione BLOB di Azure nel modulo IoT Edge. L'endpoint BLOB per questo scenario è uno dei seguenti:
+  * `http://<device IP >:11002/<account name>`
+  * `http://<IoT Edge device hostname>:11002/<account name>`
+  * `http://<fully qualified domain name>:11002/<account name>`
 
 ## <a name="azure-blob-storage-quickstart-samples"></a>Esempi di avvio rapido di archiviazione BLOB di Azure
 
@@ -202,7 +212,7 @@ Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge
 
 ## <a name="supported-storage-operations"></a>Operazioni di archiviazione supportate
 
-I moduli di archiviazione BLOB in IoT Edge usano gli SDK di archiviazione di Azure e sono coerenti con la versione 2017-04-17 dell'API di archiviazione di Azure per gli endpoint BLOB in blocchi. 
+I moduli di archiviazione BLOB in IoT Edge usano gli SDK di archiviazione di Azure e sono coerenti con la versione 2017-04-17 dell'API di archiviazione di Azure per gli endpoint BLOB in blocchi.
 
 Poiché non tutte le operazioni di archiviazione BLOB di Azure sono supportate dall'archiviazione BLOB di Azure in IoT Edge, in questa sezione viene elencato lo stato di ciascuna di esse.
 
@@ -271,6 +281,7 @@ Non supportate:
 * Accoda blocco da URL
 
 ## <a name="event-grid-on-iot-edge-integration"></a>Griglia di eventi nell'integrazione IoT Edge
+
 > [!CAUTION]
 > L'integrazione con griglia di eventi in IoT Edge è in anteprima
 

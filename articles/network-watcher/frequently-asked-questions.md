@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 570b8057fc09e3f054152d09467519a167d938e9
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 856c249b72e9e0ff8667d10821ad14b3432b0775
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280782"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509190"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Domande frequenti su Azure Network Watcher
 Il servizio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre una suite di strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure. Questo articolo risponde a domande comuni sul servizio.
@@ -75,17 +75,17 @@ Le risorse di rete di Azure possono essere combinate e gestite tramite [gruppi d
 
 Per usare un account di archiviazione con un firewall, è necessario fornire un'eccezione affinché i servizi Microsoft attendibili accedano all'account di archiviazione:
 
-* Trovare il nome dell'account di archiviazione individuando il gruppo di sicurezza di rete nella [pagina di panoramica dei log dei flussi dei gruppi di sicurezza di rete](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)
-* Passare all'account di archiviazione digitando il nome dell'account di archiviazione nella ricerca globale nel portale
+* Passare all'account di archiviazione digitando il nome dell'account di archiviazione nella ricerca globale nel portale o dalla [pagina account di archiviazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 * Nella sezione **IMPOSTAZIONI** selezionare **Firewall e reti virtuali**
 * In "Consenti accesso da" selezionare **reti selezionate**. Quindi, in **eccezioni**, seleziona la casella accanto a **"Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione"** 
 * Se l'opzione è già selezionata, non occorre modificare niente.  
+* Individuare il NSG di destinazione nella [pagina Panoramica dei log di flusso di NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) e abilitare i log di flusso di NSG con l'account di archiviazione selezionato.
 
 È possibile controllare i log di archiviazione dopo alcuni minuti. Dovrebbe essere visualizzato un TimeStamp aggiornato o un nuovo file JSON creato.
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints-for-storage"></a>Ricerca per categorie usare i log di flusso NSG con gli endpoint di servizio per l'archiviazione?
 
-Per informazioni sull' [Abilitazione degli endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint), vedere l'esercitazione. 
+Vedere l' [esercitazione sull'abilitazione degli endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual è la differenza tra i log dei flussi versioni 1 & 2?

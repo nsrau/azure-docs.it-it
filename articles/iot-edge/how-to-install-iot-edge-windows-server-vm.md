@@ -9,45 +9,47 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: b32bbfa5e849c1a0490bba5d09d1838268033b26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 99474246bf1ff5cbcc39861d56f05aa38f177f31
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964670"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510040"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Windows Server
 
 Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Dopo aver configurato un dispositivo con il runtime di IoT Edge, è possibile avviare la distribuzione della logica di business dal cloud.
 
-Per altre informazioni sul funzionamento di runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime di Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
+Per altre informazioni sul funzionamento del runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
 
 Questo articolo elenca i passaggi per eseguire il runtime di Azure IoT Edge in una macchina virtuale Windows Server 2019 usando l'offerta di [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace. Seguire le istruzioni in [installare il runtime di Azure IOT Edge](how-to-install-iot-edge-windows.md) in Windows per l'uso con altre versioni.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Eseguire la distribuzione da Azure Marketplace
 
-1.  Passare all'offerta di [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace o cercare "Windows Server" in [Azure Marketplace](https://azuremarketplace.microsoft.com/)
-2.  Selezionare **Get it now** 
-3.  Nel **piano software**individuare "Windows Server 2019 Datacenter Server Core with containers", quindi selezionare **continua** nella finestra di dialogo successiva.
+1. Passare all'offerta di [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace o cercare "Windows Server" in [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+2. Selezionare **Get it now**
+3. Nel **piano software**individuare "Windows Server 2019 Datacenter Server Core with containers", quindi selezionare **continua** nella finestra di dialogo successiva.
     * È anche possibile usare queste istruzioni per altre versioni di Windows Server con i contenitori
-4.  Una volta nel portale di Azure selezionare **Crea** e seguire la procedura guidata per distribuire la macchina virtuale. 
-    *   Se è la prima volta che si prova una macchina virtuale, è più semplice usare una password e abilitare RDP e SSH nel menu della porta pubblica in ingresso. 
-    *   Se si ha un carico di lavoro con utilizzo intensivo delle risorse, è consigliabile aggiornare le dimensioni della macchina virtuale aggiungendo più CPU e/o memoria.
-5.  Dopo aver distribuito la macchina virtuale, configurarla per connettersi all'hub IoT:
-    1.  Copiare la stringa di connessione del dispositivo dal dispositivo IoT Edge creato nell'hub Internet. Vedere la procedura [recuperare la stringa di connessione nel portale di Azure](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
-    1.  Selezionare la nuova risorsa macchina virtuale creata dal portale di Azure e aprire l'opzione **Comando Esegui**
-    1.  Selezionare l'opzione **RunPowerShellScript**
-    1.  Copiare questo script nella finestra di comando con la stringa di connessione del dispositivo: 
+4. Una volta nel portale di Azure selezionare **Crea** e seguire la procedura guidata per distribuire la macchina virtuale.
+    * Se è la prima volta che si prova una macchina virtuale, è più semplice usare una password e abilitare RDP e SSH nel menu della porta pubblica in ingresso.
+    * Se si ha un carico di lavoro con utilizzo intensivo delle risorse, è consigliabile aggiornare le dimensioni della macchina virtuale aggiungendo più CPU e/o memoria.
+5. Dopo aver distribuito la macchina virtuale, configurarla per connettersi all'hub IoT:
+    1. Copiare la stringa di connessione del dispositivo dal dispositivo IoT Edge creato nell'hub Internet. Vedere la procedura [recuperare la stringa di connessione nel portale di Azure](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
+    1. Selezionare la nuova risorsa macchina virtuale creata dal portale di Azure e aprire l'opzione **Comando Esegui**
+    1. Selezionare l'opzione **RunPowerShellScript**
+    1. Copiare questo script nella finestra di comando con la stringa di connessione del dispositivo:
+
         ```powershell
         . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
         Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'
         ```
-    1.  Eseguire lo script per installare il runtime di IoT Edge e impostare la stringa di connessione selezionando **Esegui** .
-    1.  Dopo un paio di minuti, viene visualizzato un messaggio che mostra che il runtime di Edge è stato installato e ne è stato effettuato il provisioning.
+
+    1. Eseguire lo script per installare il runtime di IoT Edge e impostare la stringa di connessione selezionando **Esegui** .
+    1. Dopo un paio di minuti, viene visualizzato un messaggio che mostra che il runtime di Edge è stato installato e ne è stato effettuato il provisioning.
 
 ## <a name="deploy-from-the-azure-portal"></a>Eseguire la distribuzione dalla portale di Azure
 
-1. Dal portale di Azure cercare "Windows Server" e selezionare **Windows server 2019 datacenter** per avviare il flusso di lavoro di creazione della macchina virtuale. 
+1. Dal portale di Azure cercare "Windows Server" e selezionare **Windows server 2019 datacenter** per avviare il flusso di lavoro di creazione della macchina virtuale.
 2. In **selezionare un piano software** scegliere "Windows Server 2019 Datacenter Server Core with containers", quindi selezionare **Crea** .
 3. Completare il passaggio 5 nelle istruzioni "Deploy from the Azure Marketplace" illustrate in precedenza.
 
@@ -69,7 +71,7 @@ Questo articolo elenca i passaggi per eseguire il runtime di Azure IoT Edge in u
    1. Copiare il campo SubscriptionID per la sottoscrizione da usare
    1. Eseguire questo comando con l'ID copiato:
 
-      ```azurecli-interactive 
+      ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
 

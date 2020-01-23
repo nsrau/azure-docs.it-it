@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 060d94d6181e894c18d268845b48eb802c52730c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e5ce43e7cdf70c1f552a8f5bbed28ce47f1826fc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838284"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513219"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalizzare un modello delle persone con il sito Web di Video Indexer
 
@@ -134,14 +134,14 @@ Per usare il modello di persona in un nuovo video, seguire questa procedura:
 
 1. Fare clic sul pulsante **carica** nella parte superiore della pagina.
 
-    ![Carica](./media/customize-face-model/upload.png)
+    ![Caricamento](./media/customize-face-model/upload.png)
 1. Rilasciare il file video nel cerchio o cercare il file.
 1. Fare clic sulla freccia Opzioni avanzate.
 
-    ![Carica](./media/customize-face-model/upload2.png)
+    ![Caricamento](./media/customize-face-model/upload2.png)
 1. Fare clic sull'elenco a discesa e selezionare il modello person creato.
 
-    ![Carica](./media/customize-face-model/upload3.png)
+    ![Caricamento](./media/customize-face-model/upload3.png)
 1. Fare clic sull'opzione Upload (carica) nella parte inferiore della pagina e il nuovo video verrà indicizzato usando il modello Person (persona).
 
 Se non si specifica un modello di persona durante il caricamento, Video Indexer indicizza il video usando il modello person predefinito nell'account.

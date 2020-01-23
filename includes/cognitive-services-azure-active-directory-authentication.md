@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b08ffa79e012344cad6cf72df98a0f1ba5240ce0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897512"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76508540"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Eseguire l'autenticazione con Azure Active Directory
 
@@ -25,10 +25,10 @@ Nelle sezioni seguenti verrà usato l'ambiente Azure Cloud Shell o l'interfaccia
 
 Il primo passaggio consiste nel creare un sottodominio personalizzato. Se si vuole usare una risorsa di servizi cognitivi esistente che non dispone di un nome di sottodominio personalizzato, seguire le istruzioni in [sottodomini personalizzati di servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) per abilitare il sottodominio personalizzato per la risorsa.
 
-1. Per iniziare, aprire il Azure Cloud Shell. [selezionare quindi una sottoscrizione](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
+1. Per iniziare, aprire il Azure Cloud Shell. [Selezionare quindi una sottoscrizione](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
 
    ```azurecli-interactive
-   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
 2. Successivamente, [creare una risorsa Servizi cognitivi](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) con un sottodominio personalizzato. Il nome del sottodominio deve essere globalmente univoco e non può includere caratteri speciali, ad esempio: ".", "!", ",".

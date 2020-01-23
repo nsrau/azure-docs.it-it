@@ -1,18 +1,18 @@
 ---
 title: Domini eventi in Griglia di eventi di Azure
-description: Descrive come usare i domini eventi per gestire gli argomenti in Griglia di eventi di Azure.
+description: Questo articolo descrive come usare i domini eventi per gestire il flusso di eventi personalizzati per vari clienti, organizzazioni o applicazioni aziendali.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.date: 01/21/2020
+ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305418"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511383"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
 
@@ -39,7 +39,7 @@ Offre inoltre un singolo endpoint, in cui è possibile pubblicare tutti gli even
 
 ![Esempio di Contoso Construction](./media/event-domains/contoso-construction-example.png)
 
-## <a name="access-management"></a>gestione degli accessi
+## <a name="access-management"></a>Gestione degli accessi
 
 Con un dominio si ottiene il controllo granulare dell'autenticazione e dell'autorizzazione su ogni argomento, tramite il controllo degli accessi in base al ruolo di Azure. È possibile usare questi ruoli per limitare ogni tenant nell'applicazione ai soli argomenti a cui si vuole concedere l'accesso.
 
@@ -105,7 +105,7 @@ Di seguito sono riportati i limiti e le quote correlati ai domini eventi:
 - 50 sottoscrizioni ambito dominio 
 - frequenza di inserimento degli eventi 5.000 al secondo (in un dominio)
 
-Se questi limiti non soddisfano l'utente, contattare il team del prodotto aprendo un ticket di supporto o inviando un [askgrid@microsoft.com](mailto:askgrid@microsoft.com)messaggio di posta elettronica a. 
+Se questi limiti non soddisfano l'utente, contattare il team del prodotto aprendo un ticket di supporto o inviando un messaggio di posta elettronica a [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## <a name="pricing"></a>Prezzi
 I domini degli eventi utilizzano gli stessi [prezzi delle operazioni](https://azure.microsoft.com/pricing/details/event-grid/) utilizzate da tutte le altre funzionalità di griglia di eventi.

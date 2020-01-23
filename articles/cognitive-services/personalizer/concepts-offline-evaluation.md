@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953083"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513610"
 ---
 # <a name="offline-evaluation"></a>Valutazione offline
 
-La valutazione offline è un metodo che consente di testare e valutare l'efficacia del servizio Personalizza esperienze senza cambiare il codice o influire sull'esperienza utente. Vengono usati dati passati, inviati dall'applicazione all'API Classifica, per confrontare le prestazioni delle diverse classifiche.
+La valutazione offline è un metodo che consente di testare e valutare l'efficacia del servizio Personalizza esperienze senza cambiare il codice o influire sull'esperienza utente. La valutazione offline usa i dati passati, inviati dall'applicazione alle API Rank e Reward, per confrontare il modo in cui sono state eseguite diverse classificazioni.
 
 La valutazione offline viene eseguita su un intervallo di date, che si può estendere fino alla data corrente. Il numero di giorni inclusi nell'intervallo non può essere maggiore di quello specificato per la [conservazione dei dati](how-to-settings.md).
 
@@ -56,9 +56,9 @@ Quando si esegue una valutazione offline, è particolarmente importante analizza
 
 ## <a name="how-offline-evaluations-are-done"></a>Come vengono eseguite le valutazioni offline
 
-Le valutazioni offline vengono eseguite secondo il metodo di **valutazione controfattuale**. 
+Le valutazioni offline vengono eseguite secondo il metodo di **valutazione controfattuale**.
 
-Personalizza esperienze si basa sul presupposto che i comportamenti degli utenti (e di conseguenza le ricompense) siano impossibili da prevedere retroattivamente (non si può sapere cosa sarebbe successo se i contenuti mostrati all'utente fossero stati diversi) e che per l'apprendimento si possano usare solo ricompense misurate. 
+Personalizza esperienze si basa sul presupposto che i comportamenti degli utenti (e di conseguenza le ricompense) siano impossibili da prevedere retroattivamente (non si può sapere cosa sarebbe successo se i contenuti mostrati all'utente fossero stati diversi) e che per l'apprendimento si possano usare solo ricompense misurate.
 
 Il processo concettuale usato per le valutazioni è il seguente:
 
@@ -70,11 +70,11 @@ Il processo concettuale usato per le valutazioni è il seguente:
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.

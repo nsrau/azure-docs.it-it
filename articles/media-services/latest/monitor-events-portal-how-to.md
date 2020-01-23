@@ -1,5 +1,5 @@
 ---
-title: Monitorare gli eventi di Servizi multimediali di Azure con Griglia di eventi e il portale | Microsoft Docs
+title: Monitorare gli eventi di servizi multimediali di Azure con griglia di eventi con il portale
 description: Questo articolo illustra come eseguire la sottoscrizione a Griglia di eventi per monitorare gli eventi di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: na
@@ -13,20 +13,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/15/2018
+ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60326530"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509224"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e il portale di Azure
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio utilizza [le sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per indirizzare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
 
-In questo articolo si userà il portale di Azure per sottoscrivere gli eventi per l'account di Servizi multimediali di Azure. Si attiveranno quindi gli eventi per visualizzare i risultati. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Nell'articolo, si inviano eventi a un'app web che raccoglie e visualizza i messaggi.
+In questo articolo si userà il portale di Azure per sottoscrivere gli eventi per l'account di Servizi multimediali di Azure. Si attiveranno quindi gli eventi per visualizzare i risultati. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. In questo articolo si inviano eventi a un'app Web che raccoglie e Visualizza i messaggi.
 
 Al termine, i dati degli eventi saranno stati inviati all'app Web.
 

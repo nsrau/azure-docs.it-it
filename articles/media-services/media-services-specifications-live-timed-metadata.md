@@ -1,5 +1,5 @@
 ---
-title: Servizi multimediali di Azure - Segnalazione dei metadati programmati in streaming live | Microsoft Docs
+title: Servizi multimediali di Azure-segnalazione dei metadati temporizzati nello streaming live
 description: Questa specifica descrive i metodi per segnalare i metadati temporizzati durante l'inserimento e lo streaming in servizi multimediali di Azure. Questo include il supporto per i segnali di metadati temporizzati generici (ID3), nonché la segnalazione SCTE-35 per la segnalazione della condizione di inserimento e di giunzione di annunci.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: fd8533ff310e307604e5ce25a4285cc90f3ea4ab
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933994"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514239"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Segnalazione dei metadati programmati in streaming live 
 
