@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912278"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514256"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -105,7 +105,7 @@ In Windows:
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se IoT Edge Security Manager non è in esecuzione, verificare il file di configurazione yaml
 
 > [!WARNING]
-> I file YAML non possono contenere tabulazioni come rientri. In alternativa usare due spazi.
+> I file YAML non possono contenere tabulazioni come rientri. In alternativa usare due spazi. Gli elementi di primo livello non devono contenere spazi iniziali.
 
 In Linux:
 
@@ -121,7 +121,7 @@ In Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Controllare i log dei contenitori per eventuali problemi
 
-Non appena il daemon di sicurezza di IoT Edge è in esecuzione, esaminare i log dei contenitori per rilevare eventuali problemi. Iniziare con i contenitori distribuiti, quindi esaminare i contenitori che costituiscono il runtime di IoT Edge: edgeAgent e edgeHub. I log dell'agente di IoT Edge in genere forniscono informazioni sul ciclo di vita di ogni contenitore. I log dell'hub IoT Edge forniscono informazioni sulla messaggistica e sul routing. 
+Non appena il daemon di sicurezza di IoT Edge è in esecuzione, esaminare i log dei contenitori per rilevare eventuali problemi. Iniziare con i contenitori distribuiti, quindi esaminare i contenitori che costituiscono il runtime di IoT Edge: edgeAgent e edgeHub. I log dell'agente di IoT Edge in genere forniscono informazioni sul ciclo di vita di ogni contenitore. I log dell'hub IoT Edge forniscono informazioni sulla messaggistica e sul routing.
 
    ```cmd
    iotedge logs <container name>
@@ -163,7 +163,7 @@ Sostituire `env: {}` con:
    ```
 
    > [!WARNING]
-   > I file con estensione yalm non possono contenere tabulazioni per i rientri. In alternativa usare due spazi.
+   > I file con estensione yalm non possono contenere tabulazioni per i rientri. In alternativa usare due spazi. Gli elementi di primo livello non possono contenere spazi vuoti iniziali.
 
 Salvare il file e riavviare il gestore sicurezza IoT Edge.
 
@@ -249,7 +249,7 @@ Non è possibile eseguire un contenitore e nei log di edgeAgent viene visualizza
 
 **Causa radice**
 
-L'agente Microsoft Edge non ha le autorizzazioni necessarie per accedere all'immagine di un modulo.
+L'agente di IoT Edge non dispone delle autorizzazioni necessarie per accedere all'immagine di un modulo.
 
 **Risoluzione**
 
@@ -435,6 +435,6 @@ Assicurarsi di impostare questa impostazione anche per i moduli *edgeAgent* e *e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si ritiene di aver rilevato un bug nella piattaforma di IoT Edge, [Inviare un problema](https://github.com/Azure/iotedge/issues) in modo da poter migliorare l'esperienza. 
+Se si ritiene di aver rilevato un bug nella piattaforma di IoT Edge, [Inviare un problema](https://github.com/Azure/iotedge/issues) in modo da poter migliorare l'esperienza.
 
 In caso di altre domande, creare una [Richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support) per assistenza.

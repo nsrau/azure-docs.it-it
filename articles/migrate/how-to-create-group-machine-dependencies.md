@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: hamusa
-ms.openlocfilehash: 1cd1ff83fd706e3474426f6cc2ac99d39e74dc22
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 96d1c44eb9ecb71684e817a89f9376a07dbe3ccb
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177940"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514970"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze per la valutazione
 
@@ -31,14 +31,14 @@ Il mapping delle dipendenze consente di visualizzare le dipendenze tra i compute
 
 - Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
 - Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
-- Assicurarsi di aver individuato i computer in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md).
+- Assicurarsi di aver individuato i computer in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md)
 
 
 **Funzionalità** | **Nota**
 --- | ---
 Disponibilità | La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 Elenco dei servizi | La visualizzazione delle dipendenze USA Mapping dei servizi soluzione in monitoraggio di Azure. [Mapping dei servizi](../azure-monitor/insights/service-map.md) individua automaticamente e visualizza le connessioni tra i server.
-Agents | Per usare la visualizzazione delle dipendenze, installare gli agenti seguenti nei computer di cui si vuole eseguire il mapping:<br/> - agente [agente log Analytics](../azure-monitor/platform/log-analytics-agent.md) (in precedenza definito Microsoft Monitoring Agent (MMA).<br/> - [mapping dei servizi Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Per automatizzare l'installazione dell'agente, è possibile usare uno strumento di distribuzione come System Center Configuration Manager, che dispone di una soluzione di distribuzione dell'agente per Azure Migrate.
+Agenti | Per usare la visualizzazione delle dipendenze, installare gli agenti seguenti nei computer di cui si vuole eseguire il mapping:<br/> - agente [agente log Analytics](../azure-monitor/platform/log-analytics-agent.md) (in precedenza definito Microsoft Monitoring Agent (MMA).<br/> - [mapping dei servizi Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Per automatizzare l'installazione dell'agente, è possibile usare uno strumento di distribuzione come Configuration Manager, che dispone di una soluzione di distribuzione dell'agente per Azure Migrate.
 Dependency Agent | Esaminare il [supporto di Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) per Windows e Linux.<br/><br/> [Altre](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) informazioni sull'uso degli script per installare Dependency Agent.
 Agente di Log Analytics (MMA) | [Altre](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) informazioni sui metodi di installazione di MMA.<br/><br/> Per i computer monitorati da System Center Operations Manager 2012 R2 o versione successiva, non è necessario installare l'agente MMA. Mapping dei servizi si integra con Operations Manager. È possibile abilitare l'integrazione usando il materiale sussidiario disponibile [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Si noti, tuttavia, che l'agente di dipendenza dovrà essere installato in tali computer.<br/><br/> [Esaminare](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) i sistemi operativi Linux supportati dall'agente log Analytics.
 Gruppi di valutazione | I gruppi per i quali si vuole visualizzare le dipendenze non devono includere più di 10 computer. Se sono presenti più di 10 computer, suddividerli in gruppi più piccoli per visualizzare le dipendenze.
@@ -50,7 +50,7 @@ Per usare la visualizzazione delle dipendenze, è necessario associare un' [area
 - È possibile aggiungere un'area di lavoro solo nella sottoscrizione del progetto Azure Migrate.
 - È possibile alleghi un'area di lavoro esistente o crearne una nuova.
 - L'area di lavoro viene collegata la prima volta che si configura la visualizzazione delle dipendenze per un computer.
-- È possibile aggiungere un'area di lavoro solo dopo l'individuazione di computer nel progetto Azure Migrate. A tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md).
+- È possibile aggiungere un'area di lavoro solo dopo l'individuazione di computer nel progetto Azure Migrate. A tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md)
 
 Alleghi un'area di lavoro come segue:
 
@@ -86,9 +86,9 @@ Per installare l'agente in un computer Windows:
 2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
 3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
-5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Next** (Avanti).
+5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
 
-È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio System Center Configuration Manager o [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sull'uso di questi metodi per installare l'agente MMA. L'agente MMA può essere installato anche usando questo [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio Configuration Manager o [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sull'uso di questi metodi per installare l'agente MMA. L'agente MMA può essere installato anche usando questo [script](https://go.microsoft.com/fwlink/?linkid=2104394).
 
 [Altre](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) informazioni sui sistemi operativi Windows supportati da MMA.
 

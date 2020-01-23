@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/21/2020
+ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456921"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511570"
 ---
 # <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint nei dispositivi gemelli digitali di Azure
 
@@ -23,7 +23,7 @@ Gli eventi vengono indirizzati agli endpoint in base alle preferenze di routing 
 
 Per altre informazioni su eventi, routing e tipi di eventi, vedere [Routing di eventi e messaggi](./concepts-events-routing.md).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per essere elaborati dai broker messaggi ed eventi di Azure. Gli eventi sono definiti dallo [schema di eventi di Griglia di eventi di Azure](../event-grid/event-schema.md) seguente.
 
@@ -47,16 +47,16 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 }
 ```
 
-| Attribute | digitare | DESCRIZIONE |
+| Attributo | Tipo | Description |
 | --- | --- | --- |
-| id | stringa | Identificatore univoco dell'evento. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| data | oggetto | Dati dell'evento specifici del provider di risorse. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| id | string | Identificatore univoco dell'evento. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| data | object | Dati dell'evento specifici del provider di risorse. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 
 Per altre informazioni sullo schema di eventi di Griglia di eventi:
 
@@ -85,18 +85,18 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- Report
+- Documentazione
 - RoleDefinition
 - Sensore
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Spazio
+- Agenzie spaziali
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- System
-- User
+- Sistema
+- Utente
 - UserBlobMetadata
 - UserExtendedProperty
 
@@ -248,7 +248,7 @@ Gli esempi seguenti illustrano come configurare gli endpoint supportati.
 
 Richiesta HTTP POST autenticata rispetto a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 

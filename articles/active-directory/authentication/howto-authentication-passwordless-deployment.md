@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848494"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512573"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Completare una distribuzione di autenticazione non con password
 
@@ -108,7 +108,7 @@ Per abilitare l'accesso a Windows 10 con le chiavi di sicurezza di FIDO2 è nece
    - La distribuzione di Intune è l'opzione consigliata.
 - [Abilitare il provider di credenziali con un pacchetto di provisioning](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Se non è possibile eseguire la distribuzione di Intune, gli amministratori devono distribuire un pacchetto in ogni computer per abilitare la funzionalità del provider di credenziali. L'installazione del pacchetto può essere eseguita tramite una delle opzioni seguenti:
-      - Criteri di gruppo o System Center Configuration Manager (SCCM)
+      - Criteri di gruppo o Configuration Manager
       - Installazione locale in un computer Windows 10
 
 ### <a name="register-security-keys"></a>Registrare le chiavi di sicurezza

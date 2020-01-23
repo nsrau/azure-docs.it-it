@@ -4,28 +4,25 @@ description: Informazioni su come eseguire l'integrazione con il firewall di Azu
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 01/14/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687221"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513346"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
 L'ambiente del servizio app ha diverse dipendenze esterne alle quali deve poter accedere per il corretto funzionamento. L'ambiente del servizio app risiede nella Rete virtuale di Azure (VNet) del cliente. I clienti devono consentire il traffico delle dipendenze dell'ambiente del servizio app e ciò è un problema per i clienti che voglio bloccare tutti i dati in uscita dalla rete virtuale.
 
-Esistono numerose dipendenze in ingresso per un ambiente del servizio app. Il traffico di gestione in ingresso non può essere inviato attraverso un dispositivo firewall. Gli indirizzi di origine per questo traffico sono noti e sono pubblicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app](https://docs.microsoft.com/azure/app-service/environment/management-addresses). È possibile creare regole del gruppo di sicurezza di rete con queste informazioni per proteggere il traffico in ingresso.
+Sono disponibili diversi endpoint in ingresso usati per gestire un ambiente del servizio app. Il traffico di gestione in ingresso non può essere inviato attraverso un dispositivo firewall. Gli indirizzi di origine per questo traffico sono noti e sono pubblicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app](https://docs.microsoft.com/azure/app-service/environment/management-addresses). Esiste anche un tag di servizio denominato AppServiceManagement che può essere usato con i gruppi di sicurezza di rete (gruppi) per proteggere il traffico in ingresso.
 
-Le dipendenze in uscita dell'ambiente del servizio app sono quasi interamente definite con nomi di dominio completo, senza indirizzi statici sottostanti. La mancanza di indirizzi statici significa i gruppi di sicurezza di rete (NSG) non possono essere usati per bloccare il traffico in uscita da un ambiente del servizio app. Gli indirizzi cambiano con una frequenza tale, che non è possibile configurare le regole in base alla risoluzione corrente e usarla per creare gruppi di sicurezza di rete. 
+Le dipendenze in uscita dell'ambiente del servizio app sono quasi interamente definite con nomi di dominio completo, senza indirizzi statici sottostanti. La mancanza di indirizzi statici indica che non è possibile usare i gruppi di sicurezza di rete per bloccare il traffico in uscita da un ambiente del servizio app. Gli indirizzi cambiano con una frequenza tale, che non è possibile configurare le regole in base alla risoluzione corrente e usarla per creare gruppi di sicurezza di rete. 
 
 La soluzione per proteggere gli indirizzi in uscita consiste nell'usare un dispositivo firewall che può controllare il traffico in uscita in base ai nomi di dominio. Firewall di Azure può limitare il traffico HTTP e HTTPS in uscita in base all'FQDN della destinazione.  
-
-> [!NOTE]
-> Attualmente non è possibile bloccare completamente la connessione in uscita.
 
 ## <a name="system-architecture"></a>Architettura di sistema
 
@@ -42,6 +39,12 @@ Il traffico da e verso un ambiente del servizio app deve rispettare le convenzio
 
 ![Flusso di connessioni tra l'ambiente del servizio app e Firewall di Azure][5]
 
+## <a name="locking-down-inbound-management-traffic"></a>Blocco del traffico di gestione in ingresso
+
+Se alla subnet dell'ambiente del servizio app non è già assegnato un NSG, crearne uno. All'interno di NSG impostare la prima regola per consentire il traffico dal tag del servizio denominato AppServiceManagement sulle porte 454, 455. Questo è tutto ciò che è necessario dagli indirizzi IP pubblici per gestire l'ambiente del servizio app. Gli indirizzi protetti da tale tag di servizio vengono utilizzati solo per amministrare il servizio app Azure. Il traffico di gestione che attraversa queste connessioni viene crittografato e protetto con i certificati di autenticazione. Il traffico tipico in questo canale include elementi come i comandi avviati dal cliente e i probe di integrità. 
+
+Gli ambienti effettuate tramite il portale con una nuova subnet vengono eseguite con un NSG che contiene la regola Consenti per il tag AppServiceManagement.  
+
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configurazione di Firewall di Azure con l'ambiente del servizio app 
 
 I passaggi per bloccare i dati in uscita dall'ambiente del servizio app esistente con Firewall di Azure sono:
@@ -51,14 +54,19 @@ I passaggi per bloccare i dati in uscita dall'ambiente del servizio app esistent
    ![Selezionare endpoint di servizio][2]
   
 1. Creare una subnet denominata AzureFirewallSubnet nella rete virtuale in cui si trova l'ambiente del servizio app. Seguire le istruzioni disponibili nella [documentazione di Firewall di Azure](https://docs.microsoft.com/azure/firewall/) per creare un firewall di Azure.
+
 1. Dall'interfaccia utente di Firewall di Azure > Regole > Raccolta regole dell'applicazione, selezionare Aggiungi raccolta regole dell'applicazione. Specificare un nome e una priorità e impostare Consenti. Nella sezione Tag FQDN specificare un nome, impostare gli indirizzi di origine su * e selezionare come tag FQDN l'ambiente del servizio app e Windows Update. 
    
    ![Aggiungere una regola dell'applicazione][1]
    
-1. Dall'interfaccia utente di Firewall di Azure > Regole > Raccolta regole di rete, selezionare Aggiungi raccolta regole di rete. Specificare un nome e una priorità e impostare Consenti. Nella sezione Regole specificare un nome, selezionare **Qualsiasi**, impostare * per gli indirizzi di origine e di destinazione e impostare le porte su 123. Questa regola consente al sistema di eseguire la sincronizzazione dell'orologio tramite NTP. Creare un'altra regola nello stesso modo per la porta 12000 per agevolare la valutazione di eventuali problemi di sistema.
+1. Dall'interfaccia utente di Firewall di Azure > Regole > Raccolta regole di rete, selezionare Aggiungi raccolta regole di rete. Specificare un nome e una priorità e impostare Consenti. Nella sezione regole, in indirizzi IP, specificare un nome, selezionare un ptocol di **qualsiasi**, impostare * su indirizzi di origine e destinazione e impostare le porte su 123. Questa regola consente al sistema di eseguire la sincronizzazione dell'orologio tramite NTP. Creare un'altra regola nello stesso modo per la porta 12000 per agevolare la valutazione di eventuali problemi di sistema. 
 
    ![Aggiungere una regola di rete NTP][3]
+   
+1. Dall'interfaccia utente di Firewall di Azure > Regole > Raccolta regole di rete, selezionare Aggiungi raccolta regole di rete. Specificare un nome e una priorità e impostare Consenti. Nella sezione regole in tag servizio specificare un nome, selezionare un protocollo, impostare * su **indirizzi di origine**, selezionare un tag di servizio di AzureMonitor e impostare le porte su 80, 443. Questa regola consente al sistema di fornire monitoraggio di Azure con informazioni sull'integrità e sulle metriche.
 
+   ![Aggiungi regola di rete di tag del servizio NTP][6]
+   
 1. Creare una tabella di route con gli indirizzi di gestione dagli [indirizzi di gestione dell'ambiente del servizio app]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) con hop successivo Internet. Le voci della tabella di route sono necessarie per evitare problemi di routing asimmetrico. Aggiungere le route per le dipendenze dell'indirizzo IP indicate di seguito nelle dipendenze dell'indirizzo IP con hop successivo Internet. Aggiungere una route di appliance virtuale alla tabella di route per 0.0.0.0/0 con hop successivo corrispondente all'indirizzo IP privato di Firewall di Azure. 
 
    ![Creazione di una tabella di route][4]
@@ -90,7 +98,7 @@ Firewall di Azure può inviare log ai log di Archiviazione di Azure, Hub eventi 
  
 L'integrazione del firewall di Azure con i log di monitoraggio di Azure è utile quando si esegue per la prima volta un'applicazione quando non si è a conoscenza di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di monitoraggio di Azure, vedere [analizzare i dati del log in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Le informazioni seguenti sono necessarie solo se si vuole configurare un'appliance firewall diversa da Firewall di Azure. 
 
@@ -248,7 +256,25 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 
 ## <a name="us-gov-dependencies"></a>Dipendenze US Gov
 
-Per US Gov è ancora necessario impostare gli endpoint di servizio per archiviazione, SQL e hub eventi.  È anche possibile usare il firewall di Azure con le istruzioni riportate in precedenza in questo documento. Se è necessario usare il proprio dispositivo firewall in uscita, gli endpoint sono elencati di seguito.
+Per gli ambienti in US Gov aree, seguire le istruzioni riportate nella sezione [configurazione del firewall di Azure con l'](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) ambiente del servizio app di questo documento per configurare un firewall di Azure con l'ambiente del servizio app.
+
+Se si vuole usare un dispositivo diverso da firewall di Azure in US Gov 
+
+* Con gli endpoint di servizio devono essere configurati servizi che supportano endpoint di servizio.
+* Gli endpoint HTTP/HTTPS con nome di dominio completo possono essere posizionati nel dispositivo firewall.
+* Gli endpoint HTTP/HTTPS con caratteri jolly sono dipendenze che possono variare con l'ambiente del servizio app in base a svariati qualificatori.
+
+Linux non è disponibile nelle aree US Gov e pertanto non è elencato come configurazione facoltativa.
+
+#### <a name="service-endpoint-capable-dependencies"></a>Dipendenze che supportano endpoint di servizio ####
+
+| Endpoint |
+|----------|
+| Azure SQL |
+| Archiviazione di Azure |
+| Hub eventi di Azure |
+
+#### <a name="dependencies"></a>Dependencies ####
 
 | Endpoint |
 |----------|
@@ -375,3 +401,4 @@ Per US Gov è ancora necessario impostare gli endpoint di servizio per archiviaz
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
 [5]: ./media/firewall-integration/firewall-topology.png
+[6]: ./media/firewall-integration/firewall-ntprule-monitor.png

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: ed7b12b24e6129d6cf609f4345203abc783e9f62
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 8ed32ccedcd6cc4ffd159069399c0417842325d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864061"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514919"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale
 
@@ -341,7 +341,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-Se non c'è alcun criterio IPsec/IKE configurato, il comando (PS> $connection6.policy) non restituisce nulla. Ciò non significa che IPsec/IKE non sia configurato per la connessione, ma che non c'è alcun criterio IPsec/IKE personalizzato. La connessione effettiva usa il criterio predefinito negoziato tra il dispositivo VPN locale e il gateway VPN di Azure.
+Se non esiste alcun criterio IPsec/IKE configurato, il comando (PS > $connection 6. IpsecPolicies) ottiene un valore restituito vuoto. Ciò non significa che IPsec/IKE non sia configurato per la connessione, ma che non c'è alcun criterio IPsec/IKE personalizzato. La connessione effettiva usa il criterio predefinito negoziato tra il dispositivo VPN locale e il gateway VPN di Azure.
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. aggiungere o aggiornare un criterio IPsec/IKE per una connessione
 

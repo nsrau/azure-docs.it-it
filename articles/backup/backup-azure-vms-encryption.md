@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure crittografate
 description: Viene descritto come eseguire il backup e il ripristino di VM di Azure crittografate con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449975"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513780"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e il ripristino di VM di Azure crittografate
 
@@ -53,7 +53,6 @@ Prima di iniziare, eseguire le operazioni seguenti:
 Inoltre, in alcune circostanze potrebbe essere necessario eseguire alcune operazioni:
 
 - **Installare l'agente di macchine virtuali nella VM**: backup di Azure esegue il backup delle VM di Azure installando un'estensione nell'agente di macchine virtuali di Azure in esecuzione nel computer. Se la macchina virtuale è stata creata da un'immagine di Azure Marketplace, l'agente è installato e in esecuzione. Se si crea una VM personalizzata o si esegue la migrazione di un computer locale, potrebbe essere necessario [installare l'agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-- **Consentire esplicitamente l'accesso in uscita**: in genere non è necessario consentire in modo esplicito l'accesso alla rete in uscita per una macchina virtuale di Azure per poter comunicare con backup di Azure. Tuttavia, alcune macchine virtuali potrebbero riscontrare problemi di connessione, mostrando l'errore **ExtensionSnapshotFailedNoNetwork** durante il tentativo di connessione. In tal caso, è necessario [consentire in modo esplicito l'accesso in uscita](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), in modo che l'estensione di backup di Azure possa comunicare con gli indirizzi IP pubblici di Azure per il traffico di backup.
 
 ## <a name="configure-a-backup-policy"></a>Configurare un criterio di backup
 

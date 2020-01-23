@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: ecc2a8236b51013895bfe831d6785ff3e6925906
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979673"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514487"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -61,6 +61,7 @@ Aggiunta del supporto per i nuovi codificatori partner consigliati seguenti per 
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>Miglioramenti della codifica file
+
 - È ora disponibile un nuovo set di impostazioni di codifica compatibile con il contenuto. Produce un set di MP4s allineati a GOP usando la codifica compatibile con il contenuto. Dato un contenuto di input, il servizio esegue un'analisi leggera iniziale del contenuto di input. USA tali risultati per determinare il numero ottimale di livelli, la velocità in bit appropriata e le impostazioni di risoluzione per il recapito tramite flusso adattivo. Questo set di impostazioni è particolarmente efficace per i video di bassa complessità e di complessità media, in cui i file di output sono a velocità in bit inferiori, ma con una qualità che offre comunque una valida esperienza ai visualizzatori. L'output conterrà file MP4 con interfoliazione video e audio. Per altre informazioni, vedere le [specifiche API aperte](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
 - Miglioramento delle prestazioni e del multithreading per il ridimensionamento in Media Encoder Standard. In condizioni specifiche, il cliente dovrebbe vedere un miglioramento delle prestazioni compreso tra il 5-40% di codifica VOD. Il contenuto con complessità bassa codificato in più velocità in bit vedrà un aumento delle prestazioni più elevato. 
 - La codifica standard ora mantiene una cadenza del GOP normale per il contenuto della frequenza dei fotogrammi variabile (VFR) durante la codifica VOD quando si usa l'impostazione GOP basata sul tempo.  Questo significa che il cliente che invia un contenuto misto di frequenza dei fotogrammi che varia da 15-30 fps ad esempio dovrebbe ora visualizzare le distanze GOP regolari calcolate nell'output per i file MP4 in streaming a bitrate adattivo. Ciò consente di migliorare la capacità di passare da una traccia all'altra durante la distribuzione tramite HLS o DASH. 
@@ -82,7 +83,7 @@ Media Services V3 annuncia l'anteprima di 24 ore x 365 giorni di Live Linear enc
 
 #### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. Il processore di contenuti multimediali [Azure Media Indexer](../previous/media-services-index-content.md) verrà ritirato il 1 ° ottobre del 2020. I processori di contenuti multimediali [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) verranno ritirati il 1 ° gennaio 2020. [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](../previous/legacy-components.md) . [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
 
 Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -100,7 +101,7 @@ Per altre informazioni, vedere [cloud e aree in cui è disponibile Media Service
 
 #### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-Microsoft sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME), che verranno ritirati il 31 marzo 2020.
+Si sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME), che sono in fase di ritiro. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](../previous/legacy-components.md) .
 
 Per informazioni dettagliate, vedere [eseguire la migrazione di biaigi a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101334) ed [eseguire la migrazione di Ame a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
