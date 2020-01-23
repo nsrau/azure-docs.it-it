@@ -1,5 +1,5 @@
 ---
-title: Pianificare una distribuzione di Azure Active Directory Single Sign-on
+title: Pianificare una distribuzione di Azure Active Directory Single Sign-On
 description: Guida per la pianificazione, la distribuzione e la gestione dell'accesso SSO nell'organizzazione.
 services: active-directory
 author: jeevansd
@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779371"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512828"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -45,11 +45,11 @@ Azure Marketplace ha più di 3000 applicazioni con connessioni SSO pre-integrate
 
 Un'implementazione SSO basata sui protocolli federativi migliora la sicurezza, l'affidabilità e l'esperienza degli utenti finali ed è più facile da implementare. Molte applicazioni sono pre-integrate in Azure AD con [guide dettagliate disponibili](../saas-apps/tutorial-list.md). È possibile trovarli in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Informazioni dettagliate su ogni metodo SSO sono disponibili nell'articolo [accesso Single Sign-on alle applicazioni in Azure Active Directory](what-is-single-sign-on.md).
 
-Esistono due modi principali in cui è possibile abilitare gli utenti per l'accesso Single Sign-on alle app:
+Esistono due modi principali in cui è possibile consentire agli utenti di Single Sign-On alle app:
 
-- **Con Single Sign-on federato** Azure AD autentica l'utente nell'applicazione utilizzando il relativo account Azure AD. Questo metodo è supportato per le applicazioni che supportano protocolli quali SAML 2,0, WS-Federation o OpenID Connect ed è la modalità di accesso Single Sign-on più ricca. Si consiglia di utilizzare SSO federato con Azure AD quando un'applicazione la supporta, anziché SSO basato su password e ADFS.
+- **Con Single Sign-on federato** Azure AD autentica l'utente nell'applicazione utilizzando il relativo account Azure AD. Questo metodo è supportato per le applicazioni che supportano protocolli quali SAML 2,0, WS-Federation o OpenID Connect ed è la modalità di Single Sign-On più ricca. Si consiglia di utilizzare SSO federato con Azure AD quando un'applicazione la supporta, anziché SSO basato su password e ADFS.
 
-- **Con l'accesso Single Sign-on basato su password** , l'utente accede all'applicazione con un nome utente e una password per la prima volta. Agli accessi successivi sarà Azure AD a indicare il nome utente e la password all'applicazione. L'accesso Single Sign-On basato su password consente l'archiviazione e la riproduzione delle password delle applicazioni protette usando un'estensione del Web browser o un'app per dispositivi mobili. Questa opzione sfrutta il processo di accesso esistente fornito dall'applicazione, consente a un amministratore di gestire le password e non richiede che l'utente conosca la password.
+- **Con Single Sign-on basate su password** , gli utenti accedono all'applicazione con un nome utente e una password per la prima volta. Agli accessi successivi sarà Azure AD a indicare il nome utente e la password all'applicazione. L'accesso Single Sign-On basato su password consente l'archiviazione e la riproduzione delle password delle applicazioni protette usando un'estensione del Web browser o un'app per dispositivi mobili. Questa opzione sfrutta il processo di accesso esistente fornito dall'applicazione, consente a un amministratore di gestire le password e non richiede che l'utente conosca la password.
 
 ### <a name="considerations-for-federation-based-sso"></a>Considerazioni per SSO basato su Federazione
 
@@ -62,7 +62,7 @@ Esistono due modi principali in cui è possibile abilitare gli utenti per l'acce
 L'utilizzo di Azure AD per l'accesso SSO basato su password richiede la distribuzione di un'estensione del browser che recupererà in modo sicuro le credenziali e compilerà i form di accesso. Definire un meccanismo per distribuire l'estensione su larga scala con i [browser supportati](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Le opzioni includono:
 
 - [Criteri di gruppo per Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) per Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Configuration Manager per Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Download e configurazione gestiti dall'utente per Chrome, Firefox, Microsoft Edge o IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Per ulteriori informazioni, vedere [come configurare la password Single Sign-on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
@@ -117,12 +117,12 @@ Di seguito sono elencati alcuni degli argomenti chiave da pianificare durante la
 
 Azure AD fornisce [report contenenti informazioni tecniche e aziendali](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
 
-Sono disponibili sia report di sicurezza che di attività. I report di sicurezza mostrano gli utenti contrassegnati per il rischio e gli accessi a rischio. I report delle attività consentono di comprendere il comportamento degli utenti dell'organizzazione, fornendo informazioni dettagliate sulle attività di accesso e fornendo audit trail di tutti gli account di accesso. È possibile utilizzare i report per gestire i rischi, aumentare la produttività e monitorare la conformità.
+Sono disponibili sia report di sicurezza che di attività. I report sulla sicurezza mostrano gli utenti contrassegnati per il rischio e gli accessi a rischio. i report sulle attività consentono di comprendere il comportamento degli utenti dell'organizzazione, fornendo informazioni dettagliate sulle attività di accesso e fornendo audit trail di tutti gli account di accesso. È possibile utilizzare i report per gestire i rischi, aumentare la produttività e monitorare la conformità.
 
-| Tipo di report | Verifica di accesso | Report sulla sicurezza | Report di accesso |
+| Tipo di rapporto | Verifica di accesso | Report sulla sicurezza | Report di accesso |
 |-------------|---------------|------------------|----------------|
 | Usare per esaminare | Autorizzazioni e utilizzo dell'applicazione. | Account potenzialmente compromessi | Utenti che accedono alle applicazioni |
-| Azioni potenziali | Controllare l'accesso; revoca autorizzazioni | Revoca l'accesso; forza reimpostazione della sicurezza | Revoca l'accesso |
+| Azioni potenziali | Controllare l'accesso; revoca autorizzazioni | Revoca l'accesso; forza reimpostazione della sicurezza | revoca dell'accesso |
 
 Azure AD mantiene la maggior parte dei dati di controllo per 30 giorni e rende disponibili i dati tramite il portale di amministrazione di Azure o tramite un'API da scaricare nei sistemi di analisi.
 
@@ -138,7 +138,7 @@ La distribuzione di MCAS consente di:
 - Usa la protezione Controllo app per l'accesso condizionale per ottenere visibilità e controllo in tempo reale dell'accesso e delle attività nelle app Cloud
 - Consente di avere un controllo continuo impostando e quindi ottimizzando costantemente i criteri.
 
-Il controllo della sessione MCAS (Microsoft Cloud Application Security) è disponibile per qualsiasi browser su qualsiasi piattaforma principale in qualsiasi sistema operativo. Le app per dispositivi mobili e le app desktop possono anche essere bloccate o consentite. Grazie all'integrazione nativa con Azure AD, è possibile supportare tutte le app configurate con SAML o le app Open ID Connect con Single Sign-on in Azure AD, incluse [diverse app in primo piano](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
+Il controllo della sessione MCAS (Microsoft Cloud Application Security) è disponibile per qualsiasi browser su qualsiasi piattaforma principale in qualsiasi sistema operativo. È anche possibile bloccare o consentire le app per dispositivi mobili e le app desktop. Grazie all'integrazione nativa con Azure AD, è possibile supportare tutte le app configurate con SAML o app Open ID Connect con Single Sign-On in Azure AD, incluse [alcune app in primo piano](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
 
 Per informazioni su MCAS, vedere la [Panoramica di Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS è un servizio di sottoscrizione basato su utente. È possibile esaminare i dettagli relativi alle licenze nel [foglio dati di licenza MCAS](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
 
@@ -156,7 +156,7 @@ La sezione seguente illustra in dettaglio i requisiti per configurare l'applicaz
 
 Per tutte le app SaaS pre-integrate, Microsoft fornisce un'esercitazione e non è necessario disporre di queste informazioni. Se l'applicazione non si trovi nel Marketplace o nella raccolta di applicazioni, potrebbe essere necessario raccogliere i dati seguenti:
 
-- **Provider di identità corrente usato dall'applicazione per SSO, se applicabile** , ad esempio: AD FS, PingFederate, okta
+- **Provider di identità corrente usato dall'applicazione per SSO, se applicabile** , ad esempio: ad FS, PingFederate, okta
 - **Protocolli supportati dall'applicazione di destinazione** , ad esempio SAML 2,0, OpenID Connect, OAuth, l'autenticazione basata su form, WS-Fed, WS-Trust
 - **Protocollo configurato con Azure ad** , ad esempio SAML 2,0 o 1,1, OpenID Connect, OAuth, basata su form, WS-Fed
 
@@ -164,7 +164,7 @@ Per tutte le app SaaS pre-integrate, Microsoft fornisce un'esercitazione e non �
 
 Esiste un set preconfigurato di attributi e mapping di attributi tra Azure AD oggetti utente e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, ad esempio i gruppi. Pianificare il mapping degli attributi utente da Azure AD all'applicazione e [personalizzare i mapping](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) degli attributi predefiniti in base alle esigenze aziendali.
 
-### <a name="certificate-requirements"></a>Requisiti del certificato
+### <a name="certificate-requirements"></a>Requisiti dei certificati
 
 Il certificato per l'applicazione deve essere aggiornato o il rischio che gli utenti non siano in grado di accedere all'applicazione. La maggior parte dei certificati di applicazioni SaaS è buona per 36 mesi. Modificare la durata del certificato nel pannello dell'applicazione. Assicurarsi di documentare la scadenza e di comprendere come si gestirà il rinnovo del certificato. 
 
@@ -182,11 +182,11 @@ Usare le fasi seguenti per pianificare e distribuire la soluzione nell'organizza
 
 - **Identificazione degli utenti di test**
 
-   Contattare il proprietario dell'app e chiedere di creare almeno tre utenti di test all'interno dell'applicazione. Verificare che le informazioni che verranno usate come identificatore primario vengano popolate correttamente e corrispondano a un attributo disponibile in Azure AD. Nella maggior parte dei casi viene mappato a "NameID" per le applicazioni basate su SAML. Per i token JWT, è "preferred_username".
+   Contattare il proprietario dell'app e chiedere di creare almeno tre utenti di test all'interno dell'applicazione. Verificare che le informazioni che verranno usate come identificatore primario vengano popolate correttamente e corrispondano a un attributo disponibile in Azure AD. Nella maggior parte dei casi viene mappato a "NameID" per le applicazioni basate su SAML. Per i token JWT, è il "preferred_username".
    
    Creare l'utente in Azure AD manualmente come utente basato sul cloud o sincronizzare l'utente da locale usando il motore di sincronizzazione Azure AD Connect. Verificare che le informazioni corrispondano alle attestazioni inviate all'applicazione.
 
-- **Configura SSO**
+- **Configurare SSO**
 
    Dall' [elenco di applicazioni](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), individuare e aprire l'esercitazione SSO per l'applicazione, quindi seguire i passaggi dell'esercitazione in per configurare correttamente l'applicazione SaaS.
 
@@ -236,17 +236,17 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
-| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuna |
+| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuno |
 | Amministratore identità | Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD | Amministratore globale |
-| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuna |
+| Amministratore applicazioni | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
-| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuna |
+| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 
 È consigliabile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 
 ### <a name="sso-certificate-lifecycle-management"></a>Gestione del ciclo di vita dei certificati SSO
 
-È importante identificare i ruoli corretti e le liste di distribuzione di posta elettronica con il compito di gestire il ciclo di vita del certificato di firma tra Azure AD e l'applicazione configurata con Single Sign-on. Di seguito sono riportati alcuni dei ruoli chiave consigliati:
+È importante identificare i ruoli corretti e le liste di distribuzione di posta elettronica con il compito di gestire il ciclo di vita del certificato di firma tra Azure AD e l'applicazione configurata con Single Sign-On. Di seguito sono riportati alcuni dei ruoli chiave consigliati:
 
 - Proprietario per l'aggiornamento delle proprietà utente nell'applicazione
 - Proprietario su richiesta per il supporto di interruzioni/correzioni di applicazioni
@@ -264,7 +264,7 @@ La disponibilità dei metodi di autenticazione all'interno dell'applicazione det
 
 - **Se l'app non supporta più IDP** ma consente agli utenti di accedere usando l'autenticazione basata su form (nome utente/password), assicurarsi che gli utenti possano eseguire il fallback a questo approccio nel caso in cui la nuova implementazione della configurazione SSO non riesca.
 
-### <a name="access-management"></a>gestione degli accessi
+### <a name="access-management"></a>Gestione degli accessi
 
 È consigliabile scegliere un approccio ridimensionato per la gestione dell'accesso alle risorse. Gli approcci comuni includono l'uso di gruppi locali tramite la sincronizzazione tramite Azure AD Connect, la [creazione di gruppi dinamici in Azure ad in base agli attributi utente](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)o la creazione di [gruppi self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) in Azure ad gestiti da un proprietario di risorse.
 
@@ -272,7 +272,7 @@ La disponibilità dei metodi di autenticazione all'interno dell'applicazione det
 
 Si consiglia di configurare una cadenza regolare in cui si esaminano i diversi aspetti della sicurezza delle app SaaS e si eseguono le azioni correttive necessarie.
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 I collegamenti seguenti presentano scenari di risoluzione dei problemi. Potrebbe essere necessario creare una guida specifica per il personale di supporto che incorpora questi scenari e i passaggi per correggerli.
 

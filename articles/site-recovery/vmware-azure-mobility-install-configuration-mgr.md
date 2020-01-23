@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 318b73011901e9ab07643bc2ecec28e5016e8702
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613908"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514816"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizzare l'installazione del servizio Mobility
 
@@ -19,8 +19,8 @@ Questo articolo descrive come automatizzare l'installazione e gli aggiornamenti 
 Quando si distribuisce Site Recovery per il ripristino di emergenza di server fisici e macchine virtuali VMware locali in Azure, si installa l'agente del servizio Mobility in ogni computer che si vuole replicare. Il servizio Mobility acquisisce le scritture dei dati nel computer e le invia al server di elaborazione Site Recovery per la replica. Il servizio Mobility può essere distribuito in due modi:
 
 - **Installazione push**: consente di Site Recovery installare l'agente del servizio Mobility quando si Abilita la replica per un computer nel portale di Azure.
-- **Installazione manuale**: installare manualmente il servizio Mobility in ogni computer. [Altre](vmware-physical-mobility-service-overview.md) informazioni sull'installazione push e manuale.
-- **Distribuzione automatizzata**: automatizzare l'installazione con strumenti di distribuzione software come System Center Configuration Manager o strumenti di terze parti come Intigua JetPatch.
+- **Installazione manuale**: installare manualmente il servizio Mobility in ogni computer. [Altre](/vmware-physical-mobility-service-overview.md) informazioni sull'installazione push e manuale.
+- **Distribuzione automatizzata**: automatizzare l'installazione con strumenti di distribuzione software, ad esempio Microsoft endpoint Configuration Manager o strumenti di terze parti come Intigua JetPatch.
 
 L'installazione e l'aggiornamento automatici forniscono una soluzione se:
 

@@ -5,20 +5,20 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 7c40cfc8fbc6a9957281be842f6714fa9289a3c8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122220"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513737"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
 Azure FarmBeats consente di portare i dati in streaming dai dispositivi e dai sensori Internet in datahub. Attualmente sono supportati i seguenti partner di dispositivi per i sensori.
 
-  ![Partner FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![Partner FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-L'integrazione dei dati del dispositivo con Azure FarmBeats consente di ottenere dati di base dai sensori di Internet delle cose distribuiti nella farm alla datahub. I dati, una volta disponibili, possono essere visualizzati tramite l'acceleratore FarmBeats. I dati possono essere usati per la compilazione di modelli di data fusion e Machine Learning/intelligenza artificiale (ML/AI) usando FarmBeats.
+L'integrazione dei dati del dispositivo con Azure FarmBeats consente di ottenere dati di base dai sensori di Internet delle cose distribuiti nella farm nell'hub dati. I dati, una volta disponibili, possono essere visualizzati tramite l'acceleratore FarmBeats. I dati possono essere usati per la compilazione di modelli di data fusion e Machine Learning/intelligenza artificiale (ML/AI) usando FarmBeats.
 
 Per avviare il flusso di dati dei sensori, verificare quanto segue:
 
@@ -44,7 +44,7 @@ In alternativa, è possibile generare le credenziali eseguendo questo script da 
 1. Scaricare il [file zip](https://aka.ms/farmbeatspartnerscriptv2)ed estrarlo nell'unità locale. Sarà presente un file all'interno del file zip.
 2. Accedere a https://portal.azure.com/ e passare a Azure Active Directory-> registrazioni per l'app
 
-3. Fare clic sulla registrazione dell'app creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome di FarmBeats datahub.
+3. Fare clic sulla registrazione dell'app creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome dell'hub dati FarmBeats.
 
 4. Fare clic su "esporre un'API"-> fare clic su "Aggiungi applicazione client" e immettere **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** e selezionare "autorizzazione ambito". In questo modo si concederà l'accesso all'interfaccia della riga di comando di Azure (Cloud Shell) per eseguire i passaggi seguenti.
 

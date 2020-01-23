@@ -8,18 +8,18 @@ ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad92d4cf0d5b61c778b87114d4be6c23557f8e26
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457146"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510941"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge simulato con un TPM virtuale in Windows
 
-È possibile effettuare il provisioning di dispositivi Azure IoT Edge tramite il [servizio Device Provisioning](../iot-dps/index.yml) esattamente come per i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
+È possibile effettuare il provisioning automatico di dispositivi Azure IoT Edge tramite il [servizio Device Provisioning](../iot-dps/index.yml) esattamente come per i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
 
-DPS supporta l'attestazione della chiave simmetrica per i dispositivi IoT Edge sia nella registrazione singola che nella registrazione di gruppo. Per la registrazione di gruppo, se si seleziona l'opzione "IoT Edge dispositivo" come true nell'attestazione della chiave simmetrica, tutti i dispositivi registrati nel gruppo di registrazioni verranno contrassegnati come IoT Edge dispositivi. 
+DPS supporta l'attestazione della chiave simmetrica per i dispositivi IoT Edge sia nella registrazione singola che nella registrazione di gruppo. Per la registrazione di gruppo, se si seleziona l'opzione "IoT Edge dispositivo" come true nell'attestazione della chiave simmetrica, tutti i dispositivi registrati nel gruppo di registrazioni verranno contrassegnati come IoT Edge dispositivi.
 
 Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge simulato con i passaggi seguenti:
 
@@ -28,16 +28,16 @@ Questo articolo illustra come testare il provisioning automatico in un dispositi
 * Creare una singola registrazione per il dispositivo.
 * Installare il runtime IoT Edge e connettere il dispositivo all'hub IoT.
 
-> [!NOTE]
-> Il TPM 2,0 è obbligatorio quando si usa l'attestazione TPM con DPS e può essere usato solo per creare registrazioni individuali, non di gruppo.
-
 > [!TIP]
 > Questo articolo descrive il test del provisioning automatico usando l'attestazione TPM nei dispositivi virtuali, ma la maggior parte di esso si applica anche quando si usa l'hardware TPM fisico.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un computer di sviluppo Windows. In questo articolo viene usato Windows 10.
 * Un hub IoT attivo.
+
+> [!NOTE]
+> Il TPM 2,0 è obbligatorio quando si usa l'attestazione TPM con DPS e può essere usato solo per creare registrazioni individuali, non di gruppo.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configurare il servizio Device Provisioning in hub IoT di Azure
 
@@ -65,7 +65,7 @@ Guide relative ai dispositivi simulati e alle singole registrazioni:
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
 * [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.JS](../iot-dps/quick-create-simulated-device-tpm-node.md)
+* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 Dopo aver creato la singola registrazione, salvare il valore di **ID registrazione**. Questo valore viene usato quando si configura il runtime IoT Edge.

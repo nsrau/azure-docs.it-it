@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Usare Java per chiamare l'API REST Ricerca Web Bing"
+title: "Avvio rapido: Usare Java per chiamare l'API REST Ricerca Web Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando Java e ricevere una risposta JSON
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8bdc6acb17cde29b99bad20a45f41d6bfc174363
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1fdeffb5ee5b1e2d66fbf5586d307cd8d8b78858
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976350"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166736"
 ---
-# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Guida introduttiva: Usare Java per eseguire ricerche nel Web con l'API REST di Ricerca Web Bing, un servizio cognitivo di Azure
+# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Avvio rapido: Usare Java per eseguire ricerche nel Web con l'API REST di Ricerca Web Bing, un servizio cognitivo di Azure
 
 In questo argomento di avvio rapido si userà un'applicazione Java per effettuare la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Java invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
@@ -213,9 +213,9 @@ Le risposte dell'API Ricerca Web Bing vengono restituite in formato JSON. Questa
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",

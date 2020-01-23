@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 9b661a7fa6a7b9f079a3b24d1b83f27118c4bd23
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/21/2020
+ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745861"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514681"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente nel database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -43,8 +43,9 @@ Altri parametri che è possibile modificare includono:
 - **log_throttle_queries_not_using_indexes**: questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
 - **log_output**: se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se "None", il log di query lente verrà scritto solo nei log di diagnostica di monitoraggio di Azure. 
 
-> [!Note]
-> Per `sql_text`, il log verrà troncato se supera i 2048 caratteri.
+> [!IMPORTANT]
+> Se le tabelle non sono indicizzate, l'impostazione dei parametri `log_queries_not_using_indexes` e `log_throttle_queries_not_using_indexes` su ON può influire sulle prestazioni di MySQL, perché tutte le query in esecuzione in queste tabelle non indicizzate verranno scritte nel log di query lente.<br><br>
+> Se si prevede di registrare query lente per un periodo di tempo prolungato, è consigliabile impostare `log_output` su "None". Se impostato su "file", questi log vengono scritti nell'archivio locale del server e possono influenzare le prestazioni di MySQL. 
 
 Per una descrizione completa dei parametri per il log di query lente, vedere la [documentazione sul log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) per MySQL.
 
@@ -84,5 +85,64 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `thread_id_s` | ID del thread |
 | `\_ResourceId` | URI della risorsa |
 
+> [!Note]
+> Per `sql_text`, il log verrà troncato se supera i 2048 caratteri.
+
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analizzare i log nei log di monitoraggio di Azure
+
+Quando i log di query lente vengono inviati tramite pipe ai log di monitoraggio di Azure tramite i log di diagnostica, è possibile eseguire un'ulteriore analisi delle query lente. Di seguito sono riportate alcune query di esempio utili per iniziare. Assicurarsi di aggiornare quanto segue con il nome del server.
+
+- Query con più di 10 secondi in un determinato server
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```
+
+- Elenca le prime cinque query più lunghe su un server specifico
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | order by query_time_d desc
+    | take 5
+    ```
+
+- Riepilogare query lente per tempo di query minimo, massimo, medio e di deviazione standard in un determinato server
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
+    ```
+
+- Grafico della distribuzione di query lente in un determinato server
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart
+    ```
+
+- Visualizza query per più di 10 secondi in tutti i server MySQL con i log di diagnostica abilitati
+
+    ```Kusto
+    AzureDiagnostics
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```    
+    
 ## <a name="next-steps"></a>Fasi successive
-- [Come configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).
+- [Come configurare i log di query lente dal portale di Azure](howto-configure-server-logs-in-portal.md)
+- [Come configurare i log di query lente dall'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).

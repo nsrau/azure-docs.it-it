@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028735"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289442"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Valutare le macchine virtuali VMware con Valutazione server di Azure Migrate
 
@@ -176,7 +176,7 @@ L'appliance deve connettersi al server vCenter per individuare la configurazione
 1. Selezionare **Convalida connessione** per verificare che l'appliance possa connettersi al server vCenter.
 
 ### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM
-Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali delle macchine virtuali che hanno accesso alle macchine virtuali VMware. È possibile aggiungere credenziali per le macchine virtuali Windows e per le macchine virtuali Linux. [Altre informazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sulle autorizzazioni di accesso necessarie.
+Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali delle macchine virtuali che hanno accesso alle macchine virtuali VMware. È possibile aggiungere credenziali per le macchine virtuali Windows e per le macchine virtuali Linux. [Altre informazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sulle autorizzazioni di accesso necessarie.
 
 > [!NOTE]
 > Questo input è facoltativo, ma è necessario per abilitare l'individuazione delle applicazioni e la visualizzazione delle dipendenze senza agente.
@@ -210,7 +210,7 @@ Questa procedura è necessaria per la migrazione del server senza agente.
 1.  Selezionare l'istanza del server vCenter dal menu a discesa.
 1.  Selezionare **Create role** (Crea ruolo).
 1.  Immettere un nome per il nuovo ruolo, ad esempio <em>Azure_Migrate</em>.
-1.  Assegnare le [autorizzazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) al ruolo appena definito.
+1.  Assegnare le [autorizzazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) al ruolo appena definito.
 1.  Selezionare **OK**.
 
 #### <a name="3-assign-permissions-on-vcenter-objects"></a>3. Assegnare le autorizzazioni per gli oggetti vCenter
@@ -219,7 +219,7 @@ Sono disponibili due approcci per assegnare le autorizzazioni per gli oggetti in
 
 Per Valutazione server, è necessario applicare il ruolo **Read-only** (sola lettura) all'account utente vCenter per tutti gli oggetti padre in cui sono ospitate le macchine virtuali da individuare. Tutti gli oggetti padre (host, cartella di host, cluster, cartella di cluster) nella gerarchia fino al data center verranno inclusi. Queste autorizzazioni verranno propagate agli oggetti figlio nella gerarchia.
 
-Allo stesso modo, per la migrazione del server, è necessario applicare un ruolo definito dall'utente con le [autorizzazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) per l'account utente vCenter per tutti gli oggetti padre che ospitano le macchine virtuali di cui verrà eseguita la migrazione. Questo ruolo può essere denominato <em>Azure_Migrate</em>.
+Allo stesso modo, per la migrazione del server, è necessario applicare un ruolo definito dall'utente con le [autorizzazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) per l'account utente vCenter per tutti gli oggetti padre che ospitano le macchine virtuali di cui verrà eseguita la migrazione. Questo ruolo può essere denominato <em>Azure_Migrate</em>.
 
 ![Assegnare le autorizzazioni](./media/tutorial-assess-vmware/assign-perms.png)
 

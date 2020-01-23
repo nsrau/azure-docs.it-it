@@ -3,12 +3,12 @@ title: Funzioni modello-risorse
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 56ace8c75ea27eb4d730b1630115b6fcbdc3f575
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 1b860876b0d8967a6a3f90c7bb68f20d6c442109
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310535"
+ms.locfileid: "76513865"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -32,7 +32,7 @@ Per ottenere valori dai parametri, dalle variabili o dalla distribuzione corrent
 extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Restituisce l'ID di risorsa per una [risorsa di estensione](extension-resource-types.md), che è un tipo di risorsa applicato a un'altra risorsa da aggiungere alle funzionalità.
+Restituisce l'ID di risorsa per una [risorsa di estensione](../management/extension-resource-types.md), che è un tipo di risorsa applicato a un'altra risorsa da aggiungere alle funzionalità.
 
 ### <a name="parameters"></a>Parametri
 
@@ -536,7 +536,7 @@ Ad esempio:
 
 ### <a name="get-managed-identity"></a>Ottieni identità gestita
 
-[Le identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md) sono [tipi di risorse di estensione](extension-resource-types.md) che vengono creati in modo implicito per alcune risorse. Poiché l'identità gestita non è definita in modo esplicito nel modello, è necessario fare riferimento alla risorsa a cui viene applicata l'identità. Usare `Full` per ottenere tutte le proprietà, inclusa l'identità creata in modo implicito.
+[Le identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md) sono [tipi di risorse di estensione](../management/extension-resource-types.md) che vengono creati in modo implicito per alcune risorse. Poiché l'identità gestita non è definita in modo esplicito nel modello, è necessario fare riferimento alla risorsa a cui viene applicata l'identità. Usare `Full` per ottenere tutte le proprietà, inclusa l'identità creata in modo implicito.
 
 Ad esempio, per ottenere l'ID tenant per un'identità gestita applicata a un set di scalabilità di macchine virtuali, usare:
 

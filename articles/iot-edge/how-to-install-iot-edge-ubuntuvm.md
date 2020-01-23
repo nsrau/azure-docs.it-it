@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 03c517ac80ed42f96cae00001a154e519ec94148
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 84dd1b6d657dfe5061f53698114f3dc4e0197571
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263337"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510057"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Ubuntu
 
@@ -22,7 +22,7 @@ Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un disposit
 
 Per altre informazioni sul funzionamento del runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
 
-Questo articolo elenca i passaggi per eseguire il runtime Azure IoT Edge in una macchina virtuale Ubuntu 16.04 usando l'[offerta Azure IoT Edge on Ubuntu di Azure Marketplace](https://aka.ms/azure-iot-edge-ubuntuvm) preconfigurata. 
+Questo articolo elenca i passaggi per eseguire il runtime Azure IoT Edge in una macchina virtuale Ubuntu 16.04 usando l'[offerta Azure IoT Edge on Ubuntu di Azure Marketplace](https://aka.ms/azure-iot-edge-ubuntuvm) preconfigurata.
 
 Al primo avvio, la macchina virtuale con Azure IoT Edge on Ubuntu preinstalla la versione più recente del runtime Azure IoT Edge. Include anche uno script per impostare la stringa di connessione e quindi riavviare il runtime, che può essere attivato in remoto tramite il portale delle macchine virtuali di Azure o la riga di comando di Azure, per semplificare la configurazione e la connessione al dispositivo IoT Edge senza la necessità di avviare una sessione Desktop remoto o SSH. Lo script aspetta a impostare la stringa di connessione fino a quando il client IoT Edge non è completamente installato, in modo che non sia necessario integrare tale aspetto nell'automazione.
 
@@ -52,22 +52,22 @@ Dal portale di Azure, cercare "Azure IoT Edge" e selezionare **Ubuntu Server 16.
    ```azurecli-interactive
    az login
    ```
-    
+
 1. Se si hanno più sottoscrizioni, selezionare la sottoscrizione da usare:
    1. Elencare le sottoscrizioni:
-    
+
       ```azurecli-interactive
       az account list --output table
       ```
-    
+
    1. Copiare il campo SubscriptionID per la sottoscrizione che si vuole usare.
 
    1. Impostare la sottoscrizione funzionante con l'ID appena copiato:
-    
-      ```azurecli-interactive 
+
+      ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
-    
+
 1. Creare un nuovo gruppo di risorse o specificarne uno esistente nei passaggi successivi:
 
    ```azurecli-interactive
@@ -93,7 +93,6 @@ Dal portale di Azure, cercare "Azure IoT Edge" e selezionare **Ubuntu Server 16.
    ```
 
 Se si desidera connettersi tramite SSH a questa macchina virtuale al termine dell'installazione, usare l'indirizzo IP pubblico con il comando: `ssh azureuser@{publicIpAddress}`
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

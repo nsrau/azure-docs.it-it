@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664631"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513797"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -262,7 +262,6 @@ Verificare la versione dell'agente di macchine virtuali nelle macchine virtuali 
 
 Il backup delle macchine virtuali si basa sull'esecuzione dei comandi di snapshot sull'archiviazione sottostante. La mancanza di accesso all'archiviazione o ritardi nell'esecuzione dell'attività di snapshot possono causare il fallimento del processo di backup. Le condizioni seguenti possono causare errori dell'attività di snapshot:
 
-* **L'accesso alla rete per l'archiviazione è bloccato mediante NSG**. Altre informazioni su come [stabilire l'accesso di rete](backup-azure-arm-vms-prepare.md#establish-network-connectivity) all'archiviazione usando un elenco di indirizzi IP consentiti o tramite un server proxy.
 * **Le macchine virtuali con il backup di SQL Server configurato possono causare ritardi nelle attività di snapshot**. Per impostazione predefinita, il backup delle macchine virtuali genera un backup completo Servizio Copia Shadow del volume nelle macchine virtuali Windows. Le macchine virtuali che eseguono SQL Server, con il backup di SQL Server configurato, possono sperimentare ritardi degli snapshot. Se i ritardi degli snapshot causano errori di backup, impostare la chiave del Registro di sistema seguente:
 
    ```text
@@ -276,29 +275,9 @@ Il backup delle macchine virtuali si basa sull'esecuzione dei comandi di snapsho
 
 ## <a name="networking"></a>Rete
 
-Analogamente a tutte le estensioni, per il funzionamento delle estensioni di Backup è necessario l'accesso a Internet pubblico. L'assenza di accesso a Internet pubblico può manifestarsi in diversi modi:
+DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle macchine virtuali IaaS. Se è necessario un indirizzo IP privato statico, configurarlo tramite il portale di Azure o PowerShell. Assicurarsi che l'opzione DHCP all'interno della macchina virtuale sia abilitata.
+Per altre informazioni su come configurare un indirizzo IP statico tramite PowerShell, vedere:
 
-* Possono verificarsi errori di installazione dell'estensione.
-* Possono verificarsi errori delle operazioni di backup, ad esempio lo snapshot del disco.
-* Possono verificarsi errori di visualizzazione dello stato dell'operazione di backup.
+* [Come aggiungere un indirizzo IP interno statico a una macchina virtuale esistente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Modificare il metodo di allocazione per un indirizzo IP privato assegnato a un'interfaccia di rete](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-La necessità di risolvere gli indirizzi Internet pubblici è discussa in [questo blog del supporto di Azure](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Controllare le configurazioni DNS per la rete virtuale e assicurarsi che sia possibile risolvere gli URI di Azure.
-
-Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso agli IP di Azure. Per sbloccare l'accesso all'infrastruttura di Azure, eseguire la procedura seguente:
-
-* Consenti l'elenco degli intervalli IP del Data Center di Azure:
-   1. Ottenere l'elenco di [indirizzi IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) da consentire nell'elenco Consenti.
-   1. Sbloccare gli indirizzi IP usando il cmdlet [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute). Eseguire questo cmdlet all'interno della macchina virtuale di Azure, in una finestra di PowerShell con privilegi elevati. Eseguire come amministratore.
-   1. Aggiungere regole al gruppo di sicurezza di rete, se esistente, per consentire l'accesso agli indirizzi IP.
-* Creare un percorso per il flusso del traffico HTTP:
-   1. Se si hanno restrizioni di rete, distribuire un server proxy HTTP per indirizzare il traffico. Un esempio è un gruppo di sicurezza di rete. Vedere i passaggi per distribuire un server proxy HTTP in [Stabilire la connettività di rete](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-   1. Aggiungere regole al gruppo di sicurezza di rete, se esistente, per consentire l'accesso a Internet dal proxy HTTP.
-
-> [!NOTE]
-> DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle macchine virtuali IaaS. Se è necessario un indirizzo IP privato statico, configurarlo tramite il portale di Azure o PowerShell. Assicurarsi che l'opzione DHCP all'interno della macchina virtuale sia abilitata.
-> Per altre informazioni su come configurare un indirizzo IP statico tramite PowerShell, vedere:
->
-> * [Come aggiungere un indirizzo IP interno statico a una macchina virtuale esistente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [Modificare il metodo di allocazione per un indirizzo IP privato assegnato a un'interfaccia di rete](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442078"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513493"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
@@ -93,7 +93,7 @@ Creare le risorse di Azure richieste dalla soluzione: Azure Cosmos DB, Account d
 
 Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e-commerce. Quando un utente visualizza un elemento, aggiunge un elemento al carrello o acquista un articolo, la raccolta riceverà un record che include l'azione ("visualizzato", "aggiunto" o "acquistato"), il nome dell'elemento, il prezzo dell'elemento e il numero di ID del carrello dell'utente coinvolti.
 
-1. Passare al [portale di Azure](https://portal.azure.com/) e trovare l'**account Azure Cosmos DB** creato dalla distribuzione del modello.  
+1. Passare a [portale di Azure](https://portal.azure.com/) e individuare l' **account Azure Cosmos DB** creato dalla distribuzione del modello.  
 
 2. Dal riquadro **Esplora dati**, selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:  
 
@@ -117,7 +117,7 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Ottenere la stringa di connessione di Azure Cosmos DB
 
-1. Passare al [portale di Azure](https://portal.azure.com/) e trovare l'**account Azure Cosmos DB** creato dalla distribuzione del modello.  
+1. Passare a [portale di Azure](https://portal.azure.com/) e individuare l' **account Azure Cosmos DB** creato dalla distribuzione del modello.  
 
 2. Passare al riquadro delle **Chiavi**, copiare la STRINGA DI CONNESSIONE PRIMARIA e copiarla in un blocco note o un altro documento di cui si disporrà durante l'intera esercitazione. È consigliabile chiamarla **Stringa di connessione di Cosmos DB**. È necessario copiare la stringa nel codice in un secondo momento, quindi prenderne nota e ricordare dove è archiviata.
 
@@ -177,7 +177,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
  
 6. Attendere l'esecuzione del programma. Le stelle indicano che i dati sono in arrivo! Mantenere il programma in esecuzione, è importante che vengono raccolti molti dati.  
 
-7. Se si passa al [portale di Azure](https://portal.azure.com/), poi all'account di Cosmos DB all'interno del gruppo di risorse, quindi a **Esplora dati**, verranno visualizzati i dati in ordine casuale importati in **changefeedlabcollection** .
+7. Se si passa a [portale di Azure](https://portal.azure.com/) , quindi all'account Cosmos DB all'interno del gruppo di risorse e quindi a **Esplora dati**, si vedranno i dati casuali importati nella **changefeedlabcollection** .
  
    ![Dati generati nel portale](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
 
 Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elaborazione dei dati in streaming in tempo reale. In questa esercitazione si userà l'analisi del flusso per elaborare nuovi eventi da Hub eventi (ad esempio quando un elemento è visualizzato, aggiunto al carrello o acquistato), per incorporare tali eventi nell'analisi dei dati in tempo reale e per inviarli a Power BI per la visualizzazione.
 
-1. Dal [portale di Azure](https://portal.azure.com/), passare al gruppo di risorse, quindi a **streamjob1** (il processo di analisi del flusso creato nell'introduzione all'esercitazione).  
+1. Dal [portale di Azure](https://portal.azure.com/)passare al gruppo di risorse e quindi a **streamjob1** (il processo di analisi di flusso creato in prelab).  
 
 2. Selezionare **Input** come illustrato di seguito.  
 
@@ -320,7 +320,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
 A questo punto, sarà possibile osservare come è possibile usare il nuovo strumento di analisi dei dati per la connessione con un vero sito di e-commerce. Per creare il sito di e-commerce, usare un database di Azure Cosmos per archiviare l'elenco delle categorie di prodotti (donne, uomini, unisex), il catalogo dei prodotti e un elenco degli elementi più diffusi.
 
-1. Tornare al [portale di Azure](https://portal.azure.com/), quindi all'**account Cosmos DB** e in seguito a **Esplora dati**.  
+1. Tornare alla [portale di Azure](https://portal.azure.com/), quindi all' **account di Cosmos DB**, quindi **Esplora dati**.  
 
    Aggiungere due raccolte in **prodotti** - **changefeedlabdatabase** e **categorie** con capacità di archiviazione fissa.
 
@@ -390,9 +390,8 @@ A questo punto, sarà possibile osservare come è possibile usare il nuovo strum
 
 ## <a name="delete-the-resources"></a>Eliminare le risorse
 
-Per eliminare le risorse create durante questa esercitazione, passare al gruppo di risorse sul [portale di Azure](https://portal.azure.com/), quindi selezionare **Elimina gruppo di risorse** dal menu nella parte superiore della pagina e seguire le istruzioni fornite.
+Per eliminare le risorse create durante il Lab, passare al gruppo di risorse in [portale di Azure](https://portal.azure.com/), quindi selezionare **Elimina gruppo di risorse** dal menu nella parte superiore della pagina e seguire le istruzioni fornite.
 
 ## <a name="next-steps"></a>Passaggi successivi 
   
 * Per altre informazioni sul feed di modifiche, vedere l'articolo [Uso del supporto del feed di modifiche in Azure Cosmos DB](change-feed.md) 
-* [Soluzione di notifica del feed di modifiche](change-feed-hl7-fhir-logic-apps.md) per l'organizzazione sanitaria usando Azure Cosmos DB.

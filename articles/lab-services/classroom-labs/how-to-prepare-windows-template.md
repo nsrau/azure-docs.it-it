@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: d7cff4e2afff4678bf7aa437aefa9d8deea220bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428956"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515004"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello Windows in Azure Lab Services
 
@@ -142,7 +142,7 @@ Se il computer modello richiede Office, è consigliabile installare Office trami
 
 ### <a name="change-the-microsoft-office-365-update-channel"></a>Modificare il canale di aggiornamento Microsoft Office 365
 
-Utilizzando lo strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti.  Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento.  Gli indirizzi URL del canale di aggiornamento sono disponibili in [modificare il canale di aggiornamento dopo aver abilitato i client di Office 365 per la ricezione degli aggiornamenti da Configuration Manager]/ConfigMgr/Sum/deploy-use/Manage-Office-365-ProPlus-Updates # bkmk_channel). Nell'esempio seguente viene illustrato come impostare Office 365 per l'utilizzo del canale di aggiornamento mensile.
+Utilizzando lo strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti. Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento. Gli indirizzi URL del canale di aggiornamento sono reperibili in [modificare il canale di aggiornamento di Office 365 ProPlus per i dispositivi nell'organizzazione](https://docs.microsoft.com/deployoffice/change-update-channels). Nell'esempio seguente viene illustrato come impostare Office 365 per l'utilizzo del canale di aggiornamento mensile.
 
 ```powershell
 # Update to the Office 365 Monthly Channel

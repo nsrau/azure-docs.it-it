@@ -1,7 +1,7 @@
 ---
-title: Eventi live e output Live in servizi multimediali
+title: Concetti relativi ad eventi live e output Live in servizi multimediali di Azure V3
 titleSuffix: Azure Media Services
-description: Panoramica degli eventi live e degli output Live in servizi multimediali di Azure V3.
+description: Questo argomento fornisce una panoramica degli eventi live e degli output Live in servizi multimediali di Azure V3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: d2f0689dd1f1b5fbe349478ad885b76eb79d91a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cd1f55a4ca94aae73a56334c76f211afff6e9622
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569678"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514052"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output Live in servizi multimediali
 
@@ -73,7 +73,7 @@ Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live
 
 Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 
-* Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione del protocollo mentre l'evento Live o gli output Live associati sono in esecuzione. Se sono necessari protocolli diversi, creare un evento Live separato per ogni protocollo di streaming.  
+* Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, creare un evento Live separato per ogni protocollo di streaming.  
 * Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. La fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. In alternativa, è possibile avviare l'evento quando si è pronti per avviare lo streaming.
 
     Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
@@ -119,14 +119,14 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
 
     |Lingua|Abilita URL Vanity|Impostare il token di accesso|
     |---|---|---|
-    |REST|[Properties. vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--Vanity-URL](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--Access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[Live. VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |Interfaccia della riga di comando|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 * La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).
-* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *Nome flusso*: indica il nome del flusso per una connessione specifica. Il valore del nome del flusso viene in genere aggiunto dal codificatore Live usato. È possibile configurare il codificatore Live in modo che usi qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito

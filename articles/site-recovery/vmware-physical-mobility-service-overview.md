@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931897"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513559"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
 Quando si configura il ripristino di emergenza per macchine virtuali VMware e server fisici con [Azure Site Recovery](site-recovery-overview.md), si installa il servizio Mobility di Site Recovery in ogni macchina virtuale VMware locale e in ogni server fisico locale.  Il servizio Mobility acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione di Site Recovery. È possibile distribuire il servizio Mobility tramite i metodi seguenti:
 
 - [Installazione push](#push-installation): Site Recovery installa l'agente di mobilità nel server quando la protezione viene abilitata tramite portale di Azure.
-- Installare manualmente: È possibile installare manualmente il servizio Mobility in ogni computer tramite l' [interfaccia utente](#install-mobility-agent-through-ui) o il [prompt dei comandi](#install-mobility-agent-through-command-prompt).
-- [Distribuzione automatizzata](vmware-azure-mobility-install-configuration-mgr.md): è possibile automatizzare l'installazione con strumenti di distribuzione software, come System Center Configuration Manager.
+- Installare manualmente: è possibile installare manualmente il servizio Mobility in ogni computer tramite l' [interfaccia utente](#install-mobility-agent-through-ui) o il [prompt dei comandi](#install-mobility-agent-through-command-prompt).
+- [Distribuzione automatizzata](vmware-azure-mobility-install-configuration-mgr.md): è possibile automatizzare l'installazione con strumenti di distribuzione software, ad esempio Configuration Manager.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivirus nei computer replicati
 
@@ -28,7 +28,7 @@ Se nei computer da replicare è attivo e in esecuzione un software antivirus, as
 
 ## <a name="push-installation"></a>Installazione push
 
-L'installazione push è parte integrante del processo di abilitazione della[replica](vmware-azure-enable-replication.md#enable-replication)attivato nel portale. Dopo aver scelto il set di macchine virtuali che si vuole proteggere e attivato "Abilitazione della replica", il server di configurazione effettua il push dell'agente di mobilità nei server, installa l'agente e completa la registrazione dell'agente con il server di configurazione. Per completare correttamente questa operazione,
+L'installazione push è parte integrante del processo di[Abilitazione della replica](vmware-azure-enable-replication.md#enable-replication)attivato nel portale. Dopo aver scelto il set di macchine virtuali che si vuole proteggere e attivato "Abilitazione della replica", il server di configurazione effettua il push dell'agente di mobilità nei server, installa l'agente e completa la registrazione dell'agente con il server di configurazione. Per completare correttamente questa operazione,
 
 - Verificare che tutti i [prerequisiti](vmware-azure-install-mobility-service.md) di installazione push siano soddisfatti.
 - Verificare che tutte le configurazioni dei server rientrino in [uno scenario di ripristino di emergenza da VMware ad Azure](vmware-physical-azure-support-matrix.md).
@@ -115,20 +115,20 @@ Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi se
 #### <a name="installation-settings"></a>Impostazioni di installazione
 **Impostazione** | **Dettagli**
 --- | ---
-Utilizzo | UnifiedAgent. exe/Role \<MS/MT > il \<percorso di installazione di/INSTALLLOCATION. >/Platform "VMware"/Silent
+Uso | UnifiedAgent. exe/role \<MS/MT >/INSTALLLOCATION. \<percorso di installazione >/Platform "VmWare"/Silent
 log di installazione | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 /InstallLocation| Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility (qualsiasi cartella).
-/Platform | Obbligatorio. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware**.
-/Silent| facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+/Platform | Mandatory. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware**.
+/Silent| Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 **Impostazione** | **Dettagli**
 --- | ---
-Utilizzo | UnifiedAgentConfigurator. exe/CSEndPoint \<csip >/passphrasefilepath. \<PassphraseFilePath >
+Uso | UnifiedAgentConfigurator. exe/CSEndPoint \<CSIP >/Passphrasefilepath. \<PassphraseFilePath >
 Log di configurazione dell'agente | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
-/PassphraseFilePath |  Obbligatorio. Percorso della passphrase. Usare qualsiasi percorso file locale o UNC valido.
+/PassphraseFilePath |  Mandatory. Percorso della passphrase. Usare qualsiasi percorso file locale o UNC valido.
 
 ### <a name="on-a-linux-machine"></a>In un computer Linux
 
@@ -154,23 +154,23 @@ Log di configurazione dell'agente | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgen
 #### <a name="installation-settings"></a>Impostazioni di installazione
 **Impostazione** | **Dettagli**
 --- | ---
-Utilizzo | ./install-d \<percorso di installazione >- \<r MS/MT >-v VMware-q
+Uso | ./install-d \<percorso di installazione >-r \<MS/MT >-v VmWare-q
 -r | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 -d | Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility: /usr/local/ASR.
--v | Obbligatorio. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.
--q | facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+-v | Mandatory. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.
+-Q | Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 **Impostazione** | **Dettagli**
 --- | ---
-Utilizzo | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \<csip >-P \<PassphraseFilePath >
+Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \<CSIP >-P \<PassphraseFilePath >
 -i | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
--P |  Obbligatorio. Percorso completo del file in cui è stata salvata la passphrase. Usare qualsiasi cartella valida.
+-P |  Mandatory. Percorso completo del file in cui è stata salvata la passphrase. Usare qualsiasi cartella valida.
 
 ## <a name="azure-virtual-machine-agent"></a>Agente di macchina virtuale di Azure
 
-- **Macchine virtuali Windows**: dalla versione 9.7.0.0 del servizio Mobility, l'[agente di macchina virtuale di Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) viene installato dal programma di installazione del servizio Mobility. In questo modo si garantisce che quando la macchina esegue il failover in Azure, la macchina virtuale di Azure soddisfa i prerequisiti dell'installazione dell'agente per usare dell'estensione di una macchina virtuale.
-- **Macchine virtuali Linux**: l'istanza di [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) deve essere installata manualmente nella macchina virtuale di Azure dopo il failover.
+- **Macchine virtuali Windows**: dalla versione 9.7.0.0 del servizio Mobility, l'[agente di macchina virtuale di Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) viene installata dal programma di installazione del servizio Mobility. In questo modo si garantisce che quando la macchina esegue il failover in Azure, la macchina virtuale di Azure soddisfa i prerequisiti dell'installazione dell'agente per usare dell'estensione di una macchina virtuale.
+- **Macchine virtuale Linux**: l'istanza di [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) deve essere installata manualmente nella macchina virtuale di Azure dopo il failover.
 
 ## <a name="locate-installer-files"></a>Individuare i file del programma di installazione
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052496"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513457"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -118,7 +118,7 @@ Se si condivide codice con altri progetti, è necessario ricordare di rimuovere 
 Tutti i dati vengono crittografati a riposo e vengono spostati tra i Data Center.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>I dati vengono crittografati durante il transito dall'applicazione ai server di Application Insights?
-Sì, usiamo HTTPS per inviare i dati al portale da quasi tutti gli SDK, inclusi i server Web, i dispositivi e le pagine Web HTTPS. L'unica eccezione è costituita dai dati inviati da semplici pagine Web HTTP.
+Sì, usiamo HTTPS per inviare i dati al portale da quasi tutti gli SDK, inclusi i server Web, i dispositivi e le pagine Web HTTPS. 
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>L'SDK crea una risorsa di archiviazione locale temporanea?
 
@@ -234,15 +234,15 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 
 | Azione | Classi di dati raccolte (vedere la tabella seguente) |
 | --- | --- |
-| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Richieste<br/>**Eccezioni**<br/>sessione<br/>utenti |
-| [Installare Status Monitor in IIS][redfield] |Dipendenze<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>sessione<br/>utenti |
+| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Richieste<br/>**Eccezioni**<br/>Session<br/>utenti |
+| [Installare Status Monitor in IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>Session<br/>utenti |
 | [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext <br/>Inferred<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Definire le proprietà predefinite][apiproperties] |**Properties** in tutti gli eventi standard e personalizzati |
 | [Chiama TrackMetric][api] |Valori numerici<br/>**Proprietà** |
 | [Traccia di chiamata *][api] |Nome evento<br/>**Proprietà** |
 | [Chiama Trackexception][api] |**Eccezioni**<br/>Dump dello stack<br/>**Proprietà** |
-| SDK non riesce a raccogliere dati. ad esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
+| SDK non riesce a raccogliere dati. Ad esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
 
 Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 
@@ -253,16 +253,16 @@ Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 | **Proprietà** |**Qualsiasi dato, in base al codice** |
 | DeviceContext |`Id`, IP, impostazioni locali, modello di dispositivo, rete, tipo di rete, nome OEM, risoluzione dello schermo, istanza del ruolo, nome del ruolo, tipo di dispositivo |
 | ClientContext |Sistema operativo, impostazioni locali, lingua, rete, risoluzione della finestra. |
-| sessione |`session id` |
+| Session |`session id` |
 | ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. |
 | Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser. |
 | Metriche |Nome e valore della metrica. |
-| Events |Nome e valore dell'evento. |
+| Eventi |Nome e valore dell'evento. |
 | PageViews |URL e nome della pagina o della schermata. |
 | Client perf |URL/nome pagina, tempo di caricamento del browser. |
 | Ajax |Chiamate HTTP dalla pagina Web al server |
 | Richieste |URL, durata, codice di risposta. |
-| Dipendenze |Tipo (SQL, HTTP,...), stringa di connessione o URI, Sync/async, Duration, Success, istruzione SQL (con Status Monitor) |
+| Dependencies |Tipo (SQL, HTTP,...), stringa di connessione o URI, Sync/async, Duration, Success, istruzione SQL (con Status Monitor) |
 | **Eccezioni** |Tipo, **messaggio**, stack di chiamate, file di origine, numero di riga, `thread id` |
 | Crashes |`Process id`, `parent process id`, `crash thread id`; patch applicazione, `id`, compilazione;  tipo di eccezione, indirizzo, motivo; simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU |
 | Trace |**Messaggio** e livello di gravità. |

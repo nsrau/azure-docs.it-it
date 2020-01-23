@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746057"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512420"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -129,7 +129,7 @@ Esaminare i criteri supportati e non supportati per determinare se sia possibile
 
 Se la soluzione MDM non è disponibile tramite la raccolta di app Azure AD, è possibile aggiungerla seguendo il processo descritto in [Azure Active Directory integration with MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) (Integrazione di Azure Active Directory con MDM). 
 
-Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per altre informazioni, vedere [Co-gestione per dispositivi Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
+Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per altre informazioni sulla co-gestione per i dispositivi Windows 10, vedere [che cos'è la co-gestione?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
 
 **Consiglio:** prendere in considerazione la gestione solo MDM per i dispositivi aggiunti ad Azure AD.
 

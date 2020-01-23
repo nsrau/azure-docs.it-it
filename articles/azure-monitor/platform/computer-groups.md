@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eedf04a2168c67449f97d8e462d4ff82653a22b3
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932667"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513703"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle [query di log](../log-query/log-query-overview.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
@@ -27,7 +27,7 @@ I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito de
 | Query di log |Creare una query di log che restituisca un elenco di computer. |
 | API di ricerca log |Usare l'API di ricerca log per creare un gruppo di computer a livello di codice in base ai risultati di una query di log. |
 | Active Directory |Analizzare automaticamente l'appartenenza a gruppi di tutti i computer degli agenti che sono membri di un dominio di Active Directory e creare un gruppo in Monitoraggio di Azure per ogni gruppo di sicurezza. (solo computer Windows)|
-| Configuration Manager | Importare raccolte da System Center Configuration Manager e creare in Monitoraggio di Azure un gruppo per ognuna. |
+| Configuration Manager | Importare le raccolte da Microsoft endpoint Configuration Manager e creare un gruppo in monitoraggio di Azure per ognuno di essi. |
 | Windows Server Update Services |Analizzare automaticamente i server o i client WSUS per rilevare i gruppi di destinazione e creare in Monitoraggio di Azure un gruppo per ognuno. |
 
 ### <a name="log-query"></a>Query di log
@@ -49,7 +49,7 @@ La tabella seguente descrive le proprietà che definiscono un gruppo di computer
 
 | Proprietà | Description |
 |:---|:---|
-| name   | Nome della query da visualizzare nel portale. |
+| Nome   | Nome della query da visualizzare nel portale. |
 | Alias di funzione | Alias univoco usato per identificare il gruppo di computer in una query. |
 | Categoria       | Categoria per l'organizzazione delle query nel portale. |
 
@@ -75,7 +75,7 @@ Quando si configura Monitoraggio di Azure per importare le appartenenze a gruppi
 
 Al termine dell'importazione dei gruppi, nel menu vengono elencati il numero dei computer di cui sono state rilevate le appartenenze a gruppi e il numero dei gruppi importati.  È possibile fare clic su uno di questi collegamenti per ottenere i record **ComputerGroup** con tali informazioni.
 
-### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+### <a name="configuration-manager"></a>Configuration Manager
 Quando si configura Monitoraggio di Azure per l'importazione delle appartenenze a raccolte di Configuration Manager, viene creato un gruppo di computer per ogni raccolta.  Le informazioni di appartenenza delle raccolte vengono recuperate ogni 3 ore per mantenere aggiornati i gruppi di computer. 
 
 Prima di importare raccolte di Configuration Manager è necessario [connettere Configuration Manager a Monitoraggio di Azure](collect-sccm.md).  

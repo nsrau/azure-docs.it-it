@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: 96e7cbd09873192d8b73b57cb2b46bf5b7679742
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3c921bda1b839ee18a91b28f875ba7c84c0dd944
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263456"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515038"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -160,7 +160,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 | Nome | Note |
 |------|-------|
 | Limite per la valutazione delle espressioni | 131.072 caratteri | Le espressioni `@concat()`, `@base64()` e `@string()` non possono superare questo limite. |
-| Limite di caratteri URL richiesta | caratteri 32K |
+| Limite di caratteri URL richiesta | 16.384 caratteri |
 |||
 
 #### <a name="retry-policy"></a>Criteri di ripetizione

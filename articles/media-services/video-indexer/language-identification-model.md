@@ -1,5 +1,5 @@
 ---
-title: Identificazione automatica della lingua parlata con Video Indexer-Azure
+title: Usare Video Indexer per identificare automaticamente le lingue parlate-Azure
 titleSuffix: Azure Media Services
 description: Questo articolo descrive il modo in cui viene usato il modello di identificazione della lingua Video Indexer per identificare automaticamente la lingua parlata in un video.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: ce3e488a6387f9a823d7c1b514b52af24944776b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7a2e03b8dacbf6c3ff20e02c804804b671e86d97
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839004"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513882"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificazione automatica della lingua parlata con il modello di identificazione della lingua
 
@@ -29,7 +29,7 @@ Quando si usa il portale, accedere ai **video dell'account** nella [video Indexe
 
 ![rilevamento automatico](./media/language-identification-model/auto-detect.png)
 
-## <a name="model-output"></a>Output modello
+## <a name="model-output"></a>Output del modello
 
 Video Indexer Trascriva il video in base alla lingua più probabile se la confidenza per tale lingua è `> 0.6`. Se la lingua non può essere identificata in tutta sicurezza, presuppone che la lingua parlata sia l'inglese. 
 
@@ -59,5 +59,5 @@ Il linguaggio dominante del modello è disponibile nel file JSON di Insights com
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica](video-indexer-overview.md)
+* [Overview](video-indexer-overview.md)
 * [Identificare e trascrivere automaticamente contenuto multilingue](multi-language-identification-transcription.md)

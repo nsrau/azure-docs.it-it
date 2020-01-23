@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: c86553d7658e57032393c682628d4b12d6945381
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b2f5a9bacf96eb098e307a6a8df3e13cb9d04bd0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454722"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513417"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usare un'identità gestita da Azure nelle attività ACR 
 
@@ -21,14 +21,14 @@ Abilitare un' [identità gestita per le risorse di Azure](../active-directory/ma
 
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per abilitare un'identità gestita assegnata dall'utente o dal sistema in un'attività ACR. È possibile usare l'Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Se si vuole usarlo localmente, è richiesta la versione 2.0.68 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
-Per gli scenari di accesso alle risorse protette da un'attività ACR usando un'identità gestita, vedere:
+A scopo illustrativo, i comandi di esempio in questo articolo usano [AZ ACR task create][az-acr-task-create] per creare un'attività di compilazione di un'immagine di base che Abilita un'identità gestita. Per gli scenari di esempio per accedere alle risorse protette da un'attività ACR usando un'identità gestita, vedere:
 
 * [Autenticazione tra più registri](container-registry-tasks-cross-registry-authentication.md)
 * [Accedi a risorse esterne con segreti archiviati in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 ## <a name="why-use-a-managed-identity"></a>Perché usare un'identità gestita?
 
-Un'identità gestita per le risorse di Azure offre servizi di Azure selezionati con un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile configurare un'attività ACR con un'identità gestita in modo che l'attività possa accedere ad altre risorse di Azure protette, senza passare le credenziali nei passaggi dell'attività.
+Un'identità gestita per le risorse di Azure offre servizi di Azure selezionati con un'identità gestita automaticamente in Azure Active Directory. È possibile configurare un'attività ACR con un'identità gestita in modo che l'attività possa accedere ad altre risorse di Azure protette, senza passare le credenziali nei passaggi dell'attività.
 
 Esistono due tipi di identità gestite:
 
@@ -44,15 +44,15 @@ Seguire questi passaggi di alto livello per usare un'identità gestita con un'at
 
 ### <a name="1-optional-create-a-user-assigned-identity"></a>1. (facoltativo) creare un'identità assegnata dall'utente
 
-Se si prevede di usare un'identità assegnata dall'utente, è possibile usare un'identità esistente. In alternativa, creare l'identità usando l'interfaccia della riga di comando di Azure o altri strumenti di Azure. Ad esempio, usare il comando [AZ Identity create][az-identity-create] . 
+Se si prevede di usare un'identità assegnata dall'utente, usare un'identità esistente o creare l'identità usando l'interfaccia della riga di comando di Azure o altri strumenti di Azure. Ad esempio, usare il comando [AZ Identity create][az-identity-create] . 
 
-Se si prevede di usare solo un'identità assegnata dal sistema, ignorare questo passaggio. È possibile creare un'identità assegnata dal sistema quando si crea l'attività ACR.
+Se si prevede di usare solo un'identità assegnata dal sistema, ignorare questo passaggio. Quando si crea l'attività ACR, si crea un'identità assegnata dal sistema.
 
 ### <a name="2-enable-identity-on-an-acr-task"></a>2. abilitare l'identità in un'attività ACR
 
 Quando si crea un'attività ACR, è possibile abilitare facoltativamente un'identità assegnata dall'utente, un'identità assegnata dal sistema o entrambe. Ad esempio, passare il parametro `--assign-identity` quando si esegue il comando [AZ ACR task create][az-acr-task-create] nell'interfaccia della riga di comando di Azure.
 
-Per abilitare un'identità assegnata dal sistema, passare `--assign-identity` senza valore o `assign-identity [system]`. Il comando seguente crea un'attività Linux da un repository GitHub pubblico che compila l'immagine `hello-world` con un trigger di commit Git e con un'identità gestita assegnata dal sistema:
+Per abilitare un'identità assegnata dal sistema, passare `--assign-identity` senza valore o `assign-identity [system]`. Il comando di esempio seguente crea un'attività Linux da un repository GitHub pubblico che compila l'immagine `hello-world` e Abilita un'identità gestita assegnata dal sistema:
 
 ```azurecli
 az acr task create \
@@ -60,10 +60,11 @@ az acr task create \
     --name hello-world --registry MyRegistry \
     --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
     --file Dockerfile \
+    --commit-trigger-enabled false \
     --assign-identity
 ```
 
-Per abilitare un'identità assegnata dall'utente, passare `--assign-identity` con un valore dell' *ID risorsa* dell'identità. Il comando seguente crea un'attività Linux da un repository GitHub pubblico che compila l'immagine `hello-world` con un trigger di commit Git e con un'identità gestita assegnata dall'utente:
+Per abilitare un'identità assegnata dall'utente, passare `--assign-identity` con un valore dell' *ID risorsa* dell'identità. Il comando di esempio seguente crea un'attività Linux da un repository GitHub pubblico che compila l'immagine `hello-world` e Abilita un'identità gestita assegnata dall'utente:
 
 ```azurecli
 az acr task create \
@@ -71,10 +72,11 @@ az acr task create \
     --name hello-world --registry MyRegistry \
     --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
     --file Dockerfile \
+    --commit-trigger-enabled false
     --assign-identity <resourceID>
 ```
 
-È possibile ottenere l'ID risorsa dell'identità eseguendo il comando [AZ Identity Show][az-identity-show] . L'ID di risorsa per l'ID *myUserAssignedIdentity* nel gruppo di risorse *myResourceGroup* è nel formato. 
+È possibile ottenere l'ID risorsa dell'identità eseguendo il comando [AZ Identity Show][az-identity-show] . L'ID di risorsa per l'ID *myUserAssignedIdentity* nel gruppo di risorse *myResourceGroup* è nel formato seguente: 
 
 ```
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
@@ -82,25 +84,28 @@ az acr task create \
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. concedere le autorizzazioni di identità per accedere ad altre risorse di Azure
 
-A seconda dei requisiti dell'attività, concedere le autorizzazioni di identità per accedere ad altre risorse di Azure. Alcuni esempi:
+A seconda dei requisiti dell'attività, concedere le autorizzazioni di identità per accedere ad altre risorse di Azure. Ad esempio:
 
 * Assegnare all'identità gestita un ruolo con pull, push e pull o altre autorizzazioni per un registro contenitori di destinazione in Azure. Per un elenco completo dei ruoli del registro di sistema, vedere [autorizzazioni e ruoli di container Registry di Azure](container-registry-roles.md). 
 * Assegnare un ruolo all'identità gestita per leggere i segreti in un insieme di credenziali delle chiavi di Azure.
 
-Usare l' [interfaccia](../role-based-access-control/role-assignments-cli.md) della riga di comando di Azure o altri strumenti di Azure per gestire l'accesso basato sui ruoli alle risorse. Ad esempio, eseguire il comando [AZ Role Assignment create][az-role-assignment-create] per assegnare l'identità a un ruolo all'identità. 
+Usare l' [interfaccia](../role-based-access-control/role-assignments-cli.md) della riga di comando di Azure o altri strumenti di Azure per gestire l'accesso basato sui ruoli alle risorse. Ad esempio, eseguire il comando [AZ Role Assignment create][az-role-assignment-create] per assegnare l'identità a un ruolo alla risorsa. 
 
 Nell'esempio seguente viene assegnata un'identità gestita alle autorizzazioni per effettuare il pull da un registro contenitori. Il comando specifica l' *ID dell'entità servizio* dell'identità e l' *ID risorsa* del registro di sistema di destinazione.
 
 
 ```azurecli
-az role assignment create --assignee <servicePrincipalID> --scope <registryID> --role acrpull
+az role assignment create \
+  --assignee <servicePrincipalID> \
+  --scope <registryID> \
+  --role acrpull
 ```
 
 ### <a name="4-optional-add-credentials-to-the-task"></a>4. (facoltativo) aggiungere le credenziali all'attività
 
-Se l'attività esegue il pull o il push delle immagini in un altro registro contenitori di Azure, aggiungere le credenziali all'attività per l'autenticazione dell'identità. Eseguire il comando [AZ ACR Task Credential Add][az-acr-task-credential-add] e passare il parametro `--use-identity` per aggiungere le credenziali dell'identità all'attività. 
+Se l'attività richiede credenziali per eseguire il pull o il push di immagini in un altro registro personalizzato o per accedere ad altre risorse, aggiungere le credenziali all'attività. Eseguire il comando [AZ ACR Task Credential Add][az-acr-task-credential-add] per aggiungere le credenziali e passare il parametro `--use-identity` per indicare che l'identità può accedere alle credenziali. 
 
-Ad esempio, per aggiungere le credenziali per un'identità assegnata dal sistema per l'autenticazione con il *targetregistry*del registro di sistema, passare `use-identity [system]`:
+Ad esempio, per aggiungere le credenziali per un'identità assegnata dal sistema per l'autenticazione con il registro contenitori di Azure *targetregistry*, passare `use-identity [system]`:
 
 ```azurecli
 az acr task credential add \
@@ -122,6 +127,10 @@ az acr task credential add \
 
 È possibile ottenere l'ID client dell'identità eseguendo il comando [AZ Identity Show][az-identity-show] . L'ID client è un GUID nel formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
+### <a name="5-run-the-task"></a>5. eseguire l'attività
+
+Dopo aver configurato un'attività con un'identità gestita, eseguire l'attività. Ad esempio, per testare una delle attività create in questo articolo, attivarla manualmente con il comando [AZ ACR task run][az-acr-task-run] . Se sono stati configurati trigger attività automatizzati aggiuntivi, l'attività viene eseguita quando viene attivato automaticamente.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo si è appreso come abilitare e usare un'identità gestita assegnata dall'utente o assegnata dal sistema in un'attività ACR. Per gli scenari di accesso alle risorse protette da un'attività ACR usando un'identità gestita, vedere:
@@ -135,5 +144,6 @@ In questo articolo si è appreso come abilitare e usare un'identità gestita ass
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-identity-show]: /cli/azure/identity#az-identity-show
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
 [az-acr-task-credential-add]: /cli/azure/acr/task/credential#az-acr-task-credential-add
 [azure-cli-install]: /cli/azure/install-azure-cli

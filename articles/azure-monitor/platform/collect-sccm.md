@@ -7,22 +7,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 2262c951b52ef58006bacde4be76dc92468a20ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5b5af034b116ec1cdcefc811630683c9f560c840
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364051"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513660"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
-È possibile connettere l'ambiente System Center Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
+È possibile connettere l'ambiente Microsoft endpoint Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Monitoraggio di Azure supporta System Center Configuration Manager Current Branch, versione 1606 e successive.
+Monitoraggio di Azure supporta Configuration Manager Current Branch, versione 1606 e successive.
 
 >[!NOTE]
->La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. Pertanto sarà necessario abilitarla prima di poterla usare. Per altre informazioni, vedere [Enable optional features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options) (Abilitare le funzioni facoltative dagli aggiornamenti).
+>La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. Pertanto sarà necessario abilitarla prima di poterla usare. Per altre informazioni, vedere [Enable optional features from updates](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options) (Abilitare le funzioni facoltative dagli aggiornamenti).
 
 ## <a name="configuration-overview"></a>Panoramica della configurazione
 
@@ -67,7 +67,7 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 ## <a name="connect-configuration-manager-to-log-analytics-workspace"></a>Connetti Configuration Manager all'area di lavoro Log Analytics
 
 >[!NOTE]
-> Per aggiungere una connessione Log Analytics, è necessario che l'ambiente Configuration Manager disponga di un [punto di connessione del servizio](https://docs.microsoft.com/sccm/core/servers/deploy/configure/about-the-service-connection-point) configurato per la modalità online.
+> Per aggiungere una connessione Log Analytics, è necessario che l'ambiente Configuration Manager disponga di un [punto di connessione del servizio](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/about-the-service-connection-point) configurato per la modalità online.
 
 > [!NOTE]
 > È necessario connettere il sito di livello superiore della gerarchia a monitoraggio di Azure. Se si connette un sito primario autonomo a monitoraggio di Azure e quindi si aggiunge un sito di amministrazione centrale all'ambiente, è necessario eliminare e ricreare la connessione all'interno della nuova gerarchia.

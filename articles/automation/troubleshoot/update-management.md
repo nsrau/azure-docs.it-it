@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769796"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513270"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -376,7 +376,7 @@ Se non è possibile risolvere un problema di applicazione di patch, effettuare u
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sono consapevole che gli aggiornamenti sono disponibili, ma non vengono visualizzati come disponibile nei computer
 
-* Questo problema si verifica spesso se i computer sono configurati per ottenere gli aggiornamenti da WSUS o System Center Configuration Manager (SCCM), ma WSUS e SCCM non hanno approvato gli aggiornamenti.
+* Questo problema si verifica spesso se i computer sono configurati per ottenere gli aggiornamenti da WSUS o Microsoft endpoint Configuration Manager ma WSUS e Configuration Manager non hanno approvato gli aggiornamenti.
 * È possibile verificare se i computer sono configurati per WSUS e SCCM facendo [riferimento incrociato alla chiave del registro di sistema UseWUServer alle chiavi del registro di sistema nella sezione "configurazione aggiornamenti automatici modifica del registro di sistema" di questo articolo](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 * Se gli aggiornamenti non sono approvati in WSUS, non verranno installati. È possibile verificare la presenza di aggiornamenti non approvati in Log Analytics eseguendo la query seguente:
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 10724407b8ba5568b38a844f2bf475060e2b7699
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227674"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515106"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
@@ -44,7 +44,7 @@ Personalizzare l'immagine in base alle esigenze mediante l'installazione di appl
  
 ## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>Ricerca per categorie gestire la multisessione Enterprise di Windows 10 dopo la distribuzione?
 
-È possibile usare qualsiasi strumento di configurazione supportato, ma è consigliabile System Center Configuration Manager 1906 perché supporta la multisessione Enterprise di Windows 10. Stiamo lavorando al supporto Microsoft Intune.
+È possibile usare qualsiasi strumento di configurazione supportato, ma è consigliabile Configuration Manager versione 1906 perché supporta la multisessione Enterprise di Windows 10. Stiamo lavorando al supporto Microsoft Intune.
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>È possibile unire in join Azure Active Directory (AD) Windows 10 Enterprise in più sessioni?
 

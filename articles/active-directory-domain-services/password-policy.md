@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704535"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512760"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 
@@ -65,7 +65,7 @@ Con queste impostazioni predefinite, gli account utente vengono bloccati per 30 
 
 I blocchi degli account si verificano solo nel dominio gestito. Gli account utente vengono bloccati solo in Azure AD DS e solo a causa di tentativi di accesso non riusciti sul dominio gestito. Gli account utente sincronizzati in da Azure AD o in locale non sono bloccati nelle directory di origine, ma solo in Azure AD DS.
 
-Se si dispone di un criterio di Azure AD password che specifica una durata massima della password superiore a 90 giorni, la validità della password viene applicata ai criteri predefiniti in Azure AD DS. È possibile configurare criteri password personalizzati per definire una validità massima della password diversa in Azure AD DS. Prestare attenzione se la validità massima della password è configurata in un criterio di Azure AD password DS rispetto a Azure AD o a un ambiente di servizi di dominio Active Directory locale. In questo scenario, la password di un utente può scadere in Azure AD DS prima che venga richiesto di modificare Azure AD in un ambiente di servizi di dominio Active Directory locale.
+Se si dispone di un criterio di Azure AD password che specifica una durata massima della password superiore a 90 giorni, la validità della password viene applicata ai criteri predefiniti in Azure AD DS. È possibile configurare criteri password personalizzati per definire una validità massima della password diversa in Azure AD DS. Prestare attenzione se la validità massima della password è configurata in un criterio di Azure AD password DS rispetto a Azure AD o a un ambiente di servizi di dominio Active Directory locale. In questo scenario, la password di un utente può scadere in Azure AD DS prima che venga richiesto di cambiare in Azure AD o in un ambiente di servizi di dominio Active Directory locale.
 
 Per gli account utente creati manualmente in un dominio gestito Azure AD DS, vengono applicate anche le impostazioni di password aggiuntive seguenti dal criterio predefinito. Queste impostazioni non si applicano agli account utente sincronizzati da Azure AD, perché un utente non può aggiornare la propria password direttamente in Azure AD DS.
 
@@ -103,12 +103,12 @@ Per creare un criterio personalizzato per le password, usare gli strumenti di am
 1. Modificare le altre impostazioni dei criteri password nel modo desiderato. Tenere presente i seguenti punti chiave:
 
     * Impostazioni come la complessità della password, l'età o la scadenza solo per gli utenti creati manualmente in un dominio gestito Azure AD DS.
-    * Le impostazioni di blocco degli account si applicano a tutti gli utenti, ma hanno effetto solo nel dominio gestito.
+    * Le impostazioni di blocco degli account si applicano a tutti gli utenti, ma hanno effetto solo all'interno del dominio gestito e non in Azure AD stesso.
 
     ![Creare criteri specifici per le password personalizzati](./media/how-to/custom-fgpp.png)
 
 1. Deselezionare **Proteggi da eliminazioni accidentali**. Se questa opzione è selezionata, non è possibile salvare il FGPP.
-1. Nella sezione **si applica direttamente a** selezionare il pulsante **Aggiungi** . Nella finestra di dialogo **Seleziona utenti o gruppi** fare clic sul pulsante **Località**.
+1. Nella sezione **si applica direttamente a** selezionare il pulsante **Aggiungi** . Nella finestra di dialogo **Seleziona utenti o gruppi** selezionare il pulsante **percorsi** .
 
     ![Selezionare gli utenti e i gruppi ai quali applicare i criteri password](./media/how-to/fgpp-applies-to.png)
 

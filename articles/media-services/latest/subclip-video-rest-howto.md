@@ -1,5 +1,5 @@
 ---
-title: Ritagliare un video quando si codifica con API REST Servizi multimediali di Azure
+title: Sottoclip di un video durante la codifica con REST di servizi multimediali di Azure
 description: Questo argomento descrive come eseguire il clip di un video quando si esegue la codifica con servizi multimediali di Azure con REST
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3557aef6213955ef77542bffafe0a2b0c374ed68
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704455"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514324"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Sottoclip di un video durante la codifica con servizi multimediali-REST
 
@@ -39,7 +39,7 @@ Per completare i passaggi descritti in questo argomento, è necessario:
 
 ## <a name="create-a-subclipping-job"></a>Creazione di un processo di ritaglio
 
-1. Nella raccolta dei messaggi scaricati selezionare trasformazioni **e processi** -> **Crea processo con il ritaglio secondario**.
+1. Nella raccolta dei messaggi scaricati selezionare **trasformazioni e processi** -> **Crea processo con il ritaglio secondario**.
     
     La richiesta **put** ha un aspetto simile al seguente:
     

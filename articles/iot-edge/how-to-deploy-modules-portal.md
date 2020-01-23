@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290717"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510533"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -43,9 +43,9 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 1. Nella sezione **moduli IOT Edge** della pagina selezionare **Aggiungi**.
 1. Esaminare i tipi di moduli dal menu a discesa:
 
-   * **Modulo IOT Edge** : specificare il nome del modulo e l'URI dell'immagine del contenitore. Ad esempio, l'URI dell'immagine per il modulo SimulatedTemperatureSensor di esempio è `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Se l'immagine del modulo è archiviata in un registro contenitori privato, aggiungere le credenziali in questa pagina per accedere all'immagine. 
+   * **Modulo IOT Edge** : specificare il nome del modulo e l'URI dell'immagine del contenitore. Ad esempio, l'URI dell'immagine per il modulo SimulatedTemperatureSensor di esempio è `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Se l'immagine del modulo è archiviata in un registro contenitori privato, aggiungere le credenziali in questa pagina per accedere all'immagine.
    * **Modulo Marketplace** : moduli ospitati in Azure Marketplace. Alcuni moduli del Marketplace richiedono una configurazione aggiuntiva, quindi esaminare i dettagli del modulo nell'elenco dei [moduli IOT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
-   * **Modulo di analisi di flusso di Azure** : moduli generati da un carico di lavoro di analisi di flusso di Azure. 
+   * **Modulo di analisi di flusso di Azure** : moduli generati da un carico di lavoro di analisi di flusso di Azure.
 
 1. Dopo aver aggiunto un modulo, selezionare il nome del modulo nell'elenco per aprire le impostazioni del modulo. Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
 1. Se necessario, ripetere i passaggi da 5 a 8 per aggiungere altri moduli alla distribuzione.

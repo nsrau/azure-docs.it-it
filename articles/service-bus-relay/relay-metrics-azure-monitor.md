@@ -1,6 +1,6 @@
 ---
 title: Metriche del sevizio di inoltro di Azure in Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Usare Monitoraggio di Azure per monitorare il servizio di inoltro di Azure
+description: Questo articolo fornisce informazioni su come usare monitoraggio di Azure per monitorare lo stato del servizio di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 9933b7857580f29cbb6a54ebc82d4e7207456ad4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5c548186ec51cf86f34942cb15d8f984afa60268
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261795"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514936"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Metriche del sevizio di inoltro di Azure in Monitoraggio di Azure (anteprima)
 Le metriche del servizio Inoltro di Azure indicano lo stato delle risorse nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse di inoltro, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti poiché consentono di monitorare lo stato del servizio di inoltro di Azure. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
@@ -58,32 +58,32 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
-| Nome metrica | Descrizione |
+| Nome misurazione | Description |
 | ------------------- | ----------------- |
-| ListenerConnections-Success (anteprima) | Numero di connessioni riuscite del listener eseguite al servizio di inoltro di Azure in un periodo specificato. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|ListenerConnections-ClientError (anteprima)|Numero di errori del client nelle connessioni del listener in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|ListenerConnections-ServerError (anteprima)|Numero di errori del server nelle connessioni del listener in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|SenderConnections-Success (anteprima)|Numero di connessioni riuscite del mittente eseguite in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|SenderConnections-ClientError (anteprima)|Numero di errori del client nelle connessioni del mittente in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|SenderConnections-ServerError (anteprima)|Numero di errori del server nelle connessioni del mittente in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|ListenerConnections-TotalRequests (anteprima)|Numero totale di connessioni del listener in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|SenderConnections-TotalRequests (anteprima)|Richieste di connessione eseguite dai mittenti in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|ActiveConnections (anteprima)|Numero di connessioni attive in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|ActiveListeners (anteprima)|Numero di listener attivi in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|ListenerDisconnects (anteprima)|Numero di listener disconnessi in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|SenderDisconnects (anteprima)|Numero di mittenti disconnessi in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+| ListenerConnections-Success (anteprima) | Numero di connessioni riuscite del listener eseguite al servizio di inoltro di Azure in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ListenerConnections-ClientError (anteprima)|Numero di errori del client nelle connessioni del listener in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ListenerConnections-ServerError (anteprima)|Numero di errori del server nelle connessioni del listener in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|SenderConnections-Success (anteprima)|Numero di connessioni riuscite del mittente eseguite in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|SenderConnections-ClientError (anteprima)|Numero di errori del client nelle connessioni del mittente in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|SenderConnections-ServerError (anteprima)|Numero di errori del server nelle connessioni del mittente in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ListenerConnections-TotalRequests (anteprima)|Numero totale di connessioni del listener in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|SenderConnections-TotalRequests (anteprima)|Richieste di connessione eseguite dai mittenti in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ActiveConnections (anteprima)|Numero di connessioni attive in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ActiveListeners (anteprima)|Numero di listener attivi in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ListenerDisconnects (anteprima)|Numero di listener disconnessi in un periodo specificato.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|SenderDisconnects (anteprima)|Numero di mittenti disconnessi in un periodo specificato.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Metriche di utilizzo della memoria
 
-| Nome metrica | Descrizione |
+| Nome misurazione | Description |
 | ------------------- | ----------------- |
-|BytesTransferred (anteprima)|Numero di byte trasferiti in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|BytesTransferred (anteprima)|Numero di byte trasferiti in un periodo specificato.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
 Il servizio di inoltro di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
-|Nome della dimensione|Descrizione|
+|Nome della dimensione|Description|
 | ------------------- | ----------------- |
 |EntityName| Il servizio di inoltro di Azure supporta le entità di messaggistica nello spazio dei nomi.|
 

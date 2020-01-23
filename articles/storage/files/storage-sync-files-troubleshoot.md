@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 9318944004ae98eeb2a3300cabca07dfbe4e4fc7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027788"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514630"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -41,8 +41,15 @@ Se si tenta di installare l'agente di sincronizzazione in un controller di domin
 
 Per risolverlo, trasferire il ruolo PDC in un altro controller di dominio su cui è in esecuzione Windows Server 2012 R2 o una versione più recente, quindi installare la sincronizzazione.
 
-<a id="server-registration-prerequisites"></a>**Registrazione server Visualizza il messaggio seguente: "prerequisiti mancanti"**
+<a id="parameter-is-incorrect"></a>**L'accesso a un volume in Windows Server 2012 R2 non riesce con errore: il parametro non è corretto**  
+Dopo aver creato un endpoint server in Windows Server 2012 R2, si verifica l'errore seguente durante l'accesso al volume:
 
+LetteraUnità: \ non è accessibile.  
+Parametro non corretto.
+
+Per risolvere il tentativo, installare gli ultimi aggiornamenti per Windows Server 2012 R2 e riavviare il server.
+
+<a id="server-registration-prerequisites"></a>**Registrazione server Visualizza il messaggio seguente: "prerequisiti mancanti"**  
 Questo messaggio viene visualizzato se il modulo di PowerShell AZ o AzureRM non è installato in PowerShell 5,1. 
 
 > [!Note]  

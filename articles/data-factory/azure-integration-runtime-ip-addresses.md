@@ -1,5 +1,5 @@
 ---
-title: Indirizzi IP Azure Integration Runtime
+title: Indirizzi IP di Azure Integration Runtime
 description: Informazioni sugli indirizzi IP per i quali è necessario consentire il traffico in ingresso, in modo da configurare correttamente i firewall per la protezione dell'accesso alla rete agli archivi dati.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a2947eee31ccb193c8a81cff86cead577e6810c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d64475ce524a3e859ed68a46552fedf30068f71d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863860"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514783"
 ---
-# <a name="azure-integration-runtime-ip-addresses"></a>Indirizzi IP Azure Integration Runtime
+# <a name="azure-integration-runtime-ip-addresses"></a>Indirizzi IP di Azure Integration Runtime
 
 Gli indirizzi IP usati da Azure Integration Runtime dipendono dall'area in cui si trova il runtime di integrazione di Azure. *Tutto* I runtime di integrazione di Azure che si trovano nella stessa area utilizzano gli stessi intervalli di indirizzi IP.
 
@@ -45,6 +45,7 @@ Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazion
 | India          | India centrale       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | Giappone          | Giappone orientale          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | Corea          | Corea centrale       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
+| Sudafrica   | Sudafrica settentrionale  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | Regno Unito | Regno Unito meridionale            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
 | Stati Uniti  | Stati Uniti centrali          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | Stati Uniti orientali             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |

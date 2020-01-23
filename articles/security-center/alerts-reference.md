@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: cfb77548217cf173438ab0407320cbdff8db092e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 322b7656a5e8cb5d0fd0274cc9f09adec2c2c5e1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276998"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514766"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Avvisi di sicurezza-Guida di riferimento
 
@@ -27,27 +27,16 @@ Per informazioni su come rispondere a questi avvisi, vedere [gestire e risponder
 
 Per informazioni su come esportare avvisi (e consigli), vedere [esportare avvisi di sicurezza e consigli (anteprima)](continuous-export.md).
 
-Sotto la tabella avvisi è riportata una tabella che descrive la catena di Kill del Centro sicurezza di Azure usata per suddividere in categorie gli Intent di questi avvisi. 
+Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di Kill del Centro sicurezza di Azure usata per suddividere in categorie gli Intent di questi avvisi. 
 
-Tipi di avvisi inclusi in questa tabella:
-* [Avvisi per i computer Windows](#alerts-windows)
-* [Avvisi per computer Linux](#alerts-linux)
-* [Avvisi per il servizio app Azure](#alerts-azureappserv)
-* [Avvisi per il livello del cluster AKS](#alerts-akscluster)
-* [Avvisi per il livello host del contenitore](#alerts-containerhost)
-* [Avvisi per database SQL e SQL Data Warehouse](#alerts-sql-db-and-warehouse)
-* [Avvisi per archiviazione di Azure](#alerts-azurestorage)
-* [Avvisi per Azure Cosmos DB](#alerts-azurecosmos)
-* [Avvisi per il livello di rete di Azure](#alerts-azurenetlayer)
-* [Avvisi per Azure Resource Manager (anteprima)](#alerts-azureresourceman)
-* [Avvisi per Azure Key Vault (anteprima)](#alerts-azurekv)
-* [Avvisi per la protezione DDoS di Azure](#alerts-azureddos)
 
-## <a name="azure-security-center-alerts"></a>Avvisi del Centro sicurezza di Azure
+
+## <a name="alerts-windows"></a>Avvisi per i computer Windows
+
+[Ulteriori dettagli e note](security-center-alerts-iaas.md#windows-)
 
 |Avviso|Description|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
-||<a name="alerts-windows"></a><h3>Computer Windows</h3> [Ulteriori dettagli e note](security-center-alerts-iaas.md#windows-)||
 |**È stato rilevato un accesso da un indirizzo IP dannoso**|Si è verificata un'autenticazione remota corretta per l'account ' Tristan. schleining ' e il processo ' advapi ', ma l'indirizzo IP di accesso [indirizzo IP] è stato precedentemente segnalato come dannoso o estremamente insolito. Probabilmente si è verificato un attacco riuscito.|-|
 |**È stato rilevato un accesso da un indirizzo IP dannoso. [visualizzato più volte]**|Si è verificata un'autenticazione remota corretta per l'account ' IUSR_10001' e il processo ' advapi ', ma l'indirizzo IP di accesso [indirizzo IP] è stato precedentemente segnalato come dannoso o estremamente insolito. Probabilmente si è verificato un attacco riuscito. I file con estensione SCR sono screen saver file e in genere risiedono ed eseguiti dalla directory di sistema di Windows.|-|
 |**Aggiunta dell'account Guest al gruppo Administrators locale**|L'analisi dei dati host ha rilevato l'aggiunta dell'account Guest incorporato al gruppo Administrators locale in% {compromessa host}, che è strettamente associata all'attività dell'utente malintenzionato.|-|
@@ -129,7 +118,15 @@ Tipi di avvisi inclusi in questa tabella:
 |**Rilevato segmento di codice sospetto**|Indica che un segmento di codice è stato allocato usando metodi non standard, ad esempio l'inserimento riflettente e la svuotamento dei processi. L'avviso fornisce caratteristiche aggiuntive del segmento di codice che sono state elaborate per fornire il contesto per le funzionalità e i comportamenti del segmento di codice restituito.|-|
 |**Shellcode individuato**|Uno shellcode è il payload che viene eseguito dopo che il malware ha sfruttato una vulnerabilità del software.<br>Questo avviso indica che l'analisi dei dump di arresto anomalo del sistema ha rilevato codice eseguibile che presenta un comportamento comunemente eseguito da payload dannosi. Sebbene il software non dannoso possa anche eseguire questo comportamento, non è tipico delle normali procedure di sviluppo del software.|-|
 |**È stata rilevata una tecnica di attacco non file**|La memoria del processo specificato contiene un toolkit di attacco senza file: [nome Toolkit]. I toolkit di attacco senza file in genere non hanno una presenza sul file system, rendendo difficile il rilevamento da parte del software antivirus tradizionale.|DefenseEvasion/esecuzione|
-||<a name="alerts-linux"></a><h3>Computer Linux</h3> [Ulteriori dettagli e note](security-center-alerts-iaas.md#linux-)||
+||||
+
+
+## <a name="alerts-linux"></a>Avvisi per computer Linux
+
+[Ulteriori dettagli e note](security-center-alerts-iaas.md#linux-)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Il processo ha visto l'accesso al file delle chiavi autorizzate SSH in modo insolito**|È stato eseguito l'accesso a un file di chiavi autorizzate SSH in un metodo simile a una campagna malware nota. Questo accesso può indicare che un utente malintenzionato sta tentando di ottenere l'accesso permanente a un computer.|-|
 |**Tentativo di persistenza rilevato**|L'analisi dei dati host ha rilevato che è stato installato uno script di avvio per la modalità utente singolo.<br>Poiché è raro che qualsiasi processo legittimo debba essere eseguito in tale modalità, questo potrebbe indicare che un utente malintenzionato ha aggiunto un processo dannoso a ogni livello di esecuzione per garantire la persistenza. |Persistenza|
 |**Modifica del timestamp del file sospetto**|L'analisi dei dati host ha rilevato una modifica del timestamp sospetta. Spesso gli utenti malintenzionati copiano i timestamp da file legittimi esistenti a nuovi strumenti per evitare il rilevamento di questi file appena eliminati.|Persistenza/DefenseEvasion|
@@ -210,7 +207,15 @@ Tipi di avvisi inclusi in questa tabella:
 |**Accesso con password sospette [visualizzato più volte]**|L'analisi dei dati host ha rilevato l'accesso sospetto alle password utente crittografate in% {host compromesso}. Questo comportamento è stato rilevato [x] volte nei computer seguenti: [nomi computer]|-|
 |**È stata rilevata un'esecuzione PHP sospetta**|I log del computer indicano un processo PHP sospetto in esecuzione. L'azione includeva un tentativo di eseguire comandi del sistema operativo o codice PHP dalla riga di comando usando il processo PHP. Sebbene questo comportamento possa essere legittimo, nelle applicazioni Web questo comportamento viene osservato anche in attività dannose, ad esempio i tentativi di infettare i siti Web con le shell Web.|-|
 |**Richiesta sospetta all'API Kubernetes**|I log del computer indicano che è stata apportata una richiesta sospetta all'API Kubernetes. La richiesta è stata inviata da un nodo Kubernetes, probabilmente da uno dei contenitori in esecuzione nel nodo. Sebbene questo comportamento possa essere intenzionale, potrebbe indicare che il nodo esegue un contenitore compromesso.|-|
-||<a name="alerts-azureappserv"></a><h3>Servizio app di Azure</h3> [Ulteriori dettagli e note](security-center-alerts-compute.md#azure-app-service-)||
+||||
+
+
+## <a name="alerts-azureappserv"></a>Avvisi per il servizio app Azure
+
+[Ulteriori dettagli e note](security-center-alerts-compute.md#azure-app-service-)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Rilevata chiamata del tema WordPress sospetta**|Il log attività del servizio app indica una possibile attività di inserimento di codice nella risorsa del servizio app.<br>Questa attività sospetta assomiglia all'attività che manipola un tema WordPress per supportare l'esecuzione sul lato server del codice, seguito da una richiesta Web diretta per richiamare il file di tema modificato. Questo tipo di attività può essere parte di una campagna di attacco rispetto a WordPress.|-|
 |**Impronta digitale web rilevata**<br>(NMAP/elefante cieco)|Il log attività del servizio app indica una possibile attività di impronta digitale Web nella risorsa del servizio app.<br>Questa attività sospetta è associata a uno strumento denominato Elephant cieco. Lo strumento consente di eseguire l'impronta digitale dei server Web e tenta di rilevare le applicazioni installate e le relative versioni. Spesso gli utenti malintenzionati usano questo strumento per eseguire il probe delle applicazioni Web per individuare le vulnerabilità. |-|
 |**È stato rilevato un accesso sospetto a una pagina Web potenzialmente vulnerabile**|Il log attività del servizio app indica che è stato eseguito l'accesso a una pagina Web che sembra essere sensibile.<br>Questa attività sospetta ha origine da un indirizzo di origine il cui modello di accesso è simile a quello di uno scanner Web. Questo tipo di attività è spesso associato a un tentativo da un utente malintenzionato di analizzare la rete per tentare di accedere alle pagine Web sensibili o vulnerabili. |-|
@@ -226,7 +231,15 @@ Tipi di avvisi inclusi in questa tabella:
 |**Rilevato agente utente sospetto**|App Azure log attività del servizio indica le richieste con agenti utente sospetti. Questo comportamento può indicare i tentativi di sfruttare una vulnerabilità nell'applicazione del servizio app.|-|
 |**File PHP nella cartella di caricamento**|Il log attività del servizio app Azure indica l'accesso a una pagina PHP sospetta che si trova nella cartella di caricamento. Questo tipo di cartella non contiene in genere file PHP. L'esistenza di questo tipo di file potrebbe indicare un exploit che sfrutta le vulnerabilità di caricamento arbitrario dei file.|-|
 |**Rilevato modello di richieste anomale**|Il log attività del servizio app Azure indica un'attività HTTP anomala per il servizio app da% {IP origine}. Questa attività è simile a un criterio di fuzzy \ attività di forza bruta.|-|
-||<a name="alerts-akscluster"></a><h3>Livello del cluster AKS</h3> [Ulteriori dettagli e note](security-center-alerts-compute.md#azure-containers-)||
+||||
+
+
+## <a name="alerts-akscluster"></a>Avvisi per il livello del cluster AKS
+
+[Ulteriori dettagli e note](security-center-alerts-compute.md#azure-containers-)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Anteprima-associazione ruolo al ruolo di amministratore del cluster rilevato**|L'analisi del log di controllo di Kubernetes ha rilevato una nuova associazione al ruolo di amministratore del cluster, con privilegi di amministratore. La fornitura inutilmente di privilegi di amministratore potrebbe causare problemi di escalation dei privilegi nel cluster.|Persistenza|
 |**ANTEPRIMA: è stato rilevato un dashboard Kubernetes esposto**|L'analisi del log di controllo di Kubernetes ha rilevato l'esposizione del dashboard Kubernetes da parte di un servizio LoadBalancer. I dashboard esposti consentono l'accesso non autenticato alla gestione del cluster e costituiscono una minaccia per la sicurezza.|Persistenza|
 |**ANTEPRIMA: rilevato nuovo ruolo con privilegi elevati**|L'analisi del log di controllo di Kubernetes ha rilevato un nuovo ruolo con privilegi elevati. Un'associazione a un ruolo con privilegi elevati consente di privilegi elevati di utenti/gruppi nel cluster. La fornitura inutilmente di privilegi elevati può causare problemi di escalation dei privilegi nel cluster.|Persistenza|
@@ -234,7 +247,14 @@ Tipi di avvisi inclusi in questa tabella:
 |**ANTEPRIMA-contenitore di data mining Digital Currency rilevato**|L'analisi del log di controllo di Kubernetes ha rilevato un contenitore con un'immagine associata a uno strumento di data mining digitale.|Esecuzione|
 |**ANTEPRIMA-contenitore con privilegi rilevato**|L'analisi del log di controllo di Kubernetes ha rilevato un nuovo contenitore con privilegi. Un contenitore con privilegi ha accesso alle risorse del nodo e interrompe l'isolamento tra i contenitori. Se compromesso, un utente malintenzionato può usare il contenitore con privilegi per ottenere l'accesso al nodo.|PrivilegeEscalation|
 |**ANTEPRIMA-contenitore con un montaggio del volume sensibile rilevato**|L'analisi del log di controllo di Kubernetes ha rilevato un nuovo contenitore con un montaggio sensibile del volume. Il volume rilevato è un tipo hostPath che consente di montare un file o una cartella sensibile dal nodo al contenitore. Se il contenitore viene compromesso, l'utente malintenzionato può usare questa installazione per accedere al nodo.|PrivilegeEscalation|
-||<a name="alerts-containerhost"></a><h3>Livello host del contenitore</h3> [Ulteriori dettagli e note](security-center-alerts-compute.md#azure-containers-)||
+||||
+
+## <a name="alerts-containerhost"></a>Avvisi per il livello host dei contenitori
+
+[Ulteriori dettagli e note](security-center-alerts-compute.md#azure-containers-)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Rilevato contenitore con privilegi**|Log del computer indica che è in esecuzione un contenitore Docker con privilegi. Un contenitore con privilegi dispone dell'accesso completo alle risorse dell'host. Se compromesso, un utente malintenzionato può usare il contenitore con privilegi per ottenere l'accesso al computer host.|PrivilegeEscalation/esecuzione|
 |**Esecuzione comando con privilegi nel contenitore**|I log del computer indicano che un comando con privilegi è stato eseguito in un contenitore docker. Un comando con privilegi ha privilegi estesi sul computer host.|PrivilegeEscalation|
 |**Rilevato daemon Docker esposto**|Log del computer indica che il daemon Docker (dockerd) espone un socket TCP. Per impostazione predefinita, la configurazione di Docker non usa la crittografia o l'autenticazione quando è abilitato un socket TCP. Chiunque abbia accesso alla porta pertinente può quindi ottenere l'accesso completo al daemon docker.|Exploit/esecuzione|
@@ -242,7 +262,15 @@ Tipi di avvisi inclusi in questa tabella:
 |**Rilevato contenitore con un'immagine Miner**|I log del computer indicano l'esecuzione di un contenitore Docker che esegue un'immagine associata a Digital Currency mining. Questo comportamento può eventualmente indicare che le risorse sono state usate.|Esecuzione|
 |**Richiesta sospetta all'API Kubernetes**|I log del computer indicano che è stata apportata una richiesta sospetta all'API Kubernetes. La richiesta è stata inviata da un nodo Kubernetes, probabilmente da uno dei contenitori in esecuzione nel nodo. Sebbene questo comportamento possa essere intenzionale, potrebbe indicare che il nodo esegue un contenitore compromesso.|Esecuzione|
 |**Richiesta sospetta al dashboard di Kubernetes**|I log del computer indicano che è stata apportata una richiesta sospetta al dashboard di Kubernetes. La richiesta è stata inviata da un nodo Kubernetes, probabilmente da uno dei contenitori in esecuzione nel nodo. Sebbene questo comportamento possa essere intenzionale, potrebbe indicare che il nodo esegue un contenitore compromesso.|-|
-||<a name="alerts-sql-db-and-warehouse"></a><h3>Database SQL e SQL Data Warehouse</h3> [Ulteriori dettagli e note](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-) ||
+||||
+
+
+## <a name="alerts-sql-db-and-warehouse"></a>Avvisi per database SQL e SQL Data Warehouse
+
+[Ulteriori dettagli e note](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Una possibile vulnerabilità a SQL injection**|Un'applicazione ha generato un'istruzione SQL non corretta nel database. Questo può indicare una possibile vulnerabilità agli attacchi intrusivi nel codice SQL. Esistono due possibili motivi per un'istruzione difettosa. Un difetto nel codice dell'applicazione potrebbe avere creato l'istruzione SQL non funzionante. In alternativa, il codice dell'applicazione o le stored procedure non hanno purificato l'input dell'utente durante la creazione dell'istruzione SQL difettosa, che può essere sfruttata per SQL injection.|-|
 |**Potenziale attacco SQL injection**|Si è verificato un exploit attivo in un'applicazione identificata vulnerabile a SQL injection. Ciò significa che un utente malintenzionato sta provando a inserire istruzioni SQL dannose usando il codice dell'applicazione vulnerabile o le stored procedure.|-|
 |**Accesso da una posizione insolita**|È stata apportata una modifica al modello di accesso per SQL Server, in cui qualcuno ha eseguito l'accesso al server da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (un dipendente precedente o un utente malintenzionato esterno).|Sfruttamento|
@@ -252,7 +280,15 @@ Tipi di avvisi inclusi in questa tabella:
 |**Accesso da un Data Center di Azure insolito**|È stata apportata una modifica al modello di accesso a un SQL Server, in cui qualcuno ha eseguito l'accesso al server da un Data Center di Azure insolito. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o un servizio di Azure). In altri casi, l'avviso rileva un'azione dannosa (un utente malintenzionato che opera da una risorsa violata in Azure).|Esecuzione del probe|
 |**Azione potenzialmente non sicura**|Un comando SQL con privilegi elevati, comunemente utilizzato nelle sessioni dannose, è stato eseguito in un SQL Server. Per impostazione predefinita, è consigliabile disabilitare questi comandi. In alcuni casi, l'avviso rileva un'azione legittima (script di amministrazione in esecuzione). In altri casi, l'avviso rileva un'azione dannosa (un utente malintenzionato che usa Trust SQL per violare il livello Windows).|Esecuzione|
 |**Percorso di esportazione insolito**|È stata apportata una modifica nella destinazione di archiviazione dell'esportazione per un'operazione di importazione ed esportazione SQL. In alcuni casi, l'avviso rileva una modifica legittima (nuova destinazione di backup). In altri casi, l'avviso rileva un'azione dannosa (l'utente malintenzionato exfiltrated facilmente i dati a un file).|Esfiltrazione|
-||<a name="alerts-azurestorage"></a><h3>Archiviazione di Azure</h3> [Ulteriori dettagli e note](security-center-alerts-data-services.md#azure-storage-)||
+||||
+
+
+## <a name="alerts-azurestorage"></a>Avvisi per archiviazione di Azure
+
+[Ulteriori dettagli e note](security-center-alerts-data-services.md#azure-storage-)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Accesso da una posizione insolita a un account di archiviazione**|Indica che è stata apportata una modifica nel modello di accesso a un account di archiviazione di Azure. Un utente ha eseguito l'accesso a questo account da un indirizzo IP considerato non noto quando viene confrontato con l'attività recente. Un utente malintenzionato ha ottenuto l'accesso all'account oppure un utente legittimo si è connesso da una posizione geografica nuova o insolita. Un esempio di quest'ultimo è la manutenzione remota di una nuova applicazione o di uno sviluppatore.|Sfruttamento|
 |**Applicazione insolito a cui si accede a un account di archiviazione**|Indica che l'account di archiviazione ha eseguito l'accesso a un'applicazione insolita. Una causa potenziale è che un utente malintenzionato ha eseguito l'accesso all'account di archiviazione utilizzando una nuova applicazione.|Sfruttamento|
 |**Accesso anonimo a un account di archiviazione**|Indica che è stata apportata una modifica nel modello di accesso a un account di archiviazione. Ad esempio, è stato eseguito l'accesso anonimo all'account (senza autenticazione), che è imprevisto rispetto al modello di accesso recente su questo account. Una possibile provocazione è che un utente malintenzionato ha sfruttato l'accesso in lettura pubblico a un contenitore che contiene l'archiviazione BLOB.|Sfruttamento|
@@ -265,10 +301,26 @@ Tipi di avvisi inclusi in questa tabella:
 |**Ispezione di accesso insolita in un account di archiviazione**|Indica che le autorizzazioni di accesso di un account di archiviazione sono state ispezionate in modo insolito, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|Raccolta|
 |**Esplorazione insolita dei dati in un account di archiviazione**|Indica che i BLOB o i contenitori in un account di archiviazione sono stati enumerati in modo anomalo, rispetto alle attività recenti di questo account. Una possibile provocazione è che un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.|Raccolta|
 |**ANTEPRIMA: potenziale malware caricato in un account di archiviazione**|Indica che un BLOB contenente il potenziale malware è stato caricato in un account di archiviazione. Possibili cause possono includere un malware intenzionale caricato da un utente malintenzionato o un caricamento non intenzionale, di un BLOB potenzialmente dannoso, da un utente legittimo.|LateralMovement|
-||<a name="alerts-azurecosmos"></a><h3>Azure Cosmos DB</h3> [Ulteriori dettagli e note](security-center-alerts-data-services.md#azure-cosmos-db)||
+||||
+
+
+## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
+
+[Ulteriori dettagli e note](security-center-alerts-data-services.md#azure-cosmos-db)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Accesso da una posizione insolita a un account Cosmos DB**|Indica che è stata apportata una modifica nel modello di accesso a un account Azure Cosmos DB. Un utente ha eseguito l'accesso a questo account da un indirizzo IP non noto, rispetto alle attività recenti. Un utente malintenzionato ha eseguito l'accesso all'account oppure un utente legittimo ha eseguito l'accesso a tale account da una posizione geografica nuova e insolita. Un esempio di quest'ultimo è la manutenzione remota di una nuova applicazione o di uno sviluppatore.|Sfruttamento|
 |**Quantità insolita di dati estratti da un account di Cosmos DB**|Indica che è stata apportata una modifica al modello di estrazione dei dati da un account Azure Cosmos DB. Un utente ha estratto una quantità di dati insolita rispetto alle attività recenti. Un utente malintenzionato potrebbe avere estratto una grande quantità di dati da un database di Azure Cosmos DB (ad esempio, exfiltration o perdita di dati o un trasferimento non autorizzato di dati). In alternativa, un utente o un'applicazione legittima potrebbe avere estratto una quantità di dati insolita da un contenitore, ad esempio per attività di backup di manutenzione.|Esfiltrazione|
-||<a name="alerts-azurenetlayer"></a><h3>Livello rete di Azure</h3> [Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-network-layer)||
+||||
+
+
+## <a name="alerts-azurenetlayer"></a>Avvisi per il livello di rete di Azure
+
+[Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-network-layer)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Traffico rilevato dagli indirizzi IP consigliati per il blocco**|Il Centro sicurezza di Azure ha rilevato il traffico in ingresso dagli indirizzi IP che si consiglia di bloccare. Questo problema si verifica in genere quando questo indirizzo IP non comunica regolarmente con questa risorsa. In alternativa, l'indirizzo IP è stato contrassegnato come dannoso dalle fonti di intelligence per le minacce del Centro sicurezza.|Esecuzione del probe|
 |**Comunicazione di rete con un computer dannoso rilevato**|L'analisi del traffico di rete indica che il computer (IP% {vittima IP}) ha comunicato con quanto probabilmente un comando e un centro di controllo. Quando la risorsa compromessa è un servizio di bilanciamento del carico o un gateway applicazione, l'attività sospetta potrebbe indicare che una o più risorse nel pool back-end (del servizio di bilanciamento del carico o del gateway applicazione) hanno comunicato con quello che può essere un comando e Centro di controllo.|-|
 |**Rilevato computer compromesso possibile**|Intelligence per le minacce indica che il computer (all'indirizzo IP% {computer IP}) potrebbe essere stato compromesso da un malware di tipo Conficker. Conficker era un worm del computer destinato al sistema operativo Microsoft Windows ed è stato rilevato per la prima volta nel 2008 novembre. Conficker ha infettato milioni di computer, inclusi i computer governativi, aziendali e domestici in oltre 200 paesi, rendendolo la più grande infezione del worm del computer dal Welchia worm 2003.|-|
@@ -285,7 +337,15 @@ Tipi di avvisi inclusi in questa tabella:
 |**Attività di rete RDP in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala per più destinazioni originate da% {host compromesso} (% {IP dell'utente malintenzionato}), una risorsa nella distribuzione. Quando la risorsa compromessa è un servizio di bilanciamento del carico o un gateway applicazione, il traffico in uscita sospetto è stato originato da a una o più risorse nel pool back-end (del servizio di bilanciamento del carico o del gateway applicazione). In particolare, i dati di rete campionati visualizzano il computer che si connette a% {numero di IP di attacco} indirizzi IP univoci, che è considerato anomalo per questo ambiente. Questa attività può indicare che la risorsa è stata compromessa e viene ora usata per la forza bruta degli endpoint RDP esterni. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|-|
 |**Attività di rete SSH in uscita sospetta**|L'analisi del traffico di rete ha rilevato una comunicazione SSH in uscita anomala a% {vittima IP} originata da% {host compromesso} (% {utente malintenzionato}), una risorsa nella distribuzione. Quando la risorsa compromessa è un servizio di bilanciamento del carico o un gateway applicazione, il traffico in uscita sospetto è stato originato da a una o più risorse nel pool back-end (del servizio di bilanciamento del carico o del gateway applicazione). In particolare, i dati di rete campionati mostrano% {Number of connections} connessioni in uscita dalla risorsa, che vengono considerate anomale per questo ambiente. Questa attività può indicare che la risorsa è stata compromessa e viene ora usata per la forza bruta per gli endpoint SSH esterni. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|-|
 |**Attività di rete SSH in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete ha rilevato una comunicazione SSH in uscita anomala verso più destinazioni originate da% {host compromesso} (% {IP dell'utente malintenzionato}), una risorsa nella distribuzione. Quando la risorsa compromessa è un servizio di bilanciamento del carico o un gateway applicazione, il traffico in uscita sospetto è stato originato da a una o più risorse nel pool back-end (del servizio di bilanciamento del carico o del gateway applicazione). In particolare, i dati di rete campionati visualizzano la risorsa che si connette a% {numero di IP di attacco} indirizzi IP univoci, che viene considerato anomalo per questo ambiente. Questa attività può indicare che la risorsa è stata compromessa e viene ora usata per la forza bruta per gli endpoint SSH esterni. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|-|
-||<a name="alerts-azureresourceman"></a><h3>Azure Resource Manager (anteprima)</h3> [Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)||
+||||
+
+
+## <a name="alerts-azureresourceman"></a>Avvisi per Azure Resource Manager (anteprima)
+
+[Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**ANTEPRIMA: è stata rilevata l'esecuzione di una funzione del Toolkit**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Il [microimpulso](https://github.com/NetSPI/MicroBurst) dello strumento può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni, identificare le configurazioni non sicure e perdere informazioni riservate.|-|
 |**Anteprima-rilevata esecuzione di azzurrite Toolkit**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento [azzurrite](https://github.com/mwrlabs/Azurite) può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni e identificare le configurazioni non sicure.|-|
 |**ANTEPRIMA: è stata rilevata una sessione di gestione sospetta usando un account inattivo**|L'analisi dei log attività della sottoscrizione ha rilevato un comportamento sospetto. Un'entità non utilizzata per un lungo periodo di tempo sta ora eseguendo azioni che possono proteggere la persistenza per un utente malintenzionato.|Persistenza|
@@ -295,7 +355,15 @@ Tipi di avvisi inclusi in questa tabella:
 |**Attività da un paese non frequente**|Si è verificata un'attività da una località che non è stata visitata di recente o mai da un utente nell'organizzazione.<br>Questo rilevamento prende in considerazione le località di attività passate per determinare località nuove e non frequenti. Il motore di rilevamento delle anomalie archivia le informazioni sulle località precedenti usate dagli utenti dell'organizzazione.|-|
 |**Attività da indirizzi IP anonimi**|È stata rilevata l'attività degli utenti da un indirizzo IP identificato come indirizzo IP proxy anonimo.<br>Questi proxy vengono usati da persone che vogliono nascondere l'indirizzo IP del dispositivo e possono essere usati per finalità dannose. Questo rilevamento usa un algoritmo di apprendimento automatico che riduce i falsi positivi, ad esempio gli indirizzi IP con tag errato che sono ampiamente usati dagli utenti dell'organizzazione.|-|
 |**Attività di viaggio impossibile**|Si sono verificate due attività utente (in una o più sessioni), provenienti da località geograficamente distanti. Questo problema si verifica entro un periodo di tempo più breve rispetto al tempo impiegato dall'utente per spostarsi dalla prima posizione al secondo. Indica che un altro utente utilizza le stesse credenziali.<br>Questo rilevamento usa un algoritmo di apprendimento automatico che ignora i falsi positivi evidenti che contribuiscono alle condizioni di viaggio impossibili, ad esempio le VPN e le posizioni usate regolarmente da altri utenti nell'organizzazione. Il rilevamento ha un periodo di apprendimento iniziale di sette giorni, durante il quale apprende il modello di attività di un nuovo utente. |-|
-||<a name="alerts-azurekv"></a><h3>Azure Key Vault (anteprima)</h3> [Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-keyvault)||
+||||
+
+
+## <a name="alerts-azurekv"></a>Avvisi per Azure Key Vault (anteprima)
+
+[Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-keyvault)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Accesso da un nodo di uscita TOR a un Key Vault**|Il Key Vault è stato accessibile da un utente che usa il sistema TOR IP anonimato dei per nasconderne la posizione. Gli attori malintenzionati provano spesso a nascondere la loro posizione quando tentano di ottenere accesso non autorizzato alle risorse connesse a Internet.|-|
 |**Modifica dei criteri sospetti e query segrete in un Key Vault**|È stata apportata una modifica ai criteri di Key Vault, quindi le operazioni per elencare e/o ottenere segreti si sono verificati. Inoltre, questo modello di operazione non viene in genere eseguito dall'utente in questo insieme di credenziali. Si tratta di un'indicazione estremamente indicativa del fatto che il Key Vault è compromesso e che i segreti in sono stati rubati da un attore malintenzionato.|-|
 |**Elenco e query segrete sospette in un Key Vault**|Un'operazione di elenco dei segreti è stata seguita da molte operazioni get segrete. Questo modello di operazione, inoltre, non viene in genere eseguito dall'utente in questo insieme di credenziali. Ciò indica che è possibile che un utente abbia eseguito il dump dei segreti archiviati nel Key Vault per scopi potenzialmente dannosi.|-|
@@ -305,11 +373,18 @@ Tipi di avvisi inclusi in questa tabella:
 |**Modello di operazione insolito in un Key Vault**|È stato eseguito un set insolito di operazioni di Key Vault rispetto ai dati cronologici. Key Vault attività è in genere la stessa nel tempo. Potrebbe trattarsi di una modifica legittima dell'attività. In alternativa, è possibile che l'infrastruttura venga compromessa e che siano necessarie ulteriori indagini.|-|
 |**Volume elevato di operazioni in una Key Vault**|È stato eseguito un volume maggiore di operazioni di Key Vault rispetto ai dati cronologici. Key Vault attività è in genere la stessa nel tempo. Potrebbe trattarsi di una modifica legittima dell'attività. In alternativa, è possibile che l'infrastruttura venga compromessa e che siano necessarie ulteriori indagini.|-|
 |**Volume elevato di insiemi di credenziali delle chiavi accessibile dall'utente**|Il numero di insiemi di credenziali a cui un utente o un'applicazione accede è stato modificato rispetto ai dati cronologici. Key Vault attività è in genere la stessa nel tempo. Potrebbe trattarsi di una modifica legittima dell'attività. In alternativa, è possibile che l'infrastruttura venga compromessa e che siano necessarie ulteriori indagini.|-|
-||<a name="alerts-azureddos"></a><h3>Protezione DDoS di Azure</h3> [Ulteriori dettagli e note](security-center-alerts-integration.md#azure-ddos)||
+||||
+
+
+## <a name="alerts-azureddos"></a>Avvisi per la protezione DDoS di Azure
+
+[Ulteriori dettagli e note](security-center-alerts-integration.md#azure-ddos)
+
+|Avviso|Description|Finalità ([altre informazioni](#intentions))|
+|----|----|:----:|
 |**Attacco DDoS rilevato per l'indirizzo IP pubblico**|È stato rilevato un attacco DDoS per l'IP pubblico (indirizzo IP) e la relativa attenuazione.|Esecuzione del probe|
 |**Attacco DDoS mitigato per IP pubblico**|Attacco DDoS mitigato per IP pubblico (indirizzo IP).|Esecuzione del probe|
 ||||
-
 
 ## <a name="intentions"></a>Intenzioni
 

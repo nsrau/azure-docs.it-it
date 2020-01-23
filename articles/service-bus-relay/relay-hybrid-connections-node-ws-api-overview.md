@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API Node di inoltro di Azure | Microsoft Docs
-description: Panoramica dell'API Node di inoltro
+description: Questo articolo fornisce una panoramica dell'API Node. js per il servizio di inoltro di Azure. Viene inoltre illustrato come utilizzare il pacchetto del nodo Hyco-WS.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699384"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514511"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Panoramica dell'API del pacchetto Node per Connessioni ibride di inoltro
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il pacchetto Node [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) per le connessioni ibride di inoltro di Azure si basa sul pacchetto NPM ['ws'](https://www.npmjs.com/package/ws) e lo estende. Questo pacchetto permette di esportare nuovamente tutte le esportazioni del pacchetto di base e aggiunge nuove esportazioni che consentono l'integrazione con la funzionalità connessioni ibride del servizio di inoltro di Azure. 
 

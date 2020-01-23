@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 60458365fd9ed3a9a72f5c2da82431fb55792a50
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9c463095612b1540cc593b17a0e52bfd24db30d2
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464071"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514477"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
 
 > [!NOTE]
-> Il processore di contenuti multimediali [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) verrà ritirato il 1 ° gennaio 2020. [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
+> Il processore di contenuti multimediali [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) verrà ritirato. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md) . [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
 
 Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate sono l'italiano, l'inglese, il francese, il tedesco, lo spagnolo, il portoghese, il giapponese, il cinese (mandarino semplificato), l'arabo e il russo.
 
@@ -291,10 +291,10 @@ namespace IndexContent
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

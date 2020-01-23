@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978383"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509003"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Trasferire dati con la libreria di Spostamento dati
 
-La libreria per lo spostamento dei dati di archiviazione di Azure è una libreria open source multipiattaforma progettata per prestazioni elevate di caricamento, download e copia di BLOB e file. Questa libreria è il principale framework di spostamento dei dati alla base di [AzCopy](../storage-use-azcopy.md). La libreria per lo spostamento dei dati fornisce metodi pratici che non sono disponibili nella libreria client di archiviazione di Azure per .NET. Questi metodi offrono la possibilità di impostare il numero di operazioni parallele, tenere traccia dello stato del trasferimento, riprendere facilmente un trasferimento annullato e molto altro ancora.
+La libreria per lo spostamento dei dati di archiviazione di Azure è una libreria open source multipiattaforma progettata per prestazioni elevate di caricamento, download e copia di BLOB e file. La libreria per lo spostamento dei dati fornisce metodi pratici che non sono disponibili nella libreria client di archiviazione di Azure per .NET. Questi metodi offrono la possibilità di impostare il numero di operazioni parallele, tenere traccia dello stato del trasferimento, riprendere facilmente un trasferimento annullato e molto altro ancora.
 
 La libreria usa inoltre .NET Core, utile quando si creano app .NET per Windows, Linux e macOS. Per altre informazioni su .NET Core, consultare la [documentazione di .NET Core](https://dotnet.github.io/). La libreria è compatibile anche con le app .NET Framework tradizionali per Windows.
 

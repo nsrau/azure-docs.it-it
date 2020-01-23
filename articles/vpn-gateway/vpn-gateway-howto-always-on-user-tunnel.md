@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: bff2ed48a78bfbae984dea5e5474971817023bc6
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: a22ba5d8b33dd41fcc76c65fcddaf60c1c0ed5e3
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729322"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514749"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurare un tunnel utente VPN Always On
 
@@ -39,7 +39,7 @@ Il gateway VPN viene configurato per l'uso di IKEv2 e l'autenticazione basata su
 
 1. Installare i certificati client nel client Windows 10, come illustrato in questo articolo del [client VPN da punto a sito](point-to-site-how-to-vpn-client-install-azure-cert.md) . Il certificato deve trovarsi nell'archivio utente corrente.
 
-1. Configurare il client VPN Always On tramite PowerShell, System Center Configuration Manager o Intune seguendo le istruzioni riportate in [configurare il client Windows 10 always on le connessioni VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Configurare il client VPN Always On tramite PowerShell, Configuration Manager o Intune seguendo le istruzioni riportate in [configurare il client Windows 10 always on le connessioni VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Configurazione di esempio per il tunnel utente
 

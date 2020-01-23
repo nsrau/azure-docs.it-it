@@ -1,5 +1,5 @@
 ---
-title: Usare il sito Web di Video Indexer per personalizzare un modello linguistico - Azure
+title: Personalizzare i modelli di linguaggio con il sito Web Video Indexer-Azure
 titleSuffix: Azure Media Services
 description: Questo articolo illustra come personalizzare un modello linguistico con il sito Web di Video Indexer.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 329da39914ef957d3a5376ba59e0c7103ad6a5dd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838449"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513916"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizzare un modello linguistico con il sito Web di Video Indexer
 
@@ -61,10 +61,10 @@ Per usare il modello linguistico in un nuovo video, eseguire una delle operazion
 
 * Fare clic sul pulsante **Carica** nella parte superiore della pagina. 
 
-    ![Carica](./media/customize-language-model/upload.png)
+    ![Caricamento](./media/customize-language-model/upload.png)
 * Rilasciare il file audio o video nel cerchio o cercare il proprio file.
 
-    ![Carica](./media/customize-language-model/upload2.png)
+    ![Caricamento](./media/customize-language-model/upload2.png)
 
 In questo modo è possibile selezionare la **lingua di origine del video**. Fare clic sull'elenco a discesa e selezionare un modello linguistico creato dall'elenco. Dovrebbe essere indicati la lingua del modello linguistico e il nome assegnato tra parentesi.
 
