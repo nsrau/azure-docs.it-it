@@ -4,12 +4,12 @@ description: Domande frequenti su Service Fabric, incluse funzionalità, casi d'
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614639"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293522"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -183,4 +183,4 @@ Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui [concetti di base Service Fabric](service-fabric-technical-overview.md) e sulle [procedure](service-fabric-best-practices-overview.md) consigliate per i concetti di infrastruttura di Ice (Service-Fabric-Technical-Overview.MD) e [sulle procedure consigliate](service-fabric-best-practices-overview.md)
+Informazioni sui [concetti chiave](service-fabric-technical-overview.md) e sulle [procedure consigliate di Service Fabric](service-fabric-best-practices-overview.md)

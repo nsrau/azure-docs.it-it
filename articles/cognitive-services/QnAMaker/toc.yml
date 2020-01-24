@@ -131,13 +131,13 @@
           href: Tutorials/choosing-capacity-qnamaker-deployment.md
         - name: Creare un piano di continuità aziendale
           href: How-To/business-continuity-plan.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Languages
       href: Overview/language-support.md
     - name: Limiti
       href: limits.md
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       href: troubleshooting.md
     - name: Formati di file
       items:
@@ -181,7 +181,7 @@
             - name: Documentazione di riferimento
               href: 'https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
             - name: NPM
-              href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker'
             - name: Esempi
               href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs'
         - name: Python
