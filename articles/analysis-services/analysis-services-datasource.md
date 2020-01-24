@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442769"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922279"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -28,7 +28,7 @@ Le origini dati e i connettori visualizzati in recuperare dati o importazione gu
 |Archiviazione tabelle di Azure     |   Sì       |    No      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Sì        |  No        |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen1      |   Sì       |    No      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Sì       |    No      |<sup>[1,5](#tab1400a)</sup> <sup> [](#gen2)</sup>|
+|Azure Data Lake Store Gen2       |   Sì       |    No      |<sup>[1,](#tab1400a)</sup> <sup> [5](#gen2)</sup>|
 |HDFS HDInsight di Azure    |     Sì     |   No       |<sup>[1](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Sì       |   No       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
@@ -120,7 +120,9 @@ Per le origini dati cloud:
 
 ## <a name="oauth-credentials"></a>Credenziali OAuth
 
-Per i modelli tabulari con livello di compatibilità 1400 e superiore, il database SQL di Azure, Azure SQL Data Warehouse, Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
+Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità in memoria, il database SQL di Azure, Azure SQL Data Warehouse, Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
+
+La modalità di query diretta non è supportata con le credenziali OAuth.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gateway locale](analysis-services-gateway.md)   

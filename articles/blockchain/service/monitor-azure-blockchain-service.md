@@ -3,13 +3,13 @@ title: Monitoraggio del servizio Azure blockchain (ABS)
 description: Monitoraggio del servizio Azure blockchain tramite monitoraggio di Azure
 ms.date: 01/08/2020
 ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 8c2dc6afeaa00e4c7455940cbdf5a7acd6e17394
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.reviewer: v-umha
+ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780405"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293250"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitorare il servizio Azure blockchain tramite monitoraggio di Azure  
 
@@ -38,7 +38,7 @@ Quando si crea un'impostazione di diagnostica, è necessario specificare le cate
 
 **Blockchain log applicazioni** : selezionare la categoria per ottenere i log dell'applicazione blockchain ospitata dal servizio gestito. Per un membro del quorum ABS, ad esempio, questi log sono i log del quorum stesso.  
 
-**Richieste metrica**: selezionare l'opzione per raccogliere i dati delle metriche da Azure Cosmos DB alle destinazioni nell'impostazione di diagnostica, che viene raccolta automaticamente in metriche di Azure. Raccogliere i dati delle metriche con i log delle risorse per analizzare entrambi i tipi di dati e inviare i dati delle metriche all'esterno di monitoraggio di Azure.
+**Richieste metrica**: Selezionare l'opzione per raccogliere i dati delle metriche da Azure Cosmos DB alle destinazioni nell'impostazione di diagnostica, che vengono raccolte automaticamente in metriche di Azure. Raccogliere i dati delle metriche con i log delle risorse per analizzare entrambi i tipi di dati e inviare i dati delle metriche all'esterno di monitoraggio di Azure.
 
 ## <a name="analyze-metric-data"></a>Analizzare i dati delle metriche  
 
@@ -79,7 +79,7 @@ Tutti i log delle risorse condividono uno schema comune di primo livello con poc
 La tabella seguente elenca le proprietà dei log del proxy di Azure blockchain quando vengono raccolti nei log di monitoraggio di Azure o nell'archiviazione di Azure.  
 
 
-| Nome proprietà  | Description |
+| Nome proprietà  | Descrizione |
 |:---|:---|
 | time | Data e ora (UTC) in cui si è verificata l'operazione. |
 | resourceID  | Risorsa del servizio Azure blockchain per cui sono abilitati i log.  |
@@ -89,7 +89,7 @@ La tabella seguente elenca le proprietà dei log del proxy di Azure blockchain q
 | NodeLocation  | Area di Azure in cui viene distribuito il membro blockchain.  |
 | BlockchainNodeName  | Nome del nodo del membro del servizio blockchain di Azure in cui viene eseguita l'operazione.   |
 | EthMethod  | Il metodo, che viene chiamato dal protocollo blockchain sottostante, in quorum, potrebbe essere eth_sendTransactions, eth_getBlockByNumber e così via.  |
-| Agente  | Agente utente che agisce per conto di un utente, ad esempio Web browser Mozilla, Edge e così via. Esempi di valori sono: "Mozilla/5.0 (Linux x64) node. js/8.16.0 V8/6.2.414.77"  |
+| Agente  | Agente utente che agisce per conto di un utente, ad esempio Web browser Mozilla, Edge e così via. Esempi di valori sono i seguenti: "Mozilla/5.0 (Linux x64) node. js/8.16.0 V8/6.2.414.77"  |
 | Codice   | Codici di errore HTTP. In genere 4XX e 5XX sono condizioni di errore.  |
 | NodeHost  | Nome DNS del nodo.   |
 | RequestMethodName | Metodo HTTP chiamato. i possibili valori sono PUT per Create member, GET per ottenere i dettagli del membro esistente, DELETE for delete member, PATCH for Updating member.   |
@@ -105,7 +105,7 @@ La tabella seguente elenca le proprietà dei log del proxy di Azure blockchain q
 La tabella seguente elenca le proprietà dei log applicazioni di Azure blockchain.
 
 
-| Nome proprietà  | Description |
+| Nome proprietà  | Descrizione |
 |:---|:---|
 | time | Data e ora (UTC) in cui si è verificata l'operazione. |
 | resourceID  | Risorsa del servizio Azure blockchain per cui sono abilitati i log.|
@@ -120,7 +120,7 @@ La tabella seguente elenca le proprietà dei log applicazioni di Azure blockchai
 
 
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 Le tabelle seguenti elencano le metriche della piattaforma raccolte per il servizio Azure blockchain. Tutte le metriche vengono archiviate nello spazio dei nomi **Azure blockchain Service** standard metrica.
 
@@ -131,24 +131,24 @@ Per un elenco di tutte le metriche supportate da monitoraggio di Azure, incluso 
 La tabella seguente specifica l'elenco di metriche blockchain raccolte per la risorsa membro del servizio blockchain di Azure.
 
 
-| Nome metrica | Unità  |  Tipo di aggregazione| Description   |
+| Nome metrica | Unità  |  Tipo di aggregazione| Descrizione   |
 |---|---|---|---|
-| Transazioni in sospeso   | Conteggio  |  Media | Numero di transazioni in attesa di essere estratte.   |
-| Blocchi elaborati   | Conteggio  | SUM  |  Numero di blocchi elaborati in ogni intervallo di tempo. Attualmente, le dimensioni del blocco sono pari a 5 secondi, quindi in un minuto ogni nodo elabora 12 blocchi e 60 blocchi in 5 minuti.   |
-|Transazioni elaborate    | Conteggio  | SUM  | Numero di transazioni elaborate in un blocco.    |
-|Transazioni in coda    |  Conteggio | Media  | Numero di transazioni che non possono essere estratte immediatamente. Il motivo è che sono arrivati fuori dall'ordine e il futuro è in attesa dell'arrivo di una transazione precedente. In alternativa, può trattarsi di due transazioni con lo stesso numero usato una sola volta (nonce) e lo stesso valore del gas, di conseguenza il secondo non può essere estratto.   |
+| Transazioni in sospeso   | Conteggio  |  Average | Numero di transazioni in attesa di essere estratte.   |
+| Blocchi elaborati   | Conteggio  | Sum  |  Numero di blocchi elaborati in ogni intervallo di tempo. Attualmente, le dimensioni del blocco sono pari a 5 secondi, quindi in un minuto ogni nodo elabora 12 blocchi e 60 blocchi in 5 minuti.   |
+|Transazioni elaborate    | Conteggio  | Sum  | Numero di transazioni elaborate in un blocco.    |
+|Transazioni in coda    |  Conteggio | Average  | Numero di transazioni che non possono essere estratte immediatamente. Il motivo è che sono arrivati fuori dall'ordine e il futuro è in attesa dell'arrivo di una transazione precedente. In alternativa, può trattarsi di due transazioni con lo stesso numero usato una sola volta (nonce) e lo stesso valore del gas, di conseguenza il secondo non può essere estratto.   |
 
 ### <a name="connection-metrics"></a>Metriche di connessione  
 
 La tabella seguente elenca le diverse metriche di connessione raccolte per la risorsa membro del servizio Azure blockchain. Si tratta di metriche proxy NGINX.
 
 
-| Nome metrica | Unità  |  Tipo di aggregazione| Description |
+| Nome metrica | Unità  |  Tipo di aggregazione| Descrizione |
 |---|---|---|---|
-| Connessioni accettate   | Conteggio  |  SUM | Numero totale di connessioni client accettate.   |
-| Connessioni attive  | Conteggio  | Media  |  Numero corrente di connessioni client attive, incluse le connessioni in attesa.    |
-|Connessioni gestite    | Conteggio  | SUM  | Numero totale di connessioni gestite. In genere, il valore del parametro è identico a quello delle connessioni accettate, a meno che non sia stato raggiunto un limite di risorse.     |
-|Richieste gestite     |  Conteggio | SUM  | Numero totale di richieste client.  |
+| Connessioni accettate   | Conteggio  |  Sum | Numero totale di connessioni client accettate.   |
+| Connessioni attive  | Conteggio  | Average  |  Numero corrente di connessioni client attive, incluse le connessioni in attesa.    |
+|Connessioni gestite    | Conteggio  | Sum  | Numero totale di connessioni gestite. In genere, il valore del parametro è identico a quello delle connessioni accettate, a meno che non sia stato raggiunto un limite di risorse.     |
+|Richieste gestite     |  Conteggio | Sum  | Numero totale di richieste client.  |
 
 
 ### <a name="performance-metrics"></a>Metriche delle prestazioni
@@ -156,17 +156,17 @@ La tabella seguente elenca le diverse metriche di connessione raccolte per la ri
 La tabella seguente elenca le metriche delle prestazioni raccolte per ognuno dei nodi della risorsa membro blockchain di Azure.  
 
 
-| Nome metrica | Unità  |  Tipo di aggregazione| Description   |
+| Nome metrica | Unità  |  Tipo di aggregazione| Descrizione   |
 |---|---|---|---|
 | Percentuale di utilizzo CPU   | Percentuale  |  Max | Percentuale di utilizzo della CPU.     |
-| Byte lettura IO   | Kilobyte   | SUM  |  Somma dei byte di i/o letti in tutti i nodi della risorsa membro blockchain.      |
-|Byte scritti IO     | Kilobyte   | SUM  | La somma di i/o scrive byte in tutti i nodi della risorsa membro blockchain.     |
-|Limite di memoria       |  Gigabyte   | Media    | Memoria massima disponibile per il processo blockchain per nodo. |
-|Utilizzo della memoria     | Gigabyte  |  Media | Quantità di memoria utilizzata in media per tutti i nodi.  |
-| Percentuale di utilizzo della memoria     | Percentuale   | Media  |  Percentuale della memoria utilizzata in media per tutti i nodi.       |
-|Utilizzo dell'archiviazione      | Gigabyte   | Media  | GB di spazio di archiviazione utilizzato in media per tutti i nodi.       |
+| Byte lettura IO   | Kilobyte   | Sum  |  Somma dei byte di i/o letti in tutti i nodi della risorsa membro blockchain.      |
+|Byte scritti IO     | Kilobyte   | Sum  | La somma di i/o scrive byte in tutti i nodi della risorsa membro blockchain.     |
+|Limite di memoria       |  Gigabyte   | Average    | Memoria massima disponibile per il processo blockchain per nodo. |
+|Utilizzo della memoria     | Gigabyte  |  Average | Quantità di memoria utilizzata in media per tutti i nodi.  |
+| Percentuale di utilizzo della memoria     | Percentuale   | Average  |  Percentuale della memoria utilizzata in media per tutti i nodi.       |
+|Utilizzo dell'archiviazione      | Gigabyte   | Average  | GB di spazio di archiviazione utilizzato in media per tutti i nodi.       |
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su [Blockchain Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) per acquisire e trasformare i dati di blockchain in griglia di eventi di Azure.

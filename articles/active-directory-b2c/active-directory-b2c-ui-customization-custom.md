@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ac0f59ea709e25f3d71a78ece5ebf40690bd3be
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: db9b95f82a18072af538d4aa946431dcef8d9cff
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949627"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154642"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -101,12 +101,12 @@ Per creare un contenitore pubblico nell'archivio BLOB, seguire questa procedura:
 Configurare l'archiviazione BLOB per la condivisione di risorse tra le origini eseguendo i passaggi seguenti:
 
 1. Nel menu selezionare **CORS**.
-1. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
+1. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
 1. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
 1. Per **Intestazioni consentite** immettere un asterisco (*).
 1. Per **Intestazioni esposte** immettere un asterisco (*).
 1. Per **Età massima** immettere 200.
-1. Fare clic su **Salva**
+1. Fare clic su **Salva**.
 
 ## <a name="test-cors"></a>Testare CORS
 
@@ -120,12 +120,12 @@ Verificare che l'utente sia pronto attenendosi alla procedura seguente:
 
 Per configurare la personalizzazione dell'interfaccia utente, si copia **ContentDefinition** e i relativi elementi figlio dal file di base al file delle estensioni.
 
-1. Aprire il file di base dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> . Si tratta di uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che dovrebbe essere ottenuto nel prerequisito, per iniziare a [usare i criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Aprire il file di base dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Si tratta di uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che dovrebbe essere ottenuto nel prerequisito, per iniziare a [usare i criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Cercare e copiare l'intero contenuto dell'elemento **ContentDefinitions**.
 1. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**.
 1. Cercare l'elemento **ContentDefinition** che contiene `Id="api.signuporsignin"` nel codice XML copiato.
-1. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     I criteri personalizzati dovrebbero essere simili ai seguenti:
 
@@ -146,22 +146,22 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 
 1. Salvare il file delle estensioni.
 
-## <a name="upload-your-updated-custom-policy"></a>Caricare il criterio personalizzato aggiornato
+## <a name="upload-and-test-your-updated-custom-policy"></a>Caricare e testare i criteri personalizzati aggiornati
+
+### <a name="upload-the-custom-policy"></a>Caricare i criteri personalizzati
 
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
-1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
-1. Fare clic su **Tutti i criteri**.
-1. Fare clic su **Carica il criterio**.
+1. Cercare e selezionare **Azure ad B2C**.
+1. In **criteri**selezionare **Framework esperienza di identità**.
+1. Selezionare **carica criteri personalizzati**.
 1. Caricare il file delle estensioni modificato in precedenza.
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testare i criteri personalizzati tramite **Esegui adesso**
+### <a name="test-the-custom-policy-by-using-run-now"></a>Testare i criteri personalizzati tramite **Esegui adesso**
 
-1. Nella pagina **Azure ad B2C** passare a **tutti i criteri**.
-1. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
+1. Selezionare il criterio caricato, quindi selezionare **Esegui ora**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimenti
 
 ### <a name="sample-templates"></a>Modelli di esempio
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
