@@ -90,7 +90,7 @@
     - name: Creazione di pacchetti e recapito
       items:
         - name: creazione dinamica dei pacchetti
-          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest'
+          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming'
           href: dynamic-packaging-overview.md
         - name: Manifesti dinamici
           href: filters-dynamic-manifest-overview.md
@@ -294,7 +294,7 @@
           href: cli-publish-asset.md
         - name: Segnalare l'audio descrittivo
           href: signal-descriptive-audio-howto.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Specifica OpenAPI (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'

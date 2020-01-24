@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460415"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863479"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
@@ -87,7 +87,7 @@ Al **passaggio 3**, la separazione delle credenziali dell'applicazione e dell'ut
 
    1. Usare l' **ID applicazione** e il **segreto client** (chiave applicazione) dalla sezione registrazione app Azure Active Directory per acquisire il token per conto dell'applicazione.
 
-   1. In C#il codice seguente può acquisire il token per conto dell'applicazione. Per un esempio completo, vedere [Eseguire query sui dati tramite C#](time-series-insights-query-data-csharp.md).
+   1. In C#il codice seguente può acquisire il token per conto dell'applicazione. Per un esempio completo, vedere [eseguire query sui C#dati usando ](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -107,7 +107,7 @@ Questa sezione descrive le intestazioni e i parametri della richiesta HTTP comun
 Per eseguire query autenticate sulle [API REST di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), è necessario passare un bearer token OAuth 2,0 valido nell' [intestazione Authorization](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) usando un client REST di propria scelta (postazione, JavaScript, C#). 
 
 > [!TIP]
-> Per informazioni su come eseguire l'autenticazione con le API di Time Series Insights a livello di codice tramite [JavaScript client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) insieme a grafici e grafici, vedere la visualizzazione dell'esempio hosted Azure Time Series Insights [client SDK](https://tsiclientsample.azurewebsites.net/) .
+> Leggere la visualizzazione di esempio di Hosted Azure Time Series Insights [client SDK](https://tsiclientsample.azurewebsites.net/) per informazioni su come eseguire l'autenticazione con le api di Time Series Insights a livello di codice usando [JavaScript client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) insieme a grafici e grafici.
 
 ### <a name="http-headers"></a>Intestazioni HTTP
 
@@ -161,9 +161,9 @@ I parametri facoltativi della stringa di query dell'URL includono l'impostazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per il codice di esempio che chiama l'API Time Series Insights GA, vedere [eseguire C#query sui dati usando ](./time-series-insights-query-data-csharp.md).
+- Per il codice di esempio che chiama l'API Time Series Insights GA, leggere [eseguire C#query sui dati usando ](./time-series-insights-query-data-csharp.md).
 
-- Per l'anteprima Time Series Insights esempi di codice dell'API, vedere [eseguire C#query sui dati di anteprima usando ](./time-series-insights-update-query-data-csharp.md).
+- Per la versione di anteprima Time Series Insights esempi di codice API, vedere [dati di anteprima delle query tramite C# ](./time-series-insights-update-query-data-csharp.md).
 
 - Per informazioni di riferimento sulle API, vedere la documentazione di [riferimento dell'API di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) .
 

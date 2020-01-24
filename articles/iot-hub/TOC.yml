@@ -84,9 +84,9 @@
 - name: Concetti
   items:
     - name: Supporto TLS
-      href: iot-hub-tls.md
+      href: iot-hub-tls-support.md
     - name: Deprecazione di TLS 1.0 e 1.1
-      href: tls-1.2-everywhere.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Panoramica degli arricchimenti dei messaggi
       href: iot-hub-message-enrichments-overview.md
     - name: Panoramica della gestione dei dispositivi
@@ -374,7 +374,7 @@
       items:
         - name: Disconnessioni dei dispositivi
           href: iot-hub-troubleshoot-connectivity.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/iot
