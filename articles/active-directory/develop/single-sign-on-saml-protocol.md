@@ -17,13 +17,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf512f802e0e4944e6ce949830719b87301adfc4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834799"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701400"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 
@@ -47,11 +46,11 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parametro |  | Descrizione |
+| Parametro |  | Description |
 | --- | --- | --- |
-| id | Obbligatoria | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Version | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |
-| IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
+| ID | Obbligatorio | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
+| Versione | Obbligatorio | Questo parametro deve essere impostato su **2.0**. |
+| IssueInstant | Obbligatorio | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativo | Se specificato, il parametro deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
 | IsPassive | Facoltativo | È un valore booleano che specifica se Azure AD deve autenticare l'utente in modalità invisibile, senza interazione dell'utente, usando il cookie di sessione, se è disponibile. In questo caso Azure AD tenterà di autenticare l'utente usando il cookie di sessione. |
@@ -90,7 +89,7 @@ Se viene specificato `NameIDPolicy` è possibile includere l'attributo facoltati
 Azure AD ignora l'attributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-L'elemento `RequestedAuthnContext` specifica i metodi di autenticazione. È facoltativo negli elementi `AuthnRequest` inviati ad Azure AD. Azure ad supporta `AuthnContextClassRef` valori `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`quali.
+L'elemento `RequestedAuthnContext` specifica i metodi di autenticazione. È facoltativo negli elementi `AuthnRequest` inviati ad Azure AD. Azure AD supporta valori di `AuthnContextClassRef`, ad esempio `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Scoping
 L'elemento `Scoping`, che include un elenco di provider di identità, è facoltativo negli elementi `AuthnRequest` inviati ad Azure AD.
@@ -100,7 +99,7 @@ Se viene specificato, non includere l'attributo `ProxyCount` e l'elemento `IDPLi
 ### <a name="signature"></a>Firma
 Non includere un elemento `Signature` negli elementi `AuthnRequest` perché Azure AD non supporta le richieste di autenticazione firmate.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Argomento
 Azure AD ignora l'elemento `Subject` degli elementi `AuthnRequest`.
 
 ## <a name="response"></a>Risposta
@@ -156,9 +155,9 @@ L'elemento `Response` include il risultato della richiesta di autorizzazione. Az
 * `Destination`: quando l'accesso viene completato correttamente, questo attributo viene impostato sul `RedirectUri` del provider di servizi (servizio cloud).
 * `InResponseTo`: viene impostato sull'attributo `ID` dell'elemento `AuthnRequest` che ha avviato la risposta.
 
-### <a name="issuer"></a>Rilasciato da
+### <a name="issuer"></a>Issuer
 
-Azure ad imposta l' `Issuer` elemento su `https://login.microsoftonline.com/<TenantIDGUID>/` Where \<TenantIDGUID > è l'ID tenant del tenant Azure ad.
+Azure AD imposta l'elemento `Issuer` su `https://login.microsoftonline.com/<TenantIDGUID>/` dove \<TenantIDGUID > è l'ID tenant del tenant di Azure AD.
 
 Ad esempio, una risposta con elemento Issuer può avere un aspetto simile al seguente:
 
@@ -191,9 +190,9 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Oltre a `ID`, `IssueInstant` e `Version`, Azure AD imposta gli elementi seguenti nell'elemento `Assertion` della risposta.
 
-#### <a name="issuer"></a>Rilasciato da
+#### <a name="issuer"></a>Issuer
 
-Questa impostazione è impostata `https://sts.windows.net/<TenantIDGUID>/`su \<where TenantIDGUID > è l'ID tenant del tenant del Azure ad.
+Questa impostazione è impostata su `https://sts.windows.net/<TenantIDGUID>/`dove \<TenantIDGUID > è l'ID tenant del tenant Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -211,7 +210,7 @@ Per generare questa firma digitale, Azure AD usa la chiave di firma specificata 
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Subject
+#### <a name="subject"></a>Argomento
 
 Specifica l'entità oggetto delle istruzioni nell'asserzione. Contiene un elemento `NameID` che rappresenta l'utente autenticato. Il valore `NameID` è un identificatore di destinazione che viene indirizzato solo al provider di servizi destinatario del token. È persistente: può essere revocato, ma mai riassegnato. È anche opaco perché non rivela alcun dettaglio relativo all'utente e non può essere usato come identificatore per le query di attributi.
 

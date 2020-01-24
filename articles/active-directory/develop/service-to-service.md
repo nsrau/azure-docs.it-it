@@ -16,13 +16,12 @@ ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a94fcaffc190016a5377fe4b32484f84dc46ed25
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284906"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701502"
 ---
 # <a name="service-to-service-apps"></a>App da servizio a servizio
 

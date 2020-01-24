@@ -16,13 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6ebeed4a7806c013205d01621107ef65655e753
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0a33b5bb4fc7220a9cf66f40e9805d3fde9fccef
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965467"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702046"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: applicazione mobile che chiama le API Web
 
@@ -43,7 +42,7 @@ Creare la prima applicazione per dispositivi mobili e provare una guida introdut
 >
 > [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Novell iOS & Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Un'esperienza utente personalizzata e trasparente è essenziale per le app per dispositivi mobili.  Microsoft Identity Platform consente agli sviluppatori di dispositivi mobili di creare questa esperienza per gli utenti iOS e Android. L'applicazione può accedere Azure Active Directory (Azure AD) utenti, utenti account Microsoft personali e utenti Azure AD B2C e acquisire i token per chiamare un'API Web per loro conto. Per implementare questi flussi, si userà Microsoft Authentication Library (MSAL), che implementa il [flusso del codice di autorizzazione OAuth 2.0](v2-oauth2-auth-code-flow.md)standard di settore.
 

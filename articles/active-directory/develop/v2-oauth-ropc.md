@@ -17,13 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b935ad2491ca486a3bc6878f0332e5390600b1bc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919325"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700686"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Credenziali della password del proprietario della risorsa OAuth 2,0 e della piattaforma di identità Microsoft
 
@@ -71,11 +70,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro | Condizione | Description |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
-| `client_id` | Obbligatoria | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. | 
-| `grant_type` | Obbligatoria | Il valore deve essere impostato su `password`. |
-| `username` | Obbligatoria | L'indirizzo di posta elettronica dell'utente. |
-| `password` | Obbligatoria | La password dell'utente. |
+| `tenant` | Obbligatorio | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
+| `client_id` | Obbligatorio | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. | 
+| `grant_type` | Obbligatorio | Il valore deve essere impostato su `password`. |
+| `username` | Obbligatorio | L'indirizzo di posta elettronica dell'utente. |
+| `password` | Obbligatorio | La password dell'utente. |
 | `scope` | Consigliato | Un elenco delimitato da spazi di [ambiti](v2-permissions-and-consent.md), o privilegi, richiesti dall'app. In un flusso interattivo, l'amministratore o l'utente deve dare il consenso in anticipo a questi ambiti. |
 | `client_secret`| A volte obbligatorio | Se l'app è un client pubblico, non è possibile includere il `client_secret` o `client_assertion`.  Se l'app è un client riservato, è necessario includerla. | 
 | `client_assertion` | A volte obbligatorio | Una forma diversa di `client_secret`, generata utilizzando un certificato.  Per ulteriori informazioni, vedere [credenziali del certificato](active-directory-certificate-credentials.md) . | 
@@ -97,7 +96,7 @@ Nell'esempio seguente viene illustrata una risposta di token riuscita:
 
 | Parametro | Format | Description |
 | --------- | ------ | ----------- |
-| `token_type` | Stringa | Sempre impostato su `Bearer`. |
+| `token_type` | string | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |

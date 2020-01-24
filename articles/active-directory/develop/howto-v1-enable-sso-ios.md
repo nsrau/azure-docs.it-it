@@ -15,13 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7915c0dae652e113410002128e4ea19ddba68a07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962615"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696912"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app in iOS usando ADAL
 
@@ -165,7 +164,7 @@ Per l'SSO non assistito da broker tra applicazioni, gli SDK risolvono automatica
 
 Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le operazioni seguenti:
 
-1. Assicurarsi che tutte le applicazioni utilizzano lo stesso Client ID o ID applicazione.
+1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione.
 2. Verificare che tutte le applicazioni condividano lo stesso certificato di firma di Apple per poter condividere i portachiavi.
 3. Richiedere lo stesso diritto per i portachiavi per ogni applicazione.
 4. Indicare agli SDK il portachiavi condiviso da usare.
@@ -231,7 +230,7 @@ Una volta configurati correttamente i diritti, nella directory del progetto verr
 </plist>
 ```
 
-Una volta che si hanno i diritti di keychain abilitato in ogni applicazione e si è pronti per l'uso dell'accesso SSO, stabilire l'identità SDK notificare il portachiavi usando i seguenti impostando `ADAuthenticationSettings` con l'impostazione seguente:
+Quando il diritto keychain è abilitato in ogni applicazione e si è pronti per usare SSO, indicare a Identity SDK il keychain usando l'impostazione seguente nel `ADAuthenticationSettings` con l'impostazione seguente:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

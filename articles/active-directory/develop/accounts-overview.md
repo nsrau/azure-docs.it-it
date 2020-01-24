@@ -13,75 +13,74 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2a61176f43960d14cecf4db881b94b24ae580bc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0f0f3be1647c820591923a094ef7fce86ab9672
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963886"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699445"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Account e profili tenant (Android)
 
 In questo articolo viene fornita una panoramica dell'`account` della piattaforma di identità Microsoft.
 
-L'API Microsoft Authentication Library (MSAL) sostituisce il termine *utente* con il termine *account*. Un motivo è che un utente (Human o software Agent) può avere o può usare più account. Questi account possono essere nell'organizzazione dell'utente e/o in altre organizzazioni di cui l'utente è membro.
+L'API Microsoft Authentication Library (MSAL) sostituisce il termine *utente* con il termine *account*. Un motivo è che un utente (Human o software Agent) può avere o può usare più account. These accounts may be in the user's own organization, and/or in other organizations that the user is a member of.
 
-Un account nella piattaforma di identità Microsoft è costituito da:
+An account in the Microsoft identity platform consists of:
 
 - Identificatore univoco.  
-- Una o più credenziali utilizzate per dimostrare la proprietà e il controllo dell'account.
-- Uno o più profili costituiti da attributi come:
-  - Immagine, nome, nome della famiglia, titolo, posizione dell'ufficio
-- Un account ha un'origine dell'autorità o del sistema di registrazione. Si tratta del sistema in cui viene creato l'account e in cui vengono archiviate le credenziali associate a tale account. Nei sistemi multi-tenant come la piattaforma di identità Microsoft, il sistema di registrazione è il `tenant` in cui è stato creato l'account. Questo tenant viene definito anche `home tenant`.
-- Gli account nella piattaforma Microsoft Identity includono i seguenti sistemi di record:
-  - Azure Active Directory, incluso Azure Active Directory B2C.
-  - Account Microsoft (Live).
-- Gli account dei sistemi di record al di fuori della piattaforma di identità Microsoft sono rappresentati nella piattaforma di identità Microsoft, tra cui:
-  - identità da directory locali connesse (Windows Server Active Directory)
-  - identità esterne da LinkedIn, GitHub e così via.
-  In questi casi, un account è costituito da un sistema di origine di record e da un sistema di record nella piattaforma di identità Microsoft.
-- La piattaforma di identità Microsoft consente di usare un account per accedere alle risorse appartenenti a più organizzazioni (Azure Active Directory tenant).
-  - Per registrare che un account da un sistema di record (tenant di AAD A) ha accesso a una risorsa in un altro sistema di record (tenant di AAD B), l'account deve essere rappresentato nel tenant in cui è definita la risorsa. Questa operazione viene eseguita creando un record locale dell'account dal sistema a nel sistema B.
-  - Questo record locale, ovvero la rappresentazione dell'account, è associato all'account originale.
-  - MSAL espone questo record locale come `Tenant Profile`.
-  - Il profilo tenant può avere attributi diversi appropriati per il contesto locale, ad esempio il titolo del processo, la posizione dell'ufficio, le informazioni di contatto e così via.
-- Poiché un account può essere presente in uno o più tenant, un account può avere più di un profilo.
+- One or more credentials used to demonstrate ownership/control of the account.
+- One or more profiles consisting of attributes such as:
+  - Picture, Given Name, Family Name, Title, Office Location
+- An account has a source of authority or system of record. This is the system where the account is created and where the credentials associated with that account are stored. In multi-tenant systems like the Microsoft identity platform, the system of record is the `tenant` where the account was created. This tenant is also referred as the `home tenant`.
+- Accounts in the Microsoft identity platform have the following systems of record:
+  - Azure Active Directory, including Azure Active Directory B2C.
+  - Microsoft account (Live).
+- Accounts from systems of record outside of the Microsoft identity platform are represented within the Microsoft identity platform including:
+  - identities from connected on-premises directories (Windows Server Active Directory)
+  - external identities from LinkedIn, GitHub, and so on.
+  In these cases, an account has both an origin system of record and a system of record within the Microsoft identity platform.
+- The Microsoft identity platform allows one account to be used to access resources belonging to multiple organizations (Azure Active Directory tenants).
+  - To record that an account from one system of record (AAD Tenant A) has access to a resource in another system of record (AAD Tenant B), the account must be represented in the tenant where the resource is defined. This is done by creating a local record of the account from system A in system B.
+  - This local record, that is the representation of the account, is bound to the original account.
+  - MSAL exposes this local record as a `Tenant Profile`.
+  - Tenant Profile can have different attributes that are appropriate to the local context, such as Job Title, Office Location, Contact Information, etc.
+- Because an account may be present in one or more tenants, an account may have more than one profile.
 
 > [!NOTE]
-> MSAL considera il sistema account Microsoft (Live, MSA) come un altro tenant all'interno della piattaforma di identità Microsoft. L'ID tenant del tenant account Microsoft è: `9188040d-6c67-4c5b-b112-36a304b66dad`
+> MSAL treats the Microsoft account system (Live, MSA) as another tenant within the Microsoft identity platform. The tenant id of the Microsoft account tenant is: `9188040d-6c67-4c5b-b112-36a304b66dad`
 
-## <a name="account-overview-diagram"></a>Diagramma della panoramica dell'account
+## <a name="account-overview-diagram"></a>Account overview diagram
 
-![Diagramma della panoramica dell'account](./media/accounts-overview/accounts-overview.png)
+![Account Overview Diagram](./media/accounts-overview/accounts-overview.png)
 
 Nel diagramma precedente:
 
-- L'account `bob@contoso.com` viene creato in Windows Server Active Directory locale (sistema locale di origine del record).
-- L'account `tom@live.com` viene creato nel tenant di account Microsoft.
-- `bob@contoso.com` ha accesso ad almeno una risorsa nei seguenti tenant di Azure Active Directory:
-  - contoso.com (sistema cloud di record collegato al sistema locale di record)
+- The account `bob@contoso.com` is created in the on-premises Windows Server Active Directory (origin on-premises system of record).
+- The account `tom@live.com` is created in the Microsoft account tenant.
+- `bob@contoso.com` has access to at least one resource in the following Azure Active Directory tenants:
+  - contoso.com (cloud system of record - linked to on-premises system of record)
   - fabrikam.com
   - woodgrovebank.com
-  - Un profilo tenant per `bob@contoso.com` esiste in ognuno di questi tenant.
-- `tom@live.com` ha accesso alle risorse nei tenant Microsoft seguenti:
+  - A tenant profile for `bob@contoso.com` exists in each of these tenants.
+- `tom@live.com` has access to resources in the following Microsoft tenants:
   - contoso.com
   - fabrikam.com
-  - Un profilo tenant per `tom@live.com` esiste in ognuno di questi tenant.
-- Le informazioni su Tom e Bob in altri tenant possono essere diverse da quelle del sistema di registrazione. Possono variare in base ad attributi quali titolo del processo, posizione dell'ufficio e così via. Possono essere membri di gruppi e/o ruoli all'interno di ogni organizzazione (Azure Active Directory tenant). Si fa riferimento a queste informazioni come bob@contoso.com profilo tenant.
+  - A tenant profile for `tom@live.com` exists in each of these tenants.
+- Information about Tom and Bob in other tenants may differ from that in the system of record. They may differ by attributes such as Job title, Office Location, and so on. They may be members of groups and/or roles within each organization (Azure Active Directory Tenant). We refer to this information as bob@contoso.com tenant profile.
 
-Nel diagramma bob@contoso.com e tom@live.com hanno accesso alle risorse in tenant Azure Active Directory diversi. Per ulteriori informazioni, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+In the diagram, bob@contoso.com and tom@live.com have access to resources in different Azure Active Directory tenants. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-## <a name="accounts-and-single-sign-on-sso"></a>Account e Single Sign-On (SSO)
+## <a name="accounts-and-single-sign-on-sso"></a>Accounts and single sign-on (SSO)
 
-La cache del token MSAL archivia un *singolo token di aggiornamento* per ogni account. Il token di aggiornamento può essere usato per richiedere automaticamente i token di accesso da più tenant della piattaforma Microsoft Identity. Quando un broker viene installato in un dispositivo, l'account viene gestito dal broker e il Single Sign-On a livello di dispositivo diventa possibile.
+The MSAL token cache stores a *single refresh token* per account. That refresh token can be used to silently request access tokens from multiple Microsoft identity platform tenants. When a broker is installed on a device, the account is managed by the broker, and device-wide single sign-on becomes possible.
 
 > [!IMPORTANT]
-> L'account business to consumer (B2C) e il comportamento del token di aggiornamento differiscono dal resto della piattaforma Microsoft Identity. Per altre informazioni, vedere [criteri B2C & account](#b2c-policies--accounts).
+> Business to Consumer (B2C) account and refresh token behavior differs from the rest of the Microsoft identity platform. For more information, see [B2C Policies & Accounts](#b2c-policies--accounts).
 
-## <a name="account-identifiers"></a>Identificatori di account
+## <a name="account-identifiers"></a>Account identifiers
 
-L'ID dell'account MSAL non è un ID di oggetto account. Non è concepito per essere analizzato e/o basato su per fornire un valore diverso dall'univocità all'interno della piattaforma di identità Microsoft.
+The MSAL account ID isn't an account object ID. It isn't meant to be parsed and/or relied upon to convey anything other than uniqueness within the Microsoft identity platform.
 
 Per la compatibilità con la libreria Autenticazione di Azure AD (ADAL) e per semplificare la migrazione da ADAL a MSAL, MSAL può cercare gli account usando qualsiasi identificatore valido per l'account disponibile nella cache MSAL.  Ad esempio, il codice seguente recupera sempre lo stesso oggetto account per tom@live.com perché ognuno degli identificatori è valido:
 
@@ -106,7 +105,7 @@ Come indicato in precedenza, ogni tenant in cui è presente un account può arch
 
 Anche se un account può essere un membro o un guest in più organizzazioni, MSAL non esegue una query su un servizio per ottenere un elenco dei tenant di cui l'account è membro. MSAL compila invece un elenco di tenant in cui è presente l'account, in seguito a richieste di token effettuate.
 
-Le attestazioni esposte nell'oggetto account sono sempre le attestazioni del/{Authority}' tenant principale ' per un account. Se tale account non è stato usato per richiedere un token per il tenant principale, MSAL non può fornire attestazioni tramite l'oggetto account.  ad esempio:
+Le attestazioni esposte nell'oggetto account sono sempre le attestazioni del/{Authority}' tenant principale ' per un account. Se tale account non è stato usato per richiedere un token per il tenant principale, MSAL non può fornire attestazioni tramite l'oggetto account.  Ad esempio:
 
 ```java
 // Psuedo Code
@@ -126,7 +125,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>Accesso alle attestazioni del profilo tenant
 
-Per accedere alle attestazioni relative a un account così come vengono visualizzate in altri tenant, è prima di tutto necessario eseguire il cast dell'oggetto account a `IMultiTenantAccount`. Tutti gli account possono essere multi-tenant, ma il numero di profili tenant disponibili tramite MSAL è basato sui tenant per i quali sono stati richiesti token usando l'account corrente.  ad esempio:
+Per accedere alle attestazioni relative a un account così come vengono visualizzate in altri tenant, è prima di tutto necessario eseguire il cast dell'oggetto account a `IMultiTenantAccount`. Tutti gli account possono essere multi-tenant, ma il numero di profili tenant disponibili tramite MSAL è basato sui tenant per i quali sono stati richiesti token usando l'account corrente.  Ad esempio:
 
 ```java
 // Psuedo Code
@@ -141,7 +140,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 I token di aggiornamento per un account non vengono condivisi tra i criteri B2C. Di conseguenza, non è possibile Single Sign-On l'uso di token. Ciò non significa che Single Sign-On non è possibile. Ciò significa che Single Sign-On necessario utilizzare un'esperienza interattiva in cui è disponibile un cookie per abilitare l'Single Sign-On.
 
-Questo significa anche che, nel caso di MSAL, se si acquisiscono token usando criteri B2C diversi, questi vengono considerati come account distinti, ognuno con il proprio identificatore. Se si vuole usare un account per richiedere un token usando `acquireTokenSilent`, è necessario selezionare l'account dall'elenco di account che corrisponde al criterio usato con la richiesta di token. ad esempio:
+Questo significa anche che, nel caso di MSAL, se si acquisiscono token usando criteri B2C diversi, questi vengono considerati come account distinti, ognuno con il proprio identificatore. Se si vuole usare un account per richiedere un token usando `acquireTokenSilent`, è necessario selezionare l'account dall'elenco di account che corrisponde al criterio usato con la richiesta di token. Ad esempio:
 
 ```java
 // Get Account For Policy

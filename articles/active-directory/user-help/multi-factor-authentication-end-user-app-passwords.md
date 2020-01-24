@@ -13,13 +13,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78acb1f27b27c53aaaac508e0aa99a5b9c14ff2d
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 74d443cc87a71950a31732db48e94ea3b5ced7ba
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914929"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705310"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 
@@ -43,11 +42,11 @@ Durante il processo iniziale di registrazione della verifica a due fattori, vien
 
 È possibile creare ed eliminare le password dell'app in base all'uso della verifica a due fattori:
 
-- **L'organizzazione usa la verifica a due fattori e la pagina verifica aggiuntiva di sicurezza.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad alain@contoso.comesempio,) con la verifica a due fattori all'interno dell'organizzazione, è possibile gestire le password dell'app dalla [pagina di verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/Proofup.aspx). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando la pagina verifica aggiuntiva di sicurezza](#create-and-delete-app-passwords-from-the-additional-security-verification-page) in questo articolo.
+- **L'organizzazione usa la verifica a due fattori e la pagina verifica aggiuntiva di sicurezza.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad esempio, alain@contoso.com) con la verifica a due fattori all'interno dell'organizzazione, è possibile gestire le password dell'app dalla [pagina verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/Proofup.aspx). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando la pagina verifica aggiuntiva di sicurezza](#create-and-delete-app-passwords-from-the-additional-security-verification-page) in questo articolo.
 
-- **L'organizzazione usa la verifica a due fattori e il portale di Office 365.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad alain@contoso.comesempio,), la verifica a due fattori e le app di Office 365 nell'organizzazione, è possibile gestire le password dell'app dalla [pagina del portale di Office 365](https://www.office.com). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) in questo articolo.
+- **L'organizzazione usa la verifica a due fattori e il portale di Office 365.** Se si usa l'account aziendale o dell'Istituto di istruzione (ad esempio, alain@contoso.com), la verifica a due fattori e le app di Office 365 nell'organizzazione, è possibile gestire le password dell'app dalla [pagina del portale di Office 365](https://www.office.com). Per istruzioni dettagliate, vedere [creare ed eliminare password di app usando il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) in questo articolo.
 
-- **Si sta usando la verifica a due fattori con un account Microsoft personale.** Se si usa un account Microsoft personale (ad esempio, alain@outlook.com) con la verifica a due fattori, è possibile gestire le password dell'app dalla [pagina delle nozioni di base sulla sicurezza](https://account.microsoft.com/security/). Per istruzioni dettagliate, vedere [uso di password di app con app che non supportano la verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
+- **Si sta usando la verifica a due fattori con un account Microsoft personale.** Se si usa un account Microsoft personale, ad esempio alain@outlook.com, con la verifica a due fattori, è possibile gestire le password dell'app dalla [pagina delle nozioni di base sulla sicurezza](https://account.microsoft.com/security/). Per istruzioni dettagliate, vedere [uso di password di app con app che non supportano la verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
 ## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>Creare ed eliminare le password dell'app dalla pagina verifica aggiuntiva di sicurezza
 

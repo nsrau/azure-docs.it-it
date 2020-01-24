@@ -12,13 +12,12 @@ ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44a0e93c87c50fbc63cddad349ec9b5fbf45d91f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843904"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698000"
 ---
 # <a name="authorization-agents-android"></a>Agenti di autorizzazione (Android)
 
@@ -80,14 +79,14 @@ I browser seguenti sono stati testati per verificare se vengono reindirizzati co
 | | Browser incorporato | Chrome | Opera  | Microsoft Edge | Browser UC | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | pass | pass |Non applicabile |Non applicabile |Non applicabile |Non applicabile |
-| Samsung S7 (API 25) | passare | pass | pass | pass | esito negativo |pass |
-| Huawei (API 26) |passa * * | pass | esito negativo | pass | pass |pass |
-| Vivo (API 26) |pass|pass|pass|pass|pass|esito negativo|
-| Pixel 2 (API 26) |pass | pass | pass | pass | esito negativo |pass |
+| Samsung S7 (API 25) | passare | pass | pass | pass | non riuscito |pass |
+| Huawei (API 26) |passa * * | pass | non riuscito | pass | pass |pass |
+| Vivo (API 26) |pass|pass|pass|pass|pass|non riuscito|
+| Pixel 2 (API 26) |pass | pass | pass | pass | non riuscito |pass |
 | OPPO | pass | non applicabile * * * |Non applicabile  |Non applicabile |Non applicabile | Non applicabile|
-| OnePlus (API 25) |pass | pass | pass | pass | esito negativo |pass |
-| Nexus (API 28) |pass | pass | pass | pass | esito negativo |pass |
-|MI | pass | pass | pass | pass | esito negativo |pass |
+| OnePlus (API 25) |pass | pass | pass | pass | non riuscito |pass |
+| Nexus (API 28) |pass | pass | pass | pass | non riuscito |pass |
+|MI | pass | pass | pass | pass | non riuscito |pass |
 
 \* Il browser predefinito di Samsung è Samsung Internet.  
 \* * Il browser incorporato di Huawei è il browser Huawei.  

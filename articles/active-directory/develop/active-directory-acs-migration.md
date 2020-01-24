@@ -13,19 +13,18 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c04377877619c96f139f4b6c1cf826573524d900
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 174a80b99f65393f5c5bbe35b30e7ac5b54a359e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845553"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699462"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
 
 Servizio di controllo di accesso di Microsoft Azure, un servizio di Azure Active Directory (Azure AD), verrà ritirato il 7 novembre 2018. Le applicazioni e i servizi che attualmente utilizzano questo servizio devono eseguire la migrazione completa a un meccanismo di autenticazione diverso entro tale data. Questo articolo presenta i consigli per i clienti attuali che pianificano la deprecazione dell'uso di Controllo di accesso. Se attualmente non si utilizza Controllo di accesso, non è necessario intraprendere alcuna azione.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Controllo di accesso è un servizio di autenticazione cloud che offre un modo semplice per autenticare e autorizzare gli utenti per l'accesso a servizi e applicazioni Web. Consente il factoring di molte funzionalità di autenticazione e autorizzazione dal codice. Controllo di accesso viene utilizzato principalmente dagli sviluppatori e architetti di client Microsoft .NET, applicazioni Web ASP.NET e servizi Web Windows Communication Foundation (WCF).
 
@@ -201,7 +200,7 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 | WS-Trust | Supportato | Supporto non disponibile |
 | **Formati del token** | | |
 | Token JSON Web | Supportato nella versione Beta | Supportato |
-| SAML 1.1 | Supportato | Preview |
+| SAML 1.1 | Supportato | Anteprima |
 | SAML 2.0 | Supportato | Supportato |
 | Token Web semplice | Supportato | Supporto non disponibile |
 | **Personalizzazioni** | | |

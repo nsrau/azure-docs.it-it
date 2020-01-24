@@ -1,5 +1,5 @@
 ---
-title: Servizi multimediali di Azure con modello di licenza PlayReady
+title: Modello di licenza di servizi multimediali di Azure V3 con Microsoft PlayReady
 description: Questo argomento offre una panoramica di un modello di licenza PlayReady usato per configurare le licenze PlayReady.
 author: juliako
 manager: femila
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0ce0d40bfd9d41838573f6355ceffc17761111c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b12dcee2303632c4ec2ccc3602348a4e17fcd05
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472652"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705888"
 ---
-# <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali 
+# <a name="media-services-v3-with-playready-license-template"></a>Modello di licenza PlayReady di servizi multimediali V3 con 
 
 Servizi multimediali di Azure consente di crittografare il contenuto con **Microsoft PlayReady**. Servizi multimediali offre anche un servizio per la distribuzione delle licenze PlayReady. È possibile usare l'API di Servizi multimediali per configurare le licenze PlayReady. Quando un lettore tenta di riprodurre un contenuto protetto da PlayReady, viene inviata una richiesta al servizio di distribuzione delle licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e verrà usata per decrittografare e riprodurre il contenuto specificato.
 

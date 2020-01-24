@@ -14,13 +14,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130bfb055b41ea3d2726c83c06430a0ea58fe98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 37d6cd03c07c10bfac5b25e3850c7d3af97bcec7
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424560"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697490"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
 
@@ -71,7 +70,7 @@ Dopo avere concesso il consenso all'app, gli amministratori possono scegliere di
 
 È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Ad esempio:
 
-> *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere a <nome_app> l'accesso ai dati dell'organizzazione. In questo modo gli utenti potranno accedere a <nome_app> con gli account aziendali esistenti.*
+> *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere < your_app_name > l'accesso ai dati dell'organizzazione. Ciò consentirà agli utenti di accedere < your_app_name > con gli account di lavoro esistenti.*
 
 Per scaricare il logo ufficiale di Microsoft per l'uso nell'app, fare clic con il pulsante destro del mouse su quello che si vuole usare e salvarlo sul computer.
 

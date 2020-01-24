@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: fc5457fd44bd27731cad6269ee95aed838a3d755
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d08c0b8817c0008a0ecfbab1a9d38243ec0bea79
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892788"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705684"
 ---
-# <a name="frequently-asked-questions"></a>Domande frequenti
+# <a name="video-indexer-frequently-asked-questions"></a>Video Indexer domande frequenti
 
 Questo articolo contiene le risposte alle domande frequenti relative a Video Indexer.
 
@@ -169,4 +169,4 @@ Sì, è disponibile una versione di valutazione gratuita di Video Indexer che co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)

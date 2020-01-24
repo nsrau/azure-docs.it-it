@@ -12,13 +12,12 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cc038e67e5528a52b0b98ea1698da07e8120242
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ad908b814a7c2b4dce9d15153b0991f51f623e8b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966946"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697099"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare gli spazi dei nomi disabilitati del Servizio di controllo di accesso
 
@@ -90,11 +89,11 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
 1. Accedere al portale di Azure e creare una [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
 1. Compilare il nuovo modulo di richiesta di supporto, come illustrato nell'esempio seguente.
 
-    | Campo della richiesta di supporto | Value |
+    | Campo della richiesta di supporto | Valore |
     |-----------------------|--------------------|
     | **Tipo di problema** | `Technical` |
     | **Sottoscrizione** | Impostare sulla propria sottoscrizione |
-    | **Servizio** | `All services` |
+    | **Service** | `All services` |
     | **Risorsa** | `General question/Resource not available` |
     | **Tipo di problema** | `ACS to SAS Migration` |
     | **Oggetto** | Descrivere il problema |

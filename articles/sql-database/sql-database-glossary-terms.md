@@ -10,45 +10,29 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 04/26/2019
-ms.openlocfilehash: 86da4ecab387da80954c2267ddeabe32a723474c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/22/2020
+ms.openlocfilehash: 733901d38703e02ab7dbe811b0f80a1dfedf03d5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802729"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705786"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossario dei termini relativi al database SQL di Azure
 
-|Context|Termine|Altre informazioni|
+|Context|Durata|Altre informazioni|
 |:---|:---|:---|
-|Nome del servizio di Azure|Database SQL di Azure o database SQL|[Servizio database SQL di Azure](sql-database-technical-overview.md)|
-|Livello di calcolo|Senza server |[Livello di calcolo senza server](sql-database-serverless.md)
-||Sottoposto a provisioning|[Livello di calcolo senza server](sql-database-serverless.md)
-|Opzioni di distribuzione |Database singolo|[Database singoli](sql-database-single-database.md)|
+|Servizio di Azure|Database SQL di Azure o database SQL|[Servizio database SQL di Azure](sql-database-technical-overview.md)|
+|Modello di acquisto|modello di acquisto basato su DTU|[Modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md)|
+||Modello di acquisto basato su vCore|[Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)|
+|Opzione di distribuzione |Database singolo|[Database singoli](sql-database-single-database.md)|
 ||Pool elastico|[Pool elastico](sql-database-elastic-pool.md)|
 ||Istanza gestita|[Istanza gestita](sql-database-managed-instance.md)|
-|Oggetti server|Server di database SQL o server di database|[Server di database](sql-database-servers.md)|
+|Livello di servizio|Basic, standard, Premium, per utilizzo generico, iperscalabile, business critical|Per i livelli di servizio nel modello vCore, vedere [database singolo e pool elastico](sql-database-service-tiers-vcore.md#service-tiers) e [istanza gestita](sql-database-managed-instance.md#managed-instance-service-tiers). Per i livelli di servizio nel modello DTU, vedere [modello DTU](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Livello di calcolo|Elaborazione serverless|[Calcolo serverless](sql-database-service-tiers-vcore.md#compute-tiers)
+||Calcolo con provisioning|[Calcolo con provisioning](sql-database-service-tiers-vcore.md#compute-tiers)
+|Generazione di calcolo|Quinta generazione, serie M, serie Fsv2|[Generazioni hardware](sql-database-service-tiers-vcore.md#hardware-generations)
+|Entità server|Server di database SQL o server di database|[Server di database](sql-database-servers.md)|
 ||Server di istanza gestita di database SQL, server di istanza gestita o server di istanza|[Istanza gestita](sql-database-managed-instance.md)|
-Oggetti di database|Database SQL di Azure|Qualsiasi database nel database SQL di Azure|
-||Database singolo|Database creato usando l'opzione di distribuzione database singolo|
-||Database in pool|Database creato o spostato in un pool elastico|
-||Database dell'istanza|Database creato in un'istanza gestita|
-||Database Basic|Database creato o spostato nel livello di servizio Basic del modello di acquisto basato su DTU|
-||Database Standard|Database creato o spostato nel livello di servizio Standard del modello di acquisto basato su DTU|
-||Database Premium|Database creato o spostato nel livello di servizio Premium del modello di acquisto basato su DTU|
-||Database di utilizzo generico|Database creato o spostato nel livello di servizio di utilizzo generico del modello di acquisto basato su vCore|
-||Database Hyperscale|Database creato o spostato nel livello di servizio con iperscalabilità del modello di acquisto basato su vCore|
-||Database Business Critical|Database creato o spostato nel livello di servizio Business Critical del modello di acquisto basato su vCore|
-||Database sottoposti a provisioning|Un database configurato nel livello di calcolo di cui è stato effettuato il provisioning|
-|[Modelli e risorse di acquisto](sql-database-purchase-models.md)|modello di acquisto basato su DTU|[Modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md)|
-||Modello di acquisto basato su vCore|[Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)|
-||vCore|Core fornito al sistema operativo guest dall'hypervisor.|
-||Livello di servizio|Livello di servizio in un modello di acquisto|
-||Dimensioni di calcolo|Quantità di risorse di calcolo per un database singolo, un pool elastico o un'istanza gestita in un livello di servizio|
-||Quantità di spazio di archiviazione|Quantità di spazio di archiviazione disponibile per un database singolo, un pool elastico o un'istanza gestita|
-||Generazione di calcolo|Generazione del processore in un livello di servizio|
-|Regole del firewall IP per il server di database|Regole del firewall IP|[Regole del firewall IP](sql-database-firewall-configure.md)|
-||Regole del firewall IP a livello di server|[Regole del firewall IP a livello di server](sql-database-firewall-configure.md)|
-|| Regole del firewall IP a livello di database|[Regole del firewall IP a livello di database](sql-database-firewall-configure.md)|
-||Endpoint e regole della rete virtuale|[Endpoint e regole della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md)|
+|Tipo di risorsa|vCore|Core CPU fornito alla risorsa di calcolo per un singolo database, un pool elastico o un'istanza gestita.|
+||Dimensioni di calcolo e quantità di risorse di archiviazione|Dimensioni di calcolo è la quantità massima di CPU, memoria e altre risorse non correlate all'archiviazione disponibili per un singolo database, un pool elastico o un'istanza gestita.  Dimensioni di archiviazione è la quantità massima di spazio di archiviazione disponibile per un singolo database, un pool elastico o un'istanza gestita.  Per le opzioni di ridimensionamento nel modello Vcore, vedere [database singoli Vcore](sql-database-vcore-resource-limits-single-databases.md), [pool elastici Vcore](sql-database-vcore-resource-limits-elastic-pools.md) e [istanze gestite](sql-database-managed-instance-resource-limits.md).  Per le opzioni di ridimensionamento nel modello DTU, vedere [database singoli DTU](sql-database-dtu-resource-limits-single-databases.md) e [pool elastici DTU](sql-database-dtu-resource-limits-elastic-pools.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545042"
+ms.locfileid: "76704545"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -298,6 +298,15 @@ Si noti che se sono state apportate modifiche direttamente nella condivisione fi
 Se il numero di PerItemErrorCount nel server o nei file che non eseguono la sincronizzazione nel portale è maggiore di 0 per una determinata sessione di sincronizzazione, è possibile che alcuni elementi non siano sincronizzati. I file e le cartelle possono avere caratteristiche che ne impediscono la sincronizzazione. Queste caratteristiche possono essere persistenti e richiedono un'azione esplicita per ripristinare la sincronizzazione, ad esempio la rimozione di caratteri non supportati dal nome del file o della cartella. Possono anche avere caratteristiche temporanee per cui la sincronizzazione del file o della cartella verrà ripristinata automaticamente, ad esempio file con handle aperti riprenderanno automaticamente la sincronizzazione alla chiusura dell'handle di file. Quando il motore di Sincronizzazione file di Azure rileva un problema di questo tipo, viene generato un log degli errori che può essere analizzato per elencare gli elementi attualmente non sincronizzati correttamente.
 
 Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** di PowerShell (che si trova nella directory di installazione dell'agente Sincronizzazione file di Azure) per identificare i file che non sono stati sincronizzati a causa di handle aperti, caratteri non supportati o altri problemi. Il campo ItemPath indica il percorso del file in relazione alla cartella per la sincronizzazione della radice. Vedere l'elenco degli errori di sincronizzazione comuni di seguito per la procedura di correzione.
+
+> [!Note]  
+> Se lo script FileSyncErrorsReport. ps1 restituisce "non sono stati trovati errori di file" o non elenca gli errori per elemento per il gruppo di sincronizzazione, la ragione è la seguente:
+>
+>- Motivo 1: l'ultima sessione di sincronizzazione completata non contiene errori per elemento. Il portale verrà aggiornato a breve per visualizzare 0 file non sincronizzati. 
+>   - Controllare l' [ID evento 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) nel registro eventi di telemetria per confermare che PerItemErrorCount è 0. 
+>
+>- Causa 2: il registro eventi di ItemResults sul server è stato spostato a causa di un numero eccessivo di errori per elemento e il registro eventi non contiene più errori per questo gruppo di sincronizzazione.
+>   - Per evitare questo problema, aumentare le dimensioni del registro eventi di ItemResults. Il registro eventi di ItemResults si trova in "Applications and Services Logs\Microsoft\FileSync\Agent" in Visualizzatore eventi. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Risoluzione dei problemi per gli errori di sincronizzazione di file e directory
 **Log ItemResults - errori di sincronizzazione per ogni elemento**  

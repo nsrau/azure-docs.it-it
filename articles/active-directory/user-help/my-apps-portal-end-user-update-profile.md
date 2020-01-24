@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecdffae61fbadfd5d975af942861e24589c6fbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233159"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704868"
 ---
 # <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Aggiornare le informazioni sul profilo e sull'account aziendale o dell'Istituto di istruzione nel portale app personali
 
@@ -120,7 +119,7 @@ Per la verifica a due fattori è necessario usare due tipi di informazioni di ve
 
     ![Condizioni per l'utilizzo pagina dal portale app personali](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    Se l'organizzazione non ha le condizioni per l'utilizzo, è possibile selezionare **fine** per tornare alla pagina del **profilo** .
+    Se l'organizzazione non ha condizioni d'uso, è possibile selezionare **Done** da restituire per il **profilo** pagina.
 
 ## <a name="sign-out-of-everywhere"></a>Disconnettersi da qualsiasi luogo
 

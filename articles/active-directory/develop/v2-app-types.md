@@ -17,13 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21f1da8738946078cb625c76e11ce1bfd62d97ac
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8bfe668dc2eb4e0e00de34231f4c232f5240a82d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927167"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700754"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per la piattaforma di identità Microsoft
 

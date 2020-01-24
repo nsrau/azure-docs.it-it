@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3888c7f838d6009382f849bc7d3e34c49b3b70a4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9e123195205bb0eb88f0edd4e2dff2e0da9d84ce
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962135"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701655"
 ---
 # <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: app Web che chiama le API Web
 
@@ -35,7 +34,7 @@ In questo scenario si presuppone che sia stato effettuato lo scenario seguente:
 > [!div class="nextstepaction"]
 > [App Web per l'accesso degli utenti](scenario-web-app-sign-user-overview.md)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Si aggiunge l'autenticazione all'app Web, che può quindi accedere agli utenti e chiama un'API Web per conto dell'utente che ha eseguito l'accesso.
 

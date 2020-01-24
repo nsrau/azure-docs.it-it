@@ -17,13 +17,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd944af95f80cf456260beb072c703aab0d15ceb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ecc55c0d41f552d2c29fe5c964a7c40ab9e382ba
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175288"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701383"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedura: configurare l'accesso SSO in macOS e iOS
 
@@ -70,7 +69,7 @@ Per abilitare l'accesso SSO tra le applicazioni, è necessario eseguire i passag
 
 Per individuare le applicazioni che possono condividere i token da parte della piattaforma Microsoft Identity, è necessario che le applicazioni condividano lo stesso ID client o ID applicazione. Si tratta dell'identificatore univoco fornito al momento della registrazione della prima applicazione nel portale.
 
-Il modo in cui la piattaforma di identità Microsoft comunica alle app che usano lo stesso ID applicazione a parte gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. ad esempio:
+Il modo in cui la piattaforma di identità Microsoft comunica alle app che usano lo stesso ID applicazione a parte gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. Ad esempio:
 
 URI di reindirizzamento App1: `msauth.com.contoso.mytestapp1://auth` URI di reindirizzamento App2: `msauth.com.contoso.mytestapp2://auth` URI di reindirizzamento App3: `msauth.com.contoso.mytestapp3://auth`
 
@@ -138,7 +137,7 @@ MSAL fornisce il supporto per l'autenticazione negoziata con Microsoft Authentic
 
 La procedura seguente illustra come abilitare SSO usando un broker di autenticazione per l'app:
 
-1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth`. Sostituire ' < app. bundle. ID >'' con l'ID bundle dell'applicazione. ad esempio:
+1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth`. Sostituire ' < app. bundle. ID >'' con l'ID bundle dell'applicazione. Ad esempio:
 
     ```xml
     <key>CFBundleURLSchemes</key>

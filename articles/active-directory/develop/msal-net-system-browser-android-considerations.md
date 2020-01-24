@@ -13,13 +13,12 @@ ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9346a4d5eaabb2af490afc13d5785a8f8233e53f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915474"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695050"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considerazioni sul browser di sistema Novell Android con MSAL.NET
 
@@ -29,7 +28,7 @@ A partire da MSAL.NET 2.4.0-Preview, MSAL.NET supporta browser diversi da Chrome
 
 Si consiglia di utilizzare browser che supportano schede personalizzate, ad esempio:
 
-| Browser con supporto per schede personalizzate | Nome del pacchetto |
+| Browser con supporto per schede personalizzate | Nome pacchetto |
 |------| ------- |
 |Chrome | com.android.chrome|
 |Microsoft Edge | com.microsoft.emmx|

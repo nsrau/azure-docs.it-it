@@ -15,13 +15,12 @@ ms.date: 1/15/2020
 ms.author: twhitney
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f629af35978771d48d0a29f9ec625628c3b630
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53fa82cf6eaaba09353ba21a12ae9677b9264b1a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291261"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701468"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modalità dispositivo condiviso per dispositivi Android
 
@@ -93,7 +92,7 @@ Le differenze seguenti si applicano a seconda che l'app sia in esecuzione su un 
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Perché è consigliabile supportare solo la modalità account singolo
 
-Se si sta scrivendo un'app che verrà usata solo per i prima riga Worker usando un dispositivo condiviso, è consigliabile scrivere l'applicazione in modo da supportare solo la modalità account singolo. Sono incluse la maggior parte delle applicazioni incentrate sulle attività, ad esempio le app per la registrazione medica, le app per la fatturazione e la maggior parte delle app line-of- Supportare solo la modalità account singolo semplifica lo sviluppo perché non è necessario implementare le funzionalità aggiuntive che fanno parte di app con più account.
+Se si sta scrivendo un'app che verrà usata solo per i prima riga Worker usando un dispositivo condiviso, è consigliabile scrivere l'applicazione in modo da supportare solo la modalità account singolo. Questo vale per la maggior parte delle applicazioni incentrate su attività, come le app medicali, le app di fatturazione e quasi tutte le app line-of-business. Supportare solo la modalità account singolo semplifica lo sviluppo perché non è necessario implementare le funzionalità aggiuntive che fanno parte di app con più account.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>Cosa accade quando cambia la modalità del dispositivo
 

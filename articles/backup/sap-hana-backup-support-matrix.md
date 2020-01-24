@@ -3,12 +3,12 @@ title: Matrice di supporto del backup di SAP HANA
 description: In questo articolo vengono fornite informazioni sugli scenari e le limitazioni supportati quando si usa backup di Azure per eseguire il backup dei database SAP HANA nelle VM di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a0a7c25ec718dcd6a903d2149a8b3930fb25941e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 2063da4c5210cace41454d8bdc5b12e636ba76cd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514293"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705650"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice di supporto per il backup di database di SAP HANA in VM di Azure
 
@@ -33,17 +33,17 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Scenario**               | **Configurazioni supportate**                                | **Configurazioni non supportate**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA in esecuzione solo in macchine virtuali Linux di Azure                    | Istanze large di HANA (HLI)                                   |
-| **GEOS**                   | Australia sud-orientale, Australia orientale, Brasile meridionale, Canada centrale, Canada orientale Asia orientale, Asia orientale Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-settentrionali, Stati Uniti centrali, Stati Uniti centro-meridionali, India meridionale, Giappone orientale, Giappone St Korea Central, Corea del Sud settentrionale, Europa occidentale Regno Unito meridionale, Regno Unito occidentale | Australia centrale, Australia centrale 2 Cina orientale, Cina settentrionale, Cina orientali 2, Cina settentrionale 2 India occidentale Francia centrale, Francia meridionale Germania settentrionale, Germania centro-occidentale Svizzera settentrionale, Svizzera occidentale Sud Africa settentrionale, Sudafrica occidentale, Emirati Arabi Uniti settentrionali, UAE centra l aree di Azure per enti pubblici |
-| **Versioni del sistema operativo**            | SLES 12 con SP2, SP3 o SP4           | SLES 15, RHEL                                                |
-| **Versioni di HANA**          | DSC su HANA 1. x, MDC su HANA 2. x < = SPS04 Rev 44           | -                                                            |
+| **GEOS**                   | **GA**<br />**Europa** -Europa occidentale, Europa settentrionale, Francia centrale, Francia meridionale, Regno Unito meridionale, Regno Unito occidentale, Germania settentrionale, Germania centro-occidentale, Svizzera settentrionale, Svizzera occidentale<br />**Asia Pacifico** -Australia centrale, Australia centrale 2, Australia orientale, Australia sudorientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale<br /><br>**Anteprima:**<br />**Americhe** -Stati Uniti centrali, Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Stati Uniti occidentali, Canada centrale, Canada orientale, Brasile<br />**Asia Pacifico** – Asia orientale, Asia sudorientale, India centrale, India meridionale | Cina orientale, Cina settentrionale, Cina orientali 2, Cina settentrionale 2, India occidentale, Svizzera settentrionale centrale, Sudafrica settentrionale, Sudafrica occidentale, Emirati Arabi Uniti settentrionali, Emirati Arabi Uniti centrali, aree di Azure per enti pubblici |
+| **Versioni del sistema operativo**            | SLES 12 con SP2, SP3 o SP4                                | SLES 15, RHEL                                                |
+| **Versioni di HANA**          | DSC su HANA 1. x, MDC su HANA 2. x < = SPS04 Rev 44            | -                                                            |
 | **Distribuzioni HANA**       | SAP HANA su una singola macchina virtuale di Azure: solo scalabilità verticale               | Scalabilità orizzontale                                                    |
 | **Istanze HANA**         | Una singola istanza di SAP HANA in una singola macchina virtuale di Azure: solo scalabilità verticale | Più istanze di SAP HANA in una singola macchina virtuale                  |
 | **Tipi di database HANA**    | Contenitore di Database singolo (DSC) su 1. x, contenitore di più database (MDC) in 2. x | MDC in HANA 1. x                                              |
-| **Dimensioni del database HANA**     | dimensioni del backup completo da 2 TB come indicato da HANA) |                                                              |
-| **Tipi di backup**           | Backup completi, differenziali e del log                           | Incrementale, snapshot                                       |
+| **Dimensioni del database HANA**     | dimensioni del backup completo da 2 TB come indicato da HANA)                   |                                                              |
+| **Tipi di backup**           | Backup completi, differenziali e del log                          | Incrementale, snapshot                                       |
 | **Tipi di ripristino**          | Per informazioni sui tipi di ripristino supportati, vedere la nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) . |                                                              |
-| **Limiti di backup**          | Fino a 2 TB di dimensioni del backup completo per ogni istanza di SAP HANA  |                                                              |
-| **Configurazioni speciali** |                                                              | SAP HANA + suddivisione in livelli dinamica <br>  Clonazione tramite LaMa            |
+| **Limiti di backup**          | Fino a 2 TB di dimensioni del backup completo per ogni istanza di SAP HANA         |                                                              |
+| **Configurazioni speciali** |                                                              | SAP HANA + suddivisione in livelli dinamica <br>  Clonazione tramite LaMa        |
 
 ------
 

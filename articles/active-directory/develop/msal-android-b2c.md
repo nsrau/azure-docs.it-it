@@ -13,13 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98a31ea2daffba19242e73362af5a44e3a392342
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917115"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696522"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usare MSAL per Android con B2C
 
@@ -140,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Specificare un criterio
 
-Poiché i criteri in B2C sono rappresentati come autorità separate, il richiamo di un criterio diverso da quello predefinito viene ottenuto specificando una clausola `fromAuthority` quando si costruiscono parametri `acquireToken` o `acquireTokenSilent`.  ad esempio:
+Poiché i criteri in B2C sono rappresentati come autorità separate, il richiamo di un criterio diverso da quello predefinito viene ottenuto specificando una clausola `fromAuthority` quando si costruiscono parametri `acquireToken` o `acquireTokenSilent`.  Ad esempio:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

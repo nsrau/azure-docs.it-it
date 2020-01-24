@@ -3,12 +3,12 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: dc709294b92fd26343e9520e3775b9f079aba94f
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: c424b905f44d6fd3a80a08ef925df4d0a06dd7d8
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708481"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705378"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -33,7 +33,7 @@ La tabella seguente descrive le funzionalità degli insiemi di credenziali di se
 **Origini dati nell'archivio dell'insieme di credenziali** | Massimo 54.400 GB. Non esistono limiti per i backup delle macchine virtuali di Azure.
 **Backup in un insieme di credenziali** | **Macchine virtuali di Azure:** Una volta al giorno.<br/><br/>**Computer protetti da DPM/MAB:** Due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente Mars:** Tre volte al giorno.
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area.
-**Sposta insiemi di credenziali** | È possibile [spostare](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) gli insiemi di credenziali tra le sottoscrizioni o tra gruppi di risorse nella stessa sottoscrizione.
+**Sposta insiemi di credenziali** | È possibile [spostare](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) gli insiemi di credenziali tra le sottoscrizioni o tra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo trasferimento di insiemi di credenziali tra aree non è supportato.
 **Spostamento dei dati tra insiemi di credenziali** | Lo stato di trasferimento dei dati di backup tra insiemi di credenziali non è supportato.
 **Modifica del tipo di archiviazione dell'insieme di credenziali** | È possibile modificare il tipo di replica di archiviazione, ovvero l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza locale, per un insieme di credenziali prima che vengano archiviati i backup. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
 

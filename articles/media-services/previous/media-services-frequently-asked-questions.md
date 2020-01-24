@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Servizi multimediali di Azure | Documentazione Microsoft
+title: Domande frequenti su servizi multimediali di Azure
 description: Questo articolo fornisce le risposte alle domande frequenti su servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3aeff680392fbe966682b57ca1318fac9f0d1d93
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bdb5a43ad6669bfcd6e93ef4e3bf1646314e4606
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895989"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705871"
 ---
-# <a name="frequently-asked-questions"></a>Domande frequenti
+# <a name="media-services-v2-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V2
 
 Questo articolo contiene le domande frequenti sollevate dalla community di utenti di Servizi multimediali di Azure (AMS).
 

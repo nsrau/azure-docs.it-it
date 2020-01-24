@@ -17,13 +17,12 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b3d5aa74705d858349eaca543a7fd86e315a63e6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125425"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702998"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione 
 
@@ -41,7 +40,7 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 
-2019 settembre: Imposizione aggiuntiva della semantica POST in base alle regole di analisi dell'URL. i parametri duplicati generano un errore e il valore [DBA](https://www.w3.org/International/questions/qa-byte-order-mark) viene ignorato.
+2019 settembre: imposizione aggiuntiva della semantica POST secondo le regole di analisi dell'URL. i parametri duplicati generano un errore e il valore [DBA](https://www.w3.org/International/questions/qa-byte-order-mark) viene ignorato.
 
 ## <a name="august-2019"></a>Agosto 2019
 
@@ -51,26 +50,26 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 **Endpoint interessati**: sia la versione 1.0 che la versione 2.0
 
-**Protocollo interessato**: Viene usato Anywhere POST ([credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [riscatto del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e riscatto del [token di aggiornamento](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Con effetti sul protocollo**: viene usato Anywhere post ([credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [riscatto del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e [riscatto del token di aggiornamento](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
 
 A partire dalla settimana 9/2, le richieste di autenticazione che utilizzano il metodo POST verranno convalidate utilizzando standard HTTP più restrittivi.  In particolare, gli spazi e le virgolette doppie (") non verranno più rimossi dai valori del modulo della richiesta. Queste modifiche non devono interrompere i client esistenti e garantire che le richieste inviate a Azure AD siano gestite in modo affidabile ogni volta. In futuro (vedere sopra) si prevede di rifiutare anche i parametri duplicati e ignorare il BOM all'interno delle richieste. 
 
 Esempio:
 
-Attualmente, `?e=    "f"&g=h` viene analizzato in `?e=f&g=h` modo `e`  ==  identico`f`.  Con questa modifica, verrà analizzato in modo `e`  ==  `    "f"` da non essere un argomento valido e la richiesta avrà ora esito negativo. 
+Attualmente `?e=    "f"&g=h` viene analizzato in modo identico `?e=f&g=h` `e` == `f`.  Con questa modifica, questo verrà analizzato in modo che `e` == `    "f"`: è improbabile che si tratta di un argomento valido e la richiesta avrà esito negativo. 
 
 
-## <a name="july-2019"></a>2019 luglio
+## <a name="july-2019"></a>Luglio 2019
 
 ### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>I token solo app per le applicazioni a tenant singolo vengono emessi solo se l'app client esiste nel tenant delle risorse
 
 **Data di validità**: 26 luglio 2019
 
-**Endpoint interessati**: [V 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+Sono stati **interessati endpoint**: [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
-**Protocollo interessato**: [Credenziali client (token solo app)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+Con **effetti sul protocollo**: [credenziali client (token solo app)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-Una modifica alla sicurezza è passata in diretta il 26 luglio che modifica il modo in cui vengono emessi i token solo app (tramite la concessione delle credenziali client). In precedenza, le applicazioni potevano ottenere i token per chiamare qualsiasi altra app, indipendentemente dalla presenza nel tenant o dai ruoli consentiti per l'applicazione.  Questo comportamento è stato aggiornato in modo che per le risorse (talvolta chiamate API Web) sia impostato come single-tenant (impostazione predefinita), l'applicazione client deve esistere all'interno del tenant delle risorse.  Si noti che il consenso esistente tra il client e l'API non è ancora necessario e le app devono ancora eseguire i propri controlli di autorizzazione per assicurarsi `roles` che sia presente un'attestazione e che contenga il valore previsto per l'API.
+Una modifica alla sicurezza è passata in diretta il 26 luglio che modifica il modo in cui vengono emessi i token solo app (tramite la concessione delle credenziali client). In precedenza, le applicazioni potevano ottenere i token per chiamare qualsiasi altra app, indipendentemente dalla presenza nel tenant o dai ruoli consentiti per l'applicazione.  Questo comportamento è stato aggiornato in modo che per le risorse (talvolta chiamate API Web) sia impostato come single-tenant (impostazione predefinita), l'applicazione client deve esistere all'interno del tenant delle risorse.  Si noti che non è ancora necessario il consenso esistente tra il client e l'API e le app devono ancora eseguire i propri controlli di autorizzazione per assicurarsi che sia presente un'attestazione `roles` e che contenga il valore previsto per l'API.
 
 Il messaggio di errore per questo scenario attualmente indica: 
 
@@ -80,7 +79,7 @@ Per risolvere questo problema, usare l'esperienza di consenso dell'amministrator
 
 #### <a name="example-request"></a>Richiesta di esempio
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`In questo esempio, il tenant di risorse (Authority) è contoso.com, l'app per le risorse è un'app a `gateway.contoso.com/api` tenant singolo chiamata per il tenant Contoso e l'app `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`client è.  Se l'app client dispone di un'entità servizio all'interno di Contoso.com, questa richiesta può continuare.  In caso contrario, la richiesta avrà esito negativo con l'errore precedente.  
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` in questo esempio, il tenant di risorse (Authority) è contoso.com, l'app per le risorse è un'app a tenant singolo denominata `gateway.contoso.com/api` per il tenant Contoso e l'app client è `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  Se l'app client dispone di un'entità servizio all'interno di Contoso.com, questa richiesta può continuare.  In caso contrario, la richiesta avrà esito negativo con l'errore precedente.  
 
 Se l'app del gateway contoso era un'applicazione multi-tenant, tuttavia, la richiesta continuerà indipendentemente dall'app client con un'entità servizio all'interno di Contoso.com.  
 
@@ -90,11 +89,11 @@ Se l'app del gateway contoso era un'applicazione multi-tenant, tuttavia, la rich
 
 **Endpoint interessati**: sia la versione 1.0 che la versione 2.0
 
-**Protocollo interessato**: Tutti i flussi
+**Influisce sul protocollo**: tutti i flussi
 
-Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure ad applicazioni possono ora registrare e usare gli URI di reindirizzamento (risposta) con parametri di query statici https://contoso.com/oauth2?idp=microsoft) , ad esempio per le richieste OAuth 2,0.  Gli URI di reindirizzamento dinamici sono ancora proibiti perché rappresentano un rischio per la sicurezza e non possono essere usati per mantenere le informazioni sullo stato attraverso una richiesta di autenticazione `state` . per questo, usare il parametro.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure ad applicazioni possono ora registrare e usare gli URI di reindirizzamento (risposta) con parametri di query statici, ad esempio https://contoso.com/oauth2?idp=microsoft) per le richieste OAuth 2,0.  Gli URI di reindirizzamento dinamici sono ancora proibiti perché rappresentano un rischio per la sicurezza e non possono essere usati per mantenere le informazioni sullo stato attraverso una richiesta di autenticazione. per questo, usare il parametro `state`.
 
-Il parametro della query statica è soggetto alla corrispondenza di stringa per gli URI di reindirizzamento come qualsiasi altra parte dell'URI di reindirizzamento: se nessuna stringa è registrata che corrisponde al redirect_uri decodificato dall'URI, la richiesta verrà rifiutata.  Se l'URI si trova nella registrazione dell'app, l'intera stringa verrà usata per reindirizzare l'utente, incluso il parametro di query statica. 
+Il parametro della query statica è soggetto alla corrispondenza di stringa per gli URI di reindirizzamento come qualsiasi altra parte dell'URI di reindirizzamento: se nessuna stringa è registrata che corrisponde alla redirect_uri decodificata dall'URI, la richiesta verrà rifiutata.  Se l'URI si trova nella registrazione dell'app, l'intera stringa verrà usata per reindirizzare l'utente, incluso il parametro di query statica. 
 
 Si noti che al momento (fine del luglio 2019), la registrazione dell'app UX in portale di Azure ancora blocca i parametri della query.  Tuttavia, è possibile modificare manualmente il manifesto dell'applicazione per aggiungere parametri di query e testarlo nell'app.  
 
@@ -107,11 +106,11 @@ Si noti che al momento (fine del luglio 2019), la registrazione dell'app UX in p
 
 **Endpoint interessati**: sia la versione 1.0 che la versione 2.0
 
-**Protocollo interessato**: Tutti i flussi
+**Influisce sul protocollo**: tutti i flussi
 
 Le applicazioni client possono talvolta comportarsi in maniera non concreta, emettendo centinaia della stessa richiesta di accesso in un breve periodo di tempo.  Queste richieste possono avere esito positivo o negativo, ma contribuiscono all'esperienza utente e ai carichi di lavoro aumentati per l'IDP, aumentando la latenza per tutti gli utenti e riducendo la disponibilità dell'IDP.  Queste applicazioni funzionano al di fuori dei limiti di utilizzo normale e devono essere aggiornate per comportarsi correttamente.  
 
-Ai client che inviano richieste duplicate più volte verrà `invalid_grant` inviato un `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`errore:. 
+Ai client che inviano richieste duplicate più volte verrà inviato un errore `invalid_grant`: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
 
 Per evitare questo errore, la maggior parte dei client non dovrà modificare il comportamento.  Questo errore verrà influenzato solo dai client non configurati correttamente (quelli senza memorizzazione nella cache dei token o che presentano già i cicli di richiesta).  I client vengono rilevati in base alle singole istanze in locale (tramite cookie) sui fattori seguenti:
 
@@ -125,9 +124,9 @@ Per evitare questo errore, la maggior parte dei client non dovrà modificare il 
 
 * Tipo di risposta e modalità
 
-Le app che eseguono più richieste (15 +) in un breve periodo di tempo (5 minuti) riceveranno un `invalid_grant` errore che indica che sono in ciclo.  I token richiesti hanno una durata sufficientemente lunga (almeno 10 minuti, 60 minuti per impostazione predefinita), quindi le richieste ripetute per questo periodo di tempo non sono necessarie.  
+Le app che eseguono più richieste (15 +) in un breve periodo di tempo (5 minuti) riceveranno un errore di `invalid_grant` che indica che sono in ciclo.  I token richiesti hanno una durata sufficientemente lunga (almeno 10 minuti, 60 minuti per impostazione predefinita), quindi le richieste ripetute per questo periodo di tempo non sono necessarie.  
 
-Tutte le app devono `invalid_grant` essere gestite visualizzando un prompt interattivo anziché richiedere un token in modo invisibile all'utente.  Per evitare questo errore, è necessario che i client garantiscano la corretta memorizzazione nella cache dei token ricevuti.
+Tutte le app devono gestire `invalid_grant` mostrando un prompt interattivo anziché richiedere un token in modo invisibile all'utente.  Per evitare questo errore, è necessario che i client garantiscano la corretta memorizzazione nella cache dei token ricevuti.
 
 
 ## <a name="october-2018"></a>Ottobre 2018

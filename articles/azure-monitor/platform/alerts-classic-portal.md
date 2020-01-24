@@ -1,17 +1,17 @@
 ---
 title: Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 description: Informazioni su come usare il portale di Azure, l'interfaccia della riga di comando o Powershell per creare, visualizzare e gestire regole di avviso classico per le metriche.
-author: snehithm
+author: yanivlavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
-ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yalavi
+ms.openlocfilehash: fd15d6bb9442d91c672fdd444313880001880e07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66129780"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705599"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 
@@ -23,7 +23,7 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 2. Nella sezione **MONITORAGGIO** selezionare **Avvisi (versione classica)** . Il testo e l'icona possono variare leggermente per le diverse risorse. Se l'opzione **Avvisi (versione classica)** non è disponibile, cercarla in **Avvisi** o **Regole di avviso**.
 
-    ![Monitoraggio](media/alerts-classic-portal/AlertRulesButton.png)
+    ![Monitorare](media/alerts-classic-portal/AlertRulesButton.png)
 
 3. Selezionare il comando **Aggiungi avviso per la metrica (versione classica)** e compilare i campi.
 
@@ -35,7 +35,7 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 6. Selezionare **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** se si vuole che gli amministratori e i coamministratori ricevano una notifica tramite posta elettronica quando si attiva l'avviso.
 
-7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare più messaggi di posta elettronica con punti e virgola, nel formato seguente: *messaggio di posta elettronica\@contoso.com;email2\@contoso.com*
+7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare più messaggi di posta elettronica con punti e virgola, nel formato seguente: *email\@contoso. com; email2\@contoso.com*
 
 8. Inserire un URI valido nel campo **Webhook** per eseguire la chiamata quando viene attivato l'avviso.
 
@@ -127,7 +127,7 @@ Questa sezione illustra come usare i comandi PowerShell per creare, visualizzare
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Le regole di avviso classiche non possono più essere create tramite PowerShell. Per creare una regola di avviso è necessario usare le nuove ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) comando.
+8. Le regole di avviso classiche non possono più essere create tramite PowerShell. Per creare una regola di avviso, è necessario usare il nuovo comando ["Add-AzMetricAlertRule"](/powershell/module/az.monitor/add-azmetricalertrule) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

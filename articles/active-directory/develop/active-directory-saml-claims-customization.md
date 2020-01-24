@@ -14,13 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e1a466902ccb47d57e5f9590ba94bf08c76ec5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7a4a58943b251628780694c001ca441a14e9c09a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918441"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698680"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -28,7 +27,7 @@ Attualmente, Azure Active Directory (Azure AD) supporta la Single Sign-On (SSO) 
 
 Un'*attestazione* è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](https://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
 
-Per impostazione predefinita, Azure AD rilascia un token SAML all'applicazione che contiene un'attestazione `NameIdentifier` con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure AD, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell’utente.
+Per impostazione predefinita, Azure AD rilascia un token SAML all'applicazione che contiene un'attestazione `NameIdentifier` con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure AD, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
 
 Per visualizzare o modificare le attestazioni generate nel token SAML per l'applicazione, aprire l'applicazione nel portale di Azure. Aprire quindi la sezione **attributi utente & attestazioni** .
 
@@ -66,16 +65,16 @@ Dall'elenco a discesa **Scegli formato identificatore nome** è possibile selezi
 
 Il NameID temporaneo è anche supportato, ma non è disponibile nell'elenco a discesa e non può essere configurato sul lato di Azure. Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per Single Sign-on](single-sign-on-saml-protocol.md).
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| name | Description |
+| Nome | Description |
 |------|-------------|
 | Indirizzo di posta elettronica | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |
 | onpremisessamaccount | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
-| objectId | ObjectId dell'utente in Azure AD |
+| objectid | ObjectId dell'utente in Azure AD |
 | employeeid | ID dipendente dell'utente |
 | Estensioni della directory | Estensioni di directory [sincronizzate da Active Directory locale mediante la sincronizzazione di Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Attributi di estensione 1-15 | Attributi di estensione utilizzati per estendere lo schema di Azure AD locale |

@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da5e2f60334148be1206ce61a9c6397a3acf85e3
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278886"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704766"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Aggiungere account non Microsoft all'app Microsoft Authenticator
 
@@ -75,7 +74,7 @@ Per aggiungere l'account Google attivare la verifica a due fattori e quindi aggi
     >[!NOTE]
     >Per altre informazioni sulla verifica a due fattori e l'account Google, vedere [Attivare la verifica in due passaggi](https://support.google.com/accounts/answer/185839) e [Ulteriori informazioni sulla verifica in due passaggi](https://www.google.com/landing/2step/help.html).
 
-## <a name="add-your-facebook-account"></a>Accedere al proprio account Facebook
+## <a name="add-your-facebook-account"></a>Aggiungere il proprio account Facebook
 
 Per aggiungere l'account Facebook attivare la verifica a due fattori e quindi aggiungere l'account all'app.
 

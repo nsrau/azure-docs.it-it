@@ -1,16 +1,16 @@
 ---
-title: Risolvere i problemi di Azure FarmBeats
+title: Risoluzione dei problemi di Azure FarmBeats
 description: Questo articolo descrive come risolvere i problemi di Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: f017b19ef8bd8e4c44d9e2885da6fbaf172808a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485975"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705616"
 ---
 # <a name="troubleshoot"></a>Risolvere i problemi
 
@@ -44,6 +44,38 @@ Per scaricare il file **deployer. log** , eseguire le operazioni seguenti:
    - Se sono presenti *messaggi in ingresso*, contattare farmbeatssupport@microsoft.com. Alleghi i log datahub e Accelerator e i dati di telemetria acquisiti.
 
 Per informazioni su come scaricare i log, vedere la sezione ["raccogliere i log manualmente"](#collect-logs-manually) .  
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Non è possibile visualizzare i dati di telemetria dopo l'inserimento dei dati cronologici/di streaming dai sensori
+
+**Sintomo**: i dispositivi o i sensori sono stati distribuiti e sono stati creati i dispositivi/sensori in FarmBeats e i dati di telemetria inseriti nel EventHub, ma non è possibile ottenere o visualizzare i dati di telemetria in FarmBeats.
+
+**Azione correttiva**:
+
+1. Assicurarsi che la registrazione del partner sia stata eseguita correttamente. è possibile verificarla selezionando datahub spavalderia, passare all'API/partner, eseguire un'operazione get e verificare se il partner è registrato. In caso contrario, seguire la [procedura descritta qui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere il partner.
+2. Assicurarsi di aver usato il formato di messaggio di telemetria corretto:
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
+}
+```
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Non avere la stringa di connessione di hub eventi di Azure
 

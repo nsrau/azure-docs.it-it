@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 2d31519c1c7e09c4eb8db64e2c37b8412fee9ab5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279029"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705106"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visualizza e cerca le attività di accesso recenti dalla pagina di accesso (anteprima)
 
@@ -31,7 +30,7 @@ ms.locfileid: "74279029"
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visualizzare le attività di accesso recenti
 
-1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
 2. Selezionare **accessi personali (anteprima)** nel riquadro di spostamento a sinistra oppure selezionare il collegamento **Controlla attività recente** dal blocco **accessi (anteprima)** .
 

@@ -17,13 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c13f4cabfbd996c1d811a8a3e35e69893c51154f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042320"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700924"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
@@ -106,7 +105,7 @@ Le applicazioni in Azure AD si basano sul consenso per ottenere l'accesso alle A
   - `Permission` corrisponde all'azione che un utente può eseguire su tali dati
   - `Modifier` viene usato facoltativamente per descrivere le specializzazioni di un'altra autorizzazione
     
-    ad esempio:
+    Ad esempio:
   - Mail.Read: consente agli utenti di leggere i messaggi di posta.
   - Mail.ReadWrite: consente agli utenti di leggere o scrivere messaggi di posta.
   - Mail.ReadWrite.All: consente a un amministratore o a un utente di accedere a tutti i messaggi di posta nell'organizzazione.

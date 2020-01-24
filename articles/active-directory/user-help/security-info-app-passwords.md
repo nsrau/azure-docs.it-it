@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee9f6bc1986cb31b1e21a0678e59bf8269988426
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d4076e379755518421ef79eca542ebdc99294a11
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231798"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704887"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Creare password di app dalla pagina info di sicurezza (anteprima)
 
@@ -46,7 +45,7 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 
 ### <a name="to-create-a-new-app-password"></a>Per creare una nuova password per l'app
 
-1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
@@ -83,6 +82,6 @@ Se non è più necessario usare un'app che richiede una password, è possibile e
 
 2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare la **password dell'app**. La password dell'app, dopo essere stata eliminata, viene rimossa dalle informazioni di sicurezza e non viene più visualizzata nella pagina **Info di sicurezza**.
 
-## <a name="for-more-information"></a>Per altre informazioni
+## <a name="for-more-information"></a>Per ulteriori informazioni
 
 - Per altre informazioni sulla pagina **Info di sicurezza** e su come configurarla, vedere [Panoramica delle informazioni di sicurezza](user-help-security-info-overview.md)

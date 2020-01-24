@@ -3,12 +3,12 @@ title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni d
 description: Questo articolo illustra come eseguire il backup di una singola macchina virtuale di Azure o di più macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bd75bdfb3fe9939c576fe289f6be38ebe875e020
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294066"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705446"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
@@ -79,16 +79,11 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
 Seguire le istruzioni in questo articolo per abilitare il backup per macchine virtuali di Azure configurando un insieme di credenziali di Servizi di ripristino di Backup di Azure e per abilitare il backup nell'insieme di credenziali.
 
 >[!NOTE]
-> Backup di Azure supporta ora il backup e il ripristino dei dischi selettivi con la soluzione di backup della macchina virtuale di Azure.
+> **Backup di Azure supporta ora il backup e il ripristino dei dischi selettivi con la soluzione di backup della macchina virtuale di Azure.**
 >
 >Attualmente, backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale con la soluzione di backup della macchina virtuale. Con la funzionalità Escludi disco è possibile scegliere di eseguire il backup di uno o più dischi dati in una macchina virtuale. Questo offre una soluzione efficiente ed economica per le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup, che consente di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
 >
-> Questa soluzione è particolarmente utile negli scenari seguenti:
->  
->1. È necessario eseguire il backup dei dati critici in un solo disco e non si vuole eseguire il backup dei restanti dischi collegati a una macchina virtuale. Questo consente di ridurre al minimo i costi di archiviazione dei backup.  
->2. Sono disponibili altre soluzioni di backup per una parte dei dati della VM. Ad esempio, si esegue il backup dei database o dei dati con una soluzione di backup del carico di lavoro diversa e si vuole usare il backup a livello di VM di Azure per il resto dei dischi e dei dati per creare un sistema efficiente e affidabile usando le funzionalità migliori disponibili.
->
->Per iscriverti all'anteprima, scrivici all'indirizzo AskAzureBackupTeam@microsoft.com
+>**Per iscriverti all'anteprima, scrivici all'indirizzo AskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

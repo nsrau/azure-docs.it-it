@@ -12,13 +12,12 @@ ms.date: 03/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2987183900ad3232d46b2152bd52808ae96c802b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383072"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704834"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Risolvere i problemi del portale app personali
 
@@ -48,11 +47,11 @@ Se si verificano problemi durante l'installazione dell'estensione per l'accesso 
 
 Se si verificano problemi durante l'accesso al portale **app personali** , è possibile provare a eseguire le operazioni seguenti:
 
-- Assicurarsi di usare l'URL corretto. Deve essere https://myapps.microsoft.com o una pagina personalizzata per l'organizzazione, https://myapps.microsoft.com/contoso.com ad esempio.
+- Assicurarsi di usare l'URL corretto. Deve essere https://myapps.microsoft.com o una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
 - Assicurarsi che la password sia corretta e non sia scaduta. Per altre informazioni, vedere [reimpostare la password aziendale o dell'Istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 
-- Verificare che le informazioni di verifica siano aggiornate e accurate. Per altre informazioni, vedere [cosa significa Azure Multifactor Authentication per me?](multi-factor-authentication-end-user.md) o [modificare i metodi e le informazioni di sicurezza](security-info-add-update-methods-overview.md).
+- Verificare che le informazioni di verifica siano aggiornate e accurate. Per altre informazioni, vedere [cosa significa Azure multi-factor authentication per me?](multi-factor-authentication-end-user.md) o [modificare i metodi e le informazioni di sicurezza](security-info-add-update-methods-overview.md).
 
 - Aggiungere l'URL del portale dell' **app** all'impostazione **Proprietà Internet > sicurezza > siti attendibili** .
 
@@ -72,11 +71,11 @@ Se si sta ricevendo un messaggio di **accesso negato** dopo l'avvio di un'app da
 
 - Assicurarsi di aver installato l' [estensione per l'accesso sicuro alle app personali](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) e che si stia usando un [browser supportato](my-apps-portal-end-user-access.md#supported-browsers).
 
-- Assicurarsi di usare l'URL corretto per l'app e che l'URL sia presente nelle **Proprietà Internet > sicurezza >** elenco dei siti attendibili.
+- Assicurarsi di usare l'URL corretto per l'app e che l'URL sia presente nelle **Proprietà Internet > sicurezza > elenco dei siti attendibili** .
 
 - Assicurarsi che la password sia corretta e non sia scaduta. Per altre informazioni, vedere [reimpostare la password aziendale o dell'Istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 
-- Verificare che le informazioni di verifica siano aggiornate e accurate. Per altre informazioni, vedere [cosa significa Azure Multifactor Authentication per me?](multi-factor-authentication-end-user.md) o [modificare i metodi e le informazioni di sicurezza](security-info-add-update-methods-overview.md).
+- Verificare che le informazioni di verifica siano aggiornate e accurate. Per altre informazioni, vedere [cosa significa Azure multi-factor authentication per me?](multi-factor-authentication-end-user.md) o [modificare i metodi e le informazioni di sicurezza](security-info-add-update-methods-overview.md).
 
 - Cancellare la cache del browser e riprovare ad accedere.
 

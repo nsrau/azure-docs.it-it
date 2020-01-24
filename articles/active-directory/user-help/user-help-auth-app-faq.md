@@ -1,6 +1,6 @@
 ---
-title: Domande & risposte sull'app Microsoft Authenticator-Azure AD
-description: Domande frequenti e risposte relative all'app di autenticazione Microsoft e alla verifica a due fattori.
+title: Questions & answers about Microsoft Authenticator app - Azure AD
+description: Frequently asked questions and answers (FAQs) about the Microsoft Authentication app and two-factor verification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,15 +12,14 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc68b34ce10957d8c025d4767cc4f8d04c6a72c3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 70f4844a8c157ba7964ce1053c007db8e9301336
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155860"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704698"
 ---
-# <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
+# <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Frequently asked questions (FAQs) about the Microsoft Authenticator app
 
 Questo articolo risponde a domande comuni sull'app Microsoft Authenticator. Se non viene visualizzata una risposta alla domanda, accedere al [forum dell'app Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
@@ -34,7 +33,7 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è cons
 | A cosa servono i codici nell'app? | Quando si apre l'app Microsoft Authenticator, gli account aggiunti vengono visualizzati come riquadri con un numero di sei o otto cifre per ciascuno.<br><br>Questi codici devono essere usati come verifica dell'effettiva identità dell'utente. Dopo aver effettuato l'accesso con il nome utente e la password, è necessario digitare il codice di verifica che si trova nello stesso riquadro dell'account. Ad esempio, l'utente Alan che accede all'account Contoso dovrà usare il codice di verifica 427303.<br><br>![Schermata Account nell'app](./media/user-help-auth-app-faq/auth-app-accounts.png) |
 | Perché il numero accanto al codice continua a diminuire? | Accanto al codice di verifica attivo può essere visualizzato un timer di 30 secondi che esegue un conto alla rovescia. Questo timer impedisce di accedere usando lo stesso codice due volte. Diversamente dalle password, questo numero non deve essere memorizzato dall'utente. Lo scopo è che solo qualcuno con accesso al telefono debba conoscere questo codice. |
 | Perché il riquadro dell'account è grigio? | Alcune organizzazioni richiedono che l'app Microsoft Authenticator usi l'accesso Single Sign-On e che protegga le risorse aziendali. In questo caso, l'account non viene usato per la verifica in due passaggi e viene visualizzato come grigio o inattivo. Questo tipo di account viene spesso denominato account "broker". |
-| Che cos'è la registrazione di un dispositivo? | L'organizzazione potrebbe voler registrare il dispositivo in modo che possa comprendere quali sono i dispositivi che accedono a risorse protette, ad esempio file e app, ed eventualmente attivare l'accesso condizionale per ridurre il rischio di accesso non appropriato a tali risorse. È possibile annullare la registrazione del dispositivo usando l'opzione **Impostazioni**, ma in questo caso si potrebbe perdere l'accesso ai messaggi di posta elettronica in Outlook e ai file in OneDrive e non essere più in grado di usare l'accesso tramite telefono. |
+| Che cos'è la registrazione di un dispositivo? | Your organization might want you to register the device so they can understand which devices are accessing secured resources, such as files and apps, and to possibly turn on Conditional Access to reduce the risk of inappropriate access to those resources. È possibile annullare la registrazione del dispositivo usando l'opzione **Impostazioni**, ma in questo caso si potrebbe perdere l'accesso ai messaggi di posta elettronica in Outlook e ai file in OneDrive e non essere più in grado di usare l'accesso tramite telefono. |
 | È necessario essere connessi a Internet o alla rete personale per ottenere e usare i codici di verifica? | I codici non richiedono l'uso di Internet o la connessione ai dati e di conseguenza non è necessario che sia disponibile copertura di rete per l'accesso. Inoltre, poiché l'app non resta in esecuzione quando viene chiusa, non consuma la batteria. |
 | Cosa significa se si ricevono notifiche solo quando l'app è aperta e non quando è chiusa? | Se si ricevono le notifiche, ma non gli avvisi, anche quando la suoneria è attiva, è necessario controllare le impostazioni dell'app. Assicurarsi che l'app sia attivata per usare i suoni o la vibrazione per le notifiche. Se non si riceve alcuna notifica, verificare le situazioni seguenti:<ul><li>Il telefono è in modalità non disturbare o non interattiva? Queste modalità possono impedire alle app di inviare notifiche.</li><li>È possibile ricevere notifiche da altre app? In caso negativo, potrebbe essersi verificato un problema di connessione di rete nel telefono o del canale di notifiche Android o Apple. È possibile provare a risolvere il problema di connessione di rete tramite le impostazioni del telefono, ma potrebbe essere necessario rivolgersi al provider di servizi per richiedere supporto per il canale di notifiche Android o Apple.</li><li>Si ricevono notifiche per alcuni account nell'app, ma non per altri? In questo caso, rimuovere l'account problematico dall'app e aggiungerlo di nuovo consentendo le notifiche e quindi verificare se il problema è stato risolto.</li></ul>Se dopo aver tentato tutti questi passaggi i problemi persistono, inviare i file di log per la diagnostica. Aprire l'app, passare a **Guida** e quindi selezionare **Invia log**. Accedere quindi al [forum dell'app Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) per comunicare il problema riscontrato e i passaggi provati fino a questo punto. |
 | Se si usano i codici di verifica nell'app, come si passa all'uso delle notifiche push? | È possibile configurare questo comportamento per l'account aziendale o dell'istituto di istruzione (se attivato dall'amministratore) o per l'account Microsoft personale, ma le notifiche non funzionano per account di terze parti, come Google o Facebook.<br><br>Per passare all'uso delle notifiche con l'account personale, è necessario registrare di nuovo il dispositivo con l'account. Passare ad **Aggiungi account**, selezionare **Account Microsoft personale** e quindi accedere usando il nome utente e la password.<br><br>L'organizzazione stabilisce se consentire le notifiche con un clic per l'account aziendale o dell'istituto di istruzione e di conseguenza può disattivare questa funzionalità.|

@@ -1,18 +1,18 @@
 ---
 title: Preparare la migrazione degli avvisi classici di monitoraggio di Azure aggiornando le app per la logica e manuali operativi
+author: yanivlavi
 description: Informazioni su come modificare i webhook, le app per la logica e manuali operativi per prepararsi alla migrazione volontaria.
-author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827397"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705565"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 
@@ -25,7 +25,7 @@ Se si sceglie di migrare volontariamente le regole di avviso classiche alle nuov
 
 ## <a name="api-changes"></a>Modifiche all'API
 
-Le API che creano e gestiscono le regole di`microsoft.insights/alertrules`avviso classiche () sono diverse dalle API che creano e gestiscono`microsoft.insights/metricalerts`nuovi avvisi delle metriche (). Se si creano e si gestiscono le regole di avviso classiche a livello di codice, aggiornare gli script di distribuzione in modo che funzionino con le nuove API.
+Le API che creano e gestiscono le regole di avviso classiche (`microsoft.insights/alertrules`) sono diverse dalle API che creano e gestiscono nuovi avvisi delle metriche (`microsoft.insights/metricalerts`). Se si creano e si gestiscono le regole di avviso classiche a livello di codice, aggiornare gli script di distribuzione in modo che funzionino con le nuove API.
 
 La tabella seguente è un riferimento alle interfacce programmatiche per gli avvisi classici e nuovi:
 
@@ -44,14 +44,14 @@ Usare la tabella seguente per eseguire il mapping dei campi di payload del webho
 
 |  |Avvisi classici  |Nuovi avvisi delle metriche |
 |---------|---------|---------|
-|L'avviso è stato attivato o risolto?    | **status**       | **data.status** |
+|L'avviso è stato attivato o risolto?    | **Stato**       | **data.status** |
 |Informazioni contestuali sull'avviso     | **context**        | **data.context**        |
 |Timestamp in cui l'avviso è stato attivato o risolto     | **context.timestamp**       | **data.context.timestamp**        |
 | ID regola di avviso | **context.id** | **data.context.id** |
 | Nome regola di avviso | **context.name** | **data.context.name** |
 | Descrizione della regola di avviso | **context.description** | **data.context.description** |
 | Condizione della regola di avviso | **context.condition** | **data.context.condition** |
-| Nome della metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Nome metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
 | Aggregazione temporale (modalità di aggregazione della metrica sulla finestra di valutazione)| **context. Condition. timeAggregation** | **context. Condition. timeAggregation** |
 | Periodo di valutazione | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Operatore (come il valore della metrica aggregata viene confrontato con la soglia) | **context.condition.operator** | **data.context.condition.operator** |
@@ -72,7 +72,7 @@ I payload sono simili, come si può vedere. La sezione seguente offre:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Attenersi ai passaggi riportati di seguito.
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. A tale scopo, seguire questa procedura:
 
 1. Creare una nuova app per la logica.
 

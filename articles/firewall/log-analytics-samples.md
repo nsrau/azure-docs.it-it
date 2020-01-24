@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/23/2020
 ms.author: victorh
-ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168900"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705983"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Esempi di log Analytics di Azure firewall
 
@@ -30,7 +30,7 @@ Eseguire la procedura seguente per aggiungere la visualizzazione all'area di lav
 2. Aprire **Progettazione viste** sotto **Generale**.
 3. Fare clic su **Importa**.
 4. Sfogliare e selezionare il file **AzureFirewall.omsview** scaricato in precedenza.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 Ecco come è illustrato l'aspetto della visualizzazione dei dati del log delle regole di applicazione:
 
@@ -44,7 +44,7 @@ Il firewall di Azure registra i dati sotto AzureDiagnostics con Category come **
 
 ## <a name="application-rules-log-data-query"></a>Query sui dati di log delle regole di applicazione
 
-La query seguente consente di analizzare i dati di log delle regole di applicazione. Nelle diverse righe di commento sono previste alcune indicazioni di come è stata compilata la query:
+La query seguente consente di analizzare i dati di log delle regole di applicazione. Nelle diverse righe di commento sono previste alcune indicazioni su come è stata compilata la query:
 
 ```Kusto
 AzureDiagnostics
@@ -100,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>Query sui dati di log delle regole di rete
 
-La query seguente consente di analizzare i dati del log della regola di rete. Nelle diverse righe di commento sono previste alcune indicazioni di come è stata compilata la query:
+La query seguente consente di analizzare i dati del log della regola di rete. Nelle diverse righe di commento sono previste alcune indicazioni su come è stata compilata la query:
 
 ```Kusto
 AzureDiagnostics
@@ -166,6 +166,15 @@ AzureDiagnostics
 | sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
 ```
 
+## <a name="sample-logs"></a>Esempi di log
+
+Negli esempi di log seguenti vengono illustrati i dati inclusi in una voce di log.
+
+![voce di log](media/log-analytics-samples/log1.png)
+
+![voce di log](media/log-analytics-samples/log2.png)
+
+![voce di log](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sul monitoraggio e la diagnostica di Firewall di Azure, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).

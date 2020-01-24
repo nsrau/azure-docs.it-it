@@ -12,13 +12,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7313acd26874f29a587d1c854a5286ed06d3cad
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7bb4757799496d608518286ffe8ffc293f3ea94b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915133"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704307"
 ---
 # <a name="native-apps"></a>App native
 
@@ -59,5 +58,5 @@ Quando l'applicazione nativa usa il proprio codice di autorizzazione per ottener
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su altri [Tipi di applicazione e scenari](app-types.md)
+- Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
 - [Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) in Azure AD

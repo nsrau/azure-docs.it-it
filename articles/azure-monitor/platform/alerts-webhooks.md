@@ -1,19 +1,19 @@
 ---
 title: Chiamare un webhook con un avviso di metrica classico in monitoraggio di Azure
 description: Informazioni su come reindirizzare gli avvisi delle metriche di Azure ad altri sistemi non Azure.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286169"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705514"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chiamare un webhook con un avviso di metrica classico in monitoraggio di Azure
 È possibile usare i webhook per instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite chat o servizi di messaggistica oppure per varie altre azioni. 
@@ -69,16 +69,16 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 ```
 
 
-| Campo | Mandatory | Set di valori fisso | note |
+| Campo | Obbligatorio | Set di valori fisso | Note |
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
-| context |S | |Contesto dell'avviso. |
+| contesto |S | |Contesto dell'avviso. |
 | timestamp |S | |Ora in cui è stato attivato l'avviso. |
 | id |S | |Ogni regola di avviso ha un ID univoco. |
-| Nome |S | |Nome dell'avviso. |
-| Descrizione |S | |Descrizione dell'avviso. |
+| name |S | |Nome dell'avviso. |
+| description |S | |Descrizione dell'avviso. |
 | conditionType |S |Metric, Event |Sono supportati due tipi di avviso: metrica ed evento. Gli avvisi di metrica sono basati su una condizione di metrica. Gli avvisi di eventi sono basati su un evento nel log attività. Usare questo valore per controllare se l'avviso è basato su una metrica o su un evento. |
-| condition |S | |Campi specifici da controllare in base al valore di **conditionType**. |
+| condizione |S | |Campi specifici da controllare in base al valore di **conditionType**. |
 | metricName |Per avvisi di metrica | |Nome della metrica che definisce l'oggetto monitorato dalla regola. |
 | metricUnit |Per avvisi di metrica |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |Unità consentita nella metrica. Vedere i [valori consentiti](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Per avvisi di metrica | |Valore effettivo della metrica che ha generato l'avviso. |

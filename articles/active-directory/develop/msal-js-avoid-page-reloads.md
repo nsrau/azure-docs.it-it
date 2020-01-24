@@ -13,13 +13,12 @@ ms.date: 05/29/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d1ef1f76b1b1a807f48f7c79e41ada68b561fc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e68798861d5799a4314bd9cd9b2eeeadb926a90f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916436"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696147"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evitare il ricaricamento delle pagine quando si acquisisce e si rinnovano i token in modo invisibile all'utente con MSAL. js
 Microsoft Authentication Library per JavaScript (MSAL. js) usa elementi `iframe` nascosti per acquisire e rinnovare i token in modo invisibile all'utente in background. Azure AD restituisce il token al redirect_uri registrato specificato nella richiesta di token (per impostazione predefinita, si tratta della pagina radice dell'app). Poiché la risposta è 302, il codice HTML corrispondente al `redirect_uri` viene caricato nel `iframe`. In genere, il `redirect_uri` dell'app è la pagina radice e questo ne comporta il ricaricamento.
@@ -36,7 +35,7 @@ Impostare la proprietà `redirect_uri` in config su una pagina semplice che non 
 
 ## <a name="initialization-in-your-main-app-file"></a>Inizializzazione nel file dell'app principale
 
-Se l'app è strutturata in modo che sia presente un file JavaScript centrale che definisce l'inizializzazione dell'app, il routing e altri elementi, è possibile caricare in modo condizionale i moduli dell'app a seconda che l'app venga caricata o meno in un `iframe`. ad esempio:
+Se l'app è strutturata in modo che sia presente un file JavaScript centrale che definisce l'inizializzazione dell'app, il routing e altri elementi, è possibile caricare in modo condizionale i moduli dell'app a seconda che l'app venga caricata o meno in un `iframe`. Ad esempio:
 
 In AngularJS: app. js
 

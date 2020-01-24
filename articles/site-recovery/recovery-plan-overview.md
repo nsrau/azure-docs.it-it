@@ -2,25 +2,27 @@
 title: Informazioni sui piani di ripristino in Azure Site Recovery
 description: Informazioni sui piani di ripristino in Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/23/2020
+ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497902"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705854"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
 Questo articolo fornisce una panoramica dei piani di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Un piano di ripristino raccoglie i computer in gruppi di ripristino. Un piano di ripristino consente di definire un processo di ripristino sistematico creando piccole unità indipendenti che è possibile usare per il failover. Un'unità rappresenta in genere un'app nell'ambiente.
+Un piano di ripristino raccoglie i computer in gruppi di ripristino ai fini del failover. Un piano di ripristino consente di definire un processo di ripristino sistematico creando piccole unità indipendenti che è possibile usare per il failover. Un'unità rappresenta in genere un'app nell'ambiente.
 
 - Un piano di ripristino definisce la modalità di failover dei computer e la sequenza di avvio dopo il failover.
+- I piani di ripristino vengono usati per il failover in Azure, ma non possono essere usati per il failback da Azure.
 - È possibile aggiungere fino a 100 istanze protette a un piano di ripristino.
 - È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività.
 - Dopo aver definito un piano, è possibile eseguire un failover per esso.
 - È possibile fare riferimento ai computer in più piani di ripristino, in cui i piani successivi ignorano la distribuzione o l'avvio di un computer se è stato distribuito in precedenza con un altro piano di ripristino.
+
 
 
 ### <a name="why-use-a-recovery-plan"></a>Vantaggi dell'uso di un piano di ripristino

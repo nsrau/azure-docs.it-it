@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 88e11adadcc06875964146ad2046828267258038
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389316"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694588"
 ---
 ## <a name="lifecycle"></a>Ciclo di vita
 
@@ -33,7 +33,7 @@ Nella scheda **ciclo** di vita specificare quando scade l'assegnazione di un ute
 
 1. Per consentire all'utente di estendere le assegnazioni, impostare **Consenti agli utenti di estendere l'accesso** a **Sì**.
 
-    Se nel criterio sono consentite le estensioni, l'utente riceverà un messaggio di posta elettronica 14 giorni e anche 1 giorno prima che l'assegnazione del pacchetto di accesso sia impostata in modo da scadere per richiedere l'estensione dell'assegnazione.
+    Se nel criterio sono consentite le estensioni, l'utente riceverà un messaggio di posta elettronica 14 giorni e anche 1 giorno prima che l'assegnazione del pacchetto di accesso sia impostata in modo da scadere per richiedere l'estensione dell'assegnazione. Se l'utente invia una richiesta per estendere l'accesso, la data di estensione deve essere in corrispondenza o prima della scadenza delle assegnazioni come definito nei criteri utilizzati per concedere all'utente l'accesso al pacchetto di accesso. Se, ad esempio, il criterio indica che le assegnazioni sono impostate per scadere il 30 giugno, l'estensione massima che un utente può richiedere è il 30 giugno.
 
     Se l'accesso di un utente viene esteso, non sarà in grado di richiedere il pacchetto di accesso dopo la data di estensione specificata (data impostata nel fuso orario dell'utente che ha creato il criterio).
 

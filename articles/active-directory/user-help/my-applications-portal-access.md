@@ -12,15 +12,14 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dee6973a638a2cabc0ccc2138ed9db8b798f4d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820404"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705123"
 ---
-# <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Accedere e avviare app dal portale app personali (anteprima)
+# <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Accedere alle app e avviarle dal portale App personali (anteprima)
 
 È possibile usare l'account aziendale o dell'Istituto di istruzione con il portale delle **app personali** (anteprima) basato sul Web, per visualizzare, organizzare e avviare molte delle app basate sul cloud dell'organizzazione. Se non si ha accesso al portale **app personali** , contattare il supporto tecnico dell'organizzazione per ottenere le autorizzazioni necessarie.
 
@@ -53,7 +52,7 @@ Se si dispone dell'autorizzazione per accedere e usare le app basate sul cloud d
 
 1. Accedere all'account aziendale o dell'Istituto di istruzione nel computer.
 
-2. Aprire un Web browser supportato e passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che venga indicato di usare una pagina personalizzata per l'organizzazione, ad esempio `https://myapps.microsoft.com/contoso.com`.
+2. Aprire un Web browser supportato e passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile che venga indicato di usare una pagina personalizzata per l'organizzazione, ad esempio `https://myapps.microsoft.com/contoso.com`.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -63,7 +62,7 @@ Visualizzare e usare le app dell'organizzazione dall'app Intune Managed Browser 
 
 1. Nel dispositivo mobile scaricare e installare l'app Intune Managed Browser dall' [App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) o dal [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -73,7 +72,7 @@ Visualizzare e usare il portale **app personali** da un dispositivo iPhone o iPa
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Safari.
 
-2. Passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -83,7 +82,7 @@ Visualizzare e usare il portale **app personali** in un dispositivo Android.
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Google Chrome.
 
-2. Passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, si potrebbe essere indirizzati a una pagina personalizzata per l'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -99,17 +98,17 @@ Visualizzare e usare il portale **app personali** in un dispositivo Android.
 
 Dopo aver ottenuto il portale **app personali** , è possibile:
 
-- Organizza le tue app nelle diverse categorie create e fornite dall'organizzazione. Per altre informazioni, vedere [accedere e usare le aree di lavoro nel portale app personali (anteprima)](my-applications-portal-workspaces.md).
+- Organizzare le app nelle diverse categorie create e fornite dall'organizzazione. Per altre informazioni, vedere [Accedere e usare le aree di lavoro nel portale App personali (anteprima)](my-applications-portal-workspaces.md).
 
-- Verificare, aggiornare o revocare le autorizzazioni concesse alle applicazioni. Per altre informazioni, vedere [modificare o revocare le autorizzazioni dell'applicazione nel portale app personali (anteprima)](my-applications-portal-permissions-saved-accounts.md).
+- Esaminare, aggiornare o revocare le autorizzazioni concesse alle applicazioni. Per altre informazioni, vedere [Modificare o revocare le autorizzazione nel portale App personali (anteprima)](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
->Se non sono disponibili aree di lavoro o categorie, significa che l'amministratore non è stato configurato o condiviso con l'utente. Rivolgersi al supporto tecnico dell'organizzazione per ottenere assistenza o autorizzazioni aggiuntive per visualizzare le aree di lavoro condivise.
+>Se non sono disponibili aree di lavoro o categorie, l'amministratore non le ha configurate né condivise con l'utente. Rivolgersi al supporto tecnico dell'organizzazione per ottenere assistenza o autorizzazioni aggiuntive per visualizzare le aree di lavoro condivise.
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Aggiornare il profilo e le informazioni sull'account](my-account-portal-overview.md). Istruzioni su come aggiornare le informazioni personali visualizzate nel portale **My profile** (anteprima).
+- [Aggiornare le informazioni su profilo e account](my-account-portal-overview.md). Istruzioni su come aggiornare le informazioni personali visualizzate nel portale **Profilo personale** (anteprima).
 
-- [Gestione delle organizzazioni](my-account-portal-organizations-page.md). Istruzioni su come visualizzare e gestire le informazioni relative all'organizzazione nella pagina **organizzazioni** del portale del **profilo personale** .
+- [Gestire le organizzazioni](my-account-portal-organizations-page.md). Istruzioni su come visualizzare e gestire le informazioni relative all'organizzazione nella pagina **Organizzazioni** del portale **Profilo personale**.
 
-- [Gestire i dispositivi connessi](my-account-portal-devices-page.md). Istruzioni su come gestire i dispositivi a cui si è connessi con l'account aziendale o dell'Istituto di istruzione, nella pagina **dispositivi** del portale del **profilo personale** .
+- [Gestire i dispositivi connessi](my-account-portal-devices-page.md). Istruzioni su come gestire i dispositivi a cui si è connessi con l'account aziendale o dell'istituto di istruzione nella pagina **Dispositivi** del portale **Profilo personale**.

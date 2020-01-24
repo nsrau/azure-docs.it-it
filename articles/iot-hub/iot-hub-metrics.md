@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 20a1ec4b8eb88f5914ce6b27acc8a472e58f5d29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457087"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705735"
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprendere le metriche dell'hub IoT
 
@@ -115,7 +115,7 @@ L'hub IoT offre diverse metriche per fornire una panoramica dell'integrità dell
 
 Al termine di questa panoramica delle metriche dell'hub IoT è possibile usare i collegamenti seguenti per maggiori informazioni sulla gestione dell'hub IoT di Azure:
 
-* [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
+* [Configurare i log di diagnostica](iot-hub-monitor-resource-health.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

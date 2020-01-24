@@ -17,13 +17,12 @@ ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2591485c6e528eb9f422ce966ec7738af49dbddc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532401"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701043"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)
 
@@ -54,7 +53,7 @@ Attualmente, il metodo preferito per proteggere le chiamate a un'API Web consist
 * Le funzionalità HTML5, come l'archiviazione locale o di sessione, garantiscono il controllo completo sulla memorizzazione nella cache e sulla gestione del ciclo di vita dei token, mentre la gestione dei cookie è opaca per l'app.
 * I token di accesso non sono soggetti agli attacchi di tipo richiesta intersito falsa.
 
-Il flusso di concessione implicita non rilascia token di aggiornamento, soprattutto per motivi di sicurezza. Poiché l'ambito di un token di aggiornamento non è così ristretto come quello dei token di accesso, offre potenzialità decisamente maggiori, ma crea anche molti più danni se passa all'esterno. Nel flusso implicito i token vengono forniti nell'URL, quindi il rischio di intercettazione è maggiore che nella concessione di codice di autorizzazione.
+Il flusso di concessione implicita non rilascia token di aggiornamento, soprattutto per motivi di sicurezza. Un token di aggiornamento non ha un ambito limitato come token di accesso, garantendo molto più potenza, quindi infliggendo molto più danni in caso di perdita. Nel flusso implicito i token vengono recapitati nell'URL, quindi il rischio di intercettazione è superiore rispetto alla concessione del codice di autorizzazione.
 
 Tuttavia, un'applicazione JavaScript ha a disposizione un altro meccanismo per rinnovare i token di accesso senza chiedere ripetutamente all'utente le credenziali. L'applicazione può usare un iframe nascosto per eseguire le nuove richieste di token nell'endpoint di autorizzazione di Azure AD: finché il browser ha una sessione attiva (ovvero, finché ha un cookie di sessione) nel dominio di Azure AD, la richiesta di autenticazione può essere eseguita correttamente senza alcuna interazione dell'utente.
 
@@ -62,7 +61,7 @@ Questo modello concede all'applicazione JavaScript la possibilità di rinnovare 
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>La concessione implicita è adatta all'app?
 
-La concessione implicita presenta maggiori rischi rispetto ad altre concessioni e le aree a cui è necessario prestare attenzione sono ben documentate (ad esempio, [uso improprio del token di accesso per rappresentare il proprietario delle risorse nel flusso implicito][OAuth2-Spec-Implicit-Misuse] e il [modello di minaccia OAuth 2,0 e la sicurezza Considerazioni][OAuth2-Threat-Model-And-Security-Implications]). Tuttavia il profilo di rischio maggiore è per lo più generato dal fatto che lo scopo è abilitare le applicazioni che eseguono codice attivo, fornito da una risorsa remota a un browser. Se si pianifica un'architettura di applicazione a singola pagina, non si hanno componenti back-end o si intende richiamare un'API Web tramite JavaScript, è consigliabile usare il flusso implicito per l'acquisizione dei token.
+La concessione implicita presenta maggiori rischi rispetto ad altre concessioni e le aree a cui è necessario prestare attenzione sono ben documentate (ad esempio, un [uso improprio del token di accesso per rappresentare il proprietario delle risorse nel flusso implicito][OAuth2-Spec-Implicit-Misuse] e le [considerazioni sulla sicurezza e sul modello di minaccia OAuth 2,0][OAuth2-Threat-Model-And-Security-Implications]). Tuttavia il profilo di rischio maggiore è per lo più generato dal fatto che lo scopo è abilitare le applicazioni che eseguono codice attivo, fornito da una risorsa remota a un browser. Se si pianifica un'architettura di applicazione a singola pagina, non si hanno componenti back-end o si intende richiamare un'API Web tramite JavaScript, è consigliabile usare il flusso implicito per l'acquisizione dei token.
 
 Se l'applicazione è un client nativo, il flusso implicito non è la soluzione ideale. L'assenza del cookie della sessione di Azure AD nel contesto di un client nativo non consente all'applicazione di mantenere una sessione di lunga durata. Di conseguenza, 'applicazione chiederà ripetutamente l'interazione dell'utente per ottenere i token di accesso per le nuove risorse.
 

@@ -13,13 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0f3aaa2489b94d254d64d5844e1a2e41d5ecc132
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921937"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695705"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -79,7 +78,7 @@ con:
 
 - `policy` essere una delle stringhe precedenti, ad esempio `PolicySignUpSignIn`.
 - `ParentActivityOrWindow` è necessario per Android (attività) e facoltativa per altre piattaforme che supportano l'interfaccia utente padre, ad esempio Windows in Windows e UIViewController in iOS. Per ulteriori informazioni, vedere [la finestra di dialogo dell'interfaccia utente](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che trova un account per un determinato criterio. ad esempio:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che trova un account per un determinato criterio. Ad esempio:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -125,7 +124,7 @@ Per informazioni dettagliate sul flusso ROPC, vedere la [documentazione](v2-oaut
 Questo flusso **non è consigliato** perché l'applicazione che richiede un utente per la password non è sicura. Per ulteriori informazioni su questo problema, vedere [questo articolo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
 Utilizzando nome utente/password, vengono riportate alcune operazioni:
-- principi fondamentali dell'identità moderna: la password viene pescata, rieseguita. Poiché questo è il concetto di segreto di condivisione che può essere intercettato. Questa operazione non è compatibile con le password.
+- Principi fondamentali dell'identità moderna: la password viene pescata, rieseguita. Poiché questo è il concetto di segreto di condivisione che può essere intercettato. Questa operazione non è compatibile con le password.
 - Gli utenti che devono eseguire l'autenticazione a più fattori non saranno in grado di eseguire l'accesso, perché non è presente alcuna interazione.
 - Gli utenti non saranno in grado di eseguire Single Sign-On.
 
@@ -168,7 +167,7 @@ Entrambe le attestazioni non sono presenti in molti scenari Azure AD B2C.
 
 L'effetto del cliente è che, quando si tenta di visualizzare il campo username, si sta ricevendo "missing from the token Response" come valore? In caso affermativo, questo è dovuto al fatto che Azure AD B2C non restituisce un valore in IdToken per il preferred_username a causa di limitazioni con gli account di social networking e con i provider di identità esterni (IDP). Azure AD restituisce un valore per preferred_username perché conosce l'utente, ma per Azure AD B2C, perché l'utente può accedere con un account locale, Facebook, Google, GitHub e così via. non è disponibile un valore coerente per Azure AD B2C da usare per preferred_username. Per sbloccare MSAL dalla distribuzione della compatibilità della cache con ADAL, si è deciso di usare "missing from the token Response" alla fine quando si gestiscono gli account di Azure AD B2C quando il IdToken non restituisce nulla per preferred_username. MSAL deve restituire un valore per preferred_username per mantenere la compatibilità della cache tra le librerie.
 
-### <a name="workarounds"></a>Soluzioni
+### <a name="workarounds"></a>Soluzioni alternative
 
 #### <a name="mitigation-for-the-missing-tenant-id"></a>Attenuazione per l'ID tenant mancante
 

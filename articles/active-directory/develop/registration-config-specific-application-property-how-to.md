@@ -15,13 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ded0ba36a8eef7adb1be5b5f07408b9f79359f44
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 36d74b9926639bb4ec49821a3d73b5d615016394
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965637"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702675"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campi di registrazione portale di Azure per app personalizzate
 
@@ -41,13 +40,13 @@ Questo articolo include una breve descrizione di tutti i campi disponibili nel m
 
 | Campo            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| name             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
+| Nome             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
 | Tipi di account supportati| Consente di selezionare gli account che l'applicazione deve supportare: solo gli account in questa directory dell'organizzazione, gli account in qualsiasi directory organizzativa o gli account in qualsiasi directory organizzativa e account Microsoft personali.  |
 | URI di reindirizzamento (facoltativo) | Selezionare il tipo di app che si sta compilando, il client **Web** o **pubblico (Mobile & desktop)** e quindi immettere l'URI di reindirizzamento (o URL di risposta) per l'applicazione. Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, http://localhost:31544 potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web. Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio myapp://auth. Per visualizzare esempi specifici per le applicazioni Web o native, consultare le [guide introduttive](https://docs.microsoft.com/azure/active-directory/develop).|
 
 Dopo aver compilato i campi sopra indicati, l'applicazione viene registrata nella portale di Azure e si viene reindirizzati alla pagina Panoramica dell'applicazione. Le pagine di impostazioni nel riquadro sinistro in **Gestisci** hanno più campi per personalizzare l'applicazione. Le tabelle seguenti descrivono tutti i campi. Verrà visualizzato solo un subset di questi campi, a seconda che sia stata creata un'applicazione Web o un'applicazione client pubblica.
 
-### <a name="overview"></a>Panoramica
+### <a name="overview"></a>Overview
 
 | Campo           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +60,7 @@ Dopo aver compilato i campi sopra indicati, l'applicazione viene registrata nell
 | Carica nuovo logo | Questo campo consente di caricare un logo per l'applicazione. Il logo deve essere in formato BMP, jpg o PNG e le dimensioni del file devono essere inferiori a 100 KB. Le dimensioni dell'immagine devono essere 215 x 215 pixel, con le dimensioni dell'immagine centrale di 94 x 94 pixel.|
 | URL della home page   | Questo è l'URL di accesso specificato durante la registrazione dell'applicazione.|
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 | Campo           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

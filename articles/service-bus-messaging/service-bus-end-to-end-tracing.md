@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fa71ca7ea976ab4d724a061d0d0809cdb5767f4f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311013"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705752"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 
@@ -28,12 +28,12 @@ Una parte di questo problema consiste nel tenere traccia degli elementi di lavor
 Quando un producer invia un messaggio tramite una coda, tale operazione avviene in genere nell'ambito di un'altra operazione logica, avviata da un altro client o servizio. La stessa operazione viene portata avanti dal consumer dopo che ha ricevuto un messaggio. Sia il producer che il consumer (e altri servizi che elaborano l'operazione) generano presumibilmente eventi di telemetria per analizzare il flusso e il risultato dell'operazione. Per correlare tali eventi e l'operazione di analisi end-to-end, ogni servizio che restituisce dati di telemetria deve contrassegnare tutti gli eventi con un contesto di analisi.
 
 La messaggistica del bus di servizio di Microsoft Azure include proprietà di payload definite che producer e consumer devono usare per passare tale contesto di analisi.
-Il protocollo si basa sul [protocollo di correlazione HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
+Il protocollo si basa sul [protocollo di correlazione HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome proprietà        | Descrizione                                                 |
+| Nome proprietà        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | Identificatore univoco di una chiamata esterna alla coda effettuata dal producer. Per la logica, le considerazioni e il formato, vedere [Request-Id in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id nel protocollo HTTP). |
-|  Correlation-Context | Contesto dell'operazione, che viene propagato in tutti i servizi coinvolti nell'elaborazione dell'operazione. Per altre informazioni, vedere [Correlation-Context in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context nel protocollo HTTP). |
+|  Diagnostic-Id       | Identificatore univoco di una chiamata esterna alla coda effettuata dal producer. Per la logica, le considerazioni e il formato, vedere [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id nel protocollo HTTP). |
+|  Correlation-Context | Contesto dell'operazione, che viene propagato in tutti i servizi coinvolti nell'elaborazione dell'operazione. Per altre informazioni, vedere [Correlation-Context in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context nel protocollo HTTP). |
 
 ## <a name="service-bus-net-client-auto-tracing"></a>Analisi automatica del client .NET del bus di servizio
 
@@ -49,7 +49,7 @@ A seconda del tipo di progetto, installare Application Insights SDK:
 - [ASP.NET Core](../azure-monitor/app/asp-net-core.md): installare la versione 2.2.0-beta2 o una versione successiva.
 Questi collegamenti forniscono informazioni dettagliate su come installare l'SDK, creare risorse e, se necessario, configurare l'SDK. Per le applicazioni non ASP.NET, vedere l'articolo [Azure Application Insights for Console Applications](../azure-monitor/app/console.md) (Azure Application Insights per applicazioni console).
 
-Se per elaborare i messaggi si usa il [criterio con gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire: tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. In caso contrario vedere l'esempio seguente per la verifica manuale delle operazioni di elaborazione dei messaggi.
+Se per elaborare i messaggi si usa il [criterio del gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire. Tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. In caso contrario vedere l'esempio seguente per la verifica manuale delle operazioni di elaborazione dei messaggi.
 
 #### <a name="trace-message-processing"></a>Analizzare l'elaborazione dei messaggi
 

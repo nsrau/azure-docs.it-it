@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare insiemi di credenziali dei ser
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 682bf26c1485bd9e2ae288a6947e9ad573463069
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708523"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705463"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -90,7 +90,8 @@ Per questo processo, esistono implicazioni relative ai prezzi a livello di archi
 >- Esaminare la [matrice di supporto](backup-support-matrix.md#cross-region-restore) per un elenco di tipi e aree gestiti supportati.
 >- La funzionalità di ripristino tra aree (CRR) è attualmente disponibile solo nell'area WCUS.
 >- CRR è una funzionalità di consenso esplicito a livello di insieme di credenziali GRS (disattivata per impostazione predefinita).
->- Usare *"FeatureName": "CrossRegionRestore"* per eseguire l'onboarding della sottoscrizione a questa funzionalità.
+>- Usare il comando seguente per caricare la sottoscrizione per questa funzionalità:<br>
+>  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
 >- Se si esegue l'onboarding in questa funzionalità durante l'anteprima pubblica limitata, il messaggio di posta elettronica di approvazione della verifica includerà i dettagli relativi ai criteri tariffari.
 >- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
 >- Attualmente CRR è supportato solo per il tipo di gestione di backup-macchina virtuale di Azure ARM (la macchina virtuale di Azure classica non sarà supportata).  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
