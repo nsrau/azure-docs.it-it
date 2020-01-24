@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e37b6b800cbe0b4272df227e1411257b33a3e0cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37fee7f96a27942a1295cb8c2315fedffc5bdefe
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420797"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030166"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -33,7 +33,7 @@ Di seguito sono riportate le limitazioni della soluzione corrente:
 > [!NOTE]
 > Se si usa la soluzione per le macchine virtuali classiche, tutte le macchine virtuali verranno elaborate in sequenza per ogni servizio cloud. Le macchine virtuali vengono comunque elaborate in parallelo tra servizi cloud diversi. Se sono presenti più di 20 macchine virtuali per ogni servizio cloud, è consigliabile creare più pianificazioni con la **ScheduledStartStop_Parent** padre Runbook e specificare 20 VM per ogni pianificazione. Nelle proprietà della pianificazione specificare come elenco delimitato da virgole i nomi delle macchine virtuali nel parametro **VMList** . In caso contrario, se il processo di automazione per questa soluzione viene eseguito più di tre ore, viene temporaneamente scaricato o arrestato in base al limite di [condivisione equa](automation-runbook-execution.md#fair-share) .
 >
-> Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando è in esecuzione la soluzione Avvio/Arresto, è possibile che vengano visualizzati degli errori perché le risorse classiche sono gestite dai cmdlet. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Se si usa una sottoscrizione di CSP, è necessario modificare la variabile [**External_EnableClassicVMs**](#variables) su **False** dopo la distribuzione.
+> Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando è in esecuzione la soluzione Avvio/Arresto, è possibile che vengano visualizzati degli errori perché le risorse classiche sono gestite dai cmdlet. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Se si usa una sottoscrizione di CSP, è necessario modificare la variabile [**External_EnableClassicVMs**](#variables) su **False** dopo la distribuzione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -77,7 +77,7 @@ Per distribuire la soluzione avvio/arresto di macchine virtuali durante gli orar
 Per distribuire la soluzione avvio/arresto di macchine virtuali durante gli orari di indisponibilità in un nuovo account di automazione e in Log Analytics area di lavoro, l'utente che distribuisce la soluzione deve avere le autorizzazioni definite nella sezione precedente, nonché le autorizzazioni seguenti:
 
 - Coamministratore nella sottoscrizione: è necessario solo per creare l'account RunAs classico se si intende gestire le VM classiche. Per impostazione predefinita, gli [account RunAs classici](automation-create-standalone-account.md#classic-run-as-accounts) non vengono più creati.
-- Membro del ruolo di [](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **sviluppatore dell'applicazione** Azure Active Directory. Per ulteriori informazioni sulla configurazione di account RunAs, vedere [autorizzazioni per la configurazione di account RunAs](manage-runas-account.md#permissions).
+- Membro del ruolo di **sviluppatore dell'applicazione** [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Per ulteriori informazioni sulla configurazione di account RunAs, vedere [autorizzazioni per la configurazione di account RunAs](manage-runas-account.md#permissions).
 - Collaboratore per la sottoscrizione o per le autorizzazioni seguenti.
 
 | Autorizzazione |Ambito|

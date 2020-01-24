@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e551159ad2d41af37b1f400e91680c49117498d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7bf5256390961f4d469aa70be4b0b0c1069db4cf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423602"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701689"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>App Web che chiama API Web-configurazione del codice
 
@@ -35,7 +34,7 @@ Lo [scenario degli utenti di accesso all'app Web](scenario-web-app-sign-user-ove
 
 Le librerie che supportano il flusso del codice di autorizzazione per le app Web sono:
 
-| Libreria MSAL | Description |
+| Libreria MSAL | Descrizione |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Le piattaforme supportate sono .NET Framework e le piattaforme .NET Core, non UWP, Novell. iOS e Novell. Android, perché queste piattaforme vengono usate per compilare applicazioni client pubbliche. |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supporto per le applicazioni Web Python |
