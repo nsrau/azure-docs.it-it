@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 32eb8e71cfb978fac5b4d6d05af4da4fdc9f67b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513933"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715527"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -72,7 +72,7 @@ Seguire questa procedura.
 
  Ora che si dispone delle credenziali necessarie, è possibile definire il dispositivo e i sensori. A tale scopo, creare i metadati chiamando le API FarmBeats. Si noti che sarà necessario chiamare le API come app client creata nella sezione precedente
 
- FarmBeats datahub include le API seguenti che consentono di creare e gestire i metadati del dispositivo o del sensore.
+ FarmBeats datahub include le API seguenti che consentono di creare e gestire i metadati del dispositivo o del sensore. Si noti che, come partner, è possibile accedere solo a leggere, creare e aggiornare i metadati. **L'eliminazione non è consentita da un partner.**
 
 - /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo.
 - /**dispositivo**: il dispositivo corrisponde a un dispositivo fisico presente nella farm.
@@ -115,7 +115,7 @@ Seguire questa procedura.
 |  SensorModelId     |    ID del modello di sensore associato.   |
 | Percorso          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
 |   Nome > porta        |  Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo. |
-|    ID dispositivo  |    ID del dispositivo a cui è connesso il sensore.     |
+|    DeviceID  |    ID del dispositivo a cui è connesso il sensore.     |
 | Nome            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
 |    Description      | Fornire una descrizione significativa. |
 |    Proprietà        |Proprietà aggiuntive del produttore. |
@@ -381,6 +381,41 @@ Ecco un esempio di messaggio di telemetria:
       ]
     }
   ]
+}
+```
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Non è possibile visualizzare i dati di telemetria dopo l'inserimento dei dati cronologici/di streaming dai sensori
+
+**Sintomo**: i dispositivi o i sensori sono stati distribuiti e sono stati creati i dispositivi/sensori in FarmBeats e i dati di telemetria inseriti nel EventHub, ma non è possibile ottenere o visualizzare i dati di telemetria in FarmBeats.
+
+**Azione correttiva**:
+
+1. Assicurarsi che la registrazione del partner sia stata eseguita correttamente. è possibile verificarla selezionando datahub spavalderia, passare all'API/partner, eseguire un'operazione get e verificare se il partner è registrato. In caso contrario, seguire la [procedura descritta qui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere il partner.
+2. Assicurarsi di aver creato i metadati (DeviceModel, Device, SensorModel, Sensor) usando le credenziali client del partner.
+3. Assicurarsi di aver usato il formato del messaggio di telemetria corretto (come specificato di seguito):
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
 }
 ```
 

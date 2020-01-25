@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 86ed494d3a6005ae74ee3f1aa4d5aa53ffc3098e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b538196467ba1d69e679a111ca313f922738b048
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931165"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716033"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider per i log ILogger di .NET Core
 
@@ -29,7 +29,7 @@ ApplicationInsightsLoggerProvider è abilitato per impostazione predefinita in [
 
 ILogger registra che le acquisizioni di ApplicationInsightsLoggerProvider sono soggette alla stessa configurazione di tutti gli altri dati di telemetria raccolti. Hanno lo stesso set di TelemetryInitializers e TelemetryProcessors, usano lo stesso TelemetryChannel e sono correlati e campionati in modo analogo ad altri dati di telemetria. Se si usa la versione 2.7.1 o successiva, non è necessaria alcuna azione per acquisire i log ILogger.
 
-Per impostazione predefinita, vengono inviati solo i registri di ILogger di *avviso* o superiori (da tutte le categorie) a Application Insights. È tuttavia possibile [applicare filtri per modificare questo comportamento](#control-logging-level). Sono necessari passaggi aggiuntivi per acquisire i registri ILogger da **Program.cs** o **Startup.cs**. Vedere [acquisizione dei log ILogger da startup.cs e Program.cs in applicazioni ASP.NET Core](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).
+Per impostazione predefinita, vengono inviati solo i registri di ILogger di *avviso* o superiori (da tutte le [categorie](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#log-category)) a Application Insights. È tuttavia possibile [applicare filtri per modificare questo comportamento](#control-logging-level). Sono necessari passaggi aggiuntivi per acquisire i registri ILogger da **Program.cs** o **Startup.cs**. Vedere [acquisizione dei log ILogger da startup.cs e Program.cs in applicazioni ASP.NET Core](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).
 
 Se si usa una versione precedente di Microsoft. ApplicationInsights. AspNet SDK oppure si vuole usare semplicemente ApplicationInsightsLoggerProvider senza altri Application Insights monitoraggio, attenersi alla procedura seguente:
 

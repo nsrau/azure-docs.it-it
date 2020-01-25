@@ -4,15 +4,15 @@ description: Vengono illustrate le librerie client necessarie per la connessione
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 01/23/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ad7165b1205921ad324525b9f46a22bec5cebaa9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006e1fb3fcef1ebcd0e09dffb79149e75eec622a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885324"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713183"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Librerie client per la connessione ad Azure Analysis Services
 
@@ -20,21 +20,21 @@ Le librerie client sono necessarie per la connessione di applicazioni e strument
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Scaricare le librerie client più recenti (Windows Installer)  
 
-|Scarica  |Versione prodotto  | 
+|Download  |Versione del prodotto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.10.25    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.10.25       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.2.3.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.2.3.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.21.27    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.21.27       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.4.0.5    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.4.0.5     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacchetti NuGet)
 
 Analysis Services Management Objects (AMO) e le librerie client ADOMD sono disponibili come pacchetti installabili da [NuGet.org](https://www.nuget.org/). È consigliabile eseguire la migrazione ai riferimenti NuGet invece di usare Windows Installer. 
 
-|Pacchetto  | Versione prodotto  | 
+|Pacchetto  | Versione del prodotto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.2.3     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.2.3      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.4.0.5     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.4.0.5      |
 
 Gli assembly AssemblyVersion del pacchetto NuGet sono conformi al controllo delle versioni semantici: PRINCIPALE.SECONDARIA.PATCH. I riferimenti NuGet caricano la versione prevista anche se nella Global Assembly Cache è presente una versione diversa (risultante dall'installazione con file MSI). Il valore di PATCH viene incrementato a ogni versione. Le versioni di AMO e ADOMD vengono mantenute sincronizzate.
 
@@ -48,7 +48,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 
 ## <a name="client-library-types"></a>Tipi di librerie client
 
-### <a name="analysis-services-ole-db-provider-msolap"></a>Provider OLE DB Analysis Services (MSOLAP) 
+### <a name="analysis-services-ole-db-provider-msolap"></a>Provider OLE DB per Analysis Services (MSOLAP) 
 
  Il provider OLE DB Analysis Services (MSOLAP) è la libreria client nativa per le connessioni di database di Analysis Services. Viene usato in modo indiretto sia da ADOMD.NET che da AMO, delegando le richieste di connessione al provider di dati. È anche possibile chiamare il provider OLE DB direttamente dal codice dell'applicazione.  
   

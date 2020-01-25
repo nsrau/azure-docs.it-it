@@ -9,12 +9,12 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 48abf95e65b6185f5c95a1f5d942091ed0f33122
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 3fb51a9dc3f607d89934f6962588195e0f5c83f5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044178"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715780"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure
 
@@ -68,7 +68,7 @@ In questo modo si ottiene una visualizzazione simile alla seguente:
 
 Da qui è possibile eseguire il drill-through da questo riepilogo dei costi accumulati per ottenere i dettagli più precisi nella visualizzazione "costo per risorsa". Nei piani tariffari correnti, i dati dei log di Azure vengono addebitati sullo stesso set di contatori, indipendentemente dal fatto che abbia origine da Log Analytics o Application Insights. Per separare i costi dal Log Analytics o Application Insights utilizzo, è possibile aggiungere un filtro per il **tipo di risorsa**. Per visualizzare tutti i costi di Application Insights, filtrare il tipo di risorsa in "Microsoft. Insights/Components" e, per Log Analytics i costi, filtrare il tipo di risorsa in "Microsoft. operationalinsights/Workspaces". 
 
-Per informazioni dettagliate sull'utilizzo, [scaricare l'utilizzo dal portale di Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Nel foglio di calcolo scaricato è possibile visualizzare l'utilizzo per ogni risorsa di Azure al giorno. In questo foglio di calcolo di Excel, l'utilizzo delle risorse del Application Insights è disponibile per primo, applicando un filtro alla colonna "categoria contatore" per visualizzare "Application Insights" e "Log Analytics", quindi aggiungendo un filtro alla colonna "ID istanza" che contiene Microsoft. Insights/Components ".  La maggior parte delle Application Insights utilizzo viene segnalata in contatori con la categoria di contatori di Log Analytics, dal momento che è disponibile un unico back-end per tutti i componenti di monitoraggio di Azure.  Solo Application Insights risorse sui piani tariffari legacy e i test Web in più passaggi vengono segnalati con una categoria di contatori di Application Insights.  L'utilizzo viene visualizzato nella colonna "quantità utilizzata" e l'unità per ogni voce viene visualizzata nella colonna "unità di misura".  Sono disponibili altre informazioni che consentono di [comprendere la fattura Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Per informazioni dettagliate sull'utilizzo, [scaricare l'utilizzo dal portale di Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Nel foglio di calcolo scaricato è possibile visualizzare l'utilizzo per ogni risorsa di Azure al giorno. In questo foglio di calcolo di Excel, l'utilizzo delle risorse di Application Insights è disponibile filtrando prima di tutto la colonna "categoria contatore" per visualizzare "Application Insights" e "Log Analytics", quindi aggiungendo un filtro alla colonna "ID istanza" che è "contiene Microsoft. Insights/Components".  La maggior parte delle Application Insights utilizzo viene segnalata in contatori con la categoria di contatori di Log Analytics, dal momento che è disponibile un unico back-end per tutti i componenti di monitoraggio di Azure.  Solo Application Insights risorse sui piani tariffari legacy e i test Web in più passaggi vengono segnalati con una categoria di contatori di Application Insights.  L'utilizzo viene visualizzato nella colonna "quantità utilizzata" e l'unità per ogni voce viene visualizzata nella colonna "unità di misura".  Sono disponibili altre informazioni che consentono di [comprendere la fattura Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 > [!NOTE]
 > L'uso della **gestione dei costi** in **Gestione costi di Azure** e nell'hub di fatturazione è l'approccio preferito per comprendere in modo esteso i costi di monitoraggio.  Le esperienze di **utilizzo e i costi stimati** per [log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) e [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) forniscono informazioni approfondite per ognuna di queste parti di monitoraggio di Azure.

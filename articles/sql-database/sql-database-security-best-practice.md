@@ -8,12 +8,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 12/23/2019
 ms.reviewer: ''
-ms.openlocfilehash: f93ab61fcba53ebf39adf8ad56137f4a1df7d5fd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 82297850bf6d03215963a1f81dda166550f2b0d5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615034"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715186"
 ---
 # <a name="azure-sql-database-security-best-practices-playbook"></a>PlayBook sulle procedure consigliate di sicurezza del database SQL di Azure
 
@@ -262,7 +262,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
   - Personale di supporto 
   - Revisore 
   - Processi automatizzati 
-  - End user (Utente finale) 
+  - Utente finale 
 
 - Tenere presente che le autorizzazioni in SQL Server motore di database possono essere applicate agli ambiti seguenti. Minore è l'ambito, minore è l'effetto delle autorizzazioni concesse: 
   - Server di database SQL di Azure (ruoli speciali nel database master) 

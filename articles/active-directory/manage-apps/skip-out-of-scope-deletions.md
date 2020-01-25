@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: c0664cbc8097f18ec9722e789ad40d5925781637
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997072"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711680"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignora l'eliminazione di account utente che non rientrano nell'ambito
 
@@ -37,14 +37,14 @@ Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa
 1. Avviare il [portale di Azure](https://portal.azure.com)e passare alla sezione proprietà dell'applicazione di provisioning. Ad esempio, se si vuole esportare la *giornata lavorativa nel mapping di un'applicazione di provisioning utenti ad* , passare alla sezione proprietà dell'app. 
 1. Nella sezione delle proprietà dell'app di provisioning, copiare il valore GUID associato al campo *Object ID* (ID oggetto). Questo valore è denominato anche **ServicePrincipalId** dell'app e verrà usato nelle operazioni di Graph Explorer.
 
-   ![ID entità Servizio app Workday](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![ID entità Servizio app Workday](media/skip-out-of-scope-deletions/wd_export_01.png)
 
 ## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Passaggio 2: accedere a Microsoft Graph Explorer
 
 1. Avviare [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Fare clic sul pulsante "Sign-In with Microsoft" (Accedi con Microsoft) e accedere con le credenziali di amministratore globale di AD o di amministratore dell'app.
 
-    ![Accedere a Graph](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Accedere a Graph](media/skip-out-of-scope-deletions/wd_export_02.png)
 
 1. Quando l'accesso è stato completato, vengono visualizzati i dettagli dell'account utente nel riquadro sinistro.
 
@@ -56,11 +56,11 @@ In Microsoft Graph Explorer, eseguire la query GET seguente, sostituendo [servic
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
-   ![OTTENERE la query del processo](./media/skip-out-of-scope-deletions/skip-03.png)
+   ![OTTENERE la query del processo](media/skip-out-of-scope-deletions/skip-03.png)
 
 Copiare la risposta in un file di testo. L'aspetto sarà simile al testo JSON riportato di seguito, con i valori evidenziati in giallo specifici per la distribuzione. Aggiungere le righe evidenziate in verde alla fine e aggiornare la password di connessione per la giornata lavorativa evidenziata in blu. 
 
-   ![OTTENERE la risposta del processo](./media/skip-out-of-scope-deletions/skip-04.png)
+   ![OTTENERE la risposta del processo](media/skip-out-of-scope-deletions/skip-04.png)
 
 Ecco il blocco JSON da aggiungere al mapping. 
 
@@ -82,22 +82,22 @@ Nell'URL seguente sostituire [servicePrincipalId] con il **servicePrincipalId** 
 ```
 Copiare il testo aggiornato dal passaggio 3 nel "corpo della richiesta" e impostare l'intestazione "Content-Type" su "application/json" in "Request Headers". 
 
-   ![PUT, richiesta](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![Inserisci richiesta](media/skip-out-of-scope-deletions/skip-05.png)
 
 Fare clic su "Esegui query". 
 
 L'output dovrebbe essere "operazione riuscita – codice di stato 204". 
 
-   ![Inserisci risposta](./media/skip-out-of-scope-deletions/skip-06.png)
+   ![Inserisci risposta](media/skip-out-of-scope-deletions/skip-06.png)
 
 ## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Passaggio 5: verificare che gli utenti non siano disabilitati
 
 È possibile testare questo flag per ottenere un comportamento previsto aggiornando le regole di ambito per ignorare un utente specifico. Nell'esempio seguente viene escluso il dipendente con ID 21173 (che si trovava in precedenza nell'ambito) aggiungendo una nuova regola di ambito: 
 
-   ![Esempio di ambito](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Esempio di ambito](media/skip-out-of-scope-deletions/skip-07.png)
 
 Nel ciclo di provisioning successivo, il servizio di provisioning Azure AD identificherà che l'utente 21173 è uscito dall'ambito e se la proprietà SkipOutOfScopeDeletions è abilitata, la regola di sincronizzazione per tale utente visualizzerà un messaggio come illustrato di seguito: 
 
-   ![Esempio di ambito](./media/skip-out-of-scope-deletions/skip-08.png)
+   ![Esempio di ambito](media/skip-out-of-scope-deletions/skip-08.png)
 
 

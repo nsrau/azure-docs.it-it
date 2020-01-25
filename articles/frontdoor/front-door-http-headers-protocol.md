@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 3579aee46c610e5bb3efc0942944bbfc3fcb801d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7c77527b7300c1149e96c94a4dbe122da226ac6d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790508"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720436"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Supporto del protocollo per le intestazioni HTTP nel servizio front door di Azure
 Questo articolo illustra il protocollo supportato dal servizio front door con parti del percorso di chiamata (vedere l'immagine). Le sezioni seguenti forniscono altre informazioni sulle intestazioni HTTP supportate dal servizio front door.
@@ -41,9 +41,9 @@ Il servizio front door include le intestazioni di una richiesta in ingresso, a m
 | X-Azure-Ref |  X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> Stringa di riferimento univoca che identifica una richiesta servita dalla porta anteriore. Viene usato per la ricerca nei log di accesso e per la risoluzione dei problemi.|
 | X-Azure-RequestChain |  X-Azure-RequestChain: hop = 1 </br> Un'intestazione usata dalla porta anteriore per rilevare i cicli di richiesta e gli utenti non devono assumere una dipendenza. |
 | X-Forwarded-For | X-Inoltred-per: 127.0.0.1 </br> Il campo di intestazione HTTP X-inoltro-for (XFF) identifica spesso l'indirizzo IP di origine di un client che si connette a un server Web tramite un proxy HTTP o un servizio di bilanciamento del carico. Se è presente un'intestazione XFF esistente, la porta anteriore aggiunge l'indirizzo IP del socket client o aggiunge l'intestazione XFF con l'indirizzo IP del socket client. |
-| X-Inoltred-host | X-Inoltred-host: contoso.azurefd.net </br> Il campo dell'intestazione HTTP X-Inoltred-host è un metodo comune usato per identificare l'host originale richiesto dal client nell'intestazione della richiesta HTTP dell'host. Questo è dovuto al fatto che il nome host da sportello anteriore potrebbe differire per il server back-end che gestisce la richiesta. |
+| X-Forwarded-Host | X-Inoltred-host: contoso.azurefd.net </br> Il campo dell'intestazione HTTP X-Inoltred-host è un metodo comune usato per identificare l'host originale richiesto dal client nell'intestazione della richiesta HTTP dell'host. Questo è dovuto al fatto che il nome host da sportello anteriore potrebbe differire per il server back-end che gestisce la richiesta. |
 | X-Forwarded-Proto | X-Inoltred-proto: http </br> Il campo di intestazione HTTP X-Inoltred-proto viene spesso usato per identificare il protocollo di origine di una richiesta HTTP perché la porta anteriore, basata sulla configurazione, potrebbe comunicare con il back-end tramite HTTPS. Questo vale anche se la richiesta al proxy inverso è HTTP. |
-| X-FD-HealthProbe | Il campo di intestazione HTTP X-FD-HealthProbe viene usato per identificare il probe di integrità dalla porta anteriore. Se questa intestazione è impostata su 1, la richiesta è un probe di integrità. È possibile usare quando si vuole limitare l'accesso da determinato front door con il campo X-Inoltred-host header. |
+| X-FD-HealthProbe | Il campo di intestazione HTTP X-FD-HealthProbe viene usato per identificare il probe di integrità dalla porta anteriore. Se questa intestazione è impostata su 1, la richiesta è un probe di integrità. È possibile usare quando si vuole limitare l'accesso da un particolare sportello anteriore con il campo di intestazione X-Inoltred-host. |
 
 ## <a name="front-door-service-to-client"></a>Dal servizio front door al client
 

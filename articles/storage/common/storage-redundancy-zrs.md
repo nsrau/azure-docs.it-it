@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0e6b87ff34d6555fda50518198f9ae3839aa56e6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895187"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719093"
 ---
 # <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>Compilazione di applicazioni a disponibilità elevata con archiviazione con ridondanza della zona (ZRS)
 
@@ -34,6 +34,7 @@ Per gli account per utilizzo generico V2, ZRS è disponibile a livello generale 
 - Europa occidentale
 - Francia centrale
 - Giappone orientale
+- Sudafrica settentrionale
 - Regno Unito meridionale
 - Stati Uniti centrali
 - Stati Uniti orientali
@@ -88,7 +89,7 @@ Quando si esegue una migrazione in tempo reale, è possibile usare l'account di 
 Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 
 - Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo reale, non c'è alcuna garanzia per quanto riguarda il tempo necessario per il completamento di questo tipo di migrazione. Se è necessario eseguire la migrazione dei dati in un'archiviazione con ridondanza della zona entro una certa data, Microsoft consiglia di eseguire una migrazione manuale. In genere, maggiore è la quantità di dati nell'account, più tempo richiederà la migrazione dei dati. 
-- La migrazione in tempo reale è supportata solo per gli account di archiviazione che usano la replica con l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica. Se l'account usa l'archiviazione con ridondanza geografica e accesso in lettura, è necessario innanzitutto modificare il tipo di replica dell'account in archiviazione con ridondanza locale o archiviazione con ridondanza geografica prima di procedere. Questo passaggio intermedio rimuove, prima della migrazione, l'endpoint secondario di sola lettura fornito dall'archiviazione con ridondanza geografica e accesso in lettura.
+- La migrazione in tempo reale è supportata solo per gli account di archiviazione che usano la replica di con ridondanza locale. Se l'account USA GRS o RA-GRS, prima di procedere è necessario modificare il tipo di replica dell'account in con ridondanza locale. Questo passaggio intermedio rimuove l'endpoint secondario fornito da GRS/RA-GRS.
 - L'account deve contenere dati.
 - È possibile migrare solo i dati nella stessa area. Se si vuole eseguire la migrazione dei dati in un account di archiviazione con ridondanza della zona che si trova in un'area diversa rispetto all'account di origine, è necessario eseguire una migrazione manuale.
 - Solo gli account di archiviazione standard supportano la migrazione in tempo reale. Per gli account di archiviazione premium, è necessario usare la migrazione manuale.
@@ -130,9 +131,9 @@ Al termine della migrazione, il tipo di replica degli account verrà modificato 
 
 ZRS supporta solo account per utilizzo generico V2, quindi prima di inviare una richiesta di migrazione in tempo reale a ZRS assicurarsi di aggiornare gli account a utilizzo generico V2. Per altri dettagli, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) e [passare a un account di archiviazione per utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) .
 
-**È possibile richiedere una migrazione in tempo reale degli account di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) a ZRS?**
+**È possibile richiedere una migrazione in tempo reale degli account di archiviazione con ridondanza geografica o con ridondanza geografica e accesso in lettura (GRS/RA-GRS) a ZRS?**
 
-Prima di inviare una richiesta di migrazione in tempo reale a ZRS, verificare che le applicazioni o i carichi di lavoro non richiedano più l'accesso all'endpoint secondario di sola lettura e modificare il tipo di replica degli account di archiviazione in archiviazione con ridondanza geografica (GRS). Per ulteriori informazioni, vedere [modifica della strategia di replica](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) .
+La migrazione in tempo reale è supportata solo per gli account di archiviazione che usano la replica di con ridondanza locale. Se l'account USA GRS o RA-GRS, prima di procedere è necessario modificare il tipo di replica dell'account in con ridondanza locale. Questo passaggio intermedio rimuove l'endpoint secondario fornito da GRS/RA-GRS. Inoltre, prima di inviare una richiesta di migrazione in tempo reale a ZRS, verificare che le applicazioni o i carichi di lavoro non richiedano più l'accesso all'endpoint secondario di sola lettura e modificare il tipo di replica degli account di archiviazione in archiviazione con ridondanza locale (con ridondanza locale). Per ulteriori informazioni, vedere [modifica della strategia di replica](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) .
 
 **È possibile richiedere una migrazione in tempo reale degli account di archiviazione a ZRS in un'altra area?**
 

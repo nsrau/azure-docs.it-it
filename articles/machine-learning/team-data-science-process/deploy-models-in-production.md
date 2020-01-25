@@ -2,20 +2,20 @@
 title: Distribuire modelli nell'ambiente di produzione - Processo di data science per i team
 description: Informazioni su come distribuire modelli nell'ambiente di produzione a supporto del processo decisionale dell'azienda.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ed48ab9f85d28bec926120fea87a5ccf8bb6f9af
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526771"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722238"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Distribuire modelli nell'ambiente di produzione a supporto del processo decisionale dell'azienda
 
@@ -39,7 +39,7 @@ Ci sono diversi approcci e piattaforme per usare un modello in ambiente di produ
 
 ## <a name="ab-testing"></a>Test A/B
 
-Quando nell'ambiente di produzione ci sono più modelli, può essere utile eseguire un [test A/B](https://en.wikipedia.org/wiki/A/B_testing) per confrontare le prestazioni dei modelli. 
+Quando più modelli sono in produzione, è possibile usare [un test a/B](https://en.wikipedia.org/wiki/A/B_testing) per confrontare le prestazioni del modello. 
  
 ## <a name="next-steps"></a>Passaggi successivi
 

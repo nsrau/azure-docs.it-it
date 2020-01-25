@@ -2,24 +2,24 @@
 title: Eseguire attività di data science - Processo di data science per i team
 description: Informazioni su come un esperto di dati può eseguire un progetto di data science in modo tracciabile, collaborativo e con controllo della versione.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 984b03288b8dae644fc04a2cd78fb03a2e027f62
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772279"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722204"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
-Le tipiche attività di data science includono esplorazione, modellazione e distribuzione. Questo articolo illustra come usare le utilità **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** e **AMAR (Automated Modeling and Reporting)** per completare alcune attività comuni di data science, come l'esplorazione interattiva dei dati, l'analisi dei dati, la creazione di report e la creazione di modelli. Vengono inoltre illustrate le opzioni per la distribuzione di un modello in un ambiente di produzione usando una vasta gamma di toolkit e piattaforme di dati, ad esempio:
+Le tipiche attività di data science includono esplorazione, modellazione e distribuzione. Questo articolo illustra come usare le utilità **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** e **AMAR (Automated Modeling and Reporting)** per completare alcune attività comuni di data science, come l'esplorazione interattiva dei dati, l'analisi dei dati, la creazione di report e la creazione di modelli. Le opzioni per la distribuzione di un modello in un ambiente di produzione possono includere:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server con Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)

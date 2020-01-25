@@ -7,20 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 01/24/2020
+ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793461"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721575"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni relative alla pagina che forniscono dati o informazioni ai risultati della ricerca vengono specificate tramite le richieste di [documenti di ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio ricerca cognitiva di Azure. 
 
 Nell'API REST le richieste includono un comando GET, un percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta. In .NET SDK l'API equivalente è [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
-Alcuni esempi di codice includono un'interfaccia front-end Web, che è possibile trovare qui: [app demo di New York City Jobs](https://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Per generare rapidamente una pagina di ricerca per il client, esplorare le opzioni seguenti:
+
++ Usare il [Generatore di applicazioni](search-create-app-portal.md) nel portale per creare una pagina HTML con una barra di ricerca, l'esplorazione in base a facet e l'area dei risultati.
++ Per creare un client funzionale, seguire l'esercitazione [creare la prima app in C# ](tutorial-csharp-create-first-app.md) .
+
+Alcuni esempi di codice includono un'interfaccia front-end Web, disponibile qui: [app demo di New York City Jobs](https://azjobsdemo.azurewebsites.net/), [codice di esempio JavaScript con un sito demo live](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi della richiesta, vedere [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice).
@@ -88,6 +93,22 @@ Creare un metodo che accetta l'opzione di ordinamento selezionata come input e r
 > Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Per altre informazioni, vedere [Aggiungere profili di punteggio a un indice di ricerca](index-add-scoring-profiles.md).
 >
 
+## <a name="hit-highlighting"></a>Evidenziazione dei risultati
+
+È possibile applicare la formattazione ai termini corrispondenti nei risultati della ricerca, semplificando l'individuazione della corrispondenza. Nella [richiesta di query](https://docs.microsoft.com/rest/api/searchservice/search-documents)sono disponibili istruzioni per l'evidenziazione dei risultati. 
+
+La formattazione viene applicata alle query a termini interi. Le query su termini parziali, ad esempio la ricerca fuzzy o la ricerca con caratteri jolly che comportano l'espansione di query nel motore, non possono usare l'evidenziazione dei risultati.
+
+```http
+POST /indexes/hotels/docs/search?api-version=2019-05-06 
+    {  
+      "search": "something",  
+      "highlight": "Description"  
+    }
+```
+
+
+
 ## <a name="faceted-navigation"></a>Esplorazione in base a facet
 
 L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si trova all'inizio di una pagina o sul lato. In ricerca cognitiva di Azure, l'esplorazione in base a facet fornisce la ricerca autonoma basata su filtri predefiniti. Per informazioni dettagliate, vedere [esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md) .
@@ -104,7 +125,7 @@ Per altre informazioni sulle espressioni `$filter`, vedere [cercare documenti (A
 
 ## <a name="see-also"></a>Vedere anche
 
-- [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice)
+- [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice)
 - [Operazioni sugli indici](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 - [Operazioni sui documenti](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 - [Esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md)

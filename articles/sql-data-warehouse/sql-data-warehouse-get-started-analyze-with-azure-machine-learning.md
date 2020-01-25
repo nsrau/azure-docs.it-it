@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f91960eaac92047e76275e63b1feaf471de3bac3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 892d4642d700949d1d1169c69926021c751cef67
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692795"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721286"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizzare i dati con Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -37,12 +37,12 @@ Questa esercitazione usa Azure Machine Learning per creare un modello predittivo
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire questa esercitazione, è necessario:
 
-* Un'istanza di SQL Data Warehouse in cui sia precaricato il database di esempio AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][load sample data manually].
+* Un'istanza di SQL Data Warehouse in cui sia precaricato il database di esempio AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse](create-data-warehouse-portal.md) e scegliere di caricare i dati di esempio. Se si ha già un data warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio](sql-data-warehouse-load-sample-databases.md).
 
 ## <a name="1-get-the-data"></a>1. recuperare i dati
 I dati sono disponibili nella visualizzazione dbo.vTargetMail nel database AdventureWorksDW. Per leggere i dati:
 
-1. Accedere ad [Azure Machine Learning Studio][Azure Machine Learning studio] e fare clic sugli esperimenti personali.
+1. Accedere ad [Azure Machine Learning Studio](https://studio.azureml.net/) e fare clic sugli esperimenti personali.
 2. Fare clic su **+ nuovo** nella parte inferiore sinistra della schermata e selezionare **esperimento vuoto**.
 3. Immettere un nome per l'esperimento: Marketing mirato.
 4. Trascinare il modulo **Import Data** in **input e output dei dati** dal riquadro moduli nell'area di disegno.
@@ -70,75 +70,65 @@ FROM [dbo].[vTargetMail]
 ```
 
 Eseguire l'esperimento facendo clic su **Esegui** sotto l'area di disegno dell'esperimento.
-![Eseguire l'esperimento][1]
+
+![Eseguire l'esperimento](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png)
 
 Dopo aver concluso con successo l’esperimento, per visualizzare i dati importati fare clic sulla porta di output nella parte inferiore del modulo Reader e selezionare **Visualizza**.
-![Visualizzare i dati importati][3]
+
+![Visualizza dati importati](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png)
 
 ## <a name="2-clean-the-data"></a>2. pulire i dati
-Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, seguire questa procedura:
+Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, effettuare l'operazione seguente:
 
 1. Trascinare il modulo **Select Columns in DataSet** in **Data Transformation < Manipulation** nell'area di disegno. Connettere questo modulo al modulo **Import Data** .
 2. Fare clic su **Launch column selector** nel riquadro Proprietà per specificare le colonne da eliminare.
-   ![Project Columns][4]
+
+   ![Colonne progetto](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png)
 3. Escludere due colonne: CustomerAlternateKey e GeographyKey.
-   ![Rimuovere le colonne non necessarie][5]
+
+   ![Rimuovere le colonne non necessarie](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png)
 
 ## <a name="3-build-the-model"></a>3. compilare il modello
 Si suddivideranno i dati 80-20: 80% per il training di un modello di Machine Learning e 20% per testare il modello. Per questo problema di classificazione binaria si useranno gli algoritmi "Two-Class".
 
 1. Trascinare il modulo **Split** nell'area di disegno.
 2. Nel riquadro Proprietà immettere 0,8 per la frazione di righe nel primo set di dati di output.
-   ![Dividere i dati in set di traning e di test][6]
+
+   ![Dividere i dati in set di traning e di test.](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png)
 3. Trascinare il modulo **Two-Class Boosted Decision Tree** nell'area di disegno.
 4. Trascinare il modulo **Train Model** nell'area di disegno e specificare gli input connettendosi all' **albero delle decisioni con boosting a due classi** (algoritmo ml) e **suddividere** i moduli (dati per il training dell'algoritmo). 
-     ![Connettere il modulo Train Model][7]
+
+     ![Connettere il modulo Train Model](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png)
 5. Fare clic su **Launch column selector** nel riquadro Properties. Selezionare la colonna **BikeBuyer** come colonna da stimare.
-   ![Selezionare una colonna da stimare][8]
+
+   ![Selezionare la colonna da stimare](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png)
 
 ## <a name="4-score-the-model"></a>4. assegnare un punteggio al modello
 A questo punto si verificheranno le prestazioni del modello sui dati di test. L'algoritmo scelto verrà confrontato con un algoritmo diverso per verificare quale offre prestazioni migliori.
 
 1. Trascinare il modulo **Score Model** nell'area di disegno e connetterlo ai moduli **Train Model** e **Split data** .
-   ![assegnare un punteggio al modello][9]
+
+   ![Assegnare un punteggio al modello](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png)
 2. Trascinare il **Two-Class Bayes Point Machine** nell'area di disegno dell'esperimento. Si confronteranno le prestazioni di questo algoritmo rispetto a Two-Class Boosted Decision Tree.
 3. Copiare e incollare i moduli Train Model e Score Model nell'area di disegno.
 4. Trascinare il modulo **Evaluate Model** nell'area di disegno per confrontare i due algoritmi.
 5. **Eseguire** l'esperimento.
-   ![Eseguire l'esperimento][10]
-6. Fare clic con il pulsante destro del mouse sulla porta di output del modulo Evaluate Model e scegliere Visualize.
-   ![Visualizzare i risultati della valutazione][11]
 
-La metrica fornita include curva ROC, curva di precisione/recupero e curva di accuratezza. Esaminando la metrica, si noterà che il primo modello fornisce prestazioni migliori rispetto al secondo. Per vedere i quali sono state le previsioni del primo modello, fare clic sulla porta di output di Score Model e scegliere Visualize.
-![Visualizzare i risultati di punteggio][12]
+   ![Eseguire l'esperimento](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png)
+6. Fare clic con il pulsante destro del mouse sulla porta di output del modulo Evaluate Model e scegliere Visualize.
+
+   ![Visualizzare i risultati della valutazione](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png)
+
+Le metriche fornite sono la curva ROC, il diagramma di richiamo di precisione e la curva di accuratezza. Esaminando la metrica, si noterà che il primo modello fornisce prestazioni migliori rispetto al secondo. Per esaminare la stima del primo modello, fare clic sulla porta di output del modello di punteggio e fare clic su Visualizza.
+
+![Visualizzare i risultati di punteggio](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png)
 
 Verranno visualizzate altre due colonne aggiunte al set di dati di test.
 
 * Scored Probabilities: la probabilità che un cliente sia un acquirente di biciclette.
 * Scored Labels: la classificazione eseguita dal modello – acquirente di biciclette (1) o non acquirente (0). La soglia di probabilità per le etichette è impostata su 50% e può essere modificata.
 
-Confrontando la colonna BikeBuyer (effettivo) con Scored Labels (stima), è possibile vedere il livello di prestazioni del modello. Come passaggi successivi è possibile usare questo modello per eseguire stime per i nuovi clienti e pubblicare il modello come un servizio Web o scrivere i risultati in SQL Data Warehouse.
+Confrontando la colonna BikeBuyer (effettivo) con Scored Labels (stima), è possibile vedere il livello di prestazioni del modello. Successivamente, è possibile utilizzare questo modello per eseguire stime per i nuovi clienti e pubblicare questo modello come servizio Web o scrivere i risultati in SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sulla creazione di modelli di apprendimento automatico predittivi, fare riferimento a [Introduzione a Machine Learning in Azure][Introduction to Machine Learning on Azure].
-
-<!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
-
-
-<!--Article references-->
-[Azure Machine Learning studio]:https://studio.azureml.net/
-[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[load sample data manually]: sql-data-warehouse-load-sample-databases.md
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+Per ulteriori informazioni sulla creazione di modelli di apprendimento automatico predittivi, fare riferimento a [Introduzione a Machine Learning in Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

@@ -3,25 +3,25 @@ title: Foglio informativo sulla pipeline di dati di Azure Machine Learning - Pro
 description: Un foglio informativo stampabile che illustra come configurare una pipeline di dati automatizzati per il servizio web Azure Machine Learning, sia che i dati siano locali, in streaming, in Azure o in un servizio cloud di terze parti.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: 7c7011991deb632110264233ea0e7aeabe793fbb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670478"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721864"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
 Il **foglio informativo sulla pipeline di dati automatizzati per le stime di Microsoft Azure Machine Learning** consente di spostarsi tra la tecnologia che si può usare per ottenere i dati per il servizio Web Machine Learning, in cui  i dati stessi possono essere classificati dal modello di analisi predittiva.
 
-A seconda che i dati siano in locale, nel cloud o in streaming in tempo reale, sono disponibili diversi meccanismi per spostare i dati all'endpoint del servizio web per la classificazione.
+A seconda che i dati siano in locale, nel cloud o in streaming in tempo reale, sono disponibili diversi meccanismi per spostare i dati nell'endpoint del servizio Web per l'assegnazione del punteggio.
 Questo foglio informativo favorisce il processo decisionale e offre collegamenti ad articoli in supporto allo sviluppo della soluzione.
 
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Download del foglio informativo sulla pipeline di dati automatizzati di Machine Learning

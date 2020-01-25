@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311543"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716901"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usare Docker Compose per distribuire più contenitori
 
@@ -46,7 +46,7 @@ Completare e inviare il [modulo di richiesta dei contenitori di sintesi vocale d
 
 ## <a name="docker-compose-file"></a>File Docker Compose
 
-Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su `DockerFile` un'immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML*. Specificare i valori **APIKEY**, **Billing**e **EndpointUri** appropriati nel file.
+Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su un'immagine del contenitore `DockerFile` o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML*. Specificare i valori **APIKEY**, **Billing**e **EndpointUri** appropriati nel file.
 
 ```yaml
 version: '3.7'

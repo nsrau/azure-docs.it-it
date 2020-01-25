@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 283bd56b9d9cbe412e9c28127dd9dab7decc2d7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848307"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712533"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -68,7 +68,7 @@ Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene insta
 
 Gli utenti che usano l'estensione di Server dei criteri di rete devono essere sincronizzati con Azure Active Directory tramite Azure AD Connect ed essere registrati a MFA.
 
-Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [portale di Azure](https://portal.azure.com). Accedere come amministratore. Cercare e selezionare la **Azure Active Directory**, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installerà l'estensione di Server dei criteri di rete.
+Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore. Cercare e selezionare la **Azure Active Directory**, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installerà l'estensione di Server dei criteri di rete.
 
 ![L'ID directory si trova nelle proprietà di Azure Active Directory](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
@@ -221,7 +221,7 @@ Dopo aver abilitato MFA per un client RADIUS utilizzando l'estensione di Server 
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA* per controllare il comportamento della funzionalità. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | Value | Predefinito |
+| Chiave | Valore | Predefinito |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 
@@ -229,7 +229,7 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 
 È possibile scegliere di creare questa chiave e impostarla su FALSE, durante il caricamento degli utenti che potrebbero non essere ancora registrati per Azure MFA. Poiché l'impostazione della chiave consente agli utenti che non sono registrati all'MFA di accedere, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="nps-extension-health-check-script"></a>Script di controllo integrità estensione NPS
 
@@ -273,7 +273,7 @@ I timbri data/ora Valido-dal e Valido-fino al, che sono in formato leggibile, po
 
 ---
 
-### <a name="why-cant-i-sign-in"></a>Perché non è possibile accedere?
+### <a name="why-cannot-i-sign-in"></a>Perché non è possibile accedere?
 
 Verificare che la password non sia scaduta. L'estensione NPS non supporta la modifica delle password come parte del flusso di lavoro di accesso. Per ulteriore assistenza, contattare il personale IT dell'organizzazione.
 

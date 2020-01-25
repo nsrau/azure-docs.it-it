@@ -1,22 +1,22 @@
 ---
 title: Riepilogo pagamenti del Marketplace commerciale | Azure Marketplace
-description: Il riepilogo dei pagamenti Mostra i dettagli relativi ai soldi ottenuti con l'offerta. Sono visualizzate anche indicazioni su quando riceverai i pagamenti e sulle modalità di pagamento.
+description: Il riepilogo dei pagamenti Mostra i dettagli relativi ai soldi ottenuti con l'offerta. Consente inoltre di stabilire quando si riceveranno i pagamenti e la quantità di pagamento.
 author: MaggiePucciEvans
 manager: evansma
 ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979690"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715441"
 ---
-# <a name="payout-reporting"></a>Report sui proventi
+# <a name="payout-reporting"></a>Report sui pagamenti
 
-Il [**Riepilogo dei pagamenti**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) Mostra i dettagli relativi al denaro guadagnato con Microsoft. Sono visualizzate anche indicazioni su quando riceverai i pagamenti e sulle modalità di pagamento.
+Il [**Riepilogo dei pagamenti**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) Mostra i dettagli relativi al denaro guadagnato con Microsoft. Consente inoltre di stabilire quando si riceveranno i pagamenti e la quantità di pagamento.
 
 Se si vendono offerte in Azure Marketplace, verranno visualizzate anche le informazioni sui pagamenti riusciti nel **Riepilogo dei pagamenti**. Per ulteriori informazioni sui pagamenti di Azure Marketplace, vedere le [politiche di partecipazione Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkId=722436) e il [contratto di Microsoft Azure Marketplace Publisher](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
@@ -32,13 +32,13 @@ Se si vendono offerte in Azure Marketplace, verranno visualizzate anche le infor
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>Ruoli e autorizzazione per accedere al report dei pagamenti
 
-| Report/pagine    | Proprietario dell'account    | Manager  | Sviluppatore | Collaboratore aziendale |  Collaboratore finanza | Addetto al marketing |
+| Report/pagine    | Proprietario dell'account    | Manager  | Sviluppatore | Collaboratore aziendale |  Collaboratore finanza | Venditore |
 |------------------|------------------|----------|-----------|----|----|-----|
 | Report di acquisizione (inclusi i dati quasi in tempo reale) | Può visualizzare | Può visualizzare | Nessun accesso | Nessun accesso | Può visualizzare | Nessun accesso |
-| Report Feedback/risposte | Può visualizzare e inviare feedback | Può visualizzare e inviare feedback | Può visualizzare e inviare feedback | Nessun accesso | Nessun accesso | Può visualizzare e inviare feedback |
+| Report/risposte feedback | Consente di visualizzare e inviare commenti e suggerimenti | Consente di visualizzare e inviare commenti e suggerimenti | Consente di visualizzare e inviare commenti e suggerimenti | Nessun accesso | Nessun accesso | Consente di visualizzare e inviare commenti e suggerimenti |
 | Rapporto di stato (inclusi dati quasi in tempo reale) | Può visualizzare | Può visualizzare | Può visualizzare | Può visualizzare | Nessun accesso | Nessun accesso |
-| Report Uso | Può visualizzare | Può visualizzare | Può visualizzare | Può visualizzare | Nessun accesso | Nessun accesso |
-| Account per i proventi | Può aggiornare | Nessun accesso | Nessun accesso | Nessun accesso | Può aggiornare | Nessun accesso |
+| Report sull'utilizzo | Può visualizzare | Può visualizzare | Può visualizzare | Può visualizzare | Nessun accesso | Nessun accesso |
+| Account di pagamento | Può aggiornare | Nessun accesso | Nessun accesso | Nessun accesso | Può aggiornare | Nessun accesso |
 | Profilo fiscale | Può aggiornare | Nessun accesso | Nessun accesso | Nessun accesso | Può aggiornare | Nessun accesso |
 | Riepilogo proventi | Può visualizzare | Nessun accesso | Nessun accesso | Nessun accesso | Può visualizzare | Nessun accesso |
 
@@ -46,11 +46,11 @@ Se si vendono offerte in Azure Marketplace, verranno visualizzate anche le infor
 
 | | Portale per Cloud Partner | Centro per i partner |
 |---------|---------|---------|
-| Collegamenti | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory e https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| Collegamenti | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) e [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Spostamento | Report sui pagamenti forniti in Insights payout | Report sui pagamenti forniti nel centro per i partner-icona di pagamento |
 | Ambito | <ul> <li>La transazione per ogni elemento linea è visibile, per la raccolta in corso, raccolta e a pagamento </li> <li>Creazione di report: Mostra tutte le voci dopo la creazione dell'ordine di acquisto, incluse le raccolte in corso e la fatturazione in corso e lo stato della raccolta e le voci non ancora idonee per il pagamento. </li> </ul> | <ul> <li>Mostra le voci quando vengono ritenute idonee per i guadagni.</li> <li>I clienti pagano prima di tutto Microsoft, quindi gli ISV possono visualizzare il report dei pagamenti a partire da.</li> <li>Il report sui pagamenti non visualizzerà la raccolta in corso e la fatturazione in corso.  </li> </ul>  |
 | Transazione non pronta per il pagamento | Fatturazione in corso | Successivo pagamento stimato: lo stato del pagamento è nello stato non elaborato.  |
-| Stato del pagamento |  | Non elaborati <br> Il guadagno è idoneo per il pagamento. Rimane in questo stato per un periodo di raffreddamento come definito nella guida del programma per il programma incentive. <br> <br> Imminente <br> Ordine di pagamento-verifiche interne in sospeso generate prima dell'elaborazione del pagamento. <br> <br> Inviato: <br> Il pagamento è stato inviato alla banca. |
+| Stato del pagamento |  | Non elaborati <br> Il guadagno è idoneo per il pagamento. Rimane in questo stato per un periodo di raffreddamento come definito nella guida del programma per il programma incentive. <br> <br> Imminente <br> Ordine di pagamento-verifiche interne in sospeso generate prima dell'elaborazione del pagamento. <br> <br> Inviati <br> Il pagamento è stato inviato alla banca. |
 
 ## <a name="customer-types"></a>Tipi di cliente
 
@@ -68,7 +68,7 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 
 ## <a name="corelation-between-payout-and-usage"></a>Corelazione tra pagamenti e utilizzo
 
-|Description    |    Data  | Ordini/utilizzo  | Pagamento |
+|Description    |    Data  | Ordini/utilizzo  | Sui proventi |
 |----------|----------|-----------|-------------|
 |Periodo dell'ordine   | 15 agosto, 2019-30 agosto, 2019 | **Ordini degli attributi di correlazione** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Utilizzo** <br> <ul> <li>CustomerId </li> <li>Nome del cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Costo esteso stimato <br> Estimated Payout (PC) </li> </ul> |  |
 |Fine periodo (mese)   | 30 agosto 2019 | | |
@@ -82,9 +82,9 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contratto Enterprise Agreement (clienti trimestrali/mensili)
 
-| Description |    Data  | Uso | Pagamento |
+| Description |    Data  | Uso | Sui proventi |
 |----------|----------|---------|-----------|
-|Periodo dell'ordine | 15 agosto, 2019-30 agosto, 2019 | **Ordini degli attributi di correlazione** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Report Uso** <br> <ul> <li>CustomerId </li> <li>Nome del cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Costo esteso stimato <br> Estimated Payout (PC) </li> </ul> | |
+|Periodo dell'ordine | 15 agosto, 2019-30 agosto, 2019 | **Ordini degli attributi di correlazione** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Report sull'utilizzo** <br> <ul> <li>CustomerId </li> <li>Nome del cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Costo esteso stimato <br> Estimated Payout (PC) </li> </ul> | |
 |Fine periodo (trimestre) | 30 settembre, 2019 | | |
 |Data di fatturazione | 15 ottobre 2019 | | |
 |Periodo deposito (solo carte di credito, 30 giorni) | N/D | | |
@@ -128,7 +128,7 @@ Questa opzione consente di scaricare ogni elemento della riga di acquisizione vi
 | paymentCurrency                | Paga in valuta scelta dal partner nel profilo di pagamento. Visualizzato solo per i pagamenti inviati                                                   |
 | paymentExchangeRate            | Tasso di cambio usato per calcolare paymentAmountWOTax in valuta pagamento con ExchangeRateDate                                            |
 | paymentId            | Identificatore univoco per il pagamento. Questo numero è visibile nell'istruzione Bank                                            |
-| paymentStatus            | Stato del pagamento                                            |
+| paymentStatus            | Stato pagamento                                            |
 | paymentStatusDescription            | Descrizione descrittiva dello stato dei pagamenti                                            |
 | customerId                     | Sarà sempre vuoto                                                                                                                     |
 | customerName                   | Sarà sempre vuoto                                                                                                                     |
@@ -137,16 +137,16 @@ Questa opzione consente di scaricare ogni elemento della riga di acquisizione vi
 | productId                      | Identificatore univoco del prodotto                                                                                                                |
 | parentProductId                | Identificatore univoco del prodotto padre. Nota: se non è presente un prodotto padre per la transazione, ID prodotto padre = ID prodotto. |
 | parentProductName              | Nome del prodotto padre. Nota: se non è presente un prodotto padre per la transazione, il nome del prodotto padre è il nome del prodotto.   |
-| productType                    | Tipo di prodotto (ad esempio app, componente aggiuntivo, gioco, ecc.)                                                                                        |
+| productType                    | Tipo di prodotto (ad esempio app, componente aggiuntivo, gioco e così via)                                                                                        |
 | invoiceNumber                  | Numero fattura (applicabile solo per EA)                                                                                                  |
 | resellerId                     | Identificatore rivenditore                                                                                                                      |
 | resellerName                   | Nome rivenditore                                                                                                                            |
-| transactionType                | Tipo di transazione (ad esempio, acquisto, rimborso, storno, rifiuto di addebito e così via)                                                               |
+| transactionType                | Tipo di transazione, ad esempio acquisto, rimborso, storno, chargeback e così via.                                                               |
 | localProviderSeller            | Provider locale/venditore del record                                                                                                          |
-| taxRemitted                    | Importo delle imposte versate (imposte di vendita, di uso o IVA/GST).                                                                                   |
-| taxRemitModel                  | Parte responsabile per il versamento delle imposte (imposte di vendita, di uso o IVA/GST).                                                                    |
+| taxRemitted                    | Importo delle imposte fiscali (vendite, utilizzo o tasse IVA/GST).                                                                                   |
+| taxRemitModel                  | Parte responsabile della rimessa delle imposte (vendite, uso o tasse IVA/GST).                                                                    |
 | storeFee                       | Importo mantenuto da Microsoft come tariffa per rendere disponibile l'app o il componente aggiuntivo nello Store.                                            |
-| transactionPaymentMethod       | Strumento di pagamento usato dal cliente per la transazione, ad esempio, carta di credito, operatore di telefonia mobile, PayPal e così via.                                |
+| transactionPaymentMethod       | Strumento di pagamento dei clienti usato per la transazione, ad esempio carta, fatturazione per dispositivi mobili, PayPal e così via.                                |
 | tpan                           | Indica la rete ad di terze parti                                                                                                     |
 | customerCountry                | Paese del cliente                                                                                                                         |
 | customerCity                   | Città del cliente                                                                                                                            |

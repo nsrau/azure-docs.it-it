@@ -2,13 +2,13 @@
 title: Risorse senza limite di 800 conteggi
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: c4f452a13c2059c02bf675ca4fe80243257183d5
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 01/23/2020
+ms.openlocfilehash: 42e8ddeebcd1dda4fc67e4e7be137c5e01decdf4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659322"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715618"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
 
@@ -26,6 +26,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
+* verificationKeys
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -82,6 +83,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
+* autoManagedVmConfigurationProfiles
 * configurationProfileAssignments
 * guestConfigurationAssignments
 * software
@@ -178,6 +180,10 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * apiManagementAccounts/apis
 * siti
 
+## <a name="microsoftinsights"></a>microsoft.insights
+
+* metricalerts
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco completo di quote e limiti, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Per un elenco completo di quote e limiti, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md).

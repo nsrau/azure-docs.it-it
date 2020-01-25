@@ -3,23 +3,23 @@ title: Esplorare i dati in una macchina virtuale di SQL Server - Processo di dat
 description: Esplora e elabora i dati e genera le funzionalità usando Python o SQL in una macchina virtuale SQL Server in Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d3eb4d2faf58d1861fda9d04437f9f9530c77672
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053622"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718481"
 ---
 # <a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
-Questo documento descrive come esplorare i dati e creare funzionalità per i dati archiviati in una VM di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
+Questo documento descrive come esplorare i dati e creare funzionalità per i dati archiviati in una VM di SQL Server su Azure. Questo obiettivo può essere completato da data wrangling usando SQL o usando un linguaggio di programmazione come Python.
 
 > [!NOTE]
 > Le istruzioni SQL di esempio fornite nel documento presuppongono che i dati si trovino in SQL Server. In caso contrario, fare riferimento al processo di analisi scientifica dei dati cloud per visualizzare informazioni su come spostare i dati in SQL Server.
@@ -66,7 +66,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
-Gli esempi seguenti illustrano due modi per generare funzionalità di conteggio. Nel primo metodo viene usata la somma condizionale e nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
+Gli esempi seguenti illustrano due modi per generare funzionalità di conteggio. Nel primo metodo viene usata la somma condizionale e nel secondo la clausola "where". Questi risultati possono quindi essere Uniti alla tabella originale (usando le colonne chiave primaria) per avere le funzionalità di conteggio insieme ai dati originali.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -82,7 +82,7 @@ L'esempio seguente illustra come generare funzionalità in contenitori, inserend
 ### <a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
 In questa sezione viene illustrato come implementare una singola colonna in una tabella per generare funzionalità aggiuntive. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
-Di seguito è riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow [Come misurare la precisione di latitudine e longitudine?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
+Di seguito è riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow [Come misurare la precisione di latitudine e longitudine?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Questa guida è utile per comprendere prima di includere la località come una o più funzionalità:
 
 * Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est.
 * Una cifra nell'ordine delle centinaia diversa da zero indica che si sta usando la longitudine invece della latitudine.
@@ -95,7 +95,7 @@ Di seguito è riportata una breve introduzione sui dati di posizione relativi a 
 * La quinta posizione decimale è caratterizzata da un valore massimo di 1,1 m e consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
 * La sesta posizione decimale è caratterizzata da un valore massimo di 0,11 m: è possibile usarla per visualizzare i dettagli delle strutture, per progettare panorami e costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. È possibile ottenere questa accuratezza eseguendo misurazioni accurate con il GPS, quale quello corretto in modo differenziale.
 
-Le informazioni sulla posizione possono essere inserite nelle funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. È anche possibile chiamare un endpoint REST come l'API di Bing Maps, disponibile nell'articolo dedicato a come [trovare una posizione in base a un punto](https://msdn.microsoft.com/library/ff701710.aspx) , per visualizzare informazioni sull'area/quartiere.
+Le informazioni sulla posizione possono essere inserite nelle funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. È anche possibile chiamare un endpoint REST, ad esempio l'API di Bing Maps, disponibile in [trovare una posizione in base al punto](https://msdn.microsoft.com/library/ff701710.aspx) per ottenere le informazioni sull'area/quartiere.
 
     select 
         <location_columnname>
@@ -121,7 +121,7 @@ La funzionalità appena creata può essere aggiunta come una colonna a una tabel
 ![lettori azureml][1] 
 
 ## <a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
-L'uso di Python per esplorare i dati e generare funzionalità quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nel BLOB di Azure con Python illustrata nell'articolo su come [elaborare i dati BLOB di Azure in un ambiente di analisi scientifica dei dati](data-blob.md). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
+L'uso di Python per esplorare i dati e generare funzionalità quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nel BLOB di Azure con Python illustrata nell'articolo su come [elaborare i dati BLOB di Azure in un ambiente di analisi scientifica dei dati](data-blob.md). Caricare i dati dal database in un frame di dati Pandas per un'ulteriore elaborazione. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
 
 Il seguente formato della stringa di connessione può essere usato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
 

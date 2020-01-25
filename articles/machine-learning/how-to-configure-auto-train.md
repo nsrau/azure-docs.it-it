@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c1ebedcf93d66c01c80f7f40171a7aa27441488d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277980"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722153"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Prima di iniziare l'esperimento, è necessario determinare il tipo di problema d
 
 Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo.
 
-Classificazione | Regressione | Previsione di una serie temporale
+Classificazione | Regressione | Previsione delle serie temporali
 |-- |-- |--
 [Regressione logistica](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -177,7 +177,7 @@ I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecas
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. La metrica disponibile che è possibile selezionare è determinata dal tipo di attività scelto e la tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
 
-|Classificazione | Regressione | Previsione di una serie temporale
+|Classificazione | Regressione | Previsione delle serie temporali
 |-- |-- |--
 |precisione| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -187,16 +187,16 @@ La metrica primaria determina la metrica da utilizzare durante il training del m
 
 Informazioni sulle definizioni specifiche di queste metriche per [comprendere i risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 
-### <a name="data-preprocessing--featurization"></a>Pre-elaborazione dei dati & conteggi
+### <a name="data-featurization"></a>Conteggi dati
 
-In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per aiutare *determinati* algoritmi sensibili alle funzionalità con diverse scale.  Tuttavia, è anche possibile abilitare la pre-elaborazione/conteggi aggiuntiva, ad esempio la mancata imputazione, la codifica e le trasformazioni dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess).
+In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per aiutare *determinati* algoritmi sensibili alle funzionalità con diverse scale.  Tuttavia, è anche possibile abilitare conteggi aggiuntivi, ad esempio l'imputazione, la codifica e la trasformazione dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess).
 
-Per abilitare questo conteggi, specificare `"preprocess": True` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Per abilitare questo conteggi, specificare `"featurization": 'auto'` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 > [!NOTE]
 > I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
 
-### <a name="time-series-forecasting"></a>Previsione di una serie temporale
+### <a name="time-series-forecasting"></a>Previsione delle serie temporali
 L'attività `forecasting` della serie temporale richiede parametri aggiuntivi nell'oggetto di configurazione:
 
 1. `time_column_name`: parametro obbligatorio che definisce il nome della colonna nei dati di training contenenti una serie temporale valida.
@@ -240,7 +240,7 @@ I modelli di ensemble sono abilitati per impostazione predefinita e vengono visu
 
 Sono disponibili più argomenti predefiniti che possono essere forniti come `kwargs` in un oggetto `AutoMLConfig` per modificare il comportamento predefinito dell'insieme dello stack.
 
-* `stack_meta_learner_type`: il metaapprendimento è un modello di cui è stato eseguito il training sull'output dei singoli modelli di eterogeneo. I meta-Learning predefiniti sono `LogisticRegression` per le attività di classificazione (oppure `LogisticRegressionCV` se la convalida incrociata è abilitata) e `ElasticNet` per le attività di regressione/previsione (o `ElasticNetCV` se la convalida incrociata è abilitata). Questo parametro può essere una delle seguenti stringhe: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`o `LinearRegression`.
+* `stack_meta_learner_type`: il metaapprendimento è un modello di cui è stato eseguito il training sull'output dei singoli modelli eterogenei. I meta-Learning predefiniti sono `LogisticRegression` per le attività di classificazione (oppure `LogisticRegressionCV` se la convalida incrociata è abilitata) e `ElasticNet` per le attività di regressione/previsione (o `ElasticNetCV` se la convalida incrociata è abilitata). Questo parametro può essere una delle seguenti stringhe: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`o `LinearRegression`.
 * `stack_meta_learner_train_percentage`: specifica la proporzione del set di training (quando si sceglie il tipo di training di training e di convalida) da riservare per il training del meta-Learning. Il valore predefinito è `0.2`.
 * `stack_meta_learner_kwargs`: parametri facoltativi da passare all'inizializzatore del meta-Learning. Questi parametri e tipi di parametro rispecchiano i parametri e i tipi di parametro dal costruttore del modello corrispondente e vengono trasmessi al costruttore del modello.
 
@@ -324,7 +324,7 @@ Sono disponibili alcune opzioni che è possibile definire per terminare l'esperi
 ## <a name="understand-automated-ml-models"></a>Informazioni sui modelli di Machine Learning automatizzati
 
 Tutti i modelli prodotti con l'utilizzo automatico di ML includono i passaggi seguenti:
-+ Progettazione automatica delle funzioni (se preprocess = true)
++ Progettazione automatica delle funzioni (se `"featurization": 'auto'`)
 + Ridimensionamento/normalizzazione e algoritmo con valori di iperparametri
 
 Il risultato è trasparente per ottenere queste informazioni dall'output del fitted_model di Machine Learning automatizzato.
@@ -337,7 +337,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Progettazione automatica delle funzioni
 
-Vedere l'elenco delle funzionalità di pre-elaborazione e di [progettazione automatica delle funzioni](concept-automated-ml.md#preprocess) che si verificano quando feauturization = auto.
+Vedere l'elenco delle funzionalità di pre-elaborazione e di [progettazione automatica delle funzioni](concept-automated-ml.md#preprocess) che si verificano quando `"featurization": 'auto'`.
 
 Considerare questo esempio:
 + Sono disponibili quattro funzionalità di input: A (numerico), B (numerico), C (numerico), D (DateTime)
@@ -403,7 +403,7 @@ Usare queste 2 API nel primo passaggio del modello montato per comprendere megli
    |----|--------|
    |RawFeatureName|Nome della funzionalità o della colonna di input dal set di dati specificato.|
    |TypeDetected|Tipo di dati rilevato della funzionalità di input.|
-   |Dropped|Indica se la funzionalità di input è stata eliminata o utilizzata.|
+   |Eliminato|Indica se la funzionalità di input è stata eliminata o utilizzata.|
    |EngineeringFeatureCount|Numero di funzionalità generate tramite trasformazioni automatiche di progettazione delle funzionalità.|
    |Trasformazioni|Elenco di trasformazioni applicate alle funzionalità di input per generare funzionalità progettate.|
    

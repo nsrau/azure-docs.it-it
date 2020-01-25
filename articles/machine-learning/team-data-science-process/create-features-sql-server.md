@@ -3,20 +3,20 @@ title: Creare caratteristiche in SQL Server tramite SQL e Python - Processo di d
 description: Creare caratteristiche per i dati archiviati in una macchine virtuale di SQL Server in Azure usando SQL e Python, come parte del processo di data science per i team.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982065"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721745"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare funzionalità per i dati in SQL Server tramite SQL e Python
 Questo documento illustra come creare funzionalità per i dati archiviati in una VM di SQL Server in Azure che consentono agli algoritmi di apprendere in modo più efficiente dai dati. A tale scopo, è possibile usare SQL o un linguaggio di programmazione come Python. Entrambi gli approcci sono illustrati di seguito.
@@ -37,9 +37,9 @@ Questo articolo presuppone che l'utente abbia:
 ## <a name="sql-featuregen"></a>Creazione di funzionalità con SQL
 In questa sezione viene descritto come creare funzionalità tramite SQL:  
 
-1. [Creazione di funzionalità basate sul conteggio](#sql-countfeature)
-2. [Creazione di contenitori per la creazione di funzionalità](#sql-binningfeature)
-3. [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
+* [Creazione di funzionalità basate sul conteggio](#sql-countfeature)
+* [Creazione di contenitori per la creazione di funzionalità](#sql-binningfeature)
+* [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
 
 > [!NOTE]
 > Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
@@ -47,7 +47,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
-In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
+In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Queste nuove funzionalità possono quindi essere unite alla tabella originale (usando colonne chiave primaria) per avere le funzionalità di conteggio insieme ai dati originali.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -55,7 +55,7 @@ In questo documento vengono descritte due modalità per creare funzionalità di 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ### <a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
-Nell'esempio seguente viene descritto come creare funzionalità categorizzate, inserendo una colonna numerico (usando 5 contenitori) che può essere utilizzata come funzionalità:
+L'esempio seguente illustra come generare funzionalità in contenitori, inserendo una colonna numerica (con cinque contenitori) che può essere usata come funzionalità:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -74,9 +74,9 @@ Di seguito, viene riportata una breve introduzione sui dati di posizione relativ
 * La terza posizione decimale è caratterizzata da un valore massimo di 110 m: consente di identificare un campo agricolo o una sede istituzionale.
 * La quarta posizione decimale è caratterizzata da un valore massimo di 11 m: consente di identificare una porzione di terreno. La sua accuratezza è paragonabile a quella di un'unità GPS non corretta e senza interferenze.
 * La quinta posizione decimale è caratterizzata da un valore massimo di 1,1 m e consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
-* La sesta posizione decimale è caratterizzata da un valore massimo di 0,11 m: è possibile usarla per visualizzare i dettagli delle strutture, per progettare panorami e costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. È possibile ottenere questa accuratezza eseguendo misurazioni accurate con il GPS, quale quello corretto in modo differenziale.
+* Il sesto numero decimale è un valore fino a 0,11 m: è possibile usare questo livello per definire in dettaglio le strutture, per progettare i paesaggi, costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. Questo obiettivo può essere effettuato eseguendo misure accurate con il GPS, ad esempio il GPS con correzione differenziale.
 
-Le informazioni sulla posizione possono essere inserite nelle funzionalità separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
+Le informazioni sulla posizione possono essere inserite nelle funzionalità separando le informazioni su regioni, posizioni e città. Una volta può anche chiamare un endpoint REST, ad esempio l'API di Bing Maps (vedere `https://msdn.microsoft.com/library/ff701710.aspx` per ottenere le informazioni sull'area/quartiere).
 
     select
         <location_columnname>

@@ -3,20 +3,20 @@ title: Esplorazione e modellazione avanzate dei dati con Spark - Processo di dat
 description: Usare HDInsight Spark per eseguire l'esplorazione dei dati e il training dei modelli di classificazione binaria e regressione usando la convalida incrociata e l'ottimizzazione di iperparametri.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5f6145e581393d874871d214515a660f987d1d7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15d9d186ef36ee9181a6ce0386aa9cc5de7838e3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253348"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718652"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Esplorazione e modellazione avanzate dei dati con Spark
 
@@ -25,29 +25,31 @@ Questa procedura dettagliata usa HDInsight Spark per eseguire l'esplorazione dei
 * L'attività di **classificazione binaria** consente di prevedere se per la corsa viene lasciata o meno una mancia. 
 * L'attività di **regressione** consente di prevedere l'importo della mancia in base ad altre funzionalità relative alle mance. 
 
-La procedura di modellazione include anche un codice che illustra come eseguire il training, valutare e salvare ogni tipo di modello. Nell'argomento vengono illustrati alcuni aspetti comuni all'argomento [Modellazione ed esplorazione dei dati con Spark](spark-data-exploration-modeling.md). Tuttavia, questo argomento è più "avanzato" nel senso che usa anche la convalida incrociata con la ricerca di iperparametri per formare modelli precisi di classificazione e regressione in modo ottimale. 
+La procedura di modellazione include anche codice che illustra come eseguire il training, la valutazione e il salvataggio di ogni tipo di modello. Nell'argomento vengono illustrati alcuni aspetti comuni all'argomento [Modellazione ed esplorazione dei dati con Spark](spark-data-exploration-modeling.md). Tuttavia, questo argomento è più "avanzato" nel senso che usa anche la convalida incrociata con la ricerca di iperparametri per formare modelli precisi di classificazione e regressione in modo ottimale. 
 
 La **convalida incrociata** è una tecnica che consente di valutare in che modo un modello con training eseguito su un set di dati noto viene generalizzato per stimare le funzionalità di set di dati su cui non è stato eseguito il training.  Un'implementazione comune usata qui consiste nel dividere un set di dati in K riduzioni e quindi eseguire il training del modello in base a uno schema round robin su tutte le riduzioni eccetto una. Viene valutata la capacità del modello di eseguire una stima accurata quando testata in confronto con il set di dati indipendenti in questa sezione non usata per il training del modello.
 
 **ottimizzazione degli iperparametri** consiste nello scegliere un set di iperparametri per un algoritmo di apprendimento, in genere con l'obiettivo di ottimizzare una misura delle prestazioni dell'algoritmo su un set di dati indipendente. **iperparametri** sono valori che devono essere specificati al di fuori della procedura di training del modello. I presupposti di questi valori possono influire sulla flessibilità e l'accuratezza dei modelli. Gli alberi delle decisioni includono, ad esempio, iperparametri come la profondità desiderata e il numero di foglie nell'albero. Le macchine a vettori di supporto (SVM, Support Vector Machine) richiedono l'impostazione di una penalità per errata classificazione. 
 
-Un modo comune per eseguire l'ottimizzazione degli iperparametri usato in questo articolo è una ricerca nella griglia o **sweep di parametri**. Si tratta di eseguire una ricerca completa nei valori di un subset specificato dello spazio degli iperparametri per un algoritmo di apprendimento. La convalida incrociata può fornire metriche delle prestazioni per selezionare i risultati ottimali generati dall'algoritmo di ricerca nella griglia. La convalida incrociata usata con lo sweep di iperparametri limita i problemi come l'overfitting di un modello rispetto ai dati di training, in modo che il modello mantenga la capacità di essere applicato al set di dati generale da cui sono stati estratti i dati di training.
+Un modo comune per eseguire l'ottimizzazione degli iperparametri usato in questo articolo è una ricerca nella griglia o **sweep di parametri**. Questa ricerca attraversa un subset dello spazio degli iperparametri per un algoritmo di apprendimento. La convalida incrociata può fornire metriche delle prestazioni per selezionare i risultati ottimali generati dall'algoritmo di ricerca nella griglia. La convalida incrociata usata con lo sweep di iperparametri limita i problemi come l'overfitting di un modello rispetto ai dati di training, in modo che il modello mantenga la capacità di essere applicato al set di dati generale da cui sono stati estratti i dati di training.
 
 I modelli proposti includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti:
 
 * [Regressione lineare con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) è un modello di regressione lineare che si serve di un metodo di discesa del gradiente stocastico (SGD, Stochastic Gradient Descent), usato per l'ottimizzazione e il ridimensionamento delle funzionalità allo scopo di prevedere l'importo delle mance pagate. 
 * [Regressione logistica con L-BFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) , o regressione "logit", è un modello di regressione che può essere usato quando la variabile dipendente usata per la classificazione dei dati è categoriale. L'algoritmo L-BFGS è un algoritmo di ottimizzazione quasi-Newton che approssima l'algoritmo di Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando una quantità limitata di memoria del computer ed è ampiamente usato nell'apprendimento automatico.
 * [foreste casuali](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sono insiemi di alberi delle decisioni.  Queste foreste combinano diversi alberi delle decisioni per ridurre il rischio di overfitting. Le foreste casuali vengono usate per la classificazione e la regressione, sono in grado di gestire funzionalità relative alle categorie e possono essere estese all'impostazione di classificazione multiclasse. Non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Le foreste casuali sono tra i modelli di apprendimento automatico più diffusi per la classificazione e la regressione.
-* [Alberi con boosting a gradienti](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT, Gradient boosted tree) sono insiemi di alberi delle decisioni. Gli alberi GBT eseguono il training degli alberi delle decisioni in modo iterativo per ridurre al minimo la perdita di funzioni. Gli alberi GBT vengono usati per la classificazione e la regressione e possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
+* Gli [alberi con boosting a gradienti](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) sono insiemi di alberi delle decisioni. GBT training degli alberi delle decisioni in modo iterativo per ridurre al minimo una funzione di perdita. GBT viene usato per la regressione e la classificazione e può gestire le funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e sono in grado di acquisire non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
 
 Esempi di modelli che usano la convalida incrociata e sweep di iperparametri sono illustrati per il problema della classificazione binaria. Esempi più semplici, senza sweep di parametri, sono illustrati nell'argomento principale per le attività di regressione. Nell'appendice sono tuttavia descritte anche la convalida con Elastic Net per la regressione lineare e la convalida incrociata con sweep dei parametri per la regressione tramite foresta casuale. **elastic net** è un metodo di regressione regolarizzata per l'adattamento di modelli di regressione lineare che combina in modo lineare le metriche L1 e L2 come penalità dei metodi [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) e [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization).   
 
-> [!NOTE]
-> Anche se il toolkit Spark MLlib è progettato per funzionare con set di dati di grandi dimensioni, per maggiore praticità viene usato un campione relativamente ridotto di circa 30 Mb che usa 170.000 righe, ovvero lo 0,1% circa del set di dati originale di NYC. L'esercizio qui proposto viene eseguito in modo efficiente in un cluster HDInsight con 2 nodi di lavoro, in circa 10 minuti. Lo stesso codice può essere usato per elaborare set di dati di dimensioni maggiori, con poche modifiche appropriate per il caching dei dati in memoria e la modifica delle dimensioni del cluster.
-> 
-> 
+<!-- -->
 
-## <a name="setup-spark-clusters-and-notebooks"></a>Installazione: Notebook e cluster Spark
+> [!NOTE]
+> Anche se il toolkit Spark MLlib è progettato per funzionare con set di dati di grandi dimensioni, per maggiore praticità viene usato un campione relativamente ridotto, di circa 30 Mb con 170.000 righe, ovvero lo 0,1% circa del set di dati originale della città di New York. L'esercizio qui proposto viene eseguito in modo efficiente in un cluster HDInsight con 2 nodi di lavoro, in circa 10 minuti. Lo stesso codice può essere usato per elaborare set di dati di dimensioni maggiori, con poche modifiche appropriate per il caching dei dati in memoria e la modifica delle dimensioni del cluster.
+
+<!-- -->
+
+## <a name="setup-spark-clusters-and-notebooks"></a>Configurazione: notebook e cluster Spark
 La procedura di installazione e il codice forniti in questa procedura dettagliata sono per l'uso di un HDInsight Spark 1.6. Ma vengono forniti i notebook di Jupyter per i cluster HDInsight sia Spark 1.6 sia Spark 2.0. +Vengono inoltre forniti una descrizione dei notebook e i relativi collegamenti nel [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) per il repository GitHub che li contiene. Inoltre, il codice in questo esempio e nei notebook collegati è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster possono essere leggermente diversi rispetto a quanto illustrato qui. Per praticità, ecco i collegamenti per il notebook di Jupyter per Spark 1.6 e 2.0 da eseguire nel kernel pyspark del server del notebook di Jupyter:
 
 ### <a name="spark-16-notebooks"></a>Notebook Spark 1.6
@@ -56,7 +58,7 @@ La procedura di installazione e il codice forniti in questa procedura dettagliat
 
 ### <a name="spark-20-notebooks"></a>Notebook Spark 2.0
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione dei punteggi nei cluster Spark 2.0.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio nei cluster Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -66,7 +68,7 @@ Spark può eseguire operazioni di lettura e scrittura in BLOB di Archiviazione d
 Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: "wasb///". "wasb://" fa riferimento ad altri percorsi.
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Impostare percorsi di directory per i percorsi di archiviazione in WASB
-L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello.
+L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello:
 
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
 
@@ -114,9 +116,9 @@ I kernel PySpark forniti con i notebook di Jupyter hanno un contesto preimpostat
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 * **%%local**: specifica che il codice presente nelle righe successive deve essere eseguito localmente. Deve trattarsi di codice Python valido.
-* **% % sql -o \<nome della variabile >** esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
+* **%% SQL-o \<nome della variabile >** Esegue una query hive su SqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
 
-Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefiniti messi a disposizione, vedere [Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
+Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefiniti messi a disposizione, vedere [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md) (Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux).
 
 ## <a name="data-ingestion-from-public-blob"></a>Inserimento di dati dal BLOB pubblico:
 Il primo passaggio del processo di analisi scientifica dei dati consiste nel prelevare i dati da analizzare dalle origini in cui risiedono e inserirli nell'ambiente di modellazione ed esplorazione dei dati. In questa procedura dettagliata l'ambiente è Spark. Questa sezione contiene il codice per completare una serie di attività:
@@ -187,7 +189,7 @@ Di seguito è riportato il codice per l'inserimento di dati.
 
 **OUTPUT**
 
-Tempo impiegato per eseguire questa cella: 276,62 secondi
+Tempo impiegato per eseguire questa cella: 276,62 secondi.
 
 ## <a name="data-exploration--visualization"></a>Visualizzazione ed esplorazione dei dati
 Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione vengono esaminati i dati relativi ai taxi tramite query SQL e vengono tracciate le variabili di destinazione e le funzionalità potenziali per l'esame visivo. In particolare, viene tracciata la frequenza del numero di passeggeri nelle corse dei taxi, la frequenza dell'importo delle mance e la variazione delle mance in base al tipo e all'importo del pagamento.
@@ -209,10 +211,12 @@ Questa query recupera le corse per numero di passeggeri.
 
 Questo codice crea un frame di dati locale dall'output della query ed esegue il tracciato dei dati. Il magic `%%local` crea un frame di dati locale, `sqlResults`, che può essere usato per eseguire tracciati con matplotlib. 
 
+<!-- -->
+
 > [!NOTE]
 > Tale magic PySpark viene usato più volte in questa procedura dettagliata. In caso di un'elevata quantità di dati, è consigliabile campionare i dati in modo da creare un frame che possa essere contenuto nella memoria locale.
-> 
-> 
+
+<!-- -->
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
     %%local
@@ -304,7 +308,7 @@ Questa sezione descrive le procedure usate per preparare i dati da usare nella m
 * Creare una nuova funzionalità dalla partizione di contenitori per gli orari di trasporto
 * Indicizzare funzionalità categoriche e applicare la codifica one-hot
 * Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
-* Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
+* Creare un sottocampionamento casuale dei dati e suddividerlo in set di training e di testing
 * Ridimensionamento di funzionalità
 * Memorizzazione nella cache di oggetti in memoria
 
@@ -383,10 +387,10 @@ Di seguito è riportato il codice per l'indicizzazione e la codifica delle funzi
 
 **OUTPUT**
 
-Tempo impiegato per eseguire questa cella: 3,14 secondi
+Tempo impiegato per eseguire questa cella: 3,14 secondi.
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
-Questa sezione contiene il codice che illustra come indicizzare i dati di testo suddivisi in categorie come tipo di dati come punto etichettato e come codificarlo. Consente di prepararlo ad essere usato per il training e test di regressione logistica MLlib e altri modelli di classificazione. Gli oggetti punto etichettato sono RDD (Resilient Distributed Dataset) formattati come richiesto per i dati di input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib. Un [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) è un vettore locale, che può essere denso o sparso, associato a un'etichetta o a una risposta.
+Questa sezione contiene il codice che illustra come indicizzare i dati di testo suddivisi in categorie come tipo di dati come punto etichettato e come codificarlo. Questa trasformazione prepara i dati di testo da usare per il training e il test della regressione logistica MLlib e di altri modelli di classificazione. Gli oggetti punto etichettato sono RDD (Resilient Distributed Dataset) formattati come richiesto per i dati di input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib. Un [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) è un vettore locale, che può essere denso o sparso, associato a un'etichetta o a una risposta.
 
 Ecco il codice per indicizzare e codificare le funzionalità di testo per la classificazione binaria.
 
@@ -434,8 +438,8 @@ Ecco il codice per codificare e indicizzare le funzionalità di testo categorich
         return  labPt
 
 
-### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
-Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. Anche se non è necessario per questo esempio, date le dimensioni del set di dati, viene illustrato come eseguire il campionamento. Adesso si sa come usarlo per il proprio problema, se necessario. Nei campioni di grandi dimensioni questa operazione permette di risparmiare molto tempo durante il training dei modelli. Successivamente il campione viene suddiviso in un set di training (75%) e un set di testing (25%) da usare nei modelli di regressione e classificazione.
+### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Creare un sottocampionamento casuale dei dati e suddividerlo in set di training e di testing
+Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. Anche se non è necessario per questo esempio, date le dimensioni del set di dati, viene illustrato come eseguire il campionamento. Adesso si sa come usarlo per il proprio problema, se necessario. Quando gli esempi sono di grandi dimensioni, il campionamento può risparmiare tempo significativo durante il training di modelli. Successivamente il campione viene suddiviso in un set di training (75%) e un set di testing (25%) da usare nei modelli di regressione e classificazione.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -476,7 +480,7 @@ Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. An
 
 **OUTPUT**
 
-Tempo impiegato per eseguire questa cella: 0,31 secondi
+Tempo impiegato per eseguire questa cella: 0,31 secondo
 
 ### <a name="feature-scaling"></a>Ridimensionamento di funzionalità
 Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo. Per ridimensionare le funzionalità alla varianza unitaria, il relativo codice usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) . Viene fornito da MLlib per l'uso nella regressione lineare con Stochastic Gradient Descent (SGD). SGD è un algoritmo molto diffuso per il training di una vasta gamma di modelli di apprendimento automatico, come la regressione regolarizzata o le macchine a vettori di supporto (SVM).   
@@ -517,7 +521,7 @@ Ecco il codice per ridimensionare le variabili per l'uso con l'algoritmo SGD lin
 
 **OUTPUT**
 
-Tempo impiegato per eseguire questa cella: 11,67 secondi
+Tempo impiegato per eseguire questa cella: 11,67 secondi.
 
 ### <a name="cache-objects-in-memory"></a>Memorizzazione nella cache di oggetti in memoria
 Il caching degli oggetti del frame di dati di input usati per la classificazione, la regressione e le funzionalità con ridimensionamento permette di ridurre il tempo impiegato per il training e il testing degli algoritmi di Machine Learning.
@@ -548,12 +552,12 @@ Il caching degli oggetti del frame di dati di input usati per la classificazione
 
 **OUTPUT** 
 
-Tempo impiegato per eseguire questa cella: 0,13 secondi
+Tempo impiegato per eseguire questa cella: 0,13 secondo
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Uso di modelli di classificazione binaria per prevedere se viene lasciata o meno una mancia
 Questa sezione illustra come usare tre modelli per l'attività di classificazione binaria di previsione di una possibile mancia lasciata per una corsa in taxi. I modelli presentati sono:
 
-* Regressione logistica 
+* Logistic Regression 
 * Foresta casuale
 * Alberi con boosting a gradienti.
 
@@ -565,20 +569,22 @@ Ogni sezione di codice di compilazione del modello è suddivisa in passaggi:
 
 Ecco due modi per eseguire la convalida incrociata con sweep di parametri:
 
-1. Tramite codice **generico** personalizzato che può essere applicato a qualsiasi algoritmo in MLlib e a qualsiasi set di parametri in un algoritmo. 
-2. Tramite la **funzione della pipeline CrossValidator pySpark**. Si noti che CrossValidator presenta alcune limitazioni per Spark 1.5.0: 
+1. Uso di codice personalizzato **generico** che può essere applicato a qualsiasi algoritmo in MLlib e a qualsiasi set di parametri in un algoritmo. 
+2. Tramite la **funzione della pipeline CrossValidator pySpark**. CrossValidator presenta alcune limitazioni per Spark 1.5.0: 
    
-   * I modelli di pipeline non possono essere salvati/resi persistenti per un utilizzo futuro.
+   * I modelli di pipeline non possono essere salvati o salvati in permanenza per un utilizzo futuro.
    * Non può essere usato per ogni parametro in un modello.
    * Non può essere usato per ogni algoritmo MLlib.
 
 ### <a name="generic-cross-validation-and-hyperparameter-sweeping-used-with-the-logistic-regression-algorithm-for-binary-classification"></a>Convalida incrociata generica e sweep di iperparametri usati con l'algoritmo di regressione logistica per la classificazione binaria
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di regressione logistica con l'algoritmo [L-BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) , che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York. Il training del modello viene eseguito con convalida incrociata e sweep di iperparametri implementati con codice personalizzato, che è possibile applicare a qualsiasi algoritmo di apprendimento in MLlib.   
 
+<!-- -->
+
 > [!NOTE]
 > L'esecuzione del codice personalizzato di convalida incrociata può richiedere alcuni minuti.
-> 
-> 
+
+<!-- -->
 
 **Eseguire il training del modello di regressione logistica usando la convalida incrociata e lo sweep degli iperparametri**
 
@@ -663,11 +669,11 @@ Il codice riportato in questa sezione illustra come eseguire il training, valuta
 
 **OUTPUT**
 
-Coefficienti: [0,0082065285375, -0,0223675576104, -0,0183812028036, -3,48124578069e-05, -0,00247646947233, -0,00165897881503, 0,0675394837328, -0,111823113101, -0,324609912762, -0,204549780032, -1,36499216354, 0,591088507921, -0,664263411392, -1,00439726852, 3,46567827545, -3,51025855172, -0,0471341112232, -0,043521833294, 0,000243375810385, 0,054518719222]
+Coefficienti: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
 Intercetta: -0,0111216486893
 
-Tempo impiegato per eseguire questa cella: 14,43 secondi
+Tempo impiegato per eseguire questa cella: 14,43 secondi.
 
 **Valutare il modello di classificazione binaria con le metriche standard**
 
@@ -728,7 +734,7 @@ Richiamo = 0,984174341679
 
 Punteggio F1 = 0,984174341679
 
-Tempo impiegato per eseguire questa cella: 2,67 secondi
+Tempo impiegato per eseguire questa cella: 2,67 secondi.
 
 **Tracciare la curva ROC.**
 
@@ -796,15 +802,17 @@ Il codice in questa sezione illustra come salvare il modello di regressione logi
 
 **OUTPUT**
 
-Tempo impiegato per eseguire questa cella: 34,57 secondi
+Tempo impiegato per eseguire questa cella: 34,57 secondi.
 
 ### <a name="use-mllibs-crossvalidator-pipeline-function-with-logistic-regression-elastic-regression-model"></a>Usare la funzione della pipeline CrossValidator di MLlib con il modello di regressione logistica (regressione elastica)
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di regressione logistica con l'algoritmo [L-BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) , che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York. Il training del modello viene eseguito con convalida incrociata e sweep di iperparametri implementati con la funzione della pipeline CrossValidator MLlib per convalida incrociata con sweep di iperparametri.   
 
+<!-- -->
+
 > [!NOTE]
 > L'esecuzione del codice di convalida incrociata MLlib può richiedere alcuni minuti.
-> 
-> 
+
+<!-- -->
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -852,7 +860,7 @@ Il codice riportato in questa sezione illustra come eseguire il training, valuta
 
 **OUTPUT**
 
-Tempo impiegato per eseguire questa cella: 107,98 secondi
+Tempo impiegato per eseguire questa cella: 107,98 secondi.
 
 **Tracciare la curva ROC.**
 
@@ -939,10 +947,10 @@ Il codice riportato in questa sezione illustra come eseguire il training, valuta
 
 Area in ROC = 0,985336538462
 
-Tempo impiegato per eseguire questa cella: 26,72 secondi
+Tempo impiegato per eseguire questa cella: 26,72 secondi.
 
 ### <a name="gradient-boosting-trees-classification"></a>Classificazione tramite alberi con boosting a gradienti
-Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi di NYC.
+Il codice riportato in questa sezione illustra come eseguire il training, la valutazione e il salvataggio di un modello di alberi con boosting a gradienti, che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo a corse e tariffe dei taxi della città di New York.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -983,7 +991,7 @@ Il codice riportato in questa sezione illustra come eseguire il training, valuta
 
 Area in ROC = 0,985336538462
 
-Tempo impiegato per eseguire questa cella: 28,13 secondi
+Tempo impiegato per eseguire questa cella: 28,13 secondi.
 
 ## <a name="predict-tip-amount-with-regression-models-not-using-cv"></a>Prevedere l'importo delle mance con di modelli di regressione (senza usare la convalida incrociata)
 Questa sezione illustra come usare tre modelli per l'attività di regressione relativa alla previsione dell'importo della mancia lasciata per una corsa in taxi in base ad altre funzionalità relative alle mance. I modelli presentati sono:
@@ -998,11 +1006,19 @@ Questi modelli sono stati descritti nell'introduzione. Ogni sezione di codice di
 2. **Valutazione del modello** su un set di dati di test con metriche
 3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro   
 
-> NOTA PER AZURE: la convalida incrociata non viene usata con i tre modelli di regressione in questa sezione, in quanto è stata illustrata in dettaglio per i modelli di regressione logistica. Nell'appendice di questo argomento viene fornito un esempio che illustra come usare la convalida incrociata con Elastic Net per la regressione lineare.
-> 
-> NOTA PER AZURE: la convergenza di modelli LinearRegressionWithSGD può risultare problematica ed è necessario modificare oppure ottimizzare attentamente i parametri per ottenere un modello valido. Il ridimensionamento delle variabili può essere molto utile per la convergenza. Al posto di LinearRegressionWithSGD è anche possibile usare la regressione Elastic Net illustrata nell'appendice di questo argomento.
-> 
-> 
+<!-- -->
+
+> [!NOTE] 
+> la convalida incrociata non viene usata con i tre modelli di regressione in questa sezione, in quanto è stata illustrata in dettaglio per i modelli di regressione logistica. Nell'appendice di questo argomento viene fornito un esempio che illustra come usare la convalida incrociata con Elastic Net per la regressione lineare.
+
+<!-- -->
+
+<!-- -->
+
+> [!NOTE] 
+> la convergenza di modelli LinearRegressionWithSGD può risultare problematica ed è necessario modificare oppure ottimizzare attentamente i parametri per ottenere un modello valido. Il ridimensionamento delle variabili può essere molto utile per la convergenza. Al posto di LinearRegressionWithSGD è anche possibile usare la regressione Elastic Net illustrata nell'appendice di questo argomento.
+
+<!-- -->
 
 ### <a name="linear-regression-with-sgd"></a>Regressione lineare con SGD
 Il codice riportato in questa sezione illustra come usare le funzionalità con ridimensionamento per il training di una regressione lineare che usa la discesa del gradiente stocastica (SGD) per l'ottimizzazione e come assegnare punteggi, valutare e salvare il modello in BLOB di Archiviazione di Azure (WASB).
@@ -1060,15 +1076,17 @@ RMSE = 1,23485131376
 
 R-sqr = 0,597963951127
 
-Tempo impiegato per eseguire questa cella: 38,62 secondi
+Tempo impiegato per eseguire questa cella: 38,62 secondi.
 
 ### <a name="random-forest-regression"></a>Regressione tramite foresta casuale
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di foresta casuale, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi di NYC.   
 
+<!-- -->
+
 > [!NOTE]
 > Nell'appendice è illustrata la convalida incrociata con sweep di parametri tramite codice personalizzato.
-> 
-> 
+
+<!-- -->
 
     #PREDICT TIP AMOUNTS USING RANDOM FOREST
 
@@ -1116,7 +1134,7 @@ RMSE = 0,931981967875
 
 R-sqr = 0,733445485802
 
-Tempo impiegato per eseguire questa cella: 25,98 secondi
+Tempo impiegato per eseguire questa cella: 25,98 secondi.
 
 ### <a name="gradient-boosting-trees-regression"></a>Regressione tramite alberi con boosting a gradienti
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi di NYC.
@@ -1167,11 +1185,11 @@ RMSE = 0,928172197114
 
 R-sqr = 0,732680354389
 
-Tempo impiegato per eseguire questa cella: 20,9 secondi
+Tempo impiegato per eseguire questa cella: 20,9 secondi.
 
 **Grafico**
 
-L'oggetto *tmp_results* viene registrato come tabella Hive nella cella precedente. I risultati della tabella vengono restituiti nel frame di dati *sqlResults* per il tracciamento. Ecco il codice
+*tmp_results* viene registrato come una tabella Hive nella cella precedente. I risultati della tabella vengono restituiti nel frame di dati *sqlResults* per il tracciamento. Ecco il codice
 
     # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1260,7 +1278,7 @@ Il codice in questa sezione illustra come eseguire la convalida incrociata usand
 
 **OUTPUT**
 
-Tempo impiegato per eseguire questa cella: 161,21 secondi
+Tempo impiegato per eseguire questa cella: 161,21 secondi.
 
 **Eseguire la valutazione con la metrica R-SQR**
 
@@ -1376,7 +1394,7 @@ RMSE = 0,906972198262
 
 R-sqr = 0,740751197012
 
-Tempo impiegato per eseguire questa cella: 69,17 secondi
+Tempo impiegato per eseguire questa cella: 69,17 secondi.
 
 ### <a name="clean-up-objects-from-memory-and-print-model-locations"></a>Pulire gli oggetti dalla memoria e stampare i percorsi dei modelli
 Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
@@ -1410,7 +1428,7 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-**Stampare il percorso dei file di modello da usare nel notebook sul consumo. **Per il consumo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel cosiddetto "notebook sul consumo".
+\* * Percorso di output dei file di modello da usare nel notebook a consumo. **Per il consumo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel cosiddetto "notebook sul consumo".
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -1435,8 +1453,8 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="whats-next"></a>Potrai anche
 Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, è possibile imparare a valutare e assegnare punteggi a questi modelli.
 
-**Utilizzo dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di Machine Learning compilati con Spark](spark-model-consumption.md).
+**Uso dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md).
 

@@ -1,22 +1,22 @@
 ---
-title: Creare caratteristiche per i dati in un cluster Hadoop - Processo di data science per i team
+title: Creare funzionalità per i dati in un cluster Azure HDInsight Hadoop-processo di Data Science per i team
 description: Esempi di query Hive che generano funzionalità nei dati archiviati in un cluster HDInsight Hadoop di Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982050"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721779"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop con query Hive
 Questo documento illustra come creare funzionalità per i dati archiviati in un cluster Hadoop di Azure HDInsight tramite query Hive. Tali query Hive usano le funzioni definite dall'utente di Hive incorporate, gli script per i quali sono fornite.
@@ -144,14 +144,14 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Questo parametro consente di allocare 4 GB di memoria nello spazio dell'heap di Java e facilita l'ordinamento poiché rende disponibile maggiore quantità di memoria. Si consiglia di regolare queste allocazioni se si verificano errori di processo relativi allo spazio dell'heap.
+    Questo parametro alloca memoria da 4 GB a spazio heap Java e rende più efficiente l'ordinamento allocando una maggiore quantità di memoria. Si consiglia di regolare queste allocazioni se si verificano errori di processo relativi allo spazio dell'heap.
 
 1. **Dimensione di blocco per DFS**: questo parametro consente di impostare la quantità minima relativa all'unità di dati che il file system è in grado di memorizzare. Ad esempio, se la dimensione del blocco DFS è 128 MB, tutti i dati con dimensioni minori o uguali a 128 MB vengono archiviati in un unico blocco. Ai dati con dimensioni maggiori di 128 MB vengono assegnati blocchi aggiuntivi. 
 2. Se si sceglie una dimensione di blocco limitata si causano sovraccarichi in Hadoop, dal momento che il nodo del nome deve elaborare molte più richieste al fine di rilevare il blocco che fa riferimento al file. Un'impostazione consigliata per dati con dimensioni in gigabyte (o più grandi) è:
 
         set dfs.block.size=128m;
 
-2. **Ottimizzazione delle operazioni di unione in Hive**: anche se le operazioni nel framework di mapping/riduzione avvengono solitamente nella fase di riduzione, è possibile talvolta ottenere dei miglioramenti pianificando le operazioni di unione nella fase di mapping (detta anche "mapjoin"). Per indirizzare Hive a tale scopo, quando possibile, impostare:
+2. **Ottimizzazione delle operazioni di unione in Hive**: anche se le operazioni nel framework di mapping/riduzione avvengono solitamente nella fase di riduzione, è possibile talvolta ottenere dei miglioramenti pianificando le operazioni di unione nella fase di mapping (detta anche "mapjoin"). Impostare questa opzione:
    
        set hive.auto.convert.join=true;
 
@@ -167,7 +167,7 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 
      Come è evidente, stabilita la dimensione dei dati, regolare i parametri "impostandoli" consente all'utente di scegliere il numero di mapper da usare.
 
-4. Di seguito sono riportate altre **opzioni avanzate** che consentono di ottimizzare le prestazioni di Hive. Tali opzioni consentono di impostare la quantità di memoria allocata per le attività di mapping e di riduzione e possono essere utili nella modifica delle prestazioni. Tenere presente che *mapreduce.reduce.memory.mb* non può essere superiore alla dimensione della memoria fisica di ogni nodo di lavoro presente nel cluster Hadoop.
+4. Di seguito sono riportate altre **opzioni avanzate** che consentono di ottimizzare le prestazioni di Hive. Queste opzioni consentono di impostare la memoria allocata per eseguire il mapping e ridurre le attività e possono essere utili per ottimizzare le prestazioni. Tenere presente che *mapreduce.reduce.memory.mb* non può essere superiore alla dimensione della memoria fisica di ogni nodo di lavoro presente nel cluster Hadoop.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

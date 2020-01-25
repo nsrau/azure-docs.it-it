@@ -16,12 +16,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 7eb6c0399cb99de97fa2f45b6cc4f75693ecc5df
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: be608019aa6a393891d9586005e5ef9c970a8bd1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701315"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712369"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedura: eseguire l'accesso SSO tra app ADAL e MSAL in macOS e iOS
 
@@ -171,7 +171,7 @@ API di ricerca account supportate da MSAL:
 /*!
  Returns account for the given account identifier (received from an account object returned in a previous acquireToken call)
  
- @param  error      The error that occured trying to get the accounts, if any, if you're
+ @param  error      The error that occurred trying to get the accounts, if any, if you're
                     not interested in the specific error pass in nil.
  */
 - (nullable MSALAccount *)accountForIdentifier:(nonnull NSString *)identifier
@@ -181,7 +181,7 @@ API di ricerca account supportate da MSAL:
 Returns account for for the given username (received from an account object returned in a previous acquireToken call or ADAL)
     
 @param  username    The displayable value in UserPrincipleName(UPN) format
-@param  error       The error that occured trying to get the accounts, if any, if you're
+@param  error       The error that occurred trying to get the accounts, if any, if you're
                     not interested in the specific error pass in nil.
 */
 - (MSALAccount *)accountForUsername:(NSString *)username

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9d71dd854c9a5059c2d0a48f57ad3ba5bb1eddf9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768215"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721320"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Log nel database di Azure per PostgreSQL-server singolo
 Database di Azure per PostgreSQL consente di configurare e accedere ai log standard di postgres. I log possono essere usati per identificare, risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. Le informazioni di registrazione che è possibile configurare e l'accesso includono errori, informazioni sulle query, record autovacuum, connessioni e Checkpoint. (L'accesso ai log delle transazioni non è disponibile).
@@ -99,7 +99,7 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | TenantId | ID del tenant. |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
-| Type | Tipo di log. Sempre `AzureDiagnostics` |
+| Tipo | Tipo di log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID per la sottoscrizione a cui appartiene il server. |
 | ResourceGroup | Nome del gruppo di risorse a cui appartiene il server. |
 | ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
@@ -109,8 +109,8 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Livello di registrazione, ad esempio: LOG, ERROR, NOTICE |
-| Message | Messaggio di log primario | 
-| Domain | Versione del server, ad esempio: postgres-10 |
+| Messaggio | Messaggio di log primario | 
+| Dominio | Versione del server, ad esempio: postgres-10 |
 | Dettagli | Messaggio di log secondario (se applicabile) |
 | ColumnName | Nome della colonna (se applicabile) |
 | SchemaName | Nome dello schema (se applicabile) |

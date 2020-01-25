@@ -1,19 +1,19 @@
 ---
 title: Monitorare il recapito dei messaggio di Griglia di eventi di Azure
-description: Descrive come monitorare il recapito dei messaggi di Griglia di eventi di Azure.
+description: Questo articolo descrive come usare la portale di Azure per visualizzare lo stato del recapito dei messaggi di griglia di eventi di Azure.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b1035046cc3c3b6cd7bde895e2e779d1c966abe0
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170017"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722136"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
 
@@ -76,7 +76,7 @@ Visualizzare le metriche per l'argomento dell'evento personalizzato.
 
 ![Visualizzare le metriche degli eventi](./media/monitor-event-delivery/custom-topic-metrics.png)
 
-## <a name="set-alerts"></a>Impostare gli avvisi
+## <a name="set-alerts"></a>Impostare avvisi
 
 È possibile impostare gli avvisi sull'argomento e la metrica a livello di dominio per gli argomenti personalizzati e i domini di evento. Nel pannello panoramica per selezionare **avvisi** dal menu delle risorse a sinistra per visualizzare, gestire e creare regole di avviso. [Altre informazioni sugli avvisi di monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
 

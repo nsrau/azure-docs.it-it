@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950817"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712859"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -126,7 +126,7 @@ Crea un'attestazione di stringa dal parametro di input specificato nei criteri.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | Stringa da impostare |
+| InputParameter | Valore | string | Stringa da impostare |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -157,7 +157,7 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I possibili valori sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -197,7 +197,7 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I possibili valori sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
@@ -295,7 +295,7 @@ Formatta un'attestazione in base alla stringa formato specificata. Questa trasfo
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |string |Elemento ClaimType che funge come parametro {0} del formato della stringa. |
+| InputClaim | inputClaim |string |Elemento ClaimType che funge come parametro {0} del formato della stringa. |
 | InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -330,8 +330,8 @@ Formatta due attestazioni in base alla stringa di formato specificata. Questa tr
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |string | Elemento ClaimType che funge come parametro {0} del formato della stringa. |
-| InputClaim | InputClaim | string | Elemento ClaimType che funge come parametro {1} del formato della stringa. |
+| InputClaim | inputClaim |string | Elemento ClaimType che funge come parametro {0} del formato della stringa. |
+| InputClaim | inputClaim | string | Elemento ClaimType che funge come parametro {1} del formato della stringa. |
 | InputParameter | stringFormat | string | Formato della stringa, ad esempio i parametri {0} e {1}. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -358,7 +358,7 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
     - **inputClaim1**: Joe
     - **inputClaim2**: Fernando
 - Parametri di input:
-    - **stringFormat**: {0} {1}
+    - **StringFormat**: {0} {1}
 - Attestazioni di output:
     - **outputClaim**: Joe Fernando
 
@@ -379,7 +379,7 @@ L'esempio seguente cerca la descrizione del messaggio di errore in base alla chi
   <DataType>string</DataType>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
@@ -403,7 +403,7 @@ La trasformazione di attestazioni esegue la ricerca del testo dell'elemento e ne
 - Attestazioni di input:
     - **mapFromClaim**: B2C_V1_90001
 - Attestazioni di output:
-    - **restrictionValueClaim**: Non puoi accedere perché sei un minore.
+    - **restrictionValueClaim**: non è possibile accedere perché si è minorenni.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -505,9 +505,9 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | Tipo dell'attestazione di cui eseguire il confronto. |
+| InputClaim | inputClaim | string | Tipo dell'attestazione di cui eseguire il confronto. |
 | InputParameter | matchTo | string | Stringa da confrontare con `inputClaim`. |
-| InputParameter | stringComparison | string | I possibili valori sono: `Ordinal` o `OrdinalIgnoreCase`. |
+| InputParameter | stringComparison | string | I valori possibili sono: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | Primo valore da impostare se le stringhe sono uguali. |
 | InputParameter | stringMatchMsgCode | string | Secondo valore da impostare se le stringhe sono uguali. |
 | OutputClaim | outputClaim1 | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `stringMatchMsg`. |
@@ -556,7 +556,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | Tipo dell'attestazione di cui eseguire il confronto. |
 | InputParameter | matchTo | string | Stringa da confrontare con inputClaim. |
-| InputParameter | stringComparison | string | I possibili valori sono: `Ordinal` o `OrdinalIgnoreCase`. |
+| InputParameter | stringComparison | string | I valori possibili sono: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | Valore da impostare se le stringhe sono uguali. |
 | OutputClaim | outputClaim | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `outputClaimIfMatched`. Se le stringhe non corrispondono, il valore contenuto è null. |
 | OutputClaim | stringCompareResultClaim | boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |

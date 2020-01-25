@@ -1,22 +1,15 @@
 ---
 title: Estrazione dei dati-LUIS
-titleSuffix: Azure Cognitive Services
 description: Estrae i dati da testo enunciato con Intent ed entità. Informazioni sul tipo di dati che è possibile estrarre da Language Understanding (LUIS).
-services: cognitive-services
 author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: ff0a9838d1fcc9db3b6cc25b47c840e01056e6cd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.date: 01/23/2020
+ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703141"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716297"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrai i dati da testo enunciato con Intent ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -26,17 +19,17 @@ I dati più difficili da estrarre sono i dati appresi in modo automatico perché
 ## <a name="data-location-and-key-usage"></a>Posizione dei dati e uso di chiavi
 LUIS fornisce i dati dall'[endpoint](luis-glossary.md#endpoint) pubblicato. La **richiesta HTTPS** (POST o GET) contiene l'espressione e alcune configurazioni facoltative, ad esempio ambienti di staging o produzione.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 richiesta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Richiesta dell'endpoint di previsione V2](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Richiesta endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Richiesta dell'endpoint di previsione V3](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 `appID` è disponibile nella pagina **Settings** (Impostazioni) dell'app LUIS e in parte dell'URL (dopo `/apps/`) quando si modifica quell'app LUIS. `subscription-key` è la chiave endpoint usata per eseguire query nell'app. Sebbene sia possibile usare la chiave di creazione/avvio durante l'apprendimento di LUIS, è importante modificare la chiave endpoint in una chiave che supporti l'[uso previsto di LUIS](luis-boundaries.md#key-limits). L'unità `timezoneOffset` è in minuti.
 
@@ -45,7 +38,7 @@ La **risposta HTTPS** contiene tutte le informazioni su finalità ed entità che
 ## <a name="data-from-intents"></a>Dati da finalità
 I dati principali sono dati dal **nome della finalità** con il punteggio superiore. La risposta dell'endpoint è:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 {
@@ -58,7 +51,7 @@ I dati principali sono dati dal **nome della finalità** con il punteggio superi
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 ```JSON
 {
@@ -76,18 +69,18 @@ I dati principali sono dati dal **nome della finalità** con il punteggio superi
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|Value|
+|Oggetto dati|Tipo di dati|Posizione dei Dati|Valore|
 |--|--|--|--|
-|Finalità|String|topScoringIntent.intent|"GetStoreInfo"|
+|Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
 
 Se l'app chatbot o LUIS-Calling prende una decisione in base a più di un punteggio preventivo, restituisce tutti i punteggi di Intent.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 Impostare il parametro QueryString, `verbose=true`. La risposta dell'endpoint è:
 
@@ -112,7 +105,7 @@ Impostare il parametro QueryString, `verbose=true`. La risposta dell'endpoint è
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 Impostare il parametro QueryString, `show-all-intents=true`. La risposta dell'endpoint è:
 
@@ -136,20 +129,20 @@ Impostare il parametro QueryString, `show-all-intents=true`. La risposta dell'en
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 Le finalità vengono ordinate dal punteggio più alto al più basso.
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|Punteggio|
+|Oggetto dati|Tipo di dati|Posizione dei Dati|Valore|Punteggio|
 |--|--|--|--|:--|
-|Finalità|String|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Finalità|String|intents[0].intent|"None"|0,0168218873|
+|Finalità|string|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Finalità|string|intents[0].intent|"None"|0,0168218873|
 
 Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, ad esempio `Utilties` o `Communication` e la finalità:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 {
@@ -175,7 +168,7 @@ Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, 
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 ```JSON
 {
@@ -199,15 +192,15 @@ Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, 
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
-|Domain|Oggetto dati|Tipo di dati|Posizione dei dati|Value|
+|Dominio|Oggetto dati|Tipo di dati|Posizione dei Dati|Valore|
 |--|--|--|--|--|
-|Servizi pubblici|Finalità|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicazioni|Finalità|String|intents[0].intent|<b>Communication</b>.StartOver"|
-||Finalità|String|intents[2].intent|"None"|
+|Servizi pubblici|Finalità|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicazione|Finalità|string|intents[0].intent|<b>Communication</b>.StartOver"|
+||Finalità|string|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dati da entità
@@ -217,7 +210,7 @@ Una singola parola o frase dell'espressione può corrispondere a più di un'enti
 
 Tutte le entità vengono restituite nella matrice **entità** della risposta dall'endpoint:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -240,7 +233,7 @@ Tutte le entità vengono restituite nella matrice **entità** della risposta dal
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 ```JSON
 "entities": {
@@ -248,14 +241,13 @@ Tutte le entità vengono restituite nella matrice **entità** della risposta dal
     "number": [3]
 }
 ```
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 ## <a name="tokenized-entity-returned"></a>Entità in formato token restituita
-Diverse [impostazioni cultura](luis-language-support.md#tokenization) restituiscono l'oggetto entità con il `entity` valore [in formato token](luis-glossary.md#token). Gli elementi startIndex e endIndex restituiti da LUIS nell'oggetto entità non corrispondono al nuovo valore in formato token, ma alla query originale affinché sia possibile estrarre l'entità non elaborata in modo programmatico. 
 
-Ad esempio, in tedesco, la parola `das Bauernbrot` in formato token è `das bauern brot`. Il valore in formato token, `das bauern brot`, viene restituito e il valore originale può essere determinato in modo programmatico dagli elementi startIndex ed endIndex della query originale, restituendo `das Bauernbrot`.
+Esaminare il [supporto dei token](luis-language-support.md#tokenization) in Luis.
 
 ## <a name="simple-entity-data"></a>Dati entità semplice
 
@@ -263,18 +255,18 @@ Un'[entità semplice](reference-entity-simple.md) è un valore appreso in modo a
 
 ## <a name="composite-entity-data"></a>Dati entità composita
 
-Un' [entità composita](reference-entity-composite.md) è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera. 
+Un' [entità composita](reference-entity-composite.md) è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera.
 
 ## <a name="list-entity-data"></a>Dati entità elenco
 
-Le [entità di elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint. 
+Le [entità di elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint.
 
 ## <a name="prebuilt-entity-data"></a>Dati entità predefinita
 Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base alla corrispondenza con espressione regolare usando il progetto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open-source. Le entità predefinite vengono restituite nella matrice di entità e usano il nome tipo con prefisso `builtin::`. Il testo seguente è un'espressione di esempio con entità predefinite restituite:
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -355,7 +347,7 @@ Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base a
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 Senza il parametro QueryString, `verbose=true`:
 
@@ -532,9 +524,9 @@ Con il parametro QueryString, `verbose=true`:
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 ## <a name="regular-expression-entity-data"></a>Dati entità espressione regolare
 
 Un' [entità di espressione regolare](reference-entity-regular-expression.md) estrae un'entità in base a un modello di espressione regolare fornito dall'utente.
@@ -544,11 +536,11 @@ Ottenere i nomi da un'espressione è difficile perché un nome può essere quals
 
 ### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Aggiungere le entità PersonName e GeographyV2 predefinite
 
-Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) sono disponibili in alcune [impostazioni cultura della lingua](luis-reference-prebuilt-entities.md). 
+Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) sono disponibili in alcune [impostazioni cultura della lingua](luis-reference-prebuilt-entities.md).
 
 ### <a name="names-of-people"></a>Nomi di persone
 
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[personName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome. 
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[personName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome.
 
 Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse ed espressioni in tutti gli Intent, inclusa la finalità None. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
@@ -564,7 +556,7 @@ Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio
 I ruoli sono differenze contestuali di entità.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 Il nome dell'entità è `Location`, con due ruoli, `Origin` e `Destination`.
 
@@ -597,9 +589,9 @@ Il nome dell'entità è `Location`, con due ruoli, `Origin` e `Destination`.
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-In V3, il **nome del ruolo** è il nome primario dell'oggetto. 
+In V3, il **nome del ruolo** è il nome primario dell'oggetto.
 
 Il nome dell'entità è `Location`, con due ruoli, `Origin` e `Destination`.
 
@@ -681,15 +673,15 @@ Con il parametro QueryString, `verbose=true`:
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
 ## <a name="patternany-entity-data"></a>Dati entità Pattern.any
 
-[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità.  
+[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità.
 
-## <a name="sentiment-analysis"></a>Analisi del sentiment
+## <a name="sentiment-analysis"></a>Analisi dei sentimenti
 Se l'analisi del sentiment è configurata, è inclusa nella risposta json LUIS. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 ### <a name="sentiment-data"></a>Dati sentiment
@@ -717,7 +709,7 @@ Per tutte le altre impostazioni cultura, la risposta è:
 L'entità estrazione frasi chiave restituisce frasi chiave nell'espressione, fornita da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 {
@@ -752,9 +744,9 @@ L'entità estrazione frasi chiave restituisce frasi chiave nell'espressione, for
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 Senza il parametro QueryString, `verbose=true`:
 
@@ -817,7 +809,7 @@ Con il parametro QueryString, `verbose=true`:
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
@@ -830,7 +822,7 @@ LUIS restituisce tutte le entità individuate nell'espressione. Di conseguenza, 
 
 L'endpoint LUIS può individuare gli stessi dati in entità diverse.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 {
@@ -956,7 +948,7 @@ L'endpoint LUIS può individuare gli stessi dati in entità diverse.
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 Senza `verbose=true` come parametro QueryString.
 
@@ -1133,7 +1125,7 @@ Con `verbose=true` come parametro QueryString.
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
@@ -1141,9 +1133,9 @@ Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Se una parola o frase corrisponde a più entità elenco, la query di endpoint restituisce ciascuna entità elenco.
 
-Per la query `when is the best time to go to red rock?`, se l'app contiene la parola `red` in più di un elenco, LUIS riconosce tutte le entità e restituisce una matrice di entità come parte della risposta dell'endpoint JSON: 
+Per la query `when is the best time to go to red rock?`, se l'app contiene la parola `red` in più di un elenco, LUIS riconosce tutte le entità e restituisce una matrice di entità come parte della risposta dell'endpoint JSON:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 {
@@ -1181,7 +1173,7 @@ Per la query `when is the best time to go to red rock?`, se l'app contiene la pa
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 Senza `verbose=true` nella stringa di query:
 
@@ -1270,7 +1262,7 @@ Con `verbose=true` nella stringa di query:
 }
 ```
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 

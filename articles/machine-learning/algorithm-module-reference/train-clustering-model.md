@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: ea247af871b06bd21c2733272b3d938c536d16ec
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6b154cdbf6490abd935156e6d081d2260cfbc578
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546453"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719365"
 ---
 # <a name="train-clustering-model"></a>Eseguire il training del modello di clustering
 
@@ -25,7 +25,7 @@ Utilizzare questo modulo per eseguire il training di un modello di clustering.
 Il modulo accetta un modello di clustering senza training che è già stato configurato usando il modulo di [clustering K-means](k-means-clustering.md) ed esegue il training del modello usando un set di dati con etichetta o senza etichetta. Il modulo consente di creare un modello sottoposto a training che è possibile utilizzare per la stima e un set di assegnazioni di cluster per ogni case nei dati di training.
 
 > [!NOTE]
-> È stato eseguito il training di un modello di clustering Impossibile usando il modulo [Train Model](train-model.md) , che è il modulo generico per il training dei modelli di machine learning. Questo perché il [modello di training](train-model.md) funziona solo con gli algoritmi di apprendimento supervisionato. K-means e altri algoritmi di clustering consentono l'apprendimento non supervisionato, ovvero l'algoritmo può apprendere da dati senza etichetta.  
+> Non è possibile eseguire il training di un modello di clustering con il modulo [Train Model](train-model.md) , che è il modulo generico per il training dei modelli di machine learning. Questo perché il [modello di training](train-model.md) funziona solo con gli algoritmi di apprendimento supervisionato. K-means e altri algoritmi di clustering consentono l'apprendimento non supervisionato, ovvero l'algoritmo può apprendere da dati senza etichetta.  
   
 ## <a name="how-to-use-train-clustering-model"></a>Come utilizzare il modello di clustering di Train  
 

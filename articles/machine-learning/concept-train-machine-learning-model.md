@@ -1,7 +1,7 @@
 ---
 title: Metodi di training del modello
 titleSuffix: Azure Machine Learning
-description: Informazioni sui diversi metodi che è possibile usare per eseguire il training del modello con Azure Machine Learning. Gli estimatori forniscono un modo semplice per lavorare con i Framework più diffusi, ad esempio Scikit-learn, TensorFlow, keras, PyTorch e Chainer. Machine Learning pipeline semplificano la pianificazione di esecuzioni automatiche, l'uso di ambienti di calcolo eterogeneo e il riutilizzo di parti del flusso di lavoro. Le configurazioni di esecuzione forniscono un controllo granulare sulle destinazioni di calcolo in cui viene eseguito il processo di training.
+description: Informazioni sui diversi metodi che è possibile usare per eseguire il training del modello con Azure Machine Learning. Gli estimatori forniscono un modo semplice per lavorare con i Framework più diffusi, ad esempio Scikit-learn, TensorFlow, keras, PyTorch e Chainer. Machine Learning pipeline semplificano la pianificazione di esecuzioni automatiche, l'uso di ambienti di calcolo eterogenei e il riutilizzo di parti del flusso di lavoro. Le configurazioni di esecuzione forniscono un controllo granulare sulle destinazioni di calcolo in cui viene eseguito il processo di training.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 4902c679fa9b8b0140f7da8f32b3382983a635ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311326"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721116"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning offre diversi modi per eseguire il training dei modelli, 
     | [Estimatori](#estimators) | Le classi Estimator **semplificano il training di modelli basati su Framework di apprendimento automatico diffusi**. Sono disponibili classi Estimator per **Scikit-learn**, **PyTorch**, **TensorFlow**e **Chainer**. È disponibile anche uno strumento di stima generico che può essere usato con Framework che non dispongono già di una classe Estimator dedicata. Non è necessario preoccuparsi di definire una configurazione di esecuzione quando si usano gli estimatori. |
     | [Pipeline di Machine Learning](#machine-learning-pipeline) | Le pipeline non sono un metodo di training diverso, ma un **modo per definire un flusso di lavoro usando passaggi modulari e riutilizzabili**che possono includere il training come parte del flusso di lavoro. Le pipeline di Machine Learning supportano l'uso automatico di Machine Learning, gli estimatori e la configurazione di esecuzione per eseguire il training di modelli. Poiché le pipeline non sono focalizzate in modo specifico sul training, i motivi per usare una pipeline sono più diversi rispetto agli altri metodi di training. In genere, è possibile usare una pipeline nei casi seguenti:<br>* Si desidera **pianificare processi automatici** , ad esempio processi di training con esecuzione prolungata o preparazione dei dati.<br>* Usare **più passaggi** coordinati tra le risorse di calcolo eterogenee e le posizioni di archiviazione.<br>* Utilizzare la pipeline come **modello riutilizzabile** per scenari specifici, ad esempio la ripetizione del training o il Punteggio batch.<br>* le **origini dati di rilevamento e versione, gli input e gli output** del flusso di lavoro.<br>* Il flusso **di lavoro viene implementato da team diversi che lavorano su passaggi specifici in modo indipendente**. I passaggi possono quindi essere Uniti in una pipeline per implementare il flusso di lavoro. |
 
-+ **Designer**: Azure Machine Learning Designer fornisce un semplice punto di ingresso in machine learning per la creazione di modelli di prova o per gli utenti con poca esperienza di codifica. Consente di eseguire il training di modelli usando un'interfaccia utente basata sul Web di trascinamento. È possibile usare il codice Python come parte della progettazione o eseguire il training di modelli senza scrivere codice.
++ **Finestra di progettazione**: Azure Machine Learning Designer (anteprima) offre un punto di ingresso semplice in machine learning per la creazione di modelli di prova o per gli utenti con poca esperienza di codifica. Consente di eseguire il training di modelli usando un'interfaccia utente basata sul Web di trascinamento. È possibile usare il codice Python come parte della progettazione o eseguire il training di modelli senza scrivere codice.
 
 + **Interfaccia**della riga di comando: l'interfaccia della riga di comando di Machine Learning fornisce comandi per attività comuni con Azure Machine Learning e viene spesso usata per **lo script e l'automazione delle attività**. Ad esempio, dopo aver creato uno script di training o una pipeline, è possibile usare l'interfaccia della riga di comando per avviare un'esecuzione di training in base a una pianificazione o quando vengono aggiornati i file di dati usati per il training. Per i modelli di training, fornisce i comandi che inviano processi di training. Può inviare processi usando le configurazioni di esecuzione o le pipeline.
 
@@ -59,7 +59,7 @@ Il Azure Machine Learning SDK per Python consente di compilare ed eseguire fluss
 Definire le iterazioni, le impostazioni iperparametri, conteggi e altre impostazioni. Durante il training, Azure Machine Learning tenta in parallelo diversi algoritmi e parametri. Il training si interrompe dopo aver raggiunto i criteri di uscita definiti. Non è necessario preoccuparsi di definire una configurazione di esecuzione quando si usano gli estimatori.
 
 > [!TIP]
-> In aggiunta per Python SDK è possibile usare anche Machine Learning Machine Learning con [Azure Machine Learning Studio](https://ml.azure.com).
+> Oltre a Python SDK, è anche possibile usare Machine Learning Machine Learning con [Azure Machine Learning Studio](https://ml.azure.com).
 
 * [Che cos'è Machine Learning automatico?](concept-automated-ml.md)
 * [Esercitazione: creare il primo modello di classificazione con Machine Learning automatico](tutorial-first-experiment-automated-ml.md)

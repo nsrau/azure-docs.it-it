@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d21ebabb34b828624c196922f88380f02234dc05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940915"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711873"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -39,17 +39,17 @@ Per accedere alla funzionalità **mapping** del provisioning utenti, attenersi a
 1. Selezionare il **provisioning** per gestire le impostazioni di provisioning degli account utente per l'app selezionata.
 1. Espandere **mapping** per visualizzare e modificare gli attributi utente che scorrono tra Azure ad e l'applicazione di destinazione. Se l'applicazione di destinazione la supporta, questa sezione consente di configurare facoltativamente il provisioning di gruppi e account utente.
 
-   ![Usare i mapping per visualizzare e modificare gli attributi utente](./media/customize-application-attributes/21.png)
+   ![Usare i mapping per visualizzare e modificare gli attributi utente](media/customize-application-attributes/21.png)
 
 1. Selezionare una configurazione di **mapping** per aprire la schermata **mapping attributi** correlati. Alcuni mapping di attributi sono necessari per il corretto funzionamento di un'applicazione SaaS. Per gli attributi obbligatori la funzionalità **Elimina** non è disponibile.
 
-   ![Usare il mapping degli attributi per configurare i mapping degli attributi per le app](./media/customize-application-attributes/22.png)
+   ![Usare il mapping degli attributi per configurare i mapping degli attributi per le app](media/customize-application-attributes/22.png)
 
    In questa schermata è possibile vedere che l'attributo **username** di un oggetto gestito in Salesforce è popolato con il valore **userPrincipalName** dell'oggetto Azure Active Directory collegato.
 
 1. Selezionare un **mapping di attributi** esistente per aprire la schermata **modifica attributo** . Qui è possibile modificare gli attributi utente che scorrono tra Azure AD e l'applicazione di destinazione.
 
-   ![Usare modifica attributo per modificare gli attributi utente](./media/customize-application-attributes/23.png)
+   ![Usare modifica attributo per modificare gli attributi utente](media/customize-application-attributes/23.png)
 
 ### <a name="understanding-attribute-mapping-types"></a>Informazioni sui tipi di mapping degli attributi
 
@@ -71,7 +71,7 @@ Insieme a questa proprietà, i mapping degli attributi supportano anche gli attr
 
 - **Attributo di origine**: attributo utente nel sistema di origine, ad esempio Azure Active Directory.
 - **Attributo di destinazione**: attributo utente nel sistema di destinazione, ad esempio ServiceNow.
-- **Valore predefinito se null (facoltativo)** : valore che verrà passato al sistema di destinazione se l'attributo di origine è null. Il provisioning di questo valore verrà eseguito solo quando viene creato un utente. Il provisioning di "valore predefinito quando è null" non verrà eseguito quando si aggiorna un utente esistente. Se, ad esempio, si desidera eseguire il provisioning di tutti gli utenti esistenti nel sistema di destinazione con un titolo di processo specifico (quando è null nel sistema di origine), è possibile utilizzare l' [espressione](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)seguente: switch (JobTitle), "DefaultValue", "true", [JobTitle]). Assicurarsi di sostituire il "valore predefinito" con quello di cui si vuole eseguire il provisioning quando null nel sistema di origine. 
+- **Valore predefinito se null (facoltativo)** : valore che verrà passato al sistema di destinazione se l'attributo di origine è null. Il provisioning di questo valore verrà eseguito solo quando viene creato un utente. Il provisioning di "valore predefinito quando è null" non verrà eseguito quando si aggiorna un utente esistente. Se, ad esempio, si desidera eseguire il provisioning di tutti gli utenti esistenti nel sistema di destinazione con un titolo di processo specifico (quando è null nel sistema di origine), è possibile utilizzare l' [espressione](functions-for-customizing-application-data.md)seguente: switch (JobTitle), "DefaultValue", "true", [JobTitle]). Assicurarsi di sostituire il "valore predefinito" con quello di cui si vuole eseguire il provisioning quando null nel sistema di origine. 
 - Trova la **corrispondenza con gli oggetti che usano questo attributo** : indica se questo mapping deve essere usato per identificare in modo univoco gli utenti tra i sistemi di origine e di destinazione. Viene in genere impostato sull'attributo userPrincipalName o mail in Azure AD, che in genere viene mappato a un campo username in un'applicazione di destinazione.
 - **Precedenza abbinamento**: è possibile impostare più attributi corrispondenti. Quando sono presenti più, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
 - **Applica questo mapping**
@@ -92,7 +92,7 @@ Il servizio Azure AD provisioning può essere distribuito in scenari "Greenfield
 
 Un numero selezionato di applicazioni, ad esempio ServiceNow, box e G Suite, supporta la possibilità di effettuare il provisioning di oggetti gruppo e oggetti utente. Gli oggetti Group possono contenere proprietà del gruppo, ad esempio i nomi visualizzati e gli alias di posta elettronica, insieme ai membri del gruppo.
 
-![Esempio Mostra ServiceNow con gli oggetti gruppo e utente di cui è stato effettuato il provisioning](./media/customize-application-attributes/24.png)
+![Esempio Mostra ServiceNow con gli oggetti gruppo e utente di cui è stato effettuato il provisioning](media/customize-application-attributes/24.png)
 
 Facoltativamente, è possibile abilitare o disabilitare il provisioning dei gruppi selezionando il mapping del gruppo in **mapping**e impostando **abilitato** sull'opzione desiderata nella schermata **mapping attributi** .
 
@@ -193,13 +193,13 @@ Gli attributi personalizzati non possono essere attributi referenziali o attribu
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Provisioning di un ruolo in un'app SCIM
 Attenersi alla procedura seguente per eseguire il provisioning dei ruoli per un utente nell'applicazione. Si noti che la descrizione seguente è specifica per le applicazioni SCIM personalizzate. Per le applicazioni della raccolta, ad esempio Salesforce e ServiceNow, usare i mapping dei ruoli predefiniti. I punti elenco seguenti descrivono come trasformare l'attributo AppRoleAssignments nel formato previsto dall'applicazione.
 
-- Per eseguire il mapping di un appRoleAssignment in Azure AD a un ruolo nell'applicazione, è necessario trasformare l'attributo usando un' [espressione](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). L'attributo appRoleAssignment **non deve essere mappato direttamente** a un attributo Role senza utilizzare un'espressione per analizzare i dettagli del ruolo. 
+- Per eseguire il mapping di un appRoleAssignment in Azure AD a un ruolo nell'applicazione, è necessario trasformare l'attributo usando un' [espressione](functions-for-customizing-application-data.md). L'attributo appRoleAssignment **non deve essere mappato direttamente** a un attributo Role senza utilizzare un'espressione per analizzare i dettagli del ruolo. 
 
 - **SingleAppRoleAssignment** 
   - **Quando usare:** Usare l'espressione SingleAppRoleAssignment per eseguire il provisioning di un singolo ruolo per un utente e per specificare il ruolo primario. 
   - **Come configurare:** Utilizzare la procedura descritta in precedenza per passare alla pagina mapping attributi e utilizzare l'espressione SingleAppRoleAssignment per eseguire il mapping all'attributo roles. È possibile scegliere tra tre attributi di ruolo: (Roles [Primary EQ "true"]. display, Roles [Primary EQ "true]. Type e Roles [Primary EQ" true "]. Value). È possibile scegliere di includere uno o tutti gli attributi del ruolo nei mapping. Se si desidera includere più di uno, è sufficiente aggiungere un nuovo mapping e includerlo come attributo di destinazione.  
   
-  ![Aggiungi SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![Aggiungi SingleAppRoleAssignment](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Aspetti da considerare**
     - Assicurarsi che a un utente non siano assegnati più ruoli. Non è possibile garantire quale ruolo verrà sottoposto a provisioning.
     
@@ -231,11 +231,11 @@ Attenersi alla procedura seguente per eseguire il provisioning dei ruoli per un 
   - **Quando usare:** Usare l'espressione AppRoleAssignmentsComplex per eseguire il provisioning di più ruoli per un utente. 
   - **Come configurare:** Modificare l'elenco degli attributi supportati come descritto in precedenza per includere un nuovo attributo per i ruoli: 
   
-    ![Aggiungere ruoli](./media/customize-application-attributes/add-roles.png)<br>
+    ![Aggiungere ruoli](media/customize-application-attributes/add-roles.png)<br>
 
     Usare quindi l'espressione AppRoleAssignmentsComplex per eseguire il mapping all'attributo del ruolo personalizzato, come illustrato nell'immagine seguente:
 
-    ![Aggiungi AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![Aggiungi AppRoleAssignmentsComplex](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Aspetti da considerare**
     - Verrà eseguito il provisioning di tutti i ruoli come Primary = false.
     - Il POST contiene il tipo di ruolo. La richiesta PATCH non contiene il tipo. Stiamo lavorando per inviare il tipo nelle richieste POST e PATCH.

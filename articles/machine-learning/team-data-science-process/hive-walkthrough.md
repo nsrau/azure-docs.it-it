@@ -3,32 +3,32 @@ title: Esplorare i dati nel cluster Hadoop - Processo di analisi scientifica dei
 description: Uso di Team Data Science Process per uno scenario end-to-end, insieme a un cluster Hadoop di HDInsight per creare e distribuire un modello.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 005d4fe1b6ec59e7f05be3dd2ab3e72d0e7aa8e0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982016"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720572"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
 
-Per una procedura dettagliata che mostra come gestire set di dati di dimensioni più grandi, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB](hive-criteo-walkthrough.md).
+Per una procedura dettagliata in cui viene illustrato come gestire un set di dati più grande, vedere [processo di Data Science per i team: uso di cluster Azure HDInsight Hadoop in un set di dati da 1 TB](hive-criteo-walkthrough.md).
 
-Per eseguire le attività presentate nella procedura dettagliata con un set di dati da 1 TB, è anche possibile usare IPython Notebook. Per altre informazioni, vedere [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procedura dettagliata per Criteo con una connessione Hive ODBC).
+È anche possibile usare un notebook di IPython per eseguire le attività presentate nella procedura dettagliata che usa il set di dati da 1 TB. Per altre informazioni, vedere [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procedura dettagliata per Criteo con una connessione Hive ODBC).
 
 ## <a name="dataset"></a>Descrizione del set di dati delle corse dei taxi di New York
 I dati relativi alle corse dei taxi di New York sono costituiti da circa 20 GB di file con valori delimitati da virgole (CSV) compressi (circa 48 GB non compressi). Contengono più di 173 milioni di singole corse e includono le tariffe pagate per ogni corsa. Il record di ogni corsa include luogo e ora di partenza e arrivo, numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse effettuate nell'anno 2013 e vengono forniti nei due set di dati seguenti per ogni mese:
 
-- I file CSV trip_data contengono i dettagli sulle corse. Sono inclusi numero di passeggeri, punti di partenza e di arrivo, durata della corsa e lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
+- I file CSV trip_data contengono i dettagli relativi al viaggio, ovvero il numero di passeggeri, i punti di prelievo e abbandono, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -36,7 +36,7 @@ I dati relativi alle corse dei taxi di New York sono costituiti da circa 20 GB d
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-- I file CSV trip_fare contengono i dettagli sulla tariffa pagata per ogni corsa. Sono inclusi metodo di pagamento, importo, supplemento e imposte, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
+- I file CSV trip_fare contengono i dettagli della tariffa pagata per ogni viaggio: tipo di pagamento, importo della tariffa, sovrapprezzo e tasse, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -48,7 +48,7 @@ I dati relativi alle corse dei taxi di New York sono costituiti da circa 20 GB d
 La chiave univoca per creare un join di trip\_data e trip\_fare è costituita da questi campi: medallion, hack\_licence e pickup\_datetime. Per ottenere tutti i dettagli relativi a una corsa specifica, è sufficiente creare un join con queste tre sottochiavi.
 
 ## <a name="mltasks"></a>Esempi di attività di stima
-Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati. In questo modo, si otterrà maggiore chiarezza sulle attività che è necessario includere nel processo. Ecco tre esempi di problemi relativi alle stime che possono essere risolti tramite questa procedura dettagliata. Gli esempi sono basati su *tip\_amount*:
+Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati per chiarire le attività di elaborazione richieste. Di seguito sono riportati tre esempi di problemi di stima che verranno affrontati in questa procedura dettagliata, tutti basati sul *suggerimento\_importo*:
 
 - **Classificazione binaria**: permette di stimare se per la corsa è stata lasciata o meno una mancia. Se *tip\_amount* è maggiore di $ 0, si tratta di un esempio positivo, mentre se *tip\_amount* è uguale a $ 0, si tratta di un esempio negativo.
    
@@ -104,7 +104,7 @@ Nei seguenti comandi AzCopy, sostituire i parametri seguenti con i valori effett
 
 * ***\<path_to_data_folder >*** La directory (insieme al percorso) nel computer che contiene i file di dati decompressi.  
 * ***nome dell'account di archiviazione\<del cluster Hadoop >*** L'account di archiviazione associato al cluster HDInsight.
-* ***\<contenitore predefinito del cluster Hadoop >*** Il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito corrisponde in genere al nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
+* ***\<contenitore predefinito del cluster Hadoop >*** Il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito è in genere lo stesso nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
 * ***chiave dell'account di archiviazione\<*** Chiave per l'account di archiviazione usato dal cluster.
 
 Da un prompt dei comandi o una finestra di Windows PowerShell eseguire i due comandi AzCopy seguenti.
@@ -127,19 +127,19 @@ I dati si trovano ora nell'archiviazione BLOB e sono pronti per essere usati all
 
 Per accedere al nodo head del cluster per l'analisi esplorativa e il sottocampionamento dei dati, seguire la procedura descritta in [Accedere al nodo head del cluster Hadoop](customize-hadoop-cluster.md).
 
-In questa procedura dettagliata si useranno essenzialmente query scritte in [Hive](https://hive.apache.org/), un linguaggio di query di tipo SQL per l'esecuzione di analisi preliminari dei dati. Le query Hive vengono archiviate in file con estensione hql. Verrà quindi eseguito il sottocampionamento dei dati da usare in Machine Learning per la creazione di modelli.
+In questa procedura dettagliata si useranno essenzialmente query scritte in [Hive](https://hive.apache.org/), un linguaggio di query di tipo SQL per l'esecuzione di analisi preliminari dei dati. Le query hive vengono archiviate in file con estensione HQL. Verrà quindi eseguito il sottocampionamento dei dati da usare in Machine Learning per la creazione di modelli.
 
-Per preparare il cluster per l'analisi esplorativa dei dati, scaricare i file HQL contenenti gli script Hive rilevanti da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) in una directory locale (C:\temp) del nodo head. A questo scopo, aprire il prompt dei comandi dal nodo head del cluster ed eseguire i due comandi seguenti:
+Per preparare il cluster per l'analisi esplorativa dei dati, scaricare i file ". HQL" contenenti gli script hive pertinenti da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) a una directory locale (C:\Temp) nel nodo head. Aprire il prompt dei comandi dall'interno del nodo head del cluster ed eseguire i due comandi seguenti:
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-I due comandi scaricano tutti i file HQL necessari in questa procedura dettagliata nella directory locale ***C:\temp&#92;*** del nodo head.
+Questi due comandi scaricano tutti i file '. HQL ' necessari in questa procedura dettagliata alla directory locale ***C:\Temp&#92;***  nel nodo head.
 
 ## <a name="#hive-db-tables"></a>Creare database e tabelle Hive partizionati in base al mese
 > [!NOTE]
-> Questa attività viene svolta in genere da un amministratore.
+> Questa attività è in genere per un amministratore.
 > 
 > 
 
@@ -153,11 +153,11 @@ Nel nodo head del cluster Hadoop aprire la riga di comando di Hadoop sul desktop
 > 
 > 
 
-Dal prompt della directory Hive eseguire il comando seguente nella riga di comando di Hadoop del nodo head. Questo comando invia la query Hive per creare il database e le tabelle Hive:
+Dal prompt della directory hive eseguire il comando seguente nella riga di comando di Hadoop del nodo head che crea il database e le tabelle hive:
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Ecco il contenuto del file **C:\temp\sample\_hive\_create\_db\_and\_tables.hql**. Verranno creati il database Hive **nyctaxidb** e le tabelle **trip** e **fare**.
+Di seguito è riportato il contenuto di **file c:\temp\sample\_hive\_creare\_db\_e\_Tables. HQL** che crea il database hive **nyctaxidb**e le tabelle **Trip** e **Tariffa**.
 
     create database if not exists nyctaxidb;
 
@@ -207,7 +207,7 @@ Per ricevere maggiore assistenza per l'esecuzione di queste procedure o per info
 
 ## <a name="#load-data"></a>Caricare i dati nelle tabelle Hive in base alle partizioni
 > [!NOTE]
-> Questa attività viene svolta in genere da un amministratore.
+> Questa attività è in genere per un amministratore.
 > 
 > 
 
@@ -220,7 +220,7 @@ Il file **sample\_hive\_load\_data\_by\_partitions.hql** contiene i comandi **LO
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
 
-Si noti che un certo numero di query Hive usate qui nel processo di esplorazione comporta la ricerca solo in una o due partizioni. Queste query, tuttavia, possono essere eseguite sull'intero set di dati.
+Una serie di query hive utilizzate nel processo di esplorazione implica la ricerca di una o due partizioni. Queste query, tuttavia, possono essere eseguite sull'intero set di dati.
 
 ### <a name="#show-db"></a>Visualizzare i database nel cluster Hadoop di HDInsight
 Per visualizzare i database creati nel cluster Hadoop di HDInsight nella finestra della riga di comando di Hadoop, eseguire il comando seguente nella riga di comando di Hadoop:
@@ -302,7 +302,7 @@ Per ottenere i primi 10 record della tabella fare dal primo mese:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
-Per una visualizzazione più pratica, è possibile salvare i record in un file. Una piccola modifica alla query precedente esegue questa operazione:
+È possibile salvare i record in un file per una visualizzazione pratica con una piccola modifica alla query precedente:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
@@ -316,7 +316,7 @@ Per una visualizzazione più pratica, è possibile salvare i record in un file. 
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
-Viene generato l'output seguente:
+Questo comando produce l'output seguente:
 
     1       14776615
     2       13990176
@@ -338,7 +338,7 @@ In questa tabella la prima colonna corrisponde al mese, la seconda al numero di 
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
-Il risultato è il seguente:
+Questo comando restituisce:
 
     173179759
     Time taken: 284.017 seconds, Fetched: 1 row(s)
@@ -347,7 +347,7 @@ Usando comandi simili a quelli mostrati per il set di dati delle corse, è possi
 
     hive -e "select month, count(*) from nyctaxidb.fare group by month;"
 
-Viene generato l'output seguente:
+Questo comando genera questo output:
 
     1       14776615
     2       13990176
@@ -363,22 +363,22 @@ Viene generato l'output seguente:
     12      13971118
     Time taken: 253.955 seconds, Fetched: 12 row(s)
 
-Notare come per entrambi i set di dati venga restituito lo stesso numero di corse mensili. Questo costituisce la prima conferma che i dati sono stati caricati correttamente.
+Viene restituito esattamente lo stesso numero di corse al mese per entrambi i set di dati, fornendo la prima convalida che i dati sono stati caricati correttamente.
 
 È possibile contare il numero totale di record nel set di dati delle tariffe eseguendo il comando seguente al prompt della directory Hive:
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
-Il risultato è il seguente:
+Questo comando restituisce:
 
     173179759
     Time taken: 186.683 seconds, Fetched: 1 row(s)
 
-Anche il numero totale di record coincide in entrambe le tabelle. Questo costituisce la seconda conferma che i dati sono stati caricati correttamente.
+Il numero totale di record in entrambe le tabelle è anche lo stesso, fornendo una seconda convalida che i dati sono stati caricati correttamente.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Esplorazione: distribuzione delle corse per licenza
 > [!NOTE]
-> Questa attività viene in genere svolta da un data scientist.
+> Questa analisi è in genere un'attività Data Scientist.
 > 
 > 
 
@@ -412,11 +412,11 @@ Dal prompt della directory Hive eseguire il comando seguente:
 
 ### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
 > [!NOTE]
-> Questa attività viene in genere svolta da un data scientist.
+> Questa attività è in genere destinata a un data scientist.
 > 
 > 
 
-Durante l'esplorazione di un set di dati, spesso si desidera esaminare il numero di co-occorrenze di gruppi di valori. Questa sezione contiene un esempio di come eseguire questa operazione per i taxi e gli autisti.
+Quando si Esplora un set di dati, spesso si desidera esaminare le distribuzioni di gruppi di valori. Questa sezione fornisce un esempio di come eseguire questa analisi per i CAB e i driver.
 
 Il file **sample\_hive\_trip\_count\_by\_medallion\_license.hql** raggruppa il set di dati delle tariffe in **medallion** e **hack_license** e restituisce la quantità di ogni combinazione. Ecco il contenuto del file:
 
@@ -457,7 +457,7 @@ Al prompt della directory Hive eseguire:
 
     hive -S -f "C:\temp\sample_hive_quality_assessment.hql"
 
-L'argomento *-S* incluso in questo comando sostituisce l'immagine della schermata di stato relativa ai processi Map/Reduce di Hive. Ciò è utile poiché rende più leggibile l'immagine relativa alla schermata dell'output della query Hive.
+L'argomento *-S* incluso in questo comando sostituisce l'immagine della schermata di stato relativa ai processi Map/Reduce di Hive. Questo comando è utile perché rende più leggibile la stampa dello schermo dell'output della query hive.
 
 ### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Esplorazione: distribuzioni in classi binarie delle mance delle corse
 > [!NOTE]
@@ -470,7 +470,7 @@ Per il problema di classificazione binaria descritto nella sezione [Esempi di at
 * Mancia lasciata (classe 1, tip\_amount > $ 0)  
 * Nessuna mancia (classe 0, tip\_amount = $ 0)
 
-Il file **sample\_hive\_tipped\_frequencies.hql** seguente esegue queste operazioni:
+L'esempio seguente\_il file **hive\_tipped\_frequenzes. HQL** Mostra il comando da eseguire:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -537,7 +537,7 @@ Per visualizzare il confronto tra la distanza effettiva della corsa e la [distan
     and dropoff_longitude between -90 and -30
     and dropoff_latitude between 30 and 90;
 
-Nella query precedente R è il raggio della terra in miglia e pi greco viene convertito in radianti. Notare che i punti di latitudine/longitudine vengono filtrati per rimuovere i valori esterni all'area di New York.
+Nella query precedente R è il raggio della terra in miglia e pi greco viene convertito in radianti. I punti di Latitudine Longitudine sono filtrati per rimuovere i valori che sono lontani dall'area NYC.
 
 In questo caso, i risultati vengono scritti in una directory denominata **queryoutputdir**. La sequenza dei comandi seguenti crea prima di tutto questa directory di output e quindi esegue il comando Hive.
 
@@ -578,10 +578,10 @@ Questa procedura si articola in due passaggi. Prima di tutto, è necessario crea
 
 Per poter usare i dati sottocampionati direttamente dal modulo [Import Data (Importa dati][import-data] ) in Machine Learning, è necessario archiviare i risultati della query precedente in una tabella hive interna. Nella sezione seguente verrà creata una tabella Hive interna, in cui verranno immessi i dati sottoposti a join e sottocampionati.
 
-La query applica direttamente funzioni standard di Hive per generare le informazioni seguenti dal campo **pickup\_datetime**:
+La query applica direttamente le funzioni standard di hive per generare i parametri temporali seguenti dal campo **pick\_DateTime** :
 - Ora del giorno
 - Settimana dell'anno
-- Giorno della settimana (1 sta per lunedì e 7 sta per domenica)
+- il giorno della settimana (' 1' sta per lunedì è 7' corrisponde a domenica)
 
 La query genera anche la distanza diretta tra il luogo di partenza e quello di arrivo. Per un elenco completo di queste funzioni, vedere [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Funzioni definite dall'utente LanguageManual).
 
@@ -721,17 +721,17 @@ Per eseguire query hive nel modulo [Import Data][import-data] di Machine Learnin
 
 Di seguito sono riportati alcuni dettagli sul modulo [Import Data][import-data] e sui parametri di input:
 
-**URI del server HCatalog**: se il nome del cluster è **abc123**, è semplicemente https://abc123.azurehdinsight.net.
+**URI del server HCatalog**: se il nome del cluster è **abc123**, usare: https://abc123.azurehdinsight.net.
 
 **Hadoop user account name** (Nome dell'account utente Hadoop): nome utente scelto per il cluster (non il nome utente di accesso remoto).
 
-**Hadoop user account password** (Password dell'account utente di Hadoop): password scelta per il cluster (non la password di accesso remoto).
+**Password dell'account utente di Hadoop**: la password scelta per il cluster (non la password di accesso remoto).
 
-**Percorso dei dati di output**: ossia Azure.
+**Percorso dei dati di output**: scelto come Azure.
 
 **Nome dell'account di archiviazione di Azure**: nome dell'account di archiviazione predefinito associato al cluster.
 
-**Nome del contenitore di Azure**: nome del contenitore predefinito per il cluster, in genere corrisponde al nome del cluster. Per un cluster denominato **abc123**, il nome sarà semplicemente abc123.
+**Nome del contenitore di Azure**: il nome del contenitore predefinito per il cluster e corrisponde in genere al nome del cluster. Per un cluster denominato **abc123**, il nome è abc123.
 
 > [!IMPORTANT]
 > Qualsiasi tabella su cui si desidera eseguire una query tramite il modulo [Import Data (Importa dati][import-data] ) in Machine Learning deve essere una tabella interna.
@@ -750,7 +750,7 @@ Di seguito è riportata una schermata della query hive e del modulo [Import Data
 
 ![Screenshot di una query Hive per il modulo Import Data (Importa dati)](./media/hive-walkthrough/1eTYf52.png)
 
-Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query Hive risultante da Machine Learning è molto semplice. È semplicemente **SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data**.
+Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query hive risultante da Machine Learning è semplice. È semplicemente **SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data**.
 
 È ora possibile usare il set di dati come punto di partenza per la creazione di modelli di Machine Learning.
 
@@ -791,11 +791,11 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   ![Grafico della distribuzione delle classi di test](./media/hive-walkthrough/Vy1FUKa.png)
 
-  b. Per questo esperimento verrà usata una matrice di confusione per esaminare l'accuratezza delle stime. come illustrato qui:
+  b. Per questo esperimento viene usata una matrice di confusione per esaminare le precisioni di stima, come illustrato di seguito:
 
   ![Matrice di confusione](./media/hive-walkthrough/cxFmErM.png)
 
-  Si noti che mentre l'accuratezza delle classi è abbastanza soddisfacente per le classi prevalenti, il modello non è altrettanto efficace per l'"apprendimento" delle classi più rare.
+  Sebbene le esattezze della classe sulle classi prevalenti siano soddisfacenti, il modello non esegue un processo di "apprendimento" sulle classi più rare.
 
 - **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.
 
@@ -819,7 +819,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 > 
 
 ## <a name="license-information"></a>Informazioni sulla licenza
-Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con licenza MIT. Per altre informazioni, vedere il file **LICENSE.txt** nella directory del codice di esempio in GitHub.
+Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con licenza MIT. Per ulteriori informazioni, vedere il file **License. txt** nella directory del codice di esempio in GitHub.
 
 ## <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/)  

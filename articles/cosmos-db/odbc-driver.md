@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035565"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721082"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -90,7 +90,7 @@ Attività iniziali con il driver ODBC.
 
 ## <a id="#container-mapping"></a>Passaggio 3: creare una definizione dello schema usando il metodo di mapping del contenitore
 
-Esistono due tipi di metodi di campionamento che è possibile usare: **mapping del contenitore** o **delimitatori di tabella**. Una sessione di campionamento può utilizzare entrambi i metodi di campionamento, ma ogni contenitore può utilizzare solo un metodo di campionamento specifico. La procedura seguente crea uno schema per i dati in uno o più contenitori usando il metodo di mapping del contenitore. Questo metodo di campionamento recupera i dati nella pagina di un contenitore per determinare la struttura dei dati. Consente di trasporre un contenitore a una tabella sul lato ODBC. Questo metodo di campionamento è efficace e veloce quando i dati in un contenitore sono omogenei. Se un contenitore contiene il tipo di dati eterogeneo, è consigliabile usare il [metodo di mapping delimitatori di tabella](#table-mapping) in quanto fornisce un metodo di campionamento più affidabile per determinare le strutture dei dati nel contenitore. 
+Esistono due tipi di metodi di campionamento che è possibile usare: **mapping del contenitore** o **delimitatori di tabella**. Una sessione di campionamento può utilizzare entrambi i metodi di campionamento, ma ogni contenitore può utilizzare solo un metodo di campionamento specifico. La procedura seguente crea uno schema per i dati in uno o più contenitori usando il metodo di mapping del contenitore. Questo metodo di campionamento recupera i dati nella pagina di un contenitore per determinare la struttura dei dati. Consente di trasporre un contenitore a una tabella sul lato ODBC. Questo metodo di campionamento è efficace e veloce quando i dati in un contenitore sono omogenei. Se un contenitore contiene tipi eterogenei di dati, è consigliabile usare il [metodo di mapping delimitatori di tabella](#table-mapping) in quanto fornisce un metodo di campionamento più affidabile per determinare le strutture dei dati nel contenitore. 
 
 1. Dopo aver completato i passaggi 1-4 in [connettersi al database di Azure Cosmos](#connect), fare clic su **Editor schemi** nella finestra di **Azure Cosmos DB impostazione DSN del driver ODBC** .
 
@@ -172,7 +172,7 @@ Per eseguire una query nel database collegato, immettere una query SSMS. In ques
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
 ```
 
-Eseguire la query. Il risultato sarà simile al seguente:
+Esecuzione della query. Il risultato sarà simile al seguente:
 
 ```
 attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df

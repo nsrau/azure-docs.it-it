@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008533"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714482"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -45,7 +45,7 @@ Questo articolo fornisce una panoramica del report di controllo.
 
 ## <a name="audit-logs"></a>Log di controllo
 
-I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere ai log di controllo, selezionare **Log di controllo** nella sezione **Attività** di **Azure Active Directory**. Si noti che i log di controllo possono avere una latenza fino a un'ora, pertanto la visualizzazione dei dati di attività di controllo nel portale potrebbe richiedere un tempo di attesa simile dopo aver completato l'attività.
+I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere ai log di controllo, selezionare **Log di controllo** nella sezione **Attività** di **Azure Active Directory**. Si noti che i log di controllo possono avere una latenza di un massimo di un'ora, quindi potrebbe essere necessario molto tempo per visualizzare i dati dell'attività di controllo nel portale dopo aver completato l'attività.
 
 
 
@@ -81,7 +81,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 - Categoria
 - Attività
 - Stato
-- Destinazione
+- Obiettivo
 - Azione avviata da (attore)
 - Intervallo di date
 
@@ -89,7 +89,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
-- Tutti
+- Tutto
 - Verifiche di accesso
 - Provisioning degli account 
 - SSO applicazione
@@ -98,7 +98,7 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 - Accesso condizionale
 - Directory principale
 - Gestione entitlement
-- Identity Protection
+- Protezione delle identità
 - Utenti invitati
 - PIM
 - Gestione gruppi self-service
@@ -107,7 +107,7 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 
 Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
-- Tutti
+- Tutto
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticazione
@@ -118,8 +118,8 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altre
-- Criteri
+- Altro
+- Criterio
 - ResourceManagement
 - RoleManagement
 - UserManagement
@@ -130,9 +130,9 @@ Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
-- Tutti
+- Tutto
 - Operazione completata
-- Esito negativo
+- Operazioni non riuscite
 
 Il filtro di **destinazione** consente di cercare una determinata destinazione in base al nome o al nome dell'entità utente (UPN). Il nome di destinazione e l'UPN fanno distinzione tra maiuscole e minuscole. 
 
@@ -144,7 +144,7 @@ I valori possibili sono:
 - 1 mese
 - 7 giorni
 - 24 ore
-- Personalizzate
+- Personalizzato
 
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 

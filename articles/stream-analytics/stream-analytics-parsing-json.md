@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbfa6f8b85814f0f77234e014ade0ff757a4c4b8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431599"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720079"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizzare dati JSON e Avro in Analisi di flusso di Azure
 
@@ -78,7 +78,7 @@ Il risultato è:
 
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Accedere ai campi nidificati quando il nome della proprietà è una variabile
-Utilizzare la funzione [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) se il nome della proprietà è una variabile. 
+Utilizzare la funzione [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) se il nome della proprietà è una variabile. 
 
 Si supponga, ad esempio, che un flusso di dati di esempio debba essere unito con i dati di riferimento contenenti soglie per ogni sensore di dispositivo. Di seguito è riportato un frammento di tali dati di riferimento.
 

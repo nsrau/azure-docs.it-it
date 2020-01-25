@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7da3c3de5074df80c676238e4d43dbd677b0a3b4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091822"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720232"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessioni di messaggi: First In, First Out (FIFO) 
 
@@ -82,7 +82,7 @@ Lo stato della sessione conservato in una coda o in una sottoscrizione viene con
 
 ## <a name="impact-of-delivery-count"></a>Effetti del conteggio recapito
 
-La definizione del numero di recapiti per messaggio nel contesto delle sessioni varia leggermente rispetto alla definizione nella l'assenza delle sessioni. Di seguito è riportata una tabella che riepiloga quando viene incrementato il numero di recapito.
+La definizione di conteggio recapito per messaggio nel contesto delle sessioni varia leggermente rispetto alla definizione in assenza di sessioni. Di seguito è riportata una tabella che riepiloga quando viene incrementato il numero di recapito.
 
 | Scenario | Conteggio recapito del messaggio incrementato |
 |----------|---------------------------------------------|

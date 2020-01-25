@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e7f60335b3e75d93f408dec3386ca0bdcd6a0388
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232305"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711466"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Abilitare il provisioning utenti automatico per l'applicazione multi-tenant
 
@@ -56,7 +56,7 @@ Le applicazioni che richiedono un record utente sono presenti nell'applicazione 
 
 Azure AD offre diversi percorsi di integrazione per abilitare il provisioning utenti automatico per l'applicazione.
 
-* Il [servizio di provisioning Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) gestisce il provisioning e il deprovisioning degli utenti da Azure ad all'applicazione (provisioning in uscita) e dall'applicazione ai Azure ad (provisioning in ingresso). Il servizio si connette al sistema per gli endpoint API di gestione degli utenti di gestione identità tra domini (SCIM) forniti dall'applicazione.
+* Il [servizio di provisioning Azure ad](user-provisioning.md) gestisce il provisioning e il deprovisioning degli utenti da Azure ad all'applicazione (provisioning in uscita) e dall'applicazione ai Azure ad (provisioning in ingresso). Il servizio si connette al sistema per gli endpoint API di gestione degli utenti di gestione identità tra domini (SCIM) forniti dall'applicazione.
 
 * Quando si usa il [Microsoft Graph](https://docs.microsoft.com/graph/), l'applicazione gestisce il provisioning in ingresso e in uscita di utenti e gruppi da Azure ad all'applicazione eseguendo una query sull'API Microsoft Graph.
 
@@ -87,9 +87,9 @@ Per ulteriori informazioni sul modo in cui gli utenti del servizio Azure AD prov
 
 * [Scopri di più sullo standard SCIM](https://aka.ms/SCIMOverview)
 
-* [Uso di System for Cross-Domain Identity Management (SCIM) per effettuare automaticamente il provisioning di utenti e gruppi da Azure Active Directory alle applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Uso di System for Cross-Domain Identity Management (SCIM) per effettuare automaticamente il provisioning di utenti e gruppi da Azure Active Directory alle applicazioni](use-scim-to-provision-users-and-groups.md)
 
-* [Informazioni sull'implementazione di Azure AD SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Informazioni sull'implementazione di Azure AD SCIM](use-scim-to-provision-users-and-groups.md)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph per il provisioning
 
@@ -113,9 +113,9 @@ Se si vuole eseguire il provisioning degli utenti solo al primo accesso all'appl
 
 SAML JIT usa le informazioni sulle attestazioni nel token SAML per creare e aggiornare le informazioni utente nell'applicazione. I clienti possono configurare queste attestazioni richieste nell'applicazione Azure AD in base alle esigenze. In alcuni casi è necessario abilitare il provisioning JIT dal lato dell'applicazione in modo che il cliente possa usare questa funzionalità. Il protocollo JIT SAML è utile per la creazione e l'aggiornamento degli utenti, ma non può eliminare o disattivare gli utenti nell'applicazione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
-* [Abilitare l'accesso Single Sign-on per l'applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [Abilitare l'accesso Single Sign-on per l'applicazione](isv-sso-content.md)
 
 * [Inviare l'elenco di applicazioni e il](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) partner con Microsoft per creare la documentazione sul sito di Microsoft.
 

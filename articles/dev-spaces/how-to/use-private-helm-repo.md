@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Usare un repository Helm privato in uno spazio di sviluppo di Azure.
 keywords: Docker, Kubernetes, Azure, AKS, servizio contenitore di Azure, contenitori, Helm
 manager: gwallace
-ms.openlocfilehash: dddec69dc019f286c714a09e6f1a7e47240d5572
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b1579adc00540a429170027b66c5d3e508bcb5d4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867278"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718737"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Usare un repository Helm privato in Azure Dev Spaces
 
@@ -37,7 +37,7 @@ azds prep --public
 ```
 
 > [!TIP]
-> Il `prep` comando tenta di generare [un grafico Dockerfile e Helm](../how-dev-spaces-works.md#prepare-your-code) per il progetto. Azure Dev Spaces utilizza questi file per compilare ed eseguire il codice, ma è possibile modificare questi file se si desidera modificare la modalità di compilazione e di esecuzione del progetto.
+> Il comando `prep` prova a generare [un Dockerfile e un grafico Helm](../how-dev-spaces-works.md#prepare-your-code) per il progetto. Azure Dev Spaces usa questi file per compilare ed eseguire il codice, ma è possibile modificarli se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
 
 Creare un file [requirements. YAML][helm-requirements] con il grafico nella directory del grafico dell'applicazione. Ad esempio, se l'applicazione è denominata *App1*, si creeranno *Charts/App1/requirements. YAML*.
 
@@ -81,7 +81,7 @@ Scopri di più su [Helm e sul suo funzionamento][helm].
 
 [helm]: https://docs.helm.sh
 [helm-chart]: https://helm.sh/docs/topics/charts/
-[helm-dependency-update]: https://v2.helm.sh/docs/helm/#helm-dependency-update
-[helm-repo-add]: https://v2.helm.sh/docs/helm/#helm-repo-add
-[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-dependency-update]: https://helm.sh/docs/topics/charts/#managing-dependencies-with-the-dependencies-field
+[helm-repo-add]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+[helm-repo-update]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
 [helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies

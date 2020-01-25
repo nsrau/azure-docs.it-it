@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 2344e2189d6b0f02e7fed1aab25d32551c1fedcf
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154342"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713335"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creare un cluster privato del servizio Kubernetes di Azure (anteprima)
 
@@ -128,14 +128,16 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è ne
 
 ## <a name="dependencies"></a>Dependencies  
 * Il servizio di collegamento privato è supportato solo su Azure Load Balancer standard. Il Azure Load Balancer di base non è supportato.  
+* Per usare un server DNS personalizzato, distribuire un server AD con DNS da trasmettere a questo 168.63.129.16 IP
 
 ## <a name="limitations"></a>Limitazioni 
+* zone di disponibilità non sono attualmente supportati
 * Le [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano a cluster privati, endpoint privati di Azure e endpoint di servizio della rete virtuale, che non sono attualmente supportati nella stessa rete virtuale.
-* Nessun supporto per i nodi virtuali in un cluster privato per la rotazione di istanze di contenitore di Azure privato in una rete virtuale privata di Azure.
-* Nessun supporto per l'integrazione di Azure DevOps con i cluster privati.
+* Nessun supporto per i nodi virtuali in un cluster privato per la rotazione di istanze di contenitore di Azure private in una rete virtuale di Azure privata
+* Nessun supporto per l'integrazione di Azure DevOps con i cluster privati
 * Per i clienti che devono consentire a Azure Container Registry di lavorare con il servizio contenitore di Azure privato, è necessario eseguire il peering della rete virtuale Container Registry con la rete virtuale del cluster di agenti.
-* Nessun supporto corrente per Azure Dev Spaces.
-* Nessun supporto per la conversione di cluster AKS esistenti in cluster privati.  
+* Nessun supporto corrente per Azure Dev Spaces
+* Nessun supporto per la conversione di cluster AKS esistenti in cluster privati
 * Se si elimina o si modifica l'endpoint privato nella subnet del cliente, il cluster smette di funzionare. 
 * Il monitoraggio di Azure per i contenitori Live Data non è attualmente supportato.
 * *Bring your own DNS* non è attualmente supportato.

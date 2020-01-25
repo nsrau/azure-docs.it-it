@@ -1,6 +1,6 @@
 ---
 title: Visualizzare la tendenza dei costi mensili stimati per il lab in Azure DevTest Labs
-description: Informazioni sul grafico relativo alla tendenza dei costi mensili stimati di Azure DevTest Labs.
+description: Questo articolo fornisce informazioni su come tenere traccia dei costi del Lab (grafico della tendenza dei costi mensili stimati) in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 15ddaa6c73cedb32d920ef943627831c1e9b378b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 2e4fe55fac5edf73e16df05bd38cc2712a94377d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169621"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721728"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Tenere traccia dei costi associati a un Lab in Azure DevTest Labs
 Questo articolo fornisce informazioni su come tenere traccia dei costi del Lab. Viene illustrato come visualizzare il costo stimato Trent per il mese di calendario corrente per il Lab. Questo articolo illustra anche come visualizzare i costi mensili per ogni risorsa nel Lab.

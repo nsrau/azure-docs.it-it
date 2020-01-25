@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c102941920d2b8746a49be47ef4c5613fa0bc281
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973372"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719076"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -32,6 +32,7 @@ GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 - Asia sudorientale
 - Europa settentrionale
 - Europa occidentale
+- Giappone orientale
 - Regno Unito meridionale
 - Stati Uniti orientali
 - Stati Uniti orientali 2
@@ -129,6 +130,7 @@ Al termine della migrazione, l'impostazione di replica dell'account di archiviaz
 Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 
 - Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo reale, non c'è alcuna garanzia per quanto riguarda il tempo necessario per il completamento di questo tipo di migrazione. Se è necessario eseguire la migrazione dei dati a GZRS o RA-GZRS da una determinata data, Microsoft consiglia di eseguire una migrazione manuale. In genere, maggiore è la quantità di dati nell'account, più tempo richiederà la migrazione dei dati.
+- La migrazione in tempo reale è supportata solo per gli account di archiviazione che usano la replica GRS o RA-GRS. Se l'account USA con ridondanza locale, è necessario prima modificare il tipo di replica dell'account in GRS o RA-GRS prima di procedere. Questo passaggio intermedio aggiunge l'endpoint secondario fornito da GRS/RA-GRS.
 - L'account deve contenere dati.
 - È possibile migrare solo i dati nella stessa area.
 - Solo gli account di archiviazione standard supportano la migrazione in tempo reale. Per gli account di archiviazione premium, è necessario usare la migrazione manuale.

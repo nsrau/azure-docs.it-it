@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 0d61ad33b97b97c3a45334704544d72809e56848
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903340"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715266"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -143,7 +143,7 @@ Nell'estratto seguente viene illustrato come definire un Front-End Load Balancer
                 ],
 ```
 
-Gli estratti di precedente non sono modelli completi ma hanno lo scopo di mostrare come esprimere le proprietà delle zone di disponibilità.  È necessario incorporare queste istruzioni nei modelli.
+Gli estratti precedenti non sono modelli completi ma hanno lo scopo di mostrare come esprimere le proprietà delle zone di disponibilità.  È necessario incorporare queste istruzioni nei modelli.
 
 ### <a name="cross-zone-load-balancing"></a>Bilanciamento del carico tra zone
 

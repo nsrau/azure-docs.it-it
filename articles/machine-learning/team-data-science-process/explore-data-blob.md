@@ -3,20 +3,20 @@ title: Esplorare i dati nell'archiviazione BLOB di Azure con Pandas - Processo d
 description: Come esplorare i dati archiviati nel contenitore BLOB di Azure con il pacchetto Python Pandas.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99e041b41c5c569a2329bb2fc6f33e8f5a05c385
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981996"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722187"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
 
@@ -33,7 +33,7 @@ Questo articolo presuppone che l'utente abbia:
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Caricare i dati in un frame di dati Pandas
 Per esplorare e modificare un set di dati, è necessario innanzitutto scaricarlo dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
-1. Scaricare i dati da BLOB Azure con l’esempio di codice Python riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice seguente con i valori specifici:
+1. Scaricare i dati dal BLOB di Azure con l'esempio di codice Python seguente usando il servizio BLOB. Sostituire la variabile nel codice seguente con i valori specifici:
 
 ```python
 from azure.storage.blob import BlockBlobService

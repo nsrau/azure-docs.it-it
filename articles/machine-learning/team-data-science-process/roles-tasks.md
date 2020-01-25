@@ -2,27 +2,27 @@
 title: Ruoli e attività del processo di data science per i team
 description: Un contorno dei componenti chiave, dei ruoli del personale e delle attività associate per un gruppo di data science.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbc066f4b01a01a589849ad524b58a9b5d9dfae1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260647"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720011"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Ruoli e attività del processo di data science per i team
 
 Il team Data Science Process (TDSP) è un framework sviluppato da Microsoft che fornisce una metodologia strutturata per compilare in modo efficiente soluzioni di analisi predittiva e applicazioni intelligenti. In questo articolo vengono illustrati i ruoli chiave del personale e le attività associate per un team data science la standardizzazione di questo processo.
 
-Questo articolo introduttivo include collegamenti alle esercitazioni su come configurare l'ambiente TDSP per un intero gruppo di data science, team data science e progetti TDSP. Le esercitazioni forniscono istruzioni dettagliate per l'uso di Azure DevOps Projects, Azure Repos repository e Azure Boards strumenti di pianificazione Agile per controllare l'accesso, ospitare e condividere il codice e gestire le attività del team.
+Questo articolo introduttivo include collegamenti alle esercitazioni su come configurare l'ambiente TDSP. Le esercitazioni forniscono istruzioni dettagliate per l'uso di Azure DevOps Projects, repository Azure Repos e Azure Boards.  L'obiettivo di motivazione è passare dal concetto alla modellazione e alla distribuzione.
 
 Le esercitazioni usano Azure DevOps perché questo è l'implementazione di TDSP in Microsoft. Azure DevOps semplifica la collaborazione grazie all'integrazione della sicurezza basata sui ruoli, alla gestione e al rilevamento degli elementi di lavoro e all'hosting del codice, alla condivisione e al controllo del codice sorgente. Le esercitazioni usano anche un [Data Science Virtual Machine](https://aka.ms/dsvm) di Azure (DSVM) come desktop di analisi, che include diversi strumenti di Data Science più diffusi preconfigurati e integrati con il software Microsoft e i servizi di Azure. 
 
@@ -40,13 +40,13 @@ In una struttura di questo tipo sono presenti lead di gruppo e lead del team. In
 ## <a name="definition-and-tasks-for-the-four-tdsp-roles"></a>Definizione e attività per i quattro ruoli TDSP
 Supponendo che l'unità di data science sia costituita da team all'interno di un gruppo, sono disponibili quattro ruoli distinti per il personale TDSP:
 
-1. **Gestione gruppo**: Gestisce l'intera unità di data science in un'organizzazione. Un'unità di data science può comprendere più team, ognuno dei quali lavora a più progetti di data science in segmenti verticali aziendali distinti. Un responsabile del gruppo può delegare le attività a un sostituto, ma le attività associate al ruolo non cambiano.
+1. **Gestione gruppo**: gestisce l'intera unità di Data Science in un'organizzazione. Un'unità di data science può comprendere più team, ognuno dei quali lavora a più progetti di data science in segmenti verticali aziendali distinti. Un responsabile del gruppo può delegare le attività a un sostituto, ma le attività associate al ruolo non cambiano.
    
-2. **Responsabile del team**: Gestisce un team nell'unità di data science di un'azienda. Un team è costituito da più data scientist. Per una piccola unità di data science, il responsabile del gruppo e il responsabile del team possono essere la stessa persona.
+2. **Responsabile del team**: gestisce un team nell'unità di Data Science di un'azienda. Un team è costituito da più data scientist. Per una piccola unità di data science, il responsabile del gruppo e il responsabile del team possono essere la stessa persona.
    
-3. **Responsabile del progetto**: Gestisce le attività quotidiane dei singoli data scientist in un progetto di data science specifico.
+3. **Responsabile del progetto**: gestisce le attività quotidiane dei singoli data scientist in un progetto di Data Science specifico.
    
-4. **Singoli collaboratori del progetto**: Data Scientist, Business Analyst, Data Engineer, architetti e altri utenti che eseguono un progetto data science.
+4. **Singoli collaboratori del progetto**: data scientist, Business Analyst, data Engineers, architetti e altri utenti che eseguono un progetto Data Science.
 
 > [!NOTE]
 > A seconda della struttura e della dimensione di un'organizzazione, è possibile che una singola persona riproduca più di un ruolo o che più di una persona possa occupare un ruolo.
@@ -116,7 +116,7 @@ La figura seguente illustra il flusso di lavoro TDSP per l'esecuzione del proget
 I passaggi del flusso di lavoro possono essere raggruppati in tre attività:
 
 - I lead di progetto eseguono la pianificazione dello sprint
-- I data scientist sviluppano gli `git` artefatti nei rami per indirizzare gli elementi di lavoro
+- I data scientist sviluppano elementi in `git` rami per indirizzare gli elementi di lavoro
 - I lead del progetto o altri membri del team eseguono revisioni del codice e uniscono rami di lavoro al ramo master
 
 Per istruzioni dettagliate sul flusso di lavoro di esecuzione del progetto, vedere [sviluppo agile di progetti Data Science](agile-development.md).

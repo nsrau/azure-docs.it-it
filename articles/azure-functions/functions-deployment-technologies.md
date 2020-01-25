@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 6c946667befdf34a2ae6769b2c1bb43871111c24
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 39b3a96ddd3a9007600d1fa956c4e2d48f6adae9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921031"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714800"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -117,7 +117,7 @@ Usare la distribuzione zip per eseguire il push di un file con estensione zip ch
 >__Come usarlo:__ Creare un'app per le funzioni Linux nel piano Premium o dedicato e specificare l'immagine del contenitore da cui eseguire. Questa operazione può essere eseguita in due modi:
 >
 >* Creare un'app per le funzioni Linux in un piano di servizio app Azure nel portale di Azure. Per **Publish**selezionare **Docker image**e quindi Configure the container. Immettere il percorso in cui è ospitata l'immagine.
->* Creare un'app per le funzioni di Linux in un piano di servizio app usando l'interfaccia della riga di comando di Azure. Per informazioni, vedere [creare una funzione in Linux usando un'immagine personalizzata](functions-create-function-linux-custom-image.md#create-a-premium-plan).
+>* Creare un'app per le funzioni di Linux in un piano di servizio app usando l'interfaccia della riga di comando di Azure. Per informazioni, vedere [creare una funzione in Linux usando un'immagine personalizzata](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Per eseguire la distribuzione in un'app esistente usando un contenitore personalizzato, in [Azure Functions Core Tools](functions-run-local.md)usare il comando [`func deploy`](functions-run-local.md#publish) .
 

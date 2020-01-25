@@ -4,14 +4,14 @@ description: Informazioni sulle opzioni di configurazione client per migliorare 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "71261315"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720997"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -40,18 +40,18 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
    * Modalità diretta
 
-     La modalità diretta supporta la connettività tramite protocolli TCP e HTTPS ed è la modalità di connettività predefinita se si usa [Microsoft. Azure. Cosmos/.NET V3 SDK](sql-api-sdk-dotnet-standard.md).
+     La modalità diretta supporta la connettività tramite il protocollo TCP ed è la modalità di connettività predefinita se si usa [Microsoft. Azure. Cosmos/.NET V3 SDK](sql-api-sdk-dotnet-standard.md).
 
      Quando si usa la modalità Gateway, Cosmos DB usa la porta 443 e le porte 10250, 10255 e 10256 quando si usa l'API Azure Cosmos DB per MongoDB. La porta 10250 viene associata a un'istanza di MongoDB predefinita senza replica geografica e le porte 10255/10256 vengono associate all'istanza di MongoDB con funzionalità di replica geografica. Quando si usa TCP in modalità diretta, oltre alle porte gateway è necessario verificare che le porte nell'intervallo tra 10000 e 20000 siano aperte perché Azure Cosmos DB usa porte TCP dinamiche. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore 503 (Servizio non disponibile). La tabella seguente illustra le modalità di connettività disponibili per API diverse e l'utente delle porte di servizio per ogni API:
 
      |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
      |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), Mongo (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443)    |
+     |Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
      |Direct    |     TCP    |  .NET SDK    | Porte nell'intervallo da 10.000 a 20.000 |
 
-     Azure Cosmos DB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Sia il protocollo TCP diretto che il protocollo HTTPS usano SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
+     Azure Cosmos DB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Il protocollo TCP utilizza SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
-     Per SDK V3, la modalità di connettività viene configurata durante la creazione dell'istanza di CosmosClient, come parte di CosmosClientOptions.
+     Per SDK V3, la modalità di connettività viene configurata durante la creazione dell'istanza di CosmosClient, come parte del CosmosClientOptions, tenere presente che la modalità diretta è quella predefinita.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -59,7 +59,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct
+        ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
      });
      ```
 
@@ -71,7 +71,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
-        ConnectionMode = ConnectionMode.Direct,
+        ConnectionMode = ConnectionMode.Direct, //ConnectionMode.Gateway is the default
         ConnectionProtocol = Protocol.Tcp
      });
      ```
@@ -128,7 +128,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
      SQL .NET SDK versione 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query su una raccolta partizionata in parallelo. Per altre informazioni, vedere [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) correlati all'utilizzo con gli SDK. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
 
-    (a) ***ottimizzazione del grado di parallelismo\:*** query parallele funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione del `MaxDegreeOfParallelism` in [SDK v2](sql-api-sdk-dotnet.md) o `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) sul numero di partizioni ha la possibilità massima di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato e il sistema sceglie il numero minimo (numero di partizioni, input fornito dall'utente) come grado di parallelismo.
+    (a) ***ottimizzazione del grado di parallelismo\:*** query parallele funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione di `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) o `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) sul numero di partizioni ha la possibilità massima di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato e il sistema sceglie il numero minimo (numero di partizioni, input fornito dall'utente) come grado di parallelismo.
 
     È importante notare che le query parallele producono i vantaggi migliori se i dati sono distribuiti uniformemente tra tutte le partizioni per quanto riguarda la query. Se la raccolta è partizionata in modo tale che tutti o la maggior parte dei dati restituiti da una query siano concentrati in alcune partizioni (una sola partizione nel peggiore dei casi), le prestazioni della query potrebbero essere limitate da tali partizioni.
 
@@ -165,7 +165,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    > [!NOTE] 
    > La proprietà maxItemCount non deve essere usata solo per finalità di impaginazione. Si tratta di un utilizzo principale per migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-   È anche possibile impostare le dimensioni della pagina usando gli SDK Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in FeedOptions consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale a seconda delle dimensioni del documento. ad esempio:
+   È anche possibile impostare le dimensioni della pagina usando gli SDK Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in FeedOptions consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale a seconda delle dimensioni del documento. Ad esempio:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -215,7 +215,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     La complessità di una query influisce sulla quantità di unità richiesta utilizzate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine sono tutti fattori che incidono sul costo delle operazioni di query.
 
-    Per misurare l'overhead di qualsiasi operazione (create, Update o DELETE), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà RequestCharge equivalente in ResourceResponse\<t > o FeedResponse\<t > in .NET SDK) per misurare il numero di unità richiesta utilizzate da queste operazioni.
+    Per misurare l'overhead di qualsiasi operazione (create, Update o DELETE), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà RequestCharge equivalente in ResourceResponse\<t > o FeedResponse\<t > in .NET SDK) per misurare il numero di unità richiesta utilizzate da tali operazioni.
 
     ```csharp
     // Measure the performance (request units) of writes

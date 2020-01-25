@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 01/23/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ca40e9717394690374f5ca289a69e5c22551eb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65782910"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712001"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure AD
 
@@ -34,7 +34,7 @@ Questa funzionalità è utile quando si vuole:
 * Integrare l'installazione e la registrazione del connettore come parte di un'altra procedura.
 * Creare un'immagine server standard che contiene i bit del connettore, ma che non è registrata.
 
-Per il [connettore Proxy di applicazione](application-proxy-connectors.md) per funzionare, deve essere registrato con la directory di Azure AD tramite un amministratore dell'applicazione e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup, ma in alternativa è possibile usare PowerShell per automatizzare il processo.
+Per il corretto funzionamento del [connettore del proxy di applicazione](application-proxy-connectors.md) , è necessario registrarlo con la directory Azure ad usando un amministratore e una password dell'applicazione. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup, ma in alternativa è possibile usare PowerShell per automatizzare il processo.
 
 Per l'installazione automatica sono previsti due passaggi. In primo luogo, installare il connettore. In secondo luogo, registrare il connettore in Azure AD. 
 
@@ -88,7 +88,7 @@ Esistono due metodi da usare per registrare il connettore:
         /// <summary>
         /// The reply address of the connector application in AAD
         /// </summary>
-        static readonly Uri ConnectorRedirectAddress = new Uri("urn:ietf:wg:oauth:2.0:oob");
+        static readonly Uri ConnectorRedirectAddress = new Uri("https://login.microsoftonline.com/common/oauth2/nativeclient");
 
         /// <summary>
         /// The AppIdUri of the registration service in AAD
@@ -141,7 +141,7 @@ Esistono due metodi da usare per registrare il connettore:
         [string]$ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489"
         
         # The reply address of the connector application in AAD
-        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob" 
+        [uri]$ConnectorRedirectAddress = "https://login.microsoftonline.com/common/oauth2/nativeclient" 
         
         # The AppIdUri of the registration service in AAD
         [uri]$RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp"

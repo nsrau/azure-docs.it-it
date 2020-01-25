@@ -8,19 +8,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 57bae42eb44c174657e59fa8b017da2931ae681b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814594"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721626"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Scheda Marketplace del modulo IoT Edge
 
-La scheda **Marketplace** della pagina **Nuova offerta**  consente di offrire ai clienti potenziali contratti e informazioni legali, di vendita e di marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
+La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questa sezione immettere le informazioni generali sull'offerta di Azure Marketplace.  Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
 
@@ -111,7 +111,7 @@ Ogni logo caricato nel portale Cloud Partner deve rispettare le linee guida segu
 *  La progettazione di Azure ha una tavolozza dei colori semplice. Nel logo usare un numero ridotto di colori primari e secondari.
 *  I colori del tema del portale di Azure sono il bianco e il nero. Evitare di usare questi colori per lo sfondo del logo. Usare un colore che faccia risaltare il logo nel portale di Azure. Si consiglia di usare colori primari semplici. Se si usa uno sfondo trasparente, verificare che il logo e il testo non siano di colore bianco, nero o blu.
 *  Non usare uno sfondo sfumato sul logo.
-*  Non inserire testo, neppure il nome del marchio o della società, nel logo. L'aspetto del logo deve essere semplice e senza sfumature.
+*  Non inserire testo nel logo, neanche il nome del marchio o della società. L'aspetto del logo deve essere semplice e senza sfumature.
 *  Non estendere il logo.
 
 
@@ -129,14 +129,14 @@ Usare le linee guida seguenti per il logo di un banner:
 *  Evitare di usare troppo testo durante la progettazione del logo. Il nome dell'editore, il titolo del piano, il riepilogo lungo dell'offerta e un pulsante Crea vengono incorporati a livello di codice all'interno del logo quando l'offerta viene presentata. 
 * Includere uno spazio rettangolare inutilizzato sul lato destro del logo del banner. Questo spazio vuoto è di 415x100 pixel, scostato di 370 pixel a sinistra.  
 
-<!-- P2: woudl be nice to also have an picture int he context of iot edge of the hero image
+<!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)
 -->
 
 
-## <a name="lead-management"></a>Lead management (Gestione di clienti potenziali)
+## <a name="lead-management"></a>Gestione dei lead
 
 Questa sezione consente di configurare le opzioni per la raccolta dei clienti potenziali generati dalle offerte di Azure Marketplace. È possibile selezionare le opzioni di archiviazione seguenti da un elenco a discesa.
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1f60ce3a23882a48e6008b76c0eedcab99e013b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a0aa20a8d1ddecfe401a4e099a4f298971779501
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883458"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720113"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi
 
@@ -36,7 +36,7 @@ Questo articolo illustra:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="set-up-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
+## <a name="set-up-key-vault"></a>Configurare il servizio Key Vault
 
 Per consentire a un'applicazione di recuperare un segreto dall'insieme di credenziali delle chiavi, è prima necessario creare il segreto e caricarlo nell'insieme di credenziali.
 
@@ -144,7 +144,7 @@ public async static Task<string> GetToken(string authority, string resource, str
 }
 ```
 
-Aggiungere il codice necessario per chiamare l'insieme di credenziali delle chiavi e recuperare il valore del segreto. In primo luogo, è necessario aggiungere `using` l'istruzione seguente:
+Aggiungere il codice necessario per chiamare l'insieme di credenziali delle chiavi e recuperare il valore del segreto. Per prima cosa, è necessario aggiungere l'istruzione `using` seguente:
 
 ```csharp
 using Microsoft.Azure.KeyVault;
@@ -163,7 +163,7 @@ Quando si esegue l'applicazione, verrà eseguita l'autenticazione in Azure Activ
 ## <a name="key-rotation-using-azure-automation"></a>Rotazione delle chiavi con Automazione di Azure
 
 > [!IMPORTANT]
-> Il manuali operativi di automazione di Azure richiede ancora l' `AzureRM` uso del modulo.
+> Il manuali operativi di automazione di Azure richiede ancora l'uso del modulo `AzureRM`.
 
 A questo punto è possibile configurare una strategia di rotazione per i valori archiviati come segreti Key Vault. I segreti possono essere ruotati in diversi modi:
 
@@ -272,7 +272,7 @@ Successivamente, [creare una funzione di Azure](../azure-functions/functions-cre
 
 Per creare un'app per le funzioni di Azure, selezionare **Crea una risorsa**, cercare **app per le funzioni**nel Marketplace e quindi selezionare **Crea**. Durante la creazione è possibile usare un piano di hosting esistente o crearne uno nuovo. È anche possibile scegliere di ospitare dinamicamente. Per altre informazioni sulle opzioni di hosting per funzioni di Azure, vedere [come ridimensionare funzioni di Azure](../azure-functions/functions-scale.md).
 
-Dopo aver creato l'app per le funzioni di Azure, passare a essa e selezionare lo scenario del **timer** e **C\#**  per la lingua. Selezionare quindi **crea questa funzione**.
+Dopo aver creato l'app per le funzioni di Azure, passare a essa e selezionare lo scenario del **timer** e il **\#C** per la lingua. Selezionare quindi **crea questa funzione**.
 
 ![Pannello iniziale di Funzioni di Azure](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -314,7 +314,7 @@ public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outpu
         else
         {
             dtPrev = DateTime.UtcNow;
-            log.Verbose($"Sync point file didnt have a date. Setting to now.");
+            log.Verbose($"Sync point file didn't have a date. Setting to now.");
         }
     }
 
@@ -417,7 +417,7 @@ Aggiungere un file denominato Project. JSON con il contenuto seguente:
 
 Dopo aver selezionato **Salva**, funzioni di Azure scaricherà i file binari necessari.
 
-Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente, la funzione prevede che il timer venga chiamato il *timeout*. Specificare un' [espressione cron](../app-service/webjobs-create.md#CreateScheduledCRON) per il timer nel modo seguente `0 * * * * *`:. Questa espressione comporterà l'esecuzione della funzione una volta al minuto.
+Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente, la funzione prevede che il timer venga chiamato il *timeout*. Specificare un' [espressione cron](../app-service/webjobs-create.md#CreateScheduledCRON) per il timer come indicato di seguito: `0 * * * * *`. Questa espressione comporterà l'esecuzione della funzione una volta al minuto.
 
 Nella stessa scheda **integra** aggiungere un input di tipo **archiviazione BLOB di Azure**. Questo input punterà al file Sync. txt che contiene il timestamp dell'ultimo evento esaminato dalla funzione. Questo input sarà accessibile all'interno della funzione utilizzando il nome del parametro. Nel codice precedente, l'input dell'archiviazione BLOB di Azure prevede che il nome del parametro sia *inputBlob*. Selezionare l'account di archiviazione in cui verrà memorizzato il file Sync. txt (potrebbe essere lo stesso account di archiviazione o un account diverso). Nel campo percorso specificare il percorso del file nel formato `{container-name}/path/to/sync.txt`.
 
@@ -429,7 +429,7 @@ La funzione è ora pronta. Assicurarsi di tornare alla scheda **Sviluppo** e sal
 
 Successivamente, è necessario creare un'app per la logica di Azure che preleva gli eventi che la funzione esegue il push nella coda del bus di servizio, analizza il contenuto e invia un messaggio di posta elettronica in base a una condizione corrispondente.
 
-[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) selezionando **Crea una risorsa** > **integrazione** > app per la**logica**.
+[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) selezionando **crea una risorsa** > **integrazione** > app per la **logica**.
 
 Dopo aver creato l'app per la logica, passare a essa e selezionare **modifica**. Nell'Editor app per la logica selezionare **coda del bus di servizio** e immettere le credenziali del bus di servizio per connetterlo alla coda.
 

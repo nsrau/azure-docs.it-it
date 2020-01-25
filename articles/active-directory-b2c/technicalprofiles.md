@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3275e31744faba5b029e5a4619a51420400b9d0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 162597bf3d02cdfe53d321185b326bfbb1f6bd0d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425600"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712759"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -99,6 +99,7 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 | OutputClaimsTransformations | 0:1 | Un elenco di riferimenti definiti in precedenza per le trasformazioni di attestazioni che devono essere eseguiti prima che le attestazioni siano ricevute dal provider di attestazioni. |
 | ValidationTechnicalProfiles | 0:n | Un elenco di riferimenti ad altri profili tecnici che il profilo tecnico usa ai fini della convalida. Per altre informazioni, vedere il [profilo tecnico di convalida](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controlla la produzione del nome del soggetto nei token in cui il nome del soggetto è specificato separatamente dalle attestazioni. Ad esempio OAuth o SAML.  |
+| IncludeInSso | 0:1 |  Indica se l'utilizzo di questo profilo tecnico deve applicare il comportamento Single Sign-On (SSO) per la sessione o richiede l'interazione esplicita. I valori possibili sono: `true` (impostazione predefinita) o `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Un identificatore del profilo tecnico da cui si desidera aggiungere tutte le attestazioni di input e output al profilo tecnico. Il profilo tecnico a cui si fa riferimento deve essere definito nello stesso file di criteri. |
 | IncludeTechnicalProfile |0:1 | Un identificatore del profilo tecnico da cui si desidera aggiungere tutti i dati al profilo tecnico. Il profilo tecnico a cui si fa riferimento deve esistere nello stesso file di criteri. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Un profilo tecnico diverso da usare per la gestione della sessione. |

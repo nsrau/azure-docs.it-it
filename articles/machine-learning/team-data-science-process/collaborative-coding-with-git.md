@@ -2,20 +2,20 @@
 title: Creazione collaborativa di codice con Git - Processo di data science per i team
 description: Informazioni su come eseguire attività di sviluppo collaborativo di codice per i progetti di data science con Git tramite metodi di pianificazione Agile.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195357"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721898"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
 
@@ -25,7 +25,7 @@ Questo articolo descrive come usare git come Framework di sviluppo di codice col
 
 Azure DevOps offre un modo pratico per connettere una Azure Boards storia utente o un elemento di lavoro attività con un Azure Repos ramo repository git. È possibile collegare la storia utente o l'attività direttamente al codice associato. 
 
-Per connettere un elemento di lavoro a un nuovo ramo, selezionare i puntini di sospensione ( **...** ) accanto all'elemento di lavoro e nel menu di scelta rapida scorrere fino a e selezionare **nuovo ramo**.  
+Per connettere un elemento di lavoro a un nuovo ramo, selezionare **i puntini** di sospensione ( **...** ) accanto all'elemento di lavoro e nel menu di scelta rapida scorrere fino a e selezionare **nuovo ramo**.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
@@ -39,7 +39,7 @@ Nella finestra di dialogo **Crea un ramo** specificare il nome del nuovo ramo e 
 git checkout -b <new branch name> <base branch name>
 
 ```
-Se non si specifica un \<nome di ramo di base >, il nuovo ramo si `master`basa su. 
+Se non si specifica un nome di ramo di base \<>, il nuovo ramo si basa su `master`. 
 
 Per passare al ramo di lavoro, eseguire il comando seguente: 
 
@@ -47,7 +47,7 @@ Per passare al ramo di lavoro, eseguire il comando seguente:
 git checkout <working branch name>
 ```
 
-Dopo il passaggio al ramo di lavoro, è possibile iniziare a sviluppare elementi di codice o di documentazione per completare l'elemento di lavoro. `git checkout master` L'`master` esecuzione consente di tornare al ramo.
+Dopo il passaggio al ramo di lavoro, è possibile iniziare a sviluppare elementi di codice o di documentazione per completare l'elemento di lavoro. L'esecuzione di `git checkout master` consente di tornare al ramo di `master`.
 
 È consigliabile creare un ramo git per ogni elemento di lavoro della storia utente. Quindi, per ogni elemento di lavoro attività, è possibile creare un ramo in base al ramo della storia utente. Organizzare i rami in una gerarchia che corrisponde alla relazione storia utente-attività quando più persone lavorano su storie utente diverse per lo stesso progetto o su attività diverse per la stessa storia utente. È possibile ridurre al minimo i conflitti facendo in modo che ogni membro del team lavori su un ramo diverso oppure su codice o altri artefatti diversi quando si condivide un ramo. 
 
@@ -61,7 +61,7 @@ Il diagramma seguente illustra la strategia di creazione di rami consigliata per
 
 ## <a name='WorkonaBranchandCommittheChanges-2'></a>Lavorare sul ramo e confermare le modifiche 
 
-Dopo aver apportato una modifica per l'elemento di lavoro, ad esempio l'aggiunta di un file di script `script` R al branch del computer locale, è possibile eseguire il commit della modifica dal branch locale al ramo di lavoro upstream usando i comandi Git bash seguenti:
+Dopo aver apportato una modifica per l'elemento di lavoro, ad esempio l'aggiunta di un file di script R al ramo di `script` del computer locale, è possibile eseguire il commit della modifica dal branch locale al ramo di lavoro upstream usando i comandi Git bash seguenti:
 
 ```bash
 git status
@@ -76,11 +76,11 @@ git push origin script
 
 Dopo uno o più commit e push, quando si è pronti per unire il ramo di lavoro corrente nel ramo di base, è possibile creare e inviare una *richiesta pull* in Azure Repos. 
 
-Dalla pagina principale del progetto Azure DevOps, puntare alle**richieste pull** del **repository** > nel percorso di spostamento a sinistra. Selezionare quindi uno dei pulsanti **nuova richiesta pull** oppure il collegamento **Crea una richiesta pull** .
+Dalla pagina principale del progetto Azure DevOps, scegliere **repository** > **richieste pull** nel percorso di spostamento a sinistra. Selezionare quindi uno dei pulsanti **nuova richiesta pull** oppure il collegamento **Crea una richiesta pull** .
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-Nella schermata **nuova richiesta pull** , se necessario, passare al repository git e al ramo in cui si vuole eseguire il merge delle modifiche. Aggiungere o modificare le altre informazioni desiderate. Inrevisori aggiungere i nomi di quelli necessari per rivedere le modifiche e quindi selezionare **Crea**. 
+Nella schermata **nuova richiesta pull** , se necessario, passare al repository git e al ramo in cui si vuole eseguire il merge delle modifiche. Aggiungere o modificare le altre informazioni desiderate. In **revisori**aggiungere i nomi dei revisori, quindi selezionare **Crea**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -98,11 +98,11 @@ Confermare che la richiesta è contrassegnata come **completata**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Quando si torna a **repository** nel percorso di spostamento a sinistra, è possibile vedere che è stato passato al ramo master dopo l'eliminazione del `script` ramo.
+Quando si torna a **repository** nel percorso di spostamento a sinistra, è possibile vedere che è stato passato al ramo master dopo l'eliminazione del ramo `script`.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-È anche possibile usare i comandi di git bash seguenti per unire `script` il ramo di lavoro al relativo ramo di base ed eliminare il ramo di lavoro dopo l'Unione:
+È anche possibile usare i comandi Git bash seguenti per unire il ramo di lavoro `script` al relativo ramo di base ed eliminare il ramo di lavoro dopo l'Unione:
 
 ```bash
 git checkout master

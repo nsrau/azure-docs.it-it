@@ -3,24 +3,24 @@ title: Creare una pipeline di integrazione continua/recapito continuo con il pro
 description: Creare una pipeline di integrazione continua e recapito continuo per le applicazioni di intelligenza artificiale (AI) usando Docker e Kubernetes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: f07ce8e8834a2804b6a5b7668718c8e6bff00fa6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260673"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721830"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Creare pipeline di integrazione continua/recapito continuo per app per intelligenza artificiale con Azure Pipelines, Docker e Kubernetes
 
-Un'applicazione di intelligenza artificiale è un codice dell'applicazione incorporato con un modello di Machine Learning (ML) con training. Per un'applicazione di intelligenza artificiale sono sempre presenti due flussi di lavoro: I data scientist sviluppano il modello di machine learning e gli sviluppatori di app compilano l'app ed esporla agli utenti finali per l'utilizzo. Questo articolo descrive come implementare una pipeline di integrazione continua e recapito continuo (CI/CD) per un'applicazione di intelligenza artificiale che incorpora il modello ML nel codice sorgente dell'app. Il codice e l'esercitazione di esempio usano una semplice applicazione Web Python Flask e recuperano un modello pretrainato da un account di archiviazione BLOB di Azure privato. È anche possibile usare un account di archiviazione di AWS s3.
+Un'applicazione di intelligenza artificiale è un codice dell'applicazione incorporato con un modello di Machine Learning (ML) con training. Per un'applicazione di intelligenza artificiale sono sempre presenti due flussi di lavoro: i data scientist compilano il modello di machine learning e gli sviluppatori di app compilano l'app e la espongono agli utenti finali. Questo articolo descrive come implementare una pipeline di integrazione continua e recapito continuo (CI/CD) per un'applicazione di intelligenza artificiale che incorpora il modello ML nel codice sorgente dell'app. Il codice di esempio e l'esercitazione usano un'applicazione Web Python Flask e recuperano un modello pretrainato da un account di archiviazione BLOB di Azure privato. È anche possibile usare un account di archiviazione di AWS s3.
 
 > [!NOTE]
 > Il processo seguente è uno dei diversi modi per eseguire CI/CD. Sono disponibili alternative a questo strumento e ai prerequisiti.
@@ -60,7 +60,7 @@ Il diagramma e i passaggi seguenti descrivono l'architettura della pipeline CI/C
 10. Le richieste degli utenti per l'app passano attraverso il server DNS.
 11. Il server DNS passa le richieste a un servizio di bilanciamento del carico e restituisce le risposte agli utenti.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)
 - [Azure Machine Learning (AML)](/azure/machine-learning/)

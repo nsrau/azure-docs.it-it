@@ -1,19 +1,18 @@
 ---
 title: Query per recuperare le sottoscrizioni di Griglia di eventi di Azure
-description: Descrive come elencare le sottoscrizioni di Griglia di eventi di Azure.
+description: Questo articolo descrive come elencare le sottoscrizioni di griglia di eventi nella sottoscrizione di Azure. Si forniscono parametri diversi in base al tipo di sottoscrizione.
 services: event-grid
 author: spelluru
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/04/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 08fa9ada97c652ca609a499da1c8e87f7e4487db
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 2da4ba5946f16092c1d0918aec8dc3109b5fd4a8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786635"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721541"
 ---
 # <a name="query-event-grid-subscriptions"></a>Sottoscrizioni di Griglia di eventi di Azure 
 

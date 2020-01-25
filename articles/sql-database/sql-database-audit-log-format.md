@@ -5,16 +5,16 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 13746b86eed75055ceb5203afafb2d27a78ce1d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928631"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722085"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del log di controllo del database SQL
 
@@ -76,17 +76,17 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | server_principal_id | server_principal_id_d | ID del contesto di accesso in cui viene eseguita l'azione | int | int |
 | server_principal_name | server_principal_name_s | Account di accesso corrente | sysname | string |
 | server_principal_sid | server_principal_sid_s | SID di accesso corrente | varbinary | string |
-| session_id | session_id_d | ID della sessione in cui si è verificato l'evento | smallint | int |
+| session_id | session_id_d | ID della sessione in cui si è verificato l'evento | SMALLINT | int |
 | session_server_principal_name | session_server_principal_name_s | Entità server per la sessione | sysname | string |
-| ISTRUZIONE | statement_s | Istruzione T-SQL eseguita (se presente) | nvarchar(4000) | string |
-| riuscito | succeeded_s | Indica se l'azione che ha generato l'evento è riuscita. Per gli eventi diversi da login e batch, questo indica solo se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | string |
+| istruzione | statement_s | Istruzione T-SQL eseguita (se presente) | nvarchar(4000) | string |
+| succeeded | succeeded_s | Indica se l'azione che ha generato l'evento è riuscita. Per gli eventi diversi da login e batch, questo indica solo se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | string |
 | target_database_principal_id | target_database_principal_id_d | Entità database su cui viene eseguita un'operazione GRANT/DENY/REVOKE. 0 se non applicabile | int | int |
 | target_database_principal_name | target_database_principal_name_s | Utente di destinazione dell'azione. NULL se non applicabile | string | string |
 | target_server_principal_id | target_server_principal_id_d | Entità server su cui viene eseguita un'operazione GRANT/DENY/REVOKE. Restituisce 0 se non applicabile | int | int |
 | target_server_principal_name | target_server_principal_name_s | Account di accesso di destinazione dell'azione. NULL se non applicabile | sysname | string |
 | target_server_principal_sid | target_server_principal_sid_s | SID dell'account di accesso di destinazione. NULL se non applicabile | varbinary | string |
 | transaction_id | transaction_id_d | Solo SQL Server (a partire da 2016)-0 per il database SQL di Azure | bigint | int |
-| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
+| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | SMALLINT | int |
 | user_defined_information | user_defined_information_s | Informazioni definite dall'utente passate come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
 ## <a name="next-steps"></a>Fasi successive

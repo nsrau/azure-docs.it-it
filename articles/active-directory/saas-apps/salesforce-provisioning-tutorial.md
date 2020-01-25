@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0ed3307f2802e5372cf007f1df8eee2f26e6a39f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849174"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714387"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
 
@@ -30,7 +30,7 @@ Questa esercitazione descrive le procedure da eseguire in Salesforce e Azure AD 
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-* Un tenant di Azure Active Directory
+* Tenant di Azure Active Directory
 * Tenant di Salesforce.com
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
     > [!NOTE]
     > Come parte del processo di provisioning, quest'app importa da Salesforce profili che il cliente può decidere di selezionare durante l'assegnazione di utenti in Azure AD. Si noti che i profili importati da Salesforce vengono visualizzati come ruoli in Azure AD.
 
-## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning automatizzato degli utenti
+## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning utenti automatico
 
 Questa sezione illustra la connessione tra il Azure AD e l' [API di provisioning dell'account utente di Salesforce](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm)e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Salesforce in base all'assegnazione di utenti e gruppi in Azure ad.
 
@@ -127,7 +127,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 * Il servizio di provisioning Azure AD supporta il linguaggio di provisioning, le impostazioni locali e il fuso orario per un utente. Questi attributi si trovano nei mapping degli attributi predefiniti, ma non dispongono di un attributo di origine predefinito. Assicurarsi di selezionare l'attributo di origine predefinito e che l'attributo di origine sia nel formato previsto da SalesForce. Ad esempio, localeSidKey per la lingua inglese (Stati Uniti) è en_US. Esaminare le linee guida fornite [qui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) per determinare il formato localeSidKey appropriato. I formati languageLocaleKey sono disponibili [qui](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Oltre a garantire la correttezza del formato, potrebbe essere necessario assicurarsi che la lingua sia abilitata per gli utenti, come descritto [qui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
 * **SalesforceLicenseLimitExceeded:** Impossibile creare l'utente nell'applicazione di destinazione perché non sono disponibili licenze per questo utente. Ottenere licenze aggiuntive per l'applicazione di destinazione o esaminare le assegnazioni degli utenti e la configurazione del mapping degli attributi per assicurarsi che gli utenti corretti vengano assegnati con gli attributi corretti.
 * **SalesforceDuplicateUserName:** Non è possibile eseguire il provisioning dell'utente perché contiene un Salesforce.com ' username ' duplicato in un altro tenant di Salesforce.com.  In Salesforce.com i valori per l'attributo ' username ' devono essere univoci in tutti i tenant di Salesforce.com.  Per impostazione predefinita, il userPrincipalName di un utente in Azure Active Directory diventa il nome utente in Salesforce.com.   Sono disponibili due opzioni.  Un'opzione consiste nell'individuare e rinominare l'utente con ' username ' duplicato nell'altro tenant Salesforce.com, se si amministra anche tale tenant.  L'altra opzione consiste nel rimuovere l'accesso dall'utente Azure Active Directory al tenant Salesforce.com con cui è integrata la directory. Questa operazione verrà ritentata al successivo tentativo di sincronizzazione. 
-* **SalesforceRequiredFieldMissing:** Salesforce richiede che determinati attributi siano presenti nell'utente per la creazione o l'aggiornamento dell'utente. Nell'utente manca uno degli attributi obbligatori. Assicurarsi che gli attributi, ad esempio posta elettronica e alias, siano popolati in tutti gli utenti di cui si vuole eseguire il provisioning in Salesforce. È possibile definire l'ambito degli utenti che non dispongono di questi attributi usando [filtri di ambito basati su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* **SalesforceRequiredFieldMissing:** Salesforce richiede che determinati attributi siano presenti nell'utente per creare o aggiornare correttamente l'utente. Nell'utente manca uno degli attributi obbligatori. Assicurarsi che gli attributi, ad esempio posta elettronica e alias, siano popolati in tutti gli utenti di cui si vuole eseguire il provisioning in Salesforce. È possibile definire l'ambito degli utenti che non dispongono di questi attributi usando [filtri di ambito basati su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * Il mapping predefinito degli attributi per il provisioning in Salesforce include l'espressione SingleAppRoleAssignments per eseguire il mapping di appRoleAssignments in Azure AD a ProfileName in Salesforce. Assicurarsi che gli utenti non dispongano di più assegnazioni di ruolo app in Azure AD perché il mapping degli attributi supporta solo il provisioning di un ruolo. 
 * Salesforce richiede che gli aggiornamenti della posta elettronica vengano approvati manualmente prima di essere modificati. Di conseguenza, è possibile che vengano visualizzate più voci nei log di provisioning per aggiornare l'indirizzo di posta elettronica dell'utente (fino a quando la modifica della posta elettronica non è stata approvata).
 

@@ -2,20 +2,20 @@
 title: Attività per un singolo collaboratore nel processo di data science per i team
 description: Procedura dettagliata delle attività per un singolo collaboratore in un progetto team data science.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b64d9669c11f15de5e6bd616ff7a79f59b748363
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244284"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721252"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Attività per un singolo collaboratore nel processo di data science per i team
 
@@ -32,7 +32,7 @@ Il diagramma seguente illustra le attività che vengono completate dal progetto 
 > [!NOTE] 
 > Questo articolo usa Azure Repos e una Data Science Virtual Machine (DSVM) per configurare un ambiente TDSP, perché questo è il modo in cui implementare TDSP in Microsoft. Se il team USA altre piattaforme di hosting o sviluppo di codice, le singole attività del collaboratore sono le stesse, ma il modo per completarle può essere diverso.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa esercitazione si presuppone che le risorse e le autorizzazioni seguenti siano state configurate dal [responsabile del gruppo](group-manager-tasks.md), dal responsabile del [Team](team-lead-tasks.md)e dal responsabile del [progetto](project-lead-tasks.md):
 
@@ -42,7 +42,7 @@ In questa esercitazione si presuppone che le risorse e le autorizzazioni seguent
 - **Archiviazione file** di Azure configurata per le risorse condivise per il team o il progetto, se applicabile
 - **Autorizzazioni** per la clonazione e il push di nuovo nel repository del progetto 
 
-Per clonare i repository e modificare il contenuto nel computer locale o in DSVM o montare archiviazione file di Azure in DSVM, è necessario quanto segue:
+Per clonare i repository e modificare il contenuto nel computer locale o in DSVM o montare archiviazione file di Azure in DSVM, è necessario prendere in considerazione questo elenco di controllo:
 
 - Una sottoscrizione di Azure.
 - Git installato nel computer. Se si usa un DSVM, Git è preinstallato. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).

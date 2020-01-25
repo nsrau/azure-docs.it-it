@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
-ms.openlocfilehash: 886f71dcaaca6a636b385ef6b101f0a893ff7035
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 882cdaa8a7b01578b2f04cf939aa14fe4aee7e2e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156999"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720368"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Azure Dev Spaces
 
@@ -61,7 +61,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-L'applicazione di esempio usa [Helm][helm-installed] per eseguire il servizio Windows nel cluster. Passare alla directory `charts` e usare Helm eseguire il servizio Windows:
+L'applicazione di esempio usa [Helm 3][helm-installed] per eseguire il servizio Windows nel cluster. Passare alla directory `charts` e usare Helm eseguire il servizio Windows:
 
 ```console
 cd charts/
@@ -141,7 +141,7 @@ azds up
 Il `azds prep --public` comando genera il grafico Helm e Dockerfile per l'applicazione.
 
 > [!TIP]
-> Il [grafico Dockerfile e Helm](../how-dev-spaces-works.md#prepare-your-code) per il progetto viene usato da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole modificare il modo in cui il progetto viene compilato ed eseguito.
+> Il [Dockerfile e il grafico Helm](../how-dev-spaces-works.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
 
 Il `azds up` comando esegue il servizio nello spazio dei nomi.
 

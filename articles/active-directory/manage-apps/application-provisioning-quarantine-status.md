@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 933217b2ad86535d45f6674165ee162f263a8cd7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882886"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712165"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisioning dell'applicazione in stato di quarantena
 
@@ -63,7 +63,7 @@ Per prima cosa, risolvere il problema che ha causato la messa in quarantena dell
 
 - Controllare le impostazioni di provisioning dell'applicazione per verificare di avere [immesso credenziali amministrative valide](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD deve essere in grado di stabilire una relazione di trust con l'applicazione di destinazione. Assicurarsi di aver immesso le credenziali valide e che l'account disponga delle autorizzazioni necessarie.
 
-- Esaminare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per esaminare in modo approfondito gli errori che causano la quarantena e risolvere l'errore. Per accedere ai log di provisioning nel portale di Azure, passare a **Azure Active Directory** &gt; **app aziendali** &gt; **log di provisioning (anteprima)** nella sezione **attività** .
+- Esaminare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per esaminare in modo approfondito gli errori che causano la quarantena e risolvere l'errore. Per accedere ai log di provisioning nel portale di Azure, passare a **Azure Active Directory** &gt; **app aziendali** &gt; **log di provisioning (anteprima)** nella sezione **attività** .
 
 Dopo aver risolto il problema, riavviare il processo di provisioning. Alcune modifiche apportate alle impostazioni di provisioning dell'applicazione, ad esempio i mapping degli attributi o i filtri di ambito, riavvieranno automaticamente il provisioning. L'indicatore di stato nella pagina di **provisioning** dell'applicazione indica il momento dell'ultimo avvio del provisioning. Se è necessario riavviare manualmente il processo di provisioning, usare uno dei metodi seguenti:  
 

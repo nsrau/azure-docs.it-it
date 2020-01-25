@@ -1,21 +1,21 @@
 ---
-title: Procedura dettagliata per il partner di servizi peering
+title: Procedura dettagliata per il partner del servizio di peering
 titleSuffix: Azure
-description: Procedura dettagliata per il partner di servizi peering
+description: Procedura dettagliata per il partner del servizio di peering
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 28aa9f921de64fcc838935cf65b64a63280ddf16
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d626d98613bd5d988b599d0980c885d7f73bb958
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774627"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720249"
 ---
-# <a name="peering-service-partner-walkthrough"></a>Procedura dettagliata per il partner di servizi peering
+# <a name="peering-service-partner-walkthrough"></a>Procedura dettagliata per il partner del servizio di peering
 
 Questa sezione illustra i passaggi che un provider deve seguire per abilitare un peering diretto per il servizio di peering.
 
@@ -25,7 +25,7 @@ I provider di servizi possono espandere la loro copertura geografica creando un 
 1. Seguire le istruzioni per [creare o modificare un peering diretto usando il portale](howto-direct-portal.md). Verificare che soddisfi i requisiti di disponibilità elevata.
 1. Quindi, seguire la procedura per [abilitare il servizio di peering in un peering diretto usando il portale](howto-peering-service-portal.md).
 
-## <a name="use-legacy-direct-peering-conection-for-peering-service"></a>Usare la connessione con peering diretto legacy per il servizio di peering
+## <a name="use-legacy-direct-peering-connection-for-peering-service"></a>Usa connessione peering diretto legacy per il servizio di peering
 Se si vuole usare il peering diretto legacy per supportare il servizio di peering,
 1. Diventare un partner del servizio di peering, se non è già stato fatto.
 1. Seguire le istruzioni per [convertire un peering diretto legacy in una risorsa di Azure usando il portale](howto-legacy-direct-portal.md). Se necessario, ordinare altri circuiti per soddisfare i requisiti di disponibilità elevata.

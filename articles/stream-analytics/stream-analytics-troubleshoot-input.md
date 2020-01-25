@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354292"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720300"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
@@ -24,11 +24,13 @@ Questa pagina descrive i problemi comuni relativi alle connessioni di input e sp
 
 2.  Esaminare i dati di input.
 
-    Per verificare che è attivo il flusso dei dati di input verso l'hub eventi, usare [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) per connettersi all'hub eventi di Azure, se in uso.
+    1. Per verificare che è attivo il flusso dei dati di input verso l'hub eventi, usare [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) per connettersi all'hub eventi di Azure, se in uso.
         
-    Usare il pulsante [**Dati di esempio**](stream-analytics-sample-data-input.md) per ogni input e scaricare i dati di esempio dell'input.
+    1. Usare il pulsante [**Sample Data**](stream-analytics-sample-data-input.md) per ogni input. Scaricare i dati di esempio di input.
         
-    Esaminare i dati di esempio per comprendere la forma dei dati, ovvero lo schema e i [tipi di dati](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Esaminare i dati di esempio per comprendere la forma dei dati, ovvero lo schema e i tipi di [dati](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+
+3.  Assicurarsi di aver selezionato un intervallo di tempo nell'anteprima di input. Scegliere **Seleziona intervallo di tempo**, quindi immettere una durata di esempio prima di testare la query.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventi di input in formato non valido determinano errori di deserializzazione 
 Quando il flusso di input del processo di Analisi di flusso di Azure contiene messaggi in formato non valido, si verificano problemi di deserializzazione. Un messaggio in formato non valido può essere causato, ad esempio, da una parentesi mancante in un oggetto JSON o da un formato di timestamp errato nel campo dell'ora. 

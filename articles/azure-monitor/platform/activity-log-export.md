@@ -5,20 +5,21 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e46574ae7f8faa67c2cc0c1afef1917270f69175
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969667"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715890"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o in hub eventi di Azure
 
-> [!WARNING]
-> È ora possibile raccogliere il log attività in un'area di lavoro Log Analytics usando un'impostazione di diagnostica simile a come si raccolgono i log delle risorse. Vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](diagnostic-settings-legacy.md).
+> [!IMPORTANT]
+> Il metodo per l'invio del log attività di Azure ad archiviazione di Azure e hub eventi di Azure è stato modificato in [impostazioni di diagnostica](diagnostic-settings.md). Questo articolo descrive il metodo legacy che è in fase di deprecazione. Per un confronto, vedere eseguire l'aggiornamento alla [raccolta e all'esportazione dei log attività di Azure](diagnostic-settings-legacy.md) .
+
 
 Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure. Oltre a visualizzare il log attività nel portale di Azure o copiarlo in un'area di lavoro Log Analytics in cui può essere analizzato con altri dati raccolti da monitoraggio di Azure, è possibile creare un profilo di log per archiviare il log attività in un account di archiviazione di Azure o inviarlo a un  Hub eventi.
 
@@ -72,9 +73,14 @@ Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un
 
 Creare o modificare un profilo di log con l'opzione **Esporta in hub eventi** nel portale di Azure.
 
-1. Dal menu **monitoraggio** nella portale di Azure selezionare **Esporta in hub eventi**.
+1. Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **log attività**.
+3. Fare clic su **Impostazioni di diagnostica**.
 
-    ![Pulsante Esporta nel portale](media/activity-log-export/portal-export.png)
+   ![Impostazioni di diagnostica](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Fare clic sul banner viola per l'esperienza legacy.
+
+    ![Esperienza legacy](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. Nel pannello che viene visualizzato specificare quanto segue:
    * Aree con gli eventi da esportare. È necessario selezionare tutte le aree per assicurarsi di non perdere gli eventi chiave perché il log attività è un log globale (non regionale), quindi la maggior parte degli eventi non dispone di un'area associata.

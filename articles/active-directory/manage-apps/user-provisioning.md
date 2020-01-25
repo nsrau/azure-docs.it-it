@@ -15,16 +15,16 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d515731b8da186ef7e44a397d5abf87dfa65e83a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eefdb42cebad2b7f532392254b652742527ed862
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433772"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711482"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni con Azure Active Directory
 
-In Azure Active Directory (Azure AD), il termine **provisioning app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente durante la modifica dello stato o dei ruoli. Gli scenari comuni includono il provisioning di un utente Azure AD in applicazioni come [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e altro ancora.
+In Azure Active Directory (Azure AD), il termine **provisioning app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente durante la modifica dello stato o dei ruoli. Gli scenari comuni includono il provisioning di un utente Azure AD in applicazioni come [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e altro ancora.
 
 ![Diagramma della panoramica del provisioning](media/user-provisioning/provisioning-overview.png)
 
@@ -63,7 +63,7 @@ Azure AD offre un supporto pre-integrato per molte app SaaS e sistemi di risorse
 
    ![Logo Salesforce](media/user-provisioning/gallery-app-logos.png)
 
-   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile [richiedere che l'applicazione sia integrata con la raccolta di app](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). Per una richiesta di provisioning dell'utente, è necessario che l'applicazione disponga di un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per poter caricare rapidamente l'app sulla piattaforma.
+   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile [richiedere che l'applicazione sia integrata con la raccolta di app](../develop/howto-app-gallery-listing.md). Per una richiesta di provisioning dell'utente, è necessario che l'applicazione disponga di un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per poter caricare rapidamente l'app sulla piattaforma.
 
 * **Applicazioni che supportano SCIM 2,0**. Per informazioni su come connettere in modo generico le applicazioni che implementano le API di gestione utenti basate su SCIM 2,0, vedere [creare un endpoint scim e configurare il provisioning utenti](use-scim-to-provision-users-and-groups.md).
 
@@ -81,7 +81,7 @@ Le applicazioni nella raccolta Azure AD supportano una delle due modalità di pr
 
 * Il provisioning **manuale** significa che non è ancora disponibile un connettore di provisioning automatico Azure ad per l'app. Gli account utente devono essere creati manualmente, ad esempio tramite l'aggiunta di utenti direttamente nel portale di amministrazione dell'app o il caricamento di un foglio di calcolo con i dettagli dell'account utente. Consultare la documentazione fornita dall'app o contattare lo sviluppatore dell'app per determinare quali meccanismi sono disponibili.
 
-* **Automatico** significa che è stato sviluppato un connettore di provisioning Azure AD per l'applicazione. È necessario seguire l'esercitazione di installazione specifica per configurare il provisioning per l'applicazione. Le esercitazioni per le applicazioni si trovano nell'[Elenco di esercitazioni sulla procedura di integrazione delle applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+* **Automatico** significa che è stato sviluppato un connettore di provisioning Azure AD per l'applicazione. È necessario seguire l'esercitazione di installazione specifica per configurare il provisioning per l'applicazione. Le esercitazioni per le applicazioni si trovano nell'[Elenco di esercitazioni sulla procedura di integrazione delle applicazioni SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
 
 Nella raccolta di Azure AD, le applicazioni che supportano il provisioning automatico sono indicate da un'icona di **provisioning** . Passare alla nuova esperienza di anteprima della raccolta per visualizzare queste icone (nel banner nella parte superiore della **pagina Aggiungi un'applicazione**, selezionare il collegamento **fare clic qui per provare la raccolta di app nuova e migliorata**).
 
@@ -91,7 +91,7 @@ La modalità di provisioning supportata da un'applicazione è visibile anche nel
 
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Come è possibile configurare il provisioning automatico in un'applicazione?
 
-Per le applicazioni preintegrate elencate nella raccolta, sono disponibili istruzioni dettagliate per la configurazione del provisioning automatico. Vedere l' [elenco delle esercitazioni per le app integrate della raccolta](https://docs.microsoft.com/azure/active-directory/saas-apps/). Il video seguente illustra come configurare il provisioning utenti automatico per SalesForce.
+Per le applicazioni preintegrate elencate nella raccolta, sono disponibili istruzioni dettagliate per la configurazione del provisioning automatico. Vedere l' [elenco delle esercitazioni per le app integrate della raccolta](../saas-apps/tutorial-list.md). Il video seguente illustra come configurare il provisioning utenti automatico per SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 

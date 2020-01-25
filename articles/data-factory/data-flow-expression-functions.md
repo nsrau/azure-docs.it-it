@@ -9,16 +9,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 8cbc067326bf77648d242cadaf91b491f50c3848
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 68771ee3d2ae2d43245bd217bedcf59b987786f1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294270"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716728"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni di trasformazione dei dati nel flusso di dati di mapping 
 
-## <a name="expression-functions"></a>Funzioni per le espressioni
+## <a name="expression-functions"></a>Funzioni di espressione
 
 In Data Factory utilizzare il linguaggio delle espressioni della funzionalità del flusso di dati di mapping per configurare le trasformazioni dei dati.
 ___
@@ -709,7 +709,7 @@ Converte un tipo di dati primitivo in una stringa. Per numeri e date è possibil
 * ``toString(4 == 20) -> 'false'``
 ___
 ### <code>toTimestamp</code><br/><br/>
-Converte una stringa in un timestamp in base a un formato timestamp facoltativo. Vedere Java SimpleDateFormat per tutti i formati possibili. Se il timestamp viene omesso, viene utilizzato il modello predefinito. aaaa-[M] M-[d] d HH: mm: SS [. f...]. È possibile passare un fuso orario facoltativo nel formato ' GMT ',' PST ',' UTC ',' America/Cayman '. Timestamp supporta la precisione fino al millisecondo con il valore di SimpleDateFormat di 999Refer Java per i formati disponibili. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
+Converte una stringa in un timestamp in base a un formato timestamp facoltativo. Vedere Java SimpleDateFormat per tutti i formati possibili. Se il timestamp viene omesso, viene utilizzato il modello predefinito. aaaa-[M] M-[d] d HH: mm: SS [. f...]. È possibile passare un fuso orario facoltativo nel formato ' GMT ',' PST ',' UTC ',' America/Cayman '. Timestamp supporta la precisione fino a millisecondo con il valore di SimpleDateFormat di 999Refer Java per i formati disponibili. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
 * ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``

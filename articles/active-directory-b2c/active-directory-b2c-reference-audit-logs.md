@@ -12,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e79b2342f481786caf46aeb9454e2961637da335
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948233"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712942"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -34,12 +34,12 @@ La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 
 |Tipo di attività |Description  |
 |---------|---------|
-|Authorization |Attività relative all'autorizzazione di un utente per accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C).         |
+|Autorizzazione |Attività relative all'autorizzazione di un utente per accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C).         |
 |Directory |Attività relative agli attributi di directory recuperate quando un amministratore accede utilizzando il portale di Azure. |
 |Richiesta | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
 |Chiave |Operazioni CRUD sulle chiavi archiviate in un contenitore di chiavi B2C. |
 |Gruppi |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
-|Authentication |Convalida delle credenziali utente e del rilascio dei token.|
+|Autenticazione |Convalida delle credenziali utente e del rilascio dei token.|
 
 Per le attività CRUD sugli oggetti utente, vedere la categoria **Directory principale**.
 
@@ -53,10 +53,10 @@ Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
 |Sezione|Campo|Description|
 |-------|-----|-----------|
-| Attività | name | Quale attività ha avuto luogo. Ad esempio, *emettere un id_token all'applicazione*, che conclude l'accesso utente effettivo. |
+| Attività | Nome | Quale attività ha avuto luogo. Ad esempio, *emettere un id_token all'applicazione*, che conclude l'accesso utente effettivo. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
 | Azione avviata da (attore) | SPN | **ID applicazione** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. |
-| Destinazione/i | ObjectId | **ID oggetto** dell'utente che sta effettuando l'accesso. |
+| Destinazioni | ObjectId | **ID oggetto** dell'utente che sta effettuando l'accesso. |
 | Altri dettagli | TenantId | **ID tenant** del tenant del Azure ad B2C. |
 | Altri dettagli | PolicyId | **ID criterio** del flusso utente (criterio) utilizzato per l'accesso dell'utente. |
 | Altri dettagli | ApplicationId | **ID applicazione** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. |
@@ -165,7 +165,7 @@ Write-Output "Searching for events starting $7daysago"
 $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
-# Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
+# Parse audit report items, save output to file(s): auditX.json, where X = 0 through n for number of nextLink pages
 if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 73314cb2d3ac77347e0de720a6a3ab0084181218
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 7b45ddce0435a903c63855dea8a01353a7ab36ec
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732417"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722544"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -71,6 +71,13 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 - **Aggiunta di database nel pool elastico al gruppo di failover**
 
   È possibile inserire tutti o alcuni database all'interno di un pool elastico nello stesso gruppo di failover. Se il database primario si trova in un pool elastico, il database secondario viene creato automaticamente nel pool elastico con lo stesso nome (pool secondario). È necessario assicurarsi che il server secondario contenga un pool elastico con lo stesso identico nome e capacità sufficiente per ospitare i database secondari che verranno creati dal gruppo di failover. Se si aggiunge un database nel pool che ha già un database secondario nel pool secondario, tale collegamento della replica geografica viene ereditato dal gruppo. Quando si aggiunge un database che ha già un database secondario in un server che non fa parte del gruppo di failover, viene creato un nuovo database secondario nel pool secondario.
+  
+- **Seeding iniziale** 
+
+  Quando si aggiungono database, pool elastici o istanze gestite a un gruppo di failover, prima dell'avvio della replica dei dati viene avviata una fase iniziale di seeding. La fase iniziale di seeding è l'operazione più estesa e costosa. Al termine del seeding iniziale, i dati vengono sincronizzati e vengono replicate solo le modifiche successive ai dati. Il tempo necessario per il completamento del valore di inizializzazione iniziale dipende dalle dimensioni dei dati, dal numero di database replicati e dalla velocità del collegamento tra le entità del gruppo di failover. In circostanze normali, la velocità di seeding tipica è 50-500 GB per un'ora per un singolo database o un pool elastico e 18-35 GB per un'ora per un'istanza gestita. Il seeding viene eseguito per tutti i database in parallelo. È possibile utilizzare la velocità di seeding indicata, insieme al numero di database e alle dimensioni totali dei dati, per stimare il tempo necessario per la fase di seeding iniziale prima dell'avvio della replica dei dati.
+
+  Per le istanze gestite, è necessario considerare la velocità del collegamento Express route tra le due istanze anche quando si stima il tempo della fase di seeding iniziale. Se la velocità del collegamento tra le due istanze è più lenta rispetto a quanto necessario, il tempo per il seeding è probabilmente interessato da un notevole interesse. È possibile usare la velocità di seeding indicata, il numero di database, le dimensioni totali dei dati e la velocità del collegamento per stimare il tempo necessario per la fase di seeding iniziale prima che la replica dei dati venga avviata. Ad esempio, per un singolo database da 100 GB, la fase iniziale del valore di inizializzazione richiederebbe da 2,8 a 5,5 ore se il collegamento è in grado di eseguire il push di 35 GB all'ora. Se il collegamento può trasferire 10 GB all'ora, il seeding di un database di 100 GB sarà di circa 10 ore. Se sono presenti più database da replicare, il seeding verrà eseguito in parallelo e, in combinazione con una velocità di collegamento lenta, la fase di seeding iniziale potrebbe richiedere molto più tempo, soprattutto se il seeding parallelo dei dati di tutti i database supera quello disponibile larghezza di banda del collegamento. Se la larghezza di banda di rete tra due istanze è limitata e si aggiungono più istanze gestite a un gruppo di failover, è consigliabile aggiungere più istanze gestite al gruppo di failover in modo sequenziale, una alla volta.
+
   
 - **Zona DNS**
 

@@ -2,20 +2,20 @@
 title: Sviluppo Agile di progetti di data science - Processo di data science per i team
 description: Eseguire un progetto data science in modo sistematico, controllato dalla versione e collaborativo all'interno di un team di progetto tramite il processo di Data Science per i team.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260676"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722102"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Sviluppo Agile di progetti di data science
 
@@ -35,25 +35,25 @@ Nella figura seguente viene illustrato un flusso di lavoro tipico per la pianifi
 
 ##  <a name='Terminology-1'></a>Tipi di elemento di lavoro
 
-Nel Framework di pianificazione sprint TDSP sono disponibili quattro tipi di *elemento di lavoro* usati di frequente: *Funzionalità*, *storie utente*, *attività*e *bug*. Il backlog per tutti gli elementi di lavoro è a livello di progetto, non a livello di repository git. 
+Nel Framework di pianificazione sprint TDSP sono disponibili quattro tipi di *elemento di lavoro* usati di frequente: *funzionalità*, *storie utente*, *attività*e *bug*. Il backlog per tutti gli elementi di lavoro è a livello di progetto, non a livello di repository git. 
 
 Di seguito sono riportate le definizioni per i tipi di elemento di lavoro:
 
-- **Funzionalità**: Una funzionalità corrisponde a un engagement del progetto. Diverse interazioni con un client sono funzionalità diverse ed è consigliabile considerare diverse fasi di un progetto come diverse funzionalità. Se si sceglie uno schema, ad esempio  *\<clientname >\<-engagementname >* per assegnare un nome alle funzionalità, è possibile riconoscere facilmente il contesto del progetto e il coinvolgimento dei nomi stessi.
+- **Funzionalità**: una funzionalità corrisponde al coinvolgimento di un progetto. Diverse interazioni con un client sono funzionalità diverse ed è consigliabile considerare diverse fasi di un progetto come diverse funzionalità. Se si sceglie uno schema come *\<clientname >-\<engagementname >* per assegnare un nome alle funzionalità, è possibile riconoscere facilmente il contesto del progetto e il coinvolgimento dei nomi stessi.
   
-- **Storia utente**: Le storie utente sono elementi di lavoro necessari per completare una funzionalità end-to-end. Esempi di storie utente includono:
-  - Ottenere i dati 
+- **Storia utente**: le storie utente sono elementi di lavoro necessari per completare una funzionalità end-to-end. Esempi di storie utente includono:
+  - Recuperare i dati 
   - Esplorazione dei dati 
   - Genera funzionalità
   - Creare modelli
   - Rendere operativi i modelli 
   - Ripetere il training dei modelli
   
-- **Attività**: Le attività sono elementi di lavoro assegnabili che devono essere eseguiti per completare una storia utente specifica. Ad esempio, le attività nella storia utente *ottengono i dati* :
+- **Attività**: le attività sono elementi di lavoro assegnabili che devono essere eseguiti per completare una storia utente specifica. Ad esempio, le attività nella storia utente *ottengono i dati* :
   - Ottenere le credenziali SQL Server
   - Caricare i dati in SQL Data Warehouse
   
-- **Bug**: I bug sono problemi nel codice o nei documenti esistenti che devono essere corretti per completare un'attività. Se i bug sono causati da elementi di lavoro mancanti, possono escalarsi per essere storie utente o attività. 
+- **Bug**: i bug sono problemi nel codice o nei documenti esistenti che devono essere corretti per completare un'attività. Se i bug sono causati da elementi di lavoro mancanti, possono escalarsi per essere storie utente o attività. 
 
 I data scientist possono essere più comodi usando un modello agile che sostituisce funzionalità, storie utente e attività con fasi del ciclo di vita TDSP e sottofasi. Per creare un modello derivato da agile che è allineato in modo specifico con le fasi del ciclo di vita TDSP, vedere [usare un modello di lavoro TDSP agile](#set-up-agile-dsp-6).
 
@@ -72,7 +72,7 @@ Per altre informazioni sulla pianificazione dello sprint in Azure Boards, vedere
 
 Dopo aver creato il repository del codice del progetto e del progetto, è possibile aggiungere una funzionalità al backlog per rappresentare il lavoro per il progetto.
 
-1. Dalla pagina del progetto, selezionare **lavagne** > dei**backlog** nel pannello di navigazione sinistro. 
+1. Dalla pagina del progetto, selezionare **lavagne** > **backlog** nel pannello di navigazione sinistro. 
    
 1. Nella scheda **backlog** , se il tipo di elemento di lavoro nella barra superiore è **storie**, elenco a discesa e selezionare **funzionalità**. Quindi selezionare **nuovo elemento di lavoro.**
    
@@ -86,7 +86,7 @@ Dopo aver creato il repository del codice del progetto e del progetto, è possib
    
    È anche possibile collegare la funzionalità al repository del codice Azure Repos del progetto selezionando **Aggiungi collegamento** nella sezione **sviluppo** . 
    
-   Al termine della modifica della funzionalità, selezionare **salva & Chiudi**.
+   Dopo aver modificato la funzionalità, selezionare **salva & Chiudi**.
    
    ![Modificare la funzionalità e selezionare Salva & Chiudi](./media/agile-development/3a-add-link-repo.png)
 
@@ -96,7 +96,7 @@ Con la funzionalità è possibile aggiungere storie utente per descrivere i pass
 
 Per aggiungere una nuova storia utente a una funzionalità:
 
-1. Nella scheda **backlog** selezionare **+** a sinistra della funzionalità. 
+1. Nella scheda **backlog** selezionare la **+** a sinistra della funzionalità. 
    
    ![Aggiungere una nuova storia utente nella funzionalità](./media/agile-development/4-sprint-add-story.png)
    
@@ -112,7 +112,7 @@ Per aggiungere una nuova storia utente a una funzionalità:
 
 Le attività sono passaggi dettagliati specifici necessari per completare ogni storia utente. Una volta completate tutte le attività di una storia utente, la storia utente deve essere completata. 
 
-Per aggiungere un'attività a una storia utente, selezionare la **+** accanto all'elemento della storia utente e selezionare **attività**. Immettere il titolo e altre informazioni nell'attività.
+Per aggiungere un'attività a una storia utente, selezionare l' **+** accanto all'elemento della storia utente e selezionare **attività**. Immettere il titolo e altre informazioni nell'attività.
 
 ![Aggiungere un'attività a una storia utente](./media/agile-development/7-sprint-add-task.png)
 
@@ -183,7 +183,7 @@ Dopo aver completato i passaggi, i livelli di backlog dovrebbero avere un aspett
    
    ![Creare un progetto di TDSP](./media/agile-development/15-newproject.png)
    
-1. Nel progetto appena creato selezionare **lavagne** > di**backlog** nel pannello di spostamento a sinistra.
+1. Nel progetto appena creato selezionare **lavagne** > **backlog** nel pannello di navigazione sinistro.
    
 1. Per rendere visibili i progetti TDSP, selezionare l'icona **Configura impostazioni team** . Nella schermata **Impostazioni** selezionare la casella di controllo **progetti TDSP** , quindi selezionare **Salva e Chiudi**.
    
@@ -201,7 +201,7 @@ Dopo aver completato i passaggi, i livelli di backlog dovrebbero avere un aspett
    
 1. Inserire i dettagli nel nuovo elemento di lavoro e selezionare **salva & Chiudi**.
    
-1. Continuare a selezionare i **+** simboli accanto agli elementi di lavoro per aggiungere nuove fasi, sottofasi e attività del TDSP. 
+1. Continuare a selezionare i simboli **+** accanto a elementi di lavoro per aggiungere nuove fasi, sottofasi e attività del TDSP. 
    
 Di seguito è riportato un esempio di come gli elementi di lavoro del progetto di data science devono essere visualizzati nella visualizzazione **backlog** :
 

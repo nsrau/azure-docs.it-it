@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 437b87a3d684d7751adc89ba77b20ea86b3455e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805995"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717321"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
 
@@ -47,8 +47,8 @@ Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati
 | Statale | Significato |
 | ----- | ------- |
 | Elaborazione | Il set di dati è stato ricevuto ed è in corso l'elaborazione. |
-| Succeeded | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
-| Failed | Errore del set di dati durante l'elaborazione a causa di diversi motivi, ad esempio errori di file, problemi relativi ai dati o problemi di rete. |
+| Operazione completata | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
+| Operazione non riuscita | Errore del set di dati durante l'elaborazione a causa di diversi motivi, ad esempio errori di file, problemi relativi ai dati o problemi di rete. |
 
 Al termine della convalida, è possibile visualizzare il numero totale di espressioni corrispondenti per ognuno dei set di impostazioni nella colonna **enunciazioni** . Se il tipo di dati selezionato richiede una segmentazione audio lunga, questa colonna riflette solo le espressioni che sono state segmentate in base alle trascrizioni o tramite il servizio di trascrizione vocale. È possibile scaricare ulteriormente il set di dati convalidato per visualizzare i risultati dettagliati degli enunciati importati correttamente e le relative trascrizioni di mapping. Suggerimento: la segmentazione dell'audio lungo può richiedere più di un'ora per completare l'elaborazione dei dati.
 
@@ -89,8 +89,8 @@ Lo stato illustrato riflette il processo di conversione del set di dati in un mo
 | Statale | Significato |
 | ----- | ------- |
 | Elaborazione | È in corso la creazione del modello vocale. |
-| Succeeded | Il modello vocale è stato creato e può essere distribuito. |
-| Failed | Non è stato possibile eseguire il training del modello vocale a causa di diversi motivi, ad esempio problemi relativi ai dati o problemi di rete. |
+| Operazione completata | Il modello vocale è stato creato e può essere distribuito. |
+| Operazione non riuscita | Non è stato possibile eseguire il training del modello vocale a causa di diversi motivi, ad esempio problemi relativi ai dati o problemi di rete. |
 
 Il tempo necessario per il training varia a seconda del volume dei dati audio elaborati. In genere, i tempi vanno da 30 minuti per alcune centinaia di espressioni a 40 ore per 20.000 espressioni. Una volta completato il training del modello, è possibile iniziare a testarlo.
 
@@ -117,7 +117,7 @@ Dopo aver creato correttamente il carattere voce, è possibile testarlo prima di
     > [!NOTE]
     > La lingua del testo deve corrispondere a quella del carattere voce. Solo i modelli con training completato possono essere testati. In questo passaggio è supportato solo testo normale.
 
-5.  Fare clic su **Create**(Crea).
+5.  Fare clic su **Crea**.
 
 Dopo aver inviato la richiesta di test, si tornerà alla pagina test. La tabella ora include una voce che corrisponde alla nuova richiesta e alla colonna di stato. La sintesi vocale può richiedere alcuni minuti. Quando nella colonna stato viene indicato **succeeded**, è possibile riprodurre l'audio oppure scaricare l'input di testo (un file con estensione txt) e l'output audio (un file con estensione wav) ed effettuare un provino per la qualità.
 

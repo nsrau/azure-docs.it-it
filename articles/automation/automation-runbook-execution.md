@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c97e10d2785b7dc1a438c95dca9be94fcef82f94
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658118"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714837"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -71,7 +71,7 @@ else
     }
 ```
 
-### <a name="time-dependant-scripts"></a>Script dipendenti dal tempo
+### <a name="time-dependent-scripts"></a>Script dipendenti dal tempo
 
 La creazione di runbook deve essere soggetta a un'attenta considerazione. Come già accennato, i runbook devono essere creati in modo che siano affidabili e in grado di gestire errori temporanei a causa dei quali il runbook potrebbe essere riavviato o avere esito negativo. Se un Runbook ha esito negativo, viene eseguito un nuovo tentativo. Se un Runbook viene normalmente eseguito all'interno di un vincolo di tempo, la logica per controllare il tempo di esecuzione deve essere implementata in Runbook per garantire che le operazioni come l'avvio, l'arresto o la scalabilità orizzontale vengano eseguite solo in momenti specifici.
 
@@ -173,7 +173,7 @@ catch
 }
 ```
 
-#### <a name="throw"></a>Genera
+#### <a name="throw"></a>Generare
 
 [Throw](/powershell/module/microsoft.powershell.core/about/about_throw) può essere usato per generare un errore di terminazione. Questa operazione può essere utile quando si definisce la logica personalizzata in un Runbook. Se viene soddisfatto un determinato criterio che dovrebbe arrestare lo script, è possibile usare `throw` per arrestare lo script. Nell'esempio seguente viene illustrato il funzionamento di un parametro di funzione richiesto utilizzando `throw`.
 

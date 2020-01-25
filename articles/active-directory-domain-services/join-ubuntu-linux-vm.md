@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 9fb41b08cb29a68b39fb416b4b7b7bcce9e821dd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1cf1a97ed6350174511d61d924f893bb209736c2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754358"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712587"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito Azure AD Domain Services
 
@@ -43,7 +43,7 @@ Se si dispone di una macchina virtuale Ubuntu Linux esistente in Azure, connette
 Se è necessario creare una macchina virtuale Ubuntu Linux o si vuole creare una macchina virtuale di test da usare con questo articolo, è possibile usare uno dei metodi seguenti:
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
-* [interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
+* [Interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Quando si crea la VM, prestare attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale sia in grado di comunicare con il dominio gestito di Azure AD DS:
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 Nel file *host* aggiornare l'indirizzo *localhost* . Nell'esempio seguente:
 
-* *contoso.com* è il nome di dominio DNS del dominio gestito di Azure AD DS.
+* *aadds.contoso.com* è il nome di dominio DNS del dominio gestito di Azure AD DS.
 * *Ubuntu* è il nome host della macchina virtuale Ubuntu che si sta aggiungendo al dominio gestito.
 
 Aggiornare questi nomi con valori personalizzati:
 
 ```console
-127.0.0.1 ubuntu.contoso.com ubuntu
+127.0.0.1 ubuntu.aadds.contoso.com ubuntu
 ```
 
 Al termine, salvare e chiudere il file *host* usando il comando `:wq` dell'editor.
@@ -78,7 +78,7 @@ Al termine, salvare e chiudere il file *host* usando il comando `:wq` dell'edito
 
 La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito di Azure AD DS. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio usando `apt-get`
 
-Durante l'installazione di Kerberos, il pacchetto *krb5-User* richiede il nome dell'area di autenticazione in tutti i caratteri maiuscoli. Ad esempio, se il nome del dominio gestito di Azure AD DS è *contoso.com*, immettere *contoso.com* come area di autenticazione. L'installazione scrive le sezioni `[realm]` e `[domain_realm]` nel file di configurazione */etc/krb5.conf* . Assicurarsi di specificare l'area di autenticazione in MAIUSCOLo:
+Durante l'installazione di Kerberos, il pacchetto *krb5-User* richiede il nome dell'area di autenticazione in tutti i caratteri maiuscoli. Ad esempio, se il nome del dominio gestito di Azure AD DS è *aadds.contoso.com*, immettere *aadds. CONTOSO.COM* come area di autenticazione. L'installazione scrive le sezioni `[realm]` e `[domain_realm]` nel file di configurazione */etc/krb5.conf* . Assicurarsi di specificare l'area di autenticazione in MAIUSCOLo:
 
 ```console
 sudo apt-get update
@@ -95,10 +95,10 @@ Per il corretto funzionamento della comunicazione del dominio, la data e l'ora d
     sudo vi /etc/ntp.conf
     ```
 
-1. Nel file *NTP. conf* creare una riga per aggiungere il nome DNS del dominio gestito di Azure AD DS. Nell'esempio seguente viene aggiunta una voce per *contoso.com* . Usare il proprio nome DNS:
+1. Nel file *NTP. conf* creare una riga per aggiungere il nome DNS del dominio gestito di Azure AD DS. Nell'esempio seguente viene aggiunta una voce per *aadds.contoso.com* . Usare il proprio nome DNS:
 
     ```console
-    server contoso.com
+    server aadds.contoso.com
     ```
 
     Al termine, salvare e chiudere il file *NTP. conf* usando il comando `:wq` dell'editor.
@@ -113,7 +113,7 @@ Per il corretto funzionamento della comunicazione del dominio, la data e l'ora d
 
     ```console
     sudo systemctl stop ntp
-    sudo ntpdate contoso.com
+    sudo ntpdate aadds.contoso.com
     sudo systemctl start ntp
     ```
 
@@ -121,30 +121,30 @@ Per il corretto funzionamento della comunicazione del dominio, la data e l'ora d
 
 Ora che i pacchetti necessari sono installati nella macchina virtuale e NTP è configurato, aggiungere la macchina virtuale al dominio gestito di Azure AD DS.
 
-1. Usare il comando `realm discover` per individuare il dominio gestito Azure AD DS. Nell'esempio seguente viene individuato il *contoso.com*dell'area di autenticazione. Specificare il proprio nome di dominio gestito di Azure AD DS in tutte le lettere maiuscole:
+1. Usare il comando `realm discover` per individuare il dominio gestito Azure AD DS. Nell'esempio seguente viene individuato il AADDS dell'area di autenticazione *. CONTOSO.COM*. Specificare il proprio nome di dominio gestito di Azure AD DS in tutte le lettere maiuscole:
 
     ```console
-    sudo realm discover CONTOSO.COM
+    sudo realm discover AADDS.CONTOSO.COM
     ```
 
    Se il comando `realm discover` non riesce a trovare il dominio gestito Azure AD DS, esaminare i passaggi per la risoluzione dei problemi seguenti:
 
-    * Verificare che il dominio sia raggiungibile dalla macchina virtuale. Provare `ping contoso.com` per verificare se viene restituita una risposta positiva.
+    * Verificare che il dominio sia raggiungibile dalla macchina virtuale. Provare `ping aadds.contoso.com` per verificare se viene restituita una risposta positiva.
     * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito di Azure AD DS.
     * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito Azure AD DS.
 
 1. A questo punto, inizializzare Kerberos usando il comando `kinit`. Specificare un utente appartenente al gruppo di *amministratori di AAD DC* . Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Anche in questo caso, è necessario immettere il nome di dominio gestito Azure AD DS in tutti i caratteri maiuscoli. Nell'esempio seguente viene usato l'account denominato `contosoadmin@contoso.com` per inizializzare Kerberos. Immettere il proprio account utente membro del gruppo di amministratori di *AAD DC* :
+    Anche in questo caso, è necessario immettere il nome di dominio gestito Azure AD DS in tutti i caratteri maiuscoli. Nell'esempio seguente viene usato l'account denominato `contosoadmin@aadds.contoso.com` per inizializzare Kerberos. Immettere il proprio account utente membro del gruppo di amministratori di *AAD DC* :
 
     ```console
-    kinit contosoadmin@CONTOSO.COM
+    kinit contosoadmin@AADDS.CONTOSO.COM
     ```
 
-1. Aggiungere infine il computer al dominio gestito Azure AD DS usando il comando `realm join`. Usare lo stesso account utente membro del gruppo *AAD DC Administrators* specificato nel comando `kinit` precedente, ad esempio `contosoadmin@CONTOSO.COM`:
+1. Aggiungere infine il computer al dominio gestito Azure AD DS usando il comando `realm join`. Usare lo stesso account utente membro del gruppo *AAD DC Administrators* specificato nel comando `kinit` precedente, ad esempio `contosoadmin@AADDS.CONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
+    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM' --install=/
     ```
 
 Per aggiungere la macchina virtuale al dominio gestito di Azure AD DS sono necessari alcuni minuti. L'output di esempio seguente mostra che la macchina virtuale è stata aggiunta correttamente al dominio gestito di Azure AD DS:
@@ -187,7 +187,7 @@ Con la macchina virtuale aggiunta al dominio gestito di Azure AD DS e configurat
 
 Per impostazione predefinita, gli utenti possono accedere a una VM solo usando l'autenticazione basata su chiave pubblica SSH. L'autenticazione basata su password ha esito negativo. Quando si aggiunge la macchina virtuale a un dominio gestito Azure AD DS, gli account di dominio devono usare l'autenticazione basata su password. Aggiornare la configurazione SSH per consentire l'autenticazione basata su password, come indicato di seguito.
 
-1. Aprire il file *sshd_conf* con un editor:
+1. Aprire il file di *sshd_conf* con un editor:
 
     ```console
     sudo vi /etc/ssh/sshd_config
@@ -199,7 +199,7 @@ Per impostazione predefinita, gli utenti possono accedere a una VM solo usando l
     PasswordAuthentication yes
     ```
 
-    Al termine, salvare e chiudere il file *sshd_conf* usando il comando `:wq` dell'editor.
+    Al termine, salvare e chiudere il file di *sshd_conf* usando il comando `:wq` dell'editor.
 
 1. Per applicare le modifiche e consentire agli utenti di accedere con una password, riavviare il servizio SSH:
 
@@ -248,10 +248,10 @@ Per concedere ai membri degli *amministratori di AAD DC* i privilegi amministrat
 
 Per verificare che la macchina virtuale sia stata aggiunta correttamente al dominio gestito di Azure AD DS, avviare una nuova connessione SSH usando un account utente di dominio. Verificare che sia stata creata una home directory e che sia stata applicata l'appartenenza al gruppo dal dominio.
 
-1. Creare una nuova connessione SSH dalla console di. Usare un account di dominio appartenente al dominio gestito usando il comando `ssh -l`, ad esempio `contosoadmin@contoso.com` e quindi immettere l'indirizzo della macchina virtuale, ad esempio *Ubuntu.contoso.com*. Se si usa la Azure Cloud Shell, usare l'indirizzo IP pubblico della macchina virtuale anziché il nome DNS interno.
+1. Creare una nuova connessione SSH dalla console di. Usare un account di dominio appartenente al dominio gestito usando il comando `ssh -l`, ad esempio `contosoadmin@aadds.contoso.com` e quindi immettere l'indirizzo della macchina virtuale, ad esempio *Ubuntu.aadds.contoso.com*. Se si usa la Azure Cloud Shell, usare l'indirizzo IP pubblico della macchina virtuale anziché il nome DNS interno.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com ubuntu.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com ubuntu.aadds.contoso.com
     ```
 
 1. Dopo aver eseguito la connessione alla macchina virtuale, verificare che la home directory sia stata inizializzata correttamente:

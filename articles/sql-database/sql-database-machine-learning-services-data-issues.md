@@ -1,7 +1,7 @@
 ---
-title: Lavora con tipi di dati SQL e R e oggetti
+title: Usare oggetti e tipi di dati R e SQL
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Informazioni su come usare i tipi di dati e oggetti dati in R con Database SQL di Azure usando servizi di Machine Learning (anteprima), inclusi i problemi comuni che potrebbero verificarsi.
+description: Informazioni su come usare i tipi di dati e gli oggetti dati in R con il database SQL di Azure usando Machine Learning Services (anteprima), inclusi i problemi comuni che potrebbero verificarsi.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,23 +13,23 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dfd12729c5697d1935d098cbd4ed863a4551acd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232620"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719875"
 ---
-# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Usare i dati di R e SQL in Azure SQL Database servizi Machine Learning (anteprima)
+# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Usare R e i dati SQL in Machine Learning Services del database SQL di Azure (anteprima)
 
-Questo articolo illustra alcuni dei problemi comuni che possono verificarsi durante lo spostamento dei dati tra R e SQL Database in [Machine Learning Services (con R) nel Database SQL di Azure](sql-database-machine-learning-services-overview.md). L'esperienza che è possibile ottenere questo esercizio vengono fornite informazioni essenziali quando si lavora con i dati in uno script personalizzato.
+Questo articolo illustra alcuni problemi comuni che possono verificarsi quando si trasferiscono i dati tra R e il database SQL in [Machine Learning Services (con R) nel database SQL di Azure](sql-database-machine-learning-services-overview.md). L'esperienza acquisita con questo esercizio fornisce informazioni di base essenziali per usare i dati in uno script personalizzato.
 
-Problemi comuni che possono verificarsi includono:
+I problemi comuni che è possibile riscontrare includono:
 
-- Tipi di dati talvolta non corrispondono
-- Le conversioni implicite potrebbero essere eseguito
+- Tipi di dati che talvolta non corrispondono
+- Conversioni implicite che possono venire eseguite
 - In alcuni casi sono necessarie operazioni cast e convert
-- R e SQL usano oggetti dati diversi
+- R e SQL usano oggetti dati differenti
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -41,13 +41,13 @@ Problemi comuni che possono verificarsi includono:
 
 - Assicurarsi di avere installato la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). È possibile eseguire gli script R tramite altri strumenti di gestione di database o di query, ma in questo Avvio rapido si userà SQL Server Management Studio.
 
-## <a name="working-with-a-data-frame"></a>Utilizzo di un frame di dati
+## <a name="working-with-a-data-frame"></a>Uso di un frame di dati
 
-Quando lo script restituisce risultati da R a SQL, deve restituire i dati come una **frame**. Qualsiasi altro tipo di oggetto generato nello script, che può essere un elenco, fattore, vettore o dati binari - deve essere convertito in un frame di dati se si vuole restituirlo come parte dei risultati della stored procedure. Per fortuna, esistono più funzioni R per supportare la modifica di altri oggetti in un frame di dati. È anche possibile serializzare un modello binario e restituirlo in un frame di dati che verranno eseguite più avanti in questo articolo.
+Quando lo script restituisce i risultati da R a SQL, deve restituire i dati come **Data. frame**. Qualsiasi altro tipo di oggetto generato nello script (elenco, fattore, vettore o dati binari) deve essere convertito in un frame di dati se si vuole restituirlo come parte dei risultati della stored procedure. A questo scopo, sono disponibili più funzioni R per il supporto della modifica di altri oggetti in un frame di dati. È anche possibile serializzare un modello binario e restituirlo in un frame di dati, che verrà più avanti in questo articolo.
 
-In primo luogo, è possibile provare a usare alcuni oggetti R di base - vettori, matrici ed elenchi - e vedere come la conversione in un frame di dati cambia l'output passato a SQL.
+Per prima cosa, è possibile provare con alcuni oggetti R di base, vettori, matrici ed elenchi, per vedere in che modo la conversione in un frame di dati modifica l'output passato a SQL.
 
-Confrontare questi due script "Hello World" in R. Gli script sembrano quasi identici, ma il primo restituisce una singola colonna di tre valori, mentre il secondo restituisce tre colonne con un singolo valore ciascuna.
+Confrontare questi due script "Hello World" in R. Il loro aspetto è quasi identico, ma il primo restituisce una singola colonna di tre valori, mentre il secondo restituisce tre colonne con un singolo valore ciascuna.
 
 **Esempio 1**
 
@@ -67,13 +67,13 @@ EXECUTE sp_execute_external_script @language = N'R'
     , @input_data_1 = N'';
 ```
 
-Il motivo per cui sono riportati i risultati così diversi?
+Perché i risultati sono così diversi?
 
-La risposta in genere sono reperibili usando R `str()` comando. Aggiungere la funzione `str(object_name)` in qualsiasi punto nello script R in modo che i dati dello schema dell'oggetto R specificato venga restituito come messaggio informativo. È possibile visualizzare i messaggi nel **messaggi** scheda in SSMS.
+La risposta può essere trovata usando il comando `str()` di R. Aggiungere la funzione `str(object_name)` in qualsiasi punto dello script R per fare in modo che lo schema dati dell'oggetto R specificato venga restituito come messaggio informativo. È possibile visualizzare i messaggi nella scheda **messaggi** in SSMS.
 
-Per capire il motivo per cui esempio 1 e 2 producano risultati così diversi, inserire la riga `str(OutputDataSet)` alla fine del `@script` definizione di variabile in ogni istruzione, simile al seguente:
+Per capire perché gli esempi 1 e 2 presentano risultati diversi, inserire la riga `str(OutputDataSet)` alla fine della definizione della variabile `@script` in ogni istruzione, come illustrato di seguito:
 
-**Esempio 1 con la funzione str aggiunto**
+**Esempio 1 con la funzione str aggiunta**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -85,7 +85,7 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-**Esempio 2 con la funzione str aggiunto**
+**Esempio 2 con la funzione str aggiunta**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -96,9 +96,9 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-A questo punto, esaminare il testo nel **messaggi** per visualizzare il motivo per cui l'output è diverso.
+A questo punto, riesaminare il testo in **Messaggi** per capire perché l'output è differente.
 
-**Risultati - esempio 1**
+**Risultati - Esempio 1**
 
 ```text
 STDOUT message(s) from external script:
@@ -106,7 +106,7 @@ STDOUT message(s) from external script:
 $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 ```
 
-**Risultati - esempio 2**
+**Risultati - Esempio 2**
 
 ```text
 STDOUT message(s) from external script:
@@ -116,20 +116,20 @@ $ X...      : Factor w/ 1 level " ": 1
 $ c..world..: Factor w/ 1 level "world": 1
 ```
 
-Come può notare, una leggera modifica nella sintassi di R ha un effetto notevole sullo schema dei risultati. Per tutti i dettagli, le differenze nei tipi di dati R sono descritte dettagliatamente nella *strutture di dati* sezione ["Advanced R" di Hadley Wickham](http://adv-r.had.co.nz).
+Come si può notare, una leggera modifica nella sintassi di R ha un effetto notevole sullo schema dei risultati. Per tutti i dettagli, le differenze nei tipi di dati R sono illustrate in dettaglio nella sezione *strutture dati* in ["Advanced R" di Hadley Wickham](http://adv-r.had.co.nz).
 
-Per il momento, tenere semplicemente che è necessario verificare i risultati previsti quando si convertono oggetti R in frame di dati.
+Per il momento, tenere semplicemente presente che è necessario verificare i risultati previsti quando si convertono oggetti R in frame di dati.
 
 > [!TIP]
-> È anche possibile usare funzioni di identità R, ad esempio `is.matrix`, `is.vector`per restituire informazioni sulla struttura dei dati interni.
+> È anche possibile usare le funzioni di identità R, ad esempio `is.matrix``is.vector`, per restituire informazioni sulla struttura dei dati interna.
 
 ## <a name="implicit-conversion-of-data-objects"></a>Conversione implicita di oggetti dati
 
-Ogni oggetto dati R ha regole specifiche per la gestione dei valori in combinazione con altri oggetti dati se i due oggetti dati hanno lo stesso numero di dimensioni o se un oggetto dati contiene tipi di dati eterogenei.
+Ogni oggetto dati R ha regole proprie per il modo in cui i valori vengono gestiti in combinazione con altri oggetti dati se i due oggetti dati hanno lo stesso numero di dimensioni o se un oggetto dati contiene tipi di dati eterogenei.
 
-Ad esempio, si supponga di che voler eseguire la moltiplicazione di matrici usando R. È necessario moltiplicare matrix a colonna singola con tre valori da una matrice con quattro valori e si prevede di conseguenza un 4x3 matrix.
+Si supponga, ad esempio, di voler eseguire la moltiplicazione di matrici usando R. Si desidera moltiplicare una matrice a colonna singola con tre valori per una matrice con quattro valori e prevedere come risultato una matrice 4x3.
 
-Innanzitutto, creare una piccola tabella di dati di test.
+Creare prima di tutto una piccola tabella di dati di test.
 
 ```sql
 CREATE TABLE RTestData (col1 INT NOT NULL)
@@ -145,7 +145,7 @@ VALUES (100);
 GO
 ```
 
-Ora eseguire lo script seguente.
+A questo punto, eseguire lo script seguente.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -163,7 +163,7 @@ WITH RESULT SETS((
             ));
 ```
 
-Dietro le quinte, la colonna di tre valori viene convertita in un oggetto matrix a colonna singola. Poiché una matrice è semplicemente un caso speciale di oggetto array in R, la matrice `y` viene implicitamente convertito in una matrice a colonna singola per rendere conformi i due argomenti.
+La colonna di tre valori viene convertita automaticamente in un oggetto matrix a colonna singola. Poiché un oggetto matrix è semplicemente un caso speciale di oggetto array in R, l'oggetto array `y` viene convertito in modo implicito in un oggetto matrix a colonna singola per rendere conformi i due argomenti.
 
 **Risultati**
 
@@ -173,7 +173,7 @@ Dietro le quinte, la colonna di tre valori viene convertita in un oggetto matrix
 |120|130|140|150|
 |1200|1300|1400|1500|
 
-Si noti tuttavia cosa accade quando si modificano le dimensioni della matrice `y`.
+Si noti tuttavia cosa accade se si modificano le dimensioni dell'oggetto array `y`.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -186,7 +186,7 @@ OutputDataSet <- as.data.frame(y %*% x);
 WITH RESULT SETS(([Col1] INT));
 ```
 
-Adesso R restituisce un valore singolo come risultato.
+Adesso R restituisce come risultato un valore singolo.
 
 **Risultati**
     
@@ -194,13 +194,13 @@ Adesso R restituisce un valore singolo come risultato.
 |---|
 |1542|
 
-Perché? In questo caso, poiché i due argomenti possono essere gestiti come vettori della stessa lunghezza, R restituisce il prodotto interno come matrice.  Si tratta del comportamento previsto in base alle regole dell'algebra lineare. Tuttavia, potrebbe causare problemi se l'applicazione downstream prevede lo schema di output non venga mai modificato.
+Perché? In questo caso, dal momento che i due argomenti possono essere gestiti come vettori della stessa lunghezza, R restituisce il prodotto interno come oggetto matrix.  Questo è il comportamento previsto in base alle regole di algebra lineare. Tuttavia, può causare problemi se l'applicazione downstream prevede che lo schema di output non venga mai modificato.
 
 ## <a name="merge-or-multiply-columns-of-different-length"></a>Unire o moltiplicare colonne di lunghezza diversa
 
-R offre una notevole flessibilità per l'uso di vettori di dimensioni diverse e per la combinazione di queste strutture di tipo colonna nei frame di dati. Gli elenchi dei vettori sono simili a una tabella, ma non seguono tutte le regole che controllano le tabelle del database.
+R offre una notevole flessibilità per l'uso di vettori di dimensioni diverse e per la combinazione di queste strutture di tipo colonna nei frame di dati. Gli elenchi dei vettori sono simili a una tabella, ma non seguono tutte le regole delle tabelle del database.
 
-Ad esempio, lo script seguente definisce una matrice numerica di lunghezza 6 e lo archivia nella variabile R `df1`. La matrice numerica viene quindi combinata con i numeri interi della tabella RTestData (creato in precedenza) che contiene tre (3) i valori, per creare un nuovo frame di dati, `df2`.
+Ad esempio, lo script seguente definisce un oggetto array numerico di lunghezza 6 e lo archivia nella variabile R `df1`. La matrice numerica viene quindi combinata con i numeri interi della tabella RTestData (creata sopra), che contiene tre (3) valori, per creare un nuovo frame di dati, `df2`.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -216,7 +216,7 @@ WITH RESULT SETS((
             ));
 ```
 
-Per compilare un frame di dati, R ripete gli elementi recuperati da RTestData per tutte le volte in base alle esigenze per corrispondere al numero di elementi nella matrice `df1`.
+Per riempire il frame di dati, R ripete gli elementi recuperati da RTestData per il numero di volte necessario per corrispondere al numero di elementi nell'oggetto array `df1`.
 
 **Risultati**
     
@@ -229,18 +229,18 @@ Per compilare un frame di dati, R ripete gli elementi recuperati da RTestData pe
 |10|5|
 |100|6|
 
-Tenere presente che un frame di dati solo una tabella è simile, ma è effettivamente un elenco di vettori.
+Tenere presente che un frame di dati è simile a una tabella, ma in realtà è un elenco di vettori.
 
-## <a name="cast-or-convert-sql-data"></a>Cast o convert dati SQL
+## <a name="cast-or-convert-sql-data"></a>Eseguire il cast o convertire i dati SQL
 
-R e SQL non usano gli stessi tipi di dati, in modo che quando si esegue una query in SQL per ottenere i dati e quindi passarli al runtime di R, qualche tipo di conversione implicita in genere viene eseguita. Un altro set di conversioni ha luogo quando si restituiscono i dati da R a SQL.
+R e SQL non usano gli stessi tipi di dati. Pertanto, quando si esegue una query in SQL per recuperare i dati e passarli al runtime di R, in genere viene eseguita una conversione implicita. Quando si restituiscono dati da R a SQL, si verifica un altro set di conversioni.
 
-- SQL inserisce i dati dalla query per il processo R e lo converte in una rappresentazione interna per una maggiore efficienza.
-- Il runtime R carica i dati in una variabile di frame di dati ed esegue la propria operazioni sui dati.
-- Il motore di database restituisce i dati in SQL usando una connessione interna protetta e presenta i dati in termini di tipi di dati SQL.
-- Ottenere i dati tramite la connessione a SQL usando una libreria client o di rete che può eseguire query SQL e gestire set di dati tabulari. Questa applicazione client può influire sui dati in altri modi.
+- SQL inserisce i dati dalla query al processo R e li converte in una rappresentazione interna per una maggiore efficienza.
+- Il runtime R carica i dati in una variabile data.frame ed esegue a sua volta operazioni sui dati.
+- Il motore di database restituisce i dati a SQL utilizzando una connessione interna protetta e Visualizza i dati in termini di tipi di dati SQL.
+- È possibile ottenere i dati connettendosi a SQL usando un client o una libreria di rete che può eseguire query SQL e gestire set di dati tabulari. Questa applicazione client può influire sui dati in altri modi.
 
-Per visualizzarne il funzionamento, eseguire una query come quella nel [AdventureWorksDW](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) data warehouse di. Questa vista restituisce i dati di vendita usati nella creazione delle previsioni.
+Per visualizzarne il funzionamento, eseguire una query come questa sul data warehouse [AdventureWorksDW](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks). Questa vista restituisce i dati di vendita usati per la creazione delle previsioni.
 
 ```sql
 USE AdventureWorksDW
@@ -255,7 +255,7 @@ ORDER BY ReportingDate ASC
 ```
 
 > [!NOTE]
-> È possibile usare qualsiasi versione di AdventureWorks, o creare una query diversa usando un database proprio. Il punto è possibile gestire alcuni dati che contiene testo, data/ora e valori numerici.
+> È possibile usare qualsiasi versione di AdventureWorks o creare una query diversa usando un database personalizzato. Il punto consiste nel tentare di gestire alcuni dati contenenti valori di tipo text, DateTime e numeric.
 
 A questo punto, provare a usare questa query come input per la stored procedure.
 
@@ -275,9 +275,9 @@ OutputDataSet <- InputDataSet;
 WITH RESULT SETS undefined;
 ```
 
-Se si verifica un errore, si sarà probabilmente necessario apportare alcune modifiche al testo della query. Ad esempio, il predicato stringa nella clausola WHERE deve essere racchiuso tra due set di virgolette singole.
+Se si verifica un errore, probabilmente sarà necessario apportare alcune modifiche al testo della query. Ad esempio, il predicato stringa nella clausola WHERE deve essere racchiuso tra due set di virgolette singole.
 
-Dopo avere ottenuto la query funzioni, esaminare i risultati del `str` funzione per visualizzare il modo in cui R considera i dati di input.
+Dopo avere verificato che la query funzioni, esaminare i risultati della funzione `str` per visualizzare la modalità di gestione dei dati di input in R.
 
 **Risultati**
 
@@ -289,15 +289,15 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 ```
 
 - La colonna datetime è stata elaborata usando il tipo di dati R **POSIXct**.
-- La colonna di testo "ProductSeries" è stata identificata come una **factor**, vale a dire una variabile di categoria. Per impostazione predefinita, i valori stringa vengono gestiti come fattori. Se si passa una stringa a R, viene convertito in un numero intero per uso interno e quindi rimappata alla stringa nell'output.
+- La colonna di testo "ProductSeries" è stata identificata come **fattore**, vale a dire una variabile di categoria. Per impostazione predefinita, i valori stringa sono gestiti come fattori. Se si passa una stringa a R, viene convertita in un numero intero per uso interno e quindi rimappata alla stringa nell'output.
 
 ## <a name="summary"></a>Riepilogo
 
-Anche questi esempi brevi, si noterà la necessità di verificare gli effetti della conversione dei dati durante il passaggio SQL esegue una query come input. Perché alcuni tipi di dati SQL non sono supportati da R, prendere in considerazione questi modi per evitare errori:
+Da questi brevi esempi è possibile capire la necessità di controllare gli effetti della conversione dei dati quando si passano query SQL come input. Poiché alcuni tipi di dati SQL non sono supportati da R, considerare questi modi per evitare errori:
 
-- Testare i dati in anticipo e verificare le colonne o valori nello schema che è stato possibile creare problemi quando vengono passati al codice R.
-- Specificare le colonne nell'origine dati di input singolarmente, anziché utilizzare `SELECT *`e sapere come verrà gestita ogni colonna.
-- Quando si preparano i dati di input, per evitare sorprese, eseguire cast espliciti in base alle esigenze.
-- Evitare il passaggio di dati delle colonne (ad esempio GUID o ROWGUID) che generano errori e non è utili per la modellazione.
+- Testare i dati in anticipo e verificare le colonne o i valori nello schema che potrebbero creare problemi quando vengono passati al codice R.
+- Specificare le colonne nell'origine dati di input singolarmente, anziché usare `SELECT *`, per vedere in che modo verrà gestita ogni colonna.
+- Quando si preparano i dati di input, eseguire cast espliciti in base alle necessità per evitare sorprese.
+- Evitare di passare colonne di dati, ad esempio GUID o RowGuid, che provocano errori e che non sono utili per la modellazione.
 
-Per altre informazioni sui tipi di dati R supportati e non supportati, vedere [tipi di dati e le librerie R](/sql/advanced-analytics/r/r-libraries-and-data-types).
+Per altre informazioni sui tipi di dati R supportati e non supportati, vedere [librerie e tipi di dati](/sql/advanced-analytics/r/r-libraries-and-data-types)r.

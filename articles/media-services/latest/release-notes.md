@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514487"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719841"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -130,7 +130,7 @@ Vedere gli esempi:
 
 ### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Supporto di monitoraggio di Azure per i log di diagnostica e le metriche di servizi multimediali
 
-È ora possibile usare monitoraggio di Azure per visualizzare i dati di telemetria emmited da servizi multimediali.
+È ora possibile usare monitoraggio di Azure per visualizzare i dati di telemetria emessi da servizi multimediali.
 
 * Usare i log di diagnostica di monitoraggio di Azure per monitorare le richieste inviate dall'endpoint di distribuzione delle chiavi di servizi multimediali. 
 * Monitorare le metriche emesse dagli [endpoint di streaming](streaming-endpoint-concept.md)di servizi multimediali.   

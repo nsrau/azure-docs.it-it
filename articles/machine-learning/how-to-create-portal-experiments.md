@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894027"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720402"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -143,7 +143,7 @@ Min| Valore minimo della colonna. Vengono visualizzate voci vuote per le funzion
 Max| Valore massimo della colonna. 
 Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
 Totale non mancanti| Numero di voci nella colonna mancanti. Le stringhe e gli errori vuoti vengono considerati come valori, quindi non contribuiscono al "conteggio mancante".
-Quantiles| Valori approssimati in ogni quantile per fornire un senso della distribuzione dei dati.
+Quantili| Valori approssimati in ogni quantile per fornire un senso della distribuzione dei dati.
 Media| Media aritmetica o media della colonna.
 Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
 Variance| Misura della diffusione dei dati di questa colonna dal relativo valore medio. 
@@ -153,9 +153,15 @@ Curtosi| Misura della quantità di dati di questa colonna rispetto a una distrib
 
 <a name="preprocess"></a>
 
-## <a name="advanced-preprocessing-options"></a>Opzioni di pre-elaborazione avanzate
+## <a name="advanced-featurization-options"></a>Opzioni avanzate di conteggi
 
-Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `Preprocess`. In questo modo, nell'ambito della pre-elaborazione dei dati Guardrails e conteggi passaggi seguenti vengono eseguiti automaticamente.
+Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `feauturization`. 
+
+|Configurazione di conteggi | Description |
+| ------------- | ------------- |
+|"feauturization" =' FeaturizationConfig '| Indica che deve essere utilizzato il passaggio conteggi personalizzato. [Informazioni su come personalizzare conteggi](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"feauturization" =' off '| Indica che il passaggio conteggi non deve essere eseguito automaticamente.|
+|"feauturization" =' auto '| Indica che nell'ambito della pre-elaborazione dei dati seguenti vengono eseguiti automaticamente i passaggi di Guardrails e conteggi.|
 
 |Pre-elaborazione di&nbsp;passaggi| Description |
 | ------------- | ------------- |
@@ -177,11 +183,11 @@ La tabella seguente descrive i Guardrails di dati attualmente supportati e gli S
 
 Guardrail|Stato|&nbsp;di condizione per il trigger&nbsp;
 ---|---|---
-Valori&nbsp;mancanti&nbsp;l'imputazione |**Operazione riuscita** <br> <br> **Fisso**|    Nessun valore mancante in nessuna delle colonne di input&nbsp; <br> <br> Alcune colonne contengono valori mancanti
+Valori&nbsp;mancanti&nbsp;l'imputazione |**Passato** <br> <br> **Fissa**|    Nessun valore mancante in nessuna delle colonne di input&nbsp; <br> <br> Alcune colonne contengono valori mancanti
 Convalida incrociata|**Eseguita**|Se non viene fornito alcun set di convalida esplicito
-&nbsp;rilevamento della funzionalità di&nbsp;della cardinalità elevata&nbsp;|  **Operazione riuscita** <br> <br>**Eseguita**|   Non sono state rilevate funzionalità di cardinalità elevata <br><br> Sono state rilevate colonne di input con cardinalità elevata
-Rilevamento del bilanciamento della classe |**Operazione riuscita** <br><br><br>**Avvisi** |Le classi sono bilanciate nei dati di training; Un set di dati è considerato bilanciato se ogni classe presenta una rappresentazione corretta del set di dati, misurata in base al numero e al rapporto degli esempi <br> <br> Le classi nei dati di training sono sbilanciate
-Coerenza dei dati delle serie temporali|**Operazione riuscita** <br><br><br><br> **Fisso** |<br> Sono stati analizzati i valori di {Horizon, lag, finestra in sequenza, ovvero la finestra in sequenza, ma non sono stati rilevati potenziali problemi di memoria insufficiente. <br> <br>Sono stati analizzati i valori di {Horizon, lag, Window in sequenza} selezionati che potrebbero causare un esaurimento della memoria da parte dell'esperimento. La finestra in ritardo o in sequenza è stata disattivata.
+&nbsp;rilevamento della funzionalità di&nbsp;della cardinalità elevata&nbsp;|  **Passato** <br> <br>**Eseguita**|   Non sono state rilevate funzionalità di cardinalità elevata <br><br> Sono state rilevate colonne di input con cardinalità elevata
+Rilevamento del bilanciamento della classe |**Passato** <br><br><br>**Avvisi** |Le classi sono bilanciate nei dati di training; Un set di dati è considerato bilanciato se ogni classe presenta una rappresentazione corretta del set di dati, misurata in base al numero e al rapporto degli esempi <br> <br> Le classi nei dati di training sono sbilanciate
+Coerenza dei dati delle serie temporali|**Passato** <br><br><br><br> **Fissa** |<br> Sono stati analizzati i valori di {Horizon, lag, finestra in sequenza, ovvero la finestra in sequenza, ma non sono stati rilevati potenziali problemi di memoria insufficiente. <br> <br>Sono stati analizzati i valori di {Horizon, lag, Window in sequenza} selezionati che potrebbero causare un esaurimento della memoria da parte dell'esperimento. La finestra in ritardo o in sequenza è stata disattivata.
 
 ## <a name="run-experiment-and-view-results"></a>Eseguire l'esperimento e visualizzare i risultati
 

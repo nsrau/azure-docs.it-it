@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: dc64570ccf69c321f33b9689362def8c9caf975e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543036"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715402"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale 
 <a name="network-service-tags"></a>
@@ -64,7 +64,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* Questo tag presenta una dipendenza dai tag **AzureActiveDirectory** e **AzureFrontDoor. frontend** . Inserire anche gli indirizzi IP seguenti (la dipendenza verrà rimossa a breve): 13.107.6.181 & 13.107.9.181. | In uscita | No | No |
 | **AzureIoTHub** | Hub Azure. | In uscita | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Questo tag presenta una dipendenza dal tag **AzureActiveDirectory** . | In uscita | Sì | Sì |
-| **AzureLoadBalancer** | Il servizio di bilanciamento del carico dell'infrastruttura di Azure. Il tag viene convertito nell' [indirizzo IP virtuale dell'host](security-overview.md#azure-platform-considerations) (168.63.129.16) in cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola. | Entrambi | No | No |
+| **AzureLoadBalancer** | Il servizio di bilanciamento del carico dell'infrastruttura di Azure. Il tag viene convertito nell' [indirizzo IP virtuale dell'host](security-overview.md#azure-platform-considerations) (168.63.129.16) in cui hanno origine i probe di integrità di Azure. Questo non include il traffico verso la risorsa Azure Load Balancer. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola. | Entrambi | No | No |
 | **AzureMachineLearning** | Azure Machine Learning | Entrambi | No | Sì |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon e metriche personalizzate (endpoint GiG).<br/><br/>*Nota:* Per Log Analytics, questo tag presenta una dipendenza dal tag di **archiviazione** . | In uscita | No | Sì |
 | **AzurePlatformDNS** | Il servizio DNS dell'infrastruttura di base (impostazione predefinita).<br/><br>È possibile usare questo tag per disabilitare il DNS predefinito. Prestare attenzione quando si usa questo tag. Si consiglia di leggere le [considerazioni sulla piattaforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Si consiglia inoltre di eseguire i test prima di utilizzare questo tag. | In uscita | No | No |
@@ -83,7 +83,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **HDInsight** | Azure HDInsight. | In ingresso | Sì | No |
 | **Internet** | Lo spazio di indirizzi IP esterno alla rete virtuale e raggiungibile tramite la rete Internet pubblica.<br/><br/>L'intervallo di indirizzi include lo [spazio degli indirizzi IP pubblici di proprietà di Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Entrambi | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | In uscita | No | No |
-| **MicrosoftContainerRegistry** | Container Registry di Azure. | In uscita | Sì | Sì |
+| **MicrosoftContainerRegistry** | Registro contenitori per le immagini del contenitore Microsoft. <br/><br/>*Nota:* Inserire anche l'indirizzo IP seguente (la dipendenza verrà rimossa a breve): 204.79.197.219. | In uscita | Sì | Sì |
 | **Bus di servizio** | Traffico del bus di servizio di Azure che usa il livello di servizio Premium. | In uscita | Sì | Sì |
 | **ServiceFabric** | Service Fabric di Azure. | In uscita | No | No |
 | **Sql** | Database SQL di Azure, database di Azure per MySQL, database di Azure per PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Nota:* Questo tag rappresenta il servizio, ma non le istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. | In uscita | Sì | Sì |
@@ -117,7 +117,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
-> Mentre è in anteprima pubblica, l'API di individuazione può restituire informazioni meno aggiornate rispetto alle informazioni restituite dai download JSON. (vedere la sezione successiva).
+> Mentre è in anteprima pubblica, l'API di individuazione può restituire informazioni meno aggiornate rispetto alle informazioni restituite dai download JSON. Vedere la sezione successiva.
 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>Individuare i tag del servizio usando file JSON scaricabili 

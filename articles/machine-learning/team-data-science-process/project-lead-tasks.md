@@ -2,20 +2,20 @@
 title: Attività per il responsabile di un progetto nel Processo di analisi scientifica dei dati in team
 description: Una procedura dettagliata delle attività per un responsabile del progetto in un team di Team Data Science process
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a94a2ae5298bbee8bb1c9c0fa044eb3189147be
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244336"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714419"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Attività del responsabile di progetto nel processo di Data Science per i team
 
@@ -36,7 +36,7 @@ Per il passaggio 6: configurare il controllo di sicurezza del repository del pro
 > [!NOTE] 
 > Questo articolo usa Azure Repos per configurare un progetto TDSP, perché questo è il modo in cui implementare TDSP in Microsoft. Se il team usa un'altra piattaforma di hosting del codice, le attività del responsabile del progetto sono le stesse, ma il modo per completarle può essere diverso.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa esercitazione si presuppone che il [responsabile del gruppo](group-manager-tasks.md) e il responsabile del [Team](team-lead-tasks.md) abbiano configurato le risorse e le autorizzazioni seguenti:
 
@@ -45,7 +45,7 @@ In questa esercitazione si presuppone che il [responsabile del gruppo](group-man
 - **Repository** del modello Team e delle utilità
 - **Autorizzazioni** per l'account dell'organizzazione per la creazione e la modifica di repository per il progetto
 
-Per clonare i repository e modificare il contenuto nel computer locale o Data Science Virtual Machine (DSVM) o configurare l'archiviazione file di Azure e montarlo nella DSVM, è necessario anche quanto segue:
+Per clonare i repository e modificare il contenuto nel computer locale o Data Science Virtual Machine (DSVM) o configurare l'archiviazione file di Azure e montarlo nella DSVM, è necessario prendere in considerazione anche questo elenco di controllo:
 
 - Una sottoscrizione di Azure.
 - Git installato nel computer. Se si usa un DSVM, Git è preinstallato. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).

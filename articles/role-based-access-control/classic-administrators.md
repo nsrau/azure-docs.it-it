@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979346"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720657"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -99,29 +99,11 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 Solo l'amministratore account può modificare l'amministratore del servizio per una sottoscrizione. Per impostazione predefinita, al momento della sottoscrizione di un abbonamento di Azure, l'amministratore del servizio corrisponde all'amministratore dell'account. L'amministratore con il ruolo di amministratore dell'account non ha accesso al portale di Azure. L'amministratore con il ruolo di amministratore del servizio ha pieno accesso al portale di Azure. Se l'amministratore dell'account e l'amministratore del servizio corrispondono allo stesso utente e si assegna l'amministratore del servizio a un altro utente, l'amministratore dell'account perde l'accesso al portale di Azure. Tuttavia, l'amministratore account può sempre usare il Centro account per reimpostare se stesso come amministratore del servizio.
 
-Esistono due modi per modificare l'amministratore del servizio. È possibile modificarlo nel **portale di Azure** oppure nel **Centro account**.
-
-### <a name="azure-portal"></a>Portale di Azure
-
-1. Verificare che lo scenario sia supportato controllando le limitazioni per la modifica degli amministratori del servizio.
-
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
-
-1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
-
-1. Scegliere **Proprietà**.
-
-    ![Screenshot che mostra l'amministratore dell'account](./media/classic-administrators/account-admin.png)
-
-1. Nella parte superiore, fare clic su **Amministratore del servizio** per aprire il riquadro Amministratore del servizio.
-
-    Se il pulsante amministratore del servizio è disabilitato, non si dispone dell'autorizzazione. Solo l'utente che è l'amministratore dell'account può modificare l'amministratore del servizio.
-
-1. Selezionare un nuovo amministratore del servizio e quindi fare clic su **Salva**.
+Attenersi alla seguente procedura per modificare l'amministratore del servizio nel **centro account**.
 
 ### <a name="account-center"></a>Centro account
 
-1. Verificare che lo scenario sia supportato controllando le limitazioni per la modifica degli amministratori del servizio.
+1. Verificare che lo scenario sia supportato controllando le [limitazioni per la modifica dell'amministratore del servizio](#limitations-for-changing-the-service-administrator).
 
 1. Accedere al [Centro account](https://account.windowsazure.com/subscriptions) come amministratore account.
 

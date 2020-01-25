@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: b33366b65fed0042eb3024c2264bce1c4a1c4c1d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75651631"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715679"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applicazioni gestite di Azure con notifiche
 
@@ -189,7 +189,7 @@ billingDetails | *Specificata solo per le applicazioni gestite di Azure Marketpl
 
 ## <a name="endpoint-authentication"></a>Autenticazione dell'endpoint
 Per proteggere l'endpoint del webhook e garantire l'autenticità della notifica:
-1. Fornire un parametro di query nella parte superiore dell'URI del webhook, come segue: https://your-endpoint.com?sig=Guid. Per ogni notifica, verificare che il parametro di query `sig` abbia il valore previsto `Guid`.
+1. Fornire un parametro di query nella parte superiore dell'URI del webhook, come indicato di seguito: https\://your-endpoint.com? sig = GUID. Per ogni notifica, verificare che il parametro di query `sig` abbia il valore previsto `Guid`.
 2. Eseguire un'richiesta GET sull'istanza dell'applicazione gestita usando applicationId. Verificare che provisioningState corrisponda al provisioningState della notifica per garantire la coerenza.
 
 ## <a name="notification-retries"></a>Tentativi di notifica

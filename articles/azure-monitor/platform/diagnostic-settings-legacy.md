@@ -6,16 +6,16 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 12/20/2019
-ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/21/2020
+ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977575"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715852"
 ---
-# <a name="collect-azure-activity-log-with-legacy-settings"></a>Raccolta del log attività di Azure con le impostazioni legacy
-Il [log attività di Azure](platform-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Fino a poco tempo fa, è stato creato un profilo di log per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione e viene usato un connettore per raccoglierle in un' [area di lavoro log Analytics](activity-log-collect.md). Questo articolo descrive la differenza tra i metodi, come usare le impostazioni legacy esistenti e come cancellare le impostazioni legacy in preparazione per le impostazioni di diagnostica.
+# <a name="update-to-azure-activity-log-collection-and-export"></a>Eseguire l'aggiornamento alla raccolta e all'esportazione di log attività di Azure
+Il [log attività di Azure](platform-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Il metodo per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione o a un' [area di lavoro log Analytics](activity-log-collect.md) è stato modificato per usare [le impostazioni di diagnostica](diagnostic-settings.md). Questo articolo descrive la differenza tra i metodi e come cancellare le impostazioni legacy in preparazione per passare alle impostazioni di diagnostica.
 
 
 ## <a name="differences-between-methods"></a>Differenze tra i metodi
@@ -39,14 +39,16 @@ Prima di abilitare questa funzionalità, prendere in considerazione i dettagli s
 ### <a name="differences-in-data"></a>Differenze nei dati
 Le impostazioni di diagnostica raccolgono gli stessi dati dei metodi precedenti usati per raccogliere il log attività con le differenze correnti seguenti:
 
-Sono state rimosse le proprietà seguenti:
+Le colonne seguenti sono state rimosse. La sostituzione di queste colonne è in un formato diverso, quindi potrebbe essere necessario modificare le query di log che le utilizzano. È comunque possibile visualizzare le colonne rimosse nello schema, ma non verranno popolate con i dati.
 
-- ActivityStatus
-- ActivitySubstatus
-- OperationName
-- ResourceProvider
+| Colonna rimossa | Colonna sostitutiva |
+|:---|:---|
+| ActivityStatus    | ActivityStatusValue    |
+| ActivitySubstatus | ActivitySubstatusValue |
+| OperationName     | OperationNameValue     |
+| ResourceProvider  | ResourceProviderValue  |
 
-Sono state aggiunte le proprietà seguenti:
+Sono state aggiunte le colonne seguenti:
 
 - Authorization_d
 - Claims_d

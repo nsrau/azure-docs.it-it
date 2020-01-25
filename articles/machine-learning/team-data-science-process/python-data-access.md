@@ -3,20 +3,20 @@ title: Accedere a set di dati con la libreria client Python - Processo di data s
 description: Installare e usare la libreria client Python per accedere e gestire i dati di Azure Machine Learning in modo protetto da un ambiente Python locale.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427378"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720980"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -26,7 +26,7 @@ Questo argomento fornisce istruzioni su come:
 * Installare la libreria client Python di Machine Learning
 * Accedere e caricare set di dati, fornendo istruzioni su come ottenere l'autorizzazione per accedere a set di dati di Azure Machine Learning dall'ambiente Python locale
 * Accedere ai set di dati intermedi di un esperimento
-* Usare la libreria client Python per enumerare set di dati, accedere a metadati, leggere il contenuto di un set di dati, creare nuovi set di dati e aggiornare set di dati esistenti.
+* usare la libreria client Python per enumerare i set di dati, accedere ai metadati, leggere il contenuto di un set di dati, creare nuovi set di dati e aggiornare i set di dati esistenti
 
 ## <a name="prerequisites"></a>Prerequisiti
 La libreria client Python è stata testata negli ambienti seguenti:
@@ -43,7 +43,7 @@ Presenta una dipendenza dai pacchetti seguenti:
 È consigliabile usare una distribuzione Python, ad esempio [Anaconda](http://continuum.io/downloads#all) o [Canopy](https://store.enthought.com/downloads/), inclusa in Python, IPython e i tre pacchetti installati ed elencati precedentemente. Sebbene IPython non sia obbligatorio, costituisce un ambiente ottimale per la manipolazione e la visualizzazione dei dati in modo interattivo.
 
 ### <a name="installation"></a>Come installare la libreria client Python di Azure Machine Learning
-Per completare le attività descritte in questo argomento, è necessario che sia installata la libreria client Python di Azure Machine Learning. È disponibile nella pagina [Python Package Index](https://pypi.python.org/pypi/azureml). Per installarla nel proprio ambiente Python, eseguire il comando seguente dall'ambiente Python locale:
+Installare la libreria client di Azure Machine Learning Python per completare le attività descritte in questo argomento. Questa libreria è disponibile nell' [indice del pacchetto python](https://pypi.python.org/pypi/azureml). Per installarla nel proprio ambiente Python, eseguire il comando seguente dall'ambiente Python locale:
 
     pip install azureml
 
@@ -70,13 +70,13 @@ Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibi
 
 Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di essere nuovamente invitati con il ruolo di proprietario o chiedere il frammento di codice al proprietario dell'area di lavoro.
 
-Per ottenere il token di autorizzazione, è possibile eseguire una di queste operazioni:
+Per ottenere il token di autorizzazione, è possibile scegliere una delle opzioni seguenti:
 
 * Chiedere un token a un proprietario. I proprietari possono accedere ai token di autorizzazione dalla pagina impostazioni dell'area di lavoro in Azure Machine Learning Studio (versione classica). Selezionare **Settings** (Impostazioni) dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** (Token di autorizzazione) per visualizzare i token primari e secondari. Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
 
    ![Token di autorizzazione](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Chiedere di essere promossi al ruolo di proprietario. A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
+* Chiedere di essere promossi al ruolo di proprietario: un proprietario corrente dell'area di lavoro deve prima rimuovere l'utente dall'area di lavoro, quindi inviarlo nuovamente come proprietario.
 
 Una volta ottenuti l'ID dell'area di lavoro e il token di autorizzazione, gli sviluppatori sono in grado di accedere all'area di lavoro usando il frammento di codice indipendentemente dal loro ruolo.
 
@@ -100,7 +100,7 @@ Dopo l'esecuzione di un esperimento in Machine Learning Studio (versione classic
 
 È possibile accedere ai set di dati intermedi sono se si trovano in un formato compatibile con la libreria client Python.
 
-Sono supportati i formati seguenti (le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds` ):
+Sono supportati i formati seguenti (le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds`):
 
 * PlainText
 * GenericCSV
@@ -124,7 +124,7 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
 2. Inserire un modulo **Adult Census Income Binary Classification dataset** .
 3. Inserire un modulo [Split][split] e connetterne l'input all'output del modulo DataSet.
 4. Inserire un modulo [Convert to CSV][convert-to-csv] e connetterne l'input a uno degli output del modulo [Split][split] .
-5. Salvare l'esperimento, eseguirlo e attendere il completamento dell'esecuzione.
+5. Salvare l'esperimento, eseguirlo e attendere il completamento del processo.
 6. Fare clic sul nodo output nel modulo [Convert to CSV][convert-to-csv] .
 7. Nel menu di scelta rapida visualizzato selezionare **Generate Data Access Code** (Genera codice di accesso ai dati).
    
@@ -293,7 +293,7 @@ Se si desidera serializzare i dati in un formato diverso, specificare un valore 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-È possibile anche impostare un nuovo nome specificando un valore per il parametro `name` . D'ora in poi sarà possibile recuperare il set di dati usando solo il nuovo nome. Il codice seguente consente di aggiornare i dati, il nome e la descrizione.
+È possibile anche impostare un nuovo nome specificando un valore per il parametro `name` . D'ora in poi sarà possibile recuperare il set di dati usando solo il nuovo nome. Il codice seguente aggiorna i dati, il nome e la descrizione.
 
     dataset = ws.datasets['existing dataset']
 

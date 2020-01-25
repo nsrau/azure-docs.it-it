@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: e33aa98939eeb5b5394f1f5cc05e28ae8f6ae4f2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515243"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716884"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua Analisi del testo nel servizio Azure Kubernetes
 
@@ -36,7 +36,7 @@ Questa procedura richiede diversi strumenti che devono essere installati ed eseg
 
 ## <a name="running-the-sample"></a>Esecuzione dell'esempio
 
-Questa procedura carica ed esegue l'esempio di contenitore di Servizi cognitivi per il rilevamento della lingua. L'esempio include due contenitori, uno per l'applicazione client e uno per il contenitore di Servizi cognitivi. È necessario eseguire il push di entrambe le immagini nel proprio Registro Azure Container. Una volta che si trovano nel proprio registro, creare un servizio Azure Kubernetes per accedere a queste immagini ed eseguire i contenitori. Quando i contenitori sono in esecuzione, usare l'interfaccia della riga di comando di **kubectl** per osservare le prestazioni dei contenitori. Accedere all'applicazione client con una richiesta HTTP e visualizzare i risultati.
+Questa procedura carica ed esegue l'esempio di contenitore di Servizi cognitivi per il rilevamento della lingua. L'esempio include due contenitori, uno per l'applicazione client e uno per il contenitore di Servizi cognitivi. Queste immagini verranno inoltrate al Container Registry di Azure. Una volta che si trovano nel proprio registro, creare un servizio Azure Kubernetes per accedere a queste immagini ed eseguire i contenitori. Quando i contenitori sono in esecuzione, usare l'interfaccia della riga di comando di **kubectl** per osservare le prestazioni dei contenitori. Accedere all'applicazione client con una richiesta HTTP e visualizzare i risultati.
 
 ![Informazioni generali sull'esecuzione di contenitori di esempio](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 

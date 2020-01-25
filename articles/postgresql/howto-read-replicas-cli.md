@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/23/2020
+ms.openlocfilehash: bb2c83757bd86d02a93c52bacdd03ce89186614e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770119"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719773"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creare e gestire le repliche di lettura dall'interfaccia della riga di comando di Azure, API REST
 
@@ -36,6 +36,11 @@ Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
+
+> [!NOTE]
+> Se si riceve l'errore "valore non valido specificato" durante il tentativo di impostare Azure. replication_support dall'interfaccia della riga di comando di Azure, è probabile che il server disponga già di una REPLICA impostata per impostazione predefinita. Un bug impedisce che questa impostazione venga riflessa correttamente nei server più recenti in cui REPLICA è l'impostazione predefinita interna.
+> È possibile ignorare i passaggi di preparazione del master e passare a creare la replica.
+> Se si desidera confermare che il server è in questa categoria, visitare la pagina relativa alla replica del server nella portale di Azure. "Disabilita replica" sarà disabilitato e "Aggiungi replica" sarà attivo sulla barra degli strumenti.
 
 2. Riavviare il server per applicare la modifica.
 

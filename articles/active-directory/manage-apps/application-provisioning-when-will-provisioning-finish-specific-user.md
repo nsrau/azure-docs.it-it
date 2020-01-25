@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8238d2b417dbe03ad0623e472f1a239940c1bc8
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: e7296c63a467b2f53550b3e609cf1146244cf933
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681379"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712117"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificare lo stato del provisioning utenti
 
@@ -35,7 +35,7 @@ Quando si configura per la prima volta il provisioning automatico, la sezione **
 - Il tipo di ciclo di provisioning (iniziale o incrementale) attualmente in esecuzione o è stato completato per ultimo.
 - **Indicatore di stato** che mostra la percentuale del ciclo di provisioning completato. La percentuale riflette il numero di pagine di cui è stato effettuato il provisioning. Si noti che ogni pagina potrebbe contenere più utenti o gruppi, quindi la percentuale non è direttamente correlata al numero di utenti, gruppi o ruoli di cui è stato effettuato il provisioning.
 - Pulsante **Aggiorna** che è possibile utilizzare per aggiornare la visualizzazione.
-- Il numero di **utenti** e **gruppi** nell'archivio dati del connettore. Il numero aumenta ogni volta che un oggetto viene aggiunto all'ambito del provisioning. Il conteggio non viene disattivato se un utente è eliminato temporaneamente o è stato eliminato definitivamente perché non rimuove l'oggetto dall'archivio dati del connettore. Il conteggio verrà ricaculated la prima sincronizzazione dopo la [reimpostazione](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) del CD 
+- Il numero di **utenti** e **gruppi** nell'archivio dati del connettore. Il numero aumenta ogni volta che un oggetto viene aggiunto all'ambito del provisioning. Il conteggio non viene disattivato se un utente è eliminato temporaneamente o è stato eliminato definitivamente perché non rimuove l'oggetto dall'archivio dati del connettore. Il conteggio verrà recaculated la prima sincronizzazione dopo la [reimpostazione](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) del CD 
 - Un collegamento **Visualizza log di controllo** , che consente di aprire i log di provisioning Azure ad per informazioni dettagliate su tutte le operazioni eseguite dal servizio di provisioning utenti, incluso lo stato del provisioning per i singoli utenti (vedere la sezione [usare i log di provisioning](#use-provisioning-logs-to-check-a-users-provisioning-status) più avanti).
 
 Al termine di un ciclo di provisioning, nella sezione **statistiche per data** vengono visualizzati i numeri cumulativi di utenti e gruppi di cui è stato effettuato il provisioning in data, insieme alla data di completamento e alla durata dell'ultimo ciclo. L' **ID attività** identifica in modo univoco il ciclo di provisioning più recente. L' **ID del processo** è un identificatore univoco per il processo di provisioning ed è specifico dell'app nel tenant.
@@ -60,7 +60,7 @@ I log di provisioning registrano tutte le operazioni eseguite dal servizio di pr
 Per ulteriori informazioni sulla lettura dei log di provisioning nel portale di Azure, vedere la guida alla [creazione di report sul provisioning](check-status-user-account-provisioning.md).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo sarà necessario per eseguire il provisioning degli utenti?
-Quando si usa il provisioning utenti automatico con un'applicazione, Azure AD esegue automaticamente il provisioning e aggiorna gli account utente in un'app in base a elementi come l' [assegnazione di utenti e gruppi](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) a un intervallo di tempo pianificato regolarmente, in genere ogni 40 minuti.
+Quando si usa il provisioning utenti automatico con un'applicazione, Azure AD esegue automaticamente il provisioning e aggiorna gli account utente in un'app in base a elementi come l' [assegnazione di utenti e gruppi](assign-user-or-group-access-portal.md) a un intervallo di tempo pianificato regolarmente, in genere ogni 40 minuti.
 
 Il tempo necessario per il provisioning di un determinato utente dipende principalmente dal fatto che il processo di provisioning esegua un ciclo iniziale o incrementale.
 
@@ -102,7 +102,7 @@ Riepilogo dei fattori che influiscono sul tempo necessario per completare un **c
 
 - Numero e dimensione dei gruppi assegnati. La sincronizzazione dei gruppi assegnati richiede più tempo rispetto alla sincronizzazione degli utenti. Il numero e la dimensione dei gruppi assegnati incidono sulle prestazioni. Se in un'applicazione è [abilitato il mapping per la sincronizzazione dell'oggetto del gruppo](customize-application-attributes.md#editing-group-attribute-mappings), in aggiunta agli utenti vengono sincronizzate le proprietà del gruppo, come i nomi e le appartenenze del gruppo. Queste sincronizzazioni aggiuntive richiederanno più tempo rispetto alla sincronizzazione dei soli oggetti utente.
 
-- Se le prestazioni diventano un problema e si tenta di effettuare il provisioning della maggior parte degli utenti e dei gruppi nel tenant, usare i filtri di ambito. I filtri di ambito consentono di ottimizzare i dati che il servizio di provisioning estrae da Azure AD, filtrando gli utenti in base a valori di attributo specifici. Per altre informazioni sui filtri di ambito, vedere [Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+- Se le prestazioni diventano un problema e si tenta di effettuare il provisioning della maggior parte degli utenti e dei gruppi nel tenant, usare i filtri di ambito. I filtri di ambito consentono di ottimizzare i dati che il servizio di provisioning estrae da Azure AD, filtrando gli utenti in base a valori di attributo specifici. Per altre informazioni sui filtri di ambito, vedere [Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
+[Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](user-provisioning.md)

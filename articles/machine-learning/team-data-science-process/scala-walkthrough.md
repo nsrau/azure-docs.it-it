@@ -3,26 +3,26 @@ title: Data science con Scala e Spark in Azure - Processo di data science per i 
 description: Come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b22d461d327e595908ea8cc18dd0d507fdc83ecd
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907703"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716771"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
 Questo articolo illustra come usare Scala per attività di Machine Learning con supervisione con la libreria MLlib scalabile per Spark e pacchetti Spark ML in un cluster Spark di Azure HDInsight. Vengono illustrate le attività che costituiscono il [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione, la modellazione e l'uso dei modelli. I modelli in questo articolo includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti (GBT), oltre a due attività comuni di Machine Learning supervisionato:
 
-* Problema di regressione: stima dell'importo della mancia ($) per una corsa in taxi
-* Classificazione binaria: previsione riguardo al fatto che venga lasciata o meno una mancia (1/0) per una corsa in taxi
+* Problema di regressione: stima dell'importo della mancia ($) per una corsa in taxi.
+* Classificazione binaria: stima di mancia o non mancia (1/0) per una corsa in taxi
 
 Il processo di modellazione richiede il training e la valutazione su un set di dati di test e le metriche di precisione pertinenti. Questo articolo illustra come archiviare questi modelli nell'archiviazione BLOB di Azure e come classificare e valutare le relative prestazioni predittive. Questo articolo descrive anche gli argomenti più avanzati su come ottimizzare i modelli tramite la convalida incrociata e lo sweep degli iperparametri. Come dati di esempio sono stati presi i set di dati relativi alle corse e alle tariffe dei taxi di New York nel 2013, disponibili su GitHub.
 
@@ -41,7 +41,7 @@ La procedura e il codice di installazione riportati in questo articolo si riferi
 
 ## <a name="prerequisites"></a>Prerequisiti
 * È necessario disporre di una sottoscrizione di Azure. Se non è già disponibile, [ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* È necessario un cluster Azure HDInsight 3.4 Spark 1.6 per completare le procedure seguenti. Per creare un cluster, vedere le istruzioni riportate in [Guida introduttiva: Creare un cluster Apache Spark in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Impostare il tipo e la versione del cluster nel menu **Selezionare il tipo di cluster** .
+* È necessario un cluster Azure HDInsight 3.4 Spark 1.6 per completare le procedure seguenti. Per crearne un cluster, vedere le istruzioni fornite in [Introduzione: creare cluster Apache Spark in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Impostare il tipo e la versione del cluster nel menu **Selezionare il tipo di cluster** .
 
 ![Configurazione del tipo di cluster HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -123,7 +123,7 @@ Importare la libreria Spark, MLlib e altre librerie necessarie tramite il codice
     val sqlContext = new SQLContext(sc)
 
 
-## <a name="data-ingestion"></a>Inserimento dati
+## <a name="data-ingestion"></a>Inserimento di dati
 Il primo passaggio nel processo di analisi scientifica dei dati è inserire i dati da analizzare. Spostare i dati dalle origini o dai sistemi in cui si trovano nell'ambiente di esplorazione e modellazione dei dati. In questo articolo, i dati inseriti rappresentano un campione unito in join pari allo 0,1% del file con estensione tsv relativo alle corse e alle tariffe dei taxi. L'ambiente di modellazione ed esplorazione dei dati è Spark. Questa sezione contiene il codice per completare la serie di attività seguenti:
 
 1. Impostare i percorsi di directory per l'archiviazione di dati e modelli.
@@ -251,16 +251,16 @@ Successivamente, eseguire query sulla tabella per i dati relativi alle tariffe, 
 | --- | --- | --- | --- |
 |        13,5 |1.0 |2,9 |1.0 |
 |        16,0 |2.0 |3.4 |1.0 |
-|        10,5 |2.0 |1.0 |1.0 |
+|        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualizzazione ed esplorazione dei dati
-Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione verranno esaminati i dati dei taxi tramite query SQL. Vengono quindi importati i risultati in un frame di dati per tracciare le variabili di destinazione e le funzionalità potenziali per l'esame visivo tramite la funzionalità di visualizzazione automatica di Jupyter.
+Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione verranno esaminati i dati dei taxi tramite query SQL. Importare quindi i risultati in un frame di dati per tracciare le variabili di destinazione e le funzionalità potenziali per l'ispezione visiva usando la funzionalità di visualizzazione automatica Jupyter.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Usare magic local e SQL per tracciare i dati
 Per impostazione predefinita, l'output di ogni frammento di codice eseguito da un'istanza di Jupyter Notebook è disponibile all'interno del contesto della sessione persistente nei nodi del ruolo di lavoro. Se si vuole salvare una corsa nei nodi del ruolo di lavoro per ogni calcolo e se tutti i dati necessari per il calcolo sono disponibili localmente nel nodo server Jupyter, ovvero il nodo head, è possibile usare il magic `%%local` per eseguire il frammento di codice nel server Jupyter.
 
-* **Magic SQL** (`%%sql`). Il kernel HDInsight Spark supporta l'esecuzione di query HiveQL inline semplici su SQLContext. L'argomento (`-o VARIABLE_NAME`) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Questo significa che sarà disponibile in modalità locale.
-* `%%local` **magic**. Il magic `%%local` esegue il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro `-o`. Il parametro `-o` rende persistente l'output della query SQL a livello locale e quindi il magic `%%local` attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
+* **Magic SQL** (`%%sql`). Il kernel HDInsight Spark supporta l'esecuzione di query HiveQL inline semplici su SQLContext. L'argomento (`-o VARIABLE_NAME`) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Questa impostazione indica che l'output sarà disponibile in modalità locale.
+* `%%local` **Magic**. Il magic `%%local` esegue il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro `-o`. Il parametro `-o` rende persistente l'output della query SQL a livello locale e quindi il magic `%%local` attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
 
 ### <a name="query-the-data-by-using-sql"></a>Eseguire query sui dati tramite SQL
 Questa query recupera le corse dei taxi per importo della tariffa, numero di passeggeri e importo della mancia.
@@ -291,7 +291,7 @@ Nel codice seguente, il magic `%%local` crea un frame di dati locali, sqlResults
 
 * Tabella
 * Grafico a torta
-* Grafico a linee
+* Riga
 * Area
 * Grafico a barre
 
@@ -532,7 +532,7 @@ Di seguito è riportato il codice per queste due attività.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modello di classificazione binaria: prevedere se deve essere lasciata una mancia
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modello di classificazione binaria: prevede se deve essere lasciata una mancia
 In questa sezione vengono creati tre tipi di modelli di classificazione binaria per prevedere se deve essere lasciata o meno una mancia:
 
 * Un **modello di regressione logistica** usando la funzione `LogisticRegression()` di Spark ML
@@ -723,7 +723,7 @@ Successivamente, creare un modello GBT con la funzione `GradientBoostedTrees()` 
 
 **Output:**
 
-Area sotto la curva ROC: 0,9846895479241554
+Area sotto la curva ROC = 0,9846895479241554
 
 ## <a name="regression-model-predict-tip-amount"></a>Modello di regressione: stimare l'importo della mancia
 In questa sezione vengono creati due tipi di modelli di regressione per stimare l'importo della mancia:
@@ -848,12 +848,12 @@ Creare tracciati usando matplotlib di Python.
 
 **Output:**
 
-![Importo della mancia: confronto tra effettivo e stimato](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Importo della mancia: effettivo rispetto a stimato](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Creare un modello di regressione con boosting a gradienti
 Creare un modello di regressione GBT con la funzione `GBTRegressor()` di Spark ML e valutare il modello sui dati di test.
 
-[Alberi con boosting a gradienti](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT, Gradient boosted tree) sono insiemi di alberi delle decisioni. Gli alberi GBT eseguono il training degli alberi delle decisioni in modo iterativo per ridurre al minimo la perdita di funzioni. È possibile usare GBT per la classificazione e la regressione. Gli alberi GBT possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
+Gli [alberi con boosting a gradienti](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) sono insiemi di alberi delle decisioni. GBT addestra gli alberi delle decisioni in modo iterativo per ridurre al minimo una funzione di perdita. È possibile usare GBT per la regressione e la classificazione. Gli alberi GBT possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -881,7 +881,7 @@ Creare un modello di regressione GBT con la funzione `GBTRegressor()` di Spark M
 
 **Output:**
 
-Il valore R-sqr del test è: 0,7655383534596654
+Il valore R-sqr del test è: 0.7655383534596654
 
 ## <a name="advanced-modeling-utilities-for-optimization"></a>Utilità di modellazione avanzate per l'ottimizzazione
 In questa sezione, usare le utilità di Machine Learning che gli sviluppatori spesso usano per l'ottimizzazione del modello. In particolare, è possibile ottimizzare i modelli di Machine Learning in tre diversi modi usando lo sweep dei parametri e la convalida incrociata:
@@ -938,7 +938,7 @@ Suddividere quindi i dati in set di training e convalida, usare lo sweep degli i
 
 **Output:**
 
-Il valore R-sqr del test è: 0,6226484708501209
+Il valore R-sqr del test è: 0.6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Ottimizzare il modello di classificazione binaria usando la convalida incrociata e lo sweep di iperparametri
 Questa sezione illustra come ottimizzare un modello di classificazione binaria usando la convalida incrociata e lo sweep di iperparametri. Questo metodo usa la funzione `CrossValidator` di Spark ML.

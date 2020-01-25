@@ -15,27 +15,27 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5238f8ca9258e4f7907d9d9755b7252e60f40de8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719971"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711556"
 ---
-# <a name="how-provisioning-works"></a>Funzionamento del provisioning
+# <a name="how-provisioning-works"></a>Come funziona il provisioning
 
 Il provisioning automatico si riferisce alla creazione di identità e ruoli utente nelle applicazioni cloud a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente durante la modifica dello stato o dei ruoli. Prima di iniziare una distribuzione, è possibile leggere questo articolo per informazioni sul funzionamento del provisioning di Azure AD e ottenere consigli sulla configurazione. 
 
 Il **servizio di provisioning Azure ad esegue il provisioning** degli utenti nelle app SaaS e in altri sistemi connettendosi a un endpoint dell'API di gestione utenti di gestione delle identità tra domini (SCIM) 2,0 fornito dal fornitore dell'applicazione. Questo endpoint SCIM consente Azure AD di creare, aggiornare e rimuovere gli utenti a livello di codice. Per le applicazioni selezionate, il servizio di provisioning può anche creare, aggiornare e rimuovere oggetti correlati all'identità aggiuntivi, ad esempio gruppi e ruoli. Il canale usato per il provisioning tra Azure AD e l'applicazione viene crittografato con la crittografia SSL HTTPS.
 
 
-![Azure AD servizio di provisioning](./media/user-provisioning/provisioning0.PNG)
+![Azure AD servizio di provisioning](media/how-provisioning-works/provisioning0.PNG)
 *Figura 1: il servizio di provisioning Azure ad*
 
-![flusso di lavoro di provisioning utenti *in uscita](./media/user-provisioning/provisioning1.PNG)
+![flusso di lavoro di provisioning utenti *in uscita](media/how-provisioning-works/provisioning1.PNG)
 figura 2: flusso di lavoro di provisioning utenti "in uscita" da Azure ad a applicazioni SaaS più diffuse*
 
-![flusso di lavoro di provisioning utenti *in ingresso](./media/user-provisioning/provisioning2.PNG)
+![flusso di lavoro di provisioning utenti *in ingresso](media/how-provisioning-works/provisioning2.PNG)
 figura 3: flusso di lavoro di provisioning utenti "in ingresso" da applicazioni di gestione di capitale umana più diffuse per Azure Active Directory e Windows Server Active Directory*
 
 ## <a name="provisioning-using-scim-20"></a>Provisioning con SCIM 2,0
@@ -73,11 +73,11 @@ Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle 
 
   * I gruppi dinamici possono influenzare le prestazioni del provisioning end-to-end da Azure AD alle applicazioni SaaS.
 
-  * La velocità con cui un utente in un gruppo dinamico viene sottoposta a provisioning o deprovisioning in un'applicazione SaaS dipende dalla velocità con cui il gruppo dinamico può valutare le modifiche dell'appartenenza. Per informazioni su come controllare lo stato di elaborazione di un gruppo dinamico, vedere [controllare lo stato di elaborazione di una regola di appartenenza](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+  * La velocità con cui un utente in un gruppo dinamico viene sottoposta a provisioning o deprovisioning in un'applicazione SaaS dipende dalla velocità con cui il gruppo dinamico può valutare le modifiche dell'appartenenza. Per informazioni su come controllare lo stato di elaborazione di un gruppo dinamico, vedere [controllare lo stato di elaborazione di una regola di appartenenza](../users-groups-roles/groups-create-rule.md).
 
   * Quando un utente perde l'appartenenza al gruppo dinamico, viene considerato un evento di deprovisioning. Si consideri questo scenario quando si creano regole per i gruppi dinamici.
 
-* **Gruppi annidati.** Il servizio di provisioning utenti Azure AD non è in grado di leggere o effettuare il provisioning degli utenti in gruppi Il servizio può solo leggere ed effettuare il provisioning degli utenti che sono membri immediati di un gruppo assegnato in modo esplicito. Questa limitazione delle "assegnazioni basate sui gruppi alle applicazioni" interessa anche Single Sign-On (vedere [uso di un gruppo per gestire l'accesso alle applicazioni SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). Assegnare invece direttamente o in altro modo l' [ambito nei](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) gruppi che contengono gli utenti di cui è necessario eseguire il provisioning.
+* **Gruppi annidati.** Il servizio di provisioning utenti Azure AD non è in grado di leggere o effettuare il provisioning degli utenti in gruppi Il servizio può solo leggere ed effettuare il provisioning degli utenti che sono membri immediati di un gruppo assegnato in modo esplicito. Questa limitazione delle "assegnazioni basate sui gruppi alle applicazioni" interessa anche Single Sign-On (vedere [uso di un gruppo per gestire l'accesso alle applicazioni SaaS](../users-groups-roles/groups-saasapps.md)). Assegnare invece direttamente o in altro modo l' [ambito nei](define-conditional-rules-for-provisioning-user-accounts.md) gruppi che contengono gli utenti di cui è necessario eseguire il provisioning.
 
 ### <a name="attribute-based-scoping"></a>Ambito basato su attributi 
 
@@ -85,7 +85,7 @@ Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle 
 
 ### <a name="b2b-guest-users"></a>Utenti B2B (Guest)
 
-È possibile usare il servizio di provisioning utenti Azure AD per effettuare il provisioning di utenti B2B (o Guest) in Azure AD alle applicazioni SaaS. Tuttavia, per consentire agli utenti B2B di accedere all'applicazione SaaS usando Azure AD, l'applicazione SaaS deve avere la funzionalità Single Sign-On basata su SAML configurata in modo specifico. Per altre informazioni su come configurare le applicazioni SaaS per supportare gli accessi dagli utenti B2B, vedere [Configurare app SaaS per Collaborazione B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+È possibile usare il servizio di provisioning utenti Azure AD per effettuare il provisioning di utenti B2B (o Guest) in Azure AD alle applicazioni SaaS. Tuttavia, per consentire agli utenti B2B di accedere all'applicazione SaaS usando Azure AD, l'applicazione SaaS deve avere la funzionalità Single Sign-On basata su SAML configurata in modo specifico. Per altre informazioni su come configurare le applicazioni SaaS per supportare gli accessi dagli utenti B2B, vedere [Configurare app SaaS per Collaborazione B2B](../b2b/configure-saas-apps.md).
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cicli di provisioning: iniziale e incrementale
 
@@ -160,7 +160,7 @@ Se la maggior parte o tutte le chiamate effettuate sul sistema di destinazione h
 
 In quarantena, la frequenza dei cicli incrementali viene gradualmente ridotta a una volta al giorno.
 
-Il processo di provisioning termina la quarantena dopo che tutti gli errori sono stati risolti e viene avviato il ciclo di sincronizzazione successivo. Se lo stato di quarantena dura per più di quattro settimane, il processo di provisioning viene disabilitato. Per altre informazioni, vedere lo stato di quarantena [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+Il processo di provisioning termina la quarantena dopo che tutti gli errori sono stati risolti e viene avviato il ciclo di sincronizzazione successivo. Se lo stato di quarantena dura per più di quattro settimane, il processo di provisioning viene disabilitato. Per altre informazioni, vedere lo stato di quarantena [qui](application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Tempo richiesto per il provisioning
 
@@ -184,7 +184,7 @@ Il servizio di provisioning di Azure AD eliminerà temporaneamente un utente in 
 
 Se si verifica uno dei quattro eventi precedenti e l'applicazione di destinazione non supporta le eliminazioni software, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente dall'app. 
 
-30 giorni dopo l'eliminazione di un utente in Azure AD, verranno eliminati definitivamente dal tenant. A questo punto, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente nell'applicazione. In qualsiasi momento durante la finestra di 30 giorni, è possibile [eliminare manualmente un utente in modo permanente]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), che invia una richiesta DELETE all'applicazione.
+30 giorni dopo l'eliminazione di un utente in Azure AD, verranno eliminati definitivamente dal tenant. A questo punto, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente nell'applicazione. In qualsiasi momento durante la finestra di 30 giorni, è possibile [eliminare manualmente un utente in modo permanente](../fundamentals/active-directory-users-restore.md), che invia una richiesta DELETE all'applicazione.
 
 Se viene visualizzato un attributo IsSoftDeleted nei mapping degli attributi, viene usato per determinare lo stato dell'utente e se inviare una richiesta di aggiornamento con Active = false per eliminare temporaneamente l'utente. 
 

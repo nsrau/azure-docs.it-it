@@ -3,12 +3,12 @@ title: Usare PowerShell per eseguire il backup di Windows Server in Azure
 description: Questo articolo illustra come usare PowerShell per la configurazione di backup di Azure in Windows Server o un client Windows e la gestione di backup e ripristino.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 54cfbb4a550ff14705d8d02b0589ee023cf9c225
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ef5571e6a059eedeba169765785bb0f840c8f256
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689199"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710855"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -101,7 +101,7 @@ Per visualizzare l'elenco dei programmi installati, passare a **Pannello di cont
 
 ![Agente installato](./media/backup-client-automation/installed-agent-listing.png)
 
-### <a name="installation-options"></a>Opzioni di installazione
+### <a name="installation-options"></a>Opzione di installazione
 
 Per visualizzare tutte le opzioni disponibili tramite la riga di comando, usare il comando seguente:
 
@@ -203,7 +203,7 @@ Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-## <a name="encryption-settings"></a>Impostazioni crittografia
+## <a name="encryption-settings"></a>Impostazioni di crittografia
 
 I dati di backup inviati a Backup di Azure vengono crittografati per proteggere la riservatezza dei dati. La passphrase di crittografia è la "password" per decrittografare i dati in fase di ripristino.
 
@@ -629,7 +629,7 @@ L'oggetto `$Rps` è una matrice di punti di backup. Il primo elemento è il punt
 
 ### <a name="specifying-an-item-to-restore"></a>Specifica di un elemento da ripristinare
 
-Per ripristinare un file specifico, specificare il nome del file relativo al volume radice. Ad esempio, per recuperare C:\Test\Cat.job, eseguire il comando seguente. 
+Per ripristinare un file specifico, specificare il nome del file relativo al volume radice. Per recuperare C:\Test\Cat.job, ad esempio, eseguire il comando seguente. 
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE

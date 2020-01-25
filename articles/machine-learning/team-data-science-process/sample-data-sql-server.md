@@ -3,20 +3,20 @@ title: Campionare dati in SQL Server in Azure - Processo di data science per i t
 description: Campionare dati archiviati in SQL Server in Azure usando SQL o il linguaggio di programmazione Python e quindi spostarli in Azure Machine Learning.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043390"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717651"
 ---
 # <a name="heading"></a>Dati di esempio in SQL Server in Azure
 
@@ -30,14 +30,14 @@ Il campionamento di Python usa la libreria ODBC [pyodbc](https://code.google.com
 > 
 
 **Perché campionare i dati?**
-Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
+Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il campionamento semplifica la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Il suo ruolo nel [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
 
 Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="SQL"></a>Utilizzo di SQL
 In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguire il campionamento casuale semplice dei dati all'interno del database. Scegliere il metodo in base alla dimensione dei dati e alla loro distribuzione.
 
-I due elementi seguenti mostrano come usare `newid` in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal livello di casualità previsto per il campionamento da eseguire (si presuppone che il valore pk_id nel codice di esempio seguente sia una chiave primaria generata automaticamente).
+I due elementi seguenti mostrano come usare `newid` in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal modo in cui si desidera che il campione sia (pk_id nel codice di esempio seguente si presuppone una chiave primaria generata automaticamente).
 
 1. Campionamento casuale meno rigoroso
    
@@ -48,7 +48,7 @@ I due elementi seguenti mostrano come usare `newid` in SQL Server per effettuare
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-È possibile usare la clausola Tablesample anche per il campionamento dei dati. Può trattarsi di un approccio più efficace se i dati sono di grandi dimensioni (presupponendo che i dati in pagine diverse non siano correlati) e per completare la query in un tempo ragionevole.
+È possibile usare la clausola Tablesample anche per il campionamento dei dati. Questa opzione può essere un approccio migliore se le dimensioni dei dati sono elevate (presupponendo che i dati in pagine diverse non siano correlati) e che la query venga completata in un tempo ragionevole.
 
     SELECT *
     FROM <table_name> 
@@ -60,18 +60,18 @@ I due elementi seguenti mostrano come usare `newid` in SQL Server per effettuare
 > 
 
 ### <a name="sql-aml"></a>Connessione ad Azure Machine Learning
-È possibile usare direttamente le query di esempio riportate sopra nel modulo [Import Data][import-data] (Importazione dati) di Azure Machine Learning per sottocampionare i dati in modo immediato e inserirli in un esperimento di Azure Machine Learning. Di seguito è riportata una schermata di uso del modulo reader per leggere i dati campionati:
+È possibile usare direttamente le query di esempio riportate sopra nel modulo Azure Machine Learning [Import Data][import-data] per sottocampionare i dati in tempo reale e inserirli in un esperimento Azure Machine Learning. Di seguito è riportata una schermata relativa all'uso del modulo Reader per leggere i dati campionati:
 
 ![lettore sql][1]
 
 ## <a name="python"></a>Utilizzo del linguaggio di programmazione Python
-In questa sezione viene mostrato l'uso della [libreria pyodbc](https://code.google.com/p/pyodbc/) per stabilire un collegamento ODBC al database di un server SQL in Python. La stringa di connessione del database è la seguente: (sostituire servername, dbname, username e password con la propria configurazione):
+In questa sezione viene mostrato l'uso della [libreria pyodbc](https://code.google.com/p/pyodbc/) per stabilire un collegamento ODBC al database di un server SQL in Python. La stringa di connessione del database è la seguente: (sostituire ServerName, dbname, username e password con la configurazione):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La libreria [Pandas](https://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Nel codice seguente si legge un campionamento dello 0,1% dei dati di una tabella nel database SQL di Azure in un frame di dati Pandas:
+La libreria [Pandas](https://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente legge un campione 0,1% dei dati di una tabella nel database SQL di Azure in un dato Pandas:
 
     import pandas as pd
 
@@ -81,7 +81,7 @@ La libreria [Pandas](https://pandas.pydata.org/) in Python fornisce una vasta ga
 È ora possibile lavorare con i dati campionati nel frame di dati Pandas. 
 
 ### <a name="python-aml"></a>Connessione ad Azure Machine Learning
-È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure Machine Learning con il modulo [Import Data][import-data] (Importazione dati). Attenersi alla procedura seguente: 
+È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati nel BLOB possono essere letti direttamente in un esperimento di Azure Machine Learning usando il modulo [Import Data][import-data] . Attenersi alla procedura seguente: 
 
 1. Scrivere il frame di dati Pandas in un file locale
    
@@ -107,12 +107,12 @@ La libreria [Pandas](https://pandas.pydata.org/) in Python fornisce una vasta ga
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Leggere i dati nel BLOB di Azure usando il modulo [Import Data][import-data] (Importazione dati) di Azure Machine Learning come illustrato nella schermata seguente:
+3. Leggere i dati dal BLOB di Azure usando Azure Machine Learning modulo [Import Data][import-data] , come illustrato nella schermata seguente:
 
 ![lettore BLOB][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Esempio del Processo di analisi scientifica dei dati per i team
-Per un esempio della procedura dettagliata del processo di data science per i team usando un set di dati pubblici, vedere [Processo di data science per i team in azione: uso di SQL Server](sql-walkthrough.md).
+Per esaminare un esempio del processo di Data Science per i team usando un set di dati pubblico, vedere processo di analisi [scientifica dei dati per i team in azione: uso di SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

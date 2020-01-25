@@ -1,19 +1,19 @@
 ---
 title: Eseguire il mapping di campi personalizzati allo schema di Griglia di eventi di Azure
-description: Questo articolo descrive come convertire uno schema personalizzato nello schema di Griglia di eventi di Azure.
+description: Questo articolo descrive come convertire lo schema personalizzato nello schema di griglia di eventi di Azure quando i dati dell'evento non corrispondono allo schema di griglia di eventi.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: a0e054be3ab7d4818ac323eb5fb93968f57eca4f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e8077068a265d659cf6009eb7762188637c373d6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565498"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721660"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Eseguire il mapping di campi personalizzati allo schema di Griglia di eventi
 

@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e776ce8a455f2a5b453e23ebb996de9ddb5175a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430186"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711971"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -38,7 +38,7 @@ Usare il portale di Azure Active Directory per visualizzare e gestire tutte le a
 1. Selezionare un'app per caricare il riquadro delle risorse, in cui è possibile visualizzare i report e gestire le impostazioni dell'app.
 1. Selezionare il **provisioning** per gestire le impostazioni di provisioning degli account utente per l'app selezionata.
 
-   ![Schermata di provisioning per gestire le impostazioni di provisioning degli account utente](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Schermata di provisioning per gestire le impostazioni di provisioning degli account utente](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modalità di provisioning
 
@@ -68,7 +68,7 @@ Espandere **mapping** per visualizzare e modificare gli attributi utente che sco
 
 Esiste un set preconfigurato di mapping tra Azure AD oggetti utente e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, quali Gruppi o Contatti. Selezionare un mapping nella tabella per aprire l'editor di mapping a destra, dove è possibile visualizzarlo e personalizzarlo.
 
-![Mostra la schermata di mapping degli attributi](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Mostra la schermata di mapping degli attributi](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Le personalizzazioni supportate includono:
 
@@ -88,4 +88,4 @@ Se il provisioning viene abilitato per la prima volta per un'applicazione, attiv
 
 Impostare **stato del provisioning** su **disattivato** per sospendere il servizio di provisioning. In questo stato, Azure non crea, aggiorna o rimuove gli oggetti utente o gruppo nell'app. Ripristinare lo stato **su on** e il servizio preleva il punto da cui è stato interrotto.
 
-**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e ne determinerà l'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Si noti che il ciclo iniziale richiede più tempo del ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Per ulteriori informazioni sulle prestazioni dei cicli iniziali e incrementali, vedere [qui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 
+**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e ne determinerà l'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Si noti che il ciclo iniziale richiede più tempo del ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Per ulteriori informazioni sulle prestazioni dei cicli iniziali e incrementali, vedere [qui](application-provisioning-when-will-provisioning-finish-specific-user.md). 

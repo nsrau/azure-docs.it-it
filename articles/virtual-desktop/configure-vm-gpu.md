@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953957"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719756"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura accelerazione GPU (Graphics Processing Unit) per desktop virtuale Windows
 
@@ -37,9 +37,9 @@ Desktop virtuale Windows supporta il rendering e la codifica con accelerazione G
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installare i driver grafici supportati nella macchina virtuale
 
-Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure in desktop virtuali Windows, è necessario installare i driver NVIDIA graphics. Seguire le istruzioni in [installare driver GPU NVIDIA in VM serie N che eseguono Windows](/azure/virtual-machines/windows/n-series-driver-setup) per installare i driver, manualmente o usando l' [estensione driver GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure in desktop virtuali Windows, è necessario installare i driver grafici appropriati. Seguire le istruzioni disponibili in [sistemi operativi e driver supportati](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) per installare i driver dal fornitore di grafica appropriato, manualmente o usando un'estensione di VM di Azure.
 
-Si noti che per desktop virtuale Windows sono supportati solo [i driver NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distribuiti da Azure.
+Per desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Per le macchine virtuali di Azure con GPU NVIDIA sono supportati solo [driver NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) per desktop virtuale di Windows.
 
 Dopo l'installazione del driver, è necessario riavviare la macchina virtuale. Utilizzare i passaggi di verifica nelle istruzioni sopra indicate per verificare che i driver grafici siano stati installati correttamente.
 
@@ -74,7 +74,7 @@ Desktop remoto codifica tutti i grafici sottoposti a rendering dalle app e dai d
 
 Per verificare che le app stiano usando la GPU per il rendering, provare a eseguire una delle operazioni seguenti:
 
-* Usare l'utilità `nvidia-smi` come descritto in [verificare l'installazione del driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) per verificare l'utilizzo della GPU durante l'esecuzione delle app.
+* Per le macchine virtuali di Azure con una GPU NVIDIA, usare l'utilità `nvidia-smi` come descritto in [verificare l'installazione del driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) per verificare l'utilizzo della GPU durante l'esecuzione delle app.
 * Nelle versioni supportate del sistema operativo, è possibile utilizzare Gestione attività per verificare l'utilizzo della GPU. Selezionare la GPU nella scheda "prestazioni" per vedere se le app utilizzano la GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificare la codifica del frame con accelerazione GPU
@@ -90,5 +90,5 @@ Per verificare che Desktop remoto usi la codifica con accelerazione GPU:
 
 Queste istruzioni dovrebbero essere in esecuzione con l'accelerazione GPU in una singola VM host sessione. Alcune considerazioni aggiuntive per l'abilitazione dell'accelerazione GPU in un pool host più ampio:
 
-* Prendere in considerazione l'uso dell' [estensione driver GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) per semplificare l'installazione e gli aggiornamenti dei driver in diverse macchine virtuali.
+* Prendere in considerazione l'uso di un' [estensione VM](/azure/virtual-machines/extensions/overview) per semplificare l'installazione e gli aggiornamenti dei driver in diverse macchine virtuali. Utilizzare l' [estensione driver GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) per le macchine virtuali con GPU NVIDIA e utilizzare l'estensione driver GPU AMD (disponibile a breve) per le macchine virtuali con GPU AMD.
 * Si consiglia di usare Active Directory Criteri di gruppo per semplificare la configurazione di criteri di gruppo in diverse macchine virtuali. Per informazioni sulla distribuzione di Criteri di gruppo nel dominio Active Directory, vedere [utilizzo di oggetti di criteri di gruppo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

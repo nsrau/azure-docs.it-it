@@ -3,24 +3,24 @@ title: Guida di Azure AI per soluzioni di manutenzione predittiva - Processo di 
 description: Descrizione completa delle funzioni di data science che consentono di creare soluzioni di manutenzione predittiva in più settori di mercato.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5cd16280ba942404ffb23fd1c9d0e1a20af8c7c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977132"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721813"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Manutenzione predittiva (**PdM**) è un'applicazione comune di analisi predittiva che può consentire alle aziende di diversi settori di usare in modo ottimale gli asset e ridurre i costi operativi. Questa guida sintetizza le linee guida e le procedure consigliate aziendali e analitiche per sviluppare e distribuire nel modo corretto soluzioni PdM tramite la tecnologia della [piattaforma Microsoft Azure per l'intelligenza artificiale](https://azure.microsoft.com/overview/ai-platform).
 
@@ -37,13 +37,13 @@ Nella prima metà della guida vengono descritti i problemi aziendali tipici, i v
 | [Risorse di formazione per la manutenzione predittiva](#training-resources-for-predictive-maintenance) | un professionista che ricopre uno o più dei ruoli precedenti e si è interessati ad apprendere i concetti fondamentali alla base della data science, gli strumenti e le tecniche.
 
 ### <a name="prerequisite-knowledge"></a>Conoscenze richieste
-Il contenuto per i BDM non prevede alcuna conoscenza precedente della data science da parte del lettore. Per il contenuto per i TDM, sono utili conoscenze di base di statistica e data science. È inoltre consigliabile la conoscenza dei servizi dati e di intelligenza artificiale di Azure, Python, R, XML e JSON. Le tecniche di intelligenza artificiale sono implementate in pacchetti Python e R. I modelli di soluzioni sono implementati mediante servizi di Azure, strumenti di sviluppo e SDK.
+Il contenuto per i BDM non prevede alcuna conoscenza precedente della data science da parte del lettore. Per il contenuto per i TDM, sono utili conoscenze di base di statistica e data science. È inoltre consigliabile la conoscenza dei servizi dati e di intelligenza artificiale di Azure, Python, R, XML e JSON. Le tecniche di intelligenza artificiale sono implementate in pacchetti Python e R. I modelli di soluzione vengono implementati usando i servizi di Azure, gli strumenti di sviluppo e gli SDK.
 
 ## <a name="business-case-for-predictive-maintenance"></a>Casi aziendali per la manutenzione predittiva
 
 Per le aziende è essenziale che le apparecchiature strategiche funzionino con la massima efficienza e vengano usate in modo ottimale per realizzare il ritorno sul capitale investito. Questi asset possono andare da motori di velivoli, turbine, ascensori o sistemi di raffreddamento industriali, che costano milioni, fino ad apparecchiature di uso quotidiano, come fotocopiatrici, macchine per il caffè o distributori d'acqua.
 - Generalmente, la maggior parte delle aziende si affida alla _manutenzione correttiva_, in cui le parti vengono sostituite quando presentano un problema. La manutenzione correttiva garantisce che le parti vengano usate completamente (quindi evita sprechi della vita utile del componente), ma presenta costi per le aziende in termini di tempi di inattività, manodopera e requisiti di manutenzione non pianificata (ore di straordinari o località scomode).
-- Al livello successivo, alcune aziende applicano la _manutenzione preventiva_, in cui viene determinato il ciclo di vita utile per una parte, in modo da eseguire la manutenzione o la sostituzione prima che si verifichi un guasto. La manutenzione preventiva consente di evitare i problemi non pianificati e di grave entità. Tuttavia, restano ancora i problemi relativi ai costi elevati dei tempi di inattività pianificati, al sottoutilizzo dei componenti prima del termine della relativa vita utile e alla manodopera.
+- Al livello successivo, alcune aziende applicano la _manutenzione preventiva_, in cui viene determinato il ciclo di vita utile per una parte, in modo da eseguire la manutenzione o la sostituzione prima che si verifichi un guasto. La manutenzione preventiva consente di evitare i problemi non pianificati e di grave entità. Tuttavia, i costi elevati di tempo di inattività pianificato, al di sotto dell'utilizzo del componente durante la durata utile e continuano a rimanere.
 - L'obiettivo della _manutenzione predittiva_ è ottimizzare l'equilibrio tra la manutenzione correttiva e quella preventiva, rendendo possibile la sostituzione _just-in-time_ dei componenti. In questo approccio, i componenti vengono sostituiti solo quando sta per verificarsi un guasto. Estendendo il ciclo di vita dei componenti (rispetto alla manutenzione preventiva) e riducendo i costi della manutenzione non pianificata e della manodopera (rispetto alla manutenzione correttiva), le aziende possono ottenere riduzioni dei costi e vantaggi competitivi.
 
 ## <a name="business-problems-in-pdm"></a>Problemi aziendali in PdM
@@ -92,7 +92,7 @@ Questa sezione è incentrata su una raccolta di casi d'uso PdM per diversi setto
 |**Finanza** |                         |
 |Un _guasto di uno sportello bancomat_ è un problema comune nel settore bancario. In questo caso, il problema consiste nel calcolare la probabilità che una transazione di incasso da un bancomat venga interrotta a causa di un inceppamento delle banconote o un guasto di un componente del dispositivo di erogazione del contante. La possibilità di stimare in anticipo gli errori delle transazioni consente di intervenire proattivamente sugli sportelli bancomat per evitare che si verifichino errori.| Invece di lasciare che si verifichi un guasto nel corso di una transazione, è preferibile programmare il macchinario in modo da negare il servizio in base alla stima.|
 |**Energia** |                          |
-|_Errori della turbina eolica_: le turbine eoliche sono la principale fonte di energia nei paesi/aree geografiche responsabili dell'ambiente e coinvolgono costi di capitale elevato. Un aspetto fondamentale per le turbine eoliche è rappresentato dal motore del generatore. Un guasto di questo componente mette fuori servizio la turbina. È inoltre molto costoso da riparare.|La stima di indicatori KPI come il tempo medio tra i guasti (MTBF) può consentire alle aziende del settore energetico di evitare i guasti delle turbine e ridurre al minimo i tempi di inattività. Stimando le probabilità di guasto, i tecnici possono monitorare le turbine con la più alta probabilità di guasto e pianificare regimi di manutenzione temporizzata. I modelli predittivi forniscono informazioni dettagliate sui diversi fattori che contribuiscono al guasto, permettendo ai tecnici comprendere meglio le cause radice dei problemi.|
+|_Errori della turbina eolica_: le turbine eoliche sono la principale fonte di energia nei paesi/aree geografiche responsabili dell'ambiente e coinvolgono costi di capitale elevato. Un componente chiave della turbina eolica è il motore del generatore, il cui errore rende inefficace la turbina. È inoltre molto costoso da riparare.|La stima di indicatori KPI come il tempo medio tra i guasti (MTBF) può consentire alle aziende del settore energetico di evitare i guasti delle turbine e ridurre al minimo i tempi di inattività. Stimando le probabilità di guasto, i tecnici possono monitorare le turbine con la più alta probabilità di guasto e pianificare regimi di manutenzione temporizzata. I modelli predittivi forniscono informazioni dettagliate sui diversi fattori che contribuiscono al guasto, permettendo ai tecnici comprendere meglio le cause radice dei problemi.|
 |_Guasti di interruttori automatici_: per garantire la distribuzione di corrente ad abitazioni e aziende, è necessario che le linee elettriche siano operative ininterrottamente. Gli interruttori automatici consentono di limitare o evitare il danneggiamento delle linee elettriche in caso di sovraccarico o condizioni meteorologiche avverse. Il problema aziendale in questo caso consiste nella stima della probabilità di guasto degli interruttori.| Le soluzioni PdM contribuiscono a ridurre i costi di riparazione e prolungano il ciclo di vita delle apparecchiature come gli interruttori. Consentono di migliorare la qualità della rete elettrica riducendo i guasti imprevisti e le interruzioni dei servizi.|
 |**Trasporti e logistica** |    |
 |_Guasti delle porte degli ascensori_: le grandi aziende produttrici di ascensori forniscono una gamma completa di servizi per milioni di ascensori in funzione in tutto il mondo. La sicurezza, l'affidabilità e i tempi di attività degli ascensori sono un elemento critico per i clienti. Queste aziende tengono traccia di questi e molti altri attributi tramite sensori, per facilitare la manutenzione correttiva e preventiva. In un ascensore, il problema più evidente per un cliente è il malfunzionamento delle porte. Il problema aziendale in questo caso consiste nel fornire un'applicazione predittiva con una base di conoscenze che possa stimare le cause potenziali dei guasti alle porte.| Gli ascensori rappresentano investimenti di capitale che possono avere una durata di 20 e 30 anni. Ogni vendita potenziale può essere altamente competitiva, pertanto le aspettative per il servizio e il supporto sono molto elevate. La manutenzione predittiva può fornire a queste aziende un vantaggio rispetto alla concorrenza nelle offerte di prodotti e servizi.|
@@ -271,7 +271,7 @@ In questo caso, la domanda è: "qual è la probabilità che l'asset si guasti en
 Figura 3. Assegnazione di etichette per la classificazione binaria
 
 Di seguito sono elencati gli esempi della strategia di assegnazione delle etichette per alcuni dei casi d'uso.
-- _Ritardi dei voli_: per X è possibile scegliere 1 giorno, in modo da stimare i ritardi nelle 24 ore successive. A tutti i voli entro 24 ore prima dei guasti viene assegnata l'etichetta 1.
+- _Ritardi dei voli_: è possibile scegliere X come un giorno per stimare i ritardi nelle prossime 24 ore. A tutti i voli entro 24 ore prima dei guasti viene assegnata l'etichetta 1.
 - _Guasti di sportelli bancomat_: un obiettivo potrebbe essere quello di determinare la probabilità di errore di una transazione nell'ora successiva. In questo caso, a tutte le transazioni eseguite entro l'ultima ora dal guasto viene assegnata l'etichetta 1. Per stimare la probabilità di errore nelle prossime N banconote erogate, a tutte le banconote erogate nelle ultime N banconote da un guasto viene assegnata l'etichetta 1.
 - _Guasti di interruttori automatici_: l'obiettivo potrebbe essere quello di stimare la probabilità che il successivo comando dell'interruttore non riesca. In questo caso, per X verrà scelto un comando futuro.
 - _Guasti delle porte dei treni_: per X è possibile scegliere due giorni.
@@ -423,9 +423,9 @@ Al contrario, PdM comporta un _punteggio batch_. Per essere conformi alla firma 
 
 La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM, esercitazioni ed esperimenti implementati in Azure. In alcuni casi, queste applicazioni PdM possono essere distribuite in una sottoscrizione di Azure in pochi minuti. Possono essere usate come demo di modelli di verifica, ambienti sandbox per sperimentare alternative o acceleratori per le implementazioni effettive in produzione. Questi modelli sono disponibili in [Azure AI Gallery](https://gallery.azure.ai) o nel repository [GitHub di Azure](https://github.com/Azure). Questi diversi esempi verranno distribuiti nel modello di soluzione nel corso del tempo.
 
-| # | Title | Description |
+| # | Titolo | Description |
 |--:|:------|-------------|
-| 2 | [Modello di soluzione per la manutenzione predittiva di Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modello di soluzione open source che illustra la modellazione di Azure ML e un'infrastruttura di Azure completa in grado di supportare scenari di manutenzione predittiva nel contesto del monitoraggio remoto. |
+| 2 | [Modello di soluzione per la manutenzione predittiva di Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Modello di soluzione open source che illustra la modellazione di Azure ML e un'infrastruttura di Azure completa in grado di supportare scenari di manutenzione predittiva nel contesto del monitoraggio remoto. |
 | 3 | [Apprendimento avanzato per la manutenzione predittiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook di Azure con una soluzione demo sull'uso di reti LSTM (Long Short-Term Memory), una classe delle reti neurali ricorrenti, per la manutenzione predittiva, con un [post di blog su questo esempio](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guida alla modellazione per la manutenzione predittiva in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guida alla modellazione PdM con script in R.|
 | 5 | [Manutenzione predittiva di Azure per il settore aerospaziale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Uno dei primi modelli di soluzione PdM basati su Azure Machine Learning 1.0 per la manutenzione di aerei. La guida ha avuto origine da questo progetto. |

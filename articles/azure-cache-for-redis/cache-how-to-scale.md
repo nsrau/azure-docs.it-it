@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433507"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714442"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -166,7 +166,7 @@ Se un'operazione di ridimensionamento ha esito negativo, il servizio tenta di an
 
 
 ### <a name="how-long-does-scaling-take"></a>Quanto tempo richiede il ridimensionamento?
-Il ridimensionamento richiede circa 20 minuti, a seconda della quantità di dati nella cache.
+Il tempo di ridimensionamento dipende dalla quantità di dati presenti nella cache, con una quantità maggiore di dati che richiedono più tempo per il completamento. La scalabilità richiede circa 20 minuti. Per le cache in cluster, la scalabilità richiede circa 20 minuti per partizione.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Come è possibile stabilire quando il ridimensionamento è completato?
 Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
@@ -176,6 +176,3 @@ Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

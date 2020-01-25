@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921006"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719824"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Azure ricerca cognitiva
 
@@ -21,15 +21,13 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>Nuovo nome del servizio per ricerca di Azure
+## <a name="new-service-name"></a>Nome nuovo servizio
 
-Ricerca di Azure ora è stato rinominato in **azure ricerca cognitiva** per riflettere l'uso esteso delle competenze cognitive e l'elaborazione di intelligenza artificiale nelle operazioni principali. Mentre le competenze cognitive aggiungono nuove funzionalità, l'uso di intelligenza artificiale è strettamente facoltativo. È possibile continuare a usare Azure ricerca cognitiva senza intelligenza artificiale per compilare soluzioni complete di ricerca full-text su contenuto privato, eterogeneo, basato su testo in un indice creato e gestito nel cloud. 
-
-Le versioni API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono invariati. Le soluzioni di ricerca esistenti non sono interessate dalla modifica del nome del servizio.
+Ricerca di Azure è stato rinominato in **azure ricerca cognitiva** per riflettere l'uso espanso (ancora facoltativo) delle competenze cognitive e dell'elaborazione di intelligenza artificiale nelle operazioni principali. Le versioni API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono invariati. Le soluzioni di ricerca nuove e esistenti non sono interessate dalla modifica del nome del servizio.
 
 ## <a name="feature-announcements"></a>Annunci di funzionalità
 
-### <a name="january-2020"></a>2020 gennaio
+### <a name="january-2020"></a>Gennaio 2020
 
 + Le [chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) sono ora disponibili a livello generale. Se si usa REST, è possibile accedere alla funzionalità usando `api-version=2019-05-06`. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è in anteprima. 
 

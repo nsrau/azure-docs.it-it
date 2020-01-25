@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9fdbf3888b4302946fe20259a333842caa122836
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745406"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717782"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Domande frequenti sull'uso del servizio migrazione del database di Azure
 
@@ -96,7 +96,7 @@ Durante una semplice migrazione di database tipica, è necessario:
 1. Creare uno o più database di destinazione.
 2. Valutare i database di origine.
     * Per le migrazioni omogenee, è necessario valutare i database esistenti usando [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * Per le migrazioni eterogeneo (dalle origini di concorrenza), valutare i database esistenti con [SSMA](https://aka.ms/get-ssma). È inoltre possibile utilizzare SSMA per convertire gli oggetti di database ed eseguire la migrazione dello schema alla piattaforma di destinazione.
+    * Per le migrazioni eterogenee (dalle origini di concorrenza), valutare i database esistenti con [SSMA](https://aka.ms/get-ssma). È inoltre possibile utilizzare SSMA per convertire gli oggetti di database ed eseguire la migrazione dello schema alla piattaforma di destinazione.
 3. Creare un'istanza del Servizio Migrazione del database di Azure.
 4. Creare un progetto di migrazione specificando i database di origine, i database di destinazione e le tabelle di cui eseguire la migrazione.
 5. Avviare il caricamento completo.

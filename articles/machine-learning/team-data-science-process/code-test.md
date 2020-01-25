@@ -3,30 +3,30 @@ title: Testare il codice di data science con Azure DevOps Services - Processo di
 description: Test di codice di data science su Azure con il set di dati di stima del reddito degli adulti UCI con il processo di data science per i team e Azure DevOps Services
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336696"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722003"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test di codice di data science su Azure con il processo di data science per i team e Azure DevOps Services
 Questo articolo include le linee guida preliminari per il test del codice in un flusso di lavoro di data science. Il test offre ai data scientist un metodo sistematico ed efficiente per il controllo della qualità e del risultato previsto del codice. Viene usato un [progetto TDSP (Team Data Science Process) che usa il set di dati sul reddito degli adulti UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) pubblicato in precedenza per illustrare la modalità di esecuzione del test del codice. 
 
 ## <a name="introduction-on-code-testing"></a>Introduzione sul test del codice
-Il "testing unità" è una prassi consolidata dello sviluppo di software. Per quanto riguarda la data science, tuttavia, spesso non è chiaro cosa significhi e come deve essere eseguito il test del codice per le diverse fasi di un ciclo di vita di data science, ad esempio:
+Il "testing unità" è una prassi consolidata dello sviluppo di software. Tuttavia, per data science, spesso non è chiaro cosa significa "unit test" e come è consigliabile testare il codice per diverse fasi di un ciclo di vita data science, ad esempio:
 
 * Preparazione dei dati
 * Analisi della qualità dei dati
-* Modellazione
+* Creazione di modelli
 * Distribuzione di modelli 
 
 In questo articolo il termine "testing unità" è sostituito con "test del codice". Il termine si riferisce alle funzioni che consentono di valutare se il codice di una fase specifica di un ciclo di vita di data science produce i risultati previsti. La persona che scrive il test definisce i risultati previsti, a seconda del risultato della funzione, ad esempio del controllo della qualità o della modellazione dei dati.
@@ -114,35 +114,35 @@ Usare la procedura seguente per configurare ed eseguire il test di codice e una 
 
     a. Nel repository del progetto selezionare **Compilazione e versione** e quindi **+Nuovo** per creare un nuovo processo di compilazione.
 
-       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
+    ![Selezioni per l'avvio di un nuovo processo di compilazione](./media/code-test/create_new_build.PNG)
 
     b. Seguire le istruzioni per selezionare il percorso del codice sorgente, il nome del progetto, il repository e le informazioni sul ramo.
     
-       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
+    ![Origine, nome, repository e informazioni sul ramo](./media/code-test/fill_in_build_info.PNG)
 
     c. Selezionare un modello. Poiché non è disponibile alcun modello di progetto Python, iniziare selezionando **Processo vuoto**. 
 
-       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
+    ![Elenco di modelli e pulsante "Processo vuoto"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Assegnare un nome alla compilazione e selezionare l'agente. È possibile scegliere il valore predefinito se si vuole usare una macchina virtuale di data science (DSVM) per completare il processo di compilazione. Per altre informazioni sull'impostazione degli agenti, vedere [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) (Agenti di compilazione e versione).
+    d. Assegnare un nome alla compilazione e selezionare l'agente. È possibile scegliere il valore predefinito qui se si vuole usare un DSVM per completare il processo di compilazione. Per altre informazioni sull'impostazione degli agenti, vedere [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) (Agenti di compilazione e versione).
     
-       ![Build and agent selections](./media/code-test/select_agent.PNG)
+    ![Compilazione e selezioni degli agenti](./media/code-test/select_agent.PNG)
 
-    e. Selezionare **+** nel riquadro di sinistra per aggiungere un'attività per la fase di compilazione. Poiché verrà eseguito lo script Python **test1.py** per completare tutti i controlli, questa attività usa un comando PowerShell per eseguire il codice Python.
+    e. Selezionare **+** nel riquadro di sinistra per aggiungere un'attività per la fase di compilazione. Poiché verrà eseguito lo script Python **test1.py** per completare tutti i controlli, questa attività sta usando un comando di PowerShell per eseguire il codice Python.
     
-       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
+    ![Riquadro "Aggiungi attività" con PowerShell selezionato](./media/code-test/add_task_powershell.PNG)
 
     f. Nei dettagli di PowerShell inserire le informazioni necessarie, ad esempio il nome e la versione di PowerShell. Scegliere il tipo **Script inline**. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
+    Nella casella **Script inline** è possibile digitare **python test1.py**. Assicurarsi che la variabile di ambiente sia configurata correttamente per Python. Se occorre una versione o un kernel di Python diverso, è possibile specificare in modo esplicito il percorso come illustrato nella figura: 
     
-       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
+    ![Dettagli di PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Selezionare **Salva e accoda** per completare il processo della pipeline di compilazione.
+    g. Selezionare **salva & coda** per completare il processo della pipeline di compilazione.
 
-       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
+    ![Pulsante "Salva e accoda"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Ogni volta che verrà eseguito il push di un nuovo commit nel repository di codice, il processo di compilazione verrà avviato automaticamente. Sebbene nell'esempio venga usato il repository principale, è possibile definire qualsiasi ramo. Il processo esegue il file **test1.py** nel computer dell'agente per verificare che tutti gli elementi definiti nel codice vengano eseguiti correttamente. 
+Ogni volta che verrà eseguito il push di un nuovo commit nel repository di codice, il processo di compilazione verrà avviato automaticamente. Qui viene usato master come repository, ma è possibile definire qualsiasi ramo. Il processo esegue il file **test1.py** nel computer agente per assicurarsi che tutto ciò che viene definito nel codice venga eseguito correttamente. 
 
 Se gli avvisi sono impostati correttamente, viene inviata una notifica tramite posta elettronica al termine della compilazione. È anche possibile controllare lo stato della compilazione in Azure DevOps. In caso di esito negativo, è possibile controllare i dettagli della compilazione e individuare l'elemento errato.
 

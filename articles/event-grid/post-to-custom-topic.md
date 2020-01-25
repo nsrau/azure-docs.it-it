@@ -1,19 +1,19 @@
 ---
 title: Pubblicare gli eventi in argomenti Griglia di eventi di Azure personalizzati
-description: Descrive come pubblicare un evento in un argomento personalizzato per la Griglia di eventi di Azure
+description: Questo articolo descrive come pubblicare un evento in un argomento personalizzato. Illustra il formato dei dati post ed evento.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304202"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721558"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Pubblicare in un argomento personalizzato per la Griglia di eventi di Azure
 
@@ -76,10 +76,10 @@ Per gli argomenti personalizzati, i dati di livello principale contengono gli st
 ]
 ```
 
-Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitata a 64 KB (a livello generale) o 1 MB (anteprima).
+Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitato a 64 KB (disponibilità generale) o 1 MB (anteprima).
 
 > [!NOTE]
-> Un evento di dimensioni fino a 64 KB è coperto da GA (General Availability) del servizio a livello di contratto. Il supporto per un evento di dimensioni fino a 1 MB è attualmente in anteprima. Gli eventi superiori a 64 KB vengono addebitati in incrementi di 64 KB. 
+> Un evento di dimensioni fino a 64 KB è coperto da disponibilità generale (GA) Contratto di servizio (SLA). Il supporto per un evento di dimensioni fino a 1 MB è attualmente in fase di anteprima. Gli eventi oltre 64 KB vengono addebitati in incrementi di 64 KB. 
 
 Ad esempio, uno schema di dati evento valido è:
 
@@ -103,10 +103,10 @@ Dopo la pubblicazione nell'endpoint dell'argomento, si riceve una risposta. La r
 
 |Risultato  |Risposta  |
 |---------|---------|
-|Riuscito  | 200 - OK  |
+|Operazione completata  | 200 - OK  |
 |I dati di evento hanno un formato non corretto | 400 - Richiesta non valida |
 |Chiave di accesso non valida | 401 - Non autorizzato |
-|Endpoint non corretto | 404 - Non trovato |
+|Endpoint non corretto | 404 - Pagina non trovata |
 |Una matrice o un evento supera i limiti delle dimensioni | 413 Payload Too Large (413 Payload troppo grande) |
 
 Per gli errori, il corpo del messaggio ha il formato seguente:

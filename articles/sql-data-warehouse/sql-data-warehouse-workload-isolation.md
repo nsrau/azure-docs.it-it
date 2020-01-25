@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85987ca1ff7d2dd204d0a501367efffc8277f138
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939922"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721031"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolamento del gruppo di carico di lavoro SQL Data Warehouse (anteprima)
 
@@ -32,7 +32,7 @@ Nelle sezioni seguenti viene evidenziato in che modo i gruppi del carico di lavo
 
 L'isolamento del carico di lavoro significa che le risorse sono riservate esclusivamente per un gruppo di carico di lavoro.  Per ottenere l'isolamento del carico di lavoro, è necessario configurare il parametro MIN_PERCENTAGE_RESOURCE su un valore maggiore di zero nella sintassi [create workload Group](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  Per i carichi di lavoro di esecuzione continua che devono essere conformi a contratti di sicurezza limitati, l'isolamento garantisce che le risorse siano sempre disponibili per il gruppo del carico di lavoro 
 
-La configurazione dell'isolamento del carico di lavoro definisce in modo implicito un livello di concorrenza garantito. Con un MIN_PERCENTAGE_RESOURCE impostato sul 30% e REQUEST_MIN_RESOURCE_GRANT_PERCENT impostato su 2%, per il gruppo del carico di lavoro viene garantito un livello di concorrenza pari a 15.  Prendere in considerazione il metodo seguente per determinare la concorrenza garantita:
+La configurazione dell'isolamento del carico di lavoro definisce in modo implicito un livello di concorrenza garantito. Ad esempio, un gruppo di carico di lavoro con un `MIN_PERCENTAGE_RESOURCE` impostato sul 30% e `REQUEST_MIN_RESOURCE_GRANT_PERCENT` impostato su 2% è garantito 15 di concorrenza.  Il livello di concorrenza è garantito perché il 15-2% degli slot di risorse è riservato all'interno del gruppo di carico di lavoro in qualsiasi momento, indipendentemente dalla configurazione `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT`.  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` è maggiore di `REQUEST_MIN_RESOURCE_GRANT_PERCENT` e `CAP_PERCENTAGE_RESOURCE` è maggiore di `MIN_PERCENTAGE_RESOURCE` vengono aggiunte risorse aggiuntive per ogni richiesta.  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` e `REQUEST_MIN_RESOURCE_GRANT_PERCENT` sono uguali e `CAP_PERCENTAGE_RESOURCE` è maggiore di `MIN_PERCENTAGE_RESOURCE`, è possibile concorrenza aggiuntiva.  Prendere in considerazione il metodo seguente per determinare la concorrenza garantita:
 
 [Concorrenza garantita] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 

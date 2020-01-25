@@ -3,20 +3,20 @@ title: Fase di modellazione del ciclo di vita del processo di data science per i
 description: Obiettivi, attività e risultati finali per la fase di modellazione dei progetti di data science
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538232"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720470"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
 
@@ -74,7 +74,7 @@ Gli elementi generati in questa fase includono:
 
    * [Set di funzionalità](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): le funzionalità sviluppate per la modellazione sono descritte nella sezione **Set di funzionalità** del report di **definizione dei dati**. Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.
    * [Report dei modelli](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): per ogni modello provato, viene generato un report standard basato su modelli che fornisce dettagli su ogni esperimento.
-   * **Decisione di checkpoint**: valutare se le prestazioni del modello sono sufficienti per la distribuzione in un sistema di produzione. Alcune domande chiave da porsi:
+   * **Decisione di checkpoint**: valutare se il modello viene eseguito in modo sufficiente per la produzione. Alcune domande chiave da porsi:
      * Il modello risponde alla domanda con sufficiente certezza rispetto ai dati del test? 
      * È consigliabile tentare approcci alternativi? È consigliabile raccogliere dati aggiuntivi, eseguire nuove progettazioni di funzionalità o provare con altri algoritmi?
 

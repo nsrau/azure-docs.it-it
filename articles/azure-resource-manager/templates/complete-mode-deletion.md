@@ -2,13 +2,13 @@
 title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 37d055503b8c9524392bedaa265025554dc4f8ee
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/23/2020
+ms.openlocfilehash: b24bf2d8076dbaa1975f5444d597647156a31f4f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479618"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715587"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -132,6 +132,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft. ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft. RemoteApp](#microsoftremoteapp)
@@ -165,6 +166,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. Subscription](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft. VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft. WindowsDefenderATP](#microsoftwindowsdefenderatp)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
@@ -222,7 +224,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | alertsMetaData | No |
 > | alertsSummary | No |
 > | alertsSummaryList | No |
-> | commenti e suggerimenti | No |
+> | Feedback | No |
 > | smartDetectorAlertRules | Sì |
 > | smartDetectorRuntimeEnvironments | No |
 > | smartGroups | No |
@@ -282,6 +284,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | policySetDefinitions | No |
 > | providerOperations | No |
 > | roleAssignments | No |
+> | roleAssignmentsUsageMetrics | No |
 > | roleDefinitions | No |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
@@ -366,6 +369,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts / billingProfiles / billingSubscriptions | No |
 > | billingAccounts / billingProfiles / createBillingRoleAssignment | No |
 > | billingAccounts/billingProfiles/clienti | No |
+> | billingAccounts/billingProfiles/istruzioni | No |
 > | billingAccounts/billingProfiles/fatture | No |
 > | billingAccounts/billingProfiles/fatture/pricesheets | No |
 > | billingAccounts / billingProfiles / invoiceSections | No |
@@ -493,6 +497,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | appliedReservations | No |
+> | autoQuotaIncrease | No |
 > | calculateExchange | No |
 > | calculatePrice | No |
 > | calculatePurchasePrice | No |
@@ -509,6 +514,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | reservationOrders/Split | No |
 > | reservationOrders/swap | No |
 > | reservations | No |
+> | resourceProviders | No |
 > | resources | No |
 > | validateReservationOrder | No |
 
@@ -806,6 +812,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | aree di lavoro | Sì |
+> | aree di lavoro/dbWorkspaces | No |
+> | aree di lavoro/storageEncryption | No |
 > | aree di lavoro/virtualNetworkPeerings | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -883,6 +891,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | server | Sì |
 > | Server/Advisor | No |
+> | server/chiavi | No |
 > | Server/privateEndpointConnectionProxies | No |
 > | Server/privateEndpointConnections | No |
 > | Server/privateLinkResources | No |
@@ -899,6 +908,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | server | Sì |
 > | Server/Advisor | No |
+> | server/chiavi | No |
 > | Server/privateEndpointConnectionProxies | No |
 > | Server/privateEndpointConnections | No |
 > | Server/privateLinkResources | No |
@@ -961,8 +971,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | ElasticPools | Sì |
 > | ElasticPools / IotHubTenants | Sì |
+> | ElasticPools/IotHubTenants/securitySettings | No |
 > | Hub IoT | Sì |
 > | IotHubs/eventGridFilters | No |
+> | IotHubs/securitySettings | No |
 > | ProvisioningServices | Sì |
 > | usages | No |
 
@@ -1036,6 +1048,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | domini/argomenti | No |
 > | eventSubscriptions | No |
 > | extensionTopics | No |
+> | partnerNamespaces | Sì |
+> | partnerNamespaces/eventChannels | No |
+> | partnerRegistrations | Sì |
+> | partnerTopics | Sì |
+> | systemTopics | Sì |
+> | systemTopics/eventSubscriptions | No |
 > | topics | Sì |
 > | topicTypes | No |
 
@@ -1091,6 +1109,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
+> | autoManagedAccounts | Sì |
+> | autoManagedVmConfigurationProfiles | Sì |
 > | configurationProfileAssignments | No |
 > | guestConfigurationAssignments | No |
 > | software | No |
@@ -1202,6 +1222,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | cluster/database | No |
 > | cluster, database/DataConnection | No |
 > | cluster/database/eventhubconnections | No |
+> | cluster/database/principalassignments | No |
+> | cluster/principalassignments | No |
 > | cluster/sharedidentities | No |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
@@ -1292,8 +1314,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | offerTypes/Publisher/offerte/piani/configurazioni | No |
 > | offerTypes/Publisher/offerte/piani/configurazioni/importImage | No |
 > | privategalleryitems | No |
+> | privateStoreClient | No |
 > | products | No |
-> | server di pubblicazione | No |
+> | pubblicazione | No |
 > | editori/offerte | No |
 > | editori/offerte/modifiche | No |
 
@@ -1350,6 +1373,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | assessmentProjects | Sì |
 > | migrateprojects | Sì |
+> | moveCollections | Sì |
 > | projects | Sì |
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
@@ -1492,8 +1516,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | linkTargets | No |
 > | storageInsightConfigs | No |
 > | aree di lavoro | Sì |
+> | aree di lavoro/esportazioni | No |
 > | aree di lavoro/origini dati | No |
 > | aree di lavoro/linkedServices | No |
+> | aree di lavoro/privateEndpointConnectionProxies | No |
+> | aree di lavoro/privateEndpointConnections | No |
+> | aree di lavoro/privateLinkResources | No |
 > | aree di lavoro/query | No |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
@@ -1551,6 +1579,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | capacities | Sì |
 
+## <a name="microsoftprojectbabylon"></a>Microsoft. ProjectBabylon
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | account | Sì |
+
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
@@ -1577,7 +1612,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | account | No |
-> | raccolte | Sì |
+> | collezioni | Sì |
 > | raccolte/applicazioni | No |
 > | raccolte/SecurityPrincipals | No |
 > | templateImages | No |
@@ -1602,6 +1637,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | availabilityStatuses | No |
 > | childAvailabilityStatuses | No |
 > | childResources | No |
+> | emergingissues | No |
 > | eventi | No |
 > | impactedResources | No |
 > | metadata | No |
@@ -1620,12 +1656,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | notifyResourceJobs | No |
 > | provider | No |
 > | resourceGroups | No |
-> | resources | No |
 > | subscriptions | No |
-> | sottoscrizioni/provider | No |
-> | sottoscrizioni/risorse | No |
-> | sottoscrizioni/TagNames | No |
-> | sottoscrizioni/tagNames/tagValues | No |
 > | tenants | No |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1708,7 +1739,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | aggregations | No |
+> | aggregazioni | No |
 > | alertRules | No |
 > | alertRuleTemplates | No |
 > | segnalibri | No |
@@ -1954,6 +1985,16 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | dedicatedCloudServices | Sì |
 > | virtualMachines | Sì |
 
+## <a name="microsoftvnfmanager"></a>Microsoft. VnfManager
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | devices | Sì |
+> | fornitori | No |
+> | fornitori/SKU | No |
+> | vnfs | Sì |
+
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
@@ -1975,8 +2016,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | connections | Sì |
 > | customApis | Sì |
 > | deletedSites | No |
-> | functions | No |
 > | hostingEnvironments | Sì |
+> | hostingEnvironments/eventGridFilters | No |
 > | hostingEnvironments/multiRolePools | No |
 > | hostingEnvironments/dei pool | No |
 > | publishingUsers | No |
@@ -1996,6 +2037,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | siti/slot/hostNameBindings | No |
 > | siti/slot/file networkconfig | No |
 > | sourceControls | No |
+> | staticSites | Sì |
 > | validate | No |
 > | verifyHostingEnvironmentVnet | No |
 

@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275806"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712356"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -66,7 +66,7 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Ottenere i processi](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Ottenere i processi") 
+   ![Ottenere i processi](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Ottenere i processi") 
 
 
 6. Nei risultati, copiare la stringa "ID" completa che inizia con "customappsso" o "scim".
@@ -74,7 +74,7 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Ottenere lo schema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Ottenere lo schema") 
+   ![Ottenere lo schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Ottenere lo schema") 
 
 8. Copiare l'output JSON dall'ultimo passaggio e salvarlo in un file di testo. Questo file contiene tutti i mapping degli attributi personalizzati aggiunti all’app precedente e include alcune migliaia di righe di JSON.
 9. Eseguire il comando seguente per eliminare il processo di provisioning:

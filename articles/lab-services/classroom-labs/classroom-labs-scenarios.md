@@ -1,6 +1,6 @@
 ---
-title: Usare i lab per le classi per la formazione - Azure Lab Services | Microsoft Docs
-description: Informazioni su come usare Azure DevTest Labs per gli scenari di training.
+title: Usare i Lab della classe per i corsi di formazione-Azure Lab Services
+description: Questo articolo descrive come usare Azure DevTest Labs per la creazione di Lab in Azure per gli scenari di training.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60695274"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717989"
 ---
-# <a name="use-classroom-labs-for-trainings"></a>Usare i lab per le classi per la formazione
-È possibile configurare un lab per corsi di formazione. Classroom lab di Azure Lab Services consentono di creare un lab per il training in cui ogni partecipante Usa ambienti identici e isolati per il training. È possibile applicare criteri per verificare che per ogni partecipante siano disponibili ambienti di training solo quando sono necessari e contengano un numero sufficiente di risorse, ad esempio macchine virtuali, per il training. 
+# <a name="use-classroom-labs-for-trainings"></a>Usare i Lab della classe per i corsi di formazione
+È possibile configurare un Lab per il training. I Lab della classe Azure Lab Services consentono di creare un Lab per il training in cui ogni partecipante USA ambienti identici e isolati per il training. È possibile applicare criteri per verificare che per ogni partecipante siano disponibili ambienti di training solo quando sono necessari e contengano un numero sufficiente di risorse, ad esempio macchine virtuali, per il training. 
 
-![Lab per le classi](../media/classroom-labs-scenarios/classroom.png)
+![Lab in aula](../media/classroom-labs-scenarios/classroom.png)
 
-Labs in aula soddisfi i requisiti seguenti necessari per eseguire il training in un ambiente virtuale: 
+I Lab in aula soddisfano i requisiti seguenti, necessari per condurre il training in qualsiasi ambiente virtuale: 
 
 - I partecipanti possono effettuare rapidamente il provisioning degli ambienti di training
 - Ogni computer di training deve essere identico
@@ -34,25 +34,25 @@ Labs in aula soddisfi i requisiti seguenti necessari per eseguire il training in
 - Condividere facilmente il lab di training con ogni partecipante
 - Usare più volte il lab di training
 
-In questo articolo descrive le diverse funzionalità di Azure Lab Services che può essere utilizzata per soddisfare i requisiti di training descritti prima e la procedura dettagliata da seguire per configurare un lab per il training.  
+Questo articolo illustra le diverse funzionalità di Azure Lab Services che possono essere usate per soddisfare i requisiti di formazione descritti in precedenza e i passaggi dettagliati che è possibile seguire per configurare un Lab per il training.  
 
-## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Creare l'account del lab come un amministratore dell'account lab
-Il primo passaggio nell'uso di Azure Lab Services consiste nel creare un account del lab nel portale di Azure. Dopo che un amministratore dell'account lab ha creato l'account del lab, l'amministratore aggiunge gli utenti che desiderano creare lab per il **creatore di Lab** ruolo. Formatori creare lab con le macchine virtuali per eseguire gli esercizi del corso che si rivolge per studenti. Per informazioni dettagliate, vedere [creare e gestire account lab](how-to-manage-lab-accounts.md).
+## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Creare l'account Lab come amministratore dell'account Lab
+Il primo passaggio nell'uso di Azure Lab Services consiste nel creare un account Lab nel portale di Azure. Dopo che un amministratore dell'account Lab ha creato l'account Lab, l'amministratore aggiunge gli utenti che vogliono creare Lab per il ruolo di **autore del Lab** . I trainer creano laboratori con macchine virtuali che consentono agli studenti di eseguire esercitazioni per il corso di insegnamento. Per informazioni dettagliate, vedere [creare e gestire un account Lab](how-to-manage-lab-accounts.md).
 
 ## <a name="create-and-manage-classroom-labs"></a>Creare e gestire i lab per le classi
-Un istruttore, che è un membro del ruolo di creatore di Lab in un account del lab, è possibile creare uno o più laboratori nell'account di laboratorio. Creare e configurare un modello di macchina virtuale con tutto il software necessario per eseguire gli esercizi del corso. Si seleziona un'immagine predefinita dalle immagini disponibili per la creazione di un lab per le classi e quindi personalizzarla installando il software necessario per l'ambiente lab. Per informazioni dettagliate, vedere [creare e gestire i lab per le classi](how-to-manage-classroom-labs.md).
+Un trainer, che è membro del ruolo di autore del Lab in un account Lab, può creare uno o più Lab nell'account Lab. Si crea e si configura una macchina virtuale modello con tutto il software necessario per eseguire esercitazioni nel corso. È possibile scegliere un'immagine già creata dalle immagini disponibili per la creazione di un Lab per la classe e quindi personalizzarla installando il software necessario per il Lab. Per informazioni dettagliate, vedere [creare e gestire lab in classe](how-to-manage-classroom-labs.md).
 
 ## <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo
-Il creatore di lab possa aggiungere o rimuovere gli utenti del lab, ottenere il collegamento di iscrizione per l'invio agli utenti del lab, impostare i criteri, ad esempio l'impostazione delle quote singoli per ogni utente, aggiornare il numero di VM disponibili nel lab e altro ancora. Per informazioni dettagliate, vedere [configurare i criteri e impostazioni di utilizzo](how-to-configure-student-usage.md).
+L'autore del Lab può aggiungere o rimuovere gli utenti dal Lab, ottenere il collegamento di registrazione da inviare agli utenti del Lab, configurare criteri come l'impostazione di quote singole per ogni utente, aggiornare il numero di macchine virtuali disponibili nel Lab e altro ancora. Per informazioni dettagliate, vedere [configurare le impostazioni e i criteri di utilizzo](how-to-configure-student-usage.md).
 
 ## <a name="create-and-manage-schedules"></a>Creare e gestire pianificazioni
-Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Per informazioni dettagliate, vedere [creare e gestire le pianificazioni per labs in aula](how-to-create-schedules.md).
+Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Per informazioni dettagliate, vedere [creare e gestire pianificazioni per laboratori in classe](how-to-create-schedules.md).
 
-## <a name="set-up-and-publish-a-template-vm"></a>Configurare e pubblicare un modello di macchina virtuale
-Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare il modello di macchina virtuale in modo che venga configurato con esattamente ciò che si desidera fornire ai partecipanti corsi di formazione. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello. Per informazioni dettagliate, vedere [Set up e pubblicare le macchine virtuali modello](how-to-create-manage-template.md). 
+## <a name="set-up-and-publish-a-template-vm"></a>Configurare e pubblicare una macchina virtuale modello
+Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello in modo che sia configurata con esattamente ciò che si vuole fornire ai partecipanti alla formazione. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello. Per informazioni dettagliate, vedere [configurare e pubblicare macchine virtuali modello](how-to-create-manage-template.md). 
 
-## <a name="use-vms-in-the-classroom-lab"></a>Usare macchine virtuali nel lab in aula
-Uno studente o un partecipante training registra nel lab e si connette alla macchina virtuale per eseguire gli esercizi del corso. Per informazioni dettagliate, vedere [come accedere a un lab per le classi](how-to-use-classroom-lab.md).
+## <a name="use-vms-in-the-classroom-lab"></a>Usare macchine virtuali nel Lab della classe
+Uno studente o un partecipante alla formazione si registra al Lab e si connette alla macchina virtuale per eseguire esercitazioni per il corso. Per informazioni dettagliate, vedere [come accedere a un Lab della classe](how-to-use-classroom-lab.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Iniziare con la creazione di un account del lab in Lab per le classi seguendo le istruzioni disponibili nell'articolo: [Esercitazione: Configurare un account di laboratorio con Azure Lab Services](tutorial-setup-lab-account.md).
+Iniziare con la creazione di un account Lab in aule Lab seguendo le istruzioni riportate nell'articolo: [esercitazione: configurare un account Lab con Azure Lab Services](tutorial-setup-lab-account.md).

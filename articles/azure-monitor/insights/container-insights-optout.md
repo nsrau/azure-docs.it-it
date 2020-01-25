@@ -3,12 +3,12 @@ title: Come arrestare il monitoraggio del cluster del servizio Azure Kubernetes 
 description: Questo articolo descrive come interrompere il monitoraggio del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: 7415f0ef2a06c3f9c8cc7f517c0b5d456671738d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb75379ba6c8109316f78288222039627bcb5902
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979796"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715956"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 
@@ -59,20 +59,20 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
         "metadata": {
            "description": "Location of the AKS resource e.g. \"East US\""
          }
-       }
        },
     "aksResourceTagValues": {
       "type": "object",
       "metadata": {
         "description": "Existing all tags on AKS Cluster Resource"
+        }
       }
-    },
+     },
     "resources": [
       {
         "name": "[split(parameters('aksResourceId'),'/')[8]]",
         "type": "Microsoft.ContainerService/managedClusters",
         "location": "[parameters('aksResourceLocation')]",
-        "tags": "[parameters('aksResourceTagValues')]"
+        "tags": "[parameters('aksResourceTagValues')]",
         "apiVersion": "2018-03-31",
         "properties": {
           "mode": "Incremental",

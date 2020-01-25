@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a82efda4cf53931dbf81b993b12a2927f02dfa0b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778346"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711691"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -52,7 +52,7 @@ Ogni utente o gruppo elaborato dal servizio di provisioning di Azure AD viene se
 
 Vedere ad esempio il filtro di ambito seguente:
 
-![Filtro per la definizione dell'ambito](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Filtro per la definizione dell'ambito](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 In base a questo filtro di ambito, gli utenti devono soddisfare i criteri seguenti per poterne effettuare il provisioning:
 
@@ -117,7 +117,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 |----|----|----|----|
 |userPrincipalName|CORRISPONDENZA REGEX|.\*@domain.com |Tutti gli utenti con userPrincipal che dispone del @domain.com di dominio saranno nell'ambito del provisioning|
 |userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che dispone del dominio @domain.com saranno fuori dall'ambito per il provisioning|
-|department|EQUALS|sales|Tutti gli utenti del reparto vendite rientrano nell'ambito del provisioning|
+|department|EQUALS|vendite|Tutti gli utenti del reparto vendite rientrano nell'ambito del provisioning|
 |workerID|CORRISPONDENZA REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Tutti i dipendenti con workerIDs compreso tra 1 milione e 2 milioni rientrano nell'ambito del provisioning.|
 
 ## <a name="related-articles"></a>Articoli correlati

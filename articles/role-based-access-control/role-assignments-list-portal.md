@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934486"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720718"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Elencare le assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
 
@@ -125,6 +125,16 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
     ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistema](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizioni** .
+
+## <a name="list-number-of-role-assignments"></a>Elencare il numero di assegnazioni di ruolo
+
+È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Per tenere traccia di questi limiti, nella scheda **assegnazioni di ruolo** è incluso un grafico che elenca il numero corrente di assegnazioni di ruolo.
+
+![Controllo di accesso-numero di assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+Se ci si avvicina al numero massimo e si tenta di aggiungere altre assegnazioni di ruolo, verrà visualizzato un avviso nel riquadro **Aggiungi assegnazione ruolo** . È possibile ridurre il numero di assegnazioni di ruolo eliminando le assegnazioni di ruolo che non sono più necessarie o assegnando ruoli a gruppi invece che a singoli utenti.
+
+![Controllo di accesso-avviso di aggiunta di assegnazione di ruolo](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
