@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840652"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748970"
 ---
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
 
@@ -77,7 +77,7 @@ Durante il tentativo di stabilire una connessione TLS sicura con l'hub IoT, il d
 
 ## <a name="securing-the-connection"></a>Proteggere la connessione
 
-La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante lo standard TLS (Transport Layer Security). IoT di Azure supporta gli standard[TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, in questo ordine. Il supporto per lo standard TLS 1.0 viene fornito soltanto per la compatibilità con le versioni precedenti. Se possibile, [configurare l'hub](../articles/iot-hub/iot-hub-tls.md) per l'uso di TLS 1,2 poiché fornisce la maggiore sicurezza.
+La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante lo standard TLS (Transport Layer Security). IoT di Azure supporta gli standard[TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, in questo ordine. Il supporto per lo standard TLS 1.0 viene fornito soltanto per la compatibilità con le versioni precedenti. Controllare il [supporto TLS nell'hub](../articles/iot-hub/iot-hub-tls-support.md) Internet per informazioni su come configurare l'hub per l'uso di TLS 1,2, poiché fornisce la maggiore sicurezza.
 
 ## <a name="securing-the-cloud"></a>Proteggere il cloud
 

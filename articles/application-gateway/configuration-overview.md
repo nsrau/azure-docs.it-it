@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658339"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714865"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -53,7 +53,7 @@ I gruppi di sicurezza di rete (gruppi) sono supportati nel gateway applicazione.
 - La connettività Internet in uscita non può essere bloccata. Le regole in uscita predefinite in NSG consentono la connettività Internet. È consigliabile:
 
   - Non rimuovere le regole in uscita predefinite.
-  - Non creare altre regole in uscita che negano la connettività Internet in uscita.
+  - Non creare altre regole in uscita che negano la connettività in uscita.
 
 - È necessario consentire il traffico dal tag **AzureLoadBalancer** .
 
@@ -173,7 +173,7 @@ Dopo aver creato un listener, associarlo a una regola di routing delle richieste
 
 Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita (*Rule1*). Questa regola associa il listener predefinito (*appGatewayHttpListener*) con il pool back-end predefinito (*appGatewayBackendPool*) e le impostazioni http back-end predefinite (*appGatewayBackendHttpSettings*). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
 
-### <a name="rule-type"></a>Tipo regola
+### <a name="rule-type"></a>Tipo di regola
 
 Quando si crea una regola, è possibile scegliere tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 

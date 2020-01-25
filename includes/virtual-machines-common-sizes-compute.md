@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 16a0fa29c067262f1794528b16abfce662d05605
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75751956"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748906"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -48,7 +48,7 @@ Caching archiviazione Premium: supportato
 - Windows Server 2016 o versione successiva
 - Ubuntu 16,04 LTS o versioni successive, con kernel ottimizzato per Azure (kernel 4,15 o versione successiva)
 - SLES 12 SP2 o versione successiva
-- RHEL o CentOS versione 6,7 alla 6,10, con il pacchetto LIS fornito da Microsoft (o versioni successive) installato
+- RHEL o CentOS dalla versione 6,7 alla 6,10, con il pacchetto LIS fornito da Microsoft (o versioni successive) installato
 - RHEL o CentOS versione 7,3, con il pacchetto LIS fornito da Microsoft (o versioni successive) installato
 - RHEL o CentOS versione 7,6 o successiva
 - Oracle Linux con UEK4 o versione successiva

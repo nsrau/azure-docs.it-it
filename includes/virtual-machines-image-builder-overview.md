@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 11/25/2019
+ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 2a763bbd50f009ae469be889e6ebae0b0d90848b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ec1b77118f94501363d950d72a65a67ece79ff77
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795840"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748804"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni di configurazione e sicurezza predefinite e il software necessario. Per configurare la pipeline di imaging, è necessario disporre di tempo, infrastruttura e configurazione, ma con generatore di immagini di VM di Azure è sufficiente fornire una semplice configurazione che descriva l'immagine, la invii al servizio e l'immagine venga compilata e distribuita.
  
@@ -35,7 +35,7 @@ Per l'anteprima, queste funzionalità sono supportate:
 
 ## <a name="regions"></a>Aree
 Il servizio Azure Image Builder sarà disponibile per l'anteprima in queste aree. Le immagini possono essere distribuite al di fuori di queste aree.
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
 - Stati Uniti occidentali
@@ -45,15 +45,17 @@ Il servizio Azure Image Builder sarà disponibile per l'anteprima in queste aree
 AIB supporterà le immagini del sistema operativo di base di Azure Marketplace:
 - Ubuntu 18.04
 - Ubuntu 16.04
-- RHEL 7,6
-- CentOS 7,6
+- RHEL 7,6, 7,7
+- CentOS 7,6, 7,7
+- SLES 12 SP4
+- SLES 15, SLES 15 SP1
 - Windows 10 RS5 Enterprise/Professional/Enterprise per desktop virtuale (EVD) 
 - Windows 2016
 - Windows 2019
 
 AIB supporterà l'ISO RHEL come origine per:
 - RHEL 7.3
-- RHEL 7,4
+- RHEL 7.4
 - RHEL 7.5
 
 RHEL 7,6 ISOs non sono supportati, ma sono in fase di test.
@@ -77,7 +79,7 @@ Azure Image Builder è un servizio di Azure completamente gestito accessibile da
 1. Nell'ambito della creazione dell'immagine, Image Builder distribuisce l'immagine in base al modello, quindi Elimina le risorse aggiuntive nella IT_\<DestinationResourceGroup > _\<templateName > gruppo di risorse creato per il processo.
 
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Per consentire al generatore di immagini di VM di Azure di distribuire immagini nelle immagini gestite o in una raccolta di immagini condivise, è necessario fornire le autorizzazioni ' collaboratore ' per il servizio "generatore di immagini di macchine virtuali di Azure" (ID app: cf32a0cc-373c-47C9-9156-0db11f6a6dfc ) sui gruppi di risorse. 
 
@@ -91,6 +93,13 @@ az role assignment create \
     --role Contributor \
     --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
 ```
+
+È possibile assegnare l'accesso usando PowerShell:
+
+```azurePowerShell-interactive
+New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
+```
+
 
 Se l'account del servizio non viene trovato, questo potrebbe significare che la sottoscrizione in cui si sta aggiungendo l'assegnazione di ruolo non è ancora stata registrata per il provider di risorse.
 

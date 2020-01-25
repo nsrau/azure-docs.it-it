@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 6324fd0e2957aea46fb5876aa8c91f0906205ccc
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694421"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748807"
 ---
 ## <a name="trigger"></a>Trigger
 
@@ -699,6 +699,6 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 
 |Proprietà  |Predefinito | Description |
 |---------|---------|---------|
-|`maxBatchSize`|64|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
-|`prefetchCount`|N/D|Conteggio predefinito di pre-recupero utilizzato dal `EventProcessorHost`sottostante.|
+|`maxBatchSize`|10|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
+|`prefetchCount`|300|Conteggio predefinito di pre-recupero utilizzato dal `EventProcessorHost`sottostante.|
 |`batchCheckpointFrequency`|1|Il numero di batch di eventi da elaborare prima di creare un checkpoint di cursore EventHub.|
