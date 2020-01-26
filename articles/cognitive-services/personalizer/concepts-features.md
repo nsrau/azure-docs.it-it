@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490765"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760828"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -56,12 +56,12 @@ Personalizza esperienze accetta caratteristiche organizzate in spazi dei nomi. �
 Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dalle applicazioni:
 
 * User_Profile_from_CRM
-* Time
+* Durata
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Weather
+* Clima
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -107,6 +107,7 @@ La stringa utilizzata per la denominazione dello spazio dei nomi deve seguire al
 * Non può essere Unicode.
 * È possibile utilizzare alcuni dei simboli stampabili con i codici < 256 per i nomi degli spazi dei nomi. 
 * Non è possibile usare i simboli con i codici < 32 (non stampabile), 32 (spazio), 58 (due punti), 124 (pipe) e 126-140.
+* Non deve iniziare con un carattere di sottolineatura "_" o la funzionalità verrà ignorata.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Come rendere più efficaci i set di caratteristiche per Personalizza esperienze
 
@@ -178,12 +179,12 @@ Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a
 
 Di seguito sono riportati alcuni esempi:
 
-|Scopo|Azione|
+|Finalità|Azione|
 |--|--|
 |Personalizzare l'articolo da evidenziare in un sito Web di notizie.|Ogni azione è un potenziale articolo di notizie.|
 |Ottimizzare il posizionamento degli annunci in un sito Web.|Ogni azione sarà costituita da un layout o da regole per creare un layout per gli annunci (ad esempio in alto, a destra, immagini piccole, immagini grandi).|
 |Visualizzare una classifica personalizzata di articoli consigliati in un sito Web di acquisti.|Ogni azione corrisponde a un prodotto specifico.|
-|Suggerire elementi dell'interfaccia utente, come filtri da applicare a una specifica foto.|Ogni azione può essere un filtro diverso.|
+|Suggerire elementi dell'interfaccia utente, come i filtri da applicare a una specifica foto.|Ogni azione può essere un filtro diverso.|
 |Scegliere la risposta di un chatbot per chiarire le finalità dell'utente o suggerire un'azione.|Ogni azione corrisponde a un'opzione su come interpretare la risposta.|
 |Scegliere la voce da visualizzare all'inizio di un elenco di risultati della ricerca|Ogni azione corrisponde a uno dei primi risultati della ricerca.|
 

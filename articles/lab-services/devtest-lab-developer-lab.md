@@ -1,6 +1,6 @@
 ---
 title: Usare Azure DevTest Labs per sviluppatori | Microsoft Docs
-description: Informazioni su come usare Azure DevTest Labs per gli scenari relativi allo sviluppo.
+description: Informazioni sulle funzionalità di Azure DevTest Labs che possono essere usate per soddisfare i requisiti degli sviluppatori e i passaggi dettagliati che è possibile seguire per configurare un Lab.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 5a293946e4672e7737f912f42511ad0907ba4a81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294000"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760148"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Usare Azure DevTest Labs per sviluppatori
 Azure DevTest Labs può essere usato per implementare molti scenari chiave. Uno dei più importanti prevede l'uso di DevTest Labs per ospitare computer di sviluppo per gli sviluppatori. In questo scenario DevTest Labs offre i vantaggi seguenti:
@@ -74,7 +74,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs che poss
 
    - Strumenti che si vuole installare nella VM, come agenti, Fiddler, Visual Studio.
    - Azioni che si desidera eseguire sulla macchina virtuale, ad esempio la clonazione di un archivio.
-   - Applicazioni che si vuole testare.
+   - Applicazioni che vuoi testare.
 
    Molti elementi sono già immediatamente disponibili. È possibile creare elementi personalizzati per le proprie esigenze specifiche.
 

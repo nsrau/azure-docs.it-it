@@ -1,6 +1,6 @@
 ---
 title: Librerie di gestione del bus di servizio di Azure | Microsoft Docs
-description: Gestire entità di messaggistica e spazi dei nomi del bus di servizio da .NET.
+description: Questo articolo illustra come usare le librerie di gestione del bus di servizio di Azure per eseguire il provisioning dinamico di spazi dei nomi e entità del bus di servizio
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816072"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756267"
 ---
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
 

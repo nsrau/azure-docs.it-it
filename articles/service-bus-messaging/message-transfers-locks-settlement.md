@@ -1,6 +1,6 @@
 ---
-title: Trasferimenti, blocchi e finalizzazione dei messaggi del bus di servizio di Azure | Microsoft Docs
-description: Panoramica dei trasferimenti e delle operazioni di finalizzazione dei messaggi del bus di servizio
+title: Trasferimenti di messaggi, blocchi e regolamento del bus di servizio di Azure
+description: Questo articolo fornisce una panoramica dei trasferimenti di messaggi del bus di servizio di Azure, dei blocchi e delle operazioni di regolamento.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/24/2019
 ms.author: aschhab
-ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676272"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759279"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Trasferimenti, blocchi e finalizzazione dei messaggi
 

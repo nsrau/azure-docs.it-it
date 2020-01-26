@@ -1,6 +1,6 @@
 ---
 title: Introduzione alle code del bus di servizio di Azure | Microsoft Docs
-description: Scrivere un'applicazione console C# che usa le code di messaggistica del bus di servizio.
+description: In questa esercitazione vengono create applicazioni console .NET Core per l'invio e la ricezione di messaggi da una coda del bus di servizio.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/27/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 60428e3c5be4ac994f83f44c4492ebd80ee65da7
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563395"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760982"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

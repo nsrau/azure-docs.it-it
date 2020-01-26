@@ -1,6 +1,6 @@
 ---
 title: Guida alla risoluzione dei problemi del bus di servizio di Azure | Microsoft Docs
-description: Elenco delle eccezioni di messaggistica del bus di servizio e relative azioni consigliate.
+description: Questo articolo fornisce un elenco delle eccezioni di messaggistica del bus di servizio di Azure e le azioni consigliate da intraprendere quando si verifica l'eccezione.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2020
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 20d9fc141fa19a5c6d01f33c2a5398ca84497b9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 37f316af68bc0b20f21eb606e2abc8232f29ce32
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309966"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759364"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce alcune eccezioni .NET generate dalle API di .NET Framework del bus di servizio e altri suggerimenti per la risoluzione dei problemi. 

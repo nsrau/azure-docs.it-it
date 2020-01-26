@@ -1,6 +1,6 @@
 ---
 title: Bus di servizio di Azure con .NET e AMQP 1.0 | Microsoft Docs
-description: Uso del bus di servizio di Azure da .NET con AMQP
+description: Questo articolo descrive come usare il bus di servizio di Azure da un'applicazione .NET usando AMQP (Advanced Messaging Queuing Protocol).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 536c315077cb74a1dfa8db457f0f0b3725edf7a1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749258"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759248"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
 
-Il supporto per AMQP 1.0 è disponibile nel pacchetto Service Bus versione 2.1 o successiva. Scaricare la versione più recente del bus di servizio da [NuGet][NuGet] per essere certi di disporre della versione corretta.
+Il supporto per AMQP 1.0 è disponibile nel pacchetto Service Bus versione 2.1 o successiva. È possibile assicurarsi di avere la versione più recente scaricando l'ultima versione del bus di servizio da [NuGet][NuGet].
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configurare le applicazioni .NET per l'uso di AMQP 1.0
 
@@ -49,7 +49,7 @@ Il valore dell'impostazione `Microsoft.ServiceBus.ConnectionString` corrisponde 
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Dove `namespace` e `SAS key` si ottengono dal [portale di Azure][Azure portal] quando si crea uno spazio dei nomi del bus di servizio. Per altre informazioni, vedere [Creare uno spazio dei nomi del bus di servizio usando il portale di Azure][Create a Service Bus namespace using the Azure portal].
+Dove `namespace` e `SAS key` vengono ottenuti dal [portale di Azure][Azure portal] quando si crea uno spazio dei nomi del bus di servizio. Per altre informazioni, vedere [creare uno spazio dei nomi del bus di servizio usando il portale di Azure][Create a Service Bus namespace using the Azure portal].
 
 Quando si usa AMQP, aggiungere `;TransportType=Amqp` alla fine della stringa di connessione. Questa notazione indica alla libreria client di effettuare la connessione al bus di servizio tramite AMQP 1.0.
 
@@ -57,7 +57,7 @@ Quando si usa AMQP, aggiungere `;TransportType=Amqp` alla fine della stringa di 
 
 Quando si usa il protocollo predefinito, il comportamento di serializzazione predefinito della libreria client .NET consiste nell'usare il tipo [DataContractSerializer][DataContractSerializer] per serializzare un'istanza di [BrokeredMessage][BrokeredMessage] per il trasporto tra la libreria client e il servizio del bus di servizio. Quando si usa la modalità di trasporto AMQP, la libreria client usa il sistema di tipi AMQP per la serializzazione del [messaggio negoziato][BrokeredMessage] in un messaggio AMQP. Questa serializzazione consente la ricezione e l'interpretazione dei messaggi da parte di un'applicazione ricevente che è potenzialmente in esecuzione in una piattaforma diversa, ad esempio un'applicazione Java che usa l'API JMS per accedere al bus di servizio.
 
-Quando si crea un'istanza di [BrokeredMessage][BrokeredMessage], è possibile specificare al costruttore un oggetto .NET come parametro da usare come corpo del messaggio. Per gli oggetti che possono essere mappati a tipi primitivi AMQP, il corpo viene serializzato in tipi di dati AMQP. Se non è possibile eseguire direttamente il mapping dell'oggetto a un tipo primitivo AMQP, ovvero un tipo personalizzato definito dall'applicazione, l'oggetto viene serializzato tramite [DataContractSerializer][DataContractSerializer] e i byte serializzati vengono inviati in un messaggio di dati AMQP.
+Quando si crea un'istanza di [BrokeredMessage][BrokeredMessage], è possibile specificare al costruttore un oggetto .NET come parametro da usare come corpo del messaggio. Per gli oggetti che possono essere mappati a tipi primitivi AMQP, il corpo viene serializzato in tipi di dati AMQP. Se non è possibile eseguire direttamente il mapping dell'oggetto a un tipo primitivo, ovvero un tipo personalizzato definito dall'applicazione, l'oggetto viene serializzato tramite [DataContractSerializer][DataContractSerializer] e i byte serializzati vengono inviati in un messaggio di dati AMQP.
 
 Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET che possono essere serializzati direttamente in tipi AMQP per il corpo del messaggio. La tabella seguente descrive in modo dettagliato questi tipi e il mapping corrispondente al sistema di tipi AMQP.
 
@@ -73,12 +73,12 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | int |int |Valore AMQP |
 | long |long |Valore AMQP |
 | float |float |Valore AMQP |
-| Double |Double |Valore AMQP |
+| double |double |Valore AMQP |
 | decimal |decimal128 |Valore AMQP |
 | char |char |Valore AMQP |
-| DateTime |timestamp |Valore AMQP |
-| Guid |uuid |Valore AMQP |
-| byte[] |binary |Valore AMQP |
+| Data e ora |timestamp |Valore AMQP |
+| GUID |uuid |Valore AMQP |
+| byte[] |BINARY |Valore AMQP |
 | string |string |Valore AMQP |
 | System.Collections.IList |list |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
 | System.Array |array |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
@@ -86,8 +86,8 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | Uri |Stringa descritta (vedere la tabella seguente) |Valore AMQP |
 | DateTimeOffset |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
 | TimeSpan |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
-| Flusso |binary |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
-| Altro oggetto |binary |Dati AMQP (possono essere multipli). Contiene i dati binari serializzati dell'oggetto che usa DataContractSerializer o un serializzatore fornito dall'applicazione. |
+| Stream |BINARY |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
+| Altro oggetto |BINARY |Dati AMQP (possono essere multipli). Contiene i dati binari serializzati dell'oggetto che usa DataContractSerializer o un serializzatore fornito dall'applicazione. |
 
 | Tipo di .NET | Tipo descritto AMQP mappato | Note |
 | --- | --- | --- |
@@ -110,7 +110,7 @@ Le [API .NET](/dotnet/api/) espongono diverse impostazioni per controllare il co
 * **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)** : controlla il credito iniziale applicato a un collegamento. Il valore predefinito è 0.
 * **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)** : controlla la dimensione massima del frame AMQP offerta durante la negoziazione in fase di apertura della connessione. Il valore predefinito è 65.536 byte.
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)** : se i trasferimenti possono essere eseguiti in batch, questo valore determina il ritardo massimo per l'invio di disposizioni. Per impostazione predefinita, il valore viene ereditato dai mittenti/destinatari. Un singolo mittente/destinatario può sostituire il valore predefinito di 20 millisecondi.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)** : controlla se le connessioni AMQP vengono stabilite su una connessione SSL. Il valore predefinito è **true**.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)** : controlla se le connessioni AMQP vengono stabilite su una connessione SSL. Il valore predefinito è **True**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

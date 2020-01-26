@@ -3,20 +3,20 @@ title: Supporto linguistico-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Il servizio di riconoscimento vocale supporta numerose lingue per la conversione di sintesi vocale e sintesi vocale, oltre alla traduzione vocale. Questo articolo fornisce un elenco completo del supporto linguistico per funzionalità del servizio.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
+ms.date: 01/23/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381053"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760624"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Supporto di lingue e aree per il servizio di riconoscimento vocale
 
@@ -24,49 +24,58 @@ Il supporto della lingua varia in base alla funzionalità del servizio vocale. N
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-Sia Microsoft Speech SDK che l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: frasi.  La personalizzazione della pronuncia è attualmente disponibile solo per `en-US` e `de-DE`. Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
+Sia Microsoft Speech SDK che l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: frasi. La personalizzazione della pronuncia è attualmente disponibile solo per `en-US` e `de-DE`. Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
 
- Impostazioni locali | Lingua | Supportato | Personalizzabile
+<!--
+To get the AM and ML bits:
+https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+
+To get pronunciation bits:
+https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
+-->
+
+ Impostazioni locali | Lingua | Supportato | Personalizzazioni
 ------|------------|-----------|-------------
-`ar-EG` | Arabo (Egitto), standard moderno | Sì | Sì
-`ar-SA` | Arabo (Arabia Saudita) | Sì | Sì
-`ar-AE` | Arabo (UAE) | Sì | Sì
-`ar-KW` | Arabo (Kuwait) | Sì | Sì
-`ar-QA` | Arabo (Qatar) | Sì | Sì
-`ca-ES` | Catalano | Sì | No
-`da-DK` | Danese (Danimarca) | Sì | No
-`de-DE` | Tedesco (Germania) | Sì | Sì
-`en-AU` | Inglese (Australia) | Sì | Sì
-`en-CA` | Inglese (Canada) | Sì | Sì
-`en-GB` | Inglese (Regno Unito) | Sì | Sì
-`en-IN` | English (India) | Sì | Sì
-`en-NZ` | Inglese (Nuova Zelanda) | Sì | Sì
-`en-US` | Inglese (Stati Uniti) | Sì | Sì
-`es-ES` | Spagnolo (Spagna) | Sì | Sì
-`es-MX` | Spagnolo (Messico) | Sì | Sì
-`fi-FI` | Finlandese (Finlandia) | Sì | No
-`fr-CA` | Francese (Canada) | Sì | Sì
-`fr-FR` | Francese (Francia) | Sì | Sì
-`gu-IN` | Gujarati (indiano) | Sì | Sì
-`hi-IN` | Hindi (India) | Sì | Sì
-`it-IT` | Italiano (Italia) | Sì | Sì
-`ja-JP` | Giapponese (Giappone) | Sì | Sì
-`ko-KR` | Coreano (Corea) | Sì | Sì
-`mr-IN` | Marathi (India) | Sì | Sì
-`nb-NO` | Norvegese (Bokmål) (Norvegia) | Sì | No
-`nl-NL` | Olandese (Paesi Bassi) | Sì | Sì
-`pl-PL` | Polacco (Polonia) | Sì | No
-`pt-BR` | Portoghese (Brasile) | Sì | Sì
-`pt-PT` | Portoghese (Portogallo) | Sì | Sì
-`ru-RU` | Russo (Russia) | Sì | Sì
-`sv-SE` | Svedese (Svezia) | Sì | No
-`ta-IN` | Tamil (India) | Sì | Sì
-`te-IN` | Telugu (India) | Sì | Sì
-`zh-CN` | Cinese (mandarino, semplificato) | Sì | Sì
-`zh-HK` | Cinese (cantonese, tradizionale) | Sì | Sì
-`zh-TW` | Cinese (mandarino taiwanese) | Sì | Sì
+`ar-AE` | Arabo (UAE) | Sì | No
+`ar-BH` | Arabo (Bahrein) | Sì | Modello linguistico
+`ar-EG` | Arabo (Egitto), standard moderno | Sì | Modello linguistico
+`ar-KW` | Arabo (Kuwait) | Sì | No
+`ar-QA` | Arabo (Qatar) | Sì | No
+`ar-SA` | Arabo (Arabia Saudita) | Sì | No
+`ca-ES` | Catalano | Sì | Modello linguistico
+`da-DK` | Danese (Danimarca) | Sì | Modello linguistico
+`de-DE` | Tedesco (Germania) | Sì | Modello acustico<br>Modello linguistico<br>Pronuncia
+`en-AU` | Inglese (Australia) | Sì | Modello acustico<br>Modello linguistico
+`en-CA` | Inglese (Canada) | Sì | Modello acustico<br>Modello linguistico
+`en-GB` | Inglese (Regno Unito) | Sì | Modello acustico<br>Modello linguistico<br>Pronuncia
+`en-IN` | English (India) | Sì | Modello acustico<br>Modello linguistico
+`en-NZ` | Inglese (Nuova Zelanda) | Sì | Modello acustico<br>Modello linguistico
+`en-US` | Inglese (Stati Uniti) | Sì | Modello acustico<br>Modello linguistico<br>Pronuncia
+`es-ES` | Spagnolo (Spagna) | Sì | Modello acustico<br>Modello linguistico
+`es-MX` | Spagnolo (Messico) | Sì | Modello acustico<br>Modello linguistico
+`fi-FI` | Finlandese (Finlandia) | Sì | Modello linguistico
+`fr-CA` | Francese (Canada) | Sì | Modello acustico<br>Modello linguistico
+`fr-FR` | Francese (Francia) | Sì | Modello acustico<br>Modello linguistico<br>Pronuncia
+`gu-IN` | Gujarati (indiano) | Sì | Modello linguistico
+`hi-IN` | Hindi (India) | Sì | Modello acustico<br>Modello linguistico
+`it-IT` | Italiano (Italia) | Sì | Modello acustico<br>Modello linguistico<br>Pronuncia
+`ja-JP` | Giapponese (Giappone) | Sì | Modello linguistico
+`ko-KR` | Coreano (Corea) | Sì | Modello linguistico
+`mr-IN` | Marathi (India) | Sì | Modello linguistico
+`nb-NO` | Norvegese (Bokmål) (Norvegia) | Sì | Modello linguistico
+`nl-NL` | Olandese (Paesi Bassi) | Sì | Modello linguistico
+`pl-PL` | Polacco (Polonia) | Sì | Modello linguistico
+`pt-BR` | Portoghese (Brasile) | Sì | Modello acustico<br>Modello linguistico<br>Pronuncia
+`pt-PT` | Portoghese (Portogallo) | Sì | Modello linguistico
+`ru-RU` | Russo (Russia) | Sì | Modello acustico<br>Modello linguistico
+`sv-SE` | Svedese (Svezia) | Sì | Modello linguistico
+`ta-IN` | Tamil (India) | Sì | Modello linguistico
+`te-IN` | Telugu (India) | Sì | No
 `th-TH` | Thai (Thailandia) | Sì | No
-`tr-TR` | Turchia | Sì | Sì
+`tr-TR` | Turchia | Sì | No
+`zh-CN` | Cinese (mandarino, semplificato) | Sì | Modello acustico<br>Modello linguistico
+`zh-HK` | Cinese (cantonese, tradizionale) | Sì | Modello linguistico
+`zh-TW` | Cinese (mandarino taiwanese) | Sì | Modello linguistico
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
@@ -102,7 +111,7 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 
 Impostazioni locali | Lingua | Genere | Mapping completo del nome del servizio | Nome breve
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | Arabo (Egitto) | Femminile | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un".
+<sup>**1**</sup>`ar-EG` | Arabo (Egitto) | Femminile | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un".
 `ar-SA` | Arabo (Arabia Saudita) | Maschile | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 `bg-BG` | Bulgaro | Maschile | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "BG-BG-Ivan"
 `ca-ES` | Catalano (Spagna) | Femminile | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
@@ -184,7 +193,7 @@ Impostazioni locali | Lingua | Genere | Mapping completo del nome del servizio |
 | | | Femminile | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
 | | | Maschile | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-EG supporta l'arabo standard moderno (MSA).*
+**1** *ar-EG supporta l'arabo standard moderno (MSA).*
 
 > [!NOTE]
 > È possibile usare il mapping del nome completo del servizio o il nome della voce breve nelle richieste di sintesi vocale.

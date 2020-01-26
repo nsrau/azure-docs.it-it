@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 01/24/2020
 ms.author: jgao
-ms.openlocfilehash: 125fefbb1d83db8b6114b2d09f5bd6da885159ba
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: f18c9c6efb17f84446b9fee3d2df2c0977bed0c4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547643"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757304"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -35,14 +35,14 @@ I vantaggi dello script di distribuzione:
 - Può specificare gli output dello script e passarli nuovamente alla distribuzione.
 
 > [!NOTE]
-> Lo script di distribuzione è attualmente in anteprima. Per usarlo, è necessario [iscriversi all'anteprima](https://aka.ms/armtemplatepreviews).
+> Lo script di distribuzione è attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/armtemplatepreviews).
 
 > [!IMPORTANT]
-> Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione di script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione si trova in uno stato terminale. Verranno addebitate le risorse fino a quando le risorse non verranno eliminate. Per altre informazioni, vedere [Pulisci risorse script di distribuzione](#clean-up-deployment-script-resources).
+> Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione si trova in uno stato terminale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulisci risorse script di distribuzione](#clean-up-deployment-script-resources).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene utilizzata per eseguire gli script di distribuzione. Per crearne uno, vedere [creare un'identità gestita assegnata dall'utente usando il portale di Azure o l'interfaccia della](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)riga di comando di [Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)oppure [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità quando si distribuisce il modello. Il formato dell'identità è:
+- **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene usata per eseguire gli script di distribuzione. Per crearne uno, vedere [creare un'identità gestita assegnata dall'utente usando il portale di Azure o l'interfaccia della](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)riga di comando di [Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)oppure [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -78,7 +78,7 @@ Il codice JSON seguente è un esempio.  Lo schema del modello più recente è di
   },
   "properties": {
     "forceUpdateTag": 1,
-    "azPowerShellVersion": "2.8",
+    "azPowerShellVersion": "3.0",
     "arguments": "[concat('-name ', parameters('name'))]",
     "scriptContent": "
       param([string] $name)
@@ -103,15 +103,15 @@ Dettagli valore proprietà:
 
 - **Identity**: il servizio script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script. Attualmente è supportata solo l'identità gestita assegnata dall'utente.
 - **Kind**: specificare il tipo di script. Attualmente, solo Azure PowerShell script è supportato. Il valore è **AzurePowerShell**.
-- **Proprietà forceupdatetag**: la modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid () o utcNow () che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [eseguire lo script più di una volta](#run-script-more-than-once).
+- **Proprietà forceupdatetag**: la modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid () o utcNow () che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
 - **azPowerShellVersion**: specificare la versione del modulo Azure PowerShell da usare. Lo script di distribuzione supporta attualmente la versione 2.7.0, 2.8.0 e 3.0.0.
-- **argomenti**: specificare i valori dei parametri. I valori sono separati da spazi.
+- **argomenti**: specificare i valori dei parametri. I valori sono separati da uno spazio.
 - **scriptContent**: specificare il contenuto dello script. Per eseguire uno script esterno, usare invece `primaryScriptUri`. Per esempi, vedere [usare script inline](#use-inline-scripts) e [usare uno script esterno](#use-external-scripts).
 - **primaryScriptUri**: specificare un URL accessibile pubblicamente per lo script di PowerShell primario con l'estensione di file di PowerShell supportata.
 - **supportingScriptUris**: specificare una matrice di URL accessibili pubblicamente per supportare i file di PowerShell che verranno chiamati in `ScriptContent` o `PrimaryScriptUri`.
 - **timeout**: specificare il tempo di esecuzione dello script massimo consentito specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
-- **cleanupPreference**. Specificare la preferenza per la pulizia delle risorse di distribuzione quando l'esecuzione dello script si trova in uno stato terminale. L'impostazione predefinita è **sempre**, il che significa eliminare le risorse nonostante lo stato del terminale (riuscito, non riuscito, annullato). Per altre informazioni, vedere [pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
-- **retentionInterval**: specificare l'intervallo per il quale il servizio conserva le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione raggiunge uno stato terminale. Le risorse dello script di distribuzione verranno eliminate alla scadenza della durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**, che significa sette giorni. Questa proprietà viene utilizzata quando cleanupPreference è impostato su *Onexpirement*. La proprietà *Onexpirement* non è attualmente abilitata. Per altre informazioni, vedere [pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
+- **cleanupPreference**. Specificare la preferenza per la pulizia delle risorse di distribuzione quando l'esecuzione dello script si trova in uno stato terminale. L'impostazione predefinita è **sempre**, il che significa eliminare le risorse nonostante lo stato del terminale (riuscito, non riuscito, annullato). Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
+- **retentionInterval**: specificare l'intervallo per il quale il servizio conserva le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione raggiunge uno stato terminale. Le risorse dello script di distribuzione verranno eliminate alla scadenza della durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**, che significa sette giorni. Questa proprietà viene utilizzata quando cleanupPreference è impostato su *Onexpirement*. La proprietà *Onexpirement* non è attualmente abilitata. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
 
 ## <a name="use-inline-scripts"></a>Usa script inline
 
@@ -194,7 +194,7 @@ Il servizio script crea un [account di archiviazione](../../storage/common/stora
 
 Lo script utente, i risultati dell'esecuzione e il file stdout vengono archiviati nelle condivisioni file dell'account di archiviazione. È presente una cartella denominata **azscripts**. Nella cartella sono disponibili altre due cartelle per i file di input e di output: **azscriptinput** e **azscriptoutput**.
 
-La cartella di output contiene un file **ExecutionResult. JSON** e il file di output dello script. È possibile visualizzare il messaggio di errore di esecuzione dello script in **ExecutionResult. JSON**. Il file di output viene creato solo quando lo script viene eseguito correttamente. La cartella di input contiene un file di script di System PowerShell e i file script di distribuzione dell'utente. È possibile sostituire il file script di distribuzione dell'utente con uno modificato e rieseguire lo script di distribuzione dall'istanza di contenitore di Azure.
+La cartella di output contiene un file **executionresult.json** e il file di output dello script. È possibile visualizzare il messaggio di errore di esecuzione dello script in **ExecutionResult. JSON**. Il file di output viene creato solo quando lo script viene eseguito correttamente. La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. È possibile sostituire il file script di distribuzione dell'utente con uno modificato e rieseguire lo script di distribuzione dall'istanza di contenitore di Azure.
 
 È possibile ottenere le informazioni sulla distribuzione delle risorse dello script di distribuzione a livello di gruppo di risorse e a livello di sottoscrizione usando l'API REST:
 

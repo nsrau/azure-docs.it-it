@@ -1,6 +1,6 @@
 ---
 title: Creare un lab in Azure DevTest Labs | Documentazione Microsoft
-description: Creare un lab in Azure DevTest Labs per macchine virtuali
+description: Questo articolo illustra il processo di creazione di un Lab usando il portale di Azure e la Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: c54b97bdf69908f32015631a9e527c6e289d1d2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5cd675823b85e975dcb8dfe152c27b2d30463c1c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60202458"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759738"
 ---
-# <a name="create-a-lab-in-azure-devtest-labs"></a>Creare un lab di sviluppo/test di Azure
+# <a name="create-a-lab-in-azure-devtest-labs"></a>Creare un lab in Azure DevTest Labs
 Un lab in Azure DevTest Labs è l'infrastruttura che comprende un gruppo di risorse, ad esempio macchine virtuali, e ne consente una migliore gestione tramite la specifica di limiti e quote. Questo articolo illustra la creazione di un lab con il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -47,7 +47,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
     4. Selezionare **Arresto automatico** per indicare se si vogliono abilitare e definire i parametri per l'arresto automatico di tutte le macchine virtuali del lab. La funzionalità di arresto automatico è essenzialmente una funzionalità di riduzione dei costi che consente di specificare quando arrestare automaticamente la macchina virtuale. È possibile modificare le impostazioni di arresto automatico dopo la creazione del lab seguendo la procedura descritta nell'articolo [Gestire tutti i criteri per un lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
     1. Immettere le informazioni **NOME** e **VALORE** per **Tag** se si vuole creare un contrassegno personalizzato da aggiungere a ogni risorsa che si creerà nel lab. I tag sono utili per gestire e organizzare le risorse del lab per categoria. Per altre informazioni sui tag, ad esempio come aggiungere tag dopo avere creato il lab, vedere [Aggiungere tag a un lab](devtest-lab-add-tag.md).
     6. Selezionare **Opzioni di Automazione** per ottenere i modelli di Azure Resource Manager per l'automazione della configurazione. 
-    7. Selezionare **Create**. È possibile monitorare lo stato del processo di creazione del lab esaminando l'area **Notifiche**. 
+    7. Selezionare **Create** (Crea). È possibile monitorare lo stato del processo di creazione del lab esaminando l'area **Notifiche**. 
     
         ![Creare una sezione di lab di DevTest Labs](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
     8. Al termine, selezionare **Vai alla risorsa** nella notifica. Al termine aggiornare la pagina **DevTest Labs** per visualizzare il lab appena creato nell'elenco dei lab.  Selezionare il lab nell'elenco. Viene visualizzata la home page del lab. 

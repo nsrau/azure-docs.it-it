@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 1/23/2020
 ms.author: sutalasi
-ms.openlocfilehash: 9fe3b4c0b7acc9c1e980d5885043d30503c211c4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754489"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759824"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -50,76 +50,20 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 --- | ---
 *.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile consentire l'accesso agli URL specifici dell'account di archiviazione, ad esempio cache1.blob.core.windows.net e cache2.blob.core.windows.net, anziché *. blob.core.windows.net
 login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare il ' Site Recovery IP ' corrispondente se il proxy del firewall supporta gli IP.
-*.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. Se il proxy del firewall supporta gli IP, è possibile usare il ' Site Recovery IP di monitoraggio ' corrispondente.
+*.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale.
+*.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
-Se si usa un proxy firewall basato su IP o NSG per controllare la connettività in uscita, è necessario consentire gli intervalli IP.
+Se si usa un NSG per controllare la connettività in uscita, questi tag del servizio devono essere consentiti.
 
 - Tutti gli intervalli di indirizzi IP che corrispondono agli account di archiviazione nell'area di origine
     - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
 - Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
-    - Se in futuro vengono aggiunti nuovi indirizzi ad Azure Active Directory (AAD), è necessario creare nuove regole NSG.
 - Creare una regola NSG basata su tag del servizio EventsHub per l'area di destinazione, consentendo l'accesso al monitoraggio Site Recovery.
 - Creare una regola NSG basata su tag del servizio AzureSiteRecovery per consentire l'accesso al servizio Site Recovery in qualsiasi area.
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
-
-
-Se si preferisce usare Site Recovery intervalli di indirizzi IP (scelta non consigliata), fare riferimento alla tabella seguente:
-
-   **Destinazione** | **IP di Site Recovery** |  **IP di monitoraggio di Site Recovery**
-   --- | --- | ---
-   Asia orientale | 52.175.17.132 | 13.94.47.61
-   Asia sud-orientale | 52.187.58.193 | 13.76.179.223
-   India centrale | 52.172.187.37 | 104.211.98.185
-   India meridionale | 52.172.46.220 | 104.211.224.190
-   Stati Uniti centro-settentrionali | 23.96.195.247 | 168.62.249.226
-   Europa settentrionale | 40.69.212.238 | 52.169.18.8
-   Europa occidentale | 52.166.13.64 | 40.68.93.145
-   Stati Uniti orientali | 13.82.88.226 | 104.45.147.24
-   Stati Uniti occidentali | 40.83.179.48 | 104.40.26.199
-   Stati Uniti centro-meridionali | 13.84.148.14 | 104.210.146.250
-   Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
-   Stati Uniti orientali 2 | 52.184.158.163 | 40.79.44.59
-   Giappone orientale | 52.185.150.140 | 138.91.1.105
-   Giappone occidentale | 52.175.146.69 | 138.91.17.38
-   Brasile meridionale | 191.234.185.172 | 23.97.97.36
-   Australia orientale | 104.210.113.114 | 191.239.64.144
-   Australia sudorientale | 13.70.159.158 | 191.239.160.45
-   Canada centrale | 52.228.36.192 | 40.85.226.62
-   Canada orientale | 52.229.125.98 | 40.86.225.142
-   Stati Uniti centro-occidentali | 52.161.20.168 | 13.78.149.209
-   Stati Uniti occidentali 2 | 52.183.45.166 | 13.66.228.204
-   Regno Unito occidentale | 51.141.3.203 | 51.141.14.113
-   Regno Unito meridionale | 51.140.43.158 | 51.140.189.52
-   Regno Unito meridionale 2 | 13.87.37.4| 13.87.34.139
-   Regno Unito settentrionale | 51.142.209.167 | 13.87.102.68
-   Corea centrale | 52.231.28.253 | 52.231.32.85
-   Corea meridionale | 52.231.198.185 | 52.231.200.144
-   Francia centrale | 52.143.138.106 | 52.143.136.55
-   Francia meridionale | 52.136.139.227 |52.136.136.62
-   Australia centrale| 20.36.34.70 | 20.36.46.142
-   Australia centrale 2| 20.36.69.62 | 20.36.74.130
-   Sudafrica occidentale | 102.133.72.51 | 102.133.26.128
-   Sudafrica settentrionale | 102.133.160.44 | 102.133.154.128
-   Governo degli Stati Uniti - Virginia | 52.227.178.114 | 23.97.0.197
-   US Gov Iowa | 13.72.184.23 | 23.97.16.186
-   US Gov Arizona | 52.244.205.45 | 52.244.48.85
-   US Gov Texas | 52.238.119.218 | 52.238.116.60
-   US DoD (area orientale) | 52.181.164.103 | 52.181.162.129
-   US DoD (area centrale) | 52.182.95.237 | 52.182.90.133
-   Cina settentrionale | 40.125.202.254 | 42.159.4.151
-   Cina settentrionale 2 | 40.73.35.193 | 40.73.33.230
-   Cina orientale | 42.159.205.45 | 42.159.132.40
-   Cina orientale 2 | 40.73.118.52| 40.73.100.125
-   Germania settentrionale| 51.116.208.58| 51.116.58.128
-   Germania centro-occidentale | 51.116.156.176 | 51.116.154.192
-   Svizzera occidentale | 51.107.231.223| 51.107.154.128
-   Svizzera settentrionale | 51.107.68.31| 51.107.58.128
-   Norvegia orientale | 51.120.100.64| 51.120.98.128
-   Norvegia occidentale | 51.120.220.65| 51.120.218.160
 
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
 

@@ -1,22 +1,22 @@
 ---
 title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
-description: Risposte ad alcune domande frequenti sul bus di servizio di Azure.
+description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352881"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760250"
 ---
-# <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
 Questo articolo risponde ad alcune domande frequenti sul bus di servizio di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
@@ -45,7 +45,7 @@ Se si usano entità partizionate, l'ordinamento non è garantito. Se una partizi
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
 È possibile usare i protocolli seguenti con il bus di servizio di Azure per inviare e ricevere messaggi:
 
-- Advanced Message Queuing Protocol (AMQP)
+- AMQP (Advanced Message Queuing Protocol)
 - Service Bus Messaging Protocol (SBMP)
 - HTTP
 

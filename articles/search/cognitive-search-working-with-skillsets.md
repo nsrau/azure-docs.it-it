@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790892"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760794"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concetti e composizione di competenze in Azure ricerca cognitiva
 
@@ -37,7 +37,7 @@ Skillsets vengono creati in JSON. È possibile compilare skillsets complessi con
 ### <a name="enrichment-tree"></a>Albero di arricchimento
 
 Per conoscere il modo in cui un insieme di competenze arricchisce progressivamente il documento, iniziamo con l'aspetto del documento prima di qualsiasi arricchimento. L'output di cracking del documento dipende dall'origine dati e dalla modalità di analisi specifica selezionata. Questo è anche lo stato del documento per il quale i [mapping dei campi](search-indexer-field-mappings.md) possono essere originati da durante l'aggiunta di dati all'indice di ricerca.
-![Archivio conoscenze nel diagramma della pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KArchivio nowledge nel diagramma della pipeline ")
+![Archivio conoscenze nel diagramma della pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Archivio conoscenze nel diagramma della pipeline")
 
 Quando un documento si trova nella pipeline di arricchimento, viene rappresentato come albero di contenuto e arricchimenti associati. Viene creata un'istanza di questo albero come output di cracking del documento. Il formato dell'albero di arricchimento consente alla pipeline di arricchimento di alleghi i metadati ai tipi di dati ancora primitivi, non è un oggetto JSON valido, ma può essere proiettato in un formato JSON valido. La tabella seguente illustra lo stato di un documento che entra nella pipeline di arricchimento:
 
@@ -56,7 +56,7 @@ Per la parte restante di questo documento si presuppone che si stia lavorando al
 Ogni competenza richiede un contesto. Un contesto determina:
 +   Il numero di volte in cui viene eseguita l'abilità, in base ai nodi selezionati. Per i valori di contesto di tipo Collection, l'aggiunta di un ```/*``` alla fine comporterà la richiamata della capacità una volta per ogni istanza nella raccolta. 
 +   Dove nell'albero di arricchimento vengono aggiunti gli output delle competenze. Gli output vengono sempre aggiunti all'albero come elementi figlio del nodo di contesto. 
-+   Forma degli input. Per le raccolte a più livelli, l'impostazione del contesto sulla raccolta padre influirà sulla forma dell'input. Ad esempio, se si dispone di un albero di arricchimento con un elenco di paesi, ciascuno arricchito con un elenco di stati contenente un elenco di zipcodes.
++   Forma degli input. Per le raccolte a più livelli, l'impostazione del contesto sulla raccolta padre influirà sulla forma dell'input per la competenza. Ad esempio, se si dispone di un albero di arricchimento con un elenco di paesi, ciascuno arricchito con un elenco di stati contenente un elenco di zipcodes.
 
 |Context|Input|Forma dell'input|Chiamata di competenze|
 |---|---|---|---|
@@ -65,7 +65,7 @@ Ogni competenza richiede un contesto. Un contesto determina:
 
 ### <a name="sourcecontext"></a>SourceContext
 
-Il `sourceContext` viene usato solo in input e [proiezioni](knowledge-store-projection-overview.md)di competenze. Viene utilizzato per costruire oggetti annidati a più livelli. Potrebbe essere necessario creare un nuovo oject per passarlo come input a una competenza o a un progetto nell'archivio informazioni. Poiché i nodi di arricchimento non possono essere un oggetto JSON valido nell'albero di arricchimento e refrencing un nodo nell'albero restituisce solo lo stato del nodo al momento della creazione, l'uso degli arricchimenti come input o proiezioni delle competenze richiede la creazione di un oggetto JSON ben formato. Il `sourceContext` consente di creare un oggetto di tipo gerarchico e anonimo, che richiederebbe più competenze se si utilizzasse solo il contesto. L'uso di `sourceContext` è illustrato nella sezione successiva. Esaminare l'output delle competenze che ha generato un arricchimento per determinare se si tratta di un oggetto JSON valido e non di un tipo primitivo.
+Il `sourceContext` viene usato solo in input e [proiezioni](knowledge-store-projection-overview.md)di competenze. Viene utilizzato per costruire oggetti annidati a più livelli. Potrebbe essere necessario creare un nuovo oggetto per passarlo come input a una competenza o a un progetto nell'archivio informazioni. Poiché i nodi di arricchimento non possono essere un oggetto JSON valido nell'albero di arricchimento e fare riferimento a un nodo nell'albero restituisce solo lo stato del nodo al momento della creazione, l'uso degli arricchimenti per le proiezioni o gli input delle competenze richiede la creazione di un oggetto JSON ben formato. Il `sourceContext` consente di creare un oggetto di tipo gerarchico e anonimo, che richiederebbe più competenze se si utilizzasse solo il contesto. L'uso di `sourceContext` è illustrato nella sezione successiva. Esaminare l'output delle competenze che ha generato un arricchimento per determinare se si tratta di un oggetto JSON valido e non di un tipo primitivo.
 
 ### <a name="projections"></a>Proiezioni
 
@@ -100,7 +100,7 @@ Il nodo radice per tutti gli arricchimenti è `"/document"`. Quando si utilizzan
 
 ### <a name="skill-2-language-detection"></a>Rilevamento di competenze #2 lingua
  Sebbene la competenza del rilevamento della lingua sia la terza competenza (skill #3) definita in competenze, è la capacità successiva da eseguire. Poiché non è bloccata richiedendo gli input, verrà eseguita in parallelo con la competenza precedente. Analogamente all'abilità Split che lo precede, viene richiamata anche una volta per ogni documento. L'albero di arricchimento dispone ora di un nuovo nodo per la lingua.
- ![struttura ad albero di arricchimento dopo #2 Skill](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enalbero di richismo dopo l'esecuzione di Skill #2 ")
+ ![struttura ad albero di arricchimento dopo #2 Skill](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Albero di arricchimento dopo l'esecuzione di Skill #2")
  
  ### <a name="skill-3-key-phrases-skill"></a>Skill #3: abilità di frasi chiave 
 
@@ -114,7 +114,7 @@ I colori dei connettori nell'albero sopra indicati indicano che gli arricchiment
 
 ## <a name="save-enrichments-in-a-knowledge-store"></a>Salvare gli arricchimenti in un archivio informazioni 
 
-Skillsets definisce inoltre un archivio informazioni in cui è possibile proiettare i documenti arricchiti come tabelle o oggetti. Per salvare i dati arricchiti nell'archivio informazioni, è necessario definire un set di proiezioni del documento arricchito. Per ulteriori informazioni sull'archivio informazioni, vedere [Cenni preliminari sull'archivio](knowledge-store-concept-intro.md) informazioni
+Skillsets definisce inoltre un archivio informazioni in cui è possibile proiettare i documenti arricchiti come tabelle o oggetti. Per salvare i dati arricchiti nell'archivio informazioni, è necessario definire un set di proiezioni per il documento arricchito. Per ulteriori informazioni sull'archivio informazioni, vedere [Cenni preliminari sull'archivio](knowledge-store-concept-intro.md) informazioni
 
 ### <a name="slicing-projections"></a>Proiezioni di sezionamento
 

@@ -1,6 +1,6 @@
 ---
 title: Diagnosticare gli errori degli elementi in una macchina virtuale Azure DevTest Labs
-description: Informazioni su come risolvere i problemi relativi agli elementi in Azure DevTest Labs.
+description: DevTest Labs forniscono informazioni che è possibile usare per diagnosticare un errore dell'artefatto. Questo articolo illustra come risolvere gli errori degli artefatti.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 50cb3138b8d79c4d60c94513d931996d667d9c01
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 7229f1ee4061eb38b7c6da09df21102ab302ab42
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170323"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760318"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticare errori di elementi nel lab 
 Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto esito positivo o negativo. I log degli elementi in Azure DevTest Labs forniscono informazioni che è possibile usare per diagnosticare un errore di un elemento. Ci sono due modi per visualizzare le informazioni del log degli elementi per una macchina virtuale Windows:

@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7af4f68417b25b480ea5422eb13d6b2a5748212c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431732"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759704"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
  
-Quando un utente apre un file archiviato a livelli, Sincronizzazione file di Azure richiama facilmente i dati del file da File di Azure senza che l'utente debba sapere se il file è effettivamente archiviato in Azure. 
+Quando un utente apre un file a livelli, Sincronizzazione file di Azure richiama facilmente i dati del file da File di Azure senza che l'utente debba essere a conoscenza che il file è archiviato in Azure. 
  
  > [!Important]  
  > la suddivisione in livelli nel cloud non è supportata per gli endpoint server nei volumi di sistema di Windows. Inoltre, è possibile archiviare a livelli in File di Azure solo i file con dimensione maggiore di 64 KiB.
@@ -61,7 +61,7 @@ Tenere in locale una maggior quantità di dati significa ridurre i costi in usci
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>È stato aggiunto un nuovo endpoint server. Quanto tempo deve trascorrere prima di vedere i file in questo livello server?
-Nell'agente di Sincronizzazione file di Azure versione 4.0 e successive i file, dopo essere stati caricati nella condivisione file di Azure, vengono archiviati a livelli in base ai criteri impostati quando viene eseguita la successiva sessione di suddivisione in livelli, cosa che avviene ogni ora. Negli agenti di versioni precedenti la suddivisione in livelli può richiedere fino a 24 ore.
+Nelle versioni 4,0 e successive dell'agente di Sincronizzazione file di Azure, dopo che i file sono stati caricati nella condivisione file di Azure, verranno suddivisi a livelli in base ai criteri non appena viene eseguita la sessione di suddivisione in livelli successiva, che si verifica una volta all'ora. Negli agenti di versioni precedenti la suddivisione in livelli può richiedere fino a 24 ore.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Come si può stabilire se un file è archiviato a livelli?
@@ -127,6 +127,13 @@ Quando la funzionalità di suddivisione in livelli nel cloud è abilitata, i fil
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
+
+<a id="afs-image-thumbnail"></a>
+### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Perché i file a livelli non visualizzano anteprime o anteprime in Esplora risorse?
+Per i file a livelli, le anteprime e le anteprime non saranno visibili nell'endpoint server. Questo comportamento è previsto perché la funzionalità della cache delle anteprime in Windows ignora intenzionalmente la lettura dei file con l'attributo offline. Con la suddivisione in livelli nel cloud abilitata, la lettura tramite file a livelli ne determina il download (richiamata).
+
+Questo comportamento non è specifico per Sincronizzazione file di Azure, in Esplora risorse viene visualizzata una "X grigia" per tutti i file in cui è impostato l'attributo offline. Quando si accede ai file tramite SMB, viene visualizzata l'icona X. Per una spiegazione dettagliata di questo comportamento, vedere [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
 
 ## <a name="next-steps"></a>Fasi successive
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md) (Pianificazione della distribuzione di Sincronizzazione file di Azure)

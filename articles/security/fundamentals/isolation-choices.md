@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121948"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756161"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
@@ -111,6 +111,9 @@ Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono
 ### <a name="isolated-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali con piano Isolato
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
+
+### <a name="dedicated-hosts"></a>Host dedicati
+Oltre agli host di tipo isolato descritti nella sezione precedente, Azure offre anche host dedicati. Host dedicati in Azure è un servizio che fornisce server fisici che possono ospitare una o più macchine virtuali e che sono dedicate a una singola sottoscrizione di Azure. Gli host dedicati forniscono l'isolamento hardware a livello di server fisico. Non verranno inserite altre macchine virtuali negli host. Gli host dedicati vengono distribuiti negli stessi Data Center e condividono la stessa rete e l'infrastruttura di archiviazione sottostante come altri host non isolati. Per altre informazioni, vedere la panoramica dettagliata degli [host dedicati di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento Hyper-V e del sistema operativo radice tra VM radice e VM guest
 La piattaforma di calcolo di Azure si basa sulla virtualizzazione dei computer, ovvero tutto il codice del cliente viene eseguito in una macchina virtuale Hyper-V. In ogni nodo o endpoint di rete di Azure è presente un hypervisor che viene eseguito direttamente sull'hardware e suddivide il nodo in un numero variabile di macchine virtuali guest.

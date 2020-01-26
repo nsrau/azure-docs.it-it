@@ -1,6 +1,6 @@
 ---
 title: Chiamare un'API Web da un'app Web-piattaforma di identità Microsoft | Azure
-description: Informazioni su come creare un'app Web che chiama API Web (chiamando un'API Web)
+description: Informazioni su come creare un'app Web che chiama API Web (chiamando un'API Web protetta)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a1857117d80c6725f801652606fc2d73067ea9da
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701621"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758972"
 ---
-# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>App Web che chiama API Web: chiama un'API Web
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Un'app Web che chiama le API Web: chiamare un'API Web
 
 Ora che si dispone di un token, è possibile chiamare un'API Web protetta.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Di seguito è riportato un codice semplificato dell'azione del `HomeController`. Questo codice ottiene un token per chiamare il Microsoft Graph. Questo codice temporale è stato aggiunto, mostrando come chiamare Microsoft Graph come API REST. L'URL per l'API Graph viene fornito nel file di `appsettings.json` e letto in una variabile denominata `webOptions`:
+Di seguito è riportato il codice semplificato per l'azione del `HomeController`. Questo codice ottiene un token per chiamare Microsoft Graph. Il codice è stato aggiunto per illustrare come chiamare Microsoft Graph come API REST. L'URL per l'API Microsoft Graph viene fornito nel file appSettings. JSON e viene letto in una variabile denominata `webOptions`:
 
 ```JSon
 {
@@ -47,10 +47,10 @@ public async Task<IActionResult> Profile()
  string accountIdentifier = claimsPrincipal.GetMsalAccountId();
  string loginHint = claimsPrincipal.GetLoginHint();
 
- // Get the account
+ // Get the account.
  IAccount account = await application.GetAccountAsync(accountIdentifier);
 
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
+ // Special case for guest users, because the guest ID / tenant ID are not surfaced.
  if (account == null)
  {
   var accounts = await application.GetAccountsAsync();
@@ -62,7 +62,7 @@ public async Task<IActionResult> Profile()
                             .ExecuteAsync();
  var accessToken = result.AccessToken;
 
- // Calls the web API (here the graph)
+ // Calls the web API (Microsoft Graph in this case).
  HttpClient httpClient = new HttpClient();
  httpClient.DefaultRequestHeaders.Authorization =
      new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
@@ -84,7 +84,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > È possibile usare lo stesso principio per chiamare qualsiasi API Web.
 >
-> La maggior parte delle API Web di Azure fornisce un SDK che semplifica la chiamata. Questo è anche il caso del Microsoft Graph. Nell'articolo successivo si apprenderà come trovare un'esercitazione che illustra questi aspetti.
+> La maggior parte delle API Web di Azure fornisce un SDK che semplifica la chiamata dell'API. Questo vale anche per Microsoft Graph. Nell'articolo successivo si apprenderà come trovare un'esercitazione che illustra l'uso dell'API.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -120,7 +120,7 @@ def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
     if not token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service
+    graph_data = requests.get(  # Use token to call downstream service.
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()

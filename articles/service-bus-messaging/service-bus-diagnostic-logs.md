@@ -1,6 +1,6 @@
 ---
 title: Log di diagnostica del bus di servizio di Azure | Microsoft Docs
-description: Informazioni su come configurare i log di diagnostica per il bus di servizio in Azure.
+description: Questo articolo fornisce una panoramica di tutti i log operativi e di diagnostica disponibili per il bus di servizio di Azure.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 5bdda54ef46085cb1f3e33fe1d9f60937da9706f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355217"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760999"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizio
 
@@ -77,8 +77,8 @@ Le operazioni di gestione seguenti vengono acquisite nei log operativi:
 | Ambito | Operazione|
 |-------| -------- |
 | Spazio dei nomi | <ul> <li> Creare lo spazio dei nomi</li> <li> Aggiorna spazio dei nomi </li> <li> Elimina spazio dei nomi </li>  </ul> | 
-| Coda | <ul> <li> Creare una coda</li> <li> Update Queue</li> <li> Eliminazione code </li> </ul> | 
-| Argomento | <ul> <li> Crea argomento </li> <li> Aggiornamento di un argomento </li> <li> Elimina argomento </li> </ul> |
+| Coda | <ul> <li> Crea coda</li> <li> Aggiorna coda</li> <li> Eliminazione code </li> </ul> | 
+| Argomento | <ul> <li> Crea argomento </li> <li> Aggiorna argomento </li> <li> Elimina argomento </li> </ul> |
 | Sottoscrizione | <ul> <li> Creazione di sottoscrizioni </li> <li> Aggiornamento di sottoscrizioni </li> <li> Eliminazione di sottoscrizioni </li> </ul> |
 
 > [!NOTE]

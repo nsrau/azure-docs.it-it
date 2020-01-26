@@ -1,5 +1,5 @@
 ---
-title: Flussi di dati di mapping di parametrizzazione
+title: Impostazione dei parametri per i flussi di dati di mapping
 description: Informazioni su come parametrizzare un flusso di dati di mapping da pipeline di data factory
 author: kromerm
 ms.author: makromer
@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746151"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760216"
 ---
-# <a name="parameterizing-mapping-data-flows"></a>Flussi di dati di mapping di parametrizzazione
+# <a name="parameterizing-mapping-data-flows"></a>Impostazione dei parametri per i flussi di dati di mapping
 
 Il mapping di flussi di dati in Azure Data Factory supporta l'utilizzo di parametri. È possibile definire parametri all'interno della definizione del flusso di dati, che è quindi possibile usare in tutte le espressioni. I valori dei parametri possono essere impostati dalla pipeline chiamante tramite l'attività Esegui flusso di dati. Sono disponibili tre opzioni per l'impostazione dei valori nelle espressioni di attività flusso di dati:
 
@@ -23,9 +23,6 @@ Il mapping di flussi di dati in Azure Data Factory supporta l'utilizzo di parame
 * Usare il linguaggio delle espressioni per impostare un valore letterale statico
 
 Usare questa funzionalità per rendere i flussi di dati generici, flessibili e riutilizzabili. Con questi parametri è possibile parametrizzare le impostazioni e le espressioni del flusso di dati.
-
-> [!NOTE]
-> Per utilizzare le espressioni del flusso di controllo della pipeline, il parametro del flusso di dati deve essere di tipo String.
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Creazione di parametri in un flusso di dati di mapping
 

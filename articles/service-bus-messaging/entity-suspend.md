@@ -1,6 +1,6 @@
 ---
-title: 'Bus di servizio di Azure: sospendere le entità di messaggistica | Microsoft Docs'
-description: Sospendere e riattivare le entità di messaggistica del bus di servizio di Azure.
+title: Bus di servizio di Azure-sospendere le entità di messaggistica
+description: Questo articolo illustra come sospendere temporaneamente e riattivare le entità messaggio del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170794"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760386"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Sospendere e riattivare le entità di messaggistica (disabilitazione)
 
@@ -28,7 +28,7 @@ La sospensione di un'entità viene in genere eseguita per motivi amministrativi 
 
 Una sospensione o una riattivazione può essere eseguita dall'utente o dal sistema. Il sistema sospende le entità solo per gravi motivi amministrativi, ad esempio per il raggiungimento del limite di spesa della sottoscrizione. Le entità disabilitate dal sistema non possono essere riattivate dall'utente, ma vengono ripristinate dopo che la causa della sospensione è stata risolta.
 
-Nel portale, il **proprietà** sezione per l'entità corrispondente consente la modifica dello stato, lo screenshot seguente illustra l'elemento toggle per una coda:
+Nel portale la sezione **Properties** per la rispettiva entità consente di modificare lo stato; lo screenshot seguente mostra l'interruttore per una coda:
 
 ![][1]
 
@@ -40,10 +40,10 @@ Il portale consente solo la disabilitazione completa delle code. È anche possib
 
 Per una coda possono essere impostati gli stati seguenti.
 
--   **Attivo**: la coda è attiva.
--   **Disabilitato**: la coda è sospesa.
+-   **Active**: la coda è attiva.
+-   **Disabled**: la coda è sospesa.
 -   **SendDisabled**: la coda è parzialmente sospesa e la ricezione è consentita.
--   **ReceiveDisabled**: la coda è parzialmente sospesa e l’invio è consentito.
+-   **ReceiveDisabled**: la coda è parzialmente sospesa e l'invio è consentito.
 
 Per le sottoscrizioni e gli argomenti è possibile impostare solo **Active** e **Disabled**.
 

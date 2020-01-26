@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 812a2b8b5fa0ad2b6e892dc77d4f76d2d22caeec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d4713cba94971971558a72c680e3c8f80331662
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454354"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760335"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
 Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
@@ -42,7 +42,7 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Cina settentrionale 2 | 40.73.50.0     |
 | Asia orientale | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
 | Stati Uniti orientali | 40.121.158.30, 191.238.6.43  |
-| Stati Uniti orientali 2 |40.79.84.180, 191.239.224.107, 52.167.104.0     |
+| Stati Uniti orientali 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | Francia centrale | 40.79.137.0, 40.79.129.1  |
 | Germania centrale | 51.4.144.100     |
 | Germania nord-orientale | 51.5.144.179  |

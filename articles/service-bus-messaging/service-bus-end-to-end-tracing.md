@@ -1,6 +1,6 @@
 ---
 title: Diagnostica e analisi end-to-end di Azure Service Bus | Microsoft Docs
-description: Panoramica della diagnostica e dell'analisi end-to-end del client del bus di servizio
+description: Panoramica della diagnostica del client del bus di servizio e della traccia end-to-end (client tramite tutti i servizi interessati nell'elaborazione).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: fa71ca7ea976ab4d724a061d0d0809cdb5767f4f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a184e76faa89199d3e13ece3e17f94f73d995a12
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705752"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760267"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 

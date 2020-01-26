@@ -1,6 +1,6 @@
 ---
-title: Spostare l'app Web che chiama le API Web nell'ambiente di produzione-piattaforma di identità Microsoft | Azure
-description: Informazioni su come spostare un'app Web che chiama API Web nell'ambiente di produzione.
+title: Passare alla produzione di un'app Web che chiama API Web-piattaforma di identità Microsoft | Azure
+description: Informazioni su come passare alla produzione di un'app Web che chiama le API Web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,28 +14,28 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 439b7e07b2e2aa77afd027fa57cc6f7705626d81
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b1307df8f6dfb0457719b13c9e5cd0bf28660caa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701638"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758947"
 ---
-# <a name="web-app-that-calls-web-apis---move-to-production"></a>App Web che chiama le API Web-passa alla produzione
+# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Un'app Web che chiama le API Web: passa all'ambiente di produzione
 
 Ora che si è appreso come acquisire un token per chiamare le API Web, vedere come passare alla produzione.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, provare l'esercitazione progressiva completa ASP.NET Core Web App, che mostra:
+Per altre informazioni, provare l'esercitazione completa e progressiva per ASP.NET Core app Web. L'esercitazione:
 
-- Come eseguire l'accesso agli utenti con più destinatari, cloud nazionali o con identità social
-- Chiama Microsoft Graph
-- Chiama diverse API Microsoft
-- Gestisce il consenso incrementale
-- Chiama un'API Web personalizzata
+- Mostra come consentire agli utenti di accedere a più destinatari o a cloud nazionali oppure usando identità di social networking.
+- Chiama Microsoft Graph.
+- Chiama diverse API Microsoft.
+- Gestisce il consenso incrementale.
+- Chiama un'API Web personalizzata.
 
 > [!div class="nextstepaction"]
 > [Esercitazione sull'app Web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)

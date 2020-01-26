@@ -1,6 +1,6 @@
 ---
 title: Gestire le formule in Azure DevTest Labs per creare VM | Microsoft Docs
-description: Informazioni su come aggiornare e rimuovere le formule di Azure DevTest Labs
+description: In questo articolo viene illustrato come creare una formula da una base (immagine personalizzata, immagine del Marketplace o un'altra formula) o da una macchina virtuale esistente.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a668c1f7cf401c109c1041232d7f28dd2accd750
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60562532"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760403"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
 
@@ -69,7 +69,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
     - **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per altre informazioni sugli indirizzi IP condivisi, vedere [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Informazioni sugli indirizzi IP condivisi in Azure Devtest Labs).
     - **Data e ora scadenza**: specificare la data e l'ora di scadenza della macchina virtuale in modo che venga eliminata automaticamente. 
     - **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere "attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nella pagina del lab.     
-    - **Numero di istanze a disposizione degli utenti** -specificare il numero di istanze a disposizione degli utenti che si desidera creare. 
+    - **Numero di istanze** che è possibile richiedere: specificare il numero di istanze che si desidera creare. 
 8. Selezionare **Invia** per creare la formula.
 
 9. Dopo essere stata creata, la formula viene visualizzata nell'elenco della pagina **Formule**.

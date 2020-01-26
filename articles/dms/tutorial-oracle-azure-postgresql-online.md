@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 45b0c012ec8b8d70c1fad99db40f38fb92daf8a0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 01/24/2020
+ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770646"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759910"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Esercitazione: eseguire la migrazione di Oracle al database di Azure per PostgreSQL online con DMS (anteprima)
 
@@ -49,7 +49,7 @@ Per completare questa esercitazione, è necessario:
 
 * Scaricare e installare [Oracle 11g Release 2 (Standard Edition, Standard Edition One o Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
 * Scaricare il database di esempio **HR** da [qui](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
-* Scaricare e installare ora2pg in [Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf) o [Linux](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Linux.pdf).
+* Scaricare e [installare ora2pg in Windows o Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
 * [Creare un'istanza nel Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Connettersi all'istanza e creare un database usando le istruzioni contenute in questo [documento](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
 * Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
@@ -198,7 +198,7 @@ Per configurare ed eseguire ora2pg per la conversione dello schema, vedere la se
 
 È possibile scegliere di convertire le stored procedure, i pacchetti, gli schemi di tabella Oracle e altri oggetti di database per renderli compatibili con Postgres usando ora2pg prima di avviare una pipeline di migrazione nel Servizio Migrazione del database di Azure. Per informazioni sull'uso di ora2pg, vedere i collegamenti seguenti:
 
-* [Installare ora2pg in Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf)
+* [Installare ora2pg in Windows](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
 * [Guida di riferimento dettagliata per la migrazione da Oracle ad Azure PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
 
 Il Servizio Migrazione del database di Azure può anche creare lo schema di tabella PostgreSQL. Il servizio accede allo schema di tabella nell'origine Oracle connessa e crea uno schema di tabella compatibile in Database di Azure per PostgreSQL. Assicurarsi di convalidare e controllare il formato dello schema in Database di Azure per PostgreSQL dopo che il Servizio Migrazione del database di Azure ha completato la creazione dello schema e lo spostamento dei dati.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04bc29fb8a89f6e863f7c009e5299d1c702bf976
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 218fb96f6960e194f0fc4a4a3a3e603388b961c8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721405"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760811"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Azure HDInsight Hadoop in un set di dati da 1 TB
 
@@ -56,7 +56,8 @@ Questa procedura dettagliata illustra due problemi di stima di esempio:
 2. **Regressione**: stima la probabilità di un clic su un annuncio in base alle caratteristiche dell'utente.
 
 ## <a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi scientifica
-**Nota:** Questo passaggio è in genere un'attività **amministrativa** .
+> [!NOTE]
+> Questo passaggio è in genere un'attività **amministrativa** .
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creazione di soluzioni di analisi predittiva con i cluster HDInsight, sono necessari tre passaggi:
 
@@ -107,10 +108,8 @@ Per creare le tabelle Hive per il set di dati Criteo, aprire la ***riga di coman
 > [!NOTE]
 > Per eseguire qualsiasi query Hive, è sempre possibile usare i comandi seguenti:
 >
->
-
-        cd %hive_home%\bin
-        hive
+>        cd %hive_home%\bin
+>        hive
 
 Dopo che viene visualizzata la shell REPL Hive con l'indicazione "hive >", è sufficiente tagliare e incollare la query per eseguirla.
 

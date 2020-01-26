@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c14bebca775345ab478228f42d9b8416dd223032
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289085"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756195"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -39,7 +39,7 @@ In un tenant di Azure AD, gli utenti che vi appartengono effettuano l'accesso co
 
 In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Sono supportati anche nomi utente arbitrari come account locali (ad esempio, joe, bob, sarah o jim). È possibile scegliere uno di questi due tipi di account locale durante la configurazione dei provider di identità per Azure AD B2C nel portale di Azure. Nel tenant di Azure AD B2C selezionare **provider di identità**, selezionare **account locale**e quindi fare clic su **nome utente**.
 
-Gli account utente per le applicazioni devono essere sempre creati tramite un flusso di iscrizione utente, un flusso di iscrizione o di accesso utente oppure tramite l'API Graph di Azure AD. Gli account utente creati nel portale di Azure vengono usati solo per l'amministrazione del tenant.
+Gli account utente per le applicazioni possono essere creati tramite un flusso utente di iscrizione, un flusso utente di iscrizione o accesso, l'API Microsoft Graph o nel portale di Azure.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 
@@ -150,7 +150,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. In **Gestisci**selezionare **impostazioni utente**.
 1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
-1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
+1. In **gestione accessi per le risorse di Azure**selezionare **Sì**e quindi fare clic su **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.
@@ -170,7 +170,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. In **Gestisci**selezionare **impostazioni utente**.
 1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
-1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
+1. In **gestione accessi per le risorse di Azure**selezionare **Sì**e quindi fare clic su **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.

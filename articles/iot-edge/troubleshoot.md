@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 255ccb5c8e9529ab9b36186ec0eeb5b3f55ed64f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514256"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759228"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -265,7 +265,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 **Causa radice**
 
-Il runtime di IoT Edge può supportare solo nomi host contenenti meno di 64 caratteri. I computer fisici non hanno in genere nomi host lunghi, ma il problema è più comune in una macchina virtuale. I nomi host generati automaticamente per le macchine virtuali Windows ospitate in Azure, in particolare, tendono a essere lunghi. 
+Il runtime di IoT Edge può supportare solo nomi host contenenti meno di 64 caratteri. I computer fisici non hanno in genere nomi host lunghi, ma il problema è più comune in una macchina virtuale. I nomi host generati automaticamente per le macchine virtuali Windows ospitate in Azure, in particolare, tendono a essere lunghi.
 
 **Risoluzione**
 
@@ -302,7 +302,7 @@ L'hub IoT Edge, che fa parte del runtime di IoT Edge, è ottimizzato per le pres
 
 **Risoluzione**
 
-Per l'hub IoT Edge, impostare una variabile di ambiente **OptimizeForPerformance** su **false**. A questo scopo è possibile procedere in due modi:
+Per l'hub IoT Edge, impostare una variabile di ambiente **OptimizeForPerformance** su **false**. Per impostare le variabili di ambiente, è possibile procedere in due modi:
 
 Nel portale di Azure:
 
@@ -340,7 +340,7 @@ Il comando di PowerShell `Get-WinEvent` si basa su una voce del Registro di sist
 
 Impostare una voce del Registro di sistema per il daemon di IoT Edge. Creare un file **iotedge.reg** con il contenuto seguente e importarlo nel Registro di sistema di Windows facendovi doppio clic o usando il comando `reg import iotedge.reg`:
 
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
@@ -351,10 +351,10 @@ Windows Registry Editor Version 5.00
 
 ## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Il modulo IoT Edge non riesce a inviare un messaggio a edgeHub con errore 404
 
-Il modulo IoT Edge non riesce a inviare un messaggio a edgeHub con errore `Module not found` 404. Il daemon di IoT Edge stampa il messaggio seguente nei log: 
+Il modulo IoT Edge non riesce a inviare un messaggio a edgeHub con errore `Module not found` 404. Il daemon di IoT Edge stampa il messaggio seguente nei log:
 
 ```output
-Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
 ```
 
 **Causa radice**
@@ -391,7 +391,7 @@ Per impostazione predefinita, IoT Edge avvia i moduli nella propria rete di cont
 
 **Opzione 1: impostare il server DNS nelle impostazioni del motore del contenitore**
 
-Specificare il server DNS per l'ambiente nelle impostazioni del motore di contenitori che verranno applicate a tutti i moduli contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Ad esempio:
+Specificare il server DNS per l'ambiente nelle impostazioni del motore di contenitori, che verranno applicate a tutti i moduli contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Ad esempio:
 
 ```json
 {
@@ -401,7 +401,7 @@ Specificare il server DNS per l'ambiente nelle impostazioni del motore di conten
 
 Nell'esempio precedente il server DNS viene impostato su un servizio DNS accessibile pubblicamente. Se il dispositivo perimetrale non è in grado di accedere a questo IP dal relativo ambiente, sostituirlo con l'indirizzo del server DNS accessibile.
 
-Inserire `daemon.json` nella posizione corretta per la piattaforma: 
+Inserire `daemon.json` nella posizione corretta per la piattaforma:
 
 | Piattaforma | Percorso |
 | --------- | -------- |
@@ -410,7 +410,7 @@ Inserire `daemon.json` nella posizione corretta per la piattaforma:
 
 Se il percorso contiene già `daemon.json` file, aggiungervi la chiave **DNS** e salvare il file.
 
-*Riavviare il motore di contenitori per rendere effettivi gli aggiornamenti*
+Riavviare il motore di gestione dei contenitori per rendere effettivi gli aggiornamenti.
 
 | Piattaforma | Comando |
 | --------- | -------- |
@@ -431,7 +431,7 @@ Se il percorso contiene già `daemon.json` file, aggiungervi la chiave **DNS** e
 }
 ```
 
-Assicurarsi di impostare questa impostazione anche per i moduli *edgeAgent* e *edgeHub* .
+Assicurarsi di impostare questa configurazione anche per i moduli *edgeAgent* e *edgeHub* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

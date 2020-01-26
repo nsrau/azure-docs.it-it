@@ -14,50 +14,48 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9e123195205bb0eb88f0edd4e2dff2e0da9d84ce
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d121d6c198cb0d92cd098a40096e2f2300f65537
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701655"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758990"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: app Web che chiama le API Web
+# <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenario: un'app Web che chiama le API Web
 
-Informazioni su come creare un'app Web che esegue l'accesso degli utenti nella piattaforma di identità Microsoft e quindi chiama le API Web per conto dell'utente che ha eseguito l'accesso.
+Informazioni su come creare un'app Web che consente agli utenti di accedere alla piattaforma di identità Microsoft e quindi chiama le API Web per conto dell'utente che ha eseguito l'accesso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-In questo scenario si presuppone che sia stato effettuato lo scenario seguente:
+In questo scenario si presuppone che sia già stato effettuato lo scenario seguente:
 
 > [!div class="nextstepaction"]
-> [App Web per l'accesso degli utenti](scenario-web-app-sign-user-overview.md)
+> [App Web che offre l'accesso agli utenti](scenario-web-app-sign-user-overview.md)
 
 ## <a name="overview"></a>Overview
 
-Si aggiunge l'autenticazione all'app Web, che può quindi accedere agli utenti e chiama un'API Web per conto dell'utente che ha eseguito l'accesso.
+È possibile aggiungere l'autenticazione all'app Web in modo da consentire agli utenti di accedere e chiamare un'API Web per conto dell'utente che ha eseguito l'accesso.
 
 ![App Web che chiama le API Web](./media/scenario-webapp/web-app.svg)
 
-App Web che chiamano API Web:
-
-- sono applicazioni client riservate.
-- per questo motivo hanno registrato un segreto (password dell'applicazione o certificato) con Azure AD. Questo segreto viene passato durante la chiamata a Azure AD per ottenere un token
+Le app Web che chiamano API Web sono applicazioni client riservate.
+Per questo motivo viene registrato un segreto (una password o un certificato dell'applicazione) con Azure Active Directory (Azure AD). Questo segreto viene passato durante la chiamata a Azure AD per ottenere un token.
 
 ## <a name="specifics"></a>Specifiche
 
 > [!NOTE]
-> L'aggiunta di un accesso a un'app Web non usa le librerie MSAL, perché si tratta di proteggere l'app Web. La protezione delle librerie viene eseguita dalle librerie denominate middleware. Questo è l'oggetto dello scenario precedente [utenti di accesso a un'app Web](scenario-web-app-sign-user-overview.md)
+> Per aggiungere l'accesso a un'app Web, è necessario proteggere l'app Web. Tale protezione viene eseguita utilizzando le librerie *middleware* , non Microsoft Authentication Library (MSAL). Lo scenario precedente, l' [app Web che](scenario-web-app-sign-user-overview.md)esegue l'accesso degli utenti, ha coperto questo argomento.
 >
-> Quando si chiamano API Web da un'app Web, sarà necessario ottenere i token di accesso per queste API Web. Per acquisire questi token, è possibile usare le librerie MSAL.
+> Questo scenario illustra come chiamare le API Web da un'app Web. È necessario ottenere i token di accesso per tali API Web. Per acquisire questi token, è possibile usare le librerie MSAL per acquisire questi token.
 
-L'esperienza end-to-end degli sviluppatori per questo scenario ha, di conseguenza, aspetti specifici come:
+Lo sviluppo per questo scenario comporta le attività specifiche seguenti:
 
-- Durante la [registrazione dell'applicazione](scenario-web-app-call-api-app-registration.md), è necessario specificarne uno o diversi (se si distribuisce l'app in diversi percorsi), è necessario condividere gli URI di risposta, i segreti o i certificati con Azure ad.
-- La [configurazione dell'applicazione](scenario-web-app-call-api-app-configuration.md) deve fornire le credenziali client come condivise con Azure ad durante la registrazione dell'applicazione
+- Durante la [registrazione dell'applicazione](scenario-web-app-call-api-app-registration.md), è necessario specificare un URI di risposta, un segreto o un certificato da condividere con Azure ad. Se si distribuisce l'app in diverse posizioni, verranno fornite queste informazioni per ogni località.
+- La [configurazione dell'applicazione](scenario-web-app-call-api-app-configuration.md) deve fornire le credenziali client condivise con Azure ad durante la registrazione dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Registrazione delle app](scenario-web-app-call-api-app-registration.md)
+> [Un'app Web che chiama le API Web: registrazione dell'app](scenario-web-app-call-api-app-registration.md)

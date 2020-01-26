@@ -1,6 +1,6 @@
 ---
 title: Messaggistica asincrona del bus di servizio | Documentazione Microsoft
-description: Descrizione della messaggistica asincrona del bus di servizio di Azure.
+description: Informazioni su come il bus di servizio di Azure supporta asynchronism tramite un meccanismo di archiviazione e di invio con code, argomenti e sottoscrizioni.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531105"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761033"
 ---
-# <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modelli di messaggistica asincrona e disponibilità elevata
+# <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modelli asincroni di messaggistica e disponibilità elevata
 
 La messaggistica asincrona può essere implementata in molti modi diversi. Con code, argomenti e sottoscrizioni, il bus di servizio di Azure supporta la messaggistica asincrona tramite un meccanismo di archiviazione e inoltro. In un'operazione normale (sincrona) i messaggi vengono inviati a code e argomenti e ricevuti da code e sottoscrizioni. Le applicazioni create dipendono dalla disponibilità continua di queste entità. Quando l'integrità dell'entità cambia a causa di diverse circostanze, è necessario fornire un'entità a capacità limitata che possa soddisfare la maggior parte delle esigenze.
 
@@ -62,10 +62,10 @@ Anche per altri componenti di Azure possono occasionalmente verificarsi problemi
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Errore del bus di servizio in un singolo sottosistema
 In qualsiasi applicazione possono verificarsi casi in cui un componente interno del bus di servizio diventa incoerente. Quando il bus di servizio rileva questo problema, raccoglie dati dall'applicazione a fini diagnostici. Una volta raccolti i dati, l'applicazione viene riavviata nel tentativo di ripristinarne un stato coerente. Questo processo avviene abbastanza velocemente e causa la mancata disponibilità di un'entità per alcuni minuti, anche se in genere i tempi di inattività sono molto più brevi.
 
-In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][System.TimeoutException] o [MessagingException][MessagingException]. Il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità citate nell'articolo sulla [gestione delle interruzioni e delle emergenze][handling outages and disasters].
+In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][System.TimeoutException] o [MessagingException][MessagingException]. Il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Quando il periodo di ripetizione dei tentativi è esaurito e il messaggio non viene recapitato, è possibile esplorare l'uso di altri articoli citati nell'articolo sulla [gestione di interruzioni e emergenze][handling outages and disasters].
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo avere appreso le nozioni di base della messaggistica asincrona nel bus di servizio, vedere le altre informazioni sulla [gestione delle interruzioni e delle emergenze][handling outages and disasters].
+Ora che sono state apprese le nozioni di base della messaggistica asincrona nel bus di servizio, vedere altre informazioni sulla [gestione delle interruzioni e delle calamità][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

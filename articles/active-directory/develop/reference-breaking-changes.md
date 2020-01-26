@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b3d5aa74705d858349eaca543a7fd86e315a63e6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702998"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758751"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione 
 
@@ -40,7 +40,20 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 
-2019 settembre: imposizione aggiuntiva della semantica POST secondo le regole di analisi dell'URL. i parametri duplicati generano un errore e il valore [DBA](https://www.w3.org/International/questions/qa-byte-order-mark) viene ignorato.
+Nessun aggiornamento pianificato in questo momento.  Vedere di seguito per le modifiche apportate o destinate alla produzione. 
+
+## <a name="february-2020"></a>2020 febbraio: 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>I frammenti vuoti verranno aggiunti a ogni Reindirizzamento HTTP dall'endpoint di accesso. 
+
+**Data di validità**: 8 febbraio 2020
+
+**Endpoint interessati**: sia la versione 1.0 che la versione 2.0
+
+Con **effetti sul protocollo**: flussi OAuth e OIDC che usano response_type = query. questa operazione riguarda il flusso del codice di [autorizzazione](v2-oauth2-auth-code-flow.md) in alcuni casi e il [flusso implicito](v2-oauth2-implicit-grant-flow.md). 
+
+Quando viene inviata una risposta di autenticazione da login.microsoftonline.com a un'applicazione tramite Reindirizzamento HTTP, il servizio aggiunge un frammento vuoto all'URL di risposta.  Ciò impedisce a una classe di attacchi di reindirizzamento assicurando che il browser cancelli tutti i frammenti esistenti nella richiesta di autenticazione.  Nessuna app deve avere una dipendenza da questo comportamento. 
+
 
 ## <a name="august-2019"></a>Agosto 2019
 

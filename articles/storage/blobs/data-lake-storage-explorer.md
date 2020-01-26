@@ -1,37 +1,40 @@
 ---
 title: Usare Azure Storage Explorer con Azure Data Lake Storage Gen2
-description: Informazioni su come usare Azure Storage Explorer per creare un file system in un account Azure Data Lake Storage Gen2, nonché una directory e un file. Verrà successivamente illustrato come scaricare il file nel computer locale e come visualizzare tutti i file in una directory.
+description: Usare il Azure Storage Explorer per gestire directory e elenchi di controllo di accesso (ACL) di file e directory in account di archiviazione con spazio dei nomi gerarchico (HNS) abilitato.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b300d96408bed621a0687c04a9c94021af009f95
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: fca9fa8a964c6c9d69ffbb3036bd4774e0d1bd34
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484476"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761133"
 ---
-# <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Usare Azure Storage Explorer con Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare Azure Storage Explorer per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
-In questo articolo si apprenderà come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare una directory e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in una directory. Verranno fornite informazioni anche su come creare lo snapshot di un BLOB, come gestire i criteri d'accesso alla directory e come creare una firma di accesso condiviso.
+Questo articolo illustra come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare e gestire directory, file e autorizzazioni negli account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico (HNS).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
-
-Questa guida introduttiva richiede l'installazione di Azure Storage Explorer. Per installare Azure Storage Explorer per Windows, Macintosh o Linux, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> [!div class="checklist"]
+> * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+> * Un account di archiviazione con spazio dei nomi gerarchico (HNS) abilitato. Seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni per crearne uno.
+> * Azure Storage Explorer installato nel computer locale. Per installare Azure Storage Explorer per Windows, Macintosh o Linux, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Accedere a Storage Explorer
 
-Al primo avvio viene visualizzata la finestra **Microsoft Azure Storage Explorer - Connetti**. Sebbene Storage Explorer offra numerosi modi per connettersi agli account di archiviazione, per la gestione degli elenchi di controllo di accesso è attualmente supportata una sola modalità.
+Al primo avvio di Storage Explorer, viene visualizzata la finestra **Microsoft Azure Storage Explorer - Connetti**. Sebbene Storage Explorer offra numerosi modi per connettersi agli account di archiviazione, per la gestione degli elenchi di controllo di accesso è attualmente supportata una sola modalità.
 
-|attività|Scopo|
+|Attività|Finalità|
 |---|---|
-|Aggiungere un account Azure | Consente il reindirizzamento alla pagina di accesso dell'organizzazione per l'autenticazione in Azure. Attualmente questo è l'unico metodo di autenticazione supportato per la gestione e l'impostazione degli elenchi di controllo di accesso. |
+|Aggiungere un account Azure | Consente il reindirizzamento alla pagina di accesso dell'organizzazione per l'autenticazione in Azure. Attualmente questo è l'unico metodo di autenticazione supportato per la gestione e l'impostazione degli elenchi di controllo di accesso.|
+|Usare una stringa di connessione o un URI di firma di accesso condiviso | Consente di accedere direttamente a un contenitore o a un account di archiviazione con un token di firma di accesso condiviso o una stringa di connessione condivisa. |
+|Usare un nome e una chiave dell'account di archiviazione| Consente di usare un nome e una chiave dell'account di archiviazione per la connessione ad Archiviazione di Azure.|
 
 Selezionare **Aggiungi un account Azure** e fare clic su **Accedi.** .. Seguire le istruzioni visualizzate per accedere all'account Azure.
 
@@ -43,25 +46,23 @@ Al termine della connessione, Azure Storage Explorer viene caricato con la sched
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Gli elementi BLOB vengono sempre caricati in una directory. Ciò consente di organizzare i gruppi di BLOB come si organizzano i file in cartelle sul computer.
+Un contenitore include le directory e i file. Per crearne uno, espandere l'account di archiviazione creato nel passaggio che segue. Selezionare **Contenitori BLOB**, fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Immettere il nome del contenitore. Vedere la sezione [creare un contenitore](storage-quickstart-blobs-dotnet.md#create-a-container) per un elenco di regole e restrizioni relative alla denominazione dei contenitori. Al termine, premere **invio** per creare il contenitore. Una volta creato correttamente, il contenitore viene visualizzato nella cartella **contenitori BLOB** per l'account di archiviazione selezionato.
 
-Per creare una directory, espandere l'account di archiviazione creato nel passaggio precedente. Selezionare **Contenitore BLOB**, fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Immettere il nome del contenitore. Al termine, premere **invio** per creare il contenitore. Dopo la creazione, la directory del BLOB viene visualizzata nella cartella **Contenitore BLOB** per l'account di archiviazione selezionato.
+![Microsoft Azure Storage Explorer-creazione di un contenitore](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
-![Microsoft Azure Storage Explorer-creazione di un contenitore](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+## <a name="create-a-directory"></a>Creare una directory
+
+Per creare una directory, selezionare il contenitore creato nel passaggio che segue. Nella barra multifunzione del contenitore scegliere il pulsante **nuova cartella** . Immettere il nome per la directory. Al termine, premere **invio** per creare la directory. Una volta creata correttamente, la directory viene visualizzata nella finestra dell'editor.
+
+![Microsoft Azure Storage Explorer-creazione di una directory](media/data-lake-storage-explorer/creating-a-directory.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Caricare i BLOB nella directory
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I file VHD usati per il backup di macchine virtuali IaaS sono BLOB di pagine. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si vuole scrivere in un file e poi continuare ad aggiungere altre informazioni. La maggior parte dei file presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
+Sulla barra multifunzione Directory scegliere il pulsante **carica** . Questa operazione consente di caricare una cartella o un file.
 
-Sulla barra multifunzione della directory selezionare **Carica**. Questa operazione consente di caricare una cartella o un file.
+Scegliere i file o le cartelle da caricare.
 
-Scegliere i file o le cartelle da caricare. Selezionare il **Tipo BLOB**. Le opzioni accettabili sono BLOB **Aggiunta**, **Pagina** o **Blocchi**.
-
-Se si carica un file con estensione vhd o vhdx, scegliere **Carica i file vhd/vhdx come BLOB di pagine (scelta consigliata)** .
-
-Nel campo **Carica nella cartella (facoltativo)** , specificare un nome di cartella per l'archiviazione di file o cartelle in una cartella nella directory. Se non viene selezionata alcuna cartella, i file vengono caricati direttamente nella directory.
-
-![Microsoft Azure Storage Explorer - Caricare un BLOB](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
+![Microsoft Azure Storage Explorer - Caricare un BLOB](media/data-lake-storage-explorer/upload-file.png)
 
 Quando si seleziona **OK**, i file selezionati vengono accodati per il caricamento e viene caricato ogni file. Al termine del caricamento, i risultati vengono visualizzati nella finestra **Attività**.
 
@@ -69,15 +70,45 @@ Quando si seleziona **OK**, i file selezionati vengono accodati per il caricamen
 
 Nell'applicazione **Azure Storage Explorer**, selezionare una directory in un account di archiviazione. Il riquadro principale mostra un elenco dei BLOB disponibili nella directory selezionata.
 
-![Microsoft Azure Storage Explorer - Elencare i BLOB in una directory](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+![Microsoft Azure Storage Explorer - Elencare i BLOB in una directory](media/data-lake-storage-explorer/list-files.png)
 
 ## <a name="download-blobs"></a>Scaricare BLOB
 
-Per scaricare i BLOB tramite **Azure Storage Explorer**, con un BLOB selezionato, scegliere **Download** dalla barra multifunzione. Viene visualizzata una finestra di dialogo File, che consente di immettere un nome di file. Selezionare **Salva** per avviare il download di un BLOB nella posizione locale.
+Per scaricare i file tramite **Azure Storage Explorer**, con un file selezionato, selezionare **Scarica** dalla barra multifunzione. Viene visualizzata una finestra di dialogo File, che consente di immettere un nome di file. Selezionare **Save (Salva** ) per avviare il download di un file nel percorso locale.
+
+## <a name="managing-access"></a>Gestione dell'accesso
+
+È possibile impostare le autorizzazioni nella radice del contenitore. A questo scopo, è necessario accedere ad Azure Storage Explorer con l'account personale con diritti per eseguire questa operazione, anziché con una stringa di connessione. Fare clic con il tasto destro sul contenitore e scegliere **Gestisci autorizzazioni**, si aprirà la finestra di dialogo **Gestisci autorizzazioni**.
+
+![Microsoft Azure Storage Explorer - Gestire l’accesso alle directory](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+
+La finestra di dialogo **Gestisci autorizzazioni** consente di gestire le autorizzazioni per il proprietario e il gruppo di proprietari. Consente inoltre di aggiungere nuovi utenti e gruppi all'elenco di controllo di accesso per il quale è possibile quindi gestire le autorizzazioni.
+
+Per aggiungere un nuovo utente o gruppo all'elenco di controllo di accesso, selezionare il campo **Aggiungi utente o gruppo**.
+
+Immettere la voce corrispondente di Azure Active Directory (AAD) che si desidera aggiungere all'elenco e quindi selezionare **Aggiungi**.
+
+L'utente o il gruppo verranno visualizzati nel campo **Utenti e gruppi:** , che consente di iniziare a gestire le relative autorizzazioni.
+
+> [!NOTE]
+> È una procedura consigliata per creare un gruppo di sicurezza in Azure Active Directory e gestire le autorizzazioni per il gruppo anziché per i singoli utenti. Per informazioni dettagliate su questa procedura consigliata, nonché per altre procedure consigliate, consultare [procedure consigliate per Data Lake Storage Gen2](data-lake-storage-best-practices.md).
+
+Esistono due categorie di autorizzazioni che è possibile assegnare: elenchi ACL di acceso e ACL predefiniti.
+
+* **Accesso**: gli ACL di accesso controllano l'accesso a un oggetto. Sia i file che le directory hanno ACL di accesso.
+
+* **Impostazione predefinita**: un modello di ACL associato a una directory che determina gli ACL di accesso per tutti gli elementi figlio creati in tale directory. I file non hanno ACL predefiniti.
+
+All'interno di queste categorie sono disponibili tre autorizzazioni che è possibile assegnare a file o directory: **lettura**, **scrittura**ed **esecuzione**.
+
+>[!NOTE]
+> Le selezioni effettuate qui non imposteranno le autorizzazioni per tutti gli elementi attualmente esistenti all'interno della directory. Se il file esiste già, è necessario passare a ogni singolo elemento e impostare le autorizzazioni manualmente.
+
+È possibile gestire le autorizzazioni per directory singole, nonché per file singoli, ovvero ciò che consente il controllo di accesso granulare. Il processo di gestione delle autorizzazioni per file e directory è identico a quello descritto sopra. Fare clic con il tasto destro sul file o sulla directory per cui si desidera gestire le autorizzazioni e seguire la stessa procedura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con **Azure Storage Explorer**. Per altre informazioni su come impostare gli elenchi di controllo di accesso per file e directory, continuare con la procedura sull'argomento.
+Informazioni sugli elenchi di controllo di accesso in Data Lake Storage Gen2.
 
 > [!div class="nextstepaction"]
-> [Come impostare gli ACL su file e directory](data-lake-storage-how-to-set-permissions-storage-explorer.md)
+> [Controllo di accesso in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

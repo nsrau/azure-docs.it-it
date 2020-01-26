@@ -1,6 +1,6 @@
 ---
-title: Eseguire una factory di immagini da Azure DevOps in Azure DevTest Labs | Microsoft Docs
-description: Informazioni su come creare una factory di immagini personalizzata in Azure DevTest Labs.
+title: Eseguire una factory di immagini da Azure DevOps in Azure DevTest Labs
+description: Questo articolo illustra tutti i preparativi necessari per eseguire la factory di immagini da Azure DevOps (in precedenza Visual Studio Team Services).
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 101ed792f091a5074b42e3d06eed27d606d3d2a7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: bb67f765684c77ed5f8527226bef578e450579e0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638953"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758683"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Eseguire una factory di immagini da Azure DevOps
 Questo articolo illustra tutti i preparativi necessari per eseguire la factory di immagini da Azure DevOps (in precedenza Visual Studio Team Services).
@@ -106,7 +106,7 @@ Il modo più rapido per configurare un'entità servizio consiste nel consentire 
 2. Per **tipo di connessione di Azure**scegliere **Azure Resource Manager**.
 3. Selezionare il collegamento **Gestisci** per configurare l'entità servizio.
 
-Per altre informazioni, vedere questo [post di blog](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Quando si seleziona il collegamento **Gestisci** , viene visualizzata la posizione corretta in DevOps (seconda schermata del post di Blog) per configurare la connessione ad Azure. Assicurarsi di scegliere **Azure Resource Manager endpoint servizio** durante la configurazione.
+Per altre informazioni, vedere questo [post di Blog](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Quando si seleziona il collegamento **Gestisci** , viene visualizzata la posizione corretta in DevOps (seconda schermata del post di Blog) per configurare la connessione ad Azure. Assicurarsi di scegliere **Azure Resource Manager endpoint servizio** durante la configurazione.
 
 ## <a name="complete-the-build-task"></a>Completare l'attività di compilazione
 Se si seleziona l'attività di compilazione, verranno visualizzati tutti i dettagli nel riquadro di destra che devono essere compilati.

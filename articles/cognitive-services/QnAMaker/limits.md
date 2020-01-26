@@ -1,22 +1,14 @@
 ---
 title: Limiti - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker prevede metalimiti per alcune parti della knowledge base e del servizio. Per poter eseguire test e pubblicare, è importate rispettare i limiti previsti per la knowledge base.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/10/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: ddf2cb5730f123038c5dbde7ab07b4022f021ced
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/23/2020
+ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381121"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760233"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -33,6 +25,15 @@ Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca
  Ad esempio, se il livello include 15 indici consentiti, è possibile pubblicare 14 articoli della knowledge base (1 indice per ogni articolo della knowledge base pubblicato). Il quindicesimo indice, `testkb`, viene usato per tutti gli articoli della knowledge base per la creazione e il testing.
 
 ## <a name="extraction-limits"></a>Limiti di estrazione
+
+### <a name="file-naming-constraints"></a>Vincoli di denominazione dei file
+
+I nomi file non possono includere i caratteri seguenti:
+
+|Non usare il carattere|
+|--|
+|Virgoletta singola `'`|
+|Virgolette doppie `"`|
 
 ### <a name="maximum-file-size"></a>Dimensione massima dei file
 

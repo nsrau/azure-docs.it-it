@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento sulla sintassi di SQLFilter nel bus di servizio di Azure | Microsoft Docs
-description: Informazioni dettagliate sulla grammatica di SQLFilter.
+description: Questo articolo fornisce informazioni dettagliate sulla grammatica di SqlFilter. Un SqlFilter supporta un sottoinsieme dello standard SQL-92.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60591799"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759664"
 ---
 # <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
 
@@ -62,11 +62,11 @@ Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/micros
   
 -   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il valore `sys` indica l'ambito del sistema. In questo caso, `<property_name>` sarà il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente. In questo caso, `<property_name>` sarà una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
   
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Il tentativo di accedere a una proprietà di sistema inesistente costituisce un errore, mentre il tentativo di accedere a una proprietà utente inesistente non è un errore. Una proprietà utente inesistente viene invece valutata internamente come valore sconosciuto. Un valore sconosciuto viene gestito in modo speciale durante la valutazione degli operatori.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -115,28 +115,28 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
       <expression>  
 ```  
   
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
   
 `<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE      e può contenere i caratteri jolly seguenti.  
   
--   `%`:  Qualsiasi stringa di zero o più caratteri.  
+-   `%`: qualsiasi stringa di zero o più caratteri.  
   
--   `_`: Qualsiasi carattere singolo.  
+-   `_`: qualsiasi carattere singolo.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
       <expression>  
 ```  
   
-### <a name="remarks"></a>Note  
+### <a name="remarks"></a>Osservazioni  
 
 `<escape_char>` deve essere un'espressione valutata come stringa di lunghezza 1. Viene usato come carattere di escape per l'operatore LIKE.  
   
  Ad esempio, `property LIKE 'ABC\%' ESCAPE '\'` corrisponde a `ABC%` anziché a una stringa che inizia con `ABC`.  
   
-## <a name="constant"></a>costante  
+## <a name="constant"></a>constant  
   
 ```  
 <constant> ::=  
@@ -172,28 +172,28 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Note  
+### <a name="remarks"></a>Osservazioni  
 
 Le costanti booleane sono rappresentate dalle parole chiave **TRUE** e **FALSE**. I valori sono archiviati come `System.Boolean`.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Note  
+### <a name="remarks"></a>Osservazioni  
 
 Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qualsiasi carattere Unicode valido. Le virgolette singole incorporate in una costante di tipo stringa sono rappresentate con due virgolette singole.  
   
-## <a name="function"></a>funzione  
+## <a name="function"></a>function  
   
 ```  
 <function> :=  
@@ -201,7 +201,7 @@ Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qu
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
   
 La funzione `newid()` restituisce un **System.Guid** generato dal metodo `System.Guid.NewGuid()`.  
   

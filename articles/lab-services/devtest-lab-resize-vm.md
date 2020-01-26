@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare una macchina virtuale in un lab in Azure DevTest Labs | Microsoft Docs
-description: Informazioni su come ridimensionare una macchina virtuale in Azure DevTest Labs
+title: Ridimensionare una macchina virtuale in un lab in Azure DevTest Labs
+description: Informazioni su come modificare le dimensioni di una macchina virtuale (VM) in Azure DevTest Labs in base alle esigenze di prestazioni della CPU, della rete o del disco.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: a0bc618a9c0a02aae884d8be359df6bdbf4c0d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf7c425766a97aaa1d143133f04502a0aa3c36cb
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868097"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756178"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Ridimensionare una macchina virtuale in un lab in Azure DevTest Labs
 Una delle funzionalità importanti delle macchine virtuali di Azure è la possibilità di modificare le dimensioni di una macchina virtuale (VM) in base alle esigenze per CPU, rete o prestazioni del disco. Azure DevTest Labs ora supporta questa funzionalità per le macchine virtuali in un lab. La funzione di ridimensionamento è conforme ai criteri di lab per le dimensioni delle macchine virtuali consentite nel lab. Vale a dire, è possibile modificare le dimensioni di una macchina virtuale solo per le dimensioni consentite nel lab. 

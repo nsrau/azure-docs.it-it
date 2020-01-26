@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046034"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760897"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -156,19 +156,9 @@ La pagina delle **Proprietà** consente di definire le categorie e i settori usa
 
 Selezionare un minimo di una e un massimo di tre categorie, che verranno usate per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di richiamare il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. 
 
-### <a name="standard-marketplace-terms-and-conditions"></a>Termini e condizioni del Marketplace standard
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contratto standard per Microsoft Commercial Marketplace
 
-Per semplificare il processo di approvvigionamento per i clienti e ridurre la complessità giuridica per i fornitori di software, Microsoft offre un modello di contratto standard per facilitare una transazione nel Marketplace.
-
-Anziché creare termini e condizioni personalizzati, è possibile scegliere di offrire il software nel contratto standard, che i clienti devono solo controllare e accettare una sola volta.
-
-Il contratto standard è disponibile qui: https://go.microsoft.com/fwlink/?linkid=2041178
-
-Per usare il contratto standard, selezionare la casella **USA contratto standard?** .
-
-#### <a name="terms-of-use"></a>Condizioni per l'utilizzo
-
-Se non si seleziona la casella **USA contratto standard** , sarà necessario fornire le proprie condizioni legali per l'utilizzo nel campo **condizioni per l'utilizzo** . Immettere un massimo di 10.000 caratteri di testo o, se le condizioni per l'utilizzo richiedono una descrizione più lunga, fornire l'URL in cui è possibile trovare le condizioni di licenza aggiuntive. Per poter provare l'app, ai clienti verrà richiesto di accettare le presenti condizioni.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## <a name="offer-listing"></a>Elenco offerte
 
@@ -214,7 +204,7 @@ Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per
 
 Questa sezione consente di fornire i collegamenti per aiutare i clienti a comprendere meglio l'offerta.
 
-#### <a name="privacy-policy-url"></a>URL Informativa sulla privacy
+#### <a name="privacy-policy-url"></a>URL informativa sulla privacy
 
 Immettere l'URL dell'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida.
 
@@ -461,7 +451,7 @@ Per ogni entità, selezionare uno dei Azure AD ruoli predefiniti dall'elenco (pr
 
 Applicare i [criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview) all'applicazione gestita per specificare i requisiti di conformità per la soluzione distribuita.  Per le definizioni dei criteri e il formato dei valori dei parametri, vedere [Esempi di criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/index).  È possibile configurare un massimo di cinque criteri e una sola istanza di ogni opzione di criteri.  Alcuni criteri richiedono parametri aggiuntivi.  Lo SKU Standard è necessario per i criteri di controllo.  Il nome del criterio è limitato a 50 caratteri.
 
-## <a name="co-sell"></a>Co-Sell
+## <a name="co-sell"></a>Co-selling
 
 Fornire informazioni sulla scheda Cosell è interamente facoltativo per la pubblicazione dell'offerta. È necessario per ottenere lo stato pronto per la co-selling e per il co-selling IP. Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione dell'idoneità alle esigenze dei clienti. Non è disponibile direttamente per i clienti.
 

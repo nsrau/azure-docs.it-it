@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb09b4808bd6d59d2f70e85d204ab8451d501cee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e508eff3b322b49a6dc50d818c8bcccc3e924ff2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692604"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759653"
 ---
 # <a name="restore-a-deleted-azure-sql-data-warehouse"></a>Ripristinare un Azure SQL Data Warehouse eliminato
 
@@ -26,22 +26,22 @@ In questo articolo si apprenderà come ripristinare un SQL Data Warehouse elimin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verificare la capacità in DTU.** Ogni SQL Data Warehouse è ospitata da un server SQL (ad esempio, myserver.database.windows.net) con una quota DTU predefinita.  Verificare che SQL Server disponga di una quota DTU rimanente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU][Request a DTU quota change].
+**Verificare la capacità in DTU.** Ogni SQL Data Warehouse è ospitata da un server SQL (ad esempio, myserver.database.windows.net) con una quota DTU predefinita.  Verificare che SQL Server disponga di una quota DTU rimanente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Ripristinare un data warehouse eliminato tramite PowerShell
 
-Per ripristinare un SQL Data Warehouse eliminato, usare il cmdlet [Restore-AzSqlDatabase][Restore-AzSqlDatabase] . Se anche il server logico corrispondente è stato eliminato, non è possibile ripristinare tale data warehouse.
+Per ripristinare un SQL Data Warehouse eliminato, usare il cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) . Se anche il server logico corrispondente è stato eliminato, non è possibile ripristinare tale data warehouse.
 
-1. Prima di iniziare, assicurarsi di [installare Azure PowerShell][Install Azure PowerShell].
+1. Prima di iniziare, assicurarsi di [installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Aprire PowerShell.
 3. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
 4. Consente di selezionare la sottoscrizione che contiene il data warehouse eliminato da ripristinare.
 5. Ottenere il data warehouse eliminato specifico.
 6. Ripristinare il data warehouse eliminato
     1. Per ripristinare il SQL Data Warehouse eliminato in un server logico diverso, assicurarsi di specificare l'altro nome del server logico.  Questo server logico può trovarsi anche in un gruppo di risorse e in un'area diversi.
-    1. Per eseguire il ripristino in un'altra sottoscrizione, utilizzare il pulsante [Sposta][Move] per spostare il server logico in un'altra sottoscrizione.
+    1. Per eseguire il ripristino in un'altra sottoscrizione, utilizzare il pulsante [Sposta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) per spostare il server logico in un'altra sottoscrizione.
 1. Verificare che il data warehouse ripristinato sia online.
-1. Al termine del ripristino, è possibile configurare il data warehouse ripristinato seguendo la procedura di [configurazione del database dopo il ripristino][Configure your database after recovery].
+1. Al termine del ripristino, è possibile configurare il data warehouse ripristinato seguendo la procedura di [configurazione del database dopo il ripristino](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Ripristinare un database eliminato con il portale di Azure
 
-1. Accedere al [portale di Azure][Azure portal].
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare al server SQL in cui è ospitato il data warehouse eliminato.
 3. Selezionare l'icona **database eliminati** nel sommario.
 
@@ -85,30 +85,6 @@ $RestoredDatabase.status
 
     ![Specificare il nome del database](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
-## <a name="next-steps"></a>Passaggi successivi
-- [Ripristinare un data warehouse esistente][Restore an existing data warehouse]
-- [Eseguire il ripristino da un data warehouse di backup geografico][Restore from a geo-backup data warehouse]
-
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[support ticket]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket
-[Move]:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-
-<!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+## <a name="next-steps"></a>Fasi successive
+- [Ripristinare un data warehouse esistente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Eseguire il ripristino da un data warehouse di backup geografico](sql-data-warehouse-restore-from-geo-backup.md)

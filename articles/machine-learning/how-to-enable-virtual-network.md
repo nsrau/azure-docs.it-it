@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289613"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760853"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,11 +179,14 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 
 - Negare la connessione Internet in uscita usando le regole NSG.
 
-- Limitare il traffico in uscita agli elementi seguenti:
-   - Archiviazione di Azure, usando un __tag di servizio__ di __archiviazione. Region_Name__ (ad esempio, storage. eastus)
-   - Azure Container Registry, usando il __tag di servizio__ di __AzureContainerRegistry. Region_Name__ (ad esempio, AzureContainerRegistry. eastus)
+- Per un' __istanza di calcolo__ o un __cluster di calcolo__, limitare il traffico in uscita agli elementi seguenti:
+   - Archiviazione di Azure con __tag di servizio__ di __archiviazione__
+   - Azure Container Registry, usando il __tag di servizio__ di __AzureContainerRegistry__
    - Azure Machine Learning, usando il __tag di servizio__ di __AzureMachineLearning__
-   - Nel caso di un'istanza di calcolo, Azure cloud, usando il __tag di servizio__ di __AzureResourceManager__
+   
+- Per un' __istanza di calcolo__, aggiungere anche gli elementi seguenti:
+   - Azure Resource Manager, usando il __tag di servizio__ di __AzureResourceManager__
+   - Azure Active Directory, usando il __tag di servizio__ di __AzureActiveDirectory__
 
 La configurazione della regola NSG nel portale di Azure è illustrata nell'immagine seguente:
 
@@ -206,12 +209,12 @@ La configurazione della regola NSG nel portale di Azure è illustrata nell'immag
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Training__ estimatore
+> __Training per Estimator__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```
