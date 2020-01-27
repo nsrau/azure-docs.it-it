@@ -501,6 +501,8 @@
               href: ./hadoop/apache-ambari-troubleshoot-fivezerotwo-error.md
             - name: Apache Ambari mostra host e servizi inattivi
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
+            - name: Avvisi su dati non aggiornati di Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
             - name: Risolvere i problemi di un cluster HDInsight lento o in errore
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Risoluzione dei problemi di Apache Hadoop HDFS
@@ -509,6 +511,8 @@
               href: ./hdinsight-troubleshoot-yarn.md
             - name: Risolvere i problemi relativi ai file di Data Lake Store
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
+            - name: Avvisi sulle directory di Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
 - name: Apache Kafka
   items:
     - name: Panoramica

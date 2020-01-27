@@ -27,9 +27,11 @@
       href: visualize-power-bi.md
 - name: Concetti
   items:
-    - name: Panoramica dell'inserimento dati
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
+    - name: Inserimento di dati
+      items:
+        - name: Panoramica dell'inserimento dati
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
     - name: Panoramica della visualizzazione dei dati
       href: viz-overview.md
     - name: Panoramica della sicurezza
@@ -84,18 +86,20 @@
           href: ingest-data-one-click.md
         - name: Inserimento del flusso
           href: ingest-data-streaming.md
+        - name: Uso di SDK
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: Node SDK
+              href: node-ingest-data.md
+            - name: .NET Standard SDK
+              href: net-standard-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
-        - name: Python
-          href: python-ingest-data.md
-        - name: Node SDK
-          href: node-ingest-data.md
-        - name: .NET Standard SDK
-          href: net-standard-ingest-data.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: Copiare i dati con Azure Data Factory
-          href: data-factory-load-data.md
+        - name: dati formattati json
+          href: ingest-json-formats.md
     - name: Eseguire query sui dati
       items:
         - name: Scrivere query
@@ -116,7 +120,7 @@
               href: time-series-analysis.md
             - name: Rilevamento anomalie e previsioni
               href: anomaly-detection.md
-            - name: Machine learning
+            - name: Machine Learning
               href: machine-learning-clustering.md
     - name: Visualizzare i dati
       items:
@@ -182,7 +186,7 @@
                   href: database-table-policies-csharp.md
                 - name: Python
                   href: database-table-policies-python.md
-        - name: data
+        - name: Data
           items:
             - name: Eliminare i dati
               href: delete-data.md
@@ -204,6 +208,8 @@
           items:
             - name: Integrazione con Data Factory
               href: data-factory-integration.md
+            - name: Copiare i dati con Azure Data Factory
+              href: data-factory-load-data.md
             - name: Eseguire la copia bulk dei dati con il modello di Azure Data Factory
               href: data-factory-template.md
             - name: Eseguire comandi di controllo con Azure Data Factory
@@ -224,7 +230,7 @@
           href: troubleshoot-connect-cluster.md
         - name: Uso di database e tabelle
           href: troubleshoot-database-table.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Linguaggio di query
       href: /azure/kusto/query/

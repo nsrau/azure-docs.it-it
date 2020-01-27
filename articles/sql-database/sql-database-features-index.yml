@@ -16,7 +16,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: Il database SQL di Azure è molto più di un motore di database relazionale classico che consente di eseguire query sui dati usando il linguaggio SQL. Le funzionalità di database nel database SQL di Azure consentono di eseguire operazioni più complesse e di implementare scenari avanzati.
+        text: Il database SQL di Azure è molto più di un motore di database relazionale classico che consente di eseguire query sui dati usando il linguaggio SQL. Le funzionalità di Database SQL di Azure consentono di eseguire operazioni più complesse e di implementare scenari avanzati.
       - type: list
         style: cards
         className: cardsM

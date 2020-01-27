@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/02/2019
+ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468474"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264730"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con il portale di Azure
 
@@ -29,7 +29,7 @@ Per questa esercitazione vengono create tre reti virtuali:
 
 ![Firewall in una rete ibrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Dichiarare le variabili
@@ -45,15 +45,17 @@ In questa esercitazione si apprenderà come:
 
 Se si vuole completare la procedura con Azure PowerShell, vedere [Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per il corretto funzionamento di questo scenario devono essere soddisfatti tre requisiti principali:
+Una rete ibrida usa il modello di architettura hub-spoke per instradare il traffico tra le reti virtuali di Azure e le reti locali. L'architettura hub-spoke presenta i requisiti seguenti:
 
-- Una route definita dall'utente nella subnet spoke che punti all'indirizzo IP di Firewall di Azure come gateway predefinito. La propagazione della route BGP deve essere impostata su **Disabilitata** in questa tabella di route.
-- Una route definita dall'utente nella subnet del gateway dell'hub deve puntare all'indirizzo IP del firewall come hop successivo per le reti spoke.
+- Impostare **AllowGatewayTransit** quando si esegue il peering dell'hub di rete virtuale con lo spoke di rete virtuale. Nell'architettura di rete hub-spoke il transito tramite gateway consente alle reti virtuali spoke di condividere il gateway VPN nell'hub invece di distribuire gateway VPN in ogni rete virtuale spoke. 
 
-   Non è richiesta alcuna route definita dall'utente nella subnet di Firewall di Azure, dal momento che le route vengono apprese dal protocollo BGP.
-- Assicurarsi di impostare **AllowGatewayTransit** durante il peering di VNet-Hub a VNet-Spoke e usare **UseRemoteGateways** durante il peering di VNet-Spoke a VNet-Hub.
+   Inoltre, le route alle reti virtuali connesse al gateway o alle reti locali si propagheranno automaticamente alle tabelle di routing per le reti virtuali con peering che usano il transito tramite gateway. Per altre informazioni, vedere [Configurare il transito tramite gateway VPN per il peering di reti virtuali](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+
+- Impostare **UseRemoteGateways** quando si esegue il peering dello spoke di rete virtuale con l'hub di rete virtuale. Se è impostata l'opzione **UseRemoteGateways** ed è impostata anche l'opzione **AllowGatewayTransit** nel peering remoto, la rete virtuale spoke usa i gateway della rete virtuale remota per il transito.
+- Per instradare il traffico della subnet spoke attraverso il firewall dell'hub, è necessaria una route definita dall'utente che punti al firewall con l'opzione **Disabilita propagazione route BGP** impostata. L'opzione **Disabilita propagazione route BGP** impedisce la distribuzione delle route alle subnet spoke. Evita anche che le route apprese entrino in conflitto con la route definita dall'utente.
+- Configurare una route definita dall'utente nella subnet del gateway dell'hub che punti all'indirizzo IP del firewall come hop successivo per le reti spoke. Non è richiesta alcuna route definita dall'utente nella subnet di Firewall di Azure, dal momento che le route vengono apprese dal protocollo BGP.
 
 Vedere la sezione [Creare route](#create-the-routes) in questa esercitazione per vedere come vengono create le route.
 
@@ -149,11 +151,11 @@ A questo punto distribuire il firewall nella rete virtuale dell'hub del firewall
 2. Nella colonna di sinistra selezionare **Rete** e quindi **Firewall**.
 4. Nella pagina **Crea un firewall** usare la tabella seguente per configurare il firewall:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
    |Subscription     |\<sottoscrizione in uso\>|
    |Resource group     |**FW-Hybrid-Test** |
-   |NOME     |**AzFW01**|
+   |Nome     |**AzFW01**|
    |Location     |Selezionare la stessa località usata in precedenza|
    |Scegliere una rete virtuale     |**Use existing** (Usa esistente):<br> **VNet-hub**|
    |Indirizzo IP pubblico     |Crea nuovo: <br>**Nome** - **fw-pip**. |
