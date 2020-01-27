@@ -236,7 +236,7 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | --- | --- |
 | **US Government** |  |
 | Governo degli Stati Uniti - Arizona | 12076:51106 |
-| Governo degli Stati Uniti - Iowa | 12076:51109 |
+| Governo degli US Gov - Iowa | 12076:51109 |
 | Governo degli Stati Uniti - Virginia | 12076:51105 |
 | Governo degli Stati Uniti - Texas | 12076:51108 |
 | Dipartimento della difesa Stati Uniti centrali | 12076:51209 |
