@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5e66632fab0306da7766f079733cd1d8cb3edc8d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442347"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544090"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
 
@@ -66,7 +66,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
 
 1. Nella scheda **Front- end** verificare che **Tipo di indirizzo IP front-end** sia impostato su **Pubblico**. <br>È possibile configurare l'indirizzo IP front-end come pubblico o privato in base al caso d'uso. In questo esempio si sceglierà un indirizzo IP front-end pubblico.
    > [!NOTE]
-   > Per lo SKU v2 del gateway applicazione, è possibile scegliere solo la configurazione **pubblica** dell'IP front-end. La configurazione con indirizzi IP front-end solo privati (modalità con solo bilanciamento del carico interno) non è attualmente abilitata per lo SKU v2. È consentita la configurazione di indirizzi IP front-end pubblici e privati.
+   > Per lo SKU v2 del gateway applicazione, è possibile scegliere solo la configurazione IP front-end **pubblico**. È comunque possibile avere una configurazione IP front-end con indirizzo pubblico e privato, ma la configurazione IP front-end solo privato (solo modalità bilanciamento del carico interno) non è attualmente abilitata per lo SKU v2. 
 
 2. Scegliere **Crea nuovo** per **Indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico, quindi selezionare **OK**. 
 

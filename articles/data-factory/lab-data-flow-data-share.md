@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: f5e36095c506918298404758523642073dfd19c7
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865223"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156727"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integrazione dei dati con Azure Data Factory e Condivisione dati di Azure
 
@@ -99,7 +99,7 @@ Per attivare il debug, fare clic sul dispositivo di scorrimento **Data flow debu
 
 ![Portale](media/lab-data-flow-data-share/configure10.png)
 
-## <a name="ingest-data-from-azure-sql-db-into-adls-gen2-using-the-copy-activity"></a>Inserire i dati del database SQL di Azure in ADLS Gen2 con l'attività di copia
+## <a name="ingest-data-using-the-copy-activity"></a>Inserire i dati usando l'attività di copia
 
 In questa sezione verrà creata una pipeline con un'attività di copia che inserisce una tabella di un database SQL di Azure in un account di archiviazione di ADLS Gen2. Verrà illustrato come aggiungere una pipeline, configurare un set di dati ed eseguire il debug della pipeline tramite l'esperienza utente di ADF. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati relazionale a un archivio dati basato su file.
 

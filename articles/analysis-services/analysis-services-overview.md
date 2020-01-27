@@ -4,15 +4,15 @@ description: Informazioni su Azure Analysis Services, una piattaforma distribuit
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f72da87ae53039e825f2102bebb12e59821706f8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749681"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274799"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -34,7 +34,7 @@ Azure Analysis Services si integra con molti servizi di Azure e permette di crea
 
 ## <a name="the-right-tier-when-you-need-it"></a>Il piano giusto quando serve
 
-Azure Analysis Services è disponibile nei livelli **Developer**, **Basic** e **Standard**. Entro ogni livello, i costi del piano dipendono da potenza di elaborazione, QPU e dimensioni della memoria. Quando si crea un server, si seleziona un piano entro un livello. È possibile passare a un piano inferiore o superiore entro lo stesso livello oppure passare a un livello superiore, ma non è possibile passare da un livello superiore a un livello inferiore.
+Azure Analysis Services è disponibile nei livelli **Developer**, **Basic** e **Standard**. Entro ogni livello, i costi del piano dipendono da potenza di elaborazione, unità di elaborazione query (QPU) e dimensioni della memoria. Quando si crea un server, si seleziona un piano entro un livello. È possibile passare a un piano inferiore o superiore entro lo stesso livello oppure passare a un livello superiore, ma non è possibile passare da un livello superiore a un livello inferiore.
 
 ### <a name="developer-tier"></a>Livello Developer
 
@@ -47,7 +47,7 @@ Questo livello è consigliato per gli scenari di valutazione, sviluppo e test. U
 
 ### <a name="basic-tier"></a>Livello Basic
 
-Il livello è consigliato per soluzioni di produzione con modelli tabulari di dimensioni più ridotte, concorrenza limitata tra utenti e requisiti semplici per l'aggiornamento dei dati. L'aumento del numero di istanze delle repliche delle query *non è disponibile* per questo livello. Prospettive, partizioni multiple e funzionalità del modello tabulare DirectQuery *non sono supportate* in questo livello.  
+Il livello è consigliato per soluzioni di produzione con modelli tabulari di dimensioni più ridotte, concorrenza limitata tra utenti e requisiti semplici per l'aggiornamento dei dati. Lo scale-out delle repliche delle query *non è disponibile* per questo livello. Prospettive, partizioni multiple e funzionalità del modello tabulare DirectQuery *non sono supportate* in questo livello.  
 
 |Piano  |QPU  |Memoria (GB)  |
 |---------|---------|---------|
@@ -232,7 +232,7 @@ Azure Analysis Services supporta anche l'uso delle viste [DMV](https://docs.micr
 
 La documentazione specifica di Azure Analysis Services è inclusa qui. Usare il sommario sul lato sinistro della schermata del browser per trovare gli articoli. 
 
-Poiché i modelli tabulari di Azure Analysis Services sono molto simili ai modelli tabulari in SQL Server Analysis Services, è disponibile una ricca libreria di articoli condivisi concettuali, procedurali, per sviluppatori e di riferimento nella [documentazione su SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Negli articoli della documentazione su SQL Server Analysis Services, un banner SI APPLICA A sotto il titolo indica se si applicano anche ad Azure Analysis Services.
+Poiché i modelli tabulari di Azure Analysis Services sono molto simili ai modelli tabulari in SQL Server Analysis Services, è disponibile un'estesa libreria di esercitazioni sulla creazione di modelli di dati e di articoli di riferimento e su concetti, procedure e sviluppo condivisi nella [documentazione di SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Negli articoli della documentazione su SQL Server Analysis Services, un banner SI APPLICA A sotto il titolo indica se si applicano anche ad Azure Analysis Services.
 
 ![Documentazione condivisa](./media/analysis-services-overview/aas-overview-applies-to.png)
 

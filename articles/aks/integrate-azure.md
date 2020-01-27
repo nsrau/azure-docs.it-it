@@ -1,25 +1,23 @@
 ---
 title: Integrazione con i servizi gestiti di Azure usando Open Service Broker for Azure (OSBA)
 description: Integrazione con i servizi gestiti di Azure usando Open Service Broker for Azure (OSBA)
-services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 7a887905bcb4b09c1b4ae179116b3f08c75caabd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758294"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276800"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrazione con i servizi gestiti di Azure usando Open Service Broker for Azure (OSBA)
 
-Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open Service Broker consente agli sviluppatori di usare i servizi gestiti di Azure in Kubernetes. Questa guida descrive la distribuzione del catalogo di servizi di Kubernetes, di Open Service Broker for Azure (OSBA) e delle applicazioni che usano i servizi gestiti di Azure con Kubernetes.
+Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open Service Broker for Azure (OSBA) consente agli sviluppatori di usare i servizi gestiti di Azure in Kubernetes. Questa guida descrive la distribuzione del catalogo di servizi di Kubernetes, di Open Service Broker for Azure (OSBA) e delle applicazioni che usano i servizi gestiti di Azure con Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * Una sottoscrizione di Azure.
 
 * Interfaccia della riga di comando di Azure: [installarla localmente][azure-cli-install] o usarla in [Azure Cloud Shell][azure-cloud-shell].
@@ -131,7 +129,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-Dopo avere completato la distribuzione di Open Service Broker for Azure installare l'[interfaccia della riga di comando del catalogo di servizi][service-catalog-cli], un'interfaccia della riga di comando di facile utilizzo per l'interrogazione di service broker, classi di servizio, piani di servizio e molto altro.
+Una volta completata la distribuzione di Open Service Broker for Azure installare l'[interfaccia della riga di comando del catalogo di servizi][service-catalog-cli], un'interfaccia della riga di comando di facile utilizzo per l'interrogazione di service broker, classi di servizio, piani di servizio e molto altro.
 
 Eseguire i comandi seguenti per installare il binario dell'interfaccia della riga di comando del catalogo di servizi:
 
@@ -191,7 +189,7 @@ kubectl get secrets -n wordpress -o yaml
 
 L'articolo ha descritto la distribuzione di un catalogo di servizi in un cluster del servizio Azure Kubernetes. Con Open Service Broker for Azure è stato possibile distribuire un'installazione di WordPress che usa i servizi gestiti di Azure, in questo caso il Database di Azure per MySQL.
 
-Consultare il repository [Azure/helm-charts][helm-charts] per accedere ad altri grafici Helm basati su OSBA aggiornati. Per creare grafici che funzionino con OSBA, consultare [Creating a New Chart][helm-create-new-chart] (Creazione di un nuovo grafico).
+Consultare il repository [Azure/helm-charts][helm-charts] per accedere ad altri grafici Helm basati su OSBA aggiornati. Se si desidera creare grafici che funzionino con OSBA consultare [Creating a New Chart][helm-create-new-chart] (Creazione di un nuovo grafico).
 
 <!-- LINKS - external -->
 [helm-charts]: https://github.com/Azure/helm-charts

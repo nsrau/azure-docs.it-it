@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/09/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e52a859c86ff451293ac6ff795c7fe427a383b9d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 459d75bec3d4b4d0cf9057e0c6de238e7f165bfb
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75843508"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548986"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato (anteprima)
 
@@ -267,7 +267,7 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
     * **scriptContent**: specificare il contenuto dello script. Per eseguire uno script esterno, usare **primaryScriptURI**. Per altre informazioni, vedere [Usare uno script esterno](./deployment-script-template.md#use-external-scripts).
         La dichiarazione di **$DeploymentScriptOutputs** è necessaria solo quando si esegue il test dello script in un computer locale. La dichiarazione della variabile consente di eseguire lo script in un computer locale e in una risorsa deploymentScript senza dover apportare modifiche. Il valore assegnato a $DeploymentScriptOutputs è disponibile come output nelle distribuzioni. Per altre informazioni, vedere [Usare gli output degli script di distribuzione](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference**: specificare la preferenza che determina quando eliminare le risorse dello script di distribuzione.  Il valore predefinito è **Always**, che significa che le risorse dello script di distribuzione vengono eliminate nonostante lo stato finale (Succeeded, Failed, Canceled). In questa esercitazione viene usato **OnSuccess** in modo da potere visualizzare i risultati dell'esecuzione dello script.
-    * **retentionInterval**: specificare l'intervallo per cui il servizio mantiene le risorse dello script dopo il raggiungimento di uno stato finale. Le risorse verranno eliminate alla scadenza di tale durata. La durata è basata sul modello ISO 8601. Questa esercitazione usa P1D, che significa un giorno.  Questa proprietà viene usata quando **retentionInterval** è impostato su **OnExpiration**. Tale proprietà non è attualmente abilitata.
+    * **retentionInterval**: specificare l'intervallo per cui il servizio mantiene le risorse dello script dopo il raggiungimento di uno stato finale. Le risorse verranno eliminate alla scadenza di tale durata. La durata è basata sul modello ISO 8601. Questa esercitazione usa P1D, che significa un giorno.  Questa proprietà viene usata quando l'opzione **cleanupPreference** è impostata su **OnExpiration**. Tale proprietà non è attualmente abilitata.
 
     Lo script di distribuzione accetta tre parametri: il nome dell'insieme di credenziali delle chiavi, il nome del certificato e il nome del soggetto.  Crea un certificato e quindi aggiunge il certificato all'insieme di credenziali delle chiavi.
 

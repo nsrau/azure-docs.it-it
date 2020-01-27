@@ -1,19 +1,17 @@
 ---
-title: Esercitazione - Eliminare un cluster Azure Red Hat OpenShift | Microsoft Docs
+title: Esercitazione - Eliminare un cluster Azure Red Hat OpenShift
 description: Questa esercitazione illustra come eliminare un cluster Azure Red Hat OpenShift usando l'interfaccia della riga di comando di Azure
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad70f4c3681705377a350fee8b02a55c526f26c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669343"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278764"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Esercitazione: Eliminare un cluster di Azure Red Hat OpenShift
 
@@ -30,7 +28,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Ridimensionare un cluster di Azure Red Hat OpenShift](tutorial-scale-cluster.md)
 > * Eliminare un cluster di Azure Red Hat OpenShift
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9c2c8c1bacf4abfa775747a03d2a4a6121b67714
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9140114e7d31f24770bdcce9aae849b01aae9996
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106588"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263637"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Esercitazione: Configurare regole e azioni per il dispositivo in Azure IoT Central
 
@@ -22,15 +22,16 @@ ms.locfileid: "74106588"
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-In questa esercitazione, si crea una regola che invia un messaggio di posta elettronica quando la temperatura di un condizionatore connesso supera 90&deg; F (circa 32° C).
+In questa esercitazione si crea una regola che invia un messaggio di posta elettronica quando la temperatura di un condizionatore connesso supera 70&deg; F (circa 32° C).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Creare una regola basata su dati di telemetria
 > * Aggiungere un'azione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, si consiglia di completare l'esercitazione [Definire un nuovo tipo di dispositivo nell'applicazione](tutorial-define-device-type.md) per creare il modello di dispositivo **Condizionatore connesso** con cui lavorare.
 
@@ -48,14 +49,14 @@ Prima di iniziare, si consiglia di completare l'esercitazione [Definire un nuovo
 
     ![Visualizzazione Regole](media/tutorial-configure-rules/newrule.png)
 
-5. Usare le informazioni nella tabella seguente per definire la regola:
+4. Usare le informazioni nella tabella seguente per definire la regola:
 
-    | Impostazione                                      | Valore                             |
+    | Impostazione                                      | valore                             |
     | -------------------------------------------- | ------------------------------    |
-    | NOME                                         | Avviso temperatura condizionatore |
+    | Nome                                         | Avviso temperatura condizionatore |
     | Abilita la regola per tutti i dispositivi di questo modello | Attivato                                |
-    | Condizione                                    | La temperatura è maggiore di 90    |
-    | Aggregazione                                  | Nessuna                              |
+    | Condizione                                    | La temperatura è maggiore di 70    |
+    | Aggregazione                                  | nessuno                              |
 
     ![Condizione della regola di temperatura](media/tutorial-configure-rules/temperaturerule.png)
 
@@ -71,10 +72,11 @@ Quando si definisce una regola è anche possibile definire un'azione da eseguire
 
 2. Usare le informazioni nella tabella seguente per definire l'azione:
 
-    | Impostazione   | Valore                          |
-    | --------- | ------------------------------ |
-    | A        | Indirizzo di posta elettronica             |
-    | Note     | La temperatura del condizionatore ha superato la soglia. |
+    | Impostazione      | valore                                               |
+    | ------------ | --------------------------------------------------- |
+    | Nome visualizzato | Avviso di temperatura tramite posta elettronica                             |
+    | A           | Indirizzo di posta elettronica                                  |
+    | Note        | La temperatura del condizionatore ha superato la soglia. |
 
     > [!NOTE]
     > Per ricevere una notifica, l'indirizzo di posta elettronica deve essere un [ID utente nell'applicazione](howto-administer.md) e tale utente deve aver eseguito almeno una volta l'accesso all'applicazione.
@@ -92,16 +94,18 @@ Subito dopo aver salvato la regola, questa viene applicata. Quando vengono soddi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]
+>
 > * Creare una regola basata su dati di telemetria
 > * Aggiungere un'azione
 
 Dopo aver definito la regola basata su una soglia, il passaggio successivo consigliato consiste nel [Personalizzare le visualizzazioni dell'operatore](tutorial-customize-operator.md).
 
 Per altre informazioni sui diversi tipi di regole in Azure IoT Central e su come aggiungere parametri alla definizione della regola, vedere:
+
 * [Creare una regola di telemetria e impostare le notifiche](howto-create-telemetry-rules.md).
 * [Creare una regola di evento e impostare le notifiche](howto-create-event-rules.md).
 

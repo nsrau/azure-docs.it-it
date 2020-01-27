@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 1c352ad5d18f891cd82d90eef7d0a8c6c3d1cdb9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcab5f76b95939b0a9a4232eab2bcf8b2a5fd40b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441683"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309983"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -283,7 +283,6 @@ Per impostazione predefinita, è possibile creare fino a 25 contenitori di dimen
 Se si tenta di creare un contenitore dopo il superamento del conteggio corrente delle partizioni, l'emulatore genera un'eccezione ServiceUnavailable con il messaggio seguente.
 
 "Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
-Please do not hesitate to email askcosmosdb@microsoft.com at any time or for any reason.
 ActivityId: 12345678-1234-1234-1234-123456789abc" (È stata attualmente riscontrata una richiesta elevata in questa area. Non è possibile soddisfare la richiesta in questo momento. Microsoft è costantemente impegnata a garantire sempre più capacità online e invita gli utenti a riprovare. Non esitare a inviare un messaggio di posta elettronica in qualsiasi momento o per qualunque motivo. ID attività: 12345678-1234-1234-1234-123456789abc)
 
 Per modificare il numero di contenitori disponibili nell'emulatore Azure Cosmos, procedere come segue:
@@ -490,13 +489,13 @@ Infine, dall'interno della VM Windows, avviare l'emulatore Cosmos dalla riga di 
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Usare i suggerimenti seguenti per risolvere i problemi relativi all'emulatore Azure Cosmos:
 
 - Se è stata installata una nuova versione dell'emulatore e si verificano errori, provare a ripristinare i dati. A tale scopo, è possibile fare clic con il pulsante destro del mouse sull'icona dell'emulatore Azure Cosmos nell'area di notifica e quindi scegliere Reset Data (Reimposta dati). Se gli errori non scompaiono, è possibile disinstallare l'emulatore e tutte le relative versioni precedenti eventualmente trovate, rimuovere la directory "C:\Programmi\Azure Cosmos DB Emulator" e reinstallare l'emulatore. Per istruzioni, vedere [Disinstallare l'emulatore locale](#uninstall).
 
-- In caso di arresto anomalo dell'emulatore Azure Cosmos, raccogliere i file di dump dalla cartella '%LOCALAPPDATA%\CrashDumps', comprimerli e allegarli a un messaggio di posta elettronica da inviare all'indirizzo [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- In caso di arresto anomalo dell'emulatore Azure Cosmos, raccogliere i file di dump dalla cartella '%LOCALAPPDATA%\CrashDumps', comprimerli e aprire un ticket di supporto nel [portale di Azure](https://portal.azure.com).
 
 - Se si verificano arresti anomali in `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, potrebbe trattarsi di un sintomo della presenza di contatori delle prestazioni danneggiati. L'esecuzione del comando seguente dal prompt dei comandi come amministratore in genere consente di risolvere il problema:
 
@@ -504,7 +503,7 @@ Usare i suggerimenti seguenti per risolvere i problemi relativi all'emulatore Az
   lodctr /R
    ```
 
-- In caso di problemi di connettività, [raccogliere i file di traccia](#trace-files), comprimerli e allegarli a un messaggio di posta elettronica da inviare all'indirizzo [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- In caso di problemi di connettività, [raccogliere i file di traccia](#trace-files), comprimerli e aprire un ticket di supporto nel [portale di Azure](https://portal.azure.com).
 
 - Se si riceve un messaggio di tipo **Servizio non disponibile**, è possibile che l'emulatore non riesca a inizializzare lo stack di rete. Controllare per verificare se è stato installato il client sicuro Pulse o il client di rete Juniper, perché è possibile che i rispettivi driver del filtro di rete provochino il problema. La disinstallazione dei driver filtro di rete di terze parti consente in genere di risolvere il problema. In alternativa, avviare l'emulatore con /DisableRIO. In questo modo, per la comunicazione di rete dell'emulatore, si passerà ai Winsock normali. 
 
@@ -519,9 +518,9 @@ Per raccogliere le tracce di debug, eseguire i comandi seguenti da un prompt dei
 3. `Microsoft.Azure.Cosmos.Emulator.exe /startwprtraces`
 4. `Microsoft.Azure.Cosmos.Emulator.exe`
 5. Riprodurre il problema. Se Esplora dati non funziona, è sufficiente attendere qualche secondo per l'apertura del browser e il rilevamento dell'errore.
-5. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
-6. Passare a `%ProgramFiles%\Azure Cosmos DB Emulator` e individuare il file docdbemulator_000001.etl.
-7. Inviare il file con estensione etl insieme alla procedura per la riproduzione all'indirizzo [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) per il debug.
+6. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
+7. Passare a `%ProgramFiles%\Azure Cosmos DB Emulator` e individuare il file docdbemulator_000001.etl.
+8. Aprire un ticket di supporto nel [portale di Azure](https://portal.azure.com) e includere il file ETL insieme ai passaggi di ripetizione.
 
 ### <a id="uninstall"></a>Disinstallare l'emulatore locale
 

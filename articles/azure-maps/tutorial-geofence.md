@@ -1,28 +1,28 @@
 ---
 title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa | Mappe di Microsoft Azure'
-description: In questa esercitazione si apprenderà come configurare un recinto virtuale e monitorare i dispositivi in relazione al recinto virtuale usando il servizio spaziale di Mappe di Microsoft Azure.
+description: Informazioni su come configurare un recinto virtuale e monitorare i dispositivi in relazione al recinto virtuale usando il servizio spaziale di Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: a88f03adab3beaea75ec2fa9a1c6f59b09739025
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910934"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153141"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
-Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Lo scenario esaminato in questa esercitazione consente ai direttori di cantiere di monitorare l'uscita di macchinari potenzialmente pericolosi all'esterno delle aree di cantiere designate. Un cantiere comporta macchinari costosi e il rispetto di normative specifiche. Richiede in genere che i macchinari rimangano all'interno del cantiere e non escano senza autorizzazione.
+Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Si consideri uno scenario in cui il direttore di un cantiere di costruzione deve monitorare i potenziali macchinari pericolosi. Il responsabile deve assicurarsi che i macchinari rimangano all'interno delle aree di costruzione complessive. Questa area di costruzione complessiva è un parametro rigido. Le normative richiedono che i macchinari rientrino in questo parametro e che le violazioni vengano segnalate al direttore dei lavori.  
 
-Si userà l'API Caricamento dati di Mappe di Azure per archiviare un recinto virtuale, quindi si userà l'API Recinto virtuale di Mappe di Azure per verificare la posizione dei macchinari rispetto al recinto virtuale. Si userà Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso.
-Per altre informazioni su Griglia di eventi, vedere [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
-In questa esercitazione si apprenderà come:
+Verrà usata l'API Caricamento dati di Mappe di Azure per archiviare un recinto virtuale e si userà l'API Recinto virtuale di Mappe di Azure per verificare la posizione dei macchinari rispetto al recinto virtuale. Sia l'API Caricamento dati che l'API Recinto virtuale sono incluse in Mappe di Azure. Si userà inoltre Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso. Per altre informazioni su Griglia di eventi, vedere [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+
+In questa esercitazione verrà illustrato come:
 
 > [!div class="checklist"]
 > * Caricare l'area del recinto virtuale nel servizio dati di Mappe di Azure usando l'API Caricamento dati.
@@ -36,13 +36,15 @@ In questa esercitazione si apprenderà come:
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
 
-Per completare i passaggi di questa esercitazione, seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
+Creare una sottoscrizione dell'account Mappe di Azure nel piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps). I passaggi descritti in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) illustrano come recuperare la chiave primaria dell'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 ## <a name="upload-geofences"></a>Caricare i recinti virtuali
 
-Per caricare il recinto virtuale per il cantiere con l'API Caricamento dati si userà l'applicazione Postman. Ai fini di questa esercitazione si presuppone che ci sia un'area di cantiere generale che rappresenta un parametro fisso che i macchinari edili non devono violare. La violazione di questo recinto rappresenta un'infrazione grave che viene segnalata al direttore di cantiere. È possibile usare un set ottimizzato di recinti aggiuntivi per tenere traccia delle diverse aree del cantiere generale in base al piano lavori. Si può presupporre che il recinto virtuale principale abbia una sottoarea subsite1 con una data di scadenza definita. È possibile creare più recinti virtuali annidati a seconda delle esigenze. È ad esempio possibile che la sottoarea subsite1 sia il luogo in cui si svolgono i lavori durante le settimane 1-4 del piano lavori e la sottoarea subsite2 sia il luogo in cui si svolgono i lavori durante le settimane 5-7. Tutti questi recinti possono essere caricati come singolo set di dati all'inizio del progetto e usati per tenere traccia delle regole nel tempo e nello spazio. Per altre informazioni sul formato dati del recinto virtuale, vedere [Dati GeoJSON del recinto virtuale](https://docs.microsoft.com/azure/azure-maps/geofence-geojson). Per altre informazioni sul caricamento dei dati nel servizio Mappe di Azure, vedere [Documentazione dell'API Caricamento dati](https://docs.microsoft.com/rest/api/maps/data/uploadpreview).
+Si presuppone che il recinto virtuale principale sia subsite1, per cui è impostata una data di scadenza. È possibile creare più recinti virtuali annidati a seconda delle esigenze. Questi set di recinti consentono di tenere traccia delle diverse aree del cantiere all'interno del cantiere di costruzione complessivo. È ad esempio possibile che subsite1 sia il luogo in cui si svolgono i lavori durante le settimane da 1 a 4 del piano dei lavori e subsite2 sia il luogo in cui si svolgono i lavori durante le settimane da 5 a 7. Tutti questi recinti possono essere caricati come singolo set di dati all'inizio del progetto ed essere usati per tenere traccia delle regole in base al tempo e allo spazio. 
 
-Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale del cantiere usando Mappe di Azure e l'API Caricamento dati.
+Per caricare il recinto virtuale per il cantiere con l'API Caricamento dati si userà l'applicazione Postman. Installare l'[applicazione postman](https://www.getpostman.com/) e creare un account gratuito. 
+
+Dopo aver installato l'app Postman, seguire questi passaggi per caricare il recinto virtuale del cantiere usando l'API Caricamento dati in Mappe di Azure.
 
 1. Aprire l'app Postman e fare clic su New | Create new (Nuovo | Crea nuovo) e selezionare Request (Richiesta). Immettere un nome richiesta per Upload geofence data (Carica dati recinto virtuale), selezionare una raccolta o una cartella per il salvataggio, quindi fare clic su Salva (Save).
 
@@ -56,7 +58,7 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
     
     Il parametro GEOJSON nel percorso URL rappresenta il formato dei dati caricati.
 
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire il valore di subscription-key con la chiave di Mappe di Azure.
+3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare per l'URL della richiesta POST. Sostituire {subscription-key} con la chiave di sottoscrizione primaria di Mappe di Azure, nota anche come chiave primaria.
    
     ![Parametri per il caricamento dei dati (recinto virtuale) in Postman](./media/tutorial-geofence/postman-key-vals.png)
 
@@ -148,19 +150,19 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
    }
    ```
 
-5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. Una volta completata la richiesta, l'intestazione **Location** conterrà l'URI di stato per controllare lo stato corrente della richiesta di caricamento. L'URI di stato avrà il formato seguente. 
+5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. In caso di esito positivo, l'intestazione **Location** conterrà l'URI dello stato. Il formato dell'URI dello stato sarà il seguente. 
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copiare l'URI di stato e aggiungervi un parametro `subscription-key` con un valore corrispondente alla chiave di sottoscrizione dell'account Mappe di Azure. Il formato dell'URI di stato deve essere simile a quello riportato di seguito:
+6. Copiare l'URI dello stato e aggiungere la chiave di sottoscrizione. Il formato dell'URI dello stato deve essere simile a quello riportato di seguito. Si noti che nel formato seguente è necessario modificare {subscription-key}, incluse le parentesi { }, con la chiave di sottoscrizione.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. Per ottenere l'`udId`, aprire una nuova scheda nell'app Postman e selezionare il metodo GET HTTP nella scheda Builder (Generatore) ed effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati è riuscito, si riceverà un udId nel corpo della risposta. Copiare l'udId per un uso successivo.
+7. Per ottenere l'`udId`, aprire una nuova scheda nell'app Postman e selezionare il metodo HTTP GET nella scheda Builder (Generatore) ed effettuare una richiesta GET per l'URI dello stato ottenuto nel passaggio precedente. Se il caricamento dei dati è riuscito, si riceverà il valore di udId nel corpo della risposta. Copiare l'udId per un uso successivo.
 
    ```JSON
    {
@@ -170,31 +172,33 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
 
 ## <a name="set-up-an-event-handler"></a>Configurare un gestore di eventi
 
-Per informare il direttore di cantiere in merito agli eventi di ingresso e uscita è necessario creare un gestore di eventi che riceva le notifiche.
+In questa sezione viene creato un gestore eventi che riceve le notifiche. Il gestore eventi deve notificare al direttore dei lavori gli eventi di ingresso e uscita di qualsiasi macchinario.
 
-Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) per gestire gli eventi di ingresso e uscita. In App per la logica verranno anche creati trigger di evento attivati da questi eventi. L'obiettivo è inviare avvisi, in questo caso messaggi di posta elettronica, al direttore di cantiere ogni volta che i macchinari entrano o escono dal cantiere. La figura seguente illustra la creazione di un'app per la logica per l'evento di ingresso nel recinto virtuale. È possibile crearne un'altra allo stesso modo per l'evento di uscita.
-È possibile vedere tutti i [gestori di eventi supportati](https://docs.microsoft.com/azure/event-grid/event-handlers) per altre informazioni.
+Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) per gestire gli eventi di ingresso e uscita. Quando vengono attivati gli eventi nelle app per la logica, vengono attivati più eventi in sequenza. Verranno quindi inviati avvisi, in questo caso messaggi di posta elettronica, al direttore dei lavori. La figura seguente illustra la creazione di un'app per la logica per l'evento di ingresso nel recinto virtuale. È possibile crearne un'altra allo stesso modo per l'evento di uscita. È possibile vedere tutti i [gestori di eventi supportati](https://docs.microsoft.com/azure/event-grid/event-handlers) per altre informazioni.
 
 1. Creare un'app per la logica nel portale di Azure
 
    ![Creare app per la logica di Azure per gestire gli eventi del recinto virtuale](./media/tutorial-geofence/logic-app.png)
 
-2. Selezionare un trigger di richiesta HTTP e quindi selezionare "Send and email" (Invia una e-mail) come azione nel connettore di Outlook
+2. Dal menu Impostazioni dell'app per la logica passare a **Progettazione app per la logica**
+
+3. Selezionare un trigger di richiesta HTTP e quindi selezionare "Nuovo passaggio". Nel connettore per Outlook selezionare "Invia un messaggio di posta elettronica" come azione
   
    ![Schema di App per la logica](./media/tutorial-geofence/logic-app-schema.png)
 
-3. Salvare l'app per la logica per generare l'endpoint dell'URL HTTP e copiare l'URL HTTP.
+4. Compilare i campi per l'invio di un messaggio di posta elettronica. Lasciare vuoto il campo relativo all'URL HTTP, che verrà generato automaticamente dopo aver fatto clic su "Salva"
 
    ![Generare un endpoint delle app per la logica](./media/tutorial-geofence/logic-app-endpoint.png)
 
+5. Salvare l'app per la logica per generare l'endpoint dell'URL HTTP e copiare l'URL HTTP.
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Creare una sottoscrizione di Eventi di Mappe di Azure
 
-Mappe di Azure supporta tre tipi di eventi. I tipi di eventi supportati da Mappe di Azure sono disponibili [qui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Si creeranno due sottoscrizioni diverse, una per gli eventi di ingresso e l'altra per gli eventi di uscita.
+Mappe di Azure supporta tre tipi di eventi. I tipi di eventi supportati da Mappe di Azure sono disponibili [qui]. https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps Sono necessarie due sottoscrizioni di eventi diverse, una per gli eventi di ingresso e una per gli eventi di uscita.
 
 Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso del recinto virtuale. Allo stesso modo è possibile creare una sottoscrizione per gli eventi di uscita del recinto virtuale.
 
-1. Passare al proprio account di Mappe di Azure tramite [questo collegamento al portale](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/) e selezionare la scheda Eventi.
+1. Passare all'account Mappe di Azure. Nel dashboard selezionare Sottoscrizioni. Fare clic sul nome della sottoscrizione e selezionare **eventi** dal menu Impostazioni.
 
    ![Passare all'account eventi di Mappe di Azure](./media/tutorial-geofence/events-tab.png)
 
@@ -202,23 +206,27 @@ Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso
 
    ![Creare una sottoscrizione di Eventi di Mappe di Azure](./media/tutorial-geofence/create-event-subscription.png)
 
-3. Assegnare un nome alla sottoscrizione e selezionare il tipo di eventi di ingresso. Selezionare ora Web Hook come "Tipo di endpoint" e copiare l'endpoint dell'URL HTTP dell'app per la logica in "Endpoint"
+3. Assegnare un nome alla sottoscrizione e selezionare il tipo di eventi di ingresso. Selezionare Webhook per "Tipo di endpoint". Fare clic su "Seleziona endpoint" e copiare l'endpoint URL HTTP dell'app per la logica in "{Endpoint}"
 
    ![Dettagli della sottoscrizione per Eventi di Mappe di Azure](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>Usare l'API Recinto virtuale
 
-È possibile usare l'API Recinto virtuale per verificare se un **dispositivo** (i macchinari fanno parte dello stato) si trova all'interno o all'esterno di un recinto virtuale. Per comprendere meglio l'API GET Recinto virtuale, verranno eseguite query per i diversi luoghi in cui è transitato un macchinario specifico. La figura seguente illustra cinque posizioni di un particolare macchinario edile con un **ID dispositivo** univoco in ordine cronologico. Ognuna di queste cinque posizioni viene usata per valutare la variazione di stato di ingresso e uscita rispetto al recinto virtuale. Se si verifica una variazione di stato, il servizio del recinto virtuale attiva un evento che viene inviato all'app per la logica dalla griglia di eventi. Di conseguenza, il direttore di cantiere riceverà la notifica di ingresso o uscita corrispondente tramite una e-mail.
+È possibile usare l'API Recinto virtuale per verificare se un **dispositivo**, in questo caso i macchinari, si trovano all'interno o all'esterno di un recinto virtuale. L'API GET per il recinto virtuale eseguirà query su diversi luoghi in cui è transitato un macchinario specifico nel tempo. La figura seguente illustra cinque posizioni con cinque macchinari da costruzione. 
 
 > [!Note]
-> Lo scenario e il comportamento descritti in precedenza si basano sullo stesso **ID dispositivo**, quindi riflettono le cinque posizioni come nella figura seguente.
+> Lo scenario e il comportamento si basano sullo stesso **ID dispositivo**, quindi riflettono le cinque posizioni come nella figura seguente.
+
+"deviceId" è un ID univoco che viene specificato per il dispositivo nella richiesta GET, quando si esegue una query sulla relativa posizione. Quando si esegue una richiesta asincrona all'**API GET di ricerca recinto virtuale**, "deviceId" consente di pubblicare eventi di recinto virtuale per tale dispositivo, in relazione al recinto virtuale specificato. In questa esercitazione sono state inviate richieste asincrone all'API con un "deviceId" univoco. Le richieste nell'esercitazione vengono eseguite in ordine cronologico, come nel diagramma. La proprietà "isEventPublished" nella risposta viene pubblicata ogni volta che un dispositivo entra o esce dal recinto virtuale. Non è necessario registrare un dispositivo per eseguire questa esercitazione.
+
+Si osservi il diagramma. Ognuna di queste cinque posizioni viene usata per valutare la variazione di stato di ingresso e uscita rispetto al recinto virtuale. Se si verifica una variazione di stato, il servizio del recinto virtuale attiva un evento che viene inviato all'app per la logica dalla griglia di eventi. Di conseguenza, il direttore dei lavori riceverà la notifica di ingresso o uscita corrispondente tramite posta elettronica.
 
 ![Mappa del recinto virtuale in Mappe di Azure](./media/tutorial-geofence/geofence.png)
 
 Nell'app Postman aprire una nuova scheda nella stessa raccolta creata in precedenza. Selezionare il metodo HTTP GET nella scheda Builder (Generatore):
 
-Di seguito sono riportate cinque richieste HTTP GET dell'API Geofencing, con le diverse coordinate di posizione dei macchinari in ordine cronologico. Ogni richiesta è seguita dal corpo della risposta.
+Di seguito sono riportate cinque richieste HTTP GET dell'API Recinto virtuale, con le diverse coordinate di posizione del macchinario in ordine cronologico. Ogni richiesta è seguita dal corpo della risposta.
  
 1. Posizione 1:
     
@@ -227,7 +235,7 @@ Di seguito sono riportate cinque richieste HTTP GET dell'API Geofencing, con le 
    ```
    ![Query recinto virtuale 1](./media/tutorial-geofence/geofence-query1.png)
 
-   Se si osserva la risposta precedente, la distanza negativa rispetto al recinto virtuale principale indica che il macchinario si trova all'interno del recinto virtuale, mentre la differenza positiva rispetto al recinto virtuale della sottoarea indica che il macchinario si trova all'esterno del recinto virtuale della sottoarea. 
+   Nella risposta precedente, la distanza negativa dal recinto virtuale principale indica che il macchinario si trova all'interno del recinto virtuale. La distanza positiva dal recinto virtuale della sottoarea indica che il macchinario si trova al di fuori del recinto virtuale della sottoarea. 
 
 2. Posizione 2: 
    
@@ -237,7 +245,7 @@ Di seguito sono riportate cinque richieste HTTP GET dell'API Geofencing, con le 
     
    ![Query recinto virtuale 2](./media/tutorial-geofence/geofence-query2.png)
 
-   Se si osserva attentamente la risposta JSON precedente, il macchinario si trova all'esterno della sottoarea, ma all'interno del recinto principale. Non vengono attivati eventi e non vengono inviate e-mail.
+   Se si osserva attentamente la risposta JSON precedente, il macchinario si trova all'esterno della sottoarea, ma all'interno del recinto principale. Non viene attivato alcun evento e non viene inviato alcun messaggio di posta elettronica.
 
 3. Posizione 3: 
   
@@ -247,7 +255,7 @@ Di seguito sono riportate cinque richieste HTTP GET dell'API Geofencing, con le 
 
    ![Query recinto virtuale 3](./media/tutorial-geofence/geofence-query3.png)
 
-   Si è verificata una variazione di stato e ora il macchinario si trova all'interno del recinto virtuale principale e del recinto della sottoarea. Verrà pubblicato un evento e verrà inviata una e-mail di notifica al direttore di cantiere.
+   Si è verificata una variazione di stato e ora il macchinario si trova all'interno del recinto virtuale principale e del recinto della sottoarea. Questa variazione genera la pubblicazione di un evento e verrà inviata una e-mail di notifica al direttore dei lavori.
 
 4. Posizione 4: 
 
@@ -257,7 +265,7 @@ Di seguito sono riportate cinque richieste HTTP GET dell'API Geofencing, con le 
   
    ![Query recinto virtuale 4](./media/tutorial-geofence/geofence-query4.png)
 
-   Se si osserva attentamente la risposta corrispondente, si può notare che non vengono pubblicati eventi anche se il macchinario è uscito dal recinto virtuale della sottoarea. Se si osserva il tempo specificato dall'utente nella richiesta GET, si può notare che il recinto virtuale della sottoarea è scaduto e il macchinario si trova ancora all'interno del recinto virtuale principale. È anche visibile l'ID geometria del recinto virtuale della sottoarea sotto `expiredGeofenceGeometryId` nel corpo della risposta.
+   Se si osserva attentamente la risposta corrispondente, si può notare che non vengono pubblicati eventi anche se il macchinario è uscito dal recinto virtuale della sottoarea. Se si osserva l'ora specificata dall'utente nella richiesta GET, si può notare che il recinto virtuale del sito secondario è scaduta e il macchinario si trova ancora all'interno del recinto virtuale principale. È anche visibile l'ID geometria del recinto virtuale della sottoarea sotto `expiredGeofenceGeometryId` nel corpo della risposta.
 
 
 5. Posizione 5:
@@ -268,11 +276,11 @@ Di seguito sono riportate cinque richieste HTTP GET dell'API Geofencing, con le 
 
    ![Query recinto virtuale 5](./media/tutorial-geofence/geofence-query5.png)
 
-   Si può vedere che il macchinario è uscito dal recinto virtuale principale del cantiere. Verrà pubblicato un evento in quanto si tratta di una grave violazione e verrà inviata una e-mail di avviso critico al direttore del cantiere.
+   Si può vedere che il macchinario è uscito dal recinto virtuale principale del cantiere. Viene pubblicato un evento e viene inviato un messaggio di posta elettronica di avviso al responsabile dei lavori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come configurare un recinto virtuale caricandolo nel servizio dati di Mappe di Azure con l'API Caricamento dati. Si è anche appreso come usare Griglia di eventi di Mappe di Azure per la sottoscrizione e la gestione di eventi di recinto virtuale. 
+In questa esercitazione si è appreso come configurare un recinto virtuale caricandolo in Mappe di Azure e nel servizio dati con l'API Caricamento dati. Si è anche appreso come usare Griglia di eventi di Mappe di Azure per la sottoscrizione e la gestione di eventi di recinto virtuale. 
 
 * Vedere [Gestire tipi di contenuto in App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type) per informazioni su come usare App per la logica per analizzare codice JSON e compilare una logica più complessa.
 * Per altre informazioni sui gestori di eventi in Griglia di eventi, vedere [Gestori di eventi supportati in Griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-handlers).

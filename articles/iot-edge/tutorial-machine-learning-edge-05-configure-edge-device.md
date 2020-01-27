@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a9f9c6ebd55752ea5a3400da8d42b6c6487277df
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612871"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514647"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Esercitazione: Configurare un dispositivo IoT Edge
 
@@ -135,7 +135,7 @@ Per usare l'immagine del Marketplace in una distribuzione tramite script, è nec
 
 1. Verrà visualizzata la notifica di operazione riuscita.
 
-### <a name="create-virtual-machine"></a>Crea macchina virtuale
+### <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 Eseguire quindi lo script per creare la macchina virtuale per il dispositivo IoT Edge.
 
@@ -262,7 +262,7 @@ Quindi i certificati e il nome host verranno aggiornati modificando direttamente
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Assicurarsi che prima di "certificates:" non siano presenti spazi vuoti e che ogni certificato sia preceduto da due spazi.
+    Assicurarsi che prima della riga **certificates:** non siano presenti spazi vuoti e che per ogni certificato annidato sia impostato un rientro costituito da due spazi.
 
     Fare clic con il pulsante destro del mouse su nano per incollare il contenuto degli Appunti nella posizione corrente del cursore. Usare i tasti di direzione per passare alla stringa da sostituire, eliminarla e quindi fare clic con il pulsane destro del mouse per incollare il contenuto del buffer.
 

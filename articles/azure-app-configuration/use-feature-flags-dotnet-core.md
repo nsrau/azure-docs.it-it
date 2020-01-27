@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4fe49c25ad71c48103f044915d187099b75b3d04
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798383"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121251"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -29,7 +29,7 @@ Le librerie di gestione delle funzionalità gestiscono anche i cicli di vita dei
 
 La guida di avvio rapido [Aggiungere i flag di funzionalità a un'app ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) mostra diversi modi per aggiungere flag di funzionalità in un'applicazione ASP.NET Core. Questa esercitazione illustra questi metodi più dettagliatamente. Per informazioni di riferimento complete, vedere la [documentazione sulla gestione della funzionalità ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere i flag di funzionalità nelle parti chiave dell'applicazione per controllare la disponibilità delle funzionalità.
@@ -177,7 +177,7 @@ Il modello di base di gestione delle funzionalità consiste prima di tutto nel c
 ```csharp
 IFeatureManager featureManager;
 ...
-if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
+if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 {
     // Run the following code
 }
@@ -254,7 +254,7 @@ Il tag di funzionalità `<feature>` può anche essere usato per mostrare il cont
 
 ## <a name="mvc-filters"></a>Filtri MVC
 
-È possibile configurare i filtri MVC in modo da attivarli in base allo stato di un flag di funzionalità. Il codice seguente aggiunge un filtro MVC denominato `SomeMvcFilter`. Questo filtro viene attivato all'interno della pipeline MVC solo se il flag `FeatureA` è attivato.
+È possibile configurare i filtri MVC in modo da attivarli in base allo stato di un flag di funzionalità. Il codice seguente aggiunge un filtro MVC denominato `SomeMvcFilter`. Questo filtro viene attivato all'interno della pipeline MVC solo se il flag `FeatureA` è attivato. Questa funzionalità è limitata a `IAsyncActionFilter`. 
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -267,16 +267,6 @@ public void ConfigureServices(IServiceCollection services)
         options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
     });
 }
-```
-
-## <a name="routes"></a>Route
-
-È possibile usare i flag di funzionalità per esporre in modo dinamico le route. Il codice seguente aggiunge una route, che imposta `Beta` come controller predefinito, solo quando il flag `FeatureA` è attivato:
-
-```csharp
-app.UseMvc(routes => {
-    routes.MapRouteForFeature(nameof(MyFeatureFlags.FeatureA), "betaDefault", "{controller=Beta}/{action=Index}/{id?}");
-});
 ```
 
 ## <a name="middleware"></a>Middleware

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2020
+ms.date: 01/17/2020
 ms.author: banders
-ms.openlocfilehash: 2beb1d3e4468ff96f629dd6ec7015376a7f3a904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 75b6dd1b2d76d12087270e155551402d1bcd4965
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984006"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274021"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Informazioni sulla fattura del contratto Enterprise di Azure
 
@@ -127,7 +127,7 @@ Accedere a [Enterprise Portal](https://ea.azure.com) e quindi selezionare **Repo
 
 ![Screenshot che mostra l'opzione M + C nel Riepilogo uso.](./media/review-enterprise-agreement-bill/ea-portal-usage-sumary-cm-option.png)  
 
-Il totale **Azure Marketplace** deve corrispondere alla **Vendita totale** nella fattura di marketplace. Per ottenere altre informazioni sui propri addebiti basati sull'uso, visitare **Scarica uso**. Sotto **Addebiti Marketplace**, selezionare **Download**. Questo report non include le imposte né mostra gli acquisti una tantum.  
+Il totale **Azure Marketplace** deve corrispondere alla **Vendita totale** nella fattura di marketplace. Per ottenere altre informazioni sui propri addebiti basati sull'uso, visitare **Scarica uso**. Sotto **Addebiti Marketplace**, selezionare **Download**. Il prezzo del Marketplace include un'imposta determinata dall'editore. I clienti non riceveranno una fattura separata dall'editore per l'imposta sulla transazione.
 
 ![Screenshot che mostra l'opzione di download sotto gli addebiti di Marketplace.](./media/review-enterprise-agreement-bill/ea-portal-download-usage-marketplace.png)
 

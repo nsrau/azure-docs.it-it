@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 452efd5c790244ff035f06673342a36522db9580
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e212c95a827b01485d4bdfdc557e459a92162c88
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889021"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263209"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Avvio rapido: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
@@ -54,11 +54,8 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     |**Gruppo di risorse**     | Specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/management/overview.md). |
     |**Posizione**     | Selezionare **Stati Uniti occidentali 2**. Per le altre aree disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).        |
     |**Piano tariffario**     |  Scegliere tra **Standard**, **Premium** e **Versione di valutazione**. Per altre informazioni su questi piani tariffari, vedere la [pagina dei prezzi di Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
-    |**Rete virtuale**     |  Scegliere di distribuire un'area di lavoro di Databricks nella rete virtuale. Per altre informazioni, vedere [Distribuire Azure Databricks nella rete virtuale di Azure (inserimento in rete virtuale)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Selezionare **Create** (Crea).
-
-4. La creazione dell'area di lavoro richiede alcuni minuti, durante i quali è possibile visualizzare lo stato della distribuzione in **Notifiche**.
+4. Selezionare **Rivedi e crea** e quindi **Crea**. La creazione dell'area di lavoro richiede alcuni minuti, durante i quali è possibile visualizzare lo stato della distribuzione in **Notifiche**.
 
     ![Riquadro di distribuzione di Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Riquadro di distribuzione di Databricks")
 
@@ -152,7 +149,7 @@ Eseguire le attività seguenti per creare un blocco appunti in Databricks, confi
    * Impostare **Aggregation** (Aggregazione) su **COUNT** (CONTEGGIO).
    * Impostare il **tipo di visualizzazione** su **Grafico a torta**.
 
-     Fare clic su **Apply**.
+     Fare clic su **Applica**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

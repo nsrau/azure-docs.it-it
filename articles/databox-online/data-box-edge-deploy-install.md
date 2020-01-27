@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476925"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263949"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Esercitazione: Installare Azure Data Box Edge
 
@@ -22,14 +22,14 @@ Questa esercitazione descrive come installare un dispositivo fisico Data Box Edg
 
 Il completamento dell'installazione può richiedere circa due ore.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Disimballare il dispositivo
 > * Montare su rack il dispositivo
 > * Cablare il dispositivo
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I prerequisiti per installare un dispositivo fisico sono i seguenti:
 
@@ -86,7 +86,7 @@ Il dispositivo deve essere installato su un rack standard da 19 pollici. Usare l
 > I dispositivi Data Box Edge devono essere montati su rack per il corretto funzionamento.
 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 - Prima di iniziare, leggere le istruzioni per la sicurezza riportate nell'opuscolo informativo su sicurezza, ambiente e normative spedito con il dispositivo.
 - Iniziare a installare le guide nello spazio assegnato più vicino alla parte inferiore dello scaffale rack.
@@ -154,21 +154,10 @@ Individuare i componenti per l'installazione del gruppo kit di guide:
 
     ![Agganciare e rilasciare il fermo a scatto](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
-### <a name="route-the-cables"></a>Sistemare i cavi
-
-> [!NOTE]
->  Se non si è ordinato il braccio di gestione cavi (CMA, Cable Management Arm) opzionale, usare le due fascette a gancio e occhiello incluse nel kit di guide per sistemare i cavi sul retro del sistema.
-
-1. Individuare le staffe CMA esterne sui lati interni di entrambe le flange del rack.
-2. Avvolgere delicatamente i cavi tirandoli verso sinistra e verso destra dai connettori del sistema.
-3. Infilare le fascette a gancio e occhiello attraverso le fessure delle staffe CMA esterne su ogni lato del sistema per fissare i fasci di cavi.
-
-
-    ![Sistemare i cavi](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Cablare il dispositivo
 
-Le procedure seguenti illustrano come cablare il dispositivo Data Box Edge per l'alimentazione e la rete.
+Sistemare i cavi e quindi cablare il dispositivo. Le procedure seguenti illustrano come cablare il dispositivo Data Box Edge per l'alimentazione e la rete.
 
 Prima di iniziare a collegare il dispositivo, sono necessari gli elementi seguenti:
 

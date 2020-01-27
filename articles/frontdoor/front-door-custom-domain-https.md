@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907850"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512862"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -33,7 +33,7 @@ Di seguito sono riportati alcuni attributi chiave della funzionalità HTTPS pers
 
 - Gestione completa dei certificati: tutta la fase di approvvigionamento e gestione di certificati viene gestita automaticamente. Il provisioning e il rinnovo dei certificati vengono eseguiti automaticamente prima della scadenza. Ciò elimina il rischio di interruzione del servizio a causa della scadenza di un certificato.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > - Abilitare il protocollo HTTPS nel dominio personalizzato
 > - Usare un certificato gestito dal servizio Frontdoor di Azure 
@@ -44,7 +44,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor ed eseguire l'onboarding di almeno un dominio personalizzato. Per altre informazioni, vedere [Esercitazione: Aggiungere un dominio personalizzato alla frontdoor](front-door-custom-domain.md).
 
@@ -65,7 +65,7 @@ Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa p
 
 3. Nella sezione **HTTPS dominio personalizzato** fare clic su **Abilitato** e selezionare **Frontdoor gestita** come origine del certificato.
 
-4. Fare clic su Save.
+4. Fare clic su Salva.
 
 5. Procedere a [Convalidare il dominio](#validate-the-domain).
 
@@ -91,7 +91,7 @@ Per abilitare la funzionalità HTTPS, è possibile usare un certificato personal
 Registrare l'entità servizio per il servizio Frontdoor di Azure come app in Azure Active Directory tramite PowerShell.
 
 > [!NOTE]
-> Questa azione deve essere eseguita **una sola volta** per ogni tenant.
+> Questa azione richiede autorizzazioni di amministratore globale e deve essere eseguita solo **una volta** per ogni tenant.
 
 1. Se necessario, installare [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell nel computer locale.
 
@@ -147,7 +147,7 @@ Se si usa un certificato proprio, la convalida del dominio non è necessaria.
 
 Il record CNAME deve avere il formato seguente, dove *Nome* è il nome del dominio personalizzato e *Valore* è il nome host .azurefd.net predefinito della frontdoor:
 
-| NOME            | Type  | Valore                 |
+| Nome            | Type  | valore                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 

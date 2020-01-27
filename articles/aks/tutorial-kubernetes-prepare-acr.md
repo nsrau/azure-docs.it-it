@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 04fbea9714224f0ecbac0e14618caaf39fa3cedf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614252"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291142"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Esercitazione: Distribuire e usare Registro Azure Container
 
@@ -80,7 +80,7 @@ Per ottenere l'indirizzo del server di accesso, usare il comando [az acr list][a
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Contrassegnare ora l'immagine *azure-vote-front* locale con l'indirizzo *acrloginServer* del registro contenitori. Per indicare la versione dell'immagine, aggiungere *:v1* alla fine del nome dell'immagine:
+Contrassegnare ora l'immagine *azure-vote-front* locale con l'indirizzo *acrLoginServer* del registro contenitori. Per indicare la versione dell'immagine, aggiungere *:v1* alla fine del nome dell'immagine:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1

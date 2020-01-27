@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un asset di Servizi multimediali di Azure | Microsoft Docs
+title: Caricare il contenuto in un asset di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure
 description: Lo script dell'interfaccia della riga di comando di Azure in questo argomento mostra come creare un asset di Servizi multimediali di Azure in cui caricare contenuto.
 services: media-services
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 4b6aebc807426f533bc4c1e2c0405e69c264dc33
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0c24464050d0beee120dcb234582a464d6245270
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235986"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310646"
 ---
 # <a name="cli-example-create-an-asset"></a>Esempio di interfaccia della riga di comando: Creare un asset
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare un asset di Servizi multimediali di Azure in cui caricare contenuto.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Rilocalizzazione grossolana in Objective-C
-description: Descrizione approfondita di come creare e individuare ancoraggi usando sensori su dispositivo in Objective-C.
+description: Descrizione approfondita di come creare e individuare ancoraggi usando la rilocalizzazione grossolana in Objective-C.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d60bb9dbb546db1af6f689dbdcb485354fb7174e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 251f0d8609921bd1d0222d9e30c537ecbb2a04bd
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277231"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548272"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-objective-c"></a>Come creare e individuare ancoraggi usando sensori su dispositivo in Objective-C
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-objective-c"></a>Come creare e individuare ancoraggi usando la rilocalizzazione grossolana in Objective-C
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277231"
 
 Gli ancoraggi nello spazio di Azure possono associare i dati dei sensori di posizionamento su dispositivo agli ancoraggi creati. Questi dati possono anche essere usati per determinare rapidamente se sono presenti ancoraggi vicini al dispositivo. Per altre informazioni, vedere [Rilocalizzazione grossolana](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida, accertarsi di avere:
 

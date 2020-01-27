@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dell'uso di Gestione aggiornam
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3922f8a2478f00c632b6daf294f23c7b5ad8c261
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420650"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310136"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -141,7 +141,7 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
 * **Computer da aggiornare**: Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md)
 
-* **Classificazione aggiornamenti**: selezionare i tipi di software inclusi nella distribuzione degli aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati.
+* **Classificazione aggiornamenti**: Selezionare le classificazioni di aggiornamento supportate disponibili per ogni prodotto da includere nella distribuzione degli aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati.
 
   I tipi di classificazione sono:
 
@@ -156,6 +156,10 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
 > [!NOTE]
 > Tenere presente che le esclusioni eseguono l'override delle inclusioni. Se ad esempio si definisce una regola di esclusione `*`, non vengono installate patch o pacchetti perché vengono tutti esclusi. Le patch escluse vengono ancora visualizzate come mancanti dal computer. Per i computer Linux, se un pacchetto è incluso, ma ha un pacchetto dipendente che è stato escluso, il pacchetto non viene installato.
+
+> [!NOTE]
+> Non è possibile includere aggiornamenti che sono stati sostituiti nella distribuzione degli aggiornamenti.
+>
 
 * **Impostazioni di pianificazione**: apre il riquadro **Impostazioni di pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
 

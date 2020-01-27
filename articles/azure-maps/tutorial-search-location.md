@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Cercare località vicine su una mappa | Mappe di Microsoft Azure'
-description: In questa esercitazione si apprenderà come cercare località vicine (punti di interesse) su una mappa con Mappe di Microsoft Azure.
+description: In questa esercitazione si apprenderà come cercare punti di interesse su una mappa con Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910821"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153021"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -63,13 +63,13 @@ Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente d
 
 ![Ottenere la chiave primaria nel portale di Azure](./media/tutorial-search-location/get-key.png)
 
-Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
 ## <a name="create-a-new-map"></a>Creare una nuova mappa
 
-L'API del controllo mappa è una pratica libreria client che consente di integrare facilmente Mappe in un'applicazione Web. Questa API nasconde la complessità del codice essenziale delle chiamate al servizio REST e consente di migliorare la produttività con componenti personalizzabili. La procedura seguente illustra come creare una pagina HTML statica incorporata usando l'API del controllo mappa.
+L'API Controllo mappa è una pratica libreria client. Questa API consente di integrare facilmente Mappe di Azure nell'applicazione Web. Nasconde la complessità del codice essenziale delle chiamate al servizio REST e consente di migliorare la produttività con componenti personalizzabili. La procedura seguente illustra come creare una pagina HTML statica incorporata usando l'API del controllo mappa.
 
 1. Nel computer locale creare un nuovo file con il nome **MapSearch.html**.
 2. Aggiungere al file i componenti HTML seguenti:
@@ -163,7 +163,7 @@ L'API del controllo mappa è una pratica libreria client che consente di integra
     });
     ```
 
-   In questo segmento di codice viene aggiunto alla mappa un evento `ready` che verrà attivato dopo che le risorse della mappa sono state caricate e la mappa è pronta per l'accesso. Nel gestore dell'evento `ready` della mappa viene creata un'origine dati per archiviare i dati dei risultati. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello consente di specificare la modalità di rendering dei dati dei risultati nell'origine dati. In questo caso verrà usata l'icona di una puntina rotonda di colore blu scuro al centro delle coordinate dei risultati che consente la sovrapposizione di altre icone. Il livello risultati viene aggiunto ai livelli della mappa.
+   In questo segmento di codice viene aggiunto alla mappa un evento `ready` che verrà attivato dopo che le risorse della mappa sono state caricate e la mappa è pronta per l'accesso. Nel gestore dell'evento `ready` della mappa viene creata un'origine dati per archiviare i dati dei risultati. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello specifica il modo in cui deve essere eseguito il rendering dei dati dei risultati nell'origine dati. In questo caso, viene eseguito il rendering del risultato con un'icona a forma di puntina rotonda blu scuro, centrata sulla coordinata dei risultati e che consente la sovrapposizione di altre icone. Il livello risultati viene aggiunto ai livelli della mappa.
 
 <a id="usesearch"></a>
 
@@ -229,9 +229,9 @@ A questo punto la pagina MapSearch può visualizzare le posizioni dei punti di i
 
 ## <a name="add-interactive-data"></a>Aggiungere dati interattivi
 
-La mappa creata finora analizza solo i dati di longitudine/latitudine per i risultati della ricerca. Se si esamina il codice JSON non elaborato restituito dal servizio di ricerca di Mappe, si noterà che contiene anche altre informazioni su ogni stazione, inclusi il nome e il numero civico. È possibile incorporare questi dati nella mappa con finestre popup interattive.
+La mappa creata finora analizza solo i dati di longitudine/latitudine per i risultati della ricerca. Tuttavia, il codice JSON non elaborato restituito dal servizio di ricerca mappe contiene informazioni aggiuntive su ogni stazione di rifornimento, inclusi nome, via e numero civico. È possibile incorporare questi dati nella mappa con finestre popup interattive.
 
-1. Per eseguire una query nel servizio di ricerca fuzzy, aggiungere le righe di codice seguenti nel gestore dell'evento `ready` della mappa dopo il codice. Verrà creata un'istanza di un popup e verrà aggiunto un evento mouseover al livello simboli.
+1. Per eseguire una query nel servizio di ricerca fuzzy, aggiungere le righe di codice seguenti nel gestore dell'evento `ready` della mappa dopo il codice. Il codice creerà un'istanza di finestra popup e verrà aggiunto un evento mouseover al livello simbolo.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

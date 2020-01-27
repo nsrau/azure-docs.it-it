@@ -4,12 +4,12 @@ description: Informazioni su come eseguire la migrazione di macchine virtuali Hy
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a321c3e731a6649f0831f7d515f1c464b311c9ac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028977"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545909"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -181,7 +181,7 @@ Se si tratta della prima VM che si sta replicando nel progetto Azure Migrate, lo
 - **Bus di servizio**: Azure Migrate: Migrazione del server usa il bus di servizio per inviare i messaggi di orchestrazione della replica all'appliance.
 - **Account di archiviazione del gateway**: Azure Migrate: lo strumento Migrazione server usa l'account di archiviazione del gateway per archiviare le informazioni sullo stato delle VM da replicare.
 - **Account di archiviazione di log**: l'appliance di Azure Migrate carica i log di replica per le VM in un account di archiviazione di log. Azure Migrate applica le informazioni di replica ai dischi gestiti dalla replica.
-- **Insieme di credenziali delle chiavi**: l'appliance di Azure Migrate usa l'insieme di credenziali delle chiavi per gestire le stringhe di connessione per il bus di servizio e le chiavi di accesso per gli account di archiviazione usati nella replica. Le autorizzazioni necessarie all'insieme di credenziali delle chiavi per accedere all'account di archiviazione dovrebbero essere state configurate durante la preparazione. [Preparare Azure](tutorial-prepare-hyper-v.md#prepare-azure) per la valutazione e la migrazione di VM Hyper-V. 
+- **Insieme di credenziali delle chiavi**: l'appliance di Azure Migrate usa l'insieme di credenziali delle chiavi per gestire le stringhe di connessione per il bus di servizio e le chiavi di accesso per gli account di archiviazione usati nella replica. Le autorizzazioni necessarie all'insieme di credenziali delle chiavi per accedere all'account di archiviazione dovrebbero essere state configurate durante la [preparazione di Azure](tutorial-prepare-hyper-v.md#prepare-azure) per la valutazione e la migrazione delle macchine virtuali Hyper-V. 
 
 
 ## <a name="track-and-monitor"></a>Tenere traccia e monitorare

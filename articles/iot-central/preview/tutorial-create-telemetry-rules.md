@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 793bb46e14725b14c766569e8b0fc2aa0246858e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3889378f34d66f54ea408da4aa43b12f86e7c586
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979054"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262640"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Esercitazione: Creare una regola e impostare le notifiche nell'applicazione Azure IoT Central (funzionalità in anteprima)
 
@@ -25,21 +25,22 @@ ms.locfileid: "74979054"
 
 I dispositivi usano la telemetria per l'invio di dati numerici dal dispositivo. Una regola viene attivata quando i dati di telemetria del dispositivo selezionato superano una soglia specificata.
 
-In questa esercitazione si crea una regola per l'invio di un messaggio di posta elettronica quando la temperatura di un dispositivo di tipo sensore ambientale supera 80&deg; F (circa 32° C).
+In questa esercitazione verrà creata una regola per l'invio di un messaggio di posta elettronica quando la temperatura di un dispositivo di tipo sensore ambientale supera 70&deg; F (circa 32° C).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Creare una regola
 > * Aggiungere un'azione di posta elettronica
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo di tipo **Sensore ambientale** da usare.
 
 ## <a name="create-a-rule"></a>Creare una regola
 
-Per creare una regola di telemetria, il modello di dispositivo deve disporre di misurazione di almeno una telemetria definita. Questa esercitazione usa un dispositivo di tipo sensore ambientale che invia dati di telemetria relativi a temperatura e umidità. Nell'argomento di avvio rapido [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) è stato aggiunto questo modello di dispositivo ed è stato creato un dispositivo simulato. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 27 gradi.
+Per creare una regola di telemetria, il modello di dispositivo deve disporre di misurazione di almeno una telemetria definita. Questa esercitazione usa un dispositivo di tipo sensore ambientale che invia dati di telemetria relativi a temperatura e umidità. Nell'argomento di avvio rapido [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) è stato aggiunto questo modello di dispositivo ed è stato creato un dispositivo simulato. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 70 gradi.
 
 1. Nel riquadro sinistro selezionare **Regole**.
 
@@ -57,18 +58,18 @@ Per creare una regola di telemetria, il modello di dispositivo deve disporre di 
 
 ### <a name="configure-the-rule-conditions"></a>Configurare le condizioni della regola
 
-Le condizioni definiscono i criteri monitorati dalla regola. In questa esercitazione si configura la regola in modo che si attivi quando la temperatura supera 80&deg; F (circa 32° C).
+Le condizioni definiscono i criteri monitorati dalla regola. In questa esercitazione si configura la regola in modo che si attivi quando la temperatura supera 70&deg; F (circa 32° C).
 
 1. Selezionare **Temperatura** nell'elenco a discesa **Telemetria**.
 
-1. Scegliere quindi **È maggiore di** in **Operatore** e immettere _80_ in **Valore**.
+1. Scegliere quindi **È maggiore di** in **Operatore** e immettere _70_ in **Valore**.
 
     ![Condizione](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
 1. Facoltativamente, è possibile impostare un valore per **Aggregazione temporale**. Quando si seleziona un'aggregazione temporale, è necessario selezionare anche un tipo di aggregazione dall'elenco a discesa Aggregazione, ad esempio Media o Somma.
 
-    * Senza aggregazione, la regola viene attivata per ogni punto dati di telemetria che soddisfa la condizione. Se ad esempio la regola è configurata per attivarsi quando la temperatura è superiore a 80, si attiva quasi immediatamente quando il dispositivo segnala una temperatura > 80.
-    * Con l'aggregazione, la regola si attiva se il valore di aggregazione dei punti dati di telemetria nella finestra dei valori temporali soddisfa la condizione. Se ad esempio la regola è configurata per attivarsi quando la temperatura è superiore a 80, l'aggregazione temporale è impostata su 10 minuti e il tipo di aggregazione è impostato su Media, la regola si attiva quando il dispositivo segnala una temperatura media > 80, calcolata in un intervallo di tempo di 10 minuti.
+    * Senza aggregazione, la regola viene attivata per ogni punto dati di telemetria che soddisfa la condizione. Se ad esempio la regola è configurata per attivarsi quando la temperatura è superiore a 70, si attiva quasi immediatamente quando il dispositivo segnala una temperatura > 70.
+    * Con l'aggregazione, la regola si attiva se il valore di aggregazione dei punti dati di telemetria nella finestra dei valori temporali soddisfa la condizione. Se ad esempio la regola è configurata per attivarsi quando la temperatura è superiore a 70, l'aggregazione temporale è impostata su 10 minuti e il tipo di aggregazione è impostato su Media, la regola si attiva quando il dispositivo segnala una temperatura media > 70, calcolata in un intervallo di tempo di 10 minuti.
 
      ![Condizione di aggregazione](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -109,7 +110,7 @@ Scegliere la regola che si intende abilitare o disabilitare. Aggiungere un filtr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 * Creare una regola basata su dati di telemetria
 * Aggiungere un'azione

@@ -1,6 +1,6 @@
 ---
 title: Esempi dell'interfaccia della riga di comando di Azure - Griglia di eventi | Microsoft Docs
-description: Esempi dell'interfaccia della riga di comando di Azure per la Griglia di eventi
+description: Questo articolo fornisce una tabella che include i collegamenti agli esempi di script dell'interfaccia della riga di comando di Azure per Griglia di eventi.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -8,14 +8,14 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 08/06/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 253086cd655bba87b015fbe41282f6610ace4518
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0cef3f5ae7c647236d52e4c571e5fc382e1560f4
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470979"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514613"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Esempi dell'interfaccia della riga di comando di Azure per la Griglia di eventi
 

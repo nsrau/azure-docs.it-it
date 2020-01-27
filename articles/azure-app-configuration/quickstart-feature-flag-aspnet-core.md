@@ -1,33 +1,25 @@
 ---
-title: Avvio rapido per l'aggiunta di flag di funzionalità ad ASP.NET Core | Microsoft Docs
-description: Avvio rapido per l'aggiunta di flag funzionalità alle app ASP.NET Core e gestione di tali app in Configurazione app di Azure
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
+title: Avvio rapido per l'aggiunta di flag funzionalità ad ASP.NET Core
+description: Aggiungere flag funzionalità alle app ASP.NET Core e gestirli in Configurazione app di Azure
+author: jpconnock
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET Core
-ms.workload: tbd
-ms.date: 04/19/2019
-ms.author: yegu
-ms.openlocfilehash: 1b36bc1b1f28c687450acad4cc61fa5442cff082
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 01/14/2020
+ms.author: jeconnoc
+ms.openlocfilehash: 6858648bc07546f30d4ebb92150c52f8c7729acd
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184996"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260285"
 ---
-# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida introduttiva: Aggiungere i flag di funzionalità a un'app ASP.NET Core
+# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Avvio rapido: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
-In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app Web ASP.NET Core per creare un'implementazione end-to-end della gestione delle funzionalità. È possibile usare il servizio Configurazione app per archiviare tutti i flag di funzionalità in una posizione centralizzata e controllarne gli stati. 
+Questa guida di avvio rapido illustra come creare un'implementazione end-to-end di gestione delle funzionalità in un'applicazione ASP.NET Core tramite Configurazione app di Azure. Verrà usato il servizio Configurazione app per archiviare tutti i flag funzionalità in una posizione centralizzata e controllarne gli stati. 
 
 Le librerie di Gestione funzionalità di .NET Core estendono il framework con il supporto completo per i flag di funzionalità. Queste librerie si basano sul sistema di configurazione di .NET Core. Si integrano facilmente con Configurazione app tramite il provider di configurazione di .NET Core.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -36,15 +28,16 @@ Le librerie di Gestione funzionalità di .NET Core estendono il framework con il
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Gestione funzionalità** >  **+Aggiungi** per aggiungere i flag di funzionalità seguenti:
+6. Selezionare **Gestione funzionalità** >  **+Aggiungi** per aggiungere un flag funzionalità denominato `Beta`.
 
-    | Chiave | Stato |
-    |---|---|
-    | Beta | Off |
+    > [!div class="mx-imgBorder"]
+    > ![Abilitare un flag funzionalità denominato Beta](media/add-beta-feature-flag.png)
+
+    Per il momento lasciare il campo `label` non definito.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 
-È possibile usare l'[interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/) per creare un nuovo progetto di app Web MVC ASP.NET Core. Il vantaggio di usare l'interfaccia della riga di comando di .NET Core anziché Visual Studio è che è disponibile nelle piattaforme Windows, macOS e Linux.
+Usare l'[interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/) per creare un nuovo progetto di app Web MVC ASP.NET Core. Il vantaggio di usare l'interfaccia della riga di comando di .NET Core anziché Visual Studio è che è disponibile nelle piattaforme Windows, macOS e Linux.
 
 1. Creare una nuova cartella per il progetto. Per questo argomento di avvio rapido assegnarle il nome *TestFeatureFlags*.
 
@@ -58,9 +51,13 @@ Le librerie di Gestione funzionalità di .NET Core estendono il framework con il
 
 Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al progetto. Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
 
+> [!IMPORTANT]
+> Esistono differenze significative tra .NET Core 2.x e 3.x.  Selezionare la sintassi corretta in base all'ambiente.
+
 1. Aprire il file con estensione *csproj*.
 1. Aggiungere un elemento `UserSecretsId` come illustrato nell'esempio seguente e sostituire il relativo valore con il proprio, che in genere è un GUID:
 
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -76,16 +73,25 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
     </Project>
     ```
-
-1. Salvare il file.
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    </Project>
+    ```
+    ---
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
 1. Aggiungere il riferimento ai pacchetti NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` e `Microsoft.FeatureManagement.AspNetCore` eseguendo i comandi seguenti:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
     ```
 
 1. Eseguire il comando seguente per ripristinare i pacchetti per il progetto:
@@ -108,19 +114,13 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
     È possibile accedere a questo segreto con l'API Configurazione app. Con tale API è possibile usare i due punti (:) nel nome di configurazione in tutte le piattaforme supportate. Vedere la [configurazione in base all'ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Aprire *Program.cs* e aggiungere un riferimento al provider di Configurazione app .NET Core:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-    ```
-
 1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `config.AddAzureAppConfiguration()`.
     
     > [!IMPORTANT]
     > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
 
-    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Aggiornare `CreateWebHostBuilder` per .NET Core 2.x
-
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -135,8 +135,8 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
             .UseStartup<Startup>();
     ```
 
-    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Aggiornare `CreateHostBuilder` per .NET Core 3.x
-
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -151,7 +151,7 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
         })
         .UseStartup<Startup>());
     ```
-
+    ---
 
 1. Aprire *Startup.cs* e aggiungere i riferimenti alla gestione funzionalità di .NET Core:
 
@@ -161,22 +161,75 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
 1. Aggiornare il metodo `ConfigureServices` per aggiungere il supporto dei flag di funzionalità chiamando il metodo `services.AddFeatureManagement()`. Facoltativamente, includere eventuali filtri da usare con i flag di funzionalità chiamando `services.AddFeatureFilter<FilterType>()`:
 
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);        
         services.AddFeatureManagement();
     }
     ```
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```csharp    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
+    }
+    ```
+    ---
 
 1. Aggiornare il metodo `Configure` per aggiungere un middleware e consentire l'aggiornamento dei valori dei flag di funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
-
+    
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        app.UseAzureAppConfiguration();
-        app.UseMvc();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+            app.UseAzureAppConfiguration();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
     }
     ```
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.UseAzureAppConfiguration();
+    }
+    ```
+    ---
 
 1. Aggiungere un file *MyFeatureFlags.cs*:
 
@@ -278,19 +331,19 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
     dotnet run
     ```
 
-1. Aprire una finestra del browser e passare a `https://localhost:5001`, che è l'URL predefinito per l'app Web ospitata in locale.
+1. Aprire una finestra del browser e passare a `https://localhost:5000`, che è l'URL predefinito per l'app Web ospitata in locale.
+    Se si sta lavorando in Azure Cloud Shell, selezionare il pulsante *Anteprima Web* e quindi *Configura*.  Quando richiesto, selezionare la porta 5000.
 
-    ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+    ![Individuare il pulsante Anteprima Web](./media/quickstarts/cloud-shell-web-preview.png)
+
+    Nel browser verrà visualizzata una pagina simile all'immagine seguente.
+    ![Avvio rapido: avvio dell'app in locale](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di Configurazione app creata nell'argomento di avvio rapido.
 
-1. Selezionare **Gestione funzionalità** e modificare lo stato della chiave **Beta** in **Sì**:
+1. Selezionare **Gestione funzionalità** e modificare lo stato della chiave **Beta** impostandolo su **Sì**.
 
-    | Chiave | Stato |
-    |---|---|
-    | Beta | Attivato |
-
-1. Per riavviare l'applicazione, tornare al prompt dei comandi e premere `Ctrl-C` per annullare il processo `dotnet` in esecuzione e quindi eseguire di nuovo `dotnet run`.
+1. Tornare al prompt dei comandi e annullare il processo `dotnet` in esecuzione premendo `Ctrl-C`.  Riavviare l'applicazione usando `dotnet run`.
 
 1. Aggiornare la pagina del browser per visualizzare le nuove impostazioni di configurazione.
 

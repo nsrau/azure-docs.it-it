@@ -1,6 +1,6 @@
 ---
 title: Rilocalizzazione grossolana in C++/WinRT
-description: Descrizione approfondita di come creare e individuare ancoraggi usando sensori su dispositivo in C++/WinRT.
+description: Descrizione approfondita di come creare e individuare ancoraggi usando la rilocalizzazione grossolana in C++/WinRT.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: dd759ed4cbda936b00ce2ac0946184f9f6581c78
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790360"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548289"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-cwinrt"></a>Come creare e individuare ancoraggi usando sensori su dispositivo in C++/WinRT
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Come creare e individuare ancoraggi usando la rilocalizzazione grossolana in C++/WinRT
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74790360"
 
 Gli ancoraggi nello spazio di Azure possono associare i dati dei sensori di posizionamento su dispositivo agli ancoraggi creati. Questi dati possono anche essere usati per determinare rapidamente se sono presenti ancoraggi vicini al dispositivo. Per altre informazioni, vedere [Rilocalizzazione grossolana](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida, accertarsi di avere:
 

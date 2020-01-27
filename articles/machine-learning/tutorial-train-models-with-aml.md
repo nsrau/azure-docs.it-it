@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab407ffbc0e22a2f65436741ce5c7019ac7fc540
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532464"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261365"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,7 +105,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-or-attach-an-existing-compute-target"></a>Creare una destinazione di calcolo o collegarne una esistente
 
-Con l'ambiente di calcolo di Azure Machine Learning, un servizio gestito, i data scientist possono eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure, ad esempio le macchine virtuali con supporto per GPU. In questa esercitazione verrà creato l'ambiente di calcolo di Azure Machine Learning come ambiente di training. Il codice seguente crea automaticamente i cluster di calcolo se non esistono già nell'area di lavoro.
+Con l'ambiente di calcolo di Azure Machine Learning, un servizio gestito, i data scientist possono eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure, ad esempio le macchine virtuali con supporto per GPU. In questa esercitazione verrà creato l'ambiente di calcolo di Azure Machine Learning come ambiente di training. Il codice Python da eseguire in questa macchina virtuale verrà inviato più avanti nell'esercitazione. 
+
+Il codice seguente crea automaticamente i cluster di calcolo se non esistono già nell'area di lavoro.
 
  **Per la creazione della destinazione di calcolo sono necessari circa cinque minuti.** Se la risorsa di calcolo è già presente nell'area di lavoro, il codice usa tale ambiente e ignora il processo di creazione.
 
@@ -146,7 +148,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-Sono ora disponibili i pacchetti e le risorse di calcolo necessari per eseguire il training di un modello nel cloud.
+Sono ora disponibili i pacchetti e le risorse di calcolo necessari per eseguire il training di un modello nel cloud. 
 
 ## <a name="explore-data"></a>Esplorare i dati
 
@@ -215,7 +217,7 @@ Questo è l'aspetto delle immagini e dei risultati di stima previsti.
 
 ## <a name="train-on-a-remote-cluster"></a>Eseguire il training in un cluster remoto
 
-Per questa attività, inviare il processo al cluster di training remoto impostato in precedenza.  Per inviare un processo, è necessario:
+Per questa attività, inviare il processo al cluster di training remoto configurato in precedenza.  Per inviare un processo, è necessario:
 * Creare una directory
 * Creare uno script di training
 * Creare un oggetto di stima

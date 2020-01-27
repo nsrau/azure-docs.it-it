@@ -1,5 +1,5 @@
 ---
-title: Codificare un file remoto basato su URL ed eseguire lo streaming con Servizi multimediali di Azure - REST | Microsoft Docs
+title: Codificare un file remoto e trasmetterlo in streaming con Servizi multimediali di Azure v3
 description: Seguire i passaggi di questa esercitazione per codificare un file basato su un URL ed eseguire lo streaming dei contenuti con Servizi multimediali di Azure usando REST.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685120"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514341"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
@@ -40,7 +40,7 @@ Questa esercitazione illustra come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 
@@ -252,7 +252,7 @@ Il completamento del processo richiede tempo e al termine dell'elaborazione può
 
 L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Canceling** e, al termine, lo stato **Canceled**.
 
-#### <a name="job-error-codes"></a>Codici errore dei processi
+#### <a name="job-error-codes"></a>Codici di errore dei processi
 
 Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
@@ -392,7 +392,7 @@ Eseguire il comando dell'interfaccia della riga di comando seguente:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback e ottenere aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

@@ -5,17 +5,17 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 5/31/2019
+ms.date: 01/21/2020
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 89bb7014ddb04b63a83dc8c5b520bcf500bdc707
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0269a6c710fe16271e333a1e9414208b278a93d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472717"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310204"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
 Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. In questa guida introduttiva viene distribuito un cluster del servizio Azure Container usando il portale di Azure. Nel cluster verrà eseguita un'applicazione multi-contenitore che include un front-end Web e un'istanza di Redis. Verrà quindi descritto come monitorare l'integrità del cluster e dei pod che eseguono l'applicazione.
 
@@ -29,11 +29,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Per creare un cluster del servizio Azure Kubernetes, seguire questa procedura:
 
-1. Nel menu del portale di Azure o dalla **Home** page selezionare **Crea una risorsa**.
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 
 2. Selezionare **Contenitori** >  **Servizio Kubernetes**.
 
@@ -61,7 +61,7 @@ La creazione del cluster del servizio Azure Kubernetes richiede alcuni minuti. A
 
 ![Esempio di dashboard del servizio Azure Kubernetes nel portale di Azure](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
 Per gestire un cluster Kubernetes, usare [kubectl][kubectl], il client da riga di comando di Kubernetes. Il client `kubectl` è preinstallato in Azure Cloud Shell.
 
@@ -75,7 +75,7 @@ Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il com
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco dei nodi del cluster.
+Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -95,7 +95,7 @@ Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, a
 > [!TIP]
 > In questa guida introduttiva, si creano e distribuiscono manualmente i manifesti dell'applicazione nel cluster servizio Azure Kubernetes. In altre situazioni reali, è possibile usare [Azure Dev Spaces][azure-dev-spaces] per eseguire rapidamente l'iterazione e il debug del codice direttamente nel cluster servizio Azure Kubernetes. È possibile usare Dev Spaces su piattaforme del sistema operativo e ambienti di sviluppo e collaborare con altri utenti nel team.
 
-In Cloud Shell usare `vi` o `azure-vote.yaml` per creare un file denominato `nano` e copiarlo nella definizione YAML seguente:
+In Cloud Shell usare il comando `nano azure-vote.yaml` o `vi azure-vote.yaml` per creare un file denominato `azure-vote.yaml`. Copiare al suo interno la definizione YAML seguente:
 
 ```yaml
 apiVersion: apps/v1
