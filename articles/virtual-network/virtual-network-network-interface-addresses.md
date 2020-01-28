@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647255"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543087"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure
 
@@ -43,7 +43,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 
 ## <a name="add-ip-addresses"></a>Aggiungere indirizzi IP
 
-È possibile aggiungere tutti gli indirizzi IPv4 [pubblici](#public) [](#ipv4) e [privati](#private) necessari a un'interfaccia di rete, entro i limiti elencati nell'articolo relativo ai [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . È possibile aggiungere un indirizzo IPv6 privato a una [configurazione IP secondaria](#secondary) (purché non esistano configurazioni IP secondarie esistenti) per un'interfaccia di rete esistente. Ogni interfaccia di rete può avere al massimo un indirizzo privato IPv6. Facoltativamente, è possibile aggiungere un indirizzo IPv6 pubblico a una configurazione dell'interfaccia di rete IPv6. Vedere [IPv6](#ipv6) per informazioni dettagliate sull'uso di indirizzi IPv6.
+È possibile aggiungere tutti gli indirizzi [IPv4](#ipv4) [pubblici](#public) e [privati](#private) necessari a un'interfaccia di rete, entro i limiti elencati nell'articolo relativo ai [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . È possibile aggiungere un indirizzo IPv6 privato a una [configurazione IP secondaria](#secondary) (purché non esistano configurazioni IP secondarie esistenti) per un'interfaccia di rete esistente. Ogni interfaccia di rete può avere al massimo un indirizzo privato IPv6. Facoltativamente, è possibile aggiungere un indirizzo IPv6 pubblico a una configurazione dell'interfaccia di rete IPv6. Vedere [IPv6](#ipv6) per informazioni dettagliate sull'uso di indirizzi IPv6.
 
 1. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Selezionare **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare l'interfaccia di rete a cui si desidera aggiungere un indirizzo IPv4 dall'elenco.
@@ -146,7 +146,7 @@ In alcuni scenari è necessario impostare manualmente l'indirizzo IP di un'inter
 4. Avviare la macchina virtuale.
 5. [Configurare manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) gli indirizzi IP secondari all'interno del sistema operativo (e anche l'indirizzo IP primario all'interno di Windows), in modo che corrisponda alle impostazioni di Azure.
 
-Seguendo i passaggi precedenti, l'indirizzo IP privato assegnato all'interfaccia di rete all'interno di Azure corrisponderà a quello del sistema operativo della macchina virtuale. Per tenere traccia delle macchine virtuali nella sottoscrizione per cui sono stati impostati manualmente gli indirizzi IP all'interno di un sistema operativo, è possibile aggiungere una [tag](../azure-resource-manager/resource-group-using-tags.md) di Azure alle macchine virtuali. È possibile usare ad esempio "Assegnazione indirizzi IP: statica". In questo modo, è possibile trovare facilmente le macchine virtuali nella sottoscrizione per cui impostare manualmente l'indirizzo IP all'interno del sistema operativo.
+Seguendo i passaggi precedenti, l'indirizzo IP privato assegnato all'interfaccia di rete all'interno di Azure corrisponderà a quello del sistema operativo della macchina virtuale. Per tenere traccia delle macchine virtuali nella sottoscrizione per cui sono stati impostati manualmente gli indirizzi IP all'interno di un sistema operativo, è possibile aggiungere una [tag](../azure-resource-manager/management/tag-resources.md) di Azure alle macchine virtuali. È possibile usare ad esempio "Assegnazione indirizzi IP: statica". In questo modo, è possibile trovare facilmente le macchine virtuali nella sottoscrizione per cui impostare manualmente l'indirizzo IP all'interno del sistema operativo.
 
 Oltre ad abilitare la comunicazione di una macchina virtuale con altre risorse all'interno della stessa rete virtuale o di reti virtuali connesse, un indirizzo IP privato consente inoltre a una macchina virtuale di comunicare in uscita a Internet. Le connessioni in uscita sono indirizzi di rete di origine traslati da Azure in un indirizzo IP pubblico non prevedibile. Per altre informazioni sulla connettività Internet in uscita di Azure, vedere l'articolo [Informazioni sulle connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Non è possibile comunicare verso l'interno con l'indirizzo IP privato di una macchina virtuale da Internet. Se le connessioni in uscita richiedono un indirizzo IP pubblico prevedibile, associare una risorsa di indirizzo IP pubblico a un'interfaccia di rete.
 
