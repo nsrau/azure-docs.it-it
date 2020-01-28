@@ -1,7 +1,7 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby"
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si userà l'API Viso con Ruby per rilevare i visi in un'immagine.
+description: In questo argomento di avvio rapido si userà l'API REST Viso con Ruby per rilevare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ce76136f166660bf34c81aab065ba761e4c2867a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 892e7e0fe362e25cf1ca69146bd27a77baf41f24
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977880"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169444"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Ruby per rilevare i visi umani in un'immagine.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
 - Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Scrivere lo script
@@ -66,7 +66,7 @@ Sarà necessario aggiornare il valore `request['Ocp-Apim-Subscription-Key']` con
 
 Potrebbe anche essere opportuno modificare il campo `imageUri` per puntare alla propria immagine di input, nonché modificare il campo `returnFaceAttributes` che specifica gli attributi del viso da recuperare.
 
-## <a name="run-the-script"></a>Esecuzione dello script
+## <a name="run-the-script"></a>Eseguire lo script
 
 Eseguire lo script Ruby con questo comando:
 
@@ -257,7 +257,7 @@ Nella console verrà visualizzata una stringa JSON dei dati relativi ai visi ril
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è scritto uno script Ruby che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
+In questo argomento di avvio rapido si è scritto uno script Ruby che chiama il servizio Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

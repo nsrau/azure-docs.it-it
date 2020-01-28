@@ -1,5 +1,5 @@
 ---
-title: Integrazione con le app per dispositivi mobili del servizio app
+title: Integrazione di Hub di notifica con le app per dispositivi mobili del servizio app
 description: Informazioni sul funzionamento di Hub di notifica di Azure con le app per dispositivi mobili del servizio app di Azure.
 author: sethmanheim
 manager: femila
@@ -17,16 +17,16 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 09ecc258001dd735b920c3a7cb51d8ce7443ceb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e6c4fb767e6237f390cdb467b35c323f637bebf2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686535"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264153"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>Integrazione con le app per dispositivi mobili del servizio app
 
-Per favorire un'esperienza lineare e uniforme nei servizi di Azure, le [app per dispositivi mobili del servizio app](../app-service-mobile/app-service-mobile-value-prop.md) comprendono il supporto predefinito per le notifiche push mediante Hub di notifica. [app per dispositivi mobili del servizio app](../app-service-mobile/app-service-mobile-value-prop.md) offrono una piattaforma di sviluppo di applicazioni mobili estremamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per gli sviluppatori di soluzioni per dispositivi mobili.
+Per favorire un'esperienza lineare e uniforme nei servizi di Azure, le [app per dispositivi mobili del servizio app](../app-service-mobile/app-service-mobile-value-prop.md) comprendono il supporto predefinito per le notifiche push mediante Hub di notifica. [App per dispositivi mobili del servizio app](../app-service-mobile/app-service-mobile-value-prop.md) offrono una piattaforma di sviluppo di applicazioni mobili estremamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per gli sviluppatori di soluzioni per dispositivi mobili.
 
 Gli sviluppatori di app per dispositivi mobili possono usare gli hub di notifica con il seguente flusso di lavoro:
 

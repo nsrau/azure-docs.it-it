@@ -8,68 +8,97 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707942"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514304"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
-Personalizza esperienze di Azure è un servizio API basato sul cloud che consente all'applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento collettivo in tempo reale.
+Personalizza esperienze di Azure è un servizio API basato sul cloud che consente all'applicazione client di scegliere il singolo elemento di _contenuto_ migliore da mostrare a ogni utente. Il servizio seleziona l'elemento migliore, da elementi di contenuto, in base all'insieme di informazioni in tempo reale fornite in merito al contenuto e al contesto.
 
-* È possibile fornire informazioni sui propri utenti e contenuti e ricevere l'azione principale da mostrare agli utenti. 
-* Non è necessario pulire ed etichettare i dati prima di usare Personalizza esperienze.
-* È possibile fornire il feedback a Personalizza esperienze al momento opportuno. 
-* È possibile visualizzare l'analisi in tempo reale. 
+Dopo aver presentato l'elemento di contenuto all'utente, il sistema monitora il comportamento dell'utente e segnala un punteggio di ricompensa a Personalizza esperienze per migliorarne la capacità di selezionare il contenuto migliore in base alle informazioni di contesto ricevute.
 
-Vedere una dimostrazione del [funzionamento di Personalizza esperienze](https://personalizercontentdemo.azurewebsites.net/).
+Il **contenuto** può essere qualsiasi unità di informazioni, ad esempio testo, immagini, URL o messaggi di posta elettronica, da selezionare e mostrare all'utente.
 
-## <a name="how-does-personalizer-work"></a>Come funziona Personalizza esperienze?
+<!--
+![What is personalizer animation](./media/what-is-personalizer.gif)
+-->
 
-Personalizza esperienze usa modelli di Machine Learning per individuare l'azione di grado più alto in un contesto. L'applicazione client fornisce un elenco di possibili azioni, con informazioni su di esse, e informazioni sul contesto, che può includere informazioni sull'utente, sul dispositivo e così via. Personalizza esperienze determina l'azione da intraprendere. Una volta che l'applicazione client avrà usato l'azione scelta, fornirà il feedback a Personalizza esperienze sotto forma di punteggio. Dopo aver ricevuto il feedback, Personalizza esperienze aggiorna automaticamente il proprio modello usato per le classificazioni future. Con il tempo, Personalizza esperienze eseguirà il training di un modello che può suggerire l'azione migliore da scegliere in ogni contesto in base alle relative funzionalità.
+## <a name="how-does-personalizer-select-the-best-content-item"></a>In che modo Personalizza esperienze seleziona l'elemento di contenuto migliore?
 
-## <a name="how-do-i-use-the-personalizer"></a>Come si usa Personalizza esperienze?
+Personalizza esperienze usa l'**apprendimento per rinforzo** per selezionare l'elemento migliore (_azione_) in base al comportamento collettivo e ai punteggi di ricompensa in tutti gli utenti. Le azioni sono elementi di contenuto, ad esempio articoli di notizie, film specifici o prodotti tra cui scegliere.
 
-![Uso di Personalizza esperienze per scegliere quale video mostrare a un utente](media/what-is-personalizer/personalizer-example-highlevel.png)
+La chiamata **Rank** acquisisce l'elemento azione, insieme alle relative caratteristiche, e le caratteristiche del contesto per selezionare l'elemento azione principale:
 
-1. Scegliere un'esperienza nell'app da personalizzare.
-1. Creare e configurare un'istanza del servizio di personalizzazione nel portale di Azure. Ogni istanza è un ciclo di Personalizza esperienze.
-1. Usare l'[API per la classificazione](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) per chiamare Personalizza esperienze con le informazioni (_funzionalità_) relative agli utenti e sul contenuto (_azioni_). Non è necessario fornire dati puliti ed etichettati prima di usare Personalizza esperienze. Le API possono essere chiamate direttamente o usando gli SDK disponibili per diversi linguaggi di programmazione.
-1. Nell'applicazione client, mostrare all'utente l'azione selezionata da Personalizza esperienze.
-1. Usare l'[API per la ricompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) per inviare il feedback a Personalizza esperienze, indicando se l'utente ha selezionato l'azione di Personalizza esperienze. Si tratta di un _[punteggio di ricompensa](concept-rewards.md)_ .
-1. Visualizzare l'analisi nel portale di Azure per valutare come funziona il sistema e in che modo i dati aiutano la personalizzazione.
+* **Azioni con caratteristiche**: elementi di contenuto con caratteristiche specifiche di ognuno
+* **Caratteristiche del contesto**: caratteristiche degli utenti, del loro contesto o dell'ambiente quando usano l'app
 
-## <a name="where-can-i-use-personalizer"></a>In quali situazioni è possibile usare Personalizza esperienze?
+La chiamata Rank restituisce l'ID dell'elemento di contenuto, ovvero l'__azione__, da mostrare all'utente, nel campo dell'**ID azione ricompensa**.
+L'__azione__ mostrata all'utente viene scelta con modelli di Machine Learning, provando a massimizzare la quantità totale di ricompense nel corso del tempo.
 
-Ad esempio, l'applicazione client può aggiungere Personalizza esperienze per:
+Ecco diversi scenari di esempio:
 
-* Personalizzare l'articolo da evidenziare in un sito Web di notizie.    
-* Ottimizzare il posizionamento degli annunci in un sito Web.
-* Visualizzare un "articolo consigliato" personalizzato in un sito Web di acquisti.
-* Suggerire elementi dell'interfaccia utente, come filtri da applicare a una specifica foto.
-* Scegliere la risposta di un chatbot per chiarire le finalità dell'utente o suggerire un'azione.
-* Classificare in ordine di priorità i suggerimenti dati a un utente riguardo il passaggio successivo in un processo aziendale.
+|Tipo di contenuto|**Azioni (con caratteristiche)**|**Caratteristiche del contesto**|ID azione ricompensa restituito<br>(visualizza questo contenuto)|
+|--|--|--|--|
+|Elenco di notizie|a. `The president...` (nazionale, politica, [testo])<br>b. `Premier League ...` (globale, sport, [testo, immagine, video])<br> c. `Hurricane in the ...` (locale, meteo, [testo, immagine]|Notizie del dispositivo lette da<br>Mese o stagione<br>|a `The president...`|
+|Elenco di film|1. `Star Wars` (1977, [azione, avventura, fantasy], George Lucas)<br>2. `Hoop Dreams` (1994, [documentario, sport], Steve James<br>3. `Casablanca` (1942, [commedia, genere drammatico, guerra], Michael Curtiz)|Film del dispositivo guardato da<br>Dimensioni dello schermo<br>Tipo di utente<br>|3. `Casablanca`|
+|Elenco di prodotti|i. `Product A` (3 kg, €€€€, consegna in 24 ore)<br>ii. `Product B` (20 kg, €€, spedizione in 2 settimane con dogana)<br>iii. `Product C` (3 kg, €€€, consegna in 48 ore)|Acquisti del dispositivo letti da<br>Livello di spesa dell'utente<br>Mese o stagione|ii. `Product B`|
 
-Personalizza esperienze non è un servizio per rendere permanenti e gestire le informazioni del profilo utente o per registrare la cronologia o le preferenze dei singoli utenti. Personalizza esperienze apprende dalle funzionalità di ogni interazione nell'azione di un contesto in un singolo modello in grado di ottenere le massime ricompense quando vengono rilevate funzionalità simili. 
+Personalizza esperienze usa l'apprendimento per rinforzo per selezionare la singola azione migliore, nota come _ID azione ricompensa_, in base a una combinazione di:
+* Modello sottoposto a training: informazioni passate ricevute da Personalizza esperienze
+* Dati correnti: azioni specifiche con caratteristiche e caratteristiche del contesto
 
-## <a name="personalization-for-developers"></a>Personalizzazione per sviluppatori
+## <a name="when-to-call-personalizer"></a>Quando chiamare Personalizza esperienze
 
-Il servizio Personalizza esperienze è caratterizzato da due API:
+L'[API](https://go.microsoft.com/fwlink/?linkid=2092082) **Classificazione** di Personalizza esperienze viene chiamata _ogni volta_ che si presenta contenuto, in tempo reale. Questo scenario è noto come **evento**, contrassegnato con un _ID evento_.
 
-* *Classificazione*: usare l'API Classificazione per determinare quale _azione_ visualizzare nel _contesto_ corrente. Le azioni vengono inviate come una matrice di oggetti JSON, con un ID e informazioni (_funzionalità_) su ognuno. Il contesto viene inviato come un altro oggetto JSON. L'API restituisce l'ID azione che l'applicazione deve mostrare all'utente.
-* *Riconoscimento*: dopo che l'utente interagisce con l'applicazione, è possibile misurare le prestazioni della personalizzazione con un numero compreso tra 0 e 1 e inviare questo valore come [punteggio di ricompensa](concept-rewards.md). 
+L'[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Premio** di Personalizza esperienze può essere chiamata in tempo reale o ritardata in base ai requisiti dell'infrastruttura. Il punteggio di ricompensa viene determinato in base alle esigenze aziendali. Può trattarsi di un valore singolo, ad esempio 1 per positivo e 0 per negativo, o di un numero prodotto da un algoritmo creato considerando gli obiettivi e le metriche aziendali.
 
-![Sequenza di base di eventi per la personalizzazione](media/what-is-personalizer/personalization-intro.png)
+## <a name="personalizer-content-requirements"></a>Requisiti del contenuto di Personalizza esperienze
+
+Usare Personalizza esperienze quando il contenuto:
+
+* Include un set limitato di elementi (massimo circa 50) tra cui selezionare. Se l'elenco è più lungo, [usare un motore di raccomandazioni](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) per ridurlo a 50 elementi.
+* Include informazioni che descrivono il contenuto da classificare: _azioni con caratteristiche_ e _caratteristiche del contesto_.
+* Include almeno circa 1000 eventi correlati al contenuto al giorno affinché Personalizza esperienze sia efficace. Se Personalizza esperienze non riceve il traffico minimo richiesto, il servizio impiega più tempo a determinare il singolo elemento di contenuto migliore.
+
+Poiché Personalizza esperienze usa informazioni collettive quasi in tempo reale per restituire il singolo elemento di contenuto migliore, il servizio non:
+* Gestisce e rende persistenti le informazioni sul profilo utente
+* Registra le preferenze o la cronologia dei singoli utenti
+* Richiede contenuto etichettato e pulito
+
+## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Come progettare e implementare Personalizza esperienze per l'applicazione client
+
+1. [Progettare](concepts-features.md) e pianificare il contenuto, le **_azioni_** e il **_contesto_** . Determinare l'algoritmo di ricompensa per il punteggio di **_ricompensa_** .
+1. Ogni risorsa di [Personalizza esperienze](how-to-settings.md) creata viene considerata 1 ciclo di apprendimento. Il ciclo riceverà le chiamate a Rank e Reward per tale contenuto o esperienza utente.
+1. Aggiungere Personalizza esperienze al sito Web o al sistema di contenuto:
+    1. Aggiungere una chiamata **Rank** a Personalizza esperienze nell'applicazione, nel sito Web o nel sistema per determinare il singolo elemento di _contenuto_ migliore prima che il contenuto venga mostrato all'utente.
+    1. Mostrare all'utente il singolo elemento di _contenuto_ migliore, che corrisponde all'_ID azione ricompensa_ restituito.
+    1. Applicare l'_algoritmo_ alle informazioni raccolte sul comportamento passato dell'utente per determinare il punteggio di **ricompensa**, ad esempio:
+
+        |Comportamento|Punteggio di ricompensa calcolato|
+        |--|--|
+        |L'utente ha selezionato il singolo elemento di _contenuto_ migliore (ID azione ricompensa)|**1**|
+        |L'utente ha selezionato altro contenuto|**0**|
+        |L'utente è in pausa e indeciso prima di selezionare il singolo elemento di _contenuto_ migliore (ID azione ricompensa)|**0,5**|
+
+    1. Aggiungere una chiamata **Reward** per l'invio di un punteggio di ricompensa compreso tra 0 e 1
+        * Immediatamente dopo aver mostrato il contenuto
+        * Oppure più tardi in un sistema offline
+    1. [Valutare il ciclo](concepts-offline-evaluation.md) con una valutazione offline dopo un periodo di utilizzo. La valutazione offline consente di testare e valutare l'efficacia del servizio Personalizza esperienze senza cambiare il codice o influire sull'esperienza utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere le informazioni sulle [novità di Personalizza esperienze](whats-new.md)
-* Vedere le informazioni sul [funzionamento di Personalizza esperienze](how-personalizer-works.md)
+
+* [Funzionamento di Personalizza esperienze](how-personalizer-works.md)
 * Vedere le informazioni su [cos'è l'apprendimento per rinforzo](concepts-reinforcement-learning.md)
 * [Informazioni sulle funzionalità e le azioni per la richiesta di classificazione](concepts-features.md)
 * [Informazioni su come determinare il punteggio per la richiesta di ricompensa](concept-rewards.md)
+* [Guide introduttive]()
+* [Esercitazione]()
 * [Usare la demo interattiva](https://personalizationdemo.azurewebsites.net/)

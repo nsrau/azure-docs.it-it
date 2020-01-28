@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python"
+title: "Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python"
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Python SDK.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 54a028afa9da22bddddb855558668cccb027f70b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68d63fbc71ea2dcd07522c6ba42808f88966cd7b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961047"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166616"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python
 
 Questo articolo mostra come iniziare a usare Custom Vision SDK con Python per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Python 2.7 o 3.5 e versioni successive](https://www.python.org/downloads/)
 - Strumento [pip](https://pip.pypa.io/en/stable/installing/)
@@ -88,6 +88,10 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate.
 
+> [!NOTE]
+> Se non si ha un'utilità di clic e trascinamento per contrassegnare le coordinate delle aree, è possibile usare l'interfaccia utente Web in [Customvision.ai](https://www.customvision.ai/). In questo esempio le coordinate sono già disponibili.
+
+
 Per aggiungere le immagini, i tag e le aree al progetto, inserire il codice seguente dopo la creazione dei tag. Per questa esercitazione le aree sono hardcoded in linea con il codice. Le aree specificano il rettangolo delimitatore in coordinate normalizzate e le coordinate sono specificate in questo ordine: sinistra, alto, larghezza, altezza.
 
 ```Python
@@ -140,9 +144,12 @@ scissors_image_regions = {
 
 Usare quindi questa mappa di associazioni per caricare ogni immagine di esempio con le relative coordinate di area. È possibile caricare fino a 64 immagini in un singolo batch. Aggiungere il codice seguente.
 
+> [!NOTE]
+> Occorrerà anche modificare il percorso delle immagini in base a dove è stato scaricato il repository di esempi di Python SDK per Servizi cognitivi.
+
 ```Python
 # Update this with the path to where you downloaded the images.
-base_image_url = "<path to the images>"
+base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
 
 # Go through the data table above and create the images
 print ("Adding images...")
@@ -172,7 +179,7 @@ if not upload_result.is_batch_successful:
 
 ### <a name="train-the-project-and-publish"></a>Training del progetto e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 ```Python
 import time

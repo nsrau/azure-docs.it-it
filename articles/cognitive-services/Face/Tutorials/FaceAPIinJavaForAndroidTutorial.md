@@ -1,7 +1,7 @@
 ---
 title: "Esercitazione: Rilevare e incorniciare i visi in un'immagine con Android SDK"
 titleSuffix: Azure Cognitive Services
-description: In questa esercitazione verrà creata una semplice app Android che usa l'API Viso per rilevare e incorniciare i visi in un'immagine.
+description: In questa esercitazione verrà creata una semplice app Android che usa il servizio Viso per rilevare e incorniciare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977795"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165972"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 
-In questa esercitazione si creerà un'applicazione Android che usa l'API Viso di Azure, tramite Java SDK, per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
+In questa esercitazione verrà creata un'applicazione Android che usa il servizio Viso di Azure, tramite Java SDK, per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
 
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > - Creare un'applicazione Android
-> - Installare la libreria client dell'API Viso
+> - Installare la libreria client di Viso
 > - Usare la libreria client per rilevare i visi in un'immagine
 > - Tracciare una cornice intorno a ogni viso rilevato
 
@@ -35,9 +35,9 @@ Il codice di esempio completo è disponibile nell'archivio [Cognitive Services F
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) con livello API 22 o successivo (richiesto dalla libreria client del servizio Viso).
 
@@ -115,7 +115,7 @@ Inserire il metodo dell'helper seguente nella classe **MainActivity**. Questo me
 
 Infine, rimuovere il commento dalla chiamata al metodo **detectAndFrame** in **onActivityResult**.
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Eseguire l'applicazione e quindi cercare un'immagine con un viso. Attendere qualche secondo per consentire al servizio Viso di rispondere. Verrà visualizzato un rettangolo rosso intorno a ciascun viso nell'immagine.
 
@@ -123,7 +123,7 @@ Eseguire l'applicazione e quindi cercare un'immagine con un viso. Attendere qual
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso il processo di base per l'uso di Java SDK dell'API Viso ed è stata creata un'applicazione per rilevare e incorniciare i visi in un'immagine. In seguito, si apprenderanno altre informazioni sul rilevamento volto.
+In questa esercitazione si è appreso il processo di base per l'uso di Viso tramite Java SDK ed è stata creata un'applicazione per rilevare e incorniciare visi in un'immagine. In seguito, si apprenderanno altre informazioni sul rilevamento volto.
 
 > [!div class="nextstepaction"]
 > [Come rilevare visi nelle immagini](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

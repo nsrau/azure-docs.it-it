@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con Azure PowerShell | Microsoft Docs
+title: 'Esercitazione: Ridimensionare automaticamente un set di scalabilità con Azure PowerShell'
 description: Informazioni su come ridimensionare automaticamente con Azure PowerShell un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle esigenze in termini di CPU
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677601"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278420"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con Azure PowerShell
 
@@ -72,7 +64,7 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
 
 Per questa regola vengono usati i parametri seguenti:
 
-| Parametro               | Spiegazione                                                                                                         | Valore          |
+| Parametro               | Spiegazione                                                                                                         | valore          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | La metrica delle prestazioni da monitorare e a cui applicare azioni dei set di scalabilità.                                                   | CPU percentuale |
 | *-TimeGrain*            | La frequenza con cui le metriche vengono raccolte per l'analisi.                                                                   | 1 minuto       |
@@ -81,7 +73,7 @@ Per questa regola vengono usati i parametri seguenti:
 | *-Operator*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                     | Maggiore di   |
 | *-Threshold*            | Il valore che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                      | 70%            |
 | *-ScaleActionDirection* | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola.                                             | Aumento       |
-| *–ScaleActionScaleType* | Indica che il numero di istanze di VM dovrà essere modificato di un valore specifico.                                    | ChangeCount   |
+| *-ScaleActionScaleType* | Indica che il numero di istanze di VM dovrà essere modificato di un valore specifico.                                    | ChangeCount   |
 | *-ScaleActionValue*     | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                            | 3              |
 | *-ScaleActionCooldown*  | Il tempo di attesa prima che la regola venga applicata nuovamente in modo che le azioni di scalabilità automatica diventino effettive. | 5 minuti      |
 
@@ -97,7 +89,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
@@ -119,7 +111,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 

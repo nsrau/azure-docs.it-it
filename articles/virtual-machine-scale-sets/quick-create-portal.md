@@ -1,9 +1,7 @@
 ---
 title: 'Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure'
 description: Iniziare a usare le distribuzioni imparando a creare rapidamente un set di scalabilità di macchine virtuali nel portale di Azure.
-services: virtual-machine-scale-sets.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2acde4efa1dc118498f3c7da29c75e48c0478ac0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351136"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543138"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 
@@ -33,7 +31,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Il servizio di [bilanciamento del carico](../load-balancer/load-balancer-overview.md) di Azure consente di distribuire il traffico in arrivo tra istanze integre delle macchine virtuali. 
 
-Creare prima di tutto un servizio Load Balancer Basic pubblico usando il portale. Il nome e l'indirizzo IP pubblico specificati vengono configurati automaticamente come front-end del servizio di bilanciamento del carico.
+Creare prima di tutto un servizio Load Balancer Standard pubblico usando il portale. Il nome e l'indirizzo IP pubblico specificati vengono configurati automaticamente come front-end del servizio di bilanciamento del carico.
 
 1. Nella casella di ricerca digitare **bilanciamento del carico**. Nei risultati della ricerca di **Marketplace** selezionare **Load Balancer**.
 1. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti:

@@ -126,8 +126,10 @@
       href: troubleshoot-powershell.md
     - name: Diagnosticare i problemi di prestazioni della grafica
       href: remotefx-graphics-performance-counters.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
+    - name: Supporto di Linux
+      href: linux-overview.md
     - name: PowerShell
       href: /powershell/windows-virtual-desktop/overview
     - name: API REST

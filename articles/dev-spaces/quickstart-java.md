@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Java nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Java, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 9237137f86bf7b6b30eb908e0acbe3b8b0e624d9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a814516eb002eadb19100182d1917fd4aaa0cec6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867462"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293573"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes con Visual Studio Code e Java - Azure Dev Spaces
 

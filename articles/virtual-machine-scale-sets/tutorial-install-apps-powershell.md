@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Installare applicazioni in un set di scalabilità con Azure PowerShell | Microsoft Docs
+title: 'Esercitazione: Installare applicazioni in un set di scalabilità con Azure PowerShell'
 description: Informazioni su come usare Azure PowerShell per installare applicazioni nei set di scalabilità di macchine virtuali con l'estensione Script personalizzato
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6877ba6240806f3213cadc66fdc74d89b2e9ba31
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5e1b21b1d00defdb090a35c067fa533a482c828d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877982"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271507"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con Azure PowerShell
 

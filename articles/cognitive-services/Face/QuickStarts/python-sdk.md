@@ -9,16 +9,16 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: badfec71ad44fd9eebc748f716301ad6731883cf
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 7ac1b85ee44627990931cfc7b3a65f6f7a661b3f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770357"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165824"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Avvio rapido: Libreria client dell'API Viso per Python
 
-Introduzione alla libreria client dell'API Viso per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio API Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
+Introduzione alla libreria client dell'API Viso per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
 Usare la libreria client dell'API Viso per Python per:
 
@@ -290,5 +290,5 @@ In questa guida di avvio rapido si è appreso come usare la libreria dell'API Vi
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento per l'API Viso (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
 
-* [Informazioni sull'API Viso](../overview.md)
+* [Che cos'è il servizio Viso?](../overview.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

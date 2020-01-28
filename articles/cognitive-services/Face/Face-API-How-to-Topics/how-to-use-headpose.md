@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: 168b4fce873206e39a32a83da3dc5509b431d6a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058586"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169799"
 ---
 # <a name="use-the-headpose-attribute"></a>Usare l'attributo HeadPose
 
@@ -129,8 +129,8 @@ Per rilevamento della vitalità si intende l'attività che consente di determina
 > [!CAUTION]
 > Per rilevare i movimenti della testa in tempo reale, è necessario chiamare l'API Viso con una frequenza elevata (più di una volta al secondo). Se si dispone di una sottoscrizione con livello gratuito (f0), questa operazione non è possibile. Se si dispone di una sottoscrizione a pagamento, assicurarsi di aver calcolato i costi associati all'esecuzione di chiamate API rapide per il rilevamento dei movimenti della testa.
 
-Per un esempio di utilizzo del rilevamento dei movimenti della testa, vedere l'[esempio HeadPose dell'API Viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) su GitHub.
+Per un esempio di utilizzo del rilevamento dei movimenti della testa, vedere l'[esempio HeadPose di Viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) in GitHub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un esempio di utilizzo dei rettangoli del viso rilevati, vedere l'app [WPF Viso di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) su GitHub. In alternativa, vedere l'app dell'[esempio HeadPose dell'API Viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), che tiene traccia dell'attributo HeadPose in tempo reale per rilevare i movimenti della testa.
+Per un esempio di utilizzo dei rettangoli del viso rilevati, vedere l'app [WPF Viso di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) su GitHub. In alternativa, vedere l'app dell'[esempio HeadPose di Viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), che tiene traccia dell'attributo HeadPose in tempo reale per rilevare i movimenti della testa.

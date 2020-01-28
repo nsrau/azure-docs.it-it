@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433310"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262997"
 ---
 # <a name="entity-functions"></a>Funzioni di entità
 
@@ -53,7 +53,9 @@ Le due API distinte per la definizione di entità sono attualmente le seguenti:
 
 **Sintassi basata su funzione** in cui le entità sono rappresentate come funzioni e le operazioni vengono sempre inviate esplicitamente dall'applicazione. Questa sintassi è valida per le entità con uno stato semplice, poche operazioni o un set dinamico di operazioni, ad esempio i framework di applicazioni. Questa sintassi può essere noiosa da gestire perché non rileva gli errori di tipo in fase di compilazione.
 
-**Sintassi basata su classe** in cui le entità e le operazioni sono rappresentate da classi e metodi. Questa sintassi produce codice più facilmente leggibile e consente di richiamare le operazioni in modo indipendente dai tipi. La sintassi basata su classe è un livello sottile sopra la sintassi basata su funzione e quindi entrambe le varianti possono essere usate in modo intercambiabile nella stessa applicazione.
+**Sintassi basata su classe (solo .NET)** in cui le entità e le operazioni sono rappresentate da classi e metodi. Questa sintassi produce codice più facilmente leggibile e consente di richiamare le operazioni in modo indipendente dai tipi. La sintassi basata su classe è un livello sottile sopra la sintassi basata su funzione e quindi entrambe le varianti possono essere usate in modo intercambiabile nella stessa applicazione.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Esempio: Sintassi basata su funzioni - C#
 
@@ -107,11 +109,13 @@ Lo stato di questa entità è un oggetto di tipo `Counter`, che contiene un camp
 
 Per altre informazioni sulla sintassi basata su classe e su come usarla, vedere [Definizione di classi di entità](durable-functions-dotnet-entities.md#defining-entity-classes).
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ### <a name="example-javascript-entity"></a>Esempio: Entità JavaScript
 
 Le entità durevoli sono disponibili in JavaScript a partire dalla versione **1.3.0** del pacchetto npm `durable-functions`. Il codice seguente è l'entità `Counter` implementata come funzione durevole scritta in JavaScript.
 
-**function.json**
+**Counter/function.json**
 ```json
 {
   "bindings": [
@@ -125,7 +129,7 @@ Le entità durevoli sono disponibili in JavaScript a partire dalla versione **1.
 }
 ```
 
-**index.js**
+**Counter/index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -146,6 +150,8 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+---
+
 ## <a name="access-entities"></a>Accedere alle entità
 
 Per accedere alle entità, è possibile usare la comunicazione unidirezionale o bidirezionale. La terminologia seguente distingue le due forme di comunicazione: 
@@ -161,12 +167,14 @@ Per accedere alle entità, è possibile usare la comunicazione unidirezionale o 
 
 Gli esempi seguenti illustrano le diverse modalità di accesso alle entità.
 
-> [!NOTE]
-> Per semplicità, negli esempi seguenti viene illustrata la sintassi a tipizzazione debole per l'accesso alle entità. In generale, è consigliabile [accedere alle entità tramite interfacce](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) per un maggiore controllo del tipo.
-
 ### <a name="example-client-signals-an-entity"></a>Esempio: il client segnala un'entità
 
 Per accedere alle entità da una funzione di Azure ordinaria, detta anche funzione client, usare l'[associazione client di entità](durable-functions-bindings.md#entity-client). L'esempio seguente illustra una funzione attivata da una coda che segnala un'entità usando questa associazione.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+> [!NOTE]
+> Per semplicità, negli esempi seguenti viene illustrata la sintassi a tipizzazione debole per l'accesso alle entità. In generale, è consigliabile [accedere alle entità tramite interfacce](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) per un maggiore controllo del tipo.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -181,6 +189,8 @@ public static Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -191,11 +201,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 Il termine *segnalazione* indica che la chiamata dell'API di entità è unidirezionale e asincrona. Una funzione client non è in grado di riconoscere il momento in cui l'entità ha elaborato l'operazione. Inoltre, la funzione client non può osservare valori di risultati o eccezioni. 
 
 ### <a name="example-client-reads-an-entity-state"></a>Esempio: il client legge uno stato dell'entità
 
 Le funzioni client possono anche eseguire query sullo stato delle entità, come illustrato nell'esempio seguente:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -209,6 +223,8 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -220,11 +236,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 Le query sullo stato dell'entità vengono inviate all'archivio di rilevamento durevole e restituiscono lo stato persistente più recente dell'entità. Lo stato è sempre sottoposto a "commit", ossia non è mai uno stato intermedio temporaneo presupposto durante l'esecuzione di un'operazione. È tuttavia possibile che questo stato sia obsoleto rispetto allo stato in memoria dell'entità. Solo le orchestrazioni possono leggere lo stato in memoria di un'entità, come descritto nella sezione seguente.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>Esempio: l'orchestrazione segnala e chiama un'entità
 
 Le funzioni dell'agente di orchestrazione possono accedere alle entità mediante API nel [binding del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). L'esempio di codice seguente illustra una funzione dell'agente di orchestrazione che chiama e segnala un'entità `Counter`.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -243,6 +263,8 @@ public static async Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -257,6 +279,8 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript attualmente non supporta la segnalazione di un'entità da un agente di orchestrazione. Usare invece `callEntity`.
 
+---
+
 Solo le orchestrazioni sono in grado di chiamare entità e ottenere una risposta, che può essere un valore restituito o un'eccezione. Le funzioni client che usano il [binding client](durable-functions-bindings.md#entity-client) possono solo segnalare entità.
 
 > [!NOTE]
@@ -266,6 +290,8 @@ Solo le orchestrazioni sono in grado di chiamare entità e ottenere una risposta
 
 Una funzione di entità può inviare segnali ad altre entità (o anche a se stessa) durante l'esecuzione di un'operazione.
 È ad esempio possibile modificare l'esempio di entità `Counter` precedente in modo da inviare un segnale "milestone-reached" a un'entità di monitoraggio quando il contatore raggiunge il valore 100.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -280,6 +306,8 @@ Una funzione di entità può inviare segnali ad altre entità (o anche a se stes
         break;
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
     case "add":
         const amount = context.df.getInput();
@@ -291,7 +319,9 @@ Una funzione di entità può inviare segnali ad altre entità (o anche a se stes
         break;
 ```
 
-## <a name="entity-coordination"></a>Coordinamento delle entità
+---
+
+## <a name="entity-coordination"></a>Coordinamento delle entità (attualmente solo .NET)
 
 In alcuni casi può essere necessario coordinare le operazioni tra più entità. In un'applicazione bancaria, ad esempio, potrebbero essere presenti entità che rappresentano singoli conti bancari. Quando si trasferiscono i fondi da un conto a un altro, è necessario verificare che il conto di origine disponga di fondi sufficienti. È anche necessario verificare che gli aggiornamenti per i conti di origine e di destinazione vengano eseguiti in modo coerente a livello di transazione.
 

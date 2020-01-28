@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js'
+title: 'Avvio rapido: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js'
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti tramite l'SDK per Node.js.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 648a9d43f911ffb7f4d6bc97fd63c2ea97ec84e9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 944c3f8fcf440ce71cbb059aff21b7c8b63e74ab
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977438"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166897"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js
 
 Questo articolo mostra come iniziare a usare Custom Vision SDK con Node.js per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la compilazione dell'applicazione Node.js.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Node.js 8](https://www.nodejs.org/en/download/) o versioni successive installato.
 - [npm](https://www.npmjs.com/) installato.
@@ -47,7 +47,7 @@ Creare un nuovo file denominato *sample.js* nella directory del progetto preferi
 
 ### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi della sottoscrizione nelle definizioni appropriate e impostare il valore del percorso sampleDataRoot sul percorso della cartella di immagini. Verificare che il valore dell'endpoint corrisponda agli endpoint di training e di stima creati in [Customvision.ai](https://www.customvision.ai/). Tenere presente che la differenza tra la creazione di un progetto di rilevamento di oggetti e uno di classificazione di immagini è data dal dominio specificato per la chiamata a **create_project**.
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi della sottoscrizione nelle definizioni appropriate e impostare il valore del percorso sampleDataRoot sul percorso della cartella di immagini. Verificare che il valore dell'endpoint corrisponda agli endpoint di training e di stima creati in [Customvision.ai](https://www.customvision.ai/). Tenere presente che la differenza tra la creazione di un progetto di rilevamento di oggetti e uno di classificazione di immagini è data dal dominio specificato nella chiamata **createProject**.
 
 ```javascript
 const fs = require('fs');
@@ -86,7 +86,10 @@ Per creare i tag di classificazione per il progetto, aggiungere il codice seguen
 
 ### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
-Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate.
+Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate. 
+
+> [!NOTE]
+> Se non si ha un'utilità di clic e trascinamento per contrassegnare le coordinate delle aree, è possibile usare l'interfaccia utente Web in [Customvision.ai](https://www.customvision.ai/). In questo esempio le coordinate sono già disponibili.
 
 Per aggiungere le immagini, i tag e le aree al progetto, inserire il codice seguente dopo la creazione dei tag. Si noti che per questa esercitazione le aree sono hardcoded in linea con il codice. Le aree specificano il rettangolo delimitatore in coordinate normalizzate e le coordinate sono specificate in questo ordine: sinistra, alto, larghezza, altezza. È possibile caricare fino a 64 immagini in un singolo batch.
 
@@ -187,7 +190,7 @@ await Promise.all(fileUploadPromises);
 
 ### <a name="train-the-project-and-publish"></a>Training del progetto e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 ```javascript
 console.log("Training...");
@@ -197,6 +200,7 @@ let trainingIteration = await trainer.trainProject(sampleProject.id);
 console.log("Training started...");
 while (trainingIteration.status == "Training") {
     console.log("Training status: " + trainingIteration.status);
+    // wait for one second
     await setTimeoutPromise(1000, null);
     trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
 }

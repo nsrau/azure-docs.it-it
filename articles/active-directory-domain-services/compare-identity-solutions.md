@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 04a1f19ddf894467a9129e8a16c951298a6af529
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2495605cccf658b15e812fd85fd65671e84d15b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474707"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544277"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Confrontare soluzioni Active Directory Domain Services autogestite, Azure Active Directory e Azure Active Directory Domain Services gestite
 
@@ -27,8 +27,8 @@ Nonostante condividano nome e tecnologia, le tre soluzioni di gestione delle ide
     * Active Directory Domain Services è un componente centrale in molte organizzazioni con un ambiente IT locale e offre funzionalità di base per l'autenticazione degli account utente e la gestione dei computer.
 * **Azure Active Directory (Azure AD)** : gestione di dispositivi mobili e identità basata sul cloud che offre servizi di autenticazione e account utente per risorse come Office 365, il portale di Azure o le applicazioni SaaS.
     * È possibile sincronizzare Azure AD con un ambiente Active Directory Domain Services locale per fornire una singola identità agli utenti che lavorano in modo nativo nel cloud.
-* **Azure Active Directory Domain Services (Azure AD DS)** : offre servizi di dominio gestiti con un subset di funzionalità tradizionali di Active Directory Domain Services completamente compatibili, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM.
-    * Azure AD DS si integra con Azure AD, che a propria volta può eseguire la sincronizzazione con un ambiente Active Directory Domain Services locale, per estendere i casi d'uso delle identità centrali alle applicazioni Web tradizionali eseguite in Azure come parte di una strategia lift-and-shift.
+* **Azure Active Directory Domain Services (Azure AD DS)** : offre servizi di dominio gestiti con un sottoinsieme di funzionalità tradizionali di AD DS completamente compatibili, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM.
+    * Azure AD DS si integra con Azure AD, che a sua volta è in grado di eseguire la sincronizzazione con un ambiente di AD DS locale. Questa funzionalità estende i casi d'uso di gestione centrale delle identità alle applicazioni Web tradizionali eseguite in Azure come parte di una strategia lift-and-shift.
 
 Questo articolo di panoramica mette a confronto il modo in cui queste soluzioni di gestione delle identità possono interagire o essere usate in modo indipendente, a seconda delle esigenze dell'organizzazione.
 
@@ -47,8 +47,8 @@ Quando si distribuisce e si esegue un ambiente Active Directory Domain Services 
 
 Di seguito sono illustrati i modelli di distribuzione comuni per un ambiente Active Directory Domain Services autogestito che fornisce identità ad applicazioni e servizi nel cloud.
 
-* **Ambiente Active Directory Domain Services solo cloud autonomo**: le VM di Azure sono configurate come controller di dominio e viene creato un ambiente Active Directory Domain Services solo cloud separato, non integrato con un ambiente Active Directory Domain Services locale. Per accedere alle VM nel cloud e amministrarle viene usato un diverso set di credenziali.
-* **Distribuzione in una foresta di risorse**: le VM di Azure sono configurate come controller di dominio e viene creato un dominio di Active Directory Domain Services come parte di una foresta esistente. Viene quindi configurata una relazione di trust con un ambiente Active Directory Domain Services locale. È possibile aggiungere altre VM di Azure al dominio nella foresta di risorse nel cloud. L'autenticazione utente viene eseguire tramite una connessione VPN/ExpressRoute all'ambiente Active Directory Domain Services locale.
+* **Ambiente AD DS solo cloud autonomo**: le VM di Azure sono configurate come controller di dominio e viene creato un ambiente di AD DS solo cloud separato, non integrato con un ambiente Active Directory Domain Services locale. Per accedere alle VM nel cloud e amministrarle viene usato un diverso set di credenziali.
+* **Distribuzione in una foresta di risorse**: le VM di Azure sono configurate come controller di dominio e viene creato un dominio di AD DS come parte di una foresta esistente. Viene quindi configurata una relazione di trust con un ambiente Active Directory Domain Services locale. È possibile aggiungere altre VM di Azure al dominio nella foresta di risorse nel cloud. L'autenticazione utente viene eseguire tramite una connessione VPN/ExpressRoute all'ambiente Active Directory Domain Services locale.
 * **Estensione del dominio locale in Azure**: una rete virtuale di Azure si connette alla rete locale con una connessione VPN/ExpressRoute. Le VM di Azure si connettono alla rete virtuale di Azure e tramite questa possono essere aggiunte a un dominio nell'ambiente Active Directory Domain Services locale.
     * In alternativa, è possibile creare le VM di Azure e alzarle di livello al ruolo di controller di dominio di replica dal dominio di Active Directory Domain Services locale. Questi controller di dominio eseguono la replica tramite una connessione VPN/ExpressRoute all'ambiente Active Directory Domain Services locale. Il dominio di Active Directory Domain Services locale viene di fatto esteso in Azure.
 
@@ -66,7 +66,7 @@ La tabella seguente illustra alcune funzionalità che potrebbero essere necessar
 | **Struttura personalizzata per le unità organizzative**                           | **&#x2713;** | **&#x2713;** |
 | **Criteri di gruppo**                                  | **&#x2713;** | **&#x2713;** |
 | **Estensioni dello schema**                             | **&#x2715;** | **&#x2713;** |
-| **Trust tra foreste/domini di AD**                     | **&#x2715;** | **&#x2713;** |
+| **Trust tra foreste/domini di AD**                     | **&#x2713;** (solo trust tra foreste in uscita unidirezionali) | **&#x2713;** |
 | **LDAP sicuro (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **Lettura LDAP**                                     | **&#x2713;** | **&#x2713;** |
 | **Scrittura LDAP**                                    | **&#x2713;** (nel dominio gestito) | **&#x2713;** |
@@ -91,8 +91,8 @@ I dispositivi possono essere aggiunti ad Azure AD con o senza una distribuzione 
 | **Tipo di dispositivo**                                        | **Piattaforme**             | **Meccanismo**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
 | Dispositivi personali                                          | Windows 10, iOS, Android, Mac OS | Registrazione in Azure AD    |
-| Dispositivo di proprietà dell'organizzazione non aggiunto a un'istanza locale di Active Directory Domain Services | Windows 10                       | Aggiunta ad Azure AD        |
-| Dispositivo di proprietà dell'organizzazione aggiunto a un'istanza locale di Active Directory Domain Services  | Windows 10                       | Aggiunta a Azure AD ibrido |
+| Dispositivo di proprietà dell'organizzazione non aggiunto a un'istanza locale di AD DS | Windows 10                       | Aggiunta ad Azure AD        |
+| Dispositivo di proprietà dell'organizzazione aggiunto a un'istanza locale di AD DS  | Windows 10                       | Aggiunta a Azure AD ibrido |
 
 In un dispositivo registrato o aggiunto ad Azure AD, l'autenticazione utente viene eseguita con protocolli moderni basati su OAuth/OpenID Connect. Questi protocolli, progettati per funzionare via Internet, sono ideali in scenari per dispositivi mobili in cui gli utenti accedono ovunque alle risorse aziendali.
 

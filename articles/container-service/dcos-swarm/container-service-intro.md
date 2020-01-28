@@ -1,20 +1,18 @@
 ---
 title: (DEPRECATO) Hosting di contenitore Docker nel cloud di Azure
 description: Il servizio Azure Container fornisce un modo per semplificare la creazione, la configurazione e la gestione di un cluster di macchine virtuali che sono preconfigurate per eseguire le applicazioni nei contenitori.
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 957725d40c66ffe9d8d7ce1362279c2bb4d4fded
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f13e3b8c861d963c2e9e0b827ba00ee6fa70d31e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788732"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277811"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(DEPRECATO) Introduzione alle soluzioni di hosting di contenitori Docker con il servizio Azure Container 
 
@@ -29,7 +27,7 @@ Il servizio Azure Container si avvale del formato di contenitore Docker per gara
 Il servizio Azure Container consente di sfruttare i vantaggi delle funzioni di classe enterprise di Azure mantenendo al tempo stesso la portabilità delle applicazioni, inclusi i livelli di orchestrazione.
 
 ## <a name="using-azure-container-service"></a>Utilizzo del servizio Azure Container
-L'obiettivo del servizio Azure Container è fornire un ambiente host contenitore tramite tecnologie e strumenti open source, che sono attualmente diffusi fra i nostri clienti. A tal fine vengono esposti gli endpoint API standard per l'agente di orchestrazione scelto: DC/OS, Docker Swarm o Kubernetes. Tramite questi endpoint è possibile usare qualsiasi software in grado di comunicare con essi. Ad esempio, nel caso dell'endpoint Docker Swarm, è possibile scegliere di usare l'interfaccia della riga di comando (CLI) Docker. Per DC/OS è possibile scegliere l'interfaccia della riga di comando DCOS. Per Kubernetes, è possibile scegliere `kubectl`.
+L'obiettivo del servizio Azure Container è fornire un ambiente di hosting per i contenitori tramite tecnologie e strumenti open source attualmente diffusi tra i nostri utenti. A tal fine vengono esposti gli endpoint API standard per l'agente di orchestrazione scelto: DC/OS, Docker Swarm o Kubernetes. Tramite questi endpoint è possibile usare qualsiasi software in grado di comunicare con essi. Ad esempio, nel caso dell'endpoint Docker Swarm, è possibile scegliere di usare l'interfaccia della riga di comando (CLI) Docker. Per DC/OS è possibile scegliere l'interfaccia della riga di comando DCOS. Per Kubernetes, è possibile scegliere `kubectl`.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Creazione di un cluster Docker con il servizio Azure Container
 Per iniziare a usare il servizio Azure Container, distribuire un cluster del servizio tramite il portale (cercare **servizio Azure Container** nel Marketplace), usando un modello di Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [Controller di dominio/sistema operativo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) o [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) oppure l'[interfaccia della riga di comando di Azure](container-service-create-acs-cluster-cli.md). I modelli di avvio rapido forniti possono essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per altre informazioni, vedere [Distribuire un cluster del servizio Azure Container](container-service-deployment.md).
@@ -58,11 +56,11 @@ Per impostazione predefinita, DC/OS in esecuzione nel servizio Azure Container i
 
 #### <a name="using-marathon"></a>Uso di Marathon
 Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso del servizio Azure Container, in contenitori formattati Docker. Marathon offre un'interfaccia utente Web da cui è possibile distribuire le applicazioni. È possibile accedervi tramite un URL simile a `http://DNS_PREFIX.REGION.cloudapp.azure.com`
-dove DNS\_PREFIX e REGION vengono definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori DC/OS tramite l'interfaccia utente Web di Marathon](container-service-mesos-marathon-ui.md).
+dove DNS\_PREFIX e REGION vengono definiti in fase di distribuzione. È anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori DC/OS tramite l'interfaccia utente Web di Marathon](container-service-mesos-marathon-ui.md).
 
 ![Elenco di applicazioni Marathon](media/dcos/marathon-applications-list.png)
 
-È anche possibile usare le API REST per la comunicazione con Marathon. Esistono una serie di librerie client disponibili per ogni strumento. Coprono un'ampia gamma di linguaggi e, naturalmente, è possibile utilizzare il protocollo HTTP in qualsiasi linguaggio. Inoltre, molti strumenti comuni di DevOps forniscono il supporto per Marathon. Ciò fornisce flessibilità massima per il team operativo quando si lavora con un cluster del servizio Azure Container. Per altre informazioni sull'esecuzione di un contenitore tramite l'API REST di Marathon, vedere [Gestione di contenitori DC/OS tramite l'API REST di Marathon](container-service-mesos-marathon-rest.md).
+È anche possibile usare le API REST per la comunicazione con Marathon. Esistono una serie di librerie client disponibili per ogni strumento. Coprono un'ampia gamma di linguaggi ed è possibile usare il protocollo HTTP in qualsiasi linguaggio. Inoltre, molti strumenti comuni di DevOps forniscono il supporto per Marathon. Ciò fornisce flessibilità massima per il team operativo quando si lavora con un cluster del servizio Azure Container. Per altre informazioni sull'esecuzione di un contenitore tramite l'API REST di Marathon, vedere [Gestione di contenitori DC/OS tramite l'API REST di Marathon](container-service-mesos-marathon-rest.md).
 
 ### <a name="using-docker-swarm"></a>Utilizzo di Docker Swarm
 Docker Swarm fornisce clustering nativo per Docker. Poiché Docker Swarm serve l'API Docker standard, gli strumenti che già comunicano con un daemon Docker possono usare Swarm per la scalabilità trasparente a più host nel servizio Azure Container.

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la finalità tramite browser - LUIS'
+title: 'Avvio rapido: Ottenere la finalità tramite browser - LUIS'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo in un browser.
 services: cognitive-services
@@ -11,28 +11,28 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: a99dbc594b53d00ae02b2581d149fe7b4573ab7d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495223"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165755"
 ---
-# <a name="quickstart-get-intent-with-a-browser"></a>Guida introduttiva: Ottenere la finalità tramite un browser
+# <a name="quickstart-get-intent-with-a-browser"></a>Avvio rapido: Ottenere la finalità tramite un browser
 
 Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un risultato di stima in un Web browser. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
-* La chiave di Language Understanding (LUIS). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/). Non sarà possibile usare la chiave di creazione di LUIS. 
+* La chiave di creazione o di previsioni di LUIS (Language Understanding) che si può ottenere nel [portale LUIS (anteprima)](https://preview.luis.ai/). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
 * L'ID dell'app pubblica: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## <a name="use-the-browser-to-see-predictions"></a>Usare il browser per visualizzare le previsioni
 
 1. Aprire un Web browser. 
-1. Usare gli URL completi seguenti, sostituendo `YOUR-KEY` con la propria chiave LUIS. Le richieste sono richieste GET e includono l'autorizzazione, con la chiave LUIS, come parametro della stringa di query.
+1. Usare gli URL completi seguenti, sostituendo `YOUR-KEY` con la propria chiave di creazione o di previsioni LUIS. Le richieste sono richieste GET e includono l'autorizzazione, con la chiave di creazione o di previsioni LUIS, come parametro della stringa di query.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Richiesta di previsione V3](#tab/V3-1-1)
     

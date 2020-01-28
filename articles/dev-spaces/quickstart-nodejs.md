@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Node.js nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: f96806828b2169e9022b1eaf2ec1819879c729ab
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 557e5a541b175f1641142779de23bb83ab212831
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867712"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290510"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes con Visual Studio Code e Node.js - Azure Dev Spaces
 

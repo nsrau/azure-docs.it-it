@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un progetto di classificazione immagini con Custom Vision SDK per Node.js'
+title: 'Avvio rapido: Creare un progetto di classificazione immagini con Custom Vision SDK per Node.js'
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando Node.js SDK.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 59c0ca0c47a29c4399d0ea0fb88b7d3c69fbc0f3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7490e1261262ff26eec48a691e22ec177954dcf3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976197"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169458"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con Custom Vision SDK per Node.js
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Avvio rapido: Creare un progetto di classificazione immagini con Custom Vision SDK per Node.js
 
 Questo articolo mostra come iniziare a usare Custom Vision SDK con Node.js per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la compilazione dell'applicazione Node.js. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Node.js 8](https://www.nodejs.org/en/download/) o versioni successive installato.
 - [npm](https://www.npmjs.com/) installato.
@@ -46,7 +46,7 @@ Creare un nuovo file denominato *sample.js* nella directory del progetto preferi
 
 ### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi della sottoscrizione nelle definizioni appropriate e impostare il valore del percorso sampleDataRoot sul percorso della cartella di immagini. Verificare che il valore dell'endpoint corrisponda agli endpoint di training e di stima creati in [Customvision.ai](https://www.customvision.ai/).
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi della sottoscrizione nelle definizioni appropriate e impostare il valore del percorso sampleDataRoot sul percorso della cartella di immagini. Verificare che il valore dell'endpoint corrisponda agli endpoint di training e di stima creati in [Customvision.ai](https://www.customvision.ai/). Tenere presente che la differenza tra la creazione di un progetto di rilevamento di oggetti e uno di classificazione di immagini è data dal dominio specificato nella chiamata **createProject**.
 
 ```javascript
 const util = require('util');
@@ -109,7 +109,7 @@ await Promise.all(fileUploadPromises);
 
 ### <a name="train-the-classifier-and-publish"></a>Training del classificatore e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 ```javascript
 console.log("Training...");

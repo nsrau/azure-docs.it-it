@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc721f4521c9ac9b8ed8fed2d6b41f6a1b8bd72
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 68474738aabde1b14752aa33789d7e40c3831908
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846403"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154840"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Esercitazione: Completare l'implementazione di un gruppo pilota per Azure Multi-Factor Authentication
 
@@ -26,7 +26,7 @@ In questa esercitazione vengono descritte le procedure per la configurazione di 
 > * Abilitare Azure Multi-Factor Authentication
 > * Testare Azure Multi-Factor Authentication
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un tenant di Azure AD funzionante, con almeno una licenza di valutazione abilitata.
 * Un account con privilegi di amministratore globale.
@@ -36,10 +36,10 @@ In questa esercitazione vengono descritte le procedure per la configurazione di 
 ## <a name="enable-azure-multi-factor-authentication"></a>Abilitare Azure Multi-Factor Authentication
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
-1. Passare ad **Azure Active Directory** , **Accesso condizionale**
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**
 1. Selezionare **Nuovi criteri**
 1. Assegnare ai criteri il nome **MFA Pilot**
-1. In **Utenti e gruppi** selezionare il pulsante di opzione **Selezionare Utenti e gruppi**
+1. In **Utenti e gruppi** selezionare il pulsante di opzione **Seleziona utenti e gruppi**
     * Selezionare il gruppo pilota creato nella sezione dei prerequisiti di questo articolo.
     * Fare clic su **Fine**
 1. In **App cloud** selezionare il pulsante di opzione **Selezionare le app**
@@ -59,10 +59,10 @@ In questa esercitazione vengono descritte le procedure per la configurazione di 
 Per dimostrare che i criteri di accesso condizionale funzionano, testare l'accesso a una risorsa che non richiede l'autenticazione MFA e quindi al portale di Azure che richiede l'autenticazione MFA.
 
 1. Aprire una nuova finestra del browser in modalità InPrivate o in incognito e passare a [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
-   * Accedere con l'utente di prova creato nella sezione dei prerequisiti di questo articolo e notare che non dovrebbe essere richiesto di completare l'autenticazione MFA.
+   * Eseguire l'accesso con l'utente di prova creato nella sezione dei prerequisiti di questo articolo e notare che non deve essere richiesto di completare l'autenticazione MFA.
    * Chiudere la finestra del browser.
 2. Aprire una nuova finestra del browser in modalità InPrivate o in incognito e passare a [https://portal.azure.com](https://portal.azure.com).
-   * Accedere con l'utente di prova creato nella sezione dei prerequisiti di questo articolo e notare che ora dovrebbe essere richiesto di eseguire la registrazione per l'autenticazione MFA e usarla.
+   * Accedere con l'utente di prova creato nella sezione dei prerequisiti di questo articolo, notare che ora deve essere richiesto di eseguire la registrazione per l'autenticazione MFA e usare tale autenticazione.
    * Chiudere la finestra del browser.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -70,7 +70,7 @@ Per dimostrare che i criteri di accesso condizionale funzionano, testare l'acces
 Se si decide di non volere più usare le funzionalità configurate nell'ambito di questa esercitazione, apportare la modifica seguente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare ad **Azure Active Directory** , **Accesso condizionale**.
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare i criteri di accesso condizionale creati.
 1. Fare clic su **Elimina**.
 

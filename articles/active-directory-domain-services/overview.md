@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: e5e6a2fe856915a3625f22bffa91403e3c036a22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ea0fa0e9d4e475a8496d1ee52b4cdfea11a13d8d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481358"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544106"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Che cos'è Azure Active Directory Domain Services?
 
@@ -38,11 +38,14 @@ Quando si esegue la migrazione dei carichi di lavoro esistenti nel cloud, le app
 
 Gli amministratori IT usano spesso una delle soluzioni seguenti per fornire un servizio di gestione delle identità alle applicazioni che vengono eseguite in Azure:
 
-* Configurare una connessione VPN da sito a sito tra i carichi di lavoro in esecuzione in Azure e l'ambiente di Active Directory Domain Services locale.
-* Creare controller di dominio di replica usando macchine virtuali di Azure per estendere il dominio o la foresta di Active Directory Domain Services.
+* Configurare una connessione VPN da sito a sito tra i carichi di lavoro in esecuzione in Azure e un ambiente di AD DS locale.
+    * I controller di dominio locali forniscono quindi l'autenticazione tramite la connessione VPN.
+* Creare controller di dominio di replica usando macchine virtuali di Azure per estendere il dominio o la foresta di AD DS dall'ambiente locale.
+    * I controller di dominio eseguiti nelle macchine virtuali di Azure forniscono l'autenticazione e replicano le informazioni della directory tra l'ambiente di AD DS locale.
 * Distribuire un ambiente di Active Directory Domain Services autonomo in Azure usando controller di dominio in esecuzione in macchine virtuali di Azure.
+    * I controller di dominio eseguiti nelle macchine virtuali di Azure forniscono l'autenticazione, ma non vengono replicate informazioni della directory da un ambiente di AD DS locale.
 
-Con queste soluzioni, le connessioni VPN alla directory locale rendono le applicazioni vulnerabili a errori o interruzioni di rete temporanee. Se si distribuiscono controller di dominio usando macchine virtuali in Azure, le macchine virtuali del team IT devono eseguire le attività di gestione, protezione, applicazione di patch, monitoraggio, backup e risoluzione dei problemi.
+Con queste soluzioni, le connessioni VPN alla directory locale rendono le applicazioni vulnerabili a errori o interruzioni di rete temporanee. Se si distribuiscono controller di dominio usando macchine virtuali in Azure, il team IT deve gestire le VM, quindi eseguire le attività di protezione, applicazione di patch, monitoraggio, backup e risoluzione dei problemi.
 
 Azure Active Directory Domain Services offre alternative alla necessità di creare connessioni VPN a un ambiente di Active Directory Domain Services locale o di eseguire e gestire macchine virtuali in Azure per fornire servizi di gestione delle identità. Come servizio gestito, Azure Active Directory Domain Services riduce la complessità che comporta la creazione di una soluzione di gestione delle identità integrata per ambienti ibridi e solo cloud.
 
@@ -53,25 +56,26 @@ Per fornire servizi di gestione delle identità ad applicazioni e macchine virtu
 * **Esperienza di distribuzione semplificata:** Azure Active Directory Domain Services viene abilitato per il tenant di Azure AD tramite una singola procedura guidata nel portale di Azure.
 * **Integrazione con Azure AD:** gli account utente, le appartenenze ai gruppi e le credenziali sono automaticamente disponibili dal tenant di Azure AD. I nuovi utenti, i gruppi o le modifiche relative agli attributi dal tenant di Azure AD o dall'ambiente di Active Directory Domain Services locale vengono sincronizzati automaticamente in Azure Active Directory Domain Services.
     * Gli account in directory esterne collegate all'istanza di Azure AD non sono disponibili in Azure Active Directory Domain Services. Le credenziali non sono disponibili per tali directory esterne e quindi non possono essere sincronizzate in un dominio gestito di Azure Active Directory Domain Services.
-* **Usare le credenziali e/o le password aziendali:** le password degli utenti nel tenant di Azure AD sono uguali in Azure Active Directory Domain Services. Gli utenti possono usare le credenziali aziendali per aggiungere macchine virtuali al dominio, accedere in modo interattivo o tramite desktop remoto e autenticarsi nel dominio gestito di Azure Active Directory Domain Services.
+* **Usare le credenziali e/o le password aziendali:** le password degli utenti in Azure AD DS sono uguali a quelle del tenant Azure AD. Gli utenti possono usare le credenziali aziendali per aggiungere macchine virtuali al dominio, accedere in modo interattivo o tramite desktop remoto e autenticarsi nel dominio gestito di Azure Active Directory Domain Services.
 * **Autenticazione NTLM e Kerberos:** con il supporto per l'autenticazione NTLM e Kerberos, è possibile distribuire applicazioni basate sull'autenticazione integrata di Windows.
 * **Disponibilità elevata:** Azure Active Directory Domain Services include più controller di dominio, che garantiscono la disponibilità elevata per il dominio gestito, con conseguenti vantaggi in termini di tempo di attività del servizio e resilienza agli errori.
-    * Nelle aree in cui sono supportate le [zone di disponibilità di Azure][availability-zones], questi controller di dominio vengono distribuiti anche tra le zone per una maggiore resilienza. 
+    * Nelle aree in cui sono supportate le [zone di disponibilità di Azure][availability-zones], questi controller di dominio vengono distribuiti anche tra le zone per una maggiore resilienza.
 
 Alcuni aspetti chiave di un dominio gestito di Azure Active Directory Domain Services includono:
 
 * Il dominio gestito di Azure Active Directory Domain Services è un dominio autonomo. Non è un'estensione di un dominio locale.
+    * Se necessario, è possibile creare trust tra foreste in uscita unidirezionali da Azure AD DS a un ambiente di AD DS locale. Per altre informazioni, vedere [Concetti e funzionalità della foresta di risorse per Azure AD DS][ forest-trusts].
 * Il team IT non deve gestire, applicare patch o monitorare i controller di dominio per questo dominio gestito.
 
 Per gli ambienti ibridi che eseguono Active Directory Domain Services in locale, non è necessario gestire la replica di Active Directory nel dominio gestito di Azure Active Directory Domain Services. Gli account utente, le appartenenze ai gruppi e le credenziali della directory locale vengono sincronizzati in Azure AD tramite [Azure AD Connect][azure-ad-connect]. Gli account utente, le appartenenze ai gruppi e le credenziali sono automaticamente disponibili all'interno del dominio gestito di Azure Active Directory Domain Services.
 
 ## <a name="how-does-azure-ad-ds-work"></a>Come funziona Azure Active Directory Domain Services?
 
-Per fornire servizi di gestione delle identità, Azure crea un'istanza di Active Directory Domain Services disponibile in una rete virtuale scelta dall'utente. Dietro le quinte, e senza la necessità di operazioni di gestione, protezione o aggiornamento, la ridondanza viene fornita tramite una coppia di controller di dominio Windows Server.
+Per fornire servizi di gestione delle identità, Azure crea un'istanza di Active Directory Domain Services disponibile in una rete virtuale scelta dall'utente. Dietro le quinte, viene creata una coppia di controller di dominio di Windows Server in esecuzione in macchine virtuali di Azure. Non è necessario gestire, configurare o aggiornare questi controller di dominio. La piattaforma Azure gestisce i controller di dominio come parte del servizio Azure AD DS.
 
-Il dominio gestito di Azure Active Directory Domain Services è configurato in modo da eseguire una sincronizzazione unidirezionale da Azure AD per consentire l'accesso a un set centrale di utenti, gruppi e credenziali. È possibile creare risorse direttamente nel dominio gestito di Azure Active Directory Domain Services, ma queste non vengono sincronizzate con Azure AD. Le applicazioni, i servizi e le macchine virtuali in Azure che si connettono a questa rete virtuale possono quindi usare le funzionalità comuni di Active Directory Domain Services, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM.
+Il dominio gestito di Azure Active Directory Domain Services è configurato in modo da eseguire una sincronizzazione unidirezionale da Azure AD per consentire l'accesso a un set centrale di utenti, gruppi e credenziali. È possibile creare risorse direttamente nel dominio gestito di Azure AD DS, ma queste non vengono risincronizzate con Azure AD. Le applicazioni, i servizi e le macchine virtuali in Azure che si connettono a questa rete virtuale possono quindi usare le funzionalità comuni di Active Directory Domain Services, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM.
 
-In un ambiente ibrido con un ambiente di Active Directory Domain Services locale, le informazioni sulle identità vengono sincronizzate con Azure AD tramite [Azure AD Connect][azure-ad-connect].
+In un ambiente ibrido con un ambiente di AD DS locale, [Azure AD Connect][azure-ad-connect] sincronizza le informazioni sulle identità con Azure AD e quindi con Azure AD DS.
 
 ![Sincronizzazione in Azure Active Directory Domain Services con Azure AD e Active Directory Domain Services in locale tramite AD Connect](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
@@ -96,13 +100,13 @@ Di seguito è riportato un esempio di Litware Corporation, un'organizzazione ibr
 * Le applicazioni e le macchine virtuali distribuite all'interno della rete virtuale di Azure possono quindi usare le funzionalità di Azure Active Directory Domain Services come l'aggiunta a un dominio, la lettura e il binding LDAP, l'autenticazione NTLM e Kerberos e Criteri di gruppo.
 
 > [!IMPORTANT]
-> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti Active Directory Domain Services locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito di Azure Active Directory Domain Services per sincronizzare gli oggetti con Azure AD.
+> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti AD DS locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito di Azure AD DS per sincronizzare gli oggetti con Azure AD.
 
 ### <a name="azure-ad-ds-for-cloud-only-organizations"></a>Azure Active Directory Domain Services per le organizzazioni solo cloud
 
 Un tenant di Azure AD solo cloud non ha un'origine di identità locale. Gli account utente e le appartenenze ai gruppi, ad esempio, vengono creati e gestiti direttamente in Azure AD.
 
-Si esaminerà ora un esempio per Contoso, un'organizzazione solo cloud che usa solo Azure AD per le identità. Tutte le identità degli utenti, le relative credenziali e le appartenenze ai gruppi vengono create e gestite in Azure AD. Non esiste alcuna configurazione aggiuntiva di Azure AD Connect per sincronizzare le informazioni sulle identità da una directory locale.
+Si esaminerà ora un esempio per Contoso, un'organizzazione solo cloud che usa Azure AD per la gestione delle identità. Tutte le identità degli utenti, le relative credenziali e le appartenenze ai gruppi vengono create e gestite in Azure AD. Non esiste alcuna configurazione aggiuntiva di Azure AD Connect per sincronizzare le informazioni sulle identità da una directory locale.
 
 ![Azure Active Directory Domain Services per un'organizzazione solo cloud senza sincronizzazione in locale](./media/overview/cloud-only-tenant.png)
 
@@ -126,3 +130,4 @@ Per iniziare, [creare un dominio gestito di Azure Active Directory Domain Servic
 [azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 [password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
 [availability-zones]: ../availability-zones/az-overview.md
+[forest-trusts]: concepts-resource-forest.md

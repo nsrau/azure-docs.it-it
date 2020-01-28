@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Analisi del testo v3 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: In questo avvio rapido si rileva la lingua usando l'API REST Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
@@ -8,54 +8,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/15/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-five
-ms.openlocfilehash: edd4c09bb8cf724e293f1f947eab81f0f9f7a7c8
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+zone_pivot_groups: programming-languages-set-six
+ms.openlocfilehash: 41e6828f03533bfd239f6408a580150e614eb5e7
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832216"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281162"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Avvio rapido: Usare la libreria client di Analisi del testo
+# <a name="quickstart-use-the-text-analytics-client-library-v3"></a>Avvio rapido: Usare la libreria client di Analisi del testo v3
 
 Introduzione alla libreria client di Analisi del testo. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
-Usare la libreria client di Analisi del testo per eseguire queste operazioni:
+Usare la libreria client di Analisi del testo versione `3.0-preview` per eseguire:
 
-* Analisi del sentiment
+* Analisi del sentiment (anteprima pubblica)
 * Rilevamento della lingua
-* Riconoscimento delle entità
+* Riconoscimento di entità denominate (anteprima pubblica)
 * Estrazione di frasi chiave
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/v3/csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-ruby"
-
-[!INCLUDE [Ruby quickstart](../includes/quickstarts/ruby-sdk.md)]
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
 
 ::: zone-end
 
@@ -70,7 +64,6 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 
 > [!div class="nextstepaction"]
 > [Esplorare una soluzione](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
-
 
 * [Panoramica di Analisi del testo](../overview.md)
 * [Analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md)

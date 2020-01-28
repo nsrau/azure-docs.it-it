@@ -1,26 +1,26 @@
 ---
-title: Guida introduttiva - Usare il portale di Azure per creare una coda del bus di servizio | Microsoft Docs
+title: Usare il portale di Azure per creare una coda del bus di servizio
 description: Questa guida introduttiva illustra come creare una coda del bus di servizio tramite il portale di Azure. Quindi si userà un'applicazione client di esempio per inviare e ricevere messaggi dalla coda.
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242387"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260838"
 ---
-# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare il portale di Azure per creare una coda del bus di servizio
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Avvio rapido: Usare il portale di Azure per creare una coda del bus di servizio
 L'avvio rapido illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando il [portale di Azure][Azure portal] per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e per ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, accertarsi di avere installato:
 

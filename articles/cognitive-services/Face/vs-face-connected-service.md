@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione: API Viso, C#'
+title: 'Esercitazione: Servizio connesso Viso'
 titleSuffix: Azure Cognitive Services
-description: Creare un'app di Windows che usa l'API Viso di Servizi cognitivi per rilevare le caratteristiche dei volti in un'immagine.
+description: Creare un'app di Windows che usa il servizio Viso di Servizi cognitivi per rilevare le caratteristiche dei visi in un'immagine.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0fe92fc7f19c3c899bcccfa9f9cc18029af049c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970296"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170229"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Connessione all'API Viso di Servizi cognitivi tramite Servizi connessi in Visual Studio
+# <a name="connect-to-the-face-service-by-using-connected-services-in-visual-studio"></a>Connettersi al servizio Viso usando Servizi connessi in Visual Studio
 
-L'API Viso di Servizi cognitivi consente di rilevare, analizzare, organizzare e taggare i visi nelle foto.
+Il servizio Viso di Azure consente di rilevare, analizzare, organizzare e taggare i visi nelle foto.
 
-Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso della funzionalità Servizio connesso di Visual Studio per l'API Viso di Servizi cognitivi. La funzionalità è disponibile in Visual Studio 2017 15.7 o versioni successive, con l'estensione Servizi cognitivi installata.
+Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso della funzionalità Servizi connessi di Visual Studio per il servizio Viso. La funzionalità è disponibile in Visual Studio 2017 15.7 o versioni successive, con l'estensione Servizi cognitivi installata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2017 15.7 o versioni successive con il carico di lavoro **Sviluppo Web** installato. [Scaricarla qui](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Creare un progetto e aggiungere il supporto per l'API Viso di Servizi cognitivi
+## <a name="create-a-project-and-add-support-for-face"></a>Creare un progetto e aggiungere il supporto per Viso
 
 1. Creare un nuovo progetto Web ASP.NET Core. Usare il modello di progetto Vuoto. 
 
@@ -47,16 +47,16 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
 
    ![Selezionare la propria sottoscrizione](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Selezionare la sottoscrizione da usare e quindi scegliere un nome per l'API Viso oppure scegliere il collegamento Modifica per cambiare il nome generato automaticamente, scegliere il gruppo di risorse e il piano tariffario.
+1. Selezionare la sottoscrizione da usare e quindi scegliere un nome per il servizio Viso oppure scegliere il collegamento Modifica per cambiare il nome generato automaticamente, quindi scegliere il gruppo di risorse e il piano tariffario.
 
    ![Modificare i dettagli del servizio connesso](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
    Seguire il collegamento per informazioni dettagliate sui piani tariffari.
 
 1. Fare clic su Aggiungi per aggiungere supporto per il servizio connesso.
-   Visual Studio modifica il progetto per aggiungere i pacchetti NuGet, le voci del file di configurazione e altre modifiche per supportare una connessione all'API Viso.
+   Visual Studio modifica il progetto per aggiungere i pacchetti NuGet, le voci del file di configurazione e altre modifiche per supportare una connessione al servizio Viso.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Usare l'API Viso per rilevare gli attributi dei visi in un'immagine
+## <a name="use-the-face-service-to-detect-attributes-of-faces-in-an-image"></a>Usare il servizio Viso per rilevare gli attributi dei visi in un'immagine
 
 1. Aggiungere le istruzioni using seguenti nel file Startup.cs.
  
@@ -79,7 +79,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
       }
    ```
 
-1. Nella cartella wwwroot del progetto aggiungere una cartella immagini e salvarvi un file di immagine. Si può ad esempio usare una delle immagini in questa [pagina di API Viso](https://azure.microsoft.com/services/cognitive-services/face/). Fare clic con il pulsante destro del mouse su una delle immagini, salvarla nel disco rigido locale, quindi in Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella delle immagini e scegliere **Aggiungi** > **Elemento esistente** per aggiungerla al progetto. Il progetto in Esplora soluzioni avrà un aspetto simile al seguente:
+1. Nella cartella wwwroot del progetto aggiungere una cartella immagini e salvarvi un file di immagine. Si può ad esempio usare una delle immagini in questa [pagina di Viso](https://azure.microsoft.com/services/cognitive-services/face/) del portale di Azure. Fare clic con il pulsante destro del mouse su una delle immagini, salvarla nel disco rigido locale, quindi in Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella delle immagini e scegliere **Aggiungi** > **Elemento esistente** per aggiungerla al progetto. Il progetto in Esplora soluzioni avrà un aspetto simile al seguente:
  
    ![Cartella delle immagini con file di immagine](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -87,7 +87,7 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
 
    ![Copia se più recente](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Sostituire il metodo Configure con il codice seguente per accedere all'API Viso e testare un'immagine. Modificare la stringa imagePath con il percorso e il nome file corretti dell'immagine del viso.
+1. Sostituire il metodo Configure con il codice seguente per accedere al servizio Viso e testare un'immagine. Modificare la stringa imagePath con il percorso e il nome file corretti dell'immagine del viso.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -231,9 +231,9 @@ Questo articolo e i relativi articoli correlati descrivono in dettaglio l'uso de
         }
    ```
 
-1. Eseguire l'applicazione Web e vedere i risultati dell'analisi dell'immagine da parte dell'API Viso.
+1. Eseguire l'applicazione Web e vedere i risultati trovati dal servizio Viso nell'immagine.
  
-   ![Immagine di API Viso e risultati formattati](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Immagine del servizio Viso e risultati formattati](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -245,4 +245,4 @@ Quando non è più necessario, eliminare il gruppo di risorse. In questo modo ve
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'API Viso, vedere la [documentazione dell'API Viso](Overview.md).
+Per altre informazioni sul servizio Viso, vedere la [documentazione di Viso](Overview.md).

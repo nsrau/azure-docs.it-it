@@ -137,6 +137,8 @@
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Richieste di dati del cliente
       href: time-series-insights-customer-data-requests.md
     - name: Roadmap per Azure

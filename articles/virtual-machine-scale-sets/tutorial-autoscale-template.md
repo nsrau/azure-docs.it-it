@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con modelli di Azure | Microsoft Docs
+title: 'Esercitazione: Ridimensionare automaticamente un set di scalabilità con i modelli di Azure'
 description: Informazioni su come usare i modelli di Azure Resource Manager per ridimensionare automaticamente un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle esigenze in termini di CPU
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9d7e0a99a7ba2c00b2ebe5ea8c77d527765ead67
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749194"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271421"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con un modello di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
@@ -71,7 +63,7 @@ Nell'esempio seguente viene definita una regola che aumenta il numero di istanze
 
 Per questa regola vengono usati i parametri seguenti:
 
-| Parametro         | Spiegazione                                                                                                         | Valore           |
+| Parametro         | Spiegazione                                                                                                         | valore           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | La metrica delle prestazioni da monitorare e a cui applicare azioni dei set di scalabilità.                                                   | CPU percentuale  |
 | *timeGrain*       | La frequenza con cui le metriche vengono raccolte per l'analisi.                                                                   | 1 minuto        |

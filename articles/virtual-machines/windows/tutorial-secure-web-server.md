@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2ccddfa9834b51885d827601d348e34698928930
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6185ad4f0e043329c4e833b97a09922ba0238a82
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981240"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264238"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Esercitazione: Proteggere un server Web su una macchina virtuale Windows in Azure con i certificati SSL archiviati in Key Vault
 
 > [!NOTE]
-> Attualmente questa documentazione si applica solo alle immagini generalizzate. Se si prova a eseguire questa esercitazione usando un disco specializzato, si riceverà un errore. 
+> Attualmente questa documentazione si applica solo alle immagini generalizzate. Se si prova a seguire questa esercitazione usando un disco specializzato, si riceverà un errore. 
 
 Per proteggere i server Web, è possibile usare un certificato Secure Sockets Layer (SSL) per crittografare il traffico Web. Questi certificati SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali (VM) Windows in Azure. In questa esercitazione si apprenderà come:
 

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK per Go - Visione personalizzata"
+title: "Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK per Go - Visione personalizzata"
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Go SDK.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 986dbc48bae6cd133e74648ad6e900ba7e515f91
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c6303b494c7ea3a15a38cd5fb8bf6a77b0320363
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970500"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170139"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Go
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Go
 
 Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare l'SDK di Visione personalizzata con Go per compilare un modello di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Go personalizzata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](includes/create-resources.md)]
@@ -110,6 +110,9 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 ### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate.
+
+> [!NOTE]
+> Se non si ha un'utilità di clic e trascinamento per contrassegnare le coordinate delle aree, è possibile usare l'interfaccia utente Web in [Customvision.ai](https://www.customvision.ai/). In questo esempio le coordinate sono già disponibili.
 
 Per aggiungere le immagini, i tag e le aree al progetto, inserire il codice seguente dopo la creazione dei tag. Si noti che in questa esercitazione le aree sono hardcoded inline. Le aree specificano il rettangolo delimitatore in coordinate normalizzate e le coordinate sono specificate in questo ordine: sinistra, alto, larghezza, altezza.
 
@@ -225,7 +228,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 
 ### <a name="train-the-project-and-publish"></a>Training del progetto e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)

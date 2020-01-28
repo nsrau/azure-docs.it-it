@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python"
+title: "Avvio rapido: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python"
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando Python SDK.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 2ea49eaf6fd48207996a92a997f15e5db3d3b199
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ffb12af93e249b0b9bb510d3507a30e67d6cd19f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961081"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169134"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Avvio rapido: Creare un progetto di classificazione immagini con l'SDK Visione personalizzata per Python
 
 Questo articolo mostra come iniziare a usare Custom Vision SDK con Python per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Python 2.7 o 3.5 e versioni successive](https://www.python.org/downloads/)
 - Strumento [pip](https://pip.pypa.io/en/stable/installing/)
@@ -84,10 +84,10 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 Per aggiungere le immagini di esempio al progetto, inserire il codice seguente dopo la creazione dei tag. Questo codice carica ogni immagine con il tag corrispondente. È possibile caricare fino a 64 immagini in un singolo batch.
 
 > [!NOTE]
-> Occorrerà anche modificare il percorso delle immagini in base a dove è stato scaricato il progetto cognitive-services-java-sdk-samples.
+> Occorrerà anche modificare il percorso delle immagini in base a dove è stato scaricato il repository di esempi di Python SDK per Servizi cognitivi.
 
 ```Python
-base_image_url = "<path to project>"
+base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
 
 print("Adding images...")
 
@@ -113,7 +113,7 @@ if not upload_result.is_batch_successful:
 
 ### <a name="train-the-classifier-and-publish"></a>Training del classificatore e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 ```Python
 import time
@@ -171,7 +171,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-Si può quindi verificare che all'immagine di test (disponibile in **<url_immagine_base>/Images/Test/** ) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
+Si può quindi verificare che all'immagine di test (disponibile in **<base_image_url>images/Test/** ) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

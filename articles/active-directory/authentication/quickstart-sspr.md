@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a168f9bf58c4942fc0b76b9ffefc2b32b5bfbe5a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dd178f52665c77f03a48d87a9e73c9019390bb21
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549364"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154857"
 ---
 # <a name="quickstart-configure-azure-active-directory-self-service-password-reset"></a>Avvio rapido: Configurare la reimpostazione della password self-service di Azure Active Directory
 
@@ -71,7 +71,7 @@ Testare quindi la configurazione della reimpostazione della password self-servic
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per disabilitare la reimpostazione della password self-service, cercare e selezionare **Azure Active Directory** nel portale di Azure. Selezionare **Proprietà** > **Reimpostazione password** e quindi scegliere **Nessuno** in **Reimpostazione password self-service abilitata**. Al termine, selezionare **Salva**.
+Per disabilitare la reimpostazione della password self-service, cercare e selezionare **Azure Active Directory** nel portale di Azure. Selezionare **Reimpostazione password** e quindi scegliere **Nessuno** in **Reimpostazione password self-service abilitata**. Al termine, selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

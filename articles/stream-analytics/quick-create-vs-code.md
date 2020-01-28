@@ -4,15 +4,15 @@ description: Questo argomento di avvio rapido descrive come iniziare a creare un
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 09/16/2019
+ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 236d29d2c50a792bc4dc11916964db47ca092807
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659594"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313876"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure in Visual Studio Code (anteprima)
 
@@ -179,9 +179,11 @@ Per altri dettagli, seguire le istruzioni in [Testare le query in locale con dat
    |IoTHubNamespace|MyASAIoTHub|Scegliere o immettere il nome dell'hub IoT. I nomi di hub IoT vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione.|
    |SharedAccessPolicyName|iothubowner| |
 
-   È possibile usare la funzionalità CodeLens per immettere una stringa, selezionare una voce da un elenco a discesa o modificare il testo direttamente nel file. Lo screenshot seguente mostra **Select from your Subscriptions** (Seleziona dalle sottoscrizioni) come esempio.
+   È possibile usare la funzionalità CodeLens per immettere una stringa, selezionare una voce da un elenco a discesa o modificare il testo direttamente nel file. Lo screenshot seguente mostra **Select from your Subscriptions** (Seleziona dalle sottoscrizioni) come esempio. Le credenziali vengono automaticamente elencate e salvate in Gestione credenziali locale.
 
    ![Configurare l'input in Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+   ![Configurare il valore di input in Visual Studio Code](./media/quick-create-vs-code/configure-input-value.png)
 
 ## <a name="preview-input"></a>Visualizzare l'input in anteprima
 

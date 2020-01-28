@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Creare e usare dischi per set di scalabilità con Azure PowerShell | Microsoft Docs
+title: 'Esercitazione: Creare e usare dischi per set di scalabilità con Azure PowerShell'
 description: Informazioni su come usare Azure PowerShell per creare e usare dischi gestiti con set di scalabilità di macchine virtuali e come aggiungere, preparare, elencare e rimuovere dischi.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: ba2d216b9827eeb499df40ceffca16780bdf5a02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728590"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278265"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -55,7 +47,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 | [Ottimizzate per il calcolo](../virtual-machines/windows/sizes-compute.md) | Serie F | 576 |
 | [Ottimizzate per la memoria](../virtual-machines/windows/sizes-memory.md) | Serie D, E, G e M | 6144 |
 | [Ottimizzate per l'archiviazione](../virtual-machines/windows/sizes-storage.md) | Serie L | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Serie N | 1\.440 |
+| [GPU](../virtual-machines/windows/sizes-gpu.md) | Serie N | 1440 |
 | [Prestazioni elevate](../virtual-machines/windows/sizes-hpc.md) | Serie A e H | 2000 |
 
 

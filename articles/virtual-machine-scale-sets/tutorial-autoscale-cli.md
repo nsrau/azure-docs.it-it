@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: "Esercitazione: Ridimensionare automaticamente un set di scalabilità con l'interfaccia della riga di comando di Azure"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per ridimensionare automaticamente un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle richieste in termini di CPU
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4064816ae932a0f26fd3478420c69f3e8fba8732
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9ede78933e6b9e6933b0c5dabce395eb10713c88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751277"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278444"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure
 

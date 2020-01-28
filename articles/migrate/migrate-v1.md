@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 52fe4af87d1f5ed6684896aebf404926691ccb07
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d3dc951c8cb2948a4cd0b9d9f5c2a9b213c6e7e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186530"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514987"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -72,7 +72,7 @@ Una valutazione si articola in tre fasi:
 Un computer passa alla fase successiva soltanto se supera quella precedente. Ad esempio, se un computer non supera il controllo di idoneità, viene contrassegnato come non idoneo per Azure e dimensioni e costi non vengono calcolati.
 
 
-### <a name="review-azure-readiness"></a>Valutare l'idoneità per Azure
+### <a name="review-azure-readiness"></a>Esaminare l'idoneità per Azure
 
 La visualizzazione Idoneità per Azure nella valutazione mostra lo stato di idoneità di ogni macchina virtuale.
 
@@ -216,7 +216,7 @@ Dopo aver configurato un'area di lavoro, è necessario scaricare e installare gl
 4. Copiare l'ID e la chiave dell'area di lavoro. Questi dati sono necessari quando si installa MMA nel computer locale.
 
 > [!NOTE]
-> Per automatizzare l'installazione degli agenti è possibile usare uno strumento di distribuzione come System Center Configuration Manager o uno strumento di partner come [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), che offre una soluzione di distribuzione degli agenti per Azure Migrate.
+> Per automatizzare l'installazione degli agenti è possibile usare uno strumento di distribuzione come Configuration Manager o uno strumento di partner come [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), che offre una soluzione di distribuzione degli agenti per Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Installare l'agente MMA in un computer Windows
@@ -229,7 +229,7 @@ Per installare l'agente in un computer Windows:
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
 
-È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio System Center Configuration Manager. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sull'uso di questi metodi per installare l'agente MMA.
+È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio Configuration Manager. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sull'uso di questi metodi per installare l'agente MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Installare l'agente MMA in un computer Linux
 

@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Creare e usare dischi per set di scalabilità con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: "Esercitazione: Creare e usare dischi per set di scalabilità con l'interfaccia della riga di comando di Azure"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare e usare dischi gestiti con un set di scalabilità di macchine virtuali e come aggiungere, preparare, elencare e rimuovere dischi.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751158"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278240"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -54,7 +46,7 @@ Quando si crea o si ridimensiona un set di scalabilità, vengono automaticamente
 | [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md) | Serie F | 576 |
 | [Ottimizzate per la memoria](../virtual-machines/linux/sizes-memory.md) | Serie D, E, G e M | 6144 |
 | [Ottimizzate per l'archiviazione](../virtual-machines/linux/sizes-storage.md) | Serie L | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Serie N | 1.440 |
+| [GPU](../virtual-machines/linux/sizes-gpu.md) | Serie N | 1440 |
 | [Prestazioni elevate](../virtual-machines/linux/sizes-hpc.md) | Serie A e H | 2000 |
 
 
@@ -84,8 +76,8 @@ I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazio
 ### <a name="premium-disk-performance"></a>Prestazioni disco premium
 |Tipo di disco di Archiviazione Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Dimensioni del disco (arrotondate) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
+| Dimensioni del disco (arrotondate) | 32 GB | 64 GB | 128 GB | 512 GB | 1\.024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
+| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2\.300 | 5\.000 | 7\.500 | 7\.500 |
 Velocità effettiva per disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, una macchina virtuale Standard_GS5 può raggiungere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Dimensioni delle VM Linux](../virtual-machines/linux/sizes.md).

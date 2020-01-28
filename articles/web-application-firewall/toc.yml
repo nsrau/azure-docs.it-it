@@ -108,14 +108,28 @@
           href: ./ag/web-application-firewall-troubleshoot.md
         - name: Log Analytics
           href: ./ag/log-analytics.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Regole CRS
       href: ./ag/application-gateway-crs-rulegroups-rules.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      items:
+        - name: Frontdoor
+          href: 'https://docs.microsoft.com/cli/azure/ext/front-door/network?view=azure-cli-latest'
+        - name: Gateway applicazione
+          href: 'https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest'
     - name: Azure PowerShell
-      href: /powershell/module/az.network/new-azfirewall
+      items:
+        - name: Frontdoor
+          href: 'https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0'
+        - name: Gateway applicazione
+          href: 'https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway'
+    - name: API REST
+      items:
+        - name: Frontdoor
+          href: 'https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies'
+        - name: Gateway applicazione
+          href: 'https://docs.microsoft.com/rest/api/virtualnetwork/webapplicationfirewallpolicies'
     - name: .NET
       href: /dotnet/api
     - name: Java
@@ -124,10 +138,6 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/firewall
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/management/overview.md
 - name: Risorse
   items:
     - name: Creare modelli
@@ -138,5 +148,5 @@
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/web-application-firewall/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'

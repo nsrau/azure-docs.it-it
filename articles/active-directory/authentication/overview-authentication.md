@@ -1,66 +1,99 @@
 ---
-title: Autenticazione e protezione degli utenti - Azure Active Directory
-description: In che modo un amministratore di Azure AD può proteggere l'autenticazione utente, riducendo al tempo stesso l'impatto sugli utenti finali?
+title: Panoramica dell'autenticazione di Azure Active Directory
+description: Informazioni sui diversi metodi di autenticazione e sulle funzionalità di sicurezza per gli accessi utente con Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3077851f5feafdec9d46d9365c45f5729ca2b0b1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9f4c2fa8488490561e8f11746e8e737718ee9f37
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846675"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261263"
 ---
-# <a name="what-methods-are-available-for-authentication"></a>Quali metodi sono disponibili per l'autenticazione?
+# <a name="what-is-azure-active-directory-authentication"></a>Che cos'è l'autenticazione di Azure Active Directory?
 
-Spesso i mezzi di informazione riportano casi di furti di password e identità compromesse. Richiedere un secondo fattore in aggiunta a una password aumenta immediatamente la sicurezza dell'organizzazione. Microsoft Azure Active Directory (Azure AD) include funzionalità, come Azure Multi-Factor Authentication (Azure MFA) e la reimpostazione della password self-service di Azure AD, per consentire agli amministratori di proteggere le organizzazioni e gli utenti con metodi di autenticazione aggiuntivi.
+Una delle principali funzionalità di una piattaforma di gestione delle identità consiste nel verificare, o *autenticare*, le credenziali quando un utente accede a un dispositivo, a un'applicazione o a un servizio. In Azure Active Directory (Azure AD) l'autenticazione non prevede solo la semplice verifica di un nome utente e di una password. Per migliorare la sicurezza e ridurre la necessità di rivolgersi all'help desk per assistenza, l'autenticazione di Azure AD include i componenti seguenti:
 
-Ci sono molti scenari, tra cui accesso a un'applicazione, reimpostazione della password, abilitazione di Windows Hello, in cui è possibile che agli utenti venga chiesto di fornire un'ulteriore verifica per confermarne l'identità.
+* Reimpostazione della password self-service
+* Azure Multi-Factor Authentication
+* Integrazione ibrida per il wiriteback delle modifiche delle password nell'ambiente locale
+* Integrazione ibrida per l'applicazione di criteri di protezione delle password per un ambiente locale
+* Autenticazione senza password
 
-La verifica aggiuntiva può avvenire tramite metodi di autenticazione quali:
+## <a name="improve-the-end-user-experience"></a>Migliorare l'esperienza dell'utente finale
 
-* Un codice fornito in un messaggio di posta elettronica o SMS
-* Una chiamata telefonica
-* Una notifica o un codice sul telefono
-* Risposte alle domande di sicurezza
+Azure AD consente di proteggere l'identità di un utente e di semplificare la sua esperienza di accesso. Funzionalità come la reimpostazione della password self-service consentono agli utenti di aggiornare o cambiare le loro password usando un Web browser da qualsiasi dispositivo. Questa funzionalità è particolarmente utile quando l'utente ha dimenticato la password o se il suo account è bloccato. Senza aspettare il supporto dell'help desk o di un amministratore, un utente può sbloccare il proprio account e continuare a lavorare.
 
-![Pagina di accesso di esempio login.microsoftonline.com in Chrome](media/overview-authentication/overview-login.png)
+Azure Multi-Factor Authentication consente agli utenti di scegliere una forma di autenticazione aggiuntiva durante l'accesso, ad esempio una telefonata o una notifica dell'app per dispositivi mobili. Questa funzionalità riduce la necessità di una singola forma fissa di autenticazione secondaria, come un token hardware. Se l'utente attualmente non ha una forma di autenticazione aggiuntiva, può scegliere un metodo diverso e continuare a lavorare.
 
-Azure Multi-Factor Authentication e la reimpostazione della password self-service di Azure AD consentono agli amministratori di controllare la configurazione, i criteri, il monitoraggio e i report tramite Azure AD e portale di Azure per proteggere le organizzazioni.
+![Metodi di autenticazione in uso nella schermata di accesso](media/concept-authentication-methods/overview-login.png)
+
+L'autenticazione senza password rimuove completamente la necessità di creare e ricordare una password sicura. Funzionalità come Windows Hello for Business o le chiavi di sicurezza FIDO2 consentono agli utenti di accedere a un dispositivo o a un'applicazione senza password. Questa possibilità riduce la complessità associata alla gestione delle password tra ambienti diversi.
 
 ## <a name="self-service-password-reset"></a>Reimpostazione della password self-service
 
-La reimpostazione della password self-service offre agli utenti la possibilità di reimpostare la propria password, senza alcun intervento da parte dell'amministratore, quando e dove necessario.
+La reimpostazione della password self-service consente agli utenti di cambiare o reimpostare la password, senza intervento dell'amministratore o dell'help desk. Se un utente dimentica la password o ha l'account bloccato, può seguire le istruzioni per sbloccarlo autonomamente e tornare al lavoro. Questa funzionalità riduce le chiamate all'help desk e la perdita di produttività quando un utente non riesce ad accedere al dispositivo o a un'applicazione.
 
-> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
+La reimpostazione della password self-service funziona negli scenari seguenti:
 
-La reimpostazione della password self-service include:
+* **Modifica della password**: l'utente conosce la propria password, ma intende cambiarla.
+* **Reimpostazione della password**: l'utente non riesce ad accedere, ad esempio perché ha dimenticato la password e vuole reimpostarla.
+* **Sblocco dell'account**: l'utente non riesce ad accedere perché l'account è bloccato e vuole sbloccarlo.
 
-* **Modifica della password:** l'utente conosce la password, vuole modificarla.
-* **Reimpostazione della password:** l'utente non riesce a eseguire l'accesso e vuole reimpostare la password usando uno o più metodi di autenticazione approvati.
-* **Sblocco dell'account:** l'utente non può eseguire l'accesso perché l'account è bloccato e vuole sbloccarlo usando uno o più metodi di autenticazione approvati.
+Quando un utente aggiorna o reimposta la password tramite reimpostazione self-service, è anche possibile che ne venga eseguito il writeback in un ambiente di Active Directory locale. Il writeback delle password garantisce a un utente la possibilità di usare immediatamente le credenziali aggiornate con i dispositivi e le applicazioni locali.
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication (MFA) è una soluzione di verifica in due passaggi di Microsoft. Usando metodi di autenticazione approvati dell'amministratore, Azure MFA contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice.
+L'autenticazione a più fattori è un processo per cui, durante l'accesso, all'utente viene chiesto di specificare una forma aggiuntiva di autenticazione, ad esempio l'immissione di un codice nel cellulare o la scansione dell'impronta digitale.
 
-## <a name="license-requirements"></a>Requisiti relativi alle licenze
+Se si usa solo una password per autenticare un utente, viene lasciato un vettore non sicuro per l'attacco. Se la password è vulnerabile o è stata esposta altrove, come su può avere la certezza che sia effettivamente l'utente che accede con il nome utente e la password e non un utente malintenzionato? Quando è necessaria una seconda forma di autenticazione, la sicurezza viene rafforzata, perché questo fattore aggiuntivo non è facile da ottenere o duplicare.
 
-[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
+![Immagine concettuale delle diverse forme di autenticazione a più fattori](./media/concept-mfa-howitworks/methods.png)
+
+Azure Multi-Factor Authentication funziona richiedendo due o più metodi di autenticazione seguenti:
+
+* Un'informazione nota, in genere una password.
+* Un oggetto che si possiede, ad esempio un dispositivo attendibile non facile da duplicare, come un telefono o una chiave hardware.
+* Una caratteristica personale, ad esempio un'impronta digitale o la scansione del viso per l'identificazione biometrica.
+
+Gli utenti possono registrarsi per la reimpostazione della password self-service e per Azure Multi-Factor Authentication in un unico passaggio per semplificare l'esperienza di onboarding. Gli amministratori possono definire quali forme di autenticazione secondaria possono essere usate. È anche possibile richiedere di applicare Azure Multi-Factor Authentication per proteggere ulteriormente la procedura di reimpostazione della password self-service.
+
+## <a name="password-protection"></a>Password di protezione
+
+Per impostazione predefinita, Azure AD blocca le password vulnerabili, ad esempio *Password1*. Viene automaticamente aggiornato e applicato un elenco globale di password vietate note per essere vulnerabili. Se un utente di Azure AD prova a impostare una di queste password vulnerabili, riceverà una notifica che lo invita a sceglierne una più sicura.
+
+Per aumentare la sicurezza, è possibile definire criteri personalizzati per le password di protezione. Questi criteri possono usare i filtri per bloccare qualsiasi variante di una password contenente ad esempio un nome, come *Contoso*, o una località, come *Londra*.
+
+Per la sicurezza ibrida, è possibile integrare le password di protezione di Azure AD con un ambiente Active Directory locale. Un componente installato nell'ambiente locale riceve da Azure AD l'elenco globale delle password vietate e i criteri personalizzati per le password di protezione, quindi un controller di dominio usa questi dati per elaborare gli eventi di modifica delle password. Questo approccio ibrido garantisce che venga imposto l'uso di password complesse indipendentemente dal modo in cui un utente cambia le proprie credenziali.
+
+## <a name="passwordless-authentication"></a>Autenticazione senza password
+
+L'obiettivo finale per molti ambienti è quello di rimuovere l'uso delle password dagli eventi di accesso. Funzionalità come la password di protezione di Azure o Azure Multi-Factor Authentication contribuiscono a migliorare la sicurezza, ma il nome utente e la password rimangono una forma vulnerabile di autenticazione suscettibile di attacchi di forza bruta.
+
+![Sicurezza rispetto a praticità con il processo di autenticazione che punta all'assenza di password](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+Quando si accede con un metodo senza password, le credenziali vengono fornite tramite l'uso di metodi come la biometrica con Windows Hello for Business o una chiave di sicurezza FIDO2. Questi metodi di autenticazione non possono essere facilmente duplicati da un utente malintenzionato.
+
+Azure AD offre la possibilità di eseguire l'autenticazione nativa usando metodi senza password per semplificare l'esperienza di accesso degli utenti e ridurre il rischio di attacchi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il passaggio successivo consiste nella configurazione della reimpostazione della password self-service e di Azure Multi-Factor Authentication.
+Per iniziare, vedere l'argomento di [avvio rapido sulla reimpostazione della password self-service][quickstart-sspr] e l'esercitazione su [Azure Multi-Factor Authentication][tutorial-mfa-applications].
 
-Per iniziare a usare la reimpostazione della password self-service, vedere l'[articolo introduttivo su come abilitare la reimpostazione della password self-service](quickstart-sspr.md).
+Per altre informazioni sui concetti di reimpostazione della password self-service, vedere [Come funziona la reimpostazione della password self-service di Azure AD][concept-sspr].
 
-Per altre informazioni sulla reimpostazione della password self-service, vedere l'articolo [Funzionamento: reimpostazione self-service della password di Azure AD](concept-sspr-howitworks.md)
+Per altre informazioni sui concetti dell'autenticazione a più fattori, vedere [Come funziona Azure Multi-Factor Authentication][concept-mfa].
 
-Per altre informazioni su Azure Multi-Factor Authentication, vedere l'articolo [Funzionamento di Azure Multi-Factor Authentication](concept-mfa-howitworks.md)
+<!-- INTERNAL LINKS -->
+[quickstart-sspr]: quickstart-sspr.md
+[tutorial-mfa-applications]: tutorial-mfa-applications.md
+[concept-sspr]: concept-sspr-howitworks.md
+[concept-mfa]: concept-mfa-howitworks.md

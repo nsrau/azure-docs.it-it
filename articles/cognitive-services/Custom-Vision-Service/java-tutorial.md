@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK di Visione personalizzata per Java"
+title: "Avvio rapido: Creare un progetto di classificazione immagini con l'SDK di Visione personalizzata per Java"
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando Java SDK.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 9e4ac74df269f2e3db2431a3f01490a5769c9aca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2b3c6fc404e9a5fefc15aa7b7162ff5573c3be5a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970245"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166132"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK di Visione personalizzata per Java
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Avvio rapido: Creare un progetto di classificazione immagini con l'SDK di Visione personalizzata per Java
 
 Questo articolo mostra come iniziare a usare Custom Vision SDK per Java per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un ambiente di sviluppo Java a scelta
 - [JDK 7 o 8](https://aka.ms/azure-jdks) installato.
@@ -76,7 +76,7 @@ Il frammento di codice precedente usa due funzioni helper che recuperano le imma
 
 ### <a name="train-the-classifier-and-publish"></a>Training del classificatore e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train)]
 

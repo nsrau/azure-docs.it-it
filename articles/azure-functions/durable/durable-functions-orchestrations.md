@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 54e1eb0be18de8e5ed420e96629d6f23473272fe
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545718"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261552"
 ---
 # <a name="durable-orchestrations"></a>Orchestrazioni durevoli
 
@@ -55,7 +55,9 @@ Quando a una funzione di orchestrazione vengono assegnate altre operazioni da es
 
 ## <a name="orchestration-history"></a>Cronologia di orchestrazione
 
-Il comportamento di Event Sourcing di Durable Task Framework è strettamente collegato al codice delle funzioni dell'agente di orchestrazione che si scrive. Si supponga di avere una funzione dell'agente di orchestrazione per il concatenamento di attività, come l'esempio seguente in C#:
+Il comportamento di Event Sourcing di Durable Task Framework è strettamente collegato al codice delle funzioni dell'agente di orchestrazione che si scrive. Si supponga di avere una funzione dell'agente di orchestrazione per il concatenamento di attività, come quella riportata di seguito:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Se si scrive codice in JavaScript, la funzione dell'agente di orchestrazione per il concatenamento di attività sarà simile all'esempio di codice seguente:
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,6 +90,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 In ogni istruzione `await` (C#) o `yield` (JavaScript) Durable Task Framework imposta un checkpoint dello stato di esecuzione della funzione in un back-end di archiviazione durevole, solitamente archiviazione tabelle di Azure. Questo stato viene definito come *cronologia di orchestrazione*.
 
@@ -106,7 +110,7 @@ Dopo aver completato l'impostazione dei checkpoint, la funzione dell'agente di o
 
 Al termine dell'operazione, la cronologia della funzione illustrata in precedenza ha un aspetto simile al seguente nell'archiviazione tabelle di Azure (abbreviata a scopo illustrativo):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | NOME             | Risultato                                                    | Stato |
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Nome             | Risultato                                                    | Stato |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -182,7 +186,7 @@ Le funzioni dell'agente di orchestrazione possono anche aggiungere criteri di ri
 
 Per altre informazioni e per alcuni esempi, vedere l'[articolo sulla gestione degli errori](durable-functions-error-handling.md).
 
-### <a name="critical-sections-durable-functions-2x"></a>Sezioni critiche (Durable Functions 2.x)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Sezioni critiche (Durable Functions 2.x, attualmente solo .NET)
 
 Le istanze di orchestrazione sono a thread singolo, quindi non bisogna preoccuparsi di eventuali race condition *all'interno* di un'orchestrazione. Tuttavia, le race condition sono possibili quando le orchestrazioni interagiscono con sistemi esterni. Per mitigare le race condition durante l'interazione con sistemi esterni, le funzioni dell'agente di orchestrazione definiscono *sezioni critiche* usando un metodo `LockAsync` in .NET.
 
@@ -212,7 +216,9 @@ La funzionalità delle sezioni critiche è anche utile per coordinare le modific
 
 Le funzioni dell'agente di orchestrazione non possono eseguire operazioni di I/O, come descritto nell'articolo sui [vincoli di codice delle funzioni dell'agente di orchestrazione](durable-functions-code-constraints.md). La tipica soluzione alternativa per questa limitazione consiste nell'eseguire il wrapping del codice che deve svolgere operazioni di I/O in una funzione di attività. Le orchestrazioni che interagiscono con sistemi esterni usano spesso funzioni di attività per effettuare chiamate HTTP e restituire il risultato.
 
-Per semplificare questo modello comune, le funzioni dell'agente di orchestrazione possono usare il metodo `CallHttpAsync` in .NET per richiamare direttamente le API HTTP. Oltre a modelli di richiesta/risposta di base, `CallHttpAsync` supporta la gestione automatica di comuni modelli di polling HTTP 202 asincroni, nonché l'autenticazione con servizi esterni tramite [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md).
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Per semplificare questo modello comune, le funzioni dell'agente di orchestrazione possono usare il metodo `CallHttpAsync` per richiamare direttamente le API HTTP.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -232,6 +238,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -244,6 +252,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+Oltre a modelli di richiesta/risposta di base, il metodo supporta la gestione automatica di comuni modelli di polling HTTP 202 asincroni, nonché l'autenticazione con servizi esterni tramite [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md).
+
 Per altre informazioni e per alcuni esempi dettagliati, vedere l'articolo sulle [funzionalità HTTP](durable-functions-http-features.md).
 
 > [!NOTE]
@@ -251,9 +263,11 @@ Per altre informazioni e per alcuni esempi dettagliati, vedere l'articolo sulle 
 
 ### <a name="passing-multiple-parameters"></a>Passaggio di più parametri
 
-Non è possibile passare più parametri direttamente a una funzione di attività. In questo caso è consigliabile passare una matrice di oggetti o usare oggetti [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) in .NET.
+Non è possibile passare più parametri direttamente a una funzione di attività. In questo caso è consigliabile passare una matrice di oggetti o oggetti compositi.
 
-L'esempio seguente usa le nuove funzionalità di [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) aggiunte con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+In .NET è anche possibile usare oggetti [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). L'esempio seguente usa le nuove funzionalità di [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) aggiunte con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -289,6 +303,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### <a name="activity"></a>Attività
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

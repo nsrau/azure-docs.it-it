@@ -1,27 +1,19 @@
 ---
-title: Panoramica dei set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: Informazioni sui set di scalabilità di macchine virtuali in Azure
 description: Informazioni sui set di scalabilità di macchine virtuali di Azure e sul ridimensionamento automatico delle applicazioni
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: 73580814dcfe8f967684aca4ce433a40e7bbedc0
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679394"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273700"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Che cosa sono i set di scalabilità delle macchine virtuali?
 I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono disponibilità elevata per le applicazioni e consentono di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali. Con i set di scalabilità di macchine virtuali è possibile creare servizi su larga scala per aree quali calcolo, Big Data e carichi di lavoro contenitore.

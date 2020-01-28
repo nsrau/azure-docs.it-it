@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di classificazione immagini con l'SDK Servizio visione artificiale personalizzato per C#"
+title: "Avvio rapido: Creare un progetto di classificazione immagini con l'SDK Servizio visione artificiale personalizzato per C#"
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando .NET SDK con C#.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: db98464ecefaaf177161a1e417496ee7c994cff0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 158e4dcd07f6ba31ad0efdd88f030f8db99fcfdd
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978646"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170026"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Guida introduttiva: Creare un progetto di classificazione immagini con .NET SDK Servizio visione artificiale personalizzato
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Avvio rapido: Creare un progetto di classificazione immagini con .NET SDK Servizio visione artificiale personalizzato
 
 Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con C# per compilare un modello di classificazione delle immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione .NET personalizzata. Se si preferisce eseguire la procedura di creazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 - [!INCLUDE [create-resources](includes/create-resources.md)]
@@ -69,7 +69,7 @@ Le immagini per questo progetto sono incluse. Sono referenziate nel metodo **Loa
 
 ### <a name="train-the-classifier-and-publish"></a>Training del classificatore e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Per inviare richieste di previsione, è possibile usare il nome dell'iterazione. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Per inviare richieste di previsione, è possibile usare il nome dell'iterazione. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
 

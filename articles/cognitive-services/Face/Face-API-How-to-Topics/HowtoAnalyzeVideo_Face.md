@@ -1,7 +1,7 @@
 ---
-title: 'Esempio: Analisi video in tempo reale - API Viso'
+title: 'Esempio: Analisi video in tempo reale - Viso'
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Viso per eseguire l'analisi near real time di fotogrammi acquisiti da un video in diretta streaming.
+description: Usare il servizio Viso per eseguire l'analisi quasi in tempo reale di fotogrammi acquisiti da un video in diretta streaming.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114336"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169891"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Esempio: Come analizzare video in tempo reale
 
@@ -142,7 +142,7 @@ Per mantenere l'app in esecuzione più rapidamente possibile si userà un'implem
 
 La libreria contiene la classe FrameGrabber, che implementa il sistema producer-consumer discusso in precedenza per elaborare i fotogrammi di video ripresi da una webcam. L'utente può specificare il formato esatto della chiamata all'API e la classe usa gli eventi per indicare al codice chiamante quando viene acquisito un nuovo fotogramma o quando è disponibile un nuovo risultato dell'analisi.
 
-Per illustrare alcune delle possibilità, sono disponibili due app di esempio che usano la libreria. La prima è una semplice app console, di cui una versione semplificata è riprodotta di seguito. Acquisisce i fotogrammi dalla webcam predefinita e li invia all'API Viso per il rilevamento del volto.
+Per illustrare alcune delle possibilità, sono disponibili due app di esempio che usano la libreria. La prima è una semplice app console, di cui una versione semplificata è riprodotta di seguito. Acquisisce i fotogrammi dalla webcam predefinita e li invia al servizio Viso per il rilevamento del viso.
 
 ```csharp
 using System;
@@ -159,7 +159,7 @@ namespace VideoFrameConsoleApplication
             // Create grabber, with analysis type Face[]. 
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
             
-            // Create Face API Client. Insert your Face API key here.
+            // Create Face Client. Insert your Face API key here.
             private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials("<subscription key>"),
             new System.Net.Http.DelegatingHandler[] { });
@@ -203,13 +203,12 @@ Per iniziare a usare questo esempio, seguire questa procedura:
 
 1. Ottenere le chiavi API per le API Visione da [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). Per l'analisi dei fotogrammi video, le API applicabili sono:
     - [API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [API Emozioni](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
     - [API Viso](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 
 2. Clonare il repository di GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Aprire l'esempio in Visual Studio 2015, quindi compilare ed eseguire le applicazioni di esempio:
-    - Per BasicConsoleSample, la chiave dell'API Viso è hardcoded direttamente in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Per BasicConsoleSample, la chiave di Viso è hardcoded direttamente in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Per LiveCameraSample, le chiavi devono essere immesse nel riquadro Impostazioni dell'app. Queste chiavi saranno persistenti tra le sessioni come i dati dell'utente.
         
 
@@ -223,4 +222,4 @@ In questa guida è stato appreso come eseguire l'analisi near real time di video
 
 ## <a name="related-topics"></a>Argomenti correlati
 - [Come identificare visi nelle immagini](HowtoIdentifyFacesinImage.md)
-- [How to Detect Faces in Image](HowtoDetectFacesinImage.md) (Come rilevare visi nelle immagini)
+- [Come rilevare visi nelle immagini](HowtoDetectFacesinImage.md)

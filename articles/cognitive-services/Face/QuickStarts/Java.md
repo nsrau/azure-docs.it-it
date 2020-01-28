@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e Java"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e Java"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con Java per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 7097f399b2bf5a3b0f9adb990fbd66785adc09aa
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d6d0a5cdf4b33ba290042627f0ceaf4cf73a375c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977999"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169319"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Java
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Java per rilevare i visi umani in un'immagine.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
 - Qualsiasi ambiente IDE Java a scelta.
 
 ## <a name="create-the-java-project"></a>Creare il progetto Java
@@ -152,7 +152,7 @@ Direttamente sotto il codice precedente, aggiungere il blocco seguente, che conv
 }
 ```
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Compilare ed eseguire il codice. Una risposta con esito positivo visualizzerà i dati sui volti in formato JSON facilmente leggibile nella finestra della console. Ad esempio:
 
@@ -248,7 +248,7 @@ Compilare ed eseguire il codice. Una risposta con esito positivo visualizzerà i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata una semplice applicazione console Java che usa le chiamate REST con l'API Viso di Azure per rilevare i visi in un'immagine e restituire i relativi attributi. Successivamente, si apprenderà come eseguire altre operazioni con questa funzionalità in un'applicazione Android.
+In questo argomento di avvio rapido è stata creata una semplice applicazione console Java che usa le chiamate REST con l'API Viso di Azure per rilevare visi in un'immagine e restituirne gli attributi. Successivamente, si apprenderà come eseguire altre operazioni con questa funzionalità in un'applicazione Android.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Creare un'app Android per rilevare e incorniciare i visi](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

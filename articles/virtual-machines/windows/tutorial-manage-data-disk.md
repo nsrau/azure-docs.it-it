@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: b288091172c71be82e70d90eb8817b2130f2cbef
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780267"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277300"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Esercitazione: gestire i dischi di Azure con Azure PowerShell
 
@@ -44,7 +44,7 @@ Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro
 
 Quando viene creata una macchina virtuale di Azure, due dischi vengono automaticamente collegati alla macchina virtuale. 
 
-**Disco del sistema operativo**: i dischi del sistema operativo possono essere ridimensionati fino a 4 terabyte e ospitano il sistema operativo delle macchine virtuali.  Al disco del sistema operativo viene assegnata una lettera di unità *C:* per impostazione predefinita. La configurazione della memorizzazione nella cache del disco del sistema operativo è ottimizzata per le prestazioni del sistema operativo. Il disco del sistema operativo **non deve** ospitare applicazioni o dati. Per le applicazioni e i dati, usare un disco dati, descritto in dettaglio più avanti in questo articolo.
+**Disco del sistema operativo**: i dischi del sistema operativo possono essere ridimensionati fino a 4 terabyte e ospitano il sistema operativo delle macchine virtuali. Se si crea una nuova macchina virtuale (VM) da un'immagine di [Azure Marketplace](https://azure.microsoft.com/marketplace/), le dimensioni sono in genere di 127 GB (ma alcune immagini hanno dimensioni del disco del sistema operativo più piccole). Al disco del sistema operativo viene assegnata una lettera di unità *C:* per impostazione predefinita. La configurazione della memorizzazione nella cache del disco del sistema operativo è ottimizzata per le prestazioni del sistema operativo. Il disco del sistema operativo **non deve** ospitare applicazioni o dati. Per le applicazioni e i dati, usare un disco dati, descritto in dettaglio più avanti in questo articolo.
 
 **Disco temporaneo**: i dischi temporanei usano un'unità SSD che si trova nello stesso host della macchina virtuale di Azure. I dischi temporanei sono altamente efficienti e possono essere usati per operazioni quali l'elaborazione dei dati temporanei. Tuttavia, se la macchina virtuale viene spostata in un nuovo host, tutti i dati memorizzati su un disco temporaneo vengono rimossi. Le dimensioni del disco temporaneo sono determinate dalle [dimensioni della macchina virtuale](sizes.md). Ai dischi temporanei viene assegnata una lettera di unità *D:* per impostazione predefinita.
 

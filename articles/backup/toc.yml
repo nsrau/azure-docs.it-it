@@ -178,6 +178,10 @@
           items:
             - name: Backup
               href: backup-azure-afs-automation.md
+            - name: Restore
+              href: restore-afs-powershell.md
+            - name: Gestione
+              href: manage-afs-powershell.md
     - name: Backup di database SAP HANA in VM di Azure
       items:
         - name: Panoramica

@@ -10,20 +10,20 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b664a586398e297a00ea9cd8fe68dc65e6ade5c8
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978680"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170017"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Guida introduttiva: Come creare un classificatore con Visione personalizzata
+# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Avvio rapido: Come creare un classificatore con Visione personalizzata
 
 Questo argomento di avvio rapido descrive come creare un classificatore tramite il sito Web di Visione personalizzata. Dopo aver creato un modello di classificatore, è possibile usare il servizio Visione personalizzata per la classificazione delle immagini.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un set di immagini con cui eseguire il training del classificatore. Per suggerimenti sulla scelta delle immagini, vedere di seguito.
 
@@ -51,7 +51,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 
 1. Selezionare quindi uno dei domini disponibili. Ogni dominio ottimizza il classificatore per tipi specifici di immagini, come descritto nella tabella seguente. Sarà possibile modificare il dominio in un secondo momento, se necessario.
 
-    |Domain|Scopo|
+    |Dominio|Scopo|
     |---|---|
     |__Domande generiche__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico. |
     |__Food__ (Cibo)|Ottimizzato per fotografie di piatti come nel menù di un ristorante. Se si vogliono classificare fotografie di singoli frutti o verdure, usare il dominio Food (Cibo).|
@@ -110,6 +110,8 @@ Al termine del training, le prestazioni del modello vengono stimate e visualizza
 ## <a name="manage-training-iterations"></a>Gestire le iterazioni di training
 
 Ogni volta che si esegue il training del classificatore, si crea una nuova _iterazione_ con le metriche delle prestazioni aggiornate. È possibile visualizzare tutte le iterazioni nel riquadro sinistro della scheda **Prestazioni**. È inoltre disponibile il pulsante **Elimina**, che consente di eliminare un'iterazione obsoleta. Quando si elimina un'iterazione, vengono eliminate anche tutte le immagini associate in modo univoco a tale iterazione.
+
+Per informazioni su come accedere ai modelli sottoposti a training a livello di codice, vedere [Usare il modello con l'API Previsioni](./use-prediction-api.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Creare e gestire un set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: 'Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali di Azure'
 description: Informazioni su come usare Azure PowerShell per creare un set di scalabilità di macchine virtuali, con alcune attività di gestione comuni come l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 14616fcc9fd63731c50c5977c88b5030f60664ff
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728686"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271403"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -156,7 +148,7 @@ Azure Marketplace include molte immagini utilizzabili per creare istanze di VM. 
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Per visualizzare un elenco delle immagini di un determinato editore, usare [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). L'elenco di immagini può anche essere filtrato per `-PublisherName` o `–Offer`. Nell'esempio seguente, l'elenco viene filtrato per individuare tutte le immagini con nome dell'editore *MicrosoftWindowsServer* e offerta corrispondente a *WindowsServer*:
+Per visualizzare un elenco delle immagini di un determinato editore, usare [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). L'elenco di immagini può anche essere filtrato per `-PublisherName` o `-Offer`. Nell'esempio seguente, l'elenco viene filtrato per individuare tutte le immagini con nome dell'editore *MicrosoftWindowsServer* e offerta corrispondente a *WindowsServer*:
 
 ```azurepowershell-interactive
 Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -205,7 +197,7 @@ Una dimensione di istanza di VM, o *SKU*, determina la quantità di risorse di c
 ### <a name="vm-instance-sizes"></a>Dimensioni delle istanze di VM
 La tabella seguente classifica le dimensioni di VM comuni in base ai casi d'uso.
 
-| Type                     | Dimensioni comuni           |    DESCRIZIONE       |
+| Type                     | Dimensioni comuni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |

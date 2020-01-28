@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 544ca198b846ca5032bdf400b300ac076d729d88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834154"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169104"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
@@ -27,7 +27,7 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 |:-----------|:------------------|
 |[Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Visione artificiale")|Il servizio Visione artificiale consente di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione di informazioni.|
 |[Servizio Visione personalizzata](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Servizio visione artificiale personalizzato")|Il Servizio visione artificiale personalizzato consente di creare classificatori di immagini personalizzati.|
-|[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/ "API Viso")|L'API Viso fornisce accesso ad algoritmi viso avanzati consentendo il rilevamento e il riconoscimento degli attributi del viso.|
+|[Viso](https://docs.microsoft.com/azure/cognitive-services/face/ "Viso")| Il servizio Viso fornisce l'accesso ad algoritmi viso avanzati consentendo il rilevamento e il riconoscimento degli attributi del viso.|
 |[Riconoscimento modulo](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Riconoscimento modulo") (anteprima)|Il riconoscimento modulo identifica ed estrae le coppie chiave-valore e i dati delle tabelle dai documenti dei moduli, quindi restituisce dati strutturati che includono le relazioni nel file originale.|
 |[Riconoscimento input penna](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Riconoscimento input penna") (anteprima)|Il riconoscimento input penna consente di riconoscere e analizzare i dati del tratto di input penna digitale, le forme e il contenuto scritto a mano e di restituire una struttura di documento con tutte le entità riconosciute.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer consente di estrarre informazioni dettagliate dai video.|

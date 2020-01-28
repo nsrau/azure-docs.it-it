@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e Node.js"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e Node.js"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con Node.js per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a3deff1d6220d21c3796b22dc7c39ea284cb36b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7897c1602a8b9ed6a1fea68e80d57cd5bae1c004
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977948"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165956"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e Node.js
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Node.js per rilevare i visi umani in un'immagine.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
 - Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-the-node-environment"></a>Configurare l'ambiente Node
@@ -283,7 +283,7 @@ Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella fin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è scritto uno script Node.js che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
+In questo argomento di avvio rapido si è scritto uno script Node.js che chiama il servizio Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

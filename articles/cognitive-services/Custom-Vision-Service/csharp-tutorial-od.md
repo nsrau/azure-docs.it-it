@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK per C# - Visione personalizzata"
+title: "Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK per C# - Visione personalizzata"
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando .NET SDK con C#.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: ed86a286051ba9240fe23951ef7cb72de1e96201
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c6aaf69ba3ed682a00a203079b024a47121334e3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74960571"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170058"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per .NET
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per .NET
 
 Questo articolo mostra come iniziare a usare Custom Vision SDK con C# per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione .NET personalizzata. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 - [!INCLUDE [create-resources](includes/create-resources.md)]
@@ -63,6 +63,9 @@ Il frammento di codice successivo crea un progetto di rilevamento di oggetti. Il
 ### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate. Il codice seguente associa ognuna delle immagini di esempio alla relativa area contrassegnata.
+
+> [!NOTE]
+> Se non si ha un'utilità di clic e trascinamento per contrassegnare le coordinate delle aree, è possibile usare l'interfaccia utente Web in [Customvision.ai](https://www.customvision.ai/). In questo esempio le coordinate sono già disponibili.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload_regions)]
 

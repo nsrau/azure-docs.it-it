@@ -1,7 +1,7 @@
 ---
 title: "Esercitazione: Rilevare e mostrare i dati sui visi in un'immagine usando .NET SDK"
 titleSuffix: Azure Cognitive Services
-description: In questa esercitazione verrà creata un'app Windows che usa la funzione API Viso per rilevare e incorniciare il volto in un'immagine.
+description: In questa esercitazione verrà creata un'app Windows che usa il servizio Viso per rilevare e incorniciare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977965"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165912"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Esercitazione: Creare un'app Windows Presentation Framework (WPF) per visualizzare i dati relativi ai visi in un'immagine
 
-In questa esercitazione si imparerà a usare l'API Viso di Azure tramite il client .NET SDK per rilevare i visi in un'immagine e quindi presentare i dati nell'interfaccia utente. Verrà creata un'applicazione Windows Presentation Foundation (WPF) che rileva i volti, disegna una cornice intorno a ogni viso e visualizza una descrizione del viso nella barra di stato. 
+Questa esercitazione illustra come usare il servizio Viso di Azure, tramite il client .NET SDK, per rilevare i visi in un'immagine e quindi presentare i dati nell'interfaccia utente. Verrà creata un'applicazione Windows Presentation Foundation (WPF) che rileva i volti, disegna una cornice intorno a ogni viso e visualizza una descrizione del viso nella barra di stato. 
 
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > - Creare un'applicazione WPF
-> - Installare la libreria client dell'API Viso
+> - Installare la libreria client di Viso
 > - Usare la libreria client per rilevare i visi in un'immagine
 > - Tracciare una cornice intorno a ogni viso rilevato
 > - Visualizzare una descrizione del viso evidenziato sulla barra di stato
@@ -37,9 +37,9 @@ Il codice di esempio completo è disponibile nell'archivio di [esempio Cognitive
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
@@ -117,7 +117,7 @@ Aggiungere il codice seguente al metodo **FacePhoto_MouseMove**. Questo gestore 
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Eseguire l'applicazione e quindi cercare un'immagine che contenga un viso. Attendere qualche secondo per consentire al servizio Viso di rispondere. Verrà visualizzato un rettangolo rosso intorno a ciascun viso nell'immagine. Se si sposta il mouse sul rettangolo del viso, viene visualizzata la descrizione del viso nella barra di stato.
 

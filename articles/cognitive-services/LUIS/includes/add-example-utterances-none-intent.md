@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: e4147fbb27c8538f801f6c49f8b535a283faf50f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c81aaa02af0895e6c3a851fe15273d85de9b55bc
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325929"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262750"
 ---
 L'applicazione client deve stabilire se un'espressione non è significativa o appropriata per l'applicazione. La finalità **None** (Nessuna) viene aggiunta a ciascuna applicazione come parte del processo di creazione per determinare se l'applicazione client non deve rispondere a un'espressione.
 
@@ -30,7 +30,6 @@ Se si lascia vuota la finalità **None**, un'espressione che deve essere stimata
     |Espressioni di esempio `None`|
     |--|
     |`Barking dogs are annoying`|
-    |`Order a pizza for me`|
     |`Penguins in the ocean`|
 
     Questi esempi non devono usare parole che ci si aspetta nel dominio soggetto, ad esempio `pizza`, `cheese`, `crust`, `pickup` `deliver`.

@@ -1,6 +1,6 @@
 ---
-title: Panoramica sulla configurazione dei metodi di verifica a due fattori - Azure Active Directory | Microsoft Docs
-description: Panoramica su come configurare i metodi per la verifica a due fattori.
+title: Cos'è la pagina Verifica aggiuntiva? - Azure AD
+description: Come ottenere la pagina Verifica di sicurezza aggiuntiva per la verifica a due fattori.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -8,22 +8,24 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/12/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83bba343ac73fd0df575ae1e8a83c589a0bc15ac
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7dfcc02928cc92aedd0eb0f966bea9804be5fdcc
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616190"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156251"
 ---
-# <a name="set-up-your-two-factor-verification-methods-overview"></a>Panoramica sulla configurazione dei metodi di verifica a due fattori
+# <a name="what-is-the-additional-verification-page"></a>Cos'è la pagina Verifica aggiuntiva?
 
-In un'organizzazione è stata attivata la verifica a due fattori. In altre parole, l'accesso all'account aziendale o dell'istituto di istruzione richiede ora una combinazione di nome utente, password e dispositivo mobile o telefono. L'organizzazione ha scelto di introdurre questa verifica aggiuntiva perché è più sicura rispetto all'uso della semplice password. È infatti basata su due forme di autenticazione: un elemento noto e un elemento che l'utente ha con sé. La verifica a due fattori può essere utile per impedire a un pirata informatico di fingere di essere un utente autorizzato perché, anche se possiedono la password dell'utente, è improbabile che abbiano anche il suo dispositivo.
+Si riceve una e-mail da un referente IT o dal proprio capo in cui si afferma che l'organizzazione ha aggiunto altre verifiche di sicurezza all'account. Cosa significa? Significa che l'organizzazione sta prendendo altri provvedimenti per accertare l'identità dell'utente al momento dell'accesso. Questa verifica aggiuntiva, nota anche come verifica a due fattori, viene eseguita con una combinazione di nome utente, password e dispositivo mobile o telefono.
+
+Si tratta di un metodo più sicuro rispetto alla sola password perché si basa su due forme di autenticazione, ovvero un elemento noto e un elemento che l'utente ha con sé. L'elemento noto è la password. L'elemento che l'utente normalmente ha con sé è un telefono o un dispositivo. Con la verifica a due fattori si impedisce ai pirati informatici di fingere di essere un utente autorizzato, perché anche se possiedono la password dell'utente, è improbabile che abbiano anche il suo dispositivo.
 
 >[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Questo articolo è destinato agli utenti che provano a usare la verifica a due fattori con un account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com. Se si è un amministratore e si cercano informazioni su come attivare la verifica a due fattori per i dipendenti o altri utenti, vedere la [documentazione sull'autenticazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Chi decide se usare questa funzionalità?
 
@@ -32,6 +34,9 @@ A seconda del tipo di account, l'organizzazione potrebbe decidere che è necessa
 - **Account aziendale o dell'istituto di istruzione.** Se si usa un account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, spetta all'organizzazione scegliere se usare la verifica a due fattori, insieme ai metodi di verifica specifici. Poiché l'organizzazione ha deciso che è necessario usare questa funzionalità, non è possibile disattivarla individualmente.
 
 - **Account Microsoft personale.** È possibile scegliere di impostare la verifica a due fattori per gli account Microsoft personali, ad esempio alain@outlook.com. Se si riscontrano problemi con la verifica a due fattori e l'account Microsoft personale, vedere [Attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Poiché si ha la libertà di scegliere se usare questa funzionalità, è possibile attivarla o disattivarla ogni volta che si desidera.
+
+    >[!Note]
+    >Se si riscontrano problemi con la verifica a due fattori e con uno degli account Microsoft personali (ad esempio, danielle@outlook.com), è possibile provare i suggerimenti riportati in [Come usare la verifica in due passaggi con l'account Microsoft](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
 ## <a name="access-the-additional-security-verification-page"></a>Accedere alla pagina Verifica aggiuntiva di sicurezza
 
@@ -47,7 +52,7 @@ Dopo che l'organizzazione ha attivato e configurato la verifica a due fattori, a
 
 2. Nella pagina **Verifica aggiuntiva di protezione** è necessario definire il metodo di verifica a due fattori da usare per verificare la propria identità dopo aver eseguito l'accesso all'account aziendale o dell'istituto di istruzione. È possibile selezionare:
 
-    | Metodo di contatto | DESCRIZIONE |
+    | Metodo di contatto | Descrizione |
     | --- | --- |
     | App per dispositivi mobili | <ul><li>**Ricevi notifiche per la verifica.** Questa opzione invia una notifica all'app di autenticazione sul tablet o lo smartphone. Visualizzare la notifica e, se del caso, selezionare **Autentica** nell'app. L'azienda o dell'istituto di istruzione potrebbe richiedere di immettere un PIN prima eseguire l'autenticazione.</li><li>**Usa codice di verifica.** In questa modalità, l'app di autenticazione genera un nuovo codice di verifica ogni 30 secondi. Immettere il codice di verifica più recente nella schermata di accesso.<br>L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594).</li></ul> |
     | Telefono per l'autenticazione | <ul><li>**Telefonata** invia una chiamata vocale automatizzata al numero di telefono specificato. Per l'autenticazione, rispondere alla chiamata e premere il tasto cancelletto (#) sul tastierino telefonico.</li><li>**SMS** invia un SMS contenente un codice di verifica. Seguendo la richiesta indicata nel testo, rispondere all'SMS o immettere il codice di verifica fornito nell'interfaccia di accesso.</li></ul> |

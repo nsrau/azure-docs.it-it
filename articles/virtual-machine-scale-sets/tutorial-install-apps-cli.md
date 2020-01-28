@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Installare applicazioni in un set di scalabilità con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: "Esercitazione: Installare applicazioni in un set di scalabilità con l'interfaccia della riga di comando di Azure"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per installare applicazioni nei set di scalabilità di macchine virtuali con l'estensione Script personalizzato
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b1f26444a2ab5407d3e98996f6826443b107e76a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755714"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271385"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:

@@ -1,6 +1,6 @@
 ---
-title: Panoramica del portale Account personale - Azure Active Directory | Microsoft Docs
-description: Panoramica dettagliata e collegamenti per ottenere altre informazioni sul portale Account personale e sulle relative funzionalità.
+title: Che cos'è il portale Account personale? - Azure AD
+description: Come accedere al portale Account personale e alle relative funzionalità, tra cui configurazione e gestione di informazioni di sicurezza, dispositivi, password, organizzazioni, privacy e accessi personali.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,26 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/28/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d831add42f60df2688b5c846d556f5dea8cef556
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b6c54f8754b0ca67107f48b2dcfa912a98252b8b
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585957"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293301"
 ---
-# <a name="my-account-portal-overview"></a>Panoramica del portale Account personale
+# <a name="what-is-the-my-account-portal"></a>Che cos'è il portale Account personale?
 
 Il portale **Account personale** (anteprima) consente di gestire l'account aziendale o dell'istituto di istruzione configurando e gestendo le informazioni di sicurezza, gestendo le organizzazioni e i dispositivi connessi e visualizzando come vengono usati i dati nell'organizzazione.
-
->[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-![Portale Account personale, pagina Panoramica](media/my-account-portal/my-account-portal-overview.png)
-
-## <a name="go-to-the-my-account-portal"></a>Vai al portale Account personale
 
 È possibile accedere al portale **Account personale** (https://myprofile.microsoft.com) ), dalla versione corrente di uno qualsiasi dei browser seguenti:
 
@@ -38,24 +31,28 @@ Il portale **Account personale** (anteprima) consente di gestire l'account azien
 - Firefox
 - Internet Explorer 11
 
-## <a name="my-account-portal-articles"></a>Articoli sul portale Account personale
+![Portale Account personale, pagina Panoramica](media/my-account-portal/my-account-portal-overview.png)
 
-Per informazioni dettagliate e istruzioni sul contenuto disponibile nel portale **Account personale**, vedere gli articoli seguenti:
+>[!Important]
+>Questo articolo è destinato agli utenti che provano ad accedere al portale Account personale per aggiornare le informazioni di sicurezza, le informazioni sui dispositivi, la password, le organizzazioni connesse, la privacy o le precedenti informazioni di accesso. Se si è un amministratore e si cercano informazioni su come attivare l'autenticazione e altre funzionalità di Azure Active Directory (Azure AD) per i dipendenti e altri utenti, vedere la [documentazione di Azure AD per amministratori](https://docs.microsoft.com/azure/active-directory/).
 
-|Articolo |DESCRIZIONE |
-|------|------------|
-| [Aggiungere l'informazione di sicurezza](user-help-security-info-overview.md) | Diversi articoli on istruzioni su come configurare l'app Microsoft Authenticator, gli SMS o le telefonate come metodo di verifica. Sono inoltre inclusi articoli su come aggiungere un indirizzo di posta elettronica o le domande di sicurezza predefinite in modo da reimpostare autonomamente la propria password dimenticata, se necessario.|
-| [Visualizzare o disabilitare i dispositivi connessi](my-account-portal-devices-page.md) | Istruzioni su come visualizzare e disabilitare i dispositivi connessi all'account aziendale o dell'istituto di istruzione.|
-| [Modificare la password dell'account aziendale o dell'istituto di istruzione](my-account-change-password-page.md) | Istruzioni su come modificare la password per l'account aziendale o dell'istituto di istruzione. |
-| [Visualizzare o rimuovere le organizzazioni connesse](my-account-portal-organizations-page.md) | Istruzioni su come visualizzare e rimuovere le organizzazioni connesse all'account aziendale o dell'istituto di istruzione.|
-| [Visualizzare le informazioni relative alla privacy](my-account-portal-privacy-page.md) | Istruzioni su come visualizzare i servizi online connessi all'account aziendale o dell'istituto di istruzione, insieme alle condizioni per l'utilizzo dell'organizzazione.|
-| [Visualizzare l'attività di accesso recente](my-account-portal-sign-ins-page.md) | Istruzioni su come visualizzare l'attività di accesso per l'account aziendale o dell'istituto di istruzione. |
+## <a name="next-steps"></a>Passaggi successivi
 
-## <a name="related-office-content"></a>Contenuto di Office correlato
+- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md)
+
+- Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md) connessi
+
+- Visualizzare e gestire le [organizzazioni](my-account-portal-organizations-page.md)
+
+- Visualizzare l'[attività di accesso](my-account-portal-sign-ins-page.md)
+
+- Visualizzare come vengono usati dall'organizzazione i [dati relativi alla privacy](my-account-portal-privacy-page.md)
+
+## <a name="related-microsoft-office-content"></a>Contenuto correlato di Microsoft Office
 
 - [Accedere per gestire Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 
-- [Andare alla pagina **Account personale** di Office](https://portal.office.com/account/#home)
+- [Andare alla pagina **Account personale** di Office](https://portal.office.com/account/)
 
 - [Andare alla pagina **Mie installazioni** di Office](https://portal.office.com/account/#installs)
 

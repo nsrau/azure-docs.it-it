@@ -4,12 +4,12 @@ description: Panoramica del servizio Backup di Azure e del suo contributo nel co
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 8a902736a8df703b33afbcb108e9e970e200a4dd
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668021"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294304"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Informazioni sul servizio Backup di Azure
 
@@ -21,7 +21,7 @@ Il servizio Backup di Azure offre soluzioni semplici, sicure ed economicamente c
 
 - **Ambiente locale**: backup di file, cartelle e stato del sistema tramite l'[agente di Servizi di ripristino di Microsoft Azure](backup-support-matrix-mars-agent.md). In alternativa, usare l'agente DPM o del server di Backup di Azure per proteggere le macchine virtuali locali ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMWare](backup-azure-backup-server-vmware.md)) e altri [carichi di lavoro locali](backup-mabs-protection-matrix.md)
 - **Macchine virtuali di Azure** - [: backup di intere macchine virtuali Windows/Linux](backup-azure-vms-introduction.md) (usando le estensioni di backup) o backup di file, cartelle e stato del sistema tramite l'[agente di Servizi di ripristino di Microsoft Azure](backup-azure-manage-mars.md).
-- **Condivisioni file di Azure** - [: backup e ripristino di condivisioni file di Azure nell'account di archiviazione](backup-azure-files.md)
+- **Condivisioni file di Azure** - [: backup di condivisioni file di Azure nell'account di archiviazione](backup-afs.md)
 - **SQL Server in macchine virtuali di Azure** -  [: backup di database SQL Server in esecuzione in macchine virtuali di Azure](backup-azure-sql-database.md)
 - **Database SAP HANA in macchine virtuali di Azure** - [: backup di database SAP HANA in esecuzione in macchine virtuali di Azure](backup-azure-sap-hana-database.md)
 

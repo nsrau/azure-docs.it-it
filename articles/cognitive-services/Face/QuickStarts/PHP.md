@@ -1,7 +1,7 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e PHP"
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si userà l'API Viso con PHP per rilevare i visi in un'immagine.
+description: In questo argomento di avvio rapido si userà l'API REST Viso con PHP per rilevare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: fb9539c8aa0477cbfbf11ce08635e4e9ccebb2ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0f76ec4ce1072b247be7f46610d37190cd282a22
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977931"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169747"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e PHP
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con PHP per rilevare i visi umani in un'immagine.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
 - Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download).
 - Il pacchetto PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2).
 - Web browser che supporta PHP. Se non è stato configurato, è possibile farlo installando e configurando [XAMPP](https://www.apachefriends.org/) nel computer.
@@ -103,7 +103,7 @@ Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiav
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="run-the-script"></a>Esecuzione dello script
+## <a name="run-the-script"></a>Eseguire lo script
 
 Aprire il file in un Web browser che supporta PHP. Verrà visualizzata una stringa JSON di dati relativi ai visi, come riportato di seguito.
 
@@ -288,7 +288,7 @@ Aprire il file in un Web browser che supporta PHP. Verrà visualizzata una strin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le API Viso usate per rilevare i visi umani in un'immagine, delimitare i visi con rettangoli e restituire gli attributi, ad esempio l'età e il sesso.
+Esaminare l'API Viso usata per rilevare i visi umani in un'immagine, delimitare i visi con rettangoli e restituire gli attributi, ad esempio l'età e il sesso.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170041"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168872"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Esempio: Esplorare un'app di elaborazione delle immagini con C#
 
@@ -28,11 +28,11 @@ Esaminare un'applicazione Windows di base che usa Visione artificiale per esegui
 > * Eseguire l'app di esempio e interagire con essa per vari scenari
 > * Esplorare i diversi scenari inclusi nell'app di esempio
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di esplorare l'app di esempio, verificare che i prerequisiti seguenti siano soddisfatti:
 
-* È necessario disporre di [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versioni successive.
+* È necessario avere [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versione successiva.
 * È necessario avere una chiave di sottoscrizione per Visione artificiale. È possibile ottenere una chiave della versione di valutazione gratuita nella pagina [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Oppure seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Visione artificiale e ottenere la chiave. Prendere nota anche dell'URL dell'endpoint servizio.
 
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
@@ -89,7 +89,7 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
 
 1. In **Select a scenario** (Seleziona uno scenario) nel riquadro di spostamento selezionare uno degli scenari attualmente inclusi nell'app di esempio:  
 
-   | Scenario | DESCRIZIONE |
+   | Scenario | Descrizione |
    |----------|-------------|
    |Analyze Image (Analisi dell'immagine) | Usa l'operazione [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analizza immagine) per analizzare un'immagine locale o remota. È possibile scegliere le caratteristiche visive e la lingua per l'analisi e visualizzare sia l'immagine che i risultati.  |
    |Analyze Image with Domain Model (Analisi dell'immagine con modello di dominio) | Usa l'operazione [List Domain Specific Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) (Elenca modelli di dominio specifici) per elencare i modelli di dominio che è possibile selezionare e l'operazione [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Riconosci contenuti specifici del dominio) per analizzare un'immagine locale o remota usando il modello di dominio selezionato. È anche possibile scegliere la lingua per l'analisi. |
@@ -311,4 +311,4 @@ Quando non è più necessario, eliminare la cartella in cui è stato clonato il 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Introduzione all'API Viso](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Introduzione al servizio Viso](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

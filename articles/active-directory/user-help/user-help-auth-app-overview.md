@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell'app Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Che cos'è l'app Microsoft Authenticator? - Azure Active Directory | Microsoft Docs
 description: Informazioni sull'app Microsoft Authenticator, compresi caratteristiche, funzionamento e informazioni incluse in questa sezione del contenuto.
 services: active-directory
 author: eross-msft
@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3766436851cb2f31fa7bb070402191e03ad9ad1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 468005094ab8a9c42d7eacdfefa990565a3297f3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382343"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155809"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Che cos'è l'app Microsoft Authenticator?
-
->[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 L'app Microsoft Authenticator consente di accedere ai propri account se si usa la verifica a due fattori. La verifica a due fattori consente di accedere agli account in modo più sicuro, in particolare durante la visualizzazione di informazioni riservate. Poiché le password possono essere dimenticate, rubate o compromesse, la verifica a due fattori è un'ulteriore misura di sicurezza che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti.
 
@@ -37,13 +34,11 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
 > [!Important]
 > L'app Microsoft Authenticator funziona con qualsiasi account che usa la verifica a due fattori e supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
 >
-> L'organizzazione potrebbe richiedere l'uso di un'app di autenticazione per accedere e visualizzare dati e documenti aziendali. Anche se il nome utente potrebbe essere visualizzato nell'app, l'account non è effettivamente configurato per fungere da metodo di verifica finché non si completa il processo di registrazione. Per altre informazioni, vedere [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md).
-> 
-> Se si verificano problemi di accesso al proprio account, vedere [Se non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429) per ricevere assistenza. Ottenere altre informazioni su cosa fare quando si riceve il messaggio [L'account Microsoft specificato non esiste](https://support.microsoft.com/help/13811) quando si prova ad accedere al proprio account Microsoft.
+>Questo articolo è destinato agli utenti che provano a scaricare e usare l'app Microsoft Authenticator come metodo di verifica di sicurezza. Se si è un amministratore e si cercano informazioni su come attivare l'accesso senza password usando l'app Authenticator per i dipendenti e altri tenti, vedere [Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
 
 ## <a name="terminology"></a>Terminologia
 
-| Termine|DESCRIZIONE|
+| Termine|Descrizione|
 | ----|-----------|
 | Verifica a due fattori | Un processo di verifica che richiede l'utilizzo specifico di due sole informazioni di verifica, come una password e un PIN. L'app Microsoft Authenticator supporta sia la verifica a due fattori standard che l'accesso senza password. |
 | Multi-Factor Authentication (MFA) | Tutta la verifica a due fattori è un'autenticazione a più fattori, che richiede l'utilizzo di *almeno* due informazioni di verifica, in base ai requisiti dell'organizzazione. |
@@ -77,7 +72,7 @@ A seconda del tipo di account, l'organizzazione potrebbe decidere che è necessa
 
 ## <a name="in-this-section"></a>Contenuto della sezione
 
-| Articolo | DESCRIZIONE |
+| Articolo | Descrizione |
 | ------ | ------------ |
 | [Scaricare e installare l'app](user-help-auth-app-download-install.md) | Descrive dove e come ottenere e installare l'app Microsoft Authenticator per i dispositivi che eseguono Android e iOS. |
 | [Aggiungere gli account aziendali o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md) | Descrive come aggiungere vari account aziendali o dell'istituto di istruzione oppure account personali all'app Microsoft Authenticator. |

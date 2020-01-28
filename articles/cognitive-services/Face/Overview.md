@@ -1,7 +1,7 @@
 ---
-title: Informazioni sull'API Viso
+title: Che cos'è il servizio Viso?
 titleSuffix: Azure Cognitive Services
-description: L'API Viso di Servizi cognitivi di Azure offre gli algoritmi per rilevare, riconoscere e analizzare i visi umani nelle immagini.
+description: Il servizio Viso di Servizi cognitivi di Azure offre gli algoritmi per rilevare, riconoscere e analizzare i visi umani nelle immagini.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,25 +9,25 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961540"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170245"
 ---
-# <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
+# <a name="what-is-the-azure-face-service"></a>Che cos'è il servizio Viso di Azure?
 
-L'API Viso di Servizi cognitivi di Azure offre gli algoritmi per rilevare, riconoscere e analizzare i visi umani nelle immagini. La possibilità di elaborare le informazioni relative ai visi umani è importante in molti scenari di software diversi, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica.
+Il servizio Viso di Servizi cognitivi di Azure offre gli algoritmi per rilevare, riconoscere e analizzare i visi umani nelle immagini. La possibilità di elaborare le informazioni relative ai visi umani è importante in molti scenari di software diversi, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica.
 
-L'API Viso offre diverse funzioni, descritte nelle sezioni seguenti. Proseguire la lettura per altre informazioni su ogni funzione.
+Il servizio Viso offre diverse funzioni, descritte nelle sezioni seguenti. Proseguire la lettura per altre informazioni su ogni funzione.
 
 ## <a name="face-detection"></a>Rilevamento del viso
 
-L'API Viso rileva i visi umani in un'immagine e restituisce le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, la funzionalità di rilevamento viso può estrarre una serie di attributi relativi al viso, come posa, posizione della testa, sesso, età, emozione, barba/baffi e occhiali.
+Il servizio Viso rileva i visi umani in un'immagine e restituisce le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, la funzionalità di rilevamento viso può estrarre una serie di attributi relativi al viso, come posa, posizione della testa, sesso, età, emozione, barba/baffi e occhiali.
 
 > [!NOTE]
-> La funzionalità di rilevamento viso è disponibile anche tramite l'[API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Se però si vogliono eseguire altre operazioni con i dati relativi ai visi, è preferibile usare l'API Viso, ovvero il servizio descritto in questo articolo.
+> La funzionalità di rilevamento viso è disponibile anche tramite l'[API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Se però si vogliono eseguire altre operazioni con i dati relativi ai visi, è preferibile usare il servizio Viso, descritto in questo articolo.
 
 ![Immagine di una donna e di un uomo, con rettangoli disegnati intorno ai visi e informazioni su età e sesso](./Images/Face.detection.jpg)
 
@@ -73,9 +73,9 @@ Per altre informazioni sull'identificazione delle persone, vedere l'articolo che
 
 ## <a name="sample-apps"></a>App di esempio
 
-Le applicazioni di esempio seguenti illustrano alcuni dei modi in cui si può usare l'API Viso:
+Le applicazioni di esempio seguenti illustrano alcuni modi in cui usare il servizio Viso:
 
-- [API Viso Microsoft: libreria client ed esempio Windows](https://github.com/Microsoft/Cognitive-Face-Windows). È un'app WPF che illustra diversi scenari di rilevamento, analisi e identificazione del viso.
+- [API Viso: libreria client ed esempio Windows](https://github.com/Microsoft/Cognitive-Face-Windows). È un'app WPF che illustra diversi scenari di rilevamento, analisi e identificazione del viso.
 - [App UWP FamilyNotes](https://github.com/Microsoft/Windows-appsample-familynotes). È un'app della piattaforma UWP (Universal Windows Platform) che usa l'identificazione del viso insieme a riconoscimento vocale, Cortana, input penna e fotocamera in uno scenario di condivisione note in una famiglia.
 
 ## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
@@ -86,4 +86,4 @@ Come per tutte le risorse di Servizi cognitivi, gli sviluppatori che usano il se
 
 Seguire un argomento di avvio rapido per implementare un semplice scenario di rilevamento del viso nel codice:
 
-- [Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#](quickstarts/csharp.md). Sono disponibili altre lingue.
+- [Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK con C#](quickstarts/csharp.md). Sono disponibili altre lingue.

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 0221930f0b9fff0c9d4e398559f8d12999a66e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982859"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294151"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Avvio rapido: Esplorare e analizzare i costi con l'analisi dei costi
 
@@ -138,24 +138,29 @@ I grafici pivot nel grafico principale mostrano raggruppamenti diversi per offri
 
 La tabella seguente contiene alcune delle opzioni di raggruppamento e filtro più comuni, oltre a indicazioni su quando usarle.
 
-| Proprietà | Utilizzo |
-| --- | --- |
-| **Periodo di fatturazione** | Suddivide i costi per mese di fattura. Questa opzione è importante per le sottoscrizioni con pagamento in base al consumo e per quelle di sviluppo/test, che non sono vincolate a mesi di calendario. Gli account EA/MCA possono usare i mesi di calendario nello strumento di selezione data o la granularità mensile per raggiungere lo stesso obiettivo. |
-| **Tipo di addebito** | Suddivide i costi di utilizzo, acquisto, rimborso e prenotazioni inutilizzate. Gli acquisti di prenotazioni e i rimborsi sono disponibili solo quando si usano i costi effettivi e non i costi ammortizzati. I costi delle prenotazioni inutilizzate sono disponibili solo quando si esaminano i costi ammortizzati. |
-| **Cloud** | Suddivide i costi in base ad AWS e Azure. I costi di AWS sono disponibili solo per gruppi di gestione, account di fatturazione esterni e sottoscrizioni esterne. |
-| **Reparto** / **Sezione della fattura** | Suddivide i costi per reparto EA o sezione della fattura MCA. Questa opzione è disponibile solo per gli account di fatturazione EA/MCA e per i profili di fatturazione MCA. |
-| **Account di registrazione** | Suddivide i costi per proprietario di account EA. Questa opzione è disponibile solo per gli account di fatturazione EA e i reparti. |
-| **Frequenza** | Suddivide i costi in base all'utilizzo, una tantum e ricorrenti. |
-| **Contatore** | Suddivide i costi per contatore dell'utilizzo di Azure. Questa opzione è disponibile solo per l'utilizzo di Azure. Tutti gli acquisti e l'utilizzo del Marketplace verranno visualizzati come **Non specificato** o **Non assegnato**. |
-| **Tipo di autore** | Suddivide i costi di AWS, Azure e Marketplace. |
-| **Prenotazione** | Suddivide i costi per prenotazione. Qualsiasi utilizzo che non include una prenotazione verrà visualizzato come **Non specificato**. |
-| **Risorsa** | Suddivide i costi per risorsa. Tutti gli acquisti verranno visualizzati come **Non specificato** perché vengono applicati a livello di account di fatturazione EA/PAYG o profilo di fatturazione MCA.  |
-| **Gruppo di risorse** | Suddivide i costi per gruppo di risorse. Questa opzione è disponibile solo per l'utilizzo non classico. L'utilizzo di risorse classico verrà visualizzato come **altro** e gli acquisti come **Non specificato**. |
-| **Tipo di risorsa** | Suddivide i costi per tipo di risorsa. Questa opzione è disponibile solo per l'utilizzo non classico. L'utilizzo di risorse classico verrà visualizzato come **altro** e gli acquisti come **Non specificato**. |
-| **Nome del servizio** o **Categoria del contatore** | Suddivide i costi per servizio di Azure. Questa opzione è disponibile solo per l'utilizzo di Azure. Tutti gli acquisti e l'utilizzo del Marketplace verranno visualizzati come **Non specificato** o **Non assegnato**. |
-| **Livello di servizio** o **Sottocategoria del contatore** | Suddivide i costi in base alla sottoclassificazione del contatore dell'utilizzo di Azure. Questa opzione è disponibile solo per l'utilizzo di Azure. Tutti gli acquisti e l'utilizzo del Marketplace verranno visualizzati come **Non specificato** o **Non assegnato**. |
-| **Sottoscrizione** | Suddivide i costi per sottoscrizione. Tutti gli acquisti vengono visualizzati come **Non specificato**. |
-| **Tag** | Suddivide i costi per valori di tag per una specifica chiave di tag. |
+| Proprietà | Utilizzo | Note |
+| --- | --- | --- |
+| **Zone di disponibilità** | Suddivide i costi di AWS per zona di disponibilità. | Si applica solo agli ambiti e ai gruppi di gestione di AWS. I dati di Azure non includono la zona di disponibilità e vengono visualizzati come **Non applicabile**. |
+| **Periodo di fatturazione** | Suddivide i costi del piano con pagamento in base al consumo in base al mese in cui sono stati (o saranno) fatturati. | Usare **Periodo di fatturazione** per ottenere una rappresentazione esatta degli addebiti del piano con pagamento in base al consumo fatturati. Includere due giorni aggiuntivi prima e dopo il periodo di fatturazione in caso di filtro in base a un intervallo di date personalizzato. Se ci si limita al periodo di fatturazione esatto non si ottiene una corrispondenza con la fattura. Vengono visualizzati i costi di tutte le fatture del periodo di fatturazione. Usare **ID fattura** per filtrare in base a una fattura specifica. Si applica solo alle sottoscrizioni con pagamento in base al consumo, in quanto le sottoscrizioni con contratto Enterprise o con contratto del cliente Microsoft vengono fatturate in base ai mesi del calendario. Gli account EA/MCA possono usare i mesi di calendario nello strumento di selezione data o la granularità mensile per raggiungere lo stesso obiettivo. |
+| **Tipo di addebito** | Suddivide i costi di utilizzo, acquisto, rimborso e prenotazioni inutilizzate. | Gli acquisti di prenotazioni e i rimborsi sono disponibili solo quando si usano i costi effettivi e non i costi ammortizzati. I costi delle prenotazioni inutilizzate sono disponibili solo quando si esaminano i costi ammortizzati. |
+| **Reparto** | Suddivide i costi per reparto EA. | Disponibile solo per i gruppi di gestione ed EA. Le sottoscrizioni con pagamento in base al consumo non hanno un reparto e vengono visualizzate come **Non applicabile** o **non assegnate**. |
+| **Account di registrazione** | Suddivide i costi per proprietario di account EA. | Disponibile solo per gli account di fatturazione, i reparti e i gruppi di gestione EA. Le sottoscrizioni con pagamento in base al consumo non hanno account di registrazione EA e vengono visualizzate come **Non applicabile** o **non assegnate**. |
+| **Frequenza** | Suddivide i costi in base all'utilizzo, una tantum e ricorrenti. | |
+| **ID fattura** | Suddivide i costi per fattura emessa. | Gli addebiti non fatturati non hanno ancora un ID fattura e i costi EA non includono i dettagli della fattura e vengono visualizzati come **Non applicabile**.  |
+| **Contatore** | Suddivide i costi per contatore dell'utilizzo. | Gli acquisti e l'utilizzo del Marketplace vengono visualizzati come **Non applicabile**. Vedere **Tipo di addebito** per identificare gli acquisti e **Tipo di autore** per identificare gli addebiti del Marketplace. |
+| **operazione** | Suddivide i costi di AWS per operazione. | Si applica solo agli ambiti e ai gruppi di gestione di AWS. I dati di Azure non includono l'operazione e vengono visualizzati come **Non applicabile**. Usare **Contatore** al posto di Operazione. |
+| **Modello di determinazione prezzi** | Suddivide i costi in base all'utilizzo su richiesta, su prenotazione o spot. | Gli acquisti vengono visualizzati come **OnDemand**. Se viene visualizzato **Non applicabile**, raggruppare per **Prenotazione** per determinare se l'utilizzo è su prenotazione o su richiesta e per **Tipo di addebito** per identificare gli acquisti.
+| **Provider** | Suddivide i costi in base ad AWS e Azure. | Disponibile solo per i gruppi di gestione. |
+| **Tipo di autore** | Suddivide i costi di AWS, Azure e Marketplace. |  |
+| **Prenotazione** | Suddivide i costi per prenotazione. | Qualsiasi utilizzo o acquisto non associato a una prenotazione viene visualizzato come **Non applicabile**. Raggruppare per **Tipo di autore** per identificare altri acquisti di Azure, AWS o del Marketplace. |
+| **Risorsa** | Suddivide i costi per risorsa. | Gli acquisti vengono visualizzati come **Non applicabile** perché vengono applicati a livello di account di fatturazione EA/con pagamento in base al consumo o a livello di profilo di fatturazione del contratto del cliente Microsoft e non sono associati a una risorsa specifica. Raggruppare per **Tipo di autore** per identificare altri acquisti di Azure, AWS o del Marketplace. |
+| **Gruppo di risorse** | Suddivide i costi per gruppo di risorse. | Gli acquisti, le risorse tenant non associate a sottoscrizioni, le risorse di sottoscrizione non distribuite in un gruppo di risorse e le risorse classiche non hanno un gruppo di risorse e vengono visualizzate come **altri**, **servizi classici**, **$system**o **Non applicabile**. |
+| **Tipo di risorsa** | Suddivide i costi per tipo di risorsa. | Gli acquisti e i servizi classici non hanno un tipo di risorsa Azure Resource Manager e vengono visualizzati come **altri**, **servizi classici** o **Non applicabile**. |
+| **Posizione risorsa** | Suddivide i costi per località o area. | Gli acquisti e l'utilizzo del Marketplace possono essere visualizzati come **non assegnato**, **sconosciuto**, **non mappato** o **Non applicabile**. |
+| **Nome del servizio** o **Categoria del contatore** | Suddivide i costi per servizio di Azure. | Gli acquisti e l'utilizzo del Marketplace vengono visualizzati come **Non applicabile** o **non assegnato**. |
+| **Livello di servizio** o **Sottocategoria del contatore** | Suddivide i costi in base alla sottoclassificazione del contatore dell'utilizzo di Azure. | Gli acquisti e l'utilizzo del Marketplace vengono visualizzati come **Non applicabile** o **non assegnato**. |
+| **Sottoscrizione** | Suddivide i costi per sottoscrizione di Azure e account AWS collegato. | Gli acquisti e le risorse tenant possono essere visualizzati come **Non applicabile**. |
+| **Tag** | Suddivide i costi per valori di tag per una specifica chiave di tag. | I tag non sono disponibili per gli acquisti, le risorse tenant non associate a sottoscrizioni, le risorse di sottoscrizione non distribuite in un gruppo di risorse o le risorse classiche. Alcuni servizi non includono tag nei dati di utilizzo. Vedere altre informazioni sul [supporto dei tag per ogni tipo di risorsa](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
 
 Per altre informazioni sui termini, vedere [Informazioni sui termini usati nel file su utilizzo e addebiti di Azure](../understand/understand-usage.md).
 

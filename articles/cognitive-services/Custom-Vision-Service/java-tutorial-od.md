@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Java"
+title: "Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Java"
 titleSuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Java SDK.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: cad7c6464cff05bee7e2b086d22f9e696dfa1c4b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a98c8b5d7c312582cf6644f74bda664c5031468b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970313"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166161"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Java
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Java
 
 Questo articolo mostra come iniziare a usare Custom Vision SDK con Java per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un ambiente di sviluppo Java a scelta
 - [JDK 7 o 8](https://aka.ms/azure-jdks) installato.
@@ -67,6 +67,9 @@ Passare al blocco di codice che crea un client di training e un progetto di rile
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate. Passare alla definizione della mappa `regionMap`. Questo codice associa ognuna delle immagini di esempio alla relativa area contrassegnata.
 
+> [!NOTE]
+> Se non si ha un'utilità di clic e trascinamento per contrassegnare le coordinate delle aree, è possibile usare l'interfaccia utente Web in [Customvision.ai](https://www.customvision.ai/). In questo esempio le coordinate sono già disponibili.
+
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_od_mapping)]
 
 Passare quindi al blocco di codice che aggiunge le immagini al progetto. Le immagini vengono lette dalla cartella **src/main/resources** del progetto e caricate nel servizio con le coordinate di area e i tag appropriati.
@@ -79,7 +82,7 @@ Il frammento di codice precedente usa due funzioni helper che recuperano le imma
 
 ### <a name="train-the-project-and-publish"></a>Training del progetto e pubblicazione
 
-Questo codice crea la prima iterazione del progetto e quindi la pubblica nell'endpoint di stima. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
+Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train_od)]
 

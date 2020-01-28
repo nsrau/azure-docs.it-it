@@ -1,5 +1,5 @@
 ---
-title: 'Esempio: Identificare i visi nelle immagini - API Viso'
+title: 'Esempio: Identificare i visi nelle immagini - Viso'
 titleSuffix: Azure Cognitive Services
 description: Questa guida illustra come identificare visi sconosciuti tramite oggetti PersonGroup creati anticipatamente da persone note.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: ec209eb2c60efcb1363c177aad0fe5a72ad2a239
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977183"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169906"
 ---
 # <a name="example-identify-faces-in-images"></a>Esempio: Identificare i visi nelle immagini
 
-Questa guida illustra come identificare visi sconosciuti tramite oggetti PersonGroup creati anticipatamente da persone note. Gli esempi sono scritti in C# usando la libreria client dell'API Viso di Servizi cognitivi di Azure.
+Questa guida illustra come identificare visi sconosciuti tramite oggetti PersonGroup creati anticipatamente da persone note. Gli esempi sono scritti in C# usando la libreria client di Viso di Servizi cognitivi di Azure.
 
-## <a name="preparation"></a>Operazioni preliminari
+## <a name="preparation"></a>Preparazione
 
 Questo esempio dimostra:
 
@@ -131,7 +131,7 @@ while(true)
 
 ## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>Passaggio 4: Identificare un viso in base a un PersonGroup definito
 
-Quando l'API Viso esegue le identificazioni, calcola la somiglianza tra un viso di test e tutti i visi all'interno di un gruppo. Restituisce le persone più simili al viso di test. Questa operazione viene eseguita tramite l'API [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Viso - Identificazione) o il metodo IdentifyAsync della libreria client.
+Quando il servizio Viso esegue le identificazioni, calcola la somiglianza tra un viso di test e tutti i visi all'interno di un gruppo. Restituisce le persone più simili al viso di test. Questa operazione viene eseguita tramite l'API [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Viso - Identificazione) o il metodo IdentifyAsync della libreria client.
 
 Il viso di test deve essere rilevato con i passaggi precedenti. L'ID viso viene quindi passato all'API di identificazione come secondo argomento. È possibile identificare più ID viso in una sola volta. Il risultato contiene tutti i risultati identificati. Per impostazione predefinita, il processo di identificazione restituisce solo una persona che rappresenta la corrispondenza migliore con il viso di test. Se si preferisce, è possibile specificare il parametro facoltativo maxNumOfCandidatesReturned per consentire al processo di identificazione di restituire più candidati.
 

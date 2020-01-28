@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423114"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511876"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -54,7 +54,7 @@ Per inserire un dispositivo in Azure AD, sono disponibili più opzioni:
 
 ## <a name="device-management"></a>Gestione dei dispositivi
 
-In Azure AD i dispositivi possono essere gestiti usando strumenti per la gestione di dispositivi mobili (MDM), come Microsoft Intune, System Center Configuration Manager, Criteri di gruppo (aggiunta ad Azure AD in modalità ibrida), strumenti per la gestione di applicazioni mobili (MAM) o altri strumenti di terze parti.
+In Azure AD i dispositivi possono essere gestiti usando strumenti per la gestione di dispositivi mobili (MDM), come Microsoft Intune, Microsoft Endpoint Configuration Manager, Criteri di gruppo (aggiunta ad Azure AD in modalità ibrida), strumenti per la gestione di applicazioni mobili (MAM) o altri strumenti di terze parti.
 
 ## <a name="resource-access"></a>Accesso alle risorse
 

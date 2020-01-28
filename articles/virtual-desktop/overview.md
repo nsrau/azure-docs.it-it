@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 01/21/2020
 ms.author: helohr
-ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348818"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514273"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -86,17 +86,27 @@ Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere
 >[!NOTE]
 >Se è necessaria una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita di un mese](https://azure.microsoft.com/free/). Se si usa la versione di valutazione gratuita di Azure, è necessario usare Azure AD Domain Services per mantenere Windows Server Active Directory sincronizzato con Azure Active Directory.
 
-Le macchine virtuali Azure create per Desktop virtuale Windows devono avere l'accesso TCP 443 in uscita agli URL seguenti:
+Le macchine virtuali di Azure create per Desktop virtuale Windows devono avere l'accesso agli URL seguenti:
 
-* *.wvd.microsoft.com
-* *.blob.core.windows.net
-* *.core.windows.net
-* *.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|Indirizzo|Porta in uscita|Scopo|
+|---|---|---|
+|*.wvd.microsoft.com|Porta TCP 443|Traffico del servizio|
+|*.blob.core.windows.net|Porta TCP 443|Agente, aggiornamenti dello stack SXS e traffico dell'agente|
+|*.core.windows.net|Porta TCP 443|Traffico dell'agente|
+|*.servicebus.windows.net|Porta TCP 443|Traffico dell'agente|
+|prod.warmpath.msftcloudes.com|Porta TCP 443|Traffico dell'agente|
+|catalogartifact.azureedge.net|Porta TCP 443|Azure Marketplace|
+|kms.core.windows.net|Porta TCP 1688|Attivazione di Windows 10|
+
+>[!IMPORTANT]
+>L'apertura di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono URL per altri servizi come Azure AD.
 
 >[!NOTE]
->L'apertura di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono URL per altri servizi come Azure AD.
+>È necessario usare il carattere jolly (*) per gli URL che coinvolgono il traffico del servizio. Se si preferisce non usare * per il traffico correlato ad agenti, ecco come trovare gli URL senza caratteri jolly:
+>
+>1. Registrare le macchine virtuali nel pool di host di Desktop virtuale Windows.
+>2. Aprire il **Visualizzatore eventi** e quindi passare a **Windows** > **Log applicazioni**  e cercare l'evento con ID 3702.
+>3. Inserire nell'elenco elementi consentiti gli URL trovati nell'evento con ID 3702. Gli URL nell'evento con ID 3702 sono specifici dell'area. È necessario ripetere il processo di inserimento nell'elenco elementi consentiti con gli URL pertinenti per ogni area in cui si vogliono distribuire le macchine virtuali.
 
 Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. I desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti. Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti.
 

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e C#"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con C# per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 9d903a7d2d7e0cfe899da1fbb8869805f1f4f857
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e4174ba19d518b4b1dfef9921fe39b0c76f6d1e3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961251"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169288"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e C#
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con C# per rilevare i visi umani in un'immagine.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
@@ -242,7 +242,7 @@ Aggiungere il metodo seguente alla classe **Program**. Questo metodo formatta l'
 }
 ```
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Una risposta con esito positivo visualizzerà i dati sui volti in formato JSON facilmente leggibile. Ad esempio:
 
@@ -342,7 +342,7 @@ Una risposta con esito positivo visualizzerà i dati sui volti in formato JSON f
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata una semplice applicazione console .NET che usa le chiamate REST con l'API Viso di Azure per rilevare i visi in un'immagine e restituire i relativi attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni sugli scenari supportati.
+In questo argomento di avvio rapido è stata creata una semplice applicazione console .NET che usa le chiamate REST con il servizio Viso di Azure per rilevare i visi in un'immagine e restituire i relativi attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni sugli scenari supportati.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

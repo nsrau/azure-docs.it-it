@@ -1,27 +1,19 @@
 ---
-title: Esercitazione - Creare e gestire un set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+title: 'Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali di Azure'
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un set di scalabilità di macchine virtuali, con alcune attività di gestione comuni come l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c2bddb4ef1401dd45b5aa9418f6e1890df0879ae
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751022"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277227"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. In questa esercitazione si apprenderà come:
@@ -85,7 +77,7 @@ L'output di esempio seguente mostra due istanze di VM nel set di scalabilità:
 ```
 
 
-La prima colonna dell'output contiene *InstanceId*. Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `--instance-id` ad [az vmss get-instance-view](/cli/azure/vmss). L'esempio seguente consente di visualizzare informazioni sull'istanza di VM *1*:
+La prima colonna dell'output contiene *InstanceId*. Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `--instance-id` ad [az vmss get-instance-view](/cli/azure/vmss). L'esempio seguente consente di visualizzare informazioni sull'istanza di macchina virtuale *1*:
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -192,7 +184,7 @@ Una dimensione di istanza di VM, o *SKU*, determina la quantità di risorse di c
 ### <a name="vm-instance-sizes"></a>Dimensioni delle istanze di VM
 La tabella seguente classifica le dimensioni di VM comuni in base ai casi d'uso.
 
-| Type                     | Dimensioni comuni           |    DESCRIZIONE       |
+| Type                     | Dimensioni comuni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |

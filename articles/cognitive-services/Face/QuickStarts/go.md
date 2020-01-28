@@ -1,7 +1,7 @@
 ---
 title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Go"
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si userà l'API Viso con Go per rilevare i visi in un'immagine.
+description: In questo argomento di avvio rapido si userà il servizio Viso con Go per rilevare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 3ebcd7dfb7b1138f52663d7c919d4ce4d8bd088a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890532"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165830"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Go
 
@@ -23,7 +23,7 @@ In questa guida introduttiva si userà l'API REST Viso di Azure con Go per rilev
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave.
 - Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Scrivere lo script
@@ -311,7 +311,7 @@ Nella console verrà visualizzata una stringa JSON dei dati relativi ai visi ril
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stata scritta un'applicazione console Go che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
+In questo argomento di avvio rapido è stata scritta un'applicazione console Go che chiama il servizio Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

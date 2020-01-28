@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f75cea566a09a1f4e147b999ad7d2c2d7ea80f29
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278989"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156115"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurare le informazioni di sicurezza (anteprima) da una richiesta di accesso
 
@@ -26,6 +26,19 @@ ms.locfileid: "74278989"
 Questo messaggio di richiesta verrà visualizzato solo se non si sono ancora configurate le informazioni di sicurezza richieste dall'organizzazione. Se sono state configurate in precedenza ma si vogliono apportare modifiche, è possibile seguire i passaggi illustrati nei vari articoli sulle procedure in base al metodo. Per altre informazioni, vedere la [panoramica su come aggiungere o aggiornare le informazioni di sicurezza](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Confronto tra verifica di sicurezza e autenticazione per la reimpostazione della password
+
+I metodi di gestione delle informazioni di sicurezza vengono usati sia per la verifica di sicurezza a due fattori sia per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
+
+| Metodo | Utilizzo |
+| ------ | -------- |
+| App di autenticazione | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| SMS | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| Telefonate | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| Chiave di sicurezza | Verifica a due fattori e autenticazione per la reimpostazione della password. |
+| Account di posta elettronica | Solo autenticazione per la reimpostazione della password. Per la verifica a due fattori sarà necessario scegliere un altro metodo. |
+| Domande di sicurezza | Solo autenticazione per la reimpostazione della password. Per la verifica a due fattori sarà necessario scegliere un altro metodo. |
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Accedere all'account aziendale o dell'istituto di istruzione
 
@@ -43,9 +56,9 @@ Seguire questa procedura per configurare le informazioni di sicurezza per l'acco
 1. Dopo che si è selezionato **Avanti** nel messaggio di richiesta, verrà visualizzata la procedura guidata **Proteggi l'account** con il primo metodo che l'amministratore e l'organizzazione richiedono di configurare. In questo esempio è l'app Microsoft Authenticator.
 
    > [!Note]
-   > Se si vuole usare un'app di autenticazione diversa dall'app Microsoft Authenticator, selezionare il collegamento **Voglio usare un'app di autenticazione diversa**.
+   > Se si vuole usare un'app di autenticazione diversa dall'app Microsoft Authenticator, fare clic sul collegamento **Desidero usare un'app di autenticazione diversa**.
    >
-   > Se l'organizzazione consente di scegliere un metodo diverso oltre all'app di autenticazione, è possibile selezionare il collegamento **Si vuole configurare un metodo diverso**.
+   > Se l'organizzazione consente di scegliere un metodo diverso oltre all'app di autenticazione, è possibile fare clic sul collegamento **Desidero configurare un metodo diverso**.
 
     ![Procedura guidata Proteggi l'account: pagina per il download dell'app di autenticazione](media/security-info/securityinfo-prompt-get-auth-app.png)
 
@@ -53,7 +66,7 @@ Seguire questa procedura per configurare le informazioni di sicurezza per l'acco
 
     ![Procedura guidata Proteggi l'account: pagina Configura l'account per Authenticator](media/security-info/securityinfo-prompt-auth-app-setup-acct.png)
 
-3. Mantenere aperta la pagina **Configura l'account** mentre si configura l'app Microsoft Authenticator sul dispositivo mobile.
+3. Rimanere sulla pagina **Configurare l'account** durante la configurazione dell'app Microsoft Authenticator sul dispositivo mobile.
 
 4. Aprire l'app Microsoft Authenticator, scegliere di consentire le notifiche (se richiesto), selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) in alto a destra e quindi selezionare **Account aziendale o dell'istituto di istruzione**.
 

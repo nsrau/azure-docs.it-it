@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 0025f395c89a8a9f2eff4204ed0859cda0fa86fc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fe2bb61ccfc7285dc5f4a5c21f3c62abfecca343
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867516"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290598"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio Code e .NET Core - Azure Dev Spaces
 
@@ -96,13 +96,13 @@ Questo comando consente di preparare il progetto per l'esecuzione in Azure Dev S
 > [!TIP]
 > Il [Dockerfile e il grafico Helm](how-dev-spaces-works.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
 
-## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Compilare ed eseguire il codice in Kubernetes da Visual Studio
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Compilare ed eseguire il codice in Kubernetes da Visual Studio Code
 
 Fare clic sull'icona *Debug* a sinistra e quindi su *.NET Core Launch (AZDS)* (Avvia .NET Core AZDS) nella parte superiore.
 
 ![](media/get-started-netcore/debug-configuration.png)
 
-Questo comando compila ed esegue il servizio in Azure Dev Spaces in modalità debug. La finestra del *terminale* nella parte inferiore visualizza l'output della compilazione e gli URL per il servizio che esegue Azure Dev Spaces. La *Console di debug* visualizza l'output del log.
+Questo comando compila ed esegue il servizio in Azure Dev Spaces in modalità debug. La finestra del *terminale* nella parte inferiore visualizza l'output della compilazione e gli URL per il servizio in esecuzione in Azure Dev Spaces. La *Console di debug* visualizza l'output del log.
 
 > [!Note]
 > Se nel *riquadro comandi* non vengono visualizzati comandi di Azure Dev Spaces, assicurarsi di aver installato l'[estensione Visual Studio Code per Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verificare inoltre di aver aperto la directory *dev-spaces/samples/dotnetcore/getting-started/webfrontend* in Visual Studio Code.

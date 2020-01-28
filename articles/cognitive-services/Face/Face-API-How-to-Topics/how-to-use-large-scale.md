@@ -1,5 +1,5 @@
 ---
-title: 'Esempio: Usare la funzionalità su larga scala - API Viso'
+title: 'Esempio: Usare la funzionalità su larga scala - Viso'
 titleSuffix: Azure Cognitive Services
 description: Questa guida illustra come eseguire un ridimensionamento passando dagli oggetti PersonGroup e FaceList esistenti agli oggetti LargePersonGroup e LargeFaceList.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743736"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169773"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Esempio: Usare la funzionalità su larga scala
 
@@ -23,14 +23,14 @@ Questo è un articolo di livello avanzato su come passare all'uso della funziona
 
 LargePersonGroup e LargeFaceList vengono nell'insieme definite operazioni su larga scala. LargePersonGroup può contenere fino a 1 milione di persone, ognuna con un massimo di 248 visi. LargeFaceList può contenere fino a 1 milione di visi. Le operazioni su larga scala sono simili a quelle convenzionali eseguite per PersonGroup e FaceList, ma presentano alcune differenze dovute alla nuova architettura. 
 
-Gli esempi sono scritti in C# usando la libreria client dell'API Viso di Servizi cognitivi di Azure.
+Gli esempi sono scritti in C# usando la libreria client di Viso di Servizi cognitivi di Azure.
 
 > [!NOTE]
 > Per abilitare le prestazioni di ricerca dell'API Viso per le operazioni Identification e FindSimilar su larga scala, introdurre un'operazione Train per eseguire l'analisi preliminare degli oggetti LargeFaceList e LargePersonGroup. Il tempo di training varia da alcuni secondi a circa mezz'ora, a seconda della capacità effettiva. Durante il periodo di training, è possibile eseguire le operazioni Identification e FindSimilar se in precedenza è stato eseguito un training corretto. Nuove persone e nuovi visi aggiunti non vengono visualizzati nel risultato fino a quando non viene completata una nuova post-migrazione al training su larga scala.
 
 ## <a name="step-1-initialize-the-client-object"></a>Passaggio 1: Inizializzare l'oggetto client
 
-Quando si usa la libreria client dell'API Viso, l'endpoint e la chiave di sottoscrizione vengono passati al costruttore della classe FaceClient. Ad esempio:
+Quando si usa la libreria client di Viso, l'endpoint e la chiave di sottoscrizione vengono passati tramite il costruttore della classe FaceClient. Ad esempio:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -65,7 +65,7 @@ Aggiungere tutti i visi e tutte le persone dall'oggetto PersonGroup al nuovo ogg
 |:---:|:---:|
 | Create | Create |
 | Delete | Delete |
-| Get | Get |
+| Recupero | Recupero |
 | Elenco | Elenco |
 | Aggiornamento | Aggiornamento |
 | - | Eseguire il training |

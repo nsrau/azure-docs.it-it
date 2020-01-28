@@ -10,20 +10,20 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 0d9c175db1370fe07b3278a46d910c59d81df860
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969922"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169996"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Guida introduttiva: Come creare un rilevatore di oggetti con Visione personalizzata
+# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Avvio rapido: Come creare un rilevatore di oggetti con Visione personalizzata
 
 In questa esercitazione dell'avvio rapido, si apprenderà a creare un rilevatore di oggetti tramite il sito Web di Visione personalizzata. Dopo aver creato un modello di rilevatore, è possibile usare il servizio Visione personalizzata per il rilevamento oggetti.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un set di immagini con cui eseguire il training del modello di rilevatore. È possibile usare il set di [immagini di esempio](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) in GitHub. In alternativa, è possibile scegliere immagini personalizzate usando i suggerimenti seguenti.
 
@@ -51,7 +51,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 
 1. Selezionare quindi uno dei domini disponibili. Ogni dominio ottimizza il rilevatore per tipi specifici di immagini, come descritto nella tabella seguente. Sarà possibile modificare il dominio in un secondo momento, se necessario.
 
-    |Domain|Scopo|
+    |Dominio|Scopo|
     |---|---|
     |__Generale__| Ottimizzato per un'ampia gamma di attività di rilevamento oggetti. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico. |
     |__Logo__|Ottimizzato per il rilevamento di logo dei marchi nelle immagini.|
@@ -107,6 +107,8 @@ Al termine del training, le prestazioni del modello vengono calcolate e visualiz
 ## <a name="manage-training-iterations"></a>Gestire le iterazioni di training
 
 Ogni volta che si esegue il training del rilevatore, si crea una nuova _iterazione_ con le relative metriche delle prestazioni aggiornate. È possibile visualizzare tutte le iterazioni nel riquadro sinistro della scheda **Prestazioni**. Nel riquadro a sinistra è presente anche il pulsante **Elimina**, che consente di eliminare un'iterazione obsoleta. Quando si elimina un'iterazione, vengono eliminate anche tutte le immagini associate in modo univoco a tale iterazione.
+
+Per informazioni su come accedere ai modelli sottoposti a training a livello di codice, vedere [Usare il modello con l'API Previsioni](./use-prediction-api.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

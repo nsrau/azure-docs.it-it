@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762806"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314335"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
@@ -46,7 +46,7 @@ Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e a
 
 + Notebook o script R in cui usare l'<a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK per R</a> per scrivere codice personalizzato o usare i moduli R nella finestra di progettazione.
 
-+ [Estensione di Visual Studio Code](how-to-vscode-tools.md)
++ [Estensione di Visual Studio Code](tutorial-setup-vscode-extension.md)
 
 + [Interfaccia della riga di comando di Machine Learning](reference-azure-machine-learning-cli.md)
 
@@ -66,7 +66,7 @@ Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-set-up-trai
 
 Per un training e una distribuzione senza codice o con poco codice, provare:
 
-+ **Finestra di progettazione di Azure Machine Learning (anteprima)**
++ **Finestra di progettazione di Azure Machine Learning**
 
   Usare la finestra di progettazione per preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice. Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire il modello. Provare l'[esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
 
@@ -85,7 +85,7 @@ Dopo aver creato il modello appropriato, è possibile usarlo facilmente in un se
 
 È quindi possibile gestire i modelli distribuiti usando l'[SDK di Azure Machine Learning per Python](https://aka.ms/aml-sdk), [Azure Machine Learning Studio](https://ml.azure.com) o l'[interfaccia della riga di comando di Machine Learning](reference-azure-machine-learning-cli.md).
 
-Questi modelli possono essere utilizzati e restituiscono stime, [in tempo reale](how-to-consume-web-service.md) o [in modo asincrono](how-to-run-batch-predictions.md), su grandi quantità di dati.
+Questi modelli possono essere utilizzati e restituiscono stime, [in tempo reale](how-to-consume-web-service.md) o [in modo asincrono](how-to-use-parallel-run-step.md), su grandi quantità di dati.
 
 È inoltre possibile usare [pipeline avanzate di Machine Learning](concept-ml-pipelines.md) per collaborare in tutti i passaggi di preparazione dei dati, training dei modelli, valutazione e distribuzione. Le pipeline consentono di:
 

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.date: 01/21/2019
+ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708292"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274801"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Avvio rapido: Creare un'istanza in modalità ibrida con il portale di Azure e il Servizio Migrazione del database di Azure
 
@@ -73,7 +73,7 @@ Prima di creare la prima istanza del Servizio Migrazione del database di Azure, 
     - Scegliere la **Posizione** più vicina al server di origine o di destinazione.
     - Per **Modalità servizio**, selezionare **Ruolo di lavoro ibrido (Anteprima)** .
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Creare il servizio di migrazione - Nozioni di base](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Selezionare **Rivedi e crea**.
 
@@ -186,7 +186,7 @@ Questo script è progettato per la creazione rapida di prototipi quando l'utente
 > [!IMPORTANT]
 > Questo script presuppone che sia presente un'istanza esistente del Servizio Migrazione del database di Azure in modalità ibrida e che l'account Azure usato abbia le autorizzazioni per creare AdApps nel tenant e per modificare il Controllo degli accessi in base al ruolo nella sottoscrizione.
 
-Inserire semplicemente i parametri nella parte superiore dello script, quindi eseguire lo script da un'istanza di PowerShell di amministratore.
+Inserire i parametri nella parte superiore dello script, quindi eseguire lo script da un'istanza di PowerShell di amministratore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

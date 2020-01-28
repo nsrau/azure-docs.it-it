@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 01/15/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c78ac615d2a93865721152442461d40925dc088d
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 1507eb4eba88fbf1ef50645390eaa9f17804359a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922591"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293233"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -90,11 +90,10 @@ Questo supporta gli scenari seguenti:
 
 Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure.
 
-## <a name="pci-soc-and-iso-compliant"></a>Conforme a PCI, SOC e ISO
+## <a name="compliance-certifications"></a>Certificazioni per la conformità
 
-Il firewall di Azure è conforme a PCI (Payment Card Industry), SOC (Service Organization Controls) e ISO (International Organization for Standardization). Attualmente supporta SOC 1 tipo 2, SOC 2 tipo 2, SOC 3, PCI DSS e ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
+Il firewall di Azure è conforme a PCI (Payment Card Industry), SOC (Service Organization Controls) e ISO (International Organization for Standardization). Per altre informazioni, vedere [Certificazioni di conformità di Firewall di Azure](compliance-certifications.md).
 
-Per altre informazioni, vedere la [Guida alla conformità Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -102,7 +101,7 @@ Il Firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
+Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
 |Supporto di PowerShell e CLI mancante per ICMP|Azure PowerShell e CLI non supportano ICMP come protocollo valido nelle regole di rete.|È comunque possibile usare ICMP come protocollo tramite il portale e l'API REST. A breve ICMP sarà aggiunto anche in PowerShell e nell'interfaccia della riga di comando.|
 |I tag FQDN richiedono l'impostazione di protocol:port|Le regole di applicazione con tag FQDN richiedono la definizione port:protocol.|È possibile usare **https** come valore port:protocol. A breve questo campo sarà reso facoltativo quando vengono usati i tag FQDN.|
 |Lo spostamento di un firewall in un altro gruppo di risorse o un'altra sottoscrizione non è supportato|Lo spostamento di un firewall in un altro gruppo di risorse o un'altra sottoscrizione non è supportato.|Il supporto di questa funzionalità è previsto per il futuro. Per spostare un firewall in un altro gruppo di risorse o sottoscrizione, è necessario eliminare l'istanza corrente e ricrearla nel nuovo gruppo di risorse o sottoscrizione.|
