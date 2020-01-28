@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/02/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f02492dd7c9563c8c0002a63f0b105bd0be8b14
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3022303f319ba7955f80ae0b52783fa9b5d411f2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345578"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290071"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con DocuSign
 
@@ -49,6 +48,7 @@ In questa esercitazione verranno eseguiti la configurazione e il test dell'acces
 * DocuSign supporta il provisioning utenti *JIT*.
 
 * DocuSign supporta il [provisioning utenti automatico](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* Dopo aver configurato DocuSign, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Aggiunta di DocuSign dalla raccolta
 
@@ -72,8 +72,8 @@ Per configurare e testare l'accesso SSO di Azure AD con DocuSign, completare le 
     1. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
 1. [Configurare l'accesso Single Sign-On di DocuSign](#configure-docusign-sso): per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
-1. [Creare l'utente di test di DocuSign](#create-docusign-test-user): per generare in DocuSign una controparte di B.Simon collegata alla rappresentazione dell'utente in Azure AD.
-1. [Testare l'accesso SSO](#test-sso) per verificare se la configurazione funziona.
+    1. [Creare l'utente di test di DocuSign](#create-docusign-test-user): per generare in DocuSign una controparte di B.Simon collegata alla rappresentazione dell'utente in Azure AD.
+1. [Testare l'accesso Single Sign-On](#test-sso): per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -109,7 +109,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere **B. Simon**.  
+   1. Nel campo **Nome** immettere **B.Simon**.  
    1. Nel campo **Nome utente** immettere `<username>@<companydomain>.<extension>`. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).
@@ -136,7 +136,7 @@ In questa sezione si concederà a B.Simon l'accesso a DocuSign in modo che quest
 
 1. Per automatizzare la configurazione in DocuSign, installare l'estensione del browser per l'accesso sicuro ad App personali selezionando **Installa estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, selezionare **Configura DocuSign**. Si verrà reindirizzato all'applicazione DocuSign. Nell'applicazione fornire le credenziali di amministratore per accedere a DocuSign. L'estensione del browser configura automaticamente l'applicazione e automatizza i passaggi da 3 a 5.
 
@@ -236,6 +236,10 @@ Quando si seleziona il riquadro di DocuSign nel pannello di accesso, si dovrebbe
 - [Informazioni sull'accesso condizionale Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare DocuSign con Azure AD](https://aad.portal.azure.com/)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Come proteggere DocuSign con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

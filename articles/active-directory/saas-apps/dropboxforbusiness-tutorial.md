@@ -11,21 +11,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae1e537665739c055121fd82cf14f733a90142e4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf5b3c79e39e9baef49ce2c14408a15c3686a6a8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964243"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293437"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Esercitazione: Integrare Dropbox for Business con Azure Active Directory
 
-Questa esercitazione descrive come integrare Dropbox for Business con Azure Active Directory (Azure AD). Integrando Dropbox for Business con Azure AD, è possibile:
+Questa esercitazione descrive come integrare Dropbox for Business con Azure Active Directory (Azure AD). Integrando Dropbox for Business con Azure AD è possibile:
 
 * Controllare in Azure AD chi può accedere a Dropbox for Business.
 * Abilitare gli utenti per l'accesso automatico a Dropbox for Business con gli account Azure AD personali.
@@ -45,6 +44,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 * In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Dropbox for Business supporta l'accesso SSO avviato da **SP**
 
 * Dropbox for Business supporta [provisioning e deprovisioning utenti automatici](dropboxforbusiness-tutorial.md)
+* Dopo aver configurato Dropbox, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Aggiunta di Dropbox for Business dalla raccolta
 
@@ -63,14 +63,14 @@ Configurare e testare l'accesso Single Sign-On di Azure AD con Dropbox for Busin
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Dropbox for Business, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Dropbox for Business](#configure-dropbox-for-business-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Dropbox for Business](#create-dropbox-for-business-test-user)** : per avere una controparte di Britta Simon in Dropbox for Business collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.    
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On per Dropbox for Business](#configure-dropbox-for-business-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Dropbox for Business](#create-dropbox-for-business-test-user)** : per avere una controparte di Britta Simon in Dropbox for Business collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
@@ -103,51 +103,6 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     c. URL di chiusura sessione
 
-### <a name="configure-dropbox-for-business-sso"></a>Configurare l'accesso Single Sign-On per Dropbox for Business
-
-1. Per automatizzare la configurazione all'interno di Dropbox for Business, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa estensione**.
-
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
-
-2. Dopo aver aggiunto l'estensione al browser, fare clic su **Setup Dropbox for Business** (Configura Dropbox for Business) per passare direttamente all'applicazione Dropbox for Business. Da qui, fornire le credenziali di amministratore per accedere a Dropbox for Business. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 8.
-
-    ![Eseguire la configurazione](common/setup-sso.png)
-
-3. Per configurare manualmente Dropbox for Business, aprire una nuova finestra del Web browser, passare al tenant di Dropbox for Business e accedere al proprio tenant di Dropbox for business. Seguire quindi questa procedura:
-
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/ic769509.png "Configura accesso Single Sign-On")
-
-4. Fare clic su **Icona utente** e selezionare la scheda **Impostazioni**.
-
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure1.png "Configura accesso Single Sign-On")
-
-5. Nel riquadro di spostamento a sinistra fare clic su **Console di amministrazione**.
-
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure2.png "Configura accesso Single Sign-On")
-
-6. In **Console di amministrazione** fare clic su **Impostazioni** nel riquadro di spostamento a sinistra.
-
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure3.png "Configura accesso Single Sign-On")
-
-7. Selezionare l'opzione **Single sign-on** sotto la sezione **Autenticazione**.
-
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure4.png "Configura accesso Single Sign-On")
-
-8. Nella sezione **Single sign-on**seguire questa procedura:  
-
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure5.png "Configura accesso Single Sign-On")
-
-    a. Selezionare **Required** (Obbligatorio) come opzione nell'elenco a discesa **Single sign-on**.
-
-    b. Fare clic su **Aggiungi URL di accesso** e quindi nella casella di testo **URL di accesso del provider di identità** incollare il valore di **URL di accesso** copiato dal portale di Azure e selezionare **Fine**.
-
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure6.png "Configura accesso Single Sign-On")
-
-    c. Fare clic su **Carica certificato**e quindi andare al **file di certificato Base64** scaricato dal portale di Azure.
-
-    d. Fare clic su **Copia il link** e incollare il valore copiato nella casella di testo **URL Sign-on** delle sezioni **dominio e URL di Dropbox for Business** nel portale di Azure.
-
-    e. Fare clic su **Save**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -179,6 +134,52 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
+## <a name="configure-dropbox-for-business-sso"></a>Configurare l'accesso Single Sign-On per Dropbox for Business
+
+1. Per automatizzare la configurazione all'interno di Dropbox for Business, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa estensione**.
+
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Setup Dropbox for Business** (Configura Dropbox for Business) per passare direttamente all'applicazione Dropbox for Business. Da qui, fornire le credenziali di amministratore per accedere a Dropbox for Business. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 8.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Per configurare manualmente Dropbox for Business, aprire una nuova finestra del Web browser, passare al tenant di Dropbox for Business e accedere al proprio tenant di Dropbox for business. Seguire quindi questa procedura:
+
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/ic769509.png "Configura accesso Single Sign-On")
+
+4. Fare clic su **Icona utente** e selezionare la scheda **Impostazioni**.
+
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure1.png "Configura accesso Single Sign-On")
+
+5. Nel riquadro di spostamento a sinistra fare clic su **Console di amministrazione**.
+
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure2.png "Configura accesso Single Sign-On")
+
+6. In **Console di amministrazione** fare clic su **Impostazioni** nel riquadro di spostamento a sinistra.
+
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure3.png "Configura accesso Single Sign-On")
+
+7. Selezionare l'opzione **Single sign-on** nella sezione **Autenticazione**.
+
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure4.png "Configura accesso Single Sign-On")
+
+8. Nella sezione **Single sign-on**seguire questa procedura:  
+
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure5.png "Configura accesso Single Sign-On")
+
+    a. Selezionare **Required** (Obbligatorio) come opzione nell'elenco a discesa **Single sign-on**.
+
+    b. Fare clic su **Aggiungi URL di accesso** e quindi nella casella di testo **URL di accesso del provider di identità** incollare il valore di **URL di accesso** copiato dal portale di Azure e selezionare **Fine**.
+
+    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure6.png "Configura accesso Single Sign-On")
+
+    c. Fare clic su **Carica certificato**e quindi andare al **file di certificato Base64** scaricato dal portale di Azure.
+
+    d. Fare clic su **Copia il link** e incollare il valore copiato nella casella di testo **URL Sign-on** delle sezioni **dominio e URL di Dropbox for Business** nel portale di Azure.
+
+    e. Fare clic su **Salva**.
+
 ### <a name="create-dropbox-for-business-test-user"></a>Creare l'utente di test di Dropbox for Business
 
 In questa sezione viene creato un utente di nome Britta Simon in Dropbox for Business. Dropbox for Business supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Dropbox for Business, ne viene creato uno nuovo dopo l'autenticazione.
@@ -196,4 +197,6 @@ Quando si seleziona il riquadro di Dropbox for Business nel pannello di accesso,
 
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/cloud-app-security/protect-dropbox)
+
+- [Come proteggere Dropbox con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

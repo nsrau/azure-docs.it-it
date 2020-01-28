@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79f5284f95f6157c70461179177179a9fbee4fe0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561983"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293692"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
 
@@ -32,7 +32,7 @@ Questa esercitazione descrive come integrare ServiceNow con Azure Active Directo
 
 Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -46,9 +46,15 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. ServiceNow supporta l'accesso SSO avviato da **SP** e il [provisioning utenti automatizzato](servicenow-provisioning-tutorial.md).
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
 
-È possibile configurare l'applicazione ServiceNow Classic (Mobile) con Azure AD per l'abilitazione dell'accesso SSO. Supporta sia gli utenti Android che gli utenti iOS. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+* ServiceNow supporta l'accesso SSO avviato da **SP**.
+
+* ServiceNow supporta il [provisioning utenti automatico](servicenow-provisioning-tutorial.md).
+
+* Dopo aver configurato ServiceNow, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+* È possibile configurare l'applicazione ServiceNow Classic (Mobile) con Azure AD per l'abilitazione dell'accesso SSO. Supporta sia gli utenti Android che gli utenti iOS. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 ## <a name="add-servicenow-from-the-gallery"></a>Aggiungere ServiceNow dalla raccolta
 
@@ -70,12 +76,12 @@ Per configurare e testare l'accesso SSO di Azure AD con ServiceNow, completare l
 1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso): per consentire agli utenti di usare questa funzionalità.
     1. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
-    1. [Configurare l'accesso Single Sign-On di Azure AD per ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express) per consentire agli utenti di usare questa funzionalità.
+    1. [Configurare l'accesso Single Sign-On di Azure AD per ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express): per consentire agli utenti di usare questa funzionalità.
 2. [Configurare ServiceNow](#configure-servicenow) per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. [Creare un utente di test di ServiceNow](#create-servicenow-test-user) per avere in ServiceNow una controparte di B.Simon collegata alla rappresentazione dell'utente in Azure AD.
     1. [Configurare l'accesso Single Sign-On per ServiceNow Express](#configure-servicenow-express-sso) per configurare le impostazioni di Single Sign-On sul lato applicazione.  
 3. [Testare l'accesso Single Sign-On](#test-sso): per verificare se la configurazione funziona.
-4. [Testare l'accesso Single Sign-On per ServiceNow Classic (Mobile)](#test-sso-for-servicenow-classic-mobile) per verificare se la configurazione funziona.
+4. [Testare l'accesso Single Sign-On per ServiceNow Classic (Mobile)](#test-sso-for-servicenow-classic-mobile): per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -85,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della penna relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
-   ![Screenshot della pagina Configura l'accesso Single Sign-On con SAML con l'icona della penna evidenziata](common/edit-urls.png)
+   ![Screenshot della pagina Configura l'accesso Single Sign-On con SAML, in cui è evidenziata l'icona della penna](common/edit-urls.png)
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
@@ -125,7 +131,7 @@ In questa sezione verrà creato un utente di test, di nome B.Simon, nel portale 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ServiceNow.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
-1. Nell'elenco di applicazioni, selezionare **ServiceNow**.
+1. Nell'elenco delle applicazioni selezionare **ServiceNow**.
 1. Nella pagina di panoramica dell'app individuare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Screenshot della sezione Gestione con Utenti e gruppi evidenziato](common/users-groups-blade.png)
@@ -169,7 +175,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Screenshot della sezione Configura ServiceNow, in cui è evidenziata la voce Visualizzare le istruzioni dettagliate](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-7. Nel modulo **Configura accesso** immettere il nome dell'istanza di ServiceNow, il nome utente con diritti amministrativi e la password di amministratore e quindi fare clic su **Configura ora**. Affinché la procedura funzioni, il nome utente con diritti amministrativi fornito deve avere il ruolo **security_admin** assegnato in ServiceNow. In caso contrario, per configurare manualmente ServiceNow per l'uso di Azure AD come provider di identità SAML, selezionare **Configura manualmente l'accesso Single Sign-On**. Copiare **URL disconnessione, Identificatore Azure AD e URL di accesso** dalla sezione di riferimento rapido.
+7. Nel modulo **Configura accesso** immettere il nome dell'istanza di ServiceNow, il nome utente con diritti amministrativi e la password di amministratore e quindi fare clic su **Configura ora**. Affinché la procedura funzioni, il nome utente con diritti amministrativi fornito deve avere il ruolo **security_admin** assegnato in ServiceNow. In caso contrario, per configurare manualmente ServiceNow per l'uso di Azure AD come provider di identità SAML, selezionare **Configura manualmente l'accesso Single Sign-On**. Copiare **URL disconnessione, Identificatore di Azure AD e URL di accesso** dalla sezione di riferimento rapido.
 
     ![Screenshot del modulo Configura accesso, in cui è evidenziata la voce Configura ora](./media/servicenow-tutorial/configure.png "Configura URL app")
 
@@ -460,3 +466,7 @@ Quando si seleziona il riquadro ServiceNow nel pannello di accesso, si dovrebbe 
 - [Configurare il provisioning utenti](servicenow-provisioning-tutorial.md)
 
 - [Provare ServiceNow con Azure AD](https://aad.portal.azure.com)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+
+- [Come proteggere ServiceNow con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

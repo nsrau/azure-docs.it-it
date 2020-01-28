@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aceec8ad6ca23a1bd89b93a6442d48aa81597e55
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ecd4ad3e2e3da9dce3a5bab36137ce65807b6a9a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964175"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293726"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Box
 
@@ -47,6 +46,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * Box supporta l'accesso SSO avviato da **SP**
 * Box supporta [provisioning e deprovisioning utenti **automatici**](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (scelta consigliata)
 * Box supporta il provisioning **Just-In-Time** (JIT) degli utenti
+* Dopo aver configurato Box, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-box-from-the-gallery"></a>Aggiunta di Box dalla raccolta
 
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On per l'applicazione, seguire la procedur
 
 ### <a name="create-box-test-user"></a>Creare l'utente di test di Box
 
-In questa sezione viene creato un utente di nome Britta Simon in Box. Box supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Box, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in in Box. Box supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Box, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!NOTE]
 > Per creare un utente manualmente, contattare il [team di supporto di Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
@@ -154,3 +154,7 @@ Quando si fa clic sul riquadro di Box nel pannello di accesso, si dovrebbe acced
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare Box con Azure AD](https://aad.portal.azure.com/)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/protect-box)
+
+- [Come proteggere Box con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

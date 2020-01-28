@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: effd0593384190eb1a1cf261305dd61818c3d0b0
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768300"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Esercitazione: Integrazione di Azure Active Directory con HackerOne
 
@@ -35,7 +35,7 @@ L'integrazione di HackerOne con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con HackerOne, sono necessari gli elementi seguenti:
 
@@ -83,7 +83,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con HackerOne, è
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di HackerOne](#create-hackerone-test-user)** : per avere una controparte di Britta Simon in HackerOne collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di HackerOne](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** immettere quanto segue: `https://hackerone.com/users/saml/auth`
+    a. Nella casella di testo **URL di accesso** immettere quanto segue: `https://hackerone.com/users/saml/sign_in?email=<configured domain>`
 
     b. Nella casella di testo **Identificatore (ID entità)** immettere quanto segue: `hackerone.com`
 
@@ -121,7 +121,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -155,7 +155,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire ques
 
     a. Fare clic su **Run test**(Esegui test).
 
-    b. Se il valore del campo **Status** (Stato) corrisponde a **Last test status: created** (Stato ultimo test: creato), contattare il [team di supporto di HackerOne](mailto:support@hackerone.com) per richiedere una verifica della configurazione.
+6. Al termine del test, quando nel campo **Status** (Stato) è visualizzato **Last test status: success** (Stato ultimo test: riuscito), selezionare il pulsante **Request Verification** (Richiedi verifica) per inviare le impostazioni a HackerOne per l'approvazione.
+
+    ![Invio a HackerOne per l'approvazione](./media/hackerone-tutorial/tutorial-hackerone-006.png)
+
+7. Dopo che HackerOne ha approvato le impostazioni, è possibile selezionare il pulsante **Migrate Users** (Esegui migrazione degli utenti) per richiedere l'autenticazione SSO per tutti gli utenti.
+
+    ![Abilitazione di SAML](./media/hackerone-tutorial/tutorial-hackerone-007.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -174,7 +180,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
     ![Finestra di dialogo Utente](common/user-properties.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
-  
+
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 

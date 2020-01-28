@@ -23,7 +23,7 @@
       href: iot-accelerators-device-simulation-overview.md
     - name: Manutenzione predittiva
       href: iot-accelerators-predictive-walkthrough.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Provare una soluzione di monitoraggio remoto
@@ -62,7 +62,7 @@
   items:
     - name: Monitoraggio remoto
       items:
-        - name: Architettura
+        - name: Architecture
           href: iot-accelerators-remote-monitoring-architectural-choices.md
         - name: Schema del modello dei dispositivi
           href: iot-accelerators-remote-monitoring-device-schema.md
@@ -74,7 +74,7 @@
           href: overview-opc-twin-architecture.md
         - name: Architettura OPC Vault
           href: overview-opc-vault-architecture.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Monitoraggio remoto
       items:
@@ -221,6 +221,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Monitoraggio remoto
       items:
         - name: Guida di riferimento per gli sviluppatori (.NET)

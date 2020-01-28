@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: edb543a85779fb083b6990a58dc5ec0b8ef3eb9c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969684"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291414"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workplace by Facebook
 
@@ -48,9 +47,10 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Workplace by Facebook supporta l'accesso SSO avviato da **provider di servizi**
-* Workplace by Facebook supporta **[provisioning e deprovisioning utenti automatici (scelta consigliata)](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook supporta il provisioning **JIT**
+* Workplace by Facebook supporta il **[provisioning utenti automatico](workplacebyfacebook-provisioning-tutorial.md)**
 * È ora possibile configurare l'applicazione per dispositivi mobili Workplace by Facebook con Azure AD per abilitare l'accesso SSO. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+* Dopo aver configurato Workplace by Facebook, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Aggiunta di Workplace by Facebook dalla raccolta
 
@@ -90,10 +90,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<instancename>.facebook.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://www.facebook.com/company/<instanceID>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://www.facebook.com/company/<instanceID>`
 
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per i valori corretti per la community Workplace, vedere la pagina di autenticazione del dashboard aziendale di Workplace.
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.facebook.com/company/<instanceID>`
+
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per i valori corretti per la community Workplace, vedere la pagina di autenticazione del dashboard aziendale di Workplace, descritta più avanti nell'esercitazione.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -137,7 +139,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di Workplace by Facebook, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Workplace by Facebook** per passare direttamente all'applicazione Workplace by Facebook. Nell'applicazione specificare le credenziali di amministratore per accedere a Workplace by Facebook. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 5.
 
@@ -164,7 +166,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     b. Nella casella di testo **SAML URL** (URL SAML) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo **SAML Issuer URL** (URL autorità di certificazione SAML) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
+    c. Nella casella di testo **SAML Issuer URL** (URL autorità di certificazione SAML) incollare il valore di **Identificatore di Azure AD** copiato dal portale di Azure.
 
     d. Aprire nel Blocco note il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **SAML Certificate** (Certificato SAML).
 
@@ -172,13 +174,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     f. Copiare il valore di **Recipient URL** (URL destinatario) per l'istanza e incollarlo nella casella di testo **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    g. Scorrere fino alla fine della sezione e fare clic sul pulsante **Test SSO** (Testa SSO). Si ottiene una finestra popup visualizzata con la pagina di accesso di Azure AD. Immettere le credenziali come di consueto per l'autenticazione.
+    g. Copiare il valore di **ACS (Assertion Consumer Service) URL** (URL del servizio consumer di asserzione) dell'istanza corrente e incollarlo nella casella di testo **URL di risposta** della sezione **Configurazione SAML di base** del portale di Azure.
+
+    h. Scorrere fino alla fine della sezione e fare clic sul pulsante **Test SSO** (Testa SSO). Si ottiene una finestra popup visualizzata con la pagina di accesso di Azure AD. Immettere le credenziali come di consueto per l'autenticazione.
 
     **Risoluzione dei problemi:** verificare che l'indirizzo di posta elettronica restituito da Azure AD corrisponda a quello dell'account Workplace con cui si è connessi.
 
-    h. Dopo il completamento del test, scorrere fino alla fine della pagina e fare clic sul pulsante **Save** (Salva).
+    i. Dopo il completamento del test, scorrere fino alla fine della pagina e fare clic sul pulsante **Save** (Salva).
 
-    i. Tutti gli utenti che usano Workplace visualizzeranno ora una pagina di accesso di Azure AD per l'autenticazione.
+    j. Tutti gli utenti che usano Workplace visualizzeranno ora una pagina di accesso di Azure AD per l'autenticazione.
 
 1. **Reindirizzamento disconnessione SAML (facoltativo)**  -
 
@@ -186,7 +190,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="configuring-reauthentication-frequency"></a>Configurazione della frequenza di riautenticazione
 
-È possibile configurare Workplace per la richiesta di una verifica SAML ogni giorno, ogni tre giorni, ogni settimana, ogni due settimane, ogni mese o mai.
+È possibile configurare Workplace per la richiesta di una verifica SAML ogni giorno, ogni 3 giorni, ogni settimana, ogni 2 settimane, ogni mese o mai.
 
 > [!NOTE]
 > Il valore minimo per la verifica SAML nelle applicazioni per dispositivi mobili è impostato su una settimana.
@@ -197,7 +201,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 In questa sezione si crea un utente di nome B.Simon in Workplace by Facebook. Workplace by Facebook supporta il provisioning JIT, abilitato per impostazione predefinita.
 
-Non è necessaria alcuna azione dell'utente in questa sezione. Se un utente non esiste in Workplace by Facebook, si crea una nuova istanza quando si tenta di accedere a Workplace by Facebook.
+Non è necessaria alcuna azione dell'utente in questa sezione. Se non esiste già un utente in Workplace by Facebook, si crea una nuova istanza quando si prova ad accedere a Workplace by Facebook.
 
 >[!Note]
 >Se è necessario creare un utente manualmente, contattare il [team di supporto al cliente di Workplace by Facebook](https://workplace.fb.com/faq/)
@@ -241,3 +245,7 @@ Facendo clic sul riquadro Workplace by Facebook nel pannello di accesso si dovre
 - [Configura provisioning utenti](workplacebyfacebook-provisioning-tutorial.md)
 
 - [Provare Workplace by Facebook con Azure AD](https://aad.portal.azure.com)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Come proteggere Workplace by Facebook con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

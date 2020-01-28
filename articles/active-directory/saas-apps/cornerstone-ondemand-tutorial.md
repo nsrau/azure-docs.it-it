@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 363b5b2dc2891166f779c98c6de1487bc45047a3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1254c3d241befdd0842dd68c8f34291f148c7ee6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227625"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291465"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Cornerstone OnDemand
 
@@ -46,6 +45,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Cornerstone OnDemand supporta l'accesso SSO avviato da **SP**
 * Cornerstone OnDemand supporta il [provisioning utenti automatico](cornerstone-ondemand-provisioning-tutorial.md)
+* Dopo aver configurato Cornerstone OnDemand, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Aggiunta di Cornerstone OnDemand dalla raccolta
 
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On sul lato **Cornerstone OnDemand** è ne
 
 ### <a name="create-cornerstone-ondemand-test-user"></a>Creare l'utente di test di Cornerstone OnDemand
 
-L'obiettivo di questa sezione consiste nel creare un utente di nome B.Simon in Cornerstone OnDemand. Cornerstone OnDemand supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](https://docs.microsoft.com/azure/active-directory/saas-apps/cornerstone-ondemand-provisioning-tutorial) su come configurare il provisioning utenti automatico.
+L'obiettivo di questa sezione consiste nel creare un utente di nome B.Simon in Cornerstone OnDemand. Cornerstone OnDemand supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/saas-apps/cornerstone-ondemand-provisioning-tutorial).
 
 **Per creare un utente manualmente, seguire questa procedura:**
 
@@ -158,3 +158,7 @@ Quando si fa clic sul riquadro di Cornerstone OnDemand nel pannello di accesso, 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare Cornerstone OnDemand con Azure AD](https://aad.portal.azure.com)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Come proteggere Cornerstone OnDemand con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

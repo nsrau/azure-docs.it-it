@@ -436,7 +436,7 @@
           items:
             - name: Problemi di latenza
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Obiettivi di scalabilità e prestazioni
           items:
@@ -619,18 +619,6 @@
       items:
         - name: Analizzare i dati con Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gestire i BLOB senza codice
-          items:
-            - name: PowerShell
-              href: storage-quickstart-blobs-powershell.md
-            - name: CLI
-              href: storage-quickstart-blobs-cli.md
-        - name: Sviluppare con BLOB
-          items:
-            - name: .NET
-              href: storage-quickstart-blobs-dotnet.md
-            - name: Python
-              href: storage-quickstart-blobs-python.md
     - name: Esercitazioni
       items:
         - name: 'Estrarre, trasformare e caricare dati tramite Azure Databricks'
@@ -657,36 +645,12 @@
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Procedure consigliate
           href: data-lake-storage-best-practices.md
-        - name: Livelli di accesso
-          items:
-            - name: Livelli di accesso
-              href: storage-blob-storage-tiers.md
-            - name: Gestione del ciclo di vita di archiviazione BLOB di Azure
-              href: storage-lifecycle-management-concepts.md
-        - name: Security
-          items:
-            - name: Panoramica della sicurezza di Archiviazione
-              href: ../blobs/security-recommendations.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Controllo di accesso
-              href: data-lake-storage-access-control.md
-        - name: Registrazione
-          items:
-            - name: Analisi archiviazione
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Log di Analisi archiviazione
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gestione degli eventi
-          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Controllo di accesso (directory e file)
+          href: data-lake-storage-access-control.md
     - name: Procedure
       items:
-        - name: Creare e gestire account di archiviazione
-          items:
-            - name: Creare un account di archiviazione per Data Lake
-              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gestire i dati con Storage Explorer
-              href: ../blobs/data-lake-storage-explorer.md
-            - name: Aggiornare un account di archiviazione
-              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Creare un account di archiviazione per Data Lake
+          href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Gestire directory, file ed elenchi di controllo di accesso'
           items:
             - name: .NET
@@ -700,43 +664,7 @@
             - name: CLI
               href: data-lake-storage-directory-file-acl-cli.md
             - name: Storage Explorer
-              href: data-lake-storage-how-to-set-permissions-storage-explorer.md
-        - name: Trasferire i dati
-          items:
-            - name: AzCopy
-              items:
-                - name: Introduzione
-                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Usare con Data Lake Storage Gen2
-                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Configurare, ottimizzare, risolvere i problemi'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Usare Distcp
-              href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Usare Azure Data Factory
-              href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Proteggere i dati
-          items:
-            - name: Configurare i firewall e le reti virtuali
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Configurare le chiavi gestite dal cliente per la crittografia del servizio
-              items:
-                - name: Portale
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Interfaccia della riga di comando di Azure
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
-              items:
-                - name: Portale
-                  href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Interfaccia della riga di comando di Azure
-                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Impostare le autorizzazioni a livello di file e di directory
-              href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+              href: data-lake-storage-explorer.md
         - name: Ottimizzare le prestazioni
           items:
             - name: Panoramica
@@ -759,45 +687,18 @@
           href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Uso con Power BI
           href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
-        - name: PowerShell
-          href: /powershell/module/azure.storage
-        - name: Interfaccia della riga di comando di Azure
-          href: /cli/azure/storage
         - name: .NET
-          items:
-            - name: BLOB (versione 12.x)
-              href: /dotnet/api/azure.storage.blobs
-            - name: Spostamento di dati
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Provider delle risorse di archiviazione
-              href: /dotnet/api/overview/azure/storage/management
+          href: /dotnet/api/azure.storage.files.datalake
         - name: Java
-          items:
-            - name: BLOB (versione 12.x)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
-            - name: BLOB (versione 8.x)
-              href: /java/api/com.microsoft.azure.storage.blob
-            - name: Provider delle risorse di archiviazione
-              href: /java/api/overview/azure/storage/management
-        - name: JavaScript (versione 12.x)
-          href: /javascript/api/@azure/storage-blob/
-        - name: Python (versione 12.x)
-          href: /python/api/azure-storage-blob/
+          href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html'
+        - name: Python
+          href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
+        - name: Javascript
+          href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
-          items:
-            - name: 'BLOB, code, tabelle e file'
-              href: /rest/api/storageservices
-            - name: Data Lake Storage Gen2
-              href: /rest/api/storageservices/data-lake-storage-gen2
-            - name: Provider di risorse
-              href: /rest/api/storagerp
-            - name: Importazione/Esportazione
-              href: /rest/api/storageimportexport
-        - name: Modello di Resource Manager
-          displayName: ARM
-          href: /azure/templates/microsoft.storage/allversions
+          href: /rest/api/storageservices/data-lake-storage-gen2
     - name: Risorse
       items:
         - name: Problemi noti
