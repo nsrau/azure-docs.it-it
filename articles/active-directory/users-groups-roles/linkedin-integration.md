@@ -28,7 +28,7 @@ ms.locfileid: "74025403"
 > L'impostazione delle connessioni dell'account LinkedIn è attualmente in fase di implementazione per Azure AD organizzazioni. Quando viene implementato nell'organizzazione, è abilitato per impostazione predefinita.
 > 
 > Eccezioni:
-> * L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per il governo degli Stati Uniti, Microsoft Cloud per la Germania,oppure Azure e Office 365 gestito da 21Vianet in Cina.
+> * L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per il US Gov, Microsoft Cloud per la Germania,oppure Azure e Office 365 gestito da 21Vianet in Cina.
 > * L'impostazione è disattivata per impostazione predefinita per i tenant sottoposti a provisioning in Germania. L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per la Germania.
 > * L'impostazione è disattivata per impostazione predefinita per i tenant sottoposti a provisioning in Francia.
 >

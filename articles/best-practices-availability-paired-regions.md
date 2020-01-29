@@ -41,7 +41,7 @@ Figura 1: coppie di aree di Azure
 | India |India centrale |India meridionale |
 | India |India occidentale |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
-| Corea del Sud |Corea del Sud centrale |Corea del Sud meridionale |
+| Corea del Sud |Corea centrale |Corea meridionale |
 | America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
@@ -50,9 +50,9 @@ Figura 1: coppie di aree di Azure
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
 | Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti centrali
 | Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |US DoD (area centrale) |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
-| Governo degli Stati Uniti |US Gov Iowa |Governo degli Stati Uniti - Virginia |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
+| US Gov |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
+| US Gov |US Gov Iowa |Governo degli Stati Uniti - Virginia |
+| US Gov |Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 

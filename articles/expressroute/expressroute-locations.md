@@ -48,8 +48,8 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **Asia** | Asia orientale, Asia sudorientale |RAS di Hong Kong, Giacarta, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | India occidentale, India centrale, India Meridionale |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Giappone** | Giappone occidentale, Giappone orientale |Osaka, Tokyo |
-| **Oceania** | Australia sudorientale, Australia orientale |Auckland, Melbourne, Perth, Sydney, Sydney2 |
-| **Corea del Sud** | Corea del Sud centrale, Corea del Sud meridionale |Busan, Seoul|
+| **Oceania** | Australia sud-orientale, Australia orientale |Auckland, Melbourne, Perth, Sydney, Sydney2 |
+| **Corea del Sud** | Corea centrale, Corea meridionale |Busan, Seoul|
 | **Emirati Arabi Uniti** | Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali | Dubai, Dubai2 |
 | **Sud Africa** | Sudafrica occidentale, Sudafrica settentrionale |Città del Capo, Johannesburg |
 | **America del Sud** | Brasile meridionale |Sao Paulo |
@@ -60,7 +60,7 @@ Nella tabella seguente vengono fornite informazioni su aree e confini geopolitic
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
 | --- | --- | --- |
-| **Cloud del governo degli Stati Uniti** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
+| **Cloud del governo degli Stati Uniti** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD (area centrale), US DoD (area orientale)  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Cina orientale** |Cina orientale, Cina orientale 2 |Shanghai, Shanghai2 |
 | **Cina settentrionale** |Cina settentrionale, Cina settentrionale 2 |Beijing (Pechino), Beijing2 |
 | **Germania** |Germania centrale, Germania orientale |Berlino, Francoforte |
@@ -165,7 +165,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 
 I cloud nazionali di Azure sono isolati tra loro e da Azure commerciale globale. ExpressRoute per un cloud di Azure non possono connettersi alle aree di Azure negli altri. 
 
-### <a name="us-government-cloud"></a>Cloud del governo degli Stati Uniti
+### <a name="us-government-cloud"></a>Cloud del US Gov
 
 | **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Percorsi** |
 | --- | --- | --- | --- |

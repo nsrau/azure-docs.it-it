@@ -81,7 +81,7 @@ Sì. Questo è un elenco di endpoint internazionali che è possibile usare con l
 | | Francia centrale | `https://francecentral.api.cognitive.microsoft.com` |
 | | India centrale | `https://centralindia.api.cognitive.microsoft.com` |
 | | Giappone orientale | `https://japaneast.api.cognitive.microsoft.com` |
-| | Corea del Sud centrale | `https://koreacentral.api.cognitive.microsoft.com` |
+| | Corea centrale | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Stati Uniti centro-settentrionali | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Europa settentrionale | `https://northeurope.api.cognitive.microsoft.com` |
 | | Sudafrica settentrionale | `https://southafricanorth.api.cognitive.microsoft.com` |

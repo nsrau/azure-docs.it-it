@@ -32,7 +32,7 @@ ms.locfileid: "72783577"
 | Regno Unito occidentale             | 2                       |
 |                     |                         |
 | Asia orientale           | 2                       |
-| Asia sudorientale     | 2                       |
+| Asia sud-orientale     | 2                       |
 | Giappone orientale          | 2                       |
 | Giappone occidentale          | 2                       |
 | India meridionale         | 2                       |

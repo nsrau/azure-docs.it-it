@@ -191,7 +191,7 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 |Giappone orientale | https:\//japaneast.monitoring.azure.com
 |Asia sudorientale  | https:\//southeastasia.monitoring.azure.com |
 |Asia orientale | https:\//eastasia.monitoring.azure.com
-|Corea del Sud centrale   | https:\//koreacentral.monitoring.azure.com
+|Corea centrale   | https:\//koreacentral.monitoring.azure.com
 
 
 ## <a name="quotas-and-limits"></a>Quote e limiti

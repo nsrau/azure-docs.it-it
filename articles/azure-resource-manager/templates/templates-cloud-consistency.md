@@ -8,7 +8,7 @@ ms.author: mavane
 ms.custom: seodec18
 ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
 ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/21/2020
 ms.locfileid: "76290649"
@@ -47,7 +47,7 @@ Per un'introduzione ai modelli di Azure Resource Manger, vedere [Distribuzione m
 
 La sintassi di base di un modello di Resource Manager è JSON. I modelli usano un superset di JSON, estendendo la sintassi con espressioni e funzioni. Il processore del linguaggio del modello viene spesso aggiornato per supportare le funzioni di modello aggiuntive. Per una spiegazione dettagliata delle funzioni di modello disponibili, vedere [Funzioni del modello di Gestione risorse di Azure](template-functions.md).
 
-Le nuove funzioni di modello che vengono introdotte in Azure Resource Manager non sono immediatamente disponibili nei cloud sovrani o nello Stack di Azure. Per distribuire un modello con successo, tutte le funzioni a cui si fa riferimento nel modello devono essere disponibili nel cloud di destinazione.
+Le nuove funzioni di modello che vengono introdotte in Azure Resource Manager non sono immediatamente disponibili nei cloud sovrani o nello Azure Stack. Per distribuire un modello con successo, tutte le funzioni a cui si fa riferimento nel modello devono essere disponibili nel cloud di destinazione.
 
 Le funzionalità di Azure Resource Manager saranno sempre introdotte prima di tutto in Azure globale. È possibile utilizzare il seguente script PowerShell per verificare se le nuove funzioni dei template sono disponibili anche in Azure Stack:
 

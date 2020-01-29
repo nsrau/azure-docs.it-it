@@ -1,6 +1,6 @@
 ---
 title: Archiviazione dei dati Identity per i clienti europei-Azure AD
-description: Informazioni su dove Azure Active Directory archivia i dati relativi all'identità per i clienti europei.
+description: Informazioni su dove Azure Active Directory archivia i dati relativi all'identità per i clienti Europai.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/25/2019
 ms.locfileid: "75422990"
 ---
-# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti europei - Azure Active Directory
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti Europai - Azure Active Directory
 I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Office 365 e Azure. Per informazioni sul percorso di archiviazione dei dati di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
 
 Per i clienti che hanno fornito un indirizzo in Europa, Azure AD mantiene la maggior parte dei dati di identità nei data center europei. In questo documento vengono fornite informazioni sui dati archiviati al di fuori dell'Europa da Azure AD Services.

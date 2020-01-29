@@ -80,7 +80,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * Australia sudorientale
 * Asia orientale
 * Asia sudorientale
-* Corea del Sud centrale
+* Corea centrale
 * India centrale
 * India meridionale
 * Giappone orientale 
@@ -111,7 +111,7 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Australia sudorientale
 * Asia orientale
 * Asia sudorientale
-* Corea del Sud centrale
+* Corea centrale
 * India centrale
 * Giappone orientale
 * Governo degli Stati Uniti - Virginia

@@ -15,7 +15,7 @@ ms.date: 03/08/2018
 ms.author: kumud
 ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
 ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/11/2019
 ms.locfileid: "73907091"
@@ -85,7 +85,7 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 - Australia sudorientale 
 - Asia orientale
 - Asia sudorientale
-- Corea del Sud centrale
+- Corea centrale
 - India centrale
 - India meridionale
 - Giappone orientale
@@ -112,7 +112,7 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 - Australia sudorientale
 - Asia orientale
 - Asia sudorientale 
-- Corea del Sud centrale
+- Corea centrale
 - India centrale
 - Giappone orientale
 - Governo degli Stati Uniti - Virginia

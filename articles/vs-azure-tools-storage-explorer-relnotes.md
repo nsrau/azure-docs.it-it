@@ -800,7 +800,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 15/10/2018
 
 ### <a name="hotfixes"></a>Hotfix
-* È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure per enti pubblici statunitensi. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure US Gov. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Le caselle di selezione di caricamento ora usano animazioni CSS per ridurre la quantità di GPU usata da Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>Novità
@@ -856,7 +856,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 11/10/2018
 
 ### <a name="hotfixes"></a>Hotfix
-* È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure per enti pubblici statunitensi. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure US Gov. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Le caselle di selezione di caricamento ora usano animazioni CSS per ridurre la quantità di GPU usata da Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>Novità
@@ -1396,7 +1396,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Erano possibili modifiche impreviste dei dati durante la modifica dei valori Edm.DateTime per le entità di tabella in base al fuso orario locale. Ora l'editor usa una casella di testo normale, fornendo un controllo preciso e coerente sui valori Edm.DateTime.
 * Il caricamento o il download di un gruppo di BLOB collegato con un nome e una chiave non veniva avviato. Il problema è stato risolto.
 * In precedenza Storage Explorer richiedeva di ripetere l'autenticazione di un account non aggiornato solo se venivano selezionate una o più sottoscrizioni dell'account. Ora Storage Explorer visualizza la richiesta anche se l'account è completamente filtrato.
-* Il dominio degli endpoint per Azure per enti pubblici statunitensi era errato. Questo problema è stato risolto.
+* Il dominio degli endpoint per Azure US Gov era errato. Questo problema è stato risolto.
 * Talvolta era difficile fare clic sul pulsante Applica nel pannello Gestisci account. Il problema non dovrebbe più verificarsi.
 
 ### <a name="new"></a>Novità
@@ -1667,7 +1667,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Storage Explorer 0.8.9 scaricherà automaticamente la versione più recente degli aggiornamenti.
 * Hotfix: l'uso di un URI di firma di accesso condiviso generato da portale per collegare un account di archiviazione comporta un errore.
 * È ora possibile creare, gestire e alzare di livello degli snapshot di BLOB.
-* È ora possibile accedere agli account di Azure Cina 21Vianet, Azure Germania e Azure per enti pubblici statunitensi.
+* È ora possibile accedere agli account di Azure Cina 21Vianet, Azure Germania e Azure US Gov.
 * È ora possibile modificare il livello di zoom. Usare le opzioni nel menu Visualizza per Zoom avanti, Zoom indietro e Reimposta zoom.
 * I caratteri Unicode sono ora supportati nei metadati dell'utente per file e BLOB.
 * Miglioramenti all'accessibilità.

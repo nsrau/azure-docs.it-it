@@ -46,7 +46,7 @@ Per forzare la gestione della richiesta da parte di una specifica area geografic
 |Azure|Globale (non a livello di area)|   api.cognitive.microsofttranslator.com|
 |Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
-|Azure|Asia/Pacifico|    api-apc.cognitive.microsofttranslator.com|
+|Azure|Asia Pacifico|    api-apc.cognitive.microsofttranslator.com|
 
 ## <a name="authentication"></a>Autenticazione
 

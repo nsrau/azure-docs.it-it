@@ -74,7 +74,7 @@ Se si preferisce l'opzione due dei tag del servizio e il cluster si trova in una
 | Francia | Francia centrale| HDInsight. FranceCentral |
 | Regno Unito | Regno Unito meridionale | HDInsight. UKSouth |
 | Azure per enti pubblici | DOD Central   | HDInsight. USDoDCentral |
-| &nbsp; | Governo degli Stati Uniti - Texas | HDInsight. USGovTexas |
+| &nbsp; | USGov Texas | HDInsight. USGovTexas |
 | &nbsp; | DOD est | HDInsight. USDoDEast |
 
 ### <a name="use-multiple-regional-service-tags"></a>Usare più tag di servizio internazionali

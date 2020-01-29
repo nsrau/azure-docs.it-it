@@ -292,7 +292,7 @@ Per creare un gruppo di risorse, seguire questa procedura.
 
 * Impostare `$SUBSCRIPTIONID` sull'ID sottoscrizione ricevuto durante la creazione dell'entità servizio.
 * Impostare `$ACCESSTOKEN` sul token di accesso ricevuto nel passaggio precedente.
-* Sostituire `DATACENTERLOCATION` con il data center in cui si vuole creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centrali del sud".
+* Sostituire `DATACENTERLOCATION` con il data center in cui si vuole creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centro-meridionali".
 * Impostare `$RESOURCEGROUPNAME` sul nome che si vuole usare per questo gruppo:
 
 ```bash

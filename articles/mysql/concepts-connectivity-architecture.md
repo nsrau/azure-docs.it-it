@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 8d4713cba94971971558a72c680e3c8f80331662
 ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/26/2020
 ms.locfileid: "76760335"
@@ -58,7 +58,7 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Sudafrica settentrionale  | 102.133.152.0    |
 | Sudafrica occidentale | 102.133.24.0   |
 | Stati Uniti centro-meridionali |13.66.62.124, 23.98.162.75   |
-| Asia sudorientale | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
+| Asia sud-orientale | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Emirati Arabi Uniti centrali | 20.37.72.64  |
 | Emirati Arabi Uniti settentrionali | 65.52.248.0    |
 | Regno Unito meridionale | 51.140.184.11   |

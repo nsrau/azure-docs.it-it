@@ -42,7 +42,7 @@ L'indirizzo IP 23.102.135.246 è l'indirizzo del server di gestione delle chiavi
 |------|-------|-------|
 |Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Germania|kms.core.cloudapi.de|51.4.143.248|
-|Azure per enti pubblici statunitensi|kms.core.usgovcloudapi.net|23.97.0.13|
+|Azure US Gov|kms.core.usgovcloudapi.net|23.97.0.13|
 |21Vianet per Azure Cina|kms.core.chinacloudapi.cn|42.159.7.249|
 
 

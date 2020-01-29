@@ -68,7 +68,7 @@ Nella tabella seguente vengono illustrate le associazioni di aree primarie e sec
 | Stati Uniti centro-meridionali |Stati Uniti centro-settentrionali |
 | Stati Uniti orientali 2 |Stati Uniti centrali |
 | Europa occidentale |Europa settentrionale |
-| Asia sudorientale |Asia orientale |
+| Asia sud-orientale |Asia orientale |
 | Giappone orientale |Giappone occidentale |
 
 Nell'eventualità improbabile che vengano persi dei dati di un’area primaria, Microsoft tenta di ripristinarli. Qualora non fosse possibile ripristinare i dati primari, viene eseguito il failover geografico e i clienti interessati saranno informati attraverso la propria sottoscrizione.

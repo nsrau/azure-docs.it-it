@@ -139,7 +139,7 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 | subscriptionId |ID sottoscrizione di Azure. |
 
 ## <a name="service-health"></a>Integrità dei servizi
-Questa categoria contiene il record degli eventi imprevisti di integrità dei servizi che si sono verificati in Azure. Un esempio del tipo di evento visualizzato in questa categoria è "SQL Azure in East US is experiencing downtime". Gli eventi di integrità del servizio sono di sei tipi: Action Required, Assisted Recovery, Incident, Maintenance, Information o Security, che vengono visualizzati solo se una risorsa della sottoscrizione è interessata dall'evento.
+Questa categoria contiene il record degli eventi imprevisti di integrità dei servizi che si sono verificati in Azure. Un esempio del tipo di evento visualizzato in questa categoria è "SQL Azure in Stati Uniti orientali is experiencing downtime". Gli eventi di integrità del servizio sono di sei tipi: Action Required, Assisted Recovery, Incident, Maintenance, Information o Security, che vengono visualizzati solo se una risorsa della sottoscrizione è interessata dall'evento.
 
 ### <a name="sample-event"></a>Evento di esempio
 ```json

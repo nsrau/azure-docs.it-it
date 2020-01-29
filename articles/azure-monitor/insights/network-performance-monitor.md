@@ -49,7 +49,7 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Stati Uniti orientali 2
 * Stati Uniti occidentali 2
 * Giappone orientale
-* Asia sudorientale
+* Asia sud-orientale
 * Australia sud-orientale
 * Australia centrale
 * Australia orientale
@@ -57,7 +57,7 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Asia orientale
 * Corea centrale
 * India centrale
-* Virginia e Governo degli Stati Uniti
+* Virginia e US Gov
 * Cina orientale 2
 
 

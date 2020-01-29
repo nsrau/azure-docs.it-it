@@ -10,7 +10,7 @@ ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
 ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2020
 ms.locfileid: "76514358"
@@ -219,7 +219,7 @@ Dovrebbe essere visualizzato:
 
 ### <a name="root-cause"></a>Causa radice
 
-Excel importa tutti i campi come testo "generale" e presuppone che un numero sia separato dallo standard matematico: "1.000,00".  Pertanto, per una valuta europea che usa il punto (.) come separatore delle migliaia e la virgola come separatore decimale (,), "1.000,00" non verrà visualizzato correttamente. Questa situazione può variare a seconda dell'impostazione della lingua.
+Excel importa tutti i campi come testo "generale" e presuppone che un numero sia separato dallo standard matematico: "1.000,00".  Pertanto, per una valuta Europa che usa il punto (.) come separatore delle migliaia e la virgola come separatore decimale (,), "1.000,00" non verrà visualizzato correttamente. Questa situazione può variare a seconda dell'impostazione della lingua.
 
 ### <a name="when-importing-the-csv-use-the-following-steps"></a>Quando si importa il file CSV, seguire questa procedura:
 

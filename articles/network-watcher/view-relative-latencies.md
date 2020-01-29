@@ -126,7 +126,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Diversamente dal caso in cui si specifica un'unica località, se non si definisce una località o se ne definiscono più di una, ad esempio "West US2", "West US", quando si esegue il comando è necessario specificare un provider di servizi Internet. 
+> Diversamente dal caso in cui si specifica un'unica località, se non si definisce una località o se ne definiscono più di una, ad esempio "Stati Uniti occidentali2", "Stati Uniti occidentali", quando si esegue il comando è necessario specificare un provider di servizi Internet. 
 
 ## <a name="view-available"></a>Visualizza i paesi/aree geografiche, gli Stati, le città e i provider disponibili
 

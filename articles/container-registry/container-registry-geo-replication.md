@@ -34,7 +34,7 @@ Il team di sviluppo si trova a Seattle (Washington) e usa il data center degli S
 
 ![Esecuzione del push in più registri](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Esecuzione del push in più registri*
 
-Prima di usare le funzionalità di replica geografica, Contoso dispone di un registro situato negli Stati Uniti e di un registro aggiuntivo situato in Europa occidentale. Per gestire queste due aree, il team di sviluppo ha eseguito il push delle immagini in due registri diversi.
+Prima di usare le funzionalità di replica geografica, Contoso dispone di un registro situato negli Stati Uniti occidentali e di un registro aggiuntivo situato in Europa occidentale. Per gestire queste due aree, il team di sviluppo ha eseguito il push delle immagini in due registri diversi.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2

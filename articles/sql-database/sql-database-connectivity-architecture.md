@@ -104,7 +104,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Sudafrica settentrionale   | 102.133.152.0      |
 | Sudafrica occidentale    | 102.133.24.0       |
 | Stati Uniti centro-meridionali     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
-| Asia sudorientale      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| Asia sud-orientale      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Emirati Arabi Uniti centrali          | 20.37.72.64        |
 | Emirati Arabi Uniti settentrionali            | 65.52.248.0        |
 | Regno Unito meridionale             | 51.140.184.11      |

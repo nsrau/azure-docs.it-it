@@ -101,9 +101,9 @@ Il nome dell'area popolato nel campo Percorso della risorsa nei dettagli di util
 |    ukwest                |    Regno Unito occidentale                               |
 |    USDoDCentral          |    US DoD (area centrale)                        |
 |    USDoDEast             |    US DoD (area orientale)                           |
-|    USGovArizona          |    Governo degli Stati Uniti - Arizona                         |
+|    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    Governo degli Stati Uniti - Texas                           |
+|    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
 |    westcentralus         |    Stati Uniti centro-occidentali                       |
 |    westeurope            |    Europa occidentale                           |

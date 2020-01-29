@@ -68,7 +68,7 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
 
 4. Fornire i dettagli della connessione alle API da usare. È possibile connettersi a tutte o ad alcune di esse. 
     * Se ci si connette a metriche e log in monitoraggio di Azure, è possibile riutilizzare le stesse credenziali selezionando gli **stessi dettagli dell'API di monitoraggio di Azure**.
-    * Quando si configura il plug-in, è possibile indicare quale cloud di Azure (pubblico, Azure per enti pubblici statunitensi, Azure Germania o Azure Cina) deve essere monitorato dal plug-in.
+    * Quando si configura il plug-in, è possibile indicare quale cloud di Azure (pubblico, Azure US Gov, Azure Germania o Azure Cina) deve essere monitorato dal plug-in.
     * Se si usa Application Insights, è possibile anche includere l'API di Application Insights e l'ID applicazione per raccogliere le metriche basate su Application Insights. Per altre informazioni, vedere [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (Ottenere la chiave API e l'ID applicazione).
 
         > [!NOTE]

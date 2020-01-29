@@ -49,7 +49,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
     - Australia sud-orientale
     - Europa occidentale
     - Stati Uniti orientali
-    - Asia sudorientale
+    - Asia sud-orientale
     - Giappone orientale
     - Regno Unito meridionale
     - India centrale

@@ -30,7 +30,7 @@ Questo documento illustra come creare e configurare il runtime di integrazione d
 Per impostazione predefinita, ogni data factory ha un runtime di integrazione di Azure nel back-end che supporta le operazioni negli archivi dati cloud e i servizi di calcolo nella rete pubblica. La località di tale runtime di integrazione di Azure viene risolta automaticamente. Se la proprietà **connectVia** non viene specificata nella definizione del servizio collegato, viene usato il runtime di integrazione di Azure predefinito. È necessario creare in modo esplicito un runtime di integrazione di Azure solo quando si vuole definire in modo esplicito la località del runtime di integrazione o si vogliono raggruppare le esecuzioni di attività in runtime di integrazione diversi a scopo di gestione. 
 
 ## <a name="create-azure-ir"></a>Creare il runtime di integrazione di Azure
-È possibile creare Integration Runtime usando il cmdlet di PowerShell **set-AzDataFactoryV2IntegrationRuntime** . Per creare un runtime di integrazione di Azure, specificare il nome, la località e il tipo nel comando. Ecco un comando di esempio per creare un runtime di integrazione di Azure con la località impostata su "West Europe":
+È possibile creare Integration Runtime usando il cmdlet di PowerShell **set-AzDataFactoryV2IntegrationRuntime** . Per creare un runtime di integrazione di Azure, specificare il nome, la località e il tipo nel comando. Ecco un comando di esempio per creare un runtime di integrazione di Azure con la località impostata su "Europa occidentale":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"

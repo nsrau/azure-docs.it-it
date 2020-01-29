@@ -45,7 +45,7 @@ Le aree geografiche di Office 365 disponibili per Multi-Geo Capabilities sono:
 | Asia Pacifico | APC |
 | Australia | AUS |
 | Canada | CAN |
-| Unione Europea | EUR |
+| Unione Europa | EUR |
 | Francia | FRA |
 | India | IND |
 | Giappone | JPN |

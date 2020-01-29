@@ -31,7 +31,7 @@ Il primo ciclo di migrazione del traffico ai gateway più recenti è pianificato
 - Europa occidentale
 - Stati Uniti orientali
 - Stati Uniti centrali
-- Asia sudorientale
+- Asia sud-orientale
 - Stati Uniti centro-meridionali
 - Europa settentrionale
 - Stati Uniti centro-settentrionali
