@@ -2,11 +2,15 @@
   items:
     - name: Informazioni sulle VM di SQL Server Linux
       href: sql-server-linux-virtual-machines-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
-    - name: Creare una VM SQL - Portale
+    - name: Creare una macchina virtuale SQL - Portale
       href: provision-sql-server-linux-virtual-machine.md
-- name: riferimento
+- name: Esercitazioni
+  items:
+    - name: Configurazione del gruppo di disponibilità di VM RHEL di Azure con STONITH
+      href: sql-server-linux-rhel-ha-stonith-tutorial.md
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/

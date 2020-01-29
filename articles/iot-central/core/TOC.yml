@@ -151,7 +151,7 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Soluzioni Edge
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -159,6 +159,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Richieste di dati del cliente
       href: iot-central-customer-data-requests.md
     - name: Browser supportati

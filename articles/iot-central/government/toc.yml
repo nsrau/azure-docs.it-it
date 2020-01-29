@@ -20,7 +20,7 @@
       href: concepts-waterconsumptionmonitoring-architecture.md
     - name: Architettura di riferimento per il monitoraggio qualità acqua
       href: concepts-waterqualitymonitoring-architecture.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Connettere l'app a Dynamics 365 for Field Service
       href: how-to-configure-connected-field-services.md
@@ -54,13 +54,13 @@
           href: ../preview/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Creare analisi personalizzate con Databricks
           href: ../preview/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-    - name: Administration
+    - name: Amministrazione
       items:
         - name: Modificare le impostazioni dell'applicazione
           href: ../preview/howto-administer.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Esportare l'applicazione
           href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Gestire utenti e ruoli
+        - name: Gestione di utenti e ruoli
           href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Gestire la fattura
           href: ../preview/howto-view-bill.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
@@ -100,7 +100,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Soluzioni Edge
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -108,6 +108,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Richieste di dati del cliente
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Browser supportati

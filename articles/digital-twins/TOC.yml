@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Gemelli digitali di Azure
       href: about-digital-twins.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Trovare le stanze disponibili
@@ -33,9 +33,9 @@
       href: concepts-events-routing.md
     - name: Limiti del servizio durante l'anteprima pubblica
       href: concepts-service-limits.md
-    - name: Sicurezza
+    - name: Security
       items:
-        - name: Procedure di sicurezza consigliate
+        - name: Procedure consigliate per la sicurezza
           href: security-best-practices.md
         - name: Controllo degli accessi in base al ruolo
           href: security-role-based-access-control.md
@@ -43,7 +43,7 @@
           href: security-create-manage-role-assignments.md
         - name: Autenticazione per le API di gestione
           href: security-authenticating-apis.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Abilitare applicazioni multi-tenant
       href: how-to-multitenant-applications.md
@@ -67,12 +67,14 @@
           href: how-to-navigate-apis.md
         - name: Modelli di query comuni
           href: how-to-query-common-apis.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Libreria client di funzioni definite dall'utente
       href: reference-user-defined-functions-client-library.md
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Esempi di Gemelli digitali di Azure per C# (.NET)'
       href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
     - name: API REST per Gemelli digitali di Azure
@@ -93,3 +95,31 @@
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Video
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'
+- name: Risorse correlate
+  items:
+    - name: Soluzioni
+      items:
+        - name: Acceleratori di soluzioni IoT
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /azure/iot-central/iot-support-help
+    - name: Servizi della piattaforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Plug and Play IoT
+          href: /azure/iot-pnp
+        - name: Servizio Device Provisioning in hub IoT
+          href: /azure/iot-dps
+        - name: Mappe
+          href: /azure/azure-maps
+        - name: SDK per servizi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Soluzioni Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT SDK per dispositivi
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

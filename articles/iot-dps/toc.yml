@@ -145,11 +145,11 @@
       href: how-to-use-sdk-tools.md
     - name: Come inviare dati aggiuntivi dai dispositivi
       href: how-to-send-additional-data.md
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       href: how-to-troubleshoot-dps.md
     - name: Comunicare con il servizio Device Provisioning tramite il protocollo MQTT
       href: iot-dps-mqtt-support.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API REST
       href: /rest/api/iot-dps
@@ -187,7 +187,7 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Soluzioni Edge
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -195,6 +195,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Esempi di Azure IoT per C# (.NET)'
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
     - name: Esempi di Azure IoT per Node.js

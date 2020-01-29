@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Network Watcher
       href: network-watcher-monitoring-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Diagnosticare un problema di filtro del traffico di una VM - Portale
@@ -41,7 +41,7 @@
       href: network-watcher-security-group-view-overview.md
     - name: Autorizzazioni del controllo degli accessi in base al ruolo
       href: required-rbac-permissions.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Configurare Network Watcher
       href: network-watcher-create.md
@@ -101,6 +101,8 @@
               href: network-watcher-nsg-flow-logging-cli.md
             - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
+            - name: Azure Resource Manager
+              href: network-watcher-nsg-flow-logging-azure-resource-manager.md
         - name: Eliminare i BLOB di archiviazione del log del flusso del gruppo di sicurezza di rete
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Analizzare i log dei flussi dei gruppi di sicurezza di rete
@@ -152,7 +154,7 @@
       href: view-relative-latencies.md
     - name: Monitorare le prestazioni di rete
       href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network/watcher

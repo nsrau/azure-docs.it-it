@@ -69,7 +69,7 @@
       href: howto-manage-models.md
     - name: Connettersi a un dispositivo e interagire con esso
       href: howto-develop-solution.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Librerie e SDK
       href: libraries-sdks.md
@@ -105,9 +105,13 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Soluzioni Edge
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT SDK per dispositivi
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Risorse
+  items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help

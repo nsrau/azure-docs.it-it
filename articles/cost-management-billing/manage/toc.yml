@@ -75,6 +75,8 @@
           href: pay-by-invoice.md
         - name: Creare sottoscrizioni aggiuntive
           href: create-subscription.md
+        - name: Trasferire le sottoscrizioni CSP
+          href: transfer-subscriptions-subscribers-csp.md
         - name: Esportare le informazioni sulla sottoscrizione
           href: export-subscriptions.md
     - name: Gestire le sottoscrizioni con Contratto Enterprise
@@ -125,7 +127,7 @@
       href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
     - name: Esempio di codice per l'API RateCard
       href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Scenari di automazione della fatturazione
       href: cost-management-automation-scenarios.md

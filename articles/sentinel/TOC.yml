@@ -110,6 +110,8 @@
           href: connect-azure-stack.md
     - name: Più tenant (MSSP)
       href: multiple-tenants-service-providers.md
+    - name: Configurare le chiavi gestite dal cliente
+      href: customer-managed-keys.md
     - name: Creare eventi imprevisti dagli avvisi
       href: create-incidents-from-alerts.md
     - name: Ricerca
@@ -131,5 +133,5 @@
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 'Blog su sicurezza, privacy e conformità per Azure'
       href: 'https://blogs.msdn.com/b/azuresecurity/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'

@@ -1,15 +1,15 @@
 ---
 layout: HubPage
-ms.date: 11-21-2019
+ms.date: 01-24-2020
 ms.topic: hub-page
 title: Documentazione del servizio Voce
 description: Introduzione al servizio Voce. Riconoscimento vocale, sintesi vocale, traduzione in tempo reale, trascrizione di conversazioni o integrazione della voce nelle esperienze bot.
-ms.openlocfilehash: 7ae8f33e949519cc32d81b591503a159e045178b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a965090be737a10633ead2ca1ed7033ec061ed7f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381274"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771988"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -89,7 +89,7 @@ ms.locfileid: "75381274"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Supporto per le lingue</h3>
+                                                    <h3>Lingue supportate</h3>
                                                     <p>Altre informazioni sulla programmazione e sul supporto delle lingue parlate per il riconoscimento vocale.</p>
                                                 </div>
                                             </div>
@@ -208,7 +208,7 @@ ms.locfileid: "75381274"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Supporto per le lingue</h3>
+                                                    <h3>Lingue supportate</h3>
                                                     <p>Informazioni sulle lingue supportate per la sintesi vocale.</p>
                                                 </div>
                                             </div>
@@ -316,6 +316,63 @@ ms.locfileid: "75381274"
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-translation">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Lingue supportate</h3>
+                                                    <p>Informazioni sulle lingue supportate per il riconoscimento di finalità.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Prezzi</h3>
+                                                    <p>Altre informazioni sui costi associati al riconoscimento di finalità.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Leggere la documentazione</h3>
+                                                    <p>Informazioni su come aggiungere il riconoscimento di finalità ad app, strumenti e prodotti. Sono inclusi concetti, esercitazioni, informazioni di riferimento sulle API e note sulla versione.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -389,7 +446,7 @@ ms.locfileid: "75381274"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Supporto per le lingue</h3>
+                                                    <h3>Lingue supportate</h3>
                                                     <p>Altre informazioni sulla programmazione e sul supporto delle lingue parlate per la traduzione vocale.</p>
                                                 </div>
                                             </div>
@@ -441,25 +498,6 @@ ms.locfileid: "75381274"
                         <a href="#conversationtranscription">Trascrizione conversazione</a>
                         <ul id="conversationtranscription" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/cts-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Panoramica</h3>
-                                                    <p>Altre informazioni sulla trascrizione conversazione e su come integrarla nei prodotti.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="https://aka.ms/speech/cts-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -498,6 +536,25 @@ ms.locfileid: "75381274"
                                 </a>
                             </li>
                             <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/call-center-transcription">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Trascrizioni di call center</h3>
+                                                    <p>Informazioni su come eseguire la trascrizione di grandi volumi di dati di telefonia provenienti da diversi sistemi.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://aka.ms/speech/cts-languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -508,7 +565,7 @@ ms.locfileid: "75381274"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Supporto per le lingue</h3>
+                                                    <h3>Lingue supportate</h3>
                                                     <p>Altre informazioni sulla programmazione e sul supporto delle lingue parlate per la trascrizione conversazione.</p>
                                                 </div>
                                             </div>
@@ -535,13 +592,8 @@ ms.locfileid: "75381274"
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#voice-assistants">Assistenti vocali</a>
-                        <ul id="voice-assistants" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/va-overview">
+                                <a href="https://aka.ms/speech/cts-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -551,14 +603,19 @@ ms.locfileid: "75381274"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Panoramica</h3>
-                                                    <p>Altre informazioni sulle operazioni da eseguire per creare un assistente vocale.</p>
+                                                    <h3>Leggere la documentazione</h3>
+                                                    <p>Altre informazioni sulla trascrizione conversazione e su come integrarla nei prodotti.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#voice-assistants">Assistenti vocali</a>
+                        <ul id="voice-assistants" class="cardsC">
                             <li>
                                 <a href="https://aka.ms/speech/va-bot-framework">
                                     <div class="cardSize">
@@ -591,6 +648,106 @@ ms.locfileid: "75381274"
                                                 <div class="cardText">
                                                     <h3>Usare comandi personalizzati</h3>
                                                     <p>Informazioni su come creare facilmente potenti applicazioni vocali per comandi e controlli, affinché gli utenti possano completare le attività tramite la voce.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/va-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Leggere la documentazione</h3>
+                                                    <p>Altre informazioni sulle operazioni da eseguire per creare un assistente vocale.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#deploy-architecture">Hosting</a>
+                        <ul id="deploy-architecture" class="cardsC">
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Creare una risorsa del servizio Voce di Azure</h3>
+                                                    <p>Informazioni su come ottenere una chiave di sottoscrizione di Azure, creare una risorsa di Voce e iniziare.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="speech-container-howto.md?tabs=stt">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-containers.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Distribuire i contenitori del servizio Voce</h3>
+                                                    <p>Informazioni su come usare i contenitori del servizio Voce in locale, con Kubernetes e Helm o istanze di contenitori di Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/sovereign-clouds">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cloud sovrani</h3>
+                                                    <p>Disponibilità delle risorse del servizio Voce in cloud sovrani di Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="regions.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Aree supportate</h3>
+                                                    <p>Informazioni sulle aree in cui il servizio Voce è supportato.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -658,7 +815,45 @@ ms.locfileid: "75381274"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                    
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/scenario-availability">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Disponibilità di scenari e funzionalità</h3>
+                                                    <p>Informazioni sui diversi scenari delle funzionalità di Speech SDK in un'ampia varietà di linguaggi di programmazione e ambienti.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/regions">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Aree supportate</h3>
+                                                    <p>Informazioni sulle aree e sugli endpoint disponibili per il servizio Voce.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -737,7 +932,7 @@ ms.locfileid: "75381274"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Supporto per le lingue</h3>
+                                                    <h3>Lingue supportate</h3>
                                                     <p>Altre informazioni sulla programmazione e sul supporto delle lingue parlate per Riconoscimento vocale personalizzato.</p>
                                                 </div>
                                             </div>
@@ -849,6 +1044,25 @@ ms.locfileid: "75381274"
                                 </a>
                             </li>
                             <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Lingue supportate</h3>
+                                                    <p>Altre informazioni sulla programmazione e sul supporto delle lingue parlate per Voce personalizzata.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://aka.ms/speech/custom-tts-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -870,97 +1084,6 @@ ms.locfileid: "75381274"
                             </li>
                         </ul>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#scenarios">Scenari</a>
-                <ul id="scenarios">
-                    <li>
-                        <a href="#use-cases">Casi d'uso</a>
-                        <ul id="use-cases" class="cardsC">
-                            <li>
-                                <a href="call-center-transcription.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Trascrizioni di call center</h3>
-                                                    <p>Uno scenario comune per il riconoscimento vocale è la trascrizione di grandi volumi di dati di telefonia che possono provenire da vare origini, ad esempio i sistemi IVR (Interactive Voice Response). </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="scenario-availability.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Disponibilità di scenari e funzionalità</h3>
-                                                    <p>Informazioni sulla disponibilità di scenari e funzionalità per piattaforma e linguaggio di programmazione.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#deploy-architecture">Distribuzione</a>
-                        <ul id="deploy-architecture" class="cardsC">
-                            <li>
-                                <a href="speech-container-howto.md?tabs=stt">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-containers.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Distribuire il servizio Voce nei contenitori</h3>
-                                                    <p>Usare Docker per distribuire il servizio Voce in un'istanza di contenitore.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="regions.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-regions.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Aree supportate</h3>
-                                                    <p>Informazioni sulle aree in cui il servizio Voce è supportato.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>                                    
-                        </ul>
-                    </li>                    
                 </ul>
             </li>
         </ul>

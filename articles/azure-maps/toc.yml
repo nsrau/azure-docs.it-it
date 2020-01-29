@@ -183,7 +183,7 @@
           href: how-to-add-tile-layer-android-map.md
     - name: Inviare commenti e suggerimenti sui dati
       href: how-to-use-feedback-tool.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Estensioni di API e parametri
       items:
@@ -233,6 +233,8 @@
       href: /azure/templates/microsoft.maps/accounts
 - name: Risorse
   items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Condizioni per l'utilizzo di Mappe di Azure
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Prezzi di Mappe di Azure
@@ -268,7 +270,7 @@
         - name: Acceleratori di soluzioni IoT
           href: /azure/iot-suite
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /azure/iot-central/iot-support-help
     - name: Servizi della piattaforma
       items:
         - name: Hub IoT
@@ -283,7 +285,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Soluzioni Edge
       items:
         - name: IoT Edge
           href: /azure/iot-edge
